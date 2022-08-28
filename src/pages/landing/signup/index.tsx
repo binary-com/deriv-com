@@ -71,9 +71,9 @@ const NewSignup = () => {
     return (
         <Layout type="static" margin_top="0" is_ppc>
             <SEO
-                title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
+                title={localize('_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_')}
                 description={localize(
-                    'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
+                    '_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_',
                 )}
                 no_index
             />
@@ -82,12 +82,12 @@ const NewSignup = () => {
                     <Content>
                         <StyledGraph src={Graph} alt="graph" />
                         <Header mt="2.4rem" as="h3" type="section-title">
-                            {localize('Start trading with Deriv')}
+                            {localize('_t_Start trading with Deriv_t_')}
                         </Header>
                         <br />
                         <Text>
                             {localize(
-                                'Join over 1 million people who trade stocks, forex and other markets on Deriv.com — the award-winning broker that’s been trusted for over 20 years.',
+                                '_t_Join over 1 million people who trade stocks, forex and other markets on Deriv.com — the award-winning broker that’s been trusted for over 20 years._t_',
                             )}
                         </Text>
                         <Line />

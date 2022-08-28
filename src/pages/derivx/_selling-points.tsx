@@ -46,15 +46,15 @@ const StyledFlex = styled(Flex)`
 const selling_points: SellingPointsType[] = [
     {
         title: '100+',
-        subtitle: <Localize translate_text="tradable assets" />,
+        subtitle: <Localize translate_text="_t_tradable assets_t_" />,
     },
     {
         title: '24/7',
-        subtitle: <Localize translate_text="trading" />,
+        subtitle: <Localize translate_text="_t_trading_t_" />,
     },
     {
-        title: <Localize translate_text="Zero" />,
-        subtitle: <Localize translate_text="commission" />,
+        title: <Localize translate_text="_t_Zero_t_" />,
+        subtitle: <Localize translate_text="_t_commission_t_" />,
     },
 ]
 

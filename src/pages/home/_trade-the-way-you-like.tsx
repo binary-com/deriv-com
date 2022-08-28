@@ -32,15 +32,15 @@ const TradeTheWayYouLike = ({ is_ppc_redirect }: TradeTheWayYouLikeProps) => {
     return (
         <StyledSection padding="5rem 2rem">
             <Header as="h3" type="section-title" align="center">
-                {localize('Trade the way you like')}
+                {localize('_t_Trade the way you like_t_')}
             </Header>
             <Text size="var(--text-size-sm)" mt="2rem" align="center">
-                {localize('Choose from three powerful platforms — designed with you in mind')}
+                {localize('_t_Choose from three powerful platforms — designed with you in mind_t_')}
             </Text>
             <ImageWrapper>
                 <QueryImage
                     data={data['dtrader_artboard']}
-                    alt={localize('Dtrader artboard')}
+                    alt={localize('_t_Dtrader artboard_t_')}
                     loading="eager"
                 />
             </ImageWrapper>

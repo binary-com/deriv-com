@@ -29,9 +29,9 @@ type ItemsType = {
 }[]
 
 const meta_attributes: MetaAttributesType = {
-    og_title: localize('Affiliate and IB programme | Deriv'),
+    og_title: localize('_t_Affiliate and IB programme | Deriv_t_'),
     og_description: localize(
-        'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
+        '_t_Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider._t_',
     ),
 }
 
@@ -118,47 +118,47 @@ const StyledText = styled(Text)`
 `
 
 const items: ItemsType = [
-    { title: '47K+', subtitle: <Localize translate_text="members" /> },
-    { title: '$14M+', subtitle: <Localize translate_text="paid out" /> },
-    { title: '150+', subtitle: <Localize translate_text="countries" /> },
-    { title: '1M+', subtitle: <Localize translate_text="clients" /> },
+    { title: '47K+', subtitle: <Localize translate_text="_t_members_t_" /> },
+    { title: '$14M+', subtitle: <Localize translate_text="_t_paid out_t_" /> },
+    { title: '150+', subtitle: <Localize translate_text="_t_countries_t_" /> },
+    { title: '1M+', subtitle: <Localize translate_text="_t_clients_t_" /> },
 ]
 
 const why_partner_with_us_items: WhyUsType = [
     {
-        title: <Localize translate_text="Multiple income opportunities and generous commissions" />,
+        title: <Localize translate_text="_t_Multiple income opportunities and generous commissions_t_" />,
         subtitle: (
-            <Localize translate_text="Start off as an affiliate and get ensuing access to our IB programme. Earn commission for as long as your referred clients keep trading." />
+            <Localize translate_text="_t_Start off as an affiliate and get ensuing access to our IB programme. Earn commission for as long as your referred clients keep trading._t_" />
         ),
         image_name: 'multiple_income_opportunities',
-        image_alt: <Localize translate_text="DMT5 and Dtrader trading platform at Deriv" />,
+        image_alt: <Localize translate_text="_t_DMT5 and Dtrader trading platform at Deriv_t_" />,
     },
     {
-        title: <Localize translate_text="Zero charges with prompt monthly and daily payouts" />,
+        title: <Localize translate_text="_t_Zero charges with prompt monthly and daily payouts_t_" />,
         subtitle: (
-            <Localize translate_text="All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your DMT5 account daily." />
+            <Localize translate_text="_t_All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your DMT5 account daily._t_" />
         ),
         image_name: 'daily_ib_commission',
-        image_alt: <Localize translate_text="Check your daily IB commission" />,
+        image_alt: <Localize translate_text="_t_Check your daily IB commission_t_" />,
     },
     {
         title: (
-            <Localize translate_text="Optimise conversions with great user experience and creative support" />
+            <Localize translate_text="_t_Optimise conversions with great user experience and creative support_t_" />
         ),
         subtitle: (
-            <Localize translate_text="We’ve designed a customer-centric and intuitive trading experience for Deriv that’s optimised to convert visitors into clients. We’ll also provide you with the tools and creative materials you need to drive traffic to Deriv." />
+            <Localize translate_text="_t_We’ve designed a customer-centric and intuitive trading experience for Deriv that’s optimised to convert visitors into clients. We’ll also provide you with the tools and creative materials you need to drive traffic to Deriv._t_" />
         ),
         image_name: 'marketing_material',
-        image_alt: <Localize translate_text="Marketing creative material" />,
+        image_alt: <Localize translate_text="_t_Marketing creative material_t_" />,
     },
 ]
 const AffiliateIb = () => {
     return (
         <Layout type="partners" margin_top={10}>
             <SEO
-                title={localize('Affiliate partnership and IB programme | Deriv')}
+                title={localize('_t_Affiliate partnership and IB programme | Deriv_t_')}
                 description={localize(
-                    'Deriv’s affiliate and IB programmes offer exciting income opportunities. Earn commission from your referred clients’ trades on our platforms.',
+                    '_t_Deriv’s affiliate and IB programmes offer exciting income opportunities. Earn commission from your referred clients’ trades on our platforms._t_',
                 )}
                 meta_attributes={meta_attributes}
             />
@@ -167,7 +167,7 @@ const AffiliateIb = () => {
             </Helmet>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
-                    {localize('Partner with a trusted online trading provider')}
+                    {localize('_t_Partner with a trusted online trading provider_t_')}
                 </StyledHeader>
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"
@@ -177,14 +177,14 @@ const AffiliateIb = () => {
                     type="affiliate_sign_up"
                     secondary
                 >
-                    {localize('Sign up as our affiliate and IB')}
+                    {localize('_t_Sign up as our affiliate and IB_t_')}
                 </StyledLinkButton>
             </Hero>
             <StyledSectionContainer padding="8rem 0 4rem">
                 <Container direction="column">
                     <SubtitleHeader as="h4" type="sub-section-title" weight="normal" align="center">
                         {localize(
-                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
+                            '_t_Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts._t_',
                         )}
                     </SubtitleHeader>
                     <SectionContainerWrapper>

@@ -241,7 +241,7 @@ const AvailableTrades = ({
                     {Forex && (
                         <Card
                             name="Forex"
-                            display_name={<Localize translate_text="Forex" />}
+                            display_name={<Localize translate_text="_t_Forex_t_" />}
                             onTabChange={() => handleTabChange('Forex')}
                             active_tab={active_tab}
                         />
@@ -249,7 +249,7 @@ const AvailableTrades = ({
                     {SyntheticIndices && (
                         <Card
                             name="Synthetic Indices"
-                            display_name={<Localize translate_text="Synthetic Indices" />}
+                            display_name={<Localize translate_text="_t_Synthetic Indices_t_" />}
                             onTabChange={() => handleTabChange('Synthetic Indices')}
                             active_tab={active_tab}
                         />
@@ -257,7 +257,7 @@ const AvailableTrades = ({
                     {Cryptocurrencies && (
                         <Card
                             name="Cryptocurrencies"
-                            display_name={<Localize translate_text="Cryptocurrencies" />}
+                            display_name={<Localize translate_text="_t_Cryptocurrencies_t_" />}
                             onTabChange={() => handleTabChange('Cryptocurrencies')}
                             active_tab={active_tab}
                         />
@@ -265,7 +265,7 @@ const AvailableTrades = ({
                     {BasketIndices && (
                         <Card
                             name="Basket Indices"
-                            display_name={<Localize translate_text="Basket Indices" />}
+                            display_name={<Localize translate_text="_t_Basket Indices_t_" />}
                             onTabChange={() => handleTabChange('Basket Indices')}
                             active_tab={active_tab}
                         />

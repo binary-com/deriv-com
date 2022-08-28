@@ -91,7 +91,7 @@ const CryptocurrenciesDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade."
+                translate_text="_t_Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -105,14 +105,14 @@ const Cryptocurrencies = () => {
                 <Flex max_width="79.2rem" m="0 auto" direction="column">
                     <StyledText mb="12px" align="center">
                         {localize(
-                            'Trade cryptocurrencies with multipliers and take advantage of 24/7 trading, including weekends and holidays.',
+                            '_t_Trade cryptocurrencies with multipliers and take advantage of 24/7 trading, including weekends and holidays._t_',
                         )}
                     </StyledText>
                     <AvailablePlatformsWrapper mb="40px">
                         <AvailablePlatforms dtrader />
                     </AvailablePlatformsWrapper>
                     <Text weight="bold">
-                        {localize('Instruments available for multipliers trading')}
+                        {localize('_t_Instruments available for multipliers trading_t_')}
                     </Text>
 
                     <MarketsWrapper direction="column">
@@ -122,12 +122,12 @@ const Cryptocurrencies = () => {
                                     <Col>
                                         <Desktop>
                                             <Title weight="bold" max_width="auto" align="center">
-                                                {localize('Crypto Pairs')}
+                                                {localize('_t_Crypto Pairs_t_')}
                                             </Title>
                                         </Desktop>
                                         <Mobile>
                                             <Title weight="bold" max_width="auto" align="center">
-                                                {localize('Crypto Pairs')}
+                                                {localize('_t_Crypto Pairs_t_')}
                                             </Title>
                                         </Mobile>
                                     </Col>

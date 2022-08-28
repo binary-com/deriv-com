@@ -38,11 +38,11 @@ const Scope = () => {
         <SectionContainer background="grey-30">
             <Container direction="column">
                 <Header as="h2" type="heading-2" align="center" mb="0.8rem">
-                    {localize('Scope')}
+                    {localize('_t_Scope_t_')}
                 </Header>
                 <Header weight="normal" type="paragraph-1" max_width="79.2rem" align="center">
                     {localize(
-                        'Only Deriv assets are covered in this program. If you discover bugs on third-party apps, please report them to the respective owners. You may submit bug reports related to the following aspects of our business:',
+                        '_t_Only Deriv assets are covered in this program. If you discover bugs on third-party apps, please report them to the respective owners. You may submit bug reports related to the following aspects of our business:_t_',
                     )}
                 </Header>
 

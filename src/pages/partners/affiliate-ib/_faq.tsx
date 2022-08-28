@@ -108,7 +108,7 @@ const Faq = () => {
     return (
         <RelativeContainer>
             <FaqHeader as="h2" size="4.8rem" align="center">
-                {localize('Browse our FAQ')}
+                {localize('_t_Browse our FAQ_t_')}
             </FaqHeader>
             <FaqSubHeader
                 as="h4"
@@ -117,12 +117,12 @@ const Faq = () => {
                 m="4rem 0"
                 weight="normal"
             >
-                {localize('Deriv Affiliate Programme')}
+                {localize('_t_Deriv Affiliate Programme_t_')}
             </FaqSubHeader>
             <StyledAccordionWrapper>
                 <Accordion has_single_state>
                     <AccordionItem
-                        header={localize('General')}
+                        header={localize('_t_General_t_')}
                         parent_style={parent_style}
                         header_style={header_style}
                         style={item_style}
@@ -131,7 +131,7 @@ const Faq = () => {
                         {<AffiliateGeneral />}
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Account management')}
+                        header={localize('_t_Account management_t_')}
                         parent_style={parent_style}
                         header_style={header_style}
                         style={item_style}
@@ -140,7 +140,7 @@ const Faq = () => {
                         {<AffiliateAccountManagement />}
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Referral tools')}
+                        header={localize('_t_Referral tools_t_')}
                         parent_style={parent_style}
                         header_style={header_style}
                         style={item_style}
@@ -157,12 +157,12 @@ const Faq = () => {
                 m="8rem 0 4rem 0 "
                 weight="normal"
             >
-                {localize('Deriv IB Programme')}
+                {localize('_t_Deriv IB Programme_t_')}
             </FaqSubHeader>
             <StyledAccordionWrapper>
                 <Accordion has_single_state is_faq>
                     <AccordionItem
-                        header={localize('General')}
+                        header={localize('_t_General_t_')}
                         parent_style={parent_style}
                         header_style={header_style}
                         style={item_style}
@@ -171,7 +171,7 @@ const Faq = () => {
                         {<IBGeneral />}
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Account management')}
+                        header={localize('_t_Account management_t_')}
                         parent_style={parent_style}
                         header_style={header_style}
                         style={item_style}
@@ -180,7 +180,7 @@ const Faq = () => {
                         {<IBAccountManagement />}
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Referral tools')}
+                        header={localize('_t_Referral tools_t_')}
                         parent_style={parent_style}
                         header_style={header_style}
                         style={item_style}

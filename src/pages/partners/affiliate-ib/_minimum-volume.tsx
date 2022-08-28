@@ -125,20 +125,20 @@ const MinimumVolume = () => {
             <Container direction="column">
                 <TitleWrapper direction="column">
                     <Header as="h2" type="page-title" align="center" mb="0.8rem">
-                        {localize('Minimum volume requirement')}
+                        {localize('_t_Minimum volume requirement_t_')}
                     </Header>
                     <Text size="16px" align="center">
-                        <Localize translate_text="To receive the minimum commission (0.01 in any currency) allowed by the system, the minimum volume requirement is calculated based on the following formulas:" />
+                        <Localize translate_text="_t_To receive the minimum commission (0.01 in any currency) allowed by the system, the minimum volume requirement is calculated based on the following formulas:_t_" />
                     </Text>
                 </TitleWrapper>
                 <ExampleWrapper>
                     <StyledHeader as="h4" type="main-paragraph" mb="2.4rem">
-                        {localize('Example:')}
+                        {localize('_t_Example:_t_')}
                     </StyledHeader>
                     <CalculationWrapper ai="center" mb="24px">
                         <LeftWrapper>
                             <Text size="16px">
-                                <Localize translate_text="A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 10. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:" />
+                                <Localize translate_text="_t_A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 10. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:_t_" />
                             </Text>
                         </LeftWrapper>
                         <RightWrapper>
@@ -148,7 +148,7 @@ const MinimumVolume = () => {
                     <CalculationWrapper ai="center">
                         <LeftWrapper>
                             <Text size="16px">
-                                <Localize translate_text="A deal for 1 lot of the Volatility Index 75 for a price of USD 500,000 per USD 100,000 turnover will pay out a commission of USD 5. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:" />
+                                <Localize translate_text="_t_A deal for 1 lot of the Volatility Index 75 for a price of USD 500,000 per USD 100,000 turnover will pay out a commission of USD 5. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:_t_" />
                             </Text>
                         </LeftWrapper>
                         <RightWrapper>
@@ -168,23 +168,23 @@ const firstCalculatedFormula: CalculatedFormulaType = {
             formula: [
                 {
                     item: '(0.01',
-                    description: <Localize translate_text="Min. commission" />,
+                    description: <Localize translate_text="_t_Min. commission_t_" />,
                     next_operator: '✕',
                 },
                 {
                     item: 'USD 100,000)',
-                    description: <Localize translate_text="Adjusted volume" />,
+                    description: <Localize translate_text="_t_Adjusted volume_t_" />,
                     next_operator: '÷',
                 },
                 {
                     item: '10',
-                    description: <Localize translate_text="Commission rate" />,
+                    description: <Localize translate_text="_t_Commission rate_t_" />,
                 },
             ],
             result: {
                 total: (
                     <Localize
-                        translate_text="<0>USD 100</0> Volume"
+                        translate_text="_t_<0>USD 100</0> Volume_t_"
                         components={[<ResultStrong key={0} />]}
                     />
                 ),
@@ -195,22 +195,22 @@ const firstCalculatedFormula: CalculatedFormulaType = {
             formula: [
                 {
                     item: 'USD 100',
-                    description: <Localize translate_text="Volume" />,
+                    description: <Localize translate_text="_t_Volume_t_" />,
                     next_operator: '÷',
                 },
                 {
                     item: 'USD 50,000',
-                    description: <Localize translate_text="Spot price" />,
+                    description: <Localize translate_text="_t_Spot price_t_" />,
                 },
             ],
             result: {
                 total: (
                     <Localize
-                        translate_text="<0>0.002 lots</0>"
+                        translate_text="_t_<0>0.002 lots</0>_t_"
                         components={[<ResultStrong key={0} />]}
                     />
                 ),
-                description: <Localize translate_text="Volume in lots" />,
+                description: <Localize translate_text="_t_Volume in lots_t_" />,
             },
         },
     ],
@@ -223,23 +223,23 @@ const secondCalculatedFormula: CalculatedFormulaType = {
             formula: [
                 {
                     item: '(0.01',
-                    description: <Localize translate_text="Min. commission" />,
+                    description: <Localize translate_text="_t_Min. commission_t_" />,
                     next_operator: '✕',
                 },
                 {
                     item: 'USD 100,000)',
-                    description: <Localize translate_text="Adjusted volume" />,
+                    description: <Localize translate_text="_t_Adjusted volume_t_" />,
                     next_operator: '÷',
                 },
                 {
                     item: '5',
-                    description: <Localize translate_text="Commission rate" />,
+                    description: <Localize translate_text="_t_Commission rate_t_" />,
                 },
             ],
             result: {
                 total: (
                     <Localize
-                        translate_text="<0>USD 200</0> Volume"
+                        translate_text="_t_<0>USD 200</0> Volume_t_"
                         components={[<ResultStrong key={0} />]}
                     />
                 ),
@@ -250,22 +250,22 @@ const secondCalculatedFormula: CalculatedFormulaType = {
             formula: [
                 {
                     item: 'USD 200',
-                    description: <Localize translate_text="Volume" />,
+                    description: <Localize translate_text="_t_Volume_t_" />,
                     next_operator: '÷',
                 },
                 {
                     item: 'USD 500,000',
-                    description: <Localize translate_text="Spot price" />,
+                    description: <Localize translate_text="_t_Spot price_t_" />,
                 },
             ],
             result: {
                 total: (
                     <Localize
-                        translate_text="<0>0.0004 lots</0>"
+                        translate_text="_t_<0>0.0004 lots</0>_t_"
                         components={[<ResultStrong key={0} />]}
                     />
                 ),
-                description: <Localize translate_text="Volume in lots" />,
+                description: <Localize translate_text="_t_Volume in lots_t_" />,
             },
         },
     ],

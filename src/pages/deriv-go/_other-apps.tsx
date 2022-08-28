@@ -78,13 +78,13 @@ const other_apps: ContentType[] = [
     {
         id: 0,
         icon: DMT5,
-        title: <Localize translate_text="DMT5" />,
+        title: <Localize translate_text="_t_DMT5_t_" />,
         content: (
-            <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one CFD trading app." />
+            <Localize translate_text="_t_Trade on Deriv MT5 (DMT5), the all-in-one CFD trading app._t_" />
         ),
         url: (
             <LearnMore to="/dmt5/">
-                <Localize translate_text="Learn more" />
+                <Localize translate_text="_t_Learn more_t_" />
                 <img src={Arrow} alt="" />
             </LearnMore>
         ),
@@ -92,13 +92,13 @@ const other_apps: ContentType[] = [
     {
         id: 1,
         icon: DerivX,
-        title: <Localize translate_text="Deriv X" />,
+        title: <Localize translate_text="_t_Deriv X_t_" />,
         content: (
-            <Localize translate_text="Customise your trading experience and trade CFDs on the Deriv X app." />
+            <Localize translate_text="_t_Customise your trading experience and trade CFDs on the Deriv X app._t_" />
         ),
         url: (
             <LearnMore to="/derivx/">
-                <Localize translate_text="Learn more" />
+                <Localize translate_text="_t_Learn more_t_" />
                 <img src={Arrow} alt="" />
             </LearnMore>
         ),
@@ -114,11 +114,11 @@ const OtherApps = () => {
                 <Container fd="column">
                     {is_uk_eu ? (
                         <StyledHeader as="h2" type="heading-2" align="center">
-                            {localize('Check out our other app')}
+                            {localize('_t_Check out our other app_t_')}
                         </StyledHeader>
                     ) : (
                         <StyledHeader as="h2" type="heading-2" align="center">
-                            {localize('Check out our other apps')}
+                            {localize('_t_Check out our other apps_t_')}
                         </StyledHeader>
                     )}
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">

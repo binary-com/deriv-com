@@ -197,9 +197,9 @@ const HelpCentre = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Help centre | Frequently asked questions | Deriv')}
+                title={localize('_t_Help centre | Frequently asked questions | Deriv_t_')}
                 description={localize(
-                    'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
+                    '_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_',
                 )}
             />
             <Helmet>
@@ -210,7 +210,7 @@ const HelpCentre = () => {
                     <Container align="left" justify="flex-start" direction="column">
                         <StyledContainer align="normal" direction="column">
                             <ResponsiveHeader as="h1" type="display-title" mb="4rem">
-                                {localize('How can we help?')}
+                                {localize('_t_How can we help?_t_')}
                             </ResponsiveHeader>
                             <SearchForm onSubmit={handleSubmit}>
                                 <SearchIconBig src={SearchIcon} alt="search-icon" />
@@ -218,7 +218,7 @@ const HelpCentre = () => {
                                     autoFocus
                                     value={data.search}
                                     onChange={handleInputChange}
-                                    placeholder={localize('Try “Trade”')}
+                                    placeholder={localize('_t_Try “Trade”_t_')}
                                     data-lpignore="true"
                                     autoComplete="off"
                                 />

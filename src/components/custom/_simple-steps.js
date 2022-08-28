@@ -154,7 +154,7 @@ const SimpleSteps = ({ header, content, sign_up }) => {
             {sign_up && (
                 <LinkButtonWrapper>
                     <StyledLinkButton id="dm-steps-signup" secondary="true" onClick={handleSignup}>
-                        {localize('Sign up now')}
+                        {localize('_t_Sign up now_t_')}
                     </StyledLinkButton>
                 </LinkButtonWrapper>
             )}

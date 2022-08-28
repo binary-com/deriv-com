@@ -207,7 +207,7 @@ const HeaderSection = ({
                             weight={300}
                             color="white"
                         >
-                            {localize('Claim a FREE e-book now!')}
+                            {localize('_t_Claim a FREE e-book now!_t_')}
                         </Header>
                         <Header
                             as="h4"
@@ -216,7 +216,7 @@ const HeaderSection = ({
                             weight={300}
                             color="white"
                         >
-                            {localize('Plus a free demo account to practice.')}
+                            {localize('_t_Plus a free demo account to practice._t_')}
                         </Header>
                         <AuthorText
                             m={0}

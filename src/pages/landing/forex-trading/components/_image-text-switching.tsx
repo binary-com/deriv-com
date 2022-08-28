@@ -133,7 +133,7 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }: ImageTextSwitchingProps
                     mb="1rem"
                     weight="bold"
                 >
-                    {localize('Trade forex with ultra-low spreads in 3 simple steps:')}
+                    {localize('_t_Trade forex with ultra-low spreads in 3 simple steps:_t_')}
                 </StyledText>
 
                 {P2P.map((item, index) => {

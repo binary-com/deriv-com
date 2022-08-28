@@ -90,16 +90,16 @@ type ContentType = {
 const content: ContentType[] = [
     {
         imgsrc: TradingIcon,
-        header: <Localize translate_text="Available 24/7" />,
+        header: <Localize translate_text="_t_Available 24/7_t_" />,
         title: (
-            <Localize translate_text="As jump indices are synthetics, you can trade them 24/7, 365 days of the year." />
+            <Localize translate_text="_t_As jump indices are synthetics, you can trade them 24/7, 365 days of the year._t_" />
         ),
     },
     {
         imgsrc: LeverageIcon,
-        header: <Localize translate_text="High leverage" />,
+        header: <Localize translate_text="_t_High leverage_t_" />,
         title: (
-            <Localize translate_text="Trade with high leverage ratios to have even more opportunities to increase your position size." />
+            <Localize translate_text="_t_Trade with high leverage ratios to have even more opportunities to increase your position size._t_" />
         ),
     },
 ]
@@ -131,7 +131,7 @@ const Leverages = () => {
                         rel="noopener noreferrer"
                         secondary="true"
                     >
-                        {localize('Start trading')}
+                        {localize('_t_Start trading_t_')}
                     </StyledLinkButton>
                 )}
             </BtnWrapper>

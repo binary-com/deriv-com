@@ -26,9 +26,9 @@ const Forex = ({ simple_step_content }: ForexProps) => {
     return (
         <>
             <WhyTrade
-                header={<Localize translate_text="Why trade forex on Deriv" />}
+                header={<Localize translate_text="_t_Why trade forex on Deriv_t_" />}
                 text={
-                    <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
+                    <Localize translate_text="_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_" />
                 }
             >
                 {(is_uk_eu ? forex_content_eu : forex_content).map((content, index) => (
@@ -44,7 +44,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 DigitalOptions={
                     is_row && (
                         <DigitalOptions
-                            market_name={localize('forex')}
+                            market_name={localize('_t_forex_t_')}
                             options_list={forex_options}
                         />
                     )
@@ -55,11 +55,11 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     />
                 }
                 // name="Forex"
-                display_title={<Localize translate_text="Forex trades available on Deriv" />}
+                display_title={<Localize translate_text="_t_Forex trades available on Deriv_t_" />}
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading forex on Deriv in 3 simple steps" />
+                    <Localize translate_text="_t_Start trading forex on Deriv in 3 simple steps_t_" />
                 }
                 content={simple_step_content}
                 sign_up

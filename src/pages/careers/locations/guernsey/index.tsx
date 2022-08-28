@@ -38,9 +38,9 @@ const Guernsey = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Guernsey | Our office – Channel Islands | Deriv')}
+                title={localize('_t_Guernsey | Our office – Channel Islands | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Guernsey, Channel Islands.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Guernsey, Channel Islands._t_',
                 )}
             />
             <NewLocationLayout location={guernsey} images={images} />

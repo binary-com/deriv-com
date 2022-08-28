@@ -90,7 +90,7 @@ const StyledLink = styled(LocalizedLinkText)`
 export const SearchSuccess = ({ suggested_topics, max_length }: SearchSuccessProps) => (
     <>
         <Header as="h3" type="section-title" color="black">
-            {localize('Topic suggestions')}
+            {localize('_t_Topic suggestions_t_')}
         </Header>
 
         {suggested_topics.slice(0, max_length).map((article, idx) => (
@@ -116,13 +116,13 @@ export const SearchError = ({ search }: SearchErrorProps) => (
         >
             {localize("Sorry, we couldn’t find any results matching '{{search}}'.", { search })}
         </ErrorHeader>
-        <SearchText color="green">{localize('Search tips:')}</SearchText>
+        <SearchText color="green">{localize('_t_Search tips:_t_')}</SearchText>
         <Ul>
-            <Li color="black">{localize('Check your spelling and try again')}</Li>
-            <Li color="black">{localize('Try another keyword')}</Li>
+            <Li color="black">{localize('_t_Check your spelling and try again_t_')}</Li>
+            <Li color="black">{localize('_t_Try another keyword_t_')}</Li>
             <Li color="black">
                 {localize(
-                    'Keep your search term short as our search capabilities works best with short search terms',
+                    '_t_Keep your search term short as our search capabilities works best with short search terms_t_',
                 )}
             </Li>
         </Ul>

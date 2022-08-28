@@ -185,7 +185,7 @@ const AvailableTradesMobile = ({
                         {CFDs && (
                             <Card
                                 name="CFDs"
-                                display_name={<Localize translate_text="CFDs" />}
+                                display_name={<Localize translate_text="_t_CFDs_t_" />}
                                 active_tab={active_tab}
                             />
                         )}
@@ -207,7 +207,7 @@ const AvailableTradesMobile = ({
                             >
                                 <Card
                                     name="Options"
-                                    display_name={<Localize translate_text="Options" />}
+                                    display_name={<Localize translate_text="_t_Options_t_" />}
                                     active_tab={active_tab}
                                 />
 
@@ -232,7 +232,7 @@ const AvailableTradesMobile = ({
                         >
                             <Card
                                 name="Multipliers"
-                                display_name={<Localize translate_text="Multipliers" />}
+                                display_name={<Localize translate_text="_t_Multipliers_t_" />}
                                 active_tab={active_tab}
                             />
 

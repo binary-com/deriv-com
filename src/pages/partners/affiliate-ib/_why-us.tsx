@@ -110,7 +110,7 @@ const WhyUs = ({ items }: WhyUsProps) => {
         <StyledContainer>
             <Container direction="column">
                 <WhyUsHeader as="h2" size="4.8rem" align="center">
-                    {localize('Why partner with us')}
+                    {localize('_t_Why partner with us_t_')}
                 </WhyUsHeader>
                 {items.map((item, index) => {
                     const is_even = index % 2

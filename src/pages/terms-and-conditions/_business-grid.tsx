@@ -48,40 +48,40 @@ const BusinessGrid = () => (
         >
             <Col
                 Icon={General}
-                title={localize('General terms of use')}
+                title={localize('_t_General terms of use_t_')}
                 content={localize(
-                    'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
+                    '_t_Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents_t_',
                 )}
                 url="/tnc/business-partners-general-terms.pdf"
-                link_title={localize('General terms of use')}
+                link_title={localize('_t_General terms of use_t_')}
             />
             <Col
                 Icon={Partners}
-                title={localize('Affiliates & introducing brokers (IBs)')}
-                content={localize('Additional terms for our affiliates and introducing brokers')}
+                title={localize('_t_Affiliates & introducing brokers (IBs)_t_')}
+                content={localize('_t_Additional terms for our affiliates and introducing brokers_t_')}
                 url="/tnc/business-partners-affiliates-and-introducing-brokers.pdf"
-                link_title={localize('Affiliates & introducing brokers (IBs)')}
+                link_title={localize('_t_Affiliates & introducing brokers (IBs)_t_')}
             />
             <Col
                 Icon={PA}
-                title={localize('Payment agents')}
-                content={localize('Additional terms for our payment agents')}
+                title={localize('_t_Payment agents_t_')}
+                content={localize('_t_Additional terms for our payment agents_t_')}
                 url="/tnc/business-partners-payment-agents.pdf"
-                link_title={localize('Payment agents')}
+                link_title={localize('_t_Payment agents_t_')}
             />
             <Col
                 Icon={API}
-                title={localize('API users')}
-                content={localize('Additional terms for our API users')}
+                title={localize('_t_API users_t_')}
+                content={localize('_t_Additional terms for our API users_t_')}
                 url="/tnc/business-partners-api-user.pdf"
-                link_title={localize('API users')}
+                link_title={localize('_t_API users_t_')}
             />
             <Col
                 Icon={BugBounty}
-                title={localize('Bug Bounty Program')}
-                content={localize('Additional terms for participants in our Bug Bounty Program')}
+                title={localize('_t_Bug Bounty Program_t_')}
+                content={localize('_t_Additional terms for participants in our Bug Bounty Program_t_')}
                 url="/tnc/business-partners-bug-bounty.pdf"
-                link_title={localize('Bug Bounty Program')}
+                link_title={localize('_t_Bug Bounty Program_t_')}
             />
         </StyledGrid>
     </StyledContainer>

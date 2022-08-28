@@ -22,11 +22,11 @@ const Subscribe = () => {
         <>
             <Box p="12px 0">
                 <Header align="center" as="h1" type="heading-3" mb="8px">
-                    {localize('Thanks for subscribing to Deriv Academy')}
+                    {localize('_t_Thanks for subscribing to Deriv Academy_t_')}
                 </Header>
                 <Header align="center" as="p" type="subtitle-2" weight="regular" mb="8px">
                     {localize(
-                        'Thank you for confirming your email address, you will receive a confirmation email shortly.',
+                        '_t_Thank you for confirming your email address, you will receive a confirmation email shortly._t_',
                     )}
                 </Header>
             </Box>
@@ -44,7 +44,7 @@ const Subscribe = () => {
                 <Flex m="auto" ai="center" tabletL={{ m: '0 0 24px 0', max_width: '450px' }}>
                     <Icon src={Email1} />
                     <Header as="p" type="paragraph-1" weight="regular" m="0 16px">
-                        {localize(`If you don't receive an email, please check your junk folder.`)}
+                        {localize(`_t_If you don't receive an email, please check your junk folder._t_`)}
                     </Header>
                 </Flex>
                 <Flex m="auto" ai="center" tabletL={{ m: '0 0 24px 0', max_width: '450px' }}>

@@ -368,9 +368,9 @@ const SearchPage = () => {
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
-                title={localize('Articles, trading guide and resources | Deriv')}
+                title={localize('_t_Articles, trading guide and resources | Deriv_t_')}
                 description={localize(
-                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
+                    "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_",
                 )}
             />
             <Flex>

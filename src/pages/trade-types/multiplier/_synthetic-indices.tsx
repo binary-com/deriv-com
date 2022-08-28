@@ -99,13 +99,13 @@ const VolatilityIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="These indices correspond to simulated markets with <0>constant volatilities of 200% and 300%</0>."
+                translate_text="_t_These indices correspond to simulated markets with <0>constant volatilities of 200% and 300%</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>200(1s) and 300(1s)</0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>200(1s) and 300(1s)</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -116,18 +116,18 @@ const ContinuousIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+                '_t_These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%._t_',
             )}
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -144,17 +144,17 @@ const SyntheticIndices = () => {
                 <StyledText mb="12px" align="center">
                     {is_eu_country
                         ? localize(
-                              'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from tight spreads and fixed generation intervals.',
+                              '_t_Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from tight spreads and fixed generation intervals._t_',
                           )
                         : localize(
-                              'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from high leverage, tight spreads and fixed generation intervals.',
+                              '_t_Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from high leverage, tight spreads and fixed generation intervals._t_',
                           )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">
                     <AvailablePlatforms m_top="16px" dbot={is_row} dtrader />
                 </AvailablePlatformsWrapper>
                 <Text weight="bold">
-                    {localize('Synthetic indices available for multipliers trading')}
+                    {localize('_t_Synthetic indices available for multipliers trading_t_')}
                 </Text>
                 {is_eu_country && (
                     <MarketsWrapper direction="column">
@@ -164,12 +164,12 @@ const SyntheticIndices = () => {
                                     <Col max_width="13.2rem">
                                         <Desktop>
                                             <Title weight="bold" max_width="9.7rem" align="center">
-                                                {localize('Volatility indices')}
+                                                {localize('_t_Volatility indices_t_')}
                                             </Title>
                                         </Desktop>
                                         <Mobile>
                                             <Title weight="bold" max_width="9.7rem" align="center">
-                                                {localize('Volatility indices')}
+                                                {localize('_t_Volatility indices_t_')}
                                             </Title>
                                         </Mobile>
                                     </Col>
@@ -190,12 +190,12 @@ const SyntheticIndices = () => {
                                 <Col max_width="13.2rem">
                                     <Desktop>
                                         <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Crash/Boom')}
+                                            {localize('_t_Crash/Boom_t_')}
                                         </Title>
                                     </Desktop>
                                     <Mobile>
                                         <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Crash/ Boom')}
+                                            {localize('_t_Crash/ Boom_t_')}
                                         </Title>
                                     </Mobile>
                                 </Col>
@@ -216,7 +216,7 @@ const SyntheticIndices = () => {
                                 <Flex jc="flex-start" ai="center">
                                     <Col>
                                         <Title weight="bold" align="center">
-                                            {localize('Continuous indices')}
+                                            {localize('_t_Continuous indices_t_')}
                                         </Title>
                                     </Col>
                                     <MarketsList>
@@ -235,7 +235,7 @@ const SyntheticIndices = () => {
                                 <Flex jc="flex-start" ai="center">
                                     <Col>
                                         <Title weight="bold" align="center">
-                                            {localize('Jump indices')}
+                                            {localize('_t_Jump indices_t_')}
                                         </Title>
                                     </Col>
                                     <MarketsList>
@@ -254,7 +254,7 @@ const SyntheticIndices = () => {
                                 <Flex jc="flex-start" ai="center">
                                     <Col>
                                         <Title weight="bold" align="center">
-                                            {localize('Step indices')}
+                                            {localize('_t_Step indices_t_')}
                                         </Title>
                                     </Col>
                                     <MarketsList>

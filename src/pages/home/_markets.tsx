@@ -81,22 +81,22 @@ const Markets = ({ is_ppc }: MarketsProps) => (
     <StyledSection>
         <Container direction="column">
             <Header align="center" as="h3" type="section-title">
-                {localize('Markets')}
+                {localize('_t_Markets_t_')}
             </Header>
             <MarketWrapper wrap="wrap">
                 <MarketCard mr="2.4rem" mb="4rem">
                     <img src={ForexIcon} alt="" width="64" height="64" />
                     <div>
                         <Header as="h4" type="sub-section-title">
-                            {localize('Forex')}
+                            {localize('_t_Forex_t_')}
                         </Header>
                         <Text>
                             {localize(
-                                'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
+                                '_t_Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day._t_',
                             )}
                         </Text>
                         <Localize
-                            translate_text="<0>Learn more</0>"
+                            translate_text="_t_<0>Learn more</0>_t_"
                             components={[<MarketLink key={0} to="/markets/forex/" color="red" />]}
                         />
                     </div>
@@ -105,15 +105,15 @@ const Markets = ({ is_ppc }: MarketsProps) => (
                     <img src={StockIcon} alt="" width="64" height="64" />
                     <div>
                         <Header as="h4" type="sub-section-title">
-                            {localize('Stocks & indices')}
+                            {localize('_t_Stocks & indices_t_')}
                         </Header>
                         <Text>
                             {localize(
-                                'Predict market trends and diversify your risk by trading the world’s top performing stocks & indices.',
+                                '_t_Predict market trends and diversify your risk by trading the world’s top performing stocks & indices._t_',
                             )}
                         </Text>
                         <Localize
-                            translate_text="<0>Learn more</0>"
+                            translate_text="_t_<0>Learn more</0>_t_"
                             components={[<MarketLink key={0} to="/markets/stock/" color="red" />]}
                         />
                     </div>
@@ -124,15 +124,15 @@ const Markets = ({ is_ppc }: MarketsProps) => (
                             <img src={SyntheticIndicesIcon} alt="" width="64" height="64" />
                             <div>
                                 <Header as="h4" type="sub-section-title">
-                                    {localize('Synthetic indices')}
+                                    {localize('_t_Synthetic indices_t_')}
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
+                                        '_t_Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions._t_',
                                     )}
                                 </Text>
                                 <Localize
-                                    translate_text="<0>Learn more</0>"
+                                    translate_text="_t_<0>Learn more</0>_t_"
                                     components={[
                                         <MarketLink key={0} to="/markets/synthetic/" color="red" />,
                                     ]}
@@ -145,15 +145,15 @@ const Markets = ({ is_ppc }: MarketsProps) => (
                     <img src={CommoditiesIcon} alt="" width="64" height="64" />
                     <div>
                         <Header as="h4" type="sub-section-title">
-                            {localize('Commodities')}
+                            {localize('_t_Commodities_t_')}
                         </Header>
                         <Text>
                             {localize(
-                                'Trade natural resources that are central to the world’s economy and profit from the opportunities created by the markets.',
+                                '_t_Trade natural resources that are central to the world’s economy and profit from the opportunities created by the markets._t_',
                             )}
                         </Text>
                         <Localize
-                            translate_text="<0>Learn more</0>"
+                            translate_text="_t_<0>Learn more</0>_t_"
                             components={[
                                 <MarketLink key={0} to="/markets/commodities/" color="red" />,
                             ]}

@@ -83,7 +83,7 @@ const NavMobile = ({
                     {!hide_signup_login &&
                         (is_logged_in ? (
                             <StyledButton onClick={handleGetTrading} primary>
-                                {localize('Get Trading')}
+                                {localize('_t_Get Trading_t_')}
                             </StyledButton>
                         ) : (
                             <StyledButton
@@ -92,7 +92,7 @@ const NavMobile = ({
                                 primary
                                 disabled={is_loading}
                             >
-                                {localize('Log in')}
+                                {localize('_t_Log in_t_')}
                             </StyledButton>
                         ))}
                 </LeftSection>

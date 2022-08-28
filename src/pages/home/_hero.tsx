@@ -26,18 +26,18 @@ type HeroProps = {
 }
 
 const contents = [
-    <Localize key={0} translate_text="Tight spreads" />,
-    <Localize key={1} translate_text="Sharp prices" />,
-    <Localize key={2} translate_text="24x7 trading" />,
-    <Localize key={3} translate_text="100+ tradeable assets" />,
-    <Localize key={4} translate_text="20+ years of experience" />,
+    <Localize key={0} translate_text="_t_Tight spreads_t_" />,
+    <Localize key={1} translate_text="_t_Sharp prices_t_" />,
+    <Localize key={2} translate_text="_t_24x7 trading_t_" />,
+    <Localize key={3} translate_text="_t_100+ tradeable assets_t_" />,
+    <Localize key={4} translate_text="_t_20+ years of experience_t_" />,
 ]
 
 const contents_ppc = [
-    <Localize key={3} translate_text="Tight spreads" />,
-    <Localize key={2} translate_text="Sharp prices" />,
-    <Localize key={1} translate_text="100+ tradeable assets" />,
-    <Localize key={0} translate_text="20+ years of experience" />,
+    <Localize key={3} translate_text="_t_Tight spreads_t_" />,
+    <Localize key={2} translate_text="_t_Sharp prices_t_" />,
+    <Localize key={1} translate_text="_t_100+ tradeable assets_t_" />,
+    <Localize key={0} translate_text="_t_20+ years of experience_t_" />,
 ]
 
 const HeroWrapper = styled.section`
@@ -118,13 +118,13 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 }}
                             >
                                 <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Simple." />
+                                    <Localize translate_text="_t_Simple._t_" />
                                 </StyledHeader>
                                 <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Flexible." />
+                                    <Localize translate_text="_t_Flexible._t_" />
                                 </StyledHeader>
                                 <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Reliable." />
+                                    <Localize translate_text="_t_Reliable._t_" />
                                 </StyledHeader>
                             </Flex>
                             <Header
@@ -136,13 +136,13 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 weight="normal"
                             >
                                 <EU>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities." />
+                                    <Localize translate_text="_t_Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities._t_" />
                                 </EU>
                                 <UK>
-                                    <Localize translate_text="Trade forex, stocks & indices, and commodities." />
+                                    <Localize translate_text="_t_Trade forex, stocks & indices, and commodities._t_" />
                                 </UK>
                                 <ROW>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
+                                    <Localize translate_text="_t_Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities._t_" />
                                 </ROW>
                             </Header>
                             <VerticalCarousel
@@ -155,7 +155,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                     id="dm-hero-signup"
                                     secondary="true"
                                 >
-                                    <Localize translate_text="Create free demo account" />
+                                    <Localize translate_text="_t_Create free demo account_t_" />
                                 </HeroButton>
                             </Box>
                         </Flex>

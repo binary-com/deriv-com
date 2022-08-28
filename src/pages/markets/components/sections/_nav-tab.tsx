@@ -95,32 +95,32 @@ type TabList = {
 }
 const tab_list: TabList[] = [
     {
-        title: <Localize translate_text="Forex" />,
+        title: <Localize translate_text="_t_Forex_t_" />,
         tab_name: 'forex',
         route_to: '/markets/forex/',
     },
     {
-        title: <Localize translate_text="Synthetic indices" />,
+        title: <Localize translate_text="_t_Synthetic indices_t_" />,
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/',
     },
     {
-        title: <Localize translate_text="Stocks & indices" />,
+        title: <Localize translate_text="_t_Stocks & indices_t_" />,
         tab_name: 'stock',
         route_to: '/markets/stock/',
     },
     {
-        title: <Localize translate_text="Cryptocurrencies" />,
+        title: <Localize translate_text="_t_Cryptocurrencies_t_" />,
         tab_name: 'cryptocurrencies',
         route_to: '/markets/cryptocurrencies/',
     },
     {
-        title: <Localize translate_text="Basket indices" />,
+        title: <Localize translate_text="_t_Basket indices_t_" />,
         tab_name: 'basket-indices',
         route_to: '/markets/basket-indices/',
     },
     {
-        title: <Localize translate_text="Commodities" />,
+        title: <Localize translate_text="_t_Commodities_t_" />,
         tab_name: 'commodities',
         route_to: '/markets/commodities/',
     },
@@ -128,27 +128,27 @@ const tab_list: TabList[] = [
 
 const tab_list_eu: TabList[] = [
     {
-        title: <Localize translate_text="Forex" />,
+        title: <Localize translate_text="_t_Forex_t_" />,
         tab_name: 'forex',
         route_to: '/markets/forex/',
     },
     {
-        title: <Localize translate_text="Synthetic indices" />,
+        title: <Localize translate_text="_t_Synthetic indices_t_" />,
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/',
     },
     {
-        title: <Localize translate_text="Stocks & indices" />,
+        title: <Localize translate_text="_t_Stocks & indices_t_" />,
         tab_name: 'stock',
         route_to: '/markets/stock/',
     },
     {
-        title: <Localize translate_text="Cryptocurrencies" />,
+        title: <Localize translate_text="_t_Cryptocurrencies_t_" />,
         tab_name: 'cryptocurrencies',
         route_to: '/markets/cryptocurrencies/',
     },
     {
-        title: <Localize translate_text="Commodities" />,
+        title: <Localize translate_text="_t_Commodities_t_" />,
         tab_name: 'commodities',
         route_to: '/markets/commodities/',
     },
@@ -156,17 +156,17 @@ const tab_list_eu: TabList[] = [
 
 const tab_list_uk = [
     {
-        title: <Localize translate_text="Forex" />,
+        title: <Localize translate_text="_t_Forex_t_" />,
         tab_name: 'forex',
         route_to: '/markets/forex/',
     },
     {
-        title: <Localize translate_text="Stocks & indices" />,
+        title: <Localize translate_text="_t_Stocks & indices_t_" />,
         tab_name: 'stock',
         route_to: '/markets/stock/',
     },
     {
-        title: <Localize translate_text="Commodities" />,
+        title: <Localize translate_text="_t_Commodities_t_" />,
         tab_name: 'commodities',
         route_to: '/markets/commodities/',
     },

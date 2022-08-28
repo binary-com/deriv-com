@@ -79,39 +79,39 @@ const MoreReason = () => {
         <StyledSection>
             <StyledContainer direction="column" mw="0">
                 <ReasonHeader as="h3" size="3.2rem" align="center" mb="2rem">
-                    {localize('More reasons to join')}
+                    {localize('_t_More reasons to join_t_')}
                 </ReasonHeader>
                 <StyledFlex jc="center">
                     <Reason>
                         <img src={HighValue} alt="" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
-                            {localize('High-value partnership')}
+                            {localize('_t_High-value partnership_t_')}
                         </Header>
                         <Text>
                             {localize(
-                                'Join a proven referral programme that’s designed to help you succeed in every way possible.',
+                                '_t_Join a proven referral programme that’s designed to help you succeed in every way possible._t_',
                             )}
                         </Text>
                     </Reason>
                     <Reason>
                         <img src={Advertise} alt="" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
-                            {localize('Proven creative materials')}
+                            {localize('_t_Proven creative materials_t_')}
                         </Header>
                         <Text>
                             {localize(
-                                'Use a broad and tested selection of banners, emails, videos, and text ads to drive traffic to our site.',
+                                '_t_Use a broad and tested selection of banners, emails, videos, and text ads to drive traffic to our site._t_',
                             )}
                         </Text>
                     </Reason>
                     <Reason>
                         <img src={GlobalAffiliate} alt="" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
-                            {localize('Global affiliate support')}
+                            {localize('_t_Global affiliate support_t_')}
                         </Header>
                         <Text>
                             {localize(
-                                'Got questions? Need help? Call or email a dedicated team of affiliate managers for all the answers.',
+                                '_t_Got questions? Need help? Call or email a dedicated team of affiliate managers for all the answers._t_',
                             )}
                         </Text>
                     </Reason>

@@ -118,7 +118,7 @@ const HeroComponent = ({ title, content, background_data }: HeroComponentProps) 
                         secondary="true"
                         to={'/signup/'}
                     >
-                        {localize('Start trading')}
+                        {localize('_t_Start trading_t_')}
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>

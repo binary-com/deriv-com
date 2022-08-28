@@ -53,10 +53,10 @@ const DerivX = () => {
                 <Layout>
                     <SEO
                         title={localize(
-                            'Deriv X - a multi-asset CFD trading platform available on Deriv',
+                            '_t_Deriv X - a multi-asset CFD trading platform available on Deriv_t_',
                         )}
                         description={localize(
-                            'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
+                            '_t_Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices._t_',
                         )}
                     />
                     <Hero />
@@ -74,7 +74,7 @@ const DerivX = () => {
                                         ? BackgroundPatternDerivXMobile
                                         : BackgroundPatternDerivX
                                 }
-                                title={<Localize translate_text="Get trading with Deriv X" />}
+                                title={<Localize translate_text="_t_Get trading with Deriv X_t_" />}
                                 data={data}
                             />
                         )}
@@ -89,9 +89,9 @@ const DerivX = () => {
     return (
         <>
             <SEO
-                title={localize('Deriv X - a multi-asset CFD trading platform available on Deriv')}
+                title={localize('_t_Deriv X - a multi-asset CFD trading platform available on Deriv_t_')}
                 description={localize(
-                    'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
+                    '_t_Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices._t_',
                 )}
             />
         </>

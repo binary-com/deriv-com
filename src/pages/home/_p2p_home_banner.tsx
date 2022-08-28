@@ -400,18 +400,18 @@ const P2PHomeBanner = () => {
                             </Mobile>
                         </P2pLogoContainer>
                         <StyledHeaders as="h1" weight={500}>
-                            <Localize translate_text="Hassle-free deposits and withdrawals" />
+                            <Localize translate_text="_t_Hassle-free deposits and withdrawals_t_" />
                         </StyledHeaders>
                         <HeroContent>
                             <Header as="h2">
                                 {
-                                    <Localize translate_text="Connect with fellow traders and transfer money in minutes." />
+                                    <Localize translate_text="_t_Connect with fellow traders and transfer money in minutes._t_" />
                                 }
                             </Header>
                         </HeroContent>
                         <StyledButton to="/p2p/">
                             <LearnMore to="/p2p/">
-                                <Localize translate_text="Learn more >" />
+                                <Localize translate_text="_t_Learn more >_t_" />
                             </LearnMore>
                         </StyledButton>
                         <Mobile>
@@ -505,7 +505,7 @@ const P2PHomeBanner = () => {
                                 height="120px"
                             />
                             <StyledLabel>
-                                <Localize translate_text="Scan to download Deriv P2P" />
+                                <Localize translate_text="_t_Scan to download Deriv P2P_t_" />
                             </StyledLabel>
                         </QRCodeP2p>
                     </Desktop>

@@ -24,7 +24,7 @@ const OurPlatforms = () => {
                         type="heading-1"
                         tablet={{ mb: '8px' }}
                     >
-                        {localize('Our platforms')}
+                        {localize('_t_Our platforms_t_')}
                     </Header>
                     <Header
                         as="p"
@@ -34,7 +34,7 @@ const OurPlatforms = () => {
                         mobileM={{ max_width: '328px' }}
                     >
                         <Localize
-                            translate_text="Choose from {{platforms_no}} powerful platforms — each designed with your needs in mind."
+                            translate_text="_t_Choose from {{platforms_no}} powerful platforms — each designed with your needs in mind._t_"
                             values={{ platforms_no: is_row ? '8' : '2' }}
                         />
                     </Header>

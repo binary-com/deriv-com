@@ -169,10 +169,10 @@ const WhatAreOptions = () => {
             <StyledSectionContainerHead padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
                     <StyledHeader as="h2" size="4.8rem" mb="1.2rem">
-                        {localize('What are multipliers?')}
+                        {localize('_t_What are multipliers?_t_')}
                     </StyledHeader>
                     <Text>
-                        <Localize translate_text="Deriv multipliers combines the upside of leverage trading with the limited risk of options. This means that when the market moves in your favour, you'll multiply your potential profits. If the market moves against your prediction, your losses are limited only to your stake." />
+                        <Localize translate_text="_t_Deriv multipliers combines the upside of leverage trading with the limited risk of options. This means that when the market moves in your favour, you'll multiply your potential profits. If the market moves against your prediction, your losses are limited only to your stake._t_" />
                     </Text>
                 </SmallContainer>
             </StyledSectionContainerHead>
@@ -183,7 +183,7 @@ const WhatAreOptions = () => {
                             <Row mb="2rem">
                                 <RowColumn isHeader>
                                     <StyledHeaderContent as="h3" size="3.2rem">
-                                        <Localize translate_text="Let’s say you predict that the market will go up." />
+                                        <Localize translate_text="_t_Let’s say you predict that the market will go up._t_" />
                                     </StyledHeaderContent>
                                 </RowColumn>
 
@@ -207,7 +207,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit<1>."
+                                                translate_text="_t_<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit<1>._t_"
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,
@@ -227,7 +227,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>With a x5 multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 * 5 = <1>$125 profit</1>."
+                                                translate_text="_t_<0>With a x5 multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 * 5 = <1>$125 profit</1>._t_"
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,
@@ -250,7 +250,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>With an equivalent $100 position on CFDs</0>, with 1:5 leverage, you risk 25% * $500 = <1>$125 loss</1>."
+                                                translate_text="_t_<0>With an equivalent $100 position on CFDs</0>, with 1:5 leverage, you risk 25% * $500 = <1>$125 loss</1>._t_"
                                                 components={[
                                                     <strong key={0} />,
                                                     <LossText key={1} />,
@@ -270,7 +270,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text mt="1.6rem">
                                             <Localize
-                                                translate_text="<0>With a x5 multiplier</0>, if the market goes down 25%, you'll <1>lose only $100</1>. An automatic stop out kicks in if your loss reaches your stake amount."
+                                                translate_text="_t_<0>With a x5 multiplier</0>, if the market goes down 25%, you'll <1>lose only $100</1>. An automatic stop out kicks in if your loss reaches your stake amount._t_"
                                                 components={[
                                                     <strong key={0} />,
                                                     <LossText key={1} />,
@@ -286,7 +286,7 @@ const WhatAreOptions = () => {
                             <Row mb="2rem">
                                 <RowColumn isHeader>
                                     <StyledHeaderContent as="h3" size="3.2rem">
-                                        <Localize translate_text="Let’s say you predict that the market will go up." />
+                                        <Localize translate_text="_t_Let’s say you predict that the market will go up._t_" />
                                     </StyledHeaderContent>
                                 </RowColumn>
 
@@ -310,7 +310,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>."
+                                                translate_text="_t_<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>._t_"
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,
@@ -330,7 +330,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>With a x500 multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 * 500 = <1>$1,000 profit</1>."
+                                                translate_text="_t_<0>With a x500 multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 * 500 = <1>$1,000 profit</1>._t_"
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,
@@ -353,7 +353,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."
+                                                translate_text="_t_<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>._t_"
                                                 components={[
                                                     <strong key={0} />,
                                                     <LossText key={1} />,
@@ -373,7 +373,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text mt="1.6rem">
                                             <Localize
-                                                translate_text="<0>With a x500 multiplier</0>, if the market goes down 2%, you'll <1>lose only $100</1>. An automatic stop out kicks in if your loss reaches your stake amount."
+                                                translate_text="_t_<0>With a x500 multiplier</0>, if the market goes down 2%, you'll <1>lose only $100</1>. An automatic stop out kicks in if your loss reaches your stake amount._t_"
                                                 components={[
                                                     <strong key={0} />,
                                                     <LossText key={1} />,
@@ -388,7 +388,7 @@ const WhatAreOptions = () => {
                 </SmallContainer>
             </StyledSectionContainer>
             <AvailableTrades
-                display_title={localize('Instruments available to trade on Multipliers')}
+                display_title={localize('_t_Instruments available to trade on Multipliers_t_')}
                 Forex={CFDs}
                 SyntheticIndices={is_non_uk ? SyntheticIndices : null}
                 Cryptocurrencies={is_non_uk ? Cryptocurrencies : null}
@@ -397,7 +397,7 @@ const WhatAreOptions = () => {
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
                     <Header as="h3" size="3.2rem" mb="4rem">
-                        {localize('Why trade multipliers on Deriv')}
+                        {localize('_t_Why trade multipliers on Deriv_t_')}
                     </Header>
                     <Grid>
                         <WhyTradeItem>
@@ -405,11 +405,11 @@ const WhatAreOptions = () => {
                                 <img src={MinimalRisk} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Better risk management')}
+                                {localize('_t_Better risk management_t_')}
                             </Text>
                             <Text>
                                 {localize(
-                                    'Customise your contracts to suit your style and risk appetite using innovative features like stop loss, take profit, and deal cancellation.',
+                                    '_t_Customise your contracts to suit your style and risk appetite using innovative features like stop loss, take profit, and deal cancellation._t_',
                                 )}
                             </Text>
                         </WhyTradeItem>
@@ -418,11 +418,11 @@ const WhatAreOptions = () => {
                                 <img src={FullControl} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Increased market exposure')}
+                                {localize('_t_Increased market exposure_t_')}
                             </Text>
                             <Text>
                                 {localize(
-                                    'Get more market exposure while limiting risk to your stake amount.',
+                                    '_t_Get more market exposure while limiting risk to your stake amount._t_',
                                 )}
                             </Text>
                         </WhyTradeItem>
@@ -431,11 +431,11 @@ const WhatAreOptions = () => {
                                 <img src={ResponsivePlatform} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Secure, responsive platform')}
+                                {localize('_t_Secure, responsive platform_t_')}
                             </Text>
                             <Text>
                                 {localize(
-                                    'Enjoy trading on secure, intuitive platforms built for new and expert traders.',
+                                    '_t_Enjoy trading on secure, intuitive platforms built for new and expert traders._t_',
                                 )}
                             </Text>
                         </WhyTradeItem>
@@ -444,10 +444,10 @@ const WhatAreOptions = () => {
                                 <img src={FriendlySupport} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Expert and friendly support')}
+                                {localize('_t_Expert and friendly support_t_')}
                             </Text>
                             <Text>
-                                {localize('Get expert, friendly support when you need it.')}
+                                {localize('_t_Get expert, friendly support when you need it._t_')}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
@@ -456,16 +456,16 @@ const WhatAreOptions = () => {
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {is_uk_eu
-                                    ? localize('Trade anytime')
-                                    : localize('Trade 24/7, 365 days a year')}
+                                    ? localize('_t_Trade anytime_t_')
+                                    : localize('_t_Trade 24/7, 365 days a year_t_')}
                             </Text>
                             <Text>
                                 {is_uk_eu
                                     ? localize(
-                                          'Trade multipliers on synthetic indices 24/7, 365 days a year. Trade multipliers on forex round the clock on weekdays.',
+                                          '_t_Trade multipliers on synthetic indices 24/7, 365 days a year. Trade multipliers on forex round the clock on weekdays._t_',
                                       )
                                     : localize(
-                                          'Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round.',
+                                          '_t_Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round._t_',
                                       )}
                             </Text>
                         </WhyTradeItem>
@@ -474,20 +474,20 @@ const WhatAreOptions = () => {
                                 <img src={CrashBoom} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Crash/Boom indices')}
+                                {localize('_t_Crash/Boom indices_t_')}
                             </Text>
                             <Text>
                                 {localize(
-                                    'Predict and gain from exciting spikes and dips with our Crash/Boom indices.',
+                                    '_t_Predict and gain from exciting spikes and dips with our Crash/Boom indices._t_',
                                 )}
                             </Text>
                         </WhyTradeItem>
                     </Grid>
                     <Text mt="4rem" mb="1.6rem" weight="bold">
-                        {localize("Don't have a Deriv.com account yet?")}
+                        {localize("_t_Don't have a Deriv.com account yet?_t_")}
                     </Text>
                     <Button onClick={handleSignup} id="dm-multipliers-signup-1" to="" secondary>
-                        {localize('Create free demo account')}
+                        {localize('_t_Create free demo account_t_')}
                     </Button>
                 </SmallContainer>
             </SectionContainer>

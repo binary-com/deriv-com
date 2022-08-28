@@ -160,7 +160,7 @@ const InterestFreeTrading = () => {
                     <ImageTag src={ZeroPercent} alt="Zero percent interest" />
                 </ImageWrapper>
                 <InterestText size="32px">
-                    <Localize translate_text="interest" />
+                    <Localize translate_text="_t_interest_t_" />
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>
@@ -178,13 +178,13 @@ const InterestFreeTrading = () => {
             </InterestCardFlex>
             <StyledFlex fd="column" jc="flex-start" ac="center" height="100%" width="51.4rem">
                 <StyledHeader as="h2" lh="1.25">
-                    <Localize translate_text="Trade on the world markets without commission" />
+                    <Localize translate_text="_t_Trade on the world markets without commission_t_" />
                 </StyledHeader>
                 <StyledRightText>
-                    <Localize translate_text="Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs." />
+                    <Localize translate_text="_t_Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs._t_" />
                 </StyledRightText>
                 <StyledLinkButton secondary="true" type="mt5" external="true" target="_blank">
-                    <Localize translate_text="Trade without commission" />
+                    <Localize translate_text="_t_Trade without commission_t_" />
                 </StyledLinkButton>
             </StyledFlex>
         </StyledContainer>

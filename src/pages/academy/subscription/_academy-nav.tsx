@@ -61,7 +61,7 @@ const AcademyNav = () => {
             <Flex width="auto">
                 <LocalizedLink
                     to="/academy/"
-                    aria-label={localize('Academy')}
+                    aria-label={localize('_t_Academy_t_')}
                     style={{
                         textDecoration: 'none',
                         width: '100%',

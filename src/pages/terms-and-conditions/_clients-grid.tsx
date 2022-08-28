@@ -61,120 +61,120 @@ const IconGrid = () => {
     const columns = [
         {
             Icon: General,
-            title: localize('General terms of use'),
-            content: localize('What you’re agreeing to when you sign up to use Deriv'),
+            title: localize('_t_General terms of use_t_'),
+            content: localize('_t_What you’re agreeing to when you sign up to use Deriv_t_'),
             eu_links: [
                 {
                     url: '/tnc/general-terms.pdf',
-                    title: localize('General terms of use'),
+                    title: localize('_t_General terms of use_t_'),
                 },
             ],
             non_eu_links: [
                 {
                     url: '/tnc/general-terms.pdf',
-                    title: localize('General terms of use'),
+                    title: localize('_t_General terms of use_t_'),
                 },
             ],
         },
         {
             Icon: Trading,
-            title: localize('Trading terms'),
-            content: localize('Rules for making trades on any Deriv trading platform'),
+            title: localize('_t_Trading terms_t_'),
+            content: localize('_t_Rules for making trades on any Deriv trading platform_t_'),
             eu_links: [
                 {
                     url: '/tnc/trading-terms.pdf',
-                    title: localize('Trading terms'),
+                    title: localize('_t_Trading terms_t_'),
                 },
             ],
             non_eu_links: [
                 {
                     url: '/tnc/trading-terms.pdf',
-                    title: localize('Trading terms'),
+                    title: localize('_t_Trading terms_t_'),
                 },
             ],
         },
         {
             Icon: Funds,
-            title: localize('Funds & transfers'),
+            title: localize('_t_Funds & transfers_t_'),
             content: localize(
-                'Terms that govern keeping and transferring funds in Deriv and the bonuses you might get',
+                '_t_Terms that govern keeping and transferring funds in Deriv and the bonuses you might get_t_',
             ),
             eu_links: [
                 {
                     url: '/tnc/funds-and-transfers.pdf',
-                    title: localize('Funds & transfers'),
+                    title: localize('_t_Funds & transfers_t_'),
                 },
             ],
             non_eu_links: [
                 {
                     url: '/tnc/funds-and-transfers.pdf',
-                    title: localize('Funds & transfers'),
+                    title: localize('_t_Funds & transfers_t_'),
                 },
             ],
         },
         {
             Icon: Security,
-            title: localize('Security & privacy'),
-            content: localize('How we use and protect the information you give us'),
+            title: localize('_t_Security & privacy_t_'),
+            content: localize('_t_How we use and protect the information you give us_t_'),
 
             eu_links: [
                 {
                     url: '/tnc/security-and-privacy.pdf',
-                    title: localize('Security & privacy'),
+                    title: localize('_t_Security & privacy_t_'),
                 },
             ],
             non_eu_links: [
                 {
                     url: '/tnc/security-and-privacy.pdf',
-                    title: localize('Security & privacy'),
+                    title: localize('_t_Security & privacy_t_'),
                 },
             ],
         },
         {
             Icon: Risk,
-            title: localize('Risk disclosure'),
+            title: localize('_t_Risk disclosure_t_'),
             content: localize(
-                'A notice to help you understand the risks that might arise when you trade on Deriv',
+                '_t_A notice to help you understand the risks that might arise when you trade on Deriv_t_',
             ),
             eu_links: [
                 {
                     url: '/tnc/risk-disclosure.pdf',
-                    title: localize('Risk disclosure'),
+                    title: localize('_t_Risk disclosure_t_'),
                 },
             ],
             non_eu_links: [
                 {
                     url: '/tnc/risk-disclosure.pdf',
-                    title: localize('Risk disclosure'),
+                    title: localize('_t_Risk disclosure_t_'),
                 },
             ],
         },
         {
             Icon: BFX,
-            title: localize('Additional terms'),
+            title: localize('_t_Additional terms_t_'),
             content: localize(
-                'Additional terms and restrictions for Deriv clients in certain countries',
+                '_t_Additional terms and restrictions for Deriv clients in certain countries_t_',
             ),
 
             eu_links: [
                 {
                     url: '/tnc/deriv-investments-(europe)-limited.pdf',
-                    title: localize('Deriv Investments (Europe) Limited'),
+                    title: localize('_t_Deriv Investments (Europe) Limited_t_'),
                 },
             ],
 
             non_eu_links: [
                 {
                     url: '/tnc/deriv-(fx)-ltd.pdf',
-                    title: localize('Deriv (FX) Ltd'),
+                    title: localize('_t_Deriv (FX) Ltd_t_'),
                 },
                 {
                     url: '/tnc/deriv-investments-(europe)-limited.pdf',
-                    title: localize('Deriv Investments (Europe) Limited'),
+                    title: localize('_t_Deriv Investments (Europe) Limited_t_'),
                 },
                 {
                     url: '/tnc/deriv-(bvi)-ltd.pdf',
-                    title: localize('Deriv (BVI) Ltd'),
+                    title: localize('_t_Deriv (BVI) Ltd_t_'),
                 },
             ],
         },

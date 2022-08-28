@@ -11,7 +11,7 @@ const WhatToKnow = Loadable(() => import('./_what-to-know'))
 const Interim = () => {
     return (
         <Layout type="interim" interim_type="affiliate">
-            <SEO title={localize('Interim | Affiliate')} no_index />
+            <SEO title={localize('_t_Interim | Affiliate_t_')} no_index />
             <Hero />
             <FAQ />
             <WhatToKnow />

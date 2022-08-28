@@ -48,24 +48,24 @@ const StyledText = styled(Text)`
 const GridContent = [
     {
         Icon: Spam,
-        content: localize('The email is in your spam folder (Sometimes things get lost there).'),
+        content: localize('_t_The email is in your spam folder (Sometimes things get lost there)._t_'),
     },
     {
         Icon: Typo,
         content: localize(
-            'The email address you entered had a mistake or typo (happens to the best of us).',
+            '_t_The email address you entered had a mistake or typo (happens to the best of us)._t_',
         ),
     },
     {
         Icon: WorkEmail,
         content: localize(
-            'You accidentally gave us another email address (Usually a work or a personal one instead of the one you meant).',
+            '_t_You accidentally gave us another email address (Usually a work or a personal one instead of the one you meant)._t_',
         ),
     },
     {
         Icon: Firewalls,
         content: localize(
-            'We can’t deliver the email to this address (Usually because of firewalls or filtering).',
+            '_t_We can’t deliver the email to this address (Usually because of firewalls or filtering)._t_',
         ),
     },
 ]

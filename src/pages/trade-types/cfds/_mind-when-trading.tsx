@@ -39,14 +39,14 @@ const MindWhenTrading = () => {
         <StyledSectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <Header as="h3" type="section-title" mb="2rem">
-                    {localize('Things to keep in mind when trading CFDs')}
+                    {localize('_t_Things to keep in mind when trading CFDs_t_')}
                 </Header>
                 <Text as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem">
-                    {localize('CFDs are traded on margin')}
+                    {localize('_t_CFDs are traded on margin_t_')}
                 </Text>
                 <Text mb="3.2rem">
                     {localize(
-                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure.',
+                        '_t_The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure._t_',
                     )}
                 </Text>
             </SmallContainer>
@@ -71,12 +71,12 @@ const MindWhenTrading = () => {
             <SmallContainer direction="column" ai="flex-start">
                 <Text mt="3.2rem">
                     {localize(
-                        'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.',
+                        '_t_Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms._t_',
                     )}
                 </Text>
 
                 <StyledLinkButton mt="4rem" secondary="true" to="/trader-tools/margin-calculator/">
-                    {localize('Margin calculator')}
+                    {localize('_t_Margin calculator_t_')}
                 </StyledLinkButton>
             </SmallContainer>
         </StyledSectionContainer>

@@ -84,67 +84,67 @@ const EUgrid = () => {
         <CssGrid columns="repeat(2, 1fr)" columngap="1rem">
             <CssGridColumn>
                 <GridItem
-                    name={localize('Austria')}
+                    name={localize('_t_Austria_t_')}
                     url="/regulatory/countries/Austria.pdf"
                     order="1"
                 />
                 <GridItem
-                    name={localize('Bulgaria')}
+                    name={localize('_t_Bulgaria_t_')}
                     url="/regulatory/countries/Bulgaria.pdf"
                     order="2"
                 />
                 <GridItem
-                    name={localize('Croatia')}
+                    name={localize('_t_Croatia_t_')}
                     url="/regulatory/countries/Croatia.pdf"
                     order="3"
                 />
                 <GridItem
-                    name={localize('Cyprus')}
+                    name={localize('_t_Cyprus_t_')}
                     url="/regulatory/countries/Cyprus.pdf"
                     order="4"
                 />
                 <GridItem
-                    name={localize('Czech Republic')}
+                    name={localize('_t_Czech Republic_t_')}
                     url="/regulatory/countries/CzechRepublic.pdf"
                     order="5"
                 />
                 <GridItem
-                    name={localize('Denmark')}
+                    name={localize('_t_Denmark_t_')}
                     url="/regulatory/countries/Denmark.pdf"
                     order="6"
                 />
                 <GridItem
-                    name={localize('Estonia')}
+                    name={localize('_t_Estonia_t_')}
                     url="/regulatory/countries/Estonia.pdf"
                     order="7"
                 />
                 <GridItem
-                    name={localize('Finland')}
+                    name={localize('_t_Finland_t_')}
                     url="/regulatory/countries/Finland.pdf"
                     order="8"
                 />
                 <GridItem
-                    name={localize('France')}
+                    name={localize('_t_France_t_')}
                     url="/regulatory/countries/France.pdf"
                     order="9"
                 />
                 <GridItem
-                    name={localize('Germany')}
+                    name={localize('_t_Germany_t_')}
                     url="/regulatory/countries/Germany.pdf"
                     order="10"
                 />
                 <GridItem
-                    name={localize('Greece')}
+                    name={localize('_t_Greece_t_')}
                     url="/regulatory/countries/Greece.pdf"
                     order="11"
                 />
                 <GridItem
-                    name={localize('Hungary')}
+                    name={localize('_t_Hungary_t_')}
                     url="/regulatory/countries/Hungary.pdf"
                     order="12"
                 />
                 <GridItem
-                    name={localize('Italy')}
+                    name={localize('_t_Italy_t_')}
                     url="/regulatory/countries/Italy.pdf"
                     order="13"
                 />
@@ -153,61 +153,61 @@ const EUgrid = () => {
                 <Country>
                     <Order>14</Order>
                     <License>
-                        <Localize translate_text="Ireland" />
+                        <Localize translate_text="_t_Ireland_t_" />
                     </License>
                 </Country>
                 <GridItem
-                    name={localize('Latvia')}
+                    name={localize('_t_Latvia_t_')}
                     url="/regulatory/countries/Latvia.pdf"
                     order="15"
                 />
                 <GridItem
-                    name={localize('Lithuania')}
+                    name={localize('_t_Lithuania_t_')}
                     url="/regulatory/countries/Lithuania.pdf"
                     order="16"
                 />
                 <GridItem
-                    name={localize('Luxembourg')}
+                    name={localize('_t_Luxembourg_t_')}
                     url="/regulatory/countries/Luxembourg.pdf"
                     order="17"
                 />
                 <GridItem
-                    name={localize('Netherlands')}
+                    name={localize('_t_Netherlands_t_')}
                     url="/regulatory/countries/Netherlands.pdf"
                     order="18"
                 />
                 <GridItem
-                    name={localize('Poland')}
+                    name={localize('_t_Poland_t_')}
                     url="/regulatory/countries/Poland.pdf"
                     order="19"
                 />
                 <GridItem
-                    name={localize('Portugal')}
+                    name={localize('_t_Portugal_t_')}
                     url="/regulatory/countries/Portugal.pdf"
                     order="20"
                 />
                 <GridItem
-                    name={localize('Romania')}
+                    name={localize('_t_Romania_t_')}
                     url="/regulatory/countries/Romania.pdf"
                     order="21"
                 />
                 <GridItem
-                    name={localize('Slovakia')}
+                    name={localize('_t_Slovakia_t_')}
                     url="/regulatory/countries/Slovakia.pdf"
                     order="22"
                 />
                 <GridItem
-                    name={localize('Slovenia')}
+                    name={localize('_t_Slovenia_t_')}
                     url="/regulatory/countries/Slovenia.pdf"
                     order="23"
                 />
                 <GridItem
-                    name={localize('Spain')}
+                    name={localize('_t_Spain_t_')}
                     url="/regulatory/countries/Spain.pdf"
                     order="24"
                 />
                 <GridItem
-                    name={localize('Sweden')}
+                    name={localize('_t_Sweden_t_')}
                     url="/regulatory/countries/Sweden.pdf"
                     order="25"
                 />

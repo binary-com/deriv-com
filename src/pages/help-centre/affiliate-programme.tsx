@@ -21,7 +21,7 @@ const SignUp = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="Complete <0>this form</0>, and we'll get in touch with you in a couple of days.<br/>You'll need a real Deriv trading account, too. If you don't have one, sign up <1>here</1>."
+                translate_text="_t_Complete <0>this form</0>, and we'll get in touch with you in a couple of days.<br/>You'll need a real Deriv trading account, too. If you don't have one, sign up <1>here</1>._t_"
                 components={[
                     <ExternalLink
                         to={'https://login.deriv.com/signup.php?lang=0'}
@@ -47,45 +47,45 @@ const SignUp = ({ text }: ArticleProps) => (
 const WhyAffiliate = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('When you join our affiliate programme,')}</Text>
+        <Text>{localize('_t_When you join our affiliate programme,_t_')}</Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     {
-                        <Localize translate_text="You'll have multiple income opportunities by joining other partnership programmes that we offer." />
+                        <Localize translate_text="_t_You'll have multiple income opportunities by joining other partnership programmes that we offer._t_" />
                     }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     {localize(
-                        `You'll have access to various marketing tools to help promote our products and services to your clients.`,
+                        `_t_You'll have access to various marketing tools to help promote our products and services to your clients._t_`,
                     )}
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     {localize(
-                        "You'll be able to take advantage of our multilingual platforms and reach clients wherever they are.",
+                        "_t_You'll be able to take advantage of our multilingual platforms and reach clients wherever they are._t_",
                     )}
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     {localize(
-                        "You'll receive prompt monthly payouts via your preferred payment method.",
+                        "_t_You'll receive prompt monthly payouts via your preferred payment method._t_",
                     )}
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     {localize(
-                        "You won't be charged any hidden fees. You'll be able to see exactly what your earnings are.",
+                        "_t_You won't be charged any hidden fees. You'll be able to see exactly what your earnings are._t_",
                     )}
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize("You'll have a dedicated account manager to help you.")}</Text>
+                <Text>{localize("_t_You'll have a dedicated account manager to help you._t_")}</Text>
             </StyledListItem>
         </StyledList>
     </ArticleWrapper>
@@ -94,7 +94,7 @@ const WhyAffiliate = ({ text }: ArticleProps) => (
 const CommissionPlans = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('We have 3 commission plans:')}</Text>
+        <Text>{localize('_t_We have 3 commission plans:_t_')}</Text>
 
         <Text>
             <Localize
@@ -113,12 +113,12 @@ const CommissionPlans = ({ text }: ArticleProps) => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>Cost per acquisition</0> (For the EU only)"
+                translate_text="_t_<0>Cost per acquisition</0> (For the EU only)_t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
-            <Localize translate_text="Earn 100 USD in commission for each successful referral. Your referred client must open a real account using your tracking link and deposit 100 USD or more (one-time or accumulative)." />
+            <Localize translate_text="_t_Earn 100 USD in commission for each successful referral. Your referred client must open a real account using your tracking link and deposit 100 USD or more (one-time or accumulative)._t_" />
         </Text>
         <Text>
             <Localize
@@ -142,7 +142,7 @@ const CommissionPlans = ({ text }: ArticleProps) => (
 const WhoCanApply = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('We encourage you to become our affiliate if you are:')}</Text>
+        <Text>{localize('_t_We encourage you to become our affiliate if you are:_t_')}</Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
@@ -207,7 +207,7 @@ const IsItFree = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="Yes, it's completely free of charge <0>to join</0>."
+                translate_text="_t_Yes, it's completely free of charge <0>to join</0>._t_"
                 components={[
                     <ExternalLink
                         to={'https://login.deriv.com/signup.php?lang=0'}
@@ -228,7 +228,7 @@ const ReferredClient = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'A referred client is a client who signed up using your tracking link, made a deposit in their account, and started trading on our platforms. As an affiliate, you stand to earn commission from the trades performed by your referred clients.',
+                '_t_A referred client is a client who signed up using your tracking link, made a deposit in their account, and started trading on our platforms. As an affiliate, you stand to earn commission from the trades performed by your referred clients._t_',
             )}
         </Text>
     </ArticleWrapper>
@@ -239,7 +239,7 @@ const ForgotPassword = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="You can reset your affiliate password <0>here</0>."
+                translate_text="_t_You can reset your affiliate password <0>here</0>._t_"
                 components={[
                     <ExternalLink
                         to={'https://login.deriv.com/password-reset.php?lang=0'}
@@ -258,12 +258,12 @@ const ForgotPassword = ({ text }: ArticleProps) => (
 const ReferralLink = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Follow these steps to get your referral link:')}</Text>
+        <Text>{localize('_t_Follow these steps to get your referral link:_t_')}</Text>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="<0>Log in</0> to your affiliate dashboard."
+                        translate_text="_t_<0>Log in</0> to your affiliate dashboard._t_"
                         components={[
                             <ExternalLink
                                 to={'https://login.deriv.com/signin.php?lang=0'}
@@ -280,7 +280,7 @@ const ReferralLink = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="Click the <0>Marketing<0/> tab."
+                        translate_text="_t_Click the <0>Marketing<0/> tab._t_"
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -288,7 +288,7 @@ const ReferralLink = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="Go to the first item in the media gallery and click <0>Get media</0> code."
+                        translate_text="_t_Go to the first item in the media gallery and click <0>Get media</0> code._t_"
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -297,7 +297,7 @@ const ReferralLink = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="Copy the link in the <0>Landing page URL</0> field. This is the referral link that you can share with your clients."
+                        translate_text="_t_Copy the link in the <0>Landing page URL</0> field. This is the referral link that you can share with your clients._t_"
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -309,12 +309,12 @@ const ReferralLink = ({ text }: ArticleProps) => (
 const PaymentMethod = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Follow these steps to change your payment method:')}</Text>
+        <Text>{localize('_t_Follow these steps to change your payment method:_t_')}</Text>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="<0>Log in</0> to your dashboard."
+                        translate_text="_t_<0>Log in</0> to your dashboard._t_"
                         components={[
                             <ExternalLink
                                 to={'https://login.deriv.com/signin.php'}
@@ -331,7 +331,7 @@ const PaymentMethod = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="Click the <0>Finances</0> tab and select <0>Payment instructions</0>."
+                        translate_text="_t_Click the <0>Finances</0> tab and select <0>Payment instructions</0>._t_"
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -339,7 +339,7 @@ const PaymentMethod = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="Select your preferred payment method, enter the necessary details, and click <0>Update</0>."
+                        translate_text="_t_Select your preferred payment method, enter the necessary details, and click <0>Update</0>._t_"
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -353,7 +353,7 @@ const CommissionPayout = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="We'll credit your commission for the previous month into your trading account after the 15th of every month. As an affiliate, you’ll earn commission when your referred clients trade on options and multipliers. To earn from your clients' MT5 trades, you'll need to sign up as an introducing broker. (see <0>How do I sign up as an introducing broker (IB)?</0>)"
+                translate_text="_t_We'll credit your commission for the previous month into your trading account after the 15th of every month. As an affiliate, you’ll earn commission when your referred clients trade on options and multipliers. To earn from your clients' MT5 trades, you'll need to sign up as an introducing broker. (see <0>How do I sign up as an introducing broker (IB)?</0>)_t_"
                 components={[
                     <ExternalLink
                         to={'/help-centre/ib-programme/#ib-sign-up'}
@@ -373,12 +373,12 @@ const CommissionPayout = ({ text }: ArticleProps) => (
 const SeeEarnings = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Follow these steps to see your earnings:')}</Text>
+        <Text>{localize('_t_Follow these steps to see your earnings:_t_')}</Text>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="<0>Log in</0> to your dashboard."
+                        translate_text="_t_<0>Log in</0> to your dashboard._t_"
                         components={[
                             <ExternalLink
                                 to={'https://login.deriv.com/signin.php'}
@@ -395,7 +395,7 @@ const SeeEarnings = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="Go to <0>Reports</0>, and select <0>Detailed activity report</0>."
+                        translate_text="_t_Go to <0>Reports</0>, and select <0>Detailed activity report</0>._t_"
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -403,7 +403,7 @@ const SeeEarnings = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="Set the duration and filters and click <0>Display report</0> or <0>Download report</0>."
+                        translate_text="_t_Set the duration and filters and click <0>Display report</0> or <0>Download report</0>._t_"
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -417,7 +417,7 @@ const ReportsAccess = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                "You'll have access to reports that show your hits, impressions, click-through rates, clients' trading activity, and more.",
+                "_t_You'll have access to reports that show your hits, impressions, click-through rates, clients' trading activity, and more._t_",
             )}
         </Text>
     </ArticleWrapper>
@@ -429,69 +429,69 @@ const AffiliateProgrammeArticle = () => {
     return (
         <div>
             <Article
-                header={localize('Affiliate programme')}
+                header={localize('_t_Affiliate programme_t_')}
                 title={localize(
-                    'Help centre | Frequently asked questions | Affiliate programme | Deriv',
+                    '_t_Help centre | Frequently asked questions | Affiliate programme | Deriv_t_',
                 )}
-                description={localize('Frequently asked questions - Affiliate programme')}
+                description={localize('_t_Frequently asked questions - Affiliate programme_t_')}
             >
                 <SignUp
-                    text={localize('How do I sign up as an affiliate?')}
+                    text={localize('_t_How do I sign up as an affiliate?_t_')}
                     label="affiliate-sign-up"
                     is_mounted={is_mounted}
                 />
                 <WhyAffiliate
-                    text={localize('Why should I join your affiliate programme?')}
+                    text={localize('_t_Why should I join your affiliate programme?_t_')}
                     label="why-affiliate"
                     is_mounted={is_mounted}
                 />
                 <CommissionPlans
-                    text={localize('What type of commission plans do you offer?')}
+                    text={localize('_t_What type of commission plans do you offer?_t_')}
                     label="commission-plans"
                     is_mounted={is_mounted}
                 />
                 <WhoCanApply
-                    text={localize('Who can apply as an affiliate?')}
+                    text={localize('_t_Who can apply as an affiliate?_t_')}
                     label="who-can-apply"
                     is_mounted={is_mounted}
                 />
                 <IsItFree
-                    text={localize('Is it free to join your affiliate programme?')}
+                    text={localize('_t_Is it free to join your affiliate programme?_t_')}
                     label="is-it-free"
                     is_mounted={is_mounted}
                 />
                 <ReferredClient
-                    text={localize('What is a referred client?')}
+                    text={localize('_t_What is a referred client?_t_')}
                     label="referred-client"
                     is_mounted={is_mounted}
                 />
                 <ForgotPassword
-                    text={localize('I forgot my affiliate password. What should I do?')}
+                    text={localize('_t_I forgot my affiliate password. What should I do?_t_')}
                     label="forgot-password"
                     is_mounted={is_mounted}
                 />
                 <ReferralLink
-                    text={localize('Where can I find my referral link?')}
+                    text={localize('_t_Where can I find my referral link?_t_')}
                     label="referral-link"
                     is_mounted={is_mounted}
                 />
                 <PaymentMethod
-                    text={localize('How do I change my affiliate payment method?')}
+                    text={localize('_t_How do I change my affiliate payment method?_t_')}
                     label="payment-method"
                     is_mounted={is_mounted}
                 />
                 <CommissionPayout
-                    text={localize('How and when will I receive my commission payout?')}
+                    text={localize('_t_How and when will I receive my commission payout?_t_')}
                     label="commission-payout"
                     is_mounted={is_mounted}
                 />
                 <SeeEarnings
-                    text={localize('How do I see my earnings?')}
+                    text={localize('_t_How do I see my earnings?_t_')}
                     label="see-earnings"
                     is_mounted={is_mounted}
                 />
                 <ReportsAccess
-                    text={localize('What type of reports will I have access to?')}
+                    text={localize('_t_What type of reports will I have access to?_t_')}
                     label="reports-access"
                     is_mounted={is_mounted}
                 />

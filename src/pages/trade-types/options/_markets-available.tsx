@@ -43,7 +43,7 @@ const MarketsAvailable = () => {
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" type="section-title" mb="2.4rem">
-                        {localize('Markets available for options trading')}
+                        {localize('_t_Markets available for options trading_t_')}
                     </Header>
                 </SmallContainer>
                 <MarketsCarousel>
@@ -53,15 +53,15 @@ const MarketsAvailable = () => {
                                 <MobileCardHeader>
                                     <img src={Forex} alt="" width="64" height="64" />
 
-                                    <StyledText weight="bold">{localize('Forex')}</StyledText>
+                                    <StyledText weight="bold">{localize('_t_Forex_t_')}</StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Take part in the world’s largest financial market. Trade digital options and Call/Put Spreads on major, minor, and smart forex pairs.',
+                                        '_t_Take part in the world’s largest financial market. Trade digital options and Call/Put Spreads on major, minor, and smart forex pairs._t_',
                                     )}
                                 </Text>
                                 <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
+                                    text={<Localize translate_text="_t_Learn more_t_" />}
                                     to="/markets/forex/"
                                 />
                             </Card>
@@ -74,16 +74,16 @@ const MarketsAvailable = () => {
                                     <img src={SyntheticIndices} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">
-                                        {localize('Synthetic indices')}
+                                        {localize('_t_Synthetic indices_t_')}
                                     </StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Trade digital options, lookbacks, and Call/Put Spreads 24/7 on our synthetic indices that are free from real-world disruptions.',
+                                        '_t_Trade digital options, lookbacks, and Call/Put Spreads 24/7 on our synthetic indices that are free from real-world disruptions._t_',
                                     )}
                                 </Text>
                                 <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
+                                    text={<Localize translate_text="_t_Learn more_t_" />}
                                     to="/markets/synthetic/"
                                 />
                             </Card>
@@ -96,16 +96,16 @@ const MarketsAvailable = () => {
                                     <img src={StockIndices} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">
-                                        {localize('Stocks & indices')}
+                                        {localize('_t_Stocks & indices_t_')}
                                     </StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Trade digital options on stocks & indices and profit from the price movements in our competitively priced asset baskets.',
+                                        '_t_Trade digital options on stocks & indices and profit from the price movements in our competitively priced asset baskets._t_',
                                     )}
                                 </Text>
                                 <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
+                                    text={<Localize translate_text="_t_Learn more_t_" />}
                                     to="/markets/stock/"
                                 />
                             </Card>
@@ -118,16 +118,16 @@ const MarketsAvailable = () => {
                                     <img src={BasketIndices} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">
-                                        {localize('Basket indices')}
+                                        {localize('_t_Basket indices_t_')}
                                     </StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world.',
+                                        '_t_In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world._t_',
                                     )}
                                 </Text>
                                 <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
+                                    text={<Localize translate_text="_t_Learn more_t_" />}
                                     to="/markets/basket-indices/"
                                 />
                             </Card>
@@ -139,15 +139,15 @@ const MarketsAvailable = () => {
                                 <MobileCardHeader>
                                     <img src={Commodities} alt="" width="64" height="64" />
 
-                                    <StyledText weight="bold">{localize('Commodities')}</StyledText>
+                                    <StyledText weight="bold">{localize('_t_Commodities_t_')}</StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        "Speculate on the price movements of the world's major commodities – silver, gold, oil, and energy.",
+                                        "_t_Speculate on the price movements of the world's major commodities – silver, gold, oil, and energy._t_",
                                     )}
                                 </Text>
                                 <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
+                                    text={<Localize translate_text="_t_Learn more_t_" />}
                                     to="/markets/commodities/"
                                 />
                             </Card>

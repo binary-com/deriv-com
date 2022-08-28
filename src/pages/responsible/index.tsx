@@ -42,9 +42,9 @@ const ResponsibleTrading = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Secure and responsible online trading guidelines | Deriv')}
+                title={localize('_t_Secure and responsible online trading guidelines | Deriv_t_')}
                 description={localize(
-                    'Read our guidelines on secure and responsible trading. Understand the risks involved in online trading and how you can manage them.',
+                    '_t_Read our guidelines on secure and responsible trading. Understand the risks involved in online trading and how you can manage them._t_',
                 )}
             />
             <Section>
@@ -59,17 +59,17 @@ const ResponsibleTrading = () => {
                                 lh="1.25"
                                 mb="1.6rem"
                             >
-                                {localize('Secure and responsible trading')}
+                                {localize('_t_Secure and responsible trading_t_')}
                             </StyledHeader>
                             <Text align="center" max_width="79.2rem" m="0 auto" color="white">
                                 <Show.Eu>
                                     {localize(
-                                        'Trading online can be exciting, but it’s important to keep in mind that there are risks involved including addiction and financial losses. To avoid the danger of addiction, it is important that you engage in a careful self-analysis to check if you are at risk, and follow some basic principles and guidelines.',
+                                        '_t_Trading online can be exciting, but it’s important to keep in mind that there are risks involved including addiction and financial losses. To avoid the danger of addiction, it is important that you engage in a careful self-analysis to check if you are at risk, and follow some basic principles and guidelines._t_',
                                     )}
                                 </Show.Eu>
                                 <Show.NonEU>
                                     {localize(
-                                        'Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading.',
+                                        '_t_Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading._t_',
                                     )}
                                 </Show.NonEU>
                             </Text>

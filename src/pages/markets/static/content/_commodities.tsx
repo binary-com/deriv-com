@@ -16,23 +16,23 @@ export type CommoditiesContent = {
 }
 export const simple_step_content_commodities: SimpleStepsContent[] = [
     {
-        header: <Localize translate_text="Practise" />,
+        header: <Localize translate_text="_t_Practise_t_" />,
         text: (
-            <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
+            <Localize translate_text="_t_Open a demo account and practise with an unlimited amount of virtual funds._t_" />
         ),
         icon: <img src={PractiseIcon} alt="" width="32" height="32" />,
     },
     {
-        header: <Localize translate_text="Trade" />,
+        header: <Localize translate_text="_t_Trade_t_" />,
         text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
+            <Localize translate_text="_t_Open a real account, make a deposit, and start trading commodities and other markets. _t_" />
         ),
         icon: <img src={TradeIcon} alt="" width="32" height="28" />,
     },
     {
-        header: <Localize translate_text="Withdraw" />,
+        header: <Localize translate_text="_t_Withdraw_t_" />,
         text: (
-            <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
+            <Localize translate_text="_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_" />
         ),
         icon: <img src={WithdrawIcon} alt="" width="32" height="32" />,
     },
@@ -40,23 +40,23 @@ export const simple_step_content_commodities: SimpleStepsContent[] = [
 const commodities: CommoditiesContent[] = [
     {
         src: VariableSpreads,
-        text: <Localize translate_text="Competitive fixed and variable spreads" />,
+        text: <Localize translate_text="_t_Competitive fixed and variable spreads_t_" />,
     },
     {
         src: NoCommission,
-        text: <Localize translate_text="No commission on any commodity contract" />,
+        text: <Localize translate_text="_t_No commission on any commodity contract_t_" />,
     },
     {
         src: MetalAndOil,
-        text: <Localize translate_text="All four precious metals and crude oil available" />,
+        text: <Localize translate_text="_t_All four precious metals and crude oil available_t_" />,
     },
     {
         src: ResponsiveWebsite,
-        text: <Localize translate_text="Easy-to-use platforms, superior chart technology" />,
+        text: <Localize translate_text="_t_Easy-to-use platforms, superior chart technology_t_" />,
     },
     {
         src: FriendlySupport,
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        text: <Localize translate_text="_t_Smart and friendly support, 7 days a week_t_" />,
     },
 ]
 

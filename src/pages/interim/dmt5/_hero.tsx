@@ -30,7 +30,7 @@ const Hero = () => {
                 <Container fw="wrap">
                     <ResponsiveFlex fd="column" max_width="58.8rem" ai="center">
                         <ResponsiveHeader as="h2" type="page-title" mb="1.2rem" align="center">
-                            {localize('Introducing MT5 on Deriv.com')}
+                            {localize('_t_Introducing MT5 on Deriv.com_t_')}
                         </ResponsiveHeader>
                         <Header
                             as="h4"
@@ -39,11 +39,11 @@ const Hero = () => {
                             mb="4rem"
                             align="center"
                         >
-                            {localize('Trade on MT5 at our new home')}
+                            {localize('_t_Trade on MT5 at our new home_t_')}
                         </Header>
                         <Desktop width="auto" fd="column" ai="center">
                             <FitButton secondary to="/">
-                                {localize('Explore Deriv.com')}
+                                {localize('_t_Explore Deriv.com_t_')}
                             </FitButton>
                             <CtaBinary is_white />
                         </Desktop>
@@ -53,7 +53,7 @@ const Hero = () => {
                     </ImgWrapper>
                     <Mobile mt="4rem" fd="column" ai="center">
                         <FitButton secondary to="/">
-                            {localize('Explore Deriv.com')}
+                            {localize('_t_Explore Deriv.com_t_')}
                         </FitButton>
                         <CtaBinary is_white />
                     </Mobile>
@@ -62,7 +62,7 @@ const Hero = () => {
             <Container p="8rem 0" fd="column">
                 <Header as="h4" type="sub-section-title" weight="normal" align="center">
                     {localize(
-                        'In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you.',
+                        '_t_In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you._t_',
                     )}
                 </Header>
             </Container>

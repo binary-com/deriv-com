@@ -68,7 +68,7 @@ const SignupDefault = ({
     return (
         <Wrapper>
             <Header as="h3" weight="bold">
-                {localize('Sign up for your demo account now.')}
+                {localize('_t_Sign up for your demo account now._t_')}
             </Header>
             <InputGroup>
                 <Input
@@ -77,7 +77,7 @@ const SignupDefault = ({
                     type="text"
                     error={email_error_msg}
                     value={email}
-                    label={localize('Email')}
+                    label={localize('_t_Email_t_')}
                     placeholder={'example@mail.com'}
                     handleError={clearEmail}
                     onChange={handleInputChange}
@@ -93,10 +93,10 @@ const SignupDefault = ({
                 secondary="true"
                 disabled={is_submitting}
             >
-                {localize('Create free demo account')}
+                {localize('_t_Create free demo account_t_')}
             </EmailButton>
             <Text color="grey" align="center">
-                {localize('Or sign up with')}
+                {localize('_t_Or sign up with_t_')}
             </Text>
             <SocialWrapper justify="space-between" gap="0" grid="2">
                 <SocialButton
@@ -125,15 +125,15 @@ const SignupDefault = ({
                 </SocialButton>
             </SocialWrapper>
             <LoginText>
-                {localize('Already have an account?')}
+                {localize('_t_Already have an account?_t_')}
                 <LoginLink id="dm-default-login-button" onClick={handleLogin}>
                     {' '}
-                    {localize('Log in.')}
+                    {localize('_t_Log in._t_')}
                 </LoginLink>
             </LoginText>
             <NoteText>
                 <Localize
-                    translate_text="Got a <0>Binary.com</0> account? You can <1>log in</1> to <0>Deriv</0> with your <0>Binary.com</0> username and password"
+                    translate_text="_t_Got a <0>Binary.com</0> account? You can <1>log in</1> to <0>Deriv</0> with your <0>Binary.com</0> username and password_t_"
                     components={[<strong key={0} />, <LoginLink key={1} onClick={handleLogin} />]}
                 />
             </NoteText>

@@ -22,9 +22,9 @@ const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
 const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
 
 const meta_attributes = {
-    og_title: localize('DTrader | Online Trading Platform | Deriv.com'),
+    og_title: localize('_t_DTrader | Online Trading Platform | Deriv.com_t_'),
     og_description: localize(
-        'DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices.',
+        '_t_DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices._t_',
     ),
 }
 
@@ -39,75 +39,75 @@ const query = graphql`
     }
 `
 const items = [
-    { title: '50+', subtitle: <Localize translate_text="Tradable assets and growing" /> },
-    { title: '$0.35', subtitle: <Localize translate_text="Minimum stake" /> },
-    { title: '1s - 365d', subtitle: <Localize translate_text="Flexible trade duration" /> },
-    { title: '>200%', subtitle: <Localize translate_text="Potential payout" /> },
+    { title: '50+', subtitle: <Localize translate_text="_t_Tradable assets and growing_t_" /> },
+    { title: '$0.35', subtitle: <Localize translate_text="_t_Minimum stake_t_" /> },
+    { title: '1s - 365d', subtitle: <Localize translate_text="_t_Flexible trade duration_t_" /> },
+    { title: '>200%', subtitle: <Localize translate_text="_t_Potential payout_t_" /> },
 ]
 
 const itemsEU = [
-    { title: '20+', subtitle: <Localize translate_text="Tradable assets and growing" /> },
-    { title: '$5.00', subtitle: <Localize translate_text="Minimum stake" /> },
-    { title: '1s - 365d', subtitle: <Localize translate_text="Flexible trade duration" /> },
-    { title: 'Up to x30', subtitle: <Localize translate_text="Multiply potential profit" /> },
+    { title: '20+', subtitle: <Localize translate_text="_t_Tradable assets and growing_t_" /> },
+    { title: '$5.00', subtitle: <Localize translate_text="_t_Minimum stake_t_" /> },
+    { title: '1s - 365d', subtitle: <Localize translate_text="_t_Flexible trade duration_t_" /> },
+    { title: 'Up to x30', subtitle: <Localize translate_text="_t_Multiply potential profit_t_" /> },
 ]
 const trading = [
     {
-        title: <Localize translate_text="Make smarter trading decisions" />,
+        title: <Localize translate_text="_t_Make smarter trading decisions_t_" />,
         subtitle: (
-            <Localize translate_text="Customise your chart with technical indicators and widgets  — everything you need to make smarter trading decisions." />
+            <Localize translate_text="_t_Customise your chart with technical indicators and widgets  — everything you need to make smarter trading decisions._t_" />
         ),
 
         image_name: 'make_smarter',
-        image_alt: localize('Customise your chart types'),
+        image_alt: localize('_t_Customise your chart types_t_'),
     },
     {
-        title: <Localize translate_text="Trade what you want, when you want..." />,
+        title: <Localize translate_text="_t_Trade what you want, when you want..._t_" />,
         subtitle: (
-            <Localize translate_text="Forex, indices, commodities and synthetic indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here." />
+            <Localize translate_text="_t_Forex, indices, commodities and synthetic indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here._t_" />
         ),
 
         image_name: 'trade_what_you_want',
-        image_alt: localize('Trade world or synthetic markets'),
+        image_alt: localize('_t_Trade world or synthetic markets_t_'),
     },
     {
-        title: <Localize translate_text="... And how you want" />,
+        title: <Localize translate_text="_t_... And how you want_t_" />,
         subtitle: (
-            <Localize translate_text="Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second." />
+            <Localize translate_text="_t_Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second._t_" />
         ),
 
         image_name: 'how_you_want',
-        image_alt: localize('Customise your trade types'),
+        image_alt: localize('_t_Customise your trade types_t_'),
     },
 ]
 
 const trading_eu = [
     {
-        title: <Localize translate_text="Make smarter trading decisions" />,
+        title: <Localize translate_text="_t_Make smarter trading decisions_t_" />,
         subtitle: (
-            <Localize translate_text="Customise your chart with technical indicators and widgets  — everything you need to make smarter trading decisions." />
+            <Localize translate_text="_t_Customise your chart with technical indicators and widgets  — everything you need to make smarter trading decisions._t_" />
         ),
 
         image_name: 'make_smarter',
-        image_alt: localize('Customise your chart types'),
+        image_alt: localize('_t_Customise your chart types_t_'),
     },
     {
-        title: <Localize translate_text="Trade what you want, when you want..." />,
+        title: <Localize translate_text="_t_Trade what you want, when you want..._t_" />,
         subtitle: (
-            <Localize translate_text="Synthetic indices, forex, and cryptocurrencies — whether it’s the world financial markets or synthetic markets that excite you, you’ll find them here." />
+            <Localize translate_text="_t_Synthetic indices, forex, and cryptocurrencies — whether it’s the world financial markets or synthetic markets that excite you, you’ll find them here._t_" />
         ),
 
         image_name: 'trade_what_you_want_eu',
-        image_alt: localize('Trade world or synthetic markets'),
+        image_alt: localize('_t_Trade world or synthetic markets_t_'),
     },
     {
-        title: <Localize translate_text="... And how you want" />,
+        title: <Localize translate_text="_t_... And how you want_t_" />,
         subtitle: (
-            <Localize translate_text="Choose a multiplier value, fine-tune your trade with multipliers optional features (take profit, stop loss, and deal cancellation), and start trading with a stake as low as $5." />
+            <Localize translate_text="_t_Choose a multiplier value, fine-tune your trade with multipliers optional features (take profit, stop loss, and deal cancellation), and start trading with a stake as low as $5._t_" />
         ),
 
         image_name: 'how_you_want_eu',
-        image_alt: localize('Customise your trade types'),
+        image_alt: localize('_t_Customise your trade types_t_'),
     },
 ]
 const PlatformContainer = styled.div`
@@ -129,17 +129,17 @@ const Dtrader = () => {
     return (
         <Layout>
             <SEO
-                title={localize('DTrader | Online trading platform | Deriv')}
+                title={localize('_t_DTrader | Online trading platform | Deriv_t_')}
                 description={localize(
-                    'DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices.',
+                    '_t_DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices._t_',
                 )}
                 meta_attributes={meta_attributes}
             />
             <DHero
-                title={localize('DTrader')}
+                title={localize('_t_DTrader_t_')}
                 content={
                     <Localize
-                        translate_text="Trading<0/>made simple<0/>"
+                        translate_text="_t_Trading<0/>made simple<0/>_t_"
                         components={[<br key={0} />]}
                     />
                 }
@@ -149,7 +149,7 @@ const Dtrader = () => {
                 image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
                 is_mobile={is_mobile}
                 background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
-                background_alt={localize('Trade volatility indices with DTrader at Deriv')}
+                background_alt={localize('_t_Trade volatility indices with DTrader at Deriv_t_')}
             />
             <ROW>
                 <DNumber items={items} justify="space-around" />
@@ -159,7 +159,7 @@ const Dtrader = () => {
             </EU>
             <DHowItWorks
                 Video={DtraderVideo}
-                title={<Localize translate_text="Make a trade in 3 easy steps" />}
+                title={<Localize translate_text="_t_Make a trade in 3 easy steps_t_" />}
             />
             <ROW>
                 <DTrading trading={trading} />
@@ -172,7 +172,7 @@ const Dtrader = () => {
             </PlatformContainer>
             <DBanner
                 background_pattern={BackgroundPatternTrader}
-                title={<Localize translate_text="Get into the DTrader experience" />}
+                title={<Localize translate_text="_t_Get into the DTrader experience_t_" />}
                 data={data}
             />
         </Layout>

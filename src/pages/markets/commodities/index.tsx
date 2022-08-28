@@ -12,9 +12,9 @@ const CommoditiesPage = () => (
     <Layout>
         <SEO
             description={localize(
-                'Sign up with Deriv to start trading on commodities and speculate on the price movements of gold, silver, oil, and other assets.',
+                '_t_Sign up with Deriv to start trading on commodities and speculate on the price movements of gold, silver, oil, and other assets._t_',
             )}
-            title={localize('Commodities market | Commodities trading | Deriv')}
+            title={localize('_t_Commodities market | Commodities trading | Deriv_t_')}
         />
         <Hero />
         <NavTab route_from={'commodities'} route_offset={1200} />

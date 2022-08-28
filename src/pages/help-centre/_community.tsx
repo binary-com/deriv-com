@@ -48,10 +48,10 @@ export const Community = () => {
                     <QueryImage alt="community" data={data['community']} width="41rem" />
                     <StyledFlex tablet_ai="center" ml="5rem" direction="column">
                         <StyledHeader mt="1rem" as="h3" type="section-title">
-                            {localize('Have a question?')}
+                            {localize('_t_Have a question?_t_')}
                         </StyledHeader>
                         <Text size="var(--text-size-m)" pt="0.8rem" pb="3.4rem">
-                            {localize('Our Deriv support community can help you find answers.')}
+                            {localize('_t_Our Deriv support community can help you find answers._t_')}
                         </Text>
                         <StyledLinkButton
                             secondary="true"
@@ -61,7 +61,7 @@ export const Community = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {localize('Ask the community')}
+                            {localize('_t_Ask the community_t_')}
                         </StyledLinkButton>
                     </StyledFlex>
                 </Flex>

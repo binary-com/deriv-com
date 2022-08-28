@@ -268,7 +268,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                     </CardWrappers>
                     <HowItsCalculate>
                         <StyledButton flat onClick={toggleCalculated}>
-                            {localize("How it's calculated")}
+                            {localize("_t_How it's calculated_t_")}
                         </StyledButton>
                     </HowItsCalculate>
                 </>
@@ -316,7 +316,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                             ))}
                             <ButtonWrapper>
                                 <BackButton tertiary onClick={toggleCalculated}>
-                                    {localize('Back')}
+                                    {localize('_t_Back_t_')}
                                 </BackButton>
                                 <StyledLinkButton
                                     id="dm-become-affiliate-signup"
@@ -326,7 +326,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                     target="_blank"
                                     type="affiliate_sign_up"
                                 >
-                                    {localize('Become an affiliate')}
+                                    {localize('_t_Become an affiliate_t_')}
                                 </StyledLinkButton>
                             </ButtonWrapper>
                         </Flex>

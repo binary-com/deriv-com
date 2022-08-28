@@ -193,7 +193,7 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
                                     onClick={() => window.open(data.url, '_blank')}
                                     tertiary
                                 >
-                                    {localize('Learn more')}
+                                    {localize('_t_Learn more_t_')}
                                 </StyledButton>
                             )}
                         </Description>

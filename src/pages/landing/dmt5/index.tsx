@@ -24,16 +24,16 @@ const query = graphql`
 `
 const numbers_content = [
     {
-        title: <Localize translate_text="20+" />,
-        subtitle: <Localize translate_text="years of experience" />,
+        title: <Localize translate_text="_t_20+_t_" />,
+        subtitle: <Localize translate_text="_t_years of experience_t_" />,
     },
     {
-        title: <Localize translate_text="100+" />,
-        subtitle: <Localize translate_text="tradable assets" />,
+        title: <Localize translate_text="_t_100+_t_" />,
+        subtitle: <Localize translate_text="_t_tradable assets_t_" />,
     },
     {
-        title: <Localize translate_text="330K+" />,
-        subtitle: <Localize translate_text="clients on DMT5" />,
+        title: <Localize translate_text="_t_330K+_t_" />,
+        subtitle: <Localize translate_text="_t_clients on DMT5_t_" />,
     },
 ]
 
@@ -52,16 +52,16 @@ const DMT5 = () => {
     return (
         <Layout is_ppc_redirect={true}>
             <SEO
-                title={localize('DMT5 | MetaTrader 5 | Deriv')}
+                title={localize('_t_DMT5 | MetaTrader 5 | Deriv_t_')}
                 description={localize(
-                    'DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile.',
+                    '_t_DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile._t_',
                 )}
                 no_index
             />
             <DHero
-                title={localize('Deriv MT5 (DMT5)')}
+                title={localize('_t_Deriv MT5 (DMT5)_t_')}
                 content={
-                    <Localize translate_text="Trade 24/7 on forex, stocks, synthetic indices, and commodities" />
+                    <Localize translate_text="_t_Trade 24/7 on forex, stocks, synthetic indices, and commodities_t_" />
                 }
                 join_us_for_free
                 Logo={dmt5_logo}
@@ -69,7 +69,7 @@ const DMT5 = () => {
                 is_mobile={is_mobile}
                 background_svg={DMT5BG}
                 background_svg2={DMT5BG2}
-                background_alt={localize('DMT5')}
+                background_alt={localize('_t_DMT5_t_')}
                 is_ppc={true}
                 d_height="60.2rem"
                 laptopM_height="60rem"
@@ -88,7 +88,7 @@ const DMT5 = () => {
                 background_pattern={
                     is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
                 }
-                title={<Localize translate_text="Get into the DMT5 experience" />}
+                title={<Localize translate_text="_t_Get into the DMT5 experience_t_" />}
                 data={data}
                 is_ppc={true}
             />

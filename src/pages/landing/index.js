@@ -13,23 +13,23 @@ import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 
 const simple_step_content = [
     {
-        header: <Localize translate_text="Practise" />,
+        header: <Localize translate_text="_t_Practise_t_" />,
         text: (
-            <Localize translate_text="Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds." />
+            <Localize translate_text="_t_Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds._t_" />
         ),
         icon: <img src={PractiseIcon} alt="" width="32" height="32" />,
     },
     {
-        header: <Localize translate_text="Trade" />,
+        header: <Localize translate_text="_t_Trade_t_" />,
         text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more." />
+            <Localize translate_text="_t_Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more._t_" />
         ),
         icon: <img src={TradeIcon} alt="" width="32" height="28" />,
     },
     {
-        header: <Localize translate_text="Withdraw" />,
+        header: <Localize translate_text="_t_Withdraw_t_" />,
         text: (
-            <Localize translate_text="Get your funds quickly and easily. We support a variety of withdrawal options." />
+            <Localize translate_text="_t_Get your funds quickly and easily. We support a variety of withdrawal options._t_" />
         ),
         icon: <img src={WithdrawIcon} alt="" width="32" height="32" />,
     },
@@ -39,10 +39,10 @@ const Home = () => {
         <Layout is_ppc_redirect={true} is_ppc={true}>
             <SEO
                 title={localize(
-                    'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
+                    '_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_',
                 )}
                 description={localize(
-                    'Deriv - An online trading platform that offers a wide selection of derivatives to trade on',
+                    '_t_Deriv - An online trading platform that offers a wide selection of derivatives to trade on_t_',
                 )}
                 has_organization_schema
                 no_index
@@ -57,7 +57,7 @@ const Home = () => {
             <Markets is_ppc={true} />
             <SimpleSteps
                 content={simple_step_content}
-                header={<Localize translate_text="3 simple steps" />}
+                header={<Localize translate_text="_t_3 simple steps_t_" />}
                 sign_up={true}
             />
             <WhatOurClientsSay />

@@ -82,7 +82,7 @@ const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => (
                 {!landing_type && <LanguageSwitcher has_short_name />}
                 {!landing_type && (
                     <StyledLinkButton secondary to="/">
-                        {localize('Explore Deriv.com')}
+                        {localize('_t_Explore Deriv.com_t_')}
                     </StyledLinkButton>
                 )}
             </RightSection>

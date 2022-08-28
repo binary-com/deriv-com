@@ -249,11 +249,11 @@ const SideSubscriptionBanner = () => {
                 <ImageWrapper src={EmailSubscriptionSVG} />
             </Flex>
             <StyledHeader as="h3" type="subtitle-1">
-                {localize('Subscribe to our academy via email')}
+                {localize('_t_Subscribe to our academy via email_t_')}
             </StyledHeader>
             <StyledSmallHeader as="h3" type="paragraph-2" weight="normal">
                 {localize(
-                    'Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates.  ',
+                    '_t_Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates.  _t_',
                 )}
             </StyledSmallHeader>
             <EmailForm onSubmit={handleEmailSignup} noValidate>
@@ -326,7 +326,7 @@ const SideSubscriptionBanner = () => {
                                     !name,
                             )}
                         >
-                            {localize('Subscribe')}
+                            {localize('_t_Subscribe_t_')}
                         </EmailButton>
                         {submit_status === true && (
                             <>
@@ -334,12 +334,12 @@ const SideSubscriptionBanner = () => {
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                     color="#C2C2C2"
-                                    link_text={localize('Send me marketing materials too!')}
+                                    link_text={localize('_t_Send me marketing materials too!_t_')}
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize
                                         fontSize="14px"
-                                        translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
+                                        translate_text="_t_We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more._t_"
                                         components={[
                                             <StyledLocalizedLink
                                                 key={0}
@@ -363,12 +363,12 @@ const SideSubscriptionBanner = () => {
                         font_size={'12px'}
                         margin_top={'10px'}
                     >
-                        <Localize translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox" />
+                        <Localize translate_text="_t_Thanks for subscribing. We've sent a confirmation email to your inbox_t_" />
                     </TextWrapper>
                 )}
                 {submit_status === false && (
                     <TextWrapper color={'var(--color-red)'} font_size={'12px'} margin_top={'10px'}>
-                        <Localize translate_text="If you have AdBlock installed, please disable it in order to subscribe" />
+                        <Localize translate_text="_t_If you have AdBlock installed, please disable it in order to subscribe_t_" />
                     </TextWrapper>
                 )}
             </EmailForm>

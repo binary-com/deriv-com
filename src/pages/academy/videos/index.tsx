@@ -72,9 +72,9 @@ const VideosPage = ({ data }: VideosPageProps) => {
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
-                title={localize('Latest videos, tutorials, webinars for trading | Deriv')}
+                title={localize('_t_Latest videos, tutorials, webinars for trading | Deriv_t_')}
                 description={localize(
-                    "Learn how to trade using our trading videos and tutorials at Deriv's online trading academy.",
+                    "_t_Learn how to trade using our trading videos and tutorials at Deriv's online trading academy._t_",
                 )}
                 meta_attributes={meta_attributes}
             />

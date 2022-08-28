@@ -19,24 +19,24 @@ const StyledListItem = styled.li<{ marginTop: string }>`
 const DerivRegulated = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Yes, we’re regulated by')}</Text>
+        <Text>{localize('_t_Yes, we’re regulated by_t_')}</Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('the Malta Financial Services Authority')}</Text>
+                <Text>{localize('_t_the Malta Financial Services Authority_t_')}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('the Labuan Financial Services Authority')}</Text>
+                <Text>{localize('_t_the Labuan Financial Services Authority_t_')}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('the Vanuatu Financial Services Commission')}</Text>
+                <Text>{localize('_t_the Vanuatu Financial Services Commission_t_')}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('the British Virgin Islands Financial Services Commission')}</Text>
+                <Text>{localize('_t_the British Virgin Islands Financial Services Commission_t_')}</Text>
             </StyledListItem>
         </StyledList>
         <StyledText>
             <Localize
-                translate_text="You can get more info about this on our <0>Regulatory information</0> page."
+                translate_text="_t_You can get more info about this on our <0>Regulatory information</0> page._t_"
                 components={[
                     <ExternalLink
                         to={'/regulatory/'}
@@ -57,7 +57,7 @@ const WhereMoneyHeld = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                "Your money is held in secure financial institutions and is always available to you, should you wish to withdraw. We don't use your money for our business purposes.",
+                "_t_Your money is held in secure financial institutions and is always available to you, should you wish to withdraw. We don't use your money for our business purposes._t_",
             )}
         </Text>
     </ArticleWrapper>
@@ -69,17 +69,17 @@ const AboutDerivArticle = () => {
     return (
         <div>
             <Article
-                header={localize('About Deriv')}
-                title={localize('Help centre | Frequently asked questions | About | Deriv')}
-                description={localize('Frequently asked questions - About')}
+                header={localize('_t_About Deriv_t_')}
+                title={localize('_t_Help centre | Frequently asked questions | About | Deriv_t_')}
+                description={localize('_t_Frequently asked questions - About_t_')}
             >
                 <DerivRegulated
-                    text={localize('Is Deriv regulated?')}
+                    text={localize('_t_Is Deriv regulated?_t_')}
                     label="Deriv-regulated"
                     is_mounted={is_mounted}
                 />
                 <WhereMoneyHeld
-                    text={localize('Where is my money held?')}
+                    text={localize('_t_Where is my money held?_t_')}
                     label="money-held"
                     is_mounted={is_mounted}
                 />

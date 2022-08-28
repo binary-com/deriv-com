@@ -190,12 +190,12 @@ const Banner = () => {
                 >
                     <div>
                         <StyledHeader as="h1" color="white" width="64rem" type="heading-1">
-                            {localize('Trade forex, synthetics, and cryptocurrencies on the go')}
+                            {localize('_t_Trade forex, synthetics, and cryptocurrencies on the go_t_')}
                         </StyledHeader>
                         <Mobile>
                             <Header size="18px" color="white" weight="200" mt="10px">
                                 {localize(
-                                    'Download the app now and start trading whenever, wherever you want. ',
+                                    '_t_Download the app now and start trading whenever, wherever you want. _t_',
                                 )}
                             </Header>
                         </Mobile>
@@ -203,7 +203,7 @@ const Banner = () => {
                             <HeroContent>
                                 <Header as="h2">
                                     {
-                                        <Localize translate_text="Scan the QR code to download Deriv GO" />
+                                        <Localize translate_text="_t_Scan the QR code to download Deriv GO_t_" />
                                     }
                                 </Header>
                                 <QueryImage
@@ -253,7 +253,7 @@ const Banner = () => {
                 </Flex>
                 <Mobile>
                     <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
-                        {localize('Download Deriv GO')}
+                        {localize('_t_Download Deriv GO_t_')}
                     </ButtonDerivGO>
                 </Mobile>
                 <BannerWrapper>

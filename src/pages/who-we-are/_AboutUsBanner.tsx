@@ -95,7 +95,7 @@ const AboutUsBanner = () => {
             <StyledFlex direction="column" height="auto" min_height="288px" width="1200px">
                 <PictureFlex jc="start" ai="start" direction="column">
                     <StyledHeader as="h3" width="100%" type="unset" size="32px" color="white">
-                        {localize('We have a huge mission, an incredible team, and rapid growth.')}
+                        {localize('_t_We have a huge mission, an incredible team, and rapid growth._t_')}
                     </StyledHeader>
                     <StyledHeader2
                         width="100%"
@@ -104,10 +104,10 @@ const AboutUsBanner = () => {
                         size="16px"
                         weight="400px"
                     >
-                        {localize('Join and grow with us.')}
+                        {localize('_t_Join and grow with us._t_')}
                     </StyledHeader2>
                     <StyledLinkButton secondary="true" to="/careers/">
-                        {localize('See our open positions')}
+                        {localize('_t_See our open positions_t_')}
                     </StyledLinkButton>
                 </PictureFlex>
             </StyledFlex>

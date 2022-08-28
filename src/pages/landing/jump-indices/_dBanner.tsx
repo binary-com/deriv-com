@@ -26,7 +26,7 @@ const DBanner = () => {
             <Flex>
                 <StyledHeader type="section-title" weight="normal">
                     {localize(
-                        'Trade synthetics with our new jump indices and take advantage of the constant volatility with a twist — price jumps.',
+                        '_t_Trade synthetics with our new jump indices and take advantage of the constant volatility with a twist — price jumps._t_',
                     )}
                 </StyledHeader>
             </Flex>

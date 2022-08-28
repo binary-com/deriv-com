@@ -145,7 +145,7 @@ const DBanner = ({ title, data, background_pattern, image_alt }) => {
                         type="submit"
                         secondary="true"
                     >
-                        {localize('Create free demo account')}
+                        {localize('_t_Create free demo account_t_')}
                     </Button>
                 </DemoButton>
             </TextWrapper>

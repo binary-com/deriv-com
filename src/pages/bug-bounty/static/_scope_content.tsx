@@ -14,21 +14,21 @@ const LinkText = styled(LocalizedLinkText)`
 
 export const scope_content = [
     {
-        title: <Localize translate_text="Important businesses" />,
+        title: <Localize translate_text="_t_Important businesses_t_" />,
         list_icon: 'tick',
         description: '',
         check_list: [
-            { content: <Localize translate_text="Our payment site: cashier.deriv.com" /> },
-            { content: <Localize translate_text="Our login site: oauth.deriv.com" /> },
+            { content: <Localize translate_text="_t_Our payment site: cashier.deriv.com_t_" /> },
+            { content: <Localize translate_text="_t_Our login site: oauth.deriv.com_t_" /> },
             {
                 content: (
-                    <Localize translate_text="Our WebSockets API: *.binaryws.com api.deriv.com" />
+                    <Localize translate_text="_t_Our WebSockets API: *.binaryws.com api.deriv.com_t_" />
                 ),
             },
             {
                 content: (
                     <Localize
-                        translate_text="Our main trading platform: app.deriv.com<0>*</0>"
+                        translate_text="_t_Our main trading platform: app.deriv.com<0>*</0>_t_"
                         components={[
                             <Header
                                 key={0}
@@ -42,7 +42,7 @@ export const scope_content = [
                 ),
                 description: (
                     <Localize
-                        translate_text="<0>*</0>This only covers the functionalities handled by Deriv"
+                        translate_text="_t_<0>*</0>This only covers the functionalities handled by Deriv_t_"
                         components={[
                             <Header as="span" color="red" type="small" weight="normal" key={0} />,
                         ]}
@@ -51,33 +51,33 @@ export const scope_content = [
             },
             {
                 content: (
-                    <Localize translate_text="Our legacy trading platform: smarttrader.deriv.com" />
+                    <Localize translate_text="_t_Our legacy trading platform: smarttrader.deriv.com_t_" />
                 ),
             },
         ],
     },
     {
-        title: <Localize translate_text="General businesses" />,
+        title: <Localize translate_text="_t_General businesses_t_" />,
         list_icon: 'tick',
         description: '',
         check_list: [
             {
                 content: (
                     <Localize
-                        translate_text="Our GitHub repositories: <0>github.com/binary-com</0>"
+                        translate_text="_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_"
                         components={[<Header key={0} type="paragraph-2" weight="normal" as="p" />]}
                     />
                 ),
             },
             {
                 content: (
-                    <Localize translate_text="Our CFD trading application by Devexperts: dx.deriv.com" />
+                    <Localize translate_text="_t_Our CFD trading application by Devexperts: dx.deriv.com_t_" />
                 ),
             },
             {
                 content: (
                     <Localize
-                        translate_text="Deriv P2P: Our peer-to-peer payments app (<0>Android app</0>, <1>iOS app</1>)"
+                        translate_text="_t_Deriv P2P: Our peer-to-peer payments app (<0>Android app</0>, <1>iOS app</1>)_t_"
                         components={[
                             <LinkText
                                 key={0}
@@ -100,7 +100,7 @@ export const scope_content = [
             {
                 content: (
                     <Localize
-                        translate_text="Deriv GO: Our options trading app (<0>Android app</0>, <1>iOS app</1>)"
+                        translate_text="_t_Deriv GO: Our options trading app (<0>Android app</0>, <1>iOS app</1>)_t_"
                         components={[
                             <LinkText
                                 key={0}
@@ -123,7 +123,7 @@ export const scope_content = [
             {
                 content: (
                     <Localize
-                        translate_text="Deriv X: Our CFD trading app by DevExperts (<0>Android app</0>, <1>iOS app</1>)"
+                        translate_text="_t_Deriv X: Our CFD trading app by DevExperts (<0>Android app</0>, <1>iOS app</1>)_t_"
                         components={[
                             <LinkText
                                 key={0}
@@ -145,31 +145,31 @@ export const scope_content = [
             },
             {
                 content: (
-                    <Localize translate_text="Our site for marketing campaigns: trade.deriv.com (third-party)" />
+                    <Localize translate_text="_t_Our site for marketing campaigns: trade.deriv.com (third-party)_t_" />
                 ),
             },
         ],
     },
     {
-        title: localize('Edge businesses'),
+        title: localize('_t_Edge businesses_t_'),
         list_icon: 'tick',
         description: '',
         check_list: [
             {
                 content: (
-                    <Localize translate_text="Our site for static resources: static.deriv.com" />
+                    <Localize translate_text="_t_Our site for static resources: static.deriv.com_t_" />
                 ),
             },
-            { content: <Localize translate_text="Our tracking site: t.deriv.com" /> },
+            { content: <Localize translate_text="_t_Our tracking site: t.deriv.com_t_" /> },
             {
                 content: (
-                    <Localize translate_text="Our FIX feed server for Deriv X: fix.deriv.com" />
+                    <Localize translate_text="_t_Our FIX feed server for Deriv X: fix.deriv.com_t_" />
                 ),
             },
-            { content: <Localize translate_text="Our internal apps: *.deriv.cloud" /> },
+            { content: <Localize translate_text="_t_Our internal apps: *.deriv.cloud_t_" /> },
             {
                 content: (
-                    <Localize translate_text="Our weblog address: https://deriv.com/academy/" />
+                    <Localize translate_text="_t_Our weblog address: https://deriv.com/academy/_t_" />
                 ),
             },
         ],
@@ -177,20 +177,20 @@ export const scope_content = [
     {
         title: '',
         list_icon: 'X',
-        description: localize('The following third-party apps are not covered in this program:'),
+        description: localize('_t_The following third-party apps are not covered in this program:_t_'),
         check_list: [
-            { content: <Localize translate_text="Our charting site: tradingview.deriv.com" /> },
+            { content: <Localize translate_text="_t_Our charting site: tradingview.deriv.com_t_" /> },
             {
                 content: (
-                    <Localize translate_text="Our graduate programme site: besquare.deriv.com" />
+                    <Localize translate_text="_t_Our graduate programme site: besquare.deriv.com_t_" />
                 ),
             },
             {
                 content: (
-                    <Localize translate_text="Our CFD trading platform by MetaQuotes: trade.mql5.com" />
+                    <Localize translate_text="_t_Our CFD trading platform by MetaQuotes: trade.mql5.com_t_" />
                 ),
             },
-            { content: <Localize translate_text="Our community site: community.deriv.com" /> },
+            { content: <Localize translate_text="_t_Our community site: community.deriv.com_t_" /> },
         ],
     },
 ]

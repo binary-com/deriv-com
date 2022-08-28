@@ -195,24 +195,24 @@ const StartTrader = () => {
     const isDemo = tab === 'Demo'
     const isReal = tab === 'Real'
 
-    const account = is_eu_country ? localize('Real account') : localize('Real money account')
+    const account = is_eu_country ? localize('_t_Real account_t_') : localize('_t_Real money account_t_')
 
     const text_1 = is_eu_country ? (
-        <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
+        <Localize translate_text="_t_Add a CFDs demo account and choose what you want to trade._t_" />
     ) : (
-        <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
+        <Localize translate_text="_t_Add a Deriv MT5 demo account and choose what you want to trade._t_" />
     )
 
     const text_2 = is_eu_country ? (
-        <Localize translate_text="Create a Deriv real account." />
+        <Localize translate_text="_t_Create a Deriv real account._t_" />
     ) : (
-        <Localize translate_text="Create a Deriv real money account." />
+        <Localize translate_text="_t_Create a Deriv real money account._t_" />
     )
 
     const text_3 = is_eu_country ? (
-        <Localize translate_text="Create a CFDs real account based on your trade preference." />
+        <Localize translate_text="_t_Create a CFDs real account based on your trade preference._t_" />
     ) : (
-        <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
+        <Localize translate_text="_t_Create a Deriv MT5 real money account based on your trade preference._t_" />
     )
 
     const step_2_image = is_eu_country ? (
@@ -242,7 +242,7 @@ const StartTrader = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                {localize('How to get started with a Deriv MT5 account')}
+                {localize('_t_How to get started with a Deriv MT5 account_t_')}
             </StyledHeader>
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
                 <TabItem
@@ -251,7 +251,7 @@ const StartTrader = () => {
                     onClick={() => onTabClick('Demo')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Demo account')}
+                        {localize('_t_Demo account_t_')}
                     </StyledText>
                 </TabItem>
                 <TabItem
@@ -272,7 +272,7 @@ const StartTrader = () => {
                             label=""
                             description={
                                 <Localize
-                                    translate_text="Sign up for a free <0>Deriv demo account</0>"
+                                    translate_text="_t_Sign up for a free <0>Deriv demo account</0>_t_"
                                     components={[
                                         <StyledLocalizedLink
                                             onClick={handleSignup}
@@ -299,7 +299,7 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
+                                <Localize translate_text="_t_Practise trading from the mobile app, desktop app, or through your web browser._t_" />
                             }
                             item_width="36rem"
                         >
@@ -317,7 +317,7 @@ const StartTrader = () => {
                             label=""
                             description={
                                 <Localize
-                                    translate_text="Create or <0>sign in</0> to your Deriv account"
+                                    translate_text="_t_Create or <0>sign in</0> to your Deriv account_t_"
                                     components={[
                                         <StyledLocalizedLink key={0} onClick={handleLogin} to="" />,
                                     ]}
@@ -346,7 +346,7 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
+                                <Localize translate_text="_t_Fund your account. Start trading on the mobile app, desktop app, or web browser._t_" />
                             }
                         >
                             <ImageWrapper>

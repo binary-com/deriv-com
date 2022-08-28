@@ -25,15 +25,15 @@ const Hero = () => {
 
     return (
         <DHero
-            title={<Localize translate_text="Deriv X" />}
-            content={<Localize translate_text="The trading platform to fit your style" />}
+            title={<Localize translate_text="_t_Deriv X_t_" />}
+            content={<Localize translate_text="_t_The trading platform to fit your style_t_" />}
             join_us_for_free
             Logo={DerivXlogoL}
             image_name="deriv_x"
             is_mobile={is_mobile}
             background_svg={DerivXBG2}
             background_svg2={DerivXBG}
-            background_alt={localize('Deriv X online trading platform')}
+            background_alt={localize('_t_Deriv X online trading platform_t_')}
             d_height="56.7rem"
             laptopM_height="49.9rem"
             laptop_height="53.8rem"

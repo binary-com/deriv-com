@@ -157,20 +157,20 @@ const DerivIBProgramme = () => {
             <Container direction="column">
                 <TitleWrapper>
                     <StyledTitleHeader as="h2" mb="1.2rem" type="page-title" align="center">
-                        {localize('Deriv IB Programme')}
+                        {localize('_t_Deriv IB Programme_t_')}
                     </StyledTitleHeader>
                     <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         {localize(
-                            'Our introducing broker programme is available to all Deriv affiliates.',
+                            '_t_Our introducing broker programme is available to all Deriv affiliates._t_',
                         )}
                     </SubtitleHeader>
                     <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
-                        {localize('Earn commission from your clients’ trades on DMT5.')}
+                        {localize('_t_Earn commission from your clients’ trades on DMT5._t_')}
                     </SubtitleHeader>
                 </TitleWrapper>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">
                     <StyledHeaderCommission as="h4" type="main-paragraph" mb="1.6rem">
-                        {localize('Choose a commission plan:')}
+                        {localize('_t_Choose a commission plan:_t_')}
                     </StyledHeaderCommission>
                     <StyledCardWrapper>
                         <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
@@ -186,7 +186,7 @@ const DerivIBProgramme = () => {
                             weight="medium"
                             mb="24px"
                         >
-                            {localize('Can’t decide which programme or commission plan suits you?')}
+                            {localize('_t_Can’t decide which programme or commission plan suits you?_t_')}
                         </StyledHeader>
                         <LinkButtonContactUsWrapper>
                             <LinkButtonContactUs
@@ -195,7 +195,7 @@ const DerivIBProgramme = () => {
                                 to="mailto:partners@deriv.com"
                                 is_mail_link
                             >
-                                {localize('Contact us')}
+                                {localize('_t_Contact us_t_')}
                             </LinkButtonContactUs>
                         </LinkButtonContactUsWrapper>
                     </DecideSection>
@@ -206,115 +206,115 @@ const DerivIBProgramme = () => {
 }
 
 const ib_dmt5_synthetic: DMT5Type = {
-    name: <Localize translate_text="Deriv MT5 Synthetics" />,
+    name: <Localize translate_text="_t_Deriv MT5 Synthetics_t_" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on an MT5 Synthetics account." />
+        <Localize translate_text="_t_Earn when your clients trade on an MT5 Synthetics account._t_" />
     ),
     type: [
         {
-            title: <Localize translate_text="Crash/Boom" />,
+            title: <Localize translate_text="_t_Crash/Boom_t_" />,
             headerHeight: '6.4rem',
             assets: [
                 {
-                    title: <Localize key={0} translate_text="Asset" />,
+                    title: <Localize key={0} translate_text="_t_Asset_t_" />,
                     list: [
-                        <Localize key={1} translate_text="Crash 300 Index" />,
-                        <Localize key={2} translate_text="Crash 500 Index" />,
-                        <Localize key={3} translate_text="Crash 1000 Index" />,
-                        <Localize key={4} translate_text="Boom 300 Index" />,
-                        <Localize key={5} translate_text="Boom 500 Index" />,
-                        <Localize key={6} translate_text="Boom 1000 Index" />,
+                        <Localize key={1} translate_text="_t_Crash 300 Index_t_" />,
+                        <Localize key={2} translate_text="_t_Crash 500 Index_t_" />,
+                        <Localize key={3} translate_text="_t_Crash 1000 Index_t_" />,
+                        <Localize key={4} translate_text="_t_Boom 300 Index_t_" />,
+                        <Localize key={5} translate_text="_t_Boom 500 Index_t_" />,
+                        <Localize key={6} translate_text="_t_Boom 1000 Index_t_" />,
                     ],
                 },
                 {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
+                    title: <Localize key={0} translate_text="_t_Commission per USD 100k turnover_t_" />,
                     list: [
-                        <Localize key={1} translate_text="1" />,
-                        <Localize key={2} translate_text="0.35" />,
-                        <Localize key={3} translate_text="0.25" />,
-                        <Localize key={4} translate_text="1" />,
-                        <Localize key={5} translate_text="0.35" />,
-                        <Localize key={6} translate_text="0.25" />,
+                        <Localize key={1} translate_text="_t_1_t_" />,
+                        <Localize key={2} translate_text="_t_0.35_t_" />,
+                        <Localize key={3} translate_text="_t_0.25_t_" />,
+                        <Localize key={4} translate_text="_t_1_t_" />,
+                        <Localize key={5} translate_text="_t_0.35_t_" />,
+                        <Localize key={6} translate_text="_t_0.25_t_" />,
                     ],
                 },
             ],
         },
         {
-            title: <Localize translate_text="Volatility indices" />,
+            title: <Localize translate_text="_t_Volatility indices_t_" />,
             headerHeight: '6.4rem',
             assets: [
                 {
-                    title: <Localize key={0} translate_text="Asset" />,
+                    title: <Localize key={0} translate_text="_t_Asset_t_" />,
                     list: [
-                        <Localize key={1} translate_text="Volatility 10 Index " />,
-                        <Localize key={2} translate_text="Volatility 10 (1s) Index" />,
-                        <Localize key={3} translate_text="Volatility 25 Index" />,
-                        <Localize key={4} translate_text="Volatility 25 (1s) Index" />,
-                        <Localize key={5} translate_text="Volatility 50 Index" />,
-                        <Localize key={6} translate_text="Volatility 50 (1s) Index" />,
-                        <Localize key={7} translate_text="Volatility 75 Index " />,
-                        <Localize key={8} translate_text="Volatility 75 (1s) Index" />,
-                        <Localize key={9} translate_text="Volatility 100 Index" />,
-                        <Localize key={10} translate_text="Volatility 100 (1s) Index" />,
-                        <Localize key={11} translate_text="Volatility 200 (1s) Index" />,
-                        <Localize key={12} translate_text="Volatility 300 (1s) Index" />,
+                        <Localize key={1} translate_text="_t_Volatility 10 Index _t_" />,
+                        <Localize key={2} translate_text="_t_Volatility 10 (1s) Index_t_" />,
+                        <Localize key={3} translate_text="_t_Volatility 25 Index_t_" />,
+                        <Localize key={4} translate_text="_t_Volatility 25 (1s) Index_t_" />,
+                        <Localize key={5} translate_text="_t_Volatility 50 Index_t_" />,
+                        <Localize key={6} translate_text="_t_Volatility 50 (1s) Index_t_" />,
+                        <Localize key={7} translate_text="_t_Volatility 75 Index _t_" />,
+                        <Localize key={8} translate_text="_t_Volatility 75 (1s) Index_t_" />,
+                        <Localize key={9} translate_text="_t_Volatility 100 Index_t_" />,
+                        <Localize key={10} translate_text="_t_Volatility 100 (1s) Index_t_" />,
+                        <Localize key={11} translate_text="_t_Volatility 200 (1s) Index_t_" />,
+                        <Localize key={12} translate_text="_t_Volatility 300 (1s) Index_t_" />,
                     ],
                 },
                 {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
+                    title: <Localize key={0} translate_text="_t_Commission per USD 100k turnover_t_" />,
                     list: [
-                        <Localize key={1} translate_text="0.75" />,
-                        <Localize key={2} translate_text="0.75" />,
-                        <Localize key={3} translate_text="1.75" />,
-                        <Localize key={4} translate_text="1.75" />,
-                        <Localize key={5} translate_text="3.75" />,
-                        <Localize key={6} translate_text="3.75" />,
-                        <Localize key={7} translate_text="5" />,
-                        <Localize key={8} translate_text="5" />,
-                        <Localize key={9} translate_text="7.5" />,
-                        <Localize key={10} translate_text="7.5" />,
-                        <Localize key={11} translate_text="10" />,
-                        <Localize key={12} translate_text="15" />,
+                        <Localize key={1} translate_text="_t_0.75_t_" />,
+                        <Localize key={2} translate_text="_t_0.75_t_" />,
+                        <Localize key={3} translate_text="_t_1.75_t_" />,
+                        <Localize key={4} translate_text="_t_1.75_t_" />,
+                        <Localize key={5} translate_text="_t_3.75_t_" />,
+                        <Localize key={6} translate_text="_t_3.75_t_" />,
+                        <Localize key={7} translate_text="_t_5_t_" />,
+                        <Localize key={8} translate_text="_t_5_t_" />,
+                        <Localize key={9} translate_text="_t_7.5_t_" />,
+                        <Localize key={10} translate_text="_t_7.5_t_" />,
+                        <Localize key={11} translate_text="_t_10_t_" />,
+                        <Localize key={12} translate_text="_t_15_t_" />,
                     ],
                 },
             ],
         },
         {
-            title: <Localize translate_text="Step index" />,
+            title: <Localize translate_text="_t_Step index_t_" />,
             headerHeight: '6.4rem',
             assets: [
                 {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [<Localize key={1} translate_text="Step index" />],
+                    title: <Localize key={0} translate_text="_t_Asset_t_" />,
+                    list: [<Localize key={1} translate_text="_t_Step index_t_" />],
                 },
                 {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
-                    list: [<Localize key={1} translate_text="0.10" />],
+                    title: <Localize key={0} translate_text="_t_Commission per USD 100k turnover_t_" />,
+                    list: [<Localize key={1} translate_text="_t_0.10_t_" />],
                 },
             ],
         },
         {
-            title: <Localize translate_text="Jump indices" />,
+            title: <Localize translate_text="_t_Jump indices_t_" />,
             headerHeight: '6.4rem',
             assets: [
                 {
-                    title: <Localize key={0} translate_text="Asset" />,
+                    title: <Localize key={0} translate_text="_t_Asset_t_" />,
                     list: [
-                        <Localize key={1} translate_text="Jump 10 Index" />,
-                        <Localize key={2} translate_text="Jump 25 Index" />,
-                        <Localize key={3} translate_text="Jump 50 Index" />,
-                        <Localize key={4} translate_text="Jump 75 Index" />,
-                        <Localize key={5} translate_text="Jump 100 Index" />,
+                        <Localize key={1} translate_text="_t_Jump 10 Index_t_" />,
+                        <Localize key={2} translate_text="_t_Jump 25 Index_t_" />,
+                        <Localize key={3} translate_text="_t_Jump 50 Index_t_" />,
+                        <Localize key={4} translate_text="_t_Jump 75 Index_t_" />,
+                        <Localize key={5} translate_text="_t_Jump 100 Index_t_" />,
                     ],
                 },
                 {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
+                    title: <Localize key={0} translate_text="_t_Commission per USD 100k turnover_t_" />,
                     list: [
-                        <Localize key={1} translate_text="0.50" />,
-                        <Localize key={2} translate_text="1.25" />,
-                        <Localize key={3} translate_text="2.50" />,
-                        <Localize key={4} translate_text="3.75" />,
-                        <Localize key={5} translate_text="5" />,
+                        <Localize key={1} translate_text="_t_0.50_t_" />,
+                        <Localize key={2} translate_text="_t_1.25_t_" />,
+                        <Localize key={3} translate_text="_t_2.50_t_" />,
+                        <Localize key={4} translate_text="_t_3.75_t_" />,
+                        <Localize key={5} translate_text="_t_5_t_" />,
                     ],
                 },
             ],
@@ -322,22 +322,22 @@ const ib_dmt5_synthetic: DMT5Type = {
     ],
     countDetails: [
         {
-            title: <Localize translate_text="How it’s calculated" />,
+            title: <Localize translate_text="_t_How it’s calculated_t_" />,
             list: [
                 {
                     details: (
-                        <Localize translate_text="A deal for 1 lot of the Volatility 75 Index for a price of USD 500,000 will pay out USD 25 in commission based on the following formula:" />
+                        <Localize translate_text="_t_A deal for 1 lot of the Volatility 75 Index for a price of USD 500,000 will pay out USD 25 in commission based on the following formula:_t_" />
                     ),
                     icon: 'dmt5_synthetic_calculator',
-                    iconAlt: <Localize translate_text="DMT5 synthetic calculated" />,
+                    iconAlt: <Localize translate_text="_t_DMT5 synthetic calculated_t_" />,
                 },
             ],
             notes: [
                 {
-                    title: <Localize translate_text="Please note:" />,
+                    title: <Localize translate_text="_t_Please note:_t_" />,
                     desc: {
                         firstText: (
-                            <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
+                            <Localize translate_text="_t_Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate._t_" />
                         ),
                     },
                 },
@@ -347,98 +347,98 @@ const ib_dmt5_synthetic: DMT5Type = {
 }
 
 const ib_dmt5_financial: DMT5Type = {
-    name: <Localize translate_text="Deriv MT5 Financial" />,
+    name: <Localize translate_text="_t_Deriv MT5 Financial_t_" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on an MT5 Financial account." />
+        <Localize translate_text="_t_Earn when your clients trade on an MT5 Financial account._t_" />
     ),
     type: [
         {
-            title: <Localize translate_text="Forex and metals" />,
+            title: <Localize translate_text="_t_Forex and metals_t_" />,
             headerHeight: '8.0rem',
             assets: [
                 {
-                    title: <Localize key={0} translate_text="Asset" />,
+                    title: <Localize key={0} translate_text="_t_Asset_t_" />,
                     list: [
-                        <Localize key={1} translate_text="Forex" />,
-                        <Localize key={2} translate_text="Metals" />,
+                        <Localize key={1} translate_text="_t_Forex_t_" />,
+                        <Localize key={2} translate_text="_t_Metals_t_" />,
                     ],
                 },
                 {
-                    title: <Localize key={0} translate_text="Commission per lot" />,
+                    title: <Localize key={0} translate_text="_t_Commission per lot_t_" />,
                     list: [
-                        <Localize key={1} translate_text="USD 2" />,
-                        <Localize key={2} translate_text="USD 4" />,
-                    ],
-                },
-            ],
-        },
-        {
-            title: <Localize translate_text="Stock indices" />,
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [
-                        <Localize key={1} translate_text="Stock indices" />,
-                        <Localize key={2} translate_text="Stocks" />,
-                    ],
-                },
-                {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
-                    list: [
-                        <Localize key={1} translate_text="USD 1" />,
-                        <Localize key={2} translate_text="USD 10" />,
+                        <Localize key={1} translate_text="_t_USD 2_t_" />,
+                        <Localize key={2} translate_text="_t_USD 4_t_" />,
                     ],
                 },
             ],
         },
         {
-            title: <Localize translate_text="Cryptocurrencies" />,
+            title: <Localize translate_text="_t_Stock indices_t_" />,
             headerHeight: '6.4rem',
             assets: [
                 {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [<Localize key={1} translate_text="Cryptocurrencies" />],
+                    title: <Localize key={0} translate_text="_t_Asset_t_" />,
+                    list: [
+                        <Localize key={1} translate_text="_t_Stock indices_t_" />,
+                        <Localize key={2} translate_text="_t_Stocks_t_" />,
+                    ],
                 },
                 {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
-                    list: [<Localize key={1} translate_text="10" />],
+                    title: <Localize key={0} translate_text="_t_Commission per USD 100k turnover_t_" />,
+                    list: [
+                        <Localize key={1} translate_text="_t_USD 1_t_" />,
+                        <Localize key={2} translate_text="_t_USD 10_t_" />,
+                    ],
+                },
+            ],
+        },
+        {
+            title: <Localize translate_text="_t_Cryptocurrencies_t_" />,
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: <Localize key={0} translate_text="_t_Asset_t_" />,
+                    list: [<Localize key={1} translate_text="_t_Cryptocurrencies_t_" />],
+                },
+                {
+                    title: <Localize key={0} translate_text="_t_Commission per USD 100k turnover_t_" />,
+                    list: [<Localize key={1} translate_text="_t_10_t_" />],
                 },
             ],
         },
     ],
     countDetails: [
         {
-            title: <Localize translate_text="How it’s calculated" />,
+            title: <Localize translate_text="_t_How it’s calculated_t_" />,
             list: [
                 {
                     details: (
-                        <Localize translate_text="For forex, there is a fixed commission of USD 2 per lot (only applicable for standard lots). A deal for 1 lot of EUR/USD will pay out USD 2 in commission based on the following formula:" />
+                        <Localize translate_text="_t_For forex, there is a fixed commission of USD 2 per lot (only applicable for standard lots). A deal for 1 lot of EUR/USD will pay out USD 2 in commission based on the following formula:_t_" />
                     ),
                     icon: 'dmt5_financial_calculator_one',
-                    iconAlt: <Localize translate_text="DMT5 Financial calculated first" />,
+                    iconAlt: <Localize translate_text="_t_DMT5 Financial calculated first_t_" />,
                 },
                 {
                     details: (
-                        <Localize translate_text="For metals, there is a fixed commission of USD 4 per lot. A deal for 1 lot of XAU/USD will pay out USD 4 in commission based on the following formula:" />
+                        <Localize translate_text="_t_For metals, there is a fixed commission of USD 4 per lot. A deal for 1 lot of XAU/USD will pay out USD 4 in commission based on the following formula:_t_" />
                     ),
                     icon: 'dmt5_financial_calculator_two',
-                    iconAlt: <Localize translate_text="DMT5 Financial calculated second" />,
+                    iconAlt: <Localize translate_text="_t_DMT5 Financial calculated second_t_" />,
                 },
                 {
                     details: (
-                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:" />
+                        <Localize translate_text="_t_For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:_t_" />
                     ),
                     icon: 'dmt5_financial_calculator_three',
-                    iconAlt: <Localize translate_text="DMT5 Financial calculated thirth" />,
+                    iconAlt: <Localize translate_text="_t_DMT5 Financial calculated thirth_t_" />,
                 },
             ],
             notes: [
                 {
-                    title: <Localize translate_text="Please note:" />,
+                    title: <Localize translate_text="_t_Please note:_t_" />,
                     desc: {
                         firstText: (
-                            <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
+                            <Localize translate_text="_t_Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate._t_" />
                         ),
                     },
                 },
@@ -448,73 +448,73 @@ const ib_dmt5_financial: DMT5Type = {
 }
 
 const ib_dmt5_financialSTP: DMT5Type = {
-    name: <Localize translate_text="Deriv MT5 Financial STP" />,
+    name: <Localize translate_text="_t_Deriv MT5 Financial STP_t_" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on an MT5 Financial STP account." />
+        <Localize translate_text="_t_Earn when your clients trade on an MT5 Financial STP account._t_" />
     ),
     type: [
         {
-            title: <Localize translate_text="Forex" />,
+            title: <Localize translate_text="_t_Forex_t_" />,
             headerHeight: '8.0rem',
             assets: [
                 {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [<Localize key={1} translate_text="Forex" />],
+                    title: <Localize key={0} translate_text="_t_Asset_t_" />,
+                    list: [<Localize key={1} translate_text="_t_Forex_t_" />],
                 },
                 {
                     title: (
                         <Localize
                             key={0}
-                            translate_text="Commission per lot (1 standard lot is 100k units)"
+                            translate_text="_t_Commission per lot (1 standard lot is 100k units)_t_"
                         />
                     ),
-                    list: [<Localize key={1} translate_text="2.5" />],
+                    list: [<Localize key={1} translate_text="_t_2.5_t_" />],
                 },
             ],
         },
         {
-            title: <Localize translate_text="Cryptocurrencies" />,
+            title: <Localize translate_text="_t_Cryptocurrencies_t_" />,
             headerHeight: '6.4rem',
             assets: [
                 {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [<Localize key={1} translate_text="Cryptocurrencies" />],
+                    title: <Localize key={0} translate_text="_t_Asset_t_" />,
+                    list: [<Localize key={1} translate_text="_t_Cryptocurrencies_t_" />],
                 },
                 {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
-                    list: [<Localize key={1} translate_text="10" />],
+                    title: <Localize key={0} translate_text="_t_Commission per USD 100k turnover_t_" />,
+                    list: [<Localize key={1} translate_text="_t_10_t_" />],
                 },
             ],
         },
     ],
     countDetails: [
         {
-            title: <Localize translate_text="How it’s calculated" />,
+            title: <Localize translate_text="_t_How it’s calculated_t_" />,
             list: [
                 {
                     details: (
-                        <Localize translate_text="For forex, a deal for 1 lot of EUR/USD will pay out EUR 2.5 in commission based on the following formula:" />
+                        <Localize translate_text="_t_For forex, a deal for 1 lot of EUR/USD will pay out EUR 2.5 in commission based on the following formula:_t_" />
                     ),
                     icon: 'dmt5_financial_stp_calculator_one',
-                    iconAlt: <Localize translate_text="DMT5 Financial STP calculated first" />,
+                    iconAlt: <Localize translate_text="_t_DMT5 Financial STP calculated first_t_" />,
                 },
                 {
                     details: (
-                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:" />
+                        <Localize translate_text="_t_For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:_t_" />
                     ),
                     icon: 'dmt5_financial_stp_calculator_two',
-                    iconAlt: <Localize translate_text="DMT5 Financial STP calculated second" />,
+                    iconAlt: <Localize translate_text="_t_DMT5 Financial STP calculated second_t_" />,
                 },
             ],
             notes: [
                 {
-                    title: <Localize translate_text="Please note:" />,
+                    title: <Localize translate_text="_t_Please note:_t_" />,
                     desc: {
                         firstText: (
-                            <Localize translate_text="For forex, your commission is represented in the base currency (EUR in the above example)." />
+                            <Localize translate_text="_t_For forex, your commission is represented in the base currency (EUR in the above example)._t_" />
                         ),
                         secondText: (
-                            <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
+                            <Localize translate_text="_t_Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate._t_" />
                         ),
                     },
                 },

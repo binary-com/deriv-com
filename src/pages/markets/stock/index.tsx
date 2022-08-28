@@ -12,9 +12,9 @@ const StocksAndIndicesPage = () => (
     <Layout>
         <SEO
             description={localize(
-                'Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets.',
+                '_t_Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets._t_',
             )}
-            title={localize('Stock market | Indices trading | Deriv')}
+            title={localize('_t_Stock market | Indices trading | Deriv_t_')}
         />
         <Hero />
         <NavTab route_from={'stock'} route_offset={240} />

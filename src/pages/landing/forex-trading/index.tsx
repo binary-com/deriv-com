@@ -13,58 +13,58 @@ const IconTextRow = Loadable(() => import('./components/_icon-text-row'))
 
 const DP2P_CONTENT = [
     {
-        title: <Localize translate_text="Step 1" />,
+        title: <Localize translate_text="_t_Step 1_t_" />,
         subtitle1: (
             <Localize
-                translate_text="Log in or sign up for a Deriv account.<0 />"
+                translate_text="_t_Log in or sign up for a Deriv account.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
         subtitle_mobile1: (
             <Localize
-                translate_text="Log in or sign up for a Deriv account.<0 />"
+                translate_text="_t_Log in or sign up for a Deriv account.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
 
         image_name: 'login',
-        image_alt: localize('Login'),
+        image_alt: localize('_t_Login_t_'),
     },
     {
-        title: <Localize translate_text="Step 2" />,
+        title: <Localize translate_text="_t_Step 2_t_" />,
         subtitle1: (
             <Localize
-                translate_text="Add a Deriv MT5 Financial real account.<0 />"
+                translate_text="_t_Add a Deriv MT5 Financial real account.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
         subtitle_mobile1: (
             <Localize
-                translate_text="Add a Deriv MT5 Financial real account.<0 />"
+                translate_text="_t_Add a Deriv MT5 Financial real account.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
 
         image_name: 'dmt5_acc',
-        image_alt: localize('DMT5 account'),
+        image_alt: localize('_t_DMT5 account_t_'),
     },
     {
-        title: <Localize translate_text="Step 3" />,
+        title: <Localize translate_text="_t_Step 3_t_" />,
         subtitle1: (
             <Localize
-                translate_text="Log in to Deriv MT5, select an asset, and start trading.<0 />"
+                translate_text="_t_Log in to Deriv MT5, select an asset, and start trading.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
         subtitle_mobile1: (
             <Localize
-                translate_text="Log in to Deriv MT5, select an asset, and start trading.<0 />"
+                translate_text="_t_Log in to Deriv MT5, select an asset, and start trading.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
 
         image_name: 'dmt5_login',
-        image_alt: localize('DMT5 login'),
+        image_alt: localize('_t_DMT5 login_t_'),
     },
 ]
 
@@ -73,21 +73,21 @@ const ForexTrading = () => {
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
-                title={localize('Weekends')}
-                description={localize('Ride the trends even on weekends')}
+                title={localize('_t_Weekends_t_')}
+                description={localize('_t_Ride the trends even on weekends_t_')}
             />
             {is_mounted && (
                 <>
                     <Hero
-                        title={localize('Take advantage of the best trading conditions by Deriv')}
+                        title={localize('_t_Take advantage of the best trading conditions by Deriv_t_')}
                         content={
-                            <Localize translate_text="Your trusted broker with intuitive forex trading platforms, convenient payment options, and a 24/7 support team." />
+                            <Localize translate_text="_t_Your trusted broker with intuitive forex trading platforms, convenient payment options, and a 24/7 support team._t_" />
                         }
                     />
                     <IconTextRow />
                     <Tablebtn
-                        btnlabel={localize('Get trading on Deriv')}
-                        text={localize('*available for selected pairs:')}
+                        btnlabel={localize('_t_Get trading on Deriv_t_')}
+                        text={localize('_t_*available for selected pairs:_t_')}
                     />
                     <ImageTextSwitching reverse P2P={DP2P_CONTENT} />
                     <WhatOurClientsSay />

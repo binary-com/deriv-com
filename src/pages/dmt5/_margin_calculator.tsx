@@ -201,24 +201,24 @@ CalculatorCard.propTypes = {
 const calculators: CalculatorProps[] = [
     {
         index: 0,
-        name: <Localize translate_text="Margin calculator" />,
+        name: <Localize translate_text="_t_Margin calculator_t_" />,
         text: (
-            <Localize translate_text="Calculate the margin you need to open and hold your positions with our margin calculator." />
+            <Localize translate_text="_t_Calculate the margin you need to open and hold your positions with our margin calculator._t_" />
         ),
         image_name: 'margin_calculator',
-        image_alt_name: localize('DMT5 margin trading calculator'),
-        button_text: <Localize translate_text="Try our margin calculator" />,
+        image_alt_name: localize('_t_DMT5 margin trading calculator_t_'),
+        button_text: <Localize translate_text="_t_Try our margin calculator_t_" />,
         link: '/trader-tools/margin-calculator/',
     },
     {
         index: 1,
-        name: <Localize translate_text="Swap calculator" />,
+        name: <Localize translate_text="_t_Swap calculator_t_" />,
         text: (
-            <Localize translate_text="Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract." />
+            <Localize translate_text="_t_Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract._t_" />
         ),
         image_name: 'swap_calculator',
-        image_alt_name: localize('DMT5 swap trading calculator'),
-        button_text: <Localize translate_text="Try our swap calculator" />,
+        image_alt_name: localize('_t_DMT5 swap trading calculator_t_'),
+        button_text: <Localize translate_text="_t_Try our swap calculator_t_" />,
         link: '/trader-tools/swap-calculator/',
     },
 ]
@@ -255,12 +255,12 @@ const MarginCalculator = () => {
                 >
                     <StyledBox max_width="100%">
                         <MainHeader as="h2" type="page-title" lh="1.25" align="left">
-                            <Localize translate_text="Take control of your trades on Deriv MT5" />
+                            <Localize translate_text="_t_Take control of your trades on Deriv MT5_t_" />
                         </MainHeader>
                         <StyledText>
                             <EU>
                                 <Localize
-                                    translate_text="Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
+                                    translate_text="_t_Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour._t_"
                                     components={[
                                         <LinkText
                                             color="red"
@@ -274,7 +274,7 @@ const MarginCalculator = () => {
                             </EU>
                             <NonEU>
                                 <Localize
-                                    translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
+                                    translate_text="_t_Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour._t_"
                                     components={[
                                         <LinkText
                                             color="red"
@@ -288,7 +288,7 @@ const MarginCalculator = () => {
                             </NonEU>
                         </StyledText>
                         <StyledText>
-                            <Localize translate_text="With the calculators and numerous analytical tools available on the Deriv MT5 platform, you’ll be able to manage your capital and trading positions better." />
+                            <Localize translate_text="_t_With the calculators and numerous analytical tools available on the Deriv MT5 platform, you’ll be able to manage your capital and trading positions better._t_" />
                         </StyledText>
                     </StyledBox>
                 </StyledFlex>

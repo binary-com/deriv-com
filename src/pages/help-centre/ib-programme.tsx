@@ -21,7 +21,7 @@ const SignUp = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="To become an IB, you'll need to be an existing affiliate with a Deriv account and an MT5 Synthetic real account. If you do, you can apply to become an IB by writing to us at <0>affiliates@deriv.com</0>. <1>Get more info about our IB programme</1>."
+                translate_text="_t_To become an IB, you'll need to be an existing affiliate with a Deriv account and an MT5 Synthetic real account. If you do, you can apply to become an IB by writing to us at <0>affiliates@deriv.com</0>. <1>Get more info about our IB programme</1>._t_"
                 components={[
                     <ExternalLink
                         to={'mailto:affiliates@deriv.com'}
@@ -47,34 +47,34 @@ const SignUp = ({ text }: ArticleProps) => (
 const WhyIb = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('When you join our IB programme,')}</Text>
+        <Text>{localize('_t_When you join our IB programme,_t_')}</Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
                     {localize(
-                        "You'll earn commission whenever your clients trade CFDs on MT5, even on weekends and public holidays.",
+                        "_t_You'll earn commission whenever your clients trade CFDs on MT5, even on weekends and public holidays._t_",
                     )}
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="1rem">
                 <Text>
-                    {localize("You'll get daily commission payouts in your MT5 Synthetic account.")}
+                    {localize("_t_You'll get daily commission payouts in your MT5 Synthetic account._t_")}
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="1rem">
                 <Text>
                     {localize(
-                        "You'll have access to various marketing tools to help promote our products and services to your clients.",
+                        "_t_You'll have access to various marketing tools to help promote our products and services to your clients._t_",
                     )}
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="1rem">
-                <Text>{localize("You'll have a dedicated account manager to help you.")}</Text>
+                <Text>{localize("_t_You'll have a dedicated account manager to help you._t_")}</Text>
             </StyledListItem>
         </StyledList>
         <Text style={{ marginTop: '1rem' }}>
             <Localize
-                translate_text="Find out more about our IB programme <0>here</0>."
+                translate_text="_t_Find out more about our IB programme <0>here</0>._t_"
                 components={[
                     <ExternalLink
                         to={'https://deriv.com/partners/affiliate-ib/'}
@@ -95,7 +95,7 @@ const HowMuchCommission = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="You’ll earn a payout based on the volume of your clients' trades. Find out more <0>here</0>."
+                translate_text="_t_You’ll earn a payout based on the volume of your clients' trades. Find out more <0>here</0>._t_"
                 components={[
                     <ExternalLink
                         to={'https://deriv.com/partners/affiliate-ib/'}
@@ -114,7 +114,7 @@ const HowMuchCommission = ({ text }: ArticleProps) => (
 const ChargesIb = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize("No, it's completely free of charge.")}</Text>
+        <Text>{localize("_t_No, it's completely free of charge._t_")}</Text>
     </ArticleWrapper>
 )
 
@@ -122,7 +122,7 @@ const ReceiveCommission = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize("We'll pay your IB commission into your MT5 Synthetic account daily.")}
+            {localize("_t_We'll pay your IB commission into your MT5 Synthetic account daily._t_")}
         </Text>
     </ArticleWrapper>
 )
@@ -132,7 +132,7 @@ const WithdrawCommission = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                "Once we've paid your commission into your account, you can withdraw whenever you want.",
+                "_t_Once we've paid your commission into your account, you can withdraw whenever you want._t_",
             )}
         </Text>
     </ArticleWrapper>
@@ -141,7 +141,7 @@ const WithdrawCommission = ({ text }: ArticleProps) => (
 const WithdrawCondition = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('No. You can withdraw your commission whenever you want.')}</Text>
+        <Text>{localize('_t_No. You can withdraw your commission whenever you want._t_')}</Text>
     </ArticleWrapper>
 )
 
@@ -151,45 +151,45 @@ const IbProgrammeArticle = () => {
     return (
         <div>
             <Article
-                header={localize('IB programme')}
-                title={localize('Help centre | Frequently asked questions | IB programme | Deriv')}
-                description={localize('Frequently asked questions - IB programme')}
+                header={localize('_t_IB programme_t_')}
+                title={localize('_t_Help centre | Frequently asked questions | IB programme | Deriv_t_')}
+                description={localize('_t_Frequently asked questions - IB programme_t_')}
             >
                 <SignUp
-                    text={localize('How do I sign up as an introducing broker (IB)?')}
+                    text={localize('_t_How do I sign up as an introducing broker (IB)?_t_')}
                     label="ib-sign-up"
                     is_mounted={is_mounted}
                 />
                 <WhyIb
-                    text={localize('Why should I join your introducing broker (IB) programme?')}
+                    text={localize('_t_Why should I join your introducing broker (IB) programme?_t_')}
                     label="why-ib"
                     is_mounted={is_mounted}
                 />
                 <HowMuchCommission
-                    text={localize('How much do you pay in commission?')}
+                    text={localize('_t_How much do you pay in commission?_t_')}
                     label="how-much-commission"
                     is_mounted={is_mounted}
                 />
                 <ChargesIb
                     text={localize(
-                        'Are there any charges for joining your introducing broker programme?',
+                        '_t_Are there any charges for joining your introducing broker programme?_t_',
                     )}
                     label="charges-ib"
                     is_mounted={is_mounted}
                 />
                 <ReceiveCommission
-                    text={localize('How and when will I receive my IB commission payout?')}
+                    text={localize('_t_How and when will I receive my IB commission payout?_t_')}
                     label="receive-commission"
                     is_mounted={is_mounted}
                 />
                 <WithdrawCommission
-                    text={localize('When can I withdraw my commission?')}
+                    text={localize('_t_When can I withdraw my commission?_t_')}
                     label="withdraw-commission"
                     is_mounted={is_mounted}
                 />
                 <WithdrawCondition
                     text={localize(
-                        'Are there any conditions that I should meet before I can withdraw my commission?',
+                        '_t_Are there any conditions that I should meet before I can withdraw my commission?_t_',
                     )}
                     label="withdraw-condition"
                     is_mounted={is_mounted}

@@ -44,7 +44,7 @@ const MakeTrading = () => {
                 </StyledFirstSectionText>
             ))}
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {localize('Make trading accessible to anyone, anywhere')}
+                {localize('_t_Make trading accessible to anyone, anywhere_t_')}
             </StyledHeader>
         </FirstSectionContainer>
     )

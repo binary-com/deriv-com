@@ -29,8 +29,8 @@ const StyledLinkButton = styled(LinkButton)`
 const contactways = [
     {
         name: 'community',
-        header: <Localize translate_text="Ask everyone" />,
-        text: <Localize translate_text="Our Deriv support community can help you find answers." />,
+        header: <Localize translate_text="_t_Ask everyone_t_" />,
+        text: <Localize translate_text="_t_Our Deriv support community can help you find answers._t_" />,
         image: 'community',
         img_alt: "Deriv's support community",
         button: (
@@ -42,21 +42,21 @@ const contactways = [
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Localize translate_text="Ask the community" />
+                <Localize translate_text="_t_Ask the community_t_" />
             </StyledLinkButton>
         ),
     },
     {
         name: 'help',
-        header: <Localize translate_text="We’re here to help" />,
+        header: <Localize translate_text="_t_We’re here to help_t_" />,
         text: (
-            <Localize translate_text="See frequently asked questions on popular topics to get quick answers." />
+            <Localize translate_text="_t_See frequently asked questions on popular topics to get quick answers._t_" />
         ),
         image: 'help',
         img_alt: "Deriv's help centre",
         button: (
             <StyledLinkButton secondary="true" to="/help-centre/">
-                <Localize translate_text="Visit our Help centre" />
+                <Localize translate_text="_t_Visit our Help centre_t_" />
             </StyledLinkButton>
         ),
     },

@@ -262,7 +262,7 @@ const HeaderSection = () => {
                     <TopHeaderTextDiv>
                         <TopTextWrapper>
                             <StyledHeader color="white" type="main-landing-title">
-                                {localize('Stocks, unlocked')}
+                                {localize('_t_Stocks, unlocked_t_')}
                             </StyledHeader>
                             <StyledHeaderSmall
                                 color="white"
@@ -270,7 +270,7 @@ const HeaderSection = () => {
                                 weight="normal"
                             >
                                 {localize(
-                                    'Trade global stocks and stock indices now on our DMT5 platform',
+                                    '_t_Trade global stocks and stock indices now on our DMT5 platform_t_',
                                 )}
                             </StyledHeaderSmall>
                             <BtnDiv>
@@ -279,7 +279,7 @@ const HeaderSection = () => {
                                     secondary="true"
                                     to={'/landing/signup/'}
                                 >
-                                    {localize('Create a demo account')}
+                                    {localize('_t_Create a demo account_t_')}
                                 </StyledLinkButton>
                             </BtnDiv>
                         </TopTextWrapper>
@@ -333,11 +333,11 @@ const HeaderSection = () => {
                 </SectionImgWrapper>
                 <SectionTextWrapper>
                     <SectionStyledHeader type="display-title" mb="24px">
-                        {localize('Spot your favourite brand?')}
+                        {localize('_t_Spot your favourite brand?_t_')}
                     </SectionStyledHeader>
                     <SectionStyledHeaderSmall type="sub-section-title" weight="normal">
                         {localize(
-                            'Facebook. Tesla. Zoom. Mcdonalds. Trade on the global household names you see every day on our DMT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
+                            '_t_Facebook. Tesla. Zoom. Mcdonalds. Trade on the global household names you see every day on our DMT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more._t_',
                         )}
                     </SectionStyledHeaderSmall>
 

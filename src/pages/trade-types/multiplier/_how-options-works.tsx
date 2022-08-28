@@ -122,7 +122,7 @@ const HowOptionsWorks = () => {
         <StyledSectionContainer padding="8rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <StyledHeader as="h2" size="4.8rem" mb="3.2rem">
-                    {localize('How multipliers contracts work')}
+                    {localize('_t_How multipliers contracts work_t_')}
                 </StyledHeader>
                 <OptionGrid>
                     <HowItWorksItem>
@@ -130,12 +130,12 @@ const HowOptionsWorks = () => {
                             <div>
                                 <img src={DefinePosition} alt="" />
                             </div>
-                            <StyledText>{localize('Define your position')}</StyledText>
+                            <StyledText>{localize('_t_Define your position_t_')}</StyledText>
                         </OptionItems>
 
                         <Text>
                             {localize(
-                                'Select the market you want to trade and set other essential parameters including trade type, stake amount, and multiplier value.',
+                                '_t_Select the market you want to trade and set other essential parameters including trade type, stake amount, and multiplier value._t_',
                             )}
                         </Text>
                     </HowItWorksItem>
@@ -144,11 +144,11 @@ const HowOptionsWorks = () => {
                             <div>
                                 <img src={SetOptionalParameters} alt="" />
                             </div>
-                            <StyledText>{localize('Set optional parameters')}</StyledText>
+                            <StyledText>{localize('_t_Set optional parameters_t_')}</StyledText>
                         </OptionItems>
                         <Text>
                             {localize(
-                                'Define optional parameters that give you more control over your trading, including stop loss, take profit, and deal cancellation.',
+                                '_t_Define optional parameters that give you more control over your trading, including stop loss, take profit, and deal cancellation._t_',
                             )}
                         </Text>
                     </HowItWorksItem>
@@ -157,26 +157,26 @@ const HowOptionsWorks = () => {
                             <div>
                                 <img src={PurchaseContract} alt="" />
                             </div>
-                            <StyledText>{localize('Purchase your contract')}</StyledText>
+                            <StyledText>{localize('_t_Purchase your contract_t_')}</StyledText>
                         </OptionItems>
                         <Text>
                             {localize(
-                                'Purchase the contract if you are satisfied with the position you have defined.',
+                                '_t_Purchase the contract if you are satisfied with the position you have defined._t_',
                             )}
                         </Text>
                     </HowItWorksItem>
                 </OptionGrid>
                 <StyledFirstMultiplierHeader as="h3" size="3.2rem" mt="4rem">
-                    {localize('How to buy your first multipliers contract on DTrader')}
+                    {localize('_t_How to buy your first multipliers contract on DTrader_t_')}
                 </StyledFirstMultiplierHeader>
                 <Header as="h4" size="2.4rem" mb="2.4rem" mt="3.2rem">
-                    {localize('Define your position')}
+                    {localize('_t_Define your position_t_')}
                 </Header>
                 <SideTab>
                     <SideTab.Panel
-                        label={<Localize translate_text="1. Market" />}
+                        label={<Localize translate_text="_t_1. Market_t_" />}
                         description={
-                            <Localize translate_text="Choose an asset from the list of markets offered on Deriv." />
+                            <Localize translate_text="_t_Choose an asset from the list of markets offered on Deriv._t_" />
                         }
                     >
                         {is_eu_country ? (
@@ -192,9 +192,9 @@ const HowOptionsWorks = () => {
                         )}
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="2. Trade type" />}
+                        label={<Localize translate_text="_t_2. Trade type_t_" />}
                         description={
-                            <Localize translate_text="Choose ‘Multipliers’ from the list of trade types." />
+                            <Localize translate_text="_t_Choose ‘Multipliers’ from the list of trade types._t_" />
                         }
                     >
                         {is_eu_country ? (
@@ -210,20 +210,20 @@ const HowOptionsWorks = () => {
                         )}
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="3. Stake" />}
+                        label={<Localize translate_text="_t_3. Stake_t_" />}
                         description={
-                            <Localize translate_text="Enter the amount you wish to trade with." />
+                            <Localize translate_text="_t_Enter the amount you wish to trade with._t_" />
                         }
                     >
                         <QueryImage data={data['multiplier_stake']} alt="Enter stake amount" />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="4. Multiplier value" />}
+                        label={<Localize translate_text="_t_4. Multiplier value_t_" />}
                         description={
                             is_eu_country ? (
-                                <Localize translate_text="Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 5. Your loss will never be more than your stake." />
+                                <Localize translate_text="_t_Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 5. Your loss will never be more than your stake._t_" />
                             ) : (
-                                <Localize translate_text="Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount." />
+                                <Localize translate_text="_t_Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount._t_" />
                             )
                         }
                     >
@@ -241,29 +241,29 @@ const HowOptionsWorks = () => {
                     </SideTab.Panel>
                 </SideTab>
                 <StyledDtraderHeader as="h4" size="2.4rem" mb="2.4rem" mt="3.2rem">
-                    {localize('Set optional parameters for your trade')}
+                    {localize('_t_Set optional parameters for your trade_t_')}
                 </StyledDtraderHeader>
                 <SideTab is_reverse>
                     <SideTab.Panel
-                        label={<Localize translate_text="5. Take profit" />}
+                        label={<Localize translate_text="_t_5. Take profit_t_" />}
                         description={
-                            <Localize translate_text="This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account." />
+                            <Localize translate_text="_t_This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account._t_" />
                         }
                     >
                         <QueryImage data={data['multiplier_take_profit']} alt="Set profit level" />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="6. Stop loss" />}
+                        label={<Localize translate_text="_t_6. Stop loss_t_" />}
                         description={
-                            <Localize translate_text="This feature allows you to set the amount of loss you are willing to take in case the market moves against your position. Once the amount is reached, your contract will be closed automatically." />
+                            <Localize translate_text="_t_This feature allows you to set the amount of loss you are willing to take in case the market moves against your position. Once the amount is reached, your contract will be closed automatically._t_" />
                         }
                     >
                         <QueryImage data={data['multiplier_stop_loss']} alt="Set stop loss" />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="7. Deal cancellation" />}
+                        label={<Localize translate_text="_t_7. Deal cancellation_t_" />}
                         description={
-                            <Localize translate_text="This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service." />
+                            <Localize translate_text="_t_This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service._t_" />
                         }
                     >
                         <QueryImage
@@ -273,13 +273,13 @@ const HowOptionsWorks = () => {
                     </SideTab.Panel>
                 </SideTab>
                 <StyledDtraderHeader as="h4" size="2.4rem" mb="2.4rem">
-                    {localize('Purchase your contract')}
+                    {localize('_t_Purchase your contract_t_')}
                 </StyledDtraderHeader>
                 <SideTab>
                     <SideTab.Panel
-                        label={<Localize translate_text="8. Purchase your contract" />}
+                        label={<Localize translate_text="_t_8. Purchase your contract_t_" />}
                         description={
-                            <Localize translate_text="Once you are satisfied with the parameters that you have set, select either ‘Up’ or ‘Down’ to purchase your contract. Otherwise, continue to customise the parameters and place your order when you are satisfied with the conditions." />
+                            <Localize translate_text="_t_Once you are satisfied with the parameters that you have set, select either ‘Up’ or ‘Down’ to purchase your contract. Otherwise, continue to customise the parameters and place your order when you are satisfied with the conditions._t_" />
                         }
                     >
                         <QueryImage

@@ -124,7 +124,7 @@ const ImageTextSwitching = ({ P2P, reverse }: ImageTextSwitchingProps) => {
                     mb="1rem"
                     weight="bold"
                 >
-                    {localize('Trade the markets that never sleep')}
+                    {localize('_t_Trade the markets that never sleep_t_')}
                 </StyledText>
 
                 {P2P.map((item, index) => {

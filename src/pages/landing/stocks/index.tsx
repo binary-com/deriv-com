@@ -30,61 +30,61 @@ const query = graphql`
 // max numbers of columnPerRow is 5
 const WhyTradeWithUsArr = [
     {
-        title: <Localize translate_text="Extended market hours" />,
+        title: <Localize translate_text="_t_Extended market hours_t_" />,
         icon: ExtendedTimeSVG,
     },
     {
-        title: <Localize translate_text="No commissions" />,
+        title: <Localize translate_text="_t_No commissions_t_" />,
         icon: NoCommisionSVG,
     },
     {
-        title: <Localize translate_text="High leverage" />,
+        title: <Localize translate_text="_t_High leverage_t_" />,
         icon: HighLeverageSVG,
     },
     {
-        title: <Localize translate_text="12+ world indices" />,
+        title: <Localize translate_text="_t_12+ world indices_t_" />,
         icon: TwelveIndicesSVG,
     },
     {
-        title: <Localize translate_text="40+ stocks" />,
+        title: <Localize translate_text="_t_40+ stocks_t_" />,
         icon: FourtyStocksSVG,
     },
     {
-        title: <Localize translate_text="Low capital requirement" />,
+        title: <Localize translate_text="_t_Low capital requirement_t_" />,
         icon: LowCapitalSVG,
     },
 ]
 
 const trading = [
     {
-        title: <Localize translate_text="No commision, no fees" />,
+        title: <Localize translate_text="_t_No commision, no fees_t_" />,
         subtitle: (
-            <Localize translate_text="Predict the performance of global giants including Apple, Amazon, and Netflix. Trade CFDs with leverage and no commissions on a range of both stocks and stock indices." />
+            <Localize translate_text="_t_Predict the performance of global giants including Apple, Amazon, and Netflix. Trade CFDs with leverage and no commissions on a range of both stocks and stock indices._t_" />
         ),
 
         image_name: 'stocks_zero_fees',
-        image_alt: localize('Zero Fees'),
+        image_alt: localize('_t_Zero Fees_t_'),
     },
 ]
 
 const tradingMobile = [
     {
-        title: <Localize translate_text="No commision, no fees" />,
+        title: <Localize translate_text="_t_No commision, no fees_t_" />,
         subtitle: (
-            <Localize translate_text="Predict the performance of global giants including Apple, Amazon, and Netflix. Trade CFDs with leverage and no commissions on a range of both stocks and stock indices." />
+            <Localize translate_text="_t_Predict the performance of global giants including Apple, Amazon, and Netflix. Trade CFDs with leverage and no commissions on a range of both stocks and stock indices._t_" />
         ),
     },
 ]
 const blueChips = [
     {
-        title: <Localize translate_text="Blue chip, blue skies" />,
+        title: <Localize translate_text="_t_Blue chip, blue skies_t_" />,
         subtitle: (
-            <Localize translate_text="Diversify your portfolio with commission-free trading on the biggest international stock market indices. Trade on world renowned indices such as the Wall Street 30, US Tech 100, UK 100, plus many more. Get trading from as low as $5." />
+            <Localize translate_text="_t_Diversify your portfolio with commission-free trading on the biggest international stock market indices. Trade on world renowned indices such as the Wall Street 30, US Tech 100, UK 100, plus many more. Get trading from as low as $5._t_" />
         ),
 
         image_name: 'stocks_blue_chip',
         image_name_mobile: 'stocks_blue_chip_mobile',
-        image_alt: localize('Blue Chips'),
+        image_alt: localize('_t_Blue Chips_t_'),
     },
 ]
 
@@ -104,9 +104,9 @@ const Stocks = () => {
     return (
         <Layout is_ppc_redirect={true}>
             <SEO
-                title={localize('Stocks')}
+                title={localize('_t_Stocks_t_')}
                 description={localize(
-                    'Trade global stocks and stock indices now on our DMT5 platform.',
+                    '_t_Trade global stocks and stock indices now on our DMT5 platform._t_',
                 )}
                 no_index
             />
@@ -130,14 +130,14 @@ const Stocks = () => {
             />
             <WhyTradeWithUs
                 itemsArr={WhyTradeWithUsArr}
-                mainTitle={<Localize translate_text="Why trade stocks and indices on Deriv" />}
+                mainTitle={<Localize translate_text="_t_Why trade stocks and indices on Deriv_t_" />}
                 columnPerRow={3}
             />
             <FooterBanner
                 background_pattern={is_mobile ? '' : BackgroundFooterStocksPattern}
-                title={<Localize translate_text="All this is available on our DMT5 platform" />}
+                title={<Localize translate_text="_t_All this is available on our DMT5 platform_t_" />}
                 small_title={
-                    <Localize translate_text="Enjoy high leverage and low spreads on our DMT5 platform, now offering a range of stocks and stock indices from the brands you love." />
+                    <Localize translate_text="_t_Enjoy high leverage and low spreads on our DMT5 platform, now offering a range of stocks and stock indices from the brands you love._t_" />
                 }
                 data={data}
                 is_ppc={true}

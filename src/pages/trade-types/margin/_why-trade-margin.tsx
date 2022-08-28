@@ -21,70 +21,70 @@ const WhyTradeMargin = () => {
             <SectionContainer background="rgba(242, 243, 244, 0.3)" padding="4rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" type="section-title" mb="4rem">
-                        {localize('Why trade on margin with Deriv')}
+                        {localize('_t_Why trade on margin with Deriv_t_')}
                     </Header>
                     <Grid>
                         <WhyTradeItem>
                             <img src={HighLeverge} alt="" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                                {localize('High leverage, low spreads')}
+                                {localize('_t_High leverage, low spreads_t_')}
                             </Text>
                             <Text mb="4rem">
                                 {is_eu_country
                                     ? localize(
-                                          'Take advantage of high leverage and low spreads on Deriv MT5 (DMT5).',
+                                          '_t_Take advantage of high leverage and low spreads on Deriv MT5 (DMT5)._t_',
                                       )
                                     : localize(
-                                          'Take advantage of high leverage and low spreads on Deriv MT5 (DMT5) and Deriv X.',
+                                          '_t_Take advantage of high leverage and low spreads on Deriv MT5 (DMT5) and Deriv X._t_',
                                       )}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <img src={SyntheticIndices} alt="" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                                {localize('All favourite markets available')}
+                                {localize('_t_All favourite markets available_t_')}
                             </Text>
                             <Text mb="4rem">
                                 {localize(
-                                    'Trade on all popular markets plus our proprietary synthetic indices that are available 24/7.',
+                                    '_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_',
                                 )}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <img src={MaximizePotentialProfit} alt="" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                                {localize('Go long and short')}
+                                {localize('_t_Go long and short_t_')}
                             </Text>
                             <Text mb="4rem">
                                 {localize(
-                                    'Open long and short positions, depending on your preferred trading strategy.',
+                                    '_t_Open long and short positions, depending on your preferred trading strategy._t_',
                                 )}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <img src={FriendlySupport} alt="" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                                {localize('Expert and friendly support')}
+                                {localize('_t_Expert and friendly support_t_')}
                             </Text>
                             <Text mb="4rem">
-                                {localize('Get expert, friendly support when you need it.')}
+                                {localize('_t_Get expert, friendly support when you need it._t_')}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <img src={InstantAccess} alt="" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                                {localize('Instant access')}
+                                {localize('_t_Instant access_t_')}
                             </Text>
                             <Text mb="4rem">
-                                {localize('Open an account and start trading in minutes.')}
+                                {localize('_t_Open an account and start trading in minutes._t_')}
                             </Text>
                         </WhyTradeItem>
                     </Grid>
                     <Text align="left" width="100%" weight="bold">
-                        {localize("Don't have a Deriv.com account yet?")}
+                        {localize("_t_Don't have a Deriv.com account yet?_t_")}
                     </Text>
                     <Button onClick={handleSignup} id="dm-cfd-signup" mt="1.6rem" secondary="true">
-                        {localize('Create free demo account')}
+                        {localize('_t_Create free demo account_t_')}
                     </Button>
                 </SmallContainer>
             </SectionContainer>

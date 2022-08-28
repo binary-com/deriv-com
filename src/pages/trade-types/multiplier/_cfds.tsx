@@ -38,7 +38,7 @@ const CFDs = () => {
         },
         content: [
             {
-                title: <Localize translate_text="Major pairs" />,
+                title: <Localize translate_text="_t_Major pairs_t_" />,
                 component: <MajorPairs />,
             },
         ],
@@ -49,16 +49,16 @@ const CFDs = () => {
             <Flex max_width="720px" m="0 auto" direction="column">
                 <Text align="center">
                     {is_eu_country ? (
-                        <Localize translate_text="Trade forex with multipliers with tight spreads, and benefit from multiple opportunities to trade on world events." />
+                        <Localize translate_text="_t_Trade forex with multipliers with tight spreads, and benefit from multiple opportunities to trade on world events._t_" />
                     ) : (
-                        <Localize translate_text="Trade forex with multipliers with high leverage and tight spreads, and benefit from multiple opportunities to trade on world events." />
+                        <Localize translate_text="_t_Trade forex with multipliers with high leverage and tight spreads, and benefit from multiple opportunities to trade on world events._t_" />
                     )}
                 </Text>
                 <AvailablePlatformsWrapper mb="40px">
                     <AvailablePlatforms m_top="16px" dbot={is_row} dtrader />
                 </AvailablePlatformsWrapper>
                 <StyledTitle>
-                    {localize('Forex pairs available for multipliers trading')}
+                    {localize('_t_Forex pairs available for multipliers trading_t_')}
                 </StyledTitle>
                 <MarketInstruments market_content={major_pairs} />
             </Flex>

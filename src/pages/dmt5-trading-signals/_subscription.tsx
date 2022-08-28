@@ -148,11 +148,11 @@ const Subscription = () => {
         <StyledSectionContainer padding="0" background="white">
             <StyledContainer>
                 <StyledHeader as="h2">
-                    {localize('How to renew or cancel your subscription')}
+                    {localize('_t_How to renew or cancel your subscription_t_')}
                 </StyledHeader>
                 <StyledText>
                     {localize(
-                        'MT5 trading signals subscriptions expire automatically after one month. To renew or cancel a subscription, follow these steps.',
+                        '_t_MT5 trading signals subscriptions expire automatically after one month. To renew or cancel a subscription, follow these steps._t_',
                     )}
                 </StyledText>
                 <CardContainer>
@@ -169,7 +169,7 @@ const Subscription = () => {
                             <Column>
                                 <StyledCardText>
                                     <Localize
-                                        translate_text="From your Deriv MT5 trading terminal, click on the <0>Signals</0> tab."
+                                        translate_text="_t_From your Deriv MT5 trading terminal, click on the <0>Signals</0> tab._t_"
                                         components={[<strong key={0} />]}
                                     />
                                 </StyledCardText>
@@ -189,7 +189,7 @@ const Subscription = () => {
                             <Column>
                                 <StyledCardText>
                                     <Localize
-                                        translate_text="Click on the <0>My Statistics</0> tab and select your signal provider."
+                                        translate_text="_t_Click on the <0>My Statistics</0> tab and select your signal provider._t_"
                                         components={[<strong key={0} />]}
                                     />
                                 </StyledCardText>
@@ -209,7 +209,7 @@ const Subscription = () => {
                             <Column>
                                 <StyledCardText>
                                     <Localize
-                                        translate_text="Click the <0>Renew</0> button to renew the service or the <0>Unsubscribe</0> button to cancel the subscription."
+                                        translate_text="_t_Click the <0>Renew</0> button to renew the service or the <0>Unsubscribe</0> button to cancel the subscription._t_"
                                         components={[<strong key={0} />]}
                                     />
                                 </StyledCardText>
@@ -219,11 +219,11 @@ const Subscription = () => {
                 </CardContainer>
                 <NoteContainer>
                     <StyledCardText>
-                        <Localize translate_text="<0>Note:</0>" components={[<strong key={0} />]} />
+                        <Localize translate_text="_t_<0>Note:</0>_t_" components={[<strong key={0} />]} />
                     </StyledCardText>
                     <StyledCardText mt="8px">
                         <Localize
-                            translate_text="1. You must have an MQL5 community account to subscribe to trading signals. If you don't have an account yet, please go to <0>MQL5.com</0> to register."
+                            translate_text="_t_1. You must have an MQL5 community account to subscribe to trading signals. If you don't have an account yet, please go to <0>MQL5.com</0> to register._t_"
                             components={[
                                 <LocalizedLinkText
                                     external="true"
@@ -238,7 +238,7 @@ const Subscription = () => {
                     </StyledCardText>
                     <StyledCardText mt="16px">
                         <Localize
-                            translate_text="2. You'll need to <0>fund your MQL5 account</0> to subscribe to paid signals."
+                            translate_text="_t_2. You'll need to <0>fund your MQL5 account</0> to subscribe to paid signals._t_"
                             components={[
                                 <LocalizedLinkText
                                     external="true"
@@ -253,17 +253,17 @@ const Subscription = () => {
                     </StyledCardText>
                     <StyledCardText mt="16px">
                         {localize(
-                            '3. You can only subscribe to one signal provider with one DMT5 account at any given time. You can use your signal on up to 3 computers.',
+                            '_t_3. You can only subscribe to one signal provider with one DMT5 account at any given time. You can use your signal on up to 3 computers._t_',
                         )}
                     </StyledCardText>
                     <StyledCardText mt="16px">
                         {localize(
-                            "4. You won't be able to trade manually with the same DMT5 account once you've subscribed to a signal.",
+                            "_t_4. You won't be able to trade manually with the same DMT5 account once you've subscribed to a signal._t_",
                         )}
                     </StyledCardText>
                     <StyledCardText mt="16px">
                         <Localize
-                            translate_text="Have more questions? Check out the <0>FAQ section</0> on the MQL5 website."
+                            translate_text="_t_Have more questions? Check out the <0>FAQ section</0> on the MQL5 website._t_"
                             components={[
                                 <LocalizedLinkText
                                     external="true"
@@ -285,7 +285,7 @@ const Subscription = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    {localize('Go to your DMT5 terminal')}
+                    {localize('_t_Go to your DMT5 terminal_t_')}
                 </DMT5Button>
             </StyledContainer>
         </StyledSectionContainer>

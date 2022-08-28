@@ -108,11 +108,11 @@ const DerivNumbers = () => {
             <StyledFlex>
                 <TitleSection fd="column">
                     <TitleHeader as="h6" color="black-2" align="left" type="unset">
-                        {localize('Deriv in numbers')}
+                        {localize('_t_Deriv in numbers_t_')}
                     </TitleHeader>
                     <StyledHeader as="h6" size="24px" align="left" weight="400" type="unset">
                         {localize(
-                            'We aim to deliver market-leading products that are trusted around the world.',
+                            '_t_We aim to deliver market-leading products that are trusted around the world._t_',
                         )}
                     </StyledHeader>
                 </TitleSection>

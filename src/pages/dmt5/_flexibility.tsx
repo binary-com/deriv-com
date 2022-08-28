@@ -37,23 +37,23 @@ const StyledSyntheticIcon = styled.img`
 
 const content: ContentType[] = [
     {
-        header: <Localize translate_text="Synthetic" />,
+        header: <Localize translate_text="_t_Synthetic_t_" />,
         text: (
-            <Localize translate_text="Trade CFDs 24/7 on our exclusive, proprietary synthetic indices, which simulate real-world market movements." />
+            <Localize translate_text="_t_Trade CFDs 24/7 on our exclusive, proprietary synthetic indices, which simulate real-world market movements._t_" />
         ),
         icon: <StyledSyntheticIcon src={SyntheticIcon} alt="" />,
     },
     {
-        header: <Localize translate_text="Financial" />,
+        header: <Localize translate_text="_t_Financial_t_" />,
         text: (
-            <Localize translate_text="Trade forex, stocks, stock indices, cryptocurrencies, basket indices, and commodities on high leverage." />
+            <Localize translate_text="_t_Trade forex, stocks, stock indices, cryptocurrencies, basket indices, and commodities on high leverage._t_" />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
     },
     {
-        header: <Localize translate_text="Financial STP" />,
+        header: <Localize translate_text="_t_Financial STP_t_" />,
         text: (
-            <Localize translate_text="Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes, straight to the market." />
+            <Localize translate_text="_t_Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes, straight to the market._t_" />
         ),
         icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="" />,
     },
@@ -61,9 +61,9 @@ const content: ContentType[] = [
 
 const eucontent: ContentType[] = [
     {
-        header: <Localize translate_text="CFDs" />,
+        header: <Localize translate_text="_t_CFDs_t_" />,
         text: (
-            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage." />
+            <Localize translate_text="_t_Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage._t_" />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
         show_eu: true,
@@ -150,8 +150,8 @@ const Flexibility = () => {
                 mb="4rem"
             >
                 {is_eu_country
-                    ? localize('Flexibility with multiple markets')
-                    : localize('Flexibility with multiple account types')}
+                    ? localize('_t_Flexibility with multiple markets_t_')
+                    : localize('_t_Flexibility with multiple account types_t_')}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {
@@ -173,7 +173,7 @@ const Flexibility = () => {
                                 </Flex>
                                 {is_eu_country && is_uk ? (
                                     <StyledText>
-                                        <Localize translate_text="Trade forex, stocks, stock indices, and commodities on leverage." />
+                                        <Localize translate_text="_t_Trade forex, stocks, stock indices, and commodities on leverage._t_" />
                                     </StyledText>
                                 ) : (
                                     <StyledText>{item.text}</StyledText>
@@ -190,7 +190,7 @@ const Flexibility = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                {localize('Go to Deriv MT5 dashboard')}
+                {localize('_t_Go to Deriv MT5 dashboard_t_')}
             </StyledLinkButton>
         </Section>
     )

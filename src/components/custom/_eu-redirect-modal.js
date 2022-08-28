@@ -106,20 +106,20 @@ const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_la
                 <ModalCard>
                     <Action>
                         <Text weight="bold">
-                            <Localize translate_text="Redirect notice" />
+                            <Localize translate_text="_t_Redirect notice_t_" />
                         </Text>
                         <CloseButton src={Close} alt="close-2" onClick={toggle} />
                     </Action>
 
                     <div>
                         <Text size="var(--text-size-xs)" m="2.4rem 0">
-                            <Localize translate_text="You are being redirected to an external website." />
+                            <Localize translate_text="_t_You are being redirected to an external website._t_" />
                         </Text>
                     </div>
                     <Flex jc="flex-end">
                         <Cancel onClick={() => closeModal()}>
                             <Text size="var(--text-size-xs)" weight="bold">
-                                <Localize translate_text="Cancel" />
+                                <Localize translate_text="_t_Cancel_t_" />
                             </Text>
                         </Cancel>
                         <Proceed
@@ -131,7 +131,7 @@ const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_la
                             onClick={toggle}
                         >
                             <Text size="var(--text-size-xs)" weight="bold" color="white">
-                                <Localize translate_text="Proceed" />
+                                <Localize translate_text="_t_Proceed_t_" />
                             </Text>
                         </Proceed>
                     </Flex>

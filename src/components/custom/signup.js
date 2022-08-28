@@ -193,7 +193,7 @@ const Signup = (props) => {
     return props.submit_state === 'success' ? (
         <ResponseWrapper>
             <Header as="h3" type="section-title" align="center" weight="normal">
-                {localize('Check your email')}
+                {localize('_t_Check your email_t_')}
             </Header>
             <StaticQuery
                 query={graphql`
@@ -211,12 +211,12 @@ const Signup = (props) => {
             />
             <ConfirmationMessage>
                 <Localize
-                    translate_text="We've sent a message to {{email}} with a link to activate your account."
+                    translate_text="_t_We've sent a message to {{email}} with a link to activate your account._t_"
                     values={{ email: props.email }}
                 />
             </ConfirmationMessage>
             <EmailLink to="/check-email/" align="center">
-                {localize("Didn't receive your email?")}
+                {localize("_t_Didn't receive your email?_t_")}
             </EmailLink>
         </ResponseWrapper>
     ) : (

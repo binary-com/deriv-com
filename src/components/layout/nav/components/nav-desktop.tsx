@@ -58,10 +58,10 @@ const Tab = styled.span<TabProps>`
 `
 
 const links = [
-    { active: 'trade', title: <Localize translate_text="Trade" /> },
-    { active: 'markets', title: <Localize translate_text="Markets" /> },
-    { active: 'about', title: <Localize translate_text="About us" /> },
-    { active: 'resources', title: <Localize translate_text="Resources" /> },
+    { active: 'trade', title: <Localize translate_text="_t_Trade_t_" /> },
+    { active: 'markets', title: <Localize translate_text="_t_Markets_t_" /> },
+    { active: 'about', title: <Localize translate_text="_t_About us_t_" /> },
+    { active: 'resources', title: <Localize translate_text="_t_Resources_t_" /> },
 ]
 
 const NavDesktop = ({

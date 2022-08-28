@@ -211,7 +211,7 @@ const BlogPreview = () => {
 
                                                 <Box>
                                                     <WrittenbyText color="grey-5" size="12px">
-                                                        {localize('Written by')}
+                                                        {localize('_t_Written by_t_')}
                                                     </WrittenbyText>
                                                     <InfoText>{post_data?.author?.name}</InfoText>
                                                 </Box>
@@ -249,7 +249,7 @@ const BlogPreview = () => {
 
                                             <Box>
                                                 <WrittenbyText color="grey-5" size="12px">
-                                                    {localize('Written by')}
+                                                    {localize('_t_Written by_t_')}
                                                 </WrittenbyText>
                                                 <InfoText>{post_data?.author?.name}</InfoText>
                                             </Box>

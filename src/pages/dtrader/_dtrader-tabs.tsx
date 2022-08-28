@@ -215,7 +215,7 @@ class DtraderTabs extends React.Component {
                                 this.updatePlay()
                             }}
                         >
-                            {localize('1. Select an asset')}
+                            {localize('_t_1. Select an asset_t_')}
                         </Step>
                     </Tab>
                     <Tab>
@@ -232,7 +232,7 @@ class DtraderTabs extends React.Component {
                                 this.updatePlay()
                             }}
                         >
-                            {localize('2. Monitor the chart')}
+                            {localize('_t_2. Monitor the chart_t_')}
                         </Step>
                     </Tab>
                     <Tab>
@@ -249,7 +249,7 @@ class DtraderTabs extends React.Component {
                                 this.updatePlay()
                             }}
                         >
-                            {localize('3. Place a trade')}
+                            {localize('_t_3. Place a trade_t_')}
                         </Step>
                     </Tab>
                     <GotoLiveWrapper>
@@ -260,7 +260,7 @@ class DtraderTabs extends React.Component {
                             target="_blank"
                             rel="noopener noreferrer nofollow"
                         >
-                            {localize('Go to live demo')}
+                            {localize('_t_Go to live demo_t_')}
                         </GoToLiveDemo>
                     </GotoLiveWrapper>
                 </TabsWrapper>

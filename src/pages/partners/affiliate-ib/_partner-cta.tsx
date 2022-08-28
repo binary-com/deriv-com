@@ -54,10 +54,10 @@ const PartnerCTA = () => {
             <Container>
                 <Flex direction="column" ai="center" jc="space-between">
                     <Header as="h4" type="sub-section-title" align="center" color="white">
-                        {localize('Got more questions?')}
+                        {localize('_t_Got more questions?_t_')}
                     </Header>
                     <Text align="center" color="white" mt="0.8rem">
-                        {localize('The Deriv affiliate management team is here to help.')}
+                        {localize('_t_The Deriv affiliate management team is here to help._t_')}
                     </Text>
                     <LightButton
                         external="true"
@@ -65,13 +65,13 @@ const PartnerCTA = () => {
                         tertiary
                         is_mail_link
                     >
-                        {localize('Contact us')}
+                        {localize('_t_Contact us_t_')}
                     </LightButton>
                 </Flex>
                 <Flex direction="column" ai="center">
                     <Header as="h4" type="sub-section-title" align="center" color="white">
                         {localize(
-                            'Enjoy generous commissions and all the other benefits of being a Deriv partner',
+                            '_t_Enjoy generous commissions and all the other benefits of being a Deriv partner_t_',
                         )}
                     </Header>
                     <RedButton
@@ -83,7 +83,7 @@ const PartnerCTA = () => {
                         type="affiliate_sign_up"
                         secondary
                     >
-                        {localize('Sign up')}
+                        {localize('_t_Sign up_t_')}
                     </RedButton>
                 </Flex>
             </Container>

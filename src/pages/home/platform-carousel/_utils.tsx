@@ -54,7 +54,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         title: 'Deriv GO',
         icon: DerivGOIcon,
         image_key: 'platforms_deriv_go',
-        description: <Localize translate_text="Our best trading experience on your mobile." />,
+        description: <Localize translate_text="_t_Our best trading experience on your mobile._t_" />,
         learn_more_link: '/deriv-go/',
         download_links: [
             { type: 'app_store', url: deriv_go_ios_url },
@@ -65,7 +65,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5',
-        description: <Localize translate_text="The all-in-one CFD trading platform." />,
+        description: <Localize translate_text="_t_The all-in-one CFD trading platform._t_" />,
         learn_more_link: '/dmt5/',
         download_links: [
             { type: 'browser', link_type: 'mt5' },
@@ -79,7 +79,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         icon: DTraderIcon,
         image_key: 'platforms_dtrader',
         description: (
-            <Localize translate_text="Our flagship app for trading options and multipliers." />
+            <Localize translate_text="_t_Our flagship app for trading options and multipliers._t_" />
         ),
         learn_more_link: '/dtrader/',
         download_links: [{ type: 'browser', link_type: 'deriv_app' }],
@@ -88,7 +88,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         title: 'Deriv X',
         icon: DerivXIcon,
         image_key: 'platforms_derivx',
-        description: <Localize translate_text="The CFD trading platform to fit your style." />,
+        description: <Localize translate_text="_t_The CFD trading platform to fit your style._t_" />,
         learn_more_link: '/derivx/',
         download_links: [
             { type: 'browser', link_type: 'derivx' },
@@ -100,7 +100,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         title: 'DBot',
         icon: DBotIcon,
         image_key: 'platforms_dbot',
-        description: <Localize translate_text="Automate your trading. No coding required." />,
+        description: <Localize translate_text="_t_Automate your trading. No coding required._t_" />,
         learn_more_link: '/dbot/',
         download_links: [{ type: 'browser', link_type: 'dbot' }],
     },
@@ -108,7 +108,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         title: 'SmartTrader',
         icon: SmartTraderIcon,
         image_key: 'platforms_smarttrader',
-        description: <Localize translate_text="Our legacy options trading platform." />,
+        description: <Localize translate_text="_t_Our legacy options trading platform._t_" />,
         learn_more_link: smarttrader_url,
         download_links: [{ type: 'browser', link_type: 'smart_trader', url: 'trading' }],
     },
@@ -117,7 +117,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         icon: BinaryBotIcon,
         image_key: 'platforms_binary_bot',
         description: (
-            <Localize translate_text="Our classic bot builder and automated trading platform." />
+            <Localize translate_text="_t_Our classic bot builder and automated trading platform._t_" />
         ),
         learn_more_link: binary_bot_url,
         download_links: [{ type: 'browser', link_type: 'binary_bot' }],
@@ -126,7 +126,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         title: 'API',
         icon: APIIcon,
         image_key: 'platforms_api',
-        description: <Localize translate_text="Build your own apps with our API." />,
+        description: <Localize translate_text="_t_Build your own apps with our API._t_" />,
         learn_more_link: deriv_api_url,
         download_links: [{ type: 'browser', url: deriv_api_url }],
     },
@@ -137,7 +137,7 @@ export const platform_details_eu: TPlatformDetails[] = [
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5_eu',
-        description: <Localize translate_text="The all-in-one CFD trading platform." />,
+        description: <Localize translate_text="_t_The all-in-one CFD trading platform._t_" />,
         learn_more_link: '/dmt5/',
         download_links: [
             { type: 'browser', link_type: 'mt5' },
@@ -150,7 +150,7 @@ export const platform_details_eu: TPlatformDetails[] = [
         title: 'DTrader',
         icon: DTraderIcon,
         image_key: 'platforms_dtrader_eu',
-        description: <Localize translate_text="Our flagship app for trading multipliers." />,
+        description: <Localize translate_text="_t_Our flagship app for trading multipliers._t_" />,
         learn_more_link: '/dtrader/',
         download_links: [{ type: 'browser', link_type: 'deriv_app' }],
     },
@@ -161,7 +161,7 @@ export const platform_details_uk: TPlatformDetails[] = [
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5_uk',
-        description: <Localize translate_text="The all-in-one CFD trading platform." />,
+        description: <Localize translate_text="_t_The all-in-one CFD trading platform._t_" />,
         learn_more_link: '/dmt5/',
         download_links: [
             { type: 'browser', link_type: 'mt5' },
@@ -174,7 +174,7 @@ export const platform_details_uk: TPlatformDetails[] = [
         title: 'DTrader',
         icon: DTraderIcon,
         image_key: 'platforms_dtrader_uk',
-        description: <Localize translate_text="Our flagship app for trading multipliers." />,
+        description: <Localize translate_text="_t_Our flagship app for trading multipliers._t_" />,
         learn_more_link: '/dtrader/',
         download_links: [{ type: 'browser', link_type: 'deriv_app' }],
     },
@@ -227,7 +227,7 @@ export const PlatformContent = ({
                     external={learn_more_link.includes('https')}
                     mb="9px"
                 >
-                    <span>{`${localize('Learn more')} >`}</span>
+                    <span>{`${localize('_t_Learn more_t_')} >`}</span>
                 </LearnMoreLink>
             </Flex>
         </>

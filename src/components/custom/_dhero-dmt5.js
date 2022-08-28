@@ -177,7 +177,7 @@ const DHero = ({
                 <LinkWrapper>
                     {join_us_for_free && (
                         <DemoButton onClick={handleSignup} id="dm-hero-signup-1" secondary="true">
-                            {localize('Create free demo account')}
+                            {localize('_t_Create free demo account_t_')}
                         </DemoButton>
                     )}
                     {go_to_live_demo && (
@@ -188,7 +188,7 @@ const DHero = ({
                             target="_blank"
                             rel="noopener noreferrer nofollow"
                         >
-                            {localize('Go to live demo')}
+                            {localize('_t_Go to live demo_t_')}
                         </GoToLiveDemo>
                     )}
                 </LinkWrapper>

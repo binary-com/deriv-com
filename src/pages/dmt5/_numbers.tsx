@@ -78,16 +78,16 @@ const Number = styled(Flex)`
 
 const numbers_content: NumbersContentType[] = [
     {
-        title: <Localize translate_text="330K+" />,
-        subtitle: <Localize translate_text="clients on Deriv MT5" />,
+        title: <Localize translate_text="_t_330K+_t_" />,
+        subtitle: <Localize translate_text="_t_clients on Deriv MT5_t_" />,
     },
     {
-        title: <Localize translate_text="100+" />,
-        subtitle: <Localize translate_text="tradable assets" />,
+        title: <Localize translate_text="_t_100+_t_" />,
+        subtitle: <Localize translate_text="_t_tradable assets_t_" />,
     },
     {
-        title: <Localize translate_text="24/7" />,
-        subtitle: <Localize translate_text="trading" />,
+        title: <Localize translate_text="_t_24/7_t_" />,
+        subtitle: <Localize translate_text="_t_trading_t_" />,
     },
 ]
 

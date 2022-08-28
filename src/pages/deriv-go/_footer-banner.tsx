@@ -137,11 +137,11 @@ const FooterBanner = () => {
                     tabletL={{ max_width: '100%', mt: '40px' }}
                 >
                     <StyledHeader as="h3" color="white" type="heading-3">
-                        {localize('Start trading on the go')}
+                        {localize('_t_Start trading on the go_t_')}
                     </StyledHeader>
                     <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
                         {localize(
-                            'Download the app today and trade multipliers anytime, anywhere you want.',
+                            '_t_Download the app today and trade multipliers anytime, anywhere you want._t_',
                         )}
                     </StyledSubTitle>
                     <Flex
@@ -159,12 +159,12 @@ const FooterBanner = () => {
                                 height="108px"
                             />
                             <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
-                                {localize('Scan the QR code to download Deriv GO')}
+                                {localize('_t_Scan the QR code to download Deriv GO_t_')}
                             </StyledSubTitle>
                         </Desktop>
                         <Mobile>
                             <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
-                                {localize('Download Deriv GO')}
+                                {localize('_t_Download Deriv GO_t_')}
                             </ButtonDerivGO>
                         </Mobile>
                     </Flex>

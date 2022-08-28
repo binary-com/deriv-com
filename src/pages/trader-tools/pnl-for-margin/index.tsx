@@ -9,13 +9,13 @@ const PnLMarginCalculator = () => {
     return (
         <Layout>
             <SEO
-                title={localize('PnL Margin Calculator')}
-                description={localize('PnL Margin Calculator')}
+                title={localize('_t_PnL Margin Calculator_t_')}
+                description={localize('_t_PnL Margin Calculator_t_')}
             />
             <Hero jc="center" ai="center">
                 <Container>
                     <StyledHeader as="h1" type="display-title" color="white" align="center">
-                        {localize('Stop loss and/or take profit calculator for margin')}
+                        {localize('_t_Stop loss and/or take profit calculator for margin_t_')}
                     </StyledHeader>
                 </Container>
             </Hero>

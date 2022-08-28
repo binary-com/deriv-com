@@ -120,11 +120,11 @@ const SignupFlat = ({
                         weight="bold"
                         color={dark ? 'white' : 'black'}
                     >
-                        {localize('Join over 1 million traders worldwide')}
+                        {localize('_t_Join over 1 million traders worldwide_t_')}
                     </StyledHeader>
                     <br />
                     <Text color={dark ? 'white' : 'black'}>
-                        {localize('Sign up for your demo account now.')}
+                        {localize('_t_Sign up for your demo account now._t_')}
                     </Text>
                     <InputGroup>
                         <InputWrapper>
@@ -136,7 +136,7 @@ const SignupFlat = ({
                                 type="text"
                                 error={email_error_msg}
                                 value={email}
-                                label={localize('Email address')}
+                                label={localize('_t_Email address_t_')}
                                 placeholder={'example@mail.com'}
                                 handleError={clearEmail}
                                 onChange={handleInputChange}
@@ -152,12 +152,12 @@ const SignupFlat = ({
                             secondary="true"
                             disabled={is_submitting}
                         >
-                            {localize('Sign up')}
+                            {localize('_t_Sign up_t_')}
                         </EmailButton>
                     </InputGroup>
                     <SocialWrapper>
                         <StyledText color={dark ? 'white' : 'black'}>
-                            {localize('or sign up with')}
+                            {localize('_t_or sign up with_t_')}
                         </StyledText>
                         <SocialButton
                             dark={dark}
@@ -195,7 +195,7 @@ const SignupFlat = ({
                         color={dark ? 'white' : 'black'}
                         weight="bold"
                     >
-                        {localize('Get a taste of the Deriv experience')}
+                        {localize('_t_Get a taste of the Deriv experience_t_')}
                     </Text>
                     <DemoButton
                         secondary
@@ -204,7 +204,7 @@ const SignupFlat = ({
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                     >
-                        {localize('See live demo')}
+                        {localize('_t_See live demo_t_')}
                     </DemoButton>
                 </RightWrapper>
             </FormWrapper>

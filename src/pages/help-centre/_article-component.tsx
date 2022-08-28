@@ -175,12 +175,12 @@ const ArticleComponent = ({
                                     <StyledView onClick={() => toggleArticle(ar.category)}>
                                         {should_show_expand ? (
                                             <Localize
-                                                translate_text="<0>View all questions</0>"
+                                                translate_text="_t_<0>View all questions</0>_t_"
                                                 components={[<p key={0} />]}
                                             />
                                         ) : (
                                             <Localize
-                                                translate_text="<0>View fewer questions</0>"
+                                                translate_text="_t_<0>View fewer questions</0>_t_"
                                                 components={[<p key={0} />]}
                                             />
                                         )}

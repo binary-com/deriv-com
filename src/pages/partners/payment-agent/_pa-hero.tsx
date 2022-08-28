@@ -23,7 +23,7 @@ const PAHero = () => {
     return (
         <Hero>
             <MainHeader as="h1" type="heading-1" color="white" align="center" lh="1.25">
-                {localize('Become a payment agent on Deriv')}
+                {localize('_t_Become a payment agent on Deriv_t_')}
             </MainHeader>
             <MiddleHeader
                 as="h4"
@@ -35,7 +35,7 @@ const PAHero = () => {
                 mb="40px"
             >
                 {localize(
-                    'Expand your client base, gain additional business exposure, and earn more revenue when you sign up as a payment agent on Deriv.',
+                    '_t_Expand your client base, gain additional business exposure, and earn more revenue when you sign up as a payment agent on Deriv._t_',
                 )}
             </MiddleHeader>
             <LinkButton
@@ -51,7 +51,7 @@ const PAHero = () => {
                     'border-radius': '8px',
                 }}
             >
-                {localize('Send us an email to apply')}
+                {localize('_t_Send us an email to apply_t_')}
             </LinkButton>
         </Hero>
     )

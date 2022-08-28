@@ -90,12 +90,12 @@ const Hero = () => {
     const data = useStaticQuery(query)
     const title =
         getWindowWidth() > 576 ? (
-            localize('Who we are')
+            localize('_t_Who we are_t_')
         ) : (
             <>
-                {localize('Who')}
+                {localize('_t_Who_t_')}
                 <br></br>
-                {localize('we are')}
+                {localize('_t_we are_t_')}
             </>
         )
 

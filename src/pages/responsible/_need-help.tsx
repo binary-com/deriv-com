@@ -20,10 +20,10 @@ type HelpContentType = {
 
 const help_content: HelpContentType = [
     {
-        header: <Localize translate_text="Underage gambling" />,
+        header: <Localize translate_text="_t_Underage gambling_t_" />,
         text: (
             <Text pb="1rem">
-                <Localize translate_text="Clients must be aware that underage gambling is an offence. Deriv.com does not support gambling by those who are underaged. If a client, upon age verification, is proven to be underaged, they will be deprived of any winnings and only deposits made shall be refunded." />
+                <Localize translate_text="_t_Clients must be aware that underage gambling is an offence. Deriv.com does not support gambling by those who are underaged. If a client, upon age verification, is proven to be underaged, they will be deprived of any winnings and only deposits made shall be refunded._t_" />
             </Text>
         ),
         icon: <img src={Underage} alt="underage" width="160" height="64" />,
@@ -31,10 +31,10 @@ const help_content: HelpContentType = [
     },
 
     {
-        header: <Localize translate_text="Filtering controls" />,
+        header: <Localize translate_text="_t_Filtering controls_t_" />,
         text: (
             <Text pb="1rem">
-                <Localize translate_text="Our site can be filtered using a number of filtering systems available on the market which could be used to restrict one's access to our site." />
+                <Localize translate_text="_t_Our site can be filtered using a number of filtering systems available on the market which could be used to restrict one's access to our site._t_" />
             </Text>
         ),
         icon: <img src={Filtering} alt="filtering controls" width="160" height="64" />,
@@ -106,7 +106,7 @@ const NeedHelp = () => {
         <SectionContainer>
             <Container direction="column">
                 <Header mb="2rem" align="center" as="h2" type="page-title">
-                    {localize('Need more help?')}
+                    {localize('_t_Need more help?_t_')}
                 </Header>
             </Container>
             <StyledFlex wrap="wrap">

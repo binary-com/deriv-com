@@ -13,10 +13,10 @@ type HowToProps = {
 
 const content = {
     subscriber: {
-        header: <Localize translate_text="How to subscribe to an MT5 signal" />,
+        header: <Localize translate_text="_t_How to subscribe to an MT5 signal_t_" />,
     },
     provider: {
-        header: <Localize translate_text="How to register as a signals provider" />,
+        header: <Localize translate_text="_t_How to register as a signals provider_t_" />,
     },
 }
 
@@ -86,7 +86,7 @@ const HowTo = ({ active_tab }: HowToProps) => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Go to your DMT5 terminal')}
+                        {localize('_t_Go to your DMT5 terminal_t_')}
                     </DMT5Button>
                 )}
             </StyledContainer>

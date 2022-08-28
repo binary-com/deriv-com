@@ -30,26 +30,26 @@ const IconWrap = styled.img`
 `
 
 const out_of_scope_content = [
-    <Localize key={0} translate_text="Clickjacking on pages with no sensitive actions" />,
+    <Localize key={0} translate_text="_t_Clickjacking on pages with no sensitive actions_t_" />,
     <Localize
         key={1}
-        translate_text="Cross-site request forgery (CSRF) on unauthenticated forms or forms with no sensitive actions"
+        translate_text="_t_Cross-site request forgery (CSRF) on unauthenticated forms or forms with no sensitive actions_t_"
     />,
     <Localize
         key={2}
-        translate_text="Attacks requiring man in the middle (MITM) or physical access to a user's device"
+        translate_text="_t_Attacks requiring man in the middle (MITM) or physical access to a user's device_t_"
     />,
     <Localize
         key={3}
-        translate_text="Previously known vulnerable libraries without a working proof of concept (PoC)"
+        translate_text="_t_Previously known vulnerable libraries without a working proof of concept (PoC)_t_"
     />,
     <Localize
         key={4}
-        translate_text="Open redirect — unless an additional security impact can be demonstrated"
+        translate_text="_t_Open redirect — unless an additional security impact can be demonstrated_t_"
     />,
     <Localize
         key={5}
-        translate_text="Output from automated vulnerability scanners without a PoC to demonstrate a specific vulnerability"
+        translate_text="_t_Output from automated vulnerability scanners without a PoC to demonstrate a specific vulnerability_t_"
     />,
 ]
 
@@ -59,7 +59,7 @@ const OutOfScope = () => {
         <SectionContainer background="grey-30">
             <Container direction="column">
                 <Header tabletL={{ pb: '24px' }} as="h2" type="heading-2" align="center">
-                    {localize('Out of scope vulnerabilities')}
+                    {localize('_t_Out of scope vulnerabilities_t_')}
                 </Header>
                 <FlexContainer tabletL={{ mt: '0', fd: 'column' }} mt="4rem">
                     {out_of_scope_content.map((item, index) => {

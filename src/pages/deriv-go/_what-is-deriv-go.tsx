@@ -60,11 +60,11 @@ const StyledText = styled(Text)`
 const items: ContentType[] = [
     {
         id: 0,
-        title: <Localize translate_text="Up to x1000" />,
-        subtitle: <Localize translate_text="potential profit" />,
+        title: <Localize translate_text="_t_Up to x1000_t_" />,
+        subtitle: <Localize translate_text="_t_potential profit_t_" />,
     },
-    { id: 1, title: '24/7', subtitle: <Localize translate_text="trading" /> },
-    { id: 3, title: 'USD 1', subtitle: <Localize translate_text="minimum stake" /> },
+    { id: 1, title: '24/7', subtitle: <Localize translate_text="_t_trading_t_" /> },
+    { id: 3, title: 'USD 1', subtitle: <Localize translate_text="_t_minimum stake_t_" /> },
 ]
 
 const WhatIsDerivGo = () => {
@@ -83,10 +83,10 @@ const WhatIsDerivGo = () => {
             <Container>
                 <Flex width="1202px" fd="column" ai="center" jc="center">
                     <StyledHeader as="h2" type="heading-2" align="center">
-                        <Localize translate_text="What is Deriv GO" />
+                        <Localize translate_text="_t_What is Deriv GO_t_" />
                     </StyledHeader>
                     <StyledText mt="16px" align="center">
-                        <Localize translate_text="Deriv GO is our mobile app optimised for trading multipliers on the go. Trade on forex, synthetic indices, and cryptocurrencies, and maximise your potential profit without risking more than your stake." />
+                        <Localize translate_text="_t_Deriv GO is our mobile app optimised for trading multipliers on the go. Trade on forex, synthetic indices, and cryptocurrencies, and maximise your potential profit without risking more than your stake._t_" />
                     </StyledText>
                 </Flex>
             </Container>

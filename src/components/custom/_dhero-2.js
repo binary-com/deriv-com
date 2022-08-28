@@ -339,7 +339,7 @@ const DHero = ({
                                 height="108px"
                             />
                             <Header as="h2" width="50%">
-                                {<Localize translate_text="Scan the QR code to download Deriv X" />}
+                                {<Localize translate_text="_t_Scan the QR code to download Deriv X_t_" />}
                             </Header>
                         </HeroHeader>
                     </HeroContent>
@@ -389,7 +389,7 @@ const DHero = ({
                 </Desktop>
                 <Mobile>
                     <ButtonDp2p secondary="true" onClick={handleExternalLink}>
-                        {localize('Download Deriv X app')}
+                        {localize('_t_Download Deriv X app_t_')}
                     </ButtonDp2p>
                 </Mobile>
             </InformationWrapper>

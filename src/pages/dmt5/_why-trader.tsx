@@ -19,33 +19,33 @@ type CardContentType = {
 
 const card_content: CardContentType[] = [
     {
-        header: <Localize translate_text="Quick demo account sign-up" />,
+        header: <Localize translate_text="_t_Quick demo account sign-up_t_" />,
         text: (
-            <Localize translate_text="Practise with a demo account preloaded with unlimited virtual funds." />
+            <Localize translate_text="_t_Practise with a demo account preloaded with unlimited virtual funds._t_" />
         ),
         image: InstantAccess,
         key: 0,
     },
     {
-        header: <Localize translate_text="Multiple assets on a single platform" />,
+        header: <Localize translate_text="_t_Multiple assets on a single platform_t_" />,
         text: (
-            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities in one place." />
+            <Localize translate_text="_t_Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities in one place._t_" />
         ),
         image: SyntheticIndices,
         key: 1,
     },
     {
-        header: <Localize translate_text="24/7 trading" />,
+        header: <Localize translate_text="_t_24/7 trading_t_" />,
         text: (
-            <Localize translate_text="Trade round-the-clock, even on weekends, with our proprietary synthetic indices." />
+            <Localize translate_text="_t_Trade round-the-clock, even on weekends, with our proprietary synthetic indices._t_" />
         ),
         image: Seven,
         key: 2,
     },
     {
-        header: <Localize translate_text="Licensed and regulated" />,
+        header: <Localize translate_text="_t_Licensed and regulated_t_" />,
         text: (
-            <Localize translate_text="Trade with a regulated industry pioneer trusted by traders for more than 20 years." />
+            <Localize translate_text="_t_Trade with a regulated industry pioneer trusted by traders for more than 20 years._t_" />
         ),
         image: MinimalRisk,
         key: 3,
@@ -124,7 +124,7 @@ const WhyTrader = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                {localize('Why trade with Deriv MT5')}
+                {localize('_t_Why trade with Deriv MT5_t_')}
             </StyledHeader>
             <CardContainer>
                 {card_content.map((card) => {
@@ -143,11 +143,11 @@ const WhyTrader = () => {
                             </StyledCardHeader>
                             {card.key == 1 && is_eu ? (
                                 <StyledText>
-                                    <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place." />
+                                    <Localize translate_text="_t_Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place._t_" />
                                 </StyledText>
                             ) : card.key == 1 && is_uk ? (
                                 <StyledText>
-                                    <Localize translate_text="Trade forex, stocks, stock indices, and commodities in one place." />
+                                    <Localize translate_text="_t_Trade forex, stocks, stock indices, and commodities in one place._t_" />
                                 </StyledText>
                             ) : (
                                 <StyledText>{card.text}</StyledText>

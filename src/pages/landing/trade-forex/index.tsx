@@ -16,21 +16,21 @@ const TradeForex = () => {
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
-                title={localize('Weekends')}
-                description={localize('Ride the trends even on weekends')}
+                title={localize('_t_Weekends_t_')}
+                description={localize('_t_Ride the trends even on weekends_t_')}
             />
             {is_mounted && (
                 <>
                     <Hero
-                        title={localize('Our forex spreads are lower than ever')}
+                        title={localize('_t_Our forex spreads are lower than ever_t_')}
                         content={
-                            <Localize translate_text="Open forex trades at a lower cost and capitalise on the market more effectively." />
+                            <Localize translate_text="_t_Open forex trades at a lower cost and capitalise on the market more effectively._t_" />
                         }
                     />
                     <IconTextRow />
                     <Tablebtn
-                        btnlabel={localize('Get trading on Deriv')}
-                        text={localize('*available for selected pairs:')}
+                        btnlabel={localize('_t_Get trading on Deriv_t_')}
+                        text={localize('_t_*available for selected pairs:_t_')}
                     />
                     <ImageTextSwitching reverse />
                     <WhatOurClientsSay />

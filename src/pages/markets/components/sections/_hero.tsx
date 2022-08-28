@@ -77,7 +77,7 @@ export const Hero = () => {
             </Video>
             <StyledContainer direction="column">
                 <Header as="h1" type="display-title" color="white" lh="1.15" align="center">
-                    <Localize translate_text="Markets to trade on Deriv" />
+                    <Localize translate_text="_t_Markets to trade on Deriv_t_" />
                 </Header>
                 <MarketSubHeader
                     as="h4"
@@ -90,13 +90,13 @@ export const Hero = () => {
                     mt="1.6rem"
                 >
                     <EU>
-                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies and commodities." />
+                        <Localize translate_text="_t_Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies and commodities._t_" />
                     </EU>
                     <UK>
-                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, stocks & indices and commodities." />
+                        <Localize translate_text="_t_Learn about the markets that you can trade online with Deriv, including forex, stocks & indices and commodities._t_" />
                     </UK>
                     <ROW>
-                        <Localize translate_text=" Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies, basket indices, and commodities." />
+                        <Localize translate_text="_t_ Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies, basket indices, and commodities._t_" />
                     </ROW>
                 </MarketSubHeader>
             </StyledContainer>

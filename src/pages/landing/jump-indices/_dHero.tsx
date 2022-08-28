@@ -145,11 +145,11 @@ const DHero = () => {
             <ParentWrapper>
                 <LeftWrapper>
                     <StyledHeader type="main-landing-title" color="white">
-                        {localize('Trade jump indices, the new synthetics with a twist')}
+                        {localize('_t_Trade jump indices, the new synthetics with a twist_t_')}
                     </StyledHeader>
                     <StyledHeaderSmall type="sub-section-title" color="white" weight="normal">
                         {localize(
-                            'Brand new synthetic indices are now available on DTrader and Deriv MT5 (DMT5)',
+                            '_t_Brand new synthetic indices are now available on DTrader and Deriv MT5 (DMT5)_t_',
                         )}
                     </StyledHeaderSmall>
                     <BtnDiv>
@@ -163,7 +163,7 @@ const DHero = () => {
                                 secondary="true"
                                 hero
                             >
-                                {localize('Start trading')}
+                                {localize('_t_Start trading_t_')}
                             </StyledLinkButton>
                         )}
                     </BtnDiv>

@@ -59,7 +59,7 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
         <StyledSection>
             <Container direction="column">
                 <Header as="h3" type="section-title" align="center">
-                    {localize('Trade the way you like')}
+                    {localize('_t_Trade the way you like_t_')}
                 </Header>
                 <Header
                     weight="normal"
@@ -68,7 +68,7 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                     align="center"
                     m="1.6rem 0 6rem"
                 >
-                    {localize('Choose from three powerful platforms — designed with you in mind')}
+                    {localize('_t_Choose from three powerful platforms — designed with you in mind_t_')}
                 </Header>
                 <Flex width="100%" direction="flex-start">
                     <div style={{ width: '100%', maxWidth: '65.7rem', marginRight: '6rem' }}>
@@ -76,19 +76,19 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
                                 <QueryImage
                                     data={data['dtrader_trade']}
-                                    alt={localize('Dtrader trading platform at Deriv')}
+                                    alt={localize('_t_Dtrader trading platform at Deriv_t_')}
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
                                 <QueryImage
                                     data={data['dbot_trade']}
-                                    alt={localize('Dbot trading platform at Deriv')}
+                                    alt={localize('_t_Dbot trading platform at Deriv_t_')}
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
                                 <QueryImage
                                     data={data['dmt5_trade']}
-                                    alt={localize('DMT5 trading platform at Deriv')}
+                                    alt={localize('_t_DMT5 trading platform at Deriv_t_')}
                                 />
                             </ImageWrapper>
                         </ImageContainer>

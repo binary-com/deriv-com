@@ -116,14 +116,14 @@ const TradingResponsibly = () => {
             <Flex jc="center" wrap="true">
                 <Card>
                     <StyledHeader align="center" as="h2" type="page-title">
-                        {localize('Trading responsibly')}
+                        {localize('_t_Trading responsibly_t_')}
                     </StyledHeader>
                     <ContentWrapper jc="center" ai="center" mt="2.4rem">
                         <FlexContent>
                             <img src={DontBorrow} alt="" />
                             <StyledText>
                                 {localize(
-                                    'Understand the risks of online trading. Never trade using borrowed money or money you can’t afford to lose.',
+                                    '_t_Understand the risks of online trading. Never trade using borrowed money or money you can’t afford to lose._t_',
                                 )}
                             </StyledText>
                         </FlexContent>
@@ -132,7 +132,7 @@ const TradingResponsibly = () => {
                             <img src={FreeDemo} alt="" />
                             <StyledText>
                                 {localize(
-                                    'Use our free demo account, and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products.',
+                                    '_t_Use our free demo account, and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products._t_',
                                 )}
                             </StyledText>
                         </FlexContent>
@@ -141,7 +141,7 @@ const TradingResponsibly = () => {
                             <img src={SetLimitLosses} alt="" />
                             <StyledText>
                                 {localize(
-                                    'Set a limit for your losses, and stick to it. Put aside some of your winnings to avoid losing all your money.',
+                                    '_t_Set a limit for your losses, and stick to it. Put aside some of your winnings to avoid losing all your money._t_',
                                 )}
                             </StyledText>
                         </FlexContent>
@@ -150,10 +150,10 @@ const TradingResponsibly = () => {
                             <img src={BadJudgement} alt="" />
                             <StyledText>
                                 <Show.Eu>
-                                    <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol." />
+                                    <Localize translate_text="_t_Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol._t_" />
                                 </Show.Eu>
                                 <Show.NonEU>
-                                    <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Don’t trade when you’re prone to bad judgement." />
+                                    <Localize translate_text="_t_Trade wisely, and don’t let your emotions influence your decisions. Don’t trade when you’re prone to bad judgement._t_" />
                                 </Show.NonEU>
                             </StyledText>
                         </FlexContent>
@@ -163,7 +163,7 @@ const TradingResponsibly = () => {
                             <IcInfo src={Info} alt="info" width="24" height="24" />
                             <NoticeText size="1.4rem" ml="1.6rem" mr="1.5rem">
                                 <Localize
-                                    translate_text="For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies."
+                                    translate_text="_t_For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies._t_"
                                     components={[
                                         <LocalizedLinkText
                                             key={0}

@@ -38,27 +38,27 @@ type OtherMarketsProps = {
 const markets_type: MarketsType = {
     forex: {
         icon: () => <img src={Forex} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Forex" />,
+        title: <Localize translate_text="_t_Forex_t_" />,
         content: (
-            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
+            <Localize translate_text="_t_Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market._t_" />
         ),
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
     synthetic_indices: {
         icon: () => <img src={SyntheticIndices} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Synthetic indices" />,
+        title: <Localize translate_text="_t_Synthetic indices_t_" />,
         content: (
-            <Localize translate_text="Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that simulate real-world market movements." />
+            <Localize translate_text="_t_Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that simulate real-world market movements._t_" />
         ),
         to: '/markets/synthetic/',
         id: 'marketsyntheticothermarkets',
     },
     stock_indices: {
         icon: () => <img src={StockIndices} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Stocks & indices" />,
+        title: <Localize translate_text="_t_Stocks & indices_t_" />,
         content: (
-            <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
+            <Localize translate_text="_t_Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets._t_" />
         ),
         to: '/markets/stock/',
         id: 'marketstockothermarkets',
@@ -66,9 +66,9 @@ const markets_type: MarketsType = {
 
     commodities: {
         icon: () => <img src={Commodities} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Commodities" />,
+        title: <Localize translate_text="_t_Commodities_t_" />,
         content: (
-            <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
+            <Localize translate_text="_t_Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil._t_" />
         ),
         to: '/markets/commodities/',
         id: 'marketcommoditiesothermarket',
@@ -76,18 +76,18 @@ const markets_type: MarketsType = {
 
     cryptocurrencies: {
         icon: () => <img src={Cryptocurrencies} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Cryptocurrencies" />,
+        title: <Localize translate_text="_t_Cryptocurrencies_t_" />,
         content: (
-            <Localize translate_text="Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them." />
+            <Localize translate_text="_t_Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them._t_" />
         ),
         to: '/markets/cryptocurrencies/',
         id: 'marketcryptocurrenciesothermarket',
     },
     basket_indices: {
         icon: () => <img src={Basket} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Basket indices" />,
+        title: <Localize translate_text="_t_Basket indices_t_" />,
         content: (
-            <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
+            <Localize translate_text="_t_In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world._t_" />
         ),
         to: '/markets/basket-indices/',
         id: 'marketbasket_indicesothermarket',
@@ -215,7 +215,7 @@ const Card = ({ market }: CardProps) => {
                 {markets_type[market].content}
             </Text>
             <LearnMore to={markets_type[market].to} visibility={button_visibility}>
-                <Text mr="1rem">{localize('Learn more')}</Text>
+                <Text mr="1rem">{localize('_t_Learn more_t_')}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>
         </StyledFlex>
@@ -234,7 +234,7 @@ const MobileCard = ({ market }: CardProps) => {
             </Flex>
             <Text size="14px">{markets_type[market].content}</Text>
             <LearnMore to={markets_type[market].to} visibility="true">
-                <Text>{localize('Learn more')}</Text>
+                <Text>{localize('_t_Learn more_t_')}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>
         </MobileCardWrapper>
@@ -301,7 +301,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
             <Desktop max_width="mobileL">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
-                        {localize('Other markets you might be interested in')}
+                        {localize('_t_Other markets you might be interested in_t_')}
                     </StyledHeader>
                     <Carousel has_autoplay autoplay_interval={4000} {...settings}>
                         {filteredMarkets.map((market) =>
@@ -312,7 +312,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
             </Desktop>
             <Mobile min_width="mobileL">
                 <StyledHeader as="h3" type="section-title" align="left">
-                    {localize('Other markets you might be interested in')}
+                    {localize('_t_Other markets you might be interested in_t_')}
                 </StyledHeader>
                 <MobileCardContainer direction="column">
                     {filteredMarkets.map((market) =>

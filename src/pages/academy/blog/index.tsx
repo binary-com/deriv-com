@@ -62,9 +62,9 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
-                title={localize('Articles, trading guide and resources | Deriv')}
+                title={localize('_t_Articles, trading guide and resources | Deriv_t_')}
                 description={localize(
-                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
+                    "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_",
                 )}
                 meta_attributes={meta_attributes}
             />
@@ -78,7 +78,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
                             weight="regular"
                             align="left"
                         >
-                            {localize('Blog')}
+                            {localize('_t_Blog_t_')}
                         </Header>
                         <Header
                             as="h2"
@@ -87,7 +87,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
                             align="left"
                             tabletL={{ mt: '8px' }}
                         >
-                            {localize('The latest articles and resources')}
+                            {localize('_t_The latest articles and resources_t_')}
                         </Header>
                     </SmallContainer>
                 </Hero>

@@ -16,15 +16,15 @@ const CFD = () => {
     return (
         <Layout>
             <SEO
-                title={localize('CFD trading | Online trading platform | Deriv')}
+                title={localize('_t_CFD trading | Online trading platform | Deriv_t_')}
                 description={localize(
-                    'Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses.',
+                    '_t_Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses._t_',
                 )}
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('CFD trading')}
+                        {localize('_t_CFD trading_t_')}
                     </Header>
                 </SmallContainer>
             </Hero>

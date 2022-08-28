@@ -69,7 +69,7 @@ const Roadmap = ({ portal }) => {
             <Container>
                 <Flex width="1202px" fd="column" ai="center" jc="center">
                     <StyledHeader as="h2" type="heading-2" align="center">
-                        <Localize translate_text="What’s next?" />
+                        <Localize translate_text="_t_What’s next?_t_" />
                     </StyledHeader>
                     <StyledText mt="16px" align="center">
                         {portal.paragraph}
@@ -86,7 +86,7 @@ const Roadmap = ({ portal }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Go to portal')}
+                        {localize('_t_Go to portal_t_')}
                     </StyledButton>
                 </StyledFrame>
             </>

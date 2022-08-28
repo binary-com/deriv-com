@@ -105,7 +105,7 @@ const WhatIsDBot = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                "DBot is a web-based strategy builder for trading digital options. It’s a platform where you can build your own trading bot using drag-and-drop 'blocks'.",
+                "_t_DBot is a web-based strategy builder for trading digital options. It’s a platform where you can build your own trading bot using drag-and-drop 'blocks'._t_",
             )}
         </Text>
     </ArticleWrapper>
@@ -115,12 +115,12 @@ const FindBlocks = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize("1. Click 'Get started' at the top left corner to open the blocks menu.")}
+            {localize("_t_1. Click 'Get started' at the top left corner to open the blocks menu._t_")}
         </Text>
         <ImageWrapper>
             <img
                 src={GetStartedImage}
-                alt={localize('Get Started')}
+                alt={localize('_t_Get Started_t_')}
                 width="14.2rem"
                 style={{ width: '14.2rem' }}
                 loading="lazy"
@@ -128,18 +128,18 @@ const FindBlocks = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             {localize(
-                '2. The blocks are categorised accordingly. Just choose the blocks you want and drag them to the workspace.',
+                '_t_2. The blocks are categorised accordingly. Just choose the blocks you want and drag them to the workspace._t_',
             )}
         </Text>
         <StyledText>
             {localize(
-                '3. You can also search for the blocks you want using the search field on the toolbar at the top of the workspace.',
+                '_t_3. You can also search for the blocks you want using the search field on the toolbar at the top of the workspace._t_',
             )}
         </StyledText>
         <ImageWrapper>
             <img
                 src={SearchBarImage}
-                alt={localize('Search')}
+                alt={localize('_t_Search_t_')}
                 width="17.9rem"
                 style={{ width: '17.9rem' }}
                 loading="lazy"
@@ -153,13 +153,13 @@ const RemoveBlocks = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                "Just click on the block you want to remove and press 'Delete' on your keyboard. You can also drag the block to the recycle bin icon at the lower right corner of the workspace.",
+                "_t_Just click on the block you want to remove and press 'Delete' on your keyboard. You can also drag the block to the recycle bin icon at the lower right corner of the workspace._t_",
             )}
         </Text>
         <ImageWrapperRemove>
             <img
                 src={DeleteImage}
-                alt={localize('Remove block')}
+                alt={localize('_t_Remove block_t_')}
                 width="7.4rem"
                 style={{ width: '7.4rem' }}
                 loading="lazy"
@@ -171,11 +171,11 @@ const RemoveBlocks = ({ text }: ArticleProps) => (
 const CreateVariables = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize("1. Click 'Get started' to open the blocks menu.")}</Text>
+        <Text>{localize("_t_1. Click 'Get started' to open the blocks menu._t_")}</Text>
         <ImageWrapper>
             <img
                 src={GetStartedImage}
-                alt={localize('Get Started')}
+                alt={localize('_t_Get Started_t_')}
                 width="14.2rem"
                 style={{ width: '14.2rem' }}
                 loading="lazy"
@@ -183,24 +183,24 @@ const CreateVariables = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             <Localize
-                translate_text="2. Go to <0>Utility > Variables</0>."
+                translate_text="_t_2. Go to <0>Utility > Variables</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
-        <StyledText>{localize("3. Click 'Create variable'.")}</StyledText>
+        <StyledText>{localize("_t_3. Click 'Create variable'._t_")}</StyledText>
         <ImageWrapper>
             <img
                 src={CreateVariableImage}
-                alt={localize('Create variable')}
+                alt={localize('_t_Create variable_t_')}
                 width="40.2rem"
                 style={{ width: '40.2rem' }}
             />
         </ImageWrapper>
-        <Text>{localize('4. Enter a name for the variable.')}</Text>
+        <Text>{localize('_t_4. Enter a name for the variable._t_')}</Text>
         <ImageWrapper>
             <img
                 src={NameVariableImage}
-                alt={localize('Name variable')}
+                alt={localize('_t_Name variable_t_')}
                 width="40.8rem"
                 loading="lazy"
                 style={{ width: '40.8rem' }}
@@ -208,13 +208,13 @@ const CreateVariables = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             {localize(
-                '5. The newly created variable is now available to be used in your strategy.',
+                '_t_5. The newly created variable is now available to be used in your strategy._t_',
             )}
         </Text>
         <ImageWrapper>
             <img
                 src={UserDefinedVariableImage}
-                alt={localize('User defined variable')}
+                alt={localize('_t_User defined variable_t_')}
                 width="27.2rem"
                 style={{ width: '27.2rem' }}
             />
@@ -229,17 +229,17 @@ const QuickStrategy = ({ text }: ArticleProps) => (
         </StyledHeader>
         <Text width="65%">
             {localize(
-                "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind.",
+                "_t_A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind._t_",
             )}
         </Text>
         <Text mt="4rem">
-            <strong>{localize('Using a quick strategy')}</strong>
+            <strong>{localize('_t_Using a quick strategy_t_')}</strong>
         </Text>
-        <StyledText>{localize("1. Click 'Get started' on the toolbar at the top.")}</StyledText>
+        <StyledText>{localize("_t_1. Click 'Get started' on the toolbar at the top._t_")}</StyledText>
         <ImageWrapper>
             <img
                 src={GetStartedImage}
-                alt={localize('Get Started')}
+                alt={localize('_t_Get Started_t_')}
                 width="14.2rem"
                 style={{ width: '14.2rem' }}
                 loading="lazy"
@@ -247,44 +247,44 @@ const QuickStrategy = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             <Localize
-                translate_text="2. Click 'Quick Strategy'."
+                translate_text="_t_2. Click 'Quick Strategy'._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <ImageWrapper>
             <img
                 src={QuickStrategyImage}
-                alt={localize('Quick strategy')}
+                alt={localize('_t_Quick strategy_t_')}
                 width="16.6rem"
                 style={{ width: '16.6rem' }}
                 loading="lazy"
             />
         </ImageWrapper>
-        <Text>{localize('3. Choose the strategy that you want.')}</Text>
+        <Text>{localize('_t_3. Choose the strategy that you want._t_')}</Text>
         <ImageWrapper>
             <img
                 src={StrategiesImage}
-                alt={localize('Strategies')}
+                alt={localize('_t_Strategies_t_')}
                 style={{ width: '42.1rem' }}
                 width="42.1rem"
                 loading="lazy"
             />
         </ImageWrapper>
-        <Text>{localize('4. Select the asset and trade type.')}</Text>
+        <Text>{localize('_t_4. Select the asset and trade type._t_')}</Text>
         <ImageWrapper>
             <img
                 src={AssetTradeTypeImage}
-                alt={localize('Asset and trade type')}
+                alt={localize('_t_Asset and trade type_t_')}
                 style={{ width: '44rem' }}
                 loading="lazy"
                 width="44rem"
             />
         </ImageWrapper>
-        <Text>{localize("5. Enter your preferred trade parameters and click 'Create'.")}</Text>
+        <Text>{localize("_t_5. Enter your preferred trade parameters and click 'Create'._t_")}</Text>
         <ImageWrapper>
             <img
                 src={ParametersImage}
-                alt={localize('Parameters')}
+                alt={localize('_t_Parameters_t_')}
                 width="44rem"
                 style={{ width: '44rem' }}
                 loading="lazy"
@@ -292,13 +292,13 @@ const QuickStrategy = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             {localize(
-                "6. The strategy is loaded onto the workspace. You may adjust your strategy however you want and when you’re ready to run your bot, click 'Run bot'.",
+                "_t_6. The strategy is loaded onto the workspace. You may adjust your strategy however you want and when you’re ready to run your bot, click 'Run bot'._t_",
             )}
         </Text>
         <ImageWrapper>
             <img
                 src={RunBotImage}
-                alt={localize('Run bot')}
+                alt={localize('_t_Run bot_t_')}
                 width="11.8rem"
                 loading="lazy"
                 style={{ width: '11.8rem' }}
@@ -306,7 +306,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             {localize(
-                '7. You may save your bot by either downloading it into your computer or by saving it on your Google Drive.',
+                '_t_7. You may save your bot by either downloading it into your computer or by saving it on your Google Drive._t_',
             )}
         </Text>
     </ArticleWrapper>
@@ -317,7 +317,7 @@ const MartingaleStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'The Martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost.',
+                '_t_The Martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost._t_',
             )}
         </Text>
     </ArticleWrapper>
@@ -328,7 +328,7 @@ const AlembertStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'Named after the popular 18th-century French roulette theorist, Jean le Rond d’Alembert, this strategy encourages traders to increase contract size after a loss and decrease it after a successful trade.',
+                '_t_Named after the popular 18th-century French roulette theorist, Jean le Rond d’Alembert, this strategy encourages traders to increase contract size after a loss and decrease it after a successful trade._t_',
             )}
         </Text>
     </ArticleWrapper>
@@ -339,7 +339,7 @@ const OskarStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'This is a low-risk positive progression strategy that first appeared in 1965. By using this strategy, you will increase the size of your contract after each successful trade, and decrease the size of your contract after each unsuccessful trade.',
+                '_t_This is a low-risk positive progression strategy that first appeared in 1965. By using this strategy, you will increase the size of your contract after each successful trade, and decrease the size of your contract after each unsuccessful trade._t_',
             )}
         </Text>
     </ArticleWrapper>
@@ -350,13 +350,13 @@ const SaveStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                "First, give your strategy a name. Click the 'Bot name' field on the toolbar at the top and enter a name.",
+                "_t_First, give your strategy a name. Click the 'Bot name' field on the toolbar at the top and enter a name._t_",
             )}
         </Text>
         <ImageWrapper>
             <img
                 src={BotNameImage}
-                alt={localize('Bot name')}
+                alt={localize('_t_Bot name_t_')}
                 width="21.1rem"
                 loading="lazy"
                 style={{ width: '21.1rem' }}
@@ -364,13 +364,13 @@ const SaveStrategy = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             {localize(
-                "Next, click 'Save' on the toolbar at the top of the workspace. You can choose to save to your computer or to your Google Drive. Your strategy will be saved in the XML format.",
+                "_t_Next, click 'Save' on the toolbar at the top of the workspace. You can choose to save to your computer or to your Google Drive. Your strategy will be saved in the XML format._t_",
             )}
         </Text>
         <ImageWrapper>
             <img
                 src={SaveBotImage}
-                alt={localize('Save')}
+                alt={localize('_t_Save_t_')}
                 width="40.7rem"
                 loading="lazy"
                 style={{ width: '40.7rem' }}
@@ -378,15 +378,15 @@ const SaveStrategy = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             <Localize
-                translate_text="<0>Saving to your computer</0>"
+                translate_text="_t_<0>Saving to your computer</0>_t_"
                 components={[<strong key={0} />]}
             />
         </Text>
-        <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
+        <Text mt="2.4rem">{localize("_t_1. Select 'Local' and click 'Continue'._t_")}</Text>
         <ImageWrapper>
             <img
                 src={SaveBotOptionImage}
-                alt={localize('Save bot')}
+                alt={localize('_t_Save bot_t_')}
                 width="40rem"
                 loading="lazy"
                 style={{ width: '40rem' }}
@@ -394,20 +394,20 @@ const SaveStrategy = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text mt="2.4rem">
             {localize(
-                "2. The XML file will be saved in the 'Downloads' folder of your internet browser.",
+                "_t_2. The XML file will be saved in the 'Downloads' folder of your internet browser._t_",
             )}
         </Text>
         <Text mt="4rem">
             <Localize
-                translate_text="<0>Saving to Google Drive</0>"
+                translate_text="_t_<0>Saving to Google Drive</0>_t_"
                 components={[<strong key={0} />]}
             />
         </Text>
-        <Text mt="2.4rem">{localize("1. Click 'Connect'.")}</Text>
+        <Text mt="2.4rem">{localize("_t_1. Click 'Connect'._t_")}</Text>
         <ImageWrapper>
             <img
                 src={GoogleDriveImage}
-                alt={localize('Google Drive')}
+                alt={localize('_t_Google Drive_t_')}
                 style={{ width: '12.1rem' }}
                 loading="lazy"
                 width="12.1rem"
@@ -415,14 +415,14 @@ const SaveStrategy = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text mt="2.4rem">
             {localize(
-                '2. Select your Google account and grant the necessary permission for DBot to access your Google Drive.',
+                '_t_2. Select your Google account and grant the necessary permission for DBot to access your Google Drive._t_',
             )}
         </Text>
-        <Text mt="2.4rem">{localize("3. Click 'Continue'.")}</Text>
+        <Text mt="2.4rem">{localize("_t_3. Click 'Continue'._t_")}</Text>
         <ImageWrapper>
             <img
                 src={SaveBotDriveImage}
-                alt={localize('Save bot Google Drive')}
+                alt={localize('_t_Save bot Google Drive_t_')}
                 width="38.4rem"
                 loading="lazy"
                 style={{ width: '38.4rem' }}
@@ -430,7 +430,7 @@ const SaveStrategy = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text mt="2.4rem">
             {localize(
-                "4. Choose the folder you want to save your strategy in and click  'Select'.",
+                "_t_4. Choose the folder you want to save your strategy in and click  'Select'._t_",
             )}
         </Text>
     </ArticleWrapper>
@@ -441,26 +441,26 @@ const ImportStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text width="88%">
             {localize(
-                "Just drag the XML file from your computer onto the workspace. Your blocks will be loaded accordingly. Alternatively, you can click 'Import' on the toolbar at the top of the workspace and choose to load your strategy from your computer or from your Google Drive.",
+                "_t_Just drag the XML file from your computer onto the workspace. Your blocks will be loaded accordingly. Alternatively, you can click 'Import' on the toolbar at the top of the workspace and choose to load your strategy from your computer or from your Google Drive._t_",
             )}
         </Text>
         <ImageWrapper>
             <img
                 src={ImportantStrategyImage}
-                alt={localize('Import strategy')}
+                alt={localize('_t_Import strategy_t_')}
                 style={{ width: '40.7rem' }}
                 loading="lazy"
                 width="40.7rem"
             />
         </ImageWrapper>
         <Text mt="4rem">
-            <strong>{localize('Importing from your computer')}</strong>
+            <strong>{localize('_t_Importing from your computer_t_')}</strong>
         </Text>
-        <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
+        <Text mt="2.4rem">{localize("_t_1. Select 'Local' and click 'Continue'._t_")}</Text>
         <ImageWrapper>
             <img
                 src={LoadBotImage}
-                alt={localize('Load bot')}
+                alt={localize('_t_Load bot_t_')}
                 width="40.7rem"
                 loading="lazy"
                 style={{ width: '40.7rem' }}
@@ -468,17 +468,17 @@ const ImportStrategy = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             {localize(
-                "2. Select your strategy and click 'Open'. Your blocks will be loaded accordingly.",
+                "_t_2. Select your strategy and click 'Open'. Your blocks will be loaded accordingly._t_",
             )}
         </Text>
         <Text mt="4rem">
-            <strong>{localize('Importing from your Google Drive')}</strong>
+            <strong>{localize('_t_Importing from your Google Drive_t_')}</strong>
         </Text>
-        <Text mt="2.4rem">{localize("1. Select 'Google Drive' and click 'Continue'.")}</Text>
+        <Text mt="2.4rem">{localize("_t_1. Select 'Google Drive' and click 'Continue'._t_")}</Text>
         <ImageWrapper>
             <img
                 src={LoadBotGDImage}
-                alt={localize('Load bot google Drive')}
+                alt={localize('_t_Load bot google Drive_t_')}
                 width="40.7rem"
                 loading="lazy"
                 style={{ width: '40.7rem' }}
@@ -486,7 +486,7 @@ const ImportStrategy = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             {localize(
-                "2. Select your strategy and click 'Select'. Your blocks will be loaded accordingly.",
+                "_t_2. Select your strategy and click 'Select'. Your blocks will be loaded accordingly._t_",
             )}
         </Text>
     </ArticleWrapper>
@@ -497,13 +497,13 @@ const ResetWorkspace = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                "Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost.",
+                "_t_Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost._t_",
             )}
         </Text>
         <ImageWrapper>
             <img
                 src={ResetImage}
-                alt={localize('Reset')}
+                alt={localize('_t_Reset_t_')}
                 width="40.7rem"
                 loading="lazy"
                 style={{ width: '40.7rem' }}
@@ -516,22 +516,22 @@ const TransactionLog = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize("1. In the panel on the right of the workspace, click 'Clear stat'.")}
+            {localize("_t_1. In the panel on the right of the workspace, click 'Clear stat'._t_")}
         </Text>
         <ImageWrapper>
             <img
                 src={ClearStatImage}
-                alt={localize('Clear stat')}
+                alt={localize('_t_Clear stat_t_')}
                 loading="lazy"
                 width="24.8rem"
                 style={{ width: '24.8rem' }}
             />
         </ImageWrapper>
-        <Text>{localize("2. Click 'Ok'.")}</Text>
+        <Text>{localize("_t_2. Click 'Ok'._t_")}</Text>
         <ImageWrapper>
             <img
                 src={AreYouSureImage}
-                alt={localize('Are you sure?')}
+                alt={localize('_t_Are you sure?_t_')}
                 loading="lazy"
                 style={{ width: '40rem' }}
                 width="40rem"
@@ -545,66 +545,66 @@ const ControlLosses = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'There are many ways you can control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:',
+                '_t_There are many ways you can control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:_t_',
             )}
         </Text>
 
         <ImageWrapper>
             <img
                 src={LossesImage}
-                alt={localize('Control loss')}
+                alt={localize('_t_Control loss_t_')}
                 loading="lazy"
                 width="61.2rem"
                 style={{ width: '100%', maxWidth: '61.2rem' }}
             />
         </ImageWrapper>
-        <Text mb="2.4rem">{localize('1. Create the following variables:')}</Text>
+        <Text mb="2.4rem">{localize('_t_1. Create the following variables:_t_')}</Text>
         <StyledTable>
             <Thead>
                 <Tr>
                     <Th>
-                        <Text weight="bold">{localize('currentPL')}</Text>
+                        <Text weight="bold">{localize('_t_currentPL_t_')}</Text>
                     </Th>
                     <Td>
                         <Text>
                             {localize(
-                                'This will store the cumulative profit or loss while the bot is running. Set the initial value to 0.',
+                                '_t_This will store the cumulative profit or loss while the bot is running. Set the initial value to 0._t_',
                             )}
                         </Text>
                     </Td>
                 </Tr>
                 <Tr>
                     <Th>
-                        <Text weight="bold">{localize('currentStake')}</Text>
+                        <Text weight="bold">{localize('_t_currentStake_t_')}</Text>
                     </Th>
                     <Td>
                         <Text>
                             {localize(
-                                'This will store the stake amount used in the last purchased contract. You can assign any amount based on your strategy.',
+                                '_t_This will store the stake amount used in the last purchased contract. You can assign any amount based on your strategy._t_',
                             )}
                         </Text>
                     </Td>
                 </Tr>
                 <Tr>
                     <Th>
-                        <Text weight="bold">{localize('maximumLoss')}</Text>
+                        <Text weight="bold">{localize('_t_maximumLoss_t_')}</Text>
                     </Th>
                     <Td>
                         <Text>
                             {localize(
-                                'This is your loss limit. You can assign any amount based on your strategy. The value must be a positive number.',
+                                '_t_This is your loss limit. You can assign any amount based on your strategy. The value must be a positive number._t_',
                             )}
                         </Text>
                     </Td>
                 </Tr>
                 <Tr>
                     <Th>
-                        <Text weight="bold">{localize('tradeAgain')}</Text>
+                        <Text weight="bold">{localize('_t_tradeAgain_t_')}</Text>
                     </Th>
                     <Td>
                         <Text>
                             {localize(
-                                "This will be used to stop trading when your loss limit is reached. Set the initial value to 'true'.",
+                                "_t_This will be used to stop trading when your loss limit is reached. Set the initial value to 'true'._t_",
                             )}
                         </Text>
                     </Td>
@@ -614,7 +614,7 @@ const ControlLosses = ({ text }: ArticleProps) => (
         <ImageWrapper>
             <img
                 src={VariablesImage}
-                alt={localize('Variables')}
+                alt={localize('_t_Variables_t_')}
                 loading="lazy"
                 width="32.4rem"
                 style={{ width: '32.4rem' }}
@@ -622,14 +622,14 @@ const ControlLosses = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             <Localize
-                translate_text="2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to 'false' to prevent the bot from running another cycle."
+                translate_text="_t_2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to 'false' to prevent the bot from running another cycle._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <ImageWrapper>
             <img
                 src={LogicBlockImage}
-                alt={localize('Logic block')}
+                alt={localize('_t_Logic block_t_')}
                 loading="lazy"
                 width="32.4rem"
                 style={{ width: '32.4rem' }}
@@ -637,14 +637,14 @@ const ControlLosses = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             <Localize
-                translate_text="3. Update <0>currentPL</0> with the profit from the last purchased contract. If the last contract was lost, the value of <0>currentPL</0> will be negative."
+                translate_text="_t_3. Update <0>currentPL</0> with the profit from the last purchased contract. If the last contract was lost, the value of <0>currentPL</0> will be negative._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <ImageWrapper>
             <img
                 src={UpdateCurrentPlImage}
-                alt={localize('Update currentPL')}
+                alt={localize('_t_Update currentPL_t_')}
                 width="32.4rem"
                 style={{ width: '32.4rem' }}
                 loading="lazy"
@@ -658,14 +658,14 @@ const TradeStatus = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                "The panel on the right of the workspace gives you information about all your trades in DBot. The 'Summary' tab shows information such as your total stake, total payout, profit/loss, etc.",
+                "_t_The panel on the right of the workspace gives you information about all your trades in DBot. The 'Summary' tab shows information such as your total stake, total payout, profit/loss, etc._t_",
             )}
         </Text>
 
         <ImageWrapper>
             <img
                 src={SummaryTabImage}
-                alt={localize('Summary tab')}
+                alt={localize('_t_Summary tab_t_')}
                 width="33.3rem"
                 loading="lazy"
                 style={{ width: '33.3rem' }}
@@ -674,13 +674,13 @@ const TradeStatus = ({ text }: ArticleProps) => (
 
         <Text>
             {localize(
-                "The 'Transactions' tab gives you more detailed information on each trade such as duration, barrier, start and end times, etc.",
+                "_t_The 'Transactions' tab gives you more detailed information on each trade such as duration, barrier, start and end times, etc._t_",
             )}
         </Text>
         <ImageWrapper>
             <img
                 src={TransactionsImage}
-                alt={localize('Transactions')}
+                alt={localize('_t_Transactions_t_')}
                 width="33.3rem"
                 loading="lazy"
                 style={{ width: '33.3rem' }}
@@ -694,14 +694,14 @@ const ViewChart = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                "Click 'Chart' at the bottom left corner of the workspace to view the chart.",
+                "_t_Click 'Chart' at the bottom left corner of the workspace to view the chart._t_",
             )}
         </Text>
 
         <ImageWrapper>
             <img
                 src={ChartImage}
-                alt={localize('Chart')}
+                alt={localize('_t_Chart_t_')}
                 width="22.5rem"
                 loading="lazy"
                 style={{ width: '22.5rem' }}
@@ -717,78 +717,78 @@ const DBotArticle = () => {
         <div>
             <Article
                 header="DBot"
-                title={localize('Help centre | Frequently asked questions | DBot | Deriv')}
-                description={localize('Frequently asked questions - DBot')}
+                title={localize('_t_Help centre | Frequently asked questions | DBot | Deriv_t_')}
+                description={localize('_t_Frequently asked questions - DBot_t_')}
                 is_mounted={is_mounted}
             >
-                <WhatIsDBot text={localize('What is DBot?')} label="what-is-dbot" />
+                <WhatIsDBot text={localize('_t_What is DBot?_t_')} label="what-is-dbot" />
                 <FindBlocks
-                    text={localize('How do I find the blocks I need?')}
+                    text={localize('_t_How do I find the blocks I need?_t_')}
                     label="find-blocks"
                     is_mounted={is_mounted}
                 />
                 <RemoveBlocks
-                    text={localize('How do I remove blocks from the workspace?')}
+                    text={localize('_t_How do I remove blocks from the workspace?_t_')}
                     label="remove-blocks"
                     is_mounted={is_mounted}
                 />
                 <CreateVariables
-                    text={localize('How do I create variables?')}
+                    text={localize('_t_How do I create variables?_t_')}
                     label="create-variables"
                     is_mounted={is_mounted}
                 />
                 <QuickStrategy
-                    text={localize('What is a quick strategy and how do I use it?')}
+                    text={localize('_t_What is a quick strategy and how do I use it?_t_')}
                     label="quick-strategy"
                     is_mounted={is_mounted}
                 />
                 <MartingaleStrategy
-                    text={localize('What is the Martingale strategy?')}
+                    text={localize('_t_What is the Martingale strategy?_t_')}
                     label="martingale-strategy"
                     is_mounted={is_mounted}
                 />
                 <AlembertStrategy
-                    text={localize('What is the D’Alembert strategy?')}
+                    text={localize('_t_What is the D’Alembert strategy?_t_')}
                     label="dalembert-strategy"
                     is_mounted={is_mounted}
                 />
                 <OskarStrategy
-                    text={localize("What is the Oscar's Grind strategy?")}
+                    text={localize("_t_What is the Oscar's Grind strategy?_t_")}
                     label="oscars-grind-strategy"
                     is_mounted={is_mounted}
                 />
                 <SaveStrategy
-                    text={localize('How do I save my strategy?')}
+                    text={localize('_t_How do I save my strategy?_t_')}
                     label="save-strategy"
                     is_mounted={is_mounted}
                 />
                 <ImportStrategy
-                    text={localize('How do I import my strategies into DBot?')}
+                    text={localize('_t_How do I import my strategies into DBot?_t_')}
                     label="import-strategy"
                     is_mounted={is_mounted}
                 />
                 <ResetWorkspace
-                    text={localize('How do I reset the workspace?')}
+                    text={localize('_t_How do I reset the workspace?_t_')}
                     label="reset-workspace"
                     is_mounted={is_mounted}
                 />
                 <TransactionLog
-                    text={localize('How do I clear my transaction log?')}
+                    text={localize('_t_How do I clear my transaction log?_t_')}
                     label="clear-transaction-log"
                     is_mounted={is_mounted}
                 />
                 <ControlLosses
-                    text={localize('How do I control my losses with DBot?')}
+                    text={localize('_t_How do I control my losses with DBot?_t_')}
                     label="control-loss"
                     is_mounted={is_mounted}
                 />
                 <TradeStatus
-                    text={localize('Where can I see the status of my trades in DBot?')}
+                    text={localize('_t_Where can I see the status of my trades in DBot?_t_')}
                     label="status-of-trades"
                     is_mounted={is_mounted}
                 />
                 <ViewChart
-                    text={localize('How do I view the chart in DBot?')}
+                    text={localize('_t_How do I view the chart in DBot?_t_')}
                     label="view-chart"
                     is_mounted={is_mounted}
                 />

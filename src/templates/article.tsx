@@ -223,7 +223,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
 
                                                 <Box>
                                                     <WrittenbyText color="grey-5" size="12px">
-                                                        {localize('Written by')}
+                                                        {localize('_t_Written by_t_')}
                                                     </WrittenbyText>
                                                     <InfoText>
                                                         {localize(post_data?.author?.name)}
@@ -272,7 +272,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
 
                                             <Box>
                                                 <WrittenbyText color="grey-5" size="12px">
-                                                    {localize('Written by')}
+                                                    {localize('_t_Written by_t_')}
                                                 </WrittenbyText>
                                                 <InfoText>
                                                     {localize(post_data?.author?.name)}

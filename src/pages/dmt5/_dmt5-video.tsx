@@ -97,7 +97,7 @@ const Dmt5Video = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_1')}
                     >
-                        {localize('1. Sign up with Deriv')}
+                        {localize('_t_1. Sign up with Deriv_t_')}
                     </Step>
                 </Tab>
                 <Tab>
@@ -110,7 +110,7 @@ const Dmt5Video = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_2')}
                     >
-                        {localize('2. Create a DMT5 account')}
+                        {localize('_t_2. Create a DMT5 account_t_')}
                     </Step>
                 </Tab>
                 <Tab>
@@ -123,14 +123,14 @@ const Dmt5Video = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_3')}
                     >
-                        {localize('3. Fund your account')}
+                        {localize('_t_3. Fund your account_t_')}
                     </Step>
                 </Tab>
             </TabsWrapper>
             <VideoWrapper>
                 <QueryImage
                     data={data[current_step]}
-                    alt={localize(`DMT5 - ${current_step}`)}
+                    alt={localize(`_t_DMT5 - ${current_step}_t_`)}
                     width="100%"
                 />
             </VideoWrapper>

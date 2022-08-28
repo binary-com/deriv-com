@@ -100,44 +100,44 @@ export const IconGrid = () => (
         <GridWrapper columns="repeat(3, 1fr)" column_gap="13rem" row_gap="10rem">
             <Col
                 Icon={ProvenTrackRecord}
-                title={localize('Proven track record')}
+                title={localize('_t_Proven track record_t_')}
                 content={localize(
-                    'Deriv Group – the owners of the Deriv and Binary.com brands – has a history that dates back to 1999 when we laid the groundwork for the world’s first fixed-odds trading service. Since then, we have grown from strength to strength, garnering the trust of traders around the world.',
+                    '_t_Deriv Group – the owners of the Deriv and Binary.com brands – has a history that dates back to 1999 when we laid the groundwork for the world’s first fixed-odds trading service. Since then, we have grown from strength to strength, garnering the trust of traders around the world._t_',
                 )}
             />
             <Col
                 Icon={LicensedRegulated}
-                title={localize('Licensed and regulated')}
+                title={localize('_t_Licensed and regulated_t_')}
                 content={
                     <Localize
-                        translate_text="Deriv is <0>regulated</0> by several entities including the Malta Financial Services Authority (MFSA), the Labuan Financial Services Authority (Labuan FSA), the Vanuatu Financial Services Commission (VFSC), and the British Virgin Islands Financial Services Commission."
+                        translate_text="_t_Deriv is <0>regulated</0> by several entities including the Malta Financial Services Authority (MFSA), the Labuan Financial Services Authority (Labuan FSA), the Vanuatu Financial Services Commission (VFSC), and the British Virgin Islands Financial Services Commission._t_"
                         components={[<LocalizedLink key={0} to="/regulatory/" />]}
                     />
                 }
             />
             <Col
                 Icon={ClientProtection}
-                title={localize('Client money protection')}
+                title={localize('_t_Client money protection_t_')}
                 content={localize(
-                    'Deriv does not use your money for its business interests and you are allowed to withdraw your money at any time. All your money is segregated and held in secure financial institutions. In this way, in the unlikely event of Deriv becoming insolvent, all your money will be returned to you because it is never merged with ours.',
+                    '_t_Deriv does not use your money for its business interests and you are allowed to withdraw your money at any time. All your money is segregated and held in secure financial institutions. In this way, in the unlikely event of Deriv becoming insolvent, all your money will be returned to you because it is never merged with ours._t_',
                 )}
             />
             <Col
                 Icon={Risk}
-                title={localize('Risk awareness and management')}
+                title={localize('_t_Risk awareness and management_t_')}
                 content={
                     <Localize
-                        translate_text="Online trading is exciting but involves risks and can lead to an addiction. At Deriv, we look out for our customers’ best interests and encourage them to practise <0>secure and responsible trading</0>. If you are new to this, you can also practise trading with unlimited virtual funds before you risk your money."
+                        translate_text="_t_Online trading is exciting but involves risks and can lead to an addiction. At Deriv, we look out for our customers’ best interests and encourage them to practise <0>secure and responsible trading</0>. If you are new to this, you can also practise trading with unlimited virtual funds before you risk your money._t_"
                         components={[<LocalizedLink key={0} to="/responsible/" />]}
                     />
                 }
             />
             <Col
                 Icon={Help}
-                title={localize('Help when you need it')}
+                title={localize('_t_Help when you need it_t_')}
                 content={
                     <Localize
-                        translate_text="The Deriv support team is available via live chat 24/7 – even on weekends. You can also find answers at our <0>Help centre</0> and get help from fellow traders in <1>Community</1>."
+                        translate_text="_t_The Deriv support team is available via live chat 24/7 – even on weekends. You can also find answers at our <0>Help centre</0> and get help from fellow traders in <1>Community</1>._t_"
                         components={[
                             <LocalizedLink key={0} to="/help-centre/" />,
                             <LocalizedLink
@@ -154,16 +154,16 @@ export const IconGrid = () => (
             />
             <Col
                 Icon={CustomerFirst}
-                title={localize('Customer-first trading experience')}
+                title={localize('_t_Customer-first trading experience_t_')}
                 content={localize(
-                    'Deriv makes it easy for anyone to start trading, understand risk, and make better trading decisions. Our tools and platforms have clear and simple instructions and are intuitively easy to navigate. We also regularly provide market news, analysis, webinars, ebooks, video tutorials and help centre articles to help you stay informed and become a better trader.',
+                    '_t_Deriv makes it easy for anyone to start trading, understand risk, and make better trading decisions. Our tools and platforms have clear and simple instructions and are intuitively easy to navigate. We also regularly provide market news, analysis, webinars, ebooks, video tutorials and help centre articles to help you stay informed and become a better trader._t_',
                 )}
             />
             <Col
                 Icon={Safety}
-                title={localize('Your safety, our priority')}
+                title={localize('_t_Your safety, our priority_t_')}
                 content={localize(
-                    'At Deriv, we enforce best-in-class security measures such as SSL encryption to protect your account and personal data.',
+                    '_t_At Deriv, we enforce best-in-class security measures such as SSL encryption to protect your account and personal data._t_',
                 )}
             />
         </GridWrapper>

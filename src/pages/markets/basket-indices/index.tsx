@@ -12,10 +12,10 @@ const BasketPage = () => (
     <Layout>
         <SEO
             description={localize(
-                'Trade Basket indices online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms.',
+                '_t_Trade Basket indices online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms._t_',
             )}
             title={localize(
-                'Basket indices trading online | Basket indices trading demo account | Deriv',
+                '_t_Basket indices trading online | Basket indices trading demo account | Deriv_t_',
             )}
         />
         <Hero />

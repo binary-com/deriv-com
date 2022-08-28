@@ -10,13 +10,13 @@ const MarginCalculator = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Margin Calculator')}
-                description={localize('Margin Calculator')}
+                title={localize('_t_Margin Calculator_t_')}
+                description={localize('_t_Margin Calculator_t_')}
             />
             <Hero jc="center" ai="center">
                 <Container>
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('Margin Calculator')}
+                        {localize('_t_Margin Calculator_t_')}
                     </Header>
                 </Container>
             </Hero>

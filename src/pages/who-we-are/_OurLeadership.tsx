@@ -44,7 +44,7 @@ const OurLeadership = () => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {localize('Our leadership')}
+                {localize('_t_Our leadership_t_')}
             </StyledHeader>
             <StyledCssGrid
                 height="unset"

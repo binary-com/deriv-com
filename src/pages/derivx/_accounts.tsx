@@ -31,16 +31,16 @@ const StyledIcon = styled.img`
 
 const content: ContentType[] = [
     {
-        header: <Localize translate_text="Synthetic" />,
+        header: <Localize translate_text="_t_Synthetic_t_" />,
         text: (
-            <Localize translate_text="Trade our exclusive, proprietary synthetic indices 24/7, which simulate real-world market movements." />
+            <Localize translate_text="_t_Trade our exclusive, proprietary synthetic indices 24/7, which simulate real-world market movements._t_" />
         ),
         icon: <StyledIcon src={DxSyntheticIcon} alt="" />,
     },
     {
-        header: <Localize translate_text="Financial" />,
+        header: <Localize translate_text="_t_Financial_t_" />,
         text: (
-            <Localize translate_text="Trade forex, basket indices, commodities, and cryptocurrencies with high leverage." />
+            <Localize translate_text="_t_Trade forex, basket indices, commodities, and cryptocurrencies with high leverage._t_" />
         ),
         icon: <StyledIcon src={DxFinancialIcon} alt="" />,
     },
@@ -117,7 +117,7 @@ const Accounts = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {localize('2 accounts to choose from')}
+                {localize('_t_2 accounts to choose from_t_')}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {content.map((item, idx) => {
@@ -148,7 +148,7 @@ const Accounts = () => {
                 target="_blank"
                 rel="nofollow noopener noreferrer"
             >
-                {localize('Go to Deriv X dashboard')}
+                {localize('_t_Go to Deriv X dashboard_t_')}
             </StyledLinkButton>
         </Section>
     )

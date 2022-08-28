@@ -98,21 +98,21 @@ type SectionComponentProps = {
 const section_content: SectionComponentProps[] = [
     {
         img_src: CurrencyExchange,
-        header: <Localize translate_text="Currency exchangers" />,
+        header: <Localize translate_text="_t_Currency exchangers_t_" />,
         text: (
-            <Localize translate_text="Reputable online currency exchangers who want to gain more exposure and clients." />
+            <Localize translate_text="_t_Reputable online currency exchangers who want to gain more exposure and clients._t_" />
         ),
     },
     {
         img_src: Affiliates,
-        header: <Localize translate_text="Affiliates" />,
-        text: <Localize translate_text="Deriv affiliates who want to support their clients." />,
+        header: <Localize translate_text="_t_Affiliates_t_" />,
+        text: <Localize translate_text="_t_Deriv affiliates who want to support their clients._t_" />,
     },
     {
         img_src: CommunityManagers,
-        header: <Localize translate_text="Community managers" />,
+        header: <Localize translate_text="_t_Community managers_t_" />,
         text: (
-            <Localize translate_text="Trusted influencers or community managers who want to earn extra revenue." />
+            <Localize translate_text="_t_Trusted influencers or community managers who want to earn extra revenue._t_" />
         ),
     },
 ]
@@ -141,7 +141,7 @@ const WhoCanApply = () => {
                 <Flex>
                     <WhoCanApplyWrapper>
                         <StyledHeader as="h2" size="3.6rem">
-                            {localize('Who can apply')}
+                            {localize('_t_Who can apply_t_')}
                         </StyledHeader>
                         {section_content.map((item, index) => (
                             <SectionComponent
@@ -152,27 +152,27 @@ const WhoCanApply = () => {
                             />
                         ))}
                         <Header as="h4" type="paragraph-1" mt="24px">
-                            {localize('Note:')}
+                            {localize('_t_Note:_t_')}
                         </Header>
                         <StyledUl>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
                                     {
-                                        <Localize translate_text="You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful." />
+                                        <Localize translate_text="_t_You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful._t_" />
                                     }
                                 </Header>
                             </Li>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
                                     {localize(
-                                        'You can only service Deriv clients in your country of residence.',
+                                        '_t_You can only service Deriv clients in your country of residence._t_',
                                     )}
                                 </Header>
                             </Li>
                         </StyledUl>
                         <Header as="h4" type="paragraph-1" weight="normal">
                             <Localize
-                                translate_text="See our <0>terms and conditions</0> for more info."
+                                translate_text="_t_See our <0>terms and conditions</0> for more info._t_"
                                 components={[
                                     <LinkText
                                         key={0}
@@ -191,7 +191,7 @@ const WhoCanApply = () => {
                 <Flex>
                     <HowToApply>
                         <HeaderHowToApply as="h2" mb="24px" size="3.6rem">
-                            {localize('Get started easily')}
+                            {localize('_t_Get started easily_t_')}
                         </HeaderHowToApply>
                         <Timeline pb="24px" pl="18px">
                             <Timeline.Item>
@@ -199,37 +199,37 @@ const WhoCanApply = () => {
                                     <ImageWrapper src={Email} alt="" left_margin="8px" />
                                     <Content min_width="240px" max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
-                                            {localize('Drop us an email')}
+                                            {localize('_t_Drop us an email_t_')}
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
-                                            {localize('Send us an email with the following:')}
+                                            {localize('_t_Send us an email with the following:_t_')}
                                         </Header>
                                         <StyledUl className="get-started--list">
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
-                                                        'Your name, email address, and contact number',
+                                                        '_t_Your name, email address, and contact number_t_',
                                                     )}
                                                 </Header>
                                             </Li>
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
-                                                        'Your website address (if you have one)',
+                                                        '_t_Your website address (if you have one)_t_',
                                                     )}
                                                 </Header>
                                             </Li>
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
-                                                        'Payment methods you will accept from clients',
+                                                        '_t_Payment methods you will accept from clients_t_',
                                                     )}
                                                 </Header>
                                             </Li>
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
-                                                        'The commission you will charge clients on deposits and withdrawals',
+                                                        '_t_The commission you will charge clients on deposits and withdrawals_t_',
                                                     )}
                                                 </Header>
                                             </Li>
@@ -242,11 +242,11 @@ const WhoCanApply = () => {
                                     <ImageWrapper src={Reply} alt="" left_margin="8px" />
                                     <Content max_width="38.2rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
-                                            {localize('Wait for our reply')}
+                                            {localize('_t_Wait for our reply_t_')}
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
-                                                'We’ll review your application and get in touch for further information and next steps.',
+                                                '_t_We’ll review your application and get in touch for further information and next steps._t_',
                                             )}
                                         </Header>
                                     </Content>
@@ -257,11 +257,11 @@ const WhoCanApply = () => {
                                     <ImageWrapper src={Listed} alt="" left_margin="8px" />
                                     <Content max_width="38.2rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
-                                            {localize('Get listed')}
+                                            {localize('_t_Get listed_t_')}
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
-                                                'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
+                                                '_t_After final approval from our compliance team, we’ll publish your details on our payment agent list._t_',
                                             )}
                                         </Header>
                                     </Content>
@@ -279,7 +279,7 @@ const WhoCanApply = () => {
                     to="mailto:partners@deriv.com"
                     is_mail_link
                 >
-                    {localize('Send us an email to apply')}
+                    {localize('_t_Send us an email to apply_t_')}
                 </LinkButton>
             </ButtonWrapper>
         </SectionWrapper>

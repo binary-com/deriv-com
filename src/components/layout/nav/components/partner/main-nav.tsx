@@ -38,20 +38,20 @@ const MainNav = ({ is_security }: MainNavProps) => {
         {
             to: '/',
             title: is_security ? (
-                <Localize translate_text="Go to Deriv.com" />
+                <Localize translate_text="_t_Go to Deriv.com_t_" />
             ) : (
-                <Localize translate_text="Deriv website" />
+                <Localize translate_text="_t_Deriv website_t_" />
             ),
         },
         {
             to: '/who-we-are/',
             title: is_security ? (
-                <Localize translate_text="About us" />
+                <Localize translate_text="_t_About us_t_" />
             ) : (
-                <Localize translate_text="Who we are" />
+                <Localize translate_text="_t_Who we are_t_" />
             ),
         },
-        { to: '/contact_us/', title: <Localize translate_text="Contact us" /> },
+        { to: '/contact_us/', title: <Localize translate_text="_t_Contact us_t_" /> },
     ]
 
     return (

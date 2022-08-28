@@ -55,59 +55,59 @@ const Card = styled(Flex)`
 
 const trading: TradingType[] = [
     {
-        title: <Localize translate_text="Bespoke trading experience" />,
+        title: <Localize translate_text="_t_Bespoke trading experience_t_" />,
         subtitle: (
-            <Localize translate_text="Easily customise your trading environment. Drag and drop widgets, create your own layouts, and get the info you need, when you need it." />
+            <Localize translate_text="_t_Easily customise your trading environment. Drag and drop widgets, create your own layouts, and get the info you need, when you need it._t_" />
         ),
         image_name: 'bespoke',
-        image_alt: localize('Deriv X widgets to customise your CFD trading'),
+        image_alt: localize('_t_Deriv X widgets to customise your CFD trading_t_'),
     },
     {
-        title: <Localize translate_text="Intuitive tools" />,
+        title: <Localize translate_text="_t_Intuitive tools_t_" />,
         subtitle: (
-            <Localize translate_text="Keep track of your progress with the dashboard, learn from historical trades with the journal, and create custom watchlists for your favourite assets." />
+            <Localize translate_text="_t_Keep track of your progress with the dashboard, learn from historical trades with the journal, and create custom watchlists for your favourite assets._t_" />
         ),
         image_name: 'intuitive',
-        image_alt: localize('Deriv X dashboard with tools to track your online trading'),
+        image_alt: localize('_t_Deriv X dashboard with tools to track your online trading_t_'),
     },
     {
-        title: <Localize translate_text="Know your margin" />,
+        title: <Localize translate_text="_t_Know your margin_t_" />,
         subtitle: (
-            <Localize translate_text="You'll always be informed of the margin impact on your account before every trade." />
+            <Localize translate_text="_t_You'll always be informed of the margin impact on your account before every trade._t_" />
         ),
         image_name: 'margin',
-        image_alt: localize('Know the margin impact on your CFD trading'),
+        image_alt: localize('_t_Know the margin impact on your CFD trading_t_'),
     },
     {
-        title: <Localize translate_text="Feature-rich charts" />,
+        title: <Localize translate_text="_t_Feature-rich charts_t_" />,
         subtitle: (
-            <Localize translate_text="Enjoy multiple chart views, 90+ indicators, and 13 drawing tools." />
+            <Localize translate_text="_t_Enjoy multiple chart views, 90+ indicators, and 13 drawing tools._t_" />
         ),
         image_name: 'feature_rich',
-        image_alt: localize('Multiple charts to view your online trading'),
+        image_alt: localize('_t_Multiple charts to view your online trading_t_'),
     },
 ]
 
 const card_data: CardType[] = [
     {
         icon: IconNewPromising,
-        title: <Localize translate_text="New and promising" />,
+        title: <Localize translate_text="_t_New and promising_t_" />,
         subtitle: (
-            <Localize translate_text="Deriv X is our second CFD platform, after MT5. It’s packed with features and built to fit your trading style." />
+            <Localize translate_text="_t_Deriv X is our second CFD platform, after MT5. It’s packed with features and built to fit your trading style._t_" />
         ),
     },
     {
         icon: IconMultipleMarketing,
-        title: <Localize translate_text="Multiple markets on a single platform" />,
+        title: <Localize translate_text="_t_Multiple markets on a single platform_t_" />,
         subtitle: (
-            <Localize translate_text="Trade various assets in multiple markets simultaneously." />
+            <Localize translate_text="_t_Trade various assets in multiple markets simultaneously._t_" />
         ),
     },
     {
         icon: Icon24_7,
-        title: <Localize translate_text="24/7 trading" />,
+        title: <Localize translate_text="_t_24/7 trading_t_" />,
         subtitle: (
-            <Localize translate_text="Trade cryptocurrencies and synthetic indices anytime, even on weekends and holidays." />
+            <Localize translate_text="_t_Trade cryptocurrencies and synthetic indices anytime, even on weekends and holidays._t_" />
         ),
     },
 ]
@@ -118,7 +118,7 @@ const WhyTradeDerivX = () => {
             <SectionContainer>
                 <Container fd="column">
                     <StyledHeader type="page-title" align="center" as="h2">
-                        {localize('Why trade with Deriv X')}
+                        {localize('_t_Why trade with Deriv X_t_')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">
                         {card_data.map((card, index) => {

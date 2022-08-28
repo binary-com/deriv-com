@@ -42,11 +42,11 @@ const TapInto = () => {
             <WrapContainer justify="center">
                 <Flex direction="column" mr="2.4rem" max_width="48.6rem">
                     <Header as="h3" type="heading-2" mb="1.6rem">
-                        {localize('Tap into an established and growing market')}
+                        {localize('_t_Tap into an established and growing market_t_')}
                     </Header>
                     <Header as="h4" type="subtitle-2" weight="normal">
                         {localize(
-                            'Reach hundreds of traders on our platform looking for ways to fund their accounts through local bank wires and e-payment methods.',
+                            '_t_Reach hundreds of traders on our platform looking for ways to fund their accounts through local bank wires and e-payment methods._t_',
                         )}
                     </Header>
                 </Flex>
@@ -54,14 +54,14 @@ const TapInto = () => {
                     <Desktop>
                         <QueryImage
                             data={data['payment_agent']}
-                            alt={localize('Girl talking to a group of people')}
+                            alt={localize('_t_Girl talking to a group of people_t_')}
                             height="28rem"
                         />
                     </Desktop>
                     <Mobile>
                         <QueryImage
                             data={data['payment_agent']}
-                            alt={localize('Girl talking to a group of people')}
+                            alt={localize('_t_Girl talking to a group of people_t_')}
                             height="220px"
                         />
                     </Mobile>

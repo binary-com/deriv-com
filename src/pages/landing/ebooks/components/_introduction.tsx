@@ -111,7 +111,7 @@ const Introduction = ({
                 />
                 <MediaBody>
                     <Header as="h3" className="mt-0 intro-text">
-                        {localize('Introduction')}
+                        {localize('_t_Introduction_t_')}
                     </Header>
                     <Text className="intro-desc" mb="20px">
                         {introPara}
@@ -128,7 +128,7 @@ const Introduction = ({
                                 mb="20px"
                                 mt="30px"
                             >
-                                {localize('In this book you’ll learn:')}
+                                {localize('_t_In this book you’ll learn:_t_')}
                             </Header>
                             <MediaItemList>
                                 {introList?.map((point, index) => {

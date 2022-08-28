@@ -105,7 +105,7 @@ const IconTextRow = () => {
                 as="h2"
                 color="black-3"
             >
-                {localize('Why 1M+ forex traders choose Deriv')}
+                {localize('_t_Why 1M+ forex traders choose Deriv_t_')}
             </StyledHeader>
             <CardContainer pr="4.7rem" pl="6.7rem">
                 <Card direction="column">
@@ -121,7 +121,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('Low spreads')}
+                                {localize('_t_Low spreads_t_')}
                             </StyledCardHeader>
                             <StyledText
                                 size="24px"
@@ -132,7 +132,7 @@ const IconTextRow = () => {
                                 weight="350"
                             >
                                 {localize(
-                                    'Open trades at a lower cost and increase your potential gains.',
+                                    '_t_Open trades at a lower cost and increase your potential gains._t_',
                                 )}
                             </StyledText>
                         </Column>
@@ -151,7 +151,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('High leverage')}
+                                {localize('_t_High leverage_t_')}
                             </StyledCardHeader>
                             <StyledText
                                 lh="31px"
@@ -162,7 +162,7 @@ const IconTextRow = () => {
                                 weight="350"
                             >
                                 {localize(
-                                    'Enjoy up to 1:1000 leverage, and open larger positions with lower capital.',
+                                    '_t_Enjoy up to 1:1000 leverage, and open larger positions with lower capital._t_',
                                 )}
                             </StyledText>
                         </Column>
@@ -181,7 +181,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('0% commission')}
+                                {localize('_t_0% commission_t_')}
                             </StyledCardHeader>
                             <StyledText
                                 lh="31px"
@@ -192,7 +192,7 @@ const IconTextRow = () => {
                                 weight="350"
                             >
                                 {localize(
-                                    'Trade with no additional charges on deposits, withdrawals, and trades.',
+                                    '_t_Trade with no additional charges on deposits, withdrawals, and trades._t_',
                                 )}
                             </StyledText>
                         </Column>
@@ -211,7 +211,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('Swap-free')}
+                                {localize('_t_Swap-free_t_')}
                             </StyledCardHeader>
                             <StyledText
                                 lh="31px"
@@ -222,7 +222,7 @@ const IconTextRow = () => {
                                 weight="350"
                             >
                                 {localize(
-                                    'Say goodbye to overnight charges, keep your positions open for as long as you want.*',
+                                    '_t_Say goodbye to overnight charges, keep your positions open for as long as you want.*_t_',
                                 )}
                             </StyledText>
                         </Column>

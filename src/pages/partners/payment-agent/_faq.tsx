@@ -52,12 +52,12 @@ const Faq = () => {
     return (
         <RelativeContainer padding={is_p2p_allowed_country ? '5rem 0' : '0 0 5rem'}>
             <Header as="h2" size="3.6rem" mb="3.2rem" align="center">
-                {localize('FAQs')}
+                {localize('_t_FAQs_t_')}
             </Header>
             <AccordionWrapper>
                 <Accordion has_single_state>
                     <AccordionItem
-                        header={localize('General')}
+                        header={localize('_t_General_t_')}
                         parent_style={parent_style}
                         style={item_style}
                         header_style={header_style}
@@ -66,7 +66,7 @@ const Faq = () => {
                         {<General />}
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Account management')}
+                        header={localize('_t_Account management_t_')}
                         style={item_style}
                         header_style={header_style}
                         plus

@@ -50,8 +50,8 @@ const LiveChatPage = () => {
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
-                title={localize('Live Chat')}
-                description={localize('This page automatically open Live Chat window')}
+                title={localize('_t_Live Chat_t_')}
+                description={localize('_t_This page automatically open Live Chat window_t_')}
                 no_index
             />
             <StyledContainer>{loading && <InitialLoader />}</StyledContainer>

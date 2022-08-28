@@ -36,22 +36,22 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
         {
             src: Leverage,
             text: is_uk_eu ? (
-                <Localize translate_text="1:2 leverage" />
+                <Localize translate_text="_t_1:2 leverage_t_" />
             ) : (
-                <Localize translate_text="1:100 leverage" />
+                <Localize translate_text="_t_1:100 leverage_t_" />
             ),
         },
         {
             src: TightSpread,
-            text: <Localize translate_text="Tight spreads" />,
+            text: <Localize translate_text="_t_Tight spreads_t_" />,
         },
         {
             src: CryptoPairs,
-            text: <Localize translate_text="25+ crypto pairs" />,
+            text: <Localize translate_text="_t_25+ crypto pairs_t_" />,
         },
         {
             src: ZeroCommission,
-            text: <Localize translate_text="Zero commission" />,
+            text: <Localize translate_text="_t_Zero commission_t_" />,
         },
     ]
 
@@ -62,9 +62,9 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
     return (
         <NonUK>
             <WhyTrade
-                header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
+                header={<Localize translate_text="_t_Why trade cryptocurrencies on Deriv_t_" />}
                 text={
-                    <Localize translate_text="Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies." />
+                    <Localize translate_text="_t_Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies._t_" />
                 }
             >
                 {crypto_content.map((content, index) => (
@@ -79,12 +79,12 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                 CFDs={<CFDs market_content={crypto_cfds} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
                 display_title={
-                    <Localize translate_text="Cryptocurrency trades available on Deriv" />
+                    <Localize translate_text="_t_Cryptocurrency trades available on Deriv_t_" />
                 }
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />
+                    <Localize translate_text="_t_Start trading cryptocurrencies on Deriv in 3 simple steps_t_" />
                 }
                 content={simple_step_content}
                 sign_up

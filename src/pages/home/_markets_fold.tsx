@@ -78,9 +78,9 @@ const StyledLink = styled(LocalizedLink)`
 
 const market_data = [
     {
-        header: <Localize translate_text="Forex" />,
+        header: <Localize translate_text="_t_Forex_t_" />,
         description: (
-            <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
+            <Localize translate_text="_t_Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day._t_" />
         ),
         img_name: 'market_forex',
         to: '/markets/forex/',
@@ -88,9 +88,9 @@ const market_data = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Synthetic indices" />,
+        header: <Localize translate_text="_t_Synthetic indices_t_" />,
         description: (
-            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
+            <Localize translate_text="_t_Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions._t_" />
         ),
         img_name: 'market_synthetic_indices',
         to: '/markets/synthetic/',
@@ -98,9 +98,9 @@ const market_data = [
         gradient_end: '#08100E',
     },
     {
-        header: <Localize translate_text="Stocks & indices" />,
+        header: <Localize translate_text="_t_Stocks & indices_t_" />,
         description: (
-            <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
+            <Localize translate_text="_t_Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market._t_" />
         ),
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
@@ -108,9 +108,9 @@ const market_data = [
         gradient_end: '#0A0810',
     },
     {
-        header: <Localize translate_text="Cryptocurrencies" />,
+        header: <Localize translate_text="_t_Cryptocurrencies_t_" />,
         description: (
-            <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
+            <Localize translate_text="_t_Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet._t_" />
         ),
         img_name: 'market_crypto',
         to: '/markets/cryptocurrencies/',
@@ -118,9 +118,9 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Basket indices" />,
+        header: <Localize translate_text="_t_Basket indices_t_" />,
         description: (
-            <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
+            <Localize translate_text="_t_Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility._t_" />
         ),
         img_name: 'market_basket_indices',
         to: '/markets/basket-indices/',
@@ -128,9 +128,9 @@ const market_data = [
         gradient_end: '#151404',
     },
     {
-        header: <Localize translate_text="Commodities" />,
+        header: <Localize translate_text="_t_Commodities_t_" />,
         description: (
-            <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
+            <Localize translate_text="_t_Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action._t_" />
         ),
         img_name: 'market_commodities',
         to: '/markets/commodities/',
@@ -140,9 +140,9 @@ const market_data = [
 ]
 const market_data_eu = [
     {
-        header: <Localize translate_text="Forex" />,
+        header: <Localize translate_text="_t_Forex_t_" />,
         description: (
-            <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
+            <Localize translate_text="_t_Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day._t_" />
         ),
         img_name: 'market_forex',
         to: '/markets/forex/',
@@ -150,9 +150,9 @@ const market_data_eu = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Synthetic indices" />,
+        header: <Localize translate_text="_t_Synthetic indices_t_" />,
         description: (
-            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
+            <Localize translate_text="_t_Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions._t_" />
         ),
         img_name: 'market_synthetic_indices',
         to: '/markets/synthetic/',
@@ -160,9 +160,9 @@ const market_data_eu = [
         gradient_end: '#08100E',
     },
     {
-        header: <Localize translate_text="Stocks & indices" />,
+        header: <Localize translate_text="_t_Stocks & indices_t_" />,
         description: (
-            <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
+            <Localize translate_text="_t_Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market._t_" />
         ),
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
@@ -170,9 +170,9 @@ const market_data_eu = [
         gradient_end: '#0A0810',
     },
     {
-        header: <Localize translate_text="Cryptocurrencies" />,
+        header: <Localize translate_text="_t_Cryptocurrencies_t_" />,
         description: (
-            <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
+            <Localize translate_text="_t_Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet._t_" />
         ),
         img_name: 'market_crypto',
         to: '/markets/cryptocurrencies/',
@@ -180,9 +180,9 @@ const market_data_eu = [
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Commodities" />,
+        header: <Localize translate_text="_t_Commodities_t_" />,
         description: (
-            <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
+            <Localize translate_text="_t_Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action._t_" />
         ),
         img_name: 'market_commodities',
         to: '/markets/commodities/',
@@ -193,9 +193,9 @@ const market_data_eu = [
 
 const market_data_uk = [
     {
-        header: <Localize translate_text="Forex" />,
+        header: <Localize translate_text="_t_Forex_t_" />,
         description: (
-            <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
+            <Localize translate_text="_t_Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day._t_" />
         ),
         img_name: 'market_forex',
         to: '/markets/forex/',
@@ -203,9 +203,9 @@ const market_data_uk = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Stocks & indices" />,
+        header: <Localize translate_text="_t_Stocks & indices_t_" />,
         description: (
-            <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
+            <Localize translate_text="_t_Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market._t_" />
         ),
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
@@ -213,9 +213,9 @@ const market_data_uk = [
         gradient_end: '#0A0810',
     },
     {
-        header: <Localize translate_text="Commodities" />,
+        header: <Localize translate_text="_t_Commodities_t_" />,
         description: (
-            <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
+            <Localize translate_text="_t_Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action._t_" />
         ),
         img_name: 'market_commodities',
         to: '/markets/commodities/',
@@ -365,7 +365,7 @@ const MarketsFold = () => {
             <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
                     <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>
-                        <Localize translate_text="Markets" />
+                        <Localize translate_text="_t_Markets_t_" />
                     </Header>
                 </Flex>
                 <Carousel

@@ -9,11 +9,11 @@ import Layout from 'components/layout/layout'
 const PipCalculator = () => {
     return (
         <Layout>
-            <SEO title={localize('Pip Calculator')} description={localize('Pip Calculator')} />
+            <SEO title={localize('_t_Pip Calculator_t_')} description={localize('_t_Pip Calculator_t_')} />
             <Hero jc="center" ai="center">
                 <Container>
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('Pip Calculator')}
+                        {localize('_t_Pip Calculator_t_')}
                     </Header>
                 </Container>
             </Hero>

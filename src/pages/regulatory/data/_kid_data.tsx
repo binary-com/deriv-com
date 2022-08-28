@@ -3,39 +3,39 @@ import { Localize } from 'components/localization'
 
 const kid_data = [
     {
-        title: <Localize translate_text="Commodities" />,
+        title: <Localize translate_text="_t_Commodities_t_" />,
         ref: 'kid_deriv_commodities.pdf',
     },
     {
-        title: <Localize translate_text="Forex" />,
+        title: <Localize translate_text="_t_Forex_t_" />,
         ref: 'kid_deriv_forex.pdf',
     },
     {
-        title: <Localize translate_text="Cryptocurrencies" />,
+        title: <Localize translate_text="_t_Cryptocurrencies_t_" />,
         ref: 'kid_deriv_crypto.pdf',
     },
     {
-        title: <Localize translate_text="Multipliers - forex" />,
+        title: <Localize translate_text="_t_Multipliers - forex_t_" />,
         ref: 'kid_deriv_multipliers_forex.pdf',
     },
     {
-        title: <Localize translate_text="Multipliers - cryptocurrencies" />,
+        title: <Localize translate_text="_t_Multipliers - cryptocurrencies_t_" />,
         ref: 'kid_deriv_multipliers_cryptocurrencies.pdf',
     },
     {
-        title: <Localize translate_text="Multipliers - synthetic indices" />,
+        title: <Localize translate_text="_t_Multipliers - synthetic indices_t_" />,
         ref: 'kid_deriv_multipliers_synthetic_indices.pdf',
     },
     {
-        title: <Localize translate_text="Stocks" />,
+        title: <Localize translate_text="_t_Stocks_t_" />,
         ref: 'kid_deriv_Stocks.pdf',
     },
     {
-        title: <Localize translate_text="Stock indices" />,
+        title: <Localize translate_text="_t_Stock indices_t_" />,
         ref: 'kid_deriv_Stock Indices.pdf',
     },
     {
-        title: <Localize translate_text="CFD - synthetic indices" />,
+        title: <Localize translate_text="_t_CFD - synthetic indices_t_" />,
         ref: 'kid_deriv_CFD_synthetic_indices.pdf',
     },
 ]

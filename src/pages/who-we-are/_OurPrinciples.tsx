@@ -81,7 +81,7 @@ const OurPrinciples = () => {
     return (
         <StyledSection>
             <Header as="h2" align="center" type="heading-2" mb="40px" laptop={{ mb: '24px' }}>
-                {localize('Our principles are the framework for our decisions')}
+                {localize('_t_Our principles are the framework for our decisions_t_')}
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
                 {our_principles.map(({ color, title, text }, idx) => (
@@ -119,7 +119,7 @@ const OurPrinciples = () => {
                 />
             </StyledFlex>
             <StyledLinkButton to="/our-principles/" secondary="true">
-                {localize('Learn more about our principles')}
+                {localize('_t_Learn more about our principles_t_')}
             </StyledLinkButton>
         </StyledSection>
     )

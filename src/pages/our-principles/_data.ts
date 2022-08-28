@@ -20,29 +20,29 @@ export const principles: Array<PrinciplesType> = [
         title: 'Be reliable',
         description: [
             {
-                title: localize('Settle all contracts fairly, accurately, and promptly'),
+                title: localize('_t_Settle all contracts fairly, accurately, and promptly_t_'),
                 text: localize(
-                    'We will price and settle all contracts accurately and fairly, based on reliable data feeds and without undue delay, so that customers can trust our prices throughout the website.',
+                    '_t_We will price and settle all contracts accurately and fairly, based on reliable data feeds and without undue delay, so that customers can trust our prices throughout the website._t_',
                 ),
             },
             {
-                title: localize('Process all deposits and withdrawals quickly and accurately'),
+                title: localize('_t_Process all deposits and withdrawals quickly and accurately_t_'),
                 text: localize(
-                    'We will design our cashier systems to work as seamlessly as possible, processing deposits and withdrawals efficiently and promptly. As far as possible, we will minimise delays imposed by any AML or anti-fraud requirements.',
+                    '_t_We will design our cashier systems to work as seamlessly as possible, processing deposits and withdrawals efficiently and promptly. As far as possible, we will minimise delays imposed by any AML or anti-fraud requirements._t_',
                 ),
             },
             {
                 title: localize(
-                    'Provide reliable online trading with high uptime, good security, and low latency',
+                    '_t_Provide reliable online trading with high uptime, good security, and low latency_t_',
                 ),
                 text: localize(
-                    'We aim to provide our customers with reliable systems that have high uptime and low latency, even on low-speed mobile data networks. We provide good security and cross-device compatibility for all major desktop and mobile devices.',
+                    '_t_We aim to provide our customers with reliable systems that have high uptime and low latency, even on low-speed mobile data networks. We provide good security and cross-device compatibility for all major desktop and mobile devices._t_',
                 ),
             },
             {
-                title: localize('Provide helpful customer support to all customers'),
+                title: localize('_t_Provide helpful customer support to all customers_t_'),
                 text: localize(
-                    'We will strive to offer 24/7 live chat services to make agents available for any customer who requests a chat. Agents will be trained to answer relevant questions about the service.',
+                    '_t_We will strive to offer 24/7 live chat services to make agents available for any customer who requests a chat. Agents will be trained to answer relevant questions about the service._t_',
                 ),
             },
         ],
@@ -54,31 +54,31 @@ export const principles: Array<PrinciplesType> = [
         title: 'Be fair',
         description: [
             {
-                title: localize('Treat all customers equitably'),
+                title: localize('_t_Treat all customers equitably_t_'),
                 text: localize(
-                    'We will treat all customers equally, regardless of where they’re from or the size of their accounts.',
+                    '_t_We will treat all customers equally, regardless of where they’re from or the size of their accounts._t_',
                 ),
             },
             {
-                title: localize('Handle all complaints with integrity'),
+                title: localize('_t_Handle all complaints with integrity_t_'),
                 text: localize(
-                    'In the event of any complaint, we aim to resolve the issue with speed and integrity.',
+                    '_t_In the event of any complaint, we aim to resolve the issue with speed and integrity._t_',
                 ),
             },
             {
-                title: localize('Offer competitive prices on all our products'),
+                title: localize('_t_Offer competitive prices on all our products_t_'),
                 text: localize(
-                    'We aim to be competitive on pricing for all our products and services.',
+                    '_t_We aim to be competitive on pricing for all our products and services._t_',
                 ),
             },
             {
-                title: localize('No hidden costs'),
-                text: localize('We will be clear about all fees and charges.'),
+                title: localize('_t_No hidden costs_t_'),
+                text: localize('_t_We will be clear about all fees and charges._t_'),
             },
             {
-                title: localize('No artificial barriers to customer withdrawals'),
+                title: localize('_t_No artificial barriers to customer withdrawals_t_'),
                 text: localize(
-                    'If a customer is fairly entitled to winnings or balances, and there are no fraud concerns or AML requirements, they should be able to withdraw those funds at will.',
+                    '_t_If a customer is fairly entitled to winnings or balances, and there are no fraud concerns or AML requirements, they should be able to withdraw those funds at will._t_',
                 ),
             },
         ],
@@ -90,35 +90,35 @@ export const principles: Array<PrinciplesType> = [
         title: 'Be transparent',
         description: [
             {
-                title: localize('Speak simply and plainly, and not hide behind ambiguity'),
+                title: localize('_t_Speak simply and plainly, and not hide behind ambiguity_t_'),
                 text: localize(
-                    'We will use straightforward language in all our products, services, and communications.',
+                    '_t_We will use straightforward language in all our products, services, and communications._t_',
                 ),
             },
             {
-                title: localize('Disclose the terms of all contracts'),
+                title: localize('_t_Disclose the terms of all contracts_t_'),
                 text: localize(
-                    'We will be transparent about the terms of all contracts so that customers can make informed choices.',
+                    '_t_We will be transparent about the terms of all contracts so that customers can make informed choices._t_',
                 ),
             },
             {
                 title: localize(
-                    'Prominently and intelligibly disclose the risks involved in trading',
+                    '_t_Prominently and intelligibly disclose the risks involved in trading_t_',
                 ),
                 text: localize(
-                    'We will be transparent about all the risks involved in trading because we want our customers to make informed choices according to their risk appetite.',
-                ),
-            },
-            {
-                title: localize('Disclose how we make money'),
-                text: localize(
-                    'We will be transparent about how we make money, including when we are a trade counterparty or acting as a broker.',
+                    '_t_We will be transparent about all the risks involved in trading because we want our customers to make informed choices according to their risk appetite._t_',
                 ),
             },
             {
-                title: localize('Provide a representative demo experience'),
+                title: localize('_t_Disclose how we make money_t_'),
                 text: localize(
-                    'Our demo trading experience will represent real-money trading, especially with contract pricing and trading restrictions.',
+                    '_t_We will be transparent about how we make money, including when we are a trade counterparty or acting as a broker._t_',
+                ),
+            },
+            {
+                title: localize('_t_Provide a representative demo experience_t_'),
+                text: localize(
+                    '_t_Our demo trading experience will represent real-money trading, especially with contract pricing and trading restrictions._t_',
                 ),
             },
         ],
@@ -130,33 +130,33 @@ export const principles: Array<PrinciplesType> = [
         title: 'Be responsible',
         description: [
             {
-                title: localize('No hard-selling'),
+                title: localize('_t_No hard-selling_t_'),
                 text: localize(
-                    'We will be honest in our advertising. We will not use implausible images of financial success in our marketing materials.',
+                    '_t_We will be honest in our advertising. We will not use implausible images of financial success in our marketing materials._t_',
                 ),
             },
             {
-                title: localize('No financial or trading advice'),
+                title: localize('_t_No financial or trading advice_t_'),
                 text: localize(
-                    'We will not give any opinion on market direction or the suitability of any particular trade.',
+                    '_t_We will not give any opinion on market direction or the suitability of any particular trade._t_',
                 ),
             },
             {
-                title: localize('No promises of guaranteed returns'),
+                title: localize('_t_No promises of guaranteed returns_t_'),
                 text: localize(
-                    'We will not imply that trading solves one’s financial worries or can generate a reliable income. We will be clear that there are no guaranteed or risk-free returns from trading.',
+                    '_t_We will not imply that trading solves one’s financial worries or can generate a reliable income. We will be clear that there are no guaranteed or risk-free returns from trading._t_',
                 ),
             },
             {
-                title: localize('Implement policies to prevent vulnerable persons from trading'),
+                title: localize('_t_Implement policies to prevent vulnerable persons from trading_t_'),
                 text: localize(
-                    'We will refuse underage persons’ access and implement processes to identify customers who are trading beyond their financial capacity.',
+                    '_t_We will refuse underage persons’ access and implement processes to identify customers who are trading beyond their financial capacity._t_',
                 ),
             },
             {
-                title: localize('Implement controls to prevent unlawful activity'),
+                title: localize('_t_Implement controls to prevent unlawful activity_t_'),
                 text: localize(
-                    'We will implement know-your-customer (KYC) controls and prevent money laundering and other unlawful activities on our platforms.',
+                    '_t_We will implement know-your-customer (KYC) controls and prevent money laundering and other unlawful activities on our platforms._t_',
                 ),
             },
         ],

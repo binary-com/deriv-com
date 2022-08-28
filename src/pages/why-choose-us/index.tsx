@@ -61,15 +61,15 @@ const WhyChooseUs = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Why choose us for your online trading | Deriv')}
+                title={localize('_t_Why choose us for your online trading | Deriv_t_')}
                 description={localize(
-                    'We’re steadfast in our commitment to high ethical standards. Find more reasons to know why Deriv is the choice of online traders.',
+                    '_t_We’re steadfast in our commitment to high ethical standards. Find more reasons to know why Deriv is the choice of online traders._t_',
                 )}
             />
             <Section>
                 <GridContainer>
                     <ResponsiveHeader as="h1" type="display-title" align="center">
-                        {localize('Why choose us')}
+                        {localize('_t_Why choose us_t_')}
                     </ResponsiveHeader>
                     <StyledHeader
                         as="h4"
@@ -80,7 +80,7 @@ const WhyChooseUs = () => {
                         pt="1.6rem"
                     >
                         {localize(
-                            'Client trust is our highest priority, and that’s why millions of users choose us. Here are some of the things that make us a leading online trading service provider.',
+                            '_t_Client trust is our highest priority, and that’s why millions of users choose us. Here are some of the things that make us a leading online trading service provider._t_',
                         )}
                     </StyledHeader>
                 </GridContainer>
@@ -93,34 +93,34 @@ const WhyChooseUs = () => {
             <Section>
                 <GridContainer>
                     <Header as="h2" type="page-title" size="4rem" align="center">
-                        {localize('Try Deriv at no risk')}
+                        {localize('_t_Try Deriv at no risk_t_')}
                     </Header>
                     <ColumnContainer mt="4rem" jc="space-around">
                         <Column>
                             <Header as="h4" type="sub-section-title" align="center">
-                                {localize('Unlimited virtual funds')}
+                                {localize('_t_Unlimited virtual funds_t_')}
                             </Header>
                             <Text align="center">
                                 {localize(
-                                    'Practise trading with Deriv as long as you like. No risk, no hidden fees.',
+                                    '_t_Practise trading with Deriv as long as you like. No risk, no hidden fees._t_',
                                 )}
                             </Text>
                         </Column>
                         <Column>
                             <Header as="h4" type="sub-section-title" align="center">
-                                {localize('All markets and platforms')}
+                                {localize('_t_All markets and platforms_t_')}
                             </Header>
                             <Text align="center">
-                                {localize('Enjoy full access to all our markets and platforms.')}
+                                {localize('_t_Enjoy full access to all our markets and platforms._t_')}
                             </Text>
                         </Column>
                         <Column>
                             <Header as="h4" type="sub-section-title" align="center">
-                                {localize('No credit card needed')}
+                                {localize('_t_No credit card needed_t_')}
                             </Header>
                             <Text align="center">
                                 {localize(
-                                    'Sign up with just your email. No credit card or minimum deposit required.',
+                                    '_t_Sign up with just your email. No credit card or minimum deposit required._t_',
                                 )}
                             </Text>
                         </Column>
@@ -131,7 +131,7 @@ const WhyChooseUs = () => {
                             secondary="true"
                             onClick={handleSignup}
                         >
-                            {localize("Sounds great. Let's get started.")}
+                            {localize("_t_Sounds great. Let's get started._t_")}
                         </ResponsiveLinkButton>
                     </Flex>
                 </GridContainer>

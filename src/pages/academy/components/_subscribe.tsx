@@ -292,7 +292,7 @@ const Subscribe = () => {
             <PaperPlaneImage src={paperPlane} alt="Paper Plane" />
             <StyledFormContent>
                 <Header as="h3" type="heading-3" color="white" align="left">
-                    {localize('Subscribe to our academy via email')}
+                    {localize('_t_Subscribe to our academy via email_t_')}
                 </Header>
                 <Header
                     as="p"
@@ -305,7 +305,7 @@ const Subscribe = () => {
                     tabletL={{ max_width: '100%' }}
                 >
                     {localize(
-                        'Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates.',
+                        '_t_Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates._t_',
                     )}
                 </Header>
                 <InputGroupForm onSubmit={handleEmailSignup} noValidate>
@@ -366,7 +366,7 @@ const Subscribe = () => {
                                     !name,
                             )}
                         >
-                            {localize('Subscribe')}
+                            {localize('_t_Subscribe_t_')}
                         </EmailButton>
                     </Flex>
                     {submit_status === true && (
@@ -375,12 +375,12 @@ const Subscribe = () => {
                                 isChecked={is_checked}
                                 handleChangeCheckbox={handleChange}
                                 color="#C2C2C2"
-                                link_text={localize('Send me marketing materials too!')}
+                                link_text={localize('_t_Send me marketing materials too!_t_')}
                             />
                             <AdditionalFlex color="#C2C2C2">
                                 <Localize
                                     fontSize="var(--text-size-xs)"
-                                    translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
+                                    translate_text="_t_We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more._t_"
                                     components={[
                                         <LocalizedLinkText
                                             key={0}
@@ -397,12 +397,12 @@ const Subscribe = () => {
                     )}
                     {submit_status === 'success' && (
                         <TextWrapper color={'#01a79f'} font_size={15} margin_top={'10px'}>
-                            <Localize translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox" />
+                            <Localize translate_text="_t_Thanks for subscribing. We've sent a confirmation email to your inbox_t_" />
                         </TextWrapper>
                     )}
                     {submit_status === false && (
                         <TextWrapper color={'#ff444f'} font_size={15} margin_top={'10px'}>
-                            <Localize translate_text="If you have AdBlock installed, please disable it in order to subscribe" />
+                            <Localize translate_text="_t_If you have AdBlock installed, please disable it in order to subscribe_t_" />
                         </TextWrapper>
                     )}
                 </InputGroupForm>

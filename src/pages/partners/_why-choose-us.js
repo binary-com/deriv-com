@@ -44,39 +44,39 @@ const WhyChooseUs = () => {
         <SectionContainer background="grey-4">
             <Container direction="column">
                 <Header as="h2" type="page-title" align="center" mb="4rem">
-                    {localize('Why choose us')}
+                    {localize('_t_Why choose us_t_')}
                 </Header>
                 <Wrapper>
                     <Card direction="column">
                         <ImageWrapper src={Hand} alt="" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
-                            {localize('Partnership with a trusted pioneer')}
+                            {localize('_t_Partnership with a trusted pioneer_t_')}
                         </Header>
                         <Text>
                             {localize(
-                                'Benefit from our extensive experience of more than 20 years and our internationally acclaimed reputation.',
+                                '_t_Benefit from our extensive experience of more than 20 years and our internationally acclaimed reputation._t_',
                             )}
                         </Text>
                     </Card>
                     <Card direction="column">
                         <ImageWrapper src={Lamp} alt="" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
-                            {localize('Diverse opportunities')}
+                            {localize('_t_Diverse opportunities_t_')}
                         </Header>
                         <Text>
                             {localize(
-                                'We have a range of partnership opportunities that you can benefit from, regardless of your skill set or background.',
+                                '_t_We have a range of partnership opportunities that you can benefit from, regardless of your skill set or background._t_',
                             )}
                         </Text>
                     </Card>
                     <Card direction="column">
                         <ImageWrapper src={HiddenFee} alt="" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
-                            {localize('No charges or hidden fees')}
+                            {localize('_t_No charges or hidden fees_t_')}
                         </Header>
                         <Text>
                             {localize(
-                                'All Deriv partnership programmes are free to join. There are absolutely no charges or hidden fees to worry about.',
+                                '_t_All Deriv partnership programmes are free to join. There are absolutely no charges or hidden fees to worry about._t_',
                             )}
                         </Text>
                     </Card>

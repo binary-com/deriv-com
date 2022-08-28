@@ -110,9 +110,9 @@ const CookieBanner = ({ onAccept, onDecline, is_open }) => {
     return (
         <Wrapper is_open={is_open}>
             <StyledText>
-                <Localize translate_text="Cookies help us to give you a better experience and personalised content on our site. " />
+                <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site. _t_" />
                 <Localize
-                    translate_text="If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>."
+                    translate_text="_t_If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>._t_"
                     components={[
                         <LinkText key={0} to="/terms-and-conditions/#clients" color="red" />,
                     ]}
@@ -120,10 +120,10 @@ const CookieBanner = ({ onAccept, onDecline, is_open }) => {
             </StyledText>
             <Flex>
                 <StyledButton tertiary onClick={onDecline} mr="0.8rem">
-                    {localize("Don't accept")}
+                    {localize("_t_Don't accept_t_")}
                 </StyledButton>
                 <StyledButton secondary onClick={onAccept}>
-                    {localize('Accept')}
+                    {localize('_t_Accept_t_')}
                 </StyledButton>
             </Flex>
         </Wrapper>

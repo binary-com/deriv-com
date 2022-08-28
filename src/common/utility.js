@@ -344,7 +344,7 @@ export const calculateReadTime = (text) => {
     return Math.ceil(words / wpm)
 }
 
-export const getMinRead = (text) => calculateReadTime(text).toString() + ' ' + localize('min read')
+export const getMinRead = (text) => calculateReadTime(text).toString() + ' ' + localize('_t_min read_t_')
 
 export const slugify = (text) =>
     text &&

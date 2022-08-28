@@ -88,22 +88,22 @@ const PipCalculator = () => {
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
-                        {localize("Traders' tools")}
+                        {localize("_t_Traders' tools_t_")}
                     </LocalizedLinkText>
                     <img
                         src={RightArrow}
-                        alt={localize('right arrow')}
+                        alt={localize('_t_right arrow_t_')}
                         height="16"
                         width="16"
                         style={{ margin: '0 8px' }}
                     />
-                    <Text>{localize('Pip calculator')}</Text>
+                    <Text>{localize('_t_Pip calculator_t_')}</Text>
                 </Flex>
             </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our pip calculator helps you to estimate the pip value in your trades so that you can better manage your risk.',
+                        '_t_Our pip calculator helps you to estimate the pip value in your trades so that you can better manage your risk._t_',
                     )}
                 </SectionSubtitle>
 
@@ -144,7 +144,7 @@ const PipCalculator = () => {
                                 <CalculatorForm>
                                     <CalculatorHeader>
                                         <CalculatorLabel htmlFor="message">
-                                            {localize('Pip value')}
+                                            {localize('_t_Pip value_t_')}
                                         </CalculatorLabel>
                                         <CalculatorOutputContainer>
                                             <CalculatorOutputField>
@@ -158,7 +158,7 @@ const PipCalculator = () => {
 
                                     <CalculatorBody>
                                         <CalculatorLabel>
-                                            {localize('Account type')}
+                                            {localize('_t_Account type_t_')}
                                         </CalculatorLabel>
                                         <Flex
                                             mb="3rem"
@@ -174,7 +174,7 @@ const PipCalculator = () => {
                                                     resetForm({})
                                                 }}
                                             >
-                                                <Text align="center">{localize('Synthetic')}</Text>
+                                                <Text align="center">{localize('_t_Synthetic_t_')}</Text>
                                             </CalculatorTabItem>
                                             <CalculatorTabItem
                                                 active={tab === 'Financial'}
@@ -187,13 +187,13 @@ const PipCalculator = () => {
                                                     setFieldValue('optionList', financialItemLists)
                                                 }}
                                             >
-                                                <Text align="center">{localize('Financial')}</Text>
+                                                <Text align="center">{localize('_t_Financial_t_')}</Text>
                                             </CalculatorTabItem>
                                         </Flex>
 
                                         <CalculatorDropdown
                                             option_list={values.optionList}
-                                            label={localize('Symbol')}
+                                            label={localize('_t_Symbol_t_')}
                                             default_option={optionItemDefault}
                                             selected_option={values.symbol}
                                             id="symbol"
@@ -224,7 +224,7 @@ const PipCalculator = () => {
                                                         {...field}
                                                         id="volume"
                                                         type="text"
-                                                        label={localize('Volume')}
+                                                        label={localize('_t_Volume_t_')}
                                                         autoComplete="off"
                                                         error={touched.volume && errors.volume}
                                                         onBlur={handleBlur}
@@ -254,7 +254,7 @@ const PipCalculator = () => {
                                                         {...field}
                                                         id="pointValue"
                                                         type="text"
-                                                        label={localize('Point Value')}
+                                                        label={localize('_t_Point Value_t_')}
                                                         autoComplete="off"
                                                         error={
                                                             touched.pointValue && errors.pointValue
@@ -285,7 +285,7 @@ const PipCalculator = () => {
                                                 type="submit"
                                                 disabled={!isValid || !dirty}
                                             >
-                                                {localize('Calculate')}
+                                                {localize('_t_Calculate_t_')}
                                             </CalculateButton>
                                         </Flex>
                                     </CalculatorBody>
@@ -296,65 +296,65 @@ const PipCalculator = () => {
 
                     <RightContent>
                         <Header as="h3" type="section-title" mb="0.8rem">
-                            {localize('How to calculate pip value')}
+                            {localize('_t_How to calculate pip value_t_')}
                         </Header>
 
                         <Text>
                             {localize(
-                                'The pip value for a contract on DMT5 is calculated based on this formula:',
+                                '_t_The pip value for a contract on DMT5 is calculated based on this formula:_t_',
                             )}
                         </Text>
                         <Text mb="1.6rem">
                             <Localize
-                                translate_text="<0>Pip value = point value × volume × contract size</0>"
+                                translate_text="_t_<0>Pip value = point value × volume × contract size</0>_t_"
                                 components={[<strong key={0} />]}
                             />
                         </Text>
 
                         <Text mb="1.6rem">
                             {localize(
-                                'For synthetic accounts, the pip value is calculated in USD.',
+                                '_t_For synthetic accounts, the pip value is calculated in USD._t_',
                             )}
                         </Text>
                         <Text mb="40px">
                             {localize(
-                                'For financial accounts, the pip value is in the quote currency for forex pairs.',
+                                '_t_For financial accounts, the pip value is in the quote currency for forex pairs._t_',
                             )}
                         </Text>
 
                         <Header as="h3" type="section-title" mb="0.8rem">
-                            {localize('Example calculation')}
+                            {localize('_t_Example calculation_t_')}
                         </Header>
 
                         <Accordion has_single_state>
                             <AccordionItem
-                                header={localize('Pip value for synthetic indices')}
+                                header={localize('_t_Pip value for synthetic indices_t_')}
                                 header_style={header_style}
                                 style={item_style}
                                 plus
                             >
                                 <Text mb="16px">
                                     {localize(
-                                        'Let’s say you want to trade 1 lot of Volatility 75 Index.',
+                                        '_t_Let’s say you want to trade 1 lot of Volatility 75 Index._t_',
                                     )}
                                 </Text>
 
                                 <Show.Desktop>
                                     <QueryImage
                                         data={data.pip_value_formula}
-                                        alt={localize('Margin formula')}
+                                        alt={localize('_t_Margin formula_t_')}
                                     />
-                                    <QueryImage data={data.pip_info} alt={localize('Pip Info')} />
+                                    <QueryImage data={data.pip_info} alt={localize('_t_Pip Info_t_')} />
                                 </Show.Desktop>
 
                                 <Show.Mobile>
                                     <QueryImage
                                         data={data.pip_value_formula_mobile}
-                                        alt={localize('Margin formula mobile')}
+                                        alt={localize('_t_Margin formula mobile_t_')}
                                     />
                                     <QueryImage
                                         data={data.pip_info_mobile}
-                                        alt={localize('Pip Info')}
+                                        alt={localize('_t_Pip Info_t_')}
                                     />
                                 </Show.Mobile>
                                 <FormulaText>
@@ -362,14 +362,14 @@ const PipCalculator = () => {
                                         <li>
                                             <span>
                                                 {localize(
-                                                    'The point value is derived from the current digits of the assets. In the example, the digit is 2, so the point value is 0.01.',
+                                                    '_t_The point value is derived from the current digits of the assets. In the example, the digit is 2, so the point value is 0.01._t_',
                                                 )}
                                             </span>
                                         </li>
                                         <li>
                                             <span>
                                                 {localize(
-                                                    'The contract size is one standard lot of Volatility 75 index = 1',
+                                                    '_t_The contract size is one standard lot of Volatility 75 index = 1_t_',
                                                 )}
                                             </span>
                                         </li>
@@ -377,32 +377,32 @@ const PipCalculator = () => {
                                 </FormulaText>
                                 <Text mb="1.6rem" mt="1.6rem">
                                     <Localize
-                                        translate_text="So your pip value is <0>0.01 USD</0>."
+                                        translate_text="_t_So your pip value is <0>0.01 USD</0>._t_"
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>
                             </AccordionItem>
                             <AccordionItem
-                                header={localize('Pip value for forex')}
+                                header={localize('_t_Pip value for forex_t_')}
                                 header_style={header_style}
                                 style={item_style}
                                 plus
                             >
                                 <Text mb="16px">
-                                    {localize('Let’s say you want to trade 2 lots of EUR/USD.')}
+                                    {localize('_t_Let’s say you want to trade 2 lots of EUR/USD._t_')}
                                 </Text>
 
                                 <Show.Desktop>
                                     <QueryImage
                                         data={data.pip_value_forex_formula}
-                                        alt={localize('Pip Forex formula')}
+                                        alt={localize('_t_Pip Forex formula_t_')}
                                     />
                                 </Show.Desktop>
 
                                 <Show.Mobile>
                                     <QueryImage
                                         data={data.pip_value_forex_formula_mobile}
-                                        alt={localize('Pip Forex formula')}
+                                        alt={localize('_t_Pip Forex formula_t_')}
                                     />
                                 </Show.Mobile>
 
@@ -411,14 +411,14 @@ const PipCalculator = () => {
                                         <li>
                                             <span>
                                                 {localize(
-                                                    'The point value is derived from the current digits of the assets. In the example, the digit is 5, so the point value is 0.00001.',
+                                                    '_t_The point value is derived from the current digits of the assets. In the example, the digit is 5, so the point value is 0.00001._t_',
                                                 )}
                                             </span>
                                         </li>
                                         <li>
                                             <span>
                                                 {localize(
-                                                    'One standard lot of forex = 100,000 units',
+                                                    '_t_One standard lot of forex = 100,000 units_t_',
                                                 )}
                                             </span>
                                         </li>
@@ -427,7 +427,7 @@ const PipCalculator = () => {
 
                                 <Text mb="1.6rem" mt="1.6rem">
                                     <Localize
-                                        translate_text="So your pip value is <0>2 USD</0>."
+                                        translate_text="_t_So your pip value is <0>2 USD</0>._t_"
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>
@@ -442,7 +442,7 @@ const PipCalculator = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Go to Deriv MT5 dashboard')}
+                                {localize('_t_Go to Deriv MT5 dashboard_t_')}
                             </StyledLinkButton>
                         </LinkWrapper>
                     </RightContent>

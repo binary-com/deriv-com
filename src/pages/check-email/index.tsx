@@ -10,9 +10,9 @@ const CheckEmail = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Check your email')}
+                title={localize('_t_Check your email_t_')}
                 description={localize(
-                    "Didn't receive an email from us? Here's what could've happened.",
+                    "_t_Didn't receive an email from us? Here's what could've happened._t_",
                 )}
                 no_index
             />
@@ -20,12 +20,12 @@ const CheckEmail = () => {
                 <GridContainer align="center">
                     <Text size="var(--text-size-sm)" color="var(--color-black-2)" align="left">
                         {localize(
-                            "If you don't see an email from us within a few minutes, a few things could have happened:",
+                            "_t_If you don't see an email from us within a few minutes, a few things could have happened:_t_",
                         )}
                     </Text>
                     <IconGrid />
                     <LinkButton id="dm-reenter-email-signup" secondary="true" to="/signup/">
-                        {localize('Re-enter your email and try again')}
+                        {localize('_t_Re-enter your email and try again_t_')}
                     </LinkButton>
                 </GridContainer>
             </SectionContainer>

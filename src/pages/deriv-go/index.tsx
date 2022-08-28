@@ -24,33 +24,33 @@ export type ContentType = {
 
 const items: ContentType[] = [
     {
-        title: <Localize translate_text="Multiply your profit and limit your loss" />,
+        title: <Localize translate_text="_t_Multiply your profit and limit your loss_t_" />,
         subtitle: (
-            <Localize translate_text="Amplify your profits up to 1000x without losing more than your trade amount with multipliers." />
+            <Localize translate_text="_t_Amplify your profits up to 1000x without losing more than your trade amount with multipliers._t_" />
         ),
         image_name: 'multiply_profit',
         image_alt: 'Trading multipliers on Deriv GO',
     },
     {
-        title: <Localize translate_text="Forex trading on the go" />,
+        title: <Localize translate_text="_t_Forex trading on the go_t_" />,
         subtitle: (
-            <Localize translate_text="Access the world’s most traded market and take advantage of currency price movements." />
+            <Localize translate_text="_t_Access the world’s most traded market and take advantage of currency price movements._t_" />
         ),
         image_name: 'forex',
         image_alt: 'Trading forex pairs on Deriv GO',
     },
     {
-        title: <Localize translate_text="Trade synthetic indices" />,
+        title: <Localize translate_text="_t_Trade synthetic indices_t_" />,
         subtitle: (
-            <Localize translate_text="Trade Volatility and Crash/Boom indices that emulate the movements of real-world markets." />
+            <Localize translate_text="_t_Trade Volatility and Crash/Boom indices that emulate the movements of real-world markets._t_" />
         ),
         image_name: 'synthetic_indices',
         image_alt: 'Trading Volatility 100 Index on Deriv GO',
     },
     {
-        title: <Localize translate_text="Better risk management" />,
+        title: <Localize translate_text="_t_Better risk management_t_" />,
         subtitle: (
-            <Localize translate_text="Customise your contracts to suit your risk appetite using innovative features like stop loss, take profit, and deal cancellation." />
+            <Localize translate_text="_t_Customise your contracts to suit your risk appetite using innovative features like stop loss, take profit, and deal cancellation._t_" />
         ),
         image_name: 'better_risk',
         image_alt: 'Risk management on Deriv GO',
@@ -65,7 +65,7 @@ type DerivGoPortalType = {
 
 const derivGoPortalData: DerivGoPortalType = {
     paragraph: (
-        <Localize translate_text="Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
+        <Localize translate_text="_t_Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next._t_" />
     ),
     frame: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn?hide_header=1',
     link: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn',
@@ -79,10 +79,10 @@ const DerivGo = () => {
             <Layout>
                 <SEO
                     title={localize(
-                        'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
+                        '_t_Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO._t_',
                     )}
                     description={localize(
-                        'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
+                        '_t_Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO._t_',
                     )}
                 />
                 <Banner />

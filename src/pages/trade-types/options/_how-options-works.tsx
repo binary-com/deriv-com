@@ -80,7 +80,7 @@ const HowOptionsWorks = () => {
             <SmallContainer direction="column" ai="flex-start">
                 <StyledContainer direction="column">
                     <Header as="h2" type="page-title" mb="3.2rem">
-                        {localize('How options contracts work')}
+                        {localize('_t_How options contracts work_t_')}
                     </Header>
                     <OptionGrid>
                         <HowItWorksItem>
@@ -89,12 +89,12 @@ const HowOptionsWorks = () => {
                                     <img src={DefinePosition} alt="" />
                                 </div>
                                 <StyledText weight="bold">
-                                    {localize('Define your position')}
+                                    {localize('_t_Define your position_t_')}
                                 </StyledText>
                             </OptionItems>
                             <Text>
                                 {localize(
-                                    'Select the market, trade type, duration, and specify your stake amount.',
+                                    '_t_Select the market, trade type, duration, and specify your stake amount._t_',
                                 )}
                             </Text>
                         </HowItWorksItem>
@@ -103,11 +103,11 @@ const HowOptionsWorks = () => {
                                 <div>
                                     <img src={GetQuote} alt="" />
                                 </div>
-                                <StyledText weight="bold">{localize('Get quote')}</StyledText>
+                                <StyledText weight="bold">{localize('_t_Get quote_t_')}</StyledText>
                             </OptionItems>
                             <Text>
                                 {localize(
-                                    'Receive payout quote or stake amount based on the position you have defined.',
+                                    '_t_Receive payout quote or stake amount based on the position you have defined._t_',
                                 )}
                             </Text>
                         </HowItWorksItem>
@@ -117,28 +117,28 @@ const HowOptionsWorks = () => {
                                     <img src={PurchaseContract} alt="" />
                                 </div>
                                 <StyledText weight="bold">
-                                    {localize('Purchase your contract')}
+                                    {localize('_t_Purchase your contract_t_')}
                                 </StyledText>
                             </OptionItems>
                             <Text>
                                 {localize(
-                                    'Purchase the contract if you are satisfied with the quote or re-define your position.',
+                                    '_t_Purchase the contract if you are satisfied with the quote or re-define your position._t_',
                                 )}
                             </Text>
                         </HowItWorksItem>
                     </OptionGrid>
                 </StyledContainer>
                 <Header as="h3" type="section-title" mt="4rem">
-                    {localize('How to buy your first options contract on DTrader')}
+                    {localize('_t_How to buy your first options contract on DTrader_t_')}
                 </Header>
                 <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
-                    {localize('Define your position')}
+                    {localize('_t_Define your position_t_')}
                 </Header>
                 <SideTab>
                     <SideTab.Panel
-                        label={<Localize translate_text="1. Market" />}
+                        label={<Localize translate_text="_t_1. Market_t_" />}
                         description={
-                            <Localize translate_text="Choose from the four markets offered on Deriv – forex, stocks & indices, commodities, synthetic indices." />
+                            <Localize translate_text="_t_Choose from the four markets offered on Deriv – forex, stocks & indices, commodities, synthetic indices._t_" />
                         }
                     >
                         <QueryImage
@@ -147,25 +147,25 @@ const HowOptionsWorks = () => {
                         />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="2. Trade type" />}
+                        label={<Localize translate_text="_t_2. Trade type_t_" />}
                         description={
-                            <Localize translate_text="Select your desired trade type – Up and Down, High and Lows, Digits, etc." />
+                            <Localize translate_text="_t_Select your desired trade type – Up and Down, High and Lows, Digits, etc._t_" />
                         }
                     >
                         <QueryImage data={data['option_trade_type']} alt="Select trade type" />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="3. Duration" />}
+                        label={<Localize translate_text="_t_3. Duration_t_" />}
                         description={
-                            <Localize translate_text="Set the duration of your trade. Depending on whether you have a short-term or long-term view of the markets, you can set your preferred duration, starting from 1 to 10 ticks or 15 seconds to 365 days." />
+                            <Localize translate_text="_t_Set the duration of your trade. Depending on whether you have a short-term or long-term view of the markets, you can set your preferred duration, starting from 1 to 10 ticks or 15 seconds to 365 days._t_" />
                         }
                     >
                         <QueryImage data={data['option_duration']} alt="Select trade duration" />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="4. Stake" />}
+                        label={<Localize translate_text="_t_4. Stake_t_" />}
                         description={
-                            <Localize translate_text="Enter your stake amount to receive a payout quote instantly. Alternatively, you can set your preferred payout to receive a price quote for a corresponding stake amount." />
+                            <Localize translate_text="_t_Enter your stake amount to receive a payout quote instantly. Alternatively, you can set your preferred payout to receive a price quote for a corresponding stake amount._t_" />
                         }
                     >
                         <QueryImage
@@ -175,13 +175,13 @@ const HowOptionsWorks = () => {
                     </SideTab.Panel>
                 </SideTab>
                 <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
-                    {localize('Get quote')}
+                    {localize('_t_Get quote_t_')}
                 </Header>
                 <SideTab is_reverse>
                     <SideTab.Panel
-                        label={<Localize translate_text="5. Get quote" />}
+                        label={<Localize translate_text="_t_5. Get quote_t_" />}
                         description={
-                            <Localize translate_text="Based on the position you’ve defined, you’ll instantly receive a payout quote or a quote of the stake required to open your position." />
+                            <Localize translate_text="_t_Based on the position you’ve defined, you’ll instantly receive a payout quote or a quote of the stake required to open your position._t_" />
                         }
                     >
                         <QueryImage
@@ -191,13 +191,13 @@ const HowOptionsWorks = () => {
                     </SideTab.Panel>
                 </SideTab>
                 <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
-                    {localize('Purchase your contract')}
+                    {localize('_t_Purchase your contract_t_')}
                 </Header>
                 <SideTab>
                     <SideTab.Panel
-                        label={<Localize translate_text="6. Purchase your contract" />}
+                        label={<Localize translate_text="_t_6. Purchase your contract_t_" />}
                         description={
-                            <Localize translate_text="Place your order immediately if you are satisfied with the quote that you’ve received.  Otherwise, continue to customise the parameters and purchase your contract when you are comfortable with the quote." />
+                            <Localize translate_text="_t_Place your order immediately if you are satisfied with the quote that you’ve received.  Otherwise, continue to customise the parameters and purchase your contract when you are comfortable with the quote._t_" />
                         }
                     >
                         <QueryImage data={data['option_purchase']} alt="Buy the contract" />

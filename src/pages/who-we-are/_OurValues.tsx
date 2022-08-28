@@ -59,7 +59,7 @@ const OurValues = () => {
     return (
         <OurValuesSection>
             <StyledHeader as="h2" align="left" type="page-title" width="338px">
-                {localize('Our values are the fabric of our culture')}
+                {localize('_t_Our values are the fabric of our culture_t_')}
             </StyledHeader>
             <StyledFlex width="820px" wrap="wrap">
                 {our_values.map(({ title, icon, text }, index) => (

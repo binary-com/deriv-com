@@ -60,77 +60,77 @@ const query = graphql`
 const items_details_cr: TradeTypesProps[] = [
     {
         image_url: 'trade_type_cfds',
-        image_alt: <Localize translate_text="CFDs" />,
-        header: <Localize translate_text="CFDs" />,
+        image_alt: <Localize translate_text="_t_CFDs_t_" />,
+        header: <Localize translate_text="_t_CFDs_t_" />,
         desc: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+            <Localize translate_text="_t_Trade with leverage and low spreads for better returns on successful trades._t_" />
         ),
         link: '/trade-types/cfds/',
-        link_text: <Localize translate_text="More on CFDs" />,
+        link_text: <Localize translate_text="_t_More on CFDs_t_" />,
     },
     {
         image_url: 'trade_type_multipliers',
-        image_alt: <Localize translate_text="Multipliers" />,
-        header: <Localize translate_text="Multipliers" />,
+        image_alt: <Localize translate_text="_t_Multipliers_t_" />,
+        header: <Localize translate_text="_t_Multipliers_t_" />,
         desc: (
-            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
+            <Localize translate_text="_t_Multiply your potential profit without risking more than your stake._t_" />
         ),
         link: '/trade-types/multiplier/',
-        link_text: <Localize translate_text="More on multipliers" />,
+        link_text: <Localize translate_text="_t_More on multipliers_t_" />,
     },
     {
         image_url: 'trade_type_digitaloptions',
-        image_alt: <Localize translate_text="Options" />,
-        header: <Localize translate_text="Options" />,
-        desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
+        image_alt: <Localize translate_text="_t_Options_t_" />,
+        header: <Localize translate_text="_t_Options_t_" />,
+        desc: <Localize translate_text="_t_Earn fixed payouts by predicting asset price movements._t_" />,
         link: '/trade-types/options/',
-        link_text: <Localize translate_text="More on options" />,
+        link_text: <Localize translate_text="_t_More on options_t_" />,
     },
 ]
 
 const items_details_eu: TradeTypesProps[] = [
     {
         image_url: 'trade_type_cfds_eu',
-        image_alt: <Localize translate_text="CFDs" />,
-        header: <Localize translate_text="CFDs" />,
+        image_alt: <Localize translate_text="_t_CFDs_t_" />,
+        header: <Localize translate_text="_t_CFDs_t_" />,
         desc: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+            <Localize translate_text="_t_Trade with leverage and low spreads for better returns on successful trades._t_" />
         ),
         link: '/trade-types/cfds/',
-        link_text: <Localize translate_text="More on CFDs" />,
+        link_text: <Localize translate_text="_t_More on CFDs_t_" />,
     },
     {
         image_url: 'trade_type_multipliers_eu',
-        image_alt: <Localize translate_text="Multipliers" />,
-        header: <Localize translate_text="Multipliers" />,
+        image_alt: <Localize translate_text="_t_Multipliers_t_" />,
+        header: <Localize translate_text="_t_Multipliers_t_" />,
         desc: (
-            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
+            <Localize translate_text="_t_Multiply your potential profit without risking more than your stake._t_" />
         ),
         link: '/trade-types/multiplier/',
-        link_text: <Localize translate_text="More on multipliers" />,
+        link_text: <Localize translate_text="_t_More on multipliers_t_" />,
     },
 ]
 
 const items_details_uk: TradeTypesProps[] = [
     {
         image_url: 'trade_type_cfds_uk',
-        image_alt: <Localize translate_text="CFDs" />,
-        header: <Localize translate_text="CFDs" />,
+        image_alt: <Localize translate_text="_t_CFDs_t_" />,
+        header: <Localize translate_text="_t_CFDs_t_" />,
         desc: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+            <Localize translate_text="_t_Trade with leverage and low spreads for better returns on successful trades._t_" />
         ),
         link: '/trade-types/cfds/',
-        link_text: <Localize translate_text="More on CFDs" />,
+        link_text: <Localize translate_text="_t_More on CFDs_t_" />,
     },
     {
         image_url: 'trade_type_multipliers_uk',
-        image_alt: <Localize translate_text="Multipliers" />,
-        header: <Localize translate_text="Multipliers" />,
+        image_alt: <Localize translate_text="_t_Multipliers_t_" />,
+        header: <Localize translate_text="_t_Multipliers_t_" />,
         desc: (
-            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
+            <Localize translate_text="_t_Multiply your potential profit without risking more than your stake._t_" />
         ),
         link: '/trade-types/multiplier/',
-        link_text: <Localize translate_text="More on multipliers" />,
+        link_text: <Localize translate_text="_t_More on multipliers_t_" />,
     },
 ]
 
@@ -308,7 +308,7 @@ const TradeTypes = (): React.ReactNode => {
     return (
         <StyledSection padding="unset">
             <Header as="h2" type="heading-2" align="center">
-                {localize('Trade types')}
+                {localize('_t_Trade types_t_')}
             </Header>
             <Header
                 type="subtitle-1"
@@ -319,7 +319,7 @@ const TradeTypes = (): React.ReactNode => {
                 tablet={{ mb: '16px' }}
             >
                 <Localize
-                    translate_text="Trade the way you want with {{trade_no}} flexible trade types."
+                    translate_text="_t_Trade the way you want with {{trade_no}} flexible trade types._t_"
                     values={{ trade_no: is_row ? '3' : '2' }}
                 />
             </Header>

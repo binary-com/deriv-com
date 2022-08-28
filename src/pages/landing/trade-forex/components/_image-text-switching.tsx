@@ -113,58 +113,58 @@ const query = graphql`
 
 const stepContent: StepContentType[] = [
     {
-        title: <Localize translate_text="Step 1" />,
+        title: <Localize translate_text="_t_Step 1_t_" />,
         subtitle1: (
             <Localize
-                translate_text="Log in or sign up for a Deriv account.<0 />"
+                translate_text="_t_Log in or sign up for a Deriv account.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
         subtitle_mobile1: (
             <Localize
-                translate_text="Log in or sign up for a Deriv account.<0 />"
+                translate_text="_t_Log in or sign up for a Deriv account.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
 
         image_name: 'login',
-        image_alt: localize('Login'),
+        image_alt: localize('_t_Login_t_'),
     },
     {
-        title: <Localize translate_text="Step 2" />,
+        title: <Localize translate_text="_t_Step 2_t_" />,
         subtitle1: (
             <Localize
-                translate_text="Add a Deriv MT5 Financial real account.<0 />"
+                translate_text="_t_Add a Deriv MT5 Financial real account.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
         subtitle_mobile1: (
             <Localize
-                translate_text="Add a Deriv MT5 Financial real account.<0 />"
+                translate_text="_t_Add a Deriv MT5 Financial real account.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
 
         image_name: 'dmt5_acc',
-        image_alt: localize('DMT5 account'),
+        image_alt: localize('_t_DMT5 account_t_'),
     },
     {
-        title: <Localize translate_text="Step 3" />,
+        title: <Localize translate_text="_t_Step 3_t_" />,
         subtitle1: (
             <Localize
-                translate_text="Log in to Deriv MT5, select an asset, and start trading.<0 />"
+                translate_text="_t_Log in to Deriv MT5, select an asset, and start trading.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
         subtitle_mobile1: (
             <Localize
-                translate_text="Log in to Deriv MT5, select an asset, and start trading.<0 />"
+                translate_text="_t_Log in to Deriv MT5, select an asset, and start trading.<0 />_t_"
                 components={[<br key={0} />]}
             />
         ),
 
         image_name: 'dmt5_login',
-        image_alt: localize('DMT5 login'),
+        image_alt: localize('_t_DMT5 login_t_'),
     },
 ]
 const ImageTextSwitching = ({ reverse, two_title }: ImageTextSwitchingProps) => {
@@ -179,7 +179,7 @@ const ImageTextSwitching = ({ reverse, two_title }: ImageTextSwitchingProps) => 
                     mb="1rem"
                     weight="bold"
                 >
-                    {localize('Trade forex with ultra-low spreads in 3 simple steps:')}
+                    {localize('_t_Trade forex with ultra-low spreads in 3 simple steps:_t_')}
                 </StyledText>
 
                 {stepContent.map((item, index) => {

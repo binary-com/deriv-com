@@ -58,7 +58,7 @@ const SecureAccount = () => {
                     mb="2rem"
                     tablet={{ mb: '24px' }}
                 >
-                    {localize('Securing your account')}
+                    {localize('_t_Securing your account_t_')}
                 </StyledHeader>
                 <Ul jc="center" ai="flex-start">
                     <Li>
@@ -68,7 +68,7 @@ const SecureAccount = () => {
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 {localize(
-                                    'Use strong and varied passwords. Make them as difficult as possible for anyone to guess.',
+                                    '_t_Use strong and varied passwords. Make them as difficult as possible for anyone to guess._t_',
                                 )}
                             </Text>
                         </ResponsiveBox>
@@ -80,7 +80,7 @@ const SecureAccount = () => {
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 {localize(
-                                    'Use a secure web browser such as Google Chrome. Always install the latest software updates because they include security patches.',
+                                    '_t_Use a secure web browser such as Google Chrome. Always install the latest software updates because they include security patches._t_',
                                 )}
                             </Text>
                         </ResponsiveBox>
@@ -92,7 +92,7 @@ const SecureAccount = () => {
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 <Localize
-                                    translate_text="Keep your login details secure and <0>enable two-factor authentication</0> to prevent unauthorised usage of your account."
+                                    translate_text="_t_Keep your login details secure and <0>enable two-factor authentication</0> to prevent unauthorised usage of your account._t_"
                                     components={[
                                         <LocalizedLinkText
                                             key={0}
@@ -116,7 +116,7 @@ const SecureAccount = () => {
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 {localize(
-                                    'Use antivirus and firewalls to further secure your devices.',
+                                    '_t_Use antivirus and firewalls to further secure your devices._t_',
                                 )}
                             </Text>
                         </ResponsiveBox>

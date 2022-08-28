@@ -43,8 +43,8 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     const { locale: lang, pathname } = React.useContext(LocaleContext)
     const formatted_lang = lang.replace('_', '-')
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
-    const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
-    const default_og_description = localize('Trading platforms designed with you in mind.')
+    const default_og_title = localize('_t_Online trading with Deriv | Simple. Flexible. Reliable._t_')
+    const default_og_description = localize('_t_Trading platforms designed with you in mind._t_')
 
     // To block eu.deriv.com domain for search engines
     const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)

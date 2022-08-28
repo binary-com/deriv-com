@@ -16,47 +16,47 @@ import { DerivStore } from 'store'
 
 const DP2P_CONTENT = [
     {
-        title: <Localize translate_text="Save time" />,
+        title: <Localize translate_text="_t_Save time_t_" />,
         subtitle: (
-            <Localize translate_text="Exchange in minutes. Less waiting, more trading. Deposit and withdraw in minutes." />
+            <Localize translate_text="_t_Exchange in minutes. Less waiting, more trading. Deposit and withdraw in minutes._t_" />
         ),
         subtitle_mobile: (
             <Localize
-                translate_text="Exchange in minutes. Less waiting, more trading. Deposit and withdraw in <0 /> minutes."
+                translate_text="_t_Exchange in minutes. Less waiting, more trading. Deposit and withdraw in <0 /> minutes._t_"
                 components={[<br key={0} />]}
             />
         ),
 
         image_name: 'buy_sell',
-        image_alt: localize('Deriv’s P2P app buy and sell'),
+        image_alt: localize('_t_Deriv’s P2P app buy and sell_t_'),
     },
     {
-        title: <Localize translate_text="Works with your local currency" />,
-        subtitle: <Localize translate_text="Deal with fellow traders at pre-agreed rates." />,
+        title: <Localize translate_text="_t_Works with your local currency_t_" />,
+        subtitle: <Localize translate_text="_t_Deal with fellow traders at pre-agreed rates._t_" />,
         subtitle_mobile: (
-            <Localize translate_text="Deal with fellow traders at pre-agreed rates." />
+            <Localize translate_text="_t_Deal with fellow traders at pre-agreed rates._t_" />
         ),
 
         image_name: 'local_currency',
-        image_alt: localize('Deriv’s P2P app sending and receiving money'),
+        image_alt: localize('_t_Deriv’s P2P app sending and receiving money_t_'),
     },
     {
-        title: <Localize translate_text="Available as web and mobile apps" />,
+        title: <Localize translate_text="_t_Available as web and mobile apps_t_" />,
         subtitle: (
-            <Localize translate_text="Easily make deposits and withdrawals on your desktop and mobile devices." />
+            <Localize translate_text="_t_Easily make deposits and withdrawals on your desktop and mobile devices._t_" />
         ),
         subtitle_mobile: (
-            <Localize translate_text="Easily make deposits and withdrawals on your desktop and mobile devices." />
+            <Localize translate_text="_t_Easily make deposits and withdrawals on your desktop and mobile devices._t_" />
         ),
 
         image_name: 'web_and_mobile',
-        image_alt: localize('“Deriv’s P2P web and mobile app'),
+        image_alt: localize('_t_“Deriv’s P2P web and mobile app_t_'),
     },
 ]
 
 const derivP2PPortalData = {
     paragraph: (
-        <Localize translate_text="Take a look at Deriv P2P’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
+        <Localize translate_text="_t_Take a look at Deriv P2P’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next._t_" />
     ),
     frame: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m?hide_header=1',
     link: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m',
@@ -69,9 +69,9 @@ const DP2PHome = () => {
         return (
             <Layout>
                 <SEO
-                    title={localize('Deriv P2P – peer-to-peer deposit and withdrawal service')}
+                    title={localize('_t_Deriv P2P – peer-to-peer deposit and withdrawal service_t_')}
                     description={localize(
-                        'With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app.',
+                        '_t_With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app._t_',
                     )}
                 />
 
@@ -83,7 +83,7 @@ const DP2PHome = () => {
                         <ExchangeSteps />
                         <Availability />
                         <P2PBanner
-                            title={localize('Make hassle-free deposits and withdrawals today')}
+                            title={localize('_t_Make hassle-free deposits and withdrawals today_t_')}
                         />
                         <Roadmap portal={derivP2PPortalData} />
                     </>

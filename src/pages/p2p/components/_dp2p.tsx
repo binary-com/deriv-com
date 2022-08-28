@@ -157,11 +157,11 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
             <StyledContainer>
                 <StyledText>
                     {localize(
-                        'Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that offers an easy way to get money in and out of your Deriv account. Connect with fellow traders and transfer money in minutes.',
+                        '_t_Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that offers an easy way to get money in and out of your Deriv account. Connect with fellow traders and transfer money in minutes._t_',
                     )}
                 </StyledText>
 
-                <VideoText>{localize('Find out how Deriv P2P works')}</VideoText>
+                <VideoText>{localize('_t_Find out how Deriv P2P works_t_')}</VideoText>
                 <StyledIFrame
                     src="https://www.youtube.com/embed/sITTfAZAnwU"
                     title="YouTube video player"

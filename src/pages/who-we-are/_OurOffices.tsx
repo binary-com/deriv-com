@@ -102,7 +102,7 @@ const OurOffices = () => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {localize('Our locations')}
+                {localize('_t_Our locations_t_')}
             </StyledHeader>
 
             <Flex>

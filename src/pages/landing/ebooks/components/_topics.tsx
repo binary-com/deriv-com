@@ -100,7 +100,7 @@ const Topics = ({ title, topicsImage, topicsList }: TopicsProps) => {
                         color="var(--color-black-3)"
                         mb="20px"
                     >
-                        {title ? localize(title) : localize('Topics covered')}
+                        {title ? localize(title) : localize('_t_Topics covered_t_')}
                     </Header>
                     {topicsList?.map((topic, index) => {
                         return (

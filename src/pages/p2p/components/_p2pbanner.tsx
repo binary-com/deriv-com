@@ -151,7 +151,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
         <div>
             <StyledText>
                 <Localize
-                    translate_text="Want to learn more about Deriv P2P? Head to our <0>Help Centre</0>"
+                    translate_text="_t_Want to learn more about Deriv P2P? Head to our <0>Help Centre</0>_t_"
                     components={[
                         <LocalizedLinkText
                             to={'/help-centre/deriv-p2p/#what-is-deriv-p2p'}
@@ -182,7 +182,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Try Deriv P2P now')}
+                                {localize('_t_Try Deriv P2P now_t_')}
                             </TryButton>
                         </InformationWrapper>
                     </Wrapper>
@@ -200,7 +200,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                             </StyledHeader>
                             <Mobile>
                                 <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
-                                    {localize('Try Deriv P2P now')}
+                                    {localize('_t_Try Deriv P2P now_t_')}
                                 </ButtonDerivP2P>
                             </Mobile>
                         </InformationWrapper>

@@ -74,14 +74,14 @@ const VulnerabilitiesTypes = () => {
     return (
         <Layout type="security" margin_top={10}>
             <SEO
-                title={localize('Types of vulnerabilities')}
-                description={localize('Types of vulnerabilities')}
+                title={localize('_t_Types of vulnerabilities_t_')}
+                description={localize('_t_Types of vulnerabilities_t_')}
             />
             <Hero />
 
             <StyledContainer direction="column" align="left">
                 <Header type="heading-2" align="center">
-                    {localize('Types of vulnerabilities')}
+                    {localize('_t_Types of vulnerabilities_t_')}
                 </Header>
                 <div>
                     {vulnerability_types_content.map((item, idx) => {

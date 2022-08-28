@@ -11,8 +11,8 @@ const JumpIndices = () => {
     return (
         <Layout type="jump-indices">
             <SEO
-                title={localize('Jump Indices')}
-                description={localize('Trade jump indices, the new synthetics with a twist')}
+                title={localize('_t_Jump Indices_t_')}
+                description={localize('_t_Trade jump indices, the new synthetics with a twist_t_')}
                 no_index
             />
             <DHero />

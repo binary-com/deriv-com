@@ -66,7 +66,7 @@ export const Article = ({
                     arrow_margin="1rem"
                     margin="4rem 0 0"
                 >
-                    {localize('Back')}
+                    {localize('_t_Back_t_')}
                 </StyledLink>
                 <Content>
                     <TabWrapper>

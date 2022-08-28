@@ -54,40 +54,40 @@ const Subtitle = styled(Header)`
 const card_content = [
     {
         icon: CriticalIcon,
-        header: localize('Critical'),
-        title_1: localize('Important business'),
-        sub_title_1: localize('Up to $10,000'),
-        title_2: localize('General business'),
-        sub_title_2: localize('Up to $5,000'),
-        title_3: localize('Edge business'),
-        sub_title_3: localize('Up to $2,500'),
+        header: localize('_t_Critical_t_'),
+        title_1: localize('_t_Important business_t_'),
+        sub_title_1: localize('_t_Up to $10,000_t_'),
+        title_2: localize('_t_General business_t_'),
+        sub_title_2: localize('_t_Up to $5,000_t_'),
+        title_3: localize('_t_Edge business_t_'),
+        sub_title_3: localize('_t_Up to $2,500_t_'),
     },
     {
         icon: HighIcon,
-        header: localize('High'),
-        title_1: localize('Important business'),
-        sub_title_1: localize('Up to $5,000'),
-        title_2: localize('General business'),
-        sub_title_2: localize('Up to $2,500'),
-        title_3: localize('Edge business'),
-        sub_title_3: localize('Up to $1,000'),
+        header: localize('_t_High_t_'),
+        title_1: localize('_t_Important business_t_'),
+        sub_title_1: localize('_t_Up to $5,000_t_'),
+        title_2: localize('_t_General business_t_'),
+        sub_title_2: localize('_t_Up to $2,500_t_'),
+        title_3: localize('_t_Edge business_t_'),
+        sub_title_3: localize('_t_Up to $1,000_t_'),
     },
     {
         icon: MediumIcon,
-        header: localize('Medium'),
-        title_1: localize('Important business'),
-        sub_title_1: localize('Up to $500'),
-        title_2: localize('General business'),
-        sub_title_2: localize('Up to $250'),
-        title_3: localize('Edge business'),
-        sub_title_3: localize('Up to $100'),
+        header: localize('_t_Medium_t_'),
+        title_1: localize('_t_Important business_t_'),
+        sub_title_1: localize('_t_Up to $500_t_'),
+        title_2: localize('_t_General business_t_'),
+        sub_title_2: localize('_t_Up to $250_t_'),
+        title_3: localize('_t_Edge business_t_'),
+        sub_title_3: localize('_t_Up to $100_t_'),
     },
     {
         icon: LowIcon,
-        header: localize('Low'),
+        header: localize('_t_Low_t_'),
         title_1: (
             <Localize
-                translate_text="We’ll reward reports on low-level vulnerabilities <0>only</0> if they help us fix severe security issues, and we’ll decide the reward amount on a case-to-case basis. "
+                translate_text="_t_We’ll reward reports on low-level vulnerabilities <0>only</0> if they help us fix severe security issues, and we’ll decide the reward amount on a case-to-case basis. _t_"
                 components={[<strong key={0} />]}
             />
         ),
@@ -104,11 +104,11 @@ const Rewards = () => {
         <StyledSectionContainer>
             <Container fd="column">
                 <Header as="h2" type="heading-2" align="center" mb="8px">
-                    {localize('Rewards')}
+                    {localize('_t_Rewards_t_')}
                 </Header>
                 <Header as="p" type="paragraph-1" align="center" weight="400">
                     {localize(
-                        'Your bug reports are reviewed and rewarded based on impact and severity.',
+                        '_t_Your bug reports are reviewed and rewarded based on impact and severity._t_',
                     )}
                 </Header>
                 <CardWrapper>
@@ -171,7 +171,7 @@ const Rewards = () => {
 
                 <Flex ai="center" mt="16px">
                     <Localize
-                        translate_text="<0>See a list of the vulnerability examples</0>"
+                        translate_text="_t_<0>See a list of the vulnerability examples</0>_t_"
                         components={[
                             <LocalizedLinkText
                                 mr="8px"

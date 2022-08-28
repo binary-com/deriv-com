@@ -32,38 +32,38 @@ const DerivNumbers = () => {
     return (
         <Container direction="column">
             <Header as="h2" type="page-title" align="center" mb="2rem">
-                {localize('Deriv in numbers')}
+                {localize('_t_Deriv in numbers_t_')}
             </Header>
             <Wrapper mb="8rem">
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
                         20+
                     </CardHeader>
-                    <Text align="center">{localize('Years of industry experience')}</Text>
+                    <Text align="center">{localize('_t_Years of industry experience_t_')}</Text>
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
                         2.5M+
                     </CardHeader>
-                    <Text align="center">{localize('Trading accounts opened')}</Text>
+                    <Text align="center">{localize('_t_Trading accounts opened_t_')}</Text>
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
                         USD 10B+
                     </CardHeader>
-                    <Text align="center">{localize('Total trade turnover')}</Text>
+                    <Text align="center">{localize('_t_Total trade turnover_t_')}</Text>
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
                         114M+
                     </CardHeader>
-                    <Text align="center">{localize('Trades last month')}</Text>
+                    <Text align="center">{localize('_t_Trades last month_t_')}</Text>
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
                         USD 26M+
                     </CardHeader>
-                    <Text align="center">{localize('Withdrawals last month')}</Text>
+                    <Text align="center">{localize('_t_Withdrawals last month_t_')}</Text>
                 </Card>
             </Wrapper>
         </Container>

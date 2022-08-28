@@ -135,12 +135,12 @@ const Hero = () => {
             <Wrapper p="4rem 0 0" justify="space-between" height="unset">
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader type="hero">
-                        {localize('Ride the trends even on weekends')}
+                        {localize('_t_Ride the trends even on weekends_t_')}
                     </StyledHeader>
                     <HeroContent direction="column" justify="flex-start">
                         <Header as="h2" type="subtitle-1">
                             {
-                                <Localize translate_text="Trade even when most financial markets are closed" />
+                                <Localize translate_text="_t_Trade even when most financial markets are closed_t_" />
                             }
                         </Header>
                     </HeroContent>
@@ -151,7 +151,7 @@ const Hero = () => {
                         secondary="true"
                         to={'/signup/'}
                     >
-                        {localize('Get trading')}
+                        {localize('_t_Get trading_t_')}
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>

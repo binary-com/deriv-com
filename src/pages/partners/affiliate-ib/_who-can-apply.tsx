@@ -207,17 +207,17 @@ const WhoCanApply = () => {
                 <Flex>
                     <WhoCanApplyWrapper>
                         <StyledHeader as="h2" size="3.2rem">
-                            {localize('Who can apply')}
+                            {localize('_t_Who can apply_t_')}
                         </StyledHeader>
                         <ContentWrapper>
                             <ImageWrapper src={TradingExperts} alt="" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
-                                    {localize('Trading experts')}
+                                    {localize('_t_Trading experts_t_')}
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
+                                        '_t_Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media._t_',
                                     )}
                                 </Text>
                             </Content>
@@ -226,11 +226,11 @@ const WhoCanApply = () => {
                             <ImageWrapper src={SoftwareDeveloper} alt="" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
-                                    {localize('Software developers')}
+                                    {localize('_t_Software developers_t_')}
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                                        '_t_Develop web, desktop, and mobile applications. Also has extensive experience working with APIs._t_',
                                     )}
                                 </Text>
                             </Content>
@@ -239,11 +239,11 @@ const WhoCanApply = () => {
                             <ImageWrapper src={CommunityManagers} alt="" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
-                                    {localize('Community managers')}
+                                    {localize('_t_Community managers_t_')}
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
+                                        '_t_Manage an active online community that’s passionate about online trading, investing, or personal finance._t_',
                                     )}
                                 </Text>
                             </Content>
@@ -254,7 +254,7 @@ const WhoCanApply = () => {
                 <Flex>
                     <HowToApply>
                         <SecondaryHeader as="h2" mb="24px" size="3.2rem">
-                            {localize('Get started easily')}
+                            {localize('_t_Get started easily_t_')}
                         </SecondaryHeader>
                         <Timeline>
                             <Timeline.Item>
@@ -264,11 +264,11 @@ const WhoCanApply = () => {
                                     </Show.Desktop>
                                     <GetStartedContent max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
-                                            {localize('Sign up')}
+                                            {localize('_t_Sign up_t_')}
                                         </Header>
                                         <Text>
                                             {localize(
-                                                'Fill out the online application form. We’ll review your application and get in touch once it’s approved.',
+                                                '_t_Fill out the online application form. We’ll review your application and get in touch once it’s approved._t_',
                                             )}
                                         </Text>
                                     </GetStartedContent>
@@ -281,11 +281,11 @@ const WhoCanApply = () => {
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
-                                            {localize('Advertise')}
+                                            {localize('_t_Advertise_t_')}
                                         </Header>
                                         <Text>
                                             {localize(
-                                                'Use your unique affiliate link and our tried-and-tested referral tools to bring new clients to Deriv.',
+                                                '_t_Use your unique affiliate link and our tried-and-tested referral tools to bring new clients to Deriv._t_',
                                             )}
                                         </Text>
                                     </GetStartedContent>
@@ -298,11 +298,11 @@ const WhoCanApply = () => {
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
-                                            {localize('Earn')}
+                                            {localize('_t_Earn_t_')}
                                         </Header>
                                         <Text>
                                             {localize(
-                                                'Start earning based on your chosen commission plan –– up to 45% of the total net revenue generated by your referred clients.',
+                                                '_t_Start earning based on your chosen commission plan –– up to 45% of the total net revenue generated by your referred clients._t_',
                                             )}
                                         </Text>
                                     </GetStartedContent>
@@ -321,7 +321,7 @@ const WhoCanApply = () => {
                     target="_blank"
                     type="affiliate_sign_up"
                 >
-                    {localize('Sign up')}
+                    {localize('_t_Sign up_t_')}
                 </StyledLinkButton>
             </CenteredSection>
         </StyledSectionWrapper>

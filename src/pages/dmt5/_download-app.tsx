@@ -95,7 +95,7 @@ const DownloadApp = () => {
             >
                 <Desktop>
                     <StyledHeader as="h4" type="subtitle-1">
-                        {localize('Desktop')}
+                        {localize('_t_Desktop_t_')}
                     </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <DownloadLinkWrapper>
@@ -119,7 +119,7 @@ const DownloadApp = () => {
                     </Flex>
 
                     <StyledHeader mt="2.4rem" as="h4" type="subtitle-1">
-                        {localize('Mobile')}
+                        {localize('_t_Mobile_t_')}
                     </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start">
                         <Box mr="0.8rem">
@@ -144,7 +144,7 @@ const DownloadApp = () => {
                 </Desktop>
 
                 <Mobile>
-                    <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
+                    <StyledHeader as="h4">{localize('_t_Mobile_t_')}</StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start">
                         <Box mr="0.8rem">
                             <LocalizedLink
@@ -171,7 +171,7 @@ const DownloadApp = () => {
                         </LocalizedLink>
                     </Flex>
                     <StyledHeader mt="2.4rem" as="h4">
-                        {localize('Desktop')}
+                        {localize('_t_Desktop_t_')}
                     </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <DownloadLinkWrapper>
@@ -211,7 +211,7 @@ const DownloadApp = () => {
                 <StyledInfo src={MoreInfo} alt="more info" />
                 <Text width="100%" ml="1.6rem" size="var(--text-size-m)">
                     <Localize
-                        translate_text="For mobile app sign-ups, set the broker code to <0>Deriv Limited</0>."
+                        translate_text="_t_For mobile app sign-ups, set the broker code to <0>Deriv Limited</0>._t_"
                         components={[<strong key={0} />]}
                     />
                 </Text>

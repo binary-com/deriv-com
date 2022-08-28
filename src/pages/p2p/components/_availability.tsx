@@ -154,8 +154,8 @@ const Availability = () => {
                 as="h2"
                 mb="4rem"
             >
-                <Desktop>{localize('How to get Deriv P2P')}</Desktop>
-                <Mobile>{localize('How to get Deriv P2P')}</Mobile>
+                <Desktop>{localize('_t_How to get Deriv P2P_t_')}</Desktop>
+                <Mobile>{localize('_t_How to get Deriv P2P_t_')}</Mobile>
             </StyledHeader>
             <Flex
                 tablet_direction="column"
@@ -169,7 +169,7 @@ const Availability = () => {
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
-                            <Localize translate_text="On your computer" />
+                            <Localize translate_text="_t_On your computer_t_" />
                         </StyledCardHeader>
                     </Row>
                     <Row>
@@ -181,7 +181,7 @@ const Availability = () => {
                         <Column>
                             <StyledText>
                                 <Localize
-                                    translate_text="<0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
+                                    translate_text="_t_<0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free._t_"
                                     components={[
                                         <SpanLinkText
                                             id="dm-p2p-login-link"
@@ -211,7 +211,7 @@ const Availability = () => {
                         </Column>
                         <Column>
                             <StyledText>
-                                <Localize translate_text="Go to Cashier > Deriv P2P and register." />
+                                <Localize translate_text="_t_Go to Cashier > Deriv P2P and register._t_" />
                             </StyledText>
                         </Column>
                     </Row>
@@ -223,7 +223,7 @@ const Availability = () => {
                         </Column>
                         <Column>
                             <StyledText>
-                                <Localize translate_text="Start connecting with fellow traders to make deposits and withdrawals." />
+                                <Localize translate_text="_t_Start connecting with fellow traders to make deposits and withdrawals._t_" />
                             </StyledText>
                         </Column>
                     </Row>
@@ -237,7 +237,7 @@ const Availability = () => {
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
-                            <Localize translate_text="On your mobile" />
+                            <Localize translate_text="_t_On your mobile_t_" />
                         </StyledCardHeader>
                     </Row>
                     <Row>
@@ -250,7 +250,7 @@ const Availability = () => {
                             <StyledText>
                                 <Desktop>
                                     <>
-                                        <Localize translate_text="Download Deriv P2P." />
+                                        <Localize translate_text="_t_Download Deriv P2P._t_" />
 
                                         <QueryImage
                                             data={data['qr_code']}
@@ -262,7 +262,7 @@ const Availability = () => {
                                 </Desktop>
                                 <Mobile>
                                     <Localize
-                                        translate_text="<0>Download Deriv P2P.</0>"
+                                        translate_text="_t_<0>Download Deriv P2P.</0>_t_"
                                         components={[
                                             <SpanLinkText
                                                 external
@@ -286,7 +286,7 @@ const Availability = () => {
                         </Column>
                         <Column>
                             <StyledText>
-                                <Localize translate_text="Register for Deriv P2P by logging into your Deriv account in the app." />
+                                <Localize translate_text="_t_Register for Deriv P2P by logging into your Deriv account in the app._t_" />
                             </StyledText>
                         </Column>
                     </Row>
@@ -298,7 +298,7 @@ const Availability = () => {
                         </Column>
                         <Column>
                             <StyledText>
-                                <Localize translate_text="Start connecting with fellow traders to make deposits and withdrawals." />
+                                <Localize translate_text="_t_Start connecting with fellow traders to make deposits and withdrawals._t_" />
                             </StyledText>
                         </Column>
                     </Row>

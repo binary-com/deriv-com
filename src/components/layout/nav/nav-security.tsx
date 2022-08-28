@@ -51,7 +51,7 @@ const NavSecurity = () => {
                             target="_blank"
                             tertiary
                         >
-                            {localize('Submit a report')}
+                            {localize('_t_Submit a report_t_')}
                         </SubmissionButton>
                     </Wrapper>
                 </PartnerNavigationBarWrapper>

@@ -223,9 +223,9 @@ const SignupNew = ({
     return (
         <SignupContent>
             <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
-                {localize('Sign up')}
+                {localize('_t_Sign up_t_')}
             </StyledHeader>
-            <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
+            <SubTitle>{localize('_t_Enter your email address to begin_t_')}</SubTitle>
 
             {!is_ppc && (
                 <NoteBox>
@@ -239,7 +239,7 @@ const SignupNew = ({
                             tabletFontSize="12px"
                         >
                             <Localize
-                                translate_text="Got a <0>Binary.com</0> account?"
+                                translate_text="_t_Got a <0>Binary.com</0> account?_t_"
                                 components={[<strong key={0} />]}
                             />
                         </StyledText>
@@ -251,7 +251,7 @@ const SignupNew = ({
                             lh="18px"
                         >
                             <Localize
-                                translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
+                                translate_text="_t_Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password._t_"
                                 components={[<strong key={0} />]}
                             />
                         </StyledText>
@@ -270,7 +270,7 @@ const SignupNew = ({
                     background="white"
                     error={email_error_msg}
                     value={email}
-                    label={localize('Email')}
+                    label={localize('_t_Email_t_')}
                     placeholder={'Email'}
                     handleError={clearEmail}
                     onChange={handleInputChange}
@@ -288,11 +288,11 @@ const SignupNew = ({
                 disabled={is_submitting || !is_checked || email_error_msg || !email}
                 id="dm-new-signup"
             >
-                {localize('Create demo account')}
+                {localize('_t_Create demo account_t_')}
             </EmailButton>
             <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
                 <Localize
-                    translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
+                    translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>._t_"
                     components={[
                         <StyledLocalizedLink
                             key={0}
@@ -309,7 +309,7 @@ const SignupNew = ({
             <SignupWithContainer>
                 <Line />
                 <StyledText color="grey-5" align="center" tabletFontSize="12px">
-                    {localize('Or sign up with')}
+                    {localize('_t_Or sign up with_t_')}
                 </StyledText>
                 <Line />
             </SignupWithContainer>
@@ -350,7 +350,7 @@ const SignupNew = ({
                 </SocialButton>
             </SocialWrapper>
             <LoginText mt="3.75rem" mb={is_eu_country ? '100px' : '0'}>
-                {localize('Already have an account?')}
+                {localize('_t_Already have an account?_t_')}
                 <StyledLinkText
                     id="dm-new-login-button"
                     ml="0.4rem"
@@ -358,7 +358,7 @@ const SignupNew = ({
                     color="red"
                     onClick={handleLogin}
                 >
-                    {localize('Log in')}
+                    {localize('_t_Log in_t_')}
                 </StyledLinkText>
             </LoginText>
         </SignupContent>

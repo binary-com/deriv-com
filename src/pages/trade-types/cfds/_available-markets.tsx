@@ -44,12 +44,12 @@ const available_markets = [
         name: 'Forex',
         img_src: Forex,
         img_alt: 'forex',
-        text: <Localize translate_text="Forex" />,
+        text: <Localize translate_text="_t_Forex_t_" />,
         description: (
-            <Localize translate_text="Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure." />
+            <Localize translate_text="_t_Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure._t_" />
         ),
         uk_eu_description: (
-            <Localize translate_text="Access over 30+ currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
+            <Localize translate_text="_t_Access over 30+ currency pairs and trade with leverage up to 1:30 to increase your market exposure._t_" />
         ),
         learn_more_path: '/markets/forex/',
     },
@@ -57,9 +57,9 @@ const available_markets = [
         name: 'Synthetic Indices',
         img_src: SyntheticIndices,
         img_alt: 'synthetic indices',
-        text: <Localize translate_text="Synthetic indices" />,
+        text: <Localize translate_text="_t_Synthetic indices_t_" />,
         description: (
-            <Localize translate_text="Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks." />
+            <Localize translate_text="_t_Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks._t_" />
         ),
         learn_more_path: '/markets/synthetic/',
     },
@@ -67,9 +67,9 @@ const available_markets = [
         name: 'Stock Indices',
         img_src: StockIndices,
         img_alt: 'stock indices',
-        text: <Localize translate_text="Stocks & indices" />,
+        text: <Localize translate_text="_t_Stocks & indices_t_" />,
         description: (
-            <Localize translate_text="Go long or short on our OTC German index and utilise leverage to increase your potential profit." />
+            <Localize translate_text="_t_Go long or short on our OTC German index and utilise leverage to increase your potential profit._t_" />
         ),
         learn_more_path: '/markets/stock/',
     },
@@ -77,9 +77,9 @@ const available_markets = [
         name: 'Cryptocurrencies',
         img_src: Cryptocurrencies,
         img_alt: 'cryptocurrencies',
-        text: <Localize translate_text="Cryptocurrencies" />,
+        text: <Localize translate_text="_t_Cryptocurrencies_t_" />,
         description: (
-            <Localize translate_text="Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements." />
+            <Localize translate_text="_t_Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements._t_" />
         ),
         learn_more_path: '/markets/cryptocurrencies/',
     },
@@ -87,9 +87,9 @@ const available_markets = [
         name: 'Basket Indices',
         img_src: BasketIndices,
         img_alt: 'basket indices',
-        text: <Localize translate_text="Basket indices" />,
+        text: <Localize translate_text="_t_Basket indices_t_" />,
         description: (
-            <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
+            <Localize translate_text="_t_In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world._t_" />
         ),
         learn_more_path: '/markets/basket-indices/',
     },
@@ -97,12 +97,12 @@ const available_markets = [
         name: 'Commodities',
         img_src: Commodities,
         img_alt: 'commodities',
-        text: <Localize translate_text="Commodities" />,
+        text: <Localize translate_text="_t_Commodities_t_" />,
         description: (
-            <Localize translate_text="Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits." />
+            <Localize translate_text="_t_Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits._t_" />
         ),
         uk_eu_description: (
-            <Localize translate_text="Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits." />
+            <Localize translate_text="_t_Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits._t_" />
         ),
         learn_more_path: '/markets/commodities/',
     },
@@ -125,7 +125,7 @@ const AvailableMarkets = () => {
         <SectionContainer background="white" padding="8rem 0" position="relative">
             <SmallContainer direction="column" ai="flex-start">
                 <Header as="h3" type="section-title" mb="2.4rem">
-                    {localize('Markets available for CFD trading')}
+                    {localize('_t_Markets available for CFD trading_t_')}
                 </Header>
             </SmallContainer>
             {/* TODO: refactor to make it more DRY */}
@@ -152,7 +152,7 @@ const AvailableMarkets = () => {
                                                 : market.description}
                                         </Text>
                                         <LearnMore
-                                            text={<Localize translate_text="Learn more" />}
+                                            text={<Localize translate_text="_t_Learn more_t_" />}
                                             to={market.learn_more_path}
                                         />
                                     </Card>
@@ -185,7 +185,7 @@ const AvailableMarkets = () => {
                                                 : market.description}
                                         </Text>
                                         <LearnMore
-                                            text={<Localize translate_text="Learn more" />}
+                                            text={<Localize translate_text="_t_Learn more_t_" />}
                                             to={market.learn_more_path}
                                         />
                                     </Card>
@@ -218,7 +218,7 @@ const AvailableMarkets = () => {
                                                 : market.description}
                                         </Text>
                                         <LearnMore
-                                            text={<Localize translate_text="Learn more" />}
+                                            text={<Localize translate_text="_t_Learn more_t_" />}
                                             to={market.learn_more_path}
                                         />
                                     </Card>

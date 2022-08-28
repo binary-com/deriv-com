@@ -30,7 +30,7 @@ const AboutDeriv = () => {
     return (
         <Container direction="column">
             <Header mt="4rem" align="center" mb="4rem" as="h2" type="page-title">
-                {localize('About Deriv')}
+                {localize('_t_About Deriv_t_')}
             </Header>
             <WrapContainer mb="8rem">
                 <ImageWrapper>
@@ -40,12 +40,12 @@ const AboutDeriv = () => {
                 <Flex direction="column" ml="2.4rem" max_width="69rem">
                     <Text size="var(--text-size-m)" mb="2rem">
                         {localize(
-                            'Deriv is the next step in the evolution of Binary.com, the company with a proven record of delivering market-leading products that are trusted around the world.',
+                            '_t_Deriv is the next step in the evolution of Binary.com, the company with a proven record of delivering market-leading products that are trusted around the world._t_',
                         )}
                     </Text>
                     <Text size="var(--text-size-m)">
                         {localize(
-                            'We offer the widest selection of derivatives to trade, with sharp prices and tight spreads that attract over a million online traders worldwide. Our technology provides an intuitive and powerful trading experience, enabling our clients to understand risk more effectively to make better trading decisions.',
+                            '_t_We offer the widest selection of derivatives to trade, with sharp prices and tight spreads that attract over a million online traders worldwide. Our technology provides an intuitive and powerful trading experience, enabling our clients to understand risk more effectively to make better trading decisions._t_',
                         )}
                     </Text>
                 </Flex>

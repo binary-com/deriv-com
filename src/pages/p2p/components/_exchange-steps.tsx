@@ -115,7 +115,7 @@ const ExchangeSteps = () => {
     return (
         <Section>
             <StyledHeader type="page-title" align="center" as="h2">
-                {localize('3 steps for faster deposits and withdrawals')}
+                {localize('_t_3 steps for faster deposits and withdrawals_t_')}
             </StyledHeader>
             <CardContainer>
                 <Card>
@@ -123,11 +123,11 @@ const ExchangeSteps = () => {
                         <ImageTag src={RightAd} alt="" />
                     </Row>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                        {localize('1. Find or create an ad')}
+                        {localize('_t_1. Find or create an ad_t_')}
                     </StyledCardHeader>
                     <StyledText>
                         {localize(
-                            'Pick the best rates and place an order, or create an ad for the rates you want.',
+                            '_t_Pick the best rates and place an order, or create an ad for the rates you want._t_',
                         )}
                     </StyledText>
                 </Card>
@@ -136,10 +136,10 @@ const ExchangeSteps = () => {
                         <ImageTag src={SettlePayment} alt="" />
                     </Row>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                        {localize('2. Send or receive payment')}
+                        {localize('_t_2. Send or receive payment_t_')}
                     </StyledCardHeader>
                     <StyledText>
-                        {localize('Settle the payment with the counterparty of your transaction.')}
+                        {localize('_t_Settle the payment with the counterparty of your transaction._t_')}
                     </StyledText>
                 </Card>
                 <Card>
@@ -147,14 +147,14 @@ const ExchangeSteps = () => {
                         <ImageTag src={CompleteOrder} alt="" />
                     </Row>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                        {localize('3. Complete the transaction')}
+                        {localize('_t_3. Complete the transaction_t_')}
                     </StyledCardHeader>
                     <StyledText>
-                        {localize('Every order must be completed and confirmed within 1 hour.')}
+                        {localize('_t_Every order must be completed and confirmed within 1 hour._t_')}
                     </StyledText>
                     <StyledNote>
                         {localize(
-                            'Note: Funds are only released when the transaction is complete.',
+                            '_t_Note: Funds are only released when the transaction is complete._t_',
                         )}
                     </StyledNote>
                 </Card>

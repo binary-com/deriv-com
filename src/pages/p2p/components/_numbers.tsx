@@ -10,12 +10,12 @@ import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
 
 const content = [
     {
-        header: <Localize translate_text="21,000+" />,
-        text: <Localize translate_text="active users" />,
+        header: <Localize translate_text="_t_21,000+_t_" />,
+        text: <Localize translate_text="_t_active users_t_" />,
     },
     {
-        header: <Localize translate_text="12M+ USD" />,
-        text: <Localize translate_text="exchanged to date" />,
+        header: <Localize translate_text="_t_12M+ USD_t_" />,
+        text: <Localize translate_text="_t_exchanged to date_t_" />,
     },
 ]
 
@@ -168,7 +168,7 @@ const Numbers = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    {localize('Try Deriv P2P now')}
+                    {localize('_t_Try Deriv P2P now_t_')}
                 </StyledLinkButton>
             </Section>
         </>

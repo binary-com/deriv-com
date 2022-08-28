@@ -74,7 +74,7 @@ const BeSquareFooter = () => {
                                 Submit your application before 1 June 2022
                             </Text>
                             <Localize
-                                translate_text="<1>If you have any questions, email us at </1><2>info@besquare.my</2>"
+                                translate_text="_t_<1>If you have any questions, email us at </1><2>info@besquare.my</2>_t_"
                                 components={[
                                     <br key={0} />,
                                     <TextWrapper
@@ -101,7 +101,7 @@ const BeSquareFooter = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Apply now')}
+                                {localize('_t_Apply now_t_')}
                             </ButtonWrapper>
                         </div>
                         <FollowUsContainer>
@@ -112,7 +112,7 @@ const BeSquareFooter = () => {
                                 grid_area={'follow-us'}
                                 padding={'15px 0 0'}
                             >
-                                {localize('Follow us')}
+                                {localize('_t_Follow us_t_')}
                             </TextWrapper>
                             {social_media_content.map(({ alt, link_to, src }, index) => (
                                 <LocalizedLink

@@ -9,11 +9,11 @@ import { localize, WithIntl } from 'components/localization'
 import StocksIntroImage from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
 
 const topicsCovered = [
-    localize('The basics of CFD trading'),
-    localize('Stocks and stock indices: the basics'),
-    localize('CFD trading: order types'),
-    localize('Rise or fall? Assessing stocks'),
-    localize('Stock market seasonality'),
+    localize('_t_The basics of CFD trading_t_'),
+    localize('_t_Stocks and stock indices: the basics_t_'),
+    localize('_t_CFD trading: order types_t_'),
+    localize('_t_Rise or fall? Assessing stocks_t_'),
+    localize('_t_Stock market seasonality_t_'),
 ]
 
 const query = graphql`
@@ -32,8 +32,8 @@ const StocksEbook = () => {
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
-                title={localize('Stocks Ebook')}
-                description={localize('Trade Forex CFDs on our Deriv platform.')}
+                title={localize('_t_Stocks Ebook_t_')}
+                description={localize('_t_Trade Forex CFDs on our Deriv platform._t_')}
                 no_index
             />
             <HeaderSection
@@ -42,22 +42,22 @@ const StocksEbook = () => {
                 imgHeight={703}
                 ebook_utm_code="stock-ebook"
                 introSub=""
-                introMain={localize('Learn to trade Stock derivatives the smart way')}
+                introMain={localize('_t_Learn to trade Stock derivatives the smart way_t_')}
                 authorDesc={
                     localize(
-                        'This e-book has been brought to you by a veteran online trader and New York Times bestselling author,',
+                        '_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author,_t_',
                     ) + ' '
                 }
-                authorName={localize('Vince Stanzione.')}
+                authorName={localize('_t_Vince Stanzione._t_')}
             />
             <Introduction
                 introImage={StocksIntroImage}
                 imageWidth={282}
                 introPara={localize(
-                    'In this 57-page e-book by trader Vince Stanzione, you will learn how to diversify your portfolio with commission-free trading on the biggest international stocks and stock market indices. Wall Street 30, US Tech 100, UK 100, Alphabet, Tesla, Amazon plus many more are available on the MetaTrader 5 platform, where you can trade stock derivatives with leverage, allowing you to get started with minimal capital.',
+                    '_t_In this 57-page e-book by trader Vince Stanzione, you will learn how to diversify your portfolio with commission-free trading on the biggest international stocks and stock market indices. Wall Street 30, US Tech 100, UK 100, Alphabet, Tesla, Amazon plus many more are available on the MetaTrader 5 platform, where you can trade stock derivatives with leverage, allowing you to get started with minimal capital._t_',
                 )}
                 subPara={localize(
-                    'We’ll even add in a free demo account on Deriv.com right away. This way, you can practice trading stock derivatives completely risk-free on the Deriv MT5 platform, using a free Financial demo account. And once you are ready to get trading for real, you can get started with as little as $5.',
+                    '_t_We’ll even add in a free demo account on Deriv.com right away. This way, you can practice trading stock derivatives completely risk-free on the Deriv MT5 platform, using a free Financial demo account. And once you are ready to get trading for real, you can get started with as little as $5._t_',
                 )}
             />
             <Topics topicsImage={data['stocks_ebook_inside']} topicsList={topicsCovered} />

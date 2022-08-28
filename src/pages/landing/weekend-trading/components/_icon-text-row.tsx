@@ -105,7 +105,7 @@ const IconTextRow = () => {
                 as="h2"
                 color="black-3"
             >
-                {localize('Enjoy weekend trading on Deriv and get the most out of your trades')}
+                {localize('_t_Enjoy weekend trading on Deriv and get the most out of your trades_t_')}
             </StyledHeader>
             <CardContainer pr="4.7rem" pl="6.7rem">
                 <Card direction="column">
@@ -121,7 +121,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('Opportunity knocks')}
+                                {localize('_t_Opportunity knocks_t_')}
                             </StyledCardHeader>
                             <StyledText
                                 size="24px"
@@ -132,7 +132,7 @@ const IconTextRow = () => {
                                 weight="350"
                             >
                                 {localize(
-                                    'Maximise your trading time on the markets that are open on weekends.',
+                                    '_t_Maximise your trading time on the markets that are open on weekends._t_',
                                 )}
                             </StyledText>
                         </Column>
@@ -151,7 +151,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('Trade anytime')}
+                                {localize('_t_Trade anytime_t_')}
                             </StyledCardHeader>
                             <StyledText
                                 lh="31px"
@@ -161,7 +161,7 @@ const IconTextRow = () => {
                                 mb="3rem"
                                 weight="350"
                             >
-                                {localize('Trade any time of the day, at your convenience.')}
+                                {localize('_t_Trade any time of the day, at your convenience._t_')}
                             </StyledText>
                         </Column>
                     </Row>
@@ -179,7 +179,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('Fewer distractions')}
+                                {localize('_t_Fewer distractions_t_')}
                             </StyledCardHeader>
                             <StyledText
                                 lh="31px"
@@ -190,7 +190,7 @@ const IconTextRow = () => {
                                 weight="350"
                             >
                                 {localize(
-                                    'Trade when you’re free from the distractions of weekday responsibilities.',
+                                    '_t_Trade when you’re free from the distractions of weekday responsibilities._t_',
                                 )}
                             </StyledText>
                         </Column>

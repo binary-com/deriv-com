@@ -228,18 +228,18 @@ const Hero = () => {
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1" weight={500}>
-                        {localize('Hassle-free deposits and withdrawals')}
+                        {localize('_t_Hassle-free deposits and withdrawals_t_')}
                     </StyledHeader>
                     <Header size="18px" color="white" weight="200" pr="100px">
                         {localize(
-                            'Use your local currency to make deposits into and withdrawals from your Deriv account.',
+                            '_t_Use your local currency to make deposits into and withdrawals from your Deriv account._t_',
                         )}
                     </Header>
                     <Desktop>
                         <HeroContent mt="15px">
                             <Header as="h2">
                                 {
-                                    <Localize translate_text="Scan the QR code to download Deriv P2P" />
+                                    <Localize translate_text="_t_Scan the QR code to download Deriv P2P_t_" />
                                 }
                             </Header>
 
@@ -254,7 +254,7 @@ const Hero = () => {
 
                     <Mobile>
                         <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
-                            {localize('Try Deriv P2P now')}
+                            {localize('_t_Try Deriv P2P now_t_')}
                         </ButtonDerivP2P>
                     </Mobile>
                     <Desktop>

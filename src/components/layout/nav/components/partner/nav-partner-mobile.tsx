@@ -71,7 +71,7 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
                         target="_blank"
                         primary
                     >
-                        {localize('Log in')}
+                        {localize('_t_Log in_t_')}
                     </LoginLink>
                 )}
 

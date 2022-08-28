@@ -12,35 +12,35 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                 <Flex jc="space-between">
                     <LinksCol>
                         <LinkWrapper>
-                            <Title>{<Localize translate_text="ABOUT US" />}</Title>
+                            <Title>{<Localize translate_text="_t_ABOUT US_t_" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/who-we-are/">
-                                {<Localize translate_text="Who we are" />}
+                                {<Localize translate_text="_t_Who we are_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/why-choose-us/">
-                                {<Localize translate_text="Why choose us" />}
+                                {<Localize translate_text="_t_Why choose us_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/our-principles/">
-                                {<Localize translate_text="Principles" />}
+                                {<Localize translate_text="_t_Principles_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/partners/">
-                                {<Localize translate_text="Partnership programmes" />}
+                                {<Localize translate_text="_t_Partnership programmes_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/contact_us/">
-                                {<Localize translate_text="Contact us" />}
+                                {<Localize translate_text="_t_Contact us_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/careers/">{<Localize translate_text="Careers" />}</Link>
+                            <Link to="/careers/">{<Localize translate_text="_t_Careers_t_" />}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link
@@ -50,96 +50,96 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {<Localize translate_text="Deriv life" />}
+                                {<Localize translate_text="_t_Deriv life_t_" />}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>
                     {!is_ppc && (
                         <LinksCol>
                             <LinkWrapper>
-                                <Title>{<Localize translate_text="PRODUCTS" />}</Title>
+                                <Title>{<Localize translate_text="_t_PRODUCTS_t_" />}</Title>
                             </LinkWrapper>
                             <LinkWrapper>
                                 <Link to="/trade-types/cfds/">
-                                    {<Localize translate_text="CFDs" />}
+                                    {<Localize translate_text="_t_CFDs_t_" />}
                                 </Link>
                             </LinkWrapper>
                             <ROW>
                                 <LinkWrapper>
                                     <Link to="/trade-types/options/">
-                                        {<Localize translate_text="Digital options" />}
+                                        {<Localize translate_text="_t_Digital options_t_" />}
                                     </Link>
                                 </LinkWrapper>
                             </ROW>
                             <LinkWrapper>
                                 <Link to="/trade-types/multiplier/">
-                                    {<Localize translate_text="Multipliers" />}
+                                    {<Localize translate_text="_t_Multipliers_t_" />}
                                 </Link>
                             </LinkWrapper>
                         </LinksCol>
                     )}
                     <LinksCol>
                         <LinkWrapper>
-                            <Title>{<Localize translate_text="MARKETS" />}</Title>
+                            <Title>{<Localize translate_text="_t_MARKETS_t_" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/markets/forex/">{<Localize translate_text="Forex" />}</Link>
+                            <Link to="/markets/forex/">{<Localize translate_text="_t_Forex_t_" />}</Link>
                         </LinkWrapper>
                         <NonUK>
                             {!is_ppc && (
                                 <LinkWrapper>
                                     <Link to="/markets/synthetic/">
-                                        {<Localize translate_text="Synthetic indices" />}
+                                        {<Localize translate_text="_t_Synthetic indices_t_" />}
                                     </Link>
                                 </LinkWrapper>
                             )}
                         </NonUK>
                         <LinkWrapper>
                             <Link to="/markets/stock/">
-                                {<Localize translate_text="Stocks & indices" />}
+                                {<Localize translate_text="_t_Stocks & indices_t_" />}
                             </Link>
                         </LinkWrapper>
                         <NonUK>
                             <LinkWrapper>
                                 <Link to="/markets/cryptocurrencies/">
-                                    {<Localize translate_text="Cryptocurrencies" />}
+                                    {<Localize translate_text="_t_Cryptocurrencies_t_" />}
                                 </Link>
                             </LinkWrapper>
                         </NonUK>
                         <ROW>
                             <LinkWrapper>
                                 <Link to="/markets/basket-indices/">
-                                    {<Localize translate_text="Basket indices" />}
+                                    {<Localize translate_text="_t_Basket indices_t_" />}
                                 </Link>
                             </LinkWrapper>
                         </ROW>
                         <LinkWrapper>
                             <Link to="/markets/commodities/">
-                                {<Localize translate_text="Commodities" />}
+                                {<Localize translate_text="_t_Commodities_t_" />}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
-                            <Title>{<Localize translate_text="TRADE" />}</Title>
+                            <Title>{<Localize translate_text="_t_TRADE_t_" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper first_child="true">
                             <Link to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
-                                {<Localize translate_text="Deriv MT5" />}
+                                {<Localize translate_text="_t_Deriv MT5_t_" />}
                             </Link>
                         </LinkWrapper>
                         <ROW>
                             <LinkWrapper>
-                                <Link to="/derivx/">{<Localize translate_text="Deriv X" />}</Link>
+                                <Link to="/derivx/">{<Localize translate_text="_t_Deriv X_t_" />}</Link>
                             </LinkWrapper>
                             <LinkWrapper>
                                 <Link to="/deriv-go/">
-                                    {<Localize translate_text="Deriv GO" />}
+                                    {<Localize translate_text="_t_Deriv GO_t_" />}
                                 </Link>
                             </LinkWrapper>
                         </ROW>
                         <LinkWrapper>
-                            <Link to="/dtrader/">{<Localize translate_text="DTrader" />}</Link>
+                            <Link to="/dtrader/">{<Localize translate_text="_t_DTrader_t_" />}</Link>
                         </LinkWrapper>
                         <ROW>
                             <LinkWrapper>
@@ -150,11 +150,11 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {<Localize translate_text="SmartTrader" />}
+                                    {<Localize translate_text="_t_SmartTrader_t_" />}
                                 </Link>
                             </LinkWrapper>
                             <LinkWrapper>
-                                <Link to="/dbot/">{<Localize translate_text="DBot" />}</Link>
+                                <Link to="/dbot/">{<Localize translate_text="_t_DBot_t_" />}</Link>
                             </LinkWrapper>
                             <ROW>
                                 <LinkWrapper>
@@ -164,7 +164,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {<Localize translate_text="Binary Bot" />}
+                                        {<Localize translate_text="_t_Binary Bot_t_" />}
                                     </Link>
                                 </LinkWrapper>
                             </ROW>
@@ -172,37 +172,37 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
-                            <Title>{<Localize translate_text="LEGAL" />}</Title>
+                            <Title>{<Localize translate_text="_t_LEGAL_t_" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/regulatory/">
-                                {<Localize translate_text="Regulatory information" />}
+                                {<Localize translate_text="_t_Regulatory information_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/terms-and-conditions/#clients">
-                                {<Localize translate_text="Terms & conditions" />}
+                                {<Localize translate_text="_t_Terms & conditions_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/responsible/">
-                                {<Localize translate_text="Secure & responsible trading" />}
+                                {<Localize translate_text="_t_Secure & responsible trading_t_" />}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
-                            <Title>{<Localize translate_text="PARTNER" />}</Title>
+                            <Title>{<Localize translate_text="_t_PARTNER_t_" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/partners/affiliate-ib/">
-                                {<Localize translate_text="Affiliates and IBs" />}
+                                {<Localize translate_text="_t_Affiliates and IBs_t_" />}
                             </Link>
                         </LinkWrapper>
                         <ROW>
                             <LinkWrapper>
                                 <Link to="/partners/payment-agent/">
-                                    {<Localize translate_text="Payment agents" />}
+                                    {<Localize translate_text="_t_Payment agents_t_" />}
                                 </Link>
                             </LinkWrapper>
                         </ROW>
@@ -214,22 +214,22 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {<Localize translate_text="API" />}
+                                {<Localize translate_text="_t_API_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/bug-bounty/">
-                                {<Localize translate_text="Bug bounty" />}
+                                {<Localize translate_text="_t_Bug bounty_t_" />}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
-                            <Title>{<Localize translate_text="SUPPORT" />}</Title>
+                            <Title>{<Localize translate_text="_t_SUPPORT_t_" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/help-centre/">
-                                {<Localize translate_text="Help centre" />}
+                                {<Localize translate_text="_t_Help centre_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
@@ -240,12 +240,12 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {<Localize translate_text="Community" />}
+                                {<Localize translate_text="_t_Community_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/payment-methods/">
-                                {<Localize translate_text="Payment methods" />}
+                                {<Localize translate_text="_t_Payment methods_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
@@ -255,11 +255,11 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 external="true"
                                 rel="noopener noreferrer"
                             >
-                                {<Localize translate_text="Status page" />}
+                                {<Localize translate_text="_t_Status page_t_" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/academy/">{<Localize translate_text="Academy" />}</Link>
+                            <Link to="/academy/">{<Localize translate_text="_t_Academy_t_" />}</Link>
                         </LinkWrapper>
                     </LinksCol>
                 </Flex>

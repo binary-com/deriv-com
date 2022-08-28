@@ -178,7 +178,7 @@ const FooterBanner = ({
                                 secondary="true"
                                 to={is_ppc ? '/landing/signup/' : '/signup/'}
                             >
-                                {localize('Create a demo account')}
+                                {localize('_t_Create a demo account_t_')}
                             </StyledLinkButton>
                         </BtnDiv>
                     </TextDiv>

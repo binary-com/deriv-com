@@ -87,10 +87,10 @@ const JumpSection = () => {
         <MainWrapper>
             <ParentWrapper>
                 <LeftWrapper>
-                    <StyledHeader type="section-title">{localize('Jumps')}</StyledHeader>
+                    <StyledHeader type="section-title">{localize('_t_Jumps_t_')}</StyledHeader>
                     <StyledHeaderSmall type="sub-section-title" weight="normal">
                         {localize(
-                            'Experience equal probability of an upward or downward price jump every 20 minutes on average.',
+                            '_t_Experience equal probability of an upward or downward price jump every 20 minutes on average._t_',
                         )}
                     </StyledHeaderSmall>
                 </LeftWrapper>

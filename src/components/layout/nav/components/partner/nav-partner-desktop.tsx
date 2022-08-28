@@ -158,26 +158,26 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                     <NavLinkCard
                         active="affiliate"
                         to="/partners/affiliate-ib/"
-                        title={localize('Affiliates and IBs')}
+                        title={localize('_t_Affiliates and IBs_t_')}
                     />
                     <ROW>
                         <NavLinkCard
                             active="payment"
                             to="/partners/payment-agent/"
-                            title={localize('Payment agents')}
+                            title={localize('_t_Payment agents_t_')}
                         />
                     </ROW>
 
                     <NavLinkCard
                         active="api"
                         to=""
-                        title={localize('API')}
+                        title={localize('_t_API_t_')}
                         type="api"
                         target="_blank"
                         external="true"
                         rel="noopener noreferrer"
                     />
-                    <NavLinkCard to="/bug-bounty/" title={localize('Bug bounty')} />
+                    <NavLinkCard to="/bug-bounty/" title={localize('_t_Bug bounty_t_')} />
                 </NavigationBar>
 
                 {!hide_login_signup && (
@@ -195,7 +195,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                             primary
                             style={{ width: '16rem' }}
                         >
-                            {localize('Affiliate & IB log in')}
+                            {localize('_t_Affiliate & IB log in_t_')}
                         </LinkButton>
                         <LinkSignupButton
                             id="dm-nav-affiliate-signup"
@@ -207,7 +207,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                             secondary="true"
                             style={{ width: '18rem' }}
                         >
-                            {localize('Affiliate & IB sign up')}
+                            {localize('_t_Affiliate & IB sign up_t_')}
                         </LinkSignupButton>
                     </StyledNavRight>
                 )}

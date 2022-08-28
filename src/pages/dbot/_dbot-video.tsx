@@ -125,7 +125,7 @@ const DtraderTabs = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_1')}
                     >
-                        {localize('1. Select your asset')}
+                        {localize('_t_1. Select your asset_t_')}
                     </Step>
                 </Tab>
                 <Tab>
@@ -138,7 +138,7 @@ const DtraderTabs = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_2')}
                     >
-                        {localize('2. Set purchase conditions')}
+                        {localize('_t_2. Set purchase conditions_t_')}
                     </Step>
                 </Tab>
                 <Tab>
@@ -151,7 +151,7 @@ const DtraderTabs = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_3')}
                     >
-                        {localize('3. Set restart conditions')}
+                        {localize('_t_3. Set restart conditions_t_')}
                     </Step>
                 </Tab>
                 <Tab>
@@ -164,7 +164,7 @@ const DtraderTabs = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_4')}
                     >
-                        {localize('4. Run bot')}
+                        {localize('_t_4. Run bot_t_')}
                     </Step>
                 </Tab>
                 <Tab>
@@ -177,7 +177,7 @@ const DtraderTabs = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_5')}
                     >
-                        {localize('5. Check profit')}
+                        {localize('_t_5. Check profit_t_')}
                     </Step>
                 </Tab>
                 <GotoLiveWrapper>
@@ -188,14 +188,14 @@ const DtraderTabs = () => {
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                     >
-                        {localize('Go to live demo')}
+                        {localize('_t_Go to live demo_t_')}
                     </GoToLiveDemo>
                 </GotoLiveWrapper>
             </TabsWrapper>
             <VideoWrapper>
                 <QueryImage
                     data={data[current_step]}
-                    alt={localize(`${current_step} in DBot trading`)}
+                    alt={localize(`_t_${current_step} in DBot trading_t_`)}
                     width="100%"
                 />
             </VideoWrapper>

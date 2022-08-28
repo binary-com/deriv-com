@@ -40,9 +40,9 @@ const available_markets = [
         name: 'Forex',
         img_src: Forex,
         img_alt: 'forex',
-        text: <Localize translate_text="Forex" />,
+        text: <Localize translate_text="_t_Forex_t_" />,
         description: (
-            <Localize translate_text="Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake." />
+            <Localize translate_text="_t_Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake._t_" />
         ),
         learn_more_path: '/markets/forex/',
     },
@@ -50,9 +50,9 @@ const available_markets = [
         name: 'Synthetic Indices',
         img_src: SyntheticIndices,
         img_alt: 'synthetic indices',
-        text: <Localize translate_text="Synthetic indices" />,
+        text: <Localize translate_text="_t_Synthetic indices_t_" />,
         description: (
-            <Localize translate_text="Trade multipliers on synthetic indices that are available 24/7 and increase your profit potential multiples times while limiting your risk." />
+            <Localize translate_text="_t_Trade multipliers on synthetic indices that are available 24/7 and increase your profit potential multiples times while limiting your risk._t_" />
         ),
         learn_more_path: '/markets/synthetic/',
     },
@@ -60,9 +60,9 @@ const available_markets = [
         name: 'Basket Indices',
         img_src: BasketIndices,
         img_alt: 'basket indices',
-        text: <Localize translate_text="Basket indices" />,
+        text: <Localize translate_text="_t_Basket indices_t_" />,
         description: (
-            <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
+            <Localize translate_text="_t_In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world._t_" />
         ),
         learn_more_path: '/markets/basket-indices/',
     },
@@ -84,7 +84,7 @@ const MarketsAvailable = () => {
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" size="3.2rem" mb="2.4rem">
-                        {localize('Markets available for multipliers trading')}
+                        {localize('_t_Markets available for multipliers trading_t_')}
                     </Header>
                 </SmallContainer>
                 {/* TODO: refactor to make it more DRY */}
@@ -107,7 +107,7 @@ const MarketsAvailable = () => {
                                             </MobileCardHeader>
                                             <Text>{market.description}</Text>
                                             <LearnMore
-                                                text={<Localize translate_text="Learn more" />}
+                                                text={<Localize translate_text="_t_Learn more_t_" />}
                                                 to={market.learn_more_path}
                                             />
                                         </Card>
@@ -136,7 +136,7 @@ const MarketsAvailable = () => {
                                             </MobileCardHeader>
                                             <Text>{market.description}</Text>
                                             <LearnMore
-                                                text={<Localize translate_text="Learn more" />}
+                                                text={<Localize translate_text="_t_Learn more_t_" />}
                                                 to={market.learn_more_path}
                                             />
                                         </Card>
@@ -165,7 +165,7 @@ const MarketsAvailable = () => {
                                             </MobileCardHeader>
                                             <Text>{market.description}</Text>
                                             <LearnMore
-                                                text={<Localize translate_text="Learn more" />}
+                                                text={<Localize translate_text="_t_Learn more_t_" />}
                                                 to={market.learn_more_path}
                                             />
                                         </Card>

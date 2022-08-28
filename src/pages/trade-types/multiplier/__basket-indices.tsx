@@ -88,25 +88,25 @@ const BasketFXDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="<0>AUD Basket</0> measures the value of the Australian dollar against a basket of five global currencies (USD, EUR, GBP, JPY, CAD), each weighted by 20%."
+                translate_text="_t_<0>AUD Basket</0> measures the value of the Australian dollar against a basket of five global currencies (USD, EUR, GBP, JPY, CAD), each weighted by 20%._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>EUR Basket</0> measures the value of the Euro against a basket of five global currencies (USD, AUD, GBP, JPY, CAD), each weighted by 20%."
+                translate_text="_t_<0>EUR Basket</0> measures the value of the Euro against a basket of five global currencies (USD, AUD, GBP, JPY, CAD), each weighted by 20%._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>GBP Basket</0> measures the value of the British pound against a basket of five global currencies (USD, EUR, AUD, JPY, CAD), each weighted by 20%."
+                translate_text="_t_<0>GBP Basket</0> measures the value of the British pound against a basket of five global currencies (USD, EUR, AUD, JPY, CAD), each weighted by 20%._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>USD Basket</0> measures the value of the US dollar against a basket of five global currencies (EUR, GBP, JPY, CAD, AUD), each weighted by 20%."
+                translate_text="_t_<0>USD Basket</0> measures the value of the US dollar against a basket of five global currencies (EUR, GBP, JPY, CAD, AUD), each weighted by 20%._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -116,7 +116,7 @@ const BasketCommoditiesDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="<0>Gold Basket</0> measures the value of gold against a basket of five global currencies (EUR, GBP, JPY, AUD, USD), each weighted by 20%."
+                translate_text="_t_<0>Gold Basket</0> measures the value of gold against a basket of five global currencies (EUR, GBP, JPY, AUD, USD), each weighted by 20%._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -131,14 +131,14 @@ const BasketIndices = () => {
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <StyledText mb="12px" align="center">
                     {localize(
-                        'Trade basket indices with multipliers and benefit from high leverage to amplify your potential gains multiple times.',
+                        '_t_Trade basket indices with multipliers and benefit from high leverage to amplify your potential gains multiple times._t_',
                     )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">
                     <AvailablePlatforms m_top="16px" dbot={is_row} dtrader />
                 </AvailablePlatformsWrapper>
                 <Text weight="bold">
-                    {localize('Instruments available for multipliers trading')}
+                    {localize('_t_Instruments available for multipliers trading_t_')}
                 </Text>
                 {
                     <MarketsWrapper direction="column">
@@ -148,12 +148,12 @@ const BasketIndices = () => {
                                     <Col max_width="13.2rem">
                                         <Desktop>
                                             <Title weight="bold" max_width="9.7rem" align="center">
-                                                {localize('Commodities Basket')}
+                                                {localize('_t_Commodities Basket_t_')}
                                             </Title>
                                         </Desktop>
                                         <Mobile>
                                             <Title weight="bold" max_width="9.7rem" align="center">
-                                                {localize('Commodities Basket')}
+                                                {localize('_t_Commodities Basket_t_')}
                                             </Title>
                                         </Mobile>
                                     </Col>
@@ -174,12 +174,12 @@ const BasketIndices = () => {
                                 <Col max_width="13.2rem">
                                     <Desktop>
                                         <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Forex Basket')}
+                                            {localize('_t_Forex Basket_t_')}
                                         </Title>
                                     </Desktop>
                                     <Mobile>
                                         <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Forex Basket')}
+                                            {localize('_t_Forex Basket_t_')}
                                         </Title>
                                     </Mobile>
                                 </Col>

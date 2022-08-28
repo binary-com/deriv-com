@@ -323,11 +323,11 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    {localize('_t_Join over 1 million traders worldwide_t_')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
-                                    {localize('Sign up for your demo account now.')}
+                                    {localize('_t_Sign up for your demo account now._t_')}
                                 </StyledHeaderText>
                                 <InputGroup>
                                     <InputWrapper>
@@ -345,7 +345,7 @@ const SignupPublic = ({
                                             label_color="black-3"
                                             labelSize="16px"
                                             labelTop="1.2rem"
-                                            label={localize('Email')}
+                                            label={localize('_t_Email_t_')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -369,7 +369,7 @@ const SignupPublic = ({
                                             !email
                                         }
                                     >
-                                        {localize('Sign up')}
+                                        {localize('_t_Sign up_t_')}
                                     </EmailButton>
                                 </InputGroup>
                                 <AgreementLabel
@@ -377,7 +377,7 @@ const SignupPublic = ({
                                     handleChangeCheckbox={handleChange}
                                 />
                                 <SocialWrapper jc="unset" ai="center">
-                                    <SignInText>{localize('Or sign up with')}</SignInText>
+                                    <SignInText>{localize('_t_Or sign up with_t_')}</SignInText>
                                     <SocialButton
                                         onClick={handleSocialSignup}
                                         provider="google"
@@ -437,7 +437,7 @@ const SignupPublic = ({
                                     ml="-4rem"
                                     position="relative"
                                 >
-                                    {localize('Get a taste of the Deriv experience')}
+                                    {localize('_t_Get a taste of the Deriv experience_t_')}
                                 </StyledHeader>
                                 <img src={Arrow} alt="arrow desktop" />
                             </LinkFlex>
@@ -467,7 +467,7 @@ const SignupPublic = ({
                                 rel="noopener noreferrer nofollow"
                             >
                                 <Header size="4rem">
-                                    {localize('Get a taste of the Deriv experience')}
+                                    {localize('_t_Get a taste of the Deriv experience_t_')}
                                 </Header>
                                 <img src={Arrow} alt="arrow mobile" width="32" height="33" />
                             </DerivExperience>
@@ -475,11 +475,11 @@ const SignupPublic = ({
                         <MobileSignupFormWrapper>
                             <div>
                                 <StyledHeader type="section-title">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    {localize('_t_Join over 1 million traders worldwide_t_')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
-                                    {localize('Sign up for your demo account now.')}
+                                    {localize('_t_Sign up for your demo account now._t_')}
                                 </StyledHeaderText>
                                 <InputGroup>
                                     <InputWrapper>
@@ -495,7 +495,7 @@ const SignupPublic = ({
                                             input_background="grey-8"
                                             label_focus_color="grey-7"
                                             label_color="black-3"
-                                            label={localize('Email')}
+                                            label={localize('_t_Email_t_')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -519,7 +519,7 @@ const SignupPublic = ({
                                             !email
                                         }
                                     >
-                                        {localize('Sign up')}
+                                        {localize('_t_Sign up_t_')}
                                     </EmailButton>
                                 </InputGroup>
                                 <AgreementLabel
@@ -528,7 +528,7 @@ const SignupPublic = ({
                                 />
                                 <MobileSocialWrapper jc="unset" ai="center">
                                     <MobileSignInText>
-                                        {localize('Or sign in with')}
+                                        {localize('_t_Or sign in with_t_')}
                                     </MobileSignInText>
                                     <Flex>
                                         <SocialButton

@@ -48,7 +48,7 @@ export const DidntFindYourAnswerBanner = () => {
             <DFYASection>
                 <StyledIcon src={ContactUsIcon} alt="contact us icon" />
                 <MiddleText size="var(--text-size-l)" color="white" m="0 2.4rem">
-                    {localize('Didn’t find your answer? We can help.')}
+                    {localize('_t_Didn’t find your answer? We can help._t_')}
                 </MiddleText>
                 {is_livechat_interactive && (
                     <Button
@@ -57,7 +57,7 @@ export const DidntFindYourAnswerBanner = () => {
                             LC_API.open_chat_window()
                         }}
                     >
-                        {localize('Chat')}
+                        {localize('_t_Chat_t_')}
                     </Button>
                 )}
             </DFYASection>

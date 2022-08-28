@@ -95,15 +95,15 @@ const StyledFlex = styled(Flex)`
 const OurPrinciples = (): React.ReactNode => {
     return (
         <Layout>
-            <SEO title={localize('Our principles | Deriv')} />
+            <SEO title={localize('_t_Our principles | Deriv_t_')} />
             <TitleSection padding="120px 0 24px 10rem">
                 <StyledContainer>
                     <Header as="h1" type="hero" align="left" mb="24px">
-                        {localize('Our principles')}
+                        {localize('_t_Our principles_t_')}
                     </Header>
                     <StyledMainText>
                         {localize(
-                            'We are honoured to serve everyone who relies on our products and services, and we only want to offer the best. That’s why our principles and values are so important in defining who we are, why we do what we do, and how we treat our clients and each other. Across our international offices, we are committed to the following principles in everything that we do.',
+                            '_t_We are honoured to serve everyone who relies on our products and services, and we only want to offer the best. That’s why our principles and values are so important in defining who we are, why we do what we do, and how we treat our clients and each other. Across our international offices, we are committed to the following principles in everything that we do._t_',
                         )}
                     </StyledMainText>
                 </StyledContainer>

@@ -35,22 +35,22 @@ const WhatIsTrader = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="1.2rem" as="h2" type="page-title">
-                {localize('What is Deriv MT5')}
+                {localize('_t_What is Deriv MT5_t_')}
             </StyledHeader>
             <StyledText max_width="79.2rem" align="center">
                 <ROW>
                     {localize(
-                        'Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.',
+                        '_t_Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform._t_',
                     )}
                 </ROW>
                 <EU>
                     {localize(
-                        'Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.',
+                        '_t_Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform._t_',
                     )}
                 </EU>
                 <UK>
                     {localize(
-                        `Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, stocks, stock indices, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.`,
+                        `_t_Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, stocks, stock indices, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform._t_`,
                     )}
                 </UK>
             </StyledText>

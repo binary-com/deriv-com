@@ -36,9 +36,9 @@ const Subscription = () => {
     return (
         <>
             <SEO
-                title={localize('Thank you for subscribing')}
+                title={localize('_t_Thank you for subscribing_t_')}
                 description={localize(
-                    'Thank you for confirming your email address, you will receive a confirmation email shortly.',
+                    '_t_Thank you for confirming your email address, you will receive a confirmation email shortly._t_',
                 )}
                 no_index
             />
@@ -54,7 +54,7 @@ const Subscription = () => {
                 </Flex>
                 <Flex>
                     <LinkButton secondary="true" to="/academy/">
-                        {localize('Take me to Academy')}
+                        {localize('_t_Take me to Academy_t_')}
                     </LinkButton>
                 </Flex>
             </SectionContainer>

@@ -125,7 +125,7 @@
         "translation:pull": "node scripts/handle-translations.js pull",
         "translation:fetch": "node scripts/handle-translations.js pull-master",
         "translation:branch": "node scripts/handle-translations.js branch",
-        "translation:check": "cd scripts && node extract-translations.js show-untranslated && cd ..",
+        "translation:check": "ts-node ./i18n/scripts/extract-keys.ts show-untranslated",
         "branch:create": "node scripts/branch-manager.js",
         "deploy": "npm run build && gh-pages -d public -b master",
         "deploy-dev": "npm run build && gh-pages -d public",

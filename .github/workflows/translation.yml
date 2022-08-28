@@ -3,9 +3,9 @@ name: Release Translation
 on:
     push:
         tags:
-            - 'translation*'
+            - "translation*"
         paths-ignore:
-            - '**.md'
+            - "**.md"
 
 jobs:
     release-translation:
@@ -20,7 +20,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:
-                  node-version: '14.x'
+                  node-version: "14.x"
 
             - run: npm i -g @crowdin/cli
             - run: npm ci
@@ -38,7 +38,7 @@ jobs:
                   echo "Checking out new branch [$branch_name]"
                   git checkout -b "$branch_name"
 
-                  echo "Running the translation script (extract-translations.js)"
+                  echo "Running the translation script (i18n/extract-keys.ts)"
                   npm run translate:extract
                   cd $(git rev-parse --show-toplevel)
 

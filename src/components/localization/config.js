@@ -1,3 +1,4 @@
+// disable-translation
 import i18n, { use, t } from 'i18next'
 import { initReactI18next } from 'react-i18next'
 // import { str as crc32 } from 'crc-32'
@@ -10,15 +11,16 @@ use(initReactI18next).init({
     // To investigate react-i18next translation issues enable this
     debug: false,
 
+    // the default nsSeparator is `:`, since we don't use the namespaces feature, some of our keys contain `:` and it causes some problems in translation
+    // for example if we have a key like '_t_Example:_t_', i18n will look in "_t_Example" namespace for '_t_' as key.
+    nsSeparator: '::',
     interpolation: {
         escapeValue: false,
     },
     // we need this in development, when we are adding new keys and they are not present we have to show the en text extracted from key
     parseMissingKeyHandler: (key) => {
-        console.log('missing_key : ', key)
         const regex = new RegExp(/(_t_)(?<pure_text>.*?)(_t_)/g)
         const result = regex.exec(key)
-        console.log('missing_key result: ', result)
         return result?.[2] ?? `_untranslated_${key}_untranslated_`
     },
 

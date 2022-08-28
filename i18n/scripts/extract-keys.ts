@@ -1,4 +1,5 @@
 /* eslint-disable  */
+// disable-translation
 import fs from 'fs'
 import glob from 'glob'
 import path from 'path'
@@ -24,28 +25,31 @@ function findAndReplace() {
     for (let i = 0; i < foundFilePaths.length; i++) {
         try {
             const file = fs.readFileSync(foundFilePaths[i], 'utf8')
-            let result = regex.exec(file)
-            while (result != null) {
-                const pureText = result.groups.pure_text
-                // remove all special characters
-                let key = pureText.replace(/[`~!@#$^&*()_|+\-=?;:'",‘’.<>\{\}\[\]\\\/””–]/g, '')
-                // replace multiple spaces with single space
-                key = key.replace(/  +/g, ' ')
-                // replace space with _
-                key = key.replace(/ /g, '_')
-                tempHashKey = getHashedValue(pureText);
-                defaults[tempHashKey] = pureText      
-                derivedKeys[result[0]] = tempHashKey          
-                result = regex.exec(file)
+            if(!file.includes("disable-translation")){
+                let result = regex.exec(file)
+                while (result != null) {
+                    const pureText = result.groups.pure_text
+                    // remove all special characters
+                    let key = pureText.replace(/[`~!@#$^&*()_|+\-=?;:'",‘’.<>\{\}\[\]\\\/””–]/g, '')
+                    // replace multiple spaces with single space
+                    key = key.replace(/  +/g, ' ')
+                    // replace space with _
+                    key = key.replace(/ /g, '_')
+                    tempHashKey = getHashedValue(pureText);
+                    defaults[tempHashKey] = pureText      
+                    derivedKeys[result[0]] = tempHashKey          
+                    result = regex.exec(file)
+                }
             }
+            
         } catch (e) {
             console.log(e)
         }
     }
-    fs.writeFileSync(path.resolve('./i18n/keys/defaults.json'), JSON.stringify(defaults, null, '\t'))
+    fs.writeFileSync(path.resolve('./i18n/keys/defaults.json'), JSON.stringify(defaults, null, 2))
     fs.writeFileSync(
         path.resolve('./i18n/keys/derived.json'),
-        JSON.stringify(derivedKeys, null, '\t'),
+        JSON.stringify(derivedKeys, null, 2),
     )
 }
 findAndReplace()

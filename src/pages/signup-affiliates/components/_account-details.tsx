@@ -51,6 +51,8 @@ type AccountDetailsProps = {
         postal_code: string
         country: {
             name: string
+            display_name: string
+            value: string
         }
     }
 }
@@ -123,7 +125,6 @@ const AccountDetails = ({
             name: 'country',
             type: 'select',
             label: localize('Country of residence'),
-            placeholder: 'Country of residence',
             required: true,
             error: country_error_msg,
             value: country,

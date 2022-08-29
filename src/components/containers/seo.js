@@ -54,7 +54,23 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     let current_page = ''
     let organization_schema = {}
     const { is_eu } = useCountryRule()
-    const current_site_url = is_eu ? 'https://eu.deriv.com' : site_url
+    const eu_locales = [
+        'en',
+        'pt-PT',
+        'es-ES',
+        'ru',
+        'fr-FR',
+        'th',
+        'id',
+        'vi',
+        'it-IT',
+        'zh-cn',
+        'pl-PL',
+        'zh-tw',
+        'ach',
+        'tr',
+        'x-default',
+    ]
 
     if (locale_pathname) {
         const path_array = locale_pathname.split('/')
@@ -189,25 +205,41 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
             {has_organization_schema && (
                 <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>
             )}
-
-            {!is_non_localized &&
-                languages.map((locale) => {
-                    if (!(locale === 'ach')) {
-                        const replaced_local = locale.replace('_', '-')
-                        const is_default = locale === 'en' || locale === 'x-default'
-                        const href_lang = is_default ? '' : `/${replaced_local}`
-                        const href = `${current_site_url}${href_lang}${current_page}`
-
-                        return (
-                            <link
-                                rel="alternate"
-                                hrefLang={replaced_local}
-                                href={href}
-                                key={replaced_local}
-                            />
-                        )
-                    }
-                })}
+            {is_eu
+                ? eu_locales.map((locale) => {
+                      if (!(locale === 'ach')) {
+                          const site_url = 'https://eu.deriv.com'
+                          const replaced_local = locale.replace('_', '-')
+                          const is_default = locale === 'en' || locale === 'x-default'
+                          const href_lang = is_default ? '' : `/${replaced_local}`
+                          const href = `${site_url}${href_lang}${current_page}`
+                          return (
+                              <link
+                                  rel="alternate"
+                                  hrefLang={replaced_local}
+                                  href={href}
+                                  key={replaced_local}
+                              />
+                          )
+                      }
+                  })
+                : !is_non_localized &&
+                  languages.map((locale) => {
+                      if (!(locale === 'ach')) {
+                          const replaced_local = locale.replace('_', '-')
+                          const is_default = locale === 'en' || locale === 'x-default'
+                          const href_lang = is_default ? '' : `/${replaced_local}`
+                          const href = `${site_url}${href_lang}${current_page}`
+                          return (
+                              <link
+                                  rel="alternate"
+                                  hrefLang={replaced_local}
+                                  href={href}
+                                  key={replaced_local}
+                              />
+                          )
+                      }
+                  })}
         </Helmet>
     )
 }

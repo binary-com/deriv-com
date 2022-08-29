@@ -49,7 +49,9 @@ type AccountDetailsProps = {
         city: string
         street: string
         postal_code: string
-        country: object
+        country: {
+            name: string
+        }
     }
 }
 

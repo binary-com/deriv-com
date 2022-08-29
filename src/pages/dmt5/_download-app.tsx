@@ -11,7 +11,12 @@ import MacOS from 'images/svg/dmt5/macos.svg'
 import MoreInfo from 'images/svg/dmt5/more-info.svg'
 import Windows from 'images/svg/dmt5/windows.svg'
 import device from 'themes/device'
-import { dmt5_macos_url, dmt5_windows_url, dmt5_android_url, dmt5_ios_url } from 'common/constants'
+import {
+    dmt5_mac_app_url,
+    dmt5_windows_url,
+    dmt5_android_url,
+    dmt5_ios_url,
+} from 'common/constants'
 
 type ImageWrapperProps = {
     mt?: string
@@ -109,7 +114,7 @@ const DownloadApp = () => {
                             </LocalizedLink>
                             <LocalizedLink
                                 external="true"
-                                to={dmt5_macos_url}
+                                to={dmt5_mac_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -185,7 +190,7 @@ const DownloadApp = () => {
                             </LocalizedLink>
                             <LocalizedLink
                                 external="true"
-                                to={dmt5_macos_url}
+                                to={dmt5_mac_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

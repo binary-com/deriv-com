@@ -54,7 +54,7 @@ const WhyTradeWithUsArr = [
         icon: HighLeverageSVG,
     },
     {
-        title: <Localize translate_text="11+ world indices" />,
+        title: <Localize translate_text="11 world indices" />,
         icon: ElevenIndicesSVG,
     },
     {
@@ -77,7 +77,7 @@ const WhyTradeWithUsArr_eu = [
         icon: NoCommisionSVG,
     },
     {
-        title: <Localize translate_text="10+ world indices" />,
+        title: <Localize translate_text="10 world indices" />,
         icon: TenIndicesSVG,
     },
     {

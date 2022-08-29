@@ -46,13 +46,6 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
     const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
     const default_og_description = localize('Trading platforms designed with you in mind.')
-
-    // To block eu.deriv.com domain for search engines
-    const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)
-
-    let is_ach_page = false
-    let current_page = ''
-    let organization_schema = {}
     const { is_eu } = useCountryRule()
     const eu_locales = [
         'en',
@@ -71,6 +64,15 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
         'tr',
         'x-default',
     ]
+    const localized_language = is_eu ? eu_locales : languages
+    const current_site_url = is_eu ? 'https://eu.deriv.com' : site_url
+
+    // To block eu.deriv.com domain for search engines
+    const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)
+
+    let is_ach_page = false
+    let current_page = ''
+    let organization_schema = {}
 
     if (locale_pathname) {
         const path_array = locale_pathname.split('/')
@@ -205,41 +207,23 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
             {has_organization_schema && (
                 <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>
             )}
-            {is_eu
-                ? eu_locales.map((locale) => {
-                      if (!(locale === 'ach')) {
-                          const site_url = 'https://eu.deriv.com'
-                          const replaced_local = locale.replace('_', '-')
-                          const is_default = locale === 'en' || locale === 'x-default'
-                          const href_lang = is_default ? '' : `/${replaced_local}`
-                          const href = `${site_url}${href_lang}${current_page}`
-                          return (
-                              <link
-                                  rel="alternate"
-                                  hrefLang={replaced_local}
-                                  href={href}
-                                  key={replaced_local}
-                              />
-                          )
-                      }
-                  })
-                : !is_non_localized &&
-                  languages.map((locale) => {
-                      if (!(locale === 'ach')) {
-                          const replaced_local = locale.replace('_', '-')
-                          const is_default = locale === 'en' || locale === 'x-default'
-                          const href_lang = is_default ? '' : `/${replaced_local}`
-                          const href = `${site_url}${href_lang}${current_page}`
-                          return (
-                              <link
-                                  rel="alternate"
-                                  hrefLang={replaced_local}
-                                  href={href}
-                                  key={replaced_local}
-                              />
-                          )
-                      }
-                  })}
+            {!is_non_localized &&
+                localized_language.map((locale) => {
+                    if (!(locale === 'ach')) {
+                        const replaced_local = locale.replace('_', '-')
+                        const is_default = locale === 'en' || locale === 'x-default'
+                        const href_lang = is_default ? '' : `/${replaced_local}`
+                        const href = `${current_site_url}${href_lang}${current_page}`
+                        return (
+                            <link
+                                rel="alternate"
+                                hrefLang={replaced_local}
+                                href={href}
+                                key={replaced_local}
+                            />
+                        )
+                    }
+                })}
         </Helmet>
     )
 }

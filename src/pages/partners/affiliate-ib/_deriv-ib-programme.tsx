@@ -165,7 +165,7 @@ const DerivIBProgramme = () => {
                         )}
                     </SubtitleHeader>
                     <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
-                        {localize('Earn commission from your clients’ trades on DMT5.')}
+                        {localize('Earn commission from your clients’ trades on Deriv MT5.')}
                     </SubtitleHeader>
                 </TitleWrapper>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">

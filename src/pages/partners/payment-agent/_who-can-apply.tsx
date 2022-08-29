@@ -22,6 +22,7 @@ import Email from 'images/svg/partners/pa-email.svg'
 import Reply from 'images/svg/partners/pa-reply.svg'
 import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 type ImageWrapperProps = {
     left_margin?: string
@@ -132,6 +133,8 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     )
 }
 const WhoCanApply = () => {
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+
     return (
         <SectionWrapper padding="80px 0">
             <StyledSection>
@@ -258,7 +261,7 @@ const WhoCanApply = () => {
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
-                                                'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
+                                                'After final approval from our Compliance team, we’ll publish your details on our payment agent list.',
                                             )}
                                         </Header>
                                     </Content>
@@ -268,7 +271,7 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <ButtonWrapper padding="0 0 80px 0">
+            <ButtonWrapper padding={is_p2p_allowed_country ? '0 0 80px 0' : '0'}>
                 <LinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary

@@ -34,6 +34,7 @@ const query = graphql`
         }
     }
 `
+
 const BackgroundWrapper = styled(Flex)`
     background: url(${BannerBg});
     background-repeat: round;
@@ -74,13 +75,11 @@ const BannerWrapper = styled(Flex)`
         justify-content: center;
     }
 `
-
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
     }
 `
-
 const StyledSubTitle = styled(Header)`
     margin-top: 16px;
     @media ${device.tabletL} {
@@ -88,9 +87,9 @@ const StyledSubTitle = styled(Header)`
         text-align: center;
     }
 `
+
 const handleExternalLink = () => {
     let link = deriv_go_playstore_url
-    // TODO handle IOS case once the app is ready
     if (mobileOSDetect() === 'Android') {
         link = deriv_go_playstore_url
     }
@@ -99,20 +98,21 @@ const handleExternalLink = () => {
     }
     window.open(link, '_blank')
 }
+
 const FooterBanner = () => {
     const data = useStaticQuery(query)
     const [is_mobile, setMobile] = useState(false)
-    const handleResizeWindow = () =>
-        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
 
     useEffect(() => {
+        const handleResizeWindow = () =>
+            setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
         handleResizeWindow()
         window.addEventListener('resize', handleResizeWindow)
 
         return () => {
             window.removeEventListener('resize', handleResizeWindow)
         }
-    }, [handleResizeWindow])
+    }, [is_mobile])
 
     return (
         <Container

@@ -28,6 +28,9 @@ const Container = styled.section`
 const Tab = styled.div`
     width: 100%;
     margin-top: 2.4rem;
+    @media ${device.tablet} {
+        margin-top: 0;
+    }
 `
 const TabsWrapper = styled.div`
     display: flex;

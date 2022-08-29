@@ -6,7 +6,6 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
-import { DerivStore } from 'store'
 
 type DocumentAccordionProps = { locale: { language: string } }
 
@@ -118,8 +117,6 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
 
     const is_supported_language = (language: string) => supported_languages.includes(language)
 
-    const { is_eu_country } = React.useContext(DerivStore)
-
     return (
         <Accordion has_single_state id="kid">
             <AccordionItem
@@ -130,13 +127,9 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 parent_style={parent_style}
             >
                 <Text>
-                    {is_eu_country
-                        ? localize(
-                              'Deriv Investments (Europe) Limited has prepared the Financial disclosures report in accordance with the Capital Requirements Directive IV and the Capital Requirements Regulation. Read our report to understand how we comply with market discipline as a market participant.',
-                          )
-                        : localize(
-                              'Deriv Investments (Europe) Limited has prepared the Financial disclosures report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant.',
-                          )}
+                    {localize(
+                        'Deriv Investments (Europe) Limited has prepared the Financial disclosure report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant.',
+                    )}
                 </Text>
                 <Flex mt="1.8rem">
                     <FlexText_Pillar

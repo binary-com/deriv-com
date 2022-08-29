@@ -92,7 +92,7 @@ const WhyTradeWithUsArr_eu = [
 
 const trading = [
     {
-        title: <Localize translate_text="No commision" />,
+        title: <Localize translate_text="No commission" />,
         subtitle: (
             <Localize translate_text="Predict the performance of global giants including Apple, Amazon, and Netflix. Trade CFDs with leverage and no commission on stocks and stock indices." />
         ),
@@ -104,7 +104,7 @@ const trading = [
 
 const tradingMobile = [
     {
-        title: <Localize translate_text="No commision" />,
+        title: <Localize translate_text="No commission" />,
         subtitle: (
             <Localize translate_text="Predict the performance of global giants including Apple, Amazon, and Netflix. Trade CFDs with leverage and no commission on stocks and stock indices." />
         ),
@@ -177,9 +177,9 @@ const Stocks = () => {
                 }
                 small_title={
                     is_row ? (
-                        <Localize translate_text="Enjoy low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love." />
-                    ) : (
                         <Localize translate_text="Enjoy high leverage and low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love." />
+                    ) : (
+                        <Localize translate_text="Enjoy low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love." />
                     )
                 }
                 data={data}

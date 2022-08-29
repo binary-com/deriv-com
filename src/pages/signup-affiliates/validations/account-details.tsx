@@ -6,7 +6,7 @@ export const affiliate_validation_regex = {
     phone: /^\+?[^\D]((-|\s)*\d)*$/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
     city: /[`~!@#%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
-    postcode: /[`~!@#%&*)(_=+[}{\]\\/";:><,|]+/,
+    postal_code: /[`~!@#%&*)(_=+[}{\]\\/";:><,|]+/,
     state: /[`~!@#%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
 }
 
@@ -84,7 +84,7 @@ const postcodeValidation = (input, field_name, min_digit, max_digit) => {
         !validation_is_lack_number(input, min_digit)
     ) {
         return localize(`You should enter ${min_digit}-${max_digit} characters.`)
-    } else if (affiliate_validation_regex.postcode.test(input)) {
+    } else if (affiliate_validation_regex.postal_code.test(input)) {
         return localize(`Postcode is invalid`)
     }
 }
@@ -140,7 +140,7 @@ const validation = {
     address_state: (input) => {
         return stateValidation(input, localize('State'), 2, 100)
     },
-    address_postcode: (input) => {
+    address_postal_code: (input) => {
         return postcodeValidation(input, localize('Postcode'), 2, 20)
     },
     address_street: (input) => {

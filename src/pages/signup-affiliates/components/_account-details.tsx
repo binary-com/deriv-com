@@ -40,21 +40,47 @@ type countryType = {
     display_name: string
     value: string
 }
-const AccountDetails = () => {
+
+type AccountDetailsProps = {
+    updatedData: (e) => void
+    onValidate: (e) => void
+    affiliate_address_data: {
+        state: string
+        city: string
+        street: string
+        postal_code: string
+        country: string
+    }
+}
+
+const AccountDetails = ({
+    updatedData,
+    affiliate_address_data,
+    onValidate,
+}: AccountDetailsProps) => {
     const [residence_list, setResidenceList] = useState([])
-    const [country, setCountry] = useState('')
-    const [state, setState] = useState('')
-    const [city, setCity] = useState('')
-    const [street, setStreet] = useState('')
-    const [postcode, setPostCode] = useState('')
+    const [country, setCountry] = useState(affiliate_address_data.country)
+    const [state, setState] = useState(affiliate_address_data.state)
+    const [city, setCity] = useState(affiliate_address_data.city)
+    const [street, setStreet] = useState(affiliate_address_data.street)
+    const [postal_code, setPostCode] = useState(affiliate_address_data.postal_code)
     const [country_error_msg, setCountryErrorMsg] = React.useState('')
     const [state_error_msg, setStateErrorMsg] = React.useState('')
     const [city_error_msg, setCityErrorMsg] = React.useState('')
     const [street_error_msg, setStreetErrorMsg] = React.useState('')
     const [postcode_error_msg, setPostCodeErrorMsg] = React.useState('')
-    const [touch, setTouch] = useState()
-    const [name, setName] = useState('')
+
     const { send } = useDerivWS()
+
+    useEffect(() => {
+        updatedData({
+            country,
+            state,
+            street,
+            city,
+            postal_code,
+        })
+    }, [country, state, street, city, postal_code])
 
     useEffect(() => {
         send(country_list, (response) => {
@@ -71,6 +97,23 @@ const AccountDetails = () => {
             }
         })
     }, [send])
+
+    const validate = !(
+        country_error_msg ||
+        !country ||
+        !state ||
+        !city ||
+        !street ||
+        !postal_code ||
+        state_error_msg ||
+        city_error_msg ||
+        street_error_msg ||
+        postcode_error_msg
+    )
+
+    useEffect(() => {
+        onValidate(validate ? true : false)
+    }, [onValidate, validate])
 
     const form_inputs = [
         {
@@ -96,7 +139,7 @@ const AccountDetails = () => {
         },
         {
             id: 'dm-town',
-            name: 'town',
+            name: 'city',
             type: 'text',
             label: localize('Town/city'),
             placeholder: 'Town/city',
@@ -122,20 +165,21 @@ const AccountDetails = () => {
             placeholder: 'Postal/Zip code',
             required: true,
             error: postcode_error_msg,
-            value: postcode,
+            value: postal_code,
         },
     ]
     const handleValidation = (e) => {
         const { name, value } = e.target
         switch (name) {
             case 'country': {
+                setCountry(value)
                 return setCountryErrorMsg(validateCountry(value))
             }
             case 'state': {
                 setState(value)
                 return setStateErrorMsg(validateState(value))
             }
-            case 'town': {
+            case 'city': {
                 setCity(value)
                 return setCityErrorMsg(validateCity(value))
             }
@@ -167,7 +211,7 @@ const AccountDetails = () => {
         return error_message
     }
     const validatePostCode = (state_str) => {
-        const error_message = validation.address_postcode(state_str)
+        const error_message = validation.address_postal_code(state_str)
         return error_message
     }
 
@@ -183,8 +227,7 @@ const AccountDetails = () => {
                                     label_position={0.8}
                                     key={index}
                                     selected_item={country}
-                                    onChange={(value) => setCountry(value.name)}
-                                    default_item={''}
+                                    onChange={(country) => setCountry(country)}
                                     error={item.error}
                                     items={item.list}
                                     type={item.type}
@@ -209,12 +252,8 @@ const AccountDetails = () => {
                                 label={localize(item.label)}
                                 placeholder={item.placeholder}
                                 onChange={handleValidation}
+                                onBlur={handleValidation}
                                 autoComplete="off"
-                                handleError={(current_input) => {
-                                    setState('')
-                                    setStreet('')
-                                    console.log('current_input', current_input)
-                                }}
                                 required={item.required}
                             />
                         )
@@ -224,4 +263,5 @@ const AccountDetails = () => {
         </InputGroup>
     )
 }
+
 export default AccountDetails

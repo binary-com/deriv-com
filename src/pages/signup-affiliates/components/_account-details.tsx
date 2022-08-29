@@ -116,7 +116,7 @@ const AccountDetails = ({
     )
 
     useEffect(() => {
-        onValidate(validate ? true : false)
+        onValidate(validate)
     }, [onValidate, validate])
 
     const form_inputs = [
@@ -176,46 +176,25 @@ const AccountDetails = ({
         switch (name) {
             case 'country': {
                 setCountry(value)
-                return setCountryErrorMsg(validateCountry(value))
+                return setCountryErrorMsg(validation.country(value))
             }
             case 'state': {
                 setState(value)
-                return setStateErrorMsg(validateState(value))
+                return setStateErrorMsg(validation.address_state(value))
             }
             case 'city': {
                 setCity(value)
-                return setCityErrorMsg(validateCity(value))
+                return setCityErrorMsg(validation.address_city(value))
             }
             case 'street': {
                 setStreet(value)
-                return setStreetErrorMsg(validateStreet(value))
+                return setStreetErrorMsg(validation.address_street(value))
             }
             case 'postal_code': {
                 setPostCode(value)
-                return setPostCodeErrorMsg(validatePostCode(value))
+                return setPostCodeErrorMsg(validation.address_postal_code(value))
             }
         }
-    }
-
-    const validateCountry = (country_str) => {
-        const error_message = validation.country(country_str)
-        return error_message
-    }
-    const validateState = (state_str) => {
-        const error_message = validation.address_state(state_str)
-        return error_message
-    }
-    const validateCity = (state_str) => {
-        const error_message = validation.address_city(state_str)
-        return error_message
-    }
-    const validateStreet = (state_str) => {
-        const error_message = validation.address_street(state_str)
-        return error_message
-    }
-    const validatePostCode = (state_str) => {
-        const error_message = validation.address_postal_code(state_str)
-        return error_message
     }
 
     return (

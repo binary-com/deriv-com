@@ -49,7 +49,7 @@ type AccountDetailsProps = {
         city: string
         street: string
         postal_code: string
-        country: string
+        country: object
     }
 }
 
@@ -168,7 +168,7 @@ const AccountDetails = ({
             value: postal_code,
         },
     ]
-    const handleValidation = (e) => {
+    const handleInput = (e) => {
         const { name, value } = e.target
         switch (name) {
             case 'country': {
@@ -230,7 +230,6 @@ const AccountDetails = ({
                                     onChange={(country) => setCountry(country)}
                                     error={item.error}
                                     items={item.list}
-                                    type={item.type}
                                     label={localize('Country of residence')}
                                 />
                             </DropdownSearchWrapper>
@@ -251,8 +250,8 @@ const AccountDetails = ({
                                 background="white"
                                 label={localize(item.label)}
                                 placeholder={item.placeholder}
-                                onChange={handleValidation}
-                                onBlur={handleValidation}
+                                onChange={handleInput}
+                                onBlur={handleInput}
                                 autoComplete="off"
                                 required={item.required}
                             />

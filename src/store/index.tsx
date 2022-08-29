@@ -17,6 +17,7 @@ export type DerivStoreType = {
     is_eu_country: boolean
     is_p2p_allowed_country: boolean
     is_uk_country: boolean
+    is_african_country: boolean
     setWebsiteStatus: Dispatch<WebsiteStatusType | void>
     user_country: string
     website_status_loading: boolean

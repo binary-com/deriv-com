@@ -18,6 +18,7 @@ type CountryRuleType =
     | 'is_uk_eu'
     | 'is_row'
     | 'is_dev'
+    | 'is_african_country'
 
 type CountryBasedContentProps = {
     children: ReactNode
@@ -123,6 +124,10 @@ export const NonUK = ({ children }: ResponsiveContainerProps) => (
 
 export const UKEU = ({ children }: ResponsiveContainerProps) => (
     <CountryBasedContent country_rule="is_uk_eu">{children}</CountryBasedContent>
+)
+
+export const AFRICA = ({ children }: ResponsiveContainerProps) => (
+    <CountryBasedContent country_rule="is_african_country">{children}</CountryBasedContent>
 )
 
 export const ROW = ({ children }: ResponsiveContainerProps) => (

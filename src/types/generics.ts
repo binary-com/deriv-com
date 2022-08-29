@@ -8,4 +8,4 @@ export type PopupModalTypes = {
     setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export type Tstring = `_translate_${string}_translate_`
+export type Tstring = `_t_${string}_t_`

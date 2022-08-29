@@ -230,7 +230,7 @@ const WhoCanApply = () => {
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                                        'Develop web, desktop, and mobile applications using Deriv API.',
                                     )}
                                 </Text>
                             </Content>

@@ -68,7 +68,6 @@ const ClientCard = styled(LocalizedLink)`
         margin: 1.2rem 0;
     }
 `
-
 const PartnershipOpportunities = () => (
     <SectionContainer>
         <Container direction="column">

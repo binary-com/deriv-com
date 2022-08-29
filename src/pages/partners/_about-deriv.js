@@ -45,7 +45,7 @@ const AboutDeriv = () => {
                     </Text>
                     <Text size="var(--text-size-m)">
                         {localize(
-                            'We offer the widest selection of derivatives to trade, with sharp prices and tight spreads that attract over a million online traders worldwide. Our technology provides an intuitive and powerful trading experience, enabling our clients to understand risk more effectively to make better trading decisions.',
+                            'We offer the widest selection of derivatives to trade, with sharp prices and tight spreads that attract over 2.5 million online traders worldwide. Our technology provides an intuitive and powerful trading experience, enabling our clients to understand risk more effectively to make better trading decisions.',
                         )}
                     </Text>
                 </Flex>

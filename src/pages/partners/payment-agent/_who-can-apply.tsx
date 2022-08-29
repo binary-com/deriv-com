@@ -261,7 +261,7 @@ const WhoCanApply = () => {
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
-                                                'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
+                                                'After final approval from our Compliance team, we’ll publish your details on our payment agent list.',
                                             )}
                                         </Header>
                                     </Content>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode, CSSProperties } from 'react'
+import React, { useState, useEffect, ReactNode } from 'react'
 import styled from 'styled-components'
 import { Text } from './typography'
 import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
@@ -63,11 +63,11 @@ const AccordionWrapper = styled.div`
 const TRANSITION_DURATION = 250
 
 type AccordionProps = {
-    children?: ChildType | ChildType[]
+    children: ChildType | ChildType[]
     has_single_state?: boolean
+    is_faq?: boolean
     id?: string
     is_default_open?: boolean
-    nodes?: ReactNode[]
 }
 
 // TODO: keyboard events and find a way to add proper focus handling
@@ -83,12 +83,30 @@ const Accordion = ({ children, has_single_state, id, is_default_open }: Accordio
     )
 }
 
+type HeaderStyle = {
+    marginTop?: string
+    padding?: string
+    border?: string
+    borderRadius?: string
+    boxShadow?: string
+}
+type ContentType = {
+    background?: string
+    boxShadow?: string
+    marginLeft?: string
+    paddingBottom?: string
+    display?: string
+}
+type ParentType = {
+    marginBottom?: string
+}
+
 type ChildType = {
     props?: {
         is_shown?: boolean
-        parent_style?: CSSProperties
-        header_style?: CSSProperties
-        content_style?: CSSProperties
+        parent_style?: ParentType
+        header_style?: HeaderStyle
+        content_style?: ContentType
         header?: string
         plus?: boolean
         arrow_thin?: boolean
@@ -296,11 +314,13 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
 }
 
 type AccordionItemProps = {
-    children?: ChildType | ChildType[]
+    children: ChildType | ChildType[]
     id?: string
-    style?: CSSProperties
+    style?: HeaderStyle | ContentType | ParentType
+    content_style?: ContentType
+    parent_style?: ParentType
+    header_style?: HeaderStyle
     header?: ReactNode
-    header_style?: CSSProperties
     text?: string
     plus?: boolean
 }

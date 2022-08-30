@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, CSSProperties } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex, ROW } from 'components/containers'
@@ -115,14 +115,14 @@ const header_style = {
     padding: '0',
     boxShadow: 'none',
     flexDirection: 'row',
-} as CSSProperties
+}
 
 const content_style = {
     marginLeft: '8px',
     paddingBottom: '16px',
     flexDirection: 'column',
     display: 'flex',
-} as CSSProperties
+}
 
 type OffCanvasMenuWrapperPropps = {
     closeOffCanvasMenu?: () => void

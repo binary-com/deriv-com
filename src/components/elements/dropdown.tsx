@@ -391,10 +391,11 @@ export type DropdownProps = {
     items?: ItemsType[]
     label?: string
     error?: FormikErrorsType
-    onChange?: (value: string) => void
+    onChange?: (value: { symbol?: string } & string) => void
     option_list?: ItemsType[]
     selected_option?: OptionOrSelectedType
     selected_item?: SelectedType
+    disabled?: boolean
 } & Pick<ItemsType, 'contractSize'>
 
 const Dropdown = ({
@@ -435,7 +436,7 @@ const Dropdown = ({
                             <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
                         )}
                     </Symbol>
-                    <Arrow expanded={is_open ? true : false} />
+                    <Arrow expanded={is_open} />
                 </DropdownSelected>
                 <ItemList
                     error={error}

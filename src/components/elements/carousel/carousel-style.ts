@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react'
 import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
@@ -28,7 +27,7 @@ export const EmblaContainer = styled.div`
     will-change: transform;
 `
 
-export const EmblaSlideInner = styled.div<CSSProperties>`
+export const EmblaSlideInner = styled.div<{ width?: string }>`
     position: relative;
     padding-left: 0;
     margin: 0 auto;

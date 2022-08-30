@@ -1,8 +1,9 @@
-import React, { createRef, ReactNode, CSSProperties } from 'react'
+import React, { createRef, ReactNode } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { isBrowser } from 'common/utility'
 
 type CarouselItemProps = {
+    width?: string
     padding?: number
     total_translate?: number
     should_carousel_move?: boolean
@@ -12,7 +13,7 @@ type CarouselItemProps = {
     animation_status?: string
 }
 
-const AutoCarouselSection = styled.section<CarouselItemProps & CSSProperties>`
+const AutoCarouselSection = styled.section<CarouselItemProps>`
     width: ${(props) => props.width};
     overflow: hidden;
     margin: 0 auto;

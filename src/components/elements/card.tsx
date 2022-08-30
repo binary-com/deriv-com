@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactElement, CSSProperties } from 'react'
+import React, { ReactNode, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
 import { Flex } from 'components/containers'
@@ -8,7 +8,9 @@ import device from 'themes/device'
 import Arrow from 'images/svg/elements/card-arrow.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 
-type StyledProps = CSSProperties & {
+type StyledProps = {
+    width?: string
+    padding?: string
     background_color?: string
     is_selected?: boolean
     min_height?: string
@@ -88,38 +90,6 @@ const ContentWrapper = styled.div`
         ${Header} {
             font-size: 3rem;
         }
-    }
-`
-
-const CardChildrenWrapper = styled.article<StyledProps>`
-    ${Header} {
-        text-align: center;
-    }
-
-    ${CardStyle}
-    width: ${(props) => (props.width ? props.width : '50.2rem')};
-    height: 100%;
-    min-height: 26.8rem;
-    padding: 2.6rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    p {
-        font-size: var(--text-size-s);
-
-        a {
-            color: var(--color-red);
-            text-decoration: none;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-    svg,
-    img {
-        margin: 0.2rem 0 0.8rem 0;
     }
 `
 
@@ -243,32 +213,6 @@ export const Card = ({
     )
 }
 
-type CardChildrenProps = {
-    children?: ReactNode
-    Icon?: (string) => ReactElement
-    title?: string
-
-    icon_width?: string
-    icon_height?: string
-} & CSSProperties
-
-export const CardChildren = ({
-    Icon,
-    title,
-    width,
-    children,
-    icon_width,
-    icon_height,
-}: CardChildrenProps) => (
-    <CardChildrenWrapper width={width}>
-        <Header as="h4" weight="500">
-            {title}
-        </Header>
-        <Icon width={icon_width} height={icon_height} />
-        {children}
-    </CardChildrenWrapper>
-)
-
 const NavContent = styled.div`
     width: 100%;
     display: flex;
@@ -344,12 +288,12 @@ const SvgWrapper = styled.div`
 type NavigationType = {
     textDecoration?: string
     maxWidth?: string
-} & CSSProperties
+}
 
 type NavCardProps = {
     aria_label?: string
     content?: ReactNode[] | ReactElement
-    external?: string
+    external?: boolean
     icon?: () => ReactElement
     style?: NavigationType
     title?: ReactNode
@@ -436,7 +380,7 @@ const RelativeFlex = styled(Flex)`
 `
 type CardLinkProps = {
     content: string
-    external: string
+    external: boolean
     icon?: () => ReactElement
     onClick: () => void
     style: NavigationType

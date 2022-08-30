@@ -72,7 +72,7 @@ const Symbol = styled(Flex)`
         font-weight: normal;
         font-size: var(--text-size-xs);
         line-height: 1.14;
-        margin-top: 8px;
+        margin-top: 10px;
 
         @media ${device.mobileL} {
             font-size: 14px;
@@ -81,6 +81,10 @@ const Symbol = styled(Flex)`
 `
 
 export const DropdownContainer = styled.ul<DropdownContainerProps>`
+    @media ${device.mobileL} {
+        height: 43px;
+    }
+
     list-style: none;
     position: relative;
     border: 1px solid var(--color-grey-7);
@@ -244,20 +248,21 @@ export const Arrow = styled(Chevron)<ArrowType>`
 `
 
 export const StyledLabel = styled.label<DropdownStyledProps>`
-    color: grey;
+    color: gray;
     background: var(--color-white);
-    font-size: var(--text-size-xs);
+    font-size: 1.6rem;
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.2rem;
+    top: 1.1rem;
+    height: 2rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
 
     @media ${device.tabletL} {
-        font-size: 1.6rem;
-        top: 1.5rem;
+        font-size: 1.65rem;
+        top: 1.4rem;
     }
 
     @media ${device.mobileL} {
@@ -291,10 +296,6 @@ const ContractSizeWrapper = styled(Text)`
     position: absolute;
     cursor: text;
     color: var(--color-grey-5);
-
-    @media ${device.tabletL} {
-        margin-top: 4px;
-    }
 `
 
 const DefaultOptionText = styled(Text)`

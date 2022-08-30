@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { ReactElement } from 'react'
 import PageNotFound from '../404'
-import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load.js'
-import Banner from './_banner.js'
+import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load'
+import Banner from './_banner'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
@@ -11,7 +11,18 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
 
-const items = [
+export type ContentType = {
+    id?: number
+    title: ReactElement | string
+    subtitle?: ReactElement
+    content?: ReactElement
+    url?: ReactElement | ReactElement[]
+    icon?: string
+    image_name?: string
+    image_alt?: string
+}
+
+const items: ContentType[] = [
     {
         title: <Localize translate_text="Multiply your profit and limit your loss" />,
         subtitle: (
@@ -46,60 +57,46 @@ const items = [
     },
 ]
 
-const derivGoPortalData = {
+type DerivGoPortalType = {
+    paragraph: ReactElement
+    frame: string
+    link: string
+}
+
+const derivGoPortalData: DerivGoPortalType = {
     paragraph: (
         <Localize translate_text="Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
     ),
     frame: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn?hide_header=1',
     link: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn',
 }
+
 const DerivGo = () => {
-    const { is_row } = useCountryRule()
-    const [is_loaded, setLoaded] = useState(false)
+    const { is_loading, is_row } = useCountryRule()
 
-    useEffect(() => {
-        setLoaded(true)
-    }, [useCountryRule])
-
-    if (is_loaded) {
-        if (is_row) {
-            return (
-                <Layout>
-                    <SEO
-                        title={localize(
-                            'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
-                        )}
-                        description={localize(
-                            'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
-                        )}
-                    />
-                    <Banner />
-                    <WhatIsDerivGo />
-                    <WhyTradeDerivGo />
-                    <DerivGoContent reverse P2P={items} />
-                    <StartDerivGo />
-                    <FooterBanner />
-                    <OtherApps />
-                    <Roadmap portal={derivGoPortalData} />
-                </Layout>
-            )
-        }
-
-        return <PageNotFound />
+    if (!is_loading && is_row) {
+        return (
+            <Layout>
+                <SEO
+                    title={localize(
+                        'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
+                    )}
+                    description={localize(
+                        'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
+                    )}
+                />
+                <Banner />
+                <WhatIsDerivGo />
+                <WhyTradeDerivGo />
+                <DerivGoContent reverse P2P={items} />
+                <StartDerivGo />
+                <FooterBanner />
+                <OtherApps />
+                <Roadmap portal={derivGoPortalData} />
+            </Layout>
+        )
     }
-
-    return (
-        <>
-            <SEO
-                title={localize(
-                    'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO',
-                )}
-                description={localize(
-                    'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
-                )}
-            />
-        </>
-    )
+    return <PageNotFound />
 }
 
 export default WithIntl()(DerivGo)

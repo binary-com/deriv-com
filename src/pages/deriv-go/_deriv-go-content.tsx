@@ -6,6 +6,23 @@ import device from 'themes/device'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
+const query = graphql`
+    query {
+        multiply_profit: file(relativePath: { eq: "deriv-go/multiply-profit.png" }) {
+            ...fadeIn
+        }
+        forex: file(relativePath: { eq: "deriv-go/forex.png" }) {
+            ...fadeIn
+        }
+        synthetic_indices: file(relativePath: { eq: "deriv-go/synthetic-indices.png" }) {
+            ...fadeIn
+        }
+        better_risk: file(relativePath: { eq: "deriv-go/better-risk.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const StyledContainer = styled(Container)`
     flex-direction: column;
     max-width: 996px;
@@ -32,14 +49,12 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
-
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
         text-align: center;
         font-size: 18px;
     }
 `
-
 const Row = styled(Flex)`
     align-items: center;
 
@@ -54,22 +69,7 @@ const Row = styled(Flex)`
         flex-direction: column-reverse;
     }
 `
-const query = graphql`
-    query {
-        multiply_profit: file(relativePath: { eq: "deriv-go/multiply-profit.png" }) {
-            ...fadeIn
-        }
-        forex: file(relativePath: { eq: "deriv-go/forex.png" }) {
-            ...fadeIn
-        }
-        synthetic_indices: file(relativePath: { eq: "deriv-go/synthetic-indices.png" }) {
-            ...fadeIn
-        }
-        better_risk: file(relativePath: { eq: "deriv-go/better-risk.png" }) {
-            ...fadeIn
-        }
-    }
-`
+
 const DerivGoContent = ({ P2P, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
@@ -80,7 +80,7 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
         >
             <StyledContainer>
                 {P2P.map((item, index) => {
-                    let is_even = reverse ? (index + 1) % 2 : index % 2
+                    const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row
                             fd={!is_even ? 'row' : 'row-reverse'}

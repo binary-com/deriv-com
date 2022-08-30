@@ -485,7 +485,6 @@ export const georgetown: LocationsType = {
         "Our office in the Cayman Islands will be a hub for compliance, operational risk, and quants talent. Join us at this office to analyse changes in regulatory policies, formulate and implement efficient risk management plans, and ensure the efficiency of the Deriv Group's compliance and trading strategies.",
     address: address_georgetown,
     google_map_link: 'https://goo.gl/maps/7ZjSzDqSEteSANqD8',
-    has_iframe: true,
     has_map: true,
 }
 

@@ -10,9 +10,10 @@ import {
     FooterSection,
     TextContainer,
     TextWrapper,
+    Title,
 } from './style/footer'
 import { besquare_signup_url } from 'common/constants'
-import { Text, Header } from 'components/elements'
+import { Header } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
@@ -62,16 +63,16 @@ const BeSquareFooter = () => {
                         alt="Fresh graduates discussing with their laptops"
                     />
                     <TextContainer>
-                        <Header as="h3">Next intake: January 2023</Header>
+                        <Title as="h3">Next intake: January 2023</Title>
                         <TextWrapper
                             max_width={['510px', '328px']}
                             font_size={['20px', '16px']}
                             line_height={['30px', '24px']}
                             margin={['-24px 49px 0 0']}
                         >
-                            <Text color="white" size="2rem">
+                            <Header color="white" size="2rem">
                                 Submit your application before 31 December 2022
-                            </Text>
+                            </Header>
                             <Localize
                                 translate_text="<1>If you have any questions, email us at </1><2>info@besquare.my</2>"
                                 components={[

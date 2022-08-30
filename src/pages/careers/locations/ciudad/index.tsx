@@ -11,7 +11,7 @@ const query = graphql`
         ciudad: file(relativePath: { eq: "careers/ciudad.jpg" }) {
             childImageSharp {
                 fluid(quality: 100, maxWidth: 2880) {
-                    ...heroImage
+                    ...GatsbyImageSharpFluid
                 }
             }
         }

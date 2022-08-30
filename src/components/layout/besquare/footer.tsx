@@ -10,10 +10,9 @@ import {
     FooterSection,
     TextContainer,
     TextWrapper,
-    Title,
 } from './style/footer'
 import { besquare_signup_url } from 'common/constants'
-import { Text } from 'components/elements'
+import { Text, Header } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
@@ -63,7 +62,7 @@ const BeSquareFooter = () => {
                         alt="Fresh graduates discussing with their laptops"
                     />
                     <TextContainer>
-                        <Title as="h3">Next intake: January 2023</Title>
+                        <Header as="h3">Next intake: January 2023</Header>
                         <TextWrapper
                             max_width={['510px', '328px']}
                             font_size={['20px', '16px']}

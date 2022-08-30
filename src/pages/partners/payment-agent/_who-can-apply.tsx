@@ -275,7 +275,7 @@ const WhoCanApply = () => {
                 <LinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary
-                    external="true"
+                    external
                     to="mailto:partners@deriv.com"
                     is_mail_link
                 >

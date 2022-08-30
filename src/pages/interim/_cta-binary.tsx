@@ -34,7 +34,7 @@ const CtaBinary = ({ is_white }: CtaBinaryProps) => {
                             id="dm-binary-login-link-1"
                             is_white={is_white}
                             key={0}
-                            external="true"
+                            external
                             to="home"
                             type="binary"
                             target="_blank"

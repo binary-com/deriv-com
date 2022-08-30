@@ -35,10 +35,10 @@ const contactways = [
         img_alt: "Deriv's support community",
         button: (
             <StyledLinkButton
-                secondary="true"
+                secondary
+                external
                 to=""
                 type="community"
-                external="true"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -55,7 +55,7 @@ const contactways = [
         image: 'help',
         img_alt: "Deriv's help centre",
         button: (
-            <StyledLinkButton secondary="true" to="/help-centre/">
+            <StyledLinkButton secondary to="/help-centre/">
                 <Localize translate_text="Visit our Help centre" />
             </StyledLinkButton>
         ),

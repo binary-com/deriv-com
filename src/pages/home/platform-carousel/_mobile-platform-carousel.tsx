@@ -163,7 +163,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                             {title === 'Deriv MT5' ? (
                                 <OsBadges>
                                     <AppStoreBadge
-                                        external="true"
+                                        external
                                         to={dmt5_macos_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -174,7 +174,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                         />
                                     </AppStoreBadge>
                                     <AppStoreBadge
-                                        external="true"
+                                        external
                                         to={dp2p_google_play_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -185,7 +185,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                         />
                                     </AppStoreBadge>
                                     <AppStoreBadge
-                                        external="true"
+                                        external
                                         to={dmt5_app_gallery}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -196,7 +196,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                         />
                                     </AppStoreBadge>
                                     <AppStoreBadge
-                                        external="true"
+                                        external
                                         to={deriv_mt5_app_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -219,7 +219,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                     {download_links.is_desktop.map((link) => (
                                         <DownloadLink
                                             key={link.type}
-                                            external="true"
+                                            external
                                             type={link?.link_type}
                                             to={link?.url}
                                             target="_blank"

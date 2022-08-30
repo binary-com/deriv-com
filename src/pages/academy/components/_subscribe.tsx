@@ -357,7 +357,7 @@ const Subscribe = () => {
                         <EmailButton
                             id="gtm-signup-email"
                             type="submit"
-                            secondary="true"
+                            secondary
                             disabled={Boolean(
                                 is_submitting ||
                                     email_error_msg ||
@@ -385,7 +385,7 @@ const Subscribe = () => {
                                         <LocalizedLinkText
                                             key={0}
                                             type="tnc/security-and-privacy.pdf"
-                                            external="true"
+                                            external
                                             rel="noopener noreferrer"
                                             size="14px"
                                             color="red"

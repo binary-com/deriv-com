@@ -254,8 +254,8 @@ class DtraderTabs extends React.Component {
                     </Tab>
                     <GotoLiveWrapper>
                         <GoToLiveDemo
-                            secondary="true"
-                            external="true"
+                            secondary
+                            external
                             type="deriv_app"
                             target="_blank"
                             rel="noopener noreferrer nofollow"

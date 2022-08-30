@@ -41,7 +41,7 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
                 {position}
             </Header>
             {link && (
-                <LocalizedLink external="true" to={link} target="_blank" rel="noopener noreferrer">
+                <LocalizedLink external to={link} target="_blank" rel="noopener noreferrer">
                     <StyledLogo width="32px" height="32px" src={Linkedin} alt="" link={link} />
                 </LocalizedLink>
             )}

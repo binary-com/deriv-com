@@ -190,7 +190,7 @@ const DerivIBProgramme = () => {
                         </StyledHeader>
                         <LinkButtonContactUsWrapper>
                             <LinkButtonContactUs
-                                external="true"
+                                external
                                 secondary
                                 to="mailto:partners@deriv.com"
                                 is_mail_link

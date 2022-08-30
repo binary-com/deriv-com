@@ -239,7 +239,7 @@ const DerivAffiliateProgramme = () => {
                                     id="dm-card-affiliate-signup-1"
                                     secondary
                                     to={affiliate_signup_url}
-                                    external="true"
+                                    external
                                     target="_blank"
                                     type="affiliate_sign_up"
                                     mt_mobile="40px"
@@ -287,7 +287,7 @@ const DerivAffiliateProgramme = () => {
                                     id="dm-card-affiliate-signup-2"
                                     secondary
                                     to={affiliate_signup_url}
-                                    external="true"
+                                    external
                                     target="_blank"
                                     type="affiliate_sign_up"
                                     mt_mobile="24px"
@@ -322,7 +322,7 @@ const DerivAffiliateProgramme = () => {
                                     id="dm-card-affiliate-signup-3"
                                     secondary
                                     to={affiliate_signup_url}
-                                    external="true"
+                                    external
                                     target="_blank"
                                     type="affiliate_sign_up"
                                     mt_mobile="32px"

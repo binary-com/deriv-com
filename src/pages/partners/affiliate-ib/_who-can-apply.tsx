@@ -230,7 +230,7 @@ const WhoCanApply = () => {
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                                        'Develop web, desktop, and mobile applications using Deriv API.',
                                     )}
                                 </Text>
                             </Content>
@@ -317,7 +317,7 @@ const WhoCanApply = () => {
                     id="dm-page-affiliate-signup"
                     secondary
                     to={affiliate_signup_url}
-                    external="true"
+                    external
                     target="_blank"
                     type="affiliate_sign_up"
                 >

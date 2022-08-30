@@ -232,7 +232,7 @@ const AccountManagement = () => (
             }}
         >
             <Localize
-                translate_text="To change your payment method, please contact us via <0>livechat</0>."
+                translate_text="To change your payment method, please contact us via <0>live chat</0>."
                 components={[
                     <LocalizedLinkText
                         as={'span'}

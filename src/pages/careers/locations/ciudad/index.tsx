@@ -9,7 +9,11 @@ import { localize, WithIntl } from 'components/localization'
 const query = graphql`
     query {
         ciudad: file(relativePath: { eq: "careers/ciudad.jpg" }) {
-            ...heroImage
+            childImageSharp {
+                fluid(quality: 100, maxWidth: 2880) {
+                    ...heroImage
+                }
+            }
         }
         living_in_ciudad: file(relativePath: { eq: "careers/living_in_ciudad.png" }) {
             ...fadeIn

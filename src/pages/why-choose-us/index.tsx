@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import LatamAward from './_latam-forex-award'
 import { IconGrid } from './_icon-grid'
 import { SEO, SectionContainer, GridContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -8,6 +9,7 @@ import { localize, WithIntl } from 'components/localization'
 import { Button } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const ResponsiveLinkButton = styled(Button)`
     @media ${device.mobileL} {
@@ -56,6 +58,7 @@ const ResponsiveHeader = styled(StyledHeader)`
 `
 
 const WhyChooseUs = () => {
+    const { is_latam } = useCountryRule()
     const handleSignup = useHandleSignup()
 
     return (
@@ -89,7 +92,7 @@ const WhyChooseUs = () => {
             <Section>
                 <IconGrid />
             </Section>
-            <Divider />
+            {is_latam ? <LatamAward /> : <></>}
             <Section>
                 <GridContainer>
                     <Header as="h2" type="page-title" size="4rem" align="center">

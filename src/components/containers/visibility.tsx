@@ -13,6 +13,7 @@ type ResponsiveContainerProps = {
 type CountryRuleType =
     | 'is_eu'
     | 'is_uk'
+    | 'is_latam'
     | 'is_non_uk'
     | 'is_non_eu'
     | 'is_uk_eu'

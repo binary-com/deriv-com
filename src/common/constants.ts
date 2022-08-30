@@ -39,6 +39,24 @@ const getDomainAppID = () => {
 export const eu_domains = ['eu', 'staging-eu']
 export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com']
 export const uk_domains = ['uk', 'staging-uk']
+export const eu_url = 'https://eu.deriv.com'
+export const eu_locales = [
+    'en',
+    'pt-PT',
+    'es-ES',
+    'ru',
+    'fr-FR',
+    'th',
+    'id',
+    'vi',
+    'it-IT',
+    'zh-cn',
+    'pl-PL',
+    'zh-tw',
+    'ach',
+    'tr',
+    'x-default',
+]
 
 // URL
 export const domain_full_url = `https://${getDomainUrl()}`

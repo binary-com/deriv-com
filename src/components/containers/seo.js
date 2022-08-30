@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
-import { eu_urls } from 'common/constants'
+import { eu_urls, eu_locales, eu_url } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
@@ -47,25 +47,9 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
     const default_og_description = localize('Trading platforms designed with you in mind.')
     const { is_eu } = useCountryRule()
-    const eu_locales = [
-        'en',
-        'pt-PT',
-        'es-ES',
-        'ru',
-        'fr-FR',
-        'th',
-        'id',
-        'vi',
-        'it-IT',
-        'zh-cn',
-        'pl-PL',
-        'zh-tw',
-        'ach',
-        'tr',
-        'x-default',
-    ]
+
     const localized_language = is_eu ? eu_locales : languages
-    const current_site_url = is_eu ? 'https://eu.deriv.com' : site_url
+    const current_site_url = is_eu ? eu_url : site_url
 
     // To block eu.deriv.com domain for search engines
     const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)

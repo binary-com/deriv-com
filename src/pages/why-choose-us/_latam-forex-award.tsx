@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { QueryImage } from 'components/elements'
 import { WithIntl } from 'components/localization'
-import { Show } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
     query {
@@ -19,12 +19,12 @@ const LatamAward = () => {
 
     return (
         <>
-            <Show.Desktop max_width={'tabletS'}>
+            <Desktop>
                 <QueryImage data={data.latam_award} alt={'Latam Forex Award'} />
-            </Show.Desktop>
-            <Show.Mobile min_width={'tabletS'}>
+            </Desktop>
+            <Mobile>
                 <QueryImage data={data.latam_award_mobile} alt={'Latam Forex Award'} />
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }

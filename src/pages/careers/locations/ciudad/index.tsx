@@ -10,9 +10,12 @@ const query = graphql`
     query {
         ciudad: file(relativePath: { eq: "careers/ciudad.jpg" }) {
             childImageSharp {
-                fluid(quality: 100, maxWidth: 2880) {
-                    ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 100
+                    placeholder: NONE
+                )
             }
         }
         living_in_ciudad: file(relativePath: { eq: "careers/living_in_ciudad.png" }) {

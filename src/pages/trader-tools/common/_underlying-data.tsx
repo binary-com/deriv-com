@@ -59,7 +59,7 @@ import {
     SILVERUSD,
     STEPINDICES,
     STOCKSHONGKONG50,
-    STOCKSGERMANY40,
+    STOCKSGERMANY30,
     STOCKSSWISS20,
     STOCKSUS500,
     STOCKSUSTECH100,
@@ -297,40 +297,6 @@ export const syntheticItemLists = [
         market: 'synthetic_indices',
         symbol: 'JD100',
     },
-    {
-        name: 'AUS200',
-        display_name: 'Australian Index',
-        icon: <img src={AUS200} alt="australia 200" />,
-        market: 'other',
-    },
-    {
-        name: 'Jump 25 Index',
-        display_name: 'Jump 25 Index',
-        icon: <img src={JUMP25NEW} alt="jump 25" />,
-        market: 'synthetic_indices',
-        symbol: 'JD25',
-    },
-    {
-        name: 'Jump 50 Index',
-        display_name: 'Jump 50 Index',
-        icon: <img src={JUMP50NEW} alt="jump 50" />,
-        market: 'synthetic_indices',
-        symbol: 'JD50',
-    },
-    {
-        name: 'Jump 75 Index',
-        display_name: 'Jump 75 Index',
-        icon: <img src={JUMP75NEW} alt="jump 75" />,
-        market: 'synthetic_indices',
-        symbol: 'JD75',
-    },
-    {
-        name: 'Jump 100 Index',
-        display_name: 'Jump 100 Index',
-        icon: <img src={JUMP100NEW} alt="jump 100" />,
-        market: 'synthetic_indices',
-        symbol: 'JD100',
-    },
 ]
 
 export const financialItemLists = [
@@ -353,12 +319,7 @@ export const financialItemLists = [
         display_name: 'Japanese Index',
         icon: <img src={JP225} alt="japan 225" />,
         market: 'other',
-    },
-    {
-        name: 'AUS200',
-        display_name: 'Australia 200',
-        icon: <img src={AUS200} alt="australia 200" />,
-        market: 'other',
+        symbol: 'OTC_N225',
     },
     {
         name: 'EUR50',
@@ -377,7 +338,7 @@ export const financialItemLists = [
     {
         name: 'GER30',
         display_name: 'German Index',
-        icon: <img src={STOCKSGERMANY40} alt="german 40" />,
+        icon: <img src={STOCKSGERMANY30} alt="german 30" />,
         market: 'other',
         symbol: 'OTC_GDAXI',
     },

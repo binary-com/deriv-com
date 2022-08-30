@@ -95,7 +95,7 @@ const BeSquareFooter = () => {
                         </TextWrapper>
                         <div>
                             <ButtonWrapper
-                                secondary="true"
+                                secondary
                                 to={besquare_signup_url}
                                 external
                                 target="_blank"
@@ -117,7 +117,7 @@ const BeSquareFooter = () => {
                             {social_media_content.map(({ alt, link_to, src }, index) => (
                                 <LocalizedLink
                                     key={index}
-                                    external="true"
+                                    external
                                     to={link_to}
                                     target="_blank"
                                     rel="noopener noreferrer"

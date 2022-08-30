@@ -146,7 +146,7 @@ const ResetPassword = () => {
                                 </StyledButton>
                                 <StyledButton
                                     id="dm-pass-reset-button"
-                                    secondary="true"
+                                    secondary
                                     disabled={isSubmitting}
                                     type="submit"
                                 >

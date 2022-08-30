@@ -424,15 +424,15 @@ const MarginCalculator = () => {
                         </Accordion>
                         <LinkWrapper height="auto">
                             <StyledLinkButton
-                                tertiary="true"
+                                tertiary
+                                external
                                 type="mt5"
-                                external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 {localize('Go to Deriv MT5 dashboard')}
                             </StyledLinkButton>
-                            <StyledLinkButton secondary="true" to="/trade-types/cfds/">
+                            <StyledLinkButton secondary to="/trade-types/cfds/">
                                 {localize('Learn more about margin')}
                             </StyledLinkButton>
                         </LinkWrapper>

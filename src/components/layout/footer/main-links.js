@@ -146,7 +146,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 <Link
                                     to="trading"
                                     type="smart_trader"
-                                    external="true"
+                                    external
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -160,7 +160,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 <LinkWrapper>
                                     <Link
                                         to={binary_bot_url}
-                                        external="true"
+                                        external
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -210,7 +210,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link
                                 to=""
                                 type="api"
-                                external="true"
+                                external
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -236,7 +236,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link
                                 to=""
                                 type="community"
-                                external="true"
+                                external
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -252,7 +252,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link
                                 to={deriv_status_page_url}
                                 target="_blank"
-                                external="true"
+                                external
                                 rel="noopener noreferrer"
                             >
                                 {<Localize translate_text="Status page" />}

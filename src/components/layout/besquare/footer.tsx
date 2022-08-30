@@ -70,9 +70,10 @@ const BeSquareFooter = () => {
                             line_height={['30px', '24px']}
                             margin={['-24px 49px 0 0']}
                         >
-                            <Header color="white" size="2rem">
+                            <Header weight="normal" color="white" size="2rem">
                                 Submit your application before 31 December 2022
                             </Header>
+
                             <Localize
                                 translate_text="<1>If you have any questions, email us at </1><2>info@besquare.my</2>"
                                 components={[

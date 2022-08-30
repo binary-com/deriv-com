@@ -149,7 +149,7 @@ const SignupFlat = ({
                         <EmailButton
                             id="dm-flat-signup"
                             type="submit"
-                            secondary="true"
+                            secondary
                             disabled={is_submitting}
                         >
                             {localize('Sign up')}

@@ -486,6 +486,7 @@ export const georgetown: LocationsType = {
     address: address_georgetown,
     google_map_link: 'https://goo.gl/maps/7ZjSzDqSEteSANqD8',
     has_iframe: true,
+    has_map: true,
 }
 
 export const jordan: LocationsType = {

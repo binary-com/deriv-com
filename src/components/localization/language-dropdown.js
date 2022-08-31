@@ -19,14 +19,15 @@ const Container = styled.div`
 const Display = styled.div`
     display: flex;
     align-items: center;
-    margin-right: 2.4rem;
+    margin-inline-end: 2.4rem;
     cursor: pointer;
 
     @media ${device.mobileL} {
-        margin-right: 0.4rem;
+        margin-inline-end: 0.4rem;
     }
     @media ${device.mobileM} {
-        margin: 0 0.2rem;
+        margin-block: 0;
+        margin-inline: 0.2rem;
     }
 `
 
@@ -45,7 +46,7 @@ const Arrow = styled(Chevron)`
 const Absolute = styled.div`
     position: absolute;
     z-index: -1;
-    top: ${(props) => {
+    inset-block-start: ${(props) => {
         if (props.is_high_nav) {
             return '4.8rem'
         } else if (props.security) {
@@ -54,8 +55,8 @@ const Absolute = styled.div`
             return '5.5rem'
         }
     }};
-    left: -22rem;
-    height: auto;
+    inset-inline-start: -22rem;
+    block-size: auto;
     background-color: var(--color-white);
     transition: opacity 0.35s ease-in-out;
     cursor: default;
@@ -64,8 +65,8 @@ const Absolute = styled.div`
     display: ${(props) => !props.is_open && 'none'};
 
     @media ${device.mobileL} {
-        top: ${(props) => (props.is_high_nav ? '7rem' : '9rem')};
-        left: 0;
+        inset-block-start: ${(props) => (props.is_high_nav ? '7rem' : '9rem')};
+        inset-inline-start: 0;
     }
 `
 /* stylelint-disable */
@@ -88,9 +89,10 @@ const FadeOutUp = keyframes`
 
 const ItemContainer = styled.div`
     background-color: var(--color-white);
-    padding: 1.6rem 0.8rem;
+    padding-block: 1.6rem;
+    padding-inline: 0.8rem;
     position: relative;
-    width: auto;
+    inline-size: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 2.4rem;
@@ -101,20 +103,19 @@ const ItemContainer = styled.div`
     animation-fill-mode: both;
     animation-duration: 0.3s;
     @media ${device.mobileL} {
-        width: 100vw;
+        inline-size: 100vw;
         border-radius: 0;
     }
 
     &::after {
         content: '';
         position: absolute;
-        width: 1px;
+        inline-size: 1px;
         background: var(--color-grey-8);
-        height: 80%;
-        top: 0;
-        left: 50%;
-        margin-top: 2.4rem;
-        margin-bottom: 2.4rem;
+        block-size: 80%;
+        inset-block-start: 0;
+        inset-inline-start: 50%;
+        margin-block: 2.4rem;
     }
 `
 
@@ -123,7 +124,8 @@ const Item = styled.div`
     align-items: center;
     pointer-events: ${(props) => (props.disabled ? 'none' : 'all')};
     cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
-    padding: 0.8rem 1.6rem;
+    padding-block: 0.8rem;
+    padding-inline: 1.6rem;
     transition: background 0.25s;
 
     &:hover {
@@ -141,13 +143,13 @@ const ResponsiveText = styled(Text)`
 /* stylelint-enable */
 
 const Icon = styled.img`
-    width: 24px;
-    height: 16px;
+    inline-size: 24px;
+    block-size: 16px;
     margin-bottom: 3px;
 
     @media ${device.mobileL} {
-        width: 20px;
-        height: 15px;
+        inline-size: 20px;
+        block-size: 15px;
     }
 `
 

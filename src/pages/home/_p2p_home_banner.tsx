@@ -7,7 +7,7 @@ import { LocalizedLink, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { p2p_playstore_url, p2p_applestore_url, p2p_huawei_appgallery_url } from 'common/constants'
-
+import i18next from 'components/localization/config'
 const query = graphql`
     query {
         p2p_home_banner: file(relativePath: { eq: "home/p2p_home_banner.png" }) {
@@ -37,27 +37,27 @@ const query = graphql`
     }
 `
 const BackgroundWrapper = styled.section`
-    width: 100%;
+    inline-size: 100%;
     background: #e6e9e9;
     position: relative;
-    height: 400px;
+    block-size: 400px;
 
     @media ${device.tabletL} {
-        width: 100%;
+        inline-size: 100%;
         background: #f2f3f4;
-        margin-bottom: 40px;
-        max-height: fit-content;
+        margin-block-end: 40px;
+        max-block-size: fit-content;
     }
     @media ${device.laptopM} {
-        width: 100%;
-        height: 100%;
-        min-height: 400px;
+        inline-size: 100%;
+        block-size: 100%;
+        min-block-size: 400px;
     }
 `
 const Wrapper = styled(Flex)`
     justify-content: space-between;
     background-color: transparent;
-    height: unset;
+    block-size: unset;
 
     @media ${device.tabletL} {
         flex-direction: column-reverse;
@@ -68,28 +68,27 @@ const Wrapper = styled(Flex)`
         justify-content: center;
     }
 `
-const ImgWrapper = styled.div`
-    height: 400px;
+const ImgWrapper = styled.div<{ is_rtl: boolean }>`
+    block-size: 400px;
+    transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'scaleX(1)')};
 
     .gatsby-image-wrapper {
-        width: 100%;
-        height: 100%;
+        inline-size: 100%;
+        block-size: 100%;
     }
     ${ImageWrapper} {
-        width: 100%;
-        height: 100%;
+        inline-size: 100%;
+        block-size: 100%;
     }
-
     @media ${device.mobileL} {
-        width: 100%;
-        min-height: 172px;
-        max-width: 750px;
-        height: 200px;
+        inline-size: 100%;
+        min-block-size: 172px;
+        max-inline-size: 750px;
+        block-size: 200px;
     }
-
     @media ${device.mobileM} {
-        margin-top: 32px;
-        height: 200px;
+        margin-block-start: 32px;
+        block-size: 200px;
     }
 `
 const InformationWrapper = styled(Flex)`
@@ -100,10 +99,10 @@ const InformationWrapper = styled(Flex)`
     padding: 0;
     gap: 24px;
     position: relative;
-    margin-right: 80px;
+    margin-inline-end: 80px;
 
     @media ${device.laptopL} {
-        margin-right: 30px;
+        margin-inline-end: 30px;
         gap: 0;
     }
 `
@@ -113,18 +112,18 @@ const ContentWrapper = styled(Flex)`
     align-items: flex-start;
     padding: 0;
     gap: 16px;
-    margin-top: 50px;
-    width: 428px;
-    height: 314px;
+    margin-block-start: 50px;
+    inline-size: 428px;
+    block-size: 314px;
 
     @media ${device.laptopM} {
-        width: 385px;
+        inline-size: 385px;
     }
 
     @media ${device.tabletL} {
-        height: fit-content;
+        block-size: fit-content;
         margin-top: 0;
-        padding-left: 16px;
+        padding-inline-start: 16px;
     }
 `
 const StyledHeaders = styled(Header)`
@@ -135,19 +134,19 @@ const StyledHeaders = styled(Header)`
     font-size: 32px;
     line-height: 40px;
     align-items: center;
-    max-width: 400px;
+    max-inline-size: 400px;
 
     @media ${device.laptopL} {
-        width: 100%;
+        inline-size: 100%;
         font-size: 32px;
         line-height: 40px;
     }
 
     @media ${device.tabletL} {
-        margin-top: 36px;
+        margin-block-start: 36px;
         font-size: 28px;
         line-height: 34px;
-        max-width: 41rem;
+        max-inline-size: 41rem;
         letter-spacing: 0.1rem;
     }
 
@@ -159,14 +158,14 @@ const StyledHeaders = styled(Header)`
 const HeroContent = styled(Flex)`
     flex-direction: column;
     justify-content: flex-start;
-    height: unset;
+    block-size: unset;
 
     @media ${device.tabletL} {
-        max-width: 42rem;
+        max-inline-size: 42rem;
     }
 
     ${Header} {
-        max-width: 400px;
+        max-inline-size: 400px;
         display: flex;
         font-style: normal;
         font-weight: 400;
@@ -184,8 +183,8 @@ const HeroContent = styled(Flex)`
     @media ${device.tabletL} {
         ${Header} {
             font-size: 20px;
-            max-width: 42rem;
-            width: 328px;
+            max-inline-size: 42rem;
+            inline-size: 328px;
         }
     }
 
@@ -198,7 +197,7 @@ const HeroContent = styled(Flex)`
 
     @media ${device.mobileS} {
         ${Header} {
-            max-width: 98%;
+            max-inline-size: 98%;
         }
     }
 `
@@ -209,16 +208,16 @@ const P2pLogoContainer = styled(Flex)`
     align-items: flex-start;
     padding: 0;
     gap: 4.8px;
-    width: 186.67px;
-    height: 24px;
+    inline-size: 186.67px;
+    block-size: 24px;
 
     @media ${device.tabletL} {
         display: inline-block;
-        height: 24px;
-        width: auto;
-        max-width: 42rem;
+        block-size: 24px;
+        inline-size: auto;
+        max-inline-size: 42rem;
         gap: 8px;
-        margin-top: 47px;
+        margin-block-start: 47px;
     }
 `
 const StyledButton = styled(LocalizedLink)`
@@ -228,22 +227,22 @@ const StyledButton = styled(LocalizedLink)`
     align-items: center;
     padding: 0;
     gap: 8px;
-    height: 30px;
+    block-size: 30px;
     border-radius: 4px;
     flex-grow: 0;
 
     @media ${device.tabletL} {
         justify-content: flex-start;
         gap: 6px;
-        width: 100%;
-        height: 24px;
-        max-width: 42rem;
-        margin-bottom: 0;
+        inline-size: 100%;
+        block-size: 24px;
+        max-inline-size: 42rem;
+        margin-block-end: 0;
     }
 `
 const LearnMore = styled(LocalizedLink)`
-    width: 120px;
-    height: 30px;
+    inline-size: 150px;
+    block-size: 30px;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -252,8 +251,8 @@ const LearnMore = styled(LocalizedLink)`
     text-decoration-color: transparent;
 
     @media ${device.tabletL} {
-        width: 100px;
-        height: 24px;
+        inline-size: 100px;
+        block-size: 24px;
         font-size: 16px;
         line-height: 24px;
     }
@@ -268,33 +267,33 @@ const QRCodeP2p = styled(Flex)`
     align-items: center;
     padding: 24px;
     gap: 8px;
-    width: 208px;
-    height: 256px;
+    inline-size: 208px;
+    block-size: 256px;
     background: #ffffff;
     border-radius: 8px;
-    margin-right: 60px;
-    margin-top: 61px;
+    margin-inline-end: 60px;
+    margin-block-start: 61px;
 
     @media ${device.laptopM} {
-        margin-right: 0;
-        height: 200px;
-        width: 162px;
+        margin-inline-end: 0;
+        block-size: 200px;
+        inline-size: 162px;
         padding: 0;
 
         .gatsby-image-wrapper {
-            max-width: 120px;
-            max-height: 120px;
+            max-inline-size: 120px;
+            max-block-size: 120px;
         }
     }
 
     .gatsby-image-wrapper {
-        width: 160px;
-        height: 160px;
+        inline-size: 160px;
+        block-size: 160px;
     }
 `
 const StyledLabel = styled(Flex)`
-    width: 175px;
-    height: 40px;
+    inline-size: 175px;
+    block-size: 40px;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -303,7 +302,7 @@ const StyledLabel = styled(Flex)`
     color: #333333;
 
     @media ${device.laptopM} {
-        min-width: 113px;
+        min-inline-size: 113px;
     }
 `
 const StyledBadge = styled(Flex)`
@@ -312,24 +311,24 @@ const StyledBadge = styled(Flex)`
     align-items: flex-start;
     padding: 0;
     gap: 32px;
-    margin-bottom: 36px;
+    margin-block-end: 36px;
 
     @media ${device.tabletL} {
-        margin-top: 36px;
-        margin-bottom: 60px;
+        margin-block-start: 36px;
+        margin-block-end: 60px;
         gap: 22px;
-        height: 96px;
-        width: 338px;
-        padding-left: 17px;
+        block-size: 96px;
+        inline-size: 338px;
+        padding-inline-start: 17px;
     }
 
     @media ${device.mobileM} {
-        margin-top: 38px;
-        margin-bottom: 34px;
+        margin-block-start: 38px;
+        margin-block-end: 34px;
         gap: 22px;
-        padding-left: 0;
-        width: 340px;
-        height: 96px;
+        padding-inline-start: 0;
+        inline-size: 340px;
+        block-size: 96px;
     }
 `
 const StyledTopBadge = styled(Flex)`
@@ -338,8 +337,8 @@ const StyledTopBadge = styled(Flex)`
     justify-content: flex-start;
     align-items: flex-start;
     padding: 0;
-    width: 100%;
-    height: 40px;
+    inline-size: 100%;
+    block-size: 40px;
 
     @media ${device.tabletL} {
         justify-content: center;
@@ -352,20 +351,21 @@ const StyledBottomBadge = styled(Flex)`
     align-items: flex-start;
     padding: 0;
     gap: 32px;
-    width: 328px;
-    height: 40px;
-    margin-top: 8px;
+    inline-size: 328px;
+    block-size: 40px;
+    margin-block-start: 8px;
 `
 const AppStoreTopBadge = styled(LocalizedLink)`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    padding-right: 15px;
+    padding-inline-end: 15px;
 
     @media ${device.tabletL} {
-        padding: 6px 8px;
-        height: 40px;
+        padding-block: 6px;
+        padding-inline: 8px;
+        block-size: 40px;
     }
 `
 const AppStoreBottomBadge = styled(LocalizedLink)`
@@ -373,20 +373,21 @@ const AppStoreBottomBadge = styled(LocalizedLink)`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 6px 8px;
+    padding-block: 6px;
+    padding-inline: 8px;
     gap: 8px;
-    width: 164px;
-    height: 40px;
+    inline-size: 164px;
+    block-size: 40px;
 `
 const P2PHomeBanner = () => {
     const data = useStaticQuery(query)
     const [is_tabletL] = useBrowserResize(size.tabletL)
     const background = is_tabletL ? data['p2p_mobile_banner'] : data['p2p_home_banner']
-
+    const is_rtl = i18next.dir(i18next.language) === 'rtl'
     return (
         <BackgroundWrapper>
             <Wrapper>
-                <ImgWrapper>
+                <ImgWrapper is_rtl={is_rtl}>
                     <QueryImage data={background} alt={'Deriv’s P2P mobile app'} />
                 </ImgWrapper>
                 <InformationWrapper height="unset" direction="column">

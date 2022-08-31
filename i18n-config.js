@@ -7,6 +7,11 @@ module.exports = {
         short_name: 'EN',
         affiliate_lang: 0,
     },
+    ar: {
+        path: 'ar',
+        display_name: 'Arabic',
+        short_name: 'AR',
+    },
     pt: {
         path: 'pt',
         display_name: 'Português',

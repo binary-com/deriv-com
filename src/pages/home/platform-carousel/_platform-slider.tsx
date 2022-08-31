@@ -10,10 +10,10 @@ import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const SelectedZone = styled(Flex)`
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     box-shadow: rgba(131, 131, 131, 0.15) 0 16px 20px, rgba(131, 131, 131, 0.15) 0 0 20px;
-    top: calc(50% - 152px / 2);
+    inset-block-start: calc(50% - 152px / 2);
     z-index: 4;
 `
 
@@ -44,24 +44,24 @@ const SelectedSlide = ({ selected_slide }: SelectedSlideProps) => {
 
 const Shadow = styled.div<{ location: 'start' | 'end' }>`
     position: absolute;
-    left: 0;
-    right: 0;
-    height: calc(50% - 152px / 2);
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    block-size: calc(50% - 152px / 2);
     z-index: 1;
     pointer-events: none;
     ${({ location }) => {
         if (location === 'start') {
             return css`
-                top: -0.5px;
+                inset-block-start: -0.5px;
                 background: linear-gradient(
-                    to top,
+                    to inset-block-start,
                     rgba(249, 251, 255, 0) 0%,
                     rgba(249, 251, 255, 1) 100%
                 );
             `
         } else {
             return css`
-                bottom: -0.5px;
+                inset-block-end: -0.5px;
                 background: linear-gradient(rgba(249, 251, 255, 0) 0%, rgba(249, 251, 255, 1) 100%);
             `
         }
@@ -69,8 +69,8 @@ const Shadow = styled.div<{ location: 'start' | 'end' }>`
 `
 
 const Scene = styled.div`
-    min-width: 100%;
-    height: 100%;
+    min-inline-size: 100%;
+    block-size: 100%;
     overflow: hidden;
 `
 
@@ -79,8 +79,8 @@ const Viewport = styled(Flex)`
 `
 
 const WheelContainer = styled.div`
-    height: 100px;
-    width: 96%;
+    block-size: 100px;
+    inline-size: 96%;
     perspective: 1000px;
     perspective-origin: 150%;
 `
@@ -90,14 +90,14 @@ const Slide = styled(Flex)<{ distance_center: number }>`
     align-items: center;
     cursor: pointer;
     backface-visibility: hidden;
-    margin-bottom: 40px;
+    margin-block-end: 40px;
 `
 
 const StyledFlex = styled(Flex)`
-    width: 600px;
+    inline-size: 600px;
 
     @media ${device.desktop} {
-        width: 384px;
+        inline-size: 384px;
     }
 `
 

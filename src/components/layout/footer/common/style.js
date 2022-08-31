@@ -6,45 +6,46 @@ import device from 'themes/device'
 
 export const DefaultFooter = styled.footer`
     background-color: var(--color-grey-25);
-    width: 100%;
-    margin: 0 auto;
+    inline-size: 100%;
+    margin-block: 0;
+    margin-inline: auto;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
-    margin-bottom: ${(props) => props.is_eu_country && '7.3rem'};
-    padding-bottom: 1.6rem;
+    margin-block-end: ${(props) => props.is_eu_country && '7.3rem'};
+    padding-block-end: 1.6rem;
 
     @media (max-width: 1090px) {
-        margin-bottom: ${(props) => props.is_eu_country && '9rem'};
+        margin-block-end: ${(props) => props.is_eu_country && '9rem'};
     }
     @media (max-width: 991px) {
-        margin-bottom: ${(props) => props.is_eu_country && '11rem'};
+        margin-block-end: ${(props) => props.is_eu_country && '11rem'};
     }
     @media (max-width: 826px) {
-        margin-bottom: ${(props) => props.is_eu_country && '12.2rem'};
+        margin-block-end: ${(props) => props.is_eu_country && '12.2rem'};
     }
     @media (max-width: 710px) {
-        margin-bottom: ${(props) => props.is_eu_country && '10.6rem'};
+        margin-block-end: ${(props) => props.is_eu_country && '10.6rem'};
     }
     @media (max-width: 538px) {
-        margin-bottom: ${(props) => props.is_eu_country && '13.8rem'};
+        margin-block-end: ${(props) => props.is_eu_country && '13.8rem'};
     }
 
     ${Container} {
         @media ${device.tabletL} {
-            width: 100%;
+            inline-size: 100%;
         }
     }
 
     @media ${device.mobileL} {
-        padding-bottom: 6rem;
+        padding-block-end: 6rem;
 
         @media ${device.tabletL} {
-            padding-bottom: 0;
+            padding-block-end: 0;
         }
     }
 `
 export const FooterGrid = styled(CssGrid)`
-    width: 100%;
+    inline-size: 100%;
     grid-template-columns: 2fr;
     grid-template-areas:
         'logo logo'
@@ -70,37 +71,42 @@ export const DerivLogoWrapper = styled.div`
     align-items: center;
     grid-area: logo;
     background: var(--color-grey-25);
-    padding: 4rem 0 2rem 0;
+    padding-block-start: 4rem;
+    padding-block-end: 2rem;
+    padding-inline: 0;
 
     @media ${device.tabletL} {
-        margin-left: 2rem;
+        margin-inline-start: 2rem;
     }
 `
 export const LinksWrapper = styled.div`
     grid-area: links;
     background: var(--color-grey-25);
-    padding: 0.8rem 0 2.4rem 0;
-    border-bottom: 1px solid var(--color-grey-26);
-    border-top: 2px solid var(--color-grey-26);
+    padding-block-start: 0.8rem;
+    padding-block-end: 2.4rem;
+    padding-inline: 0;
+    border-block-end: 1px solid var(--color-grey-26);
+    border-block-start: 2px solid var(--color-grey-26);
 
     @media ${device.tabletL} {
+        padding-inline: 0;
         padding: 0;
     }
 `
 
 export const LinksCol = styled(Flex)`
     flex-direction: column;
-    width: fit-content;
-    min-width: 100px;
-    margin-right: 40px;
+    inline-size: fit-content;
+    min-inline-size: 100px;
+    margin-inline-end: 40px;
 
     :last-child {
-        margin-right: 0;
+        margin-inline-end: 0;
     }
 
     @media (min-width: 993px) and (max-width: 1050px) {
-        min-width: 0;
-        max-width: 100px;
+        min-inline-size: 0;
+        max-inline-size: 100px;
     }
 `
 
@@ -117,11 +123,11 @@ export const AcademyWrapper = styled.div`
     color: var(--color-red-1);
     font-size: var(--text-size-xs);
     line-height: 1.5;
-    margin-top: 10px;
+    margin-block-start: 10px;
 `
 
 export const LinkWrapper = styled.div`
-    margin-top: 1.6rem;
+    margin-block-start: 1.6rem;
 
     @media ${device.laptopM} {
         ${Title} {
@@ -133,7 +139,7 @@ export const LinkWrapper = styled.div`
     }
 
     :nth-child(2) {
-        margin-top: 0.8rem;
+        margin-block-start: 0.8rem;
     }
 `
 export const DisclaimerWrapper = styled.div`
@@ -142,11 +148,13 @@ export const DisclaimerWrapper = styled.div`
 `
 export const DisclaimerParagraph = styled(Text)`
     font-size: var(--text-size-xs);
-    margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
+    margin-block-start: ${(props) => (props.no_margin ? '0' : '2rem')};
 
     @media ${device.tabletL} {
         width: 90%;
-        margin: 16px auto 0;
+        margin-block-start: 16px;
+        margin-block-end: 0;
+        margin-inline: 0;
         font-size: 12px;
         line-height: ${(props) => (props.line_height ? '21px' : '18px')};
     }
@@ -172,20 +180,26 @@ export const StaticAssetLink = styled(LocalizedLink)`
 `
 export const RiskWarning = styled.div`
     background-color: var(--color-grey-28);
-    border-left: 4px solid var(--color-grey-27);
-    padding: 1.6rem;
-    margin-top: 2rem;
+    border-inline-start: 4px solid var(--color-grey-27);
+    padding-inline: 1.6rem;
+    padding-block: 1.6rem;
+    margin-block-start: 2rem;
 
     @media ${device.tabletL} {
-        border-top: 2px solid var(--color-grey-27);
+        border-block-start: 2px solid var(--color-grey-27);
         border-left: none;
-        width: 90%;
-        margin: 24px 16px 0;
-        padding: 0 8px 16px;
+        inline-size: 90%;
+        margin-block-start: 24px;
+        margin-block-end: 0;
+        margin-inline: 16px;
+        padding-block-start: 0;
+        padding-block-end: 16px;
+        padding-inline: 8px;
 
         p {
-            padding: 0;
-            width: 100%;
+            padding-inline: 0;
+            padding-block: 0;
+            inline-size: 100%;
         }
     }
 `
@@ -207,13 +221,16 @@ export const CopyrightWrapper = styled(Flex)`
     p {
         font-size: var(--text-size-xs);
         line-height: 1.14;
-        padding: 2rem 0;
+        padding-block: 2rem;
+        padding-inline: 0;
     }
 
     @media ${device.tabletL} {
-        width: 90%;
-        margin: 0 auto;
-        padding: 2rem 0;
+        inline-size: 90%;
+        margin-block: 0;
+        margin-inline: auto;
+        padding-block: 2rem;
+        padding-inline: 0;
         justify-content: center;
 
         p {
@@ -228,28 +245,31 @@ export const EuLogoWrapper = styled(Flex)`
 export const SocialWrapper = styled.div`
     grid-area: social;
     background: var(--color-grey-25);
-    margin: 1.6rem 0;
+    margin-block: 1.6rem;
+    margin-inline: 0;
 
     img {
-        margin-left: 1.6rem;
+        margin-inline-start: 1.6rem;
     }
 
     @media ${device.tabletL} {
         display: flex;
         justify-content: center;
-        margin: 3rem 0 1rem;
+        margin-block-start: 3rem;
+        margin-block-end: 1rem;
+        margin-inline: 0;
 
         a:first-child {
             img {
-                margin-left: 0;
+                margin-inline-start: 0;
             }
         }
     }
 `
 
 export const StyledMgaLogo = styled.img`
-    margin-right: 2.4rem;
+    margin-inline-end: 2.4rem;
 `
 export const StyledLogo = styled.img`
-    width: 18.2rem;
+    inline-size: 18.2rem;
 `

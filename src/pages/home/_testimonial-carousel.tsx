@@ -7,6 +7,7 @@ import ArrowRight from 'images/svg/testimonials/arrow-right.svg'
 import ArrowLeftFade from 'images/svg/testimonials/arrow-left-fade.svg'
 import ArrowRightFade from 'images/svg/testimonials/arrow-right-fade.svg'
 import device from 'themes/device'
+import i18next from 'components/localization/config'
 
 const CarouselItem = styled(Flex)`
     overflow: hidden;
@@ -93,6 +94,15 @@ const renderNavigations = (
             })
         }
     }
+    const NextArrow =
+        i18next.dir(i18next.language) === 'rtl'
+            ? { normal: ArrowLeft, fade: ArrowLeftFade }
+            : { normal: ArrowRight, fade: ArrowRightFade }
+
+    const PrevArrow =
+        i18next.dir(i18next.language) === 'rtl'
+            ? { normal: ArrowRight, fade: ArrowRightFade }
+            : { normal: ArrowLeft, fade: ArrowLeftFade }
 
     if (is_carousel) {
         return (
@@ -107,12 +117,12 @@ const renderNavigations = (
                 }}
             >
                 <Arrows
-                    src={has_prev ? ArrowLeft : ArrowLeftFade}
+                    src={has_prev ? PrevArrow.normal : PrevArrow.fade}
                     onClick={previous}
                     alt="previous arrow"
                 />
                 <Arrows
-                    src={has_next ? ArrowRight : ArrowRightFade}
+                    src={has_next ? NextArrow.normal : NextArrow.fade}
                     onClick={next}
                     alt="next arrow"
                 />

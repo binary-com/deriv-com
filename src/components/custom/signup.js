@@ -18,27 +18,29 @@ import device from 'themes/device'
 import { useDerivWS } from 'store'
 
 const Form = styled.form`
-    height: 100%;
+    block-size: 100%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
 
     @media ${device.mobileL} {
-        width: 100%;
+        inline-size: 100%;
     }
 `
 const ResponseWrapper = styled.div`
     justify-content: center;
-    max-width: 33rem;
-    margin: 0 auto;
+    max-inline-size: 33rem;
+    margin-block: 0;
+    margin-inline: auto;
     flex-direction: column;
-    padding: 2rem 1rem;
+    padding-block: 2rem;
+    padding-inline: 1rem;
 `
 
 const EmailLink = styled(StyledLink)`
     display: table;
     font-size: 1.4rem;
-    margin-top: 1.8rem;
+    margin-block-start: 1.8rem;
     text-decoration: underline;
-    width: 100%;
+    inline-size: 100%;
     text-align: center;
 `
 

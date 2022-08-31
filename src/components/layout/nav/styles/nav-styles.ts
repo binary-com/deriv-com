@@ -37,18 +37,19 @@ export const CloseIcon = styled.img`
 
 export const Wrapper = styled(Container)<WrapperProps>`
     font-size: var(--text-size-s);
-    padding: 1.2rem 0;
+    padding-block: 1.2rem;
+    padding-inline: 0;
     justify-content: space-between;
-    height: 7.2rem;
+    block-size: 7.2rem;
     @media ${device.laptopL} {
-        width: ${({ width }) => width ?? '90%'};
+        inline-size: ${({ width }) => width ?? '90%'};
     }
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
     }
     @media ${device.mobileM} {
         ${({ offset_px_mobile }) =>
-            offset_px_mobile && `width: calc(100% - ${offset_px_mobile}px)`};
+            offset_px_mobile && `inline-size: calc(100% - ${offset_px_mobile}px)`};
     }
 `
 
@@ -69,9 +70,10 @@ export const MobileWrapper = styled.div<DesktopWrapperProps>`
 export const NavRight = styled.div<NavRightProps>`
     display: inline-flex;
     align-items: center;
-    text-align: right;
+    text-align: end;
     justify-content: center;
-    padding: 0;
+    padding-block: 0;
+    padding-inline: 0;
     opacity: ${({ mounted }) => (mounted ? '1' : '0')};
     transition: ${({ move, has_scrolled }) =>
         move ? 'all 0.25s' : has_scrolled ? 'all 0.25s' : 'none'};
@@ -89,8 +91,10 @@ export const NavRight = styled.div<NavRightProps>`
             } else {
                 if (ref_base && mounted) {
                     ref_base.style.opacity = 0
-                    const calculation = ref_base.offsetWidth + 2
-                    return `${calculation}px`
+                    // Disabled this just for RTL Test Link
+                    /* const calculation = ref_base.offsetWidth + 2 */
+                    /* return `${calculation}px` */
+                    return 0
                 }
                 return '300px'
             }
@@ -120,28 +124,28 @@ export const LogoLinkMobile = styled(LocalizedLink)`
     @media ${device.tabletL} {
         display: block;
         cursor: pointer;
-        margin-left: 2rem;
+        margin-inline-start: 2rem;
     }
     @media ${device.tabletS} {
-        margin-left: 0;
+        margin-inline-start: 0;
     }
 `
 
 export const LogoLink = styled(LocalizedLink)<LogoLinkProps>`
     text-decoration: none;
-    max-width: ${({ max_width }) => max_width || '16rem'};
-    width: 100%;
+    max-inline-size: ${({ max_width }) => max_width || '16rem'};
+    inline-size: 100%;
 
     @media ${device.tabletS} {
         & svg,
         .gatsby-image-wrapper {
-            width: 10rem;
+            inline-size: 10rem;
         }
     }
     @media ${device.mobileL} {
         & svg,
         .gatsby-image-wrapper {
-            width: 12rem;
+            inline-size: 12rem;
         }
     }
 `
@@ -157,14 +161,14 @@ export const NavLink = styled.li<NavLinkProps>`
     position: relative;
     align-items: center;
     text-align: center;
-    margin-right: 2.4rem;
+    margin-inline-end: 2.4rem;
 
     &:last-child {
-        margin-right: 0;
+        margin-inline-end: 0;
     }
 
     @media ${device.laptopM} {
-        margin-right: 1rem;
+        margin-inline-end: 1rem;
     }
 
     ${({ margin }) => margin && 'margin: 0 4rem;'}
@@ -188,21 +192,21 @@ export const NavLink = styled.li<NavLinkProps>`
         animation-fill-mode: forwards;
         content: ' ';
         position: absolute;
-        top: 40px;
-        left: 15px;
-        border-top: none;
-        border-right: 15px solid transparent;
-        border-left: 15px solid transparent;
-        border-bottom: 15px solid white;
+        inset-block-start: 40px;
+        inset-inline-start: 15px;
+        border-block-start: none;
+        border-inline-end: 15px solid transparent;
+        border-inline-start: 15px solid transparent;
+        border-block-end: 15px solid white;
     }
    `}
 `
 
 export const Line = styled.div`
-    width: 1px;
-    height: 28px;
-    margin-right: 8px;
-    margin-left: 8px;
+    inline-size: 1px;
+    block-size: 28px;
+    margin-inline-end: 8px;
+    margin-inline-start: 8px;
     background-color: var(--color-white);
 `
 
@@ -212,18 +216,18 @@ export const StyledLink = styled(LocalizedLink)`
 
 export const PartnerNavigationBarWrapper = styled.nav`
     background-color: var(--color-black);
-    height: 7.2rem;
-    width: 100%;
+    block-size: 7.2rem;
+    inline-size: 100%;
     position: relative;
     z-index: 1;
     @media ${device.tabletL} {
-        height: auto;
+        block-size: auto;
     }
 `
 
 export const PartnerWrapper = styled.div`
-    width: 100%;
+    inline-size: 100%;
     position: fixed;
-    top: 0;
+    inset-block-start: 0;
     z-index: 100;
 `

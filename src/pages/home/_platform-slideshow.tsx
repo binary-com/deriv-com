@@ -6,6 +6,7 @@ import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import i18next from 'components/localization/config'
 
 const ImagePlaceHolder = styled.div`
     width: 690px;
@@ -39,10 +40,11 @@ const query = graphql`
     }
 `
 
-const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
+const StyledImage = styled(QueryImage)<{ $is_hidden: boolean; is_rtl: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
     animation: fade 1s ease-in-out;
+    transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'scaleX(1)')};
 
     @media ${device.tabletL} {
         animation: unset;
@@ -139,12 +141,15 @@ type SlidesProps = {
 }
 
 const Slides = ({ images, active_index }: SlidesProps) => {
+    const is_rtl = i18next.dir(i18next.language) === 'rtl'
+
     return (
         <>
             {images?.map((slide, index) => {
                 const { key, image } = slide
                 return (
                     <StyledImage
+                        is_rtl={is_rtl}
                         key={key}
                         data={image}
                         alt="platform devices"

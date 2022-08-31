@@ -27,10 +27,11 @@ const Wrapper = styled.div`
     text-align: right;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding-inline: 0;
+    padding-block: 0;
 `
 const SignupButton = styled(Button)`
-    margin-left: 1.6rem;
+    margin-inline-start: 1.6rem;
     opacity: 0;
 `
 

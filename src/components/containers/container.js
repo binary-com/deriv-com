@@ -6,7 +6,8 @@ import device from 'themes/device'
 const responsiveStyles = generateResponsiveStyles(flexStyles)
 
 const Container = styled(Box)`
-    margin: 0 auto;
+    margin-block: 0;
+    margin-inline: auto;
     display: flex;
     align-items: ${(props) => (props.align || props.ai ? props.align || props.ai : 'center')};
     justify-content: ${(props) =>
@@ -14,24 +15,23 @@ const Container = styled(Box)`
     flex-direction: ${(props) =>
         props.direction || props.fd ? props.direction || props.fd : 'row'};
     flex-wrap: ${(props) => (props.wrap || props.fw ? props.wrap || props.fw : '')};
-    width: 80%;
+    inline-size: 80%;
 
     @media ${device.desktop} {
-        max-width: 1200px;
+        max-inline-size: 1200px;
     }
     @media ${device.laptopL} {
-        width: 84%;
+        inline-size: 84%;
     }
     @media ${device.laptopM} {
         flex-direction: ${(props) => props.laptop_direction};
     }
     @media ${device.desktopL} {
-        max-width: 1600px;
+        max-inline-size: 1600px;
     }
     @media ${device.tabletL} {
-        width: 90%;
-        padding-left: 0;
-        padding-right: 0;
+        inline-size: 90%;
+        padding-inline: 0;
         flex-direction: ${(props) => props.tablet_direction};
     }
 

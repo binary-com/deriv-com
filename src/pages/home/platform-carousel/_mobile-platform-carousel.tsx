@@ -9,8 +9,10 @@ import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
 
 const CarouselItemWrapper = styled.div`
-    width: 100%;
-    padding: 1.8rem 1.8rem 0;
+    inline-size: 100%;
+    padding-block-start: 1.8rem;
+    padding-inline: 1.8rem;
+    padding-block-end: 0;
 `
 
 const MobileImage = styled(QueryImage)`

@@ -9,8 +9,9 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledDesktopCarousel = styled(Flex)`
     @media ${device.desktopL} {
-        max-width: 1600px;
-        margin: 0 auto;
+        max-inline-size: 1600px;
+        margin-block: 0;
+        margin-inline: auto;
     }
 `
 

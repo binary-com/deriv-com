@@ -43,12 +43,12 @@ const baseStyles = ({
     width,
     height,
 }) => css`
-    min-width: ${min_width};
-    max-width: ${max_width};
-    min-height: ${min_height};
-    max-height: ${max_height};
-    width: ${width};
-    height: ${height};
+    min-inline-size: ${min_width};
+    max-inline-size: ${max_width};
+    min-block-size: ${min_height};
+    max-block-size: ${max_height};
+    inline-size: ${width};
+    block-size: ${height};
     ${Margins({ m, mt, ml, mr, mb })}
     ${Paddings({ p, pt, pl, pr, pb })}
 `
@@ -56,10 +56,10 @@ const baseStyles = ({
 const responsiveStyles = generateResponsiveStyles(baseStyles)
 
 const Box = styled.div`
-    width: ${(props) => (props.width ? props.width : '')};
-    height: ${(props) => (props.height ? props.height : '')};
-    min-height: ${(props) => (props.min_height ? props.min_height : '')};
-    max-width: ${(props) => (props.max_width ? props.max_width : '')};
+    inline-size: ${(props) => (props.width ? props.width : '')};
+    block-size: ${(props) => (props.height ? props.height : '')};
+    min-block-size: ${(props) => (props.min_height ? props.min_height : '')};
+    max-inline-size: ${(props) => (props.max_width ? props.max_width : '')};
     position: ${(props) => (props.position ? props.position : '')};
     background: ${(props) => (props.background || props.bg ? props.background || props.bg : '')};
     ${baseStyles}

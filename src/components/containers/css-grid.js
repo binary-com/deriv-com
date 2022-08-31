@@ -5,7 +5,7 @@ import device from 'themes/device'
 
 const CssGrid = styled(Box)`
     display: grid;
-    height: ${(props) => props.height || '100%'};
+    block-size: ${(props) => props.height || '100%'};
     margin: ${(props) => props.margin || '0'};
     grid-template-columns: ${(props) => props.columns || 'auto'};
     grid-gap: ${(props) => props.grid_gap || ''};
@@ -49,7 +49,7 @@ export const CssGridColumn = styled.div`
     align-self: ${(props) => props.align || 'stretch'};
     justify-self: ${(props) => props.justify || 'initial'};
     background-color: ${(props) => props.bgcolor || 'none'};
-    height: ${(props) => props.height || 'auto'};
+    block-size: ${(props) => props.height || 'auto'};
 `
 
 export default CssGrid

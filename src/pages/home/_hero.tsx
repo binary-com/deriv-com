@@ -41,39 +41,45 @@ const contents_ppc = [
 ]
 
 const HeroWrapper = styled.section`
-    width: 100%;
-    padding: calc(7rem + 80px) 0;
-    min-height: 915px;
+    inline-size: 100%;
+    padding-block: calc(7rem + 80px);
+    padding-inline: 0;
+    min-block-size: 915px;
     background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%);
     position: relative;
     @media ${device.tabletL} {
         flex-wrap: wrap;
         justify-content: flex-start;
-        padding: calc(7rem + 40px) 0 46px;
-        min-height: 846px;
+        padding-block-start: calc(7rem + 40px);
+        padding-block-end: 46px;
+        padding-inline: 0;
+        min-block-size: 846px;
     }
 `
 const HeroButton = styled(Button)`
-    padding: 17px 24px;
+    padding-block: 17px;
+    padding-inline: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: fit-content;
+    inline-size: fit-content;
 
     @media ${device.tabletL} {
-        margin: 0 auto;
+        margin-block: 0;
+        margin-inline: auto;
         font-size: 20px;
         line-height: 30px;
     }
     @media ${device.mobileS} {
         font-size: 18px;
-        padding: 12px 20px;
+        padding-block: 12px;
+        padding-inline: 20px;
     }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        margin-right: 8px;
-        width: unset;
+        margin-inline-end: 8px;
+        inline-size: unset;
     }
 `
 

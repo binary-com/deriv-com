@@ -25,12 +25,13 @@ type ButtonProps = React.HTMLProps<HTMLButtonElement> &
 
 export const SharedButtonStyle = css<ButtonProps>`
     border-radius: 4px;
-    padding: 10px 16px;
+    padding-block: 10px;
+    padding-inline: 16px;
     font-size: 14px;
     transition: all 0.25s;
     font-weight: bold;
-    height: fit-content;
-    width: ${(props) => props.width};
+    block-size: fit-content;
+    inline-size: ${(props) => props.width};
     ${(props) => {
         if (props.primary)
             return css`
@@ -94,8 +95,8 @@ export const SharedButtonStyle = css<ButtonProps>`
                     provider === 'google' ? '1px solid var(--color-grey-5);' : 'none'};
 
                 svg {
-                    width: 2.2rem;
-                    height: 2.2rem;
+                    inline-size: 2.2rem;
+                    block-size: 2.2rem;
                 }
 
                 &:hover {
@@ -118,7 +119,8 @@ export const SharedButtonStyle = css<ButtonProps>`
                 box-shadow: inset 0 var(--color-red);
                 color: var(--color-white);
                 background: var(--color-red);
-                padding: 17px 24px;
+                padding-block: 17px;
+                padding-inline: 24px;
                 font-size: 20px;
                 line-height: 30px;
                 border-radius: 8px;
@@ -129,7 +131,8 @@ export const SharedButtonStyle = css<ButtonProps>`
                 }
 
                 @media ${device.tabletL} {
-                    padding: 20px 24px !important;
+                    padding-block: 20px !important;
+                    padding-inline: 24px !important;
                     font-size: 16px !important;
                     line-height: 24px !important;
                 }
@@ -161,8 +164,8 @@ const Button = styled.button<ButtonProps>`
             `
         if (props.loading)
             return css`
-                width: 8rem;
-                height: 8rem;
+                inline-size: 8rem;
+                block-size: 8rem;
                 border: 10 px solid var(--color-black);
                 border-radius: 50%;
                 animation: sweep 1s linear alternate infinite, rotates 0.8s linear infinite;

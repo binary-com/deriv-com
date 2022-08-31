@@ -30,13 +30,16 @@ const query = graphql`
     }
 `
 const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
-    width: 100%;
-    padding: 80px 0;
+    inline-size: 100%;
+    padding-block: 80px;
+    padding-inline: 0;
     position: static;
     background-color: var(--color-white);
 
     @media ${device.tabletL} {
-        padding: 0 0 40px;
+        padding-block-start: 0;
+        padding-block-end: 40px;
+        padding-inline: 0;
     }
 `
 const Wrapper = styled.div`
@@ -46,14 +49,14 @@ const Wrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
-    min-height: 35.3rem;
+    min-block-size: 35.3rem;
     align-items: center;
-    width: 100%;
+    inline-size: 100%;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     border-bottom: 1px solid rgba(151, 151, 151, 0.2);
     @media (max-width: 991px) {
         flex-direction: column;
-        height: auto;
+        block-size: auto;
     }
 `
 const MobileWrapper = styled.div`
@@ -61,95 +64,98 @@ const MobileWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 600px;
+    inline-size: 100%;
+    max-inline-size: 600px;
 `
 const SignupFormWrapper = styled(Flex)`
-    width: 50%;
+    inline-size: 50%;
     align-items: center;
     @media ${device.tablet} {
         padding: 0 2rem;
     }
     @media ${device.mobileM} {
-        width: 100%;
+        inline-size: 100%;
 
         & > div {
-            width: 100%;
+            inline-size: 100%;
         }
     }
 `
 const MobileSignupFormWrapper = styled(Flex)`
-    width: 50%;
+    inline-size: 50%;
     align-items: center;
-    padding: 0 2rem;
+    padding-block: 0;
+    padding-inline: 2rem;
     @media (max-width: 991px) {
-        width: 100%;
+        inline-size: 100%;
         box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
         background: white;
-        padding-bottom: 30px;
+        padding-block-end: 30px;
         border-radius: 8px;
         position: relative;
-        top: -10px;
-        padding-left: 20px;
+        inset-block-start: -10px;
+        padding-inline-start: 20px;
 
         & > div {
-            width: auto;
+            inline-size: auto;
         }
     }
 `
 const BackgroundWrapper = styled(Flex)`
     position: relative;
-    min-height: 35.3rem;
-    height: 100%;
-    width: 50%;
+    min-block-size: 35.3rem;
+    block-size: 100%;
+    inline-size: 50%;
 
     @media screen and (max-width: 1040px) and (min-width: 992px) {
-        width: 47%;
-        margin-left: 3%;
+        inline-size: 47%;
+        margin-inline-start: 3%;
     }
 
     & > div {
         position: absolute;
-        bottom: -5px;
-        left: 0;
+        inset-block-end: -5px;
+        inset-inline-start: 0;
     }
 `
 const InputWrapper = styled.div`
-    width: 245px;
+    inline-size: 245px;
     line-height: 10px;
     font-weight: normal;
-    margin-right: 1rem;
+    margin-inline-end: 1rem;
     @media ${device.mobileL} {
-        width: unset;
-        max-width: 191px;
+        inline-size: unset;
+        max-inline-size: 191px;
     }
 `
 const InputGroup = styled.div`
     display: flex;
     flex-direction: row;
-    width: 100%;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
+    inline-size: 100%;
+    margin-block-start: 2.5rem;
+    margin-block-end: 1.5rem;
 `
 const EmailButton = styled(Button)`
-    margin-left: 1rem;
-    min-width: 125px;
-    height: 40px;
-    padding: 10px;
+    margin-inline-start: 1rem;
+    min-inline-size: 125px;
+    block-size: 40px;
+    padding-inline: 10px;
+    padding-block: 10px;
     border-radius: 4px;
     font-weight: normal;
     @media ${device.tabletL} {
-        padding: 10px 16px;
+        padding-block: 10px;
+        padding-inline: 16px;
         white-space: nowrap;
-        min-width: unset;
-        margin-left: 0;
-        height: 40px;
-        width: auto;
+        min-inline-size: unset;
+        margin-inline-start: 0;
+        block-size: 40px;
+        inline-size: auto;
     }
 `
 const SocialWrapper = styled(Flex)`
-    width: 100%;
-    margin-top: 4rem;
+    inline-size: 100%;
+    margin-block-start: 4rem;
     flex-wrap: wrap;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
@@ -164,7 +170,8 @@ const MobileSocialWrapper = styled(SocialWrapper)`
 const SocialButton = styled(Button)`
     display: flex;
     padding: 0;
-    margin: 0 1rem;
+    margin-block: 0;
+    margin-inline: 1rem;
     border: none;
 
     @media ${device.tabletL} {
@@ -172,26 +179,28 @@ const SocialButton = styled(Button)`
     }
 `
 const StyledHeader = styled(Header)`
-    width: ${(props) => props.width || '41.4rem'};
+    inline-size: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
     @media ${device.tablet} {
-        width: auto;
+        inline-size: auto;
     }
     @media (max-width: 991px) {
-        margin-top: 3rem;
+        margin-block-start: 3rem;
     }
     @media (max-width: 991px) {
-        max-width: 290px;
+        max-block-size: 290px;
     }
 `
 const StyledFormWrapper = styled.div`
     background: white;
-    max-width: 414px;
-    padding: 20px 20px 30px;
-    margin-left: 30px;
+    max-inline-size: 414px;
+    padding-block-start: 20px;
+    padding-inline: 20px;
+    padding-block-end: 30px;
+    padding-inline-start: 30px;
     border-radius: 8px;
     position: absolute;
-    bottom: -50px;
+    inset-block-end: -50px;
     box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
 
     h1 {
@@ -201,26 +210,26 @@ const StyledFormWrapper = styled.div`
     }
 
     @media (min-width: 1600px) {
-        min-width: 430px;
+        min-inline-size: 430px;
     }
 `
 const StyledHeaderText = styled(Text)`
-    width: ${(props) => props.width || '41.4rem'};
+    inline-size: ${(props) => props.width || '41.4rem'};
     @media ${device.tablet} {
-        width: auto;
+        inline-size: auto;
     }
     @media (max-width: 991px) {
-        margin-top: 1rem;
+        margin-block-start: 1rem;
         font-size: 2rem;
-        margin-bottom: 3rem;
+        margin-block-end: 3rem;
     }
 `
 const SignInText = styled(Text)`
     display: block;
-    width: auto;
-    margin-right: 2rem;
+    inline-size: auto;
+    margin-inline-end: 2rem;
     flex-basis: 100%;
-    margin-bottom: 10px;
+    margin-block-end: 10px;
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
@@ -228,15 +237,18 @@ const SignInText = styled(Text)`
     letter-spacing: normal;
     color: #333333;
     @media ${device.tabletL} {
-        width: 90px;
-        margin-right: 0;
+        inline-size: 90px;
+        margin-inline-end: 0;
     }
 `
 
 const MobileSignInText = styled(SignInText)`
     @media ${device.tabletL} {
-        width: unset;
-        margin: 0 auto 0.8rem 0.8rem;
+        inline-size: unset;
+        margin-block-start: 0;
+        margin-block-end: 0.8rem;
+        margin-inline-start: auto;
+        margin-inline-end: 0.8rem;
     }
 `
 const LinkFlex = styled(LinkText)`
@@ -251,7 +263,7 @@ const MobileBackground = styled.div`
     background-image: linear-gradient(73deg, #ff6444, #ff444f);
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;
+    inline-size: 100%;
     flex-direction: column;
     align-items: center;
     position: relative;
@@ -263,39 +275,42 @@ const DerivExperience = styled(LinkText)`
     display: flex;
     align-items: center;
     position: absolute;
-    top: 41%;
+    inset-block-start: 41%;
     transform: translateY(-50%) !important;
     z-index: 99;
-    right: 20px;
-    max-width: 310px;
+    inset-inline-end: 20px;
+    max-inline-size: 310px;
 
     &:hover {
         text-decoration: none;
     }
 
     @media ${device.mobileL} {
-        width: unset;
-        margin: 0 auto 0.8rem 0.8rem;
-        max-width: 230px;
+        inline-size: unset;
+        margin-block-start: 0;
+        margin-block-end: 0.8rem;
+        margin-inline-start: auto;
+        margin-inline-end: 0.8rem;
+        max-inline-size: 230px;
     }
 
     img {
         z-index: 10;
     }
     ${Header} {
-        max-width: 35rem;
+        max-inline-size: 35rem;
         z-index: 10;
         color: var(--color-white);
     }
 `
 const MobilePlatform = styled.div`
-    width: 100%;
-    max-width: 35.7rem;
+    inline-size: 100%;
+    max-inline-size: 35.7rem;
     z-index: 10;
 
     @media screen and (max-width: 991px) {
         img {
-            left: 20px !important;
+            inset-inline-start: 20px !important;
         }
     }
 `

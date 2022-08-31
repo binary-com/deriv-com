@@ -30,7 +30,8 @@ const NavigationBar = styled.ul`
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 0;
+    padding-inline: 0;
+    padding-block: 0;
     line-height: 1.2;
 
     @media (max-width: 1227px) {
@@ -53,7 +54,8 @@ const Tab = styled.span<TabProps>`
     white-space: nowrap;
 
     @media ${device.laptopM} {
-        padding: 0.5rem 0.8rem;
+        padding-block: 0.5rem;
+        padding-inline: 0.8rem;
     }
 `
 

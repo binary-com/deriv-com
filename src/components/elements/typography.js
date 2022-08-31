@@ -25,12 +25,12 @@ const baseStyles = ({
     width,
     height,
 }) => css`
-    min-width: ${min_width};
-    max-width: ${max_width};
-    min-height: ${min_height};
-    max-height: ${max_height};
-    width: ${width};
-    height: ${height};
+    min-inline-size: ${min_width};
+    max-inline-size: ${max_width};
+    min-block-size: ${min_height};
+    max-block-size: ${max_height};
+    inline-size: ${width};
+    block-size: ${height};
     text-align: ${align};
     line-height: ${lh};
     ${Margins({ m, mt, ml, mr, mb })}
@@ -52,17 +52,17 @@ export const BaseLink = css`
 `
 
 export const BaseElement = css`
-    text-align: ${(props) => props.align || 'left'};
+    text-align: ${(props) => props.align || 'start'};
     padding: ${(props) => props.padding || ''};
     color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-black-3)')};
     line-height: ${(props) => props.lh || '1.5'};
-    max-width: ${(props) => props.max_width || ''};
-    min-width: ${(props) => props.min_width || ''};
+    max-inline-size: ${(props) => props.max_width || ''};
+    min-inline-size: ${(props) => props.min_width || ''};
     ${Margins}
     ${Paddings}
 
     @media ${device.tablet} {
-        max-width: ${(props) => props.mobile_max_width || ''};
+        max-inline-size: ${(props) => props.mobile_max_width || ''};
     }
 `
 
@@ -73,7 +73,7 @@ export const Text = styled.p`
     ${BaseElement}
     font-weight: ${(props) => props.weight || 'normal'};
     font-size: ${(props) => props.size || '1.6rem'};
-    width: ${(props) => props.width || 'auto'};
+    inline-size: ${(props) => props.width || 'auto'};
 
     @media ${device.tabletL} {
         font-size: ${(props) => props.size || '16px'};

@@ -8,6 +8,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import i18next from 'components/localization/config'
 
 type TradeTypesProps = {
     image_url: string
@@ -138,7 +139,9 @@ const StyledSection = styled(SectionContainer)`
     max-width: 100%;
 
     @media ${device.tablet} {
-        padding: 40px 20px 80px;
+        padding-block-start: 40px;
+        padding-inline: 20px;
+        padding-block-end: 80px;
     }
 `
 
@@ -161,36 +164,42 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
         props.$visibility
             ? '0 0 24px rgba(0, 0, 0, 0.08), 0 24px 24px rgba(0, 0, 0, 0.08)'
             : 'inset 0 0 0 1px var(--color-grey-17)'};
-    padding: ${(props) => (props.$visibility ? '24px 12px 50px' : '24px 12px 32px')};
+    padding-block-start: ${(props) => (props.$visibility ? '24px' : '24px')};
+    padding-inline: 12px;
+    padding-block-end: ${(props) => (props.$visibility ? '50px' : '32px')};
     height: auto;
     background: var(--color-white);
     position: relative;
     flex-direction: column;
-    margin: 0 auto;
+    margin-block: 0;
+    margin-inline: auto;
     border-radius: 8px;
-    max-width: 100%;
+    max-inline-size: 100%;
     transition: all 0.4s ease-out;
     align-items: flex-start;
 
     @media ${device.tablet} {
-        max-width: 328px;
-        padding: 24px 32px 68px;
-        margin-bottom: 36px;
+        max-inline-size: 328px;
+        padding-block-start: 24px;
+        padding-inline: 32px;
+        padding-block-end: 68px;
+        margin-block-end: 36px;
     }
 
     @media ${device.mobileS} {
-        padding: 12px;
-        height: 424px;
+        padding-inline: 12px;
+        padding-block: 12px;
+        block-size: 424px;
     }
 `
 const ImageWrapper = styled(Flex)`
-    width: 360px;
-    height: 332px;
-    margin-bottom: 24px;
+    inline-size: 360px;
+    block-size: 332px;
+    margin-block-end: 24px;
 
     @media ${device.tablet} {
-        width: 100%;
-        height: auto;
+        inline-size: 100%;
+        block-size: auto;
     }
 `
 
@@ -209,14 +218,14 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
 
 const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     opacity: ${(props) => (props.$visibility ? '1' : '0')};
-    width: fit-content;
-    padding: 10px 16px;
+    inline-size: fit-content;
+    padding-block: 10px;
+    padding-inline: 16px;
     border-radius: 100px;
     background-color: var(--color-white);
     position: absolute;
-    bottom: -8%;
-    left: 50%;
-    transform: translate(-50%, -42%);
+    inset-block-end: -4%;
+    inset-inline-start: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -235,7 +244,7 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
         ${Text} {
             font-size: 14px;
             line-height: 20px;
-            margin-right: 8px;
+            margin-inline-start: 8px;
         }
     }
 `
@@ -286,21 +295,23 @@ const TradeTypes = (): React.ReactNode => {
             loop: false,
             align: 'start',
             containScroll: 'trimSnaps',
+            direction: i18next.dir(i18next.language),
         },
         view_port: {
-            height: is_not_big_screen ? '600px' : '660px',
+            blockSize: is_not_big_screen ? '600px' : '660px',
         },
         container_style: {
-            maxWidth: '100%',
-            margin: '0 auto',
-            height: is_not_big_screen ? '600px' : '660px',
+            maxInlineSize: '100%',
+            marginBlock: 0,
+            marginInline: 'auto',
+            blockSize: is_not_big_screen ? '600px' : '660px',
         },
         slide_style: {
-            width: '384px',
-            height: 'auto',
-            marginRight: '24px',
-            paddingTop: '24px',
-            paddingBottom: '48px',
+            inlineSize: '384px',
+            blockSize: 'auto',
+            marginInlineEnd: '24px',
+            paddingBlockStart: '24px',
+            paddingBlockEnd: '48px',
             position: 'relative',
         },
         last_slide_no_spacing: true,

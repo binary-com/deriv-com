@@ -15,7 +15,7 @@ import { localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import { DerivStore } from 'store'
 
-const Home = () => {
+const Home = (props) => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
     const { is_p2p_allowed_country } = React.useContext(DerivStore)

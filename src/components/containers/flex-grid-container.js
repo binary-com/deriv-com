@@ -8,16 +8,19 @@ const FlexGridContainer = styled(Container)`
     align-items: stretch;
     align-content: stretch;
     justify-content: ${(props) => (props.justify ? props.justify : 'space-between')};
-    width: 100%;
+    inline-size: 100%;
 
     & > * {
         flex-shrink: 0;
-        width: ${(props) => (props.content_width ? props.content_width : '48%')};
-        margin: ${(props) => (props.gap ? props.gap : '0 1.5rem')};
+        inline-size: ${(props) => (props.content_width ? props.content_width : '48%')};
+        margin-block: ${(props) => (props.gap ? props.gap : '0')};
+        margin-inline: ${(props) => (props.gap ? props.gap : '1.5rem')};
 
         @media ${device.tabletL} {
-            margin: ${(props) => (props.mobile_gap ? props.mobile_gap : '1.5rem 0')};
-            width: ${(props) => (props.mobile_content_width ? props.mobile_content_width : '48%')};
+            margin-block: ${(props) => (props.mobile_gap ? props.mobile_gap : '1.5rem')};
+            margin-inline: ${(props) => (props.mobile_gap ? props.mobile_gap : '0')};
+            inline-size: ${(props) =>
+                props.mobile_content_width ? props.mobile_content_width : '48%'};
         }
     }
 
@@ -26,12 +29,12 @@ const FlexGridContainer = styled(Container)`
         and the 3rd and 6th will have margin-right: 0;
     */
     & > :nth-child(${(props) => props.grid}n + 1) {
-        margin-left: 0;
+        margin-inline-start: 0;
     }
     /* stylelint-disable-next-line no-duplicate-selectors */
     & > :nth-child(${(props) => parseInt(props.grid) - 1}n + 1) {
         &:not(:first-child) {
-            margin-right: 0;
+            margin-inline-end: 0;
         }
     }
 `

@@ -15,30 +15,31 @@ type LogoSectionProps = {
 const Wrapper = styled.div`
     display: flex;
     align-items: center;
-    max-width: 30rem;
-    width: 100%;
+    max-inline-size: 30rem;
+    inline-size: 100%;
 `
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
-    max-width: 16rem;
-    width: 100%;
+    max-inline-size: 16rem;
+    inline-size: 100%;
     @media ${device.tabletS} {
         & svg,
         .gatsby-image-wrapper {
-            width: 10rem;
+            inline-size: 10rem;
         }
     }
     @media ${device.mobileL} {
         & svg,
         .gatsby-image-wrapper {
-            width: 12rem;
+            inline-size: 12rem;
         }
     }
 `
 const Line = styled.div`
-    width: 1px;
-    height: 28px;
-    margin: 0 8px;
+    inline-size: 1px;
+    block-size: 28px;
+    margin-block: 0;
+    margin-inline: 8px;
     background-color: var(--color-white);
 `
 

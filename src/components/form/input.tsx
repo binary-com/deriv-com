@@ -45,7 +45,7 @@ const RelativeWrapper = styled.div`
 `
 const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
-    width: 100%;
+    inline-size: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
     @media ${device.tabletL} {
@@ -88,17 +88,17 @@ const InputWrapper = styled.div<InputWrapperProps>`
 
 const StyledError = styled.img`
     position: absolute;
-    right: 0.8rem;
-    top: 1.2rem;
-    height: 1.6rem;
-    width: 1.6rem;
+    inset-inline-end: 0.8rem;
+    inset-block-start: 1.2rem;
+    block-size: 1.6rem;
+    inline-size: 1.6rem;
     cursor: pointer;
     @media ${device.tablet} {
-        right: 2rem;
-        top: 1.6rem;
+        inset-inline-end: 2rem;
+        inset-block-start: 1.6rem;
     }
     @media ${device.desktopL} {
-        top: 1rem;
+        inset-block-start: 1rem;
     }
 `
 
@@ -108,18 +108,20 @@ const StyledInput = styled.input<StyledInputProps>`
     color: ${({ inputColor }) =>
         inputColor ? `var(--color-${inputColor})` : 'var(--color-black)'};
     font-size: var(--text-size-s);
-    padding: 1rem 1rem 1rem 0.8rem;
-    height: ${(props) => props.height || '40px'};
-    width: 100%;
+    padding-block: 1rem;
+    padding-inline-start: 1rem;
+    padding-inline-end: 0.8rem;
+    block-size: ${(props) => props.height || '40px'};
+    inline-size: 100%;
     display: block;
     border: none;
     border-radius: 4px;
     @media ${device.tabletL} {
-        height: 100%;
+        block-size: 100%;
 
         & ~ label {
             font-size: 1.75rem;
-            top: 1.5rem;
+            inset-block-start: 1.5rem;
         }
     }
     @media ${device.mobileL} {
@@ -127,14 +129,14 @@ const StyledInput = styled.input<StyledInputProps>`
 
         & ~ label {
             font-size: 1.5rem;
-            top: 1.75rem;
+            inset-block-start: 1.75rem;
         }
     }
 
     &::placeholder {
         opacity: ${(props) => (props.showLabel ? 0 : 1)};
         transition: opacity 0.25s;
-        padding-left: 0.3rem;
+        padding-inline-start: 0.3rem;
     }
     &:focus {
         outline: none;
@@ -171,7 +173,7 @@ const StyledInput = styled.input<StyledInputProps>`
                         background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 
                     @media ${device.tabletL} {
-                        top: 9px;
+                        inset-block-start: 9px;
                     }
                 }
             `}
@@ -179,9 +181,9 @@ const StyledInput = styled.input<StyledInputProps>`
 `
 
 const ErrorMessages = styled(Text)`
-    padding-left: 0.8rem;
+    padding-inline-start: 0.8rem;
     font-size: 1.2rem;
-    min-height: 16px;
+    min-block-size: 16px;
 `
 
 const StyledLabel = styled.label<StyledLabelProps>`
@@ -190,11 +192,12 @@ const StyledLabel = styled.label<StyledLabelProps>`
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
-    left: 0.8rem;
-    top: 1.4rem;
+    inset-inline-start: 0.8rem;
+    inset-block-start: 1.4rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
-    padding: 0 0.4rem;
+    padding-block: 0;
+    padding-inline: 0.4rem;
     background: none;
 `
 

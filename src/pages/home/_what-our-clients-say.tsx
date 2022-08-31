@@ -11,8 +11,8 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledContainer = styled.div`
     background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
-    width: 100%;
-    height: fit-content;
+    inline-size: 100%;
+    block-size: fit-content;
 
     @media ${device.tabletL} {
         background: linear-gradient(76.48deg, #8aadc5 3.41%, #d3e0e9 64.21%);
@@ -22,41 +22,47 @@ const StyledContainer = styled.div`
 const ClientContainer = styled(Container)`
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    margin-block: 0;
+    margin-inline: auto;
 `
 
 const ClientFlex = styled(Flex)`
-    max-width: 1440px;
-    min-height: 100px;
-    padding: 80px 48px 65px 120px;
+    max-inline-size: 1440px;
+    min-block-size: 100px;
+    padding-block-start: 80px;
+    padding-inline-start: 48px;
+    padding-block-end: 65px;
+    padding-inline-end: 120px;
 
     @media ${device.laptopM} {
-        padding: 80px 48px;
+        padding-block: 80px;
+        padding-inline: 48px;
     }
     @media ${device.tabletL} {
-        padding: 40px 16px;
+        padding-block: 48px;
+        padding-inline: 16px;
     }
     @media ${device.tabletS} {
-        max-width: 100%;
+        max-inline-size: 100%;
     }
 `
 
 const ClientCard = styled(Flex)`
-    min-height: 231px;
+    min-block-size: 231px;
 
     .trustpilot-container {
-        margin-top: 54px;
+        margin-block-start: 54px;
     }
 
     @media ${device.tabletL} {
-        max-width: 588px;
-        min-height: auto;
+        max-inline-size: 588px;
+        min-block-size: auto;
     }
 
     @media ${device.tabletS} {
-        max-width: 100% !important;
+        max-inline-size: 100% !important;
     }
 `
 
@@ -67,29 +73,29 @@ const TrustPilotWidget = styled(Flex)`
     .trustpilot-widget {
         transform: scale(0.8);
         position: relative;
-        left: -20px;
-        top: -10px;
+        inset-inline-start: -20px;
+        inset-block-start: -10px;
     }
 `
 
 const QuoteIcon = styled.img`
     position: absolute;
-    width: 160px;
-    height: 128px;
-    top: -60px;
+    inline-size: 160px;
+    block-size: 128px;
+    inset-block-start: -60px;
 
     @media ${device.tabletL} {
-        top: 0;
-        width: 120px;
-        height: 96px;
+        inset-block-start: 0;
+        inline-size: 120px;
+        block-size: 96px;
     }
 `
 
 const ClientTestimonial = styled(Header)`
-    margin-bottom: 48px;
+    margin-block-end: 48px;
 
     @media ${device.tabletL} {
-        margin-bottom: 24px;
+        margin-block-end: 24px;
     }
 `
 

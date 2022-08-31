@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
 import flags from './flags'
@@ -7,6 +6,19 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
+
+type DropdownProps = {
+    default_option: {
+        path: string
+        short_name: string
+    }
+    onChange: (arg1: { target: { id: string } }) => void
+    option_list: { path: string; value: string; text: string }[]
+    is_high_nav?: boolean
+    is_security?: boolean
+}
+
+type AbsoluteProps = { is_high_nav?: boolean; is_security?: boolean; is_open?: boolean }
 
 const Container = styled.div`
     position: relative;
@@ -30,8 +42,8 @@ const Display = styled.div`
     }
 `
 
-const Arrow = styled((props) => <Chevron {...props} />)`
-    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+const Arrow = styled((props) => <Chevron {...props} />)<{ expanded: boolean }>`
+    ${({ expanded }) => (expanded ? 'transform: rotate(-180deg);' : '')}
     transition: transform 0.25s;
 
     & path {
@@ -42,13 +54,13 @@ const Arrow = styled((props) => <Chevron {...props} />)`
     }
 `
 
-const Absolute = styled.div`
+const Absolute = styled.div<AbsoluteProps>`
     position: absolute;
     z-index: -1;
     top: ${(props) => {
         if (props.is_high_nav) {
             return '4.8rem'
-        } else if (props.security) {
+        } else if (props.is_security) {
             return '10.5rem'
         } else {
             return '5.5rem'
@@ -61,10 +73,10 @@ const Absolute = styled.div`
     cursor: default;
     border-radius: 4px;
     will-change: opacity;
-    display: ${(props) => !props.is_open && 'none'};
+    display: ${({ is_open }) => !is_open && 'none'};
 
     @media ${device.mobileL} {
-        top: ${(props) => (props.is_high_nav ? '7rem' : '9rem')};
+        top: ${({ is_high_nav }) => (is_high_nav ? '7rem' : '9rem')};
         left: 0;
     }
 `
@@ -86,7 +98,7 @@ const FadeOutUp = keyframes`
     }
 `
 
-const ItemContainer = styled.div`
+const ItemContainer = styled.div<{ is_open: boolean }>`
     background-color: var(--color-white);
     padding: 1.6rem 0.8rem;
     position: relative;
@@ -97,7 +109,7 @@ const ItemContainer = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     will-change: opacity;
-    animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
+    animation-name: ${({ is_open }) => (is_open ? FadeInDown : FadeOutUp)};
     animation-fill-mode: both;
     animation-duration: 0.3s;
     @media ${device.mobileL} {
@@ -118,11 +130,11 @@ const ItemContainer = styled.div`
     }
 `
 
-const Item = styled.div`
+const Item = styled.div<{ disabled: boolean }>`
     display: flex;
     align-items: center;
-    pointer-events: ${(props) => (props.disabled ? 'none' : 'all')};
-    cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+    pointer-events: ${({ disabled }) => (disabled ? 'none' : 'all')};
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
     padding: 0.8rem 1.6rem;
     transition: background 0.25s;
 
@@ -151,7 +163,13 @@ const Icon = styled.img`
     }
 `
 
-const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security }) => {
+const Dropdown = ({
+    default_option,
+    onChange,
+    option_list,
+    is_high_nav,
+    is_security,
+}: DropdownProps) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
     useOutsideClick(dropdown_ref, () => setOpen(false))
@@ -177,10 +195,10 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
                     </ResponsiveText>
-                    <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
+                    <Arrow expanded={is_open ? true : false} />
                 </Display>
 
-                <Absolute is_high_nav={is_high_nav} is_open={is_open} security={security}>
+                <Absolute is_high_nav={is_high_nav} is_security={is_security} is_open={is_open}>
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             if (!option) return null
@@ -208,14 +226,6 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
             </Container>
         </>
     )
-}
-
-Dropdown.propTypes = {
-    default_option: PropTypes.object,
-    is_high_nav: PropTypes.bool,
-    onChange: PropTypes.func,
-    option_list: PropTypes.array,
-    security: PropTypes.bool,
 }
 
 export default Dropdown

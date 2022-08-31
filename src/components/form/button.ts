@@ -2,23 +2,21 @@ import styled, { css } from 'styled-components'
 import { Paddings, Margins, MarginsType, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
-type TrueOrFalse = boolean | 'true' | 'false'
-
 type SharedButtonStyleProps = {
     width?: string
     provider?: string
-    primary?: TrueOrFalse
-    secondary?: TrueOrFalse
-    tertiary?: TrueOrFalse
-    loading?: TrueOrFalse
-    tertiary_light?: TrueOrFalse
-    flat?: TrueOrFalse
-    social?: TrueOrFalse
-    white?: TrueOrFalse
-    hero?: TrueOrFalse
+    primary?: boolean
+    secondary?: boolean
+    tertiary?: boolean
+    loading?: boolean
+    tertiary_light?: boolean
+    flat?: boolean
+    social?: boolean
+    white?: boolean
+    hero?: boolean
 }
 
-type ButtonProps = React.HTMLProps<HTMLButtonElement> &
+export type ButtonProps = React.HTMLProps<HTMLButtonElement> &
     SharedButtonStyleProps &
     MarginsType &
     PaddingsType

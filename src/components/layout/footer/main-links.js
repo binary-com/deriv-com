@@ -258,9 +258,6 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 {<Localize translate_text="Status page" />}
                             </Link>
                         </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/academy/">{<Localize translate_text="Academy" />}</Link>
-                        </LinkWrapper>
                     </LinksCol>
                 </Flex>
             </Desktop>

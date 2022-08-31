@@ -10,7 +10,6 @@ import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Basket from 'images/svg/custom/basket-nav.svg'
-import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
 import Commodities from 'images/svg/custom/commodities-nav.svg'
@@ -512,12 +511,6 @@ export const OffCanvasMenuWrapper = (props) => {
                             <SpanSvg>
                                 <img src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>
-                        </StyledLink>
-                        <StyledLink to="/academy/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Blog} alt="" width="24" height="24" />
-                            </div>
-                            <Span>{<Localize translate_text="Academy" />}</Span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

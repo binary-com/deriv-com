@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
-import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
@@ -13,7 +12,6 @@ type WebsiteStatusType = {
 }
 
 export type DerivStoreType = {
-    academy_data: AcademyDataType
     is_eu_country: boolean
     is_p2p_allowed_country: boolean
     is_uk_country: boolean
@@ -33,7 +31,6 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
 
     const [show_non_eu_popup, setShowNonEuPopup] = useState(false)
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
-    const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_uk_country, setUkCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
@@ -67,7 +64,6 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     return (
         <DerivStore.Provider
             value={{
-                academy_data,
                 is_eu_country,
                 is_p2p_allowed_country,
                 is_uk_country,

@@ -9,7 +9,6 @@ import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
 import Basket from 'images/svg/custom/basket-nav.svg'
-import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
 import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
@@ -582,12 +581,6 @@ export const NavResources = ({ onClick }) => (
             title={<Localize translate_text="DMT5 Signals" />}
             onClick={onClick}
             to="/dmt5-trading-signals/#signal-subscriber/"
-        />
-        <CardLink
-            icon={() => <img src={Blog} alt="" width="24" height="24" />}
-            title={<Localize translate_text="Academy" />}
-            onClick={onClick}
-            to="/academy/"
         />
     </Flex>
 )

@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { closestMatch, distance } from 'closest-match'
 import useGTMData from '../hooks/use-gtm-data'
 import { LocationProvider } from './location-context'
-import NavAcademy from './nav/nav-academy'
 import NavStatic from './nav/nav-static'
 import Nav from './nav/nav'
 import NavTransparent from './nav/nav-transparent'
@@ -212,10 +211,6 @@ const Layout = ({
     let Navigation = <></>
     let FooterNav = <></>
     switch (type) {
-        case 'academy':
-            Navigation = <NavAcademy />
-            FooterNav = <Footer academy={true} />
-            break
         case 'static':
             Navigation = <NavStatic is_ppc={is_ppc} />
             break

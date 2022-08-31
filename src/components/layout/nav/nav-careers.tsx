@@ -178,7 +178,6 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                             <StyledLinkButton
                                 external="true"
                                 secondary
-                                target="_blank"
                                 rel="noopener noreferrer"
                                 ml="2.4rem"
                                 to={is_besquare ? besquare_signup_url : zoho_career_url}

@@ -50,14 +50,7 @@ const Hero = ({ display_name, img_data, img_alt }: HeroProps) => {
         <StyledBackground data={img_data} alt={img_alt}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
-                <LinkButton
-                    hero
-                    has_no_end_slash
-                    to={zoho_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    external
-                >
+                <LinkButton hero has_no_end_slash to={zoho_url} rel="noopener noreferrer" external>
                     View open positions in {display_name === 'Vanuatu' ? 'Port Vila' : display_name}
                 </LinkButton>
             </StyledContainer>

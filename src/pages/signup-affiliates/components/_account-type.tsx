@@ -7,11 +7,11 @@ import { localize, Localize } from 'components/localization'
 import { Header } from 'components/elements'
 
 type AccountTypeProps = {
-    updateData: (e) => void
+    updatedData: (e) => void
     cardSelected: number
     onValidate: (e) => void
 }
-const AccountType = ({ updateData, cardSelected, onValidate }: AccountTypeProps) => {
+const AccountType = ({ updatedData, cardSelected, onValidate }: AccountTypeProps) => {
     const MainWrapper = styled.div`
         display: flex;
         flex-direction: column;
@@ -52,7 +52,7 @@ const AccountType = ({ updateData, cardSelected, onValidate }: AccountTypeProps)
                         selected={selected_item === index}
                         onClick={() => {
                             setSelectedItem(index)
-                            updateData(index)
+                            updatedData(index)
                         }}
                     />
                 )

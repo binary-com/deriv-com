@@ -20,18 +20,38 @@ const AffiliateSignup = () => {
 
     const [affiliate_account, setAffiliateAccount] = useState({
         account_type: -1,
-        address_details: null,
+        address_details: {
+            country: '',
+            state: '',
+            city: '',
+            street: '',
+            postal_code: '',
+        },
         phone_number: null,
         personal_details: null,
         terms_use: null,
     })
 
-    const updateAffiliateValues = (value) => {
-        affiliate_account.account_type = value
-        setAffiliateAccount({
-            ...affiliate_account,
-            account_type: value,
-        })
+    const updateAffiliateValues = (value, type) => {
+        switch (type) {
+            case 'account-type':
+                setAffiliateAccount({ ...affiliate_account, account_type: value })
+                break
+
+            case 'account-details':
+                setNextBtnEnabled(false)
+                setAffiliateAccount({
+                    ...affiliate_account,
+                    address_details: {
+                        country: value.country,
+                        state: value.state,
+                        city: value.city,
+                        street: value.street,
+                        postal_code: value.postal_code,
+                    },
+                })
+                break
+        }
     }
 
     return (
@@ -44,12 +64,22 @@ const AffiliateSignup = () => {
                 >
                     <AccountType
                         cardSelected={affiliate_account.account_type}
-                        updateData={updateAffiliateValues}
+                        updatedData={(index) => {
+                            updateAffiliateValues(index, 'account-type')
+                        }}
                         onValidate={(valid) => {
                             setNextBtnEnabled(valid)
                         }}
                     />
-                    <AccountDetails />
+                    <AccountDetails
+                        affiliate_address_data={affiliate_account.address_details}
+                        updatedData={(value) => {
+                            updateAffiliateValues(value, 'account-details')
+                        }}
+                        onValidate={(valid) => {
+                            setNextBtnEnabled(valid)
+                        }}
+                    />
                     <PhoneNumber />
                     <AccountTerms />
                 </Wizard>

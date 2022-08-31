@@ -35,6 +35,15 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         background: var(--color-black);
     }
+    *[dir="rtl"] {
+        font-family: 'Noto Sans', 'cairo', sans-serif;
+    }   
+    
+    *[dir="ltr"] {
+        font-family: 'IBM Plex Sans', sans-serif;
+    }
+     
+    
 `
 
 export default GlobalStyle

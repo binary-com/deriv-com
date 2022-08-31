@@ -47,6 +47,7 @@ const DownloadLinkWrapper = styled.div<LinkType>`
     grid-gap: 8px;
     margin-top: ${(props) => (props.mt ? props.mt : '0')};
     margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
+
     @media ${device.tabletL} {
         grid-template-columns: 1fr 1fr;
     }
@@ -57,6 +58,7 @@ const DownloadLinkMobileWrapper = styled.div<LinkType>`
     margin-top: ${(props) => (props.mt ? props.mt : '0')};
     margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
     margin-right: ${(props) => (props.mr ? props.mr : '0')};
+
     @media ${device.tabletL} {
         margin-top: 8px;
         margin-right: 8px;
@@ -66,27 +68,19 @@ const Section = styled.section`
     display: flex;
     align-items: flex-start;
     background-color: var(--color-grey-25);
-    gap: 100px;
-    padding-left: 22rem;
+    padding: 0 15rem;
+    justify-content: center;
     width: 100%;
-    @media ${device.laptopL} {
-        padding-left: 8rem;
-        gap: 90px;
-    }
+
     @media ${device.laptopM} {
-        padding-left: 5rem;
         gap: 20px;
     }
-    @media ${device.desktopL} {
-        padding-left: 12rem;
-        gap: 20px;
-    }
+
     @media ${device.tabletL} {
         padding: 24px 0 0;
         flex-direction: column;
         height: auto;
         align-items: center;
-        gap: 0;
     }
 `
 const Separator = styled.div`
@@ -94,6 +88,7 @@ const Separator = styled.div`
     min-height: 312px;
     background-color: rgba(133, 147, 164, 0.16);
     margin-right: 10px;
+
     @media ${device.tabletL} {
         width: 100%;
         min-height: 1px;
@@ -104,8 +99,9 @@ const Separator = styled.div`
 
 const ImageWrapper = styled.div<ImageWrapperProps>`
     margin-top: 4rem;
-    max-width: 384px;
+    max-width: 38.4rem;
     position: relative;
+
     @media ${device.tabletL} {
         margin-top: 24px;
     }
@@ -114,6 +110,7 @@ const StyledInfo = styled.img`
     max-width: 24px;
     max-height: 24px;
     margin-top: 96px;
+
     @media ${device.tabletL} {
         max-width: 16px;
         max-height: 16px;
@@ -129,12 +126,14 @@ const StyledHeader = styled(Header)`
 const StyledFlex = styled(Flex)`
     justify-content: flex-start;
     flex-direction: column;
-    max-width: 32rem;
-    margin-right: 120px;
+    max-width: 27rem;
+    margin-right: 100px;
     height: auto;
+
     @media ${device.laptopL} {
         max-width: 25rem;
     }
+
     @media ${device.tabletL} {
         justify-content: center;
         text-align: center;
@@ -151,24 +150,50 @@ const StyledFlexMobile = styled(Flex)`
 const StyledFlexBottom = styled(Flex)`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    max-width: 38.4rem;
+
     @media ${device.tabletL} {
         padding: 0 160px;
         background: white;
+        align-items: center;
     }
+
     @media ${device.mobileL} {
         padding: 0 20px;
         background: white;
+        align-items: center;
     }
 `
 const StyledInfoContainer = styled(Flex)`
     display: flex;
     min-width: 32rem;
-    @media ${device.laptop} {
-        min-width: 20rem;
+    margin-right: 100px;
+
+    @media ${device.laptopL} {
+        margin-right: 0;
+    }
+
+    @media ${device.laptopM} {
+        margin-right: 0;
+        min-width: 22rem;
     }
 `
+const StyledHeaderContent = styled(Header)`
+    font-weight: normal;
+    width: 100%;
+    max-width: 30rem;
+    margin-left: 1.6rem;
+    font-size: var(--text-size-m);
+    margin-top: 96px;
 
+    @media ${device.tabletL} {
+        margin-left: 26px;
+        font-size: var(--text-size-m);
+        margin-right: 100px;
+        margin-top: 0;
+    }
+`
 const DownloadApp = () => {
     const data = useStaticQuery(query)
 
@@ -207,7 +232,7 @@ const DownloadApp = () => {
                             </LocalizedLink>
                             <LocalizedLink
                                 external="true"
-                                to={dmt5_macos_url}
+                                to={dmt5_mac_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -241,7 +266,7 @@ const DownloadApp = () => {
                             </LocalizedLink>
                             <LocalizedLink
                                 external="true"
-                                to={dmt5_mac_app_url}
+                                to={dmt5_macos_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -275,7 +300,7 @@ const DownloadApp = () => {
                             </LocalizedLink>
                             <LocalizedLink
                                 external="true"
-                                to={dmt5_mac_app_url}
+                                to={dmt5_macos_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -314,7 +339,7 @@ const DownloadApp = () => {
                             </LocalizedLink>
                             <LocalizedLink
                                 external="true"
-                                to={dmt5_macos_url}
+                                to={dmt5_mac_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -329,18 +354,12 @@ const DownloadApp = () => {
                     <Separator />
 
                     <StyledInfo src={MoreInfoDesktop} alt="more info" />
-                    <Header
-                        weight="normal"
-                        width="100%"
-                        ml="1.6rem"
-                        size="var(--text-size-m)"
-                        mt="96px"
-                    >
+                    <StyledHeaderContent>
                         <Localize
                             translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."
                             components={[<strong key={0} />]}
                         />
-                    </Header>
+                    </StyledHeaderContent>
                 </StyledInfoContainer>
             </Desktop>
             <StyledFlexBottom>
@@ -356,12 +375,12 @@ const DownloadApp = () => {
                     >
                         <StyledInfo src={MoreInfo} alt="more info" />
 
-                        <Header weight="normal" width="100%" ml="26px" size="var(--text-size-m)">
+                        <StyledHeaderContent>
                             <Localize
                                 translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."
                                 components={[<strong key={0} />]}
                             />
-                        </Header>
+                        </StyledHeaderContent>
                     </Flex>
                 </Mobile>
                 <ImageWrapper mt="4rem">

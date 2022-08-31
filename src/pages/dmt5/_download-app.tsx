@@ -67,13 +67,16 @@ const DownloadLinkMobileWrapper = styled.div<LinkType>`
 const Section = styled.section`
     display: flex;
     align-items: flex-start;
-    background-color: var(--color-grey-25);
     padding: 0 15rem;
     justify-content: center;
     width: 100%;
+    background-color: var(--color-grey-25);
 
     @media ${device.laptopM} {
         gap: 20px;
+    }
+    @media ${device.laptopL} {
+        padding: 0;
     }
 
     @media ${device.tabletL} {
@@ -81,6 +84,7 @@ const Section = styled.section`
         flex-direction: column;
         height: auto;
         align-items: center;
+        background-color: white;
     }
 `
 const Separator = styled.div`
@@ -121,6 +125,7 @@ const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 20px;
         text-align: center;
+        margin-top: 30px;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -129,6 +134,7 @@ const StyledFlex = styled(Flex)`
     max-width: 27rem;
     margin-right: 100px;
     height: auto;
+    background-color: var(--color-grey-25);
 
     @media ${device.laptopL} {
         max-width: 25rem;
@@ -157,12 +163,14 @@ const StyledFlexBottom = styled(Flex)`
         padding: 0 160px;
         background: white;
         align-items: center;
+        max-width: fit-content;
     }
 
     @media ${device.mobileL} {
         padding: 0 20px;
         background: white;
         align-items: center;
+        max-width: fit-content;
     }
 `
 const StyledInfoContainer = styled(Flex)`
@@ -184,13 +192,13 @@ const StyledHeaderContent = styled(Header)`
     width: 100%;
     max-width: 30rem;
     margin-left: 1.6rem;
-    font-size: var(--text-size-m);
+    font-size: 24px;
     margin-top: 96px;
 
     @media ${device.tabletL} {
         margin-left: 26px;
-        font-size: var(--text-size-m);
-        margin-right: 100px;
+        font-size: 18px;
+        max-width: 33rem;
         margin-top: 0;
     }
 `

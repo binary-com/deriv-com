@@ -253,7 +253,7 @@ const Hero = () => {
                     </Desktop>
 
                     <Mobile>
-                        <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
+                        <ButtonDerivP2P secondary onClick={handleExternalLink}>
                             {localize('Try Deriv P2P now')}
                         </ButtonDerivP2P>
                     </Mobile>
@@ -267,7 +267,7 @@ const Hero = () => {
                             laptopM={{ m: '7px 8px 48px' }}
                         >
                             <AppButton
-                                external="true"
+                                external
                                 to={p2p_applestore_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -275,7 +275,7 @@ const Hero = () => {
                                 <QueryImage data={data['app_store']} alt="app store logo" />
                             </AppButton>
                             <AppButton
-                                external="true"
+                                external
                                 to={p2p_playstore_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -284,7 +284,7 @@ const Hero = () => {
                             </AppButton>
 
                             <AppButton
-                                external="true"
+                                external
                                 to={p2p_huawei_appgallery_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -292,7 +292,7 @@ const Hero = () => {
                                 <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
                             </AppButton>
                             <AppButton
-                                external="true"
+                                external
                                 to={deriv_dp2p_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"

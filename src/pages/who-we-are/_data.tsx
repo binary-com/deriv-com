@@ -313,7 +313,7 @@ type DerivNumbersType = {
 }
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: <Localize translate_text="850+" />, title: <Localize translate_text="employees" /> },
+    { count: <Localize translate_text="1000+" />, title: <Localize translate_text="employees" /> },
     {
         count: <Localize translate_text="50+" />,
         title: <Localize translate_text="nationalities" />,

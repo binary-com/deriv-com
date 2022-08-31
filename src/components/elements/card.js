@@ -303,10 +303,12 @@ const ResponsiveText = styled(Text)`
 `
 
 const FlexHover = styled(Flex)`
-    padding: 0.8rem 1.6rem;
+    padding-block: 0.8rem;
+    padding-inline: 1.6rem;
     cursor: pointer;
     @media ${device.mobileL} {
-        padding: 0;
+        padding-block: 0;
+        padding-inline: 0;
     }
 
     &:hover {
@@ -324,13 +326,13 @@ const FlexHover = styled(Flex)`
 const SvgWrapper = styled.div`
     & > svg,
     img {
-        width: 32px;
-        height: 32px;
-        margin-right: 1.6rem;
+        inline-size: 32px;
+        block-size: 32px;
+        margin-inline-end: 1.6rem;
 
         @media ${device.mobileL} {
-            width: 24px;
-            height: 24px;
+            inline-size: 24px;
+            block-size: 24px;
         }
     }
 `
@@ -402,9 +404,9 @@ const HoverFlex = styled(Flex)`
 const IconRightWrapper = styled.div`
     & > svg,
     img {
-        height: 24px;
-        width: 24px;
-        margin-right: 1.6rem;
+        block-size: 24px;
+        inline-size: 24px;
+        margin-inline-end: 1.6rem;
     }
 `
 
@@ -427,7 +429,15 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
             external={external}
             {...props}
         >
-            <HoverFlex p="1rem 1.6rem" jc="flex-start" direction="row" tablet_direction="row">
+            <HoverFlex
+                pt="1rem"
+                pb="1rem"
+                pl="1.6rem"
+                pr="1.6rem"
+                jc="flex-start"
+                direction="row"
+                tablet_direction="row"
+            >
                 <RelativeFlex ai="center" jc="flex-start">
                     {Icon && (
                         <IconRightWrapper>

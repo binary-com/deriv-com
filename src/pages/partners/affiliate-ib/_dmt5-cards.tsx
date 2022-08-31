@@ -322,7 +322,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                     id="dm-become-affiliate-signup"
                                     secondary
                                     to={affiliate_signup_url}
-                                    external="true"
+                                    external
                                     target="_blank"
                                     type="affiliate_sign_up"
                                 >

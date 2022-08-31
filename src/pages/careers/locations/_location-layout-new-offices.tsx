@@ -56,7 +56,6 @@ const Hero = ({ display_name, img_data, img_alt }: HeroProps) => {
                     to={zoho_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    external
                 >
                     View open positions in {display_name === 'Vanuatu' ? 'Port Vila' : display_name}
                 </LinkButton>

@@ -323,14 +323,12 @@ const Subscribe = () => {
                                 input_background="grey-8"
                                 label_focus_color="grey-7"
                                 label_color="black-3"
-                                labelSize="16px"
-                                labelTop="1.2rem"
                                 placeholder={'Your name'}
                                 handleError={clearName}
                                 onChange={handleInputNameChange}
                                 autoComplete="off"
                                 border="unset"
-                                maxLength="70"
+                                maxLength={70}
                                 height="40px"
                                 focus_border="var(--color-grey-7)"
                             />
@@ -345,8 +343,6 @@ const Subscribe = () => {
                                 input_background="grey-8"
                                 label_focus_color="grey-7"
                                 label_color="black-3"
-                                labelSize="16px"
-                                labelTop="1.2rem"
                                 placeholder={'Your email address'}
                                 handleError={clearEmail}
                                 onChange={handleInputChange}
@@ -354,21 +350,21 @@ const Subscribe = () => {
                                 required
                                 border="unset"
                                 height="40px"
-                                maxLength="254"
+                                maxLength={254}
                                 focus_border="var(--color-grey-7)"
                             />
                         </InputWrapper>
                         <EmailButton
                             id="gtm-signup-email"
                             type="submit"
-                            secondary="true"
-                            disabled={
+                            secondary
+                            disabled={Boolean(
                                 is_submitting ||
-                                email_error_msg ||
-                                !email ||
-                                name_error_msg ||
-                                !name
-                            }
+                                    email_error_msg ||
+                                    !email ||
+                                    name_error_msg ||
+                                    !name,
+                            )}
                         >
                             {localize('Subscribe')}
                         </EmailButton>
@@ -389,7 +385,7 @@ const Subscribe = () => {
                                         <LocalizedLinkText
                                             key={0}
                                             type="tnc/security-and-privacy.pdf"
-                                            external="true"
+                                            external
                                             rel="noopener noreferrer"
                                             size="14px"
                                             color="red"

@@ -49,7 +49,7 @@ const WhoCanOpenAnAccount = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/tnc/general-terms.pdf'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -57,7 +57,7 @@ const WhoCanOpenAnAccount = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/contact_us/?is_livechat'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={1}
@@ -78,7 +78,7 @@ const ChangingPersonalDetails = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={`${deriv_app_url}/account/personal-details`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -86,7 +86,7 @@ const ChangingPersonalDetails = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/contact_us/?is_livechat'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={1}
@@ -135,7 +135,7 @@ const ChangeAccountCurrency = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/contact_us/?is_livechat'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -197,7 +197,7 @@ const ChangeAccountCurrency = ({ text }: ArticleProps) => (
                             <StyledLink
                                 to={'/contact_us/?is_livechat'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -232,7 +232,7 @@ const RecoveringPassword = ({ text }: ArticleProps) => (
                             <StyledLink
                                 to={'/reset-password'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -240,7 +240,7 @@ const RecoveringPassword = ({ text }: ArticleProps) => (
                             <StyledLink
                                 to={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={1}
@@ -284,7 +284,7 @@ const CloseAccount = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={`${deriv_app_url}/account/deactivate-account`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -305,7 +305,7 @@ const UnsubscribeEmail = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={`${deriv_app_url}/account/personal-details`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -327,7 +327,7 @@ const DormantFee = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/tnc/general-terms.pdf'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -348,7 +348,7 @@ const ChangeMyEmailAddress = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/contact_us/?is_livechat'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -369,7 +369,7 @@ const OpenACorporateOrBusinessAccount = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/contact_us/?is_livechat'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -435,7 +435,7 @@ const PayTaxesOnMyTradesProfits = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={`${deriv_app_url}/reports/profit`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -456,7 +456,7 @@ const CreateAnAPIToken = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={`${deriv_app_url}/account/api-token`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -478,7 +478,7 @@ const OpenMoreThanOneDerivAccount = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/tnc/general-terms.pdf'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -499,7 +499,7 @@ const SelfExclusionLimitsOnMyAccount = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={`${deriv_app_url}/account/self-exclusion`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -520,7 +520,7 @@ const RemoveSelfExclusionLimits = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/contact_us/?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -535,7 +535,7 @@ const RemoveSelfExclusionLimits = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/contact_us/?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -543,7 +543,7 @@ const RemoveSelfExclusionLimits = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={`${deriv_app_url}/account/self-exclusion`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -564,7 +564,7 @@ const ReactivateMyDerivAccount = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/contact_us/?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -572,7 +572,7 @@ const ReactivateMyDerivAccount = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -603,7 +603,7 @@ const HowDoIVerifyMyAccount = ({ text }: ArticleProps) => (
                             <StyledLink
                                 to={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -620,7 +620,7 @@ const HowDoIVerifyMyAccount = ({ text }: ArticleProps) => (
                             <StyledLink
                                 to={`${deriv_app_url}/account/personal-details`}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -722,7 +722,7 @@ const HowLongDoesVerificationTake = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={`${deriv_app_url}/account/proof-of-identity`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -737,7 +737,7 @@ const HowLongDoesVerificationTake = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={`${deriv_app_url}/account/proof-of-address`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -758,7 +758,7 @@ const WhyWereMyDocumentsDeclined = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/contact_us/?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}

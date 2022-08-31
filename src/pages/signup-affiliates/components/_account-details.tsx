@@ -68,11 +68,11 @@ const AccountDetails = ({
     const [city, setCity] = useState(affiliate_address_data.city)
     const [street, setStreet] = useState(affiliate_address_data.street)
     const [postal_code, setPostCode] = useState(affiliate_address_data.postal_code)
-    const [country_error_msg, setCountryErrorMsg] = React.useState('')
-    const [state_error_msg, setStateErrorMsg] = React.useState('')
-    const [city_error_msg, setCityErrorMsg] = React.useState('')
-    const [street_error_msg, setStreetErrorMsg] = React.useState('')
-    const [postcode_error_msg, setPostCodeErrorMsg] = React.useState('')
+    const [country_error_msg, setCountryErrorMsg] = useState('')
+    const [state_error_msg, setStateErrorMsg] = useState('')
+    const [city_error_msg, setCityErrorMsg] = useState('')
+    const [street_error_msg, setStreetErrorMsg] = useState('')
+    const [postcode_error_msg, setPostCodeErrorMsg] = useState('')
 
     const { send } = useDerivWS()
 

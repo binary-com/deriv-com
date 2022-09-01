@@ -29,7 +29,7 @@ const Forex = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/what-is-forex-live-trading/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -55,7 +55,7 @@ const Commodities = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/what-are-commodities/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -81,7 +81,7 @@ const StockIndices = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/what-are-stocks-how-and-where-to-trade-them/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -107,7 +107,7 @@ const SyntheticIndices = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/tnc/general-terms.pdf'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -122,7 +122,7 @@ const SyntheticIndices = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -148,7 +148,7 @@ const CFD = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/what-is-cfd-trading/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -180,7 +180,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/dmt5/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -188,7 +188,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/derivx/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={1}
@@ -196,7 +196,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/dtrader/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={2}
@@ -204,7 +204,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/dbot/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={3}
@@ -212,7 +212,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'https://smarttrader.deriv.com/en/trading.html'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={4}
@@ -220,7 +220,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'https://bot.deriv.com/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={5}
@@ -251,7 +251,7 @@ const AutomateTradingStrategy = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/dbot/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -259,7 +259,7 @@ const AutomateTradingStrategy = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'https://bot.deriv.com/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={1}
@@ -274,7 +274,7 @@ const AutomateTradingStrategy = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/automated-trading-what-you-need-to-know/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -294,14 +294,14 @@ const TradingLimits = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={`${deriv_app_url}/account/account-limits`}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
                     />,
                     <ExternalLink
                         to={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}

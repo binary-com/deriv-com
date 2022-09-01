@@ -6,6 +6,7 @@ const Description = () => (
     <SectionContainer color={'white'} padding={'0'}>
         <Container>
             <TextWrapper
+                margin-top={'40px'}
                 max_width={['996px', '700px', '360px']}
                 font_size={['24px', '18px']}
                 line_height={['36px', '22px']}

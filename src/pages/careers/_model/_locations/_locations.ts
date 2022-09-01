@@ -1,6 +1,7 @@
 import {
     address_cyberjaya,
     address_dubai,
+    address_ciudad,
     address_asuncion,
     address_labuan,
     address_georgetown,
@@ -173,6 +174,8 @@ export const asuncion: LocationsType = {
     first_p: `Deriv (Asunción) supports the Latin American market with Marketing, Customer Support, Accounts & Payments, and Back-end teams. The teams are constantly working on activities best suited for brand awareness, empowering customers with solutions, taking care of accounting responsibilities, and strengthening our IT infrastructure.`,
     first_img: 'living_in_asuncion',
     first_img_alt: 'Taxi and bikes parked nearby road',
+    badge: 'asuncion_great_place_to_work_badge',
+    badge_alt: 'Asuncion Great Place To Work Badge',
     grid_images: ['asuncion_grid_1', 'asuncion_grid_2', 'asuncion_grid_3', 'asuncion_grid_4'],
     grid_img_alt: [
         'Man teaching a group of people',
@@ -547,6 +550,38 @@ export const singapore: LocationsType = {
     has_map: false,
 }
 
+export const ciudad: LocationsType = {
+    name: 'ciudad',
+    continent: 'latam',
+    display_continent: 'Latam',
+    link: '/careers/locations/ciudad/',
+    display_name: 'Ciudad del Este',
+    img_alt: 'Paraguay office at Ciudad del Este',
+    map_office_name: '(Ciudad del Este)',
+    country: 'Paraguay',
+    flagIcon: ParaguayFlagIcon,
+    thumbnail: 'thumbnail_ciudad',
+    address: address_ciudad,
+    first_p:
+        'Our second office in Paraguay is to open in the border city of Ciudad del Este. Located in the World Trade Center, this office will tap into the local talent pool to build Marketing and Customer Support teams to cater to the growing market demands in South America. ',
+    first_img: 'living_in_ciudad',
+    first_img_alt: 'Deriv’s Ciudad del Este office in Paraguay',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
+    grid_img_alt: [
+        'guernsey grid 1',
+        'guernsey grid 2',
+        'Deriv’s Ciudad del Este office location',
+        'guernsey grid 4',
+    ],
+    map: 'ChIJ8wOKkS-F9pQRIdgDbSjs_6A',
+    map_text:
+        'As Deriv’s popularity grows rapidly with LATAM traders, the Customer Support and Marketing teams based at our office in Ciudad del Este will have increasing opportunities to showcase their talent. Join this office if you have a passion for assisting customers and affiliates, planning and executing marketing campaigns, and creating an engaging brand image.',
+    map_img: 'ciudad_map',
+    google_map_link: 'https://goo.gl/maps/pmQU7QwfoY6YSR5LA',
+    has_map: true,
+    has_iframe: true,
+}
+
 export const all_offices: LocationsType[] = [
     paris,
     malta,
@@ -565,6 +600,7 @@ export const all_offices: LocationsType[] = [
     rwanda,
     asuncion,
     georgetown,
+    ciudad,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
@@ -572,6 +608,7 @@ export const locations = {
     malta: `${malta.display_name}`,
     dubai: `${dubai.display_name}, ${dubai.country}`,
     labuan: `${labuan.display_name}, ${labuan.country}`,
+    ciudad: `${ciudad.display_name}, ${ciudad.country}`,
     asuncion: `${asuncion.display_name}, ${asuncion.country}`,
     melaka: `${melaka.display_name}, ${melaka.country}`,
     ipoh: `${ipoh.display_name}, ${ipoh.country}`,

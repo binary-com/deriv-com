@@ -315,7 +315,7 @@ const SearchPage = () => {
                 )}
 
                 {full_article_link && !items_type && total_article > 4 && (
-                    <AllArticleButton tertiary="true" to={full_article_link}>
+                    <AllArticleButton tertiary to={full_article_link}>
                         All article results
                     </AllArticleButton>
                 )}
@@ -352,7 +352,7 @@ const SearchPage = () => {
                 )}
 
                 {full_video_link && !items_type && total_video > 1 && (
-                    <AllArticleButton tertiary="true" to={full_video_link}>
+                    <AllArticleButton tertiary to={full_video_link}>
                         All video results
                     </AllArticleButton>
                 )}

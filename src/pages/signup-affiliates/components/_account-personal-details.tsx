@@ -13,6 +13,12 @@ const PersonalDetails = () => {
         margin-top: 2.5rem;
         margin-bottom: 1.5rem;
         justify-content: center;
+        max-height: 300px;
+        overflow: scroll;
+
+        p {
+            min-height: 30px !important;
+        }
     `
     const InputWrapper = styled.div`
         width: 50%;
@@ -75,6 +81,30 @@ const PersonalDetails = () => {
             type: 'text',
             label: localize('Social media URL'),
             placeholder: 'Social media URL',
+            required: true,
+        },
+        {
+            id: 'company_name',
+            name: 'company_name',
+            type: 'text',
+            label: localize('Company name'),
+            placeholder: 'Company name',
+            required: true,
+        },
+        {
+            id: 'company_registration_number',
+            name: 'company_registration_number',
+            type: 'text',
+            label: localize('Company registration number'),
+            placeholder: 'Company name',
+            required: true,
+        },
+        {
+            id: 'certificate_incorporation',
+            name: 'certificate_incorporation',
+            type: 'text',
+            label: localize('Certificate of incorporation'),
+            placeholder: 'Company name',
             required: true,
         },
     ]

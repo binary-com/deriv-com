@@ -2,10 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style.js'
 import { Localize } from 'components/localization'
-import { Flex, NonUK, ROW, Desktop } from 'components/containers'
+import { Flex, ROW, Desktop } from 'components/containers'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
+    const { is_non_uk } = useCountryRule()
+
     return (
         <LinksWrapper>
             <Desktop>
@@ -85,34 +88,25 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Link to="/markets/forex/">{<Localize translate_text="Forex" />}</Link>
                         </LinkWrapper>
-                        <NonUK>
-                            {!is_ppc && (
-                                <LinkWrapper>
-                                    <Link to="/markets/synthetic/">
-                                        {<Localize translate_text="Synthetic indices" />}
-                                    </Link>
-                                </LinkWrapper>
-                            )}
-                        </NonUK>
+                        {is_non_uk && (
+                            <LinkWrapper>
+                                <Link to="/markets/derived-fx/">
+                                    {<Localize translate_text="Derived" />}
+                                </Link>
+                            </LinkWrapper>
+                        )}
                         <LinkWrapper>
                             <Link to="/markets/stock/">
                                 {<Localize translate_text="Stocks & indices" />}
                             </Link>
                         </LinkWrapper>
-                        <NonUK>
+                        {is_non_uk && (
                             <LinkWrapper>
                                 <Link to="/markets/cryptocurrencies/">
                                     {<Localize translate_text="Cryptocurrencies" />}
                                 </Link>
                             </LinkWrapper>
-                        </NonUK>
-                        <ROW>
-                            <LinkWrapper>
-                                <Link to="/markets/basket-indices/">
-                                    {<Localize translate_text="Basket indices" />}
-                                </Link>
-                            </LinkWrapper>
-                        </ROW>
+                        )}
                         <LinkWrapper>
                             <Link to="/markets/commodities/">
                                 {<Localize translate_text="Commodities" />}

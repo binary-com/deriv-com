@@ -215,7 +215,7 @@ const DownloadApp = () => {
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <DownloadLinkWrapper>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_linux_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -223,7 +223,7 @@ const DownloadApp = () => {
                                 <img src={LinuxOs} alt="linux" />
                             </LocalizedLink>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_web_browser_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -231,7 +231,7 @@ const DownloadApp = () => {
                                 <img src={WebBrowser} alt="web browser" />
                             </LocalizedLink>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_windows}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -239,7 +239,7 @@ const DownloadApp = () => {
                                 <img src={Windows} alt="windows" />
                             </LocalizedLink>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_mac_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -255,7 +255,7 @@ const DownloadApp = () => {
                     <Flex mt="0.8rem" jc="flex-start" wrap="wrap">
                         <DownloadLinkWrapper>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_android_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -265,7 +265,7 @@ const DownloadApp = () => {
                         </DownloadLinkWrapper>
                         <DownloadLinkWrapper mt="8px" mb="8px">
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_app_gallery_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -273,7 +273,7 @@ const DownloadApp = () => {
                                 <img src={AppGallery} alt="app gallery" width="138" height="40" />
                             </LocalizedLink>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_macos_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -289,7 +289,7 @@ const DownloadApp = () => {
                     <Flex mt="0.8rem" wrap="wrap">
                         <DownloadLinkMobileWrapper mr="8px">
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_android_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -299,7 +299,7 @@ const DownloadApp = () => {
                         </DownloadLinkMobileWrapper>
                         <DownloadLinkMobileWrapper mt="8px">
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_app_gallery_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -307,7 +307,7 @@ const DownloadApp = () => {
                                 <img src={AppGallery} alt="app gallery" width="138" height="40" />
                             </LocalizedLink>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_macos_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -322,7 +322,7 @@ const DownloadApp = () => {
                     <StyledFlexMobile>
                         <DownloadLinkWrapper>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_linux_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -330,7 +330,7 @@ const DownloadApp = () => {
                                 <img src={LinuxOs} alt="linux" />
                             </LocalizedLink>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_web_browser_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -338,7 +338,7 @@ const DownloadApp = () => {
                                 <img src={WebBrowser} alt="web browser" />
                             </LocalizedLink>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_windows}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -346,7 +346,7 @@ const DownloadApp = () => {
                                 <img src={Windows} alt="windows" />
                             </LocalizedLink>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_mac_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"

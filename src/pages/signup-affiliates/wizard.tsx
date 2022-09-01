@@ -3,6 +3,7 @@ import AffiliateSignupLayout, { SignUpWrapper } from './components/_layout'
 import AccountType from './components/_account-type'
 import AccountDetails from './components/_account-details'
 import PhoneNumber from './components/_phone_number'
+import AccountTerms from './components/_account-terms'
 import { WithIntl, localize } from 'components/localization'
 import { Wizard } from 'components/form'
 
@@ -80,6 +81,7 @@ const AffiliateSignup = () => {
                         }}
                     />
                     <PhoneNumber />
+                    <AccountTerms />
                 </Wizard>
             </SignUpWrapper>
         </AffiliateSignupLayout>

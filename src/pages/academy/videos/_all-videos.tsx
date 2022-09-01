@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
 import { RedirectLink } from '../components/recent-featured-posts/_style'
 import VideoCard from './_video-card'
-import { VideoDataType } from './index'
+import { VideosType } from 'components/hooks/use-academy-data'
 import Pagination from 'components/elements/pagination'
 import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
@@ -11,7 +11,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { queryParams } from 'common/utility'
 
 type AllVideosProps = {
-    video_data: VideoDataType
+    video_data: VideosType[]
 }
 
 const AllVideos = ({ video_data }: AllVideosProps) => {

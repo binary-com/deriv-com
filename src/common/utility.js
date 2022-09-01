@@ -472,15 +472,6 @@ export const handleRedirect = (residence, current_client_country) => {
     }
 }
 
-export const queryParamData = () => {
-    if (isBrowser()) {
-        const queryParams = new URLSearchParams(window.location.search)
-        const platform_name = queryParams.get('platform')
-        const platform_list = ['derivgo', 'p2p']
-        return platform_list.includes(platform_name) ? platform_name : ''
-    } else return ''
-}
-
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))

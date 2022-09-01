@@ -333,7 +333,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                     <EmailButton
                         id="dm-ebook-download-signup"
                         type="submit"
-                        secondary="true"
+                        secondary
                         disabled={
                             is_submitting || !is_checked || Boolean(email_error_msg) || !email
                         }
@@ -349,7 +349,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                                     to="/tnc/security-and-privacy.pdf"
                                     size="1.2rem"
                                     color="red"
-                                    external="true"
+                                    external
                                     rel="noopener noreferrer"
                                     target="_blank"
                                 />,

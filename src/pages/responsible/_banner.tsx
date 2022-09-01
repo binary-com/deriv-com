@@ -24,7 +24,7 @@ const Banner = ({ header, p1, button_text }) => {
                 <Text max_width="62rem" align="center" color="white" pb="3rem" pr="3rem" pl="3rem">
                     {p1}
                 </Text>
-                <Button onClick={handleSignup} secondary="true">
+                <Button onClick={handleSignup} secondary>
                     {button_text}
                 </Button>
             </Flex>

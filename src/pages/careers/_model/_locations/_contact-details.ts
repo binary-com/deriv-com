@@ -5,6 +5,8 @@ const address_asuncion = [
 
 const address_belarus = ['Level 2, 25/1-3 Vera Khoruzhey Street,', 'Minsk 220123']
 
+const address_ciudad = ['World Trade Center Ciudad del Este, Andrés Rojas, Cd. del Este, Paraguay']
+
 const address_cyberjaya = ['Deriv HQ, 3500, Jalan Teknokrat 3, 63000 Cyberjaya, Selangor']
 
 const address_cyprus = ['Level 5, 42 Agias Filaxeos', 'Limassol 3025']
@@ -42,6 +44,7 @@ export {
     address_ipoh,
     address_labuan,
     address_malta,
+    address_ciudad,
     address_melaka,
     address_rwanda,
     address_france,

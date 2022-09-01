@@ -41,7 +41,7 @@ const DerivRegulated = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/regulatory/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}

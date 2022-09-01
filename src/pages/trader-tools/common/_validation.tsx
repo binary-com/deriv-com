@@ -68,7 +68,11 @@ const validation = {
         return numberValidation(input, localize('Volume'), 8)
     },
     assetPrice: (input) => {
-        return numberValidation(input, localize('Asset price'), 500)
+        if (!input || input.name === 'default') {
+            return localize('Asset Price is required')
+        }
+
+        return null
     },
     leverage: (input) => {
         if (!input || input.display_name === '') {

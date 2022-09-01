@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { withTranslation } from 'react-i18next'
 import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
@@ -9,11 +8,17 @@ import Dropdown from './language-dropdown'
 import { isProduction } from 'common/websocket/config'
 import { nonENLangUrlReplace } from 'common/utility'
 
+type LanguageSwitchProps = {
+    i18n?: { language: string }
+    is_high_nav?: boolean
+    is_security?: boolean
+}
+
 const languages = Object.keys(language_config)
 
 const disabled_lang = ['ach']
 
-const LanguageSwitch = ({ i18n, is_high_nav, has_short_name, security }) => {
+const LanguageSwitch = ({ i18n, is_high_nav, is_security }: LanguageSwitchProps) => {
     const [language, setLanguage] = React.useState(i18n.language)
     const client_information = useClientInformation()
 
@@ -23,7 +28,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, has_short_name, security }) => {
 
     React.useEffect(() => {
         if (!Cookies.get('lang_is_fixed')) {
-            if (client_information.preferred_language) {
+            if (client_information?.preferred_language) {
                 const lang = client_information.preferred_language.toLowerCase()
                 if (lang !== language) {
                     const replaced_lang = lang.replace('_', '-')
@@ -31,7 +36,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, has_short_name, security }) => {
                 }
             }
         }
-    }, [client_information])
+    }, [])
 
     const renderLanguageChoice = (lang) => {
         if (disabled_lang.includes(lang) && isProduction()) return
@@ -39,7 +44,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, has_short_name, security }) => {
         const current_short_name = language_config[language].short_name
         const is_selected = current_short_name === short_name
         const to = `/${path}/`
-        let text = display_name
+        const text = display_name
 
         return {
             value: to,
@@ -76,7 +81,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, has_short_name, security }) => {
                 or just /about/
                 or just /
             */
-                navigate(destination_path, { hrefLang: path })
+                navigate(destination_path, { state: { hrerfLang: path } })
             }
         }
     }
@@ -86,20 +91,10 @@ const LanguageSwitch = ({ i18n, is_high_nav, has_short_name, security }) => {
             onChange={handleSelect}
             option_list={languages.map(renderLanguageChoice)}
             default_option={getCurrentLanguage()}
-            has_short_name={has_short_name}
             is_high_nav={!!is_high_nav}
-            security={security}
+            is_security={is_security}
         />
     )
-}
-
-LanguageSwitch.propTypes = {
-    has_short_name: PropTypes.bool,
-    i18n: PropTypes.shape({
-        language: PropTypes.string,
-    }),
-    is_high_nav: PropTypes.bool,
-    security: PropTypes.bool,
 }
 
 export const LanguageSwitcher = withTranslation()(LanguageSwitch)

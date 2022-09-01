@@ -4,6 +4,7 @@ import Footer from './footer'
 import Header from './header'
 import Stepper from './stepper'
 import device from 'themes/device'
+import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 
 type WizardProps = {
     children: React.ReactElement[]
@@ -49,37 +50,46 @@ const Modal = styled.div`
 `
 
 const Wizard = ({ children, show, steps_names, title, enable_next_button }: WizardProps) => {
-    const [show_wizard, setShowWizard] = useState(show || true)
+    const [show_wizard, setShowWizard] = useState(true)
     const [step, setStep] = useState(1)
     const max_step = children.length
-    const [enable_next, setEnableNext] = useState(enable_next_button)
+    const [enable_next, setEnableNext] = useState(false)
 
     useEffect(() => {
-        setEnableNext(enable_next_button)
+        enable_next_button !== undefined && setEnableNext(enable_next_button)
     }, [enable_next_button])
 
-    if (show_wizard)
-        return (
-            <>
-                <Modal>
-                    <Header title={title} setShowWizard={setShowWizard} />
-                    <Stepper step={step} step_names={steps_names} />
-                    {React.Children.map(children, (child, idx) => (
-                        <div key={child.props.name}>{step === idx + 1 && child}</div>
-                    ))}
-                    <Footer
-                        step={step}
-                        setStep={setStep}
-                        max_step={max_step}
-                        setEnableNext={setEnableNext}
-                        disabled={!enable_next_button}
-                    />
-                </Modal>
-                <Background></Background>
-            </>
-        )
+    useEffect(() => {
+        show !== undefined && setShowWizard(show)
+    }, [show])
 
-    return <></>
+    useDebouncedEffect(
+        () => (document.body.style.overflow = show_wizard ? 'hidden' : 'unset'),
+        [show_wizard],
+        1,
+    )
+
+    if (!show_wizard) return <></>
+
+    return (
+        <>
+            <Modal>
+                <Header title={title} setShowWizard={setShowWizard} />
+                <Stepper step={step} step_names={steps_names} />
+                {React.Children.map(children, (child, idx) => (
+                    <div key={child.props.name}>{step === idx + 1 && child}</div>
+                ))}
+                <Footer
+                    step={step}
+                    setStep={setStep}
+                    max_step={max_step}
+                    setEnableNext={setEnableNext}
+                    disabled={!enable_next}
+                />
+            </Modal>
+            <Background />
+        </>
+    )
 }
 
 export default Wizard

@@ -18,6 +18,14 @@ module.exports = {
         author: 'Deriv.com',
         siteUrl: site_url,
     },
+    partytownProxiedURLs: [
+        `https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH`,
+        `https://www.google-analytics.com/analytics.js`,
+        `https://assets.customer.io/assets/track-eu.js`,
+        `https://assets.customer.io/assets/track.js`,
+        `https://static.deriv.com/scripts/cookie.js`,
+        `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
+    ],
     plugins: [
         'gatsby-plugin-react-helmet',
         {

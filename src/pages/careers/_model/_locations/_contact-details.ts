@@ -5,10 +5,9 @@ const address_asuncion = [
 
 const address_belarus = ['Level 2, 25/1-3 Vera Khoruzhey Street,', 'Minsk 220123']
 
-const address_cyberjaya = [
-    'C-13, iTech Tower, Jalan Impact, Cyber 6,',
-    ' Cyberjaya 63000, Selangor',
-]
+const address_ciudad = ['World Trade Center Ciudad del Este, Andrés Rojas, Cd. del Este, Paraguay']
+
+const address_cyberjaya = ['Deriv HQ, 3500, Jalan Teknokrat 3, 63000 Cyberjaya, Selangor']
 
 const address_cyprus = ['Level 5, 42 Agias Filaxeos', 'Limassol 3025']
 
@@ -18,7 +17,7 @@ const address_ipoh = ['E-5-6, Soho Ipoh 2,', 'Jalan Sultan Idris Shah,', 'Ipoh 3
 
 const address_france = ['Wojo Madeleine, 18 Boulevard Malesherbes,', '75008 Paris']
 
-const address_guernsey = ['5 St James Street, St Peter Port,', 'Guernsey, GY1 2NZ']
+const address_guernsey = ['Suite 5, One Cornet Street, St Peter Port, Guernsey GY1 1 BZ']
 
 const address_labuan = [
     'F16, 1st Floor, Paragon Labuan,',
@@ -45,6 +44,7 @@ export {
     address_ipoh,
     address_labuan,
     address_malta,
+    address_ciudad,
     address_melaka,
     address_rwanda,
     address_france,

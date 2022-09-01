@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useQueryParam, StringParam } from 'use-query-params'
-import { addScriptForCIO } from '../components/utility'
+import { addScriptForCIO } from '../components/_utility'
 import AcademyNav from './_academy-nav'
 import Subscribe from './_subscribe'
 import { SectionContainer, SEO, Flex } from 'components/containers'
@@ -53,7 +53,7 @@ const Subscription = () => {
                     <Subscribe />
                 </Flex>
                 <Flex>
-                    <LinkButton secondary="true" to="/academy/">
+                    <LinkButton secondary to="/academy/">
                         {localize('Take me to Academy')}
                     </LinkButton>
                 </Flex>

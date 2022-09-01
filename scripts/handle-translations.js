@@ -29,12 +29,12 @@ const slugify = (text) =>
     text &&
     text
         .toString()
-        .normalize('NFD') 
-        .replace(/[\u0300-\u036f]/g, '') 
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
         .toLowerCase()
-        .trim() 
-        .replace(/\s+/g, '-') 
-        .replace(/--+/g, '-') 
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/--+/g, '-')
 
 const branchGenerator = (step = 1, data = {}) => {
     switch (step) {
@@ -70,8 +70,6 @@ const branchGenerator = (step = 1, data = {}) => {
     }
 }
 
-
-
 const handleProcess = (action) => {
     if (action === 'branch') {
         branchGenerator()
@@ -79,34 +77,29 @@ const handleProcess = (action) => {
     }
 
     // Detect Auto Translation Process
-    const branch_prefix = branch_name.split('-')[0]
 
-    if (translation_branches.includes(branch_prefix)) {
-        if (action !== 'pull-master')
-            console.log(
-                `\x1b[33mFetching translation data for \x1b[32m[${branch_name}]\x1b[33m   \n \x1b[0m`,
-            )
-        else {
-            console.log(
-                `\x1b[32m[Main] \x1b[33mFetching translation from the master source \x1b[33m   \n \x1b[0m`,
-            )
-        }
-
-        runProcess({
-            process: action,
-            callback: (error, stdout, stderr) => {
-                if (error) {
-                    logError(error)
-                }
-
-                if (stdout) {
-                    console.log(stdout)
-                }
-            },
-        })
-    } else {
-        console.log(`\x1b[32m[${branch_name}]\x1b[31m is not a valid translation branch \n \x1b[0m`)
+    if (action !== 'pull-master')
+        console.log(
+            `\x1b[33mInitialized auto translation pull for \x1b[32m[${branch_name}]\x1b[33m   \n \x1b[0m`,
+        )
+    else {
+        console.log(
+            `\x1b[32m[Main] \x1b[33mFetching translation from the master source \x1b[33m   \n \x1b[0m`,
+        )
     }
+
+    runProcess({
+        process: action,
+        callback: (error, stdout) => {
+            if (error) {
+                logError(error)
+            }
+
+            if (stdout) {
+                console.log(stdout)
+            }
+        },
+    })
 }
 
 const runProcess = (data) => {
@@ -114,10 +107,16 @@ const runProcess = (data) => {
 
     switch (process) {
         case 'pull':
-            exec(`crowdin download -b  ${branch_name} && crowdin download -b  ${branch_name} -l zh-CN -T ${CROWDIN_API_KEY} `, callback)
+            exec(
+                `git commit -m 'auto-pull-translation' --allow-empty --no-verify;git push origin ${branch_name} `,
+                callback,
+            )
             break
         case 'pull-master':
-            exec(`crowdin download -b  master && crowdin download -b master -l zh-CN -T ${CROWDIN_API_KEY} `, callback)
+            exec(
+                `crowdin download -b  master -T ${CROWDIN_API_KEY} && crowdin download -b master -l zh-CN -T ${CROWDIN_API_KEY} `,
+                callback,
+            )
             break
         default:
             break

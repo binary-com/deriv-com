@@ -20,7 +20,7 @@ import { truncateString } from 'common/utility'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import Eye from 'images/svg/eye.svg'
-import { getTruncateLength } from 'pages/academy/blog/posts/preview'
+import { useTruncateLength } from 'pages/academy/blog/posts/preview'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 import { QueryImage } from 'components/elements'
@@ -229,6 +229,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded()
     const [view_count, setViewCount] = useState(null)
+    const truncateLength = useTruncateLength()
 
     useEffect(() => {
         if (is_mounted) {
@@ -359,7 +360,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                         </StyledBreadcrumbsLink>
                                         <img src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
-                                            {truncateString(video_title, getTruncateLength())}
+                                            {truncateString(video_title, truncateLength)}
                                         </StyledBreadcrumbsTitle>
                                         <SocialSharing />
                                     </StyledBreadcrumbsContainer>
@@ -407,6 +408,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                                             video?.video_thumbnail?.imageFile
                                                                 ?.childImageSharp?.gatsbyImageData
                                                         }
+                                                        alt={video?.video_title}
                                                         width="161px"
                                                         height="96px"
                                                     />
@@ -463,9 +465,6 @@ export const query = graphql`
                             gatsbyImageData(width: 382, aspectRatio: 1.82)
                         }
                     }
-                }
-                video_file {
-                    id
                 }
                 tags {
                     tags_id {

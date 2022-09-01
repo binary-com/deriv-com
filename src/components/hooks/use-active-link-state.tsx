@@ -6,7 +6,7 @@ const getNavigationMap = (type) => {
     switch (type) {
         case 'main':
             return {
-                trade: ['dtrader', 'dbot', 'dmt5', 'trade-types'],
+                trade: ['dtrader', 'dbot', 'dmt5', 'trade-types', 'derivx', 'deriv-go'],
                 markets: ['markets'],
                 about: [
                     'story',
@@ -15,12 +15,14 @@ const getNavigationMap = (type) => {
                     'partners',
                     'contact_us',
                     'careers',
+                    'who-we-are',
                 ],
                 resources: [
                     'help-centre',
                     'trader-tools',
                     'payment-methods',
                     'dmt5-trading-signals',
+                    'academy',
                 ],
             }
         case 'careers':

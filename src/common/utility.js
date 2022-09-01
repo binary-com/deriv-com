@@ -10,6 +10,7 @@ import {
     live_chat_key,
     domains,
     eu_domains,
+    uk_domains,
 } from './constants'
 import { isUK, eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
@@ -261,7 +262,6 @@ export const getAssetUrl = (id) => `${cms_assets_end_point}${id}`
 export const getVideoObject = (video_data) => {
     const {
         published_date,
-        video_file,
         video_thumbnail,
         video_title,
         video_duration,
@@ -270,7 +270,6 @@ export const getVideoObject = (video_data) => {
         featured,
         tags,
     } = video_data
-    const { id: video_id } = video_file
     const { title: alt } = video_thumbnail
 
     return {
@@ -279,7 +278,7 @@ export const getVideoObject = (video_data) => {
         video_title,
         video_description,
         video_thumbnail,
-        video_url: getAssetUrl(video_id),
+        video_url: getAssetUrl(video_slug),
         video_duration,
         video_slug,
         featured,
@@ -374,7 +373,7 @@ export const removeSpecialCharacterUrl = (url) =>
 
 export const queryParams = {
     get: (key) => {
-        const params = new URLSearchParams(location.search)
+        const params = new URLSearchParams(isBrowser() && location.search)
         let param_values = {}
         //To get the params from the url
 
@@ -461,6 +460,8 @@ const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 
 export const isEuDomain = () => !!eu_domains.some((e) => getSubdomain().includes(e))
 
+export const isUkDomain = () => !!uk_domains.some((e) => getSubdomain().includes(e))
+
 export const handleRedirect = (residence, current_client_country) => {
     const country = residence ? residence : current_client_country
 
@@ -469,15 +470,6 @@ export const handleRedirect = (residence, current_client_country) => {
     } else {
         handleDerivRedirect(country, getSubdomain())
     }
-}
-
-export const queryParamData = () => {
-    if (isBrowser()) {
-        const queryParams = new URLSearchParams(window.location.search)
-        const platform_name = queryParams.get('platform')
-        const platform_list = ['derivgo', 'p2p']
-        return platform_list.includes(platform_name) ? platform_name : ''
-    } else return ''
 }
 
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')

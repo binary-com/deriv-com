@@ -1,6 +1,7 @@
 import {
     address_cyberjaya,
     address_dubai,
+    address_ciudad,
     address_asuncion,
     address_labuan,
     address_malta,
@@ -22,6 +23,10 @@ import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
+import GermanyFlagIcon from 'images/svg/careers/flag_germany.svg'
+import VanuatuFlagIcon from 'images/svg/careers/flag_vanuatu.svg'
+import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
+import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
@@ -45,11 +50,11 @@ export const cyberjaya: LocationsType = {
         'Welcome entrance ',
         'Boys playing foosball',
     ],
-    map: 'ChIJyTcAIli2zTERA4MWDMgk9i0',
+    map: 'ChIJQyOushS3zTER-d3unGdC7P0',
     map_text:
         'We believe in fostering an environment that allows a balanced lifestyle between work responsibilities and personal commitments. Every project is exciting, keeping you intellectually challenged. If you want to be inspired every day, join our team in Cyberjaya.',
     address: address_cyberjaya,
-    google_map_link: 'https://g.page/r/CQODFgzIJPYtEAE',
+    google_map_link: 'https://goo.gl/maps/taw811vL1Wht9z4YA',
     has_iframe: true,
 }
 
@@ -157,6 +162,8 @@ export const asuncion: LocationsType = {
     first_p: `Deriv (Asunción) supports the Latin American market with Marketing, Customer Support, Accounts & Payments, and Back-end teams. The teams are constantly working on activities best suited for brand awareness, empowering customers with solutions, taking care of accounting responsibilities, and strengthening our IT infrastructure.`,
     first_img: 'living_in_asuncion',
     first_img_alt: 'Taxi and bikes parked nearby road',
+    badge: 'asuncion_great_place_to_work_badge',
+    badge_alt: 'Asuncion Great Place To Work Badge',
     grid_images: ['asuncion_grid_1', 'asuncion_grid_2', 'asuncion_grid_3', 'asuncion_grid_4'],
     grid_img_alt: [
         'Man teaching a group of people',
@@ -334,12 +341,12 @@ export const paris: LocationsType = {
     flagIcon: FranceFlagIcon,
     thumbnail: 'thumbnail_paris',
     first_p:
-        "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It is going to bring together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
+        "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
     map: 'ChIJ71ubXstv5kcRgI6dxotwI4Y',
     map_text:
-        'Deriv (France) is going to be the heart of our research and development. We’re going to create an elite think tank in this centre that will help create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
+        'Deriv (France) is the heart of our research and development. We have an elite think tank in this centre that helps create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
     address: address_france,
     map_img: 'paris_map',
     google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
@@ -364,9 +371,89 @@ export const guernsey: LocationsType = {
     first_img_alt: 'living_in_guernsey alt img',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'guernsey grid 3', 'guernsey grid 4'],
-    map: 'M8p55z3Wu4EKhQ3A7',
+    map: 'ChIJc-QshyFzDUgRy9q1rkkXFqs',
     map_text:
         'Deriv (Guernsey) can be an ideal work environment for those who have strong attention to detail, motivation, and interest in law. Joining us at Guernsey gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
+    address: address_guernsey,
+    map_img: 'guernsey_map',
+    google_map_link: 'https://goo.gl/maps/jX1D5CmysqtbMJeh6',
+    has_map: true,
+    has_iframe: true,
+}
+
+export const berlin: LocationsType = {
+    name: 'berlin',
+    continent: 'europe',
+    display_continent: 'Europe',
+    link: '/careers/locations/berlin/',
+    display_name: 'Berlin',
+    img_alt: ' Deriv’s Germany office at Berlin ',
+    map_office_name: '(Germany)',
+    country: 'Germany',
+    flagIcon: GermanyFlagIcon,
+    thumbnail: 'thumbnail_berlin',
+    address: address_guernsey,
+    first_p:
+        'Deriv (Germany) will open later this year in the heart of the European Union. Home to tech professionals, this agile office will help the Deriv Group with its most ambitious technological challenges to create future-proof online trading solutions. ',
+    first_img: 'living_in_berlin',
+    first_img_alt: 'Working with Deriv’s Berlin team',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'berlin_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'berlin grid 3', 'guernsey grid 4'],
+    map: '',
+    map_text:
+        'Our Berlin office will be a new European base for Deriv fintech talent. The experts at this office will tackle exciting projects to create Deriv’s next-gen products. Join our Germany team if you’re in search of a worthy challenge in your career.',
+}
+
+export const vanuatu: LocationsType = {
+    name: 'vanuatu',
+    continent: 'asia',
+    display_continent: 'Asia',
+    link: '/careers/locations/vanuatu/',
+    display_name: 'Port Vila',
+    img_alt: 'Vanuatu alt img',
+    map_office_name: '(Vanuatu)',
+    country: 'Vanuatu',
+    flagIcon: VanuatuFlagIcon,
+    thumbnail: 'thumbnail_vanuatu',
+    first_p:
+        'Deriv (Vanuatu) will be our new office, opening in the second half of 2022.  Benefiting from the regional talent pool, it will assist the Deriv Group in delivering robust online trading solutions with exceptional customer service.',
+    first_img: 'living_in_vanuatu',
+    first_img_alt: 'Deriv’s Vanuatu office at Port Vila',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'vanuatu_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: [
+        'guernsey grid 1',
+        'guernsey grid 2',
+        'Working with Deriv’s Vanuatu team',
+        'guernsey grid 4',
+    ],
+    map: '',
+    map_text:
+        'The Vanuatu office will bring experts together to provide the best trading solutions and services for our customers. Join our team at Vanuatu for a rewarding career.',
+    address: address_guernsey,
+    map_img: '',
+    google_map_link: '',
+}
+
+export const jordan: LocationsType = {
+    name: 'jordan',
+    continent: 'middle_east',
+    display_continent: 'Middle East',
+    link: '/careers/locations/jordan/',
+    display_name: 'Amman',
+    img_alt: 'Jordan alt img',
+    map_office_name: '(Jordan)',
+    country: 'Jordan',
+    flagIcon: JordanFlagIcon,
+    thumbnail: 'thumbnail_jordan',
+    first_p:
+        'Deriv (Jordan) will be our new office, starting its operations later in 2022.  Tapping into the regional talent pool, it will be a software development centre and will also offer general services to the Deriv Group.',
+    first_img: 'living_in_jordan',
+    first_img_alt: 'living_in_jordan alt img',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'jordan_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'jordan grid 3', 'guernsey grid 4'],
+    map: '',
+    map_text:
+        'Software developers, technical engineers, software testers, and IT specialists at our Amman office will work together to build state-of-the-art applications, trading platforms, and other technical systems. Join our Jordan team for a thriving tech career.',
     address: address_guernsey,
     map_img: 'guernsey_map',
     google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
@@ -374,25 +461,92 @@ export const guernsey: LocationsType = {
     has_map: false,
 }
 
+export const singapore: LocationsType = {
+    name: 'singapore',
+    continent: 'asia',
+    display_continent: 'Asia',
+    link: '/careers/locations/singapore/',
+    display_name: 'Singapore',
+    img_alt: 'Marina Bay Sands - Singapore',
+    map_office_name: '(Singapore)',
+    country: 'Singapore',
+    flagIcon: SingaporeFlagIcon,
+    thumbnail: 'thumbnail_singapore',
+    first_p:
+        'Deriv (Singapore) will be a new office in Southeast Asia, opening in the second half of 2022.  Strategically situated in the regional financial hub, it will focus on developing innovative derivative trading solutions, particularly for trading CFDs.',
+    first_img: 'living_in_singapore',
+    first_img_alt: 'Deriv’s Singapore office',
+
+    grid_images: ['singapore_grid', 'guernsey_grid_2', 'singapore_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['Working with Deriv’s Singapore team'],
+    map: '',
+    map_text:
+        'Our Singapore office will be home to a team of bright trading minds who will make Deriv everyone’s first choice for trading CFDs. Start a thriving career at Deriv in Singapore to influence the trading experience of over two million clients around the globe.',
+    address: address_guernsey,
+    map_img: 'singapore_map',
+    google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
+    has_iframe: false,
+    has_map: false,
+}
+
+export const ciudad: LocationsType = {
+    name: 'ciudad',
+    continent: 'latam',
+    display_continent: 'Latam',
+    link: '/careers/locations/ciudad/',
+    display_name: 'Ciudad del Este',
+    img_alt: 'Paraguay office at Ciudad del Este',
+    map_office_name: '(Ciudad del Este)',
+    country: 'Paraguay',
+    flagIcon: ParaguayFlagIcon,
+    thumbnail: 'thumbnail_ciudad',
+    address: address_ciudad,
+    first_p:
+        'Our second office in Paraguay is to open in the border city of Ciudad del Este. Located in the World Trade Center, this office will tap into the local talent pool to build Marketing and Customer Support teams to cater to the growing market demands in South America. ',
+    first_img: 'living_in_ciudad',
+    first_img_alt: 'Deriv’s Ciudad del Este office in Paraguay',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
+    grid_img_alt: [
+        'guernsey grid 1',
+        'guernsey grid 2',
+        'Deriv’s Ciudad del Este office location',
+        'guernsey grid 4',
+    ],
+    map: 'ChIJ8wOKkS-F9pQRIdgDbSjs_6A',
+    map_text:
+        'As Deriv’s popularity grows rapidly with LATAM traders, the Customer Support and Marketing teams based at our office in Ciudad del Este will have increasing opportunities to showcase their talent. Join this office if you have a passion for assisting customers and affiliates, planning and executing marketing campaigns, and creating an engaging brand image.',
+    map_img: 'ciudad_map',
+    google_map_link: 'https://goo.gl/maps/pmQU7QwfoY6YSR5LA',
+    has_map: true,
+    has_iframe: true,
+}
+
 export const all_offices: LocationsType[] = [
-    dubai,
+    paris,
     malta,
     cyprus,
+    guernsey,
+    berlin,
     cyberjaya,
-    labuan,
     ipoh,
     melaka,
-    paris,
-    guernsey,
-    asuncion,
-    rwanda,
+    labuan,
+    singapore,
+    vanuatu,
+    dubai,
+    jordan,
     minsk,
+    rwanda,
+    asuncion,
+    ciudad,
 ]
 export const locations = {
+    berlin: `${berlin.display_name}, ${berlin.country}`,
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
     dubai: `${dubai.display_name}, ${dubai.country}`,
     labuan: `${labuan.display_name}, ${labuan.country}`,
+    ciudad: `${ciudad.display_name}, ${ciudad.country}`,
     asuncion: `${asuncion.display_name}, ${asuncion.country}`,
     melaka: `${melaka.display_name}, ${melaka.country}`,
     ipoh: `${ipoh.display_name}, ${ipoh.country}`,
@@ -401,7 +555,11 @@ export const locations = {
     belarus: `${minsk.display_name}, ${minsk.country}`,
     france: `${paris.display_name}, ${paris.country}`,
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
+    vanuatu: `${vanuatu.display_name}, ${vanuatu.country}`,
+    jordan: `${jordan.display_name}, ${jordan.country}`,
+    singapore: `${singapore.display_name}, ${singapore.country}`,
 }
+
 export const allContinents = {
     all: all_offices,
     europe: [],

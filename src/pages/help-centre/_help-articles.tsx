@@ -159,12 +159,6 @@ export const articles: ArcticlesType[] = [
                 sub_category: <Localize translate_text="Managing your account" />,
                 label: 'Why-were-my-documents-declined',
             },
-            {
-                title: <Localize translate_text="How can I change the currency of my account?" />,
-                category: 'account',
-                sub_category: <Localize translate_text="Managing your account" />,
-                label: 'change-the-currency-of-my-account',
-            },
         ],
     },
     {

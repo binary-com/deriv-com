@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { handleGetTrading, handleScroll, moveButton } from '../util/nav-methods'
+import { handleGetTrading, handleScroll, useMoveButton } from '../util/nav-methods'
 import { NavRight } from '../styles/nav-styles'
 import { localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
@@ -46,7 +46,7 @@ const RightSection = ({
     const button_ref = useRef(null)
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
-    const [show_button, showButton, hideButton] = moveButton()
+    const [show_button, showButton, hideButton] = useMoveButton()
     const { is_loading } = useCountryRule()
     const handleLogin = useHandleLogin()
     const handleSignup = useHandleSignup(is_ppc_redirect)
@@ -99,7 +99,7 @@ const RightSection = ({
                         onClick={handleSignup}
                         id="dm-nav-signup"
                         ref={button_ref}
-                        secondary="true"
+                        secondary
                     >
                         {localize('Create free demo account')}
                     </SignupButton>

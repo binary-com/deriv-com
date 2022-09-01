@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { TextWrapper } from './_common'
-import { addScriptForCIO } from './utility'
+import { addScriptForCIO } from './_utility'
 import AgreementLabel from 'components/custom/_agreement-label'
 import validation from 'common/validation'
 import { localize, Localize } from 'components/localization'
@@ -261,14 +261,12 @@ const SideSubscriptionBanner = () => {
                     <InputWrapper>
                         <Input
                             placeholder="Your name"
-                            focus_border="var(--color-grey-6)"
                             autoComplete="off"
                             id="name"
                             name="text"
                             type="text"
                             value={name}
-                            error={name_error_msg}
-                            maxLength="70"
+                            maxLength={70}
                             required
                             onChange={handleInputNameChange}
                         />
@@ -292,12 +290,11 @@ const SideSubscriptionBanner = () => {
                     <InputWrapper>
                         <Input
                             placeholder="Your email address"
-                            focus_border="var(--color-grey-6)"
                             autoComplete="off"
                             id="email"
                             name="email"
                             type="text"
-                            maxLength="254"
+                            maxLength={254}
                             value={email}
                             required
                             onChange={handleInputChange}
@@ -320,16 +317,14 @@ const SideSubscriptionBanner = () => {
                         <EmailButton
                             id="gtm-signup-email"
                             type="submit"
-                            secondary="true"
-                            isChecked={is_checked}
-                            disabled={
+                            secondary
+                            disabled={Boolean(
                                 is_submitting ||
-                                !is_checked ||
-                                email_error_msg ||
-                                !email ||
-                                name_error_msg ||
-                                !name
-                            }
+                                    email_error_msg ||
+                                    !email ||
+                                    name_error_msg ||
+                                    !name,
+                            )}
                         >
                             {localize('Subscribe')}
                         </EmailButton>
@@ -343,13 +338,12 @@ const SideSubscriptionBanner = () => {
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize
-                                        fontSize="14px"
                                         translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
                                         components={[
                                             <StyledLocalizedLink
                                                 key={0}
                                                 type="tnc/security-and-privacy.pdf"
-                                                external="true"
+                                                external
                                                 rel="noopener noreferrer"
                                                 size="14px"
                                                 color="red"

@@ -294,12 +294,6 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     actions.setWebpackConfig({
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
-            alias: {
-                react: 'preact/compat',
-                'react-dom/test-utils': 'preact/test-utils',
-                'react-dom': 'preact/compat',
-                'react/jsx-runtime': 'preact/jsx-runtime',
-            },
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
     })
@@ -315,12 +309,11 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
     const result = await graphql(`
         query MyQuery {
             directus {
-                blog(filter: { status: { _eq: "published" } }) {
+                blog(filter: { status: { _eq: "published" } }, limit: -1) {
                     id
                     slug
                 }
                 videos(filter: { status: { _eq: "published" } }) {
-                    video_id
                     video_slug
                 }
             }

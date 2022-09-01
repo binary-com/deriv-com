@@ -274,11 +274,7 @@ const HeaderSection = () => {
                                 )}
                             </StyledHeaderSmall>
                             <BtnDiv>
-                                <StyledLinkButton
-                                    type="submit"
-                                    secondary="true"
-                                    to={'/landing/signup/'}
-                                >
+                                <StyledLinkButton type="submit" secondary to={'/landing/signup/'}>
                                     {localize('Create a demo account')}
                                 </StyledLinkButton>
                             </BtnDiv>

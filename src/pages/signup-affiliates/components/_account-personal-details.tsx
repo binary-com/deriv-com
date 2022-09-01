@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import { DropdownSearch } from 'components/elements'
+import { DropdownSearch, Header } from 'components/elements'
 import { Input } from 'components/form'
 import device from 'themes/device'
 
@@ -33,6 +33,17 @@ const PersonalDetails = () => {
     const DropdownSearchWrapper = styled.div`
         margin-bottom: -16px;
     `
+    const CurrencyWrapper = styled.div`
+        display: flex;
+        flex-direction: row;
+    `
+    const Line = styled.div`
+        width: 132px;
+        height: 1px;
+        margin: 10px;
+        background-color: var(--color-grey-7);
+    `
+
     const form_inputs = [
         {
             id: 'first_name',
@@ -56,6 +67,31 @@ const PersonalDetails = () => {
             type: 'text',
             label: localize('Date of Birth'),
             placeholder: 'Date of Birth',
+            required: true,
+        },
+
+        {
+            id: 'company_name',
+            name: 'company_name',
+            type: 'text',
+            label: localize('Company name'),
+            placeholder: 'Company name',
+            required: true,
+        },
+        {
+            id: 'company_registration_number',
+            name: 'company_registration_number',
+            type: 'text',
+            label: localize('Company registration number'),
+            placeholder: 'Company name',
+            required: true,
+        },
+        {
+            id: 'certificate_incorporation',
+            name: 'certificate_incorporation',
+            type: 'text',
+            label: localize('Certificate of incorporation'),
+            placeholder: 'Company name',
             required: true,
         },
         {
@@ -84,27 +120,11 @@ const PersonalDetails = () => {
             required: true,
         },
         {
-            id: 'company_name',
-            name: 'company_name',
-            type: 'text',
-            label: localize('Company name'),
-            placeholder: 'Company name',
-            required: true,
-        },
-        {
-            id: 'company_registration_number',
-            name: 'company_registration_number',
-            type: 'text',
-            label: localize('Company registration number'),
-            placeholder: 'Company name',
-            required: true,
-        },
-        {
-            id: 'certificate_incorporation',
-            name: 'certificate_incorporation',
-            type: 'text',
-            label: localize('Certificate of incorporation'),
-            placeholder: 'Company name',
+            id: 'dm-password',
+            name: 'password',
+            type: 'password',
+            label: localize('Password'),
+            placeholder: 'Password',
             required: true,
         },
     ]
@@ -143,6 +163,13 @@ const PersonalDetails = () => {
                         )
                     }
                 })}
+                <CurrencyWrapper>
+                    <Line />
+                    <Header type="paragraph-1" align="center" weight="normal">
+                        {localize('Choose your currency')}
+                    </Header>
+                    <Line />
+                </CurrencyWrapper>
             </InputWrapper>
         </InputGroup>
     )

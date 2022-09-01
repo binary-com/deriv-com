@@ -4,10 +4,10 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 
 export const url = isBrowser() ? window.location.href : ''
 
-export const addScriptForCIO = (is_eu) => {
+export const addScriptForCIO = (is_eu: boolean) => {
     const site_id = process.env.GATSBY_ENV_CIO_SITE_ID
 
-    let cio_url
+    let cio_url: string
 
     if (is_eu) {
         cio_url = 'https://assets.customer.io/assets/track-eu.js'
@@ -31,8 +31,8 @@ export const addScriptForCIO = (is_eu) => {
             s.parentNode.insertBefore(t, s);`,
     })
 }
-export const handleTag = (tag_name) => {
-    navigate(`/academy/search?category=${encodeURI(`${tag_name}`)}`)
+export const handleTag = (tag_name: string) => {
+    navigate(`/academy/search?category=${encodeURI(tag_name)}`)
 }
 
 export const useDataFilter = (data) => {

@@ -64,11 +64,11 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
                 </StyledText>
                 <MarketInstruments market_content={swap_free_pairs} />
                 <TryButton
+                    secondary
                     m="4.2rem 0 40px"
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     type="submit"
-                    secondary="true"
                     to={'/signup/'}
                 >
                     {btnlabel}

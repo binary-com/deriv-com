@@ -237,6 +237,9 @@ const query = graphql`
         thumbnail_cyberjaya: file(relativePath: { eq: "careers/thumbnail_cyberjaya.png" }) {
             ...fadeIn
         }
+        thumbnail_ciudad: file(relativePath: { eq: "careers/thumbnail_ciudad.png" }) {
+            ...fadeIn
+        }
         thumbnail_dubai: file(relativePath: { eq: "careers/thumbnail_dubai.png" }) {
             ...fadeIn
         }
@@ -337,6 +340,7 @@ const Locations = () => {
                     jc_mobileL="start"
                     mobile_font_size={16}
                     line_divider_length="unset"
+                    starting_index={1}
                 >
                     {continents.map((continent) => {
                         return (

@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, ReactElement } from 'react'
+import React, { CSSProperties, MouseEventHandler, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import type { ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
@@ -15,6 +15,7 @@ export type QueryImageProps = {
     onMouseOver?: MouseEventHandler<HTMLDivElement>
     onMouseOut?: MouseEventHandler<HTMLDivElement>
     onClick?: MouseEventHandler<HTMLDivElement>
+    style?: CSSProperties
 }
 
 export type ImageWrapperProps = {

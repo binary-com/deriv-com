@@ -61,11 +61,11 @@ const WhyChooseUs = () => {
                     <Card direction="column">
                         <ImageWrapper src={Lamp} alt="" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
-                            {localize('Diverse opportunities')}
+                            {localize('Expert support')}
                         </Header>
                         <Text>
                             {localize(
-                                'We have a range of partnership opportunities that you can benefit from, regardless of your skill set or background.',
+                                'Experienced affiliate managers answer all your queries and provide you with excellent promotional and educational materials.',
                             )}
                         </Text>
                     </Card>

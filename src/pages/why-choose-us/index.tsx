@@ -126,11 +126,7 @@ const WhyChooseUs = () => {
                         </Column>
                     </ColumnContainer>
                     <Flex mt="3.2rem">
-                        <ResponsiveLinkButton
-                            id="dm-about-signup"
-                            secondary="true"
-                            onClick={handleSignup}
-                        >
+                        <ResponsiveLinkButton id="dm-about-signup" secondary onClick={handleSignup}>
                             {localize("Sounds great. Let's get started.")}
                         </ResponsiveLinkButton>
                     </Flex>

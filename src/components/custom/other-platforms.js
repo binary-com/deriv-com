@@ -52,6 +52,10 @@ const EmptySpace = styled.div`
 
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
+    @media ${device.tabletL} {
+        padding: 0 7rem;
+        margin-bottom: 1rem;
+    }
 `
 const icon72 = css`
     width: 72px;
@@ -134,7 +138,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
             cover_content={<Localize translate_text="Discover Deriv MT5 now" />}
             title={<Localize translate_text="Deriv MT5" />}
             Icon={() => <StyledDmt5 src={DMT5} alt="" width="72" height="72" />}
-            content={[localize('Trade on Deriv MT5, the all-in-one CFD trading platform.')]}
+            content={[localize('Trade on the Deriv MT5 platform, the choice of professionals.')]}
             is_inline_icon
             min_height="12.4rem"
             is_selected={is_selected}
@@ -168,7 +172,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
         aria_label="SmartTrader"
         to="trading"
         type="smart_trader"
-        external="true"
+        external
         target="_blank"
         rel="noopener noreferrer"
     >
@@ -181,9 +185,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
                 <Localize
                     key={0}
                     translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
-                    components={[
-                        <LocalizedLinkText key={0} to="home" external="true" type="binary" />,
-                    ]}
+                    components={[<LocalizedLinkText key={0} to="home" external type="binary" />]}
                 />,
             ]}
             is_inline_icon
@@ -196,6 +198,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redirect }) => {
+    const excludetoLowerCase = exclude.toLowerCase()
     const getHeaderText = () => (
         <>
             <UKEU>
@@ -230,10 +233,11 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
                 </HeaderWrapper>
             )}
             <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
-                {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
-                <ROW>{exclude.toLowerCase() !== 'dbot' && <BotCard />}</ROW>
-                {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
-                <ROW>{exclude.toLowerCase() !== 'derivx' && <DerivXCard />}</ROW>
+                {}
+                {excludetoLowerCase !== 'dtrader' && <TraderCard />}
+                <ROW>{excludetoLowerCase !== 'dbot' && <BotCard />}</ROW>
+                {excludetoLowerCase !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
+                <ROW>{excludetoLowerCase !== 'derivx' && <DerivXCard />}</ROW>
             </StyledFlexGridContainer>
         </SectionContainer>
     )
@@ -349,7 +353,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             title={<Localize translate_text="SmartTrader" />}
                             to="trading"
                             type="smart_trader"
-                            external="true"
+                            external
                             target="_blank"
                             onClick={onClick}
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
@@ -391,7 +395,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         }
                         title={<Localize translate_text="Binary Bot" />}
                         to={binary_bot_url}
-                        external="true"
+                        external
                         target="_blank"
                         onClick={onClick}
                         otherLinkProps={{ rel: 'noopener noreferrer' }}
@@ -557,7 +561,7 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to=""
             type="community"
-            external="true"
+            external
             target="_blank"
             rel="noopener noreferrer"
         />

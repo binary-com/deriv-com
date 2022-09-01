@@ -89,7 +89,7 @@ const AccountTerms = () => {
                         <AgreementLabel
                             key={index}
                             isChecked={is_checked}
-                            handleChangeCheckbox={(e) => handleChange(e, name)}
+                            handleChangeCheckbox={(value) => handleChange(value, name)}
                             link_text={link_text}
                             color="var(--color-black-3)"
                         />

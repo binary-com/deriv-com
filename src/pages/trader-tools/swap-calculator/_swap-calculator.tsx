@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
@@ -55,6 +55,7 @@ import {
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { useDerivApi } from 'components/hooks/use-deriv-api'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]
@@ -122,11 +123,10 @@ const VolumeField = ({
                 error={touched.volume && errors.volume}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={(current_input) => {
+                handleError={() => {
                     setFieldValue('volume', '', false)
                     setFieldError('volume', '')
                     setFieldTouched('volume', false, false)
-                    current_input.focus()
                 }}
                 maxLength={getMaxLength(values.volume, 8)}
                 background="white"
@@ -162,11 +162,10 @@ const SwapRateField = ({
                 error={touched.swapRate && errors.swapRate}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={(current_input) => {
+                handleError={() => {
                     setFieldValue('swapRate', '', false)
                     setFieldError('swapRate', '')
                     setFieldTouched('swapRate', false, false)
-                    current_input.focus()
                 }}
                 maxLength={getMaxLength(values.swapRate, 15)}
                 background="white"
@@ -211,10 +210,44 @@ const SwapCalculator = () => {
     const data = useStaticQuery(query)
 
     const [tab, setTab] = useState('Synthetic')
+    const [activeSymbols, setActiveSymbols] = useState([])
+    const [disableDropdown, setDisableDropdown] = useState(true)
+    const [symbolSpotPrice, setSymbolSpotPrice] = useState({})
 
     const onTabClick = (t) => {
         setTab(t)
     }
+    const deriv_api = useDerivApi()
+
+    useEffect(() => {
+        const { send } = deriv_api
+        send({ active_symbols: 'full' }, (response) => {
+            if (!response.error && response.active_symbols.length > 0) {
+                const data = response.active_symbols
+                setActiveSymbols(data)
+                setDisableDropdown(false)
+            }
+        })
+    }, [])
+
+    useEffect(() => {
+        const tempSpotPrice = {}
+        if (activeSymbols.length < 1) {
+            return
+        }
+        activeSymbols.forEach((item) => {
+            tempSpotPrice[item.symbol] = item.spot
+        })
+        setSymbolSpotPrice(tempSpotPrice)
+    }, [activeSymbols])
+
+    const fetchTickData = useCallback(
+        (selectedSymbol, setAssetPrice) => {
+            const price = symbolSpotPrice[selectedSymbol]
+            setAssetPrice('assetPrice', price)
+        },
+        [symbolSpotPrice],
+    )
 
     return (
         <>
@@ -320,12 +353,22 @@ const SwapCalculator = () => {
                                                     default_option={optionItemDefault}
                                                     selected_option={values.symbol}
                                                     id="symbol"
-                                                    onChange={swap_currency_change_handler(
-                                                        setFieldValue,
-                                                    )}
+                                                    onChange={(value) => {
+                                                        setFieldValue(
+                                                            'swapCurrency',
+                                                            getCurrency(value),
+                                                        )
+                                                        setFieldValue(
+                                                            'contractSize',
+                                                            getContractSize(value),
+                                                        )
+                                                        setFieldValue('symbol', value)
+                                                        fetchTickData(value.symbol, setFieldValue)
+                                                    }}
                                                     contractSize={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
+                                                    disabled={disableDropdown}
                                                 />
 
                                                 <InputGroup>
@@ -362,7 +405,7 @@ const SwapCalculator = () => {
                                                                 }
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
-                                                                handleError={(current_input) => {
+                                                                handleError={() => {
                                                                     setFieldValue(
                                                                         'assetPrice',
                                                                         '',
@@ -374,12 +417,7 @@ const SwapCalculator = () => {
                                                                         false,
                                                                         false,
                                                                     )
-                                                                    current_input.focus()
                                                                 }}
-                                                                maxLength={getMaxLength(
-                                                                    values.assetPrice,
-                                                                    15,
-                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -487,9 +525,9 @@ const SwapCalculator = () => {
                                 <LinkWrapper height="auto">
                                     {
                                         <StyledLinkButton
-                                            tertiary="true"
+                                            tertiary
+                                            external
                                             type="mt5"
-                                            external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -497,7 +535,7 @@ const SwapCalculator = () => {
                                         </StyledLinkButton>
                                     }
                                     {
-                                        <StyledLinkButton secondary="true" to="/trade-types/cfds/">
+                                        <StyledLinkButton secondary to="/trade-types/cfds/">
                                             {localize('Learn more about swap')}
                                         </StyledLinkButton>
                                     }
@@ -610,7 +648,7 @@ const SwapCalculator = () => {
                                                                 }
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
-                                                                handleError={(current_input) => {
+                                                                handleError={() => {
                                                                     setFieldValue(
                                                                         'pointValue',
                                                                         '',
@@ -622,7 +660,6 @@ const SwapCalculator = () => {
                                                                         false,
                                                                         false,
                                                                     )
-                                                                    current_input.focus()
                                                                 }}
                                                                 maxLength={getMaxLength(
                                                                     values.pointValue,
@@ -742,15 +779,15 @@ const SwapCalculator = () => {
                                 </Accordion>
                                 <LinkWrapper height="auto">
                                     <StyledLinkButton
-                                        tertiary="true"
+                                        tertiary
+                                        external
                                         type="mt5"
-                                        external="true"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         {localize('Go to Deriv MT5 dashboard')}
                                     </StyledLinkButton>
-                                    <StyledLinkButton secondary="true" to="/trade-types/cfds/">
+                                    <StyledLinkButton secondary to="/trade-types/cfds/">
                                         {localize('Learn more about swap')}
                                     </StyledLinkButton>
                                 </LinkWrapper>

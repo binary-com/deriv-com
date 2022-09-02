@@ -153,7 +153,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                     disabled={is_loading}
                                     onClick={handleSignup}
                                     id="dm-hero-signup"
-                                    secondary="true"
+                                    secondary
                                 >
                                     <Localize translate_text="Create free demo account" />
                                 </HeroButton>

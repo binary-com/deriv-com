@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import type { TopicType } from '../../common/_constants'
 import { StyledLink, StyledChevron, HoverChevron } from './_search-styled'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
+import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 type TopicItemsAccordionProps = {
     items?: TopicType
@@ -26,6 +27,8 @@ const DetailsWrapper = styled(Flex)<{ is_expanded: boolean }>`
 const TopicItemsAccordion = ({ items, setModal, handleHref }: TopicItemsAccordionProps) => {
     const [is_expanded, setExpanded] = useState(false)
 
+    const modal_ref = useRef(null)
+
     const toggleExpand = () => {
         setExpanded((prevState) => !prevState)
     }
@@ -34,8 +37,10 @@ const TopicItemsAccordion = ({ items, setModal, handleHref }: TopicItemsAccordio
         setModal(false)
     }
 
+    useOutsideClick(modal_ref, () => setExpanded(false))
+
     return (
-        <>
+        <Flex fd="column" ref={modal_ref}>
             <Flex
                 mb="16px"
                 fd="column"
@@ -67,7 +72,7 @@ const TopicItemsAccordion = ({ items, setModal, handleHref }: TopicItemsAccordio
                     )
                 })}
             </DetailsWrapper>
-        </>
+        </Flex>
     )
 }
 

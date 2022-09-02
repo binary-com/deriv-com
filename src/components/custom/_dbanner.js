@@ -139,12 +139,7 @@ const DBanner = ({ title, data, background_pattern, image_alt }) => {
                     {title}
                 </StyledHeader>
                 <DemoButton>
-                    <Button
-                        onClick={handleSignup}
-                        id="dm-dbanner-signup"
-                        type="submit"
-                        secondary="true"
-                    >
+                    <Button onClick={handleSignup} id="dm-dbanner-signup" type="submit" secondary>
                         {localize('Create free demo account')}
                     </Button>
                 </DemoButton>

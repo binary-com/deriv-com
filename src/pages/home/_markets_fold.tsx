@@ -108,16 +108,6 @@ const market_data = [
         gradient_end: '#0A0810',
     },
     {
-        header: <Localize translate_text="Synthetic indices" />,
-        description: (
-            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
-        ),
-        img_name: 'market_synthetic_indices',
-        to: '/markets/synthetic/',
-        gradient_start: '#20403A',
-        gradient_end: '#08100E',
-    },
-    {
         header: <Localize translate_text="Cryptocurrencies" />,
         description: (
             <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
@@ -150,12 +140,12 @@ const market_data_eu = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Synthetic indices" />,
+        header: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
+            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
-        img_name: 'market_synthetic_indices',
-        to: '/markets/synthetic/',
+        img_name: 'market_derived',
+        to: '/markets/derived-fx/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
     },

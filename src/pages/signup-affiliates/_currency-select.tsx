@@ -19,10 +19,12 @@ const Item = styled(Flex)`
         background: rgba(245, 247, 250, 0.64);
     }
 `
+
 type CurrencySelectProps = {
     selectedCurrency?: (e, value) => void
     current_select?: string
 }
+
 const Currency = ({ selectedCurrency, current_select }: CurrencySelectProps) => {
     const currency_list = [
         {

@@ -29,7 +29,18 @@ const AffiliateSignup = () => {
             postal_code: '',
         },
         phone_number: null,
-        personal_details: null,
+        personal_details: {
+            first_name: '',
+            last_name: '',
+            date_birth: '',
+            social_media_url: '',
+            website_url: '',
+            password: '',
+            company_name: '',
+            company_registration_number: '',
+            certificate: '',
+            citizen: null,
+        },
         terms_use: null,
     })
 
@@ -39,7 +50,7 @@ const AffiliateSignup = () => {
                 setAffiliateAccount({ ...affiliate_account, account_type: value })
                 break
 
-            case 'account-details':
+            case 'address-details':
                 setNextBtnEnabled(false)
                 setAffiliateAccount({
                     ...affiliate_account,
@@ -52,6 +63,23 @@ const AffiliateSignup = () => {
                     },
                 })
                 break
+            case 'personal-details':
+                setNextBtnEnabled(false)
+                setAffiliateAccount({
+                    ...affiliate_account,
+                    personal_details: {
+                        first_name: value.first_name,
+                        last_name: value.last_name,
+                        date_birth: value.date_birth,
+                        social_media_url: value.social_media_url,
+                        website_url: value.website_url,
+                        password: value.password,
+                        company_name: value.company_name,
+                        company_registration_number: value.company_registration_number,
+                        certificate: value.certificate,
+                        citizen: value.citizen,
+                    },
+                })
         }
     }
 
@@ -75,7 +103,7 @@ const AffiliateSignup = () => {
                     <AccountDetails
                         affiliate_address_data={affiliate_account.address_details}
                         updatedData={(value) => {
-                            updateAffiliateValues(value, 'account-details')
+                            updateAffiliateValues(value, 'address-details')
                         }}
                         onValidate={(valid) => {
                             setNextBtnEnabled(valid)
@@ -83,7 +111,14 @@ const AffiliateSignup = () => {
                     />
                     <PhoneNumber />
                     <PersonalDetails
+                        affiliate_personal_data={affiliate_account.personal_details}
                         is_individual={affiliate_account.account_type === 0 ? true : false}
+                        onValidate={(valid) => {
+                            setNextBtnEnabled(valid)
+                        }}
+                        updatedData={(value) => {
+                            updateAffiliateValues(value, 'personal-details')
+                        }}
                     />
                     <AccountTerms />
                 </Wizard>

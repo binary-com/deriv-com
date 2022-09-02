@@ -8,7 +8,7 @@ import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 
 type WizardProps = {
     children: React.ReactElement[]
-    show?: boolean
+    show: boolean
     steps_names: string[]
     title: string
     enable_next_button: boolean
@@ -56,11 +56,11 @@ const Wizard = ({ children, show, steps_names, title, enable_next_button }: Wiza
     const [enable_next, setEnableNext] = useState(false)
 
     useEffect(() => {
-        enable_next_button !== undefined && setEnableNext(enable_next_button)
+        setEnableNext(enable_next_button)
     }, [enable_next_button])
 
     useEffect(() => {
-        show !== undefined && setShowWizard(show)
+        setShowWizard(show)
     }, [show])
 
     useDebouncedEffect(

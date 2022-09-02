@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { QueryImage } from 'components/elements'
 import { WithIntl } from 'components/localization'
@@ -14,13 +15,23 @@ const query = graphql`
         }
     }
 `
+
+const ImgWrapper = styled.div`
+    position: relative;
+    max-height: 1020px;
+    max-width: 1980px;
+    left: 50%;
+    transform: translateX(-50%);
+`
 const AfricaAward = () => {
     const data = useStaticQuery(query)
 
     return (
         <>
             <Desktop>
-                <QueryImage data={data.africa_award} alt={'Africa Forex Award'} />
+                <ImgWrapper>
+                    <QueryImage data={data.africa_award} alt={'Africa Forex Award'} />
+                </ImgWrapper>
             </Desktop>
             <Mobile>
                 <QueryImage data={data.africa_award_mobile} alt={'Africa Forex Award'} />

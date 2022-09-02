@@ -82,8 +82,10 @@ const AffiliateSignup = () => {
                         }}
                     />
                     <PhoneNumber />
+                    <PersonalDetails
+                        is_individual={affiliate_account.account_type === 0 ? true : false}
+                    />
                     <AccountTerms />
-                    <PersonalDetails />
                 </Wizard>
             </SignUpWrapper>
         </AffiliateSignupLayout>

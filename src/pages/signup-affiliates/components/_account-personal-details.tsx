@@ -1,50 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import Currency from '../_currency-select'
 import { localize } from 'components/localization'
 import { DropdownSearch, Header } from 'components/elements'
 import { Input } from 'components/form'
 import device from 'themes/device'
 
-const PersonalDetails = () => {
-    const InputGroup = styled.div`
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        margin-top: 2.5rem;
-        margin-bottom: 1.5rem;
-        justify-content: center;
-        max-height: 300px;
-        overflow: scroll;
-
-        p {
-            min-height: 30px !important;
-        }
-    `
-    const InputWrapper = styled.div`
-        width: 50%;
-        line-height: 10px;
-        font-weight: normal;
-        margin-right: 1rem;
-        @media ${device.mobileL} {
-            width: unset;
-            max-width: 191px;
-        }
-    `
-    const DropdownSearchWrapper = styled.div`
-        margin-bottom: -16px;
-    `
-    const CurrencyWrapper = styled.div`
-        display: flex;
-        flex-direction: row;
-    `
-    const Line = styled.div`
-        width: 132px;
-        height: 1px;
-        margin: 10px;
-        background-color: var(--color-grey-7);
-    `
-
-    const form_inputs = [
+type PersonalDetailsprops = {
+    is_individual?: boolean
+}
+const PersonalDetails = ({ is_individual }: PersonalDetailsprops) => {
+    const [currency, setCurrency] = useState('')
+    const [form_inputs, setFormInputs] = useState([
         {
             id: 'first_name',
             name: 'first_name',
@@ -127,12 +94,66 @@ const PersonalDetails = () => {
             placeholder: 'Password',
             required: true,
         },
-    ]
+    ])
+    const InputGroup = styled.div`
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 2.5rem;
+        margin-bottom: 1.5rem;
+        justify-content: center;
+
+        p {
+            min-height: 30px !important;
+        }
+    `
+    const InputWrapper = styled.div`
+        width: 50%;
+        line-height: 10px;
+        font-weight: normal;
+        margin-right: 1rem;
+        @media ${device.mobileL} {
+            width: unset;
+            max-width: 191px;
+        }
+    `
+    const DropdownSearchWrapper = styled.div`
+        margin-bottom: -16px;
+    `
+    const CurrencyWrapper = styled.div`
+        display: flex;
+        flex-direction: row;
+    `
+    const Line = styled.div`
+        width: 132px;
+        height: 1px;
+        margin: 10px;
+        background-color: var(--color-grey-7);
+    `
+
+    useEffect(() => {
+        setFormInputs((current_form_inputs) =>
+            current_form_inputs.filter((item) => {
+                if (is_individual) {
+                    const company_details = [
+                        'company_name',
+                        'certificate_incorporation',
+                        'company_registration_number',
+                    ]
+
+                    return !company_details.includes(item.name)
+                }
+
+                return true
+            }),
+        )
+    }, [form_inputs])
+
     return (
         <InputGroup>
             <InputWrapper>
                 {form_inputs.map((item, index) => {
-                    if (item.name === 'country') {
+                    if (item.name === 'citizenship') {
                         return (
                             <DropdownSearchWrapper key={item.id}>
                                 <DropdownSearch
@@ -140,11 +161,11 @@ const PersonalDetails = () => {
                                     label_position={0.8}
                                     key={index}
                                     selected_item={''}
-                                    onChange={(value) => console.log(value)}
+                                    onChange={(value) => value}
                                     default_item={''}
                                     items={''}
                                     type={item.type}
-                                    label={localize('Country of residence')}
+                                    label={localize('Citizenship')}
                                 />
                             </DropdownSearchWrapper>
                         )
@@ -163,6 +184,7 @@ const PersonalDetails = () => {
                         )
                     }
                 })}
+
                 <CurrencyWrapper>
                     <Line />
                     <Header type="paragraph-1" align="center" weight="normal">
@@ -170,6 +192,7 @@ const PersonalDetails = () => {
                     </Header>
                     <Line />
                 </CurrencyWrapper>
+                <Currency current_select={currency} selectedCurrency={setCurrency} />
             </InputWrapper>
         </InputGroup>
     )

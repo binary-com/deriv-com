@@ -22,7 +22,7 @@ const AffiliateSignup = () => {
     const [affiliate_account, setAffiliateAccount] = useState({
         account_type: -1,
         address_details: {
-            country: '',
+            country: null,
             state: '',
             city: '',
             street: '',

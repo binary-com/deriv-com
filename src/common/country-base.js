@@ -260,7 +260,6 @@ export const african_countries = [
     'ne',
     'ng',
     're',
-    'rw',
     'st',
     'sn',
     'sc',

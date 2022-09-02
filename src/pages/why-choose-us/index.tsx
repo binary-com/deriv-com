@@ -93,6 +93,7 @@ const WhyChooseUs = () => {
                 <IconGrid />
             </Section>
             {is_latam ? <LatamAward /> : <></>}
+            <Divider />
             <Section>
                 <GridContainer>
                     <Header as="h2" type="page-title" size="4rem" align="center">

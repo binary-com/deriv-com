@@ -341,6 +341,18 @@ export const OffCanvasMenuWrapper = (props) => {
                         )}
                         <Flex mb="3.2rem">
                             <NavCard
+                                aria_label="Derived FX"
+                                icon={() => (
+                                    <img src={SyntheticIndices} alt="" width="32" height="32" />
+                                )}
+                                content={<Localize translate_text="New hybrid indices" />}
+                                title={<Localize translate_text="Derived FX" />}
+                                onClick={handleArrowClick}
+                                to="/markets/derived-fx/"
+                            />
+                        </Flex>
+                        <Flex mb="3.2rem">
+                            <NavCard
                                 aria_label="Stocks & indices"
                                 icon={() => (
                                     <img src={StockIndices} alt="" width="32" height="32" />

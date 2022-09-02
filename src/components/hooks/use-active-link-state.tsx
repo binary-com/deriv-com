@@ -36,6 +36,14 @@ const getNavigationMap = (type) => {
                 affiliate: ['affiliate-ib'],
                 payment: ['payment-agent'],
             }
+        case 'markets':
+            return {
+                derived: ['derived-fx'],
+                forex: ['forex'],
+                stock: ['synthetic'],
+                cryptocurrencies: ['cryptocurrencies'],
+                commodities: ['commodities'],
+            }
     }
 }
 

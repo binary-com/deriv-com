@@ -11,6 +11,7 @@ type WhyTradeProps = {
     children: ReactElement[]
     header: ReactElement
     text: ReactElement
+    description?: ReactElement
 }
 
 const Item = styled(Flex)`
@@ -61,6 +62,8 @@ const StyledHeader = styled(Header)`
 `
 const StyledText = styled(Text)`
     padding: 0 2px;
+    margin-bottom: 80px;
+    text-align: center;
     @media ${device.tabletL} {
         font-size: 1.8rem;
         padding: 0;
@@ -79,17 +82,17 @@ const StyledButton = styled(Button)`
     }
 `
 
-export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
+export const WhyTrade = ({ children, header, description }: WhyTradeProps) => {
     const handleSignup = useHandleSignup()
 
     return (
-        <StyledSection background="#f9fbff" padding="120px 16px">
+        <StyledSection>
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
+                <StyledText>{description}</StyledText>
                 <div>
                     <StyledHeader as="h3" type="section-title" align="center" mb="1.2rem" lh="1.25">
                         {header}
                     </StyledHeader>
-                    <StyledText align="center">{text}</StyledText>
                 </div>
                 <ItemContainer max_width="48.6rem" width="100%">
                     {children.map((child, idx) => {

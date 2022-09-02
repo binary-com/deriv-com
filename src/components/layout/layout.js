@@ -11,6 +11,7 @@ import Nav from './nav/nav'
 import NavTransparent from './nav/nav-transparent'
 import NavCareers from './nav/nav-careers'
 import NavPartners from './nav/nav-partner'
+import NavMarkets from './nav/nav-markets'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
@@ -224,6 +225,10 @@ const Layout = ({
             break
         case 'partners':
             Navigation = <NavPartners hide_login_signup={no_login_signup} />
+            FooterNav = <Footer />
+            break
+        case 'markets':
+            Navigation = <NavMarkets />
             FooterNav = <Footer />
             break
         case 'security':

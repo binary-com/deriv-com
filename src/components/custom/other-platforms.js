@@ -440,6 +440,14 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                 />
             )}
             <NavCard
+                aria_label="Derived FX"
+                icon={() => <img src={StockIndices} alt="" width="32" height="32" />}
+                content={<Localize translate_text="New deriv\'s hybrid indices" />}
+                title={<Localize translate_text="Derived FX" />}
+                onClick={onClick}
+                to="/markets/derived-fx/"
+            />
+            <NavCard
                 aria_label="Stocks & indices"
                 icon={() => <img src={StockIndices} alt="" width="32" height="32" />}
                 content={

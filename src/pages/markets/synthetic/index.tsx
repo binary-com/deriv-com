@@ -1,6 +1,6 @@
 import React from 'react'
 import SyntheticIndices from '../components/markets/_synthetic-indices'
-import { Hero } from '../components/sections/_hero'
+import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import NavTab from '../components/sections/_nav-tab'
 import { simple_step_content_synthetic } from '../static/content/_synthetic'
 import Signup, { Appearances } from 'components/custom/signup'
@@ -16,7 +16,10 @@ const Markets = () => (
             )}
             title={localize('Synthetic indices | Volatility indices | Deriv')}
         />
-        <Hero />
+        <DerivedFXHero
+            title="Synthetic Indices"
+            description="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetic indices, derived FX indices, and basket indices."
+        />
         <NavTab route_from={'synthetic'} route_offset={50} />
         <SyntheticIndices simple_step_content={simple_step_content_synthetic} />
         <Signup appearance={Appearances.public} />

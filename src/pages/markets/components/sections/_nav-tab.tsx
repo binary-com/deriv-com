@@ -95,6 +95,11 @@ type TabList = {
 }
 const tab_list: TabList[] = [
     {
+        title: <Localize translate_text="Derived FX" />,
+        tab_name: 'derived-fx',
+        route_to: '/markets/derived-fx/',
+    },
+    {
         title: <Localize translate_text="Forex" />,
         tab_name: 'forex',
         route_to: '/markets/forex/',

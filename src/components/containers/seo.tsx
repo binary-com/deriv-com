@@ -38,7 +38,7 @@ type MetaAttributesType = {
 type SeoProps = {
     description?: string
     has_organization_schema?: boolean
-    meta?: []
+    meta?: { name: string; content: string | keyof MetaAttributesType }
     meta_attributes?: MetaAttributesType
     no_index?: boolean
     title?: string

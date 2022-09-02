@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import Carousel from './_testimonial-carousel'
 import { Header, Text } from 'components/elements'
@@ -268,6 +268,12 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 
 const WhatOurClientsSay = () => {
     const { is_eu, is_uk } = useCountryRule()
+    const ref = useRef()
+
+    useEffect(() => {
+        window?.Trustpilot?.loadFromElement(ref.current, true)
+    }, [])
+
     return (
         <StyledContainer>
             <ClientContainer padding="5rem 0 0">
@@ -301,6 +307,7 @@ const WhatOurClientsSay = () => {
                             }}
                         >
                             <div
+                                ref={ref}
                                 className="trustpilot-widget"
                                 data-locale="en-US"
                                 data-template-id="53aa8807dec7e10d38f59f32"

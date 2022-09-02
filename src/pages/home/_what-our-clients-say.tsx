@@ -8,6 +8,7 @@ import device from 'themes/device'
 import { addScript } from 'common/utility'
 import Quote from 'images/svg/testimonials/quote.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useScroll } from 'components/hooks/use-scroll'
 
 const StyledContainer = styled.div`
     background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
@@ -269,14 +270,17 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 
 const WhatOurClientsSay = () => {
     const { is_eu, is_uk } = useCountryRule()
+    const { scroll_y } = useScroll()
 
     useEffect(() => {
-        addScript({
-            src: 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js',
-            id: 'trust-pilot',
-            async: true,
-        })
-    }, [])
+        if (scroll_y > 1000) {
+            addScript({
+                src: 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js',
+                id: 'trust-pilot',
+                async: true,
+            })
+        }
+    }, [scroll_y])
 
     return (
         <StyledContainer>

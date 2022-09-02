@@ -33,10 +33,11 @@ const Modal = styled.div`
     background-color: white;
     transform: translate(-50%, -50%);
     width: 50%;
-    height: 70%;
+    height: 668px;
     max-width: 1200px;
     z-index: 100;
     border-radius: 8px;
+
     @media ${device.tablet} {
         width: 100%;
     }
@@ -46,6 +47,13 @@ const Modal = styled.div`
     @media ${device.laptop} {
         width: 80%;
     }
+`
+
+const Wrapper = styled.div`
+    height: fit-content;
+    max-height: 435px;
+    padding: 24px 0 10px 0;
+    overflow-x: auto;
 `
 
 const Wizard = ({ children, show, steps_names, title, enable_next_button }: WizardProps) => {
@@ -64,9 +72,11 @@ const Wizard = ({ children, show, steps_names, title, enable_next_button }: Wiza
                 <Modal>
                     <Header title={title} setShowWizard={setShowWizard} />
                     <Stepper step={step} step_names={steps_names} />
-                    {React.Children.map(children, (child, idx) => (
-                        <div key={child.props.name}>{step === idx + 1 && child}</div>
-                    ))}
+                    <Wrapper>
+                        {React.Children.map(children, (child, idx) => (
+                            <div key={child.props.name}>{step === idx + 1 && child}</div>
+                        ))}
+                    </Wrapper>
                     <Footer
                         step={step}
                         setStep={setStep}

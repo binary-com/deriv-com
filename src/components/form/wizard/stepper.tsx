@@ -5,7 +5,7 @@ import device from 'themes/device'
 type StepperProps = { step: number; step_names: string[] }
 
 const StepperWrapper = styled.div`
-    padding: 30px 0 50px 0;
+    padding: 30px 0 24px 0;
     display: flex;
     justify-content: space-between;
     width: 700px;

@@ -2,12 +2,12 @@ import { css } from 'styled-components'
 
 interface IProps {
     all?: string
-    bottom?: string
-    start?: string
-    end?: string
-    top?: string
-    x?: string
-    y?: string
+    bottom?: string | number
+    start?: string | number
+    end?: string | number
+    top?: string | number
+    x?: string | number
+    y?: string | number
 }
 
 export const BorderMixin = ({
@@ -59,7 +59,7 @@ export const BorderRadiusMixin = ({
 `
 
 const BlockMargin = (margin?: string) => {
-    const splitted_margins = margin?.split(' ')
+    const splitted_margins = margin?.split?.(' ')
 
     switch (splitted_margins?.length) {
         // margin: "9px"
@@ -138,7 +138,7 @@ export const MarginMixin = ({
 }
 
 const BlockPadding = (padding?: string) => {
-    const splitted_paddings = padding?.split(' ')
+    const splitted_paddings = padding?.split?.(' ')
     switch (splitted_paddings?.length) {
         // padding: "9px"
         case 1:

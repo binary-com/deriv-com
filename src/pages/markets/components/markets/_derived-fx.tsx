@@ -2,13 +2,11 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
-import { derived_content, derived_content_eu } from '../../static/content/_derived'
+import { derived_content } from '../../static/content/_derived'
 import { derived_fx_cfds } from '../../static/content/_cfds'
 import CFDs from '../sub-markets/_cfds'
 import { StyledBox } from '../../static/style/_markets-style'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
-// import { DerivStore } from 'store'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -18,7 +16,6 @@ type DerivedProps = {
     simple_step_content: SimpleStepsContent[]
 }
 const Derived = ({ simple_step_content }: DerivedProps) => {
-    const { is_row, is_uk_eu } = useCountryRule()
     return (
         <>
             <WhyTrade
@@ -30,7 +27,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
                     <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
                 }
             >
-                {(is_uk_eu ? derived_content_eu : derived_content).map((content, index) => (
+                {derived_content.map((content, index) => (
                     <StyledBox
                         key={index}
                         text={content.text}
@@ -39,7 +36,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_uk_eu ? derived_fx_cfds : derived_fx_cfds} />}
+                CFDs={<CFDs market_content={derived_fx_cfds} />}
                 display_title={<Localize translate_text="Derived FX trades available on Deriv" />}
             />
             <SimpleSteps

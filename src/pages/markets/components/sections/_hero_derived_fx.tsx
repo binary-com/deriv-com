@@ -1,26 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import NavMarkets from 'components/layout/nav/nav-markets'
 import { Container, Flex } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { Button } from 'components/form'
+import BannerBg from 'images/common/markets/hero-derived-fx.png'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const BackgroundWrapper = styled.div`
+    background: url(${BannerBg});
+    background-repeat: round;
     position: relative;
-    height: 60rem;
-    width: 100%;
-    overflow: hidden;
+    min-height: 38.3rem;
 
     @media ${device.tabletL} {
         height: unset;
     }
 `
 const StyledContainer = styled(Container)`
-    padding-top: 14.7rem;
+    margin-top: 175px;
+    margin-bottom: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,27 +73,16 @@ const StyledButton = styled(Button)`
         padding: 1.25rem 4.75rem;
     }
 `
-const query = graphql`
-    {
-        derived_fx_banner: file(relativePath: { eq: "markets/hero-derived-fx.png" }) {
-            ...fadeIn
-        }
-    }
-`
 type MarketProps = {
     title: string
     description: string
 }
 export const DerivedFXHero = ({ title, description }: MarketProps) => {
-    const data = useStaticQuery(query)
     const handleSignup = useHandleSignup()
 
     return (
         <BackgroundWrapper>
             <NavMarkets />
-            <ImageWrapper>
-                <QueryImage data={data['derived_fx_banner']} alt="derived fx" />
-            </ImageWrapper>
 
             <StyledContainer>
                 <StyledHeader as="h1" align="center">

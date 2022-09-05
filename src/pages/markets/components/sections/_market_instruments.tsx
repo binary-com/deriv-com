@@ -5,6 +5,7 @@ import {
     LatestMarketsList,
     MarketsWrapper,
     MarketsList,
+    DerivedMarketsList,
     Row,
     Title,
 } from '../../static/style/_markets-style'
@@ -69,6 +70,28 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                         >
                                             {content.component}
                                         </LatestMarketsList>
+                                    </>
+                                ) : market_content.template == 3 ? (
+                                    <>
+                                        <Col full_width={true}>
+                                            {is_mobile && content.mobile_title ? (
+                                                <Title>{content.mobile_title}</Title>
+                                            ) : (
+                                                <Title>{content.title}</Title>
+                                            )}
+                                        </Col>
+                                        <DerivedMarketsList
+                                            has_right_border={true}
+                                            col={content.col}
+                                            tablet_col={content.tablet_col}
+                                            mobile_col={content.mobile_col}
+                                            padding={content.padding}
+                                            flex={content.flex}
+                                            gap={content.gap}
+                                            gap_mobile={content.gap_mobile}
+                                        >
+                                            {content.component}
+                                        </DerivedMarketsList>
                                     </>
                                 ) : (
                                     <>

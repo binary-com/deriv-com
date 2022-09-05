@@ -407,3 +407,14 @@ export const JumpIndicesDetails = (): ReactElement => (
         </Text>
     </DetailsContainer>
 )
+
+export const DerivedCFDsDetails = (): ReactElement => (
+    <DetailsContainer>
+        <Text>
+            <Localize
+                translate_text="These indices correspond to financial markets with volatilities of 10% and 100%. One tick is generated for every tick of the corresponding forex pair."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)

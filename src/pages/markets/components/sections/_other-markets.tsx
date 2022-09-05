@@ -23,11 +23,11 @@ type MarketType = {
 }
 type MarketsType = {
     forex: MarketType
-    synthetic_indices: MarketType
+    //synthetic_indices: MarketType
     stock_indices: MarketType
     commodities: MarketType
     cryptocurrencies: MarketType
-    basket_indices: MarketType
+    //basket_indices: MarketType
 }
 type CardProps = {
     market: string
@@ -45,7 +45,7 @@ const markets_type: MarketsType = {
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
-    synthetic_indices: {
+    /*synthetic_indices: {
         icon: () => <img src={SyntheticIndices} alt="" width="64" height="64" />,
         title: <Localize translate_text="Synthetic indices" />,
         content: (
@@ -53,7 +53,7 @@ const markets_type: MarketsType = {
         ),
         to: '/markets/synthetic/',
         id: 'marketsyntheticothermarkets',
-    },
+    },*/
     stock_indices: {
         icon: () => <img src={StockIndices} alt="" width="64" height="64" />,
         title: <Localize translate_text="Stocks & indices" />,
@@ -83,6 +83,7 @@ const markets_type: MarketsType = {
         to: '/markets/cryptocurrencies/',
         id: 'marketcryptocurrenciesothermarket',
     },
+    /*
     basket_indices: {
         icon: () => <img src={Basket} alt="" width="64" height="64" />,
         title: <Localize translate_text="Basket indices" />,
@@ -91,7 +92,7 @@ const markets_type: MarketsType = {
         ),
         to: '/markets/basket-indices/',
         id: 'marketbasket_indicesothermarket',
-    },
+    },*/
 }
 
 const LearnMore = styled(LocalizedLink)`
@@ -272,10 +273,10 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const markets = [
         '',
         'forex',
-        'synthetic_indices',
+        //'synthetic_indices',
         'stock_indices',
         'cryptocurrencies',
-        'basket_indices',
+        //'basket_indices',
         'commodities',
         '',
     ]
@@ -283,7 +284,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const eu_markets = [
         '',
         'forex',
-        'synthetic_indices',
+        //'synthetic_indices',
         'stock_indices',
         'cryptocurrencies',
         'commodities',

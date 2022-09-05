@@ -3,11 +3,11 @@ import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import { derived_content, derived_content_eu } from '../../static/content/_derived'
-import { forex_cfds, forex_cfds_eu } from '../../static/content/_cfds'
+import { derived_fx_cfds } from '../../static/content/_cfds'
 import CFDs from '../sub-markets/_cfds'
 import { StyledBox } from '../../static/style/_markets-style'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 // import { DerivStore } from 'store'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 //Lazy-load
@@ -39,7 +39,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_uk_eu ? forex_cfds_eu : forex_cfds} />}
+                CFDs={<CFDs market_content={is_uk_eu ? derived_fx_cfds : derived_fx_cfds} />}
                 display_title={<Localize translate_text="Derived FX trades available on Deriv" />}
             />
             <SimpleSteps
@@ -49,7 +49,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="forex" />
+            <OtherMarkets />
         </>
     )
 }

@@ -27,6 +27,7 @@ const StyledContainer = styled(Container)`
     align-items: center;
     gap: 12px;
     position: relative;
+    top: 7.2rem;
 
     h4,
     h1 {

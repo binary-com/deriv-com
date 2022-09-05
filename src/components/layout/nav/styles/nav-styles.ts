@@ -4,7 +4,7 @@ import device from 'themes/device'
 import { getBaseRef } from 'common/utility'
 import { Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
-import { SharedLinkStyle } from 'components/localization/localized-link'
+import { SharedLinkStyle, SharedLinkStyleMarket } from 'components/localization/localized-link'
 
 type NavRightProps = {
     button_ref: HTMLButtonElement
@@ -209,7 +209,9 @@ export const Line = styled.div`
 export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
-
+export const StyledLinkMarket = styled(LocalizedLink)`
+    ${SharedLinkStyleMarket}
+`
 export const PartnerNavigationBarWrapper = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;

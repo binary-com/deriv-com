@@ -8,7 +8,6 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
-import Basket from 'images/svg/custom/basket-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
@@ -16,6 +15,7 @@ import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
 import Commodities from 'images/svg/custom/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
+import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
@@ -35,7 +35,6 @@ import Signals from 'images/svg/menu/signals.svg'
 import Smarttrader from 'images/svg/custom/smarttrader.svg'
 import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
-import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
 import TraderTool from 'images/svg/custom/trader-tool-nav.svg'
 
 const StyledText = styled(Text)`
@@ -412,11 +411,21 @@ NavPlatform.propTypes = {
     onClick: PropTypes.func,
 }
 
-export const NavMarket = ({ onClick, is_ppc }) => {
-    const { is_non_eu, is_non_uk } = useCountryRule()
+export const NavMarket = ({ onClick }) => {
+    const { is_non_uk } = useCountryRule()
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
+            <NavCard
+                aria_label="Derived"
+                icon={() => <img src={DerivedFX} alt="" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Enjoy trading asset prices derived<br/> from real-world or simulated markets." />
+                }
+                title={<Localize translate_text="Derived" />}
+                onClick={onClick}
+                to="/markets/derived/derived-fx/"
+            />
             <NavCard
                 aria_label="Forex"
                 icon={() => <img src={Forex} alt="" width="32" height="32" />}
@@ -426,26 +435,6 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                 title={<Localize translate_text="Forex" />}
                 onClick={onClick}
                 to="/markets/forex/"
-            />
-            {!is_ppc && is_non_uk && (
-                <NavCard
-                    aria_label="Synthetic indices"
-                    icon={() => <img src={SyntheticIndices} alt="" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
-                    }
-                    title={<Localize translate_text="Synthetic indices" />}
-                    onClick={onClick}
-                    to="/markets/synthetic/"
-                />
-            )}
-            <NavCard
-                aria_label="Derived FX"
-                icon={() => <img src={StockIndices} alt="" width="32" height="32" />}
-                content={<Localize translate_text="New deriv\'s hybrid indices" />}
-                title={<Localize translate_text="Derived FX" />}
-                onClick={onClick}
-                to="/markets/derived-fx/"
             />
             <NavCard
                 aria_label="Stocks & indices"
@@ -467,18 +456,6 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                     title={<Localize translate_text="Cryptocurrencies" />}
                     onClick={onClick}
                     to="/markets/cryptocurrencies/"
-                />
-            )}
-            {is_non_eu && is_non_uk && (
-                <NavCard
-                    aria_label="Basket indices"
-                    icon={() => <img src={Basket} alt="" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="Trade weighted indices that measure the value of a currency against a basket of major currencies." />
-                    }
-                    title={<Localize translate_text="Basket indices" />}
-                    onClick={onClick}
-                    to="/markets/basket-indices/"
                 />
             )}
             <NavCard

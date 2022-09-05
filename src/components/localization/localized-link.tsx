@@ -81,7 +81,35 @@ export const SharedLinkStyle = css<SharedLinkStyleProps>`
             }
         `}
 `
+export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: text-shadow 0.25s;
+    position: relative;
 
+    &::before {
+        content: '';
+        position: absolute;
+        transition: width 0.25s;
+        height: 0.2rem;
+        width: 0;
+        background-color: var(--color-red);
+        bottom: 0;
+    }
+    &:hover {
+        color: gray;
+    }
+    &.active {
+        color: gray;
+    }
+
+    ${({ active }) =>
+        active &&
+        css`
+            color: gray;
+        `}
+`
 const ShareDisabledStyle = css<{ disabled: boolean }>`
     ${({ disabled }) =>
         disabled &&

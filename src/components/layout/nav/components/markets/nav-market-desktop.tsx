@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { NavLink, StyledLink, DesktopWrapper, Wrapper } from '../../styles/nav-styles'
+import { NavLink, StyledLinkMarket, DesktopWrapper, Wrapper } from '../../styles/nav-styles'
 import { localize } from 'components/localization'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 
@@ -33,14 +33,14 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
     const current_page = useActiveLinkState('markets')
     return (
         <NavLink>
-            <StyledLink
+            <StyledLinkMarket
                 active={current_page === active}
                 activeClassName="active"
                 aria-label={title}
                 {...rest}
             >
                 {title}
-            </StyledLink>
+            </StyledLinkMarket>
         </NavLink>
     )
 }

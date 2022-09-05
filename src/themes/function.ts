@@ -17,7 +17,7 @@ export type PaddingsType = {
 }
 
 export const Margins = ({ m = null, mt = '', ml = '', mr = '', mb = '' }: MarginsType) =>
-    MarginMixin({ all: String(m), top: mt, start: ml, end: mr, bottom: mb })
+    MarginMixin({ all: m, top: mt, start: ml, end: mr, bottom: mb })
 
 export const Paddings = ({ p = null, pt = '', pl = '', pr = '', pb = '' }: PaddingsType) =>
-    PaddingMixin({ all: String(p), top: pt, start: pl, end: pr, bottom: pb })
+    PaddingMixin({ all: p, top: pt, start: pl, end: pr, bottom: pb })

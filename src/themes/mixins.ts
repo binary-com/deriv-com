@@ -1,7 +1,7 @@
 import { css } from 'styled-components'
 
 interface IProps {
-    all?: string
+    all?: string | number
     bottom?: string | number
     start?: string | number
     end?: string | number
@@ -58,57 +58,65 @@ export const BorderRadiusMixin = ({
     }
 `
 
-const BlockMargin = (margin?: string) => {
-    const splitted_margins = margin?.split?.(' ')
+const BlockMargin = (margin?: string | number) => {
+    if (typeof margin === 'string') {
+        const splitted_margins = margin?.split?.(' ')
 
-    switch (splitted_margins?.length) {
-        // margin: "9px"
-        case 1:
-            return css`
-                margin-block: ${splitted_margins};
-                margin-inline: ${splitted_margins};
-                @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
+        switch (splitted_margins?.length) {
+            // margin: "9px"
+            case 1:
+                return css`
+                    margin-block: ${splitted_margins};
+                    margin-inline: ${splitted_margins};
+                    @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
+                        margin: ${margin};
+                    }
+                `
+            // margin: "9px 12px"
+            case 2:
+                return css`
+                    margin-block: ${splitted_margins[0]};
+                    margin-inline: ${splitted_margins[1]};
+                    @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
+                        margin: ${margin};
+                    }
+                `
+            // margin: "9px 10px 11px"
+            case 3:
+                return css`
+                    margin-block-start: ${splitted_margins[0]};
+                    margin-inline: ${splitted_margins[1]};
+                    margin-block-end: ${splitted_margins[2]};
+                    @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
+                        margin: ${margin};
+                    }
+                `
+            // margin: "9px 10px 11px"
+            case 4:
+                return css`
+                    margin-block-start: ${splitted_margins[0]};
+                    margin-inline-start: ${splitted_margins[1]};
+                    margin-inline-end: ${splitted_margins[2]};
+                    margin-block-end: ${splitted_margins[3]};
+                    @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
+                        margin: ${margin};
+                    }
+                `
+            default:
+                return css`
                     margin: ${margin};
-                }
-            `
-        // margin: "9px 12px"
-        case 2:
-            return css`
-                margin-block: ${splitted_margins[0]};
-                margin-inline: ${splitted_margins[1]};
-                @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
-                    margin: ${margin};
-                }
-            `
-        // margin: "9px 10px 11px"
-        case 3:
-            return css`
-                margin-block-start: ${splitted_margins[0]};
-                margin-inline: ${splitted_margins[1]};
-                margin-block-end: ${splitted_margins[2]};
-                @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
-                    margin: ${margin};
-                }
-            `
-        // margin: "9px 10px 11px"
-        case 4:
-            return css`
-                margin-block-start: ${splitted_margins[0]};
-                margin-inline-start: ${splitted_margins[1]};
-                margin-inline-end: ${splitted_margins[2]};
-                margin-block-end: ${splitted_margins[3]};
-                @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
-                    margin: ${margin};
-                }
-            `
-        default:
-            return css`
-                margin-block: 0;
-                margin-inline: 0;
-                @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
-                    margin: ${margin};
-                }
-            `
+
+                    /* margin-block: 0;
+                    margin-inline: 0;
+                    @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
+                        margin: ${margin};
+                    } */
+                `
+        }
+    } else {
+        return css`
+            margin: ${margin};
+        `
     }
 }
 export const MarginMixin = ({
@@ -137,56 +145,64 @@ export const MarginMixin = ({
     `
 }
 
-const BlockPadding = (padding?: string) => {
-    const splitted_paddings = padding?.split?.(' ')
-    switch (splitted_paddings?.length) {
-        // padding: "9px"
-        case 1:
-            return css`
-                padding-block: ${padding};
-                padding-inline: ${padding};
-                @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
+const BlockPadding = (padding?: string | number) => {
+    if (typeof padding === 'string') {
+        const splitted_paddings = padding?.split?.(' ')
+        switch (splitted_paddings?.length) {
+            // padding: "9px"
+            case 1:
+                return css`
+                    padding-block: ${padding};
+                    padding-inline: ${padding};
+                    @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
+                        padding: ${padding};
+                    }
+                `
+            // padding: "9px 12px"
+            case 2:
+                return css`
+                    padding-block: ${splitted_paddings[0]};
+                    padding-inline: ${splitted_paddings[1]};
+                    @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
+                        padding: ${padding};
+                    }
+                `
+            // padding: "9px 10px 11px"
+            case 3:
+                return css`
+                    padding-block-start: ${splitted_paddings[0]};
+                    padding-inline: ${splitted_paddings[1]};
+                    padding-block-end: ${splitted_paddings[2]};
+                    @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
+                        padding: ${padding};
+                    }
+                `
+            // padding: "9px 10px 11px"
+            case 4:
+                return css`
+                    padding-block-start: ${splitted_paddings[0]};
+                    padding-inline-start: ${splitted_paddings[1]};
+                    padding-inline-end: ${splitted_paddings[2]};
+                    padding-block-end: ${splitted_paddings[3]};
+                    @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
+                        padding: ${padding};
+                    }
+                `
+            default:
+                return css`
                     padding: ${padding};
-                }
-            `
-        // padding: "9px 12px"
-        case 2:
-            return css`
-                padding-block: ${splitted_paddings[0]};
-                padding-inline: ${splitted_paddings[1]};
-                @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
-                    padding: ${padding};
-                }
-            `
-        // padding: "9px 10px 11px"
-        case 3:
-            return css`
-                padding-block-start: ${splitted_paddings[0]};
-                padding-inline: ${splitted_paddings[1]};
-                padding-block-end: ${splitted_paddings[2]};
-                @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
-                    padding: ${padding};
-                }
-            `
-        // padding: "9px 10px 11px"
-        case 4:
-            return css`
-                padding-block-start: ${splitted_paddings[0]};
-                padding-inline-start: ${splitted_paddings[1]};
-                padding-inline-end: ${splitted_paddings[2]};
-                padding-block-end: ${splitted_paddings[3]};
-                @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
-                    padding: ${padding};
-                }
-            `
-        default:
-            return css`
-                padding-block: 0;
-                padding-inline: 0;
-                @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
-                    padding: ${padding};
-                }
-            `
+
+                    /* padding-block: 0;
+                    padding-inline: 0;
+                    @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
+                        padding: ${padding};
+                    } */
+                `
+        }
+    } else {
+        return css`
+            padding: ${padding};
+        `
     }
 }
 

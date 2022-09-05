@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Paddings, Margins, MarginsType, PaddingsType } from 'themes/function'
 import device from 'themes/device'
+import { SizeMixin, PaddingMixin, BorderRadiusMixin } from 'themes/mixins'
 
 type TrueOrFalse = boolean | 'true' | 'false'
 
@@ -24,14 +25,12 @@ type ButtonProps = React.HTMLProps<HTMLButtonElement> &
     PaddingsType
 
 export const SharedButtonStyle = css<ButtonProps>`
-    border-radius: 4px;
-    padding-block: 10px;
-    padding-inline: 16px;
+    ${BorderRadiusMixin({ all: '4px' })}
+    ${PaddingMixin({ all: '10px 16px' })}
+    ${(props) => SizeMixin({ height: 'fit-content', width: props.width })}
     font-size: 14px;
     transition: all 0.25s;
     font-weight: bold;
-    block-size: fit-content;
-    inline-size: ${(props) => props.width};
     ${(props) => {
         if (props.primary)
             return css`
@@ -95,8 +94,7 @@ export const SharedButtonStyle = css<ButtonProps>`
                     provider === 'google' ? '1px solid var(--color-grey-5);' : 'none'};
 
                 svg {
-                    inline-size: 2.2rem;
-                    block-size: 2.2rem;
+                    ${SizeMixin({ width: '2.2rem', height: '2.3rem' })}
                 }
 
                 &:hover {
@@ -119,11 +117,10 @@ export const SharedButtonStyle = css<ButtonProps>`
                 box-shadow: inset 0 var(--color-red);
                 color: var(--color-white);
                 background: var(--color-red);
-                padding-block: 17px;
-                padding-inline: 24px;
+                ${PaddingMixin({ all: '17px 24px' })}
                 font-size: 20px;
                 line-height: 30px;
-                border-radius: 8px;
+                ${BorderRadiusMixin({ all: '8px' })}
 
                 &:hover {
                     background-color: var(--color-red-3);
@@ -131,8 +128,12 @@ export const SharedButtonStyle = css<ButtonProps>`
                 }
 
                 @media ${device.tabletL} {
-                    padding-block: 20px !important;
-                    padding-inline: 24px !important;
+                    ${PaddingMixin({
+                        top: '20px !important',
+                        bottom: '20px !important',
+                        start: '24px !important',
+                        end: '24px !important',
+                    })}
                     font-size: 16px !important;
                     line-height: 24px !important;
                 }
@@ -164,10 +165,9 @@ const Button = styled.button<ButtonProps>`
             `
         if (props.loading)
             return css`
-                inline-size: 8rem;
-                block-size: 8rem;
+                ${SizeMixin({ width: '8rem', height: '8rem' })}
                 border: 10 px solid var(--color-black);
-                border-radius: 50%;
+                ${BorderRadiusMixin({ all: '50%' })}
                 animation: sweep 1s linear alternate infinite, rotates 0.8s linear infinite;
             `
     }}

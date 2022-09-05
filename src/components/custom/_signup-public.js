@@ -15,6 +15,14 @@ import Apple from 'images/svg/custom/apple-40.svg'
 import Facebook from 'images/svg/custom/facebook-40.svg'
 import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
+import {
+    SizeMixin,
+    MarginMixin,
+    PaddingMixin,
+    BorderMixin,
+    BorderRadiusMixin,
+    PositionMixin,
+} from 'themes/mixins'
 
 const query = graphql`
     query {
@@ -30,33 +38,31 @@ const query = graphql`
     }
 `
 const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
-    inline-size: 100%;
-    padding-block: 80px;
-    padding-inline: 0;
+    ${SizeMixin({ width: '100%' })}
+    ${PaddingMixin({ all: '80px 0' })}
     position: static;
     background-color: var(--color-white);
 
     @media ${device.tabletL} {
-        padding-block-start: 0;
-        padding-block-end: 40px;
-        padding-inline: 0;
+        ${PaddingMixin({ all: '0 0 40px' })}
     }
 `
 const Wrapper = styled.div`
-    border-radius: 8px;
+    ${BorderRadiusMixin({ all: '8px' })}
     background: linear-gradient(241.92deg, #d74b56 12.96%, #d1632f 86.33%);
     background-repeat: round;
     position: relative;
     display: flex;
     flex-direction: row;
-    min-block-size: 35.3rem;
+    ${SizeMixin({ min_height: '35.3rem', width: '100%' })}
     align-items: center;
-    inline-size: 100%;
-    border-top: 1px solid rgba(151, 151, 151, 0.2);
-    border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+    ${BorderMixin({
+        top: '1px solid rgba(151, 151, 151, 0.2)',
+        bottom: '1px solid rgba(151, 151, 151, 0.2)',
+    })}
     @media (max-width: 991px) {
         flex-direction: column;
-        block-size: auto;
+        ${SizeMixin({ height: 'auto' })}
     }
 `
 const MobileWrapper = styled.div`
@@ -64,99 +70,87 @@ const MobileWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    inline-size: 100%;
-    max-inline-size: 600px;
+    ${SizeMixin({ width: '100%', height: '600px' })}
 `
 const SignupFormWrapper = styled(Flex)`
-    inline-size: 50%;
+    ${SizeMixin({ width: '50%' })}
     align-items: center;
     @media ${device.tablet} {
-        padding: 0 2rem;
+        ${PaddingMixin({ all: '0 2rem' })}
     }
     @media ${device.mobileM} {
-        inline-size: 100%;
+        ${SizeMixin({ width: '100%' })}
 
         & > div {
-            inline-size: 100%;
+            ${SizeMixin({ width: '100%' })}
         }
     }
 `
 const MobileSignupFormWrapper = styled(Flex)`
-    inline-size: 50%;
+    ${SizeMixin({ width: '50%' })}
     align-items: center;
-    padding-block: 0;
-    padding-inline: 2rem;
+    ${PaddingMixin({ all: '0 2rem' })}
     @media (max-width: 991px) {
-        inline-size: 100%;
+        position: relative;
         box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
         background: white;
-        padding-block-end: 30px;
-        border-radius: 8px;
-        position: relative;
-        inset-block-start: -10px;
-        padding-inline-start: 20px;
+        ${SizeMixin({ width: '100%' })}
+        ${PaddingMixin({})}
+        ${PaddingMixin({ start: '20px', bottom: '30px' })}
+        ${BorderRadiusMixin({ all: '8px' })}
+        ${PositionMixin({ top: '-10px' })}
 
         & > div {
-            inline-size: auto;
+            ${SizeMixin({ width: 'auto' })}
         }
     }
 `
 const BackgroundWrapper = styled(Flex)`
     position: relative;
-    min-block-size: 35.3rem;
-    block-size: 100%;
-    inline-size: 50%;
+    ${SizeMixin({ width: '50%', height: '100%', min_height: '35.3rem' })}
 
     @media screen and (max-width: 1040px) and (min-width: 992px) {
-        inline-size: 47%;
-        margin-inline-start: 3%;
+        ${SizeMixin({ width: '47%' })}
+        ${MarginMixin({ start: '3%' })}
     }
 
     & > div {
         position: absolute;
-        inset-block-end: -5px;
-        inset-inline-start: 0;
+        ${PositionMixin({ bottom: '-5px', left: '0' })}
     }
 `
 const InputWrapper = styled.div`
-    inline-size: 245px;
+    ${SizeMixin({ width: '245px' })}
     line-height: 10px;
     font-weight: normal;
-    margin-inline-end: 1rem;
+    ${MarginMixin({ end: '1rem' })}
     @media ${device.mobileL} {
-        inline-size: unset;
-        max-inline-size: 191px;
+        ${SizeMixin({ width: 'unset', max_width: '191px' })}
     }
 `
 const InputGroup = styled.div`
     display: flex;
     flex-direction: row;
-    inline-size: 100%;
-    margin-block-start: 2.5rem;
-    margin-block-end: 1.5rem;
+    ${SizeMixin({ width: '100%' })}
+    ${MarginMixin({ start: '2.5rem', end: '1.5rem' })}
 `
 const EmailButton = styled(Button)`
-    margin-inline-start: 1rem;
-    min-inline-size: 125px;
-    block-size: 40px;
-    padding-inline: 10px;
-    padding-block: 10px;
-    border-radius: 4px;
     font-weight: normal;
+    ${MarginMixin({ start: '1rem' })}
+    ${SizeMixin({ height: '40px', min_width: '125px' })}
+    ${PaddingMixin({ all: '10px' })}
+    ${BorderRadiusMixin({ all: '4px' })}
     @media ${device.tabletL} {
-        padding-block: 10px;
-        padding-inline: 16px;
+        ${PaddingMixin({ all: '10px' })}
         white-space: nowrap;
-        min-inline-size: unset;
-        margin-inline-start: 0;
-        block-size: 40px;
-        inline-size: auto;
+        ${SizeMixin({ width: 'auto', height: '40px', min_width: 'unset' })}
+        ${MarginMixin({ start: '0' })}
     }
 `
 const SocialWrapper = styled(Flex)`
-    inline-size: 100%;
-    margin-block-start: 4rem;
     flex-wrap: wrap;
+    ${SizeMixin({ width: '100%' })}
+    ${MarginMixin({ start: '4rem' })}
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
@@ -169,9 +163,8 @@ const MobileSocialWrapper = styled(SocialWrapper)`
 `
 const SocialButton = styled(Button)`
     display: flex;
-    padding: 0;
-    margin-block: 0;
-    margin-inline: 1rem;
+    ${PaddingMixin({ all: '0' })}
+    ${MarginMixin({ all: '0 1rem' })}
     border: none;
 
     @media ${device.tabletL} {
@@ -179,29 +172,27 @@ const SocialButton = styled(Button)`
     }
 `
 const StyledHeader = styled(Header)`
-    inline-size: ${(props) => props.width || '41.4rem'};
+    ${(props) => SizeMixin({ width: props.width || '41.4rem' })}
     position: ${(props) => props.position || 'static'};
     @media ${device.tablet} {
-        inline-size: auto;
+        ${SizeMixin({ width: 'auto' })}
     }
     @media (max-width: 991px) {
-        margin-block-start: 3rem;
+        ${MarginMixin({ start: '3rem' })}
     }
     @media (max-width: 991px) {
-        max-block-size: 290px;
+        ${SizeMixin({ max_height: '290px' })}
     }
 `
 const StyledFormWrapper = styled.div`
-    background: white;
-    max-inline-size: 414px;
-    padding-block-start: 20px;
-    padding-inline: 20px;
-    padding-block-end: 30px;
-    padding-inline-start: 30px;
-    border-radius: 8px;
     position: absolute;
-    inset-block-end: -50px;
+    background: white;
     box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
+    ${SizeMixin({ max_width: '414px' })}
+    ${PaddingMixin({ all: '20px 20px 30px' })}
+    ${MarginMixin({ start: '30px' })}
+    ${BorderRadiusMixin({ all: '8px' })}
+    ${PositionMixin({ bottom: '-50px' })}
 
     h1 {
         @media (min-width: 991px) {
@@ -210,26 +201,24 @@ const StyledFormWrapper = styled.div`
     }
 
     @media (min-width: 1600px) {
-        min-inline-size: 430px;
+        ${SizeMixin({ min_width: '430px' })}
     }
 `
 const StyledHeaderText = styled(Text)`
-    inline-size: ${(props) => props.width || '41.4rem'};
+    ${(props) => SizeMixin({ width: props.width || '41.4rem' })}
     @media ${device.tablet} {
-        inline-size: auto;
+        ${SizeMixin({ min_width: 'auto' })}
     }
     @media (max-width: 991px) {
-        margin-block-start: 1rem;
         font-size: 2rem;
-        margin-block-end: 3rem;
+        ${MarginMixin({ top: '1rem', bottom: '3rem' })}
     }
 `
 const SignInText = styled(Text)`
     display: block;
-    inline-size: auto;
-    margin-inline-end: 2rem;
+    ${SizeMixin({ width: 'auto' })}
+    ${MarginMixin({ end: '2rem', bottom: '10px' })}
     flex-basis: 100%;
-    margin-block-end: 10px;
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
@@ -237,18 +226,15 @@ const SignInText = styled(Text)`
     letter-spacing: normal;
     color: #333333;
     @media ${device.tabletL} {
-        inline-size: 90px;
-        margin-inline-end: 0;
+        ${SizeMixin({ width: '90px' })}
+        ${MarginMixin({ end: '0' })}
     }
 `
 
 const MobileSignInText = styled(SignInText)`
     @media ${device.tabletL} {
-        inline-size: unset;
-        margin-block-start: 0;
-        margin-block-end: 0.8rem;
-        margin-inline-start: auto;
-        margin-inline-end: 0.8rem;
+        ${SizeMixin({ width: 'unset' })}
+        ${MarginMixin({ all: '0 auto 0.8rem 0.8rem' })}
     }
 `
 const LinkFlex = styled(LinkText)`
@@ -263,54 +249,46 @@ const MobileBackground = styled.div`
     background-image: linear-gradient(73deg, #ff6444, #ff444f);
     background-size: cover;
     background-repeat: no-repeat;
-    inline-size: 100%;
+    ${SizeMixin({ width: '100%' })}
     flex-direction: column;
     align-items: center;
     position: relative;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    ${BorderRadiusMixin({ top_right: '10px', top_left: '10px', bottom_right: '10px' })}
 `
 const DerivExperience = styled(LinkText)`
     display: flex;
     align-items: center;
     position: absolute;
-    inset-block-start: 41%;
     transform: translateY(-50%) !important;
     z-index: 99;
-    inset-inline-end: 20px;
-    max-inline-size: 310px;
+    ${SizeMixin({ max_width: '310px' })}
+    ${PositionMixin({ top: '41%', end: '30px' })}
 
     &:hover {
         text-decoration: none;
     }
 
     @media ${device.mobileL} {
-        inline-size: unset;
-        margin-block-start: 0;
-        margin-block-end: 0.8rem;
-        margin-inline-start: auto;
-        margin-inline-end: 0.8rem;
-        max-inline-size: 230px;
+        ${SizeMixin({ width: 'unset', max_width: '230px' })}
+        ${MarginMixin({ all: '0 auto 0.8rem 0.8rem' })}
     }
 
     img {
         z-index: 10;
     }
     ${Header} {
-        max-inline-size: 35rem;
+        ${SizeMixin({ max_width: '35rem' })}
         z-index: 10;
         color: var(--color-white);
     }
 `
 const MobilePlatform = styled.div`
-    inline-size: 100%;
-    max-inline-size: 35.7rem;
+    ${SizeMixin({ width: '100%', max_width: '35.7rem' })}
     z-index: 10;
 
     @media screen and (max-width: 991px) {
         img {
-            inset-inline-start: 20px !important;
+            ${PositionMixin({ top: '20px !important' })}
         }
     }
 `

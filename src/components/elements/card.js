@@ -8,6 +8,13 @@ import device from 'themes/device'
 // SVG
 import Arrow from 'images/svg/elements/card-arrow.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
+import {
+    SizeMixin,
+    MarginMixin,
+    PaddingMixin,
+    BorderRadiusMixin,
+    PositionMixin,
+} from 'themes/mixins'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -17,7 +24,7 @@ export const CardStyle = css`
 
 const CardContent = styled(Text)`
     font-size: var(--text-size-xs);
-    margin-top: 0.5rem;
+    ${MarginMixin({ top: '0.5rem' })}
     line-height: 1.25;
 
     @media ${device.tabletL} {
@@ -26,11 +33,10 @@ const CardContent = styled(Text)`
 `
 const CardCover = styled.div`
     position: absolute;
-    width: 100%;
-    height: 100%;
+    ${SizeMixin({ width: '100%', height: '100%' })}
     background-color: ${(props) => props.background_color};
-    border-radius: 6px;
-    top: 0;
+    ${BorderRadiusMixin({ all: '6px' })}
+    ${PositionMixin({ top: '0' })}
     transition: 0.18s cubic-bezier(0.1, 0.25, 0.25, 1);
     display: flex;
     align-items: center;
@@ -41,8 +47,8 @@ const CardCover = styled.div`
     & > div {
         display: flex;
         justify-content: space-between;
-        width: 100%;
-        padding: 0 1.6rem;
+        ${SizeMixin({ width: '100%' })}
+        ${PaddingMixin({ all: '0 1.6rem' })}
         align-items: center;
     }
 `
@@ -51,11 +57,14 @@ const CardWrapper = styled.article`
     ${CardStyle}
     position: relative;
     overflow: hidden;
-    height: 100%;
-    min-height: ${(props) => (props.min_height ? props.min_height : '0')};
-    width: ${(props) => (props.width ? props.width : '38.4rem')};
-    padding: ${(props) => (props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem')};
-    border-radius: 6px;
+    ${(props) =>
+        SizeMixin({
+            height: '100%',
+            min_height: props.min_height ? props.min_height : '0',
+            width: props.width ? props.width : '38.4rem',
+        })}
+    ${(props) => PaddingMixin({ all: props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem' })}
+    ${BorderRadiusMixin({ all: '6px' })}
 
     &:hover {
         ${CardCover} {
@@ -68,17 +77,16 @@ const CardWrapper = styled.article`
     }
 
     @media ${device.tabletL} {
-        padding: 2rem;
-        margin-top: 1.77rem;
-        margin-right: 0;
-        width: 100%;
+        ${PaddingMixin({ all: '2rem' })}
+        ${MarginMixin({ top: '1.77rem', end: '0' })}
+        ${SizeMixin({ width: '100%' })}
     }
 `
 const ContentWrapper = styled.div`
-    margin-top: 4rem;
+    ${MarginMixin({ top: '4rem' })}
 
     @media ${device.tabletL} {
-        margin-top: 2.7rem;
+        ${MarginMixin({ top: '2.7rem' })}
 
         ${Header} {
             font-size: 3rem;
@@ -92,10 +100,13 @@ const CardChildrenWrapper = styled.article`
     }
 
     ${CardStyle}
-    width: ${(props) => (props.width ? props.width : '50.2rem')};
-    height: 100%;
-    min-height: 26.8rem;
-    padding: 2.6rem;
+    ${(props) =>
+        SizeMixin({
+            width: props.width ? props.width : '50.2rem',
+            height: '100%',
+            min_height: '26.8rem',
+        })}
+    ${PaddingMixin({ all: '2.6rem' })}
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,7 +125,7 @@ const CardChildrenWrapper = styled.article`
     }
     svg,
     img {
-        margin: 0.2rem 0 0.8rem 0;
+        ${MarginMixin({ all: '0.2rem 0 0.8rem 0' })}
     }
 `
 
@@ -128,7 +139,7 @@ const IconContainer = styled.div`
     }
 `
 const CardContentContainer = styled.div`
-    margin-left: 1.6rem;
+    ${MarginMixin({ start: '1.6rem' })}
 `
 const Content = ({ content }) => (
     <>
@@ -142,8 +153,7 @@ const Content = ({ content }) => (
 
 const IconWrapper = styled.div`
     & > svg {
-        width: 7.9rem;
-        height: 7.9rem;
+        ${SizeMixin({ width: '7.9rem', height: '7.9rem' })}
     }
 `
 
@@ -264,7 +274,7 @@ CardChildren.propTypes = {
 }
 
 const NavContent = styled.div`
-    width: 100%;
+    ${SizeMixin({ width: '10)%' })}
     display: flex;
     flex-direction: column;
 `
@@ -272,18 +282,14 @@ const RightDiagonal = styled.img`
     opacity: 0;
     transition: opacity 0.2s;
     position: absolute;
-    width: 16px;
-    height: 16px;
-    right: 16px;
-    top: 16px;
+    ${SizeMixin({ width: '16px', height: '16px' })}
+    ${PositionMixin({ top: '16px', end: '16px' })}
 
     @media ${device.tabletL} {
         opacity: 1;
-        width: 16px;
-        height: 16px;
-        right: 0;
-        margin-right: 0;
-        top: 0;
+        ${SizeMixin({ width: '16px', height: '16px' })}
+        ${PositionMixin({ top: '0', end: '0' })}
+        ${MarginMixin({ end: '0' })}
     }
 `
 
@@ -303,12 +309,10 @@ const ResponsiveText = styled(Text)`
 `
 
 const FlexHover = styled(Flex)`
-    padding-block: 0.8rem;
-    padding-inline: 1.6rem;
+    ${PaddingMixin({ all: '0.8rem 1.6rem' })}
     cursor: pointer;
     @media ${device.mobileL} {
-        padding-block: 0;
-        padding-inline: 0;
+        ${PaddingMixin({ all: '0' })}
     }
 
     &:hover {
@@ -326,13 +330,11 @@ const FlexHover = styled(Flex)`
 const SvgWrapper = styled.div`
     & > svg,
     img {
-        inline-size: 32px;
-        block-size: 32px;
-        margin-inline-end: 1.6rem;
+        ${SizeMixin({ width: '32px', height: '32px' })}
+        ${MarginMixin({ end: '1.6rem' })}
 
         @media ${device.mobileL} {
-            inline-size: 24px;
-            block-size: 24px;
+            ${SizeMixin({ width: '24px', height: '24px' })}
         }
     }
 `
@@ -386,8 +388,7 @@ const LinkRightDiagonal = styled.div`
 
     & > svg,
     img {
-        width: 16px;
-        height: 16px;
+        ${SizeMixin({ widht: '16px', height: '16px' })}
     }
 `
 
@@ -404,9 +405,8 @@ const HoverFlex = styled(Flex)`
 const IconRightWrapper = styled.div`
     & > svg,
     img {
-        block-size: 24px;
-        inline-size: 24px;
-        margin-inline-end: 1.6rem;
+        ${SizeMixin({ width: '24px', height: '24px' })}
+        ${MarginMixin({ end: '1.6rem' })}
     }
 `
 

@@ -267,12 +267,12 @@ export const PositionMixin = ({ top, end, bottom, start }: IPosition) => css`
 `
 
 interface ISize {
-    height?: string
-    max_height?: string
-    max_width?: string
-    min_height?: string
-    min_width?: string
-    width?: string
+    height?: string | number
+    max_height?: string | number
+    max_width?: string | number
+    min_height?: string | number
+    min_width?: string | number
+    width?: string | number
 }
 
 export const SizeMixin = ({

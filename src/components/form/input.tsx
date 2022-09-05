@@ -4,6 +4,7 @@ import { Text } from '../elements'
 import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
+import { SizeMixin, PaddingMixin, BorderRadiusMixin, PositionMixin } from 'themes/mixins'
 
 interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
     handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
@@ -45,11 +46,11 @@ const RelativeWrapper = styled.div`
 `
 const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
-    inline-size: 100%;
+    ${SizeMixin({ width: '100%' })}
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
-    border-radius: 4px;
+    ${BorderRadiusMixin({ all: '4px' })}
     @media ${device.tabletL} {
-        height: 5rem;
+        ${SizeMixin({ height: '5rem' })}
     }
 
     &:hover {
@@ -88,17 +89,14 @@ const InputWrapper = styled.div<InputWrapperProps>`
 
 const StyledError = styled.img`
     position: absolute;
-    inset-inline-end: 0.8rem;
-    inset-block-start: 1.2rem;
-    block-size: 1.6rem;
-    inline-size: 1.6rem;
+    ${PositionMixin({ end: '0.8rem', top: '1.2rem' })}
+    ${SizeMixin({ width: '1.6rem', height: '1.6rem' })}
     cursor: pointer;
     @media ${device.tablet} {
-        inset-inline-end: 2rem;
-        inset-block-start: 1.6rem;
+        ${PositionMixin({ end: '2rem', top: '1.6rem' })}
     }
     @media ${device.desktopL} {
-        inset-block-start: 1rem;
+        ${PositionMixin({ top: '1rem' })}
     }
 `
 
@@ -108,20 +106,17 @@ const StyledInput = styled.input<StyledInputProps>`
     color: ${({ inputColor }) =>
         inputColor ? `var(--color-${inputColor})` : 'var(--color-black)'};
     font-size: var(--text-size-s);
-    padding-block: 1rem;
-    padding-inline-start: 1rem;
-    padding-inline-end: 0.8rem;
-    block-size: ${(props) => props.height || '40px'};
-    inline-size: 100%;
+    ${PaddingMixin({ all: '1rem 1rem 1rem 0.8rem' })}
+    ${(props) => SizeMixin({ width: '100%', height: props.height || '40px' })}
     display: block;
     border: none;
-    border-radius: 4px;
+    ${BorderRadiusMixin({ all: '4px' })}
     @media ${device.tabletL} {
-        block-size: 100%;
+        ${SizeMixin({ height: '100%' })}
 
         & ~ label {
             font-size: 1.75rem;
-            inset-block-start: 1.5rem;
+            ${PositionMixin({ top: '1.5rem' })}
         }
     }
     @media ${device.mobileL} {
@@ -129,14 +124,14 @@ const StyledInput = styled.input<StyledInputProps>`
 
         & ~ label {
             font-size: 1.5rem;
-            inset-block-start: 1.75rem;
+            ${PositionMixin({ top: '1.75rem' })}
         }
     }
 
     &::placeholder {
         opacity: ${(props) => (props.showLabel ? 0 : 1)};
         transition: opacity 0.25s;
-        padding-inline-start: 0.3rem;
+        ${PaddingMixin({ start: '0.3rem' })}
     }
     &:focus {
         outline: none;
@@ -181,9 +176,9 @@ const StyledInput = styled.input<StyledInputProps>`
 `
 
 const ErrorMessages = styled(Text)`
-    padding-inline-start: 0.8rem;
     font-size: 1.2rem;
-    min-block-size: 16px;
+    ${PaddingMixin({ start: '0.8rem' })}
+    ${SizeMixin({ min_height: '16px' })}
 `
 
 const StyledLabel = styled.label<StyledLabelProps>`
@@ -192,12 +187,10 @@ const StyledLabel = styled.label<StyledLabelProps>`
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
-    inset-inline-start: 0.8rem;
-    inset-block-start: 1.4rem;
+    ${PositionMixin({ start: '0.8rem', top: '1.4rem' })}
     transition: 0.25s ease transform;
     transform: translateZ(0);
-    padding-block: 0;
-    padding-inline: 0.4rem;
+    ${PaddingMixin({ all: '0 0.4rem' })}
     background: none;
 `
 

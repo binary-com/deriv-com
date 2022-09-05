@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
+import { SizeMixin, MarginMixin } from 'themes/mixins'
 
 type CheckboxProps = {
     checked?: boolean
@@ -44,8 +45,7 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 
 const StyledCheckbox = styled.div<StyledCheckboxProps>`
     display: inline-block;
-    inline-size: 1.6rem;
-    block-size: 1.6rem;
+    ${SizeMixin({ width: '1.6rem', height: '1.6rem' })}
     background: ${(props) => {
         if (props.secondary && props.checked) return 'var(--color-red)'
         else if (props.background) return props.background
@@ -55,11 +55,10 @@ const StyledCheckbox = styled.div<StyledCheckboxProps>`
         props.secondary && props.checked
             ? '2px solid var(--color-red)'
             : '2px solid var(--color-grey-5)'};
-    margin-inline-end: 0.8rem;
+    ${MarginMixin({ end: '0.8rem' })}
 
     @media ${device.mobileL} {
-        inline-size: 2rem;
-        block-size: 2rem;
+        ${SizeMixin({ width: '2rem', height: '2rem' })}
     }
 `
 

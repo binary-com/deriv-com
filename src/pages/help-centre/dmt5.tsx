@@ -18,87 +18,146 @@ const StyledListItem = styled.li<{ marginTop: string }>`
     margin-top: ${(props) => props.marginTop};
 `
 
-const WhatIsDMT5 = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="Deriv MT5 is a CFD trading platform that gives you access to forex, stocks, stock indices, commodities, cryptocurrencies, and derived indices. Learn more about Deriv MT5 <0>here</0>."
-                components={[
-                    <ExternalLink
-                        to={'/dmt5/'}
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </Text>
-    </ArticleWrapper>
-)
+const WhatIsDMT5 = ({ text }: ArticleProps) => {
+    const { is_eu_country } = React.useContext(DerivStore)
 
-const DifferenceDMT5DTrader = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="<0>DTrader</0>, <1>SmartTrader</1>, <2>DBot</2>, and <3>Binary Bot</3> offer digital options trading on a range of underlying assets such as forex, stock indices, commodities, and derived indices. These platforms allow you to set the contract duration before opening positions, and you'll know exactly how much you'll earn if you win. You may find these platforms more intuitive if you're new to the trading world."
-                components={[
-                    <ExternalLink
-                        to={'/dtrader/'}
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                    <ExternalLink
-                        to={'https://smarttrader.deriv.com/en/trading.html'}
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={1}
-                    />,
-                    <ExternalLink
-                        to={'/dbot/'}
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={2}
-                    />,
-                    <ExternalLink
-                        to={'https://bot.deriv.com/'}
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={3}
-                    />,
-                ]}
-            />
-        </Text>
-        <StyledText>
-            <Localize
-                translate_text="<0>Deriv X</0> and <1>Deriv MT5</1> offer CFD trading on a similar range of assets, where you're able to open positions with leverage and your potential profit is only known when you close your positions. It's riskier than digital options trading because while you may potentially gain a lot if you win, you may also lose a lot if you don't. Deriv X and Deriv MT5 are popular among our traders who enjoy the risks as part of the excitement of CFD trading."
-                components={[
-                    <ExternalLink
-                        to={'/derivx/'}
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                    <ExternalLink
-                        to={'/dmt5/'}
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={1}
-                    />,
-                ]}
-            />
-        </StyledText>
-    </ArticleWrapper>
-)
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                {is_eu_country ? (
+                    <Localize
+                        translate_text="Deriv MT5 is a CFD trading platform that gives you access to forex, stocks, stock indices, commodities, cryptocurrencies, and derived. Learn more about Deriv MT5 <0>here</0>."
+                        components={[
+                            <ExternalLink
+                                to={'/dmt5/'}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                ) : (
+                    <Localize
+                        translate_text="Deriv MT5 is a CFD trading platform that gives you access to forex, stocks, stock indices, commodities, cryptocurrencies, and derived indices. Learn more about Deriv MT5 <0>here</0>."
+                        components={[
+                            <ExternalLink
+                                to={'/dmt5/'}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                )}
+            </Text>
+        </ArticleWrapper>
+    )
+}
+
+const DifferenceDMT5DTrader = ({ text }: ArticleProps) => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                {is_eu_country ? (
+                    <Localize
+                        translate_text="<0>DTrader</0>, <1>SmartTrader</1>, <2>DBot</2>, and <3>Binary Bot</3> offer digital options trading on a range of underlying assets such as forex, stock indices, commodities, and derived. These platforms allow you to set the contract duration before opening positions, and you'll know exactly how much you'll earn if you win. You may find these platforms more intuitive if you're new to the trading world."
+                        components={[
+                            <ExternalLink
+                                to={'/dtrader/'}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                            <ExternalLink
+                                to={'https://smarttrader.deriv.com/en/trading.html'}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={1}
+                            />,
+                            <ExternalLink
+                                to={'/dbot/'}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={2}
+                            />,
+                            <ExternalLink
+                                to={'https://bot.deriv.com/'}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={3}
+                            />,
+                        ]}
+                    />
+                ) : (
+                    <Localize
+                        translate_text="<0>DTrader</0>, <1>SmartTrader</1>, <2>DBot</2>, and <3>Binary Bot</3> offer digital options trading on a range of underlying assets such as forex, stock indices, commodities, and derived indices. These platforms allow you to set the contract duration before opening positions, and you'll know exactly how much you'll earn if you win. You may find these platforms more intuitive if you're new to the trading world."
+                        components={[
+                            <ExternalLink
+                                to={'/dtrader/'}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                            <ExternalLink
+                                to={'https://smarttrader.deriv.com/en/trading.html'}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={1}
+                            />,
+                            <ExternalLink
+                                to={'/dbot/'}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={2}
+                            />,
+                            <ExternalLink
+                                to={'https://bot.deriv.com/'}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={3}
+                            />,
+                        ]}
+                    />
+                )}
+            </Text>
+            <StyledText>
+                <Localize
+                    translate_text="<0>Deriv X</0> and <1>Deriv MT5</1> offer CFD trading on a similar range of assets, where you're able to open positions with leverage and your potential profit is only known when you close your positions. It's riskier than digital options trading because while you may potentially gain a lot if you win, you may also lose a lot if you don't. Deriv X and Deriv MT5 are popular among our traders who enjoy the risks as part of the excitement of CFD trading."
+                    components={[
+                        <ExternalLink
+                            to={'/derivx/'}
+                            external
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={0}
+                        />,
+                        <ExternalLink
+                            to={'/dmt5/'}
+                            external
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={1}
+                        />,
+                    ]}
+                />
+            </StyledText>
+        </ArticleWrapper>
+    )
+}
 
 const DifferentAccounts = ({ text }: ArticleProps) => {
     return (

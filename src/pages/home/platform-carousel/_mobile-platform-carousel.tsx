@@ -7,7 +7,7 @@ import { image_query } from './_details'
 import { LocalizedLink } from 'components/localization'
 import {
     dmt5_macos_url,
-    dp2p_google_play_url,
+    dmt5_android_url,
     dmt5_app_gallery,
     deriv_mt5_app_url,
 } from 'common/constants'
@@ -175,13 +175,13 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                     </AppStoreBadge>
                                     <AppStoreBadge
                                         external
-                                        to={dp2p_google_play_url}
+                                        to={dmt5_android_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
                                             data={data['dmt5_mobile_google_play']}
-                                            alt="p2p apple store"
+                                            alt="dmt5 google play"
                                         />
                                     </AppStoreBadge>
                                     <AppStoreBadge
@@ -192,7 +192,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                     >
                                         <QueryImage
                                             data={data['dmt5_mobile_app_gallery']}
-                                            alt="p2p apple store"
+                                            alt="dmt5 app gallery"
                                         />
                                     </AppStoreBadge>
                                     <AppStoreBadge
@@ -203,7 +203,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                     >
                                         <QueryImage
                                             data={data['dmt5_mobile_web_browser']}
-                                            alt="p2p apple store"
+                                            alt="dmt5 web browser"
                                         />
                                     </AppStoreBadge>
                                 </OsBadges>

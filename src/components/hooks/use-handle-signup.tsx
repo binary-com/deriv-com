@@ -1,7 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 import { useCountryRule } from './use-country-rule'
-import { isEuDomain , isBrowser } from 'common/utility'
+import { isEuDomain, isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 
 const useHandleSignup = (_is_ppc = false) => {

@@ -135,7 +135,7 @@ export const onClientEntry = () => {
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {
         addScript({
-            src: 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH',
+            src: 'https://www.googletagmanager.com/gtm.js?id=GTM-NF7884S',
             id: 'gtm-test-container',
             strategy: "off-main-thread",
         })
@@ -145,7 +145,7 @@ export const onClientEntry = () => {
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','GTM-TNX2ZKH');`,
+                })(window,document,'script','dataLayer','GTM-NF7884S');`,
             strategy: "off-main-thread",
         })
     }

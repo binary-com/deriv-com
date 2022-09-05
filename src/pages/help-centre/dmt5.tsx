@@ -115,11 +115,6 @@ const DifferentAccounts = ({ text }: ArticleProps) => {
                         'The Deriv MT5 Financial account offers CFDs on forex, commodities, cryptocurrencies, stocks, and stock indices, with high leverage and variable spreads for maximum flexibility. This account offers more than 100 assets, and 24/7 trading is available on cryptocurrencies.',
                     )}
                 </StyledText>
-                <StyledText>
-                    {localize(
-                        'The Deriv MT5 Financial STP account offers CFDs on forex and cryptocurrencies, with lower leverage than the Financial account. This is a 100% A-book account, so your trades pass straight through to the market, giving you direct access to liquidity providers. This account also offers 24/7 trading on cryptocurrencies.',
-                    )}
-                </StyledText>
             </>
         </ArticleWrapper>
     )

@@ -17,8 +17,8 @@ const query = graphql`
 `
 const ImgWrapper = styled.div`
     position: relative;
-    max-height: 1020px;
-    max-width: 1980px;
+    max-height: 1050px;
+    max-width: 1680px;
     left: 50%;
     transform: translateX(-50%);
 `

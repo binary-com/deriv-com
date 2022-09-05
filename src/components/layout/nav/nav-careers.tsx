@@ -175,7 +175,7 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
 
                     <RightSection jc="flex-end" ai="center">
                         {has_mounted && (
-                            <StyledLinkButton              
+                            <StyledLinkButton
                                 secondary
                                 rel="noopener noreferrer"
                                 ml="2.4rem"

@@ -8,6 +8,8 @@ import device, { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { p2p_playstore_url, p2p_applestore_url, p2p_huawei_appgallery_url } from 'common/constants'
 import i18next from 'components/localization/config'
+import { SizeMixin, MarginMixin, PaddingMixin, BorderRadiusMixin } from 'themes/mixins'
+
 const query = graphql`
     query {
         p2p_home_banner: file(relativePath: { eq: "home/p2p_home_banner.png" }) {
@@ -37,27 +39,23 @@ const query = graphql`
     }
 `
 const BackgroundWrapper = styled.section`
-    inline-size: 100%;
+    ${SizeMixin({ width: '100%', height: '400px' })}
     background: #e6e9e9;
     position: relative;
-    block-size: 400px;
 
     @media ${device.tabletL} {
-        inline-size: 100%;
+        ${SizeMixin({ width: '100%', max_height: 'fit-content' })}
+        ${MarginMixin({ bottom: '40px' })}
         background: #f2f3f4;
-        margin-block-end: 40px;
-        max-block-size: fit-content;
     }
     @media ${device.laptopM} {
-        inline-size: 100%;
-        block-size: 100%;
-        min-block-size: 400px;
+        ${SizeMixin({ width: '100%', height: '100%', min_height: '400px' })}
     }
 `
 const Wrapper = styled(Flex)`
     justify-content: space-between;
     background-color: transparent;
-    block-size: unset;
+    ${SizeMixin({ height: 'unset' })}
 
     @media ${device.tabletL} {
         flex-direction: column-reverse;
@@ -69,26 +67,21 @@ const Wrapper = styled(Flex)`
     }
 `
 const ImgWrapper = styled.div<{ is_rtl: boolean }>`
-    block-size: 400px;
+    ${SizeMixin({ height: '400px' })}
     transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'scaleX(1)')};
 
     .gatsby-image-wrapper {
-        inline-size: 100%;
-        block-size: 100%;
+        ${SizeMixin({ width: '100%', height: '100%' })}
     }
     ${ImageWrapper} {
-        inline-size: 100%;
-        block-size: 100%;
+        ${SizeMixin({ width: '100%', height: '100%' })}
     }
     @media ${device.mobileL} {
-        inline-size: 100%;
-        min-block-size: 172px;
-        max-inline-size: 750px;
-        block-size: 200px;
+        ${SizeMixin({ width: '100%', height: '200px', min_height: '172px', min_width: '750px' })}
     }
     @media ${device.mobileM} {
-        margin-block-start: 32px;
-        block-size: 200px;
+        ${MarginMixin({ top: '32px' })}
+        ${SizeMixin({ height: '200px' })}
     }
 `
 const InformationWrapper = styled(Flex)`
@@ -96,13 +89,13 @@ const InformationWrapper = styled(Flex)`
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    padding: 0;
+    ${PaddingMixin({ all: '0' })}
     gap: 24px;
     position: relative;
     margin-inline-end: 80px;
 
     @media ${device.laptopL} {
-        margin-inline-end: 30px;
+        ${MarginMixin({ end: '30px' })}
         gap: 0;
     }
 `
@@ -110,20 +103,19 @@ const ContentWrapper = styled(Flex)`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0;
+    ${PaddingMixin({ all: '0' })}
     gap: 16px;
-    margin-block-start: 50px;
-    inline-size: 428px;
-    block-size: 314px;
+    ${MarginMixin({ top: '50px' })}
+    ${SizeMixin({ width: '428px', height: '314px' })}
 
     @media ${device.laptopM} {
-        inline-size: 385px;
+        ${SizeMixin({ width: '385px' })}
     }
 
     @media ${device.tabletL} {
-        block-size: fit-content;
-        margin-top: 0;
-        padding-inline-start: 16px;
+        ${SizeMixin({ height: 'fit-content' })}
+        ${MarginMixin({ top: '0' })}
+        ${PaddingMixin({ start: '16px' })}
     }
 `
 const StyledHeaders = styled(Header)`
@@ -134,19 +126,19 @@ const StyledHeaders = styled(Header)`
     font-size: 32px;
     line-height: 40px;
     align-items: center;
-    max-inline-size: 400px;
+    ${SizeMixin({ max_width: '400px' })}
 
     @media ${device.laptopL} {
-        inline-size: 100%;
+        ${SizeMixin({ width: '100%' })}
         font-size: 32px;
         line-height: 40px;
     }
 
     @media ${device.tabletL} {
-        margin-block-start: 36px;
+        ${MarginMixin({ top: '36px' })}
         font-size: 28px;
         line-height: 34px;
-        max-inline-size: 41rem;
+        ${SizeMixin({ max_width: '41rem' })}
         letter-spacing: 0.1rem;
     }
 
@@ -158,14 +150,14 @@ const StyledHeaders = styled(Header)`
 const HeroContent = styled(Flex)`
     flex-direction: column;
     justify-content: flex-start;
-    block-size: unset;
+    ${SizeMixin({ height: 'unset' })}
 
     @media ${device.tabletL} {
-        max-inline-size: 42rem;
+        ${SizeMixin({ max_width: '42rem' })}
     }
 
     ${Header} {
-        max-inline-size: 400px;
+        ${SizeMixin({ max_width: '400px' })}
         display: flex;
         font-style: normal;
         font-weight: 400;
@@ -183,8 +175,7 @@ const HeroContent = styled(Flex)`
     @media ${device.tabletL} {
         ${Header} {
             font-size: 20px;
-            max-inline-size: 42rem;
-            inline-size: 328px;
+            ${SizeMixin({ width: '328px', max_width: '42rem' })}
         }
     }
 
@@ -197,7 +188,7 @@ const HeroContent = styled(Flex)`
 
     @media ${device.mobileS} {
         ${Header} {
-            max-inline-size: 98%;
+            ${SizeMixin({ max_width: '98%' })}
         }
     }
 `
@@ -208,16 +199,13 @@ const P2pLogoContainer = styled(Flex)`
     align-items: flex-start;
     padding: 0;
     gap: 4.8px;
-    inline-size: 186.67px;
-    block-size: 24px;
+    ${SizeMixin({ width: '186.67px', height: '24px' })}
 
     @media ${device.tabletL} {
         display: inline-block;
-        block-size: 24px;
-        inline-size: auto;
-        max-inline-size: 42rem;
         gap: 8px;
-        margin-block-start: 47px;
+        ${MarginMixin({ top: '47px' })}
+        ${SizeMixin({ width: 'auto', height: '24px', max_width: '42rem' })}
     }
 `
 const StyledButton = styled(LocalizedLink)`
@@ -225,24 +213,21 @@ const StyledButton = styled(LocalizedLink)`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0;
+    ${PaddingMixin({ all: '0' })}
     gap: 8px;
-    block-size: 30px;
-    border-radius: 4px;
+    ${SizeMixin({ height: '30px' })}
+    ${BorderRadiusMixin({ all: '4px' })}
     flex-grow: 0;
 
     @media ${device.tabletL} {
         justify-content: flex-start;
         gap: 6px;
-        inline-size: 100%;
-        block-size: 24px;
-        max-inline-size: 42rem;
-        margin-block-end: 0;
+        ${SizeMixin({ width: '100%', height: '24px', max_width: '42rem' })}
+        ${MarginMixin({ bottom: '0' })}
     }
 `
 const LearnMore = styled(LocalizedLink)`
-    inline-size: 150px;
-    block-size: 30px;
+    ${SizeMixin({ width: '150px', height: '30px' })}
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -251,8 +236,7 @@ const LearnMore = styled(LocalizedLink)`
     text-decoration-color: transparent;
 
     @media ${device.tabletL} {
-        inline-size: 100px;
-        block-size: 24px;
+        ${SizeMixin({ width: '100px', height: '24px' })}
         font-size: 16px;
         line-height: 24px;
     }
@@ -265,35 +249,29 @@ const QRCodeP2p = styled(Flex)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px;
+    ${PaddingMixin({ all: '24px' })}
     gap: 8px;
-    inline-size: 208px;
-    block-size: 256px;
+    ${SizeMixin({ width: '208px', height: '256px' })}
     background: #ffffff;
-    border-radius: 8px;
-    margin-inline-end: 60px;
-    margin-block-start: 61px;
+    ${BorderRadiusMixin({ all: '8px' })}
+    ${MarginMixin({ end: '60px', top: '61px' })}
 
     @media ${device.laptopM} {
-        margin-inline-end: 0;
-        block-size: 200px;
-        inline-size: 162px;
-        padding: 0;
+        ${MarginMixin({ end: '0' })}
+        ${SizeMixin({ width: '162px', height: '200px' })}
+        ${PaddingMixin({ all: '0' })}
 
         .gatsby-image-wrapper {
-            max-inline-size: 120px;
-            max-block-size: 120px;
+            ${SizeMixin({ max_width: '120px', max_height: '120px' })}
         }
     }
 
     .gatsby-image-wrapper {
-        inline-size: 160px;
-        block-size: 160px;
+        ${SizeMixin({ width: '160px', height: '160px' })}
     }
 `
 const StyledLabel = styled(Flex)`
-    inline-size: 175px;
-    block-size: 40px;
+    ${SizeMixin({ width: '175px', height: '40px' })}
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -302,33 +280,29 @@ const StyledLabel = styled(Flex)`
     color: #333333;
 
     @media ${device.laptopM} {
-        min-inline-size: 113px;
+        ${SizeMixin({ min_width: '113px' })}
     }
 `
 const StyledBadge = styled(Flex)`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0;
+    ${PaddingMixin({ all: '0' })}
     gap: 32px;
-    margin-block-end: 36px;
+    ${MarginMixin({ bottom: '36px' })}
 
     @media ${device.tabletL} {
-        margin-block-start: 36px;
-        margin-block-end: 60px;
+        ${MarginMixin({ top: '36px', bottom: '60px' })}
         gap: 22px;
-        block-size: 96px;
-        inline-size: 338px;
-        padding-inline-start: 17px;
+        ${SizeMixin({ width: '338px', height: '96px' })}
+        ${PaddingMixin({ start: '17px' })}
     }
 
     @media ${device.mobileM} {
-        margin-block-start: 38px;
-        margin-block-end: 34px;
+        ${MarginMixin({ top: '38px', bottom: '34px' })}
         gap: 22px;
-        padding-inline-start: 0;
-        inline-size: 340px;
-        block-size: 96px;
+        ${PaddingMixin({ start: '0' })}
+        ${SizeMixin({ width: '340px', height: '96px' })}
     }
 `
 const StyledTopBadge = styled(Flex)`
@@ -336,9 +310,8 @@ const StyledTopBadge = styled(Flex)`
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 0;
-    inline-size: 100%;
-    block-size: 40px;
+    ${PaddingMixin({ all: '0' })}
+    ${SizeMixin({ width: '100%', height: '40px' })}
 
     @media ${device.tabletL} {
         justify-content: center;
@@ -349,23 +322,21 @@ const StyledBottomBadge = styled(Flex)`
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    padding: 0;
+    ${PaddingMixin({ all: '0' })}
     gap: 32px;
-    inline-size: 328px;
-    block-size: 40px;
-    margin-block-start: 8px;
+    ${SizeMixin({ width: '328px', height: '40px' })}
+    ${MarginMixin({ top: '8px' })}
 `
 const AppStoreTopBadge = styled(LocalizedLink)`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    padding-inline-end: 15px;
+    ${PaddingMixin({ end: '15px' })}
 
     @media ${device.tabletL} {
-        padding-block: 6px;
-        padding-inline: 8px;
-        block-size: 40px;
+        ${PaddingMixin({ all: '6px 8px' })}
+        ${SizeMixin({ height: '40px' })}
     }
 `
 const AppStoreBottomBadge = styled(LocalizedLink)`
@@ -373,11 +344,9 @@ const AppStoreBottomBadge = styled(LocalizedLink)`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-block: 6px;
-    padding-inline: 8px;
+    ${PaddingMixin({ all: '6px 8px' })}
     gap: 8px;
-    inline-size: 164px;
-    block-size: 40px;
+    ${SizeMixin({ width: '164px', height: '40px' })}
 `
 const P2PHomeBanner = () => {
     const data = useStaticQuery(query)

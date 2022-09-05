@@ -11,38 +11,39 @@ import device from 'themes/device'
 import { Desktop, Mobile } from 'components/containers/visibility'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import i18next from 'components/localization/config'
+import {
+    SizeMixin,
+    MarginMixin,
+    PaddingMixin,
+    BorderRadiusMixin,
+    PositionMixin,
+} from 'themes/mixins'
 
 const FoldWrapper = styled(SectionContainer)`
-    max-inline-size: 100%;
-    padding-block: 120px;
-    padding-inline: 20px;
+    ${SizeMixin({ max_width: '100%' })}
+    ${PaddingMixin({ all: '120px 20px' })}
 
     @media ${device.tablet} {
-        padding-block-start: 40px;
-        padding-inline: 0;
-        padding-block-end: 12px;
+        ${PaddingMixin({ all: '40px 0 12px' })}
     }
 `
 
 const FoldContainer = styled(Flex)`
-    margin-block: 0;
-    margin-inline: auto;
+    ${MarginMixin({ all: '0 auto' })}
 `
 
 const ItemWrapper = styled.div`
     z-index: 4;
-    block-size: 320px;
+    ${SizeMixin({ height: '320px' })}
     position: relative;
 `
 
 const CarouselItemContainer = styled(Flex)`
     position: relative;
-    border-radius: 8px;
+    ${BorderRadiusMixin({ all: '8px' })}
     color: white;
     overflow: hidden;
-    padding-block-start: 32px;
-    padding-block-end: 0;
-    padding-inline: 32px;
+    ${PaddingMixin({ all: '32px 32px 0' })}
     background: linear-gradient(
         233.94deg,
         ${(props) => props.gradient_start} 2.4%,
@@ -51,26 +52,22 @@ const CarouselItemContainer = styled(Flex)`
     z-index: 1;
 
     @media (min-width: 1440px) {
-        padding-block-start: 1.6rem;
-        padding-inline: 1.6rem;
-        padding-block-end: 0;
+        ${PaddingMixin({ all: '1.6rem 1.6rem 0' })}
     }
 `
 
 const CarouselItemImageDesktop = styled(QueryImage)<{ $hovered: boolean }>`
     position: absolute;
-    inline-size: 220px;
-    inset-block-start: ${(props) => (props.$hovered ? '220px' : '91px')};
-    inset-inline-end: 31px;
+    ${SizeMixin({ width: '220px' })}
+    ${(props) => PositionMixin({ top: props.$hovered ? '220px' : '91px', end: '31px' })}
     transition: ease-in 0.3s;
     z-index: 3;
 `
 
 const CarouselItemImageMobile = styled(QueryImage)`
     position: absolute;
-    inline-size: 220px;
-    inset-block-start: 91px;
-    inset-inline-end: 31px;
+    ${SizeMixin({ width: '220px' })}
+    ${PositionMixin({ top: '91px', end: '31px' })}
     z-index: 3;
 `
 
@@ -374,7 +371,7 @@ const MarketsFold = () => {
         <FoldWrapper>
             <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
-                    <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>
+                    <Header type="heading-1" align="center" mb="45px" tablet={{ mb: '24px' }}>
                         <Localize translate_text="Markets" />
                     </Header>
                 </Flex>

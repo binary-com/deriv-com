@@ -10,67 +10,65 @@ import ForexIcon from 'images/svg/markets/forex.svg'
 import StockIcon from 'images/svg/markets/stock.svg'
 import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
 import { NonUK } from 'components/containers/visibility'
+import { SizeMixin, MarginMixin, PaddingMixin } from 'themes/mixins'
 
 const StyledSection = styled(SectionContainer)`
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
-    padding: 8rem 0 6rem;
+    ${PaddingMixin({ all: '8rem 0 6rem' })}
 
     @media ${device.tabletL} {
-        padding: 5rem 0;
+        ${PaddingMixin({ all: '5rem 0' })}
     }
 `
 const MarketWrapper = styled(Flex)`
-    margin-top: 4rem;
+    ${MarginMixin({ top: '4rem' })}
 
     @media ${device.tabletL} {
         article:last-child {
-            margin-bottom: 0;
+            ${MarginMixin({ bottom: '0' })}
         }
     }
 `
 const MarketCard = styled.article<{ mb?: string; mr?: string }>`
     display: flex;
-    margin-bottom: ${({ mb }) => mb};
-    margin-right: ${({ mr }) => mr};
+    ${(props) => MarginMixin({ bottom: props?.mb, end: props?.mr })}
 
     svg {
-        margin-right: 2rem;
+        ${MarginMixin({ end: '2rem' })}
     }
     img {
-        margin-right: 2rem;
+        ${MarginMixin({ end: '2rem' })}
     }
     div {
-        max-width: 40rem;
+        ${SizeMixin({ max_width: '40rem' })}
 
         ${Text} {
-            padding-top: 8px;
+            ${PaddingMixin({ top: '8px' })}
         }
     }
     @media (max-width: 1210px) {
-        margin-right: 0;
+        ${MarginMixin({ end: '0' })}
     }
     @media ${device.tabletL} {
         flex-direction: column;
 
         svg {
-            width: 6rem;
-            height: 6rem;
-            margin-bottom: 1rem;
+            ${SizeMixin({ width: '6rem', height: '6rem' })}
+            ${MarginMixin({ bottom: '1rem' })}
         }
         img {
-            width: 6rem;
-            height: 6rem;
-            margin-bottom: 1rem;
+            ${SizeMixin({ width: '6rem', height: '6rem' })}
+            ${MarginMixin({ bottom: '1rem' })}
         }
     }
     @media (max-width: 860px) {
-        margin-bottom: 4rem;
+        ${MarginMixin({ bottom: '4rem' })}
     }
 `
 
 const MarketLink = styled(LocalizedLinkText)`
     display: block;
-    margin-top: 0.8rem;
+    ${MarginMixin({ top: '0.8rem' })}
 `
 
 type MarketsProps = {

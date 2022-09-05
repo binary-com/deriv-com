@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Margins, Paddings } from '../../themes/function'
 import { size } from 'themes/device'
+import { SizeMixin } from 'themes/mixins'
 
 export const mediaqueries = Object.keys(size)
     .sort(function (a, b) {
@@ -43,12 +44,7 @@ const baseStyles = ({
     width,
     height,
 }) => css`
-    min-inline-size: ${min_width};
-    max-inline-size: ${max_width};
-    min-block-size: ${min_height};
-    max-block-size: ${max_height};
-    inline-size: ${width};
-    block-size: ${height};
+    ${SizeMixin({ min_width, max_width, min_height, max_height, width, height })}
     ${Margins({ m, mt, ml, mr, mb })}
     ${Paddings({ p, pt, pl, pr, pb })}
 `
@@ -56,12 +52,15 @@ const baseStyles = ({
 const responsiveStyles = generateResponsiveStyles(baseStyles)
 
 const Box = styled.div`
-    inline-size: ${(props) => (props.width ? props.width : '')};
-    block-size: ${(props) => (props.height ? props.height : '')};
-    min-block-size: ${(props) => (props.min_height ? props.min_height : '')};
-    max-inline-size: ${(props) => (props.max_width ? props.max_width : '')};
     position: ${(props) => (props.position ? props.position : '')};
     background: ${(props) => (props.background || props.bg ? props.background || props.bg : '')};
+    ${(props) =>
+        SizeMixin({
+            width: props?.width,
+            height: props?.height,
+            min_height: props?.min_height,
+            max_width: props?.max_width,
+        })}
     ${baseStyles}
     ${responsiveStyles}
 `

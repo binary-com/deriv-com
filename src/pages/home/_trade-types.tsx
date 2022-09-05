@@ -9,6 +9,13 @@ import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import i18next from 'components/localization/config'
+import {
+    SizeMixin,
+    MarginMixin,
+    PaddingMixin,
+    BorderRadiusMixin,
+    PositionMixin,
+} from 'themes/mixins'
 
 type TradeTypesProps = {
     image_url: string
@@ -136,12 +143,10 @@ const items_details_uk: TradeTypesProps[] = [
 ]
 
 const StyledSection = styled(SectionContainer)`
-    max-width: 100%;
+    ${SizeMixin({ max_width: '100%' })}
 
     @media ${device.tablet} {
-        padding-block-start: 40px;
-        padding-inline: 20px;
-        padding-block-end: 80px;
+        ${PaddingMixin({ all: '40px 20px 80px' })}
     }
 `
 
@@ -164,42 +169,33 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
         props.$visibility
             ? '0 0 24px rgba(0, 0, 0, 0.08), 0 24px 24px rgba(0, 0, 0, 0.08)'
             : 'inset 0 0 0 1px var(--color-grey-17)'};
-    padding-block-start: ${(props) => (props.$visibility ? '24px' : '24px')};
-    padding-inline: 12px;
-    padding-block-end: ${(props) => (props.$visibility ? '50px' : '32px')};
-    height: auto;
+    ${(props) => PaddingMixin({ all: props.$visibility ? '24px 12px 50px' : '24px 12px 32px' })}
+    ${SizeMixin({ height: 'auto', max_width: '100%' })}
     background: var(--color-white);
     position: relative;
     flex-direction: column;
-    margin-block: 0;
-    margin-inline: auto;
-    border-radius: 8px;
-    max-inline-size: 100%;
+    ${MarginMixin({ all: '0 auto' })}
+    ${BorderRadiusMixin({ all: '8px' })}
     transition: all 0.4s ease-out;
     align-items: flex-start;
 
     @media ${device.tablet} {
-        max-inline-size: 328px;
-        padding-block-start: 24px;
-        padding-inline: 32px;
-        padding-block-end: 68px;
-        margin-block-end: 36px;
+        ${SizeMixin({ max_width: '328px' })}
+        ${PaddingMixin({ all: '24px 32px 68px' })}
+        ${MarginMixin({ bottom: '36px' })}
     }
 
     @media ${device.mobileS} {
-        padding-inline: 12px;
-        padding-block: 12px;
-        block-size: 424px;
+        ${PaddingMixin({ all: '12px' })}
+        ${SizeMixin({ height: '424px' })}
     }
 `
 const ImageWrapper = styled(Flex)`
-    inline-size: 360px;
-    block-size: 332px;
-    margin-block-end: 24px;
+    ${SizeMixin({ width: '360px', height: '332px' })}
+    ${MarginMixin({ bottom: '24px' })}
 
     @media ${device.tablet} {
-        inline-size: 100%;
-        block-size: auto;
+        ${SizeMixin({ width: '100%', height: 'auto' })}
     }
 `
 
@@ -218,14 +214,12 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
 
 const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     opacity: ${(props) => (props.$visibility ? '1' : '0')};
-    inline-size: fit-content;
-    padding-block: 10px;
-    padding-inline: 16px;
-    border-radius: 100px;
+    ${SizeMixin({ width: 'fit-content' })}
+    ${PaddingMixin({ all: '10px 16px' })}
+    ${BorderRadiusMixin({ all: '100px' })}
     background-color: var(--color-white);
     position: absolute;
-    inset-block-end: -4%;
-    inset-inline-start: 25%;
+    ${PositionMixin({ bottom: '-4%', start: '25%' })}
     display: flex;
     justify-content: center;
     align-items: center;
@@ -244,7 +238,7 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
         ${Text} {
             font-size: 14px;
             line-height: 20px;
-            margin-inline-start: 8px;
+            ${MarginMixin({ start: '8px' })}
         }
     }
 `

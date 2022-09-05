@@ -5,14 +5,15 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { OtherPlatform } from 'components/custom/other-platforms'
+import { SizeMixin, MarginMixin } from 'themes/mixins'
 
 type TradeTheWayYouLikeProps = {
     is_ppc_redirect: boolean
 }
 
 const ImageWrapper = styled.div`
-    max-width: 65rem;
-    margin: 3rem auto 0;
+    ${SizeMixin({ max_width: '65rem' })}
+    ${MarginMixin({ all: '3rem auto 0' })}
 `
 
 const StyledSection = styled(SectionContainer)`

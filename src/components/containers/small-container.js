@@ -1,22 +1,22 @@
 import styled from 'styled-components'
 import { Container } from 'components/containers'
 import device from 'themes/device'
+import { SizeMixin, PaddingMixin } from 'themes/mixins'
 
 const SmallContainer = styled(Container)`
-    inline-size: 60%;
-    max-inline-size: 62.5rem;
+    ${SizeMixin({ width: '60%', max_width: '62.5rem' })}
     @media ${device.desktop} {
-        max-inline-size: 792px;
+        ${SizeMixin({ max_width: '792px' })}
     }
     @media ${device.laptopL} {
-        inline-size: 60%;
+        ${SizeMixin({ width: '60%' })}
     }
     @media ${device.desktopL} {
-        max-inline-size: 1000px;
+        ${SizeMixin({ max_width: '1000px' })}
     }
     @media ${device.tabletL} {
-        inline-size: 90%;
-        padding-inline: 0;
+        ${SizeMixin({ width: '90%' })}
+        ${PaddingMixin({ x: 0 })}
     }
 `
 

@@ -5,6 +5,7 @@ import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid, NonEU } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
+import { SizeMixin } from 'themes/mixins'
 
 const platforms = Object.freeze({
     trader: 'dtrader',
@@ -13,9 +14,7 @@ const platforms = Object.freeze({
 })
 
 const ImageWrapper = styled.div<{ is_selected: boolean }>`
-    height: 100%;
-    width: 100%;
-    max-width: 65.7rem;
+    ${SizeMixin({ width: '100%', height: '100%', max_width: '65.7rem' })}
     visibility: ${({ is_selected }) => (is_selected ? 'initial' : 'hidden')};
     opacity: ${({ is_selected }) => (is_selected ? '1' : '0')};
     z-index: ${({ is_selected }) => (is_selected ? '0' : '10')};
@@ -25,12 +24,11 @@ const ImageWrapper = styled.div<{ is_selected: boolean }>`
 
 const ImageContainer = styled.div`
     position: relative;
-    height: 100%;
-    width: 100%;
+    ${SizeMixin({ width: '100%', height: '100%' })}
 `
 const StyledSection = styled(SectionContainer)`
     background-image: linear-gradient(to bottom, var(--color-grey-30), rgba(238, 238, 238, 0));
-    min-height: 69rem;
+    ${SizeMixin({ min_height: '69rem' })}
 `
 const query = graphql`
     query {

@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Carousel, Header } from 'components/elements'
+import { SizeMixin } from 'themes/mixins'
 
 const StyledHeader = styled(Header)`
-    height: 36px;
+    ${SizeMixin({ height: '36px' })}
     line-height: 36px;
 `
 

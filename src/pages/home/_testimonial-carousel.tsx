@@ -8,6 +8,7 @@ import ArrowLeftFade from 'images/svg/testimonials/arrow-left-fade.svg'
 import ArrowRightFade from 'images/svg/testimonials/arrow-right-fade.svg'
 import device from 'themes/device'
 import i18next from 'components/localization/config'
+import { SizeMixin, MarginMixin } from 'themes/mixins'
 
 const CarouselItem = styled(Flex)`
     overflow: hidden;
@@ -23,10 +24,9 @@ const FlexiItem = styled(Flex)`
     */
 
     .flexi-item {
-        margin-bottom: 40px;
-
+        ${MarginMixin({ bottom: '40px' })}
         @media ${device.tabletL} {
-            margin-bottom: 24px;
+            ${MarginMixin({ bottom: '24px' })}
         }
     }
 `
@@ -42,17 +42,16 @@ const Navigation = styled(Flex)`
 `
 
 const Arrows = styled.img`
-    width: 32px;
-    height: 32px;
+    ${SizeMixin({ width: '32px', height: '32px' })}
     transition: opacity 0.4s ease-in;
     cursor: pointer;
 
     @media ${device.tablet} {
         &:nth-child(1) {
-            margin-right: 16px;
+            ${MarginMixin({ end: '16px' })}
         }
         &:nth-child(2) {
-            margin-left: 16px;
+            ${MarginMixin({ start: '16px' })}
         }
     }
 `

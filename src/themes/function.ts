@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { MarginMixin, PaddingMixin } from './mixins'
 
 export type MarginsType = {
     m?: string
@@ -16,17 +16,8 @@ export type PaddingsType = {
     pb?: string
 }
 
-export const Margins = ({ m = '', mt = '', ml = '', mr = '', mb = '' }: MarginsType) => css`
-    margin: ${m ? m : null};
-    margin-block-start: ${mt ? mt : null};
-    margin-inline-end: ${mr ? mr : null};
-    margin-block-end: ${mb ? mb : null};
-    margin-inline-start: ${ml ? ml : null};
-`
-export const Paddings = ({ p = '', pt = '', pl = '', pr = '', pb = '' }: PaddingsType) => css`
-    padding: ${p ? p : null};
-    padding-block-start: ${pt ? pt : null};
-    padding-block-end: ${pb ? pb : null};
-    padding-inline-end: ${pr ? pr : null};
-    padding-inline-start: ${pl ? pl : null};
-`
+export const Margins = ({ m = null, mt = '', ml = '', mr = '', mb = '' }: MarginsType) =>
+    MarginMixin({ all: m, top: mt, start: ml, end: mr, bottom: mb })
+
+export const Paddings = ({ p = null, pt = '', pl = '', pr = '', pb = '' }: PaddingsType) =>
+    PaddingMixin({ all: p, top: pt, start: pl, end: pr, bottom: pb })

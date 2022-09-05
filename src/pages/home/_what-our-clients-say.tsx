@@ -8,11 +8,11 @@ import device from 'themes/device'
 import { addScript } from 'common/utility'
 import Quote from 'images/svg/testimonials/quote.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { SizeMixin, MarginMixin, PaddingMixin, PositionMixin } from 'themes/mixins'
 
 const StyledContainer = styled.div`
     background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
-    inline-size: 100%;
-    block-size: fit-content;
+    ${SizeMixin({ width: '100%', height: 'fit-content' })}
 
     @media ${device.tabletL} {
         background: linear-gradient(76.48deg, #8aadc5 3.41%, #d3e0e9 64.21%);
@@ -22,47 +22,38 @@ const StyledContainer = styled.div`
 const ClientContainer = styled(Container)`
     display: flex;
     align-items: center;
-    inline-size: 100%;
-    max-inline-size: 100%;
-    margin-block: 0;
-    margin-inline: auto;
+    ${SizeMixin({ width: '100%', max_width: '100%' })}
+    ${MarginMixin({ all: '0 auto' })}
 `
 
 const ClientFlex = styled(Flex)`
-    max-inline-size: 1440px;
-    min-block-size: 100px;
-    padding-block-start: 80px;
-    padding-inline-start: 48px;
-    padding-block-end: 65px;
-    padding-inline-end: 120px;
+    ${SizeMixin({ max_width: '1440px', min_height: '100px' })}
+    ${PaddingMixin({ all: '80px 48px 65px 120px' })}
 
     @media ${device.laptopM} {
-        padding-block: 80px;
-        padding-inline: 48px;
+        ${PaddingMixin({ all: '80px 48px' })}
     }
     @media ${device.tabletL} {
-        padding-block: 48px;
-        padding-inline: 16px;
+        ${PaddingMixin({ all: '40px 16px' })}
     }
     @media ${device.tabletS} {
-        max-inline-size: 100%;
+        ${SizeMixin({ max_width: '100%' })}
     }
 `
 
 const ClientCard = styled(Flex)`
-    min-block-size: 231px;
+    ${SizeMixin({ min_height: '231px' })}
 
     .trustpilot-container {
-        margin-block-start: 54px;
+        ${MarginMixin({ top: '54px' })}
     }
 
     @media ${device.tabletL} {
-        max-inline-size: 588px;
-        min-block-size: auto;
+        ${SizeMixin({ max_width: '558px', min_height: 'auto' })}
     }
 
     @media ${device.tabletS} {
-        max-inline-size: 100% !important;
+        ${SizeMixin({ max_width: '100% !important' })}
     }
 `
 
@@ -73,29 +64,25 @@ const TrustPilotWidget = styled(Flex)`
     .trustpilot-widget {
         transform: scale(0.8);
         position: relative;
-        inset-inline-start: -20px;
-        inset-block-start: -10px;
+        ${PositionMixin({ start: '-20px', top: '-10px' })}
     }
 `
 
 const QuoteIcon = styled.img`
     position: absolute;
-    inline-size: 160px;
-    block-size: 128px;
-    inset-block-start: -60px;
+    ${SizeMixin({ width: '160px', height: '128px' })}
+    ${PositionMixin({ top: '-60px' })}
 
     @media ${device.tabletL} {
-        inset-block-start: 0;
-        inline-size: 120px;
-        block-size: 96px;
+        ${PositionMixin({ top: '0' })}
+        ${SizeMixin({ width: '120px', height: '96px' })}
     }
 `
 
 const ClientTestimonial = styled(Header)`
-    margin-block-end: 48px;
-
+    ${MarginMixin({ bottom: '48px' })}
     @media ${device.tabletL} {
-        margin-block-end: 24px;
+        ${MarginMixin({ bottom: '24px' })}
     }
 `
 

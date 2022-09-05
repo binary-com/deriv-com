@@ -2,11 +2,12 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Box from './box'
 import device from 'themes/device'
+import { SizeMixin, MarginMixin, PaddingMixin } from 'themes/mixins'
 
 const CssGrid = styled(Box)`
     display: grid;
-    block-size: ${(props) => props.height || '100%'};
-    margin: ${(props) => props.margin || '0'};
+    ${(props) => SizeMixin({ height: props?.height || '100%' })}
+    ${(props) => MarginMixin({ all: props.margin || '0' })}
     grid-template-columns: ${(props) => props.columns || 'auto'};
     grid-gap: ${(props) => props.grid_gap || ''};
     grid-template-rows: ${(props) => props.rows || 'auto'};
@@ -45,11 +46,11 @@ const CssGrid = styled(Box)`
 `
 
 export const CssGridColumn = styled.div`
-    padding: ${(props) => props.padding || '0'};
+    ${(props) => PaddingMixin({ all: props.padding || '0' })}
     align-self: ${(props) => props.align || 'stretch'};
     justify-self: ${(props) => props.justify || 'initial'};
     background-color: ${(props) => props.bgcolor || 'none'};
-    block-size: ${(props) => props.height || 'auto'};
+    ${(props) => SizeMixin({ height: props?.height || 'auto' })}
 `
 
 export default CssGrid

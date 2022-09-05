@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import Box, { generateResponsiveStyles } from './box'
 import device from 'themes/device'
+import { SizeMixin } from 'themes/mixins'
 
 export const flexStyles = ({ jc, ai, fw, fd }) => css`
     justify-content: ${jc};
@@ -13,8 +14,7 @@ const responsiveStyles = generateResponsiveStyles(flexStyles)
 
 const Flex = styled(Box)`
     display: flex;
-    inline-size: ${(props) => (props.width ? props.width : '100%')};
-    block-size: ${(props) => (props.height ? props.height : '100%')};
+    ${(props) => SizeMixin({ width: props?.width || '100%', height: props?.height || '100%' })}
     flex-wrap: ${(props) => (props.wrap || props.fw ? props.wrap || props.fw : '')};
     justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     align-items: ${(props) => (props.ai ? props.ai : '')};

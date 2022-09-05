@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import Box, { generateResponsiveStyles } from './box'
 import { flexStyles } from './flex'
 import device from 'themes/device'
+import { MarginMixin, SizeMixin, PaddingMixin } from 'themes/mixins'
 
 const responsiveStyles = generateResponsiveStyles(flexStyles)
 
 const Container = styled(Box)`
-    margin-block: 0;
-    margin-inline: auto;
+    ${MarginMixin({ all: '0 auto' })}
     display: flex;
     align-items: ${(props) => (props.align || props.ai ? props.align || props.ai : 'center')};
     justify-content: ${(props) =>
@@ -15,23 +15,23 @@ const Container = styled(Box)`
     flex-direction: ${(props) =>
         props.direction || props.fd ? props.direction || props.fd : 'row'};
     flex-wrap: ${(props) => (props.wrap || props.fw ? props.wrap || props.fw : '')};
-    inline-size: 80%;
+    ${SizeMixin({ width: '80%' })}
 
     @media ${device.desktop} {
-        max-inline-size: 1200px;
+        ${SizeMixin({ max_width: '1200px' })}
     }
     @media ${device.laptopL} {
-        inline-size: 84%;
+        ${SizeMixin({ width: '84%' })}
     }
     @media ${device.laptopM} {
         flex-direction: ${(props) => props.laptop_direction};
     }
     @media ${device.desktopL} {
-        max-inline-size: 1600px;
+        ${SizeMixin({ max_width: '1600px' })}
     }
     @media ${device.tabletL} {
-        inline-size: 90%;
-        padding-inline: 0;
+        ${SizeMixin({ width: '90%' })}
+        ${PaddingMixin({ x: 0 })}
         flex-direction: ${(props) => props.tablet_direction};
     }
 

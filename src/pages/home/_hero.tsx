@@ -12,6 +12,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
 import { EU, UK, ROW } from 'components/containers/visibility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { SizeMixin, MarginMixin, PaddingMixin } from 'themes/mixins'
 
 const query = graphql`
     query {
@@ -41,45 +42,38 @@ const contents_ppc = [
 ]
 
 const HeroWrapper = styled.section`
-    inline-size: 100%;
-    padding-block: calc(7rem + 80px);
-    padding-inline: 0;
-    min-block-size: 915px;
+    ${SizeMixin({ width: '100%', min_height: '915px' })}
+    ${PaddingMixin({ y: 'calc(7rem + 80px)', x: '0' })}
     background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%);
     position: relative;
     @media ${device.tabletL} {
         flex-wrap: wrap;
         justify-content: flex-start;
-        padding-block-start: calc(7rem + 40px);
-        padding-block-end: 46px;
-        padding-inline: 0;
-        min-block-size: 846px;
+        ${PaddingMixin({ top: 'calc(7rem + 40px)', bottom: '46px', x: '0' })}
+        ${SizeMixin({ min_height: '846px' })}
     }
 `
 const HeroButton = styled(Button)`
-    padding-block: 17px;
-    padding-inline: 24px;
+    ${PaddingMixin({ all: '17px 24px' })}
     display: flex;
     align-items: center;
     justify-content: center;
     inline-size: fit-content;
 
     @media ${device.tabletL} {
-        margin-block: 0;
-        margin-inline: auto;
+        ${MarginMixin({ all: "'0 auto'" })}
         font-size: 20px;
         line-height: 30px;
     }
     @media ${device.mobileS} {
         font-size: 18px;
-        padding-block: 12px;
-        padding-inline: 20px;
+        ${PaddingMixin({ all: '12px 20px' })}
     }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        margin-inline-end: 8px;
-        inline-size: unset;
+        ${MarginMixin({ end: '8px' })}
+        ${SizeMixin({ width: 'unset' })}
     }
 `
 

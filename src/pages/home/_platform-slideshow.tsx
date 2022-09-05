@@ -7,13 +7,13 @@ import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import i18next from 'components/localization/config'
+import { SizeMixin } from 'themes/mixins'
 
 const ImagePlaceHolder = styled.div`
-    width: 690px;
+    ${SizeMixin({ width: '690px' })}
 
     @media ${device.tabletL} {
-        width: 100%;
-        height: 360px;
+        ${SizeMixin({ width: '100%', height: '360px' })}
     }
 `
 

@@ -23,6 +23,11 @@ const ImgWrapper = styled.div`
     left: 50%;
     transform: translateX(-50%);
 `
+const StyledQueryImage = styled(QueryImage)`
+    .gatsby-image-wrapper [data-main-image] {
+        object-fit: contain !important;
+    }
+`
 const AfricaAward = () => {
     const data = useStaticQuery(query)
 
@@ -30,7 +35,7 @@ const AfricaAward = () => {
         <>
             <Desktop>
                 <ImgWrapper>
-                    <QueryImage data={data.africa_award} alt={'Africa Forex Award'} />
+                    <StyledQueryImage data={data.africa_award} alt={'Africa Forex Award'} />
                 </ImgWrapper>
             </Desktop>
             <Mobile>

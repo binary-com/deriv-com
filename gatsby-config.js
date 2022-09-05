@@ -221,6 +221,7 @@ module.exports = {
             options: {
                 id: 'GTM-NF7884S',
                 includeInDevelopment: false,
+                strategy: 'off-main-thread',
             },
         },
         {

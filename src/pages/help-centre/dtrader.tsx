@@ -49,7 +49,7 @@ const DTraderMarkets = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and synthetic indices on DTrader. Some markets may not be available in certain countries.',
+                'You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and derived indices on DTrader. Some markets may not be available in certain countries.',
             )}
         </Text>
     </ArticleWrapper>

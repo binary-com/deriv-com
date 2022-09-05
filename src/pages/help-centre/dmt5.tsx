@@ -23,7 +23,7 @@ const WhatIsDMT5 = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="Deriv MT5 is a CFD trading platform that gives you access to forex, stocks, stock indices, commodities, cryptocurrencies, and synthetics. Learn more about Deriv MT5 <0>here</0>."
+                translate_text="Deriv MT5 is a CFD trading platform that gives you access to forex, stocks, stock indices, commodities, cryptocurrencies, and derived indices. Learn more about Deriv MT5 <0>here</0>."
                 components={[
                     <ExternalLink
                         to={'/dmt5/'}
@@ -43,7 +43,7 @@ const DifferenceDMT5DTrader = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="<0>DTrader</0>, <1>SmartTrader</1>, <2>DBot</2>, and <3>Binary Bot</3> offer digital options trading on a range of underlying assets such as forex, stock indices, commodities, and synthetics. These platforms allow you to set the contract duration before opening positions, and you'll know exactly how much you'll earn if you win. You may find these platforms more intuitive if you're new to the trading world."
+                translate_text="<0>DTrader</0>, <1>SmartTrader</1>, <2>DBot</2>, and <3>Binary Bot</3> offer digital options trading on a range of underlying assets such as forex, stock indices, commodities, and derived indices. These platforms allow you to set the contract duration before opening positions, and you'll know exactly how much you'll earn if you win. You may find these platforms more intuitive if you're new to the trading world."
                 components={[
                     <ExternalLink
                         to={'/dtrader/'}
@@ -107,7 +107,7 @@ const DifferentAccounts = ({ text }: ArticleProps) => {
             <>
                 <Text>
                     {localize(
-                        'The Deriv MT5 Synthetic account offers contracts for difference (CFDs) on synthetic indices. Our proprietary synthetic indices mimic the price movement of real financial markets but are not affected by market events. Trading on synthetic indices is available 24/7, even on weekends and holidays. There are more than 15 indices to choose from, with different levels of volatility and market behaviour.',
+                        'The Deriv MT5 Derived account offers contracts for difference (CFDs) on derived indices. These indices include our proprietary synthetic indices as well as indices derived from the price movement of real financial markets. Selected derived indices can be traded 24/7, even on weekends and holidays, while the others are available for trade round the clock on weekdays.',
                     )}
                 </Text>
                 <StyledText>
@@ -545,7 +545,7 @@ const DMT5Article = () => {
                 ) : (
                     <DifferentAccounts
                         text={localize(
-                            'What are the differences between the Deriv MT5 Synthetic, Financial, and Financial STP accounts?',
+                            'What are the differences between the Deriv MT5 Derived and Financial accounts?',
                         )}
                         label="differences-of-dmt5-accounts"
                         is_mounted={is_mounted}

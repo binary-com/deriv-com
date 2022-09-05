@@ -536,7 +536,7 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="What are the differences between the Deriv MT5 Synthetic, Financial, and Financial STP accounts?" />
+                    <Localize translate_text="What are the differences between the Deriv MT5 Derived and Financial accounts?" />
                 ),
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Accounts" />,

@@ -5,12 +5,10 @@ import { Carousel, Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
-import Basket from 'images/svg/custom/basket-nav.svg'
 import Commodities from 'images/svg/markets/commodities-new.svg'
 import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
-import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 

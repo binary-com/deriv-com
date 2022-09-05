@@ -601,8 +601,8 @@ export const all_offices: LocationsType[] = [
     minsk,
     rwanda,
     asuncion,
-    georgetown,
     ciudad,
+    georgetown,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,

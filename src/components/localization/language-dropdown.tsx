@@ -76,7 +76,6 @@ const Absolute = styled.div<AbsoluteProps>`
         left: 15rem;
     }
 `
-/* stylelint-disable */
 const FadeInDown = keyframes`
     from {
         opacity:0;

@@ -77,12 +77,12 @@ const StyledTable = styled.table`
 const Thead = styled.thead`
     font-size: var(--text-size-s);
     font-weight: bold;
-    text-align: left;
+    text-align: start;
     border-bottom: 2px solid var(--color-grey-2);
 `
 
 const Tbody = styled.tbody`
-    text-align: left;
+    text-align: start;
 `
 
 const Tr = styled.tr`

@@ -51,7 +51,7 @@ const EmployeeCard = styled.article`
 `
 
 const QuoteText = styled(Text)`
-    text-align: left;
+    text-align: start;
     padding-bottom: 2.4rem;
     z-index: 10;
     position: relative;

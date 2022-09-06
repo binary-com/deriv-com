@@ -7,6 +7,7 @@ import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
 import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
+import i18next from 'components/localization/config'
 
 const non_localized_links = [
     '/careers',
@@ -91,6 +92,9 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
         <Helmet
             htmlAttributes={{
                 lang: formatted_lang,
+            }}
+            bodyAttributes={{
+                dir: i18next.dir(i18next.language),
             }}
             title={title}
             defer={false}

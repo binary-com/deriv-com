@@ -55,7 +55,7 @@ const StepCommon = css<StepCommonType>`
     cursor: pointer;
     padding-left: 1.8rem;
     @media ${device.tabletL} {
-        text-align: left;
+        text-align: start;
         border: none;
         margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }

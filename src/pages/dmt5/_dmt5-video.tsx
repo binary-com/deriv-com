@@ -71,7 +71,7 @@ const Step = styled(Header)<StepProps>`
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
 
     @media ${device.tabletL} {
-        text-align: left;
+        text-align: start;
         border: none;
         margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }

@@ -29,7 +29,7 @@ const query = graphql`
         }
     }
 `
-const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
+const StyledSectionContainer = styled(Box)`
     width: 100%;
     padding: 80px 0;
     position: static;

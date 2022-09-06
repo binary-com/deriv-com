@@ -68,12 +68,12 @@ const TitleHeader = styled(Header)`
     }
 
     @media ${device.tabletS} {
-        text-align: left;
+        text-align: start;
     }
 
     @media ${device.mobileL} {
         width: auto;
-        text-align: left;
+        text-align: start;
     }
 `
 
@@ -83,14 +83,14 @@ const StyledHeader = styled(Header)`
     }
 
     @media ${device.tabletS} {
-        text-align: left;
+        text-align: start;
     }
 `
 
 const NumberHeader = styled(Text)`
     font-weight: bold;
     line-height: 6rem;
-    text-align: left;
+    text-align: start;
 
     @media ${device.mobileL} {
         margin-bottom: 8px;
@@ -99,7 +99,7 @@ const NumberHeader = styled(Text)`
 
 const NumberText = styled(Text)`
     font-weight: 400;
-    text-align: left;
+    text-align: start;
 `
 
 const DerivNumbers = () => {

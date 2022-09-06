@@ -26,6 +26,7 @@ const flags = {
     zh,
     tr,
     ac,
+    ar: en,
 }
 
 export default flags

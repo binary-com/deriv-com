@@ -67,7 +67,7 @@ const ValueText = styled(Header)`
     white-space: pre-line;
 
     @media ${device.mobileL} {
-        text-align: left;
+        text-align: start;
     }
 `
 const RefIcon = styled.a`

@@ -75,13 +75,13 @@ const StyledText = styled(Text)`
 
 const StyledHeader = styled(Header)`
     @media (max-width: 1524px) {
-        text-align: left;
+        text-align: start;
     }
     @media ${device.laptopM} {
         text-align: center;
     }
     @media ${device.mobileM} {
-        text-align: left;
+        text-align: start;
         width: 38rem;
     }
 `

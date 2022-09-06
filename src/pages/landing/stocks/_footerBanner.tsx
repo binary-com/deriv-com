@@ -52,7 +52,7 @@ const TextWrapper = styled(Flex)`
 `
 const TextDiv = styled(Flex)`
     position: relative;
-    text-align: left;
+    text-align: start;
     flex-direction: column;
     justify-content: start;
     align-items: center;

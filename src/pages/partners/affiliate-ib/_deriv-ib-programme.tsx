@@ -109,12 +109,12 @@ const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
     @media ${device.desktopL} {
         margin-left: 0;
-        text-align: left;
+        text-align: start;
     }
 
     @media (max-width: 1444px) {
         margin-left: auto;
-        text-align: left;
+        text-align: start;
         padding-left: 0.35rem;
     }
     @media ${device.laptopM} {
@@ -126,7 +126,7 @@ const StyledHeaderCommission = styled(StyledHeader)`
     }
 
     @media ${device.mobileM} {
-        text-align: left;
+        text-align: start;
         margin: auto;
         width: 38rem;
     }

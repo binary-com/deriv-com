@@ -22,7 +22,7 @@ const AvailablePlatformsWrapper = styled(Flex)`
 `
 
 const StyledTitle = styled(Text)`
-    text-align: left;
+    text-align: start;
     font-weight: bold;
 `
 

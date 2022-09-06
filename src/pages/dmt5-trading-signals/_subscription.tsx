@@ -93,7 +93,7 @@ const Card = styled(Flex)`
 `
 const StyledCardText = styled(Text)`
     font-size: 1.6rem;
-    text-align: left;
+    text-align: start;
 
     @media ${device.tabletL} {
         font-size: 16px;

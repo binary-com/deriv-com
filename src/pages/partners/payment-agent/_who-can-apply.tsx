@@ -31,7 +31,7 @@ type ImageWrapperProps = {
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {
         margin-top: 40px;
-        text-align: left;
+        text-align: start;
     }
 `
 const HowToApply = styled(Col)`

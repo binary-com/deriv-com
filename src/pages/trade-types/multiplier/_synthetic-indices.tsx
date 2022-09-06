@@ -25,7 +25,7 @@ import { DerivStore } from 'store'
 
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
-        text-align: left;
+        text-align: start;
     }
 `
 

@@ -38,10 +38,10 @@ const StyledContainer = styled(Container)`
         padding: 12.5rem 0;
 
         h1 {
-            text-align: left;
+            text-align: start;
         }
         h4 {
-            text-align: left;
+            text-align: start;
         }
     }
 `

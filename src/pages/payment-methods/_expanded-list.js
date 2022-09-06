@@ -26,7 +26,7 @@ const StyledPDF = styled.img`
     width: 32px;
 `
 const ExpandedContent = styled.td`
-    text-align: left;
+    text-align: start;
 `
 const Tr = styled.tr`
     border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};

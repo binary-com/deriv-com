@@ -13,7 +13,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
-        text-align: left;
+        text-align: start;
     }
 `
 

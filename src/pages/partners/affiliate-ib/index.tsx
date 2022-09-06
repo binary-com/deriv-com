@@ -42,7 +42,7 @@ const StyledHeader = styled(Header)`
     margin-bottom: 4rem;
     @media ${device.tabletS} {
         font-size: 40px;
-        text-align: left;
+        text-align: start;
     }
 `
 

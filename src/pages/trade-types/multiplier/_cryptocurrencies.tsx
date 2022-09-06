@@ -11,7 +11,7 @@ import device from 'themes/device'
 
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
-        text-align: left;
+        text-align: start;
     }
 `
 

@@ -85,6 +85,11 @@ module.exports = {
         short_name: 'TR',
         affiliate_lang: 14,
     },
+    ar: {
+        path: 'ar',
+        display_name: 'Arabic',
+        short_name: 'AR',
+    },
     // TODO: uncomment when supported
     // de: {
     //     path: 'de',

@@ -73,7 +73,12 @@ module.exports = {
         short_name: '简体',
         affiliate_lang: 10,
     },
-
+    ach: {
+        path: 'ach',
+        display_name: 'Crowdin',
+        short_name: 'CR',
+        affiliate_lang: 13,
+    },
     zh_tw: {
         path: 'zh-tw',
         display_name: '繁體中文',

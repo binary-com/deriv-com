@@ -67,7 +67,7 @@ const Absolute = styled.div<AbsoluteProps>`
     background-color: var(--color-white);
     transition: opacity 0.35s ease-in-out;
     cursor: default;
-    border-radius: 4px;
+    border-radius: 8px;
     will-change: opacity;
     display: ${({ is_open }) => !is_open && 'none'};
 
@@ -96,7 +96,7 @@ const FadeOutUp = keyframes`
 
 const ItemContainer = styled.div<{ is_open: boolean }>`
     background-color: var(--color-white);
-    padding: 1.6rem 0.8rem 0rem 0rem;
+    padding: 1.6rem 0.8rem 0 0;
     position: relative;
     width: auto;
     grid-template-columns: 1fr 1fr;
@@ -144,7 +144,6 @@ const Item = styled.div<{ disabled: boolean }>`
 const ResponsiveText = styled(Text)`
     white-space: nowrap;
 `
-/* stylelint-enable */
 
 const Dropdown = ({
     default_option,

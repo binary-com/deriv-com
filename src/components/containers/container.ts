@@ -5,7 +5,20 @@ import device from 'themes/device'
 
 const responsiveStyles = generateResponsiveStyles(flexStyles)
 
-const Container = styled(Box)`
+type ContainerType = {
+    align?: string
+    ai?: string
+    justify?: string
+    jc?: string
+    direction?: string
+    fd?: string
+    wrap?: string
+    fw?: string
+    laptop_direction?: string
+    tablet_direction?: string
+}
+
+const Container = styled(Box)<ContainerType>`
     margin: 0 auto;
     display: flex;
     align-items: ${(props) => (props.align || props.ai ? props.align || props.ai : 'center')};

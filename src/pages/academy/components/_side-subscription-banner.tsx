@@ -103,6 +103,7 @@ const ErrorMessages = styled(Text)`
     min-height: 16px;
     margin-top: -4px;
     margin-bottom: 4px;
+    color: var(--color-red-1);
 `
 const StyledError = styled.img`
     position: absolute;
@@ -273,7 +274,7 @@ const SideSubscriptionBanner = () => {
 
                         {name_error_msg && (
                             <>
-                                <ErrorMessages lh="1.4" align="left" color="red-1">
+                                <ErrorMessages lh="1.4" align="left">
                                     {name_error_msg}
                                 </ErrorMessages>
 
@@ -301,7 +302,7 @@ const SideSubscriptionBanner = () => {
                         />
                         {email_error_msg && (
                             <>
-                                <ErrorMessages lh="1.4" align="left" color="red-1">
+                                <ErrorMessages lh="1.4" align="left">
                                     {email_error_msg}
                                 </ErrorMessages>
 

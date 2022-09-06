@@ -13,6 +13,7 @@ import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
 export type CommoditiesContent = {
     src: string
     text: ReactElement
+    alt: string
 }
 export const simple_step_content_commodities: SimpleStepsContent[] = [
     {
@@ -41,22 +42,27 @@ const commodities: CommoditiesContent[] = [
     {
         src: VariableSpreads,
         text: <Localize translate_text="Competitive fixed and variable spreads" />,
+        alt: 'variable spreads',
     },
     {
         src: NoCommission,
         text: <Localize translate_text="No commission on any commodity contract" />,
+        alt: 'no commission',
     },
     {
         src: MetalAndOil,
         text: <Localize translate_text="All four precious metals and crude oil available" />,
+        alt: 'metals and oil',
     },
     {
         src: ResponsiveWebsite,
         text: <Localize translate_text="Easy-to-use platforms, superior chart technology" />,
+        alt: 'responsive website',
     },
     {
         src: FriendlySupport,
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        alt: 'support',
     },
 ]
 

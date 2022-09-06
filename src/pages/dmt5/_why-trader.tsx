@@ -15,6 +15,7 @@ type CardContentType = {
     text: React.ReactElement
     image: string
     key: number
+    image_alt: string
 }
 
 const card_content: CardContentType[] = [
@@ -25,6 +26,7 @@ const card_content: CardContentType[] = [
         ),
         image: InstantAccess,
         key: 0,
+        image_alt: 'quick demo account sign-up',
     },
     {
         header: <Localize translate_text="Multiple assets on a single platform" />,
@@ -33,6 +35,7 @@ const card_content: CardContentType[] = [
         ),
         image: SyntheticIndices,
         key: 1,
+        image_alt: 'synthetic indices',
     },
     {
         header: <Localize translate_text="24/7 trading" />,
@@ -41,6 +44,7 @@ const card_content: CardContentType[] = [
         ),
         image: Seven,
         key: 2,
+        image_alt: '24/7 trading',
     },
     {
         header: <Localize translate_text="Licensed and regulated" />,
@@ -49,6 +53,7 @@ const card_content: CardContentType[] = [
         ),
         image: MinimalRisk,
         key: 3,
+        image_alt: 'licensed and regulated',
     },
 ]
 
@@ -131,7 +136,7 @@ const WhyTrader = () => {
                     return (
                         <Card key={card.key}>
                             <div>
-                                <img src={card.image} alt="card icon" />
+                                <img src={card.image} alt={card.image_alt} />
                             </div>
                             <StyledCardHeader
                                 mt="0.8rem"

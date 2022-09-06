@@ -12,6 +12,7 @@ import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 type Stock = {
     src: string
     text: ReactElement
+    alt: string
 }
 
 export const simple_step_content_stock: SimpleStepsContent[] = [
@@ -42,22 +43,27 @@ const stocks: Stock[] = [
     {
         src: ExtendedTime,
         text: <Localize translate_text="Minimal capital requirements, limited risk" />,
+        alt: 'minimal capital requirements',
     },
     {
         src: MinimalCapital,
         text: <Localize translate_text="Extended trading time, up to 18 hours a day" />,
+        alt: 'extended trading time',
     },
     {
         src: WithdrawIcon,
         text: <Localize translate_text="Fast and secure deposit and withdrawal options" />,
+        alt: 'withdrawal',
     },
     {
         src: ResponsiveWebsite,
         text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        alt: 'responsive, easy-to-use platforms',
     },
     {
         src: FriendlySupport,
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        alt: 'smart and friendly support',
     },
 ]
 export default stocks

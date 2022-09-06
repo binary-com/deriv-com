@@ -13,6 +13,7 @@ import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 type Synthetic = {
     src: string
     text: ReactElement
+    alt: string
 }
 
 export const simple_step_content_synthetic: SimpleStepsContent[] = [
@@ -43,22 +44,27 @@ const synthetic: Synthetic[] = [
     {
         src: SevenTrading,
         text: <Localize translate_text="24/7 trading, including weekends and public holidays" />,
+        alt: '24/7 trading',
     },
     {
         src: MarketandRisk,
         text: <Localize translate_text="Free from real-world market and liquidity risks" />,
+        alt: 'real-world market and liquidity risk',
     },
     {
         src: ResponsiveWebsite,
         text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        alt: 'responsive platforms',
     },
     {
         src: ExclusiveTradeType,
         text: <Localize translate_text="Exclusive access to innovative trade types" />,
+        alt: 'exclusive access to innovative trade types',
     },
     {
         src: FriendlySupport,
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        alt: 'support',
     },
 ]
 

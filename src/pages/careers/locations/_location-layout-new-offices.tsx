@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import CareerContainer from '../_layout-components/_career_container'
-import { locationsTypes } from '../_model/_locations/_locations.types'
+import { LocationsType } from '../_model/_locations/_locations.types'
 import { Iframe, Pin } from './_location-layout'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
@@ -42,22 +42,16 @@ const SecondStyledHeader = styled(Header)`
 type HeroProps = {
     display_name: string
     img_data: string
+    img_alt: string
 }
 
-const Hero = ({ display_name, img_data }: HeroProps) => {
+const Hero = ({ display_name, img_data, img_alt }: HeroProps) => {
     return (
-        <StyledBackground data={img_data} alt={display_name}>
+        <StyledBackground data={img_data} alt={img_alt}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
-                <LinkButton
-                    hero
-                    has_no_end_slash
-                    to={zoho_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    external
-                >
-                    View open positions in {display_name}
+                <LinkButton hero has_no_end_slash to={zoho_url} rel="noopener noreferrer">
+                    View open positions in {display_name === 'Vanuatu' ? 'Port Vila' : display_name}
                 </LinkButton>
             </StyledContainer>
         </StyledBackground>
@@ -174,7 +168,7 @@ const WorkingFlex = styled(Flex)`
 `
 
 const WorkingInformation = styled(Flex)`
-    max-width: 44.4rem;
+    max-width: 51.4rem;
     padding: 40px;
     display: block;
     @media ${device.laptop} {
@@ -184,7 +178,7 @@ const WorkingInformation = styled(Flex)`
 `
 
 const StyledDiv = styled.div`
-    max-width: 400px;
+    max-width: 438px;
 
     @media ${device.laptop} {
         max-width: 100%;
@@ -213,17 +207,23 @@ const WorkingQueryImage = styled(QueryImage)`
 `
 
 type LocationLayoutProps = {
-    location: locationsTypes
-    images: locationsTypes
+    display_name: string
+    display_title_name?: string
+    location: LocationsType
+    images: LocationsType
 }
 
 export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => {
-    const { display_name, map_office_name } = location
+    const { display_name, display_title_name, map_office_name } = location
     if (!display_name) return null
 
     return (
         <>
-            <Hero display_name={display_name} img_data={images[location.name]} />
+            <Hero
+                display_name={display_name}
+                img_data={images[location.name]}
+                img_alt={location.img_alt}
+            />
             <FirstSection>
                 <SecondStyledHeader
                     type="unset"
@@ -232,7 +232,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                     size="var(--text-size-header-5)"
                     color="black-6"
                 >
-                    Deriv in {display_name}
+                    Deriv in {display_title_name}
                 </SecondStyledHeader>
                 <Flex tablet_direction="column">
                     <Text color="black-6">{location.first_p}</Text>
@@ -280,7 +280,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                         <WorkingFlex jc="cover">
                             <WorkingQueryImage
                                 data={images[location.grid_images[2]]}
-                                alt={location.display_name + 'map'}
+                                alt={location.grid_img_alt}
                                 width="100%"
                                 height="100%"
                             />

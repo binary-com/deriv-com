@@ -60,7 +60,7 @@ const Hero = () => {
                                     />,
                                     <LocalizedLinkText
                                         key={1}
-                                        external="true"
+                                        external
                                         color="white"
                                         weight="bold"
                                         to="home"

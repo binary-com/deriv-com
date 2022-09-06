@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { QueryImage, Header } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
     @media ${device.tabletL} {
         flex-direction: column;
-        padding-left: 16px;
+        padding-left: 0;
     }
 `
 const HeroContent = styled.div`
@@ -100,7 +100,7 @@ const DemoButton = styled(Button)`
         margin-bottom: 40px;
     }
 `
-const ImgWrapper = styled.img`
+const ImgWrapper = styled.div`
     width: 100%;
     height: 100%;
     max-height: 640px;
@@ -130,6 +130,7 @@ const InformationWrapper = styled(Flex)`
     @media ${device.tabletL} {
         width: 46%;
         max-width: 400px;
+        padding-left: 16px;
     }
     @media ${device.tablet} {
         width: 100%;
@@ -148,7 +149,7 @@ const DLogo = styled.img`
 const DHero = ({
     title,
     background_alt,
-    background_svg,
+    background,
     content,
     image_name,
     join_us_for_free,
@@ -160,7 +161,9 @@ const DHero = ({
 
     return (
         <Wrapper>
-            <ImgWrapper src={background_svg} alt={background_alt}></ImgWrapper>
+            <ImgWrapper>
+                <QueryImage data={background} alt={background_alt} />
+            </ImgWrapper>
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" weight="normal">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
@@ -173,7 +176,7 @@ const DHero = ({
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (
-                        <DemoButton onClick={handleSignup} id="dm-hero-signup-1" secondary="true">
+                        <DemoButton onClick={handleSignup} id="dm-hero-signup-1" secondary>
                             {localize('Create free demo account')}
                         </DemoButton>
                     )}
@@ -195,9 +198,9 @@ const DHero = ({
 }
 
 DHero.propTypes = {
+    background: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     background_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     background_image_name: PropTypes.string,
-    background_svg: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     image_name: PropTypes.string,

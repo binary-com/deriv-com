@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
 import { RedirectLink } from '../components/recent-featured-posts/_style'
-import { VideoDataType } from './index'
 import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import Triangle from 'images/svg/triangle.svg'
+import { VideosType } from 'components/hooks/use-academy-data'
 
 const VideoCardWrapper = styled.div`
     max-width: 384px;
@@ -113,7 +113,7 @@ const ContentWrapper = styled.div`
 `
 
 type VideoCardProps = {
-    item: VideoDataType[0]
+    item: VideosType
 }
 
 const VideoCard = ({ item }: VideoCardProps) => {
@@ -130,7 +130,11 @@ const VideoCard = ({ item }: VideoCardProps) => {
                     <CategoriesContainer jc="flex-start" fw="wrap">
                         {item.tags &&
                             first_2_tags.map((tag) => (
-                                <StyledCategories as="h4" type="paragraph-2" key={tag?.tags_id?.id}>
+                                <StyledCategories
+                                    as="h4"
+                                    type="paragraph-2"
+                                    key={tag?.tags_id?.tag_name}
+                                >
                                     {tag?.tags_id?.tag_name}
                                 </StyledCategories>
                             ))}

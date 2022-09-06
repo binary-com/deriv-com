@@ -26,14 +26,14 @@ const SignUp = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'mailto:affiliates@deriv.com'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
                     />,
                     <ExternalLink
                         to={'https://deriv.com/partners/affiliate-ib/'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -79,7 +79,7 @@ const WhyIb = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://deriv.com/partners/affiliate-ib/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -100,7 +100,7 @@ const HowMuchCommission = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://deriv.com/partners/affiliate-ib/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}

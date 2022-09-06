@@ -69,6 +69,7 @@ const StyledDescription = styled(Text)<{ $hovered: boolean }>`
     visibility: ${(props) => (props.$hovered ? 'visible' : 'hidden')};
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
     z-index: 2;
+    color: white;
 `
 
 const StyledLink = styled(LocalizedLink)`
@@ -273,11 +274,7 @@ const CarouselItem = ({
     }
 
     return (
-        <ItemWrapper
-            onMouseOver={() => handleHover(true)}
-            onMouseLeave={() => handleHover(false)}
-            onClick={(e) => !is_mobile && e.preventDefault()}
-        >
+        <ItemWrapper onMouseEnter={() => handleHover(true)} onMouseLeave={() => handleHover(false)}>
             <StyledLink to={url}>
                 <CarouselItemContainer
                     direction="column"
@@ -291,12 +288,7 @@ const CarouselItem = ({
                     </Header>
                     <Desktop>
                         <>
-                            <StyledDescription
-                                lh="24px"
-                                color="white"
-                                type="paragraph-1"
-                                $hovered={is_hovered}
-                            >
+                            <StyledDescription lh="24px" type="paragraph-1" $hovered={is_hovered}>
                                 {description}
                             </StyledDescription>
                             <CarouselItemImageDesktop
@@ -304,9 +296,6 @@ const CarouselItem = ({
                                 alt={header}
                                 loading="eager"
                                 $hovered={is_hovered}
-                                onClick={(e) => {
-                                    !is_mobile && e.preventDefault()
-                                }}
                             />
                         </>
                     </Desktop>

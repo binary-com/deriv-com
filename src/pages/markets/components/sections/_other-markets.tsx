@@ -101,7 +101,7 @@ const LearnMore = styled(LocalizedLink)`
     border-radius: 100px;
     background-color: var(--color-white);
     position: absolute;
-    bottom: -20px;
+    bottom: -33px;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -155,8 +155,8 @@ const StyledFlex = styled(Flex)`
 
     &:hover {
         box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+        height: 340px;
         border-radius: 0 0 8px 8px;
-        height: 100%;
     }
     ${LearnMore} {
         img {
@@ -180,6 +180,7 @@ const settings = {
     },
     slide_style: {
         width: '282px',
+        height: '380px',
         marginRight: '24px',
         paddingRight: '50px',
         paddingLeft: '25px',
@@ -195,6 +196,8 @@ const Card = ({ market }: CardProps) => {
     return (
         <StyledFlex
             direction="column"
+            max_width="28.2rem"
+            height="340px"
             width="282px"
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"

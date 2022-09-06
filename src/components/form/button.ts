@@ -2,24 +2,20 @@ import styled, { css } from 'styled-components'
 import { Paddings, Margins, MarginsType, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
-interface ButtonProps extends React.ComponentPropsWithoutRef<'button'>, SharedButtonStyleProps {
-    loading?: string
-    isChecked?: boolean
-}
-
-type SharedButtonStyleProps = MarginsType &
-    PaddingsType & {
-        width?: string
-        primary?: string | boolean
-        secondary?: string | boolean
-        tertiary?: string | boolean
-        tertiary_light?: string | boolean
-        flat?: string
-        social?: string | boolean
-        white?: string
-        hero?: string
-        provider?: string
-    }
+type SharedButtonStyleProps = {
+    width?: string
+    provider?: string
+    primary?: boolean
+    secondary?: boolean
+    tertiary?: boolean
+    loading?: boolean
+    tertiary_light?: boolean
+    flat?: boolean
+    social?: boolean
+    white?: boolean
+    hero?: boolean
+} & MarginsType &
+    PaddingsType
 
 export const SharedButtonStyle = css<SharedButtonStyleProps>`
     border-radius: 4px;
@@ -144,7 +140,7 @@ export const SharedButtonStyle = css<SharedButtonStyleProps>`
     ${Margins}
 `
 
-const Button = styled.button<ButtonProps>`
+const Button = styled.button<SharedButtonStyleProps>`
     ${SharedButtonStyle}
 
     &:hover {

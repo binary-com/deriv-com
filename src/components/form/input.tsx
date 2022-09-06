@@ -193,6 +193,7 @@ const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
+    color: var(--color-red-1);
 `
 
 const StyledLabel = styled.label<StyledLabelProps>`
@@ -259,7 +260,7 @@ const Input = ({
                     </StyledLabel>
                 )}
             </InputWrapper>
-            <ErrorMessages lh="1.4" align="left" color="red-1">
+            <ErrorMessages lh="1.4" align="left">
                 {error}
             </ErrorMessages>
             {error && (

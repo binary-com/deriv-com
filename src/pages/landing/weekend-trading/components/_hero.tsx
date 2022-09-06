@@ -148,7 +148,7 @@ const Hero = () => {
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                         type="submit"
-                        secondary="true"
+                        secondary
                         to={'/signup/'}
                     >
                         {localize('Get trading')}

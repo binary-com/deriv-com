@@ -99,6 +99,10 @@ const SvgWrapper = styled.div`
     margin-right: 8px;
 `
 
+const StyledText = styled(Text)`
+    color: var(--color-grey-5);
+`
+
 const OffCanvasMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -146,9 +150,9 @@ export const OffCanvasMenuWrapper = (props) => {
                     >
                         {!props.is_ppc && (
                             <>
-                                <Text color="grey-5" mb="8px" size="14px">
+                                <StyledText mb="8px" size="14px">
                                     {<Localize translate_text="Trade types" />}
-                                </Text>
+                                </StyledText>
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="CFDs"
@@ -196,9 +200,9 @@ export const OffCanvasMenuWrapper = (props) => {
 
                         <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
 
-                        <Text color="grey-5" mb="8px" size="14px">
+                        <StyledText mb="8px" size="14px">
                             {<Localize translate_text="Trading platforms" />}
-                        </Text>
+                        </StyledText>
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="DMT5"
@@ -267,7 +271,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         onClick={handleArrowClick}
                                         to="trading"
                                         type="smart_trader"
-                                        external="true"
+                                        external
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}
                                     />
@@ -298,7 +302,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         title={<Localize translate_text="Binary Bot" />}
                                         onClick={handleArrowClick}
                                         to={binary_bot_url}
-                                        external="true"
+                                        external
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}
                                     />
@@ -462,7 +466,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         <StyledLink
                             to=""
                             type="community"
-                            external="true"
+                            external
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -500,7 +504,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink
                             to={deriv_status_page_url}
-                            external="true"
+                            external
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -557,17 +561,19 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                         </StyledLink>
-                        <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={PaymentAgent} alt="" width="32" height="32" />
-                            </div>
-                            <span>{<Localize translate_text="Payment agents" />}</span>
-                        </StyledLink>
+                        <ROW>
+                            <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
+                                <div>
+                                    <img src={PaymentAgent} alt="" width="32" height="32" />
+                                </div>
+                                <span>{<Localize translate_text="Payment agents" />}</span>
+                            </StyledLink>
+                        </ROW>
                         <StyledLink
                             to=""
                             type="api"
                             target="_blank"
-                            external="true"
+                            external
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
                         >
@@ -623,17 +629,19 @@ export const OffCanvasMenuPartner = (props) => {
                     </div>
                     <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                 </StyledLink>
-                <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
-                    <div>
-                        <img src={PaymentAgent} alt="" width="32" height="32" />
-                    </div>
-                    <span>{<Localize translate_text="Payment agents" />}</span>
-                </StyledLink>
+                <ROW>
+                    <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
+                        <div>
+                            <img src={PaymentAgent} alt="" width="32" height="32" />
+                        </div>
+                        <span>{<Localize translate_text="Payment agents" />}</span>
+                    </StyledLink>
+                </ROW>
                 <StyledLink
                     to=""
                     type="api"
                     target="_blank"
-                    external="true"
+                    external
                     rel="noopener noreferrer"
                     onClick={handleArrowClick}
                 >

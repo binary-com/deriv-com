@@ -11,7 +11,7 @@ type DHowItWorksProps = {
 }
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        text-align: left;
+        text-align: center;
         ${(props) =>
             props.as === 'h4' ? 'font-size: var(--text-size-sm);' : 'font-size: var(--text-size-l)'}
     }

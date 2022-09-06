@@ -22,7 +22,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v1
               with:
-                  node-version: 14
+                  node-version: 16
             - name: Cache dependencies
               id: cache
               uses: actions/cache@v2
@@ -62,7 +62,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:
-                  node-version: '14.x'
+                  node-version: '16.x'
 
             - name: Set version env variable
               run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV

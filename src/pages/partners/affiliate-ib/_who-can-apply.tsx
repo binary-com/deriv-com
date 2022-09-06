@@ -103,7 +103,7 @@ const Separator = styled.div`
     width: 1px;
     height: 452px;
     background-color: var(--color-grey-8);
-    margin: 0 9.2rem;
+    margin: 0 17.2rem;
 
     @media ${device.laptop} {
         display: none !important;
@@ -191,7 +191,7 @@ const HowToApplyContent = styled.div`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
         display: block;
         margin: auto;
         font-size: 14px;
@@ -230,7 +230,7 @@ const WhoCanApply = () => {
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                                        'Develop web, desktop, and mobile applications using Deriv API.',
                                     )}
                                 </Text>
                             </Content>
@@ -317,7 +317,7 @@ const WhoCanApply = () => {
                     id="dm-page-affiliate-signup"
                     secondary
                     to={affiliate_signup_url}
-                    external="true"
+                    external
                     target="_blank"
                     type="affiliate_sign_up"
                 >

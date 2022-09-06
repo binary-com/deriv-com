@@ -408,6 +408,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                                             video?.video_thumbnail?.imageFile
                                                                 ?.childImageSharp?.gatsbyImageData
                                                         }
+                                                        alt={video?.video_title}
                                                         width="161px"
                                                         height="96px"
                                                     />
@@ -464,9 +465,6 @@ export const query = graphql`
                             gatsbyImageData(width: 382, aspectRatio: 1.82)
                         }
                     }
-                }
-                video_file {
-                    id
                 }
                 tags {
                     tags_id {

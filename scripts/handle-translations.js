@@ -80,7 +80,7 @@ const handleProcess = (action) => {
 
     if (action !== 'pull-master')
         console.log(
-            `\x1b[33mFetching translation data for \x1b[32m[${branch_name}]\x1b[33m   \n \x1b[0m`,
+            `\x1b[33mInitialized auto translation pull for \x1b[32m[${branch_name}]\x1b[33m   \n \x1b[0m`,
         )
     else {
         console.log(
@@ -90,7 +90,7 @@ const handleProcess = (action) => {
 
     runProcess({
         process: action,
-        callback: (error, stdout, stderr) => {
+        callback: (error, stdout) => {
             if (error) {
                 logError(error)
             }
@@ -108,13 +108,13 @@ const runProcess = (data) => {
     switch (process) {
         case 'pull':
             exec(
-                `crowdin download -b  ${branch_name} && crowdin download -b  ${branch_name} -l zh-CN -T ${CROWDIN_API_KEY} `,
+                `git commit -m 'auto-pull-translation' --allow-empty --no-verify;git push origin ${branch_name} `,
                 callback,
             )
             break
         case 'pull-master':
             exec(
-                `crowdin download -b  master && crowdin download -b master -l zh-CN -T ${CROWDIN_API_KEY} `,
+                `crowdin download -b  master -T ${CROWDIN_API_KEY} && crowdin download -b master -l zh-CN -T ${CROWDIN_API_KEY} `,
                 callback,
             )
             break

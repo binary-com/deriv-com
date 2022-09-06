@@ -101,7 +101,7 @@ const SignupDefault = ({
             <EmailButton
                 id="dm-default-signup-button"
                 type="submit"
-                secondary="true"
+                secondary
                 disabled={is_submitting}
             >
                 {localize('Create free demo account')}

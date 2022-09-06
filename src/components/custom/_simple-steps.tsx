@@ -162,7 +162,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
             </StyledFlex>
             {sign_up && (
                 <LinkButtonWrapper>
-                    <StyledLinkButton id="dm-steps-signup" secondary="true" onClick={handleSignup}>
+                    <StyledLinkButton id="dm-steps-signup" secondary onClick={handleSignup}>
                         {localize('Sign up now')}
                     </StyledLinkButton>
                 </LinkButtonWrapper>

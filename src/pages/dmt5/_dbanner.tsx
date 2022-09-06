@@ -156,7 +156,7 @@ const DBanner = ({
                         onClick={handleSignup}
                         id="dm-dbanner-signup-1"
                         type="submit"
-                        secondary="true"
+                        secondary
                     >
                         {localize('Create free demo account')}
                     </StyledLinkButton>

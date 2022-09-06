@@ -38,9 +38,9 @@ const getNavigationMap = (type) => {
             }
         case 'markets':
             return {
-                derived: ['derived-fx'],
+                derived: ['derived-fx', 'basket-indices', 'synthetic'],
                 forex: ['forex'],
-                stock: ['synthetic'],
+                stock: ['stock'],
                 cryptocurrencies: ['cryptocurrencies'],
                 commodities: ['commodities'],
             }

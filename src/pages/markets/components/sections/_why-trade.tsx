@@ -58,7 +58,6 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledText = styled(Text)`
-    padding: 0 2px;
     margin-bottom: 80px;
     text-align: center;
     @media ${device.tabletL} {
@@ -67,6 +66,8 @@ const StyledText = styled(Text)`
     }
 `
 const StyledSection = styled(SectionContainer)`
+    padding: 6rem 0;
+
     @media ${device.tabletL} {
         padding: 40px 16px;
     }

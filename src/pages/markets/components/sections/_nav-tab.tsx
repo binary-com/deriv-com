@@ -16,15 +16,16 @@ type TabButtonProps = {
 }
 
 const TabsContainer = styled(Flex)`
-    background-color: var(--color-grey-23);
+    justify-content: center;
+    margin-top: 24px;
 `
 const TabList = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
-    position: relative;
     overflow: auto;
     padding-top: 2.4rem;
+    gap: 16px;
 
     @media ${device.tabletL} {
         justify-content: start;
@@ -37,21 +38,24 @@ const TabList = styled.div`
 const TabButton = styled.button<TabButtonProps>`
     z-index: 2;
     height: auto;
-    padding: 8px 24px 10px;
+    padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: transparent;
     outline: none;
     transition: border-color 0.2s ease-in;
     border: none;
     border-bottom: 2px solid var(--color-grey-2);
     white-space: nowrap;
+    background: #f2f3f4;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
     ${(props) =>
         props.selected &&
         css`
-            border-color: var(--color-red);
+            background: white;
+
             ${Text} {
                 font-weight: bold;
             }
@@ -59,8 +63,7 @@ const TabButton = styled.button<TabButtonProps>`
     &:hover,
     &:focus,
     &:active {
-        border-bottom: 2px solid
-            ${(props) => (props.selected ? 'var(--color-red)' : 'var(--color-red-2)')};
+        background: white;
     }
 `
 const TextWrapper = styled(Text)`
@@ -95,11 +98,6 @@ type TabList = {
 }
 const tab_list: TabList[] = [
     {
-        title: <Localize translate_text="Derived FX" />,
-        tab_name: 'derived-fx',
-        route_to: '/markets/derived-fx/',
-    },
-    {
         title: <Localize translate_text="Synthetic indices" />,
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/',
@@ -109,18 +107,23 @@ const tab_list: TabList[] = [
         tab_name: 'basket-indices',
         route_to: '/markets/basket-indices/',
     },
-]
-
-const tab_list_eu: TabList[] = [
     {
         title: <Localize translate_text="Derived FX" />,
         tab_name: 'derived-fx',
         route_to: '/markets/derived-fx/',
     },
+]
+
+const tab_list_eu: TabList[] = [
     {
         title: <Localize translate_text="Synthetic indices" />,
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/',
+    },
+    {
+        title: <Localize translate_text="Derived FX" />,
+        tab_name: 'derived-fx',
+        route_to: '/markets/derived-fx/',
     },
 ]
 

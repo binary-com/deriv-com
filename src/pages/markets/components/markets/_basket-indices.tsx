@@ -29,6 +29,9 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
         <>
             <ROW>
                 <WhyTrade
+                    description={
+                        <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
+                    }
                     header={<Localize translate_text="Why trade basket indices on Deriv" />}
                     text={
                         <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />

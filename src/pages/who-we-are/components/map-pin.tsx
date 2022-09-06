@@ -24,6 +24,7 @@ const PinWrapper = styled.div<PinWrapperProps>`
 `
 
 const PinContent = styled(LocalizedLink)`
+    width: max-content;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -51,6 +52,7 @@ const PinContent = styled(LocalizedLink)`
     }
     @media ${device.tabletL} {
         padding: 2px 4px;
+        width: 58px;
     }
 `
 

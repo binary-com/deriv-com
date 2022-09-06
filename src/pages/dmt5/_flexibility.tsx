@@ -46,7 +46,7 @@ const content: ContentType[] = [
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities on high leverage." />
+            <Localize translate_text="Trade forex, stocks, stock indices, cryptocurrencies, basket indices, and commodities on high leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
     },
@@ -184,8 +184,8 @@ const Flexibility = () => {
                 })}
             </Flex>
             <StyledLinkButton
-                external="true"
-                secondary="true"
+                external
+                secondary
                 type="mt5"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -6,6 +6,7 @@ import { Desktop, Mobile, Flex } from 'components/containers'
 import { LocalizedLink, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { p2p_playstore_url, p2p_applestore_url, p2p_huawei_appgallery_url } from 'common/constants'
 
 const query = graphql`
     query {
@@ -18,7 +19,7 @@ const query = graphql`
         deriv_p2p_mobile_logo: file(relativePath: { eq: "home/deriv_p2p_mobile_logo.png" }) {
             ...fadeIn
         }
-        qr_code: file(relativePath: { eq: "p2p/p2p_all_appstores.png" }) {
+        p2p_qr_code: file(relativePath: { eq: "home/p2p_qr_code.png" }) {
             ...fadeIn
         }
         p2p_mobile_banner: file(relativePath: { eq: "home/p2p_mobile_banner.png" }) {
@@ -39,17 +40,18 @@ const BackgroundWrapper = styled.section`
     width: 100%;
     background: #e6e9e9;
     position: relative;
+    height: 400px;
 
     @media ${device.tabletL} {
         width: 100%;
-        min-height: 680px;
         background: #f2f3f4;
         margin-bottom: 40px;
+        max-height: fit-content;
     }
-    @media ${device.laptopL} {
+    @media ${device.laptopM} {
         width: 100%;
-        background: #f2f3f4;
         height: 100%;
+        min-height: 400px;
     }
 `
 const Wrapper = styled(Flex)`
@@ -67,6 +69,8 @@ const Wrapper = styled(Flex)`
     }
 `
 const ImgWrapper = styled.div`
+    height: 400px;
+
     .gatsby-image-wrapper {
         width: 100%;
         height: 100%;
@@ -80,44 +84,47 @@ const ImgWrapper = styled.div`
         width: 100%;
         min-height: 172px;
         max-width: 750px;
+        height: 200px;
     }
-    @media ${device.tabletL} {
-        width: 100%;
-        min-height: 172px;
-    }
+
     @media ${device.mobileM} {
         margin-top: 32px;
+        height: 200px;
     }
 `
 const InformationWrapper = styled(Flex)`
-    width: 100%;
-    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    gap: 24px;
+    position: relative;
+    margin-right: 80px;
+
+    @media ${device.laptopL} {
+        margin-right: 30px;
+        gap: 0;
+    }
+`
+const ContentWrapper = styled(Flex)`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
     gap: 16px;
-    margin-top: 49px;
+    margin-top: 50px;
+    width: 428px;
+    height: 314px;
+
+    @media ${device.laptopM} {
+        width: 385px;
+    }
 
     @media ${device.tabletL} {
-        display: flex;
-        align-items: center;
-        margin-left: 0;
+        height: fit-content;
         margin-top: 0;
-    }
-
-    @media ${device.tablet} {
-        top: 280px;
-        padding: 0 16px;
-        margin-left: 0;
-        margin-top: 0;
-    }
-    @media ${device.mobileL} {
-        min-width: 328px;
-        margin-left: 0;
-        margin-top: 0;
-    }
-
-    @media ${device.mobileM} {
-        padding: 0 16px 0;
-        margin-left: 0;
-        margin-top: 0;
+        padding-left: 16px;
     }
 `
 const StyledHeaders = styled(Header)`
@@ -135,12 +142,15 @@ const StyledHeaders = styled(Header)`
         font-size: 32px;
         line-height: 40px;
     }
+
     @media ${device.tabletL} {
-        margin-top: 2rem;
+        margin-top: 36px;
         font-size: 28px;
         line-height: 34px;
         max-width: 41rem;
+        letter-spacing: 0.1rem;
     }
+
     @media ${device.mobileL} {
         font-size: 28px;
         line-height: 34px;
@@ -150,6 +160,7 @@ const HeroContent = styled(Flex)`
     flex-direction: column;
     justify-content: flex-start;
     height: unset;
+
     @media ${device.tabletL} {
         max-width: 42rem;
     }
@@ -163,11 +174,13 @@ const HeroContent = styled(Flex)`
         line-height: 30px;
         color: #333333;
     }
+
     @media ${device.laptopL} {
         ${Header} {
             font-size: 20px;
         }
     }
+
     @media ${device.tabletL} {
         ${Header} {
             font-size: 20px;
@@ -175,12 +188,14 @@ const HeroContent = styled(Flex)`
             width: 328px;
         }
     }
+
     @media ${device.mobileL} {
         ${Header} {
             font-size: 18px;
             line-height: 26px;
         }
     }
+
     @media ${device.mobileS} {
         ${Header} {
             max-width: 98%;
@@ -196,6 +211,7 @@ const P2pLogoContainer = styled(Flex)`
     gap: 4.8px;
     width: 186.67px;
     height: 24px;
+
     @media ${device.tabletL} {
         display: inline-block;
         height: 24px;
@@ -212,10 +228,10 @@ const StyledButton = styled(LocalizedLink)`
     align-items: center;
     padding: 0;
     gap: 8px;
-    width: 126px;
     height: 30px;
     border-radius: 4px;
     flex-grow: 0;
+
     @media ${device.tabletL} {
         justify-content: flex-start;
         gap: 6px;
@@ -234,12 +250,14 @@ const LearnMore = styled(LocalizedLink)`
     line-height: 30px;
     color: #ff444f;
     text-decoration-color: transparent;
+
     @media ${device.tabletL} {
         width: 100px;
         height: 24px;
         font-size: 16px;
         line-height: 24px;
     }
+
     @media ${device.laptopM} {
         font-size: 16px;
     }
@@ -248,20 +266,34 @@ const QRCodeP2p = styled(Flex)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 16px;
+    padding: 24px;
     gap: 8px;
-    margin-top: 49px;
-    width: 152px;
-    height: 200px;
+    width: 208px;
+    height: 256px;
     background: #ffffff;
     border-radius: 8px;
-    margin-right: 120px;
-    @media ${device.laptopL} {
-        margin-right: 20px;
+    margin-right: 60px;
+    margin-top: 61px;
+
+    @media ${device.laptopM} {
+        margin-right: 0;
+        height: 200px;
+        width: 162px;
+        padding: 0;
+
+        .gatsby-image-wrapper {
+            max-width: 120px;
+            max-height: 120px;
+        }
+    }
+
+    .gatsby-image-wrapper {
+        width: 160px;
+        height: 160px;
     }
 `
 const StyledLabel = styled(Flex)`
-    width: 120px;
+    width: 175px;
     height: 40px;
     font-style: normal;
     font-weight: 400;
@@ -269,6 +301,10 @@ const StyledLabel = styled(Flex)`
     line-height: 20px;
     text-align: center;
     color: #333333;
+
+    @media ${device.laptopM} {
+        min-width: 113px;
+    }
 `
 const StyledBadge = styled(Flex)`
     display: flex;
@@ -276,20 +312,23 @@ const StyledBadge = styled(Flex)`
     align-items: flex-start;
     padding: 0;
     gap: 32px;
-    width: 100%;
-    height: 40px;
     margin-bottom: 36px;
 
     @media ${device.tabletL} {
-        margin-top: 46px;
+        margin-top: 36px;
         margin-bottom: 60px;
         gap: 22px;
         height: 96px;
+        width: 338px;
+        padding-left: 17px;
     }
+
     @media ${device.mobileM} {
         margin-top: 38px;
         margin-bottom: 34px;
         gap: 22px;
+        padding-left: 0;
+        width: 340px;
         height: 96px;
     }
 `
@@ -301,23 +340,43 @@ const StyledTopBadge = styled(Flex)`
     padding: 0;
     width: 100%;
     height: 40px;
+
     @media ${device.tabletL} {
         justify-content: center;
     }
+`
+const StyledBottomBadge = styled(Flex)`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    gap: 32px;
+    width: 328px;
+    height: 40px;
+    margin-top: 8px;
 `
 const AppStoreTopBadge = styled(LocalizedLink)`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    height: 40px;
-    width: 127px;
-    padding-right: 20px;
+    padding-right: 15px;
 
     @media ${device.tabletL} {
-        width: 157px;
         padding: 6px 8px;
+        height: 40px;
     }
+`
+const AppStoreBottomBadge = styled(LocalizedLink)`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 8px;
+    gap: 8px;
+    width: 164px;
+    height: 40px;
 `
 const P2PHomeBanner = () => {
     const data = useStaticQuery(query)
@@ -330,87 +389,127 @@ const P2PHomeBanner = () => {
                 <ImgWrapper>
                     <QueryImage data={background} alt={'Deriv’s P2P mobile app'} />
                 </ImgWrapper>
-                <Mobile>
-                    <StyledBadge>
-                        <StyledTopBadge>
-                            <AppStoreTopBadge to="https://apps.apple.com/us/app/deriv-dp2p/id1506901451">
-                                <QueryImage data={data['p2p_apple_store']} alt="p2p apple store" />
-                            </AppStoreTopBadge>
-                            <AppStoreTopBadge to="https://play.google.com/store/apps/details?id=com.deriv.dp2p">
-                                <QueryImage data={data['p2p_google_play']} alt="p2p google play" />
-                            </AppStoreTopBadge>
-                        </StyledTopBadge>
-                        <StyledTopBadge>
-                            <AppStoreTopBadge to="https://appgallery.huawei.com/#/app/C103844755">
-                                <QueryImage data={data['p2p_app_gallery']} alt="p2p app gallery" />
-                            </AppStoreTopBadge>
-                        </StyledTopBadge>
-                    </StyledBadge>
-                </Mobile>
-
                 <InformationWrapper height="unset" direction="column">
-                    <P2pLogoContainer>
-                        <Desktop min-width="mobileL">
-                            <QueryImage data={data['deriv_p2p_logo']} alt="p2p logo" />
-                        </Desktop>
-                        <Mobile max-width="tabletL">
-                            <QueryImage data={data['deriv_p2p_mobile_logo']} alt="p2p logo" />
+                    <ContentWrapper>
+                        <P2pLogoContainer>
+                            <Desktop>
+                                <QueryImage data={data['deriv_p2p_logo']} alt="p2p logo" />
+                            </Desktop>
+                            <Mobile max-width="tabletL">
+                                <QueryImage data={data['deriv_p2p_mobile_logo']} alt="p2p logo" />
+                            </Mobile>
+                        </P2pLogoContainer>
+                        <StyledHeaders as="h1" weight={500}>
+                            <Localize translate_text="Hassle-free deposits and withdrawals" />
+                        </StyledHeaders>
+                        <HeroContent>
+                            <Header as="h2">
+                                {
+                                    <Localize translate_text="Connect with fellow traders and transfer money in minutes." />
+                                }
+                            </Header>
+                        </HeroContent>
+                        <StyledButton to="/p2p/">
+                            <LearnMore to="/p2p/">
+                                <Localize translate_text="Learn more >" />
+                            </LearnMore>
+                        </StyledButton>
+                        <Mobile>
+                            <StyledBadge>
+                                <StyledTopBadge>
+                                    <AppStoreTopBadge
+                                        external
+                                        to={p2p_applestore_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            data={data['p2p_apple_store']}
+                                            alt="p2p apple store"
+                                        />
+                                    </AppStoreTopBadge>
+                                    <AppStoreTopBadge
+                                        external
+                                        to={p2p_playstore_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            data={data['p2p_google_play']}
+                                            alt="p2p google play"
+                                        />
+                                    </AppStoreTopBadge>
+                                </StyledTopBadge>
+                                <StyledBottomBadge>
+                                    <AppStoreBottomBadge
+                                        external
+                                        to={p2p_huawei_appgallery_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            data={data['p2p_app_gallery']}
+                                            alt="p2p app gallery"
+                                        />
+                                    </AppStoreBottomBadge>
+                                </StyledBottomBadge>
+                            </StyledBadge>
                         </Mobile>
-                    </P2pLogoContainer>
-                    <StyledHeaders as="h1" weight={500}>
-                        <Localize translate_text="Hassle-free deposits and withdrawals" />
-                    </StyledHeaders>
-                    <HeroContent>
-                        <Header as="h2">
-                            {
-                                <Localize translate_text="Connect with fellow traders and transfer money in minutes." />
-                            }
-                        </Header>
-                    </HeroContent>
-                    <StyledButton to="/p2p/">
-                        <LearnMore>
-                            <Localize translate_text="Learn more >" />
-                        </LearnMore>
-                    </StyledButton>
+                        <Desktop min-width="mobileL">
+                            <StyledBadge>
+                                <StyledTopBadge>
+                                    <AppStoreTopBadge
+                                        external
+                                        to={p2p_applestore_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            data={data['p2p_apple_store']}
+                                            alt="p2p apple store"
+                                        />
+                                    </AppStoreTopBadge>
+                                    <AppStoreTopBadge
+                                        external
+                                        to={p2p_playstore_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            data={data['p2p_google_play']}
+                                            alt="p2p google play"
+                                        />
+                                    </AppStoreTopBadge>
+                                    <AppStoreTopBadge
+                                        external
+                                        to={p2p_huawei_appgallery_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            data={data['p2p_app_gallery']}
+                                            alt="p2p app gallery"
+                                        />
+                                    </AppStoreTopBadge>
+                                </StyledTopBadge>
+                            </StyledBadge>
+                        </Desktop>
+                    </ContentWrapper>
+
                     <Desktop min-width="mobileL">
-                        <StyledBadge>
-                            <StyledTopBadge>
-                                <AppStoreTopBadge to="https://apps.apple.com/us/app/deriv-dp2p/id1506901451">
-                                    <QueryImage
-                                        data={data['p2p_apple_store']}
-                                        alt="p2p apple store"
-                                    />
-                                </AppStoreTopBadge>
-                                <AppStoreTopBadge to="https://play.google.com/store/apps/details?id=com.deriv.dp2p">
-                                    <QueryImage
-                                        data={data['p2p_google_play']}
-                                        alt="p2p google play"
-                                    />
-                                </AppStoreTopBadge>
-                                <AppStoreTopBadge to="https://appgallery.huawei.com/#/app/C103844755">
-                                    <QueryImage
-                                        data={data['p2p_app_gallery']}
-                                        alt="p2p app gallery"
-                                    />
-                                </AppStoreTopBadge>
-                            </StyledTopBadge>
-                        </StyledBadge>
+                        <QRCodeP2p>
+                            <QueryImage
+                                data={data['p2p_qr_code']}
+                                alt={'play store'}
+                                width="120px"
+                                height="120px"
+                            />
+                            <StyledLabel>
+                                <Localize translate_text="Scan to download Deriv P2P" />
+                            </StyledLabel>
+                        </QRCodeP2p>
                     </Desktop>
                 </InformationWrapper>
-
-                <Desktop min-width="mobileL">
-                    <QRCodeP2p>
-                        <QueryImage
-                            data={data['qr_code']}
-                            alt={'play store'}
-                            width="120px"
-                            height="120px"
-                        />
-                        <StyledLabel>
-                            <Localize translate_text="Scan to download Deriv P2P" />
-                        </StyledLabel>
-                    </QRCodeP2p>
-                </Desktop>
             </Wrapper>
         </BackgroundWrapper>
     )

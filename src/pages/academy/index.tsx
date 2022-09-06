@@ -143,7 +143,9 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
                         return (
                             <Flex key={page_data.id}>
                                 <Hero
-                                    imageData={page_data.image?.imageFile}
+                                    imageData={
+                                        page_data.image?.imageFile.childImageSharp.gatsbyImageData
+                                    }
                                     imageAlt={page_data?.image?.description}
                                     title={page_data.heading}
                                     description={page_data.sub_heading}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { closestMatch, distance } from 'closest-match'
 import useGTMData from '../hooks/use-gtm-data'
 import { LocationProvider } from './location-context'
 import NavAcademy from './nav/nav-academy'
@@ -13,19 +14,21 @@ import NavPartners from './nav/nav-partner'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect, queryParamData, isEuDomain } from 'common/utility'
+import { isBrowser, handleRedirect, isEuDomain } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import device from 'themes/device'
-import { DerivStore } from 'store'
+import { DerivStore, useDerivWS } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
+
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
@@ -128,7 +131,7 @@ const Layout = ({
     no_login_signup,
     type,
 }) => {
-    const { show_non_eu_popup, setShowNonEuPopup, website_status } = React.useContext(DerivStore)
+    const { show_non_eu_popup, setShowNonEuPopup, academy_data } = React.useContext(DerivStore)
     const { is_uk_eu } = useCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
@@ -136,6 +139,8 @@ const Layout = ({
     const [modal_payload, setModalPayload] = React.useState({})
     const [gtm_data, setGTMData] = useGTMData()
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
+    const { send } = useDerivWS()
+    const { has_platform } = usePlatformQueryParam()
 
     const is_static = type === 'static'
     // Allow tracking cookie banner setup
@@ -157,20 +162,38 @@ const Layout = ({
         }
     }, [is_uk_eu])
 
-    // Check client's account and ip and apply the necessary redirection
     React.useEffect(() => {
         if (!is_redirection_applied) {
-            if (website_status) {
-                const current_client_country = website_status?.clients_country || ''
-                const client_information_cookie = new CookieStorage('client_information')
-                const residence = client_information_cookie.get('residence')
+            send({ website_status: 1 }, (response) => {
+                if (!response.error) {
+                    const {
+                        website_status: { clients_country },
+                    } = response
 
-                setRedirectionApplied(true)
-                !isEuDomain() &&
-                    handleRedirect(residence, current_client_country, window.location.hostname)
+                    const current_client_country = clients_country || ''
+                    const client_information_cookie = new CookieStorage('client_information')
+                    const residence = client_information_cookie.get('residence')
+                    setRedirectionApplied(true)
+                    !isEuDomain() &&
+                        handleRedirect(residence, current_client_country, window.location.hostname)
+                }
+            })
+        }
+    }, [is_redirection_applied])
+
+    React.useEffect(() => {
+        if (window.location.pathname.includes('academy/blog/posts/')) {
+            const slugs = academy_data.blog.map((item) => item.slug)
+            const current_page = window.location.pathname.split('/')[4]
+            if (!slugs.includes(current_page)) {
+                const closest_slug = closestMatch(current_page, slugs)
+                const character_distance = distance(current_page, closest_slug)
+                if (character_distance < 10) {
+                    window.location.pathname = `academy/blog/posts/${closest_slug}`
+                }
             }
         }
-    }, [is_redirection_applied, website_status])
+    }, [])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
@@ -237,7 +260,7 @@ const Layout = ({
             break
     }
     //Handle page layout when redirection from mobile app.
-    if (queryParamData()) {
+    if (has_platform) {
         return (
             <Main margin_top={'0'} is_static={is_static}>
                 {children}

@@ -390,9 +390,9 @@ const OurHiringProcess = () => (
                 Make an impact. Start your Deriv journey <span>now</span>.
             </StyledAnotherHeader>
             <StyledLinkButton
-                secondary="true"
+                secondary
                 to={zoho_url}
-                external="true"
+                external
                 target="_blank"
                 rel="noopener noreferrer"
             >

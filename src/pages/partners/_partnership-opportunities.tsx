@@ -7,6 +7,7 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-affiliate.svg'
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
 import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
+import { ROW } from 'components/containers/visibility'
 
 type ClientCardProps = { first?: number; second?: number; third?: number }
 
@@ -68,7 +69,6 @@ const ClientCard = styled(LocalizedLink)<ClientCardProps>`
         margin: 1.2rem 0;
     }
 `
-
 const PartnershipOpportunities = () => (
     <SectionContainer>
         <Container direction="column">
@@ -90,27 +90,22 @@ const PartnershipOpportunities = () => (
                     )}
                 </Text>
             </ClientCard>
-            <ClientCard to="/partners/payment-agent/" second>
-                <Flex ai="center" height="auto" mb="0.8rem">
-                    <Header as="h4" size="var(--text-size-sm)">
-                        {localize('Payment agent programme')}
-                    </Header>
-                    <PartnerPaymentAgent />
-                </Flex>
-                <Text>
-                    {localize(
-                        'Expand your client base by helping the traders who are looking for ways to fund their accounts through local bank wires and e-payment methods.',
-                    )}
-                </Text>
-            </ClientCard>
-            <ClientCard
-                to=""
-                type="api"
-                target="_blank"
-                external="true"
-                rel="noopener noreferrer"
-                third
-            >
+            <ROW>
+                <ClientCard to="/partners/payment-agent/" second>
+                    <Flex ai="center" height="auto" mb="0.8rem">
+                        <Header as="h4" size="var(--text-size-sm)">
+                            {localize('Payment agent programme')}
+                        </Header>
+                        <PartnerPaymentAgent />
+                    </Flex>
+                    <Text>
+                        {localize(
+                            'Expand your client base by helping the traders who are looking for ways to fund their accounts through local bank wires and e-payment methods.',
+                        )}
+                    </Text>
+                </ClientCard>
+            </ROW>
+            <ClientCard to="" type="api" target="_blank" external rel="noopener noreferrer" third>
                 <Flex ai="center" height="auto" mb="0.8rem">
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('API')}

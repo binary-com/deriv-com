@@ -4,21 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
-
-type ContentProps = {
-    margin_right: string
-    margin_left: string
-}
-
-type ImageWrapperProps = {
-    width: string
-    margin_right?: string
-}
-
-type RowProps = {
-    flex_direction: string
-    flex_direction_mobile: string
-}
+import { StyledProps } from 'pages/landing/_types'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -30,7 +16,7 @@ const StyledSection = styled(SectionContainer)`
 const Wrapper = styled(Container)`
     width: 100%;
 `
-const Content = styled.div<ContentProps>`
+const Content = styled.div<StyledProps>`
     width: 689px;
     display: flex;
     flex-direction: column;
@@ -68,7 +54,7 @@ const MobileImageWrapper = styled(Container)`
     }
 `
 
-const ImageWrapper = styled(Flex)<ImageWrapperProps>`
+const ImageWrapper = styled(Flex)<StyledProps>`
     width: ${(props) => props.width};
     margin-right: ${(props) => props.margin_right};
 
@@ -92,7 +78,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const Row = styled.div<RowProps>`
+const Row = styled.div<StyledProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
@@ -144,7 +130,13 @@ const query = graphql`
         trade_what_you_want: file(relativePath: { eq: "dtrader/trade-what-you-want.png" }) {
             ...fadeIn
         }
+        trade_what_you_want_eu: file(relativePath: { eq: "dtrader/trade-what-you-want-eu.png" }) {
+            ...fadeIn
+        }
         how_you_want: file(relativePath: { eq: "dtrader/how-you-want.png" }) {
+            ...fadeIn
+        }
+        how_you_want_eu: file(relativePath: { eq: "dtrader/how-you-want_eu.png" }) {
             ...fadeIn
         }
         stocks_zero_fees: file(relativePath: { eq: "stock-indices/stocks-zero-fees.png" }) {

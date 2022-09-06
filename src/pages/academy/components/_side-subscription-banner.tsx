@@ -103,6 +103,7 @@ const ErrorMessages = styled(Text)`
     min-height: 16px;
     margin-top: -4px;
     margin-bottom: 4px;
+    color: var(--color-red-1);
 `
 const StyledError = styled.img`
     position: absolute;
@@ -273,7 +274,7 @@ const SideSubscriptionBanner = () => {
 
                         {name_error_msg && (
                             <>
-                                <ErrorMessages lh="1.4" align="left" color="red-1">
+                                <ErrorMessages lh="1.4" align="left">
                                     {name_error_msg}
                                 </ErrorMessages>
 
@@ -301,7 +302,7 @@ const SideSubscriptionBanner = () => {
                         />
                         {email_error_msg && (
                             <>
-                                <ErrorMessages lh="1.4" align="left" color="red-1">
+                                <ErrorMessages lh="1.4" align="left">
                                     {email_error_msg}
                                 </ErrorMessages>
 
@@ -317,7 +318,7 @@ const SideSubscriptionBanner = () => {
                         <EmailButton
                             id="gtm-signup-email"
                             type="submit"
-                            secondary="true"
+                            secondary
                             disabled={Boolean(
                                 is_submitting ||
                                     email_error_msg ||
@@ -338,13 +339,12 @@ const SideSubscriptionBanner = () => {
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize
-                                        fontSize="14px"
                                         translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
                                         components={[
                                             <StyledLocalizedLink
                                                 key={0}
                                                 type="tnc/security-and-privacy.pdf"
-                                                external="true"
+                                                external
                                                 rel="noopener noreferrer"
                                                 size="14px"
                                                 color="red"

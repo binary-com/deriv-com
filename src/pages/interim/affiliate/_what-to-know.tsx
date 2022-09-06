@@ -28,7 +28,7 @@ const WhatToKnow = () => {
                         components={[
                             <LocalizedLinkText
                                 key={1}
-                                external="true"
+                                external
                                 to={affiliate_signin_url}
                                 target="_blank"
                                 rel="noopener noreferrer"

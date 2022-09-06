@@ -5,23 +5,31 @@ import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import GlobalAffiliate from 'images/svg/partners/global-affiliate-support.svg'
-import ProvenReferral from 'images/svg/partners/proven-referral-tools.svg'
+import Advertise from 'images/svg/partners/advertise.svg'
 import HighValue from 'images/svg/partners/high-value-partnership.svg'
 
+const StyledContainer = styled(Container)`
+    align-items: flex-start;
+    max-width: 1200px;
+
+    @media ${device.laptopM} {
+        width: 84%;
+    }
+
+    @media ${device.tabletL} {
+        align-items: center;
+    }
+`
 const ReasonHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 24px;
     }
 `
-
 const Reason = styled.div`
-    width: 38.4rem;
     margin-top: 4rem;
+    width: 384px;
 
     &:nth-child(2) {
-        margin-right: 2.4rem;
-        margin-left: 2.4rem;
-
         @media ${device.mobileL} {
             margin-right: 0;
             margin-left: 0;
@@ -31,24 +39,31 @@ const Reason = styled.div`
         margin-top: 1.6rem;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.tabletS} {
         text-align: center;
 
         h4 {
             text-align: center;
-            font-size: 16px;
+            font-size: 18px;
         }
         p {
             text-align: center;
             font-size: 14px;
         }
     }
+    @media ${device.laptopL} {
+        width: auto;
+    }
 `
 const StyledFlex = styled(Flex)`
     margin-top: -2rem;
+    gap: 24px;
 
-    @media ${device.tabletS} {
+    @media ${device.tabletL} {
+        display: block;
         justify-content: center;
+        flex-wrap: wrap;
+        width: auto;
     }
 `
 const StyledSection = styled(SectionContainer)`
@@ -62,11 +77,11 @@ const StyledSection = styled(SectionContainer)`
 const MoreReason = () => {
     return (
         <StyledSection>
-            <Container direction="column">
+            <StyledContainer direction="column" mw="0">
                 <ReasonHeader as="h3" size="3.2rem" align="center" mb="2rem">
                     {localize('More reasons to join')}
                 </ReasonHeader>
-                <StyledFlex wrap="wrap" jc="center">
+                <StyledFlex jc="center">
                     <Reason>
                         <img src={HighValue} alt="" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
@@ -79,7 +94,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={ProvenReferral} alt="" />
+                        <img src={Advertise} alt="" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Proven creative materials')}
                         </Header>
@@ -101,7 +116,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                 </StyledFlex>
-            </Container>
+            </StyledContainer>
         </StyledSection>
     )
 }

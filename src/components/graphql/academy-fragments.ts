@@ -169,6 +169,7 @@ export const academyQuery = graphql`
                 published_date
                 video_description
                 video_duration
+                video_slug
                 featured
                 video_thumbnail {
                     id
@@ -203,6 +204,7 @@ export const academyQuery = graphql`
                 published_date
                 video_description
                 video_duration
+                video_slug
                 featured
                 video_thumbnail {
                     id
@@ -237,6 +239,7 @@ export const academyQuery = graphql`
                 published_date
                 video_description
                 video_duration
+                video_slug
                 featured
                 video_thumbnail {
                     id
@@ -265,6 +268,7 @@ export const academyQuery = graphql`
                 published_date
                 video_description
                 video_duration
+                video_slug
                 featured
                 video_thumbnail {
                     id
@@ -300,6 +304,7 @@ export const academyQuery = graphql`
                 published_date
                 video_description
                 video_duration
+                video_slug
                 featured
                 video_thumbnail {
                     id
@@ -335,6 +340,7 @@ export const academyQuery = graphql`
                 published_date
                 video_description
                 video_duration
+                video_slug
                 featured
                 video_thumbnail {
                     id

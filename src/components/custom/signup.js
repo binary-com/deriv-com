@@ -2,19 +2,20 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
-import { getLanguage, isChoosenLanguage, queryParams } from '../../common/utility'
+import Cookies from 'js-cookie'
+import { getLanguage, isChoosenLanguage } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
 import Login from 'common/login'
 import validation from 'common/validation'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
-import { Header, QueryImage, StyledLink, Text } from 'components/elements'
+import { Header, QueryImage, StyledLink } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
+import { useDerivWS } from 'store'
 
 const Form = styled.form`
     height: 100%;
@@ -41,6 +42,12 @@ const EmailLink = styled(StyledLink)`
     text-align: center;
 `
 
+const ConfirmationMessage = styled.div`
+    text-align: center;
+    font-size: 16px;
+    word-wrap: break-word;
+`
+
 export const Appearances = {
     default: 'default',
     simple: 'simple',
@@ -51,6 +58,7 @@ export const Appearances = {
 }
 
 const Signup = (props) => {
+    const { send } = useDerivWS()
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -83,22 +91,17 @@ const Signup = (props) => {
     }
 
     const getVerifyEmailRequest = (formatted_email) => {
+        const affiliate_token = Cookies.getJSON('affiliate_tracking')
+
         const cookies = getCookiesFields()
         const cookies_objects = getCookiesObject(cookies)
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
-        const token = queryParams.get('t')
-
-        if (!token) {
-            delete cookies_value.utm_campaign
-            delete cookies_value.utm_medium
-            cookies_value.utm_source = 'null' //passing null as the cookies takes the affiliates token value when signed up without affiliate token
-        }
 
         return {
             verify_email: formatted_email,
             type: 'account_opening',
             url_parameters: {
-                ...(token && { affiliate_token: token }),
+                ...(affiliate_token && { affiliate_token: affiliate_token }),
                 ...(cookies_value && { ...cookies_value }),
             },
         }
@@ -115,16 +118,10 @@ const Signup = (props) => {
         }
 
         const verify_email_req = getVerifyEmailRequest(formatted_email)
-        const binary_socket = BinarySocketBase.init()
 
-        binary_socket.onopen = () => {
-            binary_socket.send(JSON.stringify(verify_email_req))
-        }
-        binary_socket.onmessage = (msg) => {
-            const response = JSON.parse(msg.data)
+        send(verify_email_req, (response) => {
             setSubmitting(false)
             if (response.error) {
-                binary_socket.close()
                 setSubmitStatus('error')
                 setSubmitErrorMsg(response.error.message)
                 handleValidation(formatted_email)
@@ -134,9 +131,8 @@ const Signup = (props) => {
                     props.onSubmit(submit_status || 'success', email)
                 }
             }
+        })
 
-            binary_socket.close()
-        }
         if (props.appearance === 'public') {
             const success_default_link = `signup-success?email=${email}`
             const link_with_language = `${getLanguage()}/${success_default_link}`
@@ -213,12 +209,12 @@ const Signup = (props) => {
                     </Box>
                 )}
             />
-            <Text align="center">
+            <ConfirmationMessage>
                 <Localize
                     translate_text="We've sent a message to {{email}} with a link to activate your account."
                     values={{ email: props.email }}
                 />
-            </Text>
+            </ConfirmationMessage>
             <EmailLink to="/check-email/" align="center">
                 {localize("Didn't receive your email?")}
             </EmailLink>

@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { MapPinType } from '../_data'
 import { LocalizedLink } from 'components/localization'
-import { Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
+import device from 'themes/device'
 
 type PinWrapperProps = {
     left: string
@@ -23,13 +24,14 @@ const PinWrapper = styled.div<PinWrapperProps>`
 `
 
 const PinContent = styled(LocalizedLink)`
+    width: max-content;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: var(--color-white);
     box-shadow: rgba(0, 0, 0, 0.05) 0 16px 20px 0, rgba(0, 0, 0, 0.05) 0 0 20px 0;
     border-radius: 5px;
-    padding: 1rem 1.6rem;
+    padding: 4px 8px;
     text-align: center;
     position: relative;
     left: -43%;
@@ -47,6 +49,10 @@ const PinContent = styled(LocalizedLink)`
         transform: rotate(45deg);
         top: 83%;
         left: 40.5%;
+    }
+    @media ${device.tabletL} {
+        padding: 2px 4px;
+        width: 58px;
     }
 `
 
@@ -67,9 +73,9 @@ const MapPin = ({ top, left, title, link }: MapPinType) => {
             <Pin />
             {is_pin_show && (
                 <PinContent locale="en" to={link} anchor>
-                    <Text color="black" mr="8px">
+                    <Header color="black" mr="8px" weight="normal" type="small">
                         {title}
-                    </Text>
+                    </Header>
                 </PinContent>
             )}
         </PinWrapper>

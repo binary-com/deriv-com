@@ -4,12 +4,12 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { StyledCard } from '../_layout-components/_team-card'
-import { all_offices } from '../_model/_locations/_locations'
+import { allContinents } from '../_model/_locations/_locations'
 import device from 'themes/device'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
-import { Header, Text, QueryImage } from 'components/elements'
+import { Header, Text, Tabs, QueryImage } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
 const meta_attributes = {
@@ -24,7 +24,13 @@ const ChevronRight = styled(Chevron)`
     width: 16px;
     height: 16px;
 `
-
+const StyledTabs = styled(Tabs)`
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 912px;
+    height: 56px;
+`
 const BackDrop = styled.section`
     background-color: var(--color-black);
     padding: 120px 0;
@@ -32,7 +38,7 @@ const BackDrop = styled.section`
     flex-direction: column;
     align-items: center;
 
-    @media ${device.mobile} {
+    @media ${device.mobileS} {
         padding: 80px 0;
         align-items: center;
     }
@@ -77,10 +83,24 @@ const CountryCardWrapper = styled(StyledCard)`
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    margin: 0;
+    width: 100%;
+    max-width: 384px;
+    height: 356px;
+    background: #ffffff;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.08), 0 24px 24px rgba(0, 0, 0, 0.08);
+    gap: 40px;
+    border-radius: 4px;
 
     svg {
         margin-right: 8px;
+    }
+    @media ${device.mobileS} {
+        max-width: 328px;
+        height: 304px;
+    }
+
+    @media ${device.laptopS} and ${device.laptop} {
+        height: 320px;
     }
 `
 const StyledText = styled(Text)`
@@ -92,24 +112,91 @@ const StyledText = styled(Text)`
 `
 
 const StyledDiv = styled.div`
+    display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 24px;
+    position: absolute;
     width: 100%;
-    min-height: 140px;
-    padding: 24px 24px 24px 25px;
+    max-width: 384px;
+    bottom: 0;
+    @media ${device.mobileM} {
+        gap: 8.2px;
+    }
+    @media ${device.mobileS} {
+        gap: 8px;
+    }
 `
-
 type CountryCardProps = {
     country_name: string
+    continent: string
     city_name: string
+    thumbnail_name: string
     link: string
     img_alt: string
     img_data: ImageDataLike
     Icon: string
 }
+const StyledFrame = styled(Flex)`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    height: 36px;
 
+    @media ${device.mobileS}, ${device.mobileM}, ${device.mobileL} {
+        gap: 13.67px;
+        height: 26px;
+    }
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    justify-content: space-between;
+`
+const StyledHeader = styled(Text)`
+    height: 36px;
+    font-size: 24px;
+    line-height: 36px;
+
+    @media ${device.mobileS}, ${device.mobileM}, ${device.mobileL} {
+        width: auto;
+        height: 26px;
+        flex: none;
+        order: 0;
+        flex-grow: 1;
+    }
+`
+const StyledBox = styled(Flex)`
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 8px;
+    gap: 8px;
+    width: auto;
+    height: 24px;
+    border: 1px solid #999999;
+    border-radius: 100px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+`
+const StyledName = styled(Text)`
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+`
 const CountryCard = ({
     country_name,
+    continent,
     city_name,
+    thumbnail_name,
     link,
     img_alt,
     img_data,
@@ -119,12 +206,15 @@ const CountryCard = ({
         <CountryCardWrapper to={link}>
             <QueryImage data={img_data} alt={img_alt} width="100%" />
             <StyledDiv>
-                <Header as="h5" size="var(--text-size-sm)">
-                    {city_name}
-                </Header>
+                <StyledFrame>
+                    <StyledHeader weight="bold">{city_name && thumbnail_name}</StyledHeader>
+                    <StyledBox>
+                        <StyledName weight="bold">{continent}</StyledName>
+                    </StyledBox>
+                </StyledFrame>
                 <Flex jc="unset" ai="center" mt="8px" mb="8px">
                     <StyledImg src={Icon} alt="" />
-                    <StyledText weight="bold">{country_name}</StyledText>
+                    <StyledText>{country_name}</StyledText>
                 </Flex>
                 <Flex ai="center" jc="flex-end" width="100%">
                     <ChevronRight />
@@ -149,7 +239,13 @@ const query = graphql`
         thumbnail_cyberjaya: file(relativePath: { eq: "careers/thumbnail_cyberjaya.png" }) {
             ...fadeIn
         }
+        thumbnail_ciudad: file(relativePath: { eq: "careers/thumbnail_ciudad.png" }) {
+            ...fadeIn
+        }
         thumbnail_dubai: file(relativePath: { eq: "careers/thumbnail_dubai.png" }) {
+            ...fadeIn
+        }
+        thumbnail_georgetown: file(relativePath: { eq: "careers/thumbnail_georgetown.png" }) {
             ...fadeIn
         }
         thumbnail_labuan: file(relativePath: { eq: "careers/thumbnail_labuan.png" }) {
@@ -173,7 +269,10 @@ const query = graphql`
         thumbnail_rwanda: file(relativePath: { eq: "careers/thumbnail_rwanda.jpg" }) {
             ...fadeIn
         }
-        thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.jpg" }) {
+        thumbnail_berlin: file(relativePath: { eq: "careers/thumbnail_berlin.jpg" }) {
+            ...fadeIn
+        }
+        thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.png" }) {
             ...fadeIn
         }
         thumbnail_paris: file(relativePath: { eq: "careers/thumbnail_paris.jpg" }) {
@@ -182,11 +281,34 @@ const query = graphql`
         thumbnail_guernsey: file(relativePath: { eq: "careers/thumbnail_guernsey.jpg" }) {
             ...fadeIn
         }
+        thumbnail_vanuatu: file(relativePath: { eq: "careers/thumbnail_vanuatu.png" }) {
+            ...fadeIn
+        }
+        thumbnail_jordan: file(relativePath: { eq: "careers/thumbnail_jordan.jpg" }) {
+            ...fadeIn
+        }
+        thumbnail_singapore: file(relativePath: { eq: "careers/thumbnail_singapore.png" }) {
+            ...fadeIn
+        }
     }
 `
 
 const Locations = () => {
     const images = useStaticQuery(query)
+
+    const continents = Object.keys(allContinents)
+
+    const changeCase = (continentName) => {
+        return continentName.charAt(0).toUpperCase() + continentName.slice(1)
+    }
+
+    const formatContinentName = (continent) => {
+        return continent
+            .split('_')
+            .filter((continentName) => continentName.length > 0)
+            .map((continentName) => changeCase(continentName))
+            .join(' ')
+    }
 
     return (
         <Layout type="careers" margin_top={7}>
@@ -207,30 +329,63 @@ const Locations = () => {
                 >
                     Explore our locations
                 </Header>
-                <CssGrid
-                    columns="repeat(3, 384px)"
-                    row_gap="40px"
-                    column_gap="24px"
-                    laptop_columns="repeat(3, minmax(280px, 384px))"
-                    laptop_margin="0 16px"
-                    tablet_columns="repeat(2, 1fr)"
-                    mobile_columns="minmax(300px, 384px)"
-                    mobile_row_gap="37px"
-                    style={{ marginTop: '0rem', justifyContent: 'center' }}
-                    margin="0 16px"
+                <StyledTabs
+                    tab_list={[
+                        'all',
+                        'europe',
+                        'asia',
+                        'middle_east',
+                        'eastern_europe',
+                        'africa',
+                        'latam',
+                        'caribbean',
+                    ]}
+                    jc_tablet="start"
+                    jc_mobileL="start"
+                    mobile_font_size={16}
+                    line_divider_length="unset"
+                    starting_index={1}
                 >
-                    {all_offices.map((office) => (
-                        <CountryCard
-                            key={office.name}
-                            Icon={office.flagIcon}
-                            img_data={images[office.thumbnail]}
-                            country_name={office.country}
-                            city_name={office.display_name}
-                            link={office.link}
-                            img_alt={office.img_alt}
-                        />
-                    ))}
-                </CssGrid>
+                    {continents.map((continent) => {
+                        return (
+                            <Tabs.Panel
+                                label={formatContinentName(continent)}
+                                key={continent}
+                                width="79px"
+                                height="56px"
+                                gap="8px"
+                            >
+                                <CssGrid
+                                    columns="repeat(3, 384px)"
+                                    row_gap="40px"
+                                    column_gap="24px"
+                                    laptop_columns="repeat(3, minmax(280px, 384px))"
+                                    laptop_margin="0 16px"
+                                    tablet_columns="repeat(2, 1fr)"
+                                    mobile_columns="minmax(300px, 384px)"
+                                    mobile_row_gap="37px"
+                                    style={{ justifyContent: 'center', marginTop: '80px' }}
+                                    mobileS={{ mt: '40px' }}
+                                    margin="0 16px"
+                                >
+                                    {allContinents[continent].map((office) => (
+                                        <CountryCard
+                                            key={office.name}
+                                            Icon={office.flagIcon}
+                                            img_data={images[office.thumbnail]}
+                                            country_name={office.country}
+                                            continent={office.display_continent}
+                                            city_name={office.display_name}
+                                            thumbnail_name={office.display_thumbnail_name}
+                                            link={office.link}
+                                            img_alt={office.img_alt}
+                                        />
+                                    ))}
+                                </CssGrid>
+                            </Tabs.Panel>
+                        )
+                    })}
+                </StyledTabs>
             </StyledSectionContainer>
         </Layout>
     )

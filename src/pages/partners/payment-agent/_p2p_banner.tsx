@@ -122,9 +122,9 @@ const P2PBanner = () => {
                             />
                         </Subtitle>
                         <StyledLinkButton
-                            secondary="true"
+                            secondary
+                            external
                             to="/p2p/"
-                            external="true"
                             target="_blank"
                             rel="noopener noreferrer"
                             tabletL={{

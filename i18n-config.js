@@ -77,6 +77,19 @@ module.exports = {
         path: 'ach',
         display_name: 'Crowdin',
         short_name: 'CR',
+        affiliate_lang: 13,
+    },
+    tr: {
+        path: 'tr',
+        display_name: 'Türkçe',
+        short_name: 'TR',
+        affiliate_lang: 14,
+    },
+    bn: {
+        path: 'bn',
+        display_name: 'বাংলা',
+        short_name: 'BN',
+        affiliate_lang: 15,
     },
     // TODO: uncomment when supported
     // de: {

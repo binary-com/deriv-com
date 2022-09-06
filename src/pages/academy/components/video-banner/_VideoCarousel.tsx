@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import VideoPlayer from '../_video-player'
 import { NonFeaturedVideoListDataType } from '../../index'
 import { StandardImgWrapper } from '../../common/_styles'
+import { RedirectLink } from '../recent-featured-posts/_style'
 import { CustomCarousel } from './carousel/_custom-carousel'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { convertDate, getVideoObject } from 'common/utility'
 import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
+
+type VideoCarouselProps = {
+    carousel_items: NonFeaturedVideoListDataType
+}
 
 const SmallDetailsWrapper = styled(Flex)`
     @media ${device.tabletL} {
@@ -65,29 +69,11 @@ const PlayerIcon = styled.img`
     }
 `
 
-type VideoCarouselProps = {
-    carousel_items: NonFeaturedVideoListDataType
-}
-
 const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
-    const [show, setShow] = useState(false)
-    const [video_src, setVideoSrc] = useState('')
-
-    const handleCloseVideo = () => setShow(false)
-    const handleOpenVideo = (event, url) => {
-        if (event.defaultPrevented) return
-        setVideoSrc(url)
-        setShow(true)
-    }
-
-    useEffect(() => {
-        document.body.style.overflow = show ? 'hidden' : 'unset'
-    }, [show])
-
     const settings = {
         options: {
-            align: 'start',
-            draggable: 'false',
+            align: 0,
+            draggable: false,
         },
         container_style: {
             maxWidth: '100%',
@@ -97,11 +83,9 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
         slide_style: {
             width: '372px',
             marginRight: '24px',
-            position: 'relative',
         },
         slide_mobile_style: {
             width: '100%',
-            position: 'relative',
             paddingRight: '16px',
         },
         view_port: {
@@ -129,76 +113,75 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
                                 published_date,
                                 thumbnail_img_alt,
                                 video_title,
-                                video_url,
+                                video_slug,
                                 video_duration,
                             } = getVideoObject(item)
-
                             return (
-                                <ItemsMainWrapper
-                                    jc="flex-start"
-                                    key={index}
-                                    onClick={(e) => handleOpenVideo(e, video_url)}
-                                >
-                                    <StandardImgWrapper
-                                        width="160px"
-                                        height="96px"
-                                        tabletL_width="120px"
-                                        tabletL_height="72px"
-                                        border_radius="unset"
-                                        tabletL_border_radius="unset"
-                                    >
-                                        <GatsbyImage
-                                            image={
-                                                item.video_thumbnail.imageFile.childImageSharp
-                                                    .gatsbyImageData
-                                            }
-                                            alt={thumbnail_img_alt}
-                                            width="100%"
-                                            height="100%"
-                                        />
-                                        <PlayerIconWrapper absolute ai="center">
-                                            <IconDiv>
-                                                <PlayerIcon src={PlayIcon} />
-                                            </IconDiv>
-                                        </PlayerIconWrapper>
-                                    </StandardImgWrapper>
-                                    <Flex direction="column" ml="8px" width="180px">
-                                        <Header as="p" type="paragraph-1" color="white" mb="4px">
-                                            {video_title}
-                                        </Header>
-                                        <SmallDetailsWrapper
-                                            height="24px"
-                                            jc="flex-start"
-                                            ai="center"
+                                <RedirectLink key={index} to={`/academy/videos/${video_slug}/`}>
+                                    <ItemsMainWrapper jc="flex-start">
+                                        <StandardImgWrapper
+                                            width="160px"
+                                            height="96px"
+                                            tabletL_width="120px"
+                                            tabletL_height="72px"
+                                            border_radius="unset"
+                                            tabletL_border_radius="unset"
                                         >
+                                            <GatsbyImage
+                                                image={
+                                                    item.video_thumbnail.imageFile.childImageSharp
+                                                        .gatsbyImageData
+                                                }
+                                                alt={thumbnail_img_alt}
+                                            />
+                                            <PlayerIconWrapper absolute ai="center">
+                                                <IconDiv>
+                                                    <PlayerIcon src={PlayIcon} />
+                                                </IconDiv>
+                                            </PlayerIconWrapper>
+                                        </StandardImgWrapper>
+                                        <Flex direction="column" ml="8px" width="180px">
                                             <Header
                                                 as="p"
-                                                type="paragraph-2"
-                                                weight="normal"
-                                                color="grey-17"
-                                                width="auto"
+                                                type="paragraph-1"
+                                                color="white"
+                                                mb="4px"
                                             >
-                                                {convertDate(published_date)}
+                                                {video_title}
                                             </Header>
-                                            <StyledDot />
-                                            <Header
-                                                as="p"
-                                                type="paragraph-2"
-                                                weight="normal"
-                                                color="grey-17"
-                                                width="auto"
+                                            <SmallDetailsWrapper
+                                                height="24px"
+                                                jc="flex-start"
+                                                ai="center"
                                             >
-                                                {video_duration}
-                                            </Header>
-                                        </SmallDetailsWrapper>
-                                    </Flex>
-                                </ItemsMainWrapper>
+                                                <Header
+                                                    as="p"
+                                                    type="paragraph-2"
+                                                    weight="normal"
+                                                    color="grey-17"
+                                                    width="auto"
+                                                >
+                                                    {convertDate(published_date)}
+                                                </Header>
+                                                <StyledDot />
+                                                <Header
+                                                    as="p"
+                                                    type="paragraph-2"
+                                                    weight="normal"
+                                                    color="grey-17"
+                                                    width="auto"
+                                                >
+                                                    {video_duration}
+                                                </Header>
+                                            </SmallDetailsWrapper>
+                                        </Flex>
+                                    </ItemsMainWrapper>
+                                </RedirectLink>
                             )
                         })}
                     </CustomCarousel>
                 </Flex>
             </Flex>
-            {show && <VideoPlayer video_src={video_src} closeVideo={handleCloseVideo} />}
         </>
     )
 }

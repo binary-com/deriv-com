@@ -1,4 +1,3 @@
-// Note: When using layout component for security page, please add type='security' and padding_top='10rem'
 import React from 'react'
 import styled from 'styled-components'
 import MainNav from './components/partner/main-nav'
@@ -46,11 +45,10 @@ const NavSecurity = () => {
                         </StyledLogoLink>
 
                         <SubmissionButton
-                            to="mailto:security@deriv.com"
-                            is_mail_link
-                            external="true"
-                            target="_blank"
+                            external
                             tertiary
+                            to="https://hackerone.com/binary"
+                            target="_blank"
                         >
                             {localize('Submit a report')}
                         </SubmissionButton>

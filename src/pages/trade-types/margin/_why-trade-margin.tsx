@@ -8,11 +8,13 @@ import HighLeverge from 'images/svg/trade-types/high-leverage.svg'
 import MaximizePotentialProfit from 'images/svg/trade-types/maximize-potential-profit.svg'
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { DerivStore, DerivStoreType } from 'store'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const WhyTradeMargin = () => {
     const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
+    const handleSignup = useHandleSignup()
 
     return (
         <>
@@ -81,9 +83,9 @@ const WhyTradeMargin = () => {
                     <Text align="left" width="100%" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <LinkButton id="dm-cfd-signup" mt="1.6rem" to="/signup/" secondary="true">
+                    <Button onClick={handleSignup} id="dm-cfd-signup" mt="1.6rem" secondary>
                         {localize('Create free demo account')}
-                    </LinkButton>
+                    </Button>
                 </SmallContainer>
             </SectionContainer>
         </>

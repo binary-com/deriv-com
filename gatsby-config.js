@@ -9,6 +9,7 @@ module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
         FAST_DEV: true,
+        DEV_SSR: false,
     },
     siteMetadata: {
         title: 'Deriv',
@@ -234,5 +235,12 @@ module.exports = {
             },
         },
         'gatsby-plugin-use-query-params',
+        {
+            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+            options: {
+                analyzerMode: 'disabled',
+                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+            },
+        },
     ],
 }

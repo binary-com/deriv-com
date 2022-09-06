@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type DBannerProps = {
     background_pattern?: string
@@ -88,7 +89,7 @@ const TextWrapper = styled.div`
         text-align: center;
     }
 `
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(Button)`
     min-width: 20.2rem;
     width: auto;
     border: unset;
@@ -117,6 +118,8 @@ const DBanner = ({
     title = '',
     image_alt = '',
 }: DBannerProps) => {
+    const handleSignup = useHandleSignup(is_ppc)
+
     const BackgroundPattern = styled.img`
         position: absolute;
         top: 0;
@@ -151,10 +154,10 @@ const DBanner = ({
                         {title}
                     </StyledHeader>
                     <StyledLinkButton
+                        onClick={handleSignup}
                         id="dm-dbanner-signup-1"
                         type="submit"
-                        secondary="true"
-                        to={is_ppc ? '/landing/signup/' : '/signup/'}
+                        secondary
                     >
                         {localize('Create free demo account')}
                     </StyledLinkButton>

@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
-import { euArticles, eu_discards, getAllArticles, splitArticles } from './_utility'
+import { eu_discards, getAllArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
 import ArticleSectionComponent from './_article-section-component'
 import { SEO, Desktop, Container } from 'components/containers'
@@ -181,10 +181,6 @@ const HelpCentre = () => {
         e.preventDefault()
         setData({ ...data, search: sanitize(e.target.value) })
     }
-
-    // const splitted_articles = is_eu_country
-    //     ? euArticles(splitArticles(articles, 3))
-    //     : splitArticles(articles, 3)
 
     const articles_by_domain = is_eu_country
         ? data.all_articles.filter((el) => !eu_discards.includes(el.category))

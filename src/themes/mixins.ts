@@ -60,14 +60,14 @@ export const BorderRadiusMixin = ({
 
 const BlockMargin = (margin?: string | number) => {
     if (typeof margin === 'string') {
-        const splitted_margins = margin?.split?.(' ')
+        const margins = margin?.split?.(' ')
 
-        switch (splitted_margins?.length) {
+        switch (margins?.length) {
             // margin: "9px"
             case 1:
                 return css`
-                    margin-block: ${splitted_margins};
-                    margin-inline: ${splitted_margins};
+                    margin-block: ${margin};
+                    margin-inline: ${margin};
                     @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
                         margin: ${margin};
                     }
@@ -75,30 +75,36 @@ const BlockMargin = (margin?: string | number) => {
             // margin: "9px 12px"
             case 2:
                 return css`
-                    margin-block: ${splitted_margins[0]};
-                    margin-inline: ${splitted_margins[1]};
-                    @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
+                    margin-block: ${margins[0]};
+                    margin-inline: ${margins[1]};
+                    @supports not (
+                        (margin-block: ${margins[0]}) or (margin-inline: ${margins[1]})
+                    ) {
                         margin: ${margin};
                     }
                 `
             // margin: "9px 10px 11px"
             case 3:
                 return css`
-                    margin-block-start: ${splitted_margins[0]};
-                    margin-inline: ${splitted_margins[1]};
-                    margin-block-end: ${splitted_margins[2]};
-                    @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
+                    margin-block-start: ${margins[0]};
+                    margin-inline: ${margins[1]};
+                    margin-block-end: ${margins[2]};
+                    @supports not (
+                        (margin-block: ${margins[0]}) or (margin-inline: ${margins[0]})
+                    ) {
                         margin: ${margin};
                     }
                 `
             // margin: "9px 10px 11px"
             case 4:
                 return css`
-                    margin-block-start: ${splitted_margins[0]};
-                    margin-inline-start: ${splitted_margins[1]};
-                    margin-inline-end: ${splitted_margins[2]};
-                    margin-block-end: ${splitted_margins[3]};
-                    @supports not ((margin-block: ${margin}) or (margin-inline: ${margin})) {
+                    margin-block-start: ${margins[0]};
+                    margin-inline-start: ${margins[1]};
+                    margin-inline-end: ${margins[2]};
+                    margin-block-end: ${margins[3]};
+                    @supports not (
+                        (margin-block: ${margins[0]}) or (margin-inline: ${margins[0]})
+                    ) {
                         margin: ${margin};
                     }
                 `
@@ -147,8 +153,8 @@ export const MarginMixin = ({
 
 const BlockPadding = (padding?: string | number) => {
     if (typeof padding === 'string') {
-        const splitted_paddings = padding?.split?.(' ')
-        switch (splitted_paddings?.length) {
+        const paddings = padding?.split?.(' ')
+        switch (paddings?.length) {
             // padding: "9px"
             case 1:
                 return css`
@@ -161,30 +167,36 @@ const BlockPadding = (padding?: string | number) => {
             // padding: "9px 12px"
             case 2:
                 return css`
-                    padding-block: ${splitted_paddings[0]};
-                    padding-inline: ${splitted_paddings[1]};
-                    @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
+                    padding-block: ${paddings[0]};
+                    padding-inline: ${paddings[1]};
+                    @supports not (
+                        (padding-block: ${paddings[0]}) or (padding-inline: ${paddings[1]})
+                    ) {
                         padding: ${padding};
                     }
                 `
             // padding: "9px 10px 11px"
             case 3:
                 return css`
-                    padding-block-start: ${splitted_paddings[0]};
-                    padding-inline: ${splitted_paddings[1]};
-                    padding-block-end: ${splitted_paddings[2]};
-                    @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
+                    padding-block-start: ${paddings[0]};
+                    padding-inline: ${paddings[1]};
+                    padding-block-end: ${paddings[2]};
+                    @supports not (
+                        (padding-block: ${paddings[0]}) or (padding-inline: ${paddings[1]})
+                    ) {
                         padding: ${padding};
                     }
                 `
             // padding: "9px 10px 11px"
             case 4:
                 return css`
-                    padding-block-start: ${splitted_paddings[0]};
-                    padding-inline-start: ${splitted_paddings[1]};
-                    padding-inline-end: ${splitted_paddings[2]};
-                    padding-block-end: ${splitted_paddings[3]};
-                    @supports not ((padding-block: ${padding}) or (padding-inline: ${padding})) {
+                    padding-block-start: ${paddings[0]};
+                    padding-inline-start: ${paddings[1]};
+                    padding-inline-end: ${paddings[2]};
+                    padding-block-end: ${paddings[3]};
+                    @supports not (
+                        (padding-block: ${paddings[0]}) or (padding-inline: ${paddings[0]})
+                    ) {
                         padding: ${padding};
                     }
                 `

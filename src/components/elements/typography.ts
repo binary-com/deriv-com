@@ -5,6 +5,11 @@ import { Margins, MarginsType, Paddings, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
 type BaseElementProps = {
+    size?: string
+    type?: string
+    weight?: string
+    width?: string
+    height?: string
     align?: string
     padding?: string
     color?: string
@@ -15,8 +20,7 @@ type BaseElementProps = {
     max_height?: string
     mobile_max_width?: string
 } & MarginsType &
-    PaddingsType &
-    React.CSSProperties
+    PaddingsType
 
 const baseStyles = ({
     m,
@@ -82,9 +86,8 @@ export const BaseElement = css<BaseElementProps>`
 //////////////////////////////////////////////////////////////////////////////
 /////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
 //////////////////////////////////////////////////////////////////////////////
-type TextProps = { size?: string; type?: string; weight?: string; width?: string }
 
-export const Text = styled.p<TextProps>`
+export const Text = styled.p<BaseElementProps>`
     ${BaseElement}
     font-weight: ${(props) => props.weight || 'normal'};
     font-size: ${(props) => props.size || '1.6rem'};
@@ -103,12 +106,11 @@ export const Text = styled.p<TextProps>`
 type HeaderProps = {
     as?: string
     children?: React.ReactNode
-    props?: TextProps
-} & TextProps
+} & BaseElementProps
 
 export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     createElement(as, props, children),
-)`
+)<HeaderProps>`
     ${BaseElement}
     font-weight: ${(props) => props.weight || 'bold'};
     font-size: ${(props) => {

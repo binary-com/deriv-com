@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { latam_countries, eu_countries } from 'common/country-base'
+import { eu_countries,latam_countries,african_countries } from 'common/country-base'
 import {
     getClientInformation,
     getDomain,
@@ -23,6 +23,7 @@ export const useCountryRule = () => {
         is_latam: false,
         is_row: true,
         is_dev: false,
+        is_africa: false,
     })
 
     const { website_status } = useContext(DerivStore)
@@ -34,6 +35,7 @@ export const useCountryRule = () => {
     useEffect(() => {
         const eu_countries_uk_excluded = eu_countries.filter((country: string) => country !== 'gb')
         const is_eu_country = eu_countries_uk_excluded.includes(user_ip_country)
+        const is_africa = african_countries.includes(user_ip_country)
         const is_uk_country = user_ip_country === 'gb'
         const is_eu_residence = eu_countries_uk_excluded.includes(residence)
         const is_uk_residence = residence === 'gb'
@@ -58,6 +60,7 @@ export const useCountryRule = () => {
                 is_uk,
                 is_non_uk,
                 is_non_eu,
+                is_africa,
                 is_uk_eu,
                 is_row,
                 is_dev,

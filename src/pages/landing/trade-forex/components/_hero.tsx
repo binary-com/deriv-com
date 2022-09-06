@@ -123,7 +123,7 @@ const HeroComponent = ({ title, content, background_data }: HeroComponentProps) 
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                         type="submit"
-                        secondary="true"
+                        secondary
                         to={'/signup/'}
                     >
                         {localize('Start trading')}

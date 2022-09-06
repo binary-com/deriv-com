@@ -19,6 +19,7 @@ type CountryRuleType =
     | 'is_uk_eu'
     | 'is_row'
     | 'is_dev'
+    | 'is_africa'
 
 type CountryBasedContentProps = {
     children: ReactNode

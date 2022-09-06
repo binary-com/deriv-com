@@ -33,7 +33,7 @@ const WhatIsDMT5 = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/dtrader/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}

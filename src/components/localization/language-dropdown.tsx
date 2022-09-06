@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
-import flags from './flags'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
@@ -49,9 +48,6 @@ const Arrow = styled(Chevron)<{ expanded: boolean }>`
     & path {
         fill: var(--color-white);
     }
-    @media ${device.mobileL} {
-        display: none;
-    }
 `
 
 const Absolute = styled.div<AbsoluteProps>`
@@ -66,7 +62,7 @@ const Absolute = styled.div<AbsoluteProps>`
             return '5.5rem'
         }
     }};
-    left: -22rem;
+    left: -7rem;
     height: auto;
     background-color: var(--color-white);
     transition: opacity 0.35s ease-in-out;
@@ -77,7 +73,7 @@ const Absolute = styled.div<AbsoluteProps>`
 
     @media ${device.mobileL} {
         top: ${({ is_high_nav }) => (is_high_nav ? '7rem' : '9rem')};
-        left: 0;
+        left: 15rem;
     }
 `
 /* stylelint-disable */
@@ -100,10 +96,9 @@ const FadeOutUp = keyframes`
 
 const ItemContainer = styled.div<{ is_open: boolean }>`
     background-color: var(--color-white);
-    padding: 1.6rem 0.8rem;
+    padding: 1.6rem 0.8rem 0rem 0rem;
     position: relative;
     width: auto;
-    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 2.4rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
@@ -121,7 +116,6 @@ const ItemContainer = styled.div<{ is_open: boolean }>`
         content: '';
         position: absolute;
         width: 1px;
-        background: var(--color-grey-8);
         height: 80%;
         top: 0;
         left: 50%;
@@ -135,33 +129,22 @@ const Item = styled.div<{ disabled: boolean }>`
     align-items: center;
     pointer-events: ${({ disabled }) => (disabled ? 'none' : 'all')};
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-    padding: 0.8rem 1.6rem;
+    padding: 1rem 1.4rem 1.2rem 0.8rem;
     transition: background 0.25s;
 
     &:hover {
         background: rgba(245, 247, 250, 0.64);
     }
+
+    @media ${device.mobileL} {
+        padding: 1.2rem;
+    }
 `
 
 const ResponsiveText = styled(Text)`
     white-space: nowrap;
-
-    @media ${device.mobileL} {
-        display: none;
-    }
 `
 /* stylelint-enable */
-
-const Icon = styled.img`
-    width: 24px;
-    height: 16px;
-    margin-bottom: 3px;
-
-    @media ${device.mobileL} {
-        width: 20px;
-        height: 15px;
-    }
-`
 
 const Dropdown = ({
     default_option,
@@ -185,13 +168,10 @@ const Dropdown = ({
         closeList()
     }
 
-    const default_abbreviation = default_option.path.substring(0, 2)
-
     return (
         <>
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
-                    <Icon src={flags[default_abbreviation]} alt="language icon" />
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
                     </ResponsiveText>
@@ -202,7 +182,6 @@ const Dropdown = ({
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             if (!option) return null
-                            const abbreviation = option.path.substring(0, 2)
                             const current_option = default_option.path === option.path
                             return (
                                 <Item
@@ -214,7 +193,6 @@ const Dropdown = ({
                                     }}
                                     key={idx}
                                 >
-                                    <Icon src={flags[abbreviation]} alt="language icon" />
                                     <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
                                         {option.text}
                                     </Text>

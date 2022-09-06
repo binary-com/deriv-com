@@ -74,7 +74,7 @@ const SocialMediaComponent = ({ social_accounts }) => (
         {social_accounts.map((account, index) => (
             <LocalizedLink
                 key={index}
-                external="true"
+                external
                 to={account.link}
                 target="_blank"
                 rel="noopener noreferrer"

@@ -318,7 +318,7 @@ const SideSubscriptionBanner = () => {
                         <EmailButton
                             id="gtm-signup-email"
                             type="submit"
-                            secondary="true"
+                            secondary
                             disabled={Boolean(
                                 is_submitting ||
                                     email_error_msg ||
@@ -339,13 +339,12 @@ const SideSubscriptionBanner = () => {
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize
-                                        fontSize="14px"
                                         translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
                                         components={[
                                             <StyledLocalizedLink
                                                 key={0}
                                                 type="tnc/security-and-privacy.pdf"
-                                                external="true"
+                                                external
                                                 rel="noopener noreferrer"
                                                 size="14px"
                                                 color="red"

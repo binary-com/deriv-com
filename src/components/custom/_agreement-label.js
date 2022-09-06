@@ -17,7 +17,7 @@ const AgreementLabel = ({
     handleChangeCheckbox,
     isChecked,
     color,
-    link_text = localize('I agree to the <0>terms and conditions</0>'),
+    link_text = localize('<0>I</0> agree to the terms and conditions'),
 }) => {
     // the is mounted check is used for making sure the localized link text
     // properly renders the correct domain url

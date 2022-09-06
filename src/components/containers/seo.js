@@ -8,16 +8,7 @@ import { isBrowser } from 'common/utility'
 import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 
-const non_localized_links = [
-    '/careers',
-    '/careers/',
-    '/besquare',
-    '/besquare/',
-    '/academy',
-    '/academy/',
-    '/bug-bounty/',
-    '/bug-bounty/',
-]
+const non_localized_links = ['/academy', '/bug-bounty', '/careers']
 
 const languages = Object.keys(language_config)
 languages.push('x-default')
@@ -85,7 +76,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
         }
     }
 
-    const is_non_localized = non_localized_links.includes(current_page)
+    const is_non_localized = non_localized_links.some((link) => current_page.includes(link))
 
     return (
         <Helmet

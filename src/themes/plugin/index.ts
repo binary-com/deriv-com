@@ -77,9 +77,6 @@ const handle = (content: string) => {
 export const plugin = (context, content, selectors, parent, line, column, length) => {
     switch (context) {
         case 1:
-            console.log(context)
-            console.log('content: ')
-            console.log(content)
             return handle(content)
 
         default:
@@ -92,10 +89,4 @@ const transformProperty = (logicalName: string, value: string, content: string) 
         const result = `${logicalName}:${value}`
         return result
     }
-
-    // if (!value) {
-    //     return content
-    // }
-    // const result = `${logicalName}:${value}`
-    // return result
 }

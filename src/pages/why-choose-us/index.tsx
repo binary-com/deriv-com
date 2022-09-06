@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import LatamAward from './_latam-forex-award'
 import { IconGrid } from './_icon-grid'
 import AfricaAward from './_africa-forex-award'
 import { SEO, SectionContainer, GridContainer, Flex } from 'components/containers'
@@ -58,6 +59,7 @@ const ResponsiveHeader = styled(StyledHeader)`
 `
 
 const WhyChooseUs = () => {
+    const { is_latam } = useCountryRule()
     const handleSignup = useHandleSignup()
     const { is_africa } = useCountryRule()
 
@@ -92,6 +94,7 @@ const WhyChooseUs = () => {
             <Section>
                 <IconGrid />
             </Section>
+            {is_latam ? <LatamAward /> : <></>}
             {is_africa ? <AfricaAward /> : <></>}
             <Divider />
             <Section>

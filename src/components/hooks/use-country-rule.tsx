@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { eu_countries, african_countries } from 'common/country-base'
+import { eu_countries,latam_countries,african_countries } from 'common/country-base'
 import {
     getClientInformation,
     getDomain,
@@ -20,6 +20,7 @@ export const useCountryRule = () => {
         is_non_uk: true,
         is_non_eu: true,
         is_uk_eu: false,
+        is_latam: false,
         is_row: true,
         is_dev: false,
         is_africa: false,
@@ -44,6 +45,7 @@ export const useCountryRule = () => {
         const is_uk = is_uk_location || isUkDomain()
         const is_non_uk = !is_uk
         const is_non_eu = !is_eu
+        const is_latam = latam_countries.includes(user_ip_country)
         const is_uk_eu = !(!is_eu && !is_uk)
         const is_row = !is_uk_eu
         const is_dev = isLocalhost() || isTestlink()
@@ -53,6 +55,7 @@ export const useCountryRule = () => {
                 is_loading: false,
                 is_eu_location,
                 is_uk_location,
+                is_latam,
                 is_eu,
                 is_uk,
                 is_non_uk,

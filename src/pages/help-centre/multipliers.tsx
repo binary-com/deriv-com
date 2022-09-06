@@ -23,7 +23,7 @@ const WhatAreMultipliers = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/trade-types/multiplier'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -44,7 +44,7 @@ const HowTradeMultipliers = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'https://www.youtube.com/watch?v=viS-dhJuHek&t=1s&ab_channel=Deriv'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}

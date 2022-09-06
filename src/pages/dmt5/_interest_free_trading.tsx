@@ -183,7 +183,7 @@ const InterestFreeTrading = () => {
                 <StyledRightText>
                     <Localize translate_text="Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs." />
                 </StyledRightText>
-                <StyledLinkButton secondary="true" type="mt5" external="true" target="_blank">
+                <StyledLinkButton secondary external type="mt5" target="_blank">
                     <Localize translate_text="Trade without commission" />
                 </StyledLinkButton>
             </StyledFlex>

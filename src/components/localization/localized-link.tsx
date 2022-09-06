@@ -82,24 +82,13 @@ export const SharedLinkStyle = css<SharedLinkStyleProps>`
         `}
 `
 
-const ShareDisabledStyle = css<{ disabled: boolean }>`
-    ${({ disabled }) =>
-        disabled &&
-        `
-        pointer-events: none;
-        opacity: 0.32;`}
-`
-
 const StyledAnchor = styled.a`
-    ${ShareDisabledStyle}
 `
 
 const StyledAnchorLink = styled(AnchorLink)`
-    ${ShareDisabledStyle}
 `
 
 const StyledGatsbyLink = styled(GatsbyLink)`
-    ${ShareDisabledStyle}
 `
 
 export const LocalizedLink = React.forwardRef(
@@ -149,11 +138,11 @@ const InternalLink = ({
 
     if (is_anchor) {
         return (
-            <StyledAnchorLink title={aria_label} to={internal_to} disabled={!mounted} {...props} />
+            <StyledAnchorLink title={aria_label} to={internal_to} {...props} />
         )
     }
     return (
-        <StyledGatsbyLink aria-label={aria_label} to={internal_to} disabled={!mounted} {...props}>
+        <StyledGatsbyLink aria-label={aria_label} to={internal_to} {...props}>
             {children}
         </StyledGatsbyLink>
     )
@@ -246,7 +235,6 @@ const ExternalLink = ({
             aria-label={aria_label}
             href={!show_modal ? url : ''}
             onClick={show_modal ? handleClick : null}
-            disabled={!mounted}
             target={final_target}
             rel={rel}
             {...props}

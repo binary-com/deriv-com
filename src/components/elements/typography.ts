@@ -6,7 +6,6 @@ import device from 'themes/device'
 
 type BaseElementProps = {
     size?: string
-    type?: string
     weight?: string
     width?: string
     height?: string
@@ -19,6 +18,24 @@ type BaseElementProps = {
     min_height?: string
     max_height?: string
     mobile_max_width?: string
+    type?:
+        | 'main-landing-title'
+        | 'display-title'
+        | 'page-title'
+        | 'section-title'
+        | 'sub-section-title'
+        | 'main-paragraph'
+        | 'sub-paragraph'
+        | 'hero'
+        | 'heading-1'
+        | 'heading-2'
+        | 'heading-3'
+        | 'subtitle-1'
+        | 'subtitle-2'
+        | 'paragraph-1'
+        | 'paragraph-2'
+        | 'small'
+        | 'extra-small'
 } & MarginsType &
     PaddingsType
 

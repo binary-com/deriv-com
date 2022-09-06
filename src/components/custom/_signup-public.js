@@ -132,7 +132,7 @@ const InputGroup = styled.div`
     display: flex;
     flex-direction: row;
     ${SizeMixin({ width: '100%' })}
-    ${MarginMixin({ start: '2.5rem', end: '1.5rem' })}
+    ${MarginMixin({ top: '2.5rem', bottom: '1.5rem' })}
 `
 const EmailButton = styled(Button)`
     font-weight: normal;
@@ -141,7 +141,7 @@ const EmailButton = styled(Button)`
     ${PaddingMixin({ all: '10px' })}
     ${BorderRadiusMixin({ all: '4px' })}
     @media ${device.tabletL} {
-        ${PaddingMixin({ all: '10px' })}
+        ${PaddingMixin({ all: '10px 16px' })}
         white-space: nowrap;
         ${SizeMixin({ width: 'auto', height: '40px', min_width: 'unset' })}
         ${MarginMixin({ start: '0' })}
@@ -150,7 +150,7 @@ const EmailButton = styled(Button)`
 const SocialWrapper = styled(Flex)`
     flex-wrap: wrap;
     ${SizeMixin({ width: '100%' })}
-    ${MarginMixin({ start: '4rem' })}
+    ${MarginMixin({ top: '4rem' })}
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {

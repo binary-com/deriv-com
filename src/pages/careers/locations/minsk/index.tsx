@@ -15,7 +15,14 @@ const query = graphql`
             ...fadeIn
         }
         minsk_grid_1: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {
-            ...fadeIn
+            childImageSharp {
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 70
+                    placeholder: NONE
+                )
+            }
         }
         minsk_grid_2: file(relativePath: { eq: "careers/minsk_grid_2.jpg" }) {
             ...fadeIn

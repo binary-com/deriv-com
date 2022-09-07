@@ -99,10 +99,6 @@ const SvgWrapper = styled.div`
     margin-right: 8px;
 `
 
-const StyledText = styled(Text)`
-    color: var(--color-grey-5);
-`
-
 const OffCanvasMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -150,9 +146,9 @@ export const OffCanvasMenuWrapper = (props) => {
                     >
                         {!props.is_ppc && (
                             <>
-                                <StyledText mb="8px" size="14px">
+                                <Text color="grey-5" mb="8px" size="14px">
                                     {<Localize translate_text="Trade types" />}
-                                </StyledText>
+                                </Text>
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="CFDs"
@@ -200,9 +196,9 @@ export const OffCanvasMenuWrapper = (props) => {
 
                         <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
 
-                        <StyledText mb="8px" size="14px">
+                        <Text color="grey-5" mb="8px" size="14px">
                             {<Localize translate_text="Trading platforms" />}
-                        </StyledText>
+                        </Text>
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="DMT5"

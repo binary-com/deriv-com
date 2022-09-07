@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
@@ -15,6 +14,18 @@ import Apple from 'images/svg/custom/apple-40.svg'
 import Facebook from 'images/svg/custom/facebook-40.svg'
 import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
+
+type SignupPublicProps = {
+    autofocus?: boolean
+    clearEmail?: () => void
+    email?: string
+    email_error_msg?: string
+    handleInputChange?: (event) => void
+    handleLogin?: (event) => void
+    handleSocialSignup?: (event) => void
+    handleValidation?: (event) => void
+    is_submitting?: boolean
+}
 
 const query = graphql`
     query {
@@ -131,7 +142,7 @@ const InputGroup = styled.div`
     margin-top: 2.5rem;
     margin-bottom: 1.5rem;
 `
-const EmailButton = styled(Button)`
+const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     margin-left: 1rem;
     min-width: 125px;
     height: 40px;
@@ -308,7 +319,7 @@ const SignupPublic = ({
     autofocus,
     handleSocialSignup,
     is_submitting,
-}) => {
+}: SignupPublicProps) => {
     const data = useStaticQuery(query)
     const { is_row, is_eu, is_uk } = useCountryRule()
     const [is_checked, setChecked] = useState(false)
@@ -365,7 +376,7 @@ const SignupPublic = ({
                                         disabled={
                                             is_submitting ||
                                             !is_checked ||
-                                            email_error_msg ||
+                                            email_error_msg !== '' ||
                                             !email
                                         }
                                     >
@@ -515,7 +526,7 @@ const SignupPublic = ({
                                         disabled={
                                             is_submitting ||
                                             !is_checked ||
-                                            email_error_msg ||
+                                            email_error_msg !== '' ||
                                             !email
                                         }
                                     >
@@ -575,18 +586,6 @@ const SignupPublic = ({
             </Show.Mobile>
         </StyledSectionContainer>
     )
-}
-
-SignupPublic.propTypes = {
-    autofocus: PropTypes.bool,
-    clearEmail: PropTypes.func,
-    email: PropTypes.string,
-    email_error_msg: PropTypes.string,
-    handleInputChange: PropTypes.func,
-    handleLogin: PropTypes.func,
-    handleSocialSignup: PropTypes.func,
-    handleValidation: PropTypes.func,
-    is_submitting: PropTypes.bool,
 }
 
 export default SignupPublic

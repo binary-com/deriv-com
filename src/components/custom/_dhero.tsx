@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
@@ -9,6 +8,19 @@ import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+
+type DHeroProps = {
+    background_alt?: string
+    background_image_name?: string
+    background_svg?: string
+    content?: string | JSX.Element
+    go_to_live_demo?: boolean
+    image_name?: string
+    is_mobile?: boolean | string
+    join_us_for_free?: boolean
+    Logo?: string
+    title?: string | JSX.Element
+}
 
 const Wrapper = styled.div`
     position: relative;
@@ -238,7 +250,7 @@ const DHero = ({
     join_us_for_free,
     go_to_live_demo,
     Logo,
-}) => {
+}: DHeroProps) => {
     const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
@@ -290,19 +302,6 @@ const DHero = ({
             </LottieWrapper>
         </Wrapper>
     )
-}
-
-DHero.propTypes = {
-    background_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    background_image_name: PropTypes.string,
-    background_svg: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    go_to_live_demo: PropTypes.bool,
-    image_name: PropTypes.string,
-    is_mobile: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    join_us_for_free: PropTypes.bool,
-    Logo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
 }
 
 export default DHero

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
-import { OtherPlatform } from 'components/custom/other-platforms.js'
-import { SEO } from 'components/containers'
+import { OtherPlatform } from 'components/custom/other-platforms'
+import { SEO, Desktop } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
@@ -13,13 +13,13 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import DTraderBGMobile from 'images/svg/dtrader/dtrader-bg-mobile.svg'
 import DTraderBG from 'images/svg/dtrader/dtrader-bg.svg'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
-import DHero from 'components/custom/_dhero.js'
-import DNumber from 'components/custom/_dnumbers.js'
+import DHero from 'components/custom/_dhero'
+import DNumber from 'components/custom/_dnumbers'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
-const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
-const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
-const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
+const DTrading = Loadable(() => import('components/custom/_dtrading'))
+const DBanner = Loadable(() => import('components/custom/_dbanner'))
+const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works'))
 
 const meta_attributes = {
     og_title: localize('DTrader | Online Trading Platform | Deriv.com'),
@@ -151,9 +151,11 @@ const Dtrader = () => {
                 background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
                 background_alt={localize('Trade volatility indices with DTrader at Deriv')}
             />
-            <ROW>
-                <DNumber items={items} justify="space-around" />
-            </ROW>
+            <Desktop>
+                <ROW>
+                    <DNumber items={items} justify="space-around" />
+                </ROW>
+            </Desktop>
             <EU>
                 <DNumber items={itemsEU} justify="space-around" />
             </EU>

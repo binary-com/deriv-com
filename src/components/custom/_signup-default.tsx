@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -9,6 +8,18 @@ import device from 'themes/device'
 // SVG
 import Facebook from 'images/svg/custom/facebook.svg'
 import Google from 'images/svg/custom/google.svg'
+
+type SignupDefaultProps = {
+    autofocus?: boolean
+    clearEmail?: () => void
+    email?: string
+    email_error_msg?: string
+    handleInputChange?: (event) => void
+    handleLogin?: (event) => void
+    handleSocialSignup?: (event) => void
+    handleValidation?: (event) => void
+    is_submitting?: boolean
+}
 
 const Wrapper = styled.div`
     width: 80%;
@@ -64,7 +75,7 @@ const SignupDefault = ({
     handleSocialSignup,
     handleLogin,
     is_submitting,
-}) => {
+}: SignupDefaultProps) => {
     return (
         <Wrapper>
             <Header as="h3" weight="bold">
@@ -139,18 +150,6 @@ const SignupDefault = ({
             </NoteText>
         </Wrapper>
     )
-}
-
-SignupDefault.propTypes = {
-    autofocus: PropTypes.bool,
-    clearEmail: PropTypes.func,
-    email: PropTypes.string,
-    email_error_msg: PropTypes.string,
-    handleInputChange: PropTypes.func,
-    handleLogin: PropTypes.func,
-    handleSocialSignup: PropTypes.func,
-    handleValidation: PropTypes.func,
-    is_submitting: PropTypes.bool,
 }
 
 export default SignupDefault

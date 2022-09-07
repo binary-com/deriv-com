@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Margins, Paddings } from '../../themes/function'
+import { Margins, MarginsType, Paddings, PaddingsType } from '../../themes/function'
 import { size } from 'themes/device'
 
 export const mediaqueries = Object.keys(size)
@@ -42,7 +42,8 @@ export type BaseStyleType = {
     max_height?: string
     width?: string
     height?: string
-}
+} & MarginsType &
+    PaddingsType
 
 const baseStyles = ({
     m,
@@ -82,7 +83,7 @@ export type BoxType = {
     position?: string
     background?: string
     bg?: string
-}
+} & BaseStyleType
 
 const Box = styled.div<BoxType>`
     width: ${(props) => (props.width ? props.width : '')};

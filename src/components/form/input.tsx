@@ -7,6 +7,17 @@ import CrossIcon from 'images/svg/help/cross.svg'
 
 interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
     handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
+    height?: string
+    id?: string
+    label?: string
+    label_color?: string
+    label_hover_color?: string
+    tablet_background?: string
+    inputColor?: string
+    input_background?: string
+    label_focus_color?: string
+    labelSize?: string
+    labelTop?: string
 }
 
 type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps

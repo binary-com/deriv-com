@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
@@ -166,14 +165,6 @@ const DBanner = ({
             </Wrapper>
         </Flex>
     )
-}
-
-DBanner.propTypes = {
-    background_pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    data: PropTypes.object.isRequired,
-    image_alt: PropTypes.string,
-    is_ppc: PropTypes.bool,
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 export default DBanner

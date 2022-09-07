@@ -4,6 +4,25 @@ import { generateResponsiveStyles } from '../containers/box'
 import { Margins, MarginsType, Paddings, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
+type Types =
+    | 'main-landing-title'
+    | 'display-title'
+    | 'page-title'
+    | 'section-title'
+    | 'sub-section-title'
+    | 'main-paragraph'
+    | 'sub-paragraph'
+    | 'hero'
+    | 'heading-1'
+    | 'heading-2'
+    | 'heading-3'
+    | 'subtitle-1'
+    | 'subtitle-2'
+    | 'paragraph-1'
+    | 'paragraph-2'
+    | 'small'
+    | 'extra-small'
+
 type BaseElementProps = {
     size?: string
     weight?: string
@@ -18,24 +37,7 @@ type BaseElementProps = {
     min_height?: string
     max_height?: string
     mobile_max_width?: string
-    type?:
-        | 'main-landing-title'
-        | 'display-title'
-        | 'page-title'
-        | 'section-title'
-        | 'sub-section-title'
-        | 'main-paragraph'
-        | 'sub-paragraph'
-        | 'hero'
-        | 'heading-1'
-        | 'heading-2'
-        | 'heading-3'
-        | 'subtitle-1'
-        | 'subtitle-2'
-        | 'paragraph-1'
-        | 'paragraph-2'
-        | 'small'
-        | 'extra-small'
+    type?: Types
 } & MarginsType &
     PaddingsType
 
@@ -123,6 +125,7 @@ export const Text = styled.p<BaseElementProps>`
 type HeaderProps = {
     as?: string
     children?: React.ReactNode
+    tabletL?: { type?: Types }
 } & BaseElementProps
 
 export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>

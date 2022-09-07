@@ -10,7 +10,6 @@ import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
-import { EU, UK, ROW } from 'components/containers/visibility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const query = graphql`
@@ -79,7 +78,7 @@ const StyledHeader = styled(Header)`
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const { is_uk, is_loading } = useCountryRule()
+    const { is_uk, is_loading, is_eu, is_row } = useCountryRule()
     const handleSignup = useHandleSignup()
 
     return (
@@ -135,15 +134,16 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 min_height="auto"
                                 weight="normal"
                             >
-                                <EU>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities." />
-                                </EU>
-                                <UK>
+                                {is_eu && (
+                                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
+                                )}
+
+                                {is_uk && (
                                     <Localize translate_text="Trade forex, stocks & indices, and commodities." />
-                                </UK>
-                                <ROW>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
-                                </ROW>
+                                )}
+                                {is_row && (
+                                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
+                                )}
                             </Header>
                             <VerticalCarousel
                                 contents={is_ppc && is_uk ? contents_ppc : contents}

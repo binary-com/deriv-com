@@ -24,17 +24,35 @@ const query = graphql`
                 )
             }
         }
-        minsk_grid_2: file(relativePath: { eq: "careers/minsk_grid_2.jpg" }) {
-            ...fadeIn
+        minsk_grid_2: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 70
+                    placeholder: NONE
+                )
+            }
         }
-        minsk_grid_3: file(relativePath: { eq: "careers/minsk_grid_3.jpg" }) {
-            ...fadeIn
+        minsk_grid_3: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 70
+                    placeholder: NONE
+                )
+            }
         }
-        minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_4.jpg" }) {
-            ...fadeIn
-        }
-        minsk_map: file(relativePath: { eq: "maps/map-minsk-career.png" }) {
-            ...fadeIn
+        minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 70
+                    placeholder: NONE
+                )
+            }
         }
     }
 `

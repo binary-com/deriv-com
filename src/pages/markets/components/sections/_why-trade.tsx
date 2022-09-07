@@ -14,6 +14,7 @@ type WhyTradeProps = {
 const Item = styled(Flex)`
     max-width: 18rem;
     width: 100%;
+    gap: 24px;
 
     img {
         width: 48px;
@@ -21,12 +22,11 @@ const Item = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        max-width: 19rem;
-        margin-top: 24px;
+        max-width: 18rem;
+        gap: 16px;
 
         ${Text} {
-            font-size: 2rem;
-            margin-top: 8px;
+            font-size: 14px;
         }
     }
 `
@@ -41,7 +41,8 @@ const ItemContainer = styled(Box)`
     @media ${device.tabletL} {
         flex-wrap: wrap;
         align-items: center;
-        margin: 0 0 32px 0;
+        margin: 20px 0 32px 0;
+        gap: 22px;
     }
     @media (max-width: 336px) {
         justify-content: center;
@@ -49,9 +50,10 @@ const ItemContainer = styled(Box)`
 `
 const StyledHeader = styled(Header)`
     font-size: 48px;
+
     @media ${device.tablet} {
         text-align: center;
-        max-width: unset;
+        max-width: 80vw;
         font-size: 28px;
         line-height: 1.5;
         margin-bottom: 8px;
@@ -60,16 +62,31 @@ const StyledHeader = styled(Header)`
 const StyledText = styled(Text)`
     margin-bottom: 80px;
     text-align: center;
+
     @media ${device.tabletL} {
-        font-size: 1.8rem;
-        padding: 0;
+        width: 88vw;
+        font-size: 16px;
+        margin: 30px 0;
+    }
+    @media ${device.mobileM} {
+        width: 88vw;
+        font-size: 14px;
     }
 `
 const StyledSection = styled(SectionContainer)`
     padding: 6rem 0;
 
     @media ${device.tabletL} {
-        padding: 40px 16px;
+        padding: 0 16px;
+    }
+`
+const StyledTextContent = styled(Text)`
+    text-align: center;
+    margin-top: 1.6rem;
+    font-size: 16px;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
     }
 `
 
@@ -92,11 +109,7 @@ export const WhyTrade = ({ children, header, description }: WhyTradeProps) => {
                             return (
                                 <Item key={idx} ai="center" direction="column">
                                     {icon}
-                                    {
-                                        <Text align="center" mt="1.6rem">
-                                            {text}
-                                        </Text>
-                                    }
+                                    {<StyledTextContent>{text}</StyledTextContent>}
                                 </Item>
                             )
                         }

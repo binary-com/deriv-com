@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import NavMarkets from 'components/layout/nav/nav-markets'
-import { Container, Flex } from 'components/containers'
+import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
 import BannerBg from 'images/common/markets/hero-derived-fx.png'
@@ -16,7 +16,7 @@ const BackgroundWrapper = styled.div`
     min-height: 38.3rem;
 
     @media ${device.tabletL} {
-        height: unset;
+        min-height: 500px;
     }
 `
 const StyledContainer = styled(Container)`
@@ -40,38 +40,51 @@ const StyledContainer = styled(Container)`
         line-height: 1.5;
     }
     @media ${device.tabletL} {
-        padding: 12.5rem 0;
+        padding: 4rem 2.3rem;
+        top: 0;
+        gap: 20px;
 
         h1 {
-            text-align: left;
+            text-align: center;
         }
         h4 {
-            text-align: left;
+            text-align: center;
         }
+    }
+    @media ${device.mobileM} {
+        padding: 4rem 1.3rem;
     }
 `
 const MarketSubHeader = styled(Header)`
     font-size: 16px;
+
     @media ${device.tabletL} {
-        font-size: 18px;
-        margin-top: 16px;
         line-height: 28px;
+        width: 86vw;
     }
-`
-const ImageWrapper = styled(Flex)`
-    position: absolute;
-    height: 100%;
+    @media ${device.mobileM} {
+        font-size: 14px;
+        width: 83vw;
+    }
 `
 const StyledHeader = styled(Header)`
     font-size: 48px;
     color: white;
+
+    @media ${device.tabletL} {
+        font-size: 32px;
+        text-align: center;
+    }
 `
 const StyledButton = styled(Button)`
     border-radius: 4px;
     margin-top: 20px;
+
     @media ${device.tabletL} {
+        width: 90vw;
         font-size: 1.75rem;
         padding: 1.25rem 4.75rem;
+        margin-top: 16px;
     }
 `
 type MarketProps = {

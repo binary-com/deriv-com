@@ -27,7 +27,7 @@ const AvailableTrades = ({
                 />
             </Show.Desktop>
             <Show.Mobile min_width="tablet">
-                <AvailableTradesMobile
+                <AvailableTradesDesktop
                     CFDs={CFDs}
                     DigitalOptions={DigitalOptions}
                     Multipliers={Multipliers}

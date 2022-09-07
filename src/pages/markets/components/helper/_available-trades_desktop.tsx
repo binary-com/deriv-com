@@ -29,14 +29,15 @@ const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
     margin-bottom: 80px;
     @media ${device.tabletL} {
-        padding: 40px 0;
+        padding: 20px 0;
+        margin-bottom: 0;
     }
 `
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        max-width: 280px;
-        font-size: 4rem;
+        max-width: 320px;
+        font-size: 24px;
         margin: 0 auto;
     }
 `
@@ -46,7 +47,6 @@ const StyledContainer = styled(Container)`
 
     @media ${device.tabletL} {
         width: 100%;
-        margin-top: 0;
     }
 `
 
@@ -122,7 +122,6 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         left: 1px;
         z-index: -1;
         border-bottom: none;
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
             if (props.active_tab === props.name)
                 return css`
@@ -135,9 +134,9 @@ const CardContainer = styled(Flex)<CardContainerProps>`
     }
 
     @media ${device.tabletL} {
-        height: 35px;
+        height: 48px;
         min-width: unset;
-        padding-right: 25px;
+        padding: 8px 16px;
 
         &:last-child {
             padding-right: 40px;

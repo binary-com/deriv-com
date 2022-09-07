@@ -9,13 +9,13 @@ import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/ele
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
-import Basket from 'images/svg/custom/basket-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
 import Commodities from 'images/svg/custom/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
+import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivLife from 'images/svg/menu/deriv-life.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
@@ -41,7 +41,6 @@ import Status from 'images/svg/elements/status.svg'
 import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
 import Story from 'images/svg/menu/story.svg'
-import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
@@ -313,6 +312,18 @@ export const OffCanvasMenuWrapper = (props) => {
                     >
                         <Flex mb="3.2rem">
                             <NavCard
+                                aria_label="Derived"
+                                icon={() => <img src={DerivedFX} alt="" width="32" height="32" />}
+                                content={
+                                    <Localize translate_text="Enjoy trading asset prices derived<br/> from real-world or simulated markets." />
+                                }
+                                title={<Localize translate_text="Derived" />}
+                                onClick={handleArrowClick}
+                                to="/markets/derived-fx/"
+                            />
+                        </Flex>
+                        <Flex mb="3.2rem">
+                            <NavCard
                                 aria_label="Forex"
                                 icon={() => <img src={Forex} alt="" width="32" height="32" />}
                                 content={
@@ -323,34 +334,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/markets/forex/"
                             />
                         </Flex>
-                        {!props.is_ppc && !is_uk_country && (
-                            <Flex mb="3.2rem">
-                                <NavCard
-                                    aria_label="Synthetic indices"
-                                    icon={() => (
-                                        <img src={SyntheticIndices} alt="" width="32" height="32" />
-                                    )}
-                                    content={
-                                        <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
-                                    }
-                                    title={<Localize translate_text="Synthetic indices" />}
-                                    onClick={handleArrowClick}
-                                    to="/markets/synthetic/"
-                                />
-                            </Flex>
-                        )}
-                        <Flex mb="3.2rem">
-                            <NavCard
-                                aria_label="Derived FX"
-                                icon={() => (
-                                    <img src={SyntheticIndices} alt="" width="32" height="32" />
-                                )}
-                                content={<Localize translate_text="New hybrid indices" />}
-                                title={<Localize translate_text="Derived FX" />}
-                                onClick={handleArrowClick}
-                                to="/markets/derived-fx/"
-                            />
-                        </Flex>
+
                         <Flex mb="3.2rem">
                             <NavCard
                                 aria_label="Stocks & indices"
@@ -381,20 +365,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 />
                             </Flex>
                         )}
-                        <ROW>
-                            <Flex mb="3.2rem">
-                                <NavCard
-                                    aria_label="Basket indices"
-                                    icon={() => <img src={Basket} alt="" width="32" height="32" />}
-                                    content={
-                                        <Localize translate_text="Trade weighted indices that measure the value of a currency against a basket of major currencies." />
-                                    }
-                                    title={<Localize translate_text="Basket indices" />}
-                                    onClick={handleArrowClick}
-                                    to="/markets/basket-indices/"
-                                />
-                            </Flex>
-                        </ROW>
+
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"

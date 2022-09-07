@@ -34,13 +34,12 @@ type CardContainerProps = {
 }
 
 const StyledSection = styled(SectionContainer)`
-    background-color: rgba(229, 229, 229, 0.25);
     padding: 40px 0;
 `
 
 const StyledHeader = styled(Header)`
-    max-width: 280px;
-    font-size: 4rem;
+    max-width: 320px;
+    font-size: 24px;
     margin: 0 auto;
 `
 

@@ -264,6 +264,15 @@ const MobileCardContainer = styled(Flex)`
         margin-top: 0;
     }
 `
+const StyledSectionContainer = styled(SectionContainer)`
+    padding: 100px 0;
+    margin: auto;
+    background: #f9fbff;
+
+    @media ${device.tabletL} {
+        background: white;
+    }
+`
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const { is_uk, is_eu } = useCountryRule()
@@ -296,7 +305,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
     )
 
     return (
-        <SectionContainer padding="100px 0" margin="auto" background="#f9fbff">
+        <StyledSectionContainer>
             <Desktop max_width="mobileL">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
@@ -321,7 +330,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     )}
                 </MobileCardContainer>
             </Mobile>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

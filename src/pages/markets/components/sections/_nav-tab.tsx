@@ -18,12 +18,22 @@ type TabButtonProps = {
 const TabsContainer = styled(Flex)`
     justify-content: center;
     margin-top: 24px;
+
+    @media ${device.tabletL} {
+        margin-top: 20px;
+    }
+`
+const StyledFlex = styled(Flex)`
+    flex-direction: column;
+    @media ${device.tabletL} {
+        padding: 0;
+    }
 `
 const TabList = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
-    overflow: auto;
+    overflow: hidden;
     padding-top: 2.4rem;
     gap: 16px;
 
@@ -31,7 +41,10 @@ const TabList = styled.div`
         justify-content: start;
         overflow-x: scroll;
         scroll-behavior: smooth;
-        padding-top: 16px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 `
 
@@ -55,9 +68,9 @@ const TabButton = styled.button<TabButtonProps>`
         props.selected &&
         css`
             background: white;
-
             ${Text} {
                 font-weight: bold;
+                color: black;
             }
         `}
     &:hover,
@@ -69,10 +82,15 @@ const TabButton = styled.button<TabButtonProps>`
 const TextWrapper = styled(Text)`
     text-align: center;
     font-size: var(--text-size-m);
-    color: var(--color-black);
+    color: #999999;
+    ${(props) =>
+        props.selected &&
+        css`
+            color: black;
+        `}
 
     @media ${device.tabletS} {
-        font-size: 24px;
+        font-size: 18px;
     }
 `
 const LineDivider = styled.div`
@@ -146,7 +164,7 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
 
     return (
         <TabsContainer>
-            <Flex direction="column">
+            <StyledFlex>
                 <TabList ref={ref}>
                     {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
                         return (
@@ -159,7 +177,7 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
                     })}
                     <LineDivider />
                 </TabList>
-            </Flex>
+            </StyledFlex>
         </TabsContainer>
     )
 }

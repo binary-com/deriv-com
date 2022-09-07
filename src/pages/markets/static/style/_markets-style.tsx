@@ -115,10 +115,6 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
         gap: 10px;
         grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
     }
-
-    @media ${device.mobileL} {
-        grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 1}, 1fr)`};
-    }
 `
 export const DerivedMarketsList = styled(CssGrid)<MarketsListProps>`
     ${({ flex }) => flex && 'display:flex;'};
@@ -167,6 +163,7 @@ export const LatestMarketsList = styled(CssGrid)<LatestMarketsListProps>`
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
         padding: 16px 8px;
         gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '8px 0')};
+        align-items: center;
     }
 `
 export const MarketsWrapper = styled(Flex)`
@@ -199,7 +196,8 @@ export const StyledText = styled(Text)<StyledTextProps>`
     }
 
     @media ${device.mobileL} {
-        max-width: 328px;
+        padding: 0 20px;
+        font-size: 14px;
     }
 `
 

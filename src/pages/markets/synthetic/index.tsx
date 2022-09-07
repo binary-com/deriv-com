@@ -17,7 +17,7 @@ const Markets = () => (
             title={localize('Synthetic indices | Volatility indices | Deriv')}
         />
         <DerivedFXHero
-            title="Synthetic Indices"
+            title="Derived"
             description="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetic indices, derived FX indices, and basket indices."
         />
         <NavTab route_from={'synthetic'} route_offset={50} />

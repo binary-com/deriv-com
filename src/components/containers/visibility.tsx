@@ -1,11 +1,11 @@
-import React, { ReactElement, useEffect, useLayoutEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useLayoutEffect, useState } from 'react'
 import styled from 'styled-components'
 import { size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ResponsiveContainerProps = {
-    children: ReactElement
+    children: ReactNode
     breakpoint?: number | SizeType
     className?: string
 }
@@ -13,14 +13,16 @@ type ResponsiveContainerProps = {
 type CountryRuleType =
     | 'is_eu'
     | 'is_uk'
+    | 'is_latam'
     | 'is_non_uk'
     | 'is_non_eu'
     | 'is_uk_eu'
     | 'is_row'
     | 'is_dev'
+    | 'is_africa'
 
 type CountryBasedContentProps = {
-    children: ReactElement
+    children: ReactNode
     country_rule: CountryRuleType
 }
 

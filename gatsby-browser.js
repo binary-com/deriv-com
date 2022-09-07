@@ -131,11 +131,6 @@ export const onClientEntry = () => {
     if (isLive()) {
         pushwooshInit(push_woosh)
     }
-    // Add VWO script for test domain
-    addScript({
-        text: `
-        window._vwo_code=window._vwo_code||function(){var b="body",c=!1,d=document,a={use_existing_jquery:function(){return!1},library_tolerance:function(){return 2500},finish:function(){if(!c){c=!0;var a=d.getElementById("_vis_opt_path_hides");a&&a.parentNode.removeChild(a)}},finished:function(){return c},load:function(b){var a=d.createElement("script");a.src=b,a.type="text/javascript",a.innerText,a.onerror=function(){_vwo_code.finish()},d.getElementsByTagName("head")[0].appendChild(a)},init:function(){window.settings_timer=setTimeout(function(){_vwo_code.finish()},2e3);var a=d.createElement("style"),c=b?b+"{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}":"",e=d.getElementsByTagName("head")[0];return a.setAttribute("id","_vis_opt_path_hides"),a.setAttribute("type","text/css"),a.styleSheet?a.styleSheet.cssText=c:a.appendChild(d.createTextNode(c)),e.appendChild(a),this.load("https://dev.visualwebsiteoptimizer.com/j.php?a=629574&u="+encodeURIComponent(d.URL)+"&f=1&r="+Math.random()),settings_timer}};return window._vwo_settings_timer=a.init(),a}()`,
-    })
 
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {

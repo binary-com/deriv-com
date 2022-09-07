@@ -24,7 +24,7 @@ const query = graphql`
                 )
             }
         }
-        minsk_grid_2: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {
+        minsk_grid_2: file(relativePath: { eq: "careers/minsk_grid_2.jpg" }) {
             childImageSharp {
                 gatsbyImageData(
                     formats: [AUTO, WEBP]
@@ -34,7 +34,7 @@ const query = graphql`
                 )
             }
         }
-        minsk_grid_3: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {
+        minsk_grid_3: file(relativePath: { eq: "careers/minsk_grid_3.jpg" }) {
             childImageSharp {
                 gatsbyImageData(
                     formats: [AUTO, WEBP]
@@ -44,7 +44,7 @@ const query = graphql`
                 )
             }
         }
-        minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {
+        minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_4.jpg" }) {
             childImageSharp {
                 gatsbyImageData(
                     formats: [AUTO, WEBP]

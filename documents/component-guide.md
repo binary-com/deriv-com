@@ -135,7 +135,7 @@ const YourComponent = () => {
 -   Headers will take a `type` prop for responsive sizes between mobile and desktop to avoid excessive use of media queries (in hopes to be more aligned with design team)
 -   Type prop will take either `display-title` , `page-title` , `section-title` , `sub-section-title` , `main-paragraph` or `sub-paragraph`
 -   Do add `as` prop for semantic tags to improve our SEO
--   Do refer to [typography.js](https://github.com/binary-com/deriv-com/blob/master/src/components/elements/typography.js) for the breakdown of different sizing across desktop and mobile
+-   Do refer to [typography.ts](https://github.com/binary-com/deriv-com/blob/master/src/components/elements/typography.ts) for the breakdown of different sizing across desktop and mobile
 -   For any required sizes for desktop/mobile outside the sizes of the design guideline, you can extend via styled components
 
 Usage example:

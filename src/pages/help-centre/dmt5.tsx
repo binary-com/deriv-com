@@ -159,6 +159,42 @@ const DifferenceDMT5DTrader = ({ text }: ArticleProps) => {
     )
 }
 
+const DifferenceDMT5DTraderEU = ({ text }: ArticleProps) => {
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <StyledText>
+                <Localize
+                    translate_text="<0>DTrader</0> offers multipliers trading on a range of underlying assets such as forex, cryptocurrencies, and derived. This platform allows you to open multipliers trades that offer the opportunity to multiply potential profit without risking more than your stake. You may find it more intuitive if you're new to the trading world."
+                    components={[
+                        <ExternalLink
+                            to={'/dtrader/'}
+                            external
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={0}
+                        />,
+                    ]}
+                />
+            </StyledText>
+            <StyledText>
+                <Localize
+                    translate_text="<0>Deriv MT5</0> offers CFD trading on a similar range of assets, where you're able to open positions with leverage and your potential profit is only known when you close your positions. It's riskier than multipliers trading because while you may potentially gain a lot if you win, you may also lose a lot if you don't. Deriv MT5 is popular among our traders who enjoy the risks as part of the excitement of CFD trading."
+                    components={[
+                        <ExternalLink
+                            to={'/dmt5/'}
+                            external
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={0}
+                        />,
+                    ]}
+                />
+            </StyledText>
+        </ArticleWrapper>
+    )
+}
+
 const DifferentAccounts = ({ text }: ArticleProps) => {
     return (
         <ArticleWrapper>
@@ -583,13 +619,23 @@ const DMT5Article = () => {
                     label="what-is-dmt5"
                     is_mounted={is_mounted}
                 />
-                <DifferenceDMT5DTrader
-                    text={localize(
-                        'What are the main differences between your digital options and CFD platforms?',
-                    )}
-                    label="differences-of-dtrader-and-dmt5"
-                    is_mounted={is_mounted}
-                />
+                {is_eu_country ? (
+                    <DifferenceDMT5DTraderEU
+                        text={localize(
+                            'What are the main differences between your multipliers and CFD platforms?',
+                        )}
+                        label="differences-of-multipliers-and-cfd"
+                        is_mounted={is_mounted}
+                    />
+                ) : (
+                    <DifferenceDMT5DTrader
+                        text={localize(
+                            'What are the main differences between your digital options and CFD platforms?',
+                        )}
+                        label="differences-of-dtrader-and-dmt5"
+                        is_mounted={is_mounted}
+                    />
+                )}
                 {is_eu_country ? (
                     <WhatIsCFDsAccount
                         text={localize('What is the CFDs account?')}

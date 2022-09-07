@@ -172,6 +172,12 @@ export const articles: ArcticlesType[] = [
                 label: 'what-is-forex',
             },
             {
+                title: <Localize translate_text="What is Derived?" />,
+                category: 'Trading',
+                sub_category: <Localize translate_text="Markets" />,
+                label: 'what-is-derived',
+            },
+            {
                 title: <Localize translate_text="What are commodities?" />,
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,
@@ -533,6 +539,10 @@ export const articles: ArcticlesType[] = [
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'differences-of-dtrader-and-dmt5',
+                title_eu: (
+                    <Localize translate_text="What are the main differences between your multipliers and CFD platforms?" />
+                ),
+                label_eu: 'differences-of-multipliers-and-cfd',
             },
             {
                 title: (

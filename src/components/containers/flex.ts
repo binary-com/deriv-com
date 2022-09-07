@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import Box, { generateResponsiveStyles } from './box'
+import Box, { BaseStyleType, generateResponsiveStyles, ResponseDeviceProps } from './box'
 import device from 'themes/device'
 
 export const flexStyles = ({ jc, ai, fw, fd }) => css`
@@ -18,13 +18,13 @@ type FlexType = {
     fw?: string
     jc?: string
     ai?: string
-    direction?: string
     fd?: string
     tablet_direction?: string
     tablet_ai?: string
     tablet_jc?: string
     tablet_fw?: string
-}
+} & ResponseDeviceProps &
+    BaseStyleType
 
 const Flex = styled(Box)<FlexType>`
     display: flex;

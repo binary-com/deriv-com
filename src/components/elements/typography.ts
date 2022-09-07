@@ -1,10 +1,11 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { generateResponsiveStyles } from '../containers/box'
+import { generateResponsiveStyles, ResponseDeviceProps } from '../containers/box'
 import { Margins, MarginsType, Paddings, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
 type Types =
+    | 'unset'
     | 'main-landing-title'
     | 'display-title'
     | 'page-title'
@@ -106,7 +107,7 @@ export const BaseElement = css<BaseElementProps>`
 /////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-export const Text = styled.p<BaseElementProps>`
+export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
     ${BaseElement}
     font-weight: ${(props) => props.weight || 'normal'};
     font-size: ${(props) => props.size || '1.6rem'};
@@ -125,8 +126,8 @@ export const Text = styled.p<BaseElementProps>`
 type HeaderProps = {
     as?: string
     children?: React.ReactNode
-    tabletL?: { type?: Types }
-} & BaseElementProps
+} & ResponseDeviceProps &
+    BaseElementProps
 
 export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     createElement(as, props, children),

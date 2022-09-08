@@ -82,14 +82,7 @@ export const SharedLinkStyle = css<SharedLinkStyleProps>`
         `}
 `
 
-const StyledAnchor = styled.a`
-`
-
-const StyledAnchorLink = styled(AnchorLink)`
-`
-
-const StyledGatsbyLink = styled(GatsbyLink)`
-`
+const StyledGatsbyLink = styled(GatsbyLink)``
 
 export const LocalizedLink = React.forwardRef(
     ({ external, ...props }: LocalizedLinkProps, ref: Ref<GatsbyLink<string>>) => {
@@ -138,7 +131,7 @@ const InternalLink = ({
 
     if (is_anchor) {
         return (
-            <StyledAnchorLink title={aria_label} to={internal_to} {...props} />
+            <AnchorLink title={aria_label} to={internal_to} {...props} />
         )
     }
     return (
@@ -230,7 +223,7 @@ const ExternalLink = ({
     }
 
     return (
-        <StyledAnchor
+        <a
             style={style ? style : default_style}
             aria-label={aria_label}
             href={!show_modal ? url : ''}
@@ -240,6 +233,6 @@ const ExternalLink = ({
             {...props}
         >
             {children}
-        </StyledAnchor>
+        </a>
     )
 }

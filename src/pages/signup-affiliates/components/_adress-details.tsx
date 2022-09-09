@@ -100,20 +100,19 @@ const AccountDetails = ({
                 setResidenceList(residence_list_response)
             }
         })
-    }, [send])
+    }, [send, state])
 
-    const validate = !(
-        country_error_msg ||
-        !country ||
-        !state ||
-        !city ||
-        !street ||
-        !postal_code ||
-        state_error_msg ||
-        city_error_msg ||
-        street_error_msg ||
-        postcode_error_msg
-    )
+    const validate =
+        country ||
+        state ||
+        city ||
+        street ||
+        postal_code ||
+        !country_error_msg ||
+        !state_error_msg ||
+        !city_error_msg ||
+        !street_error_msg ||
+        !postcode_error_msg
 
     useEffect(() => {
         onValidate(validate)

@@ -69,7 +69,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     type="submit"
-                    secondary="true"
+                    secondary
                     to={'/signup/'}
                 >
                     {btnlabel}

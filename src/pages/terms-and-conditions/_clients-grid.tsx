@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
-import { Show } from 'components/containers'
+import { EU, NonEU } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
@@ -34,17 +34,17 @@ const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => (
             {title}
         </Header>
         <Text lh="1.55">{content}</Text>
-
-        {non_eu_links?.map((link, index) => (
-            <Cta key={index}>
-                <img src={PDF} alt="pdf icon black" />
-                <a href={link.url} target="_blank" rel="noopener noreferrer">
-                    {link.title}
-                </a>
-            </Cta>
-        ))}
-
-        <Show.Eu>
+        <NonEU>
+            {non_eu_links?.map((link, index) => (
+                <Cta key={index}>
+                    <img src={PDF} alt="pdf icon black" />
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link.title}
+                    </a>
+                </Cta>
+            ))}
+        </NonEU>
+        <EU>
             {eu_links?.map((link, index) => (
                 <Cta key={index}>
                     <img src={PDF} alt="pdf icon black" />
@@ -53,7 +53,7 @@ const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => (
                     </a>
                 </Cta>
             ))}
-        </Show.Eu>
+        </EU>
     </GridCol>
 )
 
@@ -63,6 +63,12 @@ const IconGrid = () => {
             Icon: General,
             title: localize('General terms of use'),
             content: localize('What you’re agreeing to when you sign up to use Deriv'),
+            eu_links: [
+                {
+                    url: '/tnc/general-terms.pdf',
+                    title: localize('General terms of use'),
+                },
+            ],
             non_eu_links: [
                 {
                     url: '/tnc/general-terms.pdf',
@@ -74,6 +80,12 @@ const IconGrid = () => {
             Icon: Trading,
             title: localize('Trading terms'),
             content: localize('Rules for making trades on any Deriv trading platform'),
+            eu_links: [
+                {
+                    url: '/tnc/trading-terms.pdf',
+                    title: localize('Trading terms'),
+                },
+            ],
             non_eu_links: [
                 {
                     url: '/tnc/trading-terms.pdf',
@@ -87,6 +99,12 @@ const IconGrid = () => {
             content: localize(
                 'Terms that govern keeping and transferring funds in Deriv and the bonuses you might get',
             ),
+            eu_links: [
+                {
+                    url: '/tnc/funds-and-transfers.pdf',
+                    title: localize('Funds & transfers'),
+                },
+            ],
             non_eu_links: [
                 {
                     url: '/tnc/funds-and-transfers.pdf',
@@ -98,6 +116,13 @@ const IconGrid = () => {
             Icon: Security,
             title: localize('Security & privacy'),
             content: localize('How we use and protect the information you give us'),
+
+            eu_links: [
+                {
+                    url: '/tnc/security-and-privacy.pdf',
+                    title: localize('Security & privacy'),
+                },
+            ],
             non_eu_links: [
                 {
                     url: '/tnc/security-and-privacy.pdf',
@@ -111,6 +136,12 @@ const IconGrid = () => {
             content: localize(
                 'A notice to help you understand the risks that might arise when you trade on Deriv',
             ),
+            eu_links: [
+                {
+                    url: '/tnc/risk-disclosure-eu.pdf',
+                    title: localize('Risk disclosure'),
+                },
+            ],
             non_eu_links: [
                 {
                     url: '/tnc/risk-disclosure.pdf',
@@ -124,6 +155,14 @@ const IconGrid = () => {
             content: localize(
                 'Additional terms and restrictions for Deriv clients in certain countries',
             ),
+
+            eu_links: [
+                {
+                    url: '/tnc/deriv-investments-(europe)-limited.pdf',
+                    title: localize('Deriv Investments (Europe) Limited'),
+                },
+            ],
+
             non_eu_links: [
                 {
                     url: '/tnc/deriv-(fx)-ltd.pdf',

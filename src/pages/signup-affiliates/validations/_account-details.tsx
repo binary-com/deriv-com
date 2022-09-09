@@ -153,6 +153,14 @@ const validation = {
         return passwordValidation(input, localize('Password'), 6, 50)
     },
     currency: (input) => (!input ? localize('Currency is required') : null),
+    company_name: (input) => {
+        return textValidation(input, localize('Company name'), 2, 70)
+    },
+    company_registration_number: (input) => {
+        return postcodeValidation(input, localize('Company registeration number'), 2, 70)
+    },
+    certificate: (input) => {
+        return textValidation(input, localize('certificate'), 2, 70)
+    },
 }
-
 export default validation

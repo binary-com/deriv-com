@@ -1,9 +1,37 @@
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import Box from './box'
 import device from 'themes/device'
 
-const CssGrid = styled(Box)`
+type CssGridType = {
+    align?: string
+    bgcolor?: string
+    column_gap?: string
+    rows?: string
+    columns?: string
+    grid_gap?: string
+    justify?: string
+    margin?: string
+    row_gap?: string
+    height?: string
+    padding?: string
+    laptop_columns?: string
+    laptop_grid_gap?: string
+    laptop_rows?: string
+    laptop_column_gap?: string
+    laptop_row_gap?: string
+    tablet_columns?: string
+    tablet_grid_gap?: string
+    tablet_rows?: string
+    tablet_column_gap?: string
+    tablet_row_gap?: string
+    mobile_columns?: string
+    mobile_grid_gap?: string
+    mobile_rows?: string
+    mobile_column_gap?: string
+    mobile_row_gap?: string
+}
+
+const CssGrid = styled(Box)<CssGridType>`
     display: grid;
     height: ${(props) => props.height || '100%'};
     margin: ${(props) => props.margin || '0'};
@@ -44,7 +72,9 @@ const CssGrid = styled(Box)`
     }
 `
 
-export const CssGridColumn = styled.div`
+type CssGridColumnType = Pick<CssGridType, 'padding' | 'align' | 'justify' | 'bgcolor' | 'height'>
+
+export const CssGridColumn = styled.div<CssGridColumnType>`
     padding: ${(props) => props.padding || '0'};
     align-self: ${(props) => props.align || 'stretch'};
     justify-self: ${(props) => props.justify || 'initial'};
@@ -53,20 +83,3 @@ export const CssGridColumn = styled.div`
 `
 
 export default CssGrid
-
-CssGrid.propTypes = {
-    align: PropTypes.string,
-    bgcolor: PropTypes.string,
-    column_gap: PropTypes.string,
-    columns: PropTypes.string,
-    justify: PropTypes.string,
-    margin: PropTypes.string,
-    row_gap: PropTypes.string,
-}
-CssGridColumn.propTypes = {
-    align: PropTypes.string,
-    bgcolor: PropTypes.string,
-    height: PropTypes.string,
-    justify: PropTypes.string,
-    padding: PropTypes.string,
-}

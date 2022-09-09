@@ -357,7 +357,7 @@ export const NavCard = ({ content, external, icon: Icon, style, title, ...props 
                     <ResponsiveHeader as="span" size="var(--text-size-s)" lh="1.14" mb="0.8rem">
                         {title}
                     </ResponsiveHeader>
-                    <ResponsiveText color="grey-5">{content}</ResponsiveText>
+                    <ResponsiveText>{content}</ResponsiveText>
                 </NavContent>
                 {external && (
                     <div>

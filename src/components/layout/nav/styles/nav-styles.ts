@@ -58,7 +58,18 @@ export const DesktopWrapper = styled.div<DesktopWrapperProps>`
         display: none;
     }
 `
+export const MarketWrapper = styled.div<DesktopWrapperProps>`
+    display: block;
+    @media ${device.tabletL} {
+        justify-content: start;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
 
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+`
 export const MobileWrapper = styled.div<DesktopWrapperProps>`
     display: none;
     @media ${({ media }) => media || device.tabletL} {
@@ -165,6 +176,9 @@ export const NavLink = styled.li<NavLinkProps>`
 
     @media ${device.laptopM} {
         margin-right: 1rem;
+    }
+    @media ${device.tabletL} {
+        margin-right: 4rem;
     }
 
     ${({ margin }) => margin && 'margin: 0 4rem;'}

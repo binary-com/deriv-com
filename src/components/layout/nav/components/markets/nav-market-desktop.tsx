@@ -1,11 +1,16 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { NavLink, StyledLinkMarket, DesktopWrapper, Wrapper } from '../../styles/nav-styles'
+import { NavLink, StyledLinkMarket, MarketWrapper, Wrapper } from '../../styles/nav-styles'
+import device from 'themes/device'
 import { localize } from 'components/localization'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 
 const StyledWrapper = styled(Wrapper)`
     justify-content: center;
+
+    @media ${device.tabletL} {
+        justify-content: flex-start;
+    }
 `
 const NavigationBar = styled.ul`
     display: flex;
@@ -17,6 +22,7 @@ const NavigationBar = styled.ul`
 
     @media (max-width: 1300px) {
         font-size: 12px;
+        margin-left: 0;
     }
 `
 type NavLinkCardTypes = {
@@ -47,7 +53,7 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
 
 const NavMarketDesktop = () => {
     return (
-        <DesktopWrapper>
+        <MarketWrapper>
             <StyledWrapper>
                 <NavigationBar>
                     <NavLinkCard
@@ -74,7 +80,7 @@ const NavMarketDesktop = () => {
                     />
                 </NavigationBar>
             </StyledWrapper>
-        </DesktopWrapper>
+        </MarketWrapper>
     )
 }
 

@@ -5,6 +5,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { LocationContext } from '../layout/location-context.js'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
+import device from 'themes/device'
 import { localized_link_url } from 'common/constants'
 import {
     getLocalizedUrl,
@@ -109,6 +110,10 @@ export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
         css`
             color: gray;
         `}
+
+    @media ${device.laptopL} {
+        font-size: 14px;
+    }
 `
 const ShareDisabledStyle = css<{ disabled: boolean }>`
     ${({ disabled }) =>

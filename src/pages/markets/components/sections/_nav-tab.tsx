@@ -27,6 +27,7 @@ const StyledFlex = styled(Flex)`
     flex-direction: column;
     @media ${device.tabletL} {
         padding: 0;
+        width: 90%;
     }
 `
 const TabList = styled.div`
@@ -41,6 +42,7 @@ const TabList = styled.div`
         justify-content: start;
         overflow-x: scroll;
         scroll-behavior: smooth;
+        gap: 16px;
 
         &::-webkit-scrollbar {
             display: none;
@@ -77,6 +79,11 @@ const TabButton = styled.button<TabButtonProps>`
     &:focus,
     &:active {
         background: white;
+    }
+
+    @media ${device.tabletL} {
+        height: 40px;
+        padding: 24px 12px;
     }
 `
 const TextWrapper = styled(Text)`
@@ -116,7 +123,7 @@ type TabList = {
 }
 const tab_list: TabList[] = [
     {
-        title: <Localize translate_text="Synthetic indices" />,
+        title: <Localize translate_text="Synthetics" />,
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/',
     },
@@ -134,7 +141,7 @@ const tab_list: TabList[] = [
 
 const tab_list_eu: TabList[] = [
     {
-        title: <Localize translate_text="Synthetic indices" />,
+        title: <Localize translate_text="Synthetics" />,
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/',
     },

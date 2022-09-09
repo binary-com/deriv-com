@@ -123,25 +123,26 @@ const MobileWrapper = styled.div`
         display: block;
     }
 `
+
+type LocaleType = { language?: string }
+
 type PaymentType = {
-    method?: string | ReactElement
+    method?: ReactElement
     currencies?: string | ReactElement
-    min_max_deposit?: string | ReactElement
-    min_max_withdrawal?: string | ReactElement
-    deposit_time?: string | ReactElement
-    withdrawal_time?: string | ReactElement
-    description?: string | ReactElement
+    min_max_deposit?: ReactElement
+    min_max_withdrawal?: ReactElement
+    deposit_time?: ReactElement
+    withdrawal_time?: ReactElement
+    description?: ReactElement
     name?: string
     reference?: string
     locales?: string[]
     url?: string
-    reference_link?: string | ReactElement
+    reference_link?: ReactElement
 }
 export type PaymentProps = {
     payment_data?: PaymentType
-    locale?: {
-        locale?: { language?: string }
-    }
+    locale?: { locale?: LocaleType }
     is_crypto?: boolean
     is_fiat_onramp?: boolean
     is_dp2p?: boolean
@@ -152,7 +153,7 @@ export type PaymentDataProps = {
     is_crypto?: boolean
     is_dp2p?: boolean
     is_fiat_onramp?: boolean
-    locale?: object
+    locale?: LocaleType
     data?: Array<PaymentType>
 }
 export type PaymentMethodsProps = {
@@ -204,7 +205,10 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 
                 if (pd.is_crypto && is_eu_country) {
                     return []
-                } else if (pd.is_dp2p && !is_p2p_allowed_country && is_eu_country) {
+                }
+                if (pd.is_fiat_onramp && is_eu_country) {
+                    return []
+                } else if (pd.is_dp2p && !is_p2p_allowed_country) {
                     return []
                 } else
                     return (

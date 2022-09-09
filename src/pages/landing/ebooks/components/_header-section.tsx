@@ -12,10 +12,7 @@ type HeaderImageProps = {
     imgHeight: number
 }
 
-type HeaderSectionProps = HeaderAndHeroProps & {
-    imgHeight: number
-    imgWidth: number
-}
+type HeaderSectionProps = HeaderAndHeroProps & HeaderImageProps
 
 const MainWrapper = styled(Flex)`
     width: 100%;

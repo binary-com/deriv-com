@@ -22,7 +22,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:
-                  node-version: '14.x'
+                  node-version: '16.x'
             - name: Installing Crowdin     
               run: npm i -g @crowdin/cli
             - name: Pushing Strings & Translations ⬆️
@@ -52,7 +52,7 @@ jobs:
                       {
                         attachments: [{
                           color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                          text: `*[Deriv.com]*  New strings are ready for translation and uploaded on crowdin branch: *${{ github.event.workflow_run.head_branch }} *`
+                          text: `*[Deriv.com]*  New strings are ready for translation and uploaded on crowdin branch: *${{ github.event.workflow_run.head_branch }} (https://crowdin.com/project/deriv-com/content/files) *`
                         }]
                       }
               env:

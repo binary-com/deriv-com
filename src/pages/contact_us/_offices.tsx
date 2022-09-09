@@ -154,7 +154,7 @@ const ContinentHeader = styled(Header)`
     flex-grow: 0;
 
     :nth-child(2) {
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 
     @media ${device.mobileL} {
@@ -244,7 +244,7 @@ export const Offices = () => {
                                 <MapContainer>
                                     <LocalizedLink
                                         to="https://g.page/wojo-madeleine-coworking-paris-8?share"
-                                        external="true"
+                                        external
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -257,7 +257,7 @@ export const Offices = () => {
                                 </MapContainer>
                                 <LocalizedLinkText
                                     to="https://g.page/wojo-madeleine-coworking-paris-8?share"
-                                    external="true"
+                                    external
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     mt="0.8rem"
@@ -288,7 +288,7 @@ export const Offices = () => {
                                 <MapContainer>
                                     <LocalizedLink
                                         to="https://goo.gl/maps/kAwRSaSsk1ZNCtoy9"
-                                        external="true"
+                                        external
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -301,7 +301,7 @@ export const Offices = () => {
                                 </MapContainer>
                                 <LocalizedLinkText
                                     to="https://goo.gl/maps/kAwRSaSsk1ZNCtoy9"
-                                    external="true"
+                                    external
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     mt="0.8rem"
@@ -412,7 +412,7 @@ export const Offices = () => {
                                     <MapContainer>
                                         <LocalizedLink
                                             to="https://goo.gl/maps/taw811vL1Wht9z4YA"
-                                            external="true"
+                                            external
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -427,7 +427,7 @@ export const Offices = () => {
                                         <CountryText>Cyberjaya</CountryText>
                                         <LocalizedLinkText
                                             to="https://goo.gl/maps/taw811vL1Wht9z4YA"
-                                            external="true"
+                                            external
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >

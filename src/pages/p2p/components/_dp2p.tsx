@@ -53,7 +53,7 @@ const Content = styled.div<StyledProps>`
 
         @media ${device.tabletL} {
             text-align: center;
-            font-size: 16px;
+            font-size: 18px;
         }
     }
 

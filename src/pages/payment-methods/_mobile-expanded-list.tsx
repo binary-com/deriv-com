@@ -9,10 +9,11 @@ import { localize } from 'components/localization'
 import { Button } from 'components/form/'
 import device from 'themes/device'
 
-type StyledChevronType = {
+type StyledProps = {
     expanded?: boolean
+    is_expanded?: boolean
 }
-const StyledItemWrapper = styled(Flex)`
+const StyledItemWrapper = styled(Flex)<StyledProps>`
     border-bottom: ${(props) => (props.is_expanded ? '1px solid var(--color-grey-8)' : 'none')};
 `
 const StyledIconWrapper = styled.div`
@@ -20,7 +21,7 @@ const StyledIconWrapper = styled.div`
     max-width: 128px;
     margin-left: 16px;
 `
-const StyledChevron = styled.img<StyledChevronType>`
+const StyledChevron = styled.img<StyledProps>`
     height: 16px;
     width: 16px;
     margin: 26px 0 32px;
@@ -35,7 +36,7 @@ const HoverChevron = styled.div`
     align-items: center;
     margin-right: 16px;
 `
-const DetailsWrapper = styled(Flex)`
+const DetailsWrapper = styled(Flex)<StyledProps>`
     display: ${(props) => (props.is_expanded ? 'flex' : 'none')};
 `
 

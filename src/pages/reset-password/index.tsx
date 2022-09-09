@@ -8,8 +8,8 @@ import { Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
+import { useDerivWS } from 'store'
 
 type EmailType = { email: string }
 
@@ -47,36 +47,31 @@ const resetValidation = (values: EmailType) => {
     return errors
 }
 
-const resetSubmission = (values: EmailType, actions) => {
-    const binary_socket = BinarySocketBase.init()
-
-    binary_socket.onopen = () => {
-        binary_socket.send(
-            JSON.stringify({ verify_email: trimSpaces(values.email), type: 'reset_password' }),
-        )
-    }
-    binary_socket.onmessage = (msg: { data: string }) => {
-        const response = JSON.parse(msg.data)
-        actions.setSubmitting(false)
-        if (response.error) {
-            actions.setStatus({
-                error: response.error.message,
-            })
-            return
-        }
-
-        actions.resetForm({ email: '' })
-        actions.setStatus({
-            success: localize(
-                'Please check your email and click on the link provided to reset your password.',
-            ),
-        })
-        binary_socket.close()
-    }
-}
-
 const ResetPassword = () => {
     const initialValues: EmailType = { email: '' }
+
+    const { send } = useDerivWS()
+
+    const resetSubmission = (values: EmailType, actions) => {
+        send({ verify_email: trimSpaces(values.email), type: 'reset_password' }, (response) => {
+            actions.setSubmitting(false)
+
+            if (response.error) {
+                actions.setStatus({
+                    error: response.error.message,
+                })
+                return
+            }
+
+            actions.resetForm({ email: '' })
+            actions.setStatus({
+                success: localize(
+                    'Please check your email and click on the link provided to reset your password.',
+                ),
+            })
+        })
+    }
+
     return (
         <Layout type="static" margin_top="0">
             <SEO
@@ -151,7 +146,7 @@ const ResetPassword = () => {
                                 </StyledButton>
                                 <StyledButton
                                     id="dm-pass-reset-button"
-                                    secondary="true"
+                                    secondary
                                     disabled={isSubmitting}
                                     type="submit"
                                 >

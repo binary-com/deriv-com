@@ -229,7 +229,7 @@ const Dp2p = () => {
                         <ButtonLearnMore tertiary to="/p2p/">
                             {localize('Learn more')}
                         </ButtonLearnMore>
-                        <ButtonDp2p secondary="true" onClick={handleExternalLink}>
+                        <ButtonDp2p secondary onClick={handleExternalLink}>
                             {localize('Take me to DP2P')}
                         </ButtonDp2p>
                     </ButtonWrapper>

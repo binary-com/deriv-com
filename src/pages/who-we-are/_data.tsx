@@ -228,6 +228,18 @@ export const mobile_pins: MapPinType[] = [
         link: '/careers/locations/asuncion',
     },
     {
+        left: '31%',
+        top: '76%',
+        title: <Localize translate_text="Ciudad del Este, Paraguay" />,
+        link: '/careers/locations/ciudad',
+    },
+    {
+        left: '23.5%',
+        top: '50%',
+        title: <Localize translate_text="George Town, Cayman Islands" />,
+        link: '/careers/locations/georgetown',
+    },
+    {
         left: '48.5%',
         top: '35.5%',
         title: <Localize translate_text="Birkirkara, Malta" />,

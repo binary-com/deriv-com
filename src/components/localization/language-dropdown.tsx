@@ -63,7 +63,7 @@ const Absolute = styled.div<AbsoluteProps>`
         }
     }};
     left: -7rem;
-    max-height: 80vh;
+    max-height: 90vh;
     overflow: auto;
     background-color: var(--color-white);
     transition: opacity 0.35s ease-in-out;
@@ -129,7 +129,7 @@ const Item = styled.div<{ disabled: boolean }>`
     align-items: center;
     pointer-events: ${({ disabled }) => (disabled ? 'none' : 'all')};
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-    padding: 1rem 1.4rem 1.2rem 0.8rem;
+    padding: 0.8rem 1.4rem 0.4rem 0.8rem;
     transition: background 0.25s;
 
     &:hover {

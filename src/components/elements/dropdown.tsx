@@ -287,6 +287,7 @@ const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
+    color: var(--color-red-1);
 `
 
 const ContractSizeWrapper = styled(Text)`
@@ -354,7 +355,7 @@ export const BottomLabel = ({
 }: Pick<DropdownProps, 'error' | 'contractSize'>) => {
     return (
         <StyledDiv>
-            <ErrorMessages lh="1.4" align="left" color="red-1">
+            <ErrorMessages lh="1.4" align="left">
                 {error}
             </ErrorMessages>
 

@@ -14,6 +14,7 @@ import DMT5BG from 'images/svg/dmt5/dmt5-bg.svg'
 import DMT5BG2 from 'images/svg/dmt5/dmt5-bg2.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
+import { ContentType } from 'pages/landing/_types'
 
 const query = graphql`
     query {
@@ -22,7 +23,7 @@ const query = graphql`
         }
     }
 `
-const numbers_content = [
+const numbers_content: ContentType[] = [
     {
         title: <Localize translate_text="20+" />,
         subtitle: <Localize translate_text="years of experience" />,

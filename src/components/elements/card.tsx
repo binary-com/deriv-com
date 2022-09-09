@@ -246,6 +246,7 @@ const ResponsiveHeader = styled(Header)`
 const ResponsiveText = styled(Text)`
     transition: color 0.2s;
     font-size: var(--text-size-xs);
+    color: var(--color-grey-5);
 
     @media ${device.tabletL} {
         font-size: 14px;
@@ -332,7 +333,7 @@ export const NavCard = ({
                     <ResponsiveHeader as="span" size="var(--text-size-s)" lh="1.14" mb="0.8rem">
                         {title}
                     </ResponsiveHeader>
-                    <ResponsiveText color="grey-5">{content}</ResponsiveText>
+                    <ResponsiveText>{content}</ResponsiveText>
                 </NavContent>
                 {external && (
                     <div>

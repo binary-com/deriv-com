@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import SecureAccount from './_securing-account'
-import { SEO, SectionContainer, Container, Flex, Show } from 'components/containers'
+import { SEO, SectionContainer, Container, Flex, EU, NonEU } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
@@ -62,16 +62,16 @@ const ResponsibleTrading = () => {
                                 {localize('Secure and responsible trading')}
                             </StyledHeader>
                             <Text align="center" max_width="79.2rem" m="0 auto" color="white">
-                                <Show.Eu>
+                                <EU>
                                     {localize(
                                         'Trading online can be exciting, but it’s important to keep in mind that there are risks involved including addiction and financial losses. To avoid the danger of addiction, it is important that you engage in a careful self-analysis to check if you are at risk, and follow some basic principles and guidelines.',
                                     )}
-                                </Show.Eu>
-                                <Show.NonEU>
+                                </EU>
+                                <NonEU>
                                     {localize(
                                         'Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading.',
                                     )}
-                                </Show.NonEU>
+                                </NonEU>
                             </Text>
                         </Flex>
                     </Container>
@@ -79,9 +79,9 @@ const ResponsibleTrading = () => {
                 <SecureAccount />
                 <TradingResponsibly />
                 <TradingLimits />
-                <Show.Eu>
+                <EU>
                     <NeedHelp />
-                </Show.Eu>
+                </EU>
                 <RoleBanner />
             </Section>
         </Layout>

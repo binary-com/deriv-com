@@ -651,7 +651,6 @@ const DMT5Article = () => {
                         is_mounted={is_mounted}
                     />
                 )}
-
                 <WithdrawDMT5
                     text={localize(
                         'How can I withdraw funds from my Deriv MT5 real money account?',

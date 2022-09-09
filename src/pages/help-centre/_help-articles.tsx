@@ -2,17 +2,17 @@ import React from 'react'
 import { Localize } from 'components/localization'
 
 type ArticlesByCategoryType = {
-    title?: React.ReactElement
-    category?: string
-    sub_category?: React.ReactElement
-    label?: string
-    title_eu?: React.ReactElement
-    label_eu?: string
+    title: React.ReactNode
+    category: string
+    sub_category: React.ReactNode
+    label: string
+    hide_for_eu?: boolean
+    hide_for_non_eu?: boolean
 }[]
 
 export type ArcticlesType = {
     section: string
-    category: React.ReactElement
+    category: React.ReactNode
     articles: ArticlesByCategoryType
 }
 
@@ -539,10 +539,16 @@ export const articles: ArcticlesType[] = [
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'differences-of-dtrader-and-dmt5',
-                title_eu: (
+                hide_for_eu: true,
+            },
+            {
+                title: (
                     <Localize translate_text="What are the main differences between your multipliers and CFD platforms?" />
                 ),
-                label_eu: 'differences-of-multipliers-and-cfd',
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'differences-of-multipliers-and-cfd',
+                hide_for_non_eu: true,
             },
             {
                 title: (
@@ -551,8 +557,14 @@ export const articles: ArcticlesType[] = [
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Accounts" />,
                 label: 'differences-of-dmt5-accounts',
-                title_eu: <Localize translate_text="What is the CFDs account?" />,
-                label_eu: 'what-is-cfds-account',
+                hide_for_eu: true,
+            },
+            {
+                title: <Localize translate_text="What is the CFDs account?" />,
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Accounts" />,
+                label: 'what-is-cfds-account',
+                hide_for_non_eu: true,
             },
             {
                 title: (

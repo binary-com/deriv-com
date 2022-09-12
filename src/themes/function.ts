@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import { is_rtl } from 'components/localization/config'
 
 export type MarginsType = {
     m?: string
@@ -30,3 +31,16 @@ export const Paddings = ({ p, pt, pl, pr, pb }: PaddingsType) => css`
     padding-right: ${pr ? pr : null};
     padding-left: ${pl ? pl : null};
 `
+
+const default_styels = {
+    ltr_styles: css``,
+    rtl_styles: css``,
+}
+
+export const withLangDirection = (styles = default_styels) => {
+    const { rtl_styles, ltr_styles } = styles
+    if (is_rtl()) {
+        return rtl_styles
+    }
+    return ltr_styles
+}

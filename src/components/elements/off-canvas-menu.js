@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+import { withLangDirection } from 'themes/function'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex, ROW } from 'components/containers'
@@ -58,15 +59,16 @@ const OffCanvasMenu = styled.section`
     transition: transform 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     left: -254px;
-    ${({ is_canvas_menu_open, is_rtl }) => {
-        if (is_canvas_menu_open) {
-            if (is_rtl) {
-                return 'transform: translateX(-254px)'
-            }
-            return 'transform: translateX(254px)'
-        }
-        return null
-    }};
+    ${withLangDirection({
+        rtl_styles: css`
+            transform: ${({ is_canvas_menu_open }) =>
+                is_canvas_menu_open ? 'translateX(-254px)' : null};
+        `,
+        ltr_styles: css`
+            transform: ${({ is_canvas_menu_open }) =>
+                is_canvas_menu_open ? 'translateX(254px)' : null};
+        `,
+    })}
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`

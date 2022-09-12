@@ -8,6 +8,7 @@ import {
     NavMarket,
 } from 'components/custom/other-platforms.js'
 import { Container, Show, Flex } from 'components/containers'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const FadeInDown = keyframes`
     from {
@@ -22,7 +23,6 @@ const FadeInDown = keyframes`
 const NavDropdown = styled.div`
     width: auto;
     max-width: 1200px;
-    left: ${(props) => (props.offset ? props.offset + 'px !important' : 0)};
     position: absolute;
     padding: 2.2rem 0.8rem;
     z-index: -1;
@@ -38,6 +38,13 @@ const NavDropdown = styled.div`
     animation-fill-mode: both;
     animation-duration: 0.3s;
     overflow: visible;
+    ${({ is_rtl, offset }) => {
+        if (is_rtl) {
+            return `right: ${offset ? offset : 0}px !important`
+        } else {
+            return `left: ${offset ? offset : 0}px !important`
+        }
+    }}
 `
 
 const StyledContainer = styled(Container)`
@@ -66,9 +73,10 @@ const PlatformsDropdown = ({
     active_dropdown,
 }) => {
     const dropdownContainerRef = useRef(null)
+    const is_rtl = useIsRtl()
     const is_trade = active_dropdown === 'trade'
 
-    const [left_offset, setLeftOffset] = useState(() => {
+    const [offset, setOffset] = useState(() => {
         if (is_trade) {
             return current_ref?.getBoundingClientRect()?.x / 2
         }
@@ -77,11 +85,11 @@ const PlatformsDropdown = ({
 
     const updateOffsets = useCallback(() => {
         if (is_trade) {
-            setLeftOffset(current_ref.getBoundingClientRect().x / 2)
+            setOffset(current_ref.getBoundingClientRect().x / 2)
         } else if (current_ref && !is_trade) {
-            setLeftOffset(current_ref.getBoundingClientRect().x)
+            setOffset(current_ref.getBoundingClientRect().x)
         }
-    }, [current_ref])
+    }, [current_ref, is_trade])
 
     useEffect(() => {
         if (dropdownContainerRef) {
@@ -91,12 +99,12 @@ const PlatformsDropdown = ({
         return () => {
             window.removeEventListener('resize', updateOffsets)
         }
-    }, [])
+    }, [setActiveDropdown, updateOffsets])
 
     return (
         <Show.Desktop>
             <Flex>
-                <NavDropdown ref={dropdownContainerRef} offset={left_offset}>
+                <NavDropdown ref={dropdownContainerRef} offset={offset} is_rtl={is_rtl}>
                     <StyledContainer>
                         {getNavigationContents(parent, is_ppc, is_ppc_redirect)}
                     </StyledContainer>

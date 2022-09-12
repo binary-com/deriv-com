@@ -5,7 +5,6 @@ import { Flex, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import MoreInfo from 'images/svg/dmt5/more_info.svg'
-import MoreInfoDesktop from 'images/svg/dmt5/more-info.svg'
 import device from 'themes/device'
 import LinuxOs from 'images/svg/dmt5/dmt5_linux.svg'
 import WebBrowser from 'images/svg/dmt5/dmt5_web_browser.svg'
@@ -361,7 +360,7 @@ const DownloadApp = () => {
                 <StyledInfoContainer>
                     <Separator />
 
-                    <StyledInfo src={MoreInfoDesktop} alt="more info" />
+                    <StyledInfo src={MoreInfo} alt="more info" />
                     <StyledHeaderContent>
                         <Localize
                             translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."

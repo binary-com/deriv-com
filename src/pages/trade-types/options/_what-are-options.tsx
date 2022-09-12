@@ -6,9 +6,9 @@ import { localize, Localize } from 'components/localization'
 import { Button } from 'components/form'
 // Icon
 import FixedPayout from 'images/svg/trade-types/fixed-payout.svg'
-import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import FavoriteMarket from 'images/svg/trade-types/favoritemarket.svg'
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
-import UserFriendly from 'images/svg/trade-types/user-friendly-platforms.svg'
+import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import FlexibleTrade from 'images/svg/trade-types/flexible-trade-types.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
@@ -82,7 +82,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={SyntheticIndices} alt="" />
+                                <img src={FavoriteMarket} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('All favourite markets and more')}
@@ -104,7 +104,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={UserFriendly} alt="" />
+                                <img src={FriendlySupport} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('User-friendly platforms with powerful chart widgets')}

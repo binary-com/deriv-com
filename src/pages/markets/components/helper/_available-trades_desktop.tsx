@@ -127,7 +127,6 @@ const CardContainer = styled(Flex)<CardContainerProps>`
                     font-weight: bold;
                     background-color: var(--color-white);
                     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
-                    border-radius: 8px 0 0 0;
                 `
         }}
     }

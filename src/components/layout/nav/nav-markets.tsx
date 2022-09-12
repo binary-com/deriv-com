@@ -2,7 +2,6 @@
 import React from 'react'
 import NavDesktop from './components/nav-desktop'
 import NavMarketDesktop from './components/markets/nav-market-desktop'
-import NavMarketMobile from './components/markets/nav-market-mobile'
 import NavMobile from './components/nav-mobile'
 import { PartnerWrapper, PartnerNavigationBarWrapper } from './styles/nav-styles'
 

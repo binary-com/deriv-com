@@ -25,10 +25,6 @@ const TabsContainer = styled(Flex)`
 `
 const StyledFlex = styled(Flex)`
     flex-direction: column;
-    @media ${device.tabletL} {
-        padding: 0;
-        width: 90%;
-    }
 `
 const TabList = styled.div`
     display: flex;
@@ -39,7 +35,6 @@ const TabList = styled.div`
     gap: 16px;
 
     @media ${device.tabletL} {
-        justify-content: start;
         overflow-x: scroll;
         scroll-behavior: smooth;
         gap: 16px;

@@ -12,6 +12,7 @@ type NavRightProps = {
     move?: boolean
     has_scrolled: boolean
     hide_signup_login: boolean
+    is_rtl?: boolean
 }
 
 type WrapperProps = {
@@ -76,7 +77,7 @@ export const NavRight = styled.div<NavRightProps>`
     transition: ${({ move, has_scrolled }) =>
         move ? 'all 0.25s' : has_scrolled ? 'all 0.25s' : 'none'};
     transform: translateX(
-        ${({ button_ref, hide_signup_login, move, mounted }) => {
+        ${({ button_ref, hide_signup_login, move, mounted, is_rtl }) => {
             const ref_base = getBaseRef(button_ref)
 
             if (hide_signup_login) {
@@ -89,10 +90,8 @@ export const NavRight = styled.div<NavRightProps>`
             } else {
                 if (ref_base && mounted) {
                     ref_base.style.opacity = 0
-                    // Disabled this just for RTL Test Link
-                    /* const calculation = ref_base.offsetWidth + 2
-                    return `${calculation}px` */
-                    return 0
+                    const calculation = ref_base.offsetWidth + 2
+                    return is_rtl ? `${-calculation}px` : `${calculation}px`
                 }
                 return '300px'
             }

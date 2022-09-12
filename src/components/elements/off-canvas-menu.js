@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { useRtl } from 'components/hooks/use-rtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex, ROW } from 'components/containers'
 import { DerivStore } from 'store'
@@ -57,7 +58,15 @@ const OffCanvasMenu = styled.section`
     transition: transform 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     left: -254px;
-    ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(254px)'};
+    ${({ is_canvas_menu_open, is_rtl }) => {
+        if (is_canvas_menu_open) {
+            if (is_rtl) {
+                return 'transform: translateX(-254px)'
+            }
+            return 'transform: translateX(254px)'
+        }
+        return null
+    }};
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
@@ -133,10 +142,12 @@ export const OffCanvasMenuWrapper = (props) => {
         props.closeOffCanvasMenu()
     }
 
+    const is_rtl = useRtl()
+
     useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
 
     return (
-        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
+        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} is_rtl={is_rtl} ref={canvas}>
             <OffCanvasMenuContainer>
                 <Accordion>
                     <AccordionItem

@@ -121,12 +121,13 @@ const Tabs = ({
     mobile_font_size,
     mobile_tab_button_underline_length,
     has_no_query,
+    starting_index = 0,
 }) => {
     const [is_mobile] = useBrowserResize(768)
     const [is_mounted] = usePageLoaded()
     const [selected_tab, setSelectedTab] = useState(0)
 
-    const [active_tab, setActiveTab] = useTabStateQuery(tab_list, has_no_query)
+    const [active_tab, setActiveTab] = useTabStateQuery(tab_list, has_no_query, starting_index)
     const [offset, setOffset] = useState(0)
     const ref = useRef(null)
 
@@ -204,6 +205,7 @@ Tabs.propTypes = {
     line_divider_length: PropTypes.string,
     mobile_font_size: PropTypes.number,
     mobile_tab_button_underline_length: PropTypes.string,
+    starting_index: PropTypes.number,
     tab_list: PropTypes.array,
 }
 

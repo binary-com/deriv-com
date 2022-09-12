@@ -87,18 +87,30 @@ export const wrapRootElement = ({ element }) => {
 }
 
 export const onInitialClientRender = () => {
-    // Enable translation
-    // Check if not production and match ach or ach/
     if (is_browser) {
-        const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
+        // Check for PerformanceLongTaskTiming compatibility before collecting measurement
+        const tti_script = document.createElement('script')
+        tti_script.type = 'text/javascript'
+        tti_script.text = `!(function () {
+                if ('PerformanceLongTaskTiming' in window) {
+                    var g = (window.__tti = { e: [] });
+                    g.o = new PerformanceObserver(function (l) {
+                        g.e = g.e.concat(l.getEntries());
+                    });
+                    g.o.observe({ entryTypes: ['longtask'] });
+                }
+            })();`
+        document.head.appendChild(tti_script)
 
+        // Enable translation
+        // Check if not production and match ach or ach/
+        const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
         if (match_ach) {
             // TODO: remove this line when production ready for translation
             if (!isProduction()) LocalStore.set('i18n', 'ach')
         }
 
         const i18n = LocalStore.get('i18n')
-
         if (!isProduction() && i18n && i18n.match('ach')) {
             const jipt = document.createElement('script')
             jipt.type = 'text/javascript'

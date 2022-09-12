@@ -48,7 +48,7 @@ const DisableTwoFactorAuthentication = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/contact_us/?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -56,7 +56,7 @@ const DisableTwoFactorAuthentication = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://app.deriv.com/account/two-factor-authentication'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={1}

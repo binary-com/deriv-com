@@ -165,7 +165,10 @@ const DisplayAccordion = (locale) => {
 
                 if (pd.is_crypto && is_eu_country) {
                     return []
-                } else if (pd.is_dp2p && !is_p2p_allowed_country && is_eu_country) {
+                }
+                if (pd.is_fiat_onramp && is_eu_country) {
+                    return []
+                } else if (pd.is_dp2p && !is_p2p_allowed_country) {
                     return []
                 } else
                     return (

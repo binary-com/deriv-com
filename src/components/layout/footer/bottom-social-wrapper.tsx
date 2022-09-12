@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import SocialWrapperComponent from './social-wrapper'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { Mobile, UKEU, ROW } from 'components/containers'
@@ -16,7 +15,11 @@ import {
     twitter_eu_url,
 } from 'common/constants'
 
-const BottomSocialSection = ({ type }) => {
+type BottomSocialSectionProps = {
+    type?: string
+}
+
+const BottomSocialSection = ({ type = '' }: BottomSocialSectionProps) => {
     const [website_status] = useWebsiteStatus()
     const current_client_country = website_status?.clients_country || ''
 
@@ -51,10 +54,6 @@ const BottomSocialSection = ({ type }) => {
             </UKEU>
         </>
     )
-}
-
-BottomSocialSection.propTypes = {
-    type: PropTypes.string,
 }
 
 export default BottomSocialSection

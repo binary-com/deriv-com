@@ -8,7 +8,7 @@ import { QueryImage, OffCanvasMenuWrapperCareer, useMoveOffCanvasMenu } from 'co
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import { LinkButton } from 'components/form'
-import { LocationContext } from 'components/layout/location-context.js'
+import { LocationContext } from 'components/layout/location-context'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { besquare_signup_url, zoho_career_url } from 'common/constants'

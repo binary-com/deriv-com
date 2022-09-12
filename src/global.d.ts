@@ -1,5 +1,7 @@
 interface Window {
     _cio: any
+    opera: string
+    MSStream: boolean
     dataLayer: [loggedIn: boolean, language: () => string]
     LC_API: {
         open_chat_window: () => void

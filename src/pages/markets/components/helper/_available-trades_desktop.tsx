@@ -78,7 +78,6 @@ const CardContainer = styled(Flex)<CardContainerProps>`
     font-weight: 400;
     cursor: pointer;
     z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
-    padding-right: 5rem;
 
     ${Flex} {
         img {

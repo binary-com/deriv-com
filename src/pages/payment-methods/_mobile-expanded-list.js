@@ -63,7 +63,7 @@ const StyledRow = styled(Flex)`
     }
 `
 const ValueText = styled(Header)`
-    text-align: right;
+    text-align: end;
     white-space: pre-line;
 
     @media ${device.mobileL} {

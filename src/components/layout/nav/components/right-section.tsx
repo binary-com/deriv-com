@@ -24,7 +24,7 @@ const StyledButton = styled(Button)`
 `
 const Wrapper = styled.div`
     display: inline-flex;
-    text-align: right;
+    text-align: end;
     align-items: center;
     justify-content: center;
     padding: 0;

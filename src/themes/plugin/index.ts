@@ -58,6 +58,8 @@ const handle = (content: string) => {
             return transformProperty('border-block-start', value, content)
         case 'border-bottom':
             return transformProperty('border-block-end', value, content)
+        // TODO add border radius
+
         default:
             return content
     }

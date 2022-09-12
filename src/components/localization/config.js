@@ -27,4 +27,20 @@ i18n.languages = Object.keys(language_config)
 
 export const localize = (string, values) => t(crc32(string), { defaultValue: string, ...values })
 
+/**
+ * @description if you need the direction of the current languge please use this fucntion ( without react life-cycles), if you need react life-cycles please use useLangDirection hook
+ * @returns {"ltr" | "rtl"} the current language direction
+ */
+export const get_lang_direction = () => {
+    return i18n.dir(i18n.language)
+}
+
+/**
+ * @description if you need to check if current language's direction is `rtl` use this function ( without react life-cycles), if you need react life-cycles please use useRtl hook
+ * @returns {boolean} if the current direction is "rtl" returns true
+ */
+export const is_rtl = () => {
+    return get_lang_direction() === 'rtl'
+}
+
 export default i18n

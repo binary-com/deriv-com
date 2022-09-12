@@ -72,7 +72,7 @@ const RowColumn = styled.div<{ isHeader?: boolean }>`
     &:last-child {
         margin-right: 0;
         margin-left: 40px;
-        text-align: right;
+        text-align: end;
     }
 
     @media ${device.tabletL} {

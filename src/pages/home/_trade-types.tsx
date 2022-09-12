@@ -8,6 +8,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type TradeTypesProps = {
     image_url: string
@@ -208,15 +209,17 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
 `
 
 const LearnMore = styled(LocalizedLink)<{ $visibility }>`
-    opacity: ${(props) => (props.$visibility ? '1' : '0')};
+    /* opacity: ${(props) => (props.$visibility ? '1' : '0')}; */
+    opacity: 1;
     width: fit-content;
     padding: 10px 16px;
     border-radius: 100px;
     background-color: var(--color-white);
     position: absolute;
     bottom: -8%;
-    left: 50%;
-    transform: translate(-50%, -42%);
+    left: 25%;
+
+    /* transform: translate(-50%, -42%); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -281,26 +284,33 @@ const TradeTypes = (): React.ReactNode => {
     const items_details_by_region =
         (is_eu && items_details_eu) || (is_uk && items_details_uk) || items_details_cr
     const [is_not_big_screen] = useBrowserResize(1979)
+
+    const lang_direction = useLangDirection()
+
     const settings = {
         options: {
             loop: false,
             align: 'start',
             containScroll: 'trimSnaps',
+            direction: lang_direction,
         },
         view_port: {
-            height: is_not_big_screen ? '600px' : '660px',
+            blockSize: is_not_big_screen ? '600px' : '660px',
         },
         container_style: {
-            maxWidth: '100%',
-            margin: '0 auto',
-            height: is_not_big_screen ? '600px' : '660px',
+            maxInlineSize: '100%',
+            marginBlockStart: '0',
+            marginBlockEnd: '0',
+            marginInlineStart: 'auto',
+            marginInlineEnd: 'auto',
+            blockSize: is_not_big_screen ? '600px' : '660px',
         },
         slide_style: {
-            width: '384px',
-            height: 'auto',
-            marginRight: '24px',
-            paddingTop: '24px',
-            paddingBottom: '48px',
+            inlineSize: '384px',
+            blockSize: 'auto',
+            marginInlineEnd: '24px',
+            paddingBlockStart: '24px',
+            paddingBlockEnd: '48px',
             position: 'relative',
         },
         last_slide_no_spacing: true,

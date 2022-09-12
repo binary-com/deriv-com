@@ -69,7 +69,7 @@ export const MobileWrapper = styled.div<DesktopWrapperProps>`
 export const NavRight = styled.div<NavRightProps>`
     display: inline-flex;
     align-items: center;
-    text-align: right;
+    text-align: end;
     justify-content: center;
     padding: 0;
     opacity: ${({ mounted }) => (mounted ? '1' : '0')};
@@ -89,8 +89,10 @@ export const NavRight = styled.div<NavRightProps>`
             } else {
                 if (ref_base && mounted) {
                     ref_base.style.opacity = 0
-                    const calculation = ref_base.offsetWidth + 2
-                    return `${calculation}px`
+                    // Disabled this just for RTL Test Link
+                    /* const calculation = ref_base.offsetWidth + 2
+                    return `${calculation}px` */
+                    return 0
                 }
                 return '300px'
             }

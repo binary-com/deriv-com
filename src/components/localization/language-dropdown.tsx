@@ -136,9 +136,6 @@ const Item = styled.div<{ disabled: boolean }>`
         background: rgba(245, 247, 250, 0.64);
     }
 
-    @media ${device.mobileL} {
-        padding: 1.2rem;
-    }
 `
 
 const ResponsiveText = styled(Text)`

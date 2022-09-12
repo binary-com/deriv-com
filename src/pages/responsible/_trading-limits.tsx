@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Flex, Show, Box } from 'components/containers'
+import { Container, Flex, Box, EU, NonEU } from 'components/containers'
 import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
@@ -156,7 +156,7 @@ const TradingLimits = () => {
                             {localize('How trading limits and self-exclusion work')}
                         </StyledHeader>
                         <div>
-                            <Show.NonEU>
+                            <NonEU>
                                 <Text ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">
                                         <TimelineTick.Item>
@@ -176,9 +176,9 @@ const TradingLimits = () => {
                                         </TimelineTick.Item>
                                     </TimelineTick>
                                 </Text>
-                            </Show.NonEU>
+                            </NonEU>
 
-                            <Show.Eu>
+                            <EU>
                                 <Box ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">
                                         <TimelineTick.Item>
@@ -225,10 +225,10 @@ const TradingLimits = () => {
                                         </TimelineTick.Item>
                                     </TimelineTick>
                                 </Box>
-                            </Show.Eu>
+                            </EU>
                         </div>
                         <div>
-                            <Show.NonEU>
+                            <NonEU>
                                 <Text mt="1.4rem">
                                     <Localize
                                         translate_text="If you wish to reduce or remove the self-exclusion period, contact <0>Customer Support</0>."
@@ -241,8 +241,8 @@ const TradingLimits = () => {
                                         ]}
                                     />
                                 </Text>
-                            </Show.NonEU>
-                            {/* <Show.Eu>
+                            </NonEU>
+                            {/* <EU>
                                 <Text mt="1.4rem">
                                     <Localize
                                         translate_text="You may <0>contact us</0> to set or adjust your self-exclusion or trading limits."
@@ -255,7 +255,7 @@ const TradingLimits = () => {
                                         ]}
                                     />
                                 </Text>
-                            </Show.Eu> */}
+                            </EU> */}
                         </div>
                     </StyledContainer>
                 </ContentWrapperRight>

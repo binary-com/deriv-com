@@ -1,5 +1,5 @@
 import React from 'react'
-import Derived from '../components/markets/_derived-fx'
+import Derived from '../components/markets/_derived'
 import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import NavTab from '../components/sections/_nav-tab'
 import { simple_step_content_forex } from '../static/content/_forex'

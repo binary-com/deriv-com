@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import AvailableTradesMobile from './_available-trades_mobile'
 import AvailableTradesDesktop from './_available-trades_desktop'
 import { Show } from 'components/containers'
 

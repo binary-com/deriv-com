@@ -8,7 +8,6 @@ import CFDs from '../sub-markets/_cfds'
 import { StyledBox } from '../../static/style/_markets-style'
 import { Localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
-//Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 

@@ -91,8 +91,6 @@ const StyledTextContent = styled(Text)`
 `
 
 export const WhyTrade = ({ children, header, description }: WhyTradeProps) => {
-    // const handleSignup = useHandleSignup()
-
     return (
         <StyledSection>
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">

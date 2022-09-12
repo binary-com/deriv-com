@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+import { withLangDirection } from 'themes/function'
 import {
     NavPlatform,
     NavCompany,
@@ -38,13 +39,15 @@ const NavDropdown = styled.div`
     animation-fill-mode: both;
     animation-duration: 0.3s;
     overflow: visible;
-    ${({ is_rtl, offset }) => {
-        if (is_rtl) {
-            return `right: ${offset ? offset : 0}px !important`
-        } else {
-            return `left: ${offset ? offset : 0}px !important`
-        }
-    }}
+    ${({ offset }) =>
+        withLangDirection({
+            rtl_styles: css`
+                right: ${offset ?? 0}px !important;
+            `,
+            ltr_styles: css`
+                left: ${offset ?? 0}px !important;
+            `,
+        })}
 `
 
 const StyledContainer = styled(Container)`

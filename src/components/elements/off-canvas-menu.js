@@ -59,16 +59,15 @@ const OffCanvasMenu = styled.section`
     transition: transform 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     left: -254px;
-    ${withLangDirection({
-        rtl_styles: css`
-            transform: ${({ is_canvas_menu_open }) =>
-                is_canvas_menu_open ? 'translateX(-254px)' : null};
-        `,
-        ltr_styles: css`
-            transform: ${({ is_canvas_menu_open }) =>
-                is_canvas_menu_open ? 'translateX(254px)' : null};
-        `,
-    })}
+    ${({ is_canvas_menu_open }) =>
+        withLangDirection({
+            rtl_styles: css`
+                transform: ${is_canvas_menu_open ? 'translateX(-254px)' : null};
+            `,
+            ltr_styles: css`
+                transform: ${is_canvas_menu_open ? 'translateX(254px)' : null};
+            `,
+        })}
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`

@@ -36,7 +36,7 @@ export const get_lang_direction = () => {
 }
 
 /**
- * @description if you need to check if current language's direction is `rtl` use this function ( without react life-cycles), if you need react life-cycles please use useRtl hook
+ * @description if you need to check if current language's direction is `rtl` use this function ( without react life-cycles), if you need react life-cycles please use useIsRtl hook
  * @returns {boolean} if the current direction is "rtl" returns true
  */
 export const is_rtl = () => {

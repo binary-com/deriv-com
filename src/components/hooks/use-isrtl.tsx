@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export const useRtl = () => {
+export const useIsRtl = () => {
     const { i18n } = useTranslation()
 
     const check_rtl = useCallback(() => {

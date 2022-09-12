@@ -7,7 +7,7 @@ import { Button } from 'components/form'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import { useRtl } from 'components/hooks/use-rtl'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type RightSectionProps = {
     is_logged_in: boolean
@@ -51,7 +51,7 @@ const RightSection = ({
     const { is_loading } = useCountryRule()
     const handleLogin = useHandleLogin()
     const handleSignup = useHandleSignup(is_ppc_redirect)
-    const is_rtl = useRtl()
+    const is_rtl = useIsRtl()
 
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)

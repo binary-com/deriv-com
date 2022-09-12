@@ -7,7 +7,7 @@ import ArrowRight from 'images/svg/testimonials/arrow-right.svg'
 import ArrowLeftFade from 'images/svg/testimonials/arrow-left-fade.svg'
 import ArrowRightFade from 'images/svg/testimonials/arrow-right-fade.svg'
 import device from 'themes/device'
-import { useRtl } from 'components/hooks/use-rtl'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const CarouselItem = styled(Flex)`
     overflow: hidden;
@@ -150,7 +150,7 @@ const TestimonialCarousel = ({
     const molder_ref = useRef(null)
     const flexible_ref = useRef(null)
     const has_active = active !== null
-    const is_rtl = useRtl()
+    const is_rtl = useIsRtl()
 
     const animate = (action) => {
         container_ref.current.style.opacity = 0

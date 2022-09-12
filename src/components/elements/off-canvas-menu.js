@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { useRtl } from 'components/hooks/use-rtl'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex, ROW } from 'components/containers'
 import { DerivStore } from 'store'
@@ -142,7 +142,7 @@ export const OffCanvasMenuWrapper = (props) => {
         props.closeOffCanvasMenu()
     }
 
-    const is_rtl = useRtl()
+    const is_rtl = useIsRtl()
 
     useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
 

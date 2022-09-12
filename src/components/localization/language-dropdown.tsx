@@ -96,7 +96,7 @@ const FadeOutUp = keyframes`
 
 const ItemContainer = styled.div<{ is_open: boolean }>`
     background-color: var(--color-white);
-    padding: 1.6rem 0.8rem 0 0;
+    padding: 0.4rem 0.8rem 0.5rem 0;
     position: relative;
     width: auto;
     grid-template-columns: 1fr 1fr;

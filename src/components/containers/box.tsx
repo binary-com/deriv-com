@@ -25,6 +25,25 @@ export const generateResponsiveStyles = (stylesGenerator) => (props) => {
     }, [])
 }
 
+export type BaseStyleType = {
+    m?: string
+    mt?: string
+    ml?: string
+    mr?: string
+    mb?: string
+    p?: string
+    pt?: string
+    pl?: string
+    pr?: string
+    pb?: string
+    min_width?: string
+    max_width?: string
+    min_height?: string
+    max_height?: string
+    width?: string
+    height?: string
+}
+
 const baseStyles = ({
     m,
     mt,
@@ -42,7 +61,7 @@ const baseStyles = ({
     max_height,
     width,
     height,
-}) => css`
+}: BaseStyleType) => css`
     min-width: ${min_width};
     max-width: ${max_width};
     min-height: ${min_height};
@@ -55,7 +74,17 @@ const baseStyles = ({
 
 const responsiveStyles = generateResponsiveStyles(baseStyles)
 
-const Box = styled.div`
+export type BoxType = {
+    width?: string
+    height?: string
+    max_width?: string
+    min_height?: string
+    position?: string
+    background?: string
+    bg?: string
+}
+
+const Box = styled.div<BoxType>`
     width: ${(props) => (props.width ? props.width : '')};
     height: ${(props) => (props.height ? props.height : '')};
     min-height: ${(props) => (props.min_height ? props.min_height : '')};

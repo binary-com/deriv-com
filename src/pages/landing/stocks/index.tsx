@@ -15,6 +15,7 @@ import TenIndicesSVG from 'images/svg/stock-indices/stocks-10-world-indices.svg'
 import HighLeverageSVG from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import FourtyStocksSVG from 'images/svg/stock-indices/stocks-80-analytic-objects.svg'
 import LowCapitalSVG from 'images/svg/stock-indices/stocks-minimum-capital.svg'
+import { ContentType } from 'pages/landing/_types'
 
 const query = graphql`
     query {
@@ -40,7 +41,7 @@ const query = graphql`
 `
 
 // max numbers of columnPerRow is 5
-const WhyTradeWithUsArr = [
+const WhyTradeWithUsArr: ContentType[] = [
     {
         title: <Localize translate_text="Extended market hours" />,
         icon: ExtendedTimeSVG,
@@ -90,7 +91,7 @@ const WhyTradeWithUsArr_eu = [
     },
 ]
 
-const trading = [
+const trading: ContentType[] = [
     {
         title: <Localize translate_text="No commission" />,
         subtitle: (
@@ -102,7 +103,7 @@ const trading = [
     },
 ]
 
-const tradingMobile = [
+const tradingMobile: ContentType[] = [
     {
         title: <Localize translate_text="No commission" />,
         subtitle: (
@@ -110,7 +111,7 @@ const tradingMobile = [
         ),
     },
 ]
-const blueChips = [
+const blueChips: ContentType[] = [
     {
         title: <Localize translate_text="Blue chip, blue skies" />,
         subtitle: (

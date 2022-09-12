@@ -48,7 +48,7 @@ export const deriv_api_url = `https://api.${getDomainUrl()}`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
-export const deriv_mt5_app_url = `${deriv_app_url}/mt5`
+export const deriv_mt5_app_url = `https://trade.mql5.com/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979`
 export const derivx_app_url = `${deriv_app_url}/derivx`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
 export const binary_bot_url = `https://bot.${getDomainUrl()}`
@@ -62,7 +62,7 @@ export const oauth_url = `https://oauth.${getDomainUrl()}`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 export const besquare_signup_url =
-    'https://deriv.zohorecruit.eu/jobs/Careers/47807000001891637/BeSquare-Graduate-Trainee-2-0?source=CareerSite '
+    'https://deriv.zohorecruit.eu/jobs/Careers/47807000013799423/Empty?source=CareerSite '
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'

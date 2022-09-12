@@ -8,7 +8,7 @@ import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import introForexEbook from 'images/common/ebooks/introduction-forex-ebook.png'
 
-type ForexEbookProps = {
+export type StocksEbookProps = {
     language: string
 }
 
@@ -49,7 +49,7 @@ const query = graphql`
     }
 `
 
-const ForexEbook = (props: ForexEbookProps) => {
+const ForexEbook = (props: StocksEbookProps) => {
     const { language } = props
     let lng = language
     if (lng != 'es') {

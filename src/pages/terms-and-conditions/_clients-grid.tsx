@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
-import { Show } from 'components/containers'
+import { EU, NonEU } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
@@ -34,7 +34,7 @@ const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => (
             {title}
         </Header>
         <Text lh="1.55">{content}</Text>
-        <Show.NonEU>
+        <NonEU>
             {non_eu_links?.map((link, index) => (
                 <Cta key={index}>
                     <img src={PDF} alt="pdf icon black" />
@@ -43,8 +43,8 @@ const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => (
                     </a>
                 </Cta>
             ))}
-        </Show.NonEU>
-        <Show.Eu>
+        </NonEU>
+        <EU>
             {eu_links?.map((link, index) => (
                 <Cta key={index}>
                     <img src={PDF} alt="pdf icon black" />
@@ -53,7 +53,7 @@ const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => (
                     </a>
                 </Cta>
             ))}
-        </Show.Eu>
+        </EU>
     </GridCol>
 )
 
@@ -138,7 +138,7 @@ const IconGrid = () => {
             ),
             eu_links: [
                 {
-                    url: '/tnc/risk-disclosure.pdf',
+                    url: '/tnc/risk-disclosure-eu.pdf',
                     title: localize('Risk disclosure'),
                 },
             ],

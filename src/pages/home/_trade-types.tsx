@@ -209,17 +209,15 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
 `
 
 const LearnMore = styled(LocalizedLink)<{ $visibility }>`
-    /* opacity: ${(props) => (props.$visibility ? '1' : '0')}; */
+    opacity: ${(props) => (props.$visibility ? '1' : '0')};
     opacity: 1;
     width: fit-content;
     padding: 10px 16px;
     border-radius: 100px;
     background-color: var(--color-white);
     position: absolute;
-    bottom: -8%;
+    bottom: -5%;
     left: 25%;
-
-    /* transform: translate(-50%, -42%); */
     display: flex;
     justify-content: center;
     align-items: center;

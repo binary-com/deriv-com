@@ -138,7 +138,7 @@ const TradingLimits = () => {
                                         <LocalizedLinkText
                                             to="/account/self-exclusion"
                                             type="deriv_app"
-                                            external="true"
+                                            external
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             color="red"
@@ -179,7 +179,6 @@ const TradingLimits = () => {
                                     </TimelineTick>
                                 </Text>
                             )}
-
                             {is_eu && (
                                 <Box ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">
@@ -244,7 +243,11 @@ const TradingLimits = () => {
                                     />
                                 </Text>
                             )}
+                        </div>
+                        <div>
                             {/* <Show.Eu>
+                            </NonEU>
+                            {/* <EU>
                                 <Text mt="1.4rem">
                                     <Localize
                                         translate_text="You may <0>contact us</0> to set or adjust your self-exclusion or trading limits."
@@ -257,7 +260,7 @@ const TradingLimits = () => {
                                         ]}
                                     />
                                 </Text>
-                            </Show.Eu> */}
+                            </EU> */}
                         </div>
                     </StyledContainer>
                 </ContentWrapperRight>

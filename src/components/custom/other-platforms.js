@@ -172,7 +172,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
         aria_label="SmartTrader"
         to="trading"
         type="smart_trader"
-        external="true"
+        external
         target="_blank"
         rel="noopener noreferrer"
     >
@@ -185,9 +185,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
                 <Localize
                     key={0}
                     translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
-                    components={[
-                        <LocalizedLinkText key={0} to="home" external="true" type="binary" />,
-                    ]}
+                    components={[<LocalizedLinkText key={0} to="home" external type="binary" />]}
                 />,
             ]}
             is_inline_icon
@@ -351,7 +349,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             title={<Localize translate_text="SmartTrader" />}
                             to="trading"
                             type="smart_trader"
-                            external="true"
+                            external
                             target="_blank"
                             onClick={onClick}
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
@@ -364,7 +362,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                 <>
                     <Flex direction="column" wrap="wrap" jc="flex-start">
                         <EmptySpace />
-
                         {getDtraderText()}
                         <NavCard
                             aria_label="Deriv GO"
@@ -394,7 +391,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             }
                             title={<Localize translate_text="Binary Bot" />}
                             to={binary_bot_url}
-                            external="true"
+                            external
                             target="_blank"
                             onClick={onClick}
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
@@ -561,7 +558,7 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to=""
             type="community"
-            external="true"
+            external
             target="_blank"
             rel="noopener noreferrer"
         />

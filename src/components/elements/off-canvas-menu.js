@@ -269,7 +269,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         onClick={handleArrowClick}
                                         to="trading"
                                         type="smart_trader"
-                                        external="true"
+                                        external
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}
                                     />
@@ -300,7 +300,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         title={<Localize translate_text="Binary Bot" />}
                                         onClick={handleArrowClick}
                                         to={binary_bot_url}
-                                        external="true"
+                                        external
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}
                                     />
@@ -464,7 +464,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         <StyledLink
                             to=""
                             type="community"
-                            external="true"
+                            external
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -502,7 +502,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink
                             to={deriv_status_page_url}
-                            external="true"
+                            external
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -571,7 +571,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             to=""
                             type="api"
                             target="_blank"
-                            external="true"
+                            external
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
                         >
@@ -640,7 +640,7 @@ export const OffCanvasMenuPartner = (props) => {
                     to=""
                     type="api"
                     target="_blank"
-                    external="true"
+                    external
                     rel="noopener noreferrer"
                     onClick={handleArrowClick}
                 >

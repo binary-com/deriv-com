@@ -68,7 +68,6 @@ const ClientCard = styled(LocalizedLink)`
         margin: 1.2rem 0;
     }
 `
-
 const PartnershipOpportunities = () => {
     const { is_row } = useCountryRule()
     return (
@@ -111,7 +110,7 @@ const PartnershipOpportunities = () => {
                     to=""
                     type="api"
                     target="_blank"
-                    external="true"
+                    external
                     rel="noopener noreferrer"
                     third
                 >
@@ -131,5 +130,4 @@ const PartnershipOpportunities = () => {
         </SectionContainer>
     )
 }
-
 export default PartnershipOpportunities

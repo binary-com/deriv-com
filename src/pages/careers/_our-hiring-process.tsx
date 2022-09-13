@@ -387,22 +387,20 @@ const OurHiringProcess = () => {
                     </ResponsiveFlex4>
                 </ProcessContainer>
             </Container>
-
             <StyledContainer>
                 <StyledAnotherHeader as="h3" type="section-title" align="center">
                     Make an impact. Start your Deriv journey <span>now</span>.
                 </StyledAnotherHeader>
                 <StyledLinkButton
-                    secondary="true"
+                    secondary
                     to={zoho_url}
-                    external="true"
+                    external
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     See all jobs
                 </StyledLinkButton>
             </StyledContainer>
-
             {is_eu && (
                 <Container>
                     <StyledText mt="8rem">

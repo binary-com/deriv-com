@@ -175,7 +175,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                         title={localize('API')}
                         type="api"
                         target="_blank"
-                        external="true"
+                        external
                         rel="noopener noreferrer"
                     />
                     <NavLinkCard to="/bug-bounty/" title={localize('Bug bounty')} />
@@ -190,7 +190,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                     >
                         <LinkButton
                             to={affiliate_signin_url}
-                            external="true"
+                            external
                             type="affiliate_sign_in"
                             target="_blank"
                             primary
@@ -201,11 +201,11 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                         <LinkSignupButton
                             id="dm-nav-affiliate-signup"
                             to={affiliate_signup_url}
-                            external="true"
+                            external
                             type="affiliate_sign_up"
                             target="_blank"
                             ref={button_ref}
-                            secondary="true"
+                            secondary
                             style={{ width: '18rem' }}
                         >
                             {localize('Affiliate & IB sign up')}

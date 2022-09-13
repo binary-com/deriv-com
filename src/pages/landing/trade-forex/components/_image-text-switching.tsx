@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
@@ -6,20 +6,8 @@ import { Container, SectionContainer, Desktop, Mobile } from 'components/contain
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
+import { ContentType, StyledProps } from 'pages/landing/_types'
 
-type StyledProps = {
-    margin_right?: string
-    flex_direction?: string
-}
-type StepContentType = {
-    title: ReactElement
-    subtitle1?: ReactElement
-    subtitle_mobile1?: ReactElement
-    second_title?: ReactElement
-    second_subtitle1?: ReactElement
-    image_name?: string
-    image_alt?: string
-}
 type ImageTextSwitchingProps = {
     reverse: boolean
     two_title?: boolean
@@ -111,7 +99,7 @@ const query = graphql`
     }
 `
 
-const stepContent: StepContentType[] = [
+const stepContent: ContentType[] = [
     {
         title: <Localize translate_text="Step 1" />,
         subtitle1: (

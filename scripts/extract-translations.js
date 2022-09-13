@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /* eslint-disable  */
+/* disable-translation */
 const path = require('path')
 const program = require('commander')
 const crc32 = require('crc-32').str
 const fs = require('fs')
 const glob = require('glob')
 const translated_keys = require('../src/translations/ach.json')
+const DISABLE_TRANSLATION = 'disable-translation'
 
 const new_i18n_marker = new RegExp(/(_t_)(?<pure_text>.*?)(_t_)/g)
 /*
@@ -52,6 +54,7 @@ const new_find_keys = (file) => {
         keys.push(pure_text.replace(/\\/g, ''))
         result = new_i18n_marker.exec(file)
     }
+    return keys;
 }
 
 /** **********************************************
@@ -81,17 +84,17 @@ function extractTranslations() {
                 try {
                     const file = fs.readFileSync(file_paths[i], 'utf8');
                     if (!file.includes(DISABLE_TRANSLATION)) {
-                        messages.push(old_find_keys(file));
-                        messages.push(new_find_keys(file))
+                        messages.push(...old_find_keys(file));
+                        messages.push(...new_find_keys(file))
                     }
                 } catch (e) {
                     console.log(e);
                 }
             }
-
             const untranslated = []
             // Hash the messages and set the key-value pair for json
             for (let i = 0; i < messages.length; i++) {
+
                 const key = getKeyHash(messages[i])
                 messages_json[key] = messages[i];
 

@@ -1,3 +1,4 @@
+/* disable-translation */
 import i18n, { use, t } from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { str as crc32 } from 'crc-32'

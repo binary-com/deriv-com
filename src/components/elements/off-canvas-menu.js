@@ -313,18 +313,6 @@ export const OffCanvasMenuWrapper = (props) => {
                     >
                         <Flex mb="3.2rem">
                             <NavCard
-                                aria_label="Derived"
-                                icon={() => <img src={DerivedFX} alt="" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Enjoy trading asset prices derived<br/> from real-world or simulated markets." />
-                                }
-                                title={<Localize translate_text="Derived" />}
-                                onClick={handleArrowClick}
-                                to="/markets/derived-fx/"
-                            />
-                        </Flex>
-                        <Flex mb="3.2rem">
-                            <NavCard
                                 aria_label="Forex"
                                 icon={() => <img src={Forex} alt="" width="32" height="32" />}
                                 content={
@@ -335,7 +323,18 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/markets/forex/"
                             />
                         </Flex>
-
+                        <Flex mb="3.2rem">
+                            <NavCard
+                                aria_label="Derived"
+                                icon={() => <img src={DerivedFX} alt="" width="32" height="32" />}
+                                content={
+                                    <Localize translate_text="Enjoy trading asset prices derived<br/> from real-world or simulated markets." />
+                                }
+                                title={<Localize translate_text="Derived" />}
+                                onClick={handleArrowClick}
+                                to="/markets/derived-fx/"
+                            />
+                        </Flex>
                         <Flex mb="3.2rem">
                             <NavCard
                                 aria_label="Stocks & indices"

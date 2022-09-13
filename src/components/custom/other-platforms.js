@@ -417,16 +417,6 @@ export const NavMarket = ({ onClick }) => {
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
             <NavCard
-                aria_label="Derived"
-                icon={() => <img src={DerivedFX} alt="" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Enjoy trading asset prices derived<br/> from real-world or simulated markets." />
-                }
-                title={<Localize translate_text="Derived" />}
-                onClick={onClick}
-                to="/markets/derived-fx/"
-            />
-            <NavCard
                 aria_label="Forex"
                 icon={() => <img src={Forex} alt="" width="32" height="32" />}
                 content={
@@ -435,6 +425,16 @@ export const NavMarket = ({ onClick }) => {
                 title={<Localize translate_text="Forex" />}
                 onClick={onClick}
                 to="/markets/forex/"
+            />
+            <NavCard
+                aria_label="Derived"
+                icon={() => <img src={DerivedFX} alt="" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Enjoy trading asset prices derived<br/> from real-world or simulated markets." />
+                }
+                title={<Localize translate_text="Derived" />}
+                onClick={onClick}
+                to="/markets/derived-fx/"
             />
             <NavCard
                 aria_label="Stocks & indices"

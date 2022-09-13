@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import { PaymentProps } from './index'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { Flex } from 'components/containers'
@@ -9,7 +9,11 @@ import { localize } from 'components/localization'
 import { Button } from 'components/form/'
 import device from 'themes/device'
 
-const StyledItemWrapper = styled(Flex)`
+type StyledProps = {
+    expanded?: boolean
+    is_expanded?: boolean
+}
+const StyledItemWrapper = styled(Flex)<StyledProps>`
     border-bottom: ${(props) => (props.is_expanded ? '1px solid var(--color-grey-8)' : 'none')};
 `
 const StyledIconWrapper = styled.div`
@@ -17,7 +21,7 @@ const StyledIconWrapper = styled.div`
     max-width: 128px;
     margin-left: 16px;
 `
-const StyledChevron = styled.img`
+const StyledChevron = styled.img<StyledProps>`
     height: 16px;
     width: 16px;
     margin: 26px 0 32px;
@@ -32,7 +36,7 @@ const HoverChevron = styled.div`
     align-items: center;
     margin-right: 16px;
 `
-const DetailsWrapper = styled(Flex)`
+const DetailsWrapper = styled(Flex)<StyledProps>`
     display: ${(props) => (props.is_expanded ? 'flex' : 'none')};
 `
 
@@ -91,8 +95,13 @@ const StyledRefLink = styled(Flex)`
         width: 65%;
     }
 `
-
-const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, payment_data }) => {
+const MobileExpandedList = ({
+    is_crypto,
+    is_fiat_onramp,
+    is_dp2p,
+    locale,
+    payment_data,
+}: PaymentProps) => {
     const [is_expanded, setExpanded] = React.useState(false)
     const toggleExpand = () => {
         setExpanded(!is_expanded)
@@ -106,7 +115,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                 onClick={toggleExpand}
                 is_expanded={is_expanded}
             >
-                <StyledIconWrapper>{payment_data.method}</StyledIconWrapper>
+                <StyledIconWrapper>{payment_data?.method}</StyledIconWrapper>
                 <HoverChevron>
                     <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
                 </HoverChevron>
@@ -272,8 +281,8 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                                 {payment_data.reference ? (
                                     <RefIcon
                                         href={`/payment-methods/${
-                                            payment_data.locales?.includes(locale.locale.language)
-                                                ? locale.locale.language +
+                                            payment_data.locales?.includes(locale?.locale?.language)
+                                                ? locale?.locale?.language +
                                                   '/' +
                                                   payment_data.reference
                                                 : payment_data.reference
@@ -314,14 +323,6 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
             </DetailsWrapper>
         </>
     )
-}
-
-MobileExpandedList.propTypes = {
-    is_crypto: PropTypes.bool,
-    is_dp2p: PropTypes.bool,
-    is_fiat_onramp: PropTypes.bool,
-    locale: PropTypes.object,
-    payment_data: PropTypes.object,
 }
 
 export default MobileExpandedList

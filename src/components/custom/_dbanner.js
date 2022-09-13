@@ -6,8 +6,8 @@ import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import { EU, ROW } from 'components/containers/visibility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const Wrapper = styled.div`
     position: relative;
@@ -116,17 +116,18 @@ const StyledHeader = styled(Header)`
 `
 const DBanner = ({ title, data, background_pattern, image_alt }) => {
     const handleSignup = useHandleSignup()
+    const { is_eu, is_row } = useCountryRule()
 
     return (
         <Wrapper>
             <ImageContainer>
                 <ImageWrapper ai="center">
-                    <ROW>
+                    {is_row && (
                         <QueryImage data={data['deriv_platform']} alt={image_alt} width="100%" />
-                    </ROW>
-                    <EU>
+                    )}
+                    {is_eu && (
                         <QueryImage data={data['deriv_platform_eu']} alt={image_alt} width="100%" />
-                    </EU>
+                    )}
                 </ImageWrapper>
             </ImageContainer>
             <BackgroundWrapper

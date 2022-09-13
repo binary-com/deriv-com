@@ -25,7 +25,6 @@ const meta_attributes = {
 const PaymentAgent = () => {
     const { is_row } = useCountryRule()
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
-
     return (
         <>
             <SEO
@@ -35,7 +34,6 @@ const PaymentAgent = () => {
                 )}
                 meta_attributes={meta_attributes}
             />
-
             {is_row ? (
                 <Layout type="partners" margin_top={10} no_login_signup>
                     <Helmet>

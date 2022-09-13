@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { SmallContainer, OptionGrid, OptionGridSecondary } from '../components/_style'
 import Notes from '../components/_notes'
-import { Flex, SectionContainer, Show } from 'components/containers'
+import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
@@ -22,6 +22,7 @@ import OuOd from 'images/svg/options/ou-od.svg'
 import HighClose from 'images/svg/options/high-close.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 import HighLow from 'images/svg/options/high-low.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const MiddleText = styled(Text)`
     margin-bottom: 0.8rem;
@@ -32,6 +33,7 @@ const MiddleText = styled(Text)`
 `
 
 const OptionsToTrade = () => {
+    const { is_eu } = useCountryRule()
     return (
         <SectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
@@ -68,13 +70,13 @@ const OptionsToTrade = () => {
                         <Localize translate_text="Lookback options are available only on synthetic indices." />
                     }
                 />
-                <Show.Eu>
+                {is_eu && (
                     <Text mt="0.8rem" color="grey-5" size="var(--text-size-xs)">
                         {localize(
                             'Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average.',
                         )}
                     </Text>
-                </Show.Eu>
+                )}
             </SmallContainer>
         </SectionContainer>
     )

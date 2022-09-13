@@ -102,7 +102,7 @@ const IconGrid = () => {
             ),
             eu_links: [
                 {
-                    url: '/tnc/funds-and-transfers.pdf',
+                    url: '/tnc/eu/funds-and-transfers.pdf',
                     title: localize('Funds & transfers'),
                 },
             ],

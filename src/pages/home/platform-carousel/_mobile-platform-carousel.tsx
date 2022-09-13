@@ -7,6 +7,7 @@ import { image_query } from './_details'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const CarouselItemWrapper = styled.div`
     width: 100%;
@@ -22,49 +23,6 @@ const MobileImage = styled(QueryImage)`
 const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
-
-const settings = {
-    options: {
-        loop: false,
-        align: 'center',
-        containScroll: 'trimSnaps',
-    },
-    container_style: {
-        width: '100%',
-        margin: '0 auto',
-    },
-    slide_style: {
-        width: '100vw',
-        height: 'auto',
-        paddingRight: '1.6rem',
-        position: 'relative',
-    },
-    navigation_style: {
-        bottom_offset: '420px',
-        nav_color: 'red',
-    },
-    slide_inner_width: '100vw',
-    navigation_css: css`
-        position: relative;
-        width: 100%;
-        height: 8px;
-        @media ${device.tabletL} {
-            bottom: 228px;
-        }
-        @media (max-width: 660px) {
-            bottom: 268px;
-        }
-        @media (max-width: 425px) {
-            bottom: 292px;
-        }
-        @media (max-width: 375px) {
-            bottom: 304px;
-        }
-        @media (max-width: 317px) {
-            bottom: 362px;
-        }
-    `,
-}
 
 const PlatformDetails = ({ title, icon, description, learn_more_link }: PlatformDetailsProps) => {
     return (
@@ -98,6 +56,51 @@ type MobilePlatformCarouselProps = {
 const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) => {
     const images = useStaticQuery(image_query)
 
+    const lang_direction = useLangDirection()
+
+    const settings = {
+        options: {
+            loop: false,
+            align: 'center',
+            containScroll: 'trimSnaps',
+            direction: lang_direction,
+        },
+        container_style: {
+            width: '100%',
+            margin: '0 auto',
+        },
+        slide_style: {
+            width: '100vw',
+            height: 'auto',
+            paddingRight: '1.6rem',
+            position: 'relative',
+        },
+        navigation_style: {
+            bottom_offset: '420px',
+            nav_color: 'red',
+        },
+        slide_inner_width: '100vw',
+        navigation_css: css`
+            position: relative;
+            width: 100%;
+            height: 8px;
+            @media ${device.tabletL} {
+                bottom: 228px;
+            }
+            @media (max-width: 660px) {
+                bottom: 268px;
+            }
+            @media (max-width: 425px) {
+                bottom: 292px;
+            }
+            @media (max-width: 375px) {
+                bottom: 304px;
+            }
+            @media (max-width: 317px) {
+                bottom: 362px;
+            }
+        `,
+    }
     return (
         <Carousel {...settings}>
             {carousel_data?.map(

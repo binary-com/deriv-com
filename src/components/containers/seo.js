@@ -7,7 +7,7 @@ import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
 import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
-import i18next from 'components/localization/config'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const non_localized_links = [
     '/careers',
@@ -86,6 +86,8 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
         }
     }
 
+    const lang_direction = useLangDirection()
+
     const is_non_localized = non_localized_links.includes(current_page)
 
     return (
@@ -94,7 +96,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 lang: formatted_lang,
             }}
             bodyAttributes={{
-                dir: i18next.dir(i18next.language),
+                dir: lang_direction,
             }}
             title={title}
             defer={false}

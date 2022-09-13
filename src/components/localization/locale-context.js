@@ -10,8 +10,6 @@ export const LocaleContextWrapper = ({ children, pageContext: { locale, pathname
     return (
         <LocaleContext.Provider value={{ locale, pathname }}>
             <GlobalStyle />
-            {/* {children} */}
-            {/* {children} */}
             <StyleSheetManager stylisPlugins={[plugin]}>{children}</StyleSheetManager>
         </LocaleContext.Provider>
     )

@@ -13,6 +13,7 @@ import StockIndices from 'images/svg/markets/stock-new.svg'
 import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type MarketType = {
     icon: () => ReactElement
@@ -165,28 +166,6 @@ const StyledFlex = styled(Flex)`
         }
     }
 `
-const settings = {
-    options: {
-        draggable: true,
-        containScroll: 'trimSnaps',
-        slidesToScroll: 1,
-        align: 1,
-    },
-    container_style: {
-        maxWidth: '100%',
-        margin: '0 auto',
-        overflow: 'hidden',
-    },
-    slide_style: {
-        width: '282px',
-        height: '350px',
-        marginRight: '24px',
-        paddingRight: '50px',
-        paddingLeft: '25px',
-        position: 'relative',
-    },
-    last_slide_no_spacing: false,
-}
 
 const Card = ({ market }: CardProps) => {
     const [button_visibility, setButtonVisibility] = React.useState('false')
@@ -296,9 +275,36 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         (market) => market !== except,
     )
 
+    const lang_direction = useLangDirection()
+
+    const settings = {
+        options: {
+            draggable: true,
+            containScroll: 'trimSnaps',
+            slidesToScroll: 1,
+            align: 1,
+            direction: lang_direction,
+        },
+        container_style: {
+            maxInlineSize: '100%',
+            marginBlock: '0',
+            marginInline: 'auto',
+            overflow: 'hidden',
+        },
+        slide_style: {
+            inlineSize: '282px',
+            blockSize: '350px',
+            marginInlineEnd: '24px',
+            paddingInlineEnd: '50px',
+            paddingInlineStart: '25px',
+            position: 'relative',
+        },
+        last_slide_no_spacing: false,
+    }
+
     return (
         <SectionContainer padding="100px 0" margin="auto" background="#f9fbff">
-            <Desktop max_width="mobileL">
+            <Desktop breakpoint="mobileL">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
@@ -310,7 +316,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     </Carousel>
                 </MarketsWrapper>
             </Desktop>
-            <Mobile min_width="mobileL">
+            <Mobile breakpoint="mobileL">
                 <StyledHeader as="h3" type="section-title" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>

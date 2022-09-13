@@ -7,6 +7,7 @@ import { Carousel, Header, LinkText, QueryImage, Text } from 'components/element
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type CalculatorProps = {
     children?: React.ReactNode
@@ -224,7 +225,12 @@ const calculators: CalculatorProps[] = [
 ]
 
 const MarginCalculator = () => {
+    const lang_direction = useLangDirection()
+
     const settings = {
+        options: {
+            direction: lang_direction,
+        },
         container_style: {
             maxWidth: '100%',
             margin: '0',

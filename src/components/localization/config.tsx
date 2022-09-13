@@ -21,7 +21,16 @@ use(initReactI18next).init({
     interpolation: {
         escapeValue: false,
     },
-
+    // Here we check the defaultValue contains `_t_`, if true we find the actual pure_text and pass it as key.
+    parseMissingKeyHandler: (_, defaultValue) => {
+        if (defaultValue?.includes('_t_')) {
+            const pure_text_regex = new RegExp(/(_t_)(?<pure_text>.*?)(_t_)/g)
+            const result = pure_text_regex.exec(defaultValue)
+            const actual_key = result?.[2] ?? defaultValue
+            return actual_key
+        }
+        return defaultValue
+    },
     react: {
         useSuspense: false,
         hashTransKey(defaultValue) {

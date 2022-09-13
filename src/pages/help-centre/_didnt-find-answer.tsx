@@ -8,6 +8,7 @@ import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const DFYAWrapper = styled.section`
     background-color: var(--color-black-3);
@@ -65,6 +66,7 @@ const WhatsAppIcon = styled.img`
 
 export const DidntFindYourAnswerBanner = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
+    const { is_south_africa, is_nigeria } = useCountryRule()
     return (
         <DFYAWrapper>
             <DFYASection>
@@ -82,19 +84,21 @@ export const DidntFindYourAnswerBanner = () => {
                         >
                             {localize('Chat')}
                         </Button>
-                        <WhatsAppButton
-                            onClick={() => {
-                                LC_API.open_chat_window()
-                            }}
-                        >
-                            <WhatsAppIcon
-                                src={WhatsAppSVG}
-                                alt={localize('whatsappicon')}
-                                height="16"
-                                width="16"
-                            />
-                            {localize('WhatsApp')}
-                        </WhatsAppButton>
+                        {(is_south_africa || is_nigeria) && (
+                            <WhatsAppButton
+                                onClick={() => {
+                                    LC_API.open_chat_window()
+                                }}
+                            >
+                                <WhatsAppIcon
+                                    src={WhatsAppSVG}
+                                    alt={localize('whatsappicon')}
+                                    height="16"
+                                    width="16"
+                                />
+                                {localize('WhatsApp')}
+                            </WhatsAppButton>
+                        )}
                     </Flex>
                 )}
             </DFYASection>

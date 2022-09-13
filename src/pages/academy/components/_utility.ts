@@ -29,6 +29,7 @@ export const addScriptForCIO = (is_eu: boolean) => {
             t.src = '${cio_url}' 
             //If your account is in the EU, use:
             s.parentNode.insertBefore(t, s);`,
+        strategy: 'off-main-thread',
     })
 }
 export const handleTag = (tag_name: string) => {

@@ -42,7 +42,7 @@ const Display = styled.div`
     }
 `
 
-const Arrow = styled(Chevron)<{ expanded: boolean }>`
+const Arrow = styled((props) => <Chevron {...props} />)<{ expanded: boolean }>`
     ${({ expanded }) => (expanded ? 'transform: rotate(-180deg);' : '')}
     transition: transform 0.25s;
 

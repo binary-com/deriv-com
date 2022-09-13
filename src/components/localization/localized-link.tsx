@@ -130,9 +130,7 @@ const InternalLink = ({
     internal_to = has_no_end_slash ? internal_to.replace(/\/$/, '') : internal_to
 
     if (is_anchor) {
-        return (
-            <AnchorLink title={aria_label} to={internal_to} {...props} />
-        )
+        return <AnchorLink title={aria_label} to={internal_to} {...props} />
     }
     return (
         <StyledGatsbyLink aria-label={aria_label} to={internal_to} {...props}>

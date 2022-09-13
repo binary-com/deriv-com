@@ -82,29 +82,32 @@ const PersonalDetails = ({
     updatedData,
     onValidate,
 }: PersonalDetailsprops) => {
-    const [currency, setCurrency] = useState('')
     const [citizenship_list, setCitizenShipList] = useState([])
+
     const [first_name, setFirstName] = useState(affiliate_personal_data.first_name)
     const [last_name, setLastName] = useState(affiliate_personal_data.last_name)
-    const [date_birth, seDateBirth] = useState(affiliate_personal_data.date_birth)
-    const [citizen, setCitizen] = useState(affiliate_personal_data.citizen)
-    const [website_url, setWebsiteUrl] = useState(affiliate_personal_data.website_url)
-    const [social_media_url, setSocialMedia] = useState(affiliate_personal_data.social_media_url)
-    const [password, setPassword] = useState(affiliate_personal_data.password)
+    const [date_birth, setDateBirth] = useState(affiliate_personal_data.date_birth)
     const [company_name, setCompanyName] = useState(affiliate_personal_data.company_name)
     const [company_registration_number, setCompanyRegistrationNumber] = useState(
         affiliate_personal_data.company_registration_number,
     )
     const [certificate, setCertificate] = useState(affiliate_personal_data.certificate)
+    const [citizen, setCitizen] = useState(affiliate_personal_data.citizen)
+    const [website_url, setWebsiteUrl] = useState(affiliate_personal_data.website_url)
+    const [social_media_url, setSocialMedia] = useState(affiliate_personal_data.social_media_url)
+    const [password, setPassword] = useState(affiliate_personal_data.password)
+    const [currency, setCurrency] = useState('')
+
     const [first_name_error_msg, setFirstNameErrorMsg] = useState('')
     const [last_name_error_msg, setLastNameErrorMsg] = useState('')
     const [date_birth_error_msg, setDateBirthErrorMsg] = useState('')
-    const [citizen_error_msg, setCitizenErrorMsg] = useState('')
-    const [password_error_msg, setPasswordErrorMsg] = useState('')
     const [company_name_error_msg, setCompanyNameErrorMsg] = useState('')
     const [company_registration_error_msg, setCompanyRegistrationErrorMsg] = useState('')
     const [certificate_error_msg, setCertificateErrorMsg] = useState('')
-    const [currency_error_msg, setCurrencyErrorMsg] = useState('')
+    const [citizen_error_msg, setCitizenErrorMsg] = useState('')
+    const [website_url_error_msg, setWebsiteUrlErrorMsg] = useState('')
+    const [social_media_url_error_msg, setSocialMediaErrorMsg] = useState('')
+    const [password_error_msg, setPasswordErrorMsg] = useState('')
 
     const form_inputs = [
         {
@@ -116,6 +119,8 @@ const PersonalDetails = ({
             error: first_name_error_msg,
             value: first_name,
             required: true,
+            value_set: setFirstName,
+            error_set: setFirstNameErrorMsg,
         },
         {
             id: 'last_name',
@@ -126,18 +131,21 @@ const PersonalDetails = ({
             error: last_name_error_msg,
             value: last_name,
             required: true,
+            value_set: setLastName,
+            error_set: setLastNameErrorMsg,
         },
         {
             id: 'date_birth',
-            name: 'date',
-            type: 'text',
-            label: localize('Date of Birth'),
+            name: 'date_birth',
+            type: 'date',
+            label: date_birth ? localize('Date of Birth') : '',
             placeholder: 'Date of Birth',
             error: date_birth_error_msg,
             value: date_birth,
             required: true,
+            value_set: setDateBirth,
+            error_set: setDateBirthErrorMsg,
         },
-
         {
             id: 'company_name',
             name: 'company_name',
@@ -147,26 +155,32 @@ const PersonalDetails = ({
             error: company_name_error_msg,
             value: company_name,
             required: true,
+            value_set: setCompanyName,
+            error_set: setCompanyNameErrorMsg,
         },
         {
             id: 'company_registration_number',
             name: 'company_registration_number',
-            type: 'text',
+            type: 'number',
             label: localize('Company registration number'),
             placeholder: 'Company registration number',
             error: company_registration_error_msg,
             value: company_registration_number,
             required: true,
+            value_set: setCompanyRegistrationNumber,
+            error_set: setCompanyRegistrationErrorMsg,
         },
         {
-            id: 'certificate_incorporation',
-            name: 'certificate_incorporation',
-            type: 'text',
+            id: 'certificate_of_incorporation',
+            name: 'certificate_of_incorporation',
+            type: 'file',
             label: localize('Certificate of incorporation'),
-            placeholder: 'Company name',
+            placeholder: 'Certificate of incorporation',
             error: certificate_error_msg,
             value: certificate,
             required: true,
+            value_set: setCertificate,
+            error_set: setCertificateErrorMsg,
         },
         {
             id: 'citizenship_select',
@@ -185,8 +199,11 @@ const PersonalDetails = ({
             type: 'text',
             label: localize('Website URL'),
             placeholder: 'Website URL',
+            error: website_url_error_msg,
             value: website_url,
             required: false,
+            value_set: setWebsiteUrl,
+            error_set: setWebsiteUrlErrorMsg,
         },
         {
             id: 'social_media_url',
@@ -194,8 +211,11 @@ const PersonalDetails = ({
             type: 'text',
             label: localize('Social media URL'),
             placeholder: 'Social media URL',
+            error: social_media_url_error_msg,
             value: social_media_url,
             required: false,
+            value_set: setSocialMedia,
+            error_set: setSocialMediaErrorMsg,
         },
         {
             id: 'dm-password',
@@ -206,6 +226,8 @@ const PersonalDetails = ({
             error: password_error_msg,
             value: password,
             required: true,
+            value_set: setPassword,
+            error_set: setPasswordErrorMsg,
         },
     ]
 
@@ -236,8 +258,7 @@ const PersonalDetails = ({
         !password_error_msg ||
         !company_name_error_msg ||
         !company_registration_error_msg ||
-        !certificate_error_msg ||
-        !currency_error_msg
+        !certificate_error_msg
 
     useEffect(() => {
         send(citizen_list, (response) => {
@@ -290,7 +311,7 @@ const PersonalDetails = ({
             if (is_individual) {
                 const company_details = [
                     'company_name',
-                    'certificate_incorporation',
+                    'certificate_of_incorporation',
                     'company_registration_number',
                 ]
 
@@ -312,20 +333,8 @@ const PersonalDetails = ({
                 return setLastNameErrorMsg(validation.last_name(value))
             }
             case 'date_birth': {
-                seDateBirth(value)
+                setDateBirth(value)
                 return setDateBirthErrorMsg(validation.date(value))
-            }
-            case 'website_url': {
-                setWebsiteUrl(value)
-                break
-            }
-            case 'social_media_url': {
-                setSocialMedia(value)
-                break
-            }
-            case 'password': {
-                setPassword(value)
-                return setPasswordErrorMsg(validation.password(value))
             }
             case 'company_name': {
                 setCompanyName(value)
@@ -335,13 +344,25 @@ const PersonalDetails = ({
                 setCompanyRegistrationNumber(value)
                 return setCompanyRegistrationErrorMsg(validation.company_registration_number(value))
             }
-            case 'certificate': {
+            case 'certificate_of_incorporation': {
                 setCertificate(value)
-                return setCertificateErrorMsg(validation.certificate(value))
+                break
             }
             case 'citizen': {
                 setCitizen(value)
                 return setCitizenErrorMsg(validation.country(value))
+            }
+            case 'website_url': {
+                setWebsiteUrl(value)
+                return setWebsiteUrlErrorMsg(validation.website_url(value))
+            }
+            case 'social_media_url': {
+                setSocialMedia(value)
+                return setSocialMediaErrorMsg(validation.social_media_url(value))
+            }
+            case 'password': {
+                setPassword(value)
+                return setPasswordErrorMsg(validation.password(value))
             }
         }
     }
@@ -368,6 +389,22 @@ const PersonalDetails = ({
                                     />
                                 </DropdownSearchWrapper>
                             )
+                        }
+                        if (item.name === 'certificate_of_incorporation') {
+                            return (
+                                <Input
+                                    width={500}
+                                    id={item.id}
+                                    key={index}
+                                    type={item.type}
+                                    error={item.error}
+                                    name={item.name}
+                                    border="solid 1px var(--color-grey-7)"
+                                    background="white"
+                                    onChange={handleInput}
+                                    required={item.required}
+                                />
+                            )
                         } else {
                             return (
                                 <Input
@@ -387,6 +424,11 @@ const PersonalDetails = ({
                                     onChange={handleInput}
                                     onBlur={handleInput}
                                     required={item.required}
+                                    data-lpignore="true"
+                                    handleError={() => {
+                                        item?.value_set('')
+                                        item?.error_set('')
+                                    }}
                                 />
                             )
                         }

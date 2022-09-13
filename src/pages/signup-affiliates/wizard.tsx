@@ -36,8 +36,8 @@ const AffiliateSignup = () => {
             first_name: '',
             last_name: '',
             date_birth: '',
-            social_media_url: '',
             website_url: '',
+            social_media_url: '',
             password: '',
             company_name: '',
             company_registration_number: '',
@@ -140,11 +140,11 @@ const AffiliateSignup = () => {
                     <PersonalDetails
                         affiliate_personal_data={affiliate_account.personal_details}
                         is_individual={affiliate_account.account_type === 0 ? true : false}
-                        onValidate={(valid) => {
-                            setNextBtnEnabled(valid)
-                        }}
                         updatedData={(value) => {
                             updateAffiliateValues(value, 'personal-details')
+                        }}
+                        onValidate={(valid) => {
+                            setNextBtnEnabled(valid)
                         }}
                     />
                     <AccountTerms />

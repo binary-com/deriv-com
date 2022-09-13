@@ -1,5 +1,6 @@
 import React from 'react'
 import { localize, Localize } from 'components/localization'
+/* eslint-disable */
 
 export const affiliate_validation_regex = {
     alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
@@ -8,6 +9,15 @@ export const affiliate_validation_regex = {
     city: /[`~!@#%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
     postal_code: /[`~!@#%&*)(_=+[}{\]\\/";:><,|]+/,
     state: /[`~!@#%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
+    url: new RegExp(
+        '^(https?:\\/\\/)?' + // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+            '(\\#[-a-z\\d_]*)?$',
+        'i',
+    ),
 }
 
 const validation_is_exceed_number = (input, max_digit) => {
@@ -112,6 +122,14 @@ const cityValidation = (input, field_name, min_digit, max_digit) => {
         return localize(`Please enter a valid city`)
     }
 }
+const urlValidation = (input, field_name) => {
+    if (!input) {
+        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+    } else if (!affiliate_validation_regex.url.test(input)) {
+        return localize(`Please enter a valid url`)
+    }
+}
+
 const validation = {
     first_name: (input) => {
         return nameValidation(input, localize('First Name'), 2, 50)
@@ -161,6 +179,12 @@ const validation = {
     },
     certificate: (input) => {
         return textValidation(input, localize('certificate'), 2, 70)
+    },
+    website_url: (input) => {
+        return urlValidation(input, localize('website url'))
+    },
+    social_media_url: (input) => {
+        return urlValidation(input, localize('social media url'))
     },
 }
 export default validation

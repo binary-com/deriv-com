@@ -83,7 +83,7 @@ const RedirectNonEuLogin = () => {
     window.location.href = `https://${deriv_com_url}`
 }
 const NonEuRedirectPopUp = ({ is_open, setShowNonEuPopup }: PopupModalTypes) => {
-    const toggle = () => setShowNonEuPopup(!is_open)
+    const closePopup = () => setShowNonEuPopup(false)
     return (
         is_open && (
             <ModalWrapper>
@@ -99,7 +99,7 @@ const NonEuRedirectPopUp = ({ is_open, setShowNonEuPopup }: PopupModalTypes) => 
                         </StyledButtonText>
                     </ButtonWrapper>
                 </ModalCard>
-                <Background onClick={toggle} />
+                <Background onClick={closePopup} />
             </ModalWrapper>
         )
     )

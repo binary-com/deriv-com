@@ -5,10 +5,11 @@ import SideTab from './components/_side-tab'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import Login from 'common/login'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
+import useHandleSignup from 'components/hooks/use-handle-signup'
+import useHandleLogin from 'components/hooks/use-handle-login'
 
 type TabProps = {
     active?: boolean
@@ -181,9 +182,10 @@ const StartTrader = () => {
     const onTabClick = (chosenTab: string) => {
         setTab(chosenTab)
     }
-    const handleLogin = () => {
-        return Login.loginUrl()
-    }
+
+    const handleLogin = useHandleLogin()
+
+    const handleSignup = useHandleSignup()
 
     const { is_eu_country } = React.useContext(DerivStore)
 
@@ -273,8 +275,9 @@ const StartTrader = () => {
                                     translate_text="Sign up for a free <0>Deriv demo account</0>"
                                     components={[
                                         <StyledLocalizedLink
+                                            onClick={handleSignup}
                                             id="dm-dmt5-signup-link"
-                                            to="/signup/"
+                                            to=""
                                             key={0}
                                         />,
                                     ]}
@@ -316,11 +319,7 @@ const StartTrader = () => {
                                 <Localize
                                     translate_text="Create or <0>sign in</0> to your Deriv account"
                                     components={[
-                                        <StyledLocalizedLink
-                                            external="true"
-                                            key={0}
-                                            to={handleLogin()}
-                                        />,
+                                        <StyledLocalizedLink key={0} onClick={handleLogin} to="" />,
                                     ]}
                                 />
                             }

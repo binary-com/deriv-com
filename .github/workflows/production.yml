@@ -26,7 +26,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: 14
+                  node-version: 16
                   cache: 'npm'
 
             - name: Install Node.js dependencies
@@ -46,7 +46,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '14.x'
+                  node-version: '16.x'
                   cache: 'npm'
 
             - name: Set version env variable
@@ -113,7 +113,7 @@ jobs:
                 command: pages publish public --project-name=deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
-              run: echo "New website - http://cf-pages.deriv.com"
+              run: echo "New website - http://cf-pages-deriv-com.deriv.com"
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

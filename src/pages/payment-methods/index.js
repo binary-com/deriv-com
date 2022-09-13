@@ -121,7 +121,7 @@ const MobileWrapper = styled.div`
     }
 `
 const DisplayAccordion = (locale) => {
-    const { is_eu_country, crypto_config, is_p2p_allowed_country } = React.useContext(DerivStore)
+    const { is_eu_country, is_p2p_allowed_country } = React.useContext(DerivStore)
     const [is_mobile] = useBrowserResize(992)
 
     const content_style = is_mobile
@@ -165,7 +165,10 @@ const DisplayAccordion = (locale) => {
 
                 if (pd.is_crypto && is_eu_country) {
                     return []
-                } else if (pd.is_dp2p && !is_p2p_allowed_country && is_eu_country) {
+                }
+                if (pd.is_fiat_onramp && is_eu_country) {
+                    return []
+                } else if (pd.is_dp2p && !is_p2p_allowed_country) {
                     return []
                 } else
                     return (
@@ -178,18 +181,10 @@ const DisplayAccordion = (locale) => {
                             header={pd.name}
                         >
                             <DesktopWrapper>
-                                <DisplayAccordianItem
-                                    pd={pd}
-                                    crypto_config={crypto_config}
-                                    locale={locale}
-                                />
+                                <DisplayAccordianItem pd={pd} locale={locale} />
                             </DesktopWrapper>
                             <MobileWrapper>
-                                <MobileAccordianItem
-                                    pd={pd}
-                                    crypto_config={crypto_config}
-                                    locale={locale}
-                                />
+                                <MobileAccordianItem pd={pd} locale={locale} />
                             </MobileWrapper>
                         </AccordionItem>
                     )
@@ -202,7 +197,7 @@ DisplayAccordion.propTypes = {
     locale: PropTypes.object,
 }
 
-const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
+const DisplayAccordianItem = ({ pd, locale }) => {
     return (
         <>
             <OuterDiv>
@@ -285,7 +280,6 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                         key={indx}
                                         data={data}
                                         is_crypto={pd.is_crypto}
-                                        config={crypto_config}
                                         is_fiat_onramp={pd.is_fiat_onramp}
                                         locale={locale}
                                     />
@@ -307,7 +301,6 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
 }
 
 DisplayAccordianItem.propTypes = {
-    crypto_config: PropTypes.object,
     locale: PropTypes.object,
     pd: PropTypes.object,
 }

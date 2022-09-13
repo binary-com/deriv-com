@@ -267,7 +267,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         onClick={handleArrowClick}
                                         to="trading"
                                         type="smart_trader"
-                                        external="true"
+                                        external
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}
                                     />
@@ -298,7 +298,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         title={<Localize translate_text="Binary Bot" />}
                                         onClick={handleArrowClick}
                                         to={binary_bot_url}
-                                        external="true"
+                                        external
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}
                                     />
@@ -462,7 +462,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         <StyledLink
                             to=""
                             type="community"
-                            external="true"
+                            external
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -500,7 +500,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink
                             to={deriv_status_page_url}
-                            external="true"
+                            external
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -557,17 +557,19 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                         </StyledLink>
-                        <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={PaymentAgent} alt="" width="32" height="32" />
-                            </div>
-                            <span>{<Localize translate_text="Payment agents" />}</span>
-                        </StyledLink>
+                        <ROW>
+                            <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
+                                <div>
+                                    <img src={PaymentAgent} alt="" width="32" height="32" />
+                                </div>
+                                <span>{<Localize translate_text="Payment agents" />}</span>
+                            </StyledLink>
+                        </ROW>
                         <StyledLink
                             to=""
                             type="api"
                             target="_blank"
-                            external="true"
+                            external
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
                         >
@@ -623,17 +625,19 @@ export const OffCanvasMenuPartner = (props) => {
                     </div>
                     <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                 </StyledLink>
-                <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
-                    <div>
-                        <img src={PaymentAgent} alt="" width="32" height="32" />
-                    </div>
-                    <span>{<Localize translate_text="Payment agents" />}</span>
-                </StyledLink>
+                <ROW>
+                    <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
+                        <div>
+                            <img src={PaymentAgent} alt="" width="32" height="32" />
+                        </div>
+                        <span>{<Localize translate_text="Payment agents" />}</span>
+                    </StyledLink>
+                </ROW>
                 <StyledLink
                     to=""
                     type="api"
                     target="_blank"
-                    external="true"
+                    external
                     rel="noopener noreferrer"
                     onClick={handleArrowClick}
                 >
@@ -664,7 +668,7 @@ OffCanvasMenuWrapper.propTypes = {
     is_ppc_redirect: PropTypes.bool,
 }
 
-export const moveOffCanvasMenu = (initState = false) => {
+export const useMoveOffCanvasMenu = (initState = false) => {
     const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(initState)
     const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)
     const closeOffCanvasMenu = () => setOffCanvasMenuPosition(false)

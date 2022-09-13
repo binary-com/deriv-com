@@ -61,7 +61,7 @@ const TradingCFDIncreases = () => {
     return (
         <StyledSectionContainer background="white" padding="4rem 0 0">
             <SmallContainer direction="column" ai="flex-start">
-                <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
+                <Text as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem">
                     {localize('Trading CFDs increases both potential profit and loss')}
                 </Text>
                 <Text mb="1.2rem">
@@ -70,11 +70,11 @@ const TradingCFDIncreases = () => {
                     )}
                 </Text>
 
-                <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
+                <Text as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem">
                     {localize('CFD trading features on Deriv')}
                 </Text>
 
-                <Text weight="bold" mb="0.8rem">
+                <Text as="h5" weight="bold" mb="0.8rem">
                     {localize('Stop loss')}
                 </Text>
                 <Text mb="1.6rem">
@@ -82,7 +82,7 @@ const TradingCFDIncreases = () => {
                         'With stop loss, you minimise potential losses by setting the price at which you want the position to close in case the market moves against you. When the current market price surpasses this level, your trade will be closed automatically.',
                     )}
                 </Text>
-                <Text weight="bold" mb="0.8rem">
+                <Text as="h5" weight="bold" mb="0.8rem">
                     {localize('Stop loss with Crash/Boom/Range break indices')}
                 </Text>
                 <Text mb="1.6rem">
@@ -132,7 +132,7 @@ const TradingCFDIncreases = () => {
                     )}
                 </Text>
 
-                <Text size="var(--text-size-m)" weight="bold" mb="0.8rem" mt="2.4rem">
+                <Text as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem" mt="2.4rem">
                     {localize('Margin call')}
                 </Text>
                 <Text mb="2.4rem">
@@ -155,7 +155,7 @@ const TradingCFDIncreases = () => {
                     )}
                 </Text>
 
-                <StyledLinkButton mb="4rem" secondary="true" to="/trader-tools/swap-calculator/">
+                <StyledLinkButton mb="4rem" secondary to="/trader-tools/swap-calculator/">
                     {localize('Swap calculator')}
                 </StyledLinkButton>
             </SmallContainer>

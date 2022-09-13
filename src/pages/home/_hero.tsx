@@ -5,12 +5,13 @@ import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
 import device from 'themes/device'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
 import { EU, UK, ROW } from 'components/containers/visibility'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const query = graphql`
     query {
@@ -52,7 +53,7 @@ const HeroWrapper = styled.section`
         min-height: 846px;
     }
 `
-const HeroButton = styled(LinkButton)`
+const HeroButton = styled(Button)`
     padding: 17px 24px;
     display: flex;
     align-items: center;
@@ -78,7 +79,8 @@ const StyledHeader = styled(Header)`
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const { is_uk } = useCountryRule()
+    const { is_uk, is_loading } = useCountryRule()
+    const handleSignup = useHandleSignup()
 
     return (
         <HeroWrapper>
@@ -144,15 +146,14 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 </ROW>
                             </Header>
                             <VerticalCarousel
-                                contents={!is_ppc && !is_uk ? contents : contents_ppc}
+                                contents={is_ppc && is_uk ? contents_ppc : contents}
                             />
                             <Box tabletL={{ mt: '-8px' }}>
                                 <HeroButton
+                                    disabled={is_loading}
+                                    onClick={handleSignup}
                                     id="dm-hero-signup"
-                                    secondary="true"
-                                    to="/signup/"
-                                    p="17px 24px"
-                                    height="64px"
+                                    secondary
                                 >
                                     <Localize translate_text="Create free demo account" />
                                 </HeroButton>

@@ -4,19 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
-
-type ContentProps = {
-    margin_right: string
-    margin_left: string
-}
-
-type ImageWrapperProps = {
-    margin_right?: string
-}
-
-type RowProps = {
-    flex_direction: string
-}
+import { StyledProps } from 'pages/landing/_types'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-grey-30);
@@ -29,7 +17,7 @@ const MainWrapper = styled(Container)`
     }
 `
 
-const Content = styled(Flex)<ContentProps>`
+const Content = styled(Flex)<StyledProps>`
     width: 60%;
     flex-direction: column;
     margin-right: ${(props) => props.margin_right};
@@ -52,7 +40,7 @@ const Content = styled(Flex)<ContentProps>`
     }
 `
 
-const ImageWrapper = styled.div<ImageWrapperProps>`
+const ImageWrapper = styled.div<StyledProps>`
     display: flex;
     width: 40%;
     margin-right: ${(props) => props.margin_right};
@@ -72,7 +60,7 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
-const Row = styled.div<RowProps>`
+const Row = styled.div<StyledProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
@@ -123,7 +111,13 @@ const query = graphql`
         trade_what_you_want: file(relativePath: { eq: "dtrader/trade-what-you-want.png" }) {
             ...fadeIn
         }
+        trade_what_you_want_eu: file(relativePath: { eq: "dtrader/trade-what-you-want-eu.png" }) {
+            ...fadeIn
+        }
         how_you_want: file(relativePath: { eq: "dtrader/how-you-want.png" }) {
+            ...fadeIn
+        }
+        how_you_want_eu: file(relativePath: { eq: "dtrader/how-you-want_eu.png" }) {
             ...fadeIn
         }
         stocks_zero_fees: file(relativePath: { eq: "stock-indices/stocks-zero-fees.png" }) {

@@ -2,9 +2,10 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type WhyTradeProps = {
     children: ReactElement[]
@@ -70,7 +71,7 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 16px;
     }
 `
-const StyledButton = styled(LinkButton)`
+const StyledButton = styled(Button)`
     border-radius: 4px;
     @media ${device.tabletL} {
         font-size: 1.75rem;
@@ -79,6 +80,8 @@ const StyledButton = styled(LinkButton)`
 `
 
 export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
+    const handleSignup = useHandleSignup()
+
     return (
         <StyledSection background="#f9fbff" padding="120px 16px">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
@@ -105,7 +108,7 @@ export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
                         }
                     })}
                 </ItemContainer>
-                <StyledButton id="dm-why-trade-signup" to="/signup/" secondary="true">
+                <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
                     {localize('Create free demo account')}
                 </StyledButton>
             </Flex>

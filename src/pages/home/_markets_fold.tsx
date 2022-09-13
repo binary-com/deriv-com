@@ -69,6 +69,7 @@ const StyledDescription = styled(Text)<{ $hovered: boolean }>`
     visibility: ${(props) => (props.$hovered ? 'visible' : 'hidden')};
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
     z-index: 2;
+    color: white;
 `
 
 const StyledLink = styled(LocalizedLink)`
@@ -273,11 +274,7 @@ const CarouselItem = ({
     }
 
     return (
-        <ItemWrapper
-            onMouseEnter={() => handleHover(true)}
-            onMouseLeave={() => handleHover(false)}
-            onClick={(e) => !is_mobile && e.preventDefault()}
-        >
+        <ItemWrapper onMouseEnter={() => handleHover(true)} onMouseLeave={() => handleHover(false)}>
             <StyledLink to={url}>
                 <CarouselItemContainer
                     direction="column"
@@ -291,12 +288,7 @@ const CarouselItem = ({
                     </Header>
                     <Desktop>
                         <>
-                            <StyledDescription
-                                lh="24px"
-                                color="white"
-                                type="paragraph-1"
-                                $hovered={is_hovered}
-                            >
+                            <StyledDescription lh="24px" type="paragraph-1" $hovered={is_hovered}>
                                 {description}
                             </StyledDescription>
                             <CarouselItemImageDesktop
@@ -304,9 +296,6 @@ const CarouselItem = ({
                                 alt={header}
                                 loading="eager"
                                 $hovered={is_hovered}
-                                onClick={(e) => {
-                                    !is_mobile && e.preventDefault()
-                                }}
                             />
                         </>
                     </Desktop>
@@ -321,7 +310,7 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
-    const { is_uk, is_non_uk, is_eu } = useCountryRule()
+    const { is_loading, is_uk, is_non_uk, is_eu, is_row } = useCountryRule()
     const size = useWindowSize()
     const is_not_big_screen = size.width < 1980 && size.width >= 768
     const is_mobile = size.width < 768
@@ -380,8 +369,12 @@ const MarketsFold = () => {
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >
-                    {((is_uk && market_data_uk) || (is_eu && market_data_eu) || market_data).map(
-                        (market, index) => {
+                    {!is_loading &&
+                        (
+                            (is_uk && market_data_uk) ||
+                            (is_eu && market_data_eu) ||
+                            (is_row && market_data)
+                        ).map((market, index) => {
                             const {
                                 header,
                                 description,
@@ -403,8 +396,7 @@ const MarketsFold = () => {
                                     url={to}
                                 />
                             )
-                        },
-                    )}
+                        })}
                 </Carousel>
             </FoldContainer>
         </FoldWrapper>

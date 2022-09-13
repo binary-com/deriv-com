@@ -28,6 +28,9 @@ const Container = styled.section`
 const Tab = styled.div`
     width: 100%;
     margin-top: 2.4rem;
+    @media ${device.tablet} {
+        margin-top: 0;
+    }
 `
 const TabsWrapper = styled.div`
     display: flex;
@@ -251,8 +254,8 @@ class DtraderTabs extends React.Component {
                     </Tab>
                     <GotoLiveWrapper>
                         <GoToLiveDemo
-                            secondary="true"
-                            external="true"
+                            secondary
+                            external
                             type="deriv_app"
                             target="_blank"
                             rel="noopener noreferrer nofollow"

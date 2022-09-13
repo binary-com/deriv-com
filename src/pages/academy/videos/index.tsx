@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, navigate } from 'gatsby'
+import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
-import { useDataFilter } from '../components/utility'
+import { useDataFilter } from '../components/_utility'
 import AllVideos from './_all-videos'
+import { redirectWithParamReference, queryParams } from 'common/utility'
 import { AllVideosQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
@@ -53,10 +54,13 @@ type VideosPageProps = {
 export type VideoDataType = AllVideosQuery['directus']['videos']
 
 const VideosPage = ({ data }: VideosPageProps) => {
-    // We need this useEffect because we already shared video links in social media which include query params '?t='
+    // We need this to redirect users to the new videos page if ever they are accessing the old video link
     React.useEffect(() => {
-        const video_link = window.location.search
-        video_link.includes('?t=') && navigate(video_link.replace('?t=', ''))
+        const video_title = queryParams.get('t')
+
+        if (video_title) {
+            redirectWithParamReference('/academy/videos', 't')
+        }
     }, [])
 
     const video_data = useDataFilter(data.directus.videos)
@@ -114,7 +118,6 @@ export const query = graphql`
     query AllVideos {
         directus {
             videos(filter: { status: { _eq: "published" } }, sort: "- published_date") {
-                video_id
                 video_slug
                 video_title
                 published_date
@@ -126,9 +129,6 @@ export const query = graphql`
                         tag_name
                         id
                     }
-                }
-                video_file {
-                    id
                 }
                 video_thumbnail {
                     id

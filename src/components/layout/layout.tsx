@@ -158,7 +158,7 @@ const Layout = ({
     no_login_signup = false,
     type = '',
 }: LayoutProps) => {
-    const { show_non_eu_popup, setShowNonEuPopup, website_status } = React.useContext(DerivStore)
+    const { show_non_eu_popup, setShowNonEuPopup } = React.useContext(DerivStore)
     const { is_uk_eu } = useCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
@@ -236,7 +236,7 @@ const Layout = ({
     }
 
     // Handle navigation types
-    let Navigation = <></>
+    let Navigation
     let FooterNav = <></>
     switch (type) {
         case 'academy':

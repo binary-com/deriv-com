@@ -6,7 +6,7 @@ type LocationProviderProps = {
     has_mounted?: boolean
     setModalPayload?: Dispatch<SetStateAction<ModalPayloadType>>
     show_cookie_banner?: boolean
-    toggleModal?: () => void
+    toggleModal?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
 export const LocationContext = React.createContext(null) // undefined => true

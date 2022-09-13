@@ -15,7 +15,7 @@ type EURedirectProps = {
     rel?: string
     target?: string
     to?: string
-    toggle: () => void
+    toggle: (event: React.MouseEvent<HTMLElement>) => void
 }
 
 const ModalWrapper = styled.div`

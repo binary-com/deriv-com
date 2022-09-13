@@ -24,12 +24,13 @@ type SocialWrapperComponentProps = {
     twitter_url?: string
 }
 
+type TSocialAccount = {
+    link?: string
+    image?: string
+    image_alt?: string
+}
 type SocialMediaComponentProps = {
-    social_accounts: {
-        link?: string
-        image?: string
-        image_alt?: string
-    }[]
+    social_accounts: TSocialAccount[]
 }
 
 const SocialWrapperComponent = ({

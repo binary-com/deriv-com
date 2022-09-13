@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import BirthPicker from '../utils/_birth-form'
 import validation from '../validations/_account-details'
 import Currency from '../_currency-affiliates'
 import { localize } from 'components/localization'
@@ -97,6 +98,7 @@ const PersonalDetails = ({
     const [social_media_url, setSocialMedia] = useState(affiliate_personal_data.social_media_url)
     const [password, setPassword] = useState(affiliate_personal_data.password)
     const [currency, setCurrency] = useState('')
+    console.log(currency)
 
     const [first_name_error_msg, setFirstNameErrorMsg] = useState('')
     const [last_name_error_msg, setLastNameErrorMsg] = useState('')
@@ -345,7 +347,7 @@ const PersonalDetails = ({
                 return setCompanyRegistrationErrorMsg(validation.company_registration_number(value))
             }
             case 'certificate_of_incorporation': {
-                setCertificate(value)
+                setCertificate(e.target.files[0])
                 break
             }
             case 'citizen': {
@@ -363,6 +365,10 @@ const PersonalDetails = ({
             case 'password': {
                 setPassword(value)
                 return setPasswordErrorMsg(validation.password(value))
+            }
+            case 'currency': {
+                setCurrency(value)
+                break
             }
         }
     }
@@ -390,6 +396,23 @@ const PersonalDetails = ({
                                 </DropdownSearchWrapper>
                             )
                         }
+                        if (item.name === 'date_birth') {
+                            return (
+                                <BirthPicker
+                                    width={500}
+                                    id={item.id}
+                                    key={index}
+                                    type={item.type}
+                                    error={item.error}
+                                    name={item.name}
+                                    border="solid 1px var(--color-grey-7)"
+                                    background="white"
+                                    onChange={handleInput}
+                                    required={item.required}
+                                    setFieldValue={item.value_set}
+                                />
+                            )
+                        }
                         if (item.name === 'certificate_of_incorporation') {
                             return (
                                 <Input
@@ -403,6 +426,7 @@ const PersonalDetails = ({
                                     background="white"
                                     onChange={handleInput}
                                     required={item.required}
+                                    accept="image/*"
                                 />
                             )
                         } else {

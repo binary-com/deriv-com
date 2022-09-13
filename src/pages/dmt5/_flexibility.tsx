@@ -9,7 +9,7 @@ import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import SyntheticIcon from 'images/svg/dmt5/synthetic.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ContentType = {
     header?: React.ReactElement
@@ -46,7 +46,7 @@ const content: ContentType[] = [
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities on high leverage." />
+            <Localize translate_text="Trade forex, stocks, stock indices, cryptocurrencies, basket indices, and commodities on high leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
     },
@@ -135,7 +135,7 @@ const StyledText = styled(Text)`
 
 const Flexibility = () => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const { is_uk } = getCountryRule()
+    const { is_uk } = useCountryRule()
 
     const chosen_content = is_eu_country ? eucontent : content
 
@@ -184,8 +184,8 @@ const Flexibility = () => {
                 })}
             </Flex>
             <StyledLinkButton
-                external="true"
-                secondary="true"
+                external
+                secondary
                 type="mt5"
                 target="_blank"
                 rel="noopener noreferrer"

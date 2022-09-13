@@ -1,45 +1,28 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { VideoGrid } from '../common/_styles'
 import VideoCard from '../videos/_video-card'
-import VideoPlayer from '../components/_video-player'
-import { slugify } from 'common/utility'
+import { RedirectLink } from '../components/recent-featured-posts/_style'
 import { VideosType } from 'components/hooks/use-academy-data'
 
 type VideoParentWrapperProps = {
-    closeVideo: () => void
     currentVideoItems: VideosType[]
-    openVideo: (id: string, title: string) => void
-    show: boolean
-    video_src: string
 }
 
-const VideoParentWrapper = ({
-    closeVideo,
-    currentVideoItems,
-    openVideo,
-    show,
-    video_src,
-}: VideoParentWrapperProps) => {
-    useEffect(() => {
-        document.body.style.overflow = show ? 'hidden' : 'unset'
-    }, [show])
-
+const VideoParentWrapper = ({ currentVideoItems }: VideoParentWrapperProps) => {
     return (
         <>
             <VideoGrid margin="24px 0 32px 0">
                 {currentVideoItems.map((item) => {
                     return (
-                        <VideoCard
-                            key={item.video_file.id}
-                            item={item}
-                            openVideo={() =>
-                                openVideo(item.video_file.id, slugify(item.video_title))
-                            }
-                        />
+                        <RedirectLink
+                            key={item.video_slug}
+                            to={`/academy/videos/${item.video_slug}/`}
+                        >
+                            <VideoCard item={item} />
+                        </RedirectLink>
                     )
                 })}
             </VideoGrid>
-            {show && <VideoPlayer video_src={video_src} closeVideo={closeVideo} />}
         </>
     )
 }

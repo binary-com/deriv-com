@@ -19,7 +19,7 @@ export const Background = styled.div`
 export const HeroContainer = styled(Container)`
     height: auto;
     min-height: 525px;
-    padding: 76px 0 40px;
+    padding: ${(props) => (props.padding ? props.padding : '76px 0 40px')};
     align-items: flex-start;
 
     @media (max-width: 1300px) {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import {
     checkElemInArray,
     getLocationHash,
@@ -8,36 +8,49 @@ import {
     setLocationHash,
 } from 'common/utility'
 
-export const useTabStateQuery = (tab_list) => {
-    const [active_tab, setActiveTab] = useState(
-        getLocationHash() && checkElemInArray(tab_list, getLocationHash())
-            ? getLocationHash()
-            : tab_list[0],
-    )
+/**
+ * @description this hook will handle the current active tab of your tabs container, by default it will put the active tab in location hash in the url, if you don't need it pass has_no_query as true
+    if it's path sensitive and there is no location hash in the url it will use the first item in tab_list as location hash and if the location hash in the url is not valid it will route you back to the previous page.
+ * @param tab_list {string[]} the array of tabs
+ * @param has_no_query {boolean} to check if we should handle location hash on active tab changes
+ * @returns [active_tab , setActiveTab]
+ */
+export const useTabStateQuery = (tab_list, has_no_query = false, starting_index = 0) => {
+    const locationHash = getLocationHash()
+    const [active_tab, setActiveTab] = useState(null)
+
+    const hashExistInTabList = useMemo(() => {
+        return checkElemInArray(tab_list, locationHash)
+    }, [locationHash, tab_list])
 
     useEffect(() => {
-        if (!getLocationHash() || !checkElemInArray(tab_list, getLocationHash())) {
-            setLocationHash(active_tab)
+        const isPathSensitive = !has_no_query
+        const isBrowserMode = isBrowser()
+
+        if (isPathSensitive) {
+            if (locationHash) {
+                if (hashExistInTabList) {
+                    if (isBrowserMode && active_tab && locationHash !== active_tab) {
+                        setLocationHash(active_tab)
+                    } else {
+                        setActiveTab(locationHash)
+                        scrollTop()
+                    }
+                } else {
+                    routeBack()
+                }
+            } else {
+                if (isBrowserMode) {
+                    setActiveTab(tab_list[starting_index])
+                    setLocationHash(tab_list[starting_index])
+                }
+            }
         } else {
-            setActiveTab(getLocationHash())
-            scrollTop()
+            if (!active_tab) {
+                setActiveTab(tab_list[starting_index])
+            }
         }
-    }, [])
-
-    useEffect(() => {
-        if (getLocationHash() !== active_tab && isBrowser()) {
-            setLocationHash(active_tab)
-        }
-    }, [active_tab])
-
-    useEffect(() => {
-        if (getLocationHash() !== active_tab && checkElemInArray(tab_list, getLocationHash())) {
-            setActiveTab(getLocationHash())
-            scrollTop()
-        } else if (!checkElemInArray(tab_list, getLocationHash())) {
-            routeBack()
-        }
-    }, [getLocationHash()])
+    }, [active_tab, locationHash, has_no_query, tab_list, hashExistInTabList, starting_index])
 
     return [active_tab, setActiveTab]
 }

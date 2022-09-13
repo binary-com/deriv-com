@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import Modal from './modal'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { QueryImage, ImageWrapper } from 'components/elements'
 import device from 'themes/device'
@@ -21,9 +21,6 @@ type LeaderType = {
 
 const query = graphql`
     query {
-        antony: file(relativePath: { eq: "who-we-are/antony.jpg" }) {
-            ...fadeIn
-        }
         derek: file(relativePath: { eq: "who-we-are/derek.jpg" }) {
             ...fadeIn
         }
@@ -227,12 +224,6 @@ const Leaders = () => {
             position: <Localize translate_text="Vice President of Customer Support" />,
             link: 'https://www.linkedin.com/in/jeyavarthini-vairakanan-812b7a121/',
             image: leaders_data.jeya,
-        },
-        {
-            name: 'Antony Pradeep Charles',
-            position: <Localize translate_text="Vice President of Strategy & Project Management" />,
-            link: 'https://www.linkedin.com/in/antonypradeep/',
-            image: leaders_data.antony,
         },
         {
             name: 'Gary Ross Vytialingam',

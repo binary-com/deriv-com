@@ -13,15 +13,16 @@ import {
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { Header, Timeline } from 'components/elements'
+import { Header, LinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
-import TradingExperts from 'images/svg/partners/trading-experts.svg'
+import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
 import Affiliates from 'images/svg/partners/affiliates.svg'
 import CommunityManagers from 'images/svg/partners/community-managers.svg'
 import Email from 'images/svg/partners/pa-email.svg'
 import Reply from 'images/svg/partners/pa-reply.svg'
 import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 type ImageWrapperProps = {
     left_margin?: string
@@ -68,6 +69,11 @@ const StyledUl = styled.ul`
     list-style-type: disc;
     font-size: var(--text-size-s);
     padding-left: 16px;
+    margin-bottom: 36px;
+
+    &.get-started--list {
+        margin-bottom: 0;
+    }
 `
 
 const Li = styled.li`
@@ -91,7 +97,7 @@ type SectionComponentProps = {
 
 const section_content: SectionComponentProps[] = [
     {
-        img_src: TradingExperts,
+        img_src: CurrencyExchange,
         header: <Localize translate_text="Currency exchangers" />,
         text: (
             <Localize translate_text="Reputable online currency exchangers who want to gain more exposure and clients." />
@@ -127,6 +133,8 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     )
 }
 const WhoCanApply = () => {
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+
     return (
         <SectionWrapper padding="80px 0">
             <StyledSection>
@@ -144,14 +152,14 @@ const WhoCanApply = () => {
                             />
                         ))}
                         <Header as="h4" type="paragraph-1" mt="24px">
-                            {localize('A couple of things to note:')}
+                            {localize('Note:')}
                         </Header>
                         <StyledUl>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                    {localize(
-                                        'You must have a minimum balance in your Deriv account, depending on your country of residence.',
-                                    )}
+                                    {
+                                        <Localize translate_text="You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful." />
+                                    }
                                 </Header>
                             </Li>
                             <Li>
@@ -162,6 +170,20 @@ const WhoCanApply = () => {
                                 </Header>
                             </Li>
                         </StyledUl>
+                        <Header as="h4" type="paragraph-1" weight="normal">
+                            <Localize
+                                translate_text="See our <0>terms and conditions</0> for more info."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        color="red"
+                                        target="_blank"
+                                        href="/tnc/business-partners-payment-agents.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
+                        </Header>
                     </WhoCanApplyWrapper>
                 </Flex>
                 <Separator />
@@ -182,7 +204,7 @@ const WhoCanApply = () => {
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize('Send us an email with the following:')}
                                         </Header>
-                                        <StyledUl>
+                                        <StyledUl className="get-started--list">
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
@@ -239,7 +261,7 @@ const WhoCanApply = () => {
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
-                                                'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
+                                                'After final approval from our Compliance team, we’ll publish your details on our payment agent list.',
                                             )}
                                         </Header>
                                     </Content>
@@ -249,15 +271,15 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <ButtonWrapper padding="0 0 80px 0">
+            <ButtonWrapper padding={is_p2p_allowed_country ? '0 0 80px 0' : '0'}>
                 <LinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary
-                    external="true"
+                    external
                     to="mailto:partners@deriv.com"
                     is_mail_link
                 >
-                    {localize('Sign up')}
+                    {localize('Send us an email to apply')}
                 </LinkButton>
             </ButtonWrapper>
         </SectionWrapper>

@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { LinkButton, Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import { Background } from 'components/elements/background-image'
+import { mobileOSDetect } from 'common/os-detect'
+import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
 
 type P2PBannerProps = {
     title: string
@@ -52,6 +54,19 @@ const TryButton = styled(LinkButton)`
         margin-bottom: 2rem;
     }
 `
+const ButtonDerivP2P = styled(Button)`
+    padding: 1.5rem 1.6rem;
+    height: 40px;
+    margin: 15px auto;
+    width: 100%;
+    white-space: nowrap;
+
+    @media ${device.tabletL} {
+        padding: 0 16px;
+        margin: 26px auto;
+        font-size: 14px;
+    }
+`
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 48.6rem;
@@ -88,11 +103,10 @@ const StyledHeader = styled(Header)`
     }
     @media ${device.tabletS} {
         font-size: 24px;
-        max-width: 70%;
-        margin-top: 20px;
+        margin-top: 40px;
     }
     @media ${device.mobileL} {
-        margin-top: 0;
+        margin-top: 60px;
     }
 `
 
@@ -103,7 +117,9 @@ const StyledText = styled(Text)`
     line-height: 36px;
 
     @media ${device.tabletL} {
-        font-size: 14px;
+        font-size: 18px;
+        margin-bottom: 30px;
+        padding: 16px;
     }
 `
 
@@ -120,7 +136,17 @@ const query = graphql`
 
 const P2PBanner = ({ title }: P2PBannerProps) => {
     const data = useStaticQuery(query)
+    const handleExternalLink = () => {
+        let link = ''
+        if (mobileOSDetect() === 'Android') {
+            link = p2p_playstore_url
+        }
+        if (mobileOSDetect() === 'iOS') {
+            link = p2p_applestore_url
+        }
 
+        window.open(link, '_blank')
+    }
     return (
         <div>
             <StyledText>
@@ -147,10 +173,11 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                             <StyledHeader as="h3" weight={500}>
                                 {title}
                             </StyledHeader>
+
                             <TryButton
-                                secondary="true"
+                                secondary
+                                external
                                 to="/cashier/p2p"
-                                external="true"
                                 type="deriv_app"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -171,16 +198,11 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                             <StyledHeader as="h3" weight={500}>
                                 {title}
                             </StyledHeader>
-                            <TryButton
-                                secondary="true"
-                                to="/cashier/p2p"
-                                external="true"
-                                type="deriv_app"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {localize('Try Deriv P2P now')}
-                            </TryButton>
+                            <Mobile>
+                                <ButtonDerivP2P secondary onClick={handleExternalLink}>
+                                    {localize('Try Deriv P2P now')}
+                                </ButtonDerivP2P>
+                            </Mobile>
                         </InformationWrapper>
                     </Wrapper>
                 </Background>

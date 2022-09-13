@@ -1,19 +1,42 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Article, ArticleProps } from './_article'
-import { ArticleWrapper, ExternalLink, StyledHeader } from './_help-centre-style'
+import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
+import device from 'themes/device.ts'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
+
+const StyledLink = styled(ExternalLink)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
 
 const Forex = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'Forex is the global decentralised market for the buying and selling of currencies.',
+                'Foreign exchange, or forex, is the global market of the world’s currencies, where the values of different currencies are pitted against each other in the form of forex pairs, such as EUR/USD, AUD/JPY, etc. The forex market determines the exchange rates of each currency.',
             )}
         </Text>
+        <StyledText>
+            <Localize
+                translate_text="Read <0>this article</0> to learn more about trading forex on Deriv."
+                components={[
+                    <StyledLink
+                        to={'/academy/blog/posts/what-is-forex-live-trading/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -22,9 +45,24 @@ const Commodities = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'A commodity is either grown or produced naturally in the environment. Examples include crude oil, metals, gold, and silver.',
+                'A commodity is either grown or produced naturally in the environment, such as agricultural products, livestock, crude oil, and precious metals like gold and silver.',
             )}
         </Text>
+        <StyledText>
+            <Localize
+                translate_text="Read <0>this article</0> to learn more about trading commodities on Deriv."
+                components={[
+                    <StyledLink
+                        to={'/academy/blog/posts/what-are-commodities/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -33,9 +71,24 @@ const StockIndices = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'Stock indices measure the value of a selection of companies in the stock market. This allows investors to see how a particular set of assets is performing.',
+                'Stock indices measure the value of a group of companies in the stock market. This allows investors to see how a particular set of assets is performing.',
             )}
         </Text>
+        <StyledText>
+            <Localize
+                translate_text="Read <0>this article</0> to learn more about trading stocks on Deriv."
+                components={[
+                    <StyledLink
+                        to={'/academy/blog/posts/what-are-stocks-how-and-where-to-trade-them/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -44,9 +97,39 @@ const SyntheticIndices = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'Exclusive to Deriv, synthetic indices are our very own set of synthetic markets engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
+                "Available 24/7, our synthetic indices emulate price movements of real-world markets with varying levels of volatility. As they aren't based on actual underlying assets, they are unaffected by real-world market events.",
             )}
         </Text>
+        <StyledText>
+            <Localize
+                translate_text="The pricing of our synthetic indices is backed by algorithms that are audited for fairness by an independent third party. Due to regulatory requirements, synthetic indices are unavailable in some countries. Refer to ‘Product offering’ in our <0>terms of use</0> for more info."
+                components={[
+                    <StyledLink
+                        to={'/tnc/general-terms.pdf'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
+        <StyledText>
+            <Localize
+                translate_text="Read <0>this article</0> to learn more about trading synthetic indices on Deriv."
+                components={[
+                    <StyledLink
+                        to={'/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -55,9 +138,24 @@ const CFD = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'A contract for differences (CFD) is a contract that pays the difference between the value of an asset at the time of opening a trade and its value at closing the trade.',
+                "CFDs let you predict the price movement of underlying assets without actually owning them. With CFDs, you open a position based on your prediction, and you'll earn a profit if you close your position when the price moves in your favour.",
             )}
         </Text>
+        <StyledText>
+            <Localize
+                translate_text="Read <0>this article</0> to learn more about trading CFDs on Deriv."
+                components={[
+                    <StyledLink
+                        to={'/academy/blog/posts/what-is-cfd-trading/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -66,7 +164,7 @@ const DigitalOptions = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results.',
+                "Digital options allow you to predict the price movement of underlying assets without actually owning them. With digital options, you open a position based on your prediction, with a set duration that closes your position automatically. You'll earn a profit if your position is closed when the price is in your favour.",
             )}
         </Text>
     </ArticleWrapper>
@@ -76,10 +174,65 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'We offer three trading platforms: DTrader, DBot, and DMT5. Each platform caters to a variety of trading styles and experiences, whether you’re a new or seasoned trader.',
-            )}
+            <Localize
+                translate_text="We have a diverse suite of 6 trading platforms: <0>Deriv MT5</0>, <1>Deriv X</1>, <2>DTrader</2>, <3>DBot</3>, <4>SmartTrader</4>, and <5>Binary Bot</5>. Each of these platforms is designed to fit any trading style, regardless of your trading experience."
+                components={[
+                    <StyledLink
+                        to={'/dmt5/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                    <StyledLink
+                        to={'/derivx/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={1}
+                    />,
+                    <StyledLink
+                        to={'/dtrader/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={2}
+                    />,
+                    <StyledLink
+                        to={'/dbot/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={3}
+                    />,
+                    <StyledLink
+                        to={'https://smarttrader.deriv.com/en/trading.html'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={4}
+                    />,
+                    <StyledLink
+                        to={'https://bot.deriv.com/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={5}
+                    />,
+                ]}
+            />
         </Text>
+        <StyledText>
+            {localize(
+                'Note: DBot, SmartTrader, and Binary Bot are not available in the EU and UK.',
+            )}
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -88,9 +241,47 @@ const AutomateTradingStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'You can create and run your own automated trading strategies with DBot. You can also download ready-made trading robots (also known as Expert Advisors) for DMT5 by going to the ‘Market’ tab in the DMT5 platform.',
+                'You can automate your trading strategy using a trading bot. A trading bot is an automated computer program that purchases trade contracts for you while following a specific set of instructions that you provide.',
             )}
         </Text>
+        <StyledText>
+            <Localize
+                translate_text="Build your trading bot for free on <0>DBot</0> or <1>Binary Bot</1>; no coding is needed. You’ll also find free pre-built strategies on DBot that you can customise to your needs."
+                components={[
+                    <StyledLink
+                        to={'/dbot/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                    <StyledLink
+                        to={'https://bot.deriv.com/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={1}
+                    />,
+                ]}
+            />
+        </StyledText>
+        <StyledText>
+            <Localize
+                translate_text="Read <0>this article</0> to learn more about automated trading on Deriv."
+                components={[
+                    <StyledLink
+                        to={'/academy/blog/posts/automated-trading-what-you-need-to-know/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -99,12 +290,18 @@ const TradingLimits = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="You can see your account’s trading limits by going to <0>Settings > Security and safety ></0> <1>Account limits</1>. Please note that if your account balance exceeds the maximum account cash balance, you must withdraw funds from your account to bring your account balance below the maximum limit."
+                translate_text="Trading limits are only applicable to your Deriv real account. You can see the limits on your account on the <0>Account limits</0> page (you must be <1>logged in</1>)."
                 components={[
-                    <strong key={0} />,
                     <ExternalLink
                         to={`${deriv_app_url}/account/account-limits`}
-                        external="true"
+                        external
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                    <ExternalLink
+                        to={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -118,7 +315,9 @@ const TradingLimits = ({ text }: ArticleProps) => (
 const WeekendContracts = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Synthetic indices are available for trading 24/7.')}</Text>
+        <Text>
+            {localize('Synthetic indices and cryptocurrencies are available for trading 24/7.')}
+        </Text>
     </ArticleWrapper>
 )
 
@@ -171,12 +370,12 @@ const TradingArticle = () => {
                     is_mounted={is_mounted}
                 />
                 <TradingLimits
-                    text={localize('What are my trading limits?')}
+                    text={localize('What are the trading limits on my account?')}
                     label="trading-limits"
                     is_mounted={is_mounted}
                 />
                 <WeekendContracts
-                    text={localize('What contracts are available for trading on weekends?')}
+                    text={localize('What assets are available for trading on weekends?')}
                     label="contracts-available-on-weekends"
                     is_mounted={is_mounted}
                 />

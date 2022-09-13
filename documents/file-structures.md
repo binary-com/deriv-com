@@ -46,6 +46,8 @@ src
     ├── translations/
     │   ├── ach.json --- Translation texts for crowdin
     │   ├── *.json --- Translation texts for languages
+    ├── types/
+    │   ├── *.types.ts --- Type declaration for project wide use. types in here are usually generic types that are extended or automatically generated.
 static
     ├── css/ --- Hold third party css
     ├── payment-methods/ --- Payment method documents
@@ -58,6 +60,7 @@ gatsby-browser.js --- Lifecycle on client side rendering
 gatsby-config.js --- Gatsby extensions and Gatsby configuration
 gatsby-node.js --- Lifecycle on compilation
 gatsby-ssr.js --- Lifecycle on server side rendering
+commitlint.config.js --- declartion of commit convention
 
 ...other_config_file.xx
 

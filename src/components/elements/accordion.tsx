@@ -320,7 +320,7 @@ type AccordionItemProps = {
     content_style?: ContentType
     parent_style?: ParentType
     header_style?: HeaderStyle
-    header?: ReactNode
+    header?: string | ReactNode
     text?: string
     plus?: boolean
 }

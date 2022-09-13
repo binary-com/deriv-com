@@ -313,7 +313,6 @@ const DHero = ({
     const handleExternalLink = () => {
         let link = ''
 
-        // TODO handle IOS case once the app is ready
         if (mobileOSDetect() === 'Android') {
             link = derivx_android_url
         }

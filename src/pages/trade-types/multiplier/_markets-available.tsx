@@ -7,7 +7,7 @@ import { SectionContainer, Flex, ROW, UK, EU } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
-import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import Derived from 'images/svg/trade-types/derived.svg'
 import BasketIndices from 'images/svg/trade-types/basket-indices.svg'
 
 const MobileCardHeader = styled(Flex)`
@@ -47,12 +47,12 @@ const available_markets = [
         learn_more_path: '/markets/forex/',
     },
     {
-        name: 'Synthetic Indices',
-        img_src: SyntheticIndices,
-        img_alt: 'synthetic indices',
-        text: <Localize translate_text="Synthetic indices" />,
+        name: 'Derived',
+        img_src: Derived,
+        img_alt: 'derived',
+        text: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Trade multipliers on synthetic indices that are available 24/7 and increase your profit potential multiples times while limiting your risk." />
+            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
         learn_more_path: '/markets/synthetic/',
     },

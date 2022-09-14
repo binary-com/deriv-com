@@ -139,11 +139,7 @@ const VulnerabilitiesTypes = () => {
 
                                 <StyledUl>
                                     {item.examples.map((example_item, example_idx) => {
-                                        return (
-                                            <StyledLi key={example_idx}>
-                                                {localize(example_item)}
-                                            </StyledLi>
-                                        )
+                                        return <StyledLi key={example_idx}>{example_item}</StyledLi>
                                     })}
                                 </StyledUl>
                             </React.Fragment>

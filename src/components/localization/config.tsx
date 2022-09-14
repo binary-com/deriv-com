@@ -22,16 +22,6 @@ use(initReactI18next).init({
     interpolation: {
         escapeValue: false,
     },
-    // Here we check the defaultValue contains `_t_`, if true we find the actual pure_text and pass it as key.
-    parseMissingKeyHandler: (_, defaultValue) => {
-        if (defaultValue?.includes('_t_')) {
-            const pure_text_regex = new RegExp(/(_t_)(?<pure_text>.*?)(_t_)/g)
-            const result = pure_text_regex.exec(defaultValue)
-            const actual_key = result?.[2] ?? defaultValue
-            return actual_key
-        }
-        return defaultValue
-    },
     react: {
         useSuspense: false,
         hashTransKey(defaultValue) {
@@ -43,7 +33,13 @@ use(initReactI18next).init({
 
 i18n.languages = Object.keys(language_config)
 
-export const localize = (string: string, values?: { search: string }) =>
-    t(String(crc32(string)), { defaultValue: string, ...values })
+export const localize = (key: string, values?: { search: string }) => {
+    let actual_key = key
+    if (key?.includes('_t_')) {
+        // Since I know the indices I wanna remove, regex is used instead of regex
+        actual_key = key.substring(3, key.length - 3)
+    }
+    return t(String(crc32(actual_key)), { defaultValue: actual_key, ...values })
+}
 
 export default i18n

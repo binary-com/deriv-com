@@ -1,6 +1,8 @@
 import { transformMargin } from './margin'
 import { transformPadding } from './padding'
 
+const STYLIS_PROPERTY_CONTEXT = 1
+
 const transformCSSProperties = (content: string) => {
     const [prop, value] = content.split(':')
     if (!value) {
@@ -81,8 +83,15 @@ const transformCSSProperties = (content: string) => {
  * @return {(string|void)?}
  */
 export const plugin = (context, content) => {
+    // -2 post-process context :  post processed context, before the compiled css output is returned
+    // -1 preparation context : preparation context, before the compiler starts
+    // 0 newline context : after every newline
+    // 1 property context :  on a property declaration ex. color: red;
+    // 2 selector block context : after a selector block of css has been processed ex. .foo {color:red;}
+    // 3 @at-rule block context :  after a @at-rule block of css has been processed ex. @media {h1{color:red;}}
+
     switch (context) {
-        case 1:
+        case STYLIS_PROPERTY_CONTEXT:
             return transformCSSProperties(content)
         default:
             break

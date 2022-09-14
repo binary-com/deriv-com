@@ -39,8 +39,5 @@ const default_styels = {
 
 export const withLangDirection = (styles = default_styels) => {
     const { rtl_styles, ltr_styles } = styles
-    if (is_rtl()) {
-        return rtl_styles
-    }
-    return ltr_styles
+    is_rtl() ? rtl_styles : ltr_styles
 }

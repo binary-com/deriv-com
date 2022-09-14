@@ -35,9 +35,13 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         background: var(--color-black);
     }
+
+    /* when the language direction is "rtl" for example "Arabic" we use this font family  */
     *[dir='rtl'] {
         font-family: 'Noto Sans', sans-serif;
     }   
+    
+    /* when the language direction is "ltr" for example "English" we use this font family  */
     *[dir='ltr'] {
         font-family: 'IBM Plex Sans', sans-serif;
     }

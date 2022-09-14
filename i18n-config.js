@@ -87,7 +87,7 @@ module.exports = {
     },
     ar: {
         path: 'ar',
-        display_name: 'Arabic',
+        display_name: 'العربية',
         short_name: 'AR',
     },
     // TODO: uncomment when supported

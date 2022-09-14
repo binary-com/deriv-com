@@ -1,14 +1,14 @@
-import { handleMargin } from './margin'
-import { handlePadding } from './padding'
+import { transformMargin } from './margin'
+import { transformPadding } from './padding'
 
-const handle = (content: string) => {
+const transformCSSProperties = (content: string) => {
     const [prop, value] = content.split(':')
     if (!value) {
         return
     }
     switch (prop) {
         case 'padding':
-            return handlePadding(String(value))
+            return transformPadding(String(value))
         case 'padding-left':
             return transformProperty('padding-inline-start', value)
         case 'padding-right':
@@ -18,7 +18,7 @@ const handle = (content: string) => {
         case 'padding-bottom':
             return transformProperty('padding-block-end', value)
         case 'margin':
-            return handleMargin(String(value))
+            return transformMargin(String(value))
         case 'margin-left':
             return transformProperty('margin-inline-start', value)
         case 'margin-right':
@@ -83,8 +83,7 @@ const handle = (content: string) => {
 export const plugin = (context, content) => {
     switch (context) {
         case 1:
-            return handle(content)
-
+            return transformCSSProperties(content)
         default:
             break
     }

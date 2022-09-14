@@ -1,7 +1,13 @@
-export const handlePadding = (padding: string) => {
+/**
+ * @description splits the value with space and transform the padding short-hand to css logical properties
+ * @param padding : the short-hand padding value
+ * @returns the transformed logical property
+ */
+export const transformPadding = (padding: string) => {
     if (padding.includes('calc') || padding.includes('var')) {
         return `padding: ${padding};`
     }
+
     const paddings = padding?.split?.(' ')
     switch (paddings?.length) {
         case 1:

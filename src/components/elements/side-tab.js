@@ -8,7 +8,7 @@ import { Box } from 'components/containers'
 import { Desktop } from 'components/containers/show'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 
-const StyledSideTab = styled(() => <Box />)`
+const StyledSideTab = styled((props) => <Box {...props} />)`
     padding: 0;
     display: flex;
 

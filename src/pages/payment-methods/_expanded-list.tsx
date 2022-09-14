@@ -1,24 +1,26 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { PaymentProps } from './index'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
-// import { getCryptoDecimals } from 'common/utility'
-// SVG
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
+
+type ExpandListType = {
+    is_expanded?: boolean
+    is_fiat_onramp?: boolean
+}
 
 const StyledButton = styled(Button)`
     padding: 6px 16px;
     width: 112px;
 `
-
-const StyledChevron = styled.img`
+const StyledChevron = styled.img<ExpandListType>`
     height: 16px;
     width: 16px;
     margin: 26px 0 32px;
-    transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
+    transform: ${(props) => (props.is_expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
 const StyledPDF = styled.img`
@@ -28,7 +30,7 @@ const StyledPDF = styled.img`
 const ExpandedContent = styled.td`
     text-align: left;
 `
-const Tr = styled.tr`
+const Tr = styled.tr<ExpandListType>`
     border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
 `
 const Td = styled.td`
@@ -62,7 +64,7 @@ const HoverTd = styled(Td)`
     justify-content: center;
 `
 
-const Description = styled.div`
+const Description = styled.div<ExpandListType>`
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s, padding 0.3s;
@@ -87,7 +89,7 @@ const StyledText = styled(Text)`
 const StyleCurrencyText = styled(Text)`
     white-space: pre-line;
 `
-const Deposit = styled(Td)`
+const Deposit = styled(Td)<ExpandListType>`
     & > p {
         max-width: ${(props) => (props.is_fiat_onramp ? '21rem' : '12rem')};
     }
@@ -103,94 +105,92 @@ const Withdrawal = styled(Td)`
         max-width: 14rem;
     }
 `
-// const replaceLineBreak = (str) => {
-//     return str.toString().replace(/\n/g, '</br>')
-// }
 
-const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => {
+const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
+    const parse_to_integer = parseInt('2')
+
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
     }
 
-    // const getCryptoConfig = (name) => {
-    //     return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
-    // }
     return (
         <>
             <Tr is_expanded={is_expanded}>
-                <Td>{data.method}</Td>
-                <Td colSpan={is_fiat_onramp && '2'}>
-                    <StyleCurrencyText>{data.currencies}</StyleCurrencyText>
+                <Td>{payment_data.method}</Td>
+                <Td colSpan={is_fiat_onramp && parse_to_integer}>
+                    <StyleCurrencyText>{payment_data.currencies}</StyleCurrencyText>
                 </Td>
                 <Td>
-                    {Array.isArray(data.min_max_deposit) ? (
-                        data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
+                    {Array.isArray(payment_data.min_max_deposit) ? (
+                        payment_data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
                     ) : (
-                        <Text>{data.min_max_deposit}</Text>
+                        <Text>{payment_data.min_max_deposit}</Text>
                     )}
                 </Td>
                 {!is_fiat_onramp && (
                     <Td>
                         <>
-                            {Array.isArray(data.min_max_withdrawal) ? (
-                                data.min_max_withdrawal.map((md, idx) => (
+                            {Array.isArray(payment_data.min_max_withdrawal) ? (
+                                payment_data.min_max_withdrawal.map((md, idx) => (
                                     <Text key={idx}>{md}</Text>
                                 ))
-                            ) : is_crypto ? (
-                                // <Text>{getCryptoConfig(data.name)}</Text>
-                                <Text>{data.min_max_withdrawal}</Text>
                             ) : (
-                                <Text>{data.min_max_withdrawal}</Text>
+                                <Text>{payment_data.min_max_withdrawal}</Text>
                             )}
                         </>
                     </Td>
                 )}
-                <Deposit colSpan={is_fiat_onramp && '2'} is_fiat_onramp={is_fiat_onramp}>
-                    <Text>{data.deposit_time}</Text>
+                <Deposit
+                    colSpan={is_fiat_onramp && parse_to_integer}
+                    is_fiat_onramp={is_fiat_onramp}
+                >
+                    <Text>{payment_data.deposit_time}</Text>
                 </Deposit>
 
                 {!is_fiat_onramp && (
                     <Withdrawal>
-                        <Text>{data.withdrawal_time}</Text>
+                        <Text>{payment_data.withdrawal_time}</Text>
                     </Withdrawal>
                 )}
 
                 <Td>
                     <>
-                        {data.reference ? (
+                        {payment_data.reference ? (
                             <CenterIcon
                                 href={`/payment-methods/${
-                                    data.locales?.includes(locale.locale.language)
-                                        ? locale.locale.language + '/' + data.reference
-                                        : data.reference
+                                    payment_data.locales?.includes(locale?.locale?.language)
+                                        ? locale?.locale?.language + '/' + payment_data.reference
+                                        : payment_data.reference
                                 }`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 <StyledPDF src={PDF} alt="PDF" />
                             </CenterIcon>
-                        ) : data.reference_link ? (
-                            data.reference_link
+                        ) : payment_data.reference_link ? (
+                            payment_data.reference_link
                         ) : (
                             <Text align="center">-</Text>
                         )}
                     </>
                 </Td>
-                {data.description && (
+                {payment_data.description && (
                     <HoverTd onClick={toggleExpand}>
-                        <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
+                        <StyledChevron src={Chevron} alt="chevron" is_expanded={is_expanded} />
                     </HoverTd>
                 )}
             </Tr>
-            {data.description && (
+            {payment_data.description && (
                 <Tr>
-                    <ExpandedContent colSpan="8">
+                    <ExpandedContent colSpan={8}>
                         <Description is_expanded={is_expanded}>
-                            <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
-                            {data.url && (
+                            <StyledText is_expanded={is_expanded}>
+                                {payment_data.description}
+                            </StyledText>
+                            {payment_data.url && (
                                 <StyledButton
-                                    onClick={() => window.open(data.url, '_blank')}
+                                    onClick={() => window.open(payment_data.url, '_blank')}
                                     tertiary
                                 >
                                     {localize('Learn more')}
@@ -202,14 +202,6 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
             )}
         </>
     )
-}
-
-ExpandList.propTypes = {
-    // config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-    data: PropTypes.object,
-    is_crypto: PropTypes.bool,
-    is_fiat_onramp: PropTypes.bool,
-    locale: PropTypes.object,
 }
 
 export default ExpandList

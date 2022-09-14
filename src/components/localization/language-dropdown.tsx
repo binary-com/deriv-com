@@ -140,6 +140,7 @@ const Item = styled.div<{ disabled: boolean }>`
 const ResponsiveText = styled(Text)`
     white-space: nowrap;
 `
+/* stylelint-enable */
 
 const Dropdown = ({
     default_option,

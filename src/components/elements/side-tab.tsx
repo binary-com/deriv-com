@@ -26,10 +26,10 @@ const StyledSideTab = styled(() => <Box />)`
     }
 `
 const TabList = styled.ol<TabsStyledProps>`
-    width: ${(props) => props.tab_width || '38.4rem'};
+    width: ${({ tab_width }) => tab_width || '38.4rem'};
     list-style: none;
-    ${(props) =>
-        props.is_sticky &&
+    ${({ is_sticky }) =>
+        is_sticky &&
         css`
             position: sticky;
             height: fit-content;
@@ -58,7 +58,7 @@ const StyledTab = styled.li<TabsStyledProps>`
     & > p {
         color: var(--color-black-3);
         opacity: ${({ opacity }) => opacity ?? '0.32'};
-        font-size: ${(props) => props.font_size || 'var(--text-size-s)'};
+        font-size: ${({ font_size }) => font_size || 'var(--text-size-s)'};
         max-width: 38.4rem;
         line-height: ${({ line_height }) => line_height ?? '30px'};
 

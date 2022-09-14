@@ -37,7 +37,12 @@ const default_styels = {
     rtl_styles: css``,
 }
 
+/**
+ * @description  will get two styled-component css`` styles and return the suitable style based on the current language direction
+ * @param styles the styles for ltr and rtl ( it should be styled `css` )
+ * @returns suitable styles for the current language
+ */
 export const withLangDirection = (styles = default_styels) => {
     const { rtl_styles, ltr_styles } = styles
-    is_rtl() ? rtl_styles : ltr_styles
+    return is_rtl() ? rtl_styles : ltr_styles
 }

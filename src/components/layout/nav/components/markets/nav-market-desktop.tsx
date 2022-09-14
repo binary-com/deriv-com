@@ -56,13 +56,12 @@ const NavMarketDesktop = () => {
         <MarketWrapper>
             <StyledWrapper>
                 <NavigationBar>
+                    <NavLinkCard active="forex" to="/markets/forex/" title={localize('Forex')} />
                     <NavLinkCard
                         active="derived"
                         to="/markets/derived-fx/"
                         title={localize('Derived')}
                     />
-
-                    <NavLinkCard active="forex" to="/markets/forex/" title={localize('Forex')} />
                     <NavLinkCard
                         active="stock"
                         to="/markets/stock/"

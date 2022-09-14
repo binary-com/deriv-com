@@ -4,6 +4,14 @@
     "singleQuote": true,
     "useTabs": false,
     "tabWidth": 4,
+    "overrides": [
+        {
+            "files": ["crowdin/messages.json", "src/translations/*.json"],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ],
     "trailingComma": "all",
     "printWidth": 100
 }

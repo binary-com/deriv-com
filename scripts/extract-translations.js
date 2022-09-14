@@ -9,6 +9,13 @@ const glob = require('glob')
 const translated_keys = require('../src/translations/ach.json')
 const DISABLE_TRANSLATION = 'disable-translation'
 
+
+
+/*
+(_t_)                     = the capturing group for prefix "_t_"
+(?<pure_text>.*?)         = the capturing group for the actual string ( this is what we use to create the key )
+(_t_)                     = the capturing group for postfix "_t_"
+*/
 const new_i18n_marker = new RegExp(/(_t_)(?<pure_text>.*?)(_t_)/g)
 /*
 (['"])                    = the capturing group of either single quotes or double quotes, at the end must be following of \_your_capturing_group_no

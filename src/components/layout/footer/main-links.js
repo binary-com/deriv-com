@@ -67,13 +67,13 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                     {<Localize translate_text="CFDs" />}
                                 </Link>
                             </LinkWrapper>
-                            <ROW>
+                            {is_row && (
                                 <LinkWrapper>
                                     <Link to="/trade-types/options/">
                                         {<Localize translate_text="Digital options" />}
                                     </Link>
                                 </LinkWrapper>
-                            </ROW>
+                            )}
                             <LinkWrapper>
                                 <Link to="/trade-types/multiplier/">
                                     {<Localize translate_text="Multipliers" />}
@@ -122,35 +122,39 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 {<Localize translate_text="Deriv MT5" />}
                             </Link>
                         </LinkWrapper>
-                        <ROW>
-                            <LinkWrapper>
-                                <Link to="/derivx/">{<Localize translate_text="Deriv X" />}</Link>
-                            </LinkWrapper>
-                            <LinkWrapper>
-                                <Link to="/deriv-go/">
-                                    {<Localize translate_text="Deriv GO" />}
-                                </Link>
-                            </LinkWrapper>
-                        </ROW>
+                        {is_row && (
+                            <>
+                                <LinkWrapper>
+                                    <Link to="/derivx/">
+                                        {<Localize translate_text="Deriv X" />}
+                                    </Link>
+                                </LinkWrapper>
+                                <LinkWrapper>
+                                    <Link to="/deriv-go/">
+                                        {<Localize translate_text="Deriv GO" />}
+                                    </Link>
+                                </LinkWrapper>
+                            </>
+                        )}
                         <LinkWrapper>
                             <Link to="/dtrader/">{<Localize translate_text="DTrader" />}</Link>
                         </LinkWrapper>
-                        <ROW>
-                            <LinkWrapper>
-                                <Link
-                                    to="trading"
-                                    type="smart_trader"
-                                    external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {<Localize translate_text="SmartTrader" />}
-                                </Link>
-                            </LinkWrapper>
-                            <LinkWrapper>
-                                <Link to="/dbot/">{<Localize translate_text="DBot" />}</Link>
-                            </LinkWrapper>
-                            <ROW>
+                        {is_row && (
+                            <>
+                                <LinkWrapper>
+                                    <Link
+                                        to="trading"
+                                        type="smart_trader"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {<Localize translate_text="SmartTrader" />}
+                                    </Link>
+                                </LinkWrapper>
+                                <LinkWrapper>
+                                    <Link to="/dbot/">{<Localize translate_text="DBot" />}</Link>
+                                </LinkWrapper>
                                 <LinkWrapper>
                                     <Link
                                         to={binary_bot_url}
@@ -161,8 +165,8 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                         {<Localize translate_text="Binary Bot" />}
                                     </Link>
                                 </LinkWrapper>
-                            </ROW>
-                        </ROW>
+                            </>
+                        )}
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
@@ -193,13 +197,13 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 {<Localize translate_text="Affiliates and IBs" />}
                             </Link>
                         </LinkWrapper>
-                        <ROW>
+                        {is_row && (
                             <LinkWrapper>
                                 <Link to="/partners/payment-agent/">
                                     {<Localize translate_text="Payment agents" />}
                                 </Link>
                             </LinkWrapper>
-                        </ROW>
+                        )}
                         <LinkWrapper>
                             <Link
                                 to=""

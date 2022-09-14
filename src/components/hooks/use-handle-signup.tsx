@@ -1,13 +1,14 @@
 import React from 'react'
-import { navigate } from 'gatsby'
+import { navigate, withPrefix } from 'gatsby'
 import { useCountryRule } from './use-country-rule'
-import { isEuDomain, isBrowser } from 'common/utility'
+import { isEuDomain, getLanguage } from 'common/utility'
 import { DerivStore } from 'store'
 
 const useHandleSignup = (_is_ppc = false) => {
     const { is_loading, is_eu_location } = useCountryRule()
     const { setShowNonEuPopup } = React.useContext(DerivStore)
-    const currentLocation = isBrowser() && window.location.pathname.split('/').slice(0, 4).join('/')
+    const currentLanguage = getLanguage() + '/'
+    const signUpPath = withPrefix('/')
 
     return () => {
         if (is_loading) {
@@ -15,9 +16,9 @@ const useHandleSignup = (_is_ppc = false) => {
         } else if (!is_eu_location && isEuDomain()) {
             setShowNonEuPopup(true)
         } else if (_is_ppc) {
-            navigate(`${currentLocation}landing/signup/`)
+            navigate(`${signUpPath}${currentLanguage}landing/signup/`)
         } else {
-            navigate(`${currentLocation}signup/`)
+            navigate(`${signUpPath}${currentLanguage}signup/`)
         }
     }
 }

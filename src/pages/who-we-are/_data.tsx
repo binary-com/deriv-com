@@ -342,8 +342,14 @@ export const our_offices_count: DerivNumbersType[] = [
         count: <Localize translate_text="50+" />,
         title: <Localize translate_text="nationalities" />,
     },
-    { count: localize(all_offices.length), title: <Localize translate_text="locations" /> },
-    { count: localize(all_countries.length), title: <Localize translate_text="countries" /> },
+    {
+        count: <Localize translate_text={String(all_offices.length)} />,
+        title: <Localize translate_text="locations" />,
+    },
+    {
+        count: <Localize translate_text={String(all_countries.length)} />,
+        title: <Localize translate_text="countries" />,
+    },
 ]
 
 export const deriv_numbers: DerivNumbersType[][] = [

@@ -2,6 +2,7 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
+import synthetic_content from '../../static/content/_synthetic'
 import { derived_content } from '../../static/content/_derived'
 import { derived_fx_cfds, synthetic_cfds_eu } from '../../static/content/_cfds'
 import { synthetic_multiplier_eu } from '../../static/content/_multipliers'
@@ -39,6 +40,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
     ) : (
         <Localize translate_text="Derived trades available on Deriv" />
     )
+    const market_content = is_row ? derived_content : synthetic_content
 
     return (
         <>
@@ -49,7 +51,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
                     <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
                 }
             >
-                {derived_content.map((content, index) => (
+                {market_content.map((content, index) => (
                     <StyledBox
                         key={index}
                         text={content.text}
@@ -66,9 +68,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
                 <AvailableTrades
                     CFDs={<CFDs market_content={synthetic_cfds_eu} />}
                     Multipliers={<Multipliers is_crypto market_content={synthetic_multiplier_eu} />}
-                    display_title={
-                        <Localize translate_text="Synthetic indices trades available on Deriv" />
-                    }
+                    display_title={<Localize translate_text="Derived trades available on Deriv" />}
                 />
             )}
             <SimpleSteps header={simple_steps_header} content={simple_step_content} sign_up />

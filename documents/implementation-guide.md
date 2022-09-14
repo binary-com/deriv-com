@@ -8,7 +8,6 @@
 -   [Mobile responsive](#mobile-responsive)
 -   [CSS responsive function](#css-responsive-function)
 -   [Create new page](#create-new-page)
--   [Handling EU or NonEU Views](#handling-eu-or-noneu-views)
 
 ## Styled Component
 
@@ -226,24 +225,4 @@ const MyPageName = () => {
 }
 
 export default WithIntl()(MyPageName)
-```
-
-## Handling EU or NonEU Views
-
-To handle the visibility for European countries, you can use `Show` component in `/containers` directory. Eu countries list are located in `common/country-base.js`
-
-Usage example (chain):
-
-```js
-import { Show } from 'components/containers'
-
-const Example = () => (
-    <div>
-        <h1>Test!</h1>
-        <Show.Eu minDeviceWidth={size.tabletL} device={{ deviceWidth: size.desktopS }}>
-            You are in europe countries
-        </Show.Eu>
-        <Show.NonEU>You are in non-europe countries</Show.NonEU>
-    </div>
-)
 ```

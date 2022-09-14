@@ -9,7 +9,7 @@ import CommoditiesIcon from 'images/svg/markets/commodities.svg'
 import ForexIcon from 'images/svg/markets/forex.svg'
 import StockIcon from 'images/svg/markets/stock.svg'
 import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
-import { NonUK } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledSection = styled(SectionContainer)`
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
@@ -77,49 +77,54 @@ type MarketsProps = {
     is_ppc: boolean
 }
 
-const Markets = ({ is_ppc }: MarketsProps) => (
-    <StyledSection>
-        <Container direction="column">
-            <Header align="center" as="h3" type="section-title">
-                {localize('Markets')}
-            </Header>
-            <MarketWrapper wrap="wrap">
-                <MarketCard mr="2.4rem" mb="4rem">
-                    <img src={ForexIcon} alt="" width="64" height="64" />
-                    <div>
-                        <Header as="h4" type="sub-section-title">
-                            {localize('Forex')}
-                        </Header>
-                        <Text>
-                            {localize(
-                                'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
-                            )}
-                        </Text>
-                        <Localize
-                            translate_text="<0>Learn more</0>"
-                            components={[<MarketLink key={0} to="/markets/forex/" color="red" />]}
-                        />
-                    </div>
-                </MarketCard>
-                <MarketCard mb="4rem">
-                    <img src={StockIcon} alt="" width="64" height="64" />
-                    <div>
-                        <Header as="h4" type="sub-section-title">
-                            {localize('Stocks & indices')}
-                        </Header>
-                        <Text>
-                            {localize(
-                                'Predict market trends and diversify your risk by trading the world’s top performing stocks & indices.',
-                            )}
-                        </Text>
-                        <Localize
-                            translate_text="<0>Learn more</0>"
-                            components={[<MarketLink key={0} to="/markets/stock/" color="red" />]}
-                        />
-                    </div>
-                </MarketCard>
-                {!is_ppc && (
-                    <NonUK>
+const Markets = ({ is_ppc }: MarketsProps) => {
+    const { is_non_uk } = useCountryRule()
+    return (
+        <StyledSection>
+            <Container direction="column">
+                <Header align="center" as="h3" type="section-title">
+                    {localize('Markets')}
+                </Header>
+                <MarketWrapper wrap="wrap">
+                    <MarketCard mr="2.4rem" mb="4rem">
+                        <img src={ForexIcon} alt="" width="64" height="64" />
+                        <div>
+                            <Header as="h4" type="sub-section-title">
+                                {localize('Forex')}
+                            </Header>
+                            <Text>
+                                {localize(
+                                    'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
+                                )}
+                            </Text>
+                            <Localize
+                                translate_text="<0>Learn more</0>"
+                                components={[
+                                    <MarketLink key={0} to="/markets/forex/" color="red" />,
+                                ]}
+                            />
+                        </div>
+                    </MarketCard>
+                    <MarketCard mb="4rem">
+                        <img src={StockIcon} alt="" width="64" height="64" />
+                        <div>
+                            <Header as="h4" type="sub-section-title">
+                                {localize('Stocks & indices')}
+                            </Header>
+                            <Text>
+                                {localize(
+                                    'Predict market trends and diversify your risk by trading the world’s top performing stocks & indices.',
+                                )}
+                            </Text>
+                            <Localize
+                                translate_text="<0>Learn more</0>"
+                                components={[
+                                    <MarketLink key={0} to="/markets/stock/" color="red" />,
+                                ]}
+                            />
+                        </div>
+                    </MarketCard>
+                    {!is_ppc && is_non_uk && (
                         <MarketCard mr="2.4rem">
                             <img src={SyntheticIndicesIcon} alt="" width="64" height="64" />
                             <div>
@@ -139,30 +144,30 @@ const Markets = ({ is_ppc }: MarketsProps) => (
                                 />
                             </div>
                         </MarketCard>
-                    </NonUK>
-                )}
-                <MarketCard>
-                    <img src={CommoditiesIcon} alt="" width="64" height="64" />
-                    <div>
-                        <Header as="h4" type="sub-section-title">
-                            {localize('Commodities')}
-                        </Header>
-                        <Text>
-                            {localize(
-                                'Trade natural resources that are central to the world’s economy and profit from the opportunities created by the markets.',
-                            )}
-                        </Text>
-                        <Localize
-                            translate_text="<0>Learn more</0>"
-                            components={[
-                                <MarketLink key={0} to="/markets/commodities/" color="red" />,
-                            ]}
-                        />
-                    </div>
-                </MarketCard>
-            </MarketWrapper>
-        </Container>
-    </StyledSection>
-)
+                    )}
+                    <MarketCard>
+                        <img src={CommoditiesIcon} alt="" width="64" height="64" />
+                        <div>
+                            <Header as="h4" type="sub-section-title">
+                                {localize('Commodities')}
+                            </Header>
+                            <Text>
+                                {localize(
+                                    'Trade natural resources that are central to the world’s economy and profit from the opportunities created by the markets.',
+                                )}
+                            </Text>
+                            <Localize
+                                translate_text="<0>Learn more</0>"
+                                components={[
+                                    <MarketLink key={0} to="/markets/commodities/" color="red" />,
+                                ]}
+                            />
+                        </div>
+                    </MarketCard>
+                </MarketWrapper>
+            </Container>
+        </StyledSection>
+    )
+}
 
 export default Markets

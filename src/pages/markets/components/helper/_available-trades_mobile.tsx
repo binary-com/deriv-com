@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, Container, NonEU } from 'components/containers'
+import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 //SVG
@@ -9,6 +9,7 @@ import MultipliersIcon from 'images/svg/custom/multipliers-nav.svg'
 import OptionsIcon from 'images/svg/custom/options-nav.svg'
 import Minus from 'images/svg/elements/minus.svg'
 import Plus from 'images/svg/elements/plus.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type CardProps = {
     active_tab: string[]
@@ -163,6 +164,7 @@ const AvailableTradesMobile = ({
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
+    const { is_non_eu } = useCountryRule()
     const [active_tab, SetActiveTab] = useState(['CFDs'])
     const handleTabChange = (new_tab: string) => {
         if (active_tab.includes(new_tab)) {
@@ -197,31 +199,29 @@ const AvailableTradesMobile = ({
                     </CardWrapper>
                     <ContentWrapper>{active_tab.includes('CFDs') && CFDs}</ContentWrapper>
                 </StyledDiv>
-                {DigitalOptions && (
-                    <NonEU>
-                        <StyledDiv>
-                            <CardWrapper
-                                margin="0"
-                                position="relative"
-                                onClick={() => handleTabChange('Options')}
-                            >
-                                <Card
-                                    name="Options"
-                                    display_name={<Localize translate_text="Options" />}
-                                    active_tab={active_tab}
-                                />
+                {DigitalOptions && is_non_eu && (
+                    <StyledDiv>
+                        <CardWrapper
+                            margin="0"
+                            position="relative"
+                            onClick={() => handleTabChange('Options')}
+                        >
+                            <Card
+                                name="Options"
+                                display_name={<Localize translate_text="Options" />}
+                                active_tab={active_tab}
+                            />
 
-                                {active_tab.includes('Options') ? (
-                                    <StyledSvg src={Minus} alt="Minus" height="16" width="16" />
-                                ) : (
-                                    <StyledSvg src={Plus} alt="Plus" height="16" width="16" />
-                                )}
-                            </CardWrapper>
-                            <ContentWrapper>
-                                {active_tab.includes('Options') && DigitalOptions}
-                            </ContentWrapper>
-                        </StyledDiv>
-                    </NonEU>
+                            {active_tab.includes('Options') ? (
+                                <StyledSvg src={Minus} alt="Minus" height="16" width="16" />
+                            ) : (
+                                <StyledSvg src={Plus} alt="Plus" height="16" width="16" />
+                            )}
+                        </CardWrapper>
+                        <ContentWrapper>
+                            {active_tab.includes('Options') && DigitalOptions}
+                        </ContentWrapper>
+                    </StyledDiv>
                 )}
                 {Multipliers && (
                     <StyledDiv>

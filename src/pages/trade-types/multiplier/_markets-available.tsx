@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import MarketsCarousel from '../components/_markets-carousel'
 import LearnMore from '../components/_learn-more'
 import { SmallContainer, Card, MarketsItem } from '../components/_style'
-import { SectionContainer, Flex, ROW, UK, EU } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import BasketIndices from 'images/svg/trade-types/basket-indices.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -79,6 +80,7 @@ const eu_available_markets = available_markets.filter(
 )
 
 const MarketsAvailable = () => {
+    const { is_uk, is_eu, is_row } = useCountryRule()
     return (
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -88,93 +90,105 @@ const MarketsAvailable = () => {
                     </Header>
                 </SmallContainer>
                 {/* TODO: refactor to make it more DRY */}
-                <ROW>
-                    <MarketsCarousel>
-                        {available_markets.map((market) => {
-                            return (
-                                <MarketsCarousel.Item key={market.name}>
-                                    <MarketsItem>
-                                        <Card>
-                                            <MobileCardHeader>
-                                                <img
-                                                    src={market.img_src}
-                                                    alt={market.img_alt}
-                                                    width="64"
-                                                    height="64"
-                                                />
+                {is_row && (
+                    <>
+                        <MarketsCarousel>
+                            {available_markets.map((market) => {
+                                return (
+                                    <MarketsCarousel.Item key={market.name}>
+                                        <MarketsItem>
+                                            <Card>
+                                                <MobileCardHeader>
+                                                    <img
+                                                        src={market.img_src}
+                                                        alt={market.img_alt}
+                                                        width="64"
+                                                        height="64"
+                                                    />
 
-                                                <StyledText weight="bold">{market.text}</StyledText>
-                                            </MobileCardHeader>
-                                            <Text>{market.description}</Text>
-                                            <LearnMore
-                                                text={<Localize translate_text="Learn more" />}
-                                                to={market.learn_more_path}
-                                            />
-                                        </Card>
-                                    </MarketsItem>
-                                </MarketsCarousel.Item>
-                            )
-                        })}
-                    </MarketsCarousel>
-                </ROW>
-                <UK>
-                    <MarketsCarousel>
-                        {uk_available_markets.map((market) => {
-                            return (
-                                <MarketsCarousel.Item key={market.name}>
-                                    <MarketsItem>
-                                        <Card>
-                                            <MobileCardHeader>
-                                                <img
-                                                    src={market.img_src}
-                                                    alt={market.img_alt}
-                                                    width="64"
-                                                    height="64"
+                                                    <StyledText weight="bold">
+                                                        {market.text}
+                                                    </StyledText>
+                                                </MobileCardHeader>
+                                                <Text>{market.description}</Text>
+                                                <LearnMore
+                                                    text={<Localize translate_text="Learn more" />}
+                                                    to={market.learn_more_path}
                                                 />
+                                            </Card>
+                                        </MarketsItem>
+                                    </MarketsCarousel.Item>
+                                )
+                            })}
+                        </MarketsCarousel>
+                    </>
+                )}
+                {is_uk && (
+                    <>
+                        <MarketsCarousel>
+                            {uk_available_markets.map((market) => {
+                                return (
+                                    <MarketsCarousel.Item key={market.name}>
+                                        <MarketsItem>
+                                            <Card>
+                                                <MobileCardHeader>
+                                                    <img
+                                                        src={market.img_src}
+                                                        alt={market.img_alt}
+                                                        width="64"
+                                                        height="64"
+                                                    />
 
-                                                <StyledText weight="bold">{market.text}</StyledText>
-                                            </MobileCardHeader>
-                                            <Text>{market.description}</Text>
-                                            <LearnMore
-                                                text={<Localize translate_text="Learn more" />}
-                                                to={market.learn_more_path}
-                                            />
-                                        </Card>
-                                    </MarketsItem>
-                                </MarketsCarousel.Item>
-                            )
-                        })}
-                    </MarketsCarousel>
-                </UK>
-                <EU>
-                    <MarketsCarousel>
-                        {eu_available_markets.map((market) => {
-                            return (
-                                <MarketsCarousel.Item key={market.name}>
-                                    <MarketsItem>
-                                        <Card>
-                                            <MobileCardHeader>
-                                                <img
-                                                    src={market.img_src}
-                                                    alt={market.img_alt}
-                                                    width="64"
-                                                    height="64"
+                                                    <StyledText weight="bold">
+                                                        {market.text}
+                                                    </StyledText>
+                                                </MobileCardHeader>
+                                                <Text>{market.description}</Text>
+                                                <LearnMore
+                                                    text={<Localize translate_text="Learn more" />}
+                                                    to={market.learn_more_path}
                                                 />
+                                            </Card>
+                                        </MarketsItem>
+                                    </MarketsCarousel.Item>
+                                )
+                            })}
+                        </MarketsCarousel>
+                    </>
+                )}
+                {is_eu && (
+                    <>
+                        <MarketsCarousel>
+                            {eu_available_markets.map((market) => {
+                                return (
+                                    <MarketsCarousel.Item key={market.name}>
+                                        <MarketsItem>
+                                            <Card>
+                                                <MobileCardHeader>
+                                                    <img
+                                                        src={market.img_src}
+                                                        alt={market.img_alt}
+                                                        width="64"
+                                                        height="64"
+                                                    />
 
-                                                <StyledText weight="bold">{market.text}</StyledText>
-                                            </MobileCardHeader>
-                                            <Text>{market.description}</Text>
-                                            <LearnMore
-                                                text={<Localize translate_text="Learn more" />}
-                                                to={market.learn_more_path}
-                                            />
-                                        </Card>
-                                    </MarketsItem>
-                                </MarketsCarousel.Item>
-                            )
-                        })}
-                    </MarketsCarousel>
-                </EU>
+                                                    <StyledText weight="bold">
+                                                        {market.text}
+                                                    </StyledText>
+                                                </MobileCardHeader>
+                                                <Text>{market.description}</Text>
+                                                <LearnMore
+                                                    text={<Localize translate_text="Learn more" />}
+                                                    to={market.learn_more_path}
+                                                />
+                                            </Card>
+                                        </MarketsItem>
+                                    </MarketsCarousel.Item>
+                                )
+                            })}
+                        </MarketsCarousel>
+                    </>
+                )}
             </SectionContainer>
         </>
     )

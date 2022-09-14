@@ -1,4 +1,4 @@
-import { TContent, THeaderItem } from './types'
+import { TContent, THeaderItem } from './_types'
 
 export const header_items: THeaderItem[] = [
     { id: 0, text: '_t_Simple._t_' },

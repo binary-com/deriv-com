@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TContent } from './types'
+import { TContent } from './_types'
 import { Carousel, Header } from 'components/elements'
 import { Localize } from 'components/localization'
 

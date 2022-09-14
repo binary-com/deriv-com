@@ -21,11 +21,9 @@ type MarketType = {
 }
 type MarketsType = {
     forex: MarketType
-    //synthetic_indices: MarketType
     stock_indices: MarketType
     commodities: MarketType
     cryptocurrencies: MarketType
-    //basket_indices: MarketType
 }
 type CardProps = {
     market: string
@@ -43,15 +41,6 @@ const markets_type: MarketsType = {
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
-    /*synthetic_indices: {
-        icon: () => <img src={SyntheticIndices} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Synthetic indices" />,
-        content: (
-            <Localize translate_text="Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that simulate real-world market movements." />
-        ),
-        to: '/markets/synthetic/',
-        id: 'marketsyntheticothermarkets',
-    },*/
     stock_indices: {
         icon: () => <img src={StockIndices} alt="" width="64" height="64" />,
         title: <Localize translate_text="Stocks & indices" />,
@@ -81,16 +70,6 @@ const markets_type: MarketsType = {
         to: '/markets/cryptocurrencies/',
         id: 'marketcryptocurrenciesothermarket',
     },
-    /*
-    basket_indices: {
-        icon: () => <img src={Basket} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Basket indices" />,
-        content: (
-            <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
-        ),
-        to: '/markets/basket-indices/',
-        id: 'marketbasket_indicesothermarket',
-    },*/
 }
 
 const LearnMore = styled(LocalizedLink)`
@@ -277,26 +256,9 @@ const StyledSectionContainer = styled(SectionContainer)`
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const { is_uk, is_eu } = useCountryRule()
 
-    const markets = [
-        '',
-        'forex',
-        //'synthetic_indices',
-        'stock_indices',
-        'cryptocurrencies',
-        //'basket_indices',
-        'commodities',
-        '',
-    ]
+    const markets = ['', 'forex', 'stock_indices', 'cryptocurrencies', 'commodities', '']
 
-    const eu_markets = [
-        '',
-        'forex',
-        //'synthetic_indices',
-        'stock_indices',
-        'cryptocurrencies',
-        'commodities',
-        '',
-    ]
+    const eu_markets = ['', 'forex', 'stock_indices', 'cryptocurrencies', 'commodities', '']
 
     const uk_markets = ['', 'forex', 'stock_indices', 'commodities', '']
 

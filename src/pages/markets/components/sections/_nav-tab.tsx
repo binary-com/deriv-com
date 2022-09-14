@@ -140,11 +140,6 @@ const tab_list_eu: TabList[] = [
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/',
     },
-    {
-        title: <Localize translate_text="Derived FX" />,
-        tab_name: 'derived-fx',
-        route_to: '/markets/derived-fx/',
-    },
 ]
 
 const tab_list_uk = [

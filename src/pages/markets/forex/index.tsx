@@ -17,7 +17,7 @@ const ForexPage = () => (
         />
         <DerivedFXHero
             title="Forex"
-            description="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetic indices, derived FX indices, and basket indices."
+            description="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events."
         />
         <Forex simple_step_content={simple_step_content_forex} />
         <Signup appearance={Appearances.public} />

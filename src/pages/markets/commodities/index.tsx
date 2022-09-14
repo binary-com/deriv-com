@@ -4,7 +4,7 @@ import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import { simple_step_content_commodities } from '../static/content/_commodities'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const CommoditiesPage = () => (
@@ -16,8 +16,10 @@ const CommoditiesPage = () => (
             title={localize('Commodities market | Commodities trading | Deriv')}
         />
         <DerivedFXHero
-            title="Commodities"
-            description="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetic indices, derived FX indices, and basket indices."
+            title={<Localize translate_text="Commodities" />}
+            description={
+                <Localize translate_text="Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted." />
+            }
         />
         <Commodities simple_step_content={simple_step_content_commodities} />
         <Signup appearance={Appearances.public} />

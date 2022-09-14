@@ -27,7 +27,7 @@ const WhatIsDMT5 = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={'/dmt5/'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -47,28 +47,28 @@ const DifferenceDMT5DTrader = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={'/dtrader/'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
                     />,
                     <ExternalLink
                         to={'https://smarttrader.deriv.com/en/trading.html'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
                     />,
                     <ExternalLink
                         to={'/dbot/'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={2}
                     />,
                     <ExternalLink
                         to={'https://bot.deriv.com/'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={3}
@@ -82,14 +82,14 @@ const DifferenceDMT5DTrader = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={'/derivx/'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
                     />,
                     <ExternalLink
                         to={'/dmt5/'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -149,7 +149,7 @@ const DepositDMT5 = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={`${deriv_app_url}/cashier/account-transfer`}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -169,7 +169,7 @@ const WithdrawDMT5 = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={`${deriv_app_url}/cashier/account-transfer`}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -203,7 +203,7 @@ const ResetDMT5Password = ({ text }: ArticleProps) => (
                         components={[
                             <ExternalLink
                                 to={'https://app.deriv.com/mt5'}
-                                external="true"
+                                external
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -260,7 +260,7 @@ const LogInToMyDerivMT5Account = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={'https://app.deriv.com/mt5'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -280,7 +280,7 @@ const InvestorPasswordForMyDerivMT5Account = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={'https://app.deriv.com/mt5'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -301,7 +301,7 @@ const NameOfMyDerivMT5Server = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={'https://app.deriv.com/mt5'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -322,7 +322,7 @@ const MinimumAmountToOpenaPositionOnDerivMT5 = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={'/trader-tools/margin-calculator'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -361,7 +361,7 @@ const ReactivateMyDerivMT5Account = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={'https://app.deriv.com/mt5'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -382,7 +382,7 @@ const LeverageonmyDerivMT5Account = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={'https://app.deriv.com/mt5'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -439,7 +439,7 @@ const DownloadmyDerivMT5History = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={'/contact_us/?is_livechat_open=true'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}

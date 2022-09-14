@@ -50,14 +50,7 @@ const Hero = ({ display_name, img_data, img_alt }: HeroProps) => {
         <StyledBackground data={img_data} alt={img_alt}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
-                <LinkButton
-                    hero
-                    has_no_end_slash
-                    to={zoho_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    external
-                >
+                <LinkButton hero has_no_end_slash to={zoho_url} rel="noopener noreferrer">
                     View open positions in {display_name === 'Vanuatu' ? 'Port Vila' : display_name}
                 </LinkButton>
             </StyledContainer>
@@ -214,24 +207,20 @@ const WorkingQueryImage = styled(QueryImage)`
 `
 
 type LocationLayoutProps = {
+    display_name: string
+    display_title_name?: string
     location: LocationsType
     images: LocationsType
 }
 
 export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => {
-    const { display_name, map_office_name } = location
+    const { display_name, display_title_name, map_office_name } = location
     if (!display_name) return null
 
     return (
         <>
             <Hero
-                display_name={
-                    display_name === 'Port Vila'
-                        ? 'Vanuatu'
-                        : display_name === 'Amman'
-                        ? ' Jordan'
-                        : display_name
-                }
+                display_name={display_name}
                 img_data={images[location.name]}
                 img_alt={location.img_alt}
             />
@@ -243,7 +232,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                     size="var(--text-size-header-5)"
                     color="black-6"
                 >
-                    Deriv in {display_name === 'Amman' ? ' Jordan' : display_name}
+                    Deriv in {display_title_name}
                 </SecondStyledHeader>
                 <Flex tablet_direction="column">
                     <Text color="black-6">{location.first_p}</Text>

@@ -35,21 +35,21 @@ const Home = () => {
             <TradeTypes
                 fallback={
                     <div>
-                        <img src={TRADE_DUMMY} style={{ width: '100%' }} alt="trade-type" />
+                        <img src={TRADE_DUMMY} style={{ width: '95%' }} alt="trade-type" />
                     </div>
                 }
             />
             <OurPlatforms
                 fallback={
                     <div>
-                        <img src={PLATFORM_DUMMY} style={{ width: '100%' }} alt="platform" />
+                        <img src={PLATFORM_DUMMY} style={{ width: '95%' }} alt="platform" />
                     </div>
                 }
             />
             <WhatOurClientsSay
                 fallback={
                     <div>
-                        <img src={WCS_DUMMY} style={{ width: '100%' }} alt="wcs" />
+                        <img src={WCS_DUMMY} style={{ width: '95%' }} alt="wcs" />
                     </div>
                 }
             />
@@ -57,7 +57,7 @@ const Home = () => {
                 <P2PHomeBanner
                     fallback={
                         <div>
-                            <img src={WCS_DUMMY} style={{ width: '100%' }} alt="p2p" />
+                            <img src={WCS_DUMMY} style={{ width: '95%' }} alt="p2p" />
                         </div>
                     }
                 />
@@ -66,7 +66,7 @@ const Home = () => {
                 appearance={Appearances.public}
                 fallback={
                     <div>
-                        <img src={WCS_DUMMY} style={{ width: '100%' }} alt="signup" />
+                        <img src={WCS_DUMMY} style={{ width: '95%' }} alt="signup" />
                     </div>
                 }
             />

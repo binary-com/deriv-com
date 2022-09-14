@@ -10,7 +10,7 @@ type LocalizeProps = {
 
 export const Localize = ({ translate_text, values, components }: LocalizeProps) => {
     if (typeof translate_text === 'string' && translate_text?.includes('_t_')) {
-        // Since I know the indices I wanna remove, regex is used instead of regex
+        // Since I know the indices I wanna remove, substring is used instead of regex
         const actual_key = translate_text.substring(3, translate_text.length - 3)
         return <Trans defaults={actual_key} values={values} components={components} />
     }

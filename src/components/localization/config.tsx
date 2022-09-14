@@ -36,7 +36,7 @@ i18n.languages = Object.keys(language_config)
 export const localize = (key: string, values?: { search: string }) => {
     let actual_key = key
     if (key?.includes('_t_')) {
-        // Since I know the indices I wanna remove, regex is used instead of regex
+        // Since I know the indices I wanna remove, substring is used instead of regex
         actual_key = key.substring(3, key.length - 3)
     }
     return t(String(crc32(actual_key)), { defaultValue: actual_key, ...values })

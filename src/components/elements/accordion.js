@@ -283,9 +283,9 @@ AccordionContent.propTypes = {
     nodes: PropTypes.array,
 }
 
-const AccordionItem = ({ id, text, children, style }) => {
+const AccordionItem = ({ id, children, style }) => {
     return (
-        <div style={style} header={text} id={id}>
+        <div style={style} id={id}>
             {children}
         </div>
     )

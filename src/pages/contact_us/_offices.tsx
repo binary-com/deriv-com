@@ -211,10 +211,12 @@ const StyledSectionContainer = styled(SectionContainer)`
 const StyledMobileAddress = styled.div`
     @media ${device.tablet} {
         max-width: 328px;
+        font-size: 14px;
     }
 
     @media (max-width: 324px) {
         max-width: 320px;
+        font-size: 14px;
     }
 `
 

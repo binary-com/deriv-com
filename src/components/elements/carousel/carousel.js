@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import PropTypes from 'prop-types'
 import {
@@ -13,24 +13,34 @@ import {
     StyledDot,
 } from './carousel-style'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
-export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
-    <StyledButtonWrapper
-        onClick={onClick}
-        disabled={!enabled}
-        left
-        style={style}
-        is_reviews={is_reviews}
-    >
-        {color === 'black' ? (
-            <ChevronLeft black="true" />
-        ) : color === 'red' ? (
-            <ChevronLeft red="true" />
-        ) : (
-            <ChevronLeft />
-        )}
-    </StyledButtonWrapper>
-)
+export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => {
+    const { is_black, is_red } = useMemo(() => {
+        return {
+            is_black: color === 'black',
+            is_red: color === 'red',
+        }
+    }, [color])
+
+    const is_rtl = useIsRtl()
+
+    return (
+        <StyledButtonWrapper
+            onClick={onClick}
+            disabled={!enabled}
+            left
+            style={style}
+            is_reviews={is_reviews}
+        >
+            {is_rtl ? (
+                <ChevronRight black={is_black} red={is_red} />
+            ) : (
+                <ChevronLeft black={is_black} red={is_red} />
+            )}
+        </StyledButtonWrapper>
+    )
+}
 
 PrevButton.propTypes = {
     chevron_style: PropTypes.object,
@@ -48,22 +58,31 @@ NavigationButton.propTypes = {
     onClick: PropTypes.func,
 }
 
-export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
-    <StyledButtonWrapper
-        onClick={onClick}
-        disabled={!enabled}
-        style={style}
-        is_reviews={is_reviews}
-    >
-        {color === 'black' ? (
-            <ChevronRight black="true" />
-        ) : color === 'red' ? (
-            <ChevronRight red="true" />
-        ) : (
-            <ChevronRight />
-        )}
-    </StyledButtonWrapper>
-)
+export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => {
+    const { is_black, is_red } = useMemo(() => {
+        return {
+            is_black: color === 'black',
+            is_red: color === 'red',
+        }
+    }, [color])
+
+    const is_rtl = useIsRtl()
+
+    return (
+        <StyledButtonWrapper
+            onClick={onClick}
+            disabled={!enabled}
+            style={style}
+            is_reviews={is_reviews}
+        >
+            {is_rtl ? (
+                <ChevronLeft black={is_black} red={is_red} />
+            ) : (
+                <ChevronRight black={is_black} red={is_red} />
+            )}
+        </StyledButtonWrapper>
+    )
+}
 
 NextButton.propTypes = PrevButton.propTypes
 

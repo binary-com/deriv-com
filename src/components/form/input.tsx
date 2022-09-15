@@ -1,8 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Header } from '../elements'
 import device from 'themes/device'
 // SVG Component
+import EyeIcon from 'images/svg/help/eye.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
 
 interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
@@ -27,6 +28,7 @@ type StyledInputProps = {
     background?: string
     label?: string
     error?: string
+    password_icon?: boolean
 }
 type ValidProps = {
     background?: string
@@ -83,7 +85,6 @@ export const InputWrapper = styled.div<InputWrapperProps>`
             pointer-events: none;
         `}
 `
-
 export const StyledError = styled.img`
     position: absolute;
     right: 0.8rem;
@@ -99,7 +100,6 @@ export const StyledError = styled.img`
         top: 1rem;
     }
 `
-
 export const StyledInput = styled.input<StyledInputProps>`
     background: ${({ input_background }) =>
         input_background ? `var(--color-${input_background})` : 'none'};
@@ -176,7 +176,6 @@ export const StyledInput = styled.input<StyledInputProps>`
             `}
     }
 `
-
 export const ErrorMessages = styled(Header)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
@@ -184,7 +183,6 @@ export const ErrorMessages = styled(Header)`
     font-weight: normal;
     color: var(--color-red-1);
 `
-
 export const StyledLabel = styled.label<StyledLabelProps>`
     color: ${({ label_color }) =>
         label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
@@ -197,6 +195,22 @@ export const StyledLabel = styled.label<StyledLabelProps>`
     transform: translateZ(0);
     padding: 0 0.4rem;
     background: none;
+`
+const StyledIcon = styled.img<StyledInputProps>`
+    position: absolute;
+    right: ${({ password_icon }) => (password_icon ? '2.8rem' : '0.8rem')};
+    top: 1.2rem;
+    height: 1.6rem;
+    width: 1.6rem;
+    cursor: pointer;
+
+    @media ${device.tablet} {
+        right: ${({ password_icon }) => (password_icon ? '4rem' : '2rem')};
+        top: 1.6rem;
+    }
+    @media ${device.desktopL} {
+        top: 1rem;
+    }
 `
 
 const Input = ({
@@ -213,9 +227,11 @@ const Input = ({
     tablet_background = '',
     handleError,
     maxLength,
+    password_icon,
     ...props
 }: InputProps) => {
     const current_input = useRef(null)
+    const [is_password_visible, setPasswordVisible] = useState(false)
 
     return (
         <RelativeWrapper>
@@ -235,6 +251,7 @@ const Input = ({
                     height={height}
                     showLabel={label}
                     {...props}
+                    type={is_password_visible ? 'text' : props.type}
                     ref={() => current_input}
                 />
                 {label && (
@@ -248,6 +265,14 @@ const Input = ({
                     </StyledLabel>
                 )}
             </InputWrapper>
+            {password_icon && (
+                <StyledIcon
+                    src={EyeIcon}
+                    password_icon={password_icon}
+                    alt="eye icon"
+                    onClick={() => setPasswordVisible(!is_password_visible)}
+                />
+            )}
             <ErrorMessages lh="1.4" align="left">
                 {error}
             </ErrorMessages>

@@ -66,8 +66,6 @@ const WhatsAppIcon = styled.img`
 `
 
 export const DidntFindYourAnswerBanner = () => {
-    // eslint-disable-next-line no-debugger
-    debugger
     const [is_livechat_interactive, LC_API] = useLivechat()
     const { is_south_africa, is_nigeria } = useCountryRule()
     return (
@@ -80,7 +78,7 @@ export const DidntFindYourAnswerBanner = () => {
                 {is_livechat_interactive && (
                     <Flex>
                         <Button
-                            secondary="true"
+                            secondary
                             onClick={() => {
                                 LC_API.open_chat_window()
                             }}

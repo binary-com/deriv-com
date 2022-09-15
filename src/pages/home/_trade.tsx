@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
-import { SectionContainer, Container, Flex, CssGrid, NonEU } from 'components/containers'
+import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const platforms = Object.freeze({
     trader: 'dtrader',
@@ -51,6 +52,7 @@ type TradeProps = {
 }
 
 const Trade = ({ is_ppc_redirect }: TradeProps) => {
+    const { is_non_eu } = useCountryRule()
     const data = useStaticQuery(query)
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
@@ -101,14 +103,14 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                             >
                                 <TraderCard />
                             </div>
-                            <NonEU>
+                            {is_non_eu && (
                                 <div
                                     onMouseEnter={() => setSelected(platforms.bot)}
                                     onMouseLeave={() => setSelected('')}
                                 >
                                     <BotCard />
                                 </div>
-                            </NonEU>
+                            )}
                             <div
                                 onMouseEnter={() => setSelected(platforms.mt5)}
                                 onMouseLeave={() => setSelected('')}

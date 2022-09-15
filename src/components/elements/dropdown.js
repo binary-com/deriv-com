@@ -194,7 +194,7 @@ const UnorderedList = styled.ul`
         `}
 `
 
-export const Arrow = styled(Chevron)`
+export const Arrow = styled((props) => <Chevron {...props} />)`
     position: absolute;
     right: 8px;
     top: 25%;
@@ -246,6 +246,7 @@ const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
+    color: var(--color-red-1);
 `
 
 const ContractSizeWrapper = styled(Text)`
@@ -307,7 +308,7 @@ ItemList.propTypes = {
 export const BottomLabel = ({ error, contractSize }) => {
     return (
         <StyledDiv>
-            <ErrorMessages lh="1.4" align="left" color="red-1">
+            <ErrorMessages lh="1.4" align="left">
                 {error}
             </ErrorMessages>
 

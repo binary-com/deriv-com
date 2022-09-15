@@ -84,7 +84,7 @@ export type BoxType = {
     bg?: string
 }
 
-const Box = styled.div<BoxType>`
+const Box = styled.div<BoxType & BaseStyleType>`
     width: ${(props) => (props.width ? props.width : '')};
     height: ${(props) => (props.height ? props.height : '')};
     min-height: ${(props) => (props.min_height ? props.min_height : '')};

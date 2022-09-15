@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import BirthPicker from '../utils/_birth-form'
-import validation from '../validations/_account-details'
+import validation from '../validations/_validations'
 import Currency from '../utils/_currency-affiliates'
 import { localize } from 'components/localization'
 import { DropdownSearch, Header } from 'components/elements'
@@ -430,6 +430,7 @@ const PersonalDetails = ({
                                     value={item.value}
                                     name={item.name}
                                     error={item.error}
+                                    password_icon={item.type == 'password'}
                                     border="solid 1px var(--color-grey-7)"
                                     label_color="grey-5"
                                     label_hover_color="grey-5"

@@ -1,10 +1,10 @@
 import React, { ReactElement, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, Container, NonEU } from 'components/containers'
+import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-//SVG
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type CardProps = {
     active_tab: string
@@ -182,6 +182,7 @@ const AvailableTradesDesctop = ({
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
+    const { is_non_eu } = useCountryRule()
     const [active_tab, SetActiveTab] = useState('CFDs')
     const handleTabChange = (new_tab: string) => {
         if (new_tab !== active_tab) return SetActiveTab(new_tab)
@@ -202,16 +203,14 @@ const AvailableTradesDesctop = ({
                             active_tab={active_tab}
                         />
                     )}
-                    <NonEU>
-                        {DigitalOptions && (
-                            <Card
-                                name="Options"
-                                display_name={<Localize translate_text="Options" />}
-                                onTabChange={() => handleTabChange('Options')}
-                                active_tab={active_tab}
-                            />
-                        )}
-                    </NonEU>
+                    {is_non_eu && DigitalOptions && (
+                        <Card
+                            name="Options"
+                            display_name={<Localize translate_text="Options" />}
+                            onTabChange={() => handleTabChange('Options')}
+                            active_tab={active_tab}
+                        />
+                    )}
 
                     {Multipliers && (
                         <Card

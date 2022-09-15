@@ -110,7 +110,6 @@ export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
         css`
             color: gray;
         `}
-
     @media ${device.laptopL} {
         font-size: 14px;
     }
@@ -181,12 +180,10 @@ const InternalLink = ({
     internal_to = has_no_end_slash ? internal_to.replace(/\/$/, '') : internal_to
 
     if (is_anchor) {
-        return (
-            <StyledAnchorLink title={aria_label} to={internal_to} disabled={!mounted} {...props} />
-        )
+        return <AnchorLink title={aria_label} to={internal_to} {...props} />
     }
     return (
-        <StyledGatsbyLink aria-label={aria_label} to={internal_to} disabled={!mounted} {...props}>
+        <StyledGatsbyLink aria-label={aria_label} to={internal_to} {...props}>
             {children}
         </StyledGatsbyLink>
     )
@@ -274,17 +271,16 @@ const ExternalLink = ({
     }
 
     return (
-        <StyledAnchor
+        <a
             style={style ? style : default_style}
             aria-label={aria_label}
             href={!show_modal ? url : ''}
             onClick={show_modal ? handleClick : null}
-            disabled={!mounted}
             target={final_target}
             rel={rel}
             {...props}
         >
             {children}
-        </StyledAnchor>
+        </a>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import SecureAccount from './_securing-account'
-import { SEO, SectionContainer, Container, Flex, EU, NonEU } from 'components/containers'
+import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
@@ -10,6 +10,7 @@ import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import device from 'themes/device'
 import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const TradingResponsibly = Loadable(() => import('./_trading-responsibly'))
 const TradingLimits = Loadable(() => import('./_trading-limits'))
@@ -37,6 +38,7 @@ const StyledHeader = styled(Header)`
 
 const ResponsibleTrading = () => {
     const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu, is_non_eu } = useCountryRule()
     const HeroBackground = is_eu_country ? EuBackground : NoneEuBackground
 
     return (
@@ -62,16 +64,14 @@ const ResponsibleTrading = () => {
                                 {localize('Secure and responsible trading')}
                             </StyledHeader>
                             <Text align="center" max_width="79.2rem" m="0 auto" color="white">
-                                <EU>
-                                    {localize(
+                                {is_eu &&
+                                    localize(
                                         'Trading online can be exciting, but it’s important to keep in mind that there are risks involved including addiction and financial losses. To avoid the danger of addiction, it is important that you engage in a careful self-analysis to check if you are at risk, and follow some basic principles and guidelines.',
                                     )}
-                                </EU>
-                                <NonEU>
-                                    {localize(
+                                {is_non_eu &&
+                                    localize(
                                         'Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading.',
                                     )}
-                                </NonEU>
                             </Text>
                         </Flex>
                     </Container>
@@ -79,9 +79,7 @@ const ResponsibleTrading = () => {
                 <SecureAccount />
                 <TradingResponsibly />
                 <TradingLimits />
-                <EU>
-                    <NeedHelp />
-                </EU>
+                {is_eu && <NeedHelp />}
                 <RoleBanner />
             </Section>
         </Layout>

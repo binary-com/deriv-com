@@ -133,7 +133,7 @@ const Layout = ({
     type,
 }) => {
     const { show_non_eu_popup, setShowNonEuPopup, academy_data } = React.useContext(DerivStore)
-    const { is_uk_eu } = useCountryRule()
+    const { is_loading, is_uk_eu } = useCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -146,7 +146,7 @@ const Layout = ({
     const is_static = type === 'static'
     // Allow tracking cookie banner setup
     React.useEffect(() => {
-        if (typeof is_uk_eu === 'boolean') {
+        if (!is_loading) {
             const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
             if (is_uk_eu && !tracking_status) setShowCookieBanner(true)
             const allow_tracking =

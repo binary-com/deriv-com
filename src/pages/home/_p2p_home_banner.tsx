@@ -242,7 +242,7 @@ const StyledButton = styled(LocalizedLink)`
     }
 `
 const LearnMore = styled(LocalizedLink)`
-    width: 120px;
+    width: 150px;
     height: 30px;
     font-style: normal;
     font-weight: 400;

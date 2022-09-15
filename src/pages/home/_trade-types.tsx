@@ -9,6 +9,7 @@ import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type TradeTypesProps = {
     image_url: string
@@ -162,8 +163,9 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
         props.$visibility
             ? '0 0 24px rgba(0, 0, 0, 0.08), 0 24px 24px rgba(0, 0, 0, 0.08)'
             : 'inset 0 0 0 1px var(--color-grey-17)'};
-    padding: ${(props) => (props.$visibility ? '24px 12px 50px' : '24px 12px 32px')};
-    height: auto;
+    padding: ${(props) => (props.$visibility ? '24px 12px 0' : '24px 12px 0')};
+    height: ${(props) => (props.$visibility ? '100%' : '90%')};
+    justify-content: center;
     background: var(--color-white);
     position: relative;
     flex-direction: column;
@@ -171,7 +173,7 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
     border-radius: 8px;
     max-width: 100%;
     transition: all 0.4s ease-out;
-    align-items: flex-start;
+    align-items: center;
 
     @media ${device.tablet} {
         max-width: 328px;
@@ -214,9 +216,7 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     padding: 10px 16px;
     border-radius: 100px;
     background-color: var(--color-white);
-    position: absolute;
-    bottom: -5%;
-    left: 25%;
+    margin-bottom: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -240,10 +240,21 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     }
 `
 
+const ArrowImage = styled.img<{ is_rtl: boolean }>`
+    transform: ${({ is_rtl }) => {
+        return is_rtl ? 'scaleX(-1)' : null
+    }};
+`
+
+const DescriptionContainer = styled(Flex)`
+    flex: 1;
+`
+
 const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const [details_visible, setDetailsVisibility] = React.useState(false)
+    const is_rtl = useIsRtl()
 
     return (
         <ItemsWrapper
@@ -260,17 +271,20 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
                     onMouseOut={() => setDetailsVisibility(false)}
                 />
             </ImageWrapper>
-            <Header type="subtitle-1" align="center">
-                {items_details.header}
-            </Header>
-            <ContentWrapper $visibility={details_visible && !is_mobile}>
-                <Header type="paragraph-1" weight="normal" align="center">
-                    {items_details.desc}
+
+            <DescriptionContainer ai={'center'} jc={'center'} direction={'column'}>
+                <Header type="subtitle-1" align="center">
+                    {items_details.header}
                 </Header>
-            </ContentWrapper>
+                <ContentWrapper $visibility={details_visible && !is_mobile}>
+                    <Header type="paragraph-1" weight="normal" align="center">
+                        {items_details.desc}
+                    </Header>
+                </ContentWrapper>
+            </DescriptionContainer>
             <LearnMore to={items_details.link} $visibility={details_visible && !is_mobile}>
                 <Text mr="1rem">{items_details.link_text}</Text>
-                <img src={Arrow} alt="" />
+                <ArrowImage src={Arrow} alt="" is_rtl={is_rtl} />
             </LearnMore>
         </ItemsWrapper>
     )
@@ -335,11 +349,7 @@ const TradeTypes = (): React.ReactNode => {
                 <Flex>
                     <Carousel {...settings}>
                         {items_details_by_region.map((item) => {
-                            return (
-                                <Flex key={item.image_url} ai="flex-start">
-                                    <TradeItems items_details={item} />
-                                </Flex>
-                            )
+                            return <TradeItems key={item.image_url} items_details={item} />
                         })}
                     </Carousel>
                 </Flex>
@@ -347,11 +357,7 @@ const TradeTypes = (): React.ReactNode => {
             <MobileWrapper>
                 <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
                     {items_details_by_region.map((item) => {
-                        return (
-                            <Flex key={item.link} ai="flex-start">
-                                <TradeItems items_details={item} />
-                            </Flex>
-                        )
+                        return <TradeItems key={item.link} items_details={item} />
                     })}
                 </Flex>
             </MobileWrapper>

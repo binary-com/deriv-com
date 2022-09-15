@@ -15,6 +15,7 @@ import Apple from 'images/svg/custom/apple-40.svg'
 import Facebook from 'images/svg/custom/facebook-40.svg'
 import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const query = graphql`
     query {
@@ -299,6 +300,13 @@ const MobilePlatform = styled.div`
         }
     }
 `
+
+const ArrowImage = styled.img`
+    transform: ${({ is_rtl }) => {
+        return is_rtl ? 'scaleX(-1)' : null
+    }};
+`
+
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -312,6 +320,8 @@ const SignupPublic = ({
     const data = useStaticQuery(query)
     const { is_row, is_eu, is_uk } = useCountryRule()
     const [is_checked, setChecked] = useState(false)
+    const is_rtl = useIsRtl()
+
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
@@ -439,7 +449,7 @@ const SignupPublic = ({
                                 >
                                     {localize('Get a taste of the Deriv experience')}
                                 </StyledHeader>
-                                <img src={Arrow} alt="arrow desktop" />
+                                <ArrowImage is_rtl={is_rtl} src={Arrow} alt="arrow desktop" />
                             </LinkFlex>
                         </BackgroundWrapper>
                     </Wrapper>
@@ -469,7 +479,13 @@ const SignupPublic = ({
                                 <Header size="4rem">
                                     {localize('Get a taste of the Deriv experience')}
                                 </Header>
-                                <img src={Arrow} alt="arrow mobile" width="32" height="33" />
+                                <ArrowImage
+                                    is_rtl={is_rtl}
+                                    src={Arrow}
+                                    alt="arrow mobile"
+                                    width="32"
+                                    height="33"
+                                />
                             </DerivExperience>
                         </MobileBackground>
                         <MobileSignupFormWrapper>

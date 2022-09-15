@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Carousel, Header } from 'components/elements'
-import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const StyledHeader = styled(Header)`
     height: 36px;
@@ -12,30 +11,30 @@ type VerticalCarouselProps = {
     contents: unknown[]
 }
 
-const VerticalCarousel = ({ contents }: VerticalCarouselProps) => {
-    const lang_direction = useLangDirection()
+const settings = {
+    options: {
+        loop: true,
+        axis: 'y',
+        draggable: false,
+        speed: 7,
+    },
+    container_style: {
+        maxInlineSize: 'auto',
+        marginBlockStart: '24px',
+        marginBlockEnd: '32px',
+        marginInline: '0',
+    },
+    slide_style: {
+        position: 'relative',
+        height: '36px',
+    },
+    vertical_container: {
+        flexDirection: 'column',
+        height: '36px',
+    },
+}
 
-    const settings = {
-        options: {
-            loop: true,
-            axis: 'y',
-            draggable: false,
-            speed: 7,
-            direction: lang_direction,
-        },
-        container_style: {
-            maxWidth: 'auto',
-            margin: '24px 0 32px',
-        },
-        slide_style: {
-            position: 'relative',
-            height: '36px',
-        },
-        vertical_container: {
-            flexDirection: 'column',
-            height: '36px',
-        },
-    }
+const VerticalCarousel = ({ contents }: VerticalCarouselProps) => {
     return (
         <Carousel has_autoplay autoplay_delay={6000} autoplay_interval={2500} {...settings}>
             {contents.map((content, index) => (

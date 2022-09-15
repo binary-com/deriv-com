@@ -70,7 +70,7 @@ const Uploader = ({
                         ref={hiddenFileInput}
                         background={background}
                         {...props}
-                        style={{ display: 'none', outline: 'none', whiteSpace: 'nowrap' }}
+                        style={{ display: 'none' }}
                     />
                 </div>
             </InputWrapper>

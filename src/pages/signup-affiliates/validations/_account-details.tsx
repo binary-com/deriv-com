@@ -170,7 +170,7 @@ const validation = {
     password: (input) => {
         return passwordValidation(input, localize('Password'), 6, 50)
     },
-    currency: (input) => (!input ? localize('Currency is required') : null),
+    currency: (input) => (input ? null : localize('Currency is required')),
     company_name: (input) => {
         return textValidation(input, localize('Company name'), 2, 70)
     },

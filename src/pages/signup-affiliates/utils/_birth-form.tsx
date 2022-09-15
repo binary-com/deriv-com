@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import AffiliateBirthPicker from './_birth-picker'
 import device from 'themes/device'
@@ -6,13 +6,22 @@ import device from 'themes/device'
 import CrossIcon from 'images/svg/help/cross.svg'
 import { Header } from 'components/elements'
 
+type StyledProps = {
+    border?: string
+    label_hover_color?: string
+    focus_border?: string
+    password_icon?: string
+    error?: string
+    is_disabled?: boolean
+}
+
 const RelativeWrapper = styled.div`
     position: relative;
 `
-const InputWrapper = styled.div`
+const InputWrapper = styled.div<StyledProps>`
     /* prettier-ignore */
     width: 100%;
-    border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
+    border: ${({ border }) => border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
     @media ${device.tabletL} {
         height: 5rem;
@@ -31,8 +40,8 @@ const InputWrapper = styled.div`
             focus_border ? `var(--color-${focus_border})` : 'var(--color-green)'};
     }
 
-    ${(props) =>
-        !props.error &&
+    ${({ error }) =>
+        !error &&
         css`
             border-color: var(--color-grey-7);
         `}
@@ -44,27 +53,27 @@ const InputWrapper = styled.div`
                 color: var(--color-red-1) !important;
             }
         `}
-    ${(props) =>
-        props.is_disabled &&
+    ${({ is_disabled }) =>
+        is_disabled &&
         css`
             opacity: 0.32;
             pointer-events: none;
         `}
 `
 
-const StyledIcon = styled.img`
+const StyledIcon = styled.img<StyledProps>`
     position: absolute;
-    right: ${(props) => (props.password_icon ? '2.8rem' : '0.8rem')};
+    right: ${({ password_icon }) => (password_icon ? '2.8rem' : '0.8rem')};
     top: 1.2rem;
     height: 1.6rem;
     width: 1.6rem;
-    ${(props) =>
-        !props.is_disabled &&
+    ${({ is_disabled }) =>
+        !is_disabled &&
         css`
             cursor: pointer;
         `}
     @media ${device.tablet} {
-        right: ${(props) => (props.password_icon ? '4rem' : '2rem')};
+        right: ${({ password_icon }) => (password_icon ? '4rem' : '2rem')};
         top: 1.6rem;
     }
     @media ${device.desktopL} {
@@ -82,7 +91,6 @@ const ErrorMessages = styled(Header)`
 
 const BirthPicker = ({
     label,
-    height,
     border,
     error_shift,
     focus_border,
@@ -90,14 +98,8 @@ const BirthPicker = ({
     label_color,
     id,
     error,
-    background,
-    tablet_background,
-    handleError,
-    maxLength,
     setFieldValue,
-    ...props
 }: BirthPickerProps) => {
-    let current_input = useRef(null)
     return (
         <RelativeWrapper>
             <InputWrapper
@@ -105,37 +107,20 @@ const BirthPicker = ({
                 focus_border={focus_border}
                 label_hover_color={label_hover_color}
                 error={error}
-                className="input-wrapper"
             >
                 <AffiliateBirthPicker
                     id={id}
                     top_shift="1.5rem"
-                    background={background}
-                    maxLength={maxLength}
                     error={error}
-                    height={height}
                     label={label}
                     setFieldValue={setFieldValue}
                     setFieldTouched={setFieldValue}
-                    tablet_background={tablet_background}
-                    htmlFor={id}
                     label_color={label_color}
-                    {...props}
-                    ref={(ip) => (current_input = ip)}
                 />
             </InputWrapper>
             <ErrorMessages lh="1.4" align="left" color="red-1" error_shift={error_shift}>
                 {error}
             </ErrorMessages>
-            {error && (
-                <StyledIcon
-                    src={CrossIcon}
-                    alt="error icon"
-                    onClick={() => {
-                        handleError(current_input)
-                    }}
-                />
-            )}
         </RelativeWrapper>
     )
 }
@@ -147,7 +132,7 @@ type BirthPickerProps = {
     error?: string
     error_shift?: string
     focus_border?: string
-    handleError?: () => void
+    handleError?: (current_input: string) => void
     height?: string | number
     id?: string
     is_date?: boolean

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import USD from '../../images/svg/signup-affiliates/usd.svg'
-import AUD from '../../images/svg/signup-affiliates/aud.svg'
-import EUR from '../../images/svg/signup-affiliates/eur.svg'
-import GBP from '../../images/svg/signup-affiliates/gbp.svg'
+import USD from 'images/svg/signup-affiliates/usd.svg'
+import AUD from 'images/svg/signup-affiliates/aud.svg'
+import EUR from 'images/svg/signup-affiliates/eur.svg'
+import GBP from 'images/svg/signup-affiliates/gbp.svg'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 

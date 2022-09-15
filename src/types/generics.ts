@@ -9,4 +9,4 @@ export type PopupModalTypes = {
     setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export type ComponentProps = PropsWithChildren<{ foo: string }>
+export type ComponentProps = PropsWithChildren<{ children?: React.ReactNode }>

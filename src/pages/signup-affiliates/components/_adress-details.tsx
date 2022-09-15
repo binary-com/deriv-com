@@ -34,13 +34,6 @@ const getCountryList = () => {
     }
 }
 const country_list = getCountryList()
-
-type countryType = {
-    name: string
-    display_name: string
-    value: string
-}
-
 type AccountDetailsProps = {
     updatedData: (e) => void
     onValidate: (e) => void
@@ -49,11 +42,7 @@ type AccountDetailsProps = {
         city: string
         street: string
         postal_code: string
-        country: {
-            name: string
-            display_name: string
-            value: string
-        }
+        country: string
     }
 }
 
@@ -68,11 +57,11 @@ const AccountDetails = ({
     const [city, setCity] = useState(affiliate_address_data.city)
     const [street, setStreet] = useState(affiliate_address_data.street)
     const [postal_code, setPostCode] = useState(affiliate_address_data.postal_code)
-    const [country_error_msg, setCountryErrorMsg] = useState('')
-    const [state_error_msg, setStateErrorMsg] = useState('')
-    const [city_error_msg, setCityErrorMsg] = useState('')
-    const [street_error_msg, setStreetErrorMsg] = useState('')
-    const [postcode_error_msg, setPostCodeErrorMsg] = useState('')
+    const [country_error_msg, setCountryErrorMsg] = useState(null)
+    const [state_error_msg, setStateErrorMsg] = useState(null)
+    const [city_error_msg, setCityErrorMsg] = useState(null)
+    const [street_error_msg, setStreetErrorMsg] = useState(null)
+    const [postcode_error_msg, setPostCodeErrorMsg] = useState(null)
 
     const { send } = useDerivWS()
 
@@ -90,7 +79,7 @@ const AccountDetails = ({
         send(country_list, (response) => {
             if (!response.error) {
                 const residence_list_response = response.residence_list.map(({ text, value }) => {
-                    const country: countryType = {
+                    const country = {
                         name: text,
                         display_name: text,
                         value: value,

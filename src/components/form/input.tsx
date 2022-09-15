@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
-import { Text } from '../elements'
+import { Header } from '../elements'
 import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
@@ -9,7 +9,7 @@ interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
     handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
 }
 
-type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps
+export type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps
 
 type InputWrapperProps = {
     border?: string
@@ -17,8 +17,8 @@ type InputWrapperProps = {
     focus_border?: string
     error?: string
     disabled?: boolean
+    upload_info?: string
 }
-
 type StyledInputProps = {
     input_background?: string
     inputColor?: string
@@ -28,11 +28,9 @@ type StyledInputProps = {
     label?: string
     error?: string
 }
-
 type ValidProps = {
     background?: string
 }
-
 type StyledLabelProps = {
     label_color?: string
     tablet_background?: string
@@ -40,10 +38,10 @@ type StyledLabelProps = {
     htmlFor?: string
 }
 
-const RelativeWrapper = styled.div`
+export const RelativeWrapper = styled.div`
     position: relative;
 `
-const InputWrapper = styled.div<InputWrapperProps>`
+export const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
@@ -86,7 +84,7 @@ const InputWrapper = styled.div<InputWrapperProps>`
         `}
 `
 
-const StyledError = styled.img`
+export const StyledError = styled.img`
     position: absolute;
     right: 0.8rem;
     top: 1.2rem;
@@ -102,7 +100,7 @@ const StyledError = styled.img`
     }
 `
 
-const StyledInput = styled.input<StyledInputProps>`
+export const StyledInput = styled.input<StyledInputProps>`
     background: ${({ input_background }) =>
         input_background ? `var(--color-${input_background})` : 'none'};
     color: ${({ inputColor }) =>
@@ -114,6 +112,7 @@ const StyledInput = styled.input<StyledInputProps>`
     display: block;
     border: none;
     border-radius: 4px;
+
     @media ${device.tabletL} {
         height: 100%;
 
@@ -178,14 +177,15 @@ const StyledInput = styled.input<StyledInputProps>`
     }
 `
 
-const ErrorMessages = styled(Text)`
+export const ErrorMessages = styled(Header)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
+    font-weight: normal;
     color: var(--color-red-1);
 `
 
-const StyledLabel = styled.label<StyledLabelProps>`
+export const StyledLabel = styled.label<StyledLabelProps>`
     color: ${({ label_color }) =>
         label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
     font-size: var(--text-size-xs);
@@ -225,7 +225,6 @@ const Input = ({
                 label_hover_color={label_hover_color}
                 disabled={disabled}
                 error={error}
-                className="input-wrapper"
             >
                 <StyledInput
                     id={id}

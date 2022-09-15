@@ -15,16 +15,44 @@ const query = graphql`
             ...fadeIn
         }
         minsk_grid_1: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {
-            ...fadeIn
+            childImageSharp {
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 70
+                    placeholder: NONE
+                )
+            }
         }
         minsk_grid_2: file(relativePath: { eq: "careers/minsk_grid_2.jpg" }) {
-            ...fadeIn
+            childImageSharp {
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 70
+                    placeholder: NONE
+                )
+            }
         }
         minsk_grid_3: file(relativePath: { eq: "careers/minsk_grid_3.jpg" }) {
-            ...fadeIn
+            childImageSharp {
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 70
+                    placeholder: NONE
+                )
+            }
         }
         minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_4.jpg" }) {
-            ...fadeIn
+            childImageSharp {
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 70
+                    placeholder: NONE
+                )
+            }
         }
         minsk_map: file(relativePath: { eq: "maps/map-minsk-career.png" }) {
             ...fadeIn

@@ -14,7 +14,7 @@ import {
 export default {
     title: 'What lies ahead',
     subtitle:
-        "Over the course of 6 months, you'll go through 10 modules and face exciting challenges",
+        "Over the course of 6 months, you'll go through 9 modules and face exciting challenges",
     content: [
         {
             src: FrontEnd,
@@ -59,17 +59,6 @@ export default {
             ],
         },
         {
-            src: PlatformArchitecture,
-            alt: 'Platform architecture Icon',
-            text: 'Platform architecture',
-            content: [
-                'Design and plan systems from high-level system concepts down to low-level details.',
-                'Explore horizontal and vertical scaling — service, database, cache, and code patterns.',
-                'Work with the CAP theorem of distributed systems.',
-                'Study cloud technologies — what’s out there and how to choose the right pieces for the puzzle.',
-            ],
-        },
-        {
             src: QualityAssurance,
             alt: 'Quality assurance Icon',
             text: 'Quality assurance',
@@ -86,7 +75,7 @@ export default {
             content: [
                 'DevOps, GitOps, CodeOps... NoOps? Explore evolving styles of deployment, maintenance, and monitoring.',
                 'Automate and chill: build a recipe once, replicate to thousands of nodes.',
-                'Discover cloud technologies: AWS, Google, AliCloud,... Who and what is out there?',
+                'Discover cloud technologies: AWS, Google,... Who and what is out there?',
             ],
         },
         {

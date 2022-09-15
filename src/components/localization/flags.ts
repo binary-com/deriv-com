@@ -11,6 +11,7 @@ import th from 'images/svg/flags/th.svg'
 import zh from 'images/svg/flags/zh.svg'
 import tr from 'images/svg/flags/tr.svg'
 import ac from 'images/svg/flags/uk.svg'
+import bn from 'images/svg/flags/bn.svg'
 
 const flags = {
     en,
@@ -26,6 +27,7 @@ const flags = {
     zh,
     tr,
     ac,
+    bn,
 }
 
 export default flags

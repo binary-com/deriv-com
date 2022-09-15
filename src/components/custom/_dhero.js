@@ -260,7 +260,7 @@ const DHero = ({
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (
-                        <DemoButton onClick={handleSignup} id="dm-hero-signup-1" secondary="true">
+                        <DemoButton onClick={handleSignup} id="dm-hero-signup-1" secondary>
                             {localize('Create free demo account')}
                         </DemoButton>
                     )}
@@ -279,7 +279,14 @@ const DHero = ({
             </InformationWrapper>
 
             <LottieWrapper>
-                <QueryImage data={data[is_eu ? 'dtrader_eu' : 'dtrader']} alt={background_alt} />
+                {image_name === 'dtrader' ? (
+                    <QueryImage
+                        data={data[is_eu ? 'dtrader_eu' : 'dtrader']}
+                        alt={background_alt}
+                    />
+                ) : (
+                    <QueryImage data={data[image_name]} alt={background_alt} />
+                )}
             </LottieWrapper>
         </Wrapper>
     )

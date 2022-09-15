@@ -361,7 +361,7 @@ const SignupPublic = ({
                                         isChecked={is_checked}
                                         id="dm-public-signup"
                                         type="submit"
-                                        secondary="true"
+                                        secondary
                                         disabled={
                                             is_submitting ||
                                             !is_checked ||
@@ -423,7 +423,7 @@ const SignupPublic = ({
                             />
                             <LinkFlex
                                 ai="center"
-                                external="true"
+                                external
                                 href={deriv_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
@@ -461,7 +461,7 @@ const SignupPublic = ({
                                 />
                             </MobilePlatform>
                             <DerivExperience
-                                external="true"
+                                external
                                 href={deriv_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
@@ -511,7 +511,7 @@ const SignupPublic = ({
                                         isChecked={is_checked}
                                         id="dm-mobile-public-signup"
                                         type="submit"
-                                        secondary="true"
+                                        secondary
                                         disabled={
                                             is_submitting ||
                                             !is_checked ||

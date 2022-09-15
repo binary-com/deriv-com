@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { withLangDirection } from 'themes/function'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { Flex, ROW } from 'components/containers'
+import { Flex } from 'components/containers'
 import { DerivStore } from 'store'
 import { LocalizedLink, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
@@ -47,6 +47,7 @@ import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -137,6 +138,7 @@ const content_style = {
 
 export const OffCanvasMenuWrapper = (props) => {
     const { is_uk_country } = React.useContext(DerivStore)
+    const { is_row } = useCountryRule()
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -173,7 +175,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         to="/trade-types/cfds/"
                                     />
                                 </Flex>
-                                <ROW>
+                                {is_row && (
                                     <Flex mb="2rem">
                                         <NavCard
                                             aria_label="Options"
@@ -188,7 +190,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             to="/trade-types/options/"
                                         />
                                     </Flex>
-                                </ROW>
+                                )}
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="Multipliers"
@@ -223,7 +225,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
-                        <ROW>
+                        {is_row && (
                             <Flex mb="2rem">
                                 <NavCard
                                     aria_label="Derivx"
@@ -236,7 +238,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     to="/derivx/"
                                 />
                             </Flex>
-                        </ROW>
+                        )}
 
                         <Flex mb="2rem">
                             <NavCard
@@ -250,7 +252,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        <ROW>
+                        {is_row && (
                             <>
                                 <Flex mb="2rem">
                                     <NavCard
@@ -279,7 +281,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         onClick={handleArrowClick}
                                         to="trading"
                                         type="smart_trader"
-                                        external="true"
+                                        external
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}
                                     />
@@ -310,13 +312,13 @@ export const OffCanvasMenuWrapper = (props) => {
                                         title={<Localize translate_text="Binary Bot" />}
                                         onClick={handleArrowClick}
                                         to={binary_bot_url}
-                                        external="true"
+                                        external
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}
                                     />
                                 </Flex>
                             </>
-                        </ROW>
+                        )}
                     </AccordionItem>
                     <AccordionItem
                         header={<Localize translate_text="Markets" />}
@@ -381,7 +383,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 />
                             </Flex>
                         )}
-                        <ROW>
+                        {is_row && (
                             <Flex mb="3.2rem">
                                 <NavCard
                                     aria_label="Basket indices"
@@ -394,7 +396,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     to="/markets/basket-indices/"
                                 />
                             </Flex>
-                        </ROW>
+                        )}
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"
@@ -474,7 +476,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         <StyledLink
                             to=""
                             type="community"
-                            external="true"
+                            external
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -512,7 +514,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink
                             to={deriv_status_page_url}
-                            external="true"
+                            external
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -569,17 +571,19 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                         </StyledLink>
-                        <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={PaymentAgent} alt="" width="32" height="32" />
-                            </div>
-                            <span>{<Localize translate_text="Payment agents" />}</span>
-                        </StyledLink>
+                        {is_row && (
+                            <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
+                                <div>
+                                    <img src={PaymentAgent} alt="" width="32" height="32" />
+                                </div>
+                                <span>{<Localize translate_text="Payment agents" />}</span>
+                            </StyledLink>
+                        )}
                         <StyledLink
                             to=""
                             type="api"
                             target="_blank"
-                            external="true"
+                            external
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
                         >
@@ -608,6 +612,7 @@ OffCanvasMenuWrapper.propTypes = {
 
 export const OffCanvasMenuPartner = (props) => {
     const canvas = useRef()
+    const { is_row } = useCountryRule()
 
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()
@@ -635,17 +640,19 @@ export const OffCanvasMenuPartner = (props) => {
                     </div>
                     <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                 </StyledLink>
-                <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
-                    <div>
-                        <img src={PaymentAgent} alt="" width="32" height="32" />
-                    </div>
-                    <span>{<Localize translate_text="Payment agents" />}</span>
-                </StyledLink>
+                {is_row && (
+                    <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
+                        <div>
+                            <img src={PaymentAgent} alt="" width="32" height="32" />
+                        </div>
+                        <span>{<Localize translate_text="Payment agents" />}</span>
+                    </StyledLink>
+                )}
                 <StyledLink
                     to=""
                     type="api"
                     target="_blank"
-                    external="true"
+                    external
                     rel="noopener noreferrer"
                     onClick={handleArrowClick}
                 >

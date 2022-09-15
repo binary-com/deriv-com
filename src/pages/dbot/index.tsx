@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import PageNotFound from '../404'
-import { SEO, ROW, UKEU } from 'components/containers'
+import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot/dbot-icon.svg'
@@ -20,6 +20,7 @@ const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js')
 const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
 const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms.js'))
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ItemType = {
     title: string | ReactElement
@@ -31,10 +32,6 @@ type TradingType = {
     subtitle: ReactElement
     image_name: string
     image_alt: string
-}
-
-type StateType = {
-    is_mobile: boolean
 }
 
 const meta_attributes: MetaAttributesType = {
@@ -114,6 +111,7 @@ const trading: TradingType[] = [
 ]
 
 const Dbot = () => {
+    const { is_uk_eu, is_row } = useCountryRule()
     const [is_mobile, setIsMobile] = useState(
         isBrowser() ? window.screen.width <= size.mobileL : false,
     )
@@ -137,7 +135,7 @@ const Dbot = () => {
                 )}
                 meta_attributes={meta_attributes}
             />
-            <ROW>
+            {is_row && (
                 <Layout>
                     <DHero
                         title={localize('DBot')}
@@ -171,10 +169,8 @@ const Dbot = () => {
                         )}
                     />
                 </Layout>
-            </ROW>
-            <UKEU>
-                <PageNotFound />
-            </UKEU>
+            )}
+            {is_uk_eu && <PageNotFound />}
         </>
     )
 }

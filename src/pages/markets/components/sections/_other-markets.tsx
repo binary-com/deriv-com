@@ -155,7 +155,7 @@ const StyledFlex = styled(Flex)`
 
     &:hover {
         box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-        height: 316px;
+        height: 340px;
         border-radius: 0 0 8px 8px;
     }
     ${LearnMore} {
@@ -175,7 +175,7 @@ const Card = ({ market }: CardProps) => {
         <StyledFlex
             direction="column"
             max_width="28.2rem"
-            height="326px"
+            height="340px"
             width="282px"
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"

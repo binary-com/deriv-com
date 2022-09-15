@@ -2,20 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import { Text, LinkText } from 'components/elements'
 import { deriv_app_url } from 'common/constants'
-import { Show } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { Localize } from 'components/localization'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
 const FinancialCommission = () => {
+    const { is_eu, is_non_eu } = useCountryRule()
     const [is_livechat_interactive, LC_API] = useLivechat()
 
     return (
         <>
             {is_livechat_interactive && (
                 <div>
-                    <Show.Eu>
+                    {is_eu && (
                         <Text mt="2rem" max_width="58.8rem">
                             <Localize
                                 translate_text="For fair resolution of any complaints, please <0>chat</0> with us. To learn more, see our <1>complaint policy</1>."
@@ -38,8 +39,8 @@ const FinancialCommission = () => {
                                 ]}
                             />
                         </Text>
-                    </Show.Eu>
-                    <Show.NonEU>
+                    )}
+                    {is_non_eu && (
                         <Text mt="2rem" max_width="58.8rem">
                             <Localize
                                 translate_text="For fair resolution of any complaints, please <0>chat</0> with us."
@@ -54,7 +55,7 @@ const FinancialCommission = () => {
                                 ]}
                             />
                         </Text>
-                    </Show.NonEU>
+                    )}
                 </div>
             )}
         </>

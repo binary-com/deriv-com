@@ -102,7 +102,7 @@ const RightSection = ({
                         onClick={handleSignup}
                         id="dm-nav-signup"
                         ref={button_ref}
-                        secondary="true"
+                        secondary
                     >
                         {localize('Create free demo account')}
                     </SignupButton>

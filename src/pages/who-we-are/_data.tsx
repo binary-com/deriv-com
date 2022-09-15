@@ -13,7 +13,7 @@ type FirstSectionTextsType = {
 export const first_section_texts: FirstSectionTextsType[] = [
     {
         text: (
-            <Localize translate_text="Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, indices, cryptocurrencies, commodities, and synthetics to millions of registered users across the globe." />
+            <Localize translate_text="Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, stocks & indices, cryptocurrencies, commodities, and derived to millions of registered users across the globe." />
         ),
     },
     {

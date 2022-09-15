@@ -6,9 +6,10 @@ import { localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
-import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
+import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { whatsapp_url } from 'common/constants'
 
 const DFYAWrapper = styled.section`
     background-color: var(--color-black-3);
@@ -65,6 +66,8 @@ const WhatsAppIcon = styled.img`
 `
 
 export const DidntFindYourAnswerBanner = () => {
+    // eslint-disable-next-line no-debugger
+    debugger
     const [is_livechat_interactive, LC_API] = useLivechat()
     const { is_south_africa, is_nigeria } = useCountryRule()
     return (
@@ -85,11 +88,7 @@ export const DidntFindYourAnswerBanner = () => {
                             {localize('Chat')}
                         </Button>
                         {(is_south_africa || is_nigeria) && (
-                            <WhatsAppButton
-                                onClick={() => {
-                                    LC_API.open_chat_window()
-                                }}
-                            >
+                            <WhatsAppButton onClick={() => window.open(whatsapp_url, '_blank')}>
                                 <WhatsAppIcon
                                     src={WhatsAppSVG}
                                     alt={localize('whatsappicon')}

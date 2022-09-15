@@ -90,7 +90,6 @@ export const useLivechat = () => {
                         utm_source: utm_source ?? '',
                         utm_medium: utm_medium ?? '',
                         utm_campaign: utm_campaign ?? '',
-                        whatsapp_number: '',
                     }
 
                     window.LiveChatWidget.call('set_session_variables', session_variables)

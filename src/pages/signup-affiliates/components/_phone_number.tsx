@@ -115,7 +115,7 @@ const PhoneNumber = ({ updatedData, onValidate, affiliate_phone_number }: PhoneN
                     focus_border="var(--color-grey-7)"
                 />
 
-                <ButtonCode disabled tertiary="true">
+                <ButtonCode disabled tertiary>
                     {localize('Send code')}
                 </ButtonCode>
             </CodeContainer>

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import BirthPicker from '../utils/_birth-form'
 import validation from '../validations/_account-details'
-import Currency from '../_currency-affiliates'
+import Currency from '../utils/_currency-affiliates'
 import { localize } from 'components/localization'
 import { DropdownSearch, Header } from 'components/elements'
 import { Input } from 'components/form'
 import device from 'themes/device'
 import { useDerivWS } from 'store'
+import Uploader from 'components/form/uploader'
 
 type PersonalDetailsprops = {
     updatedData?: (e) => void
@@ -23,18 +24,8 @@ type PersonalDetailsprops = {
         company_name: string
         company_registration_number: string
         certificate: string
-        citizen: {
-            name: string
-            display_name: string
-            value: string
-        }
+        citizen: string
     }
-}
-
-type countryType = {
-    name: string
-    display_name: string
-    value: string
 }
 
 const DropdownSearchWrapper = styled.div`
@@ -98,18 +89,17 @@ const PersonalDetails = ({
     const [social_media_url, setSocialMedia] = useState(affiliate_personal_data.social_media_url)
     const [password, setPassword] = useState(affiliate_personal_data.password)
     const [currency, setCurrency] = useState('')
-    console.log(currency)
 
-    const [first_name_error_msg, setFirstNameErrorMsg] = useState('')
-    const [last_name_error_msg, setLastNameErrorMsg] = useState('')
-    const [date_birth_error_msg, setDateBirthErrorMsg] = useState('')
-    const [company_name_error_msg, setCompanyNameErrorMsg] = useState('')
-    const [company_registration_error_msg, setCompanyRegistrationErrorMsg] = useState('')
-    const [certificate_error_msg, setCertificateErrorMsg] = useState('')
-    const [citizen_error_msg, setCitizenErrorMsg] = useState('')
-    const [website_url_error_msg, setWebsiteUrlErrorMsg] = useState('')
-    const [social_media_url_error_msg, setSocialMediaErrorMsg] = useState('')
-    const [password_error_msg, setPasswordErrorMsg] = useState('')
+    const [first_name_error_msg, setFirstNameErrorMsg] = useState(null)
+    const [last_name_error_msg, setLastNameErrorMsg] = useState(null)
+    const [date_birth_error_msg, setDateBirthErrorMsg] = useState(null)
+    const [company_name_error_msg, setCompanyNameErrorMsg] = useState(null)
+    const [company_registration_error_msg, setCompanyRegistrationErrorMsg] = useState(null)
+    const [certificate_error_msg, setCertificateErrorMsg] = useState(null)
+    const [citizen_error_msg, setCitizenErrorMsg] = useState(null)
+    const [website_url_error_msg, setWebsiteUrlErrorMsg] = useState(null)
+    const [social_media_url_error_msg, setSocialMediaErrorMsg] = useState(null)
+    const [password_error_msg, setPasswordErrorMsg] = useState(null)
 
     const form_inputs = [
         {
@@ -140,11 +130,11 @@ const PersonalDetails = ({
             id: 'date_birth',
             name: 'date_birth',
             type: 'date',
-            label: date_birth ? localize('Date of Birth') : '',
+            label: localize('Date of Birth'),
             placeholder: 'Date of Birth',
             error: date_birth_error_msg,
             value: date_birth,
-            required: true,
+            required: false,
             value_set: setDateBirth,
             error_set: setDateBirthErrorMsg,
         },
@@ -266,7 +256,7 @@ const PersonalDetails = ({
         send(citizen_list, (response) => {
             if (!response.error) {
                 const residence_list_response = response.residence_list.map(({ text, value }) => {
-                    const country: countryType = {
+                    const country = {
                         name: text,
                         display_name: text,
                         value: value,
@@ -399,34 +389,35 @@ const PersonalDetails = ({
                         if (item.name === 'date_birth') {
                             return (
                                 <BirthPicker
-                                    width={500}
                                     id={item.id}
                                     key={index}
-                                    type={item.type}
                                     error={item.error}
-                                    name={item.name}
                                     border="solid 1px var(--color-grey-7)"
                                     background="white"
-                                    onChange={handleInput}
-                                    required={item.required}
+                                    label={localize(item.label)}
                                     setFieldValue={item.value_set}
                                 />
                             )
                         }
                         if (item.name === 'certificate_of_incorporation') {
                             return (
-                                <Input
+                                <Uploader
                                     width={500}
                                     id={item.id}
                                     key={index}
                                     type={item.type}
                                     error={item.error}
                                     name={item.name}
+                                    label={
+                                        item.value?.name ? item.value.name : localize(item.label)
+                                    }
                                     border="solid 1px var(--color-grey-7)"
                                     background="white"
                                     onChange={handleInput}
                                     required={item.required}
                                     accept="image/*"
+                                    className="custom-file-input"
+                                    upload_info="Accepted files: pdf, jpeg, and png. Max file size: 8MB"
                                 />
                             )
                         } else {

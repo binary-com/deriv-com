@@ -18,7 +18,7 @@ export const onRenderBody = (
     { setHeadComponents },
     { accountId=629574, async = true }
 ) => {
-        setHeadComponents([
+    setHeadComponents([
         <script
             key="gatsby-plugin-vwo"
             async={async}

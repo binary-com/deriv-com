@@ -9,6 +9,7 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Localize } from 'components/localization'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
+import { getBrandHideRules } from 'brand'
 
 type NavDesktopProps = {
     base?: string
@@ -57,12 +58,21 @@ const Tab = styled.span<TabProps>`
     }
 `
 
-const links = [
-    { active: 'trade', title: <Localize translate_text="Trade" /> },
-    { active: 'markets', title: <Localize translate_text="Markets" /> },
-    { active: 'about', title: <Localize translate_text="About us" /> },
-    { active: 'resources', title: <Localize translate_text="Resources" /> },
-]
+const brand_hide = getBrandHideRules()
+
+const links = brand_hide
+    ? [
+          { active: 'custom', title: <Localize translate_text="Custom" /> },
+          { active: 'markets', title: <Localize translate_text="Markets" /> },
+          { active: 'about', title: <Localize translate_text="About us" /> },
+          { active: 'resources', title: <Localize translate_text="Resources" /> },
+      ]
+    : [
+          { active: 'trade', title: <Localize translate_text="Trade" /> },
+          { active: 'markets', title: <Localize translate_text="Markets" /> },
+          { active: 'about', title: <Localize translate_text="About us" /> },
+          { active: 'resources', title: <Localize translate_text="Resources" /> },
+      ]
 
 const NavDesktop = ({
     base,

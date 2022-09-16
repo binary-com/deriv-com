@@ -6,6 +6,7 @@ import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { getBrandHideRules } from 'brand'
 
 const ImagePlaceHolder = styled.div`
     width: 690px;
@@ -69,6 +70,7 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
 const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
     const data = useStaticQuery(query)
+    const brand_hide = getBrandHideRules()
 
     const { is_row, is_eu, is_uk, is_loading } = useCountryRule()
 
@@ -128,7 +130,7 @@ const PlatformSlideshow = () => {
 
     return (
         <Flex max_width="690px" max_height="626px" tablet={{ max_height: '360px', ai: 'center' }}>
-            <Slides images={slide_images} active_index={active_index} />
+            <Slides images={brand_hide ? null : slide_images} active_index={active_index} />
         </Flex>
     )
 }

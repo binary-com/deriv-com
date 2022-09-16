@@ -29,7 +29,7 @@ const card_content: CardContentType[] = [
     {
         header: <Localize translate_text="Multiple assets on a single platform" />,
         text: (
-            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities in one place." />
+            <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived in one place." />
         ),
         image: SyntheticIndices,
         key: 1,

@@ -167,13 +167,12 @@ const InterestFreeTrading = () => {
                     {is_uk && <CheckedText>Stocks & indices</CheckedText>}
                     {(is_eu || is_row) && (
                         <>
-                            <CheckedText>Synthetic indices</CheckedText>
                             <CheckedText>Stocks & indices</CheckedText>
                             <CheckedText>Cryptocurrencies</CheckedText>
                         </>
                     )}
-                    {is_row && <CheckedText>Basket indices</CheckedText>}
                     <CheckedText>Commodities</CheckedText>
+                    <CheckedText>Derived</CheckedText>
                 </TextWrapperFlex>
             </InterestCardFlex>
             <StyledFlex fd="column" jc="flex-start" ac="center" height="100%" width="51.4rem">

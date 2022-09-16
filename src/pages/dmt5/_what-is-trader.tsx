@@ -42,7 +42,7 @@ const WhatIsTrader = () => {
                 {is_row && (
                     <>
                         {localize(
-                            'Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.',
+                            'Deriv MT5 (DMT5) gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.',
                         )}
                     </>
                 )}

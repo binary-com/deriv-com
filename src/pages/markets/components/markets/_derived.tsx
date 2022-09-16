@@ -44,13 +44,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
 
     return (
         <>
-            <WhyTrade
-                description={description}
-                header={header}
-                text={
-                    <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
-                }
-            >
+            <WhyTrade description={description} header={header}>
                 {market_content.map((content, index) => (
                     <StyledBox
                         key={index}
@@ -72,7 +66,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
                 />
             )}
             <SimpleSteps header={simple_steps_header} content={simple_step_content} sign_up />
-            <OtherMarkets />
+            <OtherMarkets except="derived" />
         </>
     )
 }

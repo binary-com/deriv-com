@@ -9,6 +9,7 @@ import Commodities from 'images/svg/markets/commodities-new.svg'
 import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
+import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 
@@ -20,6 +21,7 @@ type MarketType = {
     id: string
 }
 type MarketsType = {
+    derived: MarketType
     forex: MarketType
     stock_indices: MarketType
     commodities: MarketType
@@ -32,6 +34,15 @@ type OtherMarketsProps = {
     except: string
 }
 const markets_type: MarketsType = {
+    derived: {
+        icon: () => <img src={DerivedFX} alt="" width="64" height="64" />,
+        title: <Localize translate_text="Derived" />,
+        content: (
+            <Localize translate_text="Trading derived indices lets you benefit from correctly predicting the price movements of simulated markets and indices derived from real-world markets." />
+        ),
+        to: '/markets/derived-fx/',
+        id: 'marketderivedothermarkets',
+    },
     forex: {
         icon: () => <img src={Forex} alt="" width="64" height="64" />,
         title: <Localize translate_text="Forex" />,
@@ -256,11 +267,19 @@ const StyledSectionContainer = styled(SectionContainer)`
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const { is_uk, is_eu } = useCountryRule()
 
-    const markets = ['', 'forex', 'stock_indices', 'cryptocurrencies', 'commodities', '']
+    const markets = ['', 'derived', 'forex', 'stock_indices', 'cryptocurrencies', 'commodities', '']
 
-    const eu_markets = ['', 'forex', 'stock_indices', 'cryptocurrencies', 'commodities', '']
+    const eu_markets = [
+        '',
+        'derived',
+        'forex',
+        'stock_indices',
+        'cryptocurrencies',
+        'commodities',
+        '',
+    ]
 
-    const uk_markets = ['', 'forex', 'stock_indices', 'commodities', '']
+    const uk_markets = ['', 'derived', 'forex', 'stock_indices', 'commodities', '']
 
     const filteredMarkets = (is_eu ? eu_markets : is_uk ? uk_markets : markets).filter(
         (market) => market !== except,

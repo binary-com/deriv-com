@@ -36,9 +36,6 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                             <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
                         }
                         header={<Localize translate_text="Why trade basket indices on Deriv" />}
-                        text={
-                            <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
-                        }
                     >
                         {(!is_eu_country ? basket_indices_content : basket_indices_content_eu).map(
                             (content: BasketIndicesContent, index) => (
@@ -71,7 +68,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         content={simple_step_content}
                         sign_up
                     />
-                    <OtherMarkets except="basket_indices" />
+                    <OtherMarkets except="derived" />
                 </>
             )}
             {is_uk_eu && <PageNotFound />}

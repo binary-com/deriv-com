@@ -57,6 +57,7 @@ const StyledContainer = styled(Container)`
 `
 const MarketSubHeader = styled(Header)`
     font-size: 16px;
+    width: 58vw;
 
     @media ${device.tabletL} {
         line-height: 28px;

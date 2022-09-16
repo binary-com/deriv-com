@@ -15,13 +15,13 @@ const Markets = () => {
         <Localize translate_text="Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite." />
     )
     const description_row = (
-        <Localize translate_text="Trade 24/7 on our proprietary synthetic indices that simulate real-world market movements. These indices are unaffected by regular market hours, global events, or market and liquidity risks. Manage your exposure by selecting the volatility level to suit your risk appetite." />
+        <Localize translate_text="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetic indices, derived FX indices, and basket indices." />
     )
     return (
         <Layout>
             <SEO
                 description={localize(
-                    "Deriv's proprietary synthetic indices are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms.",
+                    "Deriv's proprietary synthetics are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms.",
                 )}
                 title={localize('Synthetic indices | Volatility indices | Deriv')}
             />

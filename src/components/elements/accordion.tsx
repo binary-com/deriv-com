@@ -103,7 +103,6 @@ type ParentType = {
 
 type ChildType = {
     props?: {
-        is_shown?: boolean
         parent_style?: ParentType
         header_style?: HeaderStyle
         content_style?: ContentType
@@ -160,38 +159,36 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpa
 
     return (
         <>
-            {child.props.is_shown && (
-                <div
-                    key={child_idx}
-                    style={child.props.parent_style}
-                    id={id}
-                    ref={(div) => {
-                        nodes[child_idx] = { ref: div }
-                    }}
-                >
-                    <AccordionWrapper>
-                        <AccordionHeader
-                            onClick={() => setExpanded(!is_expanded)}
-                            role="button"
-                            aria-expanded={is_expanded}
-                            style={child.props.header_style}
-                        >
-                            <Text weight="bold">{child.props.header}</Text>
-                            <div>{child.props.plus ? deployer : current_arrow}</div>
-                        </AccordionHeader>
-                        <div
-                            style={{
-                                overflow: 'hidden',
-                                transition: `height ${TRANSITION_DURATION}ms ease`,
-                                height,
-                                ...child.props.content_style,
-                            }}
-                        >
-                            {child}
-                        </div>
-                    </AccordionWrapper>
-                </div>
-            )}
+            <div
+                key={child_idx}
+                style={child.props.parent_style}
+                id={id}
+                ref={(div) => {
+                    nodes[child_idx] = { ref: div }
+                }}
+            >
+                <AccordionWrapper>
+                    <AccordionHeader
+                        onClick={() => setExpanded(!is_expanded)}
+                        role="button"
+                        aria-expanded={is_expanded}
+                        style={child.props.header_style}
+                    >
+                        <Text weight="bold">{child.props.header}</Text>
+                        <div>{child.props.plus ? deployer : current_arrow}</div>
+                    </AccordionHeader>
+                    <div
+                        style={{
+                            overflow: 'hidden',
+                            transition: `height ${TRANSITION_DURATION}ms ease`,
+                            height,
+                            ...child.props.content_style,
+                        }}
+                    >
+                        {child}
+                    </div>
+                </AccordionWrapper>
+            </div>
         </>
     )
 }

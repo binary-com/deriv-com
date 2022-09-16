@@ -174,7 +174,7 @@ const DerivIBProgramme = () => {
                     </StyledHeaderCommission>
                     <StyledCardWrapper>
                         <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
-                        <DERIVIBDMT5Cards data={ib_dmt5_financial} />{' '}
+                        <DERIVIBDMT5Cards data={ib_dmt5_financial} />
                     </StyledCardWrapper>
                     <DecideSection align="center">
                         <StyledHeader

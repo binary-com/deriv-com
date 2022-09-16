@@ -69,6 +69,7 @@ const StyledDescription = styled(Text)<{ $hovered: boolean }>`
     visibility: ${(props) => (props.$hovered ? 'visible' : 'hidden')};
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
     z-index: 2;
+    color: white;
 `
 
 const StyledLink = styled(LocalizedLink)`
@@ -287,12 +288,7 @@ const CarouselItem = ({
                     </Header>
                     <Desktop>
                         <>
-                            <StyledDescription
-                                lh="24px"
-                                color="white"
-                                type="paragraph-1"
-                                $hovered={is_hovered}
-                            >
+                            <StyledDescription lh="24px" type="paragraph-1" $hovered={is_hovered}>
                                 {description}
                             </StyledDescription>
                             <CarouselItemImageDesktop

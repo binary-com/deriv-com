@@ -11,7 +11,22 @@ export const flexStyles = ({ jc, ai, fw, fd }) => css`
 
 const responsiveStyles = generateResponsiveStyles(flexStyles)
 
-const Flex = styled(Box)`
+type FlexType = {
+    width?: string
+    height?: string
+    wrap?: string
+    fw?: string
+    jc?: string
+    ai?: string
+    direction?: string
+    fd?: string
+    tablet_direction?: string
+    tablet_ai?: string
+    tablet_jc?: string
+    tablet_fw?: string
+}
+
+const Flex = styled(Box)<FlexType>`
     display: flex;
     width: ${(props) => (props.width ? props.width : '100%')};
     height: ${(props) => (props.height ? props.height : '100%')};

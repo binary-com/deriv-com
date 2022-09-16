@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import LatamAward from './_latam-forex-award'
 import { IconGrid } from './_icon-grid'
+import AfricaAward from './_africa-forex-award'
 import { SEO, SectionContainer, GridContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Divider, Header, Text } from 'components/elements'
@@ -8,6 +10,7 @@ import { localize, WithIntl } from 'components/localization'
 import { Button } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const ResponsiveLinkButton = styled(Button)`
     @media ${device.mobileL} {
@@ -56,7 +59,9 @@ const ResponsiveHeader = styled(StyledHeader)`
 `
 
 const WhyChooseUs = () => {
+    const { is_latam } = useCountryRule()
     const handleSignup = useHandleSignup()
+    const { is_africa } = useCountryRule()
 
     return (
         <Layout>
@@ -89,6 +94,8 @@ const WhyChooseUs = () => {
             <Section>
                 <IconGrid />
             </Section>
+            {is_latam ? <LatamAward /> : <></>}
+            {is_africa ? <AfricaAward /> : <></>}
             <Divider />
             <Section>
                 <GridContainer>

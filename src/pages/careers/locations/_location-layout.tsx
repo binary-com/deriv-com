@@ -78,14 +78,7 @@ const Hero = ({ display_name, img_data, badge_data, badge_alt }: HeroProps) => {
             {badge_data && <HeroBadge data={badge_data} alt={badge_alt} />}
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
-                <LinkButton
-                    hero
-                    has_no_end_slash
-                    to={zoho_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    external
-                >
+                <LinkButton hero has_no_end_slash to={zoho_url} rel="noopener noreferrer">
                     View open positions in {display_name}
                 </LinkButton>
             </StyledContainer>

@@ -7,17 +7,7 @@ import { localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
-
-type HeroComponentProps = {
-    background_data: string
-    content: React.ReactNode
-    title: string
-}
-
-type HeroProps = {
-    content: React.ReactNode
-    title: string
-}
+import { HeroProps } from 'pages/landing/_types'
 
 const BackgroundWrapper = styled(Background)`
     background-size: cover;
@@ -97,7 +87,7 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const HeroComponent = ({ title, content, background_data }: HeroComponentProps) => {
+const HeroComponent = ({ title, content, background_data }: HeroProps) => {
     return (
         <BackgroundWrapper data={background_data}>
             <Wrapper p="0" justify="space-between" height="63rem">

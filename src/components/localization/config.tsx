@@ -33,7 +33,7 @@ use(initReactI18next).init({
 
 i18n.languages = Object.keys(language_config)
 
-export const localize = (string: string, values?: { search: string }) =>
+export const localize = (string: string, values?: any) =>
     t(String(crc32(string)), { defaultValue: string, ...values })
 
 export default i18n

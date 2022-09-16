@@ -1,0 +1,49 @@
+{
+    "brand_name": "Non-Deriv",
+    "brand_icon": "Non-Deriv",
+    "domain_name": "Non-Deriv.com",
+    "legal_entities": {
+        "fx": "Non-Deriv (FX) Ltd",
+        "limited": "Non-Deriv (Europe) Limited",
+        "investments": "Non-Deriv Investments (Europe) Limited",
+        "mx": "Non-Deriv (MX) Ltd",
+        "samoa": "Non-Deriv Capital International Ltd",
+        "svg": "Non-Deriv (SVG) LLC",
+        "bvi": "Non-Deriv (BVI) Ltd",
+        "v": "Non-Deriv (V) Ltd"
+    },
+    "platforms": {
+        "deriv": {
+            "name": "Non-Deriv",
+            "icon": "images/svg/help/search.svg"
+        },
+        "trader": {
+            "name": "Non-DTrader",
+            "icon": "IcBrandDtrader"
+        },
+        "dbot": {
+            "name": "Non-DBot",
+            "icon": "IcBrandDbot"
+        },
+        "mt5": {
+            "name": "Non-DMT5",
+            "icon": "IcBrandDmt5"
+        },
+        "dxtrade": {
+            "name": "Non-Deriv X",
+            "icon": "IcBrandDxtrade"
+        },
+        "smarttrader": {
+            "name": "Non-SmartTrader",
+            "icon": "IcBrandSmarttrader"
+        },
+        "bbot": {
+            "name": "Non-Binary Bot",
+            "icon": "IcBrandBinarybot"
+        },
+        "go": {
+            "name": "Non-Deriv Go"
+        },
+        "dp2p": { "name": "Non-Deriv P2P" }
+    }
+}

@@ -26,13 +26,21 @@ type MetaAttributesType = {
     og_img_height?: string
 }
 
+type TLocalizeResult<T = string> = {
+    usedKey: string
+    res: T
+    exactUsedKey: string
+    usedLng: string
+    usedNS: string
+}
+
 type SeoProps = {
-    description?: string
+    description?: TLocalizeResult<object> | string
+    title?: TLocalizeResult<object> | string
     has_organization_schema?: boolean
     meta?: { name: string; content: string | keyof MetaAttributesType }
     meta_attributes?: MetaAttributesType
     no_index?: boolean
-    title?: string
 }
 type QueriesType = {
     site?: SiteMetadataType

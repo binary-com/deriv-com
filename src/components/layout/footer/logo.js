@@ -16,13 +16,15 @@ import {
     twitter_uk_url,
     twitter_non_eu_url,
 } from 'common/constants'
+import { getBrandHideRules } from 'brand'
 
 const LogoSection = ({ type }) => {
     const { is_eu, is_uk } = useCountryRule()
+    const brand_hide = getBrandHideRules()
 
     return (
         <DerivLogoWrapper>
-            <StyledLogo src={DerivLogo} alt="logo" width="147" height="25" />
+            <StyledLogo src={brand_hide ? '' : DerivLogo} alt="logo" width="147" height="25" />
             <Desktop>
                 <SocialWrapperComponent
                     is_career_page={type === 'careers'}

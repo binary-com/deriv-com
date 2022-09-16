@@ -12,6 +12,7 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
+import { getBrandWebsite, getBrandName } from 'brand'
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -216,6 +217,9 @@ const SignupNew = ({
     const [is_checked, setChecked] = useState(false)
     const { is_eu_country } = React.useContext(DerivStore)
 
+    const brand_website = getBrandWebsite()
+    const brand_name = getBrandName()
+
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
@@ -251,7 +255,8 @@ const SignupNew = ({
                             lh="18px"
                         >
                             <Localize
-                                translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
+                                translate_text="Log in to <0>{{brand_website}}</0> with your <0>Binary.com</0> username and password."
+                                values={{ brand_website }}
                                 components={[<strong key={0} />]}
                             />
                         </StyledText>
@@ -292,7 +297,8 @@ const SignupNew = ({
             </EmailButton>
             <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
                 <Localize
-                    translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
+                    translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about {{ brand_name }} products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at {{ brand_name }}’s <0>Security and privacy</0>."
+                    values={{ brand_name }}
                     components={[
                         <StyledLocalizedLink
                             external

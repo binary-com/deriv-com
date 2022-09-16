@@ -14,8 +14,11 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import { DerivStore } from 'store'
+import { getBrandName, getBrandHideRules } from 'brand'
 
 const Home = () => {
+    const brand_name = getBrandName()
+    const brand_hide = getBrandHideRules()
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
@@ -24,10 +27,12 @@ const Home = () => {
         <Layout type="transparent" margin_top="0">
             <SEO
                 title={localize(
-                    'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
+                    'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | {{brand_name}}',
+                    { brand_name },
                 )}
                 description={localize(
-                    'Deriv: an online trading platform available 24/7 with a wide selection of derivatives.',
+                    '{{brand_name}}: an online trading platform available 24/7 with a wide selection of derivatives.',
+                    { brand_name },
                 )}
                 has_organization_schema
             />
@@ -36,7 +41,7 @@ const Home = () => {
             <TradeTypes />
             <OurPlatforms />
             <WhatOurClientsSay />
-            {is_p2p_allowed_country && <P2PHomeBanner />}
+            {!brand_hide && is_p2p_allowed_country && <P2PHomeBanner />}
             <Signup appearance={Appearances.public} />
         </Layout>
     )

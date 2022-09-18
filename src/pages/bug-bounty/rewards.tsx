@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, LocalizedLinkText } from 'components/elements'
+import { Header, ImageWithDireciton, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // icons
@@ -10,6 +10,7 @@ import MediumIcon from 'images/svg/bug-bounty/medium.svg'
 import HighIcon from 'images/svg/bug-bounty/high.svg'
 import CriticalIcon from 'images/svg/bug-bounty/critical.svg'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const Card = styled(Flex)`
     border: 1px solid #d6d6d6;
@@ -100,6 +101,8 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const Rewards = () => {
+    const is_rtl = useIsRtl()
+
     return (
         <StyledSectionContainer>
             <Container fd="column">
@@ -181,7 +184,13 @@ const Rewards = () => {
                             />,
                         ]}
                     />
-                    <img src={Arrow} alt="arrow" width="16" height="16" />
+                    <ImageWithDireciton
+                        src={Arrow}
+                        alt="arrow"
+                        width="16"
+                        height="16"
+                        is_rtl={is_rtl}
+                    />
                 </Flex>
             </Container>
         </StyledSectionContainer>

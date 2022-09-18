@@ -8,6 +8,8 @@ import device from 'themes/device'
 // SVG
 import Arrow from 'images/svg/elements/card-arrow.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import { ImageWithDireciton } from 'components/elements'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -59,10 +61,12 @@ const CardWrapper = styled.article`
 
     &:hover {
         ${CardCover} {
-            transform: translate3d(-3%, 0, 0);
+            transform: ${(props) =>
+                props.is_rtl ? 'translate3d(3%, 0, 0)' : 'translate3d(-3%, 0, 0)'};
 
             @media ${device.tabletL} {
-                transform: translate3d(-5%, 0, 0);
+                transform: ${(props) =>
+                    props.is_rtl ? 'translate3d(5%, 0, 0)' : 'translate3d(-5%, 0, 0)'};
             }
         }
     }
@@ -172,8 +176,16 @@ export const Card = ({
     is_selected,
     word_break_cover,
 }) => {
+    const is_rtl = useIsRtl()
+
     return (
-        <CardWrapper width={width} min_height={min_height} padding={padding} className={className}>
+        <CardWrapper
+            is_rtl={is_rtl}
+            width={width}
+            min_height={min_height}
+            padding={padding}
+            className={className}
+        >
             {!children && (
                 <>
                     {is_inline_icon ? (
@@ -181,6 +193,7 @@ export const Card = ({
                             <CardCover
                                 background_color={cover_background}
                                 is_selected={is_selected}
+                                is_rtl={is_rtl}
                             >
                                 <div>
                                     {word_break_cover ? (
@@ -195,7 +208,13 @@ export const Card = ({
                                     ) : (
                                         <CoverContent>{cover_content}</CoverContent>
                                     )}
-                                    <img src={Arrow} alt="arrow" width="16" height="16" />
+                                    <ImageWithDireciton
+                                        is_rtl={is_rtl}
+                                        src={Arrow}
+                                        alt="arrow"
+                                        width="16"
+                                        height="16"
+                                    />
                                 </div>
                             </CardCover>
                             <IconContainer>

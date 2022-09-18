@@ -56,7 +56,7 @@ export const Article = ({
                 label={label}
                 is_mounted={is_mounted}
             />
-            <Container align="left" justify="flex-start" direction="column">
+            <Container align="start" justify="flex-start" direction="column">
                 <StyledLink
                     to={has_platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
                     has_arrow="true"

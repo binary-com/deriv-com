@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, LinkText, QueryImage, Text } from 'components/elements'
+import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show, Box, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
@@ -301,12 +301,6 @@ const MobilePlatform = styled.div`
     }
 `
 
-const ArrowImage = styled.img`
-    transform: ${({ is_rtl }) => {
-        return is_rtl ? 'scaleX(-1)' : null
-    }};
-`
-
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -441,7 +435,7 @@ const SignupPublic = ({
                                 <StyledHeader
                                     size="4rem"
                                     width="330px"
-                                    align="left"
+                                    align="start"
                                     color="grey-8"
                                     mr="1.2rem"
                                     ml="-4rem"
@@ -449,7 +443,11 @@ const SignupPublic = ({
                                 >
                                     {localize('Get a taste of the Deriv experience')}
                                 </StyledHeader>
-                                <ArrowImage is_rtl={is_rtl} src={Arrow} alt="arrow desktop" />
+                                <ImageWithDireciton
+                                    is_rtl={is_rtl}
+                                    src={Arrow}
+                                    alt="arrow desktop"
+                                />
                             </LinkFlex>
                         </BackgroundWrapper>
                     </Wrapper>
@@ -479,7 +477,7 @@ const SignupPublic = ({
                                 <Header size="4rem">
                                     {localize('Get a taste of the Deriv experience')}
                                 </Header>
-                                <ArrowImage
+                                <ImageWithDireciton
                                     is_rtl={is_rtl}
                                     src={Arrow}
                                     alt="arrow mobile"

@@ -66,7 +66,7 @@ const OpenPositions = (data: DataProps) => {
                                         <Header
                                             p="15px"
                                             max_width="274px"
-                                            align="left"
+                                            align="start"
                                             type="paragraph-1"
                                             as="p"
                                             weight="400"

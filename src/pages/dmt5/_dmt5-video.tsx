@@ -91,7 +91,7 @@ const Dmt5Video = () => {
                     <Step
                         as="h4"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         no_margin
                         image_name="step_1"
                         current_step={current_step}
@@ -104,7 +104,7 @@ const Dmt5Video = () => {
                     <Step
                         as="h4"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         no_margin
                         image_name="step_2"
                         current_step={current_step}
@@ -117,7 +117,7 @@ const Dmt5Video = () => {
                     <Step
                         as="h4"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         no_margin
                         image_name="step_3"
                         current_step={current_step}

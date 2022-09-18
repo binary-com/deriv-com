@@ -9,6 +9,8 @@ import device from 'themes/device'
 import ForexIcon from 'images/svg/trade-types/market-forex.svg'
 import SyntheticIcon from 'images/svg/trade-types/market-synthetic-indices.svg'
 import CryptocurrencyIcon from 'images/svg/markets/cryptocurrencies.svg'
+import { withLangDirection } from 'themes/function'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type CardProps = {
     active_tab: string
@@ -74,7 +76,13 @@ const backgroundAndShadow = css`
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
 `
 
-const CardContainer = styled(Flex)`
+type TCardContainer = {
+    active_tab?: string
+    name?: string
+    is_rtl: boolean
+}
+
+const CardContainer = styled(Flex)<TCardContainer>`
     position: relative;
     width: fit-content;
     min-height: 7.72rem;
@@ -135,7 +143,7 @@ const CardContainer = styled(Flex)`
         border-radius: 10px 30px 0 0;
         background: var(--color-grey-36);
         transform: perspective(14px) rotateX(1.4deg);
-        transform-origin: bottom left;
+        transform-origin: ${({ is_rtl }) => (is_rtl ? 'bottom right' : 'bottom left')};
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
             if (props.active_tab === props.name) return backgroundAndShadow
@@ -194,8 +202,14 @@ const CardHeader = styled(Header)`
     }
 `
 const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
+    const is_rtl = useIsRtl()
     return (
-        <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
+        <CardContainer
+            name={name}
+            active_tab={active_tab}
+            onClick={() => onTabChange(name)}
+            is_rtl={is_rtl}
+        >
             <Flex height="fit-content" jc="flex-start" ai="center">
                 {active_tab === 'Forex' && (
                     <TabIcon src={ForexIcon} alt="" name={name} active_tab={active_tab} />

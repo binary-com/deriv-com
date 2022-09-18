@@ -205,7 +205,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             type="sub-section-title"
                             lh="1.5"
-                            align="left"
+                            align="start"
                             no_margin
                             start_time={0}
                             end_time={7}
@@ -223,7 +223,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             type="sub-section-title"
                             lh="1.5"
-                            align="left"
+                            align="start"
                             start_time={7}
                             end_time={13}
                             current_time={this.state.current_time}
@@ -240,7 +240,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             type="sub-section-title"
                             lh="1.5"
-                            align="left"
+                            align="start"
                             start_time={13}
                             end_time={30}
                             current_time={this.state.current_time}

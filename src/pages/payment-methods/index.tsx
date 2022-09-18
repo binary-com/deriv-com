@@ -380,7 +380,7 @@ const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
                     <AccordionContainer>
                         <DisplayAccordion locale={locale} />
                     </AccordionContainer>
-                    <Header mt="1.6rem" type="paragraph-2" align="left" weight="normal">
+                    <Header mt="1.6rem" type="paragraph-2" align="start" weight="normal">
                         <Localize
                             translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
                             components={[<strong key={0} />]}

@@ -107,10 +107,10 @@ const DerivNumbers = () => {
         <StyledSection>
             <StyledFlex>
                 <TitleSection fd="column">
-                    <TitleHeader as="h6" color="black-2" align="left" type="unset">
+                    <TitleHeader as="h6" color="black-2" align="start" type="unset">
                         {localize('Deriv in numbers')}
                     </TitleHeader>
-                    <StyledHeader as="h6" size="24px" align="left" weight="400" type="unset">
+                    <StyledHeader as="h6" size="24px" align="start" weight="400" type="unset">
                         {localize(
                             'We aim to deliver market-leading products that are trusted around the world.',
                         )}
@@ -129,7 +129,7 @@ const DerivNumbers = () => {
                                 <NumberHeader size="48px" type="unset">
                                     {count}
                                 </NumberHeader>
-                                <NumberText size="20px" align="left">
+                                <NumberText size="20px" align="start">
                                     {title}
                                 </NumberText>
                             </Flex>

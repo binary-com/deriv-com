@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Carousel, Header, QueryImage, Text } from 'components/elements'
+import { Carousel, Header, QueryImage, Text, ImageWithDireciton } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Flex, SectionContainer } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -240,12 +240,6 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     }
 `
 
-const ArrowImage = styled.img<{ is_rtl: boolean }>`
-    transform: ${({ is_rtl }) => {
-        return is_rtl ? 'scaleX(-1)' : null
-    }};
-`
-
 const DescriptionContainer = styled(Flex)`
     flex: 1;
 `
@@ -284,7 +278,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
             </DescriptionContainer>
             <LearnMore to={items_details.link} $visibility={details_visible && !is_mobile}>
                 <Text mr="1rem">{items_details.link_text}</Text>
-                <ArrowImage src={Arrow} alt="" is_rtl={is_rtl} />
+                <ImageWithDireciton src={Arrow} alt="" is_rtl={is_rtl} />
             </LearnMore>
         </ItemsWrapper>
     )

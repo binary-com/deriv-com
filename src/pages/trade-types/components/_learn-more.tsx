@@ -1,9 +1,10 @@
 import React, { ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Text } from 'components/elements'
+import { Text, ImageWithDireciton } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const Wrapper = styled.div`
     position: absolute;
@@ -43,6 +44,8 @@ type LearnMoreProps = {
 }
 
 const LearnMore = ({ text, to }: LearnMoreProps) => {
+    const is_rtl = useIsRtl()
+
     return (
         <Wrapper className="learn-more">
             <Link to={to}>
@@ -50,7 +53,7 @@ const LearnMore = ({ text, to }: LearnMoreProps) => {
                     <Text mr="0.8rem" weight="bold" color="red">
                         {text}
                     </Text>
-                    <img src={Arrow} alt="arrow right" />
+                    <ImageWithDireciton is_rtl={is_rtl} src={Arrow} alt="arrow right" />
                 </Item>
             </Link>
         </Wrapper>

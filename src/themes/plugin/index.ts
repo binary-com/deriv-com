@@ -1,3 +1,4 @@
+import { transformBorderRadius } from './border-radius'
 import { transformMargin } from './margin'
 import { transformPadding } from './padding'
 
@@ -47,6 +48,8 @@ const transformCSSProperties = (content: string) => {
             return transformProperty('inset-inline-end', value)
         case 'left':
             return transformProperty('inset-inline-start', value)
+        case 'border-radius':
+            return transformBorderRadius(String(value))
         case 'bottom':
             return transformProperty('inset-block-end', value)
         case 'border-left':

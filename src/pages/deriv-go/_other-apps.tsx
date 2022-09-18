@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ContentType } from './index'
 import { Container, Flex, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 // svg
@@ -10,6 +10,7 @@ import Arrow from 'images/svg/deriv-go/arrow.svg'
 import DMT5 from 'images/svg/deriv-go/dmt5.svg'
 import DerivX from 'images/svg/deriv-go/dx.svg'
 import device from 'themes/device'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
@@ -82,12 +83,7 @@ const other_apps: ContentType[] = [
         content: (
             <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one CFD trading app." />
         ),
-        url: (
-            <LearnMore to="/dmt5/">
-                <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="" />
-            </LearnMore>
-        ),
+        url: '/dmt5/',
     },
     {
         id: 1,
@@ -96,17 +92,14 @@ const other_apps: ContentType[] = [
         content: (
             <Localize translate_text="Customise your trading experience and trade CFDs on the Deriv X app." />
         ),
-        url: (
-            <LearnMore to="/derivx/">
-                <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="" />
-            </LearnMore>
-        ),
+        url: '/derivx/',
     },
 ]
 
 const OtherApps = () => {
     const { is_uk_eu } = useCountryRule()
+
+    const is_rtl = useIsRtl()
 
     return (
         <div>
@@ -133,7 +126,16 @@ const OtherApps = () => {
                                         {item.title}
                                     </Header>
                                     <StyledText>{item.content}</StyledText>
-                                    <div>{item.url}</div>
+                                    <div>
+                                        <LearnMore to={item.url}>
+                                            <Localize translate_text="Learn more" />
+                                            <ImageWithDireciton
+                                                src={Arrow}
+                                                alt=""
+                                                is_rtl={is_rtl}
+                                            />
+                                        </LearnMore>
+                                    </div>
                                 </Card>
                             )
                         })}

@@ -262,7 +262,7 @@ const MarginCalculator = () => {
                     has_color={true}
                 >
                     <StyledBox max_width="100%">
-                        <MainHeader as="h2" type="page-title" lh="1.25" align="left">
+                        <MainHeader as="h2" type="page-title" lh="1.25" align="start">
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>

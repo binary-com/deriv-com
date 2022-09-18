@@ -1,12 +1,21 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { PropTypes } from 'prop-types'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const Checkmark = styled.span`
     display: inline-block;
     width: 22px;
     height: 22px;
-    transform: rotate(45deg);
+    ${({ is_rtl }) => {
+        return is_rtl
+            ? css`
+                  transform: rotate(45deg) scaleX(-1);
+              `
+            : css`
+                  transform: rotate(45deg) scaleX(1);
+              `
+    }}
 
     &::before {
         content: '';
@@ -52,9 +61,11 @@ const FlexWrapper = styled.div`
     padding-bottom: ${(props) => (props.pb ? props.pb : '4rem')};
 `
 const Oval = () => {
+    const is_rtl = useIsRtl()
+
     return (
         <OvalWrapper>
-            <Checkmark />
+            <Checkmark is_rtl={is_rtl} />
         </OvalWrapper>
     )
 }
@@ -79,6 +90,7 @@ const Timeline = ({ pb, children, ...props }) => {
 }
 
 export const TimelineTick = ({ pb, color, children, ...props }) => {
+    const is_rtl = useIsRtl()
     return (
         <div {...props}>
             {children.map((child, idx) => (
@@ -86,7 +98,7 @@ export const TimelineTick = ({ pb, color, children, ...props }) => {
                     {child && (
                         <FlexWrapper is_border={false} pb={pb}>
                             <OvalWrapper color="transparent">
-                                <Checkmark color={color}></Checkmark>
+                                <Checkmark color={color} is_rtl={is_rtl}></Checkmark>
                             </OvalWrapper>
                             <ContentWrapper>{child}</ContentWrapper>
                         </FlexWrapper>

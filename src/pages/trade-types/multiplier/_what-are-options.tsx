@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
@@ -21,6 +21,7 @@ import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 const AvailableTrades = Loadable(() => import('./_available-trades'))
 
 const StyledHeader = styled(Header)`
@@ -38,8 +39,17 @@ const StyledHeaderContent = styled(Header)`
     }
 `
 
-const StyledSectionContainer = styled(SectionContainer)`
+const StyledSectionContainer = styled(SectionContainer)<{ is_rtl: boolean }>`
     background: linear-gradient(to right, white 50%, var(--color-grey-31) 50%);
+    ${({ is_rtl }) => {
+        return is_rtl
+            ? css`
+                  background: linear-gradient(to left, white 50%, var(--color-grey-31) 50%);
+              `
+            : css`
+                  background: linear-gradient(to right, white 50%, var(--color-grey-31) 50%);
+              `
+    }}
     background-position: 0 150px;
     @media ${device.tablet} {
         background: white;
@@ -163,6 +173,7 @@ const WhatAreOptions = () => {
     const data = useStaticQuery(query)
     const { is_non_uk, is_row, is_uk_eu } = useCountryRule()
     const handleSignup = useHandleSignup()
+    const is_rtl = useIsRtl()
 
     return (
         <>
@@ -176,7 +187,7 @@ const WhatAreOptions = () => {
                     </Text>
                 </SmallContainer>
             </StyledSectionContainerHead>
-            <StyledSectionContainer padding="4rem 0 0">
+            <StyledSectionContainer is_rtl={is_rtl} padding="4rem 0 0">
                 <SmallContainer direction="column" ai="flex-start">
                     {is_uk_eu ? (
                         <Flex fd="column">

@@ -9,6 +9,7 @@ import CFDIcon from 'images/svg/trade-types/cfds-new.svg'
 import MultipliersIcon from 'images/svg/custom/multipliers-nav.svg'
 import OptionsIcon from 'images/svg/custom/options-nav.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type CardProps = {
     active_tab: string
@@ -32,6 +33,7 @@ type AvailableTradesProps = {
 type CardContainerProps = {
     active_tab: string
     name: string
+    is_rtl: boolean
 }
 
 const StyledSection = styled(SectionContainer)`
@@ -136,7 +138,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         border-radius: 8px 16px 0 0;
         background: var(--color-grey-36);
         transform: perspective(8px) rotateX(0.8deg);
-        transform-origin: bottom left;
+        transform-origin: ${({ is_rtl }) => (is_rtl ? 'bottom right' : 'bottom left')};
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
             if (props.active_tab === props.name)
@@ -191,8 +193,15 @@ const CardHeader = styled(Header)`
 `
 
 const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
+    const is_rtl = useIsRtl()
+
     return (
-        <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
+        <CardContainer
+            is_rtl={is_rtl}
+            name={name}
+            active_tab={active_tab}
+            onClick={() => onTabChange(name)}
+        >
             <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'hidden' }}>
                 {name === 'CFDs' && (
                     <TabIcon src={CFDIcon} alt="" name={name} active_tab={active_tab} />

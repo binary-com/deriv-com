@@ -163,7 +163,7 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
         props.$visibility
             ? '0 0 24px rgba(0, 0, 0, 0.08), 0 24px 24px rgba(0, 0, 0, 0.08)'
             : 'inset 0 0 0 1px var(--color-grey-17)'};
-    padding: ${(props) => (props.$visibility ? '24px 12px 0' : '24px 12px 0')};
+    padding: 24px 12px 0;
     height: ${(props) => (props.$visibility ? '100%' : '90%')};
     justify-content: center;
     background: var(--color-white);

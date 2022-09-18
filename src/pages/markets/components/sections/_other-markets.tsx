@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
-import { Carousel, Header, Text } from 'components/elements'
+import { Carousel, Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
@@ -14,6 +14,7 @@ import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type MarketType = {
     icon: () => ReactElement
@@ -97,7 +98,7 @@ const markets_type: MarketsType = {
 
 const LearnMore = styled(LocalizedLink)`
     opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
-    width: 142px;
+    width: 150px;
     height: 40px;
     border-radius: 100px;
     background-color: var(--color-white);
@@ -160,7 +161,6 @@ const StyledFlex = styled(Flex)`
     }
     ${LearnMore} {
         img {
-            transform: rotate(0);
             width: 16px;
             height: 16px;
         }
@@ -170,6 +170,10 @@ const StyledFlex = styled(Flex)`
 const Card = ({ market }: CardProps) => {
     const [button_visibility, setButtonVisibility] = React.useState('false')
     const Icon = markets_type[market].icon
+
+    const is_rtl = useIsRtl()
+
+    console.log('is_rtl: ', is_rtl)
 
     return (
         <StyledFlex
@@ -195,7 +199,7 @@ const Card = ({ market }: CardProps) => {
             </Text>
             <LearnMore to={markets_type[market].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
-                <img src={Arrow} alt="" />
+                <ImageWithDireciton is_rtl={is_rtl} src={Arrow} alt="" />
             </LearnMore>
         </StyledFlex>
     )
@@ -203,6 +207,8 @@ const Card = ({ market }: CardProps) => {
 
 const MobileCard = ({ market }: CardProps) => {
     const Icon = markets_type[market].icon
+    const is_rtl = useIsRtl()
+
     return (
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
             <Flex width="100%" jc="space-between" mb="2.4rem" ai="center">
@@ -214,7 +220,7 @@ const MobileCard = ({ market }: CardProps) => {
             <Text size="14px">{markets_type[market].content}</Text>
             <LearnMore to={markets_type[market].to} visibility="true">
                 <Text>{localize('Learn more')}</Text>
-                <img src={Arrow} alt="" />
+                <ImageWithDireciton is_rtl={is_rtl} src={Arrow} alt="" />
             </LearnMore>
         </MobileCardWrapper>
     )
@@ -293,7 +299,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         },
         slide_style: {
             inlineSize: '282px',
-            blockSize: '350px',
+            blockSize: '380px',
             marginInlineEnd: '24px',
             paddingInlineEnd: '50px',
             paddingInlineStart: '25px',

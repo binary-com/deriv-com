@@ -62,9 +62,9 @@ const OtpContainer = styled.form`
 `
 
 type PhoneNumberProps = {
-    updatedData?: (e) => void
-    onValidate?: (e) => void
-    affiliate_phone_number?: { phone?: number; prefix?: string }
+    updatedData: (e) => void
+    onValidate: (e) => void
+    affiliate_phone_number: { phone: number; prefix: string }
 }
 
 const PhoneNumber = ({ updatedData, onValidate, affiliate_phone_number }: PhoneNumberProps) => {

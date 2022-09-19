@@ -10,22 +10,31 @@ import device from 'themes/device'
 import { useDerivWS } from 'store'
 import Uploader from 'components/form/uploader'
 
+type TCertificate = {
+    lastModified: number
+    lastModifiedDate: string
+    name: string
+    size: number
+    type: string
+    webkitRelativePath: string
+}
+type PersonalDataProps = {
+    first_name: string
+    last_name: string
+    date_birth: string
+    social_media_url: string
+    website_url: string
+    password: string
+    company_name: string
+    company_registration_number: string
+    certificate: TCertificate
+    citizen: string
+}
 type PersonalDetailsprops = {
-    updatedData?: (e) => void
-    onValidate?: (e) => void
-    is_individual?: boolean
-    affiliate_personal_data?: {
-        first_name: string
-        last_name: string
-        date_birth: string
-        social_media_url: string
-        website_url: string
-        password: string
-        company_name: string
-        company_registration_number: string
-        certificate: string
-        citizen: string
-    }
+    updatedData: (e) => void
+    onValidate: (e) => void
+    is_individual: boolean
+    affiliate_personal_data: PersonalDataProps
 }
 
 const DropdownSearchWrapper = styled.div`
@@ -166,7 +175,7 @@ const PersonalDetails = ({
             id: 'certificate_of_incorporation',
             name: 'certificate_of_incorporation',
             type: 'file',
-            label: localize('Certificate of incorporation'),
+            label: certificate?.name ? certificate?.name : localize('Certificate of incorporation'),
             placeholder: 'Certificate of incorporation',
             error: certificate_error_msg,
             value: certificate,
@@ -367,14 +376,14 @@ const PersonalDetails = ({
         <InputGroup>
             <InputWrapper>
                 <form>
-                    {getFormFields().map((item, index) => {
+                    {getFormFields().map((item) => {
                         if (item.name === 'citizen') {
                             return (
                                 <DropdownSearchWrapper key={item.id}>
                                     <DropdownSearch
                                         id={item.id}
                                         label_position={0.8}
-                                        key={index}
+                                        key={item.id}
                                         selected_item={citizen}
                                         onChange={(value) => setCitizen(value)}
                                         error={item.error}
@@ -390,7 +399,7 @@ const PersonalDetails = ({
                             return (
                                 <BirthPicker
                                     id={item.id}
-                                    key={index}
+                                    key={item.id}
                                     error={item.error}
                                     border="solid 1px var(--color-grey-7)"
                                     background="white"
@@ -404,13 +413,11 @@ const PersonalDetails = ({
                                 <Uploader
                                     width={500}
                                     id={item.id}
-                                    key={index}
+                                    key={item.id}
                                     type={item.type}
                                     error={item.error}
                                     name={item.name}
-                                    label={
-                                        item.value?.name ? item.value.name : localize(item.label)
-                                    }
+                                    label={item.label}
                                     border="solid 1px var(--color-grey-7)"
                                     background="white"
                                     onChange={handleInput}
@@ -425,7 +432,7 @@ const PersonalDetails = ({
                                 <Input
                                     width={500}
                                     id={item.id}
-                                    key={index}
+                                    key={item.id}
                                     type={item.type}
                                     value={item.value}
                                     name={item.name}
@@ -442,8 +449,8 @@ const PersonalDetails = ({
                                     required={item.required}
                                     data-lpignore="true"
                                     handleError={() => {
-                                        item?.value_set('')
-                                        item?.error_set('')
+                                        item?.value_set(null)
+                                        item?.error_set(null)
                                     }}
                                 />
                             )

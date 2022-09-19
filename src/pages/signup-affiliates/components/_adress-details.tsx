@@ -188,14 +188,14 @@ const AccountDetails = ({
     return (
         <InputGroup>
             <InputWrapper>
-                {form_inputs.map((item, index) => {
+                {form_inputs.map((item) => {
                     if (item.name === 'country') {
                         return (
                             <DropdownSearchWrapper key={item.id}>
                                 <DropdownSearch
                                     id={item.id}
                                     label_position={0.8}
-                                    key={index}
+                                    key={item.id}
                                     selected_item={country}
                                     onChange={(country) => setCountry(country)}
                                     error={item.error}
@@ -210,7 +210,7 @@ const AccountDetails = ({
                                 width={500}
                                 id={item.id}
                                 name={item.name}
-                                key={index}
+                                key={item.id}
                                 type={item.type}
                                 value={item.value}
                                 error={item.error}

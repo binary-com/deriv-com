@@ -12,8 +12,6 @@ export const contents: TContent[] = [
     { id: 2, text: '_t_24x7 trading_t_' },
     { id: 3, text: '_t_100+ tradeable assets_t_' },
     { id: 4, text: '_t_20+ years of experience_t_' },
-    // TODO: This is just for testing the key extraction and before merge it will be removed.
-    { id: 5, text: '_t_Just testing some stuff_t_' },
 ]
 
 export const contents_ppc: TContent[] = [

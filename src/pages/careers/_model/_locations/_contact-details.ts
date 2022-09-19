@@ -13,6 +13,10 @@ const address_cyprus = ['Level 5, 42 Agias Filaxeos', 'Limassol 3025']
 
 const address_dubai = ['Office 1902, Jumeirah Business', 'Center 1, JLT Cluster G']
 
+const address_georgetown = [
+    'Cayman Enterprise City, Strathvale House, 2nd Floor, 90 N Church St, George Town, Cayman Islands',
+]
+
 const address_ipoh = ['E-5-6, Soho Ipoh 2,', 'Jalan Sultan Idris Shah,', 'Ipoh 30000, Perak']
 
 const address_france = ['Wojo Madeleine, 18 Boulevard Malesherbes,', '75008 Paris']
@@ -49,4 +53,5 @@ export {
     address_rwanda,
     address_france,
     address_guernsey,
+    address_georgetown,
 }

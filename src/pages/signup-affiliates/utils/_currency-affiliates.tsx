@@ -20,12 +20,12 @@ const Item = styled(Flex)`
     }
 `
 
-type CurrencySelectProps = {
+type CurrencyProps = {
     selectedCurrency?: (currency) => void
     current_select?: string
 }
 
-const Currency = ({ selectedCurrency, current_select }: CurrencySelectProps) => {
+const Currency = ({ selectedCurrency, current_select }: CurrencyProps) => {
     const currency_list = [
         {
             value: '/usd/',

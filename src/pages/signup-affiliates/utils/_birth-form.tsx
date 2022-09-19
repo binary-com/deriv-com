@@ -2,8 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import AffiliateBirthPicker from './_birth-picker'
 import device from 'themes/device'
-// SVG Component
-import CrossIcon from 'images/svg/help/cross.svg'
 import { Header } from 'components/elements'
 
 type StyledProps = {

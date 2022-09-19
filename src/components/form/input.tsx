@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Header } from '../elements'
 import device from 'themes/device'

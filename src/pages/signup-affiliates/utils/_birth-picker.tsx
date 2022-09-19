@@ -4,10 +4,10 @@ import DatePicker from 'react-date-picker'
 import device from 'themes/device'
 
 type BirthPickerWrapperProps = {
-    is_date_field?: boolean
-    current_value?: string
-    error?: string
-    label_focus_color?: string
+    is_date_field: boolean
+    current_value: string
+    error: string
+    label_focus_color: string
 }
 type LabelProps = {
     label_color?: string

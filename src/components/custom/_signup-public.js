@@ -15,7 +15,6 @@ import Apple from 'images/svg/custom/apple-40.svg'
 import Facebook from 'images/svg/custom/facebook-40.svg'
 import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const query = graphql`
     query {
@@ -314,7 +313,6 @@ const SignupPublic = ({
     const data = useStaticQuery(query)
     const { is_row, is_eu, is_uk } = useCountryRule()
     const [is_checked, setChecked] = useState(false)
-    const is_rtl = useIsRtl()
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -443,11 +441,7 @@ const SignupPublic = ({
                                 >
                                     {localize('Get a taste of the Deriv experience')}
                                 </StyledHeader>
-                                <ImageWithDireciton
-                                    is_rtl={is_rtl}
-                                    src={Arrow}
-                                    alt="arrow desktop"
-                                />
+                                <ImageWithDireciton src={Arrow} alt="arrow desktop" />
                             </LinkFlex>
                         </BackgroundWrapper>
                     </Wrapper>
@@ -478,7 +472,6 @@ const SignupPublic = ({
                                     {localize('Get a taste of the Deriv experience')}
                                 </Header>
                                 <ImageWithDireciton
-                                    is_rtl={is_rtl}
                                     src={Arrow}
                                     alt="arrow mobile"
                                     width="32"

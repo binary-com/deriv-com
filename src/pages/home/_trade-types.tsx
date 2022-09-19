@@ -9,7 +9,6 @@ import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type TradeTypesProps = {
     image_url: string
@@ -248,7 +247,6 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const [details_visible, setDetailsVisibility] = React.useState(false)
-    const is_rtl = useIsRtl()
 
     return (
         <ItemsWrapper
@@ -278,7 +276,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
             </DescriptionContainer>
             <LearnMore to={items_details.link} $visibility={details_visible && !is_mobile}>
                 <Text mr="1rem">{items_details.link_text}</Text>
-                <ImageWithDireciton src={Arrow} alt="" is_rtl={is_rtl} />
+                <ImageWithDireciton src={Arrow} alt="" />
             </LearnMore>
         </ItemsWrapper>
     )

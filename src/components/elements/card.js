@@ -209,7 +209,6 @@ export const Card = ({
                                         <CoverContent>{cover_content}</CoverContent>
                                     )}
                                     <ImageWithDireciton
-                                        is_rtl={is_rtl}
                                         src={Arrow}
                                         alt="arrow"
                                         width="16"

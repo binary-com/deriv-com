@@ -10,7 +10,6 @@ import Arrow from 'images/svg/deriv-go/arrow.svg'
 import DMT5 from 'images/svg/deriv-go/dmt5.svg'
 import DerivX from 'images/svg/deriv-go/dx.svg'
 import device from 'themes/device'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
@@ -99,8 +98,6 @@ const other_apps: ContentType[] = [
 const OtherApps = () => {
     const { is_uk_eu } = useCountryRule()
 
-    const is_rtl = useIsRtl()
-
     return (
         <div>
             <StyledSectionContainer tablet={{ padding: '4rem 0' }}>
@@ -129,11 +126,7 @@ const OtherApps = () => {
                                     <div>
                                         <LearnMore to={item.url}>
                                             <Localize translate_text="Learn more" />
-                                            <ImageWithDireciton
-                                                src={Arrow}
-                                                alt=""
-                                                is_rtl={is_rtl}
-                                            />
+                                            <ImageWithDireciton src={Arrow} alt="" />
                                         </LearnMore>
                                     </div>
                                 </Card>

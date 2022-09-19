@@ -14,7 +14,6 @@ import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type MarketType = {
     icon: () => ReactElement
@@ -171,10 +170,6 @@ const Card = ({ market }: CardProps) => {
     const [button_visibility, setButtonVisibility] = React.useState('false')
     const Icon = markets_type[market].icon
 
-    const is_rtl = useIsRtl()
-
-    console.log('is_rtl: ', is_rtl)
-
     return (
         <StyledFlex
             direction="column"
@@ -199,7 +194,7 @@ const Card = ({ market }: CardProps) => {
             </Text>
             <LearnMore to={markets_type[market].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
-                <ImageWithDireciton is_rtl={is_rtl} src={Arrow} alt="" />
+                <ImageWithDireciton src={Arrow} alt="" />
             </LearnMore>
         </StyledFlex>
     )
@@ -207,7 +202,6 @@ const Card = ({ market }: CardProps) => {
 
 const MobileCard = ({ market }: CardProps) => {
     const Icon = markets_type[market].icon
-    const is_rtl = useIsRtl()
 
     return (
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
@@ -220,7 +214,7 @@ const MobileCard = ({ market }: CardProps) => {
             <Text size="14px">{markets_type[market].content}</Text>
             <LearnMore to={markets_type[market].to} visibility="true">
                 <Text>{localize('Learn more')}</Text>
-                <ImageWithDireciton is_rtl={is_rtl} src={Arrow} alt="" />
+                <ImageWithDireciton src={Arrow} alt="" />
             </LearnMore>
         </MobileCardWrapper>
     )

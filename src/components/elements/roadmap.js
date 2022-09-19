@@ -80,9 +80,9 @@ const Roadmap = ({ portal }) => {
                 <StyledFrame>
                     <iframe src={portal.frame} frameBorder="0" height="100%" width="100%"></iframe>
                     <StyledButton
-                        tertiary="true"
+                        tertiary
+                        external
                         to={portal.link}
-                        external="true"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

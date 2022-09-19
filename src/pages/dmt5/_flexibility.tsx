@@ -184,8 +184,8 @@ const Flexibility = () => {
                 })}
             </Flex>
             <StyledLinkButton
-                external="true"
-                secondary="true"
+                external
+                secondary
                 type="mt5"
                 target="_blank"
                 rel="noopener noreferrer"

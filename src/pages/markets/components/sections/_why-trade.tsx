@@ -108,7 +108,7 @@ export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
                         }
                     })}
                 </ItemContainer>
-                <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary="true">
+                <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
                     {localize('Create free demo account')}
                 </StyledButton>
             </Flex>

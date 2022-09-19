@@ -5,7 +5,6 @@ import { Header } from 'components/elements'
 import { ReactComponent as Macbook } from 'images/svg/dtrader/macbook.svg'
 import device from 'themes/device'
 import { isBrowser } from 'common/utility'
-import { EU, ROW } from 'components/containers/visibility'
 import { LinkButton } from 'components/form'
 
 type StepCommonType = {
@@ -226,7 +225,7 @@ class DtraderTabs extends React.Component {
                             lh="1.5"
                             align="left"
                             start_time={7}
-                            end_time={20}
+                            end_time={13}
                             current_time={this.state.current_time}
                             onClick={() => {
                                 this.clickHandler(7)
@@ -242,11 +241,11 @@ class DtraderTabs extends React.Component {
                             type="sub-section-title"
                             lh="1.5"
                             align="left"
-                            start_time={20}
+                            start_time={13}
                             end_time={30}
                             current_time={this.state.current_time}
                             onClick={() => {
-                                this.clickHandler(20)
+                                this.clickHandler(13)
                                 this.updatePlay()
                             }}
                         >
@@ -255,8 +254,8 @@ class DtraderTabs extends React.Component {
                     </Tab>
                     <GotoLiveWrapper>
                         <GoToLiveDemo
-                            secondary="true"
-                            external="true"
+                            secondary
+                            external
                             type="deriv_app"
                             target="_blank"
                             rel="noopener noreferrer nofollow"
@@ -274,18 +273,8 @@ class DtraderTabs extends React.Component {
                         muted
                         playsInline
                     >
-                        <ROW>
-                            <>
-                                <source src="/Dtrader_GIF.mp4" type="video/mp4" />
-                                <source src="/Dtrader_GIF.webm" type="video/webm" />
-                            </>
-                        </ROW>
-                        <EU>
-                            <>
-                                <source src="/Dtrader_GIF_EU.mp4" type="video/mp4" />
-                                <source src="/Dtrader_GIF_EU.webm" type="video/webm" />
-                            </>
-                        </EU>
+                        <source src="/Dtrader_GIF.mp4" type="video/mp4" />
+                        <source src="/Dtrader_GIF.webm" type="video/webm" />
                     </Video>
                 </VideoWrapper>
             </Container>

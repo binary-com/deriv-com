@@ -86,9 +86,9 @@ const DerivGoRoadmap = () => {
                     width="100%"
                 ></iframe>
                 <StyledButton
-                    tertiary="true"
+                    tertiary
+                    external
                     to={'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn'}
-                    external="true"
                     target="_blank"
                     rel="noopener noreferrer"
                 >

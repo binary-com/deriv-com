@@ -226,7 +226,7 @@ const Subscription = () => {
                             translate_text="1. You must have an MQL5 community account to subscribe to trading signals. If you don't have an account yet, please go to <0>MQL5.com</0> to register."
                             components={[
                                 <LocalizedLinkText
-                                    external="true"
+                                    external
                                     target="_blank"
                                     to="https://www.mql5.com/en/auth_register"
                                     color="red"
@@ -241,7 +241,7 @@ const Subscription = () => {
                             translate_text="2. You'll need to <0>fund your MQL5 account</0> to subscribe to paid signals."
                             components={[
                                 <LocalizedLinkText
-                                    external="true"
+                                    external
                                     to="https://www.mql5.com/en/articles/302#deposit"
                                     target="_blank"
                                     color="red"
@@ -266,7 +266,7 @@ const Subscription = () => {
                             translate_text="Have more questions? Check out the <0>FAQ section</0> on the MQL5 website."
                             components={[
                                 <LocalizedLinkText
-                                    external="true"
+                                    external
                                     to="https://www.mql5.com/en/forum/10773"
                                     target="_blank"
                                     color="red"
@@ -278,8 +278,8 @@ const Subscription = () => {
                     </StyledCardText>
                 </NoteContainer>
                 <DMT5Button
-                    secondary="true"
-                    external="true"
+                    secondary
+                    external
                     type="mt5"
                     to=""
                     target="_blank"

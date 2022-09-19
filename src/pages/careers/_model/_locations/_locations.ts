@@ -1,8 +1,10 @@
 import {
     address_cyberjaya,
     address_dubai,
+    address_ciudad,
     address_asuncion,
     address_labuan,
+    address_georgetown,
     address_malta,
     address_ipoh,
     address_melaka,
@@ -18,6 +20,7 @@ import ParaguayFlagIcon from 'images/svg/careers/flag_paraguay.svg'
 import UAEFlagIcon from 'images/svg/careers/flag_uae.svg'
 import MaltaFlagIcon from 'images/svg/careers/flag_malta.svg'
 import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg'
+import CaymanFlagIcon from 'images/svg/careers/flag_cayman.svg'
 import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
@@ -33,6 +36,8 @@ export const cyberjaya: LocationsType = {
     display_continent: 'Asia',
     link: '/careers/locations/cyberjaya/',
     display_name: 'Cyberjaya',
+    display_thumbnail_name: 'Cyberjaya',
+    display_title_name: 'Cyberjaya',
     img_alt: 'Cyberjaya bridge and lake view',
     map_office_name: '(Cyberjaya)',
     country: 'Malaysia',
@@ -63,6 +68,8 @@ export const malta: LocationsType = {
     display_continent: 'Europe',
     link: '/careers/locations/malta/',
     display_name: 'Malta',
+    display_thumbnail_name: 'Malta',
+    display_title_name: 'Malta',
     img_alt: 'Malta Senglea Church',
     map_office_name: '(Malta)',
     country: 'Malta',
@@ -92,6 +99,8 @@ export const dubai: LocationsType = {
     display_continent: 'Middle East',
     link: '/careers/locations/dubai/',
     display_name: 'Dubai',
+    display_thumbnail_name: 'Dubai',
+    display_title_name: 'Dubai',
     img_alt: 'Dubai Skyscrappers',
     map_office_name: '(Dubai)',
     country: 'United Arab Emirates',
@@ -123,6 +132,8 @@ export const labuan: LocationsType = {
     display_continent: 'Asia',
     link: '/careers/locations/labuan/',
     display_name: 'Labuan',
+    display_thumbnail_name: 'Labuan',
+    display_title_name: 'Labuan',
     img_alt: 'Labuan clock tower',
     map_office_name: '(Labuan)',
     country: 'Malaysia',
@@ -153,6 +164,8 @@ export const asuncion: LocationsType = {
     display_continent: 'Latam',
     link: '/careers/locations/asuncion/',
     display_name: 'Asunción',
+    display_thumbnail_name: 'Asunción',
+    display_title_name: 'Asunción',
     img_alt: 'Palace of the Lopez - Asuncion',
     map_office_name: '(Asunción)',
     country: 'Paraguay',
@@ -161,6 +174,8 @@ export const asuncion: LocationsType = {
     first_p: `Deriv (Asunción) supports the Latin American market with Marketing, Customer Support, Accounts & Payments, and Back-end teams. The teams are constantly working on activities best suited for brand awareness, empowering customers with solutions, taking care of accounting responsibilities, and strengthening our IT infrastructure.`,
     first_img: 'living_in_asuncion',
     first_img_alt: 'Taxi and bikes parked nearby road',
+    badge: 'asuncion_great_place_to_work_badge',
+    badge_alt: 'Asuncion Great Place To Work Badge',
     grid_images: ['asuncion_grid_1', 'asuncion_grid_2', 'asuncion_grid_3', 'asuncion_grid_4'],
     grid_img_alt: [
         'Man teaching a group of people',
@@ -182,6 +197,8 @@ export const melaka: LocationsType = {
     display_continent: 'Asia',
     link: '/careers/locations/melaka/',
     display_name: 'Melaka',
+    display_thumbnail_name: 'Melaka',
+    display_title_name: 'Melaka',
     img_alt: 'Dutch square of Melaka',
     map_office_name: '(Melaka)',
     country: 'Malaysia',
@@ -212,6 +229,8 @@ export const ipoh: LocationsType = {
     display_continent: 'Asia',
     link: '/careers/locations/ipoh/',
     display_name: 'Ipoh',
+    display_thumbnail_name: 'Ipoh',
+    display_title_name: 'Ipoh',
     img_alt: 'White architecture building in Ipoh',
     map_office_name: '(Ipoh)',
     country: 'Malaysia',
@@ -241,6 +260,8 @@ export const cyprus: LocationsType = {
     display_continent: 'Europe',
     link: '/careers/locations/cyprus/',
     display_name: 'Limassol',
+    display_thumbnail_name: 'Limassol',
+    display_title_name: 'Limassol',
     img_alt: 'Buildings near beach side - Limassol',
     map_office_name: '(Limassol)',
     country: 'Cyprus',
@@ -271,6 +292,8 @@ export const rwanda: LocationsType = {
     display_continent: 'Africa',
     link: '/careers/locations/rwanda/',
     display_name: 'Kigali',
+    display_thumbnail_name: 'Kigali',
+    display_title_name: 'Kigali',
     img_alt: 'Blue sky and buildings - Kigali',
     map_office_name: '(Kigali)',
     country: 'Rwanda',
@@ -302,6 +325,8 @@ export const minsk: LocationsType = {
     display_continent: 'Eastern Europe',
     link: '/careers/locations/minsk/',
     display_name: 'Minsk',
+    display_thumbnail_name: 'Minsk',
+    display_title_name: 'Minsk',
     img_alt: 'Diamond shape building in Minsk',
     map_office_name: '(Minsk)',
     country: 'Belarus',
@@ -318,13 +343,13 @@ export const minsk: LocationsType = {
         'Team meetings',
         'Girl having a chat ',
     ],
-    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    map: 'ChIJF9lVNV_P20YRukiwrfpLP4E',
     map_text:
         'The work culture at Deriv (Minsk) is lively and energetic. You will get exposure to global projects and work with highly skilled professionals from across the world. If working for a diverse and thriving team excites you, join our team in Minsk.',
     address: address_belarus,
     map_img: 'minsk_map',
-    google_map_link: 'https://yandex.com/maps/-/CCUeZJdAKA',
-    has_iframe: false,
+    google_map_link: 'https://goo.gl/maps/WJsR7a8vJfRifKzPA',
+    has_iframe: true,
 }
 
 export const paris: LocationsType = {
@@ -333,6 +358,8 @@ export const paris: LocationsType = {
     display_continent: 'Europe',
     link: '/careers/locations/paris/',
     display_name: 'Paris',
+    display_thumbnail_name: 'Paris',
+    display_title_name: 'Paris',
     map_office_name: '(France) SAS',
     country: 'France',
     flagIcon: FranceFlagIcon,
@@ -357,6 +384,8 @@ export const guernsey: LocationsType = {
     display_continent: 'Europe',
     link: '/careers/locations/guernsey/',
     display_name: 'Guernsey',
+    display_thumbnail_name: 'Guernsey',
+    display_title_name: 'Guernsey',
     img_alt: 'Guernsey alt img',
     map_office_name: '(Guernsey)',
     country: 'Channel Islands',
@@ -384,6 +413,8 @@ export const berlin: LocationsType = {
     display_continent: 'Europe',
     link: '/careers/locations/berlin/',
     display_name: 'Berlin',
+    display_thumbnail_name: 'Berlin',
+    display_title_name: 'Berlin',
     img_alt: ' Deriv’s Germany office at Berlin ',
     map_office_name: '(Germany)',
     country: 'Germany',
@@ -406,7 +437,9 @@ export const vanuatu: LocationsType = {
     continent: 'asia',
     display_continent: 'Asia',
     link: '/careers/locations/vanuatu/',
-    display_name: 'Port Vila',
+    display_name: 'Vanuatu',
+    display_thumbnail_name: 'Port Vila',
+    display_title_name: 'Port Vila',
     img_alt: 'Vanuatu alt img',
     map_office_name: '(Vanuatu)',
     country: 'Vanuatu',
@@ -431,12 +464,41 @@ export const vanuatu: LocationsType = {
     google_map_link: '',
 }
 
+export const georgetown: LocationsType = {
+    name: 'georgetown',
+    continent: 'caribbean',
+    display_continent: 'Caribbean',
+    link: '/careers/locations/georgetown/',
+    display_name: 'Cayman Islands',
+    display_thumbnail_name: 'George Town',
+    display_title_name: 'the Cayman Enterprise City',
+    img_alt: ' Deriv’s Cayman Islands office at George Town ',
+    map_office_name: '(Cayman Islands)',
+    country: 'Cayman Islands',
+    flagIcon: CaymanFlagIcon,
+    thumbnail: 'thumbnail_georgetown',
+    first_p:
+        'Deriv Group Ltd’s new base will be in the Cayman Commodities and Derivatives City of the Cayman Enterprise City. This office will serve as a centre for compliance, corporate governance, and operational risk management for the Deriv Group. It will also assist with trading support for the North American time zone. ',
+    first_img: 'living_in_georgetown',
+    first_img_alt: 'Deriv’s office in the Cayman Islands',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'cayman map', 'guernsey grid 4'],
+    map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',
+    map_text:
+        "Our office in the Cayman Islands will be a hub for compliance, operational risk, and quants talent. Join us at this office to analyse changes in regulatory policies, formulate and implement efficient risk management plans, and ensure the efficiency of the Deriv Group's compliance and trading strategies.",
+    address: address_georgetown,
+    google_map_link: 'https://goo.gl/maps/7ZjSzDqSEteSANqD8',
+    has_map: true,
+}
+
 export const jordan: LocationsType = {
     name: 'jordan',
     continent: 'middle_east',
     display_continent: 'Middle East',
     link: '/careers/locations/jordan/',
     display_name: 'Amman',
+    display_thumbnail_name: 'Amman',
+    display_title_name: 'Amman',
     img_alt: 'Jordan alt img',
     map_office_name: '(Jordan)',
     country: 'Jordan',
@@ -452,7 +514,7 @@ export const jordan: LocationsType = {
     map_text:
         'Software developers, technical engineers, software testers, and IT specialists at our Amman office will work together to build state-of-the-art applications, trading platforms, and other technical systems. Join our Jordan team for a thriving tech career.',
     address: address_guernsey,
-    map_img: 'guernsey_map',
+    map_img: 'georgetown_',
     google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
     has_iframe: false,
     has_map: false,
@@ -464,6 +526,8 @@ export const singapore: LocationsType = {
     display_continent: 'Asia',
     link: '/careers/locations/singapore/',
     display_name: 'Singapore',
+    display_thumbnail_name: 'Singapore',
+    display_title_name: 'Singapore',
     img_alt: 'Marina Bay Sands - Singapore',
     map_office_name: '(Singapore)',
     country: 'Singapore',
@@ -486,6 +550,40 @@ export const singapore: LocationsType = {
     has_map: false,
 }
 
+export const ciudad: LocationsType = {
+    name: 'ciudad',
+    continent: 'latam',
+    display_continent: 'Latam',
+    link: '/careers/locations/ciudad/',
+    display_name: 'Ciudad del Este',
+    display_thumbnail_name: 'Ciudad del Este',
+    display_title_name: 'Ciudad del Este',
+    img_alt: 'Paraguay office at Ciudad del Este',
+    map_office_name: '(Ciudad del Este)',
+    country: 'Paraguay',
+    flagIcon: ParaguayFlagIcon,
+    thumbnail: 'thumbnail_ciudad',
+    address: address_ciudad,
+    first_p:
+        'Our second office in Paraguay is to open in the border city of Ciudad del Este. Located in the World Trade Center, this office will tap into the local talent pool to build Marketing and Customer Support teams to cater to the growing market demands in South America. ',
+    first_img: 'living_in_ciudad',
+    first_img_alt: 'Deriv’s Ciudad del Este office in Paraguay',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
+    grid_img_alt: [
+        'guernsey grid 1',
+        'guernsey grid 2',
+        'Deriv’s Ciudad del Este office location',
+        'guernsey grid 4',
+    ],
+    map: 'ChIJ8wOKkS-F9pQRIdgDbSjs_6A',
+    map_text:
+        'As Deriv’s popularity grows rapidly with LATAM traders, the Customer Support and Marketing teams based at our office in Ciudad del Este will have increasing opportunities to showcase their talent. Join this office if you have a passion for assisting customers and affiliates, planning and executing marketing campaigns, and creating an engaging brand image.',
+    map_img: 'ciudad_map',
+    google_map_link: 'https://goo.gl/maps/pmQU7QwfoY6YSR5LA',
+    has_map: true,
+    has_iframe: true,
+}
+
 export const all_offices: LocationsType[] = [
     paris,
     malta,
@@ -503,6 +601,8 @@ export const all_offices: LocationsType[] = [
     minsk,
     rwanda,
     asuncion,
+    ciudad,
+    georgetown,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
@@ -510,6 +610,7 @@ export const locations = {
     malta: `${malta.display_name}`,
     dubai: `${dubai.display_name}, ${dubai.country}`,
     labuan: `${labuan.display_name}, ${labuan.country}`,
+    ciudad: `${ciudad.display_name}, ${ciudad.country}`,
     asuncion: `${asuncion.display_name}, ${asuncion.country}`,
     melaka: `${melaka.display_name}, ${melaka.country}`,
     ipoh: `${ipoh.display_name}, ${ipoh.country}`,
@@ -521,6 +622,7 @@ export const locations = {
     vanuatu: `${vanuatu.display_name}, ${vanuatu.country}`,
     jordan: `${jordan.display_name}, ${jordan.country}`,
     singapore: `${singapore.display_name}, ${singapore.country}`,
+    georgetown: `${georgetown.display_name}, ${georgetown.country}`,
 }
 
 export const allContinents = {
@@ -531,6 +633,7 @@ export const allContinents = {
     eastern_europe: [],
     africa: [],
     latam: [],
+    caribbean: [],
 }
 
 all_offices.forEach((office) => {

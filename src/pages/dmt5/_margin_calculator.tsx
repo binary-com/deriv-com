@@ -2,11 +2,12 @@ import React from 'react'
 import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Box, Flex, SectionContainer, EU, NonEU, Desktop, Mobile } from 'components/containers'
+import { Box, Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type CalculatorProps = {
     children?: React.ReactNode
@@ -181,7 +182,7 @@ const CalculatorCard = ({
                     <QueryImage data={data[image_name + '_mobile']} alt={image_alt_name} />
                 </Mobile>
             </ImageWrapper>
-            <StyledLinkButton tertiary="true" to={link}>
+            <StyledLinkButton tertiary to={link}>
                 <Localize translate_text={button_text} />
             </StyledLinkButton>
         </StyledCardContainer>
@@ -242,6 +243,7 @@ const MarginCalculator = () => {
         },
     }
 
+    const { is_eu, is_non_eu } = useCountryRule()
     return (
         <SectionContainer>
             <StyledFlexContainer>
@@ -258,34 +260,38 @@ const MarginCalculator = () => {
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>
-                            <EU>
-                                <Localize
-                                    translate_text="Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
-                                    components={[
-                                        <LinkText
-                                            color="red"
-                                            key={0}
-                                            target="_blank"
-                                            href="/trade-types/cfds/"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </EU>
-                            <NonEU>
-                                <Localize
-                                    translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
-                                    components={[
-                                        <LinkText
-                                            color="red"
-                                            key={0}
-                                            target="_blank"
-                                            href="/trade-types/cfds/"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </NonEU>
+                            {is_eu && (
+                                <>
+                                    <Localize
+                                        translate_text="Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
+                                        components={[
+                                            <LinkText
+                                                color="red"
+                                                key={0}
+                                                target="_blank"
+                                                href="/trade-types/cfds/"
+                                                rel="noopener noreferrer"
+                                            />,
+                                        ]}
+                                    />
+                                </>
+                            )}
+                            {is_non_eu && (
+                                <>
+                                    <Localize
+                                        translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
+                                        components={[
+                                            <LinkText
+                                                color="red"
+                                                key={0}
+                                                target="_blank"
+                                                href="/trade-types/cfds/"
+                                                rel="noopener noreferrer"
+                                            />,
+                                        ]}
+                                    />
+                                </>
+                            )}
                         </StyledText>
                         <StyledText>
                             <Localize translate_text="With the calculators and numerous analytical tools available on the Deriv MT5 platform, you’ll be able to manage your capital and trading positions better." />

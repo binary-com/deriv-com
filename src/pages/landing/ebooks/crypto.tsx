@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Signup, WhatOurClientsSay } from '../../home/_lazy-load'
 import ImageText from './components/_image-text'
 import Topics from './components/_topics'
+import { StocksEbookProps } from './forex'
 import Hero from './components/_hero'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
@@ -47,10 +48,6 @@ const query = graphql`
         }
     }
 `
-
-type StocksEbookProps = {
-    language: string
-}
 
 const StocksEbook = ({ language }: StocksEbookProps) => {
     const ebook_languages = ['es', 'pt', 'fr']

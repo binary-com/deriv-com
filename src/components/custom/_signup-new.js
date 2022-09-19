@@ -284,7 +284,7 @@ const SignupNew = ({
             <EmailButton
                 isChecked={is_checked}
                 type="submit"
-                secondary="true"
+                secondary
                 disabled={is_submitting || !is_checked || email_error_msg || !email}
                 id="dm-new-signup"
             >
@@ -295,11 +295,11 @@ const SignupNew = ({
                     translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
                     components={[
                         <StyledLocalizedLink
+                            external
                             key={0}
                             to="/tnc/security-and-privacy.pdf"
                             size="1.2rem"
                             color="red"
-                            external="true"
                             rel="noopener noreferrer"
                             target="_blank"
                         />,

@@ -43,25 +43,25 @@ const DerivNumbers = () => {
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
-                        2.5M+
+                        6.5M+
                     </CardHeader>
                     <Text align="center">{localize('Trading accounts opened')}</Text>
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
-                        USD 10B+
+                        USD 12T+
                     </CardHeader>
                     <Text align="center">{localize('Total trade turnover')}</Text>
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
-                        114M+
+                        200M+
                     </CardHeader>
                     <Text align="center">{localize('Trades last month')}</Text>
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
-                        USD 26M+
+                        USD 47M+
                     </CardHeader>
                     <Text align="center">{localize('Withdrawals last month')}</Text>
                 </Card>

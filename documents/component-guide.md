@@ -4,13 +4,12 @@ The main function of this document is to introduce some of the main `containers`
 
 ### SectionContainer
 
-- To be used on the creation of new sections on a page as it adds the `section` element tag and also allows for `padding`, `background-color` and `position` to be passed as props.
+-   To be used on the creation of new sections on a page as it adds the `section` element tag and also allows for `padding`, `background-color` and `position` to be passed as props.
 
 Usage example:
 
 ```jsx
 import { SectionContainer } from 'components/containers'
-
 
 const YourSection = () => {
     return (
@@ -23,8 +22,8 @@ const YourSection = () => {
 
 ### Box
 
-- To be used as a container for injecting most of the required styling attributes such a `max-width`, `width`, `min-height`, `height`, `margin`, `padding`, `background`, `mediaqueries` as props.
-- `margin` and `padding` accept short syntaxes, please refer to [function.js](https://github.com/binary-com/deriv-com/blob/master/src/themes/function.js) for further clarification.
+-   To be used as a container for injecting most of the required styling attributes such a `max-width`, `width`, `min-height`, `height`, `margin`, `padding`, `background`, `mediaqueries` as props.
+-   `margin` and `padding` accept short syntaxes, please refer to [function.js](https://github.com/binary-com/deriv-com/blob/master/src/themes/function.js) for further clarification.
 
 Usage example:
 
@@ -40,11 +39,10 @@ const YourComponent = () => {
 }
 ```
 
-
 ### Container
 
-- To be used to keep our containers responsive throughout widescreens (max-width of 1200px and width of 80%) and also mobile (width of 90%).
-- The container is an extension to `Box`, in addition to having a `flex` display and accepts flex properties such as `ai`, `jc`, `fd` and `fw`.
+-   To be used to keep our containers responsive throughout widescreens (max-width of 1200px and width of 80%) and also mobile (width of 90%).
+-   The container is an extension to `Box`, in addition to having a `flex` display and accepts flex properties such as `ai`, `jc`, `fd` and `fw`.
 
 Usage example:
 
@@ -62,9 +60,9 @@ const YourComponent = () => {
 
 ### CssGrid
 
-- To be used when grid is required.
-- Css Grid is an extension to `Box` and also taking all the grid properties such as `columns`, `grid_gap`, `rows`, `column_gap`, `row_gap`, `align`, `justify` and `bgcolor`.
-- It has built-in media queries setup for the grid properties, just add the prefix of `laptop_`, `tablet_` or `mobile_` to the props, for e.g. `tablet_row_gap`
+-   To be used when grid is required.
+-   Css Grid is an extension to `Box` and also taking all the grid properties such as `columns`, `grid_gap`, `rows`, `column_gap`, `row_gap`, `align`, `justify` and `bgcolor`.
+-   It has built-in media queries setup for the grid properties, just add the prefix of `laptop_`, `tablet_` or `mobile_` to the props, for e.g. `tablet_row_gap`
 
 ```jsx
 import { CssGrid } from 'components/containers'
@@ -90,12 +88,11 @@ const YourComponent = () => {
 }
 ```
 
-
 ### FlexGridContainer
 
-- To be used when you need both a mixture of Flex and Grid
-- Flex Grid is an extension to `Container` hence it accepts all the props that `Box` and `Container` accepts, in addition to `content_width`, `gap`, `mobile_content_width`, `mobile_gap` and `grid`.
-- `grid` will handle no margin on every grid interval selected. For an example of six items, grid size = 3 will therefore set `margin-left: 0` for the 1st and 4th item while the 3rd and 6th will have `margin-right: 0`.
+-   To be used when you need both a mixture of Flex and Grid
+-   Flex Grid is an extension to `Container` hence it accepts all the props that `Box` and `Container` accepts, in addition to `content_width`, `gap`, `mobile_content_width`, `mobile_gap` and `grid`.
+-   `grid` will handle no margin on every grid interval selected. For an example of six items, grid size = 3 will therefore set `margin-left: 0` for the 1st and 4th item while the 3rd and 6th will have `margin-right: 0`.
 
 Usage example:
 
@@ -115,9 +112,9 @@ const YourComponent = () => {
 
 ### Text
 
-- Text will be our go-to extension for paragraph tags
-- It accepts props such as `align`, `size`, `weight`, `color`, `max-width`, `min-width`, `margin`, `padding`
-- `margin` and `padding` accept short syntaxes, please refer to [function.js](https://github.com/binary-com/deriv-com/blob/master/src/themes/function.js) for further clarification.
+-   Text will be our go-to extension for paragraph tags
+-   It accepts props such as `align`, `size`, `weight`, `color`, `max-width`, `min-width`, `margin`, `padding`
+-   `margin` and `padding` accept short syntaxes, please refer to [function.js](https://github.com/binary-com/deriv-com/blob/master/src/themes/function.js) for further clarification.
 
 Usage example:
 
@@ -135,11 +132,11 @@ const YourComponent = () => {
 
 ### Header
 
-- Headers will take a `type` prop for responsive sizes between mobile and desktop to avoid excessive use of media queries (in hopes to be more aligned with design team)
-- Type prop will take either `display-title` , `page-title` , `section-title` , `sub-section-title` , `main-paragraph` or `sub-paragraph`
-- Do add `as` prop for semantic tags to improve our SEO
-- Do refer to [typography.js](https://github.com/binary-com/deriv-com/blob/master/src/components/elements/typography.js) for the breakdown of different sizing across desktop and mobile
-- For any required sizes for desktop/mobile outside the sizes of the design guideline, you can extend via styled components
+-   Headers will take a `type` prop for responsive sizes between mobile and desktop to avoid excessive use of media queries (in hopes to be more aligned with design team)
+-   Type prop will take either `display-title` , `page-title` , `section-title` , `sub-section-title` , `main-paragraph` or `sub-paragraph`
+-   Do add `as` prop for semantic tags to improve our SEO
+-   Do refer to [typography.js](https://github.com/binary-com/deriv-com/blob/master/src/components/elements/typography.js) for the breakdown of different sizing across desktop and mobile
+-   For any required sizes for desktop/mobile outside the sizes of the design guideline, you can extend via styled components
 
 Usage example:
 
@@ -155,13 +152,11 @@ const YourComponent = () => {
 }
 ```
 
-
-
 ### QueryImage
 
-- An extension of [Gatsby image](https://www.gatsbyjs.org/packages/gatsby-image)
-- Usually called with [useStaticQuery](https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/) to fetch our data
-- Accepts props of `data`, `alt`, `width`, `height` and `className`
+-   An extension of [Gatsby image](https://www.gatsbyjs.org/packages/gatsby-image)
+-   Usually called with [useStaticQuery](https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/) to fetch our data
+-   Accepts props of `data`, `alt`, `width`, `height` and `className`
 
 Usage example:
 
@@ -179,19 +174,16 @@ const query = graphql`
 const YourComponent = () => {
     const data = useStaticQuery(query)
 
-    return (
-        <QueryImage data={data['example_image_name']} alt="example" width="100%" />
-    )
+    return <QueryImage data={data['example_image_name']} alt="example" width="100%" />
 }
 ```
 
-
 ### LocalizedLink
 
-- Used for any redirect links. This is an extension of [Gatsby Link](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/).
-- `to` prop is required for this component. You can get around this by having `to=""` if you don't require it.
-- EU countries should prompt a modal popup for any external links
-- Please refer to [localized-link.js](https://github.com/binary-com/deriv-com/blob/master/src/components/localization/localized-link.js) for all the attributes available. Feel free to add onto it for any new internal links.
+-   Used for any redirect links. This is an extension of [Gatsby Link](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/).
+-   `to` prop is required for this component. You can get around this by having `to=""` if you don't require it.
+-   EU countries should prompt a modal popup for any external links
+-   Please refer to [localized-link.js](https://github.com/binary-com/deriv-com/blob/master/src/components/localization/localized-link.js) for all the attributes available. Feel free to add onto it for any new internal links.
 
 Usage example:
 
@@ -201,7 +193,7 @@ import { LocalizedLink } from 'components/localization'
 const YourComponent = () => {
     return (
         <LocalizedLink
-            external="true"
+            external
             to="https://www.facebook.com/derivdotcom/"
             target="_blank"
             rel="noopener noreferrer"
@@ -212,10 +204,10 @@ const YourComponent = () => {
 }
 ```
 
-
 ### localize | Localize
-- Main components for translating text strings
-- `localize` has always be wrapped with a component for e.g. `Text` or `Header` in order for the component with translations to rerender when another language is selected
+
+-   Main components for translating text strings
+-   `localize` has always be wrapped with a component for e.g. `Text` or `Header` in order for the component with translations to rerender when another language is selected
 
 ```jsx
 import { localize, Localize } from 'components/localization'

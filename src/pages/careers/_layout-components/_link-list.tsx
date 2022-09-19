@@ -86,7 +86,7 @@ export const LinkList = ({ list_items }: Props) => (
                         <LocalizedLink to={item.to}>
                             <Flex ai="center" jc="unset">
                                 <Flex tablet_direction="column" tablet_ai="unset" ai="center">
-                                    <StyledText secondary="true" weight="bold">
+                                    <StyledText secondary weight="bold">
                                         {item.text}
                                     </StyledText>
                                     <MiddleText>{item.middle_text}</MiddleText>

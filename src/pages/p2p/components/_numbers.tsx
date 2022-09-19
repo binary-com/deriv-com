@@ -92,14 +92,14 @@ const StyledLinkButton = styled(LinkButton)`
     border: unset;
     height: 64px;
     margin: 20px auto;
-    min-width: 220px;
+    width: 220px;
     white-space: nowrap;
     margin-top: 40px;
     @media ${device.mobileL} {
         padding: 14px;
         font-size: 14px;
         height: 40px;
-        width: 167px;
+        width: 153px;
     }
     @media ${device.tablet} {
         margin-top: 40px;
@@ -161,9 +161,9 @@ const Numbers = () => {
                     })}
                 </Flex>
                 <StyledLinkButton
-                    secondary="true"
+                    secondary
+                    external
                     to="/cashier/p2p"
-                    external="true"
                     type="deriv_app"
                     target="_blank"
                     rel="noopener noreferrer"

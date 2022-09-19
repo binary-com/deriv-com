@@ -175,9 +175,9 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                             </StyledHeader>
 
                             <TryButton
-                                secondary="true"
+                                secondary
+                                external
                                 to="/cashier/p2p"
-                                external="true"
                                 type="deriv_app"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -199,7 +199,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                                 {title}
                             </StyledHeader>
                             <Mobile>
-                                <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
+                                <ButtonDerivP2P secondary onClick={handleExternalLink}>
                                     {localize('Try Deriv P2P now')}
                                 </ButtonDerivP2P>
                             </Mobile>

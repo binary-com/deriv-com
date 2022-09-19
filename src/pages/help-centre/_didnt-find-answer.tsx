@@ -52,7 +52,7 @@ export const DidntFindYourAnswerBanner = () => {
                 </MiddleText>
                 {is_livechat_interactive && (
                     <Button
-                        secondary="true"
+                        secondary
                         onClick={() => {
                             LC_API.open_chat_window()
                         }}

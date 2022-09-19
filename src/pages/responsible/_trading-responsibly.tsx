@@ -5,10 +5,11 @@ import FreeDemo from 'images/svg/responsible/free-demo.svg'
 import SetLimitLosses from 'images/svg/responsible/set-limit-chart.svg'
 import BadJudgement from 'images/svg/responsible/bad-judgement.svg'
 import Info from 'images/svg/responsible/info.svg'
-import { SectionContainer, Flex, Show } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Divider, CardStyle, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const IcInfo = styled.img`
     margin-left: 1.5rem;
@@ -111,6 +112,7 @@ const StyledHeader = styled(Header)`
 `
 
 const TradingResponsibly = () => {
+    const { is_eu, is_non_eu } = useCountryRule()
     return (
         <SectionContainer>
             <Flex jc="center" wrap="true">
@@ -149,16 +151,16 @@ const TradingResponsibly = () => {
                         <FlexContent>
                             <img src={BadJudgement} alt="" />
                             <StyledText>
-                                <Show.Eu>
+                                {is_eu && (
                                     <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol." />
-                                </Show.Eu>
-                                <Show.NonEU>
+                                )}
+                                {is_non_eu && (
                                     <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Don’t trade when you’re prone to bad judgement." />
-                                </Show.NonEU>
+                                )}
                             </StyledText>
                         </FlexContent>
                     </ContentWrapper>
-                    <Show.Eu>
+                    {is_eu && (
                         <StyledFlex>
                             <IcInfo src={Info} alt="info" width="24" height="24" />
                             <NoticeText size="1.4rem" ml="1.6rem" mr="1.5rem">
@@ -176,7 +178,7 @@ const TradingResponsibly = () => {
                                 />
                             </NoticeText>
                         </StyledFlex>
-                    </Show.Eu>
+                    )}
                 </Card>
             </Flex>
         </SectionContainer>

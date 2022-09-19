@@ -75,7 +75,7 @@ const MindWhenTrading = () => {
                     )}
                 </Text>
 
-                <StyledLinkButton mt="4rem" secondary="true" to="/trader-tools/margin-calculator/">
+                <StyledLinkButton mt="4rem" secondary to="/trader-tools/margin-calculator/">
                     {localize('Margin calculator')}
                 </StyledLinkButton>
             </SmallContainer>

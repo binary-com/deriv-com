@@ -11,7 +11,12 @@ import MacOS from 'images/svg/dmt5/macos.svg'
 import MoreInfo from 'images/svg/dmt5/more-info.svg'
 import Windows from 'images/svg/dmt5/windows.svg'
 import device from 'themes/device'
-import { dmt5_macos_url, dmt5_windows_url, dmt5_android_url, dmt5_ios_url } from 'common/constants'
+import {
+    dmt5_mac_app_url,
+    dmt5_windows_url,
+    dmt5_android_url,
+    dmt5_ios_url,
+} from 'common/constants'
 
 type ImageWrapperProps = {
     mt?: string
@@ -100,7 +105,7 @@ const DownloadApp = () => {
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <DownloadLinkWrapper>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_windows_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -108,8 +113,8 @@ const DownloadApp = () => {
                                 <img src={Windows} alt="windows" />
                             </LocalizedLink>
                             <LocalizedLink
-                                external="true"
-                                to={dmt5_macos_url}
+                                external
+                                to={dmt5_mac_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -124,7 +129,7 @@ const DownloadApp = () => {
                     <Flex mt="0.8rem" jc="flex-start">
                         <Box mr="0.8rem">
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_ios_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -133,7 +138,7 @@ const DownloadApp = () => {
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
-                            external="true"
+                            external
                             to={dmt5_android_url}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -148,7 +153,7 @@ const DownloadApp = () => {
                     <Flex mt="0.8rem" jc="flex-start">
                         <Box mr="0.8rem">
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_ios_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -157,7 +162,7 @@ const DownloadApp = () => {
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
-                            external="true"
+                            external
                             to={dmt5_android_url}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -176,7 +181,7 @@ const DownloadApp = () => {
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <DownloadLinkWrapper>
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={dmt5_windows_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -184,8 +189,8 @@ const DownloadApp = () => {
                                 <img src={Windows} alt="windows" />
                             </LocalizedLink>
                             <LocalizedLink
-                                external="true"
-                                to={dmt5_macos_url}
+                                external
+                                to={dmt5_mac_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

@@ -108,7 +108,7 @@ const LiftWithdrawalLimits = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={`${deriv_app_url}/account/account-limits`}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -156,7 +156,7 @@ const CreditCardDepositDeclined = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://www.binary.com/en/home.html?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -210,7 +210,7 @@ const HowCanICancelMyWithdrawal = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={`${deriv_app_url}/cashier/`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -240,7 +240,7 @@ const HowCanICancelMyWithdrawal = ({ text }: ArticleProps) => (
                             <ExternalLink
                                 to={`${deriv_app_url}/cashier/withdrawal`}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -295,7 +295,7 @@ const PaymentMethodsOnTheWithdrawalPage = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/contact_us/?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}

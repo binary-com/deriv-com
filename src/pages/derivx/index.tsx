@@ -64,6 +64,7 @@ const DerivX = () => {
                     <WhatIsDeriv />
                     <WhyTradeDerivX />
                     <StartDerivX />
+                    <Accounts />
                     <StaticQuery
                         query={query}
                         render={(data) => (

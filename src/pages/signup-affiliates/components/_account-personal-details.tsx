@@ -425,6 +425,10 @@ const PersonalDetails = ({
                                     accept="image/*"
                                     className="custom-file-input"
                                     upload_info="Accepted files: pdf, jpeg, and png. Max file size: 8MB"
+                                    handleError={() => {
+                                        item?.value_set(null)
+                                        item?.error_set(null)
+                                    }}
                                 />
                             )
                         } else {

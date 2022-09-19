@@ -14,6 +14,7 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import { DerivStore } from 'store'
+import app_config from 'config'
 
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
@@ -34,9 +35,9 @@ const Home = () => {
             <Hero />
             <MarketsFold />
             <TradeTypes />
-            <OurPlatforms />
-            <WhatOurClientsSay />
-            {is_p2p_allowed_country && <P2PHomeBanner />}
+            {app_config.show_branding && <OurPlatforms />}
+            {app_config.show_branding && <WhatOurClientsSay />}
+            {app_config.show_branding && is_p2p_allowed_country && <P2PHomeBanner />}
             <Signup appearance={Appearances.public} />
         </Layout>
     )

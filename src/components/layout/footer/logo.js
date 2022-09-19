@@ -16,13 +16,16 @@ import {
     twitter_uk_url,
     twitter_non_eu_url,
 } from 'common/constants'
+import app_config from 'config'
 
 const LogoSection = ({ type }) => {
     const { is_eu, is_uk } = useCountryRule()
 
     return (
         <DerivLogoWrapper>
-            <StyledLogo src={DerivLogo} alt="logo" width="147" height="25" />
+            {app_config.show_branding && (
+                <StyledLogo src={DerivLogo} alt="logo" width="147" height="25" />
+            )}
             <Desktop>
                 <SocialWrapperComponent
                     is_career_page={type === 'careers'}

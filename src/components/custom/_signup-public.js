@@ -15,6 +15,7 @@ import Apple from 'images/svg/custom/apple-40.svg'
 import Facebook from 'images/svg/custom/facebook-40.svg'
 import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
+import app_config from 'config'
 
 const query = graphql`
     query {
@@ -437,7 +438,8 @@ const SignupPublic = ({
                                     ml="-4rem"
                                     position="relative"
                                 >
-                                    {localize('Get a taste of the Deriv experience')}
+                                    {app_config.show_branding &&
+                                        localize('Get a taste of the Deriv experience')}
                                 </StyledHeader>
                                 <img src={Arrow} alt="arrow desktop" />
                             </LinkFlex>
@@ -467,7 +469,8 @@ const SignupPublic = ({
                                 rel="noopener noreferrer nofollow"
                             >
                                 <Header size="4rem">
-                                    {localize('Get a taste of the Deriv experience')}
+                                    {app_config.show_branding &&
+                                        localize('Get a taste of the Deriv experience')}
                                 </Header>
                                 <img src={Arrow} alt="arrow mobile" width="32" height="33" />
                             </DerivExperience>

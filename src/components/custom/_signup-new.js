@@ -12,6 +12,7 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
+import app_config from 'config'
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -250,10 +251,17 @@ const SignupNew = ({
                             color="grey-16"
                             lh="18px"
                         >
-                            <Localize
-                                translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
-                                components={[<strong key={0} />]}
-                            />
+                            {app_config.show_branding ? (
+                                <Localize
+                                    translate_text="Log in with your username and password."
+                                    components={[<strong key={0} />]}
+                                />
+                            ) : (
+                                <Localize
+                                    translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
+                                    components={[<strong key={0} />]}
+                                />
+                            )}
                         </StyledText>
                     </div>
                 </NoteBox>
@@ -290,22 +298,24 @@ const SignupNew = ({
             >
                 {localize('Create demo account')}
             </EmailButton>
-            <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
-                <Localize
-                    translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
-                    components={[
-                        <StyledLocalizedLink
-                            external
-                            key={0}
-                            to="/tnc/security-and-privacy.pdf"
-                            size="1.2rem"
-                            color="red"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        />,
-                    ]}
-                />
-            </Header>
+            {app_config.show_branding && (
+                <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
+                    <Localize
+                        translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
+                        components={[
+                            <StyledLocalizedLink
+                                external
+                                key={0}
+                                to="/tnc/security-and-privacy.pdf"
+                                size="1.2rem"
+                                color="red"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            />,
+                        ]}
+                    />
+                </Header>
+            )}
             <SignupWithContainer>
                 <Line />
                 <StyledText color="grey-5" align="center" tabletFontSize="12px">

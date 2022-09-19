@@ -37,6 +37,7 @@ import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
 import TraderTool from 'images/svg/custom/trader-tool-nav.svg'
+import app_config from 'config'
 
 const StyledText = styled(Text)`
     font-size: var(--text-size-xs);
@@ -575,18 +576,23 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to="/payment-methods/"
         />
-        <CardLink
-            icon={() => <img src={Signals} alt="" width="24" height="24" />}
-            title={<Localize translate_text="DMT5 Signals" />}
-            onClick={onClick}
-            to="/dmt5-trading-signals/#signal-subscriber/"
-        />
-        <CardLink
-            icon={() => <img src={Blog} alt="" width="24" height="24" />}
-            title={<Localize translate_text="Academy" />}
-            onClick={onClick}
-            to="/academy/"
-        />
+
+        {app_config.show_branding && (
+            <CardLink
+                icon={() => <img src={Signals} alt="" width="24" height="24" />}
+                title={<Localize translate_text="DMT5 Signals" />}
+                onClick={onClick}
+                to="/dmt5-trading-signals/#signal-subscriber/"
+            />
+        )}
+        {app_config.show_branding && (
+            <CardLink
+                icon={() => <img src={Blog} alt="" width="24" height="24" />}
+                title={<Localize translate_text="Academy" />}
+                onClick={onClick}
+                to="/academy/"
+            />
+        )}
     </Flex>
 )
 

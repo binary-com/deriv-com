@@ -8,6 +8,7 @@ import {
     NavMarket,
 } from 'components/custom/other-platforms.js'
 import { Container, Show, Flex } from 'components/containers'
+import app_config from 'config'
 
 const FadeInDown = keyframes`
     from {
@@ -53,7 +54,7 @@ const StyledContainer = styled(Container)`
 const getNavigationContents = (parent, is_ppc, is_ppc_redirect) => {
     if (parent === 'trade') return <NavPlatform is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
     if (parent === 'markets') return <NavMarket is_ppc={is_ppc} />
-    if (parent === 'about') return <NavCompany />
+    if (parent === 'about' && app_config.show_branding) return <NavCompany />
     if (parent === 'resources') return <NavResources />
 }
 

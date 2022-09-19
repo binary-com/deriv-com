@@ -51,7 +51,7 @@ export const useCountryRule = () => {
         const is_uk_eu = !(!is_eu && !is_uk)
         const is_row = !is_uk_eu
         const is_dev = isLocalhost() || isTestlink()
-        const is_south_africa = user_ip_country === 'sa'
+        const is_south_africa = user_ip_country === 'za'
         const is_nigeria = user_ip_country === 'ng'
 
         if (website_status) {

@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
@@ -81,7 +82,7 @@ export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
     }
 `
 
-export const StyledChevron = styled(Chevron)<StyledChevronProps>`
+export const StyledChevron = styled((props) => <Chevron {...props} />)<StyledChevronProps>`
     height: 24px;
     width: 24px;
     ${(props) => {
@@ -152,7 +153,7 @@ export const Divider = styled(Flex)`
 export const NavIconWrapper = styled(Flex)`
     width: auto;
 `
-export const IconWrapper = styled.div<IconWrapperProps>`
+export const IconWrapper = styled.div`
     width: 32px;
     height: 32px;
     border-radius: 50%;

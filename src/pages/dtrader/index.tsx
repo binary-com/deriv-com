@@ -7,7 +7,6 @@ import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import { EU, ROW } from 'components/containers/visibility'
 import dtrader_logo from 'images/svg/dtrader/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DTraderBGMobile from 'images/svg/dtrader/dtrader-bg-mobile.svg'
@@ -115,7 +114,7 @@ const PlatformContainer = styled.div`
 `
 const Dtrader = () => {
     const [is_mobile, setMobile] = useState(false)
-    const { is_eu } = useCountryRule()
+    const { is_eu, is_row } = useCountryRule()
 
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -151,22 +150,14 @@ const Dtrader = () => {
                 background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
                 background_alt={localize('Trade volatility indices with DTrader at Deriv')}
             />
-            <ROW>
-                <DNumber items={items} justify="space-around" />
-            </ROW>
-            <EU>
-                <DNumber items={itemsEU} justify="space-around" />
-            </EU>
+            {is_row && <DNumber items={items} justify="space-around" />}
+            {is_eu && <DNumber items={itemsEU} justify="space-around" />}
             <DHowItWorks
                 Video={DtraderVideo}
                 title={<Localize translate_text="Make a trade in 3 easy steps" />}
             />
-            <ROW>
-                <DTrading trading={trading} />
-            </ROW>
-            <EU>
-                <DTrading trading={trading_eu} />
-            </EU>
+            {is_row && <DTrading trading={trading} />}
+            {is_eu && <DTrading trading={trading_eu} />}
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />
             </PlatformContainer>

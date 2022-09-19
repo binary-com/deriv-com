@@ -31,7 +31,6 @@ import {
     volatility_indices_trade_type_eu,
 } from './_market-symbols'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import { ROW } from 'components/containers'
 
 export const AmericanIndices = () => <Symbol instruments_type={stocks_american_indices} />
 
@@ -89,11 +88,10 @@ export const MajorPairs = () => <Symbol instruments_type={major_pairs} />
 
 export const MetalsCFDs = () => <Symbol instruments_type={metals_cfds} />
 
-export const MetalsOptions = () => (
-    <ROW>
-        <Symbol instruments_type={metals_options} />
-    </ROW>
-)
+export const MetalsOptions = () => {
+    const { is_row } = useCountryRule()
+    return is_row ? <Symbol instruments_type={metals_options} /> : <></>
+}
 
 export const MicroPairs = () => <Symbol instruments_type={micro_pairs} />
 

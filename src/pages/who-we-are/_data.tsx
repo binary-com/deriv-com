@@ -112,9 +112,21 @@ export type MapPinType = {
 export const desktop_pins: MapPinType[] = [
     {
         left: '30%',
-        top: '75%',
+        top: '74%',
         title: <Localize translate_text="Asunción, Paraguay" />,
         link: '/careers/locations/asuncion',
+    },
+    {
+        left: '31%',
+        top: '76%',
+        title: <Localize translate_text="Ciudad del Este, Paraguay" />,
+        link: '/careers/locations/ciudad',
+    },
+    {
+        left: '23.5%',
+        top: '50%',
+        title: <Localize translate_text="George Town, Cayman Islands" />,
+        link: '/careers/locations/georgetown',
     },
     {
         left: '50%',
@@ -216,6 +228,18 @@ export const mobile_pins: MapPinType[] = [
         link: '/careers/locations/asuncion',
     },
     {
+        left: '30%',
+        top: '75%',
+        title: <Localize translate_text="Ciudad del Este, Paraguay" />,
+        link: '/careers/locations/ciudad',
+    },
+    {
+        left: '22%',
+        top: '48%',
+        title: <Localize translate_text="George Town, Cayman Islands" />,
+        link: '/careers/locations/georgetown',
+    },
+    {
         left: '48.5%',
         top: '35.5%',
         title: <Localize translate_text="Birkirkara, Malta" />,
@@ -313,7 +337,7 @@ type DerivNumbersType = {
 }
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: <Localize translate_text="850+" />, title: <Localize translate_text="employees" /> },
+    { count: <Localize translate_text="950+" />, title: <Localize translate_text="employees" /> },
     {
         count: <Localize translate_text="50+" />,
         title: <Localize translate_text="nationalities" />,

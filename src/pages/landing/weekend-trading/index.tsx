@@ -7,8 +7,9 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 const IconTextRow = Loadable(() => import('./components/_icon-text-row'))
+import { ContentType } from 'pages/landing/_types'
 
-const DP2P_CONTENT = [
+const DP2P_CONTENT: ContentType[] = [
     {
         title: <Localize translate_text="Synthetic indices" />,
         subtitle1: (

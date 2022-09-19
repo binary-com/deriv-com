@@ -334,7 +334,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="Derived" />}
                                 onClick={handleArrowClick}
-                                to="/markets/derived-fx/"
+                                to="/markets/synthetic/"
                             />
                         </Flex>
                         <Flex mb="3.2rem">

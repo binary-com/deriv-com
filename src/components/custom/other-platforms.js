@@ -432,7 +432,7 @@ export const NavMarket = ({ onClick }) => {
                 }
                 title={<Localize translate_text="Derived" />}
                 onClick={onClick}
-                to="/markets/derived-fx/"
+                to="/markets/synthetic/"
             />
             <NavCard
                 aria_label="Stocks & indices"

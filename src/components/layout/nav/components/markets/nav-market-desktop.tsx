@@ -59,7 +59,7 @@ const NavMarketDesktop = () => {
                     <NavLinkCard active="forex" to="/markets/forex/" title={localize('Forex')} />
                     <NavLinkCard
                         active="derived"
-                        to="/markets/derived-fx/"
+                        to="/markets/synthetic/"
                         title={localize('Derived')}
                     />
                     <NavLinkCard

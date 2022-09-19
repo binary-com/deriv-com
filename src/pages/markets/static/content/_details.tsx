@@ -295,34 +295,6 @@ export const VolatilityIndicesDetailsEU = () => (
     </DetailsContainer>
 )
 
-export const AmericanIndicesDetails = () => (
-    <DetailsContainer>
-        <Text>
-            {localize(
-                'Each of these indices replicates the performance of top publicly traded companies in a segment of the US economy.',
-            )}
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>US 500</0> follows the stock performance of the 500 largest publicly traded companies in the US."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>US Tech 100</0> follows the stock performance of the 100 largest non-financial companies in the US."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>Wall Street 30</0> follows the stock performance of the top 30 listed companies in the US."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-    </DetailsContainer>
-)
-
 export const AsianIndicesDetails = () => (
     <DetailsContainer>
         <Text>

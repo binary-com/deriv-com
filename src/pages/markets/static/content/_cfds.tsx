@@ -30,7 +30,7 @@ import {
     StepIndicesDetails,
     VolatilityIndicesDetails,
     VolatilityIndicesDetailsEU,
-    AmericanIndicesDetails,
+    AmericasDetails,
     AsianIndicesDetails,
     EuropeanIndicesDetails,
     JumpIndicesDetails,
@@ -171,7 +171,7 @@ export const stock_cfds: MarketInstrumentsElement = {
                 <Localize translate_text="American<0></0>indices" components={[<br key={0} />]} />
             ),
             component: <AmericanIndices />,
-            details: <AmericanIndicesDetails />,
+            details: <AmericasDetails />,
             col: 3,
             tablet_col: 2,
             mobile_col: 2,

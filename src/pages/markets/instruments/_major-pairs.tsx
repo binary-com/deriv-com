@@ -5,8 +5,12 @@ import { major_pairs } from '../static/content/_market-symbols'
 const MajorPairs = () => {
     return (
         <>
-            {major_pairs.map((symbol, index) => (
-                <Symbol key={index} src={symbol.src} text={symbol.text} />
+            {major_pairs.map((symbol) => (
+                <Symbol
+                    key={symbol.text.props.translate_text}
+                    src={symbol.src}
+                    text={symbol.text}
+                />
             ))}
         </>
     )

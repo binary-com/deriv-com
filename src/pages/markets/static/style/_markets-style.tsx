@@ -107,6 +107,7 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
         has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
     grid-template-columns: ${({ col }) => `repeat(${col ?? 3}, 1fr)`};
     width: 100%;
+    align-items: center;
     height: fit-content;
     padding: 24px;
     gap: ${({ gap }) => (gap ? gap : '10px')};
@@ -186,8 +187,8 @@ export const SymbolContainer = styled(Flex)`
     justify-content: flex-start;
 
     img {
-        width: 32px;
-        height: 32px;
+        max-width: 32px;
+        max-height: 32px;
         margin-right: 8px;
     }
     ${Text} {

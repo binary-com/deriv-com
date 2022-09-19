@@ -91,10 +91,10 @@ module.exports = {
         short_name: 'CR',
         affiliate_lang: 13,
     },
-    // TODO: uncomment when supported
-    // de: {
-    //     path: 'de',
-    //     display_name: 'Deutsch',
-    // },
-    // TODO: uncomment when supported
+    de: {
+        path: 'de',
+        display_name: 'Deutsch',
+        short_name: 'CR',
+        affiliate_lang: 16,
+    },
 }

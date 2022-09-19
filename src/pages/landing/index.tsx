@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Markets, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
 import Hero from '../home/_hero'
 import Trade from '../home/_trade'
 import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
-import { SEO, Show } from 'components/containers'
+import { Desktop, Mobile, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, Localize, localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
@@ -11,7 +11,13 @@ import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/markets/trade.svg'
 import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 
-const simple_step_content = [
+type SimpleStepContentTypes = {
+    header: ReactElement
+    text: ReactElement
+    icon: ReactElement
+}
+
+const simple_step_content: SimpleStepContentTypes[] = [
     {
         header: <Localize translate_text="Practise" />,
         text: (
@@ -48,12 +54,12 @@ const Home = () => {
                 no_index
             />
             <Hero is_ppc={true} />
-            <Show.Desktop>
+            <Desktop>
                 <Trade is_ppc_redirect={true} />
-            </Show.Desktop>
-            <Show.Mobile>
+            </Desktop>
+            <Mobile>
                 <TradeTheWayYouLike is_ppc_redirect={true} />
-            </Show.Mobile>
+            </Mobile>
             <Markets is_ppc={true} />
             <SimpleSteps
                 content={simple_step_content}

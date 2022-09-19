@@ -195,7 +195,7 @@ const DtraderTabs = () => {
             <VideoWrapper>
                 <QueryImage
                     data={data[current_step]}
-                    alt={localize(`${current_step} in DBot trading`)}
+                    alt={localize('{{step}} in DBot trading', { step: current_step })}
                     width="100%"
                 />
             </VideoWrapper>

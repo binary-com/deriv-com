@@ -1,8 +1,12 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { CrashText, DetailsContainer } from '../style/_markets-style'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+
+type TEuropeDetailsProps = {
+    custom_index: number
+}
 
 export const AmericasDetails = () => (
     <DetailsContainer>
@@ -126,7 +130,8 @@ export const DailyResetIndicesDetails = () => (
     </DetailsContainer>
 )
 
-export const EuropeDetails = (index: number): ReactElement => {
+export const EuropeDetails = (props: TEuropeDetailsProps) => {
+    const { custom_index: index } = props
     const children = [
         <Text key={0}>
             {localize(
@@ -182,7 +187,7 @@ export const EuropeDetails = (index: number): ReactElement => {
     )
 }
 
-export const RangeBreakIndicesDetails = (): ReactElement => (
+export const RangeBreakIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -273,7 +278,7 @@ export const VolatilityIndicesDetails = () => (
     </DetailsContainer>
 )
 
-export const VolatilityIndicesDetailsEU = (): ReactElement => (
+export const VolatilityIndicesDetailsEU = () => (
     <DetailsContainer>
         <Text>
             <Localize
@@ -290,7 +295,7 @@ export const VolatilityIndicesDetailsEU = (): ReactElement => (
     </DetailsContainer>
 )
 
-export const AmericanIndicesDetails = (): ReactElement => (
+export const AmericanIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -318,7 +323,7 @@ export const AmericanIndicesDetails = (): ReactElement => (
     </DetailsContainer>
 )
 
-export const AsianIndicesDetails = (): ReactElement => (
+export const AsianIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -340,7 +345,7 @@ export const AsianIndicesDetails = (): ReactElement => (
     </DetailsContainer>
 )
 
-export const EuropeanIndicesDetails = (): ReactElement => {
+export const EuropeanIndicesDetails = () => {
     const { is_row } = useCountryRule()
     return (
         <DetailsContainer>
@@ -390,7 +395,7 @@ export const EuropeanIndicesDetails = (): ReactElement => {
         </DetailsContainer>
     )
 }
-export const CryptocurrenciesDetails = (): ReactElement => (
+export const CryptocurrenciesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -400,7 +405,7 @@ export const CryptocurrenciesDetails = (): ReactElement => (
     </DetailsContainer>
 )
 
-export const JumpIndicesDetails = (): ReactElement => (
+export const JumpIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize

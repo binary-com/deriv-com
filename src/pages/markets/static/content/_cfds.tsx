@@ -110,7 +110,7 @@ export const synthetic_cfds: MarketInstrumentsElement = {
         {
             title: <Localize translate_text="Volatility indices" />,
             component: <VolatilityIndices />,
-            details: VolatilityIndicesDetails,
+            details: <VolatilityIndicesDetails />,
         },
         {
             title: <Localize translate_text="Crash/Boom" />,
@@ -118,22 +118,22 @@ export const synthetic_cfds: MarketInstrumentsElement = {
                 <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
             ),
             component: <CrashBoom />,
-            details: CrashBoomDetails,
+            details: <CrashBoomDetails />,
         },
         {
             title: <Localize translate_text="Jump indices" />,
             component: <JumpIndices />,
-            details: JumpIndicesDetails,
+            details: <JumpIndicesDetails />,
         },
         {
             title: <Localize translate_text="Step indices" />,
             component: <StepIndices />,
-            details: StepIndicesDetails,
+            details: <StepIndicesDetails />,
         },
         {
             title: <Localize translate_text="Range break indices" />,
             component: <RangeBreak />,
-            details: RangeBreakIndicesDetails,
+            details: <RangeBreakIndicesDetails />,
         },
     ],
 }
@@ -150,7 +150,7 @@ export const synthetic_cfds_eu: MarketInstrumentsElement = {
         {
             title: <Localize translate_text="Volatility indices" />,
             component: <VolatilityIndicesEU />,
-            details: VolatilityIndicesDetailsEU,
+            details: <VolatilityIndicesDetailsEU />,
         },
         {
             title: <Localize translate_text="Crash/Boom" />,
@@ -158,7 +158,7 @@ export const synthetic_cfds_eu: MarketInstrumentsElement = {
                 <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
             ),
             component: <CrashBoomEU />,
-            details: CrashBoomDetailsEU,
+            details: <CrashBoomDetailsEU />,
         },
     ],
 }
@@ -171,7 +171,7 @@ export const stock_cfds: MarketInstrumentsElement = {
                 <Localize translate_text="American<0></0>indices" components={[<br key={0} />]} />
             ),
             component: <AmericanIndices />,
-            details: AmericanIndicesDetails,
+            details: <AmericanIndicesDetails />,
             col: 3,
             tablet_col: 2,
             mobile_col: 2,
@@ -181,7 +181,7 @@ export const stock_cfds: MarketInstrumentsElement = {
         {
             title: <Localize translate_text="Asian<0></0>indices" components={[<br key={0} />]} />,
             component: <AsianIndices />,
-            details: AsianIndicesDetails,
+            details: <AsianIndicesDetails />,
             col: 3,
             tablet_col: 2,
             mobile_col: 2,
@@ -193,7 +193,7 @@ export const stock_cfds: MarketInstrumentsElement = {
                 <Localize translate_text="European<0></0>indices" components={[<br key={0} />]} />
             ),
             component: <EuropeanIndices />,
-            details: EuropeanIndicesDetails,
+            details: <EuropeanIndicesDetails />,
             col: 3,
             tablet_col: 2,
             mobile_col: 2,
@@ -240,12 +240,12 @@ export const basket_cfds: MarketInstrumentsElement = {
         {
             title: <Localize translate_text="Commodities Basket" />,
             component: <BasketIndicesCommodities />,
-            details: BasketCommoditiesDetails,
+            details: <BasketCommoditiesDetails />,
         },
         {
             title: <Localize translate_text="Forex Basket" />,
             component: <BasketIndicesCfds />,
-            details: BasketFXDetails,
+            details: <BasketFXDetails />,
         },
     ],
 }

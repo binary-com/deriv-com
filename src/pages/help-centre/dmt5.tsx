@@ -165,7 +165,7 @@ const DifferenceDMT5DTraderEU = ({ text }: ArticleProps) => {
             <StyledHeader as="h4">{text}</StyledHeader>
             <StyledText>
                 <Localize
-                    translate_text="<0>DTrader</0> offers multipliers trading on a range of underlying assets such as forex, cryptocurrencies, and derived. This platform allows you to open multipliers trades that offer the opportunity to multiply potential profit without risking more than your stake. You may find it more intuitive if you're new to the trading world."
+                    translate_text="<0>DTrader</0> offers multipliers trading on a range of underlying assets such as forex, cryptocurrencies, and derived. This platform allows you to open multipliers trades that offer the opportunity to multiply potential profit without risking more than your stake. You may find this platform more intuitive if you're new to the trading world."
                     components={[
                         <ExternalLink
                             to={'/dtrader/'}

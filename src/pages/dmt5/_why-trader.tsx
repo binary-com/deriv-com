@@ -37,7 +37,7 @@ const card_content: CardContentType[] = [
     {
         header: <Localize translate_text="24/7 trading" />,
         text: (
-            <Localize translate_text="Trade round-the-clock, even on weekends, with our proprietary synthetic indices." />
+            <Localize translate_text="Trade round-the-clock, even on weekends, with our proprietary derived." />
         ),
         image: Seven,
         key: 2,

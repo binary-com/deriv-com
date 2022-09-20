@@ -57,10 +57,8 @@ const TitleWrapper = styled.div`
 
 const StyledCardWrapper = styled(CardWrapper)`
     flex-wrap: nowrap;
-    justify-content: left;
     @media ${device.laptopL} {
         flex-wrap: wrap;
-        justify-content: left;
     }
 `
 
@@ -75,7 +73,6 @@ const StyledSection = styled(SectionContainer)`
 
 const DecideSection = styled(StyledSection)`
     padding-top: 40px;
-    justify-content: center;
     @media ${device.tabletL} {
         padding: 24px 0 0;
     }
@@ -91,7 +88,6 @@ const IBSectionContainer = styled(SectionContainer)`
     }
 `
 const StyledHeader = styled(Header)`
-    text-align: center;
     @media ${device.tabletL} {
         text-align: center;
         font-size: 16px;
@@ -110,30 +106,21 @@ const LinkButtonContactUs = styled(LinkButton)`
 `
 
 const StyledHeaderCommission = styled(StyledHeader)`
-    margin-bottom: 0;
-    text-align: left;
-    @media ${device.desktopL} {
-        margin-left: 0;
-        text-align: left;
-    }
-
-    @media (max-width: 1444px) {
-        margin-left: auto;
-        text-align: left;
-        padding-left: 0.35rem;
-    }
     @media ${device.laptopM} {
         text-align: center;
-        padding-left: unset;
     }
-    @media ${device.mobileL} {
-        width: 40rem;
-    }
-
     @media ${device.mobileM} {
         text-align: left;
-        margin: auto;
         width: 38rem;
+    }
+    @media (min-width: 1200px) and (max-width: 1680px) {
+        padding-left: 12vw;
+    }
+    @media (min-width: 1680px) and (max-width: 2560px) {
+        padding-left: 11vw;
+    }
+    @media (min-width: 2560px) {
+        padding-left: 10vw;
     }
 `
 
@@ -173,7 +160,7 @@ const DerivIBProgramme = () => {
                         {localize('Earn commission from your clients’ trades on Deriv MT5.')}
                     </SubtitleHeader>
                     <Header as="h2" mb="2rem" type="sub-section-title" mt="4rem" align="center">
-                        {localize('Deriv  MT5')}
+                        {localize('Deriv MT5')}
                     </Header>
                 </TitleWrapper>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">

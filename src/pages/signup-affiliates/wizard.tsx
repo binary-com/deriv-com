@@ -20,36 +20,41 @@ const AffiliateSignup = () => {
     const [next_btn_enabled, setNextBtnEnabled] = useState(false)
 
     const [affiliate_account, setAffiliateAccount] = useState({
-        account_type: -1,
+        account_type: 1,
         address_details: {
             country: null,
             state: '',
             city: '',
             street: '',
-            postal_code: '',
+            postal_code: '12345',
         },
         phone_number: {
-            phone: null,
+            phone: 1,
             prefix: '44',
         },
         personal_details: {
             first_name: '',
             last_name: '',
             date_birth: '',
-            website_url: 'https://',
-            social_media_url: 'https://',
+            website_url: '',
+            social_media_url: '',
             password: '',
             company_name: '',
             company_registration_number: '',
             certificate: {
-                lastModified: 0,
-                lastModifiedDate: null,
+                lastModified: '',
+                lastModifiedDate: '',
                 name: '',
-                size: 0,
+                size: null,
                 type: '',
                 webkitRelativePath: '',
             },
-            citizen: null,
+            citizen: {
+                name: '',
+                display_name: '',
+                value: null,
+            },
+            currency: '',
         },
         terms_use: null,
     })
@@ -102,6 +107,7 @@ const AffiliateSignup = () => {
                         company_registration_number: value.company_registration_number,
                         certificate: value.certificate,
                         citizen: value.citizen,
+                        currency: value.currency,
                     },
                 })
                 break

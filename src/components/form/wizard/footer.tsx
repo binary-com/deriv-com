@@ -30,7 +30,7 @@ const enum ButtonType {
     Next = 'NEXT',
 }
 
-const Footer = ({ step, setStep, max_step, setEnableNext, disabled }: FooterProps) => {
+const WizardFooter = ({ step, setStep, max_step, setEnableNext, disabled }: FooterProps) => {
     const buttonHandler = React.useCallback(
         (button_type: ButtonType): void => {
             if (button_type === ButtonType.Previous) {
@@ -38,8 +38,8 @@ const Footer = ({ step, setStep, max_step, setEnableNext, disabled }: FooterProp
             }
             if (button_type === ButtonType.Next) {
                 step < max_step && setStep(step + 1)
+                setEnableNext(false)
             }
-            setEnableNext(false)
         },
         [max_step, setEnableNext, setStep, step],
     )
@@ -62,4 +62,4 @@ const Footer = ({ step, setStep, max_step, setEnableNext, disabled }: FooterProp
     )
 }
 
-export default Footer
+export default WizardFooter

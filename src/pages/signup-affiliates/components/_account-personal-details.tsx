@@ -11,12 +11,17 @@ import { useDerivWS } from 'store'
 import Uploader from 'components/form/uploader'
 
 type TCertificate = {
-    lastModified: number
+    lastModified: string
     lastModifiedDate: string
     name: string
     size: number
     type: string
     webkitRelativePath: string
+}
+type TCitizen = {
+    name: string
+    display_name: string
+    value: string
 }
 type PersonalDataProps = {
     first_name: string
@@ -27,8 +32,9 @@ type PersonalDataProps = {
     password: string
     company_name: string
     company_registration_number: string
-    certificate: TCertificate | React.SetStateAction<string>
-    citizen: string
+    certificate: string | TCertificate | (() => string | TCertificate)
+    citizen: TCitizen
+    currency: string
 }
 type PersonalDetailsprops = {
     updatedData: (e) => void
@@ -97,18 +103,17 @@ const PersonalDetails = ({
     const [website_url, setWebsiteUrl] = useState(affiliate_personal_data.website_url)
     const [social_media_url, setSocialMedia] = useState(affiliate_personal_data.social_media_url)
     const [password, setPassword] = useState(affiliate_personal_data.password)
-    const [currency, setCurrency] = useState('')
+    const [currency, setCurrency] = useState(affiliate_personal_data.currency)
 
-    const [first_name_error_msg, setFirstNameErrorMsg] = useState(null)
-    const [last_name_error_msg, setLastNameErrorMsg] = useState(null)
-    const [date_birth_error_msg, setDateBirthErrorMsg] = useState(null)
-    const [company_name_error_msg, setCompanyNameErrorMsg] = useState(null)
-    const [company_registration_error_msg, setCompanyRegistrationErrorMsg] = useState(null)
-    const [certificate_error_msg, setCertificateErrorMsg] = useState(null)
-    const [citizen_error_msg, setCitizenErrorMsg] = useState(null)
-    const [website_url_error_msg, setWebsiteUrlErrorMsg] = useState(null)
-    const [social_media_url_error_msg, setSocialMediaErrorMsg] = useState(null)
-    const [password_error_msg, setPasswordErrorMsg] = useState(null)
+    const [first_name_error_msg, setFirstNameErrorMsg] = useState()
+    const [last_name_error_msg, setLastNameErrorMsg] = useState()
+    const [company_name_error_msg, setCompanyNameErrorMsg] = useState()
+    const [company_registration_error_msg, setCompanyRegistrationErrorMsg] = useState()
+    const [certificate_error_msg, setCertificateErrorMsg] = useState()
+    const [citizen_error_msg, setCitizenErrorMsg] = useState()
+    const [website_url_error_msg, setWebsiteUrlErrorMsg] = useState()
+    const [social_media_url_error_msg, setSocialMediaErrorMsg] = useState()
+    const [password_error_msg, setPasswordErrorMsg] = useState()
 
     const form_inputs = [
         {
@@ -141,11 +146,9 @@ const PersonalDetails = ({
             type: 'date',
             label: localize('Date of Birth'),
             placeholder: 'Date of Birth',
-            error: date_birth_error_msg,
             value: date_birth,
             required: false,
             value_set: setDateBirth,
-            error_set: setDateBirthErrorMsg,
         },
         {
             id: 'company_name',
@@ -251,10 +254,8 @@ const PersonalDetails = ({
         company_name ||
         company_registration_number ||
         currency ||
-        certificate_error_msg ||
         !first_name_error_msg ||
         !last_name_error_msg ||
-        !date_birth_error_msg ||
         !citizen_error_msg ||
         !password_error_msg ||
         !company_name_error_msg ||
@@ -289,6 +290,7 @@ const PersonalDetails = ({
             website_url,
             social_media_url,
             password,
+            currency,
         })
     }, [
         first_name,
@@ -301,6 +303,7 @@ const PersonalDetails = ({
         website_url,
         social_media_url,
         password,
+        currency,
     ])
 
     useEffect(() => {
@@ -335,7 +338,7 @@ const PersonalDetails = ({
             }
             case 'date_birth': {
                 setDateBirth(value)
-                return setDateBirthErrorMsg(validation.date(value))
+                break
             }
             case 'company_name': {
                 setCompanyName(value)

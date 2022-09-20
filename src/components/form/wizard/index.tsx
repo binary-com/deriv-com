@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Footer from './footer'
+import WizardFooter from './footer'
 import Header from './header'
 import Stepper from './stepper'
 import device from 'themes/device'
@@ -89,7 +89,7 @@ const Wizard = ({ children, show, steps_names, title, enable_next_button }: Wiza
                         <div key={child.props.name}>{step === idx + 1 && child}</div>
                     ))}
                 </Wrapper>
-                <Footer
+                <WizardFooter
                     step={step}
                     setStep={setStep}
                     max_step={max_step}

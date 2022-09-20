@@ -57,8 +57,10 @@ const TitleWrapper = styled.div`
 
 const StyledCardWrapper = styled(CardWrapper)`
     flex-wrap: nowrap;
+    justify-content: left;
     @media ${device.laptopL} {
         flex-wrap: wrap;
+        justify-content: left;
     }
 `
 
@@ -73,6 +75,7 @@ const StyledSection = styled(SectionContainer)`
 
 const DecideSection = styled(StyledSection)`
     padding-top: 40px;
+    justify-content: center;
     @media ${device.tabletL} {
         padding: 24px 0 0;
     }
@@ -88,6 +91,7 @@ const IBSectionContainer = styled(SectionContainer)`
     }
 `
 const StyledHeader = styled(Header)`
+    text-align: center;
     @media ${device.tabletL} {
         text-align: center;
         font-size: 16px;
@@ -107,6 +111,7 @@ const LinkButtonContactUs = styled(LinkButton)`
 
 const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
+    text-align: left;
     @media ${device.desktopL} {
         margin-left: 0;
         text-align: left;
@@ -167,9 +172,12 @@ const DerivIBProgramme = () => {
                     <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         {localize('Earn commission from your clients’ trades on Deriv MT5.')}
                     </SubtitleHeader>
+                    <Header as="h2" mb="2rem" type="sub-section-title" mt="4rem" align="center">
+                        {localize('Deriv  MT5')}
+                    </Header>
                 </TitleWrapper>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">
-                    <StyledHeaderCommission as="h4" type="main-paragraph" ml="18rem" mb="1.6rem">
+                    <StyledHeaderCommission as="h4" type="main-paragraph" mb="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <StyledCardWrapper>

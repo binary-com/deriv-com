@@ -12,7 +12,6 @@ import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import { Localize, localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 import { DerivStore } from 'store'
@@ -23,17 +22,6 @@ type StockIndicesProps = {
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const { is_row } = useCountryRule()
-    const display_title = is_row ? (
-        <Localize translate_text="Synthetics trades available on Deriv" />
-    ) : (
-        <Localize translate_text="Synthetic trades available on Deriv" />
-    )
-    const simple_step_header = is_row ? (
-        <Localize translate_text="Start trading synthetics on Deriv in 3 simple steps" />
-    ) : (
-        <Localize translate_text="Start trading synthetics on Deriv in 3 simple steps" />
-    )
 
     return (
         <div>
@@ -72,9 +60,15 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                         }
                     />
                 }
-                display_title={display_title}
+                display_title={<Localize translate_text="Synthetics trades available on Deriv" />}
             />
-            <SimpleSteps header={simple_step_header} content={simple_step_content} sign_up />
+            <SimpleSteps
+                header={
+                    <Localize translate_text="Start trading synthetics on Deriv in 3 simple steps" />
+                }
+                content={simple_step_content}
+                sign_up
+            />
             <OtherMarkets except="derived" />
         </div>
     )

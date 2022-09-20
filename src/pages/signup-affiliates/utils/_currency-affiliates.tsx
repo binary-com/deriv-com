@@ -8,10 +8,10 @@ import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 
 const Item = styled(Flex)`
-    width: 90px;
+    min-width: 90px;
+    min-height: 90px;
     pointer-events: all;
     cursor: pointer;
-    height: 90px;
     font-size: 12px;
     transition: background 0.25s;
 
@@ -77,11 +77,13 @@ const Currency = ({ selectedCurrency, current_select }: CurrencyProps) => {
                         onClick={() => handleCurrencyData(currency)}
                         key={currency.code}
                     >
-                        <img src={currency.image} alt="" width="24" height="24" />
+                        <img src={currency.image} alt="currency" width="24" height="24" />
 
                         <Header
                             type="paragraph-2"
                             weight="normal"
+                            pt="8px"
+                            pl={currency.code ? '0' : '12px'}
                             color={selected ? 'red' : 'black'}
                             style={{ textAlign: 'center' }}
                         >

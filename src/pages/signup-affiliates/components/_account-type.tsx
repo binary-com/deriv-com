@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import IndividualIcon from 'images/svg/signup-affiliates/individual 2.svg'
 import BusinessIcon from 'images/svg/signup-affiliates/company 2.svg'

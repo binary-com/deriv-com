@@ -27,7 +27,7 @@ type PersonalDataProps = {
     password: string
     company_name: string
     company_registration_number: string
-    certificate: TCertificate
+    certificate: TCertificate | React.SetStateAction<string>
     citizen: string
 }
 type PersonalDetailsprops = {
@@ -427,7 +427,6 @@ const PersonalDetails = ({
                                     upload_info="Accepted files: pdf, jpeg, and png. Max file size: 8MB"
                                     handleError={() => {
                                         item?.value_set(null)
-                                        item?.error_set(null)
                                     }}
                                 />
                             )
@@ -453,8 +452,7 @@ const PersonalDetails = ({
                                     required={item.required}
                                     data-lpignore="true"
                                     handleError={() => {
-                                        item?.value_set(null)
-                                        item?.error_set(null)
+                                        item?.value_set('')
                                     }}
                                 />
                             )

@@ -10,8 +10,19 @@ interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
     handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
 }
 
-export type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps
+export type InputProps = ReactInput &
+    InputWrapperProps &
+    StyledInputProps &
+    StyledLabelProps & { value?: TFile }
 
+type TFile = {
+    lastModified: number
+    lastModifiedDate: string
+    name: string
+    size: number
+    type: string
+    webkitRelativePath: string
+}
 type InputWrapperProps = {
     border?: string
     label_hover_color?: string
@@ -92,6 +103,7 @@ export const StyledError = styled.img`
     height: 1.6rem;
     width: 1.6rem;
     cursor: pointer;
+
     @media ${device.tablet} {
         right: 2rem;
         top: 1.6rem;
@@ -199,9 +211,9 @@ export const StyledLabel = styled.label<StyledLabelProps>`
 const StyledIcon = styled.img<StyledInputProps>`
     position: absolute;
     right: ${({ password_icon }) => (password_icon ? '2.8rem' : '0.8rem')};
-    top: 1.2rem;
-    height: 1.6rem;
-    width: 1.6rem;
+    top: 1.5rem;
+    height: 1rem;
+    width: 1.5rem;
     cursor: pointer;
 
     @media ${device.tablet} {

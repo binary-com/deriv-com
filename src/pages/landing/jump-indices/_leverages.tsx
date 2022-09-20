@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -8,6 +8,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
 import TradingIcon from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
 import LeverageIcon from 'images/svg/jump-indices/jump-indices-high-leverage.svg'
+import { ContentType } from 'pages/landing/_types'
 
 const MainWrapper = styled(Flex)`
     background: var(--color-white);
@@ -80,12 +81,6 @@ const BtnWrapper = styled(Flex)`
 const StyledLinkButton = styled(LinkButton)`
     padding: 11px 16px;
 `
-
-type ContentType = {
-    imgsrc: string
-    header: ReactElement
-    title: ReactElement
-}
 
 const content: ContentType[] = [
     {

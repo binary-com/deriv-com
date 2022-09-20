@@ -343,13 +343,13 @@ export const minsk: LocationsType = {
         'Team meetings',
         'Girl having a chat ',
     ],
-    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    map: 'ChIJF9lVNV_P20YRukiwrfpLP4E',
     map_text:
         'The work culture at Deriv (Minsk) is lively and energetic. You will get exposure to global projects and work with highly skilled professionals from across the world. If working for a diverse and thriving team excites you, join our team in Minsk.',
     address: address_belarus,
     map_img: 'minsk_map',
-    google_map_link: 'https://yandex.com/maps/-/CCUeZJdAKA',
-    has_iframe: false,
+    google_map_link: 'https://goo.gl/maps/WJsR7a8vJfRifKzPA',
+    has_iframe: true,
 }
 
 export const paris: LocationsType = {
@@ -556,6 +556,8 @@ export const ciudad: LocationsType = {
     display_continent: 'Latam',
     link: '/careers/locations/ciudad/',
     display_name: 'Ciudad del Este',
+    display_thumbnail_name: 'Ciudad del Este',
+    display_title_name: 'Ciudad del Este',
     img_alt: 'Paraguay office at Ciudad del Este',
     map_office_name: '(Ciudad del Este)',
     country: 'Paraguay',
@@ -599,8 +601,8 @@ export const all_offices: LocationsType[] = [
     minsk,
     rwanda,
     asuncion,
-    georgetown,
     ciudad,
+    georgetown,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,

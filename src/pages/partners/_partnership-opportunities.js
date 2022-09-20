@@ -106,12 +106,11 @@ const PartnershipOpportunities = () => {
                         </Text>
                     </ClientCard>
                 )}
-
                 <ClientCard
                     to=""
                     type="api"
                     target="_blank"
-                    external="true"
+                    external
                     rel="noopener noreferrer"
                     third
                 >
@@ -131,5 +130,4 @@ const PartnershipOpportunities = () => {
         </SectionContainer>
     )
 }
-
 export default PartnershipOpportunities

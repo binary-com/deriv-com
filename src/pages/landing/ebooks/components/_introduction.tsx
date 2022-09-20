@@ -1,18 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { ImageTextAndIntroductionProps } from './_types'
 import { Header, Text, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import BackgroundPattern from 'images/svg/landing/ebook-intro-bg.svg'
 import device from 'themes/device'
 import { localize, Localize } from 'components/localization'
-
-type IntroductionProps = {
-    imageWidth: number
-    introImage: string
-    introList?: string[]
-    introPara: string
-    subPara?: string
-}
 
 const BacgroundWrapper = styled.div`
     width: 100%;
@@ -98,7 +91,7 @@ const Introduction = ({
     introPara,
     subPara,
     introList,
-}: IntroductionProps) => {
+}: ImageTextAndIntroductionProps) => {
     return (
         <BacgroundWrapper>
             <MediaWapper>

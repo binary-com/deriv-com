@@ -355,8 +355,15 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    <p>Level 5, 42 Agias Filaxeos,</p>
-                                    <p>Limassol 3025</p>
+                                    <Desktop>
+                                        <p>Level 5, 42 Agias Filaxeos,</p>
+                                        <p>Limassol 3025</p>
+                                    </Desktop>
+                                    <Mobile>
+                                        <StyledMobileAddress>
+                                            Level 5, 42 Agias Filaxeos Limassol 3025
+                                        </StyledMobileAddress>
+                                    </Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -392,8 +399,16 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    <p>Suite 5, One Cornet Street, St </p>
-                                    <p>Peter Port, Guernsey GY1 1 BZ</p>
+                                    <Desktop>
+                                        <p>Suite 5, One Cornet Street, St </p>
+                                        <p>Peter Port, Guernsey GY1 1 BZ</p>
+                                    </Desktop>
+                                    <Mobile>
+                                        <StyledMobileAddress>
+                                            Suite 5, One Cornet Street, St Peter Port, Guernsey GY1
+                                            1 BZ
+                                        </StyledMobileAddress>
+                                    </Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -475,8 +490,10 @@ export const Offices = () => {
                                                 <p>Labuan 87000, Sabah</p>
                                             </Desktop>
                                             <Mobile>
-                                                <p>F16, Level 1, Paragon Labuan,</p>
-                                                <p>Jalan Tun Mustapha, Labuan 87000, Sabah</p>
+                                                <StyledMobileAddress>
+                                                    F16, Level 1, Paragon Labuan Jalan Tun Mustapha,
+                                                    Labuan 87000, Sabah
+                                                </StyledMobileAddress>
                                             </Mobile>
                                         </LocalizedLinkText>
                                     </Box>
@@ -547,8 +564,10 @@ export const Offices = () => {
                                                 <p>Melaka 75200</p>
                                             </Desktop>
                                             <Mobile>
-                                                <p>67-1 & 69-1, Jalan KLJ 6, Taman Kota</p>
-                                                <p>Laksamana Jaya, Melaka 75200</p>
+                                                <StyledMobileAddress>
+                                                    67-1 & 69-1, Jalan KLJ 6, Taman Kota Laksamana
+                                                    Jaya, Melaka 75200
+                                                </StyledMobileAddress>
                                             </Mobile>
                                         </LocalizedLinkText>
                                     </Box>
@@ -642,7 +661,11 @@ export const Offices = () => {
                                     <p>Level 2, 25/1-3 Vera Khoruzhey</p>
                                     <p>Street, Minsk 220123</p>
                                 </Desktop>
-                                <Mobile>Level 2, 25/1-3 Vera Khoruzhey Street, Minsk 220123</Mobile>
+                                <Mobile>
+                                    <StyledMobileAddress>
+                                        Level 2, 25/1-3 Vera Khoruzhey Street, Minsk 220123
+                                    </StyledMobileAddress>
+                                </Mobile>
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
@@ -681,8 +704,13 @@ export const Offices = () => {
                                 mt="0.8rem"
                                 ml="1.6rem"
                             >
-                                <p>Level 2 East Wing, Kigali Heights,</p>
-                                <p>KG7 Avenue, Kigali</p>
+                                <Desktop>
+                                    <p>Level 2 East Wing, Kigali Heights,</p>
+                                    <p>KG7 Avenue, Kigali</p>
+                                </Desktop>
+                                <StyledMobileAddress>
+                                    Level 2 East Wing, Kigali Heights, KG7 Avenue, Kigali
+                                </StyledMobileAddress>
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
@@ -729,9 +757,8 @@ export const Offices = () => {
                                 </Desktop>
                                 <Mobile>
                                     <StyledMobileAddress>
-                                        <p>Edificio Atrium, Piso 2,</p>
-                                        <p>Guido Spano Esq. Doctor Morra,</p>
-                                        <p>Asunción 1849</p>
+                                        Edificio Atrium, Piso 2, Guido Spano Esq. Doctor Morra,
+                                        Asunción 1849
                                     </StyledMobileAddress>
                                 </Mobile>
                             </LocalizedLinkText>

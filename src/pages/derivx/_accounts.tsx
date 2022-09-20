@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Desktop } from 'components/containers'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -29,15 +29,17 @@ const Accounts = () => {
     return (
         <Section>
             {/* TODO: Update link once available in deriv app */}
-            <StyledLinkButton
-                external
-                type="derivx"
-                secondary
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-            >
-                {localize('Go to Deriv X dashboard')}
-            </StyledLinkButton>
+            <Desktop>
+                <StyledLinkButton
+                    external
+                    type="derivx"
+                    secondary
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                >
+                    {localize('Go to Deriv X dashboard')}
+                </StyledLinkButton>
+            </Desktop>
         </Section>
     )
 }

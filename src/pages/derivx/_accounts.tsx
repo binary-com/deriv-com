@@ -27,9 +27,9 @@ const StyledLinkButton = styled(LinkButton)`
 
 const Accounts = () => {
     return (
-        <Section>
-            {/* TODO: Update link once available in deriv app */}
-            <Desktop>
+        <Desktop>
+            <Section>
+                {/* TODO: Update link once available in deriv app */}
                 <StyledLinkButton
                     external
                     type="derivx"
@@ -39,8 +39,8 @@ const Accounts = () => {
                 >
                     {localize('Go to Deriv X dashboard')}
                 </StyledLinkButton>
-            </Desktop>
-        </Section>
+            </Section>
+        </Desktop>
     )
 }
 

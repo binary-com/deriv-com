@@ -35,10 +35,19 @@ const getDomainAppID = () => {
     else if (getDomainUrl() === deriv_be_url) return deriv_be_app_id
     else return deriv_com_app_id
 }
-
-export const eu_domains = ['eu', 'staging-eu']
+// '-eu__testlink' and '-uk__testlink' regexes are meant to create test links for eu and uk countries.
+// To make them work on your test links you need to end your branch name with `'-eu__testlink' and '-uk__testlink'
+export const eu_domains = [
+    new RegExp(/^eu$/),
+    new RegExp(/^staging-eu$/),
+    new RegExp(/-eu__testlink$/),
+]
 export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com']
-export const uk_domains = ['uk', 'staging-uk']
+export const uk_domains = [
+    new RegExp(/^uk$/),
+    new RegExp(/^staging-uk$/),
+    new RegExp(/-uk__testlink$/),
+]
 
 // URL
 export const domain_full_url = `https://${getDomainUrl()}`

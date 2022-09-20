@@ -55,7 +55,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
             </WhyTrade>
             {is_row ? (
                 <AvailableTrades
-                    CFDs={<CFDs market_content={derived_fx_cfds} />}
+                    CFDs={<CFDs market_content={derived_fx_cfds} market_tab_name={'derived-fx'} />}
                     display_title={display_title}
                 />
             ) : (

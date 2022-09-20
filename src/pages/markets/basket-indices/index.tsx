@@ -21,7 +21,7 @@ const BasketPage = () => (
         <DerivedFXHero
             title={<Localize translate_text="Derived" />}
             description={
-                <Localize translate_text="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk<br /> appetite. Choose from our 24/7 synthetic indices, derived FX indices, and basket indices." />
+                <Localize translate_text="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices." />
             }
         />
         <NavTab route_from={'basket-indices'} route_offset={650} />

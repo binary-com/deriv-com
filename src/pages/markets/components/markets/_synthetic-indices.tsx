@@ -25,12 +25,12 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const { is_row } = useCountryRule()
     const display_title = is_row ? (
-        <Localize translate_text="Synthetic indices trades available on Deriv" />
+        <Localize translate_text="Synthetics trades available on Deriv" />
     ) : (
         <Localize translate_text="Synthetic trades available on Deriv" />
     )
     const simple_step_header = is_row ? (
-        <Localize translate_text="Start trading synthetic indices on Deriv in 3 simple steps" />
+        <Localize translate_text="Start trading synthetics on Deriv in 3 simple steps" />
     ) : (
         <Localize translate_text="Start trading synthetics on Deriv in 3 simple steps" />
     )
@@ -39,7 +39,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
         <div>
             <WhyTrade
                 description={
-                    <Localize translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
+                    <Localize translate_text="Deriv’s proprietary synthetics simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
                 }
                 header={<Localize translate_text="Why trade synthetics on Deriv" />}
             >
@@ -52,10 +52,15 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_eu_country ? synthetic_cfds_eu : synthetic_cfds} />}
+                CFDs={
+                    <CFDs
+                        market_content={is_eu_country ? synthetic_cfds_eu : synthetic_cfds}
+                        market_tab_name={'synthetic-indices'}
+                    />
+                }
                 DigitalOptions={
                     <DigitalOptions
-                        market_name={localize('synthetic indices')}
+                        market_name={localize('synthetics')}
                         options_list={synthetic_options}
                     />
                 }

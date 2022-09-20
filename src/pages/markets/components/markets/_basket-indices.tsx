@@ -48,7 +48,9 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         )}
                     </WhyTrade>
                     <AvailableTrades
-                        CFDs={<CFDs market_content={basket_cfds} />}
+                        CFDs={
+                            <CFDs market_content={basket_cfds} market_tab_name={'basket-indices'} />
+                        }
                         DigitalOptions={
                             <DigitalOptions
                                 market_type="basket-indices"

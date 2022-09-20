@@ -12,16 +12,16 @@ import { SEO } from 'components/containers'
 const DerivedFxPage = () => {
     const { is_eu } = useCountryRule()
     const description_eu = (
-        <Localize translate_text="Trade 24/7 on our proprietary synthetic indices that simulate real-world market movements. These indices are unaffected by regular<br /> market hours, global events, or market and liquidity risks. Manage your exposure by selecting the volatility level to suit your risk appetite." />
+        <Localize translate_text="Trade 24/7 on our proprietary synthetics that simulate real-world market movements. These indices are unaffected by regular<br /> market hours, global events, or market and liquidity risks. Manage your exposure by selecting the volatility level to suit your risk appetite." />
     )
     const description_row = (
-        <Localize translate_text="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetic indices, derived FX indices, and basket indices." />
+        <Localize translate_text="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices." />
     )
     return (
         <Layout>
             <SEO
                 description={localize(
-                    'Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetic indices, derived FX indices, and basket indices.',
+                    'Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices.',
                 )}
                 title={localize('Derived Fx | Derived Fx demo account | Deriv')}
             />

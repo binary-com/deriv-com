@@ -35,8 +35,8 @@ const getDomainAppID = () => {
     else if (getDomainUrl() === deriv_be_url) return deriv_be_app_id
     else return deriv_com_app_id
 }
-// '-eu__testlink' and '-uk__testlink' regexes are meant to create test links for eu and uk countries.
-// To make them work on your test links you need to start your branch name with `'eu__testlink-' and 'uk__testlink-'
+// '-eu__testlink-' and '-uk__testlink-' regexes are meant to create test links for eu and uk countries.
+// To make them work on your test links you need to start your branch name with '-eu__testlink-' and '-uk__testlink-'
 export const eu_domains = [
     new RegExp(/^eu$/),
     new RegExp(/^staging-eu$/),

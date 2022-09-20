@@ -209,7 +209,7 @@ const DerivAffiliateProgramme = () => {
                         {localize('Choose a commission plan:')}
                     </StyledHeader>
                     <CardWrapper>
-                        <StyledCard height="57.0rem" tabletHeight="auto" padding="2.4rem">
+                        <StyledCard height="64.0rem" tabletHeight="auto" padding="2.4rem">
                             <div>
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Revenue share')}
@@ -248,7 +248,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="57.0rem" tabletHeight="auto" padding="2.4rem">
+                        <StyledCard height="64rem" tabletHeight="auto" padding="2.4rem">
                             <div>
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Turnover')}
@@ -281,6 +281,12 @@ const DerivAffiliateProgramme = () => {
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>
+                                <Text mt="2.4rem">
+                                    <Localize
+                                        translate_text="<0>Lookbacks:</0> Earn 0.8% on the stake of each lookbacks trade on SmartTrader."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </Text>
                             </div>
                             <div>
                                 <ApplyNow
@@ -296,7 +302,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="57.0rem" tabletHeight="auto" padding="2.4rem">
+                        <StyledCard height="64rem" tabletHeight="auto" padding="2.4rem">
                             <div>
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('CPA (EU only)')}

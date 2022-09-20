@@ -8,7 +8,6 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 // Images
 import GetStartedImage from 'images/common/help-centre/dbot-button-get-started.png'
-import DeleteImage from 'images/common/help-centre/dbot-delete.png'
 import CreateVariableImage from 'images/common/help-centre/dbot-create-variable.png'
 import NameVariableImage from 'images/common/help-centre/dbot-name-variable.png'
 import UserDefinedVariableImage from 'images/common/help-centre/dbot-user-defined-variable.png'
@@ -49,17 +48,6 @@ const ImageWrapper = styled.div`
     @media ${device.mobileL} {
         & > img {
             width: 110% !important;
-        }
-    }
-`
-
-const ImageWrapperRemove = styled.div`
-    margin-top: 2.4rem;
-    margin-left: 7rem;
-
-    @media ${device.mobileL} {
-        & > img {
-            width: 10rem !important;
         }
     }
 `
@@ -160,19 +148,13 @@ const RemoveBlocks = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                "Just click on the block you want to remove and press 'Delete' on your keyboard. You can also drag the block to the recycle bin icon at the lower right corner of the workspace.",
-            )}
-        </Text>
-        <ImageWrapperRemove>
-            <img
-                src={DeleteImage}
-                alt={localize('Remove block')}
-                width="7.4rem"
-                style={{ width: '7.4rem' }}
-                loading="lazy"
+            <Localize
+                translate_text={
+                    'Click on the block you want to remove and press <0>Delete</0> on your keyboard.'
+                }
+                components={[<strong key={0} />]}
             />
-        </ImageWrapperRemove>
+        </Text>
     </ArticleWrapper>
 )
 

@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Article, ArticleProps } from './_article'
-import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
+import { ArticleWrapper, StyledHeader, StyledText, ExternalLink } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 // Images
 import GetStartedImage from 'images/common/help-centre/dbot-button-get-started.png'
-import SearchBarImage from 'images/common/help-centre/dbot-search-bar.png'
 import DeleteImage from 'images/common/help-centre/dbot-delete.png'
 import CreateVariableImage from 'images/common/help-centre/dbot-create-variable.png'
 import NameVariableImage from 'images/common/help-centre/dbot-name-variable.png'
@@ -99,6 +98,11 @@ const StyledTable = styled.table<ArticleProps>`
     width: 100%;
     margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
 `
+const StyledLink = styled(ExternalLink)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
 
 const WhatIsDBot = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
@@ -114,37 +118,41 @@ const WhatIsDBot = ({ text }: ArticleProps) => (
 const FindBlocks = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize("1. Click 'Get started' at the top left corner to open the blocks menu.")}
-        </Text>
-        <ImageWrapper>
-            <img
-                src={GetStartedImage}
-                alt={localize('Get Started')}
-                width="14.2rem"
-                style={{ width: '14.2rem' }}
-                loading="lazy"
+        <Text lh="3.4">{localize('Follow these steps:')}</Text>
+        <Text lh="2.4">
+            <Localize
+                translate_text="1. Go to <0>Bot Builder</0>."
+                components={[<strong key={0} />]}
             />
-        </ImageWrapper>
+        </Text>
         <Text>
+            <Localize
+                translate_text={
+                    "2. Under the <0>Blocks menu</0>, you'll see a list of categories. Blocks are grouped within these categories. Choose the block you want and drag them to the workspace."
+                }
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text lh="3.4">
             {localize(
-                '2. The blocks are categorised accordingly. Just choose the blocks you want and drag them to the workspace.',
+                '3. You can also search for the blocks you want using the search bar above the categories.',
             )}
         </Text>
-        <StyledText>
-            {localize(
-                '3. You can also search for the blocks you want using the search field on the toolbar at the top of the workspace.',
-            )}
-        </StyledText>
-        <ImageWrapper>
-            <img
-                src={SearchBarImage}
-                alt={localize('Search')}
-                width="17.9rem"
-                style={{ width: '17.9rem' }}
-                loading="lazy"
+        <Text>
+            <Localize
+                translate_text="For more info, <0>check out this blog post</0> on the basics of building a trading bot."
+                components={[
+                    <StyledLink
+                        to="/academy/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/"
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
             />
-        </ImageWrapper>
+        </Text>
     </ArticleWrapper>
 )
 

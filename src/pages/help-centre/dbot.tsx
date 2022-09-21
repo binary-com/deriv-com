@@ -34,12 +34,16 @@ import UpdateCurrentPlImage from 'images/common/help-centre/dbot-update-currentP
 import SummaryTabImage from 'images/common/help-centre/dbot-summary-tab.png'
 import TransactionsImage from 'images/common/help-centre/dbot-transactions.png'
 import ChartImage from 'images/common/help-centre/dbot-chart.png'
+import BlockMenuImage from 'images/common/help-centre/dbot-block-menu.png'
+import BlockMenuSearchBarImage from 'images/common/help-centre/dbot-block-menu-search-bar.png'
 
 const ImageWrapper = styled.div`
-    padding: 2.4rem 10.2rem;
+    padding: 2.4rem 0;
     max-width: 60rem;
     width: 100%;
-    margin: 0 10rem;
+    margin: 0 11rem;
+    display: flex;
+    align-self: flex-end;
 
     @media ${device.laptopL} {
         padding: 2.4rem 0;
@@ -106,8 +110,8 @@ const WhatIsDBot = ({ text }: ArticleProps) => (
 const FindBlocks = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text lh="3.4">{localize('Follow these steps:')}</Text>
-        <Text lh="2.4">
+        <Text>{localize('Follow these steps:')}</Text>
+        <Text>
             <Localize
                 translate_text="1. Go to <0>Bot Builder</0>."
                 components={[<strong key={0} />]}
@@ -121,11 +125,27 @@ const FindBlocks = ({ text }: ArticleProps) => (
                 components={[<strong key={0} />]}
             />
         </Text>
-        <Text lh="3.4">
+        <ImageWrapper>
+            <img
+                src={BlockMenuImage}
+                alt={localize('Get Started')}
+                style={{ width: '60rem' }}
+                loading="lazy"
+            />
+        </ImageWrapper>
+        <Text>
             {localize(
                 '3. You can also search for the blocks you want using the search bar above the categories.',
             )}
         </Text>
+        <ImageWrapper>
+            <img
+                src={BlockMenuSearchBarImage}
+                alt={localize('Get Started')}
+                style={{ width: '60rem', alignSelf: 'end' }}
+                loading="lazy"
+            />
+        </ImageWrapper>
         <Text>
             <Localize
                 translate_text="For more info, <0>check out this blog post</0> on the basics of building a trading bot."

@@ -131,6 +131,7 @@ const PersonalDetails = ({
             type: 'text',
             label: localize('First name'),
             placeholder: 'First name',
+            extra_info: ' ',
             error: first_name_error_msg,
             value: first_name,
             required: true,
@@ -143,6 +144,7 @@ const PersonalDetails = ({
             type: 'text',
             label: localize('Last name'),
             placeholder: 'First name',
+            extra_info: ' ',
             error: last_name_error_msg,
             value: last_name,
             required: true,
@@ -155,6 +157,7 @@ const PersonalDetails = ({
             type: 'date',
             label: localize('Date of Birth'),
             placeholder: 'Date of Birth',
+            extra_info: ' ',
             value: date_birth,
             required: false,
             value_set: setDateBirth,
@@ -165,6 +168,7 @@ const PersonalDetails = ({
             type: 'text',
             label: localize('Company name'),
             placeholder: 'Company name',
+            extra_info: ' ',
             error: company_name_error_msg,
             value: company_name,
             required: true,
@@ -177,6 +181,7 @@ const PersonalDetails = ({
             type: 'number',
             label: localize('Company registration number'),
             placeholder: 'Company registration number',
+            extra_info: ' ',
             error: company_registration_error_msg,
             value: company_registration_number,
             required: true,
@@ -202,6 +207,7 @@ const PersonalDetails = ({
             type: 'select',
             label: localize('Citizenship'),
             placeholder: 'Citizenship',
+            extra_info: ' ',
             error: citizen_error_msg,
             list: citizenship_list,
             value: citizen,
@@ -239,6 +245,7 @@ const PersonalDetails = ({
             type: 'password',
             label: localize('Password'),
             placeholder: 'Password',
+            extra_info: ' ',
             error: password_error_msg,
             value: password,
             required: true,
@@ -406,6 +413,7 @@ const PersonalDetails = ({
                                         items={item.list}
                                         type={item.type}
                                         label={localize('Citizenship')}
+                                        mb="48px"
                                     />
                                 </DropdownSearchWrapper>
                             )
@@ -417,7 +425,6 @@ const PersonalDetails = ({
                                     key={item.id}
                                     error={item.error}
                                     border="solid 1px var(--color-grey-7)"
-                                    background="white"
                                     label={localize(item.label)}
                                     setFieldValue={item.value_set}
                                 />
@@ -467,7 +474,7 @@ const PersonalDetails = ({
                                     required={item.required}
                                     data-lpignore="true"
                                     autoComplete="off"
-                                    extra_info={item?.extra_info}
+                                    extra_info={item.extra_info}
                                     handleError={() => {
                                         item?.value_set('')
                                     }}

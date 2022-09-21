@@ -233,7 +233,7 @@ const StyledIcon = styled.img<StyledInputProps>`
 
 const Input = ({
     label = '',
-    extra_info = '',
+    extra_info,
     height = '',
     border = '',
     focus_border = '',
@@ -292,12 +292,12 @@ const Input = ({
                     onClick={() => setPasswordVisible(!is_password_visible)}
                 />
             )}
-            {error ? (
+            {extra_info ? (
+                <ExtraInfo p="8px 0 16px 16px">{extra_info}</ExtraInfo>
+            ) : (
                 <ErrorMessages lh="1.4" align="left" color="red-1">
                     {error}
                 </ErrorMessages>
-            ) : (
-                <ExtraInfo p="8px 0 16px 16px">{extra_info}</ExtraInfo>
             )}
             {error && (
                 <StyledError

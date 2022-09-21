@@ -708,9 +708,11 @@ export const Offices = () => {
                                     <p>Level 2 East Wing, Kigali Heights,</p>
                                     <p>KG7 Avenue, Kigali</p>
                                 </Desktop>
-                                <StyledMobileAddress>
-                                    Level 2 East Wing, Kigali Heights, KG7 Avenue, Kigali
-                                </StyledMobileAddress>
+                                <Mobile>
+                                    <StyledMobileAddress>
+                                        Level 2 East Wing, Kigali Heights, KG7 Avenue, Kigali
+                                    </StyledMobileAddress>
+                                </Mobile>
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>

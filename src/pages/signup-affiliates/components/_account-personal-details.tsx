@@ -189,6 +189,7 @@ const PersonalDetails = ({
             type: 'file',
             label: certificate?.name ? certificate?.name : localize('Certificate of incorporation'),
             placeholder: 'Certificate of incorporation',
+            extra_info: 'Accepted files: pdf, jpeg, and png. Max file size: 8MB',
             error: certificate_error_msg,
             value: certificate,
             required: true,
@@ -212,6 +213,7 @@ const PersonalDetails = ({
             type: 'text',
             label: localize('Website URL'),
             placeholder: 'Website URL',
+            extra_info: 'Optional',
             error: website_url_error_msg,
             value: website_url,
             required: false,
@@ -224,6 +226,7 @@ const PersonalDetails = ({
             type: 'text',
             label: localize('Social media URL'),
             placeholder: 'Social media URL',
+            extra_info: 'Optional',
             error: social_media_url_error_msg,
             value: social_media_url,
             required: false,
@@ -436,7 +439,7 @@ const PersonalDetails = ({
                                     required={item.required}
                                     accept="image/*"
                                     className="custom-file-input"
-                                    upload_info="Accepted files: pdf, jpeg, and png. Max file size: 8MB"
+                                    extra_info={item.extra_info}
                                     handleError={() => {
                                         item?.value_set(null)
                                     }}
@@ -464,6 +467,7 @@ const PersonalDetails = ({
                                     required={item.required}
                                     data-lpignore="true"
                                     autoComplete="off"
+                                    extra_info={item?.extra_info}
                                     handleError={() => {
                                         item?.value_set('')
                                     }}

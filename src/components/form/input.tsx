@@ -29,7 +29,7 @@ type InputWrapperProps = {
     focus_border?: string
     error?: string
     disabled?: boolean
-    upload_info?: string
+    extra_info?: string
 }
 type StyledInputProps = {
     input_background?: string
@@ -208,6 +208,12 @@ export const StyledLabel = styled.label<StyledLabelProps>`
     padding: 0 0.4rem;
     background: none;
 `
+export const ExtraInfo = styled.div<{ p?: string }>`
+    padding: ${({ p }) => p || '8px 0 16px;'};
+    font-size: 12px;
+    color: var(--color-grey-5);
+    min-height: 30px;
+`
 const StyledIcon = styled.img<StyledInputProps>`
     position: absolute;
     right: ${({ password_icon }) => (password_icon ? '2.8rem' : '0.8rem')};
@@ -227,6 +233,7 @@ const StyledIcon = styled.img<StyledInputProps>`
 
 const Input = ({
     label = '',
+    extra_info = '',
     height = '',
     border = '',
     focus_border = '',
@@ -285,9 +292,13 @@ const Input = ({
                     onClick={() => setPasswordVisible(!is_password_visible)}
                 />
             )}
-            <ErrorMessages lh="1.4" align="left">
-                {error}
-            </ErrorMessages>
+            {error ? (
+                <ErrorMessages lh="1.4" align="left" color="red-1">
+                    {error}
+                </ErrorMessages>
+            ) : (
+                <ExtraInfo p="8px 0 16px 16px">{extra_info}</ExtraInfo>
+            )}
             {error && (
                 <StyledError
                     src={CrossIcon}

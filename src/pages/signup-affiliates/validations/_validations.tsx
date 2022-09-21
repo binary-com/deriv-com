@@ -107,10 +107,8 @@ const cityValidation = (input, field_name, min_digit, max_digit) => {
         return localize(`Please enter a valid city`)
     }
 }
-const urlValidation = (input, field_name) => {
-    if (!input) {
-        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
-    } else if (!affiliate_validation_regex.url.test(input)) {
+const urlValidation = (input) => {
+    if (!affiliate_validation_regex.url.test(input)) {
         return localize(`Please enter a valid url`)
     }
 }

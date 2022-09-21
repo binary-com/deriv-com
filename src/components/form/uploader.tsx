@@ -7,6 +7,7 @@ import {
     StyledLabel,
     RelativeWrapper,
     InputProps,
+    ExtraInfo,
 } from './input'
 
 const StyledUpload = styled.div`
@@ -26,12 +27,7 @@ const StyledUpload = styled.div`
         border-color: var(--color-black);
     }
 `
-const UploadInfo = styled.div`
-    padding: 4px 0 16px;
-    font-size: 12px;
-    color: var(--color-grey-5);
-    min-height: 30px;
-`
+
 const UploadLabel = styled(StyledLabel)``
 
 const Uploader = ({
@@ -43,7 +39,7 @@ const Uploader = ({
     background = '',
     id = '',
     error = '',
-    upload_info = '',
+    extra_info = '',
     ...props
 }: InputProps) => {
     const hiddenFileInput = React.useRef(null)
@@ -79,7 +75,7 @@ const Uploader = ({
                     {error}
                 </ErrorMessages>
             ) : (
-                <UploadInfo>{upload_info}</UploadInfo>
+                <ExtraInfo>{extra_info}</ExtraInfo>
             )}
         </RelativeWrapper>
     )

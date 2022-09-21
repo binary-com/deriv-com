@@ -49,11 +49,7 @@ const AffiliateSignup = () => {
                 type: '',
                 webkitRelativePath: '',
             },
-            citizen: {
-                name: '',
-                display_name: '',
-                value: null,
-            },
+            citizen: null,
             currency: '',
         },
         terms_use: null,

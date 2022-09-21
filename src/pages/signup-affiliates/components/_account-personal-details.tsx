@@ -18,11 +18,6 @@ type TCertificate = {
     type: string
     webkitRelativePath: string
 }
-type TCitizen = {
-    name: string
-    display_name: string
-    value: string
-}
 type PersonalDataProps = {
     first_name: string
     last_name: string
@@ -33,7 +28,7 @@ type PersonalDataProps = {
     company_name: string
     company_registration_number: string
     certificate: string | TCertificate | (() => string | TCertificate)
-    citizen: TCitizen
+    citizen: string
     currency: string
 }
 type PersonalDetailsprops = {
@@ -50,13 +45,26 @@ const DropdownSearchWrapper = styled.div`
 const CurrencyWrapper = styled.div`
     display: flex;
     flex-direction: row;
-`
+    align-items: center;
 
-const Line = styled.div`
-    width: 132px;
-    height: 1px;
-    margin: 10px;
-    background-color: var(--color-grey-7);
+    h4 {
+        display: flex;
+        flex-direction: row;
+    }
+    h4::before,
+    h4::after {
+        content: '';
+        flex: 1 1;
+        border-bottom: 1px solid;
+        margin: auto;
+        color: var(--color-grey-8);
+    }
+    h4::before {
+        margin-right: 8px;
+    }
+    h4::after {
+        margin-left: 8px;
+    }
 `
 
 const InputGroup = styled.div`
@@ -77,6 +85,7 @@ const InputWrapper = styled.div`
     line-height: 10px;
     font-weight: normal;
     margin-right: 1rem;
+
     @media ${device.mobileL} {
         width: unset;
         max-width: 191px;
@@ -454,6 +463,7 @@ const PersonalDetails = ({
                                     onBlur={handleInput}
                                     required={item.required}
                                     data-lpignore="true"
+                                    autoComplete="off"
                                     handleError={() => {
                                         item?.value_set('')
                                     }}
@@ -463,11 +473,9 @@ const PersonalDetails = ({
                     })}
 
                     <CurrencyWrapper>
-                        <Line />
-                        <Header type="paragraph-1" align="center" weight="normal">
+                        <Header as="h4" type="paragraph-1" align="center" weight="normal">
                             {localize('Choose your currency')}
                         </Header>
-                        <Line />
                     </CurrencyWrapper>
                     <Currency current_select={currency} selectedCurrency={setCurrency} />
                 </form>

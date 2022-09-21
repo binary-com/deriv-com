@@ -27,7 +27,7 @@ const StyledUpload = styled.div`
     }
 `
 const UploadInfo = styled.div`
-    padding-top: 5px;
+    padding: 4px 0 16px;
     font-size: 12px;
     color: var(--color-grey-5);
     min-height: 30px;

@@ -209,7 +209,7 @@ const DerivAffiliateProgramme = () => {
                         {localize('Choose a commission plan:')}
                     </StyledHeader>
                     <CardWrapper>
-                        <StyledCard height="64.0rem" tabletHeight="auto" padding="2.4rem">
+                        <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
                             <div>
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Revenue share')}
@@ -248,7 +248,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="64rem" tabletHeight="auto" padding="2.4rem">
+                        <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
                             <div>
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Turnover')}
@@ -302,7 +302,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="64rem" tabletHeight="auto" padding="2.4rem">
+                        <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
                             <div>
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('CPA (EU only)')}

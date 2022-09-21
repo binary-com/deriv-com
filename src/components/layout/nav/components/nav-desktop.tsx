@@ -66,6 +66,7 @@ const links = show_branding
           { active: 'resources', title: <Localize translate_text="Resources" /> },
       ]
     : [
+          { active: 'trade', title: <Localize translate_text="Trade" /> },
           { active: 'markets', title: <Localize translate_text="Markets" /> },
           { active: 'resources', title: <Localize translate_text="Resources" /> },
       ]

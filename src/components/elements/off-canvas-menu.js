@@ -46,6 +46,7 @@ import Terms from 'images/svg/menu/terms.svg'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import show_branding from 'config'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -195,116 +196,140 @@ export const OffCanvasMenuWrapper = (props) => {
                                 </Flex>
                             </>
                         )}
-
-                        <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
-
-                        <Text color="grey-5" mb="8px" size="14px">
-                            {<Localize translate_text="Trading platforms" />}
-                        </Text>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="DMT5"
-                                icon={() => <img src={DMT5} alt="" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
-                                }
-                                title={<Localize translate_text="Deriv MT5" />}
-                                onClick={handleArrowClick}
-                                to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
-                            />
-                        </Flex>
-                        {is_row && (
-                            <Flex mb="2rem">
-                                <NavCard
-                                    aria_label="Derivx"
-                                    icon={() => <img src={DerivX} alt="" width="32" height="32" />}
-                                    content={
-                                        <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
-                                    }
-                                    title={<Localize translate_text="Deriv X" />}
-                                    onClick={handleArrowClick}
-                                    to="/derivx/"
-                                />
-                            </Flex>
-                        )}
-
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="DTrader"
-                                icon={() => <img src={DTrader} alt="" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
-                                }
-                                title={<Localize translate_text="DTrader" />}
-                                onClick={handleArrowClick}
-                                to="/dtrader/"
-                            />
-                        </Flex>
-                        {is_row && (
+                        {show_branding && (
                             <>
+                                <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
+
+                                <Text color="grey-5" mb="8px" size="14px">
+                                    {<Localize translate_text="Trading platforms" />}
+                                </Text>
                                 <Flex mb="2rem">
                                     <NavCard
-                                        aria_label="Deriv GO"
+                                        aria_label="DMT5"
                                         icon={() => (
-                                            <img src={DerivGo} alt="" width="32" height="32" />
+                                            <img src={DMT5} alt="" width="32" height="32" />
                                         )}
                                         content={
-                                            <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                                            <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                                         }
-                                        title={<Localize translate_text="Deriv GO" />}
+                                        title={<Localize translate_text="Deriv MT5" />}
                                         onClick={handleArrowClick}
-                                        to="/deriv-go/"
+                                        to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                                     />
                                 </Flex>
+                                {is_row && (
+                                    <Flex mb="2rem">
+                                        <NavCard
+                                            aria_label="Derivx"
+                                            icon={() => (
+                                                <img src={DerivX} alt="" width="32" height="32" />
+                                            )}
+                                            content={
+                                                <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
+                                            }
+                                            title={<Localize translate_text="Deriv X" />}
+                                            onClick={handleArrowClick}
+                                            to="/derivx/"
+                                        />
+                                    </Flex>
+                                )}
+
                                 <Flex mb="2rem">
                                     <NavCard
-                                        aria_label="SmartTrader"
+                                        aria_label="DTrader"
                                         icon={() => (
-                                            <img src={Smarttrader} alt="" width="32" height="32" />
+                                            <img src={DTrader} alt="" width="32" height="32" />
                                         )}
                                         content={
-                                            <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                            <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
                                         }
-                                        title={<Localize translate_text="SmartTrader" />}
+                                        title={<Localize translate_text="DTrader" />}
                                         onClick={handleArrowClick}
-                                        to="trading"
-                                        type="smart_trader"
-                                        external
-                                        target="_blank"
-                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                        to="/dtrader/"
                                     />
                                 </Flex>
-                                <Flex mb="2rem">
-                                    <NavCard
-                                        aria_label="DBot"
-                                        icon={() => (
-                                            <img src={DBot} alt="" width="32" height="32" />
-                                        )}
-                                        content={
-                                            <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                                        }
-                                        title={<Localize translate_text="DBot" />}
-                                        onClick={handleArrowClick}
-                                        to="/dbot/"
-                                    />
-                                </Flex>
-                                <Flex mb="2rem">
-                                    <NavCard
-                                        aria_label="BinaryBot"
-                                        icon={() => (
-                                            <img src={BinaryBot} alt="" width="32" height="32" />
-                                        )}
-                                        content={
-                                            <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
-                                        }
-                                        title={<Localize translate_text="Binary Bot" />}
-                                        onClick={handleArrowClick}
-                                        to={binary_bot_url}
-                                        external
-                                        target="_blank"
-                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
-                                    />
-                                </Flex>
+                                {is_row && (
+                                    <>
+                                        <Flex mb="2rem">
+                                            <NavCard
+                                                aria_label="Deriv GO"
+                                                icon={() => (
+                                                    <img
+                                                        src={DerivGo}
+                                                        alt=""
+                                                        width="32"
+                                                        height="32"
+                                                    />
+                                                )}
+                                                content={
+                                                    <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                                                }
+                                                title={<Localize translate_text="Deriv GO" />}
+                                                onClick={handleArrowClick}
+                                                to="/deriv-go/"
+                                            />
+                                        </Flex>
+                                        <Flex mb="2rem">
+                                            <NavCard
+                                                aria_label="SmartTrader"
+                                                icon={() => (
+                                                    <img
+                                                        src={Smarttrader}
+                                                        alt=""
+                                                        width="32"
+                                                        height="32"
+                                                    />
+                                                )}
+                                                content={
+                                                    <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                                }
+                                                title={<Localize translate_text="SmartTrader" />}
+                                                onClick={handleArrowClick}
+                                                to="trading"
+                                                type="smart_trader"
+                                                external
+                                                target="_blank"
+                                                otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                            />
+                                        </Flex>
+                                        <Flex mb="2rem">
+                                            <NavCard
+                                                aria_label="DBot"
+                                                icon={() => (
+                                                    <img src={DBot} alt="" width="32" height="32" />
+                                                )}
+                                                content={
+                                                    <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                                                }
+                                                title={<Localize translate_text="DBot" />}
+                                                onClick={handleArrowClick}
+                                                to="/dbot/"
+                                            />
+                                        </Flex>
+                                        <Flex mb="2rem">
+                                            <NavCard
+                                                aria_label="BinaryBot"
+                                                icon={() => (
+                                                    <img
+                                                        src={BinaryBot}
+                                                        alt=""
+                                                        width="32"
+                                                        height="32"
+                                                    />
+                                                )}
+                                                content={
+                                                    <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
+                                                }
+                                                title={<Localize translate_text="Binary Bot" />}
+                                                onClick={handleArrowClick}
+                                                to={binary_bot_url}
+                                                external
+                                                target="_blank"
+                                                otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                            />
+                                        </Flex>
+                                    </>
+                                )}
                             </>
                         )}
                     </AccordionItem>
@@ -398,58 +423,66 @@ export const OffCanvasMenuWrapper = (props) => {
                             />
                         </Flex>
                     </AccordionItem>
+
                     <AccordionItem
                         header={<Localize translate_text="About us" />}
                         header_style={header_style}
                         style={content_style}
                     >
-                        <StyledLink to="/who-we-are/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Story} alt="" width="24" height="24" />
-                            </div>
-                            <span>{<Localize translate_text="Who we are" />}</span>
-                        </StyledLink>
-                        <StyledLink to="/partners/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Partner} alt="" width="24" height="24" />
-                            </div>
-                            <span>{<Localize translate_text="Partnership programmes" />}</span>
-                        </StyledLink>
-                        <StyledLink to="/why-choose-us/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Choose} alt="" width="24" height="24" />
-                            </div>
-                            <span>{<Localize translate_text="Why choose us" />}</span>
-                        </StyledLink>
-                        <StyledLink to="/contact_us/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Contact} alt="" width="24" height="24" />
-                            </div>
-                            <span>{<Localize translate_text="Contact us" />}</span>
-                        </StyledLink>
-                        <StyledLink to="/careers/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Career} alt="" width="24" height="24" />
-                            </div>
-                            <Span>{<Localize translate_text="Careers" />}</Span>
-                        </StyledLink>
-                        <StyledLink
-                            to=""
-                            external={true}
-                            type="derivlife"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={handleArrowClick}
-                        >
-                            <div>
-                                <img src={DerivLife} alt="" width="24" height="24" />
-                            </div>
-                            <Span>{<Localize translate_text="Deriv life" />}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
-                            </SpanSvg>
-                        </StyledLink>
+                        {show_branding && (
+                            <>
+                                <StyledLink to="/who-we-are/" onClick={handleArrowClick}>
+                                    <div>
+                                        <img src={Story} alt="" width="24" height="24" />
+                                    </div>
+                                    <span>{<Localize translate_text="Who we are" />}</span>
+                                </StyledLink>
+                                <StyledLink to="/partners/" onClick={handleArrowClick}>
+                                    <div>
+                                        <img src={Partner} alt="" width="24" height="24" />
+                                    </div>
+                                    <span>
+                                        {<Localize translate_text="Partnership programmes" />}
+                                    </span>
+                                </StyledLink>
+                                <StyledLink to="/why-choose-us/" onClick={handleArrowClick}>
+                                    <div>
+                                        <img src={Choose} alt="" width="24" height="24" />
+                                    </div>
+                                    <span>{<Localize translate_text="Why choose us" />}</span>
+                                </StyledLink>
+                                <StyledLink to="/contact_us/" onClick={handleArrowClick}>
+                                    <div>
+                                        <img src={Contact} alt="" width="24" height="24" />
+                                    </div>
+                                    <span>{<Localize translate_text="Contact us" />}</span>
+                                </StyledLink>
+                                <StyledLink to="/careers/" onClick={handleArrowClick}>
+                                    <div>
+                                        <img src={Career} alt="" width="24" height="24" />
+                                    </div>
+                                    <Span>{<Localize translate_text="Careers" />}</Span>
+                                </StyledLink>
+                                <StyledLink
+                                    to=""
+                                    external={true}
+                                    type="derivlife"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={handleArrowClick}
+                                >
+                                    <div>
+                                        <img src={DerivLife} alt="" width="24" height="24" />
+                                    </div>
+                                    <Span>{<Localize translate_text="Deriv life" />}</Span>
+                                    <SpanSvg>
+                                        <img src={Diagonal} alt="" width="16" height="16" />
+                                    </SpanSvg>
+                                </StyledLink>
+                            </>
+                        )}
                     </AccordionItem>
+
                     <AccordionItem
                         header={<Localize translate_text="Resources" />}
                         header_style={header_style}
@@ -461,22 +494,24 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{<Localize translate_text="Help centre" />}</span>
                         </StyledLink>
-                        <StyledLink
-                            to=""
-                            type="community"
-                            external
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={handleArrowClick}
-                        >
-                            <div>
-                                <img src={Community} alt="" width="24" height="24" />
-                            </div>
-                            <Span>{<Localize translate_text="Community" />}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
-                            </SpanSvg>
-                        </StyledLink>
+                        {show_branding && (
+                            <StyledLink
+                                to=""
+                                type="community"
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={handleArrowClick}
+                            >
+                                <div>
+                                    <img src={Community} alt="" width="24" height="24" />
+                                </div>
+                                <Span>{<Localize translate_text="Community" />}</Span>
+                                <SpanSvg>
+                                    <img src={Diagonal} alt="" width="16" height="16" />
+                                </SpanSvg>
+                            </StyledLink>
+                        )}
                         <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Trade} alt="" width="24" height="24" />
@@ -489,56 +524,69 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{<Localize translate_text="Payment methods" />}</span>
                         </StyledLink>
-                        <StyledLink
-                            to="/dmt5-trading-signals/#signal-subscriber/"
-                            onClick={handleArrowClick}
-                        >
-                            <div>
-                                <SvgWrapper>
-                                    <img src={Signals} alt="" width="24" height="24" />
-                                </SvgWrapper>
-                            </div>
-                            <span>{<Localize translate_text="DMT5 Signals" />}</span>
-                        </StyledLink>
-                        <StyledLink
-                            to={deriv_status_page_url}
-                            external
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={handleArrowClick}
-                        >
-                            <div>
-                                <img src={Status} alt="" width="24" height="24" />
-                            </div>
-                            <Span>{<Localize translate_text="Status page" />}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
-                            </SpanSvg>
-                        </StyledLink>
-                        <StyledLink to="/academy/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Blog} alt="" width="24" height="24" />
-                            </div>
-                            <Span>{<Localize translate_text="Academy" />}</Span>
-                        </StyledLink>
+                        {show_branding && (
+                            <StyledLink
+                                to="/dmt5-trading-signals/#signal-subscriber/"
+                                onClick={handleArrowClick}
+                            >
+                                <div>
+                                    <SvgWrapper>
+                                        <img src={Signals} alt="" width="24" height="24" />
+                                    </SvgWrapper>
+                                </div>
+                                <span>{<Localize translate_text="DMT5 Signals" />}</span>
+                            </StyledLink>
+                        )}
+                        {show_branding && (
+                            <StyledLink
+                                to={deriv_status_page_url}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={handleArrowClick}
+                            >
+                                <div>
+                                    <img src={Status} alt="" width="24" height="24" />
+                                </div>
+                                <Span>{<Localize translate_text="Status page" />}</Span>
+                                <SpanSvg>
+                                    <img src={Diagonal} alt="" width="16" height="16" />
+                                </SpanSvg>
+                            </StyledLink>
+                        )}
+                        {show_branding && (
+                            <StyledLink to="/academy/" onClick={handleArrowClick}>
+                                <div>
+                                    <img src={Blog} alt="" width="24" height="24" />
+                                </div>
+                                <Span>{<Localize translate_text="Academy" />}</Span>
+                            </StyledLink>
+                        )}
                     </AccordionItem>
                     <AccordionItem
                         header={<Localize translate_text="Legal" />}
                         header_style={header_style}
                         style={content_style}
                     >
-                        <StyledLink to="/regulatory/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Regulatory} alt="" width="24" height="24" />
-                            </div>
-                            <span>{<Localize translate_text="Regulatory information" />}</span>
-                        </StyledLink>
-                        <StyledLink to="/terms-and-conditions/#clients" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Terms} alt="" width="24" height="24" />
-                            </div>
-                            <span>{<Localize translate_text="Terms and conditions" />}</span>
-                        </StyledLink>
+                        {show_branding && (
+                            <StyledLink to="/regulatory/" onClick={handleArrowClick}>
+                                <div>
+                                    <img src={Regulatory} alt="" width="24" height="24" />
+                                </div>
+                                <span>{<Localize translate_text="Regulatory information" />}</span>
+                            </StyledLink>
+                        )}
+                        {show_branding && (
+                            <StyledLink
+                                to="/terms-and-conditions/#clients"
+                                onClick={handleArrowClick}
+                            >
+                                <div>
+                                    <img src={Terms} alt="" width="24" height="24" />
+                                </div>
+                                <span>{<Localize translate_text="Terms and conditions" />}</span>
+                            </StyledLink>
+                        )}
                         <StyledLink to="/responsible/" onClick={handleArrowClick}>
                             <div>
                                 <img src={SecureTrading} alt="" width="24" height="24" />
@@ -553,39 +601,46 @@ export const OffCanvasMenuWrapper = (props) => {
                         header_style={header_style}
                         style={content_style}
                     >
-                        <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={AffiliateIb} alt="" width="32" height="32" />
-                            </div>
-                            <span>{<Localize translate_text="Affiliates and IBs" />}</span>
-                        </StyledLink>
-                        {is_row && (
-                            <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
-                                <div>
-                                    <img src={PaymentAgent} alt="" width="32" height="32" />
-                                </div>
-                                <span>{<Localize translate_text="Payment agents" />}</span>
-                            </StyledLink>
+                        {show_branding && (
+                            <>
+                                <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
+                                    <div>
+                                        <img src={AffiliateIb} alt="" width="32" height="32" />
+                                    </div>
+                                    <span>{<Localize translate_text="Affiliates and IBs" />}</span>
+                                </StyledLink>
+                                {is_row && (
+                                    <StyledLink
+                                        to="/partners/payment-agent/"
+                                        onClick={handleArrowClick}
+                                    >
+                                        <div>
+                                            <img src={PaymentAgent} alt="" width="32" height="32" />
+                                        </div>
+                                        <span>{<Localize translate_text="Payment agents" />}</span>
+                                    </StyledLink>
+                                )}
+                                <StyledLink
+                                    to=""
+                                    type="api"
+                                    target="_blank"
+                                    external
+                                    rel="noopener noreferrer"
+                                    onClick={handleArrowClick}
+                                >
+                                    <div>
+                                        <img src={API} alt="" width="32" height="32" />
+                                    </div>
+                                    <span>{<Localize translate_text="API" />}</span>
+                                </StyledLink>
+                                <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
+                                    <div>
+                                        <img src={BugBounty} alt="" width="32" height="32" />
+                                    </div>
+                                    <span>{<Localize translate_text="Bug bounty" />}</span>
+                                </StyledLink>
+                            </>
                         )}
-                        <StyledLink
-                            to=""
-                            type="api"
-                            target="_blank"
-                            external
-                            rel="noopener noreferrer"
-                            onClick={handleArrowClick}
-                        >
-                            <div>
-                                <img src={API} alt="" width="32" height="32" />
-                            </div>
-                            <span>{<Localize translate_text="API" />}</span>
-                        </StyledLink>
-                        <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={BugBounty} alt="" width="32" height="32" />
-                            </div>
-                            <span>{<Localize translate_text="Bug bounty" />}</span>
-                        </StyledLink>
                     </AccordionItem>
                 </Accordion>
             </OffCanvasMenuContainer>

@@ -56,6 +56,7 @@ import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
+import show_branding from 'config'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]
@@ -268,9 +269,10 @@ const SwapCalculator = () => {
             </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
-                    {localize(
-                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5 (DMT5).',
-                    )}
+                    {show_branding &&
+                        localize(
+                            'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5 (DMT5).',
+                        )}
                 </SectionSubtitle>
 
                 <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
@@ -531,7 +533,7 @@ const SwapCalculator = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            {localize('Go to Deriv MT5 dashboard')}
+                                            {show_branding && localize('Go to Deriv MT5 dashboard')}
                                         </StyledLinkButton>
                                     }
                                     {
@@ -785,7 +787,7 @@ const SwapCalculator = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {localize('Go to Deriv MT5 dashboard')}
+                                        {show_branding && localize('Go to Deriv MT5 dashboard')}
                                     </StyledLinkButton>
                                     <StyledLinkButton secondary to="/trade-types/cfds/">
                                         {localize('Learn more about swap')}

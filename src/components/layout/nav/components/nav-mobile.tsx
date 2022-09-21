@@ -19,6 +19,7 @@ import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import show_branding from 'config'
 
 type NavMobileProps = {
     is_ppc?: boolean
@@ -69,14 +70,15 @@ const NavMobile = ({
                         onClick={openOffCanvasMenu}
                     />
                 )}
-
-                <LogoWrapper to="/" aria-label="Home">
-                    <img src={LogoOnly} alt="deriv logo" width={115} />
-                    <LogoDescription ai="center">
-                        <Line />
-                        <img src={GetTrading} alt="get trading" />
-                    </LogoDescription>
-                </LogoWrapper>
+                {show_branding && (
+                    <LogoWrapper to="/" aria-label="Home">
+                        <img src={LogoOnly} alt="deriv logo" width={115} />
+                        <LogoDescription ai="center">
+                            <Line />
+                            <img src={GetTrading} alt="get trading" />
+                        </LogoDescription>
+                    </LogoWrapper>
+                )}
 
                 <LeftSection>
                     {!hide_language_switcher && <LanguageSwitcher has_short_name is_high_nav />}

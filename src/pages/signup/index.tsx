@@ -7,6 +7,7 @@ import { SEO } from 'components/containers'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements'
 import Graph from 'images/svg/landing/graph.svg'
+import show_branding from 'config'
 
 const Wrapper = styled.section`
     padding: 8rem 0;
@@ -83,13 +84,14 @@ const NewSignup = () => {
                     <Content>
                         <StyledGraph src={Graph} alt="graph" />
                         <Header mt="2.4rem" as="h3" type="section-title">
-                            {localize('Start trading with Deriv')}
+                            {show_branding && localize('Start trading with Deriv')}
                         </Header>
                         <br />
                         <Text>
-                            {localize(
-                                'Join over 1 million people who trade with Deriv.com and Binary.com — the award-winning platform that’s been trusted for over 20 years.',
-                            )}
+                            {show_branding &&
+                                localize(
+                                    'Join over 1 million people who trade with Deriv.com and Binary.com — the award-winning platform that’s been trusted for over 20 years.',
+                                )}
                         </Text>
                         <Line />
                     </Content>

@@ -54,6 +54,7 @@ import Astropay from 'images/svg/payment-methods/payment-astropay.svg'
 import OneForYou from 'images/svg/payment-methods/payment-one-for-you.svg'
 import Advcash from 'images/svg/payment-methods/payment-advcash.svg'
 import Dp2p from 'images/svg/payment-methods/payment-dp2p.svg'
+import show_branding from 'config'
 
 const StyledIcon = styled.img`
     width: 100%;
@@ -838,15 +839,19 @@ const payment_data = [
     },
     {
         is_dp2p: true,
-        name: <Localize translate_text="Deriv P2P" />,
+        name: show_branding && <Localize translate_text="Deriv P2P" />,
         note: (
             <Localize translate_text="Please contact our customer support if you wish to increase your daily deposit/withdrawal limits." />
         ),
         data: [
             {
-                method: <StyledIcon src={Dp2p} alt="DP2P" />,
+                method: show_branding ? <StyledIcon src={Dp2p} alt="DP2P" /> : '',
                 currencies: <Localize translate_text="Your local currency" />,
-                min_max_deposit: <Localize translate_text="Deriv USD account" />,
+                min_max_deposit: show_branding ? (
+                    <Localize translate_text="Deriv USD account" />
+                ) : (
+                    ''
+                ),
                 min_max_withdrawal: <Localize translate_text="500 USD" />,
                 deposit_time: <Localize translate_text="500 USD" />,
                 withdrawal_time: <Localize translate_text="Max 1 hour" />,

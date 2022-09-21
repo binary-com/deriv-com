@@ -7,6 +7,7 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import show_branding from 'config'
 
 const query = graphql`
     query {
@@ -71,7 +72,7 @@ const TradingCFDIncreases = () => {
                 </Text>
 
                 <Text as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem">
-                    {localize('CFD trading features on Deriv')}
+                    {show_branding && localize('CFD trading features on Deriv')}
                 </Text>
 
                 <Text as="h5" weight="bold" mb="0.8rem">
@@ -117,9 +118,10 @@ const TradingCFDIncreases = () => {
                     {localize('Stop out')}
                 </Header>
                 <Text mb="1.6rem">
-                    {localize(
-                        'With stop out, if your margin level drops below Deriv’s stop out level, your positions may be closed automatically to protect you from further losses.',
-                    )}
+                    {show_branding &&
+                        localize(
+                            'With stop out, if your margin level drops below Deriv’s stop out level, your positions may be closed automatically to protect you from further losses.',
+                        )}
                 </Text>
                 <Text mb="1.6rem">
                     {localize(
@@ -127,18 +129,20 @@ const TradingCFDIncreases = () => {
                     )}
                 </Text>
                 <Text mb="1.6rem">
-                    {localize(
-                        'For example, if you close your position at a certain point, your equity is the total of your account balance plus the profit or loss at that point. If the ratio of this to your currently used margin is lower than Deriv’s stop out level, stop out may be applied.',
-                    )}
+                    {show_branding &&
+                        localize(
+                            'For example, if you close your position at a certain point, your equity is the total of your account balance plus the profit or loss at that point. If the ratio of this to your currently used margin is lower than Deriv’s stop out level, stop out may be applied.',
+                        )}
                 </Text>
 
                 <Text as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem" mt="2.4rem">
                     {localize('Margin call')}
                 </Text>
                 <Text mb="2.4rem">
-                    {localize(
-                        'If your margin level drops below Deriv’s margin call level, you’ll get a margin call, which is a warning that your account is approaching the stop out level.',
-                    )}
+                    {show_branding &&
+                        localize(
+                            'If your margin level drops below Deriv’s margin call level, you’ll get a margin call, which is a warning that your account is approaching the stop out level.',
+                        )}
                 </Text>
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                     {localize('Swap rates (overnight funding)')}
@@ -150,9 +154,10 @@ const TradingCFDIncreases = () => {
                     )}
                 </Text>
                 <Text mb="1.6rem">
-                    {localize(
-                        'You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on Deriv’s CFD trading platforms.',
-                    )}
+                    {show_branding &&
+                        localize(
+                            'You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on Deriv’s CFD trading platforms.',
+                        )}
                 </Text>
 
                 <StyledLinkButton mb="4rem" secondary to="/trader-tools/swap-calculator/">

@@ -11,6 +11,7 @@ import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import SetOptionalParameters from 'images/svg/trade-types/set-optional-parameters.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
 import { DerivStore } from 'store'
+import show_branding from 'config'
 
 const query = graphql`
     query {
@@ -176,7 +177,9 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="1. Market" />}
                         description={
-                            <Localize translate_text="Choose an asset from the list of markets offered on Deriv." />
+                            show_branding && (
+                                <Localize translate_text="Choose an asset from the list of markets offered on Deriv." />
+                            )
                         }
                     >
                         {is_eu_country ? (
@@ -247,7 +250,9 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="5. Take profit" />}
                         description={
-                            <Localize translate_text="This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account." />
+                            show_branding && (
+                                <Localize translate_text="This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account." />
+                            )
                         }
                     >
                         <QueryImage data={data['multiplier_take_profit']} alt="Set profit level" />

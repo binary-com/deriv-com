@@ -11,6 +11,7 @@ import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { Button } from 'components/form'
 import { DerivStore, DerivStoreType } from 'store'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import show_branding from 'config'
 
 const WhyTradeCFD = () => {
     const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
@@ -20,7 +21,7 @@ const WhyTradeCFD = () => {
         <SectionContainer background="rgba(245, 247, 250, 0.64)" padding="4rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <Header as="h3" type="section-title" mb="4rem">
-                    {localize('Why trade on CFDs with Deriv')}
+                    {show_branding && localize('Why trade on CFDs with Deriv')}
                 </Header>
                 <Grid>
                     <WhyTradeItem>
@@ -32,10 +33,12 @@ const WhyTradeCFD = () => {
                         </Text>
                         <Text mb="4rem">
                             {is_eu_country
-                                ? localize(
+                                ? show_branding &&
+                                  localize(
                                       'Take advantage of tight spreads on Deriv’s CFD trading platforms.',
                                   )
-                                : localize(
+                                : show_branding &&
+                                  localize(
                                       'Take advantage of high leverage and tight spreads on Deriv’s CFD trading platforms.',
                                   )}
                         </Text>
@@ -86,7 +89,7 @@ const WhyTradeCFD = () => {
                     </WhyTradeItem>
                 </Grid>
                 <Text align="left" width="100%" weight="bold">
-                    {localize("Don't have a Deriv account yet?")}
+                    {show_branding && localize("Don't have a Deriv account yet?")}
                 </Text>
                 <Button onClick={handleSignup} id="dm-cfd-signup" mt="1.6rem" secondary>
                     {localize('Create free demo account')}

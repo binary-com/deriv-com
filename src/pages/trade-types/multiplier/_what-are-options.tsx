@@ -21,6 +21,7 @@ import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import show_branding from 'config'
 const AvailableTrades = Loadable(() => import('./_available-trades'))
 
 const StyledHeader = styled(Header)`
@@ -171,9 +172,11 @@ const WhatAreOptions = () => {
                     <StyledHeader as="h2" size="4.8rem" mb="1.2rem">
                         {localize('What are multipliers?')}
                     </StyledHeader>
-                    <Text>
-                        <Localize translate_text="Deriv multipliers combines the upside of leverage trading with the limited risk of options. This means that when the market moves in your favour, you'll multiply your potential profits. If the market moves against your prediction, your losses are limited only to your stake." />
-                    </Text>
+                    {show_branding && (
+                        <Text>
+                            <Localize translate_text="Deriv multipliers combines the upside of leverage trading with the limited risk of options. This means that when the market moves in your favour, you'll multiply your potential profits. If the market moves against your prediction, your losses are limited only to your stake." />
+                        </Text>
+                    )}
                 </SmallContainer>
             </StyledSectionContainerHead>
             <StyledSectionContainer padding="4rem 0 0">
@@ -397,7 +400,7 @@ const WhatAreOptions = () => {
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
                     <Header as="h3" size="3.2rem" mb="4rem">
-                        {localize('Why trade multipliers on Deriv')}
+                        {show_branding && localize('Why trade multipliers on Deriv')}
                     </Header>
                     <Grid>
                         <WhyTradeItem>
@@ -484,7 +487,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                     </Grid>
                     <Text mt="4rem" mb="1.6rem" weight="bold">
-                        {localize("Don't have a Deriv.com account yet?")}
+                        {show_branding && localize("Don't have a Deriv.com account yet?")}
                     </Text>
                     <Button onClick={handleSignup} id="dm-multipliers-signup-1" to="" secondary>
                         {localize('Create free demo account')}

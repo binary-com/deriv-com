@@ -37,6 +37,7 @@ import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
 import TraderTool from 'images/svg/custom/trader-tool-nav.svg'
+import show_branding from 'config'
 
 const StyledText = styled(Text)`
     font-size: var(--text-size-xs);
@@ -317,87 +318,95 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     </Flex>
                 </>
             )}
-            <Flex direction="column" wrap="wrap" jc="flex-start">
-                <StyledText>{<Localize translate_text="Trading platforms" />}</StyledText>
-                <NavCard
-                    aria_label="Deriv MT5"
-                    icon={() => <img src={DMT5} alt="" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
-                    }
-                    title={<Localize translate_text="Deriv MT5" />}
-                    onClick={onClick}
-                    to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
-                />
-                {is_row && (
-                    <>
-                        <NavCard
-                            aria_label="Derivx"
-                            icon={() => <img src={DerivX} alt="" width="32" height="32" />}
-                            content={
-                                <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
-                            }
-                            title={<Localize translate_text="Deriv X" />}
-                            onClick={onClick}
-                            to="/derivx/"
-                        />
-                        <NavCard
-                            aria_label="SmartTrader"
-                            icon={() => <img src={Smarttrader} alt="" width="32" height="32" />}
-                            content={
-                                <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                            }
-                            title={<Localize translate_text="SmartTrader" />}
-                            to="trading"
-                            type="smart_trader"
-                            external
-                            target="_blank"
-                            onClick={onClick}
-                            otherLinkProps={{ rel: 'noopener noreferrer' }}
-                        />
-                    </>
-                )}
-                {is_uk_eu && <>{getDtraderText()}</>}
-            </Flex>
-            {is_row && (
+            {show_branding && (
                 <>
                     <Flex direction="column" wrap="wrap" jc="flex-start">
-                        <EmptySpace />
-                        {getDtraderText()}
+                        <StyledText>{<Localize translate_text="Trading platforms" />}</StyledText>
                         <NavCard
-                            aria_label="Deriv GO"
-                            icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
+                            aria_label="Deriv MT5"
+                            icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                             content={
-                                <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                                <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                             }
-                            title={<Localize translate_text="Deriv GO" />}
+                            title={<Localize translate_text="Deriv MT5" />}
                             onClick={onClick}
-                            to="/deriv-go/"
+                            to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                         />
-                        <NavCard
-                            aria_label="DBot"
-                            icon={() => <img src={DBot} alt="" width="32" height="32" />}
-                            content={
-                                <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                            }
-                            title={<Localize translate_text="DBot" />}
-                            onClick={onClick}
-                            to="/dbot/"
-                        />
-                        <NavCard
-                            aria_label="Binary Bot"
-                            icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
-                            content={
-                                <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
-                            }
-                            title={<Localize translate_text="Binary Bot" />}
-                            to={binary_bot_url}
-                            external
-                            target="_blank"
-                            onClick={onClick}
-                            otherLinkProps={{ rel: 'noopener noreferrer' }}
-                        />
+                        {is_row && (
+                            <>
+                                <NavCard
+                                    aria_label="Derivx"
+                                    icon={() => <img src={DerivX} alt="" width="32" height="32" />}
+                                    content={
+                                        <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
+                                    }
+                                    title={<Localize translate_text="Deriv X" />}
+                                    onClick={onClick}
+                                    to="/derivx/"
+                                />
+                                <NavCard
+                                    aria_label="SmartTrader"
+                                    icon={() => (
+                                        <img src={Smarttrader} alt="" width="32" height="32" />
+                                    )}
+                                    content={
+                                        <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                    }
+                                    title={<Localize translate_text="SmartTrader" />}
+                                    to="trading"
+                                    type="smart_trader"
+                                    external
+                                    target="_blank"
+                                    onClick={onClick}
+                                    otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                />
+                            </>
+                        )}
+                        {is_uk_eu && <>{getDtraderText()}</>}
                     </Flex>
+                    {is_row && (
+                        <>
+                            <Flex direction="column" wrap="wrap" jc="flex-start">
+                                <EmptySpace />
+                                {getDtraderText()}
+                                <NavCard
+                                    aria_label="Deriv GO"
+                                    icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
+                                    content={
+                                        <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                                    }
+                                    title={<Localize translate_text="Deriv GO" />}
+                                    onClick={onClick}
+                                    to="/deriv-go/"
+                                />
+                                <NavCard
+                                    aria_label="DBot"
+                                    icon={() => <img src={DBot} alt="" width="32" height="32" />}
+                                    content={
+                                        <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                                    }
+                                    title={<Localize translate_text="DBot" />}
+                                    onClick={onClick}
+                                    to="/dbot/"
+                                />
+                                <NavCard
+                                    aria_label="Binary Bot"
+                                    icon={() => (
+                                        <img src={BinaryBot} alt="" width="32" height="32" />
+                                    )}
+                                    content={
+                                        <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
+                                    }
+                                    title={<Localize translate_text="Binary Bot" />}
+                                    to={binary_bot_url}
+                                    external
+                                    target="_blank"
+                                    onClick={onClick}
+                                    otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                />
+                            </Flex>
+                        </>
+                    )}
                 </>
             )}
         </Flex>
@@ -553,16 +562,18 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to="/help-centre/"
         />
-        <CardLink
-            icon={() => <img src={Community} alt="" width="24" height="24" />}
-            title={<Localize translate_text="Community" />}
-            onClick={onClick}
-            to=""
-            type="community"
-            external
-            target="_blank"
-            rel="noopener noreferrer"
-        />
+        {show_branding && (
+            <CardLink
+                icon={() => <img src={Community} alt="" width="24" height="24" />}
+                title={<Localize translate_text="Community" />}
+                onClick={onClick}
+                to=""
+                type="community"
+                external
+                target="_blank"
+                rel="noopener noreferrer"
+            />
+        )}
         <CardLink
             icon={() => <img src={TraderTool} alt="" width="24" height="24" />}
             title={<Localize translate_text="Traders’ tools" />}
@@ -576,19 +587,22 @@ export const NavResources = ({ onClick }) => (
             to="/payment-methods/"
         />
 
-        <CardLink
-            icon={() => <img src={Signals} alt="" width="24" height="24" />}
-            title={<Localize translate_text="DMT5 Signals" />}
-            onClick={onClick}
-            to="/dmt5-trading-signals/#signal-subscriber/"
-        />
-
-        <CardLink
-            icon={() => <img src={Blog} alt="" width="24" height="24" />}
-            title={<Localize translate_text="Academy" />}
-            onClick={onClick}
-            to="/academy/"
-        />
+        {show_branding && (
+            <CardLink
+                icon={() => <img src={Signals} alt="" width="24" height="24" />}
+                title={<Localize translate_text="DMT5 Signals" />}
+                onClick={onClick}
+                to="/dmt5-trading-signals/#signal-subscriber/"
+            />
+        )}
+        {show_branding && (
+            <CardLink
+                icon={() => <img src={Blog} alt="" width="24" height="24" />}
+                title={<Localize translate_text="Academy" />}
+                onClick={onClick}
+                to="/academy/"
+            />
+        )}
     </Flex>
 )
 

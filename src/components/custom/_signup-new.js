@@ -228,9 +228,9 @@ const SignupNew = ({
             </StyledHeader>
             <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
 
-            {!is_ppc && (
+            {!is_ppc && show_branding && (
                 <NoteBox>
-                    <StyledBinaryLogo src={BinaryLogo} alt="binarylogo" />
+                    {show_branding && <StyledBinaryLogo src={BinaryLogo} alt="binarylogo" />}
                     <div>
                         <StyledText
                             mb="0.4rem"

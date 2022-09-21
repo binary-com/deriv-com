@@ -6,6 +6,7 @@ import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import show_branding from 'config'
 
 const ContentWrapper = styled(Flex)`
     justify-content: center;
@@ -91,9 +92,10 @@ const TradingLimits = () => {
                             {localize('Trading limits and self-exclusion')}
                         </StyledHeaderTrading>
                         <StyledText>
-                            {localize(
-                                'Online trading is exciting, but it can be addictive. Deriv.com provides you with the opportunity to either self-exclude or set limits on your trading activities on this website.',
-                            )}
+                            {show_branding &&
+                                localize(
+                                    'Online trading is exciting, but it can be addictive. Deriv.com provides you with the opportunity to either self-exclude or set limits on your trading activities on this website.',
+                                )}
                         </StyledText>
                         <StyledSubHeader size="2rem" pt="3rem" pb="1rem">
                             {localize('You can:')}

@@ -251,17 +251,19 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 {<Localize translate_text="Help centre" />}
                             </Link>
                         </LinkWrapper>
-                        <LinkWrapper>
-                            <Link
-                                to=""
-                                type="community"
-                                external
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {<Localize translate_text="Community" />}
-                            </Link>
-                        </LinkWrapper>
+                        {show_branding && (
+                            <LinkWrapper>
+                                <Link
+                                    to=""
+                                    type="community"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {<Localize translate_text="Community" />}
+                                </Link>
+                            </LinkWrapper>
+                        )}
                         <LinkWrapper>
                             <Link to="/payment-methods/">
                                 {<Localize translate_text="Payment methods" />}

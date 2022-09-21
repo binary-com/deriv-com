@@ -5,11 +5,12 @@ import { Container, SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'
 import Layout from 'components/layout/layout'
+import show_branding from 'config'
 
 const tools = [
     {
         title: <Localize translate_text="Margin calculator" />,
-        subtitle: (
+        subtitle: show_branding && (
             <Localize translate_text="Estimate the margin you need to hold your positions. The result depends on leverage, volume lot, and your DMT5 account balance." />
         ),
         link: {

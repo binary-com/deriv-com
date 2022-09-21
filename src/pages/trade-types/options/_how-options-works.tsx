@@ -11,6 +11,7 @@ import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import GetQuote from 'images/svg/trade-types/get-quote.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
 import Pattern from 'images/common/trade-types/pattern-section.png'
+import show_branding from 'config'
 
 const query = graphql`
     query {
@@ -138,7 +139,9 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="1. Market" />}
                         description={
-                            <Localize translate_text="Choose from the four markets offered on Deriv – forex, stocks & indices, commodities, synthetic indices." />
+                            show_branding && (
+                                <Localize translate_text="Choose from the four markets offered on Deriv – forex, stocks & indices, commodities, synthetic indices." />
+                            )
                         }
                     >
                         <QueryImage

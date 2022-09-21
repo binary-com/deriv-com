@@ -51,6 +51,7 @@ import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { Flex, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
+import show_branding from 'config'
 
 const PipCalculator = () => {
     const query = graphql`
@@ -442,7 +443,7 @@ const PipCalculator = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Go to Deriv MT5 dashboard')}
+                                {show_branding && localize('Go to Deriv MT5 dashboard')}
                             </StyledLinkButton>
                         </LinkWrapper>
                     </RightContent>

@@ -56,6 +56,7 @@ import {
 import { Flex } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import show_branding from 'config'
 
 const PnlMarginCalculator = () => {
     const query = graphql`
@@ -876,9 +877,10 @@ const PnlMarginCalculator = () => {
                             </Header>
 
                             <Text mb="8px">
-                                {localize(
-                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 (DMT5) is calculated based on the formula:',
-                                )}
+                                {show_branding &&
+                                    localize(
+                                        'The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 (DMT5) is calculated based on the formula:',
+                                    )}
                             </Text>
                             <Text mb="8px">
                                 <Localize
@@ -997,7 +999,7 @@ const PnlMarginCalculator = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {localize('Go to Deriv MT5 dashboard')}
+                                        {show_branding && localize('Go to Deriv MT5 dashboard')}
                                     </StyledLinkButton>
                                 }
                             </LinkWrapper>

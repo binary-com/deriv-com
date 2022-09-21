@@ -48,6 +48,7 @@ import {
 import { Flex } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import show_branding from 'config'
 
 type ErrorHandlersKeyType =
     | 'commissionErrorHandler'
@@ -1128,7 +1129,7 @@ const PnlMultipliersCalculator = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Go to DTrader')}
+                                    {show_branding && localize('Go to DTrader')}
                                 </StyledLinkButton>
                             </LinkWrapper>
                         </RightContent>
@@ -1770,7 +1771,7 @@ const PnlMultipliersCalculator = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Go to DTrader')}
+                                    {show_branding && localize('Go to DTrader')}
                                 </StyledLinkButton>
                             </LinkWrapper>
                         </RightContent>

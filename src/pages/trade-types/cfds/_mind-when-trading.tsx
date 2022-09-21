@@ -7,6 +7,7 @@ import { SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import show_branding from 'config'
 
 const query = graphql`
     query {
@@ -70,9 +71,10 @@ const MindWhenTrading = () => {
             </Show.Mobile>
             <SmallContainer direction="column" ai="flex-start">
                 <Text mt="3.2rem">
-                    {localize(
-                        'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.',
-                    )}
+                    {show_branding &&
+                        localize(
+                            'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.',
+                        )}
                 </Text>
 
                 <StyledLinkButton mt="4rem" secondary to="/trader-tools/margin-calculator/">

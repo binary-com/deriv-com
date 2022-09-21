@@ -54,6 +54,7 @@ import {
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
+import show_branding from 'config'
 
 const MarginCalculator = () => {
     const query = graphql`
@@ -133,9 +134,10 @@ const MarginCalculator = () => {
             </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
-                    {localize(
-                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5 (DMT5).',
-                    )}
+                    {show_branding &&
+                        localize(
+                            'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5 (DMT5).',
+                        )}
                 </SectionSubtitle>
                 <ContentContainer mt="8rem" mb="4rem">
                     <FormWrapper>
@@ -430,7 +432,7 @@ const MarginCalculator = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Go to Deriv MT5 dashboard')}
+                                {show_branding && localize('Go to Deriv MT5 dashboard')}
                             </StyledLinkButton>
                             <StyledLinkButton secondary to="/trade-types/cfds/">
                                 {localize('Learn more about margin')}

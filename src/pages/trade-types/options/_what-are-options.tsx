@@ -11,6 +11,7 @@ import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import UserFriendly from 'images/svg/trade-types/user-friendly-platforms.svg'
 import FlexibleTrade from 'images/svg/trade-types/flexible-trade-types.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import show_branding from 'config'
 
 const WhatAreOptions = () => {
     const handleSignup = useHandleSignup()
@@ -28,10 +29,10 @@ const WhatAreOptions = () => {
                         )}
                     </Text>
                     <Header as="h3" type="section-title" mb="0.8rem">
-                        {localize('Options available on Deriv')}
+                        {show_branding && localize('Options available on Deriv')}
                     </Header>
                     <Text align="left" mb="0.8rem">
-                        {localize('You can trade the following options on Deriv:')}
+                        {show_branding && localize('You can trade the following options on Deriv:')}
                     </Text>
                     <Ul>
                         <li>
@@ -64,7 +65,7 @@ const WhatAreOptions = () => {
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
                     <Header as="h3" type="section-title" mb="4rem">
-                        {localize('Why trade options on Deriv')}
+                        {show_branding && localize('Why trade options on Deriv')}
                     </Header>
                     <Grid>
                         <WhyTradeItem>
@@ -130,7 +131,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                     </Grid>
                     <Text mt="4rem" mb="1.6rem" weight="bold">
-                        {localize("Don't have a Deriv.com account yet?")}
+                        {show_branding && localize("Don't have a Deriv.com account yet?")}
                     </Text>
                     <Button onClick={handleSignup} id="dm-options-signup-1" secondary>
                         {localize('Create free demo account')}

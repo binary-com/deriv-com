@@ -23,6 +23,7 @@ import HighClose from 'images/svg/options/high-close.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 import HighLow from 'images/svg/options/high-low.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import show_branding from 'config'
 
 const MiddleText = styled(Text)`
     margin-bottom: 0.8rem;
@@ -37,9 +38,11 @@ const OptionsToTrade = () => {
     return (
         <SectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
-                <Header as="h2" type="page-title" mb="4rem">
-                    <Localize translate_text="Options to trade on Deriv" />
-                </Header>
+                {show_branding && (
+                    <Header as="h2" type="page-title" mb="4rem">
+                        <Localize translate_text="Options to trade on Deriv" />
+                    </Header>
+                )}
                 <Header as="h3" type="section-title" mb="2.4rem">
                     <Localize translate_text="Digital options" />
                 </Header>

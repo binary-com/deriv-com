@@ -10,6 +10,7 @@ import { deriv_dp2p_app_url, dp2p_google_play_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
 import { mobileOSDetect } from 'common/os-detect'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
+import show_branding from 'config'
 
 const query = graphql`
     query {
@@ -174,69 +175,81 @@ const Dp2p = () => {
         },
     ]
     return (
-        <Fragment>
-            <Header as="h2" size="var(--text-size-xl)" align="center" mb="1.2rem" lh="1.25">
-                {localize('Deriv peer-to-peer (DP2P)')}
-            </Header>
-            <Show.Mobile>
-                <Text align="center" size="var(--text-size-sm)">
-                    {localize(
-                        'A fast and secure peer-to-peer deposit and withdrawal service. Easily exchange with fellow traders to move funds in and out of your Deriv account.',
-                    )}
-                </Text>
-            </Show.Mobile>
-            <Show.Desktop>
-                <Text align="center" size="var(--text-size-m)">
-                    {localize('A fast and secure peer-to-peer deposit and withdrawal service.')}
-                </Text>
-                <Text align="center" size="var(--text-size-m)">
-                    {localize(
-                        'Easily exchange with fellow traders to move funds in and out of your Deriv account.',
-                    )}
-                </Text>
-            </Show.Desktop>
-            <StyledContainer>
-                <ContentLeft>
-                    {dp2p_checklist.map((item, index) => (
-                        <div style={{ marginBottom: '1.6rem' }} key={index}>
-                            <ItemTitle>
-                                <img src={Checkmark} />
-                                <Text
-                                    size={is_mobile ? 'var(--text-size-sm)' : 'var(--text-size-m)'}
-                                    weight="bold"
-                                >
-                                    {item.title}
-                                </Text>
-                            </ItemTitle>
-                            <Text
-                                size={is_mobile ? 'var(--text-size-sm)' : 'var(--text-size-s)'}
-                                mt="0.8rem"
-                                ml="3.2rem"
-                            >
-                                {item.subtitle}
-                            </Text>
-                        </div>
-                    ))}
-                </ContentLeft>
-                <ContentRight>
-                    <ImageWrapper ai="center">
-                        <QueryImage
-                            data={data['dp2p_platform']}
-                            alt={localize('DP2P Platform')}
-                            width="100%"
-                        />
-                    </ImageWrapper>
-                    <ButtonWrapper>
-                        <ButtonLearnMore tertiary to="/p2p/">
-                            {localize('Learn more')}
-                        </ButtonLearnMore>
-                        <ButtonDp2p secondary onClick={handleExternalLink}>
-                            {localize('Take me to DP2P')}
-                        </ButtonDp2p>
-                    </ButtonWrapper>
-                </ContentRight>
-            </StyledContainer>
-        </Fragment>
+        <>
+            {show_branding && (
+                <Fragment>
+                    <Header as="h2" size="var(--text-size-xl)" align="center" mb="1.2rem" lh="1.25">
+                        {localize('Deriv peer-to-peer (DP2P)')}
+                    </Header>
+                    <Show.Mobile>
+                        <Text align="center" size="var(--text-size-sm)">
+                            {localize(
+                                'A fast and secure peer-to-peer deposit and withdrawal service. Easily exchange with fellow traders to move funds in and out of your Deriv account.',
+                            )}
+                        </Text>
+                    </Show.Mobile>
+                    <Show.Desktop>
+                        <Text align="center" size="var(--text-size-m)">
+                            {localize(
+                                'A fast and secure peer-to-peer deposit and withdrawal service.',
+                            )}
+                        </Text>
+                        <Text align="center" size="var(--text-size-m)">
+                            {localize(
+                                'Easily exchange with fellow traders to move funds in and out of your Deriv account.',
+                            )}
+                        </Text>
+                    </Show.Desktop>
+                    <StyledContainer>
+                        <ContentLeft>
+                            {dp2p_checklist.map((item, index) => (
+                                <div style={{ marginBottom: '1.6rem' }} key={index}>
+                                    <ItemTitle>
+                                        <img src={Checkmark} />
+                                        <Text
+                                            size={
+                                                is_mobile
+                                                    ? 'var(--text-size-sm)'
+                                                    : 'var(--text-size-m)'
+                                            }
+                                            weight="bold"
+                                        >
+                                            {item.title}
+                                        </Text>
+                                    </ItemTitle>
+                                    <Text
+                                        size={
+                                            is_mobile ? 'var(--text-size-sm)' : 'var(--text-size-s)'
+                                        }
+                                        mt="0.8rem"
+                                        ml="3.2rem"
+                                    >
+                                        {item.subtitle}
+                                    </Text>
+                                </div>
+                            ))}
+                        </ContentLeft>
+                        <ContentRight>
+                            <ImageWrapper ai="center">
+                                <QueryImage
+                                    data={data['dp2p_platform']}
+                                    alt={localize('DP2P Platform')}
+                                    width="100%"
+                                />
+                            </ImageWrapper>
+                            <ButtonWrapper>
+                                <ButtonLearnMore tertiary to="/p2p/">
+                                    {localize('Learn more')}
+                                </ButtonLearnMore>
+                                <ButtonDp2p secondary onClick={handleExternalLink}>
+                                    {localize('Take me to DP2P')}
+                                </ButtonDp2p>
+                            </ButtonWrapper>
+                        </ContentRight>
+                    </StyledContainer>
+                </Fragment>
+            )}
+        </>
     )
 }
 

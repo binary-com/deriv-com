@@ -8,6 +8,7 @@ import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import Pattern from 'images/common/trade-types/pattern-section-small.png'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import show_branding from 'config'
 
 const PatternContainer = styled(SectionContainer)`
     background: url(${Pattern});
@@ -26,13 +27,14 @@ const StartTrading = () => {
         <PatternContainer background="white" padding="4rem 0">
             <SmallContainer direction="column" ai="flex-start">
                 <Header as="h3" size="3.2rem" mb="4rem">
-                    {localize('Start trading multipliers on Deriv')}
+                    {show_branding && localize('Start trading multipliers on Deriv')}
                 </Header>
                 <FixTimeline>
                     <FixTimeline.Item title={<Localize translate_text="Practise" />}>
-                        {localize(
-                            'Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms.',
-                        )}
+                        {show_branding &&
+                            localize(
+                                'Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms.',
+                            )}
                     </FixTimeline.Item>
                     <FixTimeline.Item title={<Localize translate_text="Trade" />}>
                         {localize(

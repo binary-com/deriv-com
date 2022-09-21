@@ -141,11 +141,7 @@ const WhyTrader = () => {
                             >
                                 {card.header}
                             </StyledCardHeader>
-                            {card.key == 1 && is_eu ? (
-                                <StyledText>
-                                    <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place." />
-                                </StyledText>
-                            ) : card.key == 1 && is_uk ? (
+                            {card.key == 1 && is_uk ? (
                                 <StyledText>
                                     <Localize translate_text="Trade forex, stocks, stock indices, and commodities in one place." />
                                 </StyledText>

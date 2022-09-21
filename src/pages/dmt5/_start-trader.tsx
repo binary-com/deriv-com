@@ -10,6 +10,7 @@ import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useHandleLogin from 'components/hooks/use-handle-login'
+import DMT5QRRow from 'images/common/dmt5/dmt5-qr-row.png'
 
 type TabProps = {
     active?: boolean
@@ -111,6 +112,17 @@ const ImageWrapper = styled.div`
         }
     }
 `
+
+const QRImage = styled.img`
+    margin-right: 280px;
+    @media ${device.laptop} {
+        margin-right: 200px;
+    }
+    @media ${device.tablet} {
+        display: none;
+    }
+`
+
 const demoActive = css`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border: unset;
@@ -206,9 +218,8 @@ const StartTrader = () => {
     const text_2 = is_eu_country ? (
         <Localize translate_text="Create a Deriv real account." />
     ) : (
-        <Localize translate_text="Create a Deriv real money account." />
+        <Localize translate_text="Create a real Deriv Multipliers account" />
     )
-
     const text_3 = is_eu_country ? (
         <Localize translate_text="Create a CFDs real account based on your trade preference." />
     ) : (
@@ -312,51 +323,67 @@ const StartTrader = () => {
                         </SideTab.Panel>
                     </SideTab>
                 ) : (
-                    <SideTab parent_tab={tab}>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                <Localize
-                                    translate_text="Create or <0>sign in</0> to your Deriv account"
-                                    components={[
-                                        <StyledLocalizedLink key={0} onClick={handleLogin} to="" />,
-                                    ]}
-                                />
-                            }
-                            item_width="27rem"
-                        >
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={getImage(is_mobile, ['real_step1_mobile', 'real_step1'])}
-                                    alt="Real DMT5 account- step 1"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel label="" description={text_2}>
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={getImage(is_mobile, ['real_step2_mobile', 'real_step2'])}
-                                    alt="Real DMT5 account- step 2"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel label="" description={text_3}>
-                            <ImageWrapper>{step_3_image}</ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
-                            }
-                        >
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={getImage(is_mobile, ['real_step4_mobile', 'real_step4'])}
-                                    alt="Real DMT5 account- step 4"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                    </SideTab>
+                    <Flex direction="column" ai="end">
+                        <SideTab parent_tab={tab}>
+                            <SideTab.Panel
+                                label=""
+                                description={
+                                    <Localize
+                                        translate_text="Create or <0>sign in</0> to your Deriv account"
+                                        components={[
+                                            <StyledLocalizedLink
+                                                key={0}
+                                                onClick={handleLogin}
+                                                to=""
+                                            />,
+                                        ]}
+                                    />
+                                }
+                                item_width="27rem"
+                            >
+                                <ImageWrapper>
+                                    <QueryImage
+                                        data={getImage(is_mobile, [
+                                            'real_step1_mobile',
+                                            'real_step1',
+                                        ])}
+                                        alt="Real DMT5 account- step 1"
+                                    />
+                                </ImageWrapper>
+                            </SideTab.Panel>
+                            <SideTab.Panel label="" description={text_2}>
+                                <ImageWrapper>
+                                    <QueryImage
+                                        data={getImage(is_mobile, [
+                                            'real_step2_mobile',
+                                            'real_step2',
+                                        ])}
+                                        alt="Real DMT5 account- step 2"
+                                    />
+                                </ImageWrapper>
+                            </SideTab.Panel>
+                            <SideTab.Panel label="" description={text_3}>
+                                <ImageWrapper>{step_3_image}</ImageWrapper>
+                            </SideTab.Panel>
+                            <SideTab.Panel
+                                label=""
+                                description={
+                                    <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
+                                }
+                            >
+                                <ImageWrapper>
+                                    <QueryImage
+                                        data={getImage(is_mobile, [
+                                            'real_step4_mobile',
+                                            'real_step4',
+                                        ])}
+                                        alt="Real DMT5 account- step 4"
+                                    />
+                                </ImageWrapper>
+                            </SideTab.Panel>
+                        </SideTab>
+                        <QRImage src={DMT5QRRow} width="124px" height="124px" />
+                    </Flex>
                 )}
             </Flex>
         </Section>

@@ -1,3 +1,0 @@
-import show_branding from 'config'
-{show_branding && }
-<>{show_branding && }</>

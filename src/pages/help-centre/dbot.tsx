@@ -110,8 +110,8 @@ const WhatIsDBot = ({ text }: ArticleProps) => (
 const FindBlocks = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Follow these steps:')}</Text>
-        <Text>
+        <Text lh="5.4rem">{localize('Follow these steps:')}</Text>
+        <Text lh="4.4rem">
             <Localize
                 translate_text="1. Go to <0>Bot Builder</0>."
                 components={[<strong key={0} />]}

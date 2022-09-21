@@ -13,6 +13,7 @@ import type { Options } from '../../static/content/_digital-options'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import show_branding from 'config'
 
 type DigitalOptionsProps = {
     market_name: string
@@ -30,10 +31,19 @@ const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptio
                     <StyledText font_size="16px" align="center">
                         <Localize translate_text="Options trading allows for fixed payouts from correctly predicting market movements, without needing to buy an underlying asset." />
                     </StyledText>
-                    {what_to_show ? (
-                        <AvailablePlatforms dmt5 derivx />
-                    ) : (
-                        <AvailablePlatforms dtrader dbot smarttrader tablet_direction="column" />
+                    {show_branding && (
+                        <>
+                            {what_to_show ? (
+                                <AvailablePlatforms dmt5 derivx />
+                            ) : (
+                                <AvailablePlatforms
+                                    dtrader
+                                    dbot
+                                    smarttrader
+                                    tablet_direction="column"
+                                />
+                            )}
+                        </>
                     )}
                 </Descriptions>
                 <StyledText font_size="16px" weight="bold" mt="4.0rem">

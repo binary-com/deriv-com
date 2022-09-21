@@ -8,6 +8,7 @@ import { useLazyVideo } from 'components/hooks/use-lazy-video'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import show_branding from 'config'
 
 const BackgroundWrapper = styled.div`
     position: relative;
@@ -77,37 +78,39 @@ export const Hero = () => {
                 <source data-src={Globe} type="video/mp4" />
                 <source data-src={Globe2} type="video/webm" />
             </Video>
-            <StyledContainer direction="column">
-                <Header as="h1" type="display-title" color="white" lh="1.15" align="center">
-                    <Localize translate_text="Markets to trade on Deriv" />
-                </Header>
-                <MarketSubHeader
-                    as="h4"
-                    type="sub-section-title"
-                    color="white"
-                    lh="1.5"
-                    font_size="var(--text-size-m)"
-                    weight="normal"
-                    align="center"
-                    mt="1.6rem"
-                >
-                    {is_eu && (
-                        <>
-                            <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies and commodities." />
-                        </>
-                    )}
-                    {is_uk && (
-                        <>
-                            <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, stocks & indices and commodities." />
-                        </>
-                    )}
-                    {is_row && (
-                        <>
-                            <Localize translate_text=" Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies, basket indices, and commodities." />
-                        </>
-                    )}
-                </MarketSubHeader>
-            </StyledContainer>
+            {show_branding && (
+                <StyledContainer direction="column">
+                    <Header as="h1" type="display-title" color="white" lh="1.15" align="center">
+                        <Localize translate_text="Markets to trade on Deriv" />
+                    </Header>
+                    <MarketSubHeader
+                        as="h4"
+                        type="sub-section-title"
+                        color="white"
+                        lh="1.5"
+                        font_size="var(--text-size-m)"
+                        weight="normal"
+                        align="center"
+                        mt="1.6rem"
+                    >
+                        {is_eu && (
+                            <>
+                                <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies and commodities." />
+                            </>
+                        )}
+                        {is_uk && (
+                            <>
+                                <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, stocks & indices and commodities." />
+                            </>
+                        )}
+                        {is_row && (
+                            <>
+                                <Localize translate_text=" Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies, basket indices, and commodities." />
+                            </>
+                        )}
+                    </MarketSubHeader>
+                </StyledContainer>
+            )}
         </BackgroundWrapper>
     )
 }

@@ -11,6 +11,7 @@ import { SectionContainer } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import show_branding from 'config'
 
 type MultipliersProps = {
     market_content: ForexAndBasketMultiplier | CryptoMultiplier | SyntheticMultiplier
@@ -27,7 +28,7 @@ const Multipliers = ({ market_content }: MultipliersProps) => {
                             'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.',
                         )}
                     </StyledText>
-                    <AvailablePlatforms dtrader />
+                    {show_branding && <AvailablePlatforms dtrader />}
                 </Descriptions>
                 <StyledText font_size={'16px'} weight="bold" mt="2.4rem">
                     {localize('Instruments available for multipliers trading')}

@@ -15,6 +15,7 @@ import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 import { DerivStore } from 'store'
+import show_branding from 'config'
 
 type StockIndicesProps = {
     simple_step_content: SimpleStepsContent[]
@@ -26,9 +27,15 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     return (
         <div>
             <WhyTrade
-                header={<Localize translate_text="Why trade synthetic indices on Deriv" />}
+                header={
+                    show_branding && (
+                        <Localize translate_text="Why trade synthetic indices on Deriv" />
+                    )
+                }
                 text={
-                    <Localize translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
+                    show_branding && (
+                        <Localize translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
+                    )
                 }
             >
                 {synthetic_content.map((content, index) => (
@@ -56,12 +63,16 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                     />
                 }
                 display_title={
-                    <Localize translate_text="Synthetic indices trades available on Deriv" />
+                    show_branding && (
+                        <Localize translate_text="Synthetic indices trades available on Deriv" />
+                    )
                 }
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading synthetic indices on Deriv in 3 simple steps" />
+                    show_branding && (
+                        <Localize translate_text="Start trading synthetic indices on Deriv in 3 simple steps" />
+                    )
                 }
                 content={simple_step_content}
                 sign_up

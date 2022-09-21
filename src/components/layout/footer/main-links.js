@@ -5,7 +5,7 @@ import { Localize } from 'components/localization'
 import { Flex, Desktop } from 'components/containers'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import app_config from 'config'
+import show_branding from 'config'
 
 const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
     const { is_non_uk, is_row } = useCountryRule()
@@ -13,39 +13,40 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
         <LinksWrapper>
             <Desktop>
                 <Flex jc="space-between">
-                    <LinksCol>
-                        <LinkWrapper>
-                            <Title>{<Localize translate_text="ABOUT US" />}</Title>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/who-we-are/">
-                                {<Localize translate_text="Who we are" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/why-choose-us/">
-                                {<Localize translate_text="Why choose us" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/our-principles/">
-                                {<Localize translate_text="Principles" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/partners/">
-                                {<Localize translate_text="Partnership programmes" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/contact_us/">
-                                {<Localize translate_text="Contact us" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/careers/">{<Localize translate_text="Careers" />}</Link>
-                        </LinkWrapper>
-                        {app_config.show_branding && (
+                    {show_branding && (
+                        <LinksCol>
+                            <LinkWrapper>
+                                <Title>{<Localize translate_text="ABOUT US" />}</Title>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/who-we-are/">
+                                    {<Localize translate_text="Who we are" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/why-choose-us/">
+                                    {<Localize translate_text="Why choose us" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/our-principles/">
+                                    {<Localize translate_text="Principles" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/partners/">
+                                    {<Localize translate_text="Partnership programmes" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/contact_us/">
+                                    {<Localize translate_text="Contact us" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/careers/">{<Localize translate_text="Careers" />}</Link>
+                            </LinkWrapper>
+                            (
                             <LinkWrapper>
                                 <Link
                                     to=""
@@ -57,8 +58,9 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                     {<Localize translate_text="Deriv life" />}
                                 </Link>
                             </LinkWrapper>
-                        )}
-                    </LinksCol>
+                            )
+                        </LinksCol>
+                    )}
                     {!is_ppc && (
                         <LinksCol>
                             <LinkWrapper>
@@ -122,7 +124,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             </Link>
                         </LinkWrapper>
                     </LinksCol>
-                    {app_config.show_branding && (
+                    {show_branding && (
                         <LinksCol>
                             <LinkWrapper>
                                 <Title>{<Localize translate_text="TRADE" />}</Title>
@@ -185,14 +187,14 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{<Localize translate_text="LEGAL" />}</Title>
                         </LinkWrapper>
-                        {app_config.show_branding && (
+                        {show_branding && (
                             <LinkWrapper>
                                 <Link to="/regulatory/">
                                     {<Localize translate_text="Regulatory information" />}
                                 </Link>
                             </LinkWrapper>
                         )}
-                        {app_config.show_branding && (
+                        {show_branding && (
                             <LinkWrapper>
                                 <Link to="/terms-and-conditions/#clients">
                                     {<Localize translate_text="Terms & conditions" />}
@@ -205,7 +207,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             </Link>
                         </LinkWrapper>
                     </LinksCol>
-                    {app_config.show_branding && (
+                    {show_branding && (
                         <LinksCol>
                             <LinkWrapper>
                                 <Title>{<Localize translate_text="PARTNER" />}</Title>
@@ -265,17 +267,19 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 {<Localize translate_text="Payment methods" />}
                             </Link>
                         </LinkWrapper>
-                        <LinkWrapper>
-                            <Link
-                                to={deriv_status_page_url}
-                                target="_blank"
-                                external
-                                rel="noopener noreferrer"
-                            >
-                                {<Localize translate_text="Status page" />}
-                            </Link>
-                        </LinkWrapper>
-                        {app_config.show_branding && (
+                        {show_branding && (
+                            <LinkWrapper>
+                                <Link
+                                    to={deriv_status_page_url}
+                                    target="_blank"
+                                    external
+                                    rel="noopener noreferrer"
+                                >
+                                    {<Localize translate_text="Status page" />}
+                                </Link>
+                            </LinkWrapper>
+                        )}
+                        {show_branding && (
                             <LinkWrapper>
                                 <Link to="/academy/">{<Localize translate_text="Academy" />}</Link>
                             </LinkWrapper>

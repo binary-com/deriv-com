@@ -5,7 +5,7 @@ import { LocalizedLink } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import device from 'themes/device'
-import app_config from 'config'
+import show_branding from 'config'
 
 type LogoSectionProps = {
     is_ppc_redirect?: boolean
@@ -57,7 +57,7 @@ const LogoSection = ({ is_ppc_redirect, base, hide_get_trading }: LogoSectionPro
 
     return (
         <Wrapper>
-            {app_config.show_branding && (
+            {show_branding && (
                 <LogoLink to={to} aria-label="Home">
                     <QueryImage
                         data={data['deriv']}

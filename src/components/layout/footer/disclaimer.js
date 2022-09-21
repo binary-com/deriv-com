@@ -11,14 +11,14 @@ import { Mobile, Desktop } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { loss_percent } from 'common/constants'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import app_config from 'config'
+import show_branding from 'config'
 
 const DisclaimerSection = ({ is_academy }) => {
     const { is_eu, is_non_eu } = useCountryRule()
     return (
         <>
             <DisclaimerWrapper>
-                {app_config.show_branding && is_non_eu && (
+                {show_branding && is_non_eu && (
                     <>
                         <DisclaimerParagraph>
                             <Localize
@@ -60,7 +60,7 @@ const DisclaimerSection = ({ is_academy }) => {
                         </DisclaimerParagraph>
                     </>
                 )}
-                {app_config.show_branding && is_eu && (
+                {show_branding && is_eu && (
                     <>
                         <DisclaimerParagraph>
                             <Localize
@@ -78,7 +78,7 @@ const DisclaimerSection = ({ is_academy }) => {
                     </>
                 )}
                 <DisclaimerParagraph>
-                    {app_config.show_branding &&
+                    {show_branding &&
                         localize(
                             'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
                         )}

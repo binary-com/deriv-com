@@ -11,6 +11,7 @@ import { StyledBox } from '../../static/style/_markets-style'
 import { Localize, localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import { DerivStore } from 'store'
+import show_branding from 'config'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
@@ -29,7 +30,9 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
     return (
         <>
             <WhyTrade
-                header={<Localize translate_text="Why trade commodities on Deriv" />}
+                header={
+                    show_branding && <Localize translate_text="Why trade commodities on Deriv" />
+                }
                 text={
                     <Localize translate_text="Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted." />
                 }
@@ -46,7 +49,9 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
                 <AvailableTrades
                     CFDs={<CFDs market_content={commodities_cfds} />}
                     display_title={
-                        <Localize translate_text="Commodity trades available on Deriv" />
+                        show_branding && (
+                            <Localize translate_text="Commodity trades available on Deriv" />
+                        )
                     }
                 />
             ) : (
@@ -59,13 +64,17 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
                         />
                     }
                     display_title={
-                        <Localize translate_text="Commodity trades available on Deriv" />
+                        show_branding && (
+                            <Localize translate_text="Commodity trades available on Deriv" />
+                        )
                     }
                 />
             )}
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading commodities on Deriv in 3 simple steps" />
+                    show_branding && (
+                        <Localize translate_text="Start trading commodities on Deriv in 3 simple steps" />
+                    )
                 }
                 content={simple_step_content}
                 sign_up

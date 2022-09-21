@@ -12,7 +12,7 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
-import app_config from 'config'
+import show_branding from 'config'
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -251,7 +251,7 @@ const SignupNew = ({
                             color="grey-16"
                             lh="18px"
                         >
-                            {app_config.show_branding ? (
+                            {show_branding ? (
                                 <Localize
                                     translate_text="Log in with your username and password."
                                     components={[<strong key={0} />]}
@@ -298,7 +298,7 @@ const SignupNew = ({
             >
                 {localize('Create demo account')}
             </EmailButton>
-            {app_config.show_branding && (
+            {show_branding && (
                 <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
                     <Localize
                         translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."

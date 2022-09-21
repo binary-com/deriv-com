@@ -6,7 +6,7 @@ import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import app_config from 'config'
+import show_branding from 'config'
 
 const ImagePlaceHolder = styled.div`
     width: 690px;
@@ -129,9 +129,7 @@ const PlatformSlideshow = () => {
 
     return (
         <Flex max_width="690px" max_height="626px" tablet={{ max_height: '360px', ai: 'center' }}>
-            {app_config.show_branding && (
-                <Slides images={slide_images} active_index={active_index} />
-            )}
+            {show_branding && <Slides images={slide_images} active_index={active_index} />}
         </Flex>
     )
 }

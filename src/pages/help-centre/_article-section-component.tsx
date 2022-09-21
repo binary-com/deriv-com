@@ -6,6 +6,7 @@ import { DerivStore } from 'store'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { Text } from 'components/elements'
 import device from 'themes/device'
+import show_branding from 'config'
 
 type StyledProps = {
     wrap?: string
@@ -81,6 +82,7 @@ const ArticleSectionComponent = ({
 }: ArticleSectionComponentProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const { platform } = usePlatformQueryParam()
+    console.log(articles)
 
     return (
         <ArticleSection>
@@ -93,6 +95,9 @@ const ArticleSectionComponent = ({
                         (item.category.props.translate_text === 'Deriv X' ||
                             item.category.props.translate_text === 'Deriv P2P')
                     ) {
+                        return <React.Fragment key={idx}></React.Fragment>
+                    }
+                    if (!show_branding && item.category.props.translate_text === 'About Deriv') {
                         return <React.Fragment key={idx}></React.Fragment>
                     }
 

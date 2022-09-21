@@ -19,6 +19,7 @@ import device from 'themes/device'
 import SearchIcon from 'images/svg/help/search.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
 import { DerivStore } from 'store'
+import show_branding from 'config'
 
 //Lazy-load
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
@@ -254,16 +255,16 @@ const HelpCentre = () => {
                     data={data}
                     toggleArticle={toggleArticle}
                 />
-                <ArticleSectionComponent
-                    section_name="Platforms"
-                    articles={platforms_articles}
-                    data={data}
-                    toggleArticle={toggleArticle}
-                />
+                {show_branding && (
+                    <ArticleSectionComponent
+                        section_name="Platforms"
+                        articles={platforms_articles}
+                        data={data}
+                        toggleArticle={toggleArticle}
+                    />
+                )}
             </Container>
-            <Desktop breakpoint={'tabletS'}>
-                <Community />
-            </Desktop>
+            <Desktop breakpoint={'tabletS'}>{show_branding && <Community />}</Desktop>
             {!is_deriv_go && <DidntFindYourAnswerBanner />}
         </Layout>
     )

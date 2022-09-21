@@ -15,6 +15,7 @@ import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import show_branding from 'config'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -62,7 +63,11 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
         is_non_uk && (
             <>
                 <WhyTrade
-                    header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
+                    header={
+                        show_branding && (
+                            <Localize translate_text="Why trade cryptocurrencies on Deriv" />
+                        )
+                    }
                     text={
                         <Localize translate_text="Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies." />
                     }
@@ -81,12 +86,16 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                         <Multipliers market_content={crypto_multiplier} is_crypto={true} />
                     }
                     display_title={
-                        <Localize translate_text="Cryptocurrency trades available on Deriv" />
+                        show_branding && (
+                            <Localize translate_text="Cryptocurrency trades available on Deriv" />
+                        )
                     }
                 />
                 <SimpleSteps
                     header={
-                        <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />
+                        show_branding && (
+                            <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />
+                        )
                     }
                     content={simple_step_content}
                     sign_up

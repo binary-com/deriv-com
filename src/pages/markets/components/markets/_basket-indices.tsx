@@ -15,6 +15,7 @@ import { StyledBox } from '../../static/style/_markets-style'
 import { Localize, localize } from 'components/localization'
 import { DerivStore } from 'store'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import show_branding from 'config'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -32,7 +33,11 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
             {is_row && (
                 <>
                     <WhyTrade
-                        header={<Localize translate_text="Why trade basket indices on Deriv" />}
+                        header={
+                            show_branding && (
+                                <Localize translate_text="Why trade basket indices on Deriv" />
+                            )
+                        }
                         text={
                             <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
                         }
@@ -58,12 +63,16 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         }
                         Multipliers={<Multipliers market_content={basket_multiplier} />}
                         display_title={
-                            <Localize translate_text="Basket indices trades  available on Deriv" />
+                            show_branding && (
+                                <Localize translate_text="Basket indices trades  available on Deriv" />
+                            )
                         }
                     />
                     <SimpleSteps
                         header={
-                            <Localize translate_text="Start trading basket indices on Deriv in 3 simple steps" />
+                            show_branding && (
+                                <Localize translate_text="Start trading basket indices on Deriv in 3 simple steps" />
+                            )
                         }
                         content={simple_step_content}
                         sign_up

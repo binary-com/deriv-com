@@ -13,6 +13,7 @@ import StockIndices from 'images/svg/markets/stock-new.svg'
 import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
+import show_branding from 'config'
 
 type MarketType = {
     icon: () => ReactElement
@@ -67,8 +68,10 @@ const markets_type: MarketsType = {
     commodities: {
         icon: () => <img src={Commodities} alt="" width="64" height="64" />,
         title: <Localize translate_text="Commodities" />,
-        content: (
+        content: show_branding ? (
             <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
+        ) : (
+            <Localize translate_text="Commodities trading lets you profit from correctly predicting the market movement on precious metals and crude oil." />
         ),
         to: '/markets/commodities/',
         id: 'marketcommoditiesothermarket',

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Localize } from 'components/localization'
+import show_branding from 'config'
 
 type ArticlesByCategoryType = {
     title?: React.ReactElement
@@ -330,7 +331,11 @@ export const articles: ArcticlesType[] = [
         category: <Localize translate_text="Security" />,
         articles: [
             {
-                title: <Localize translate_text="Do I need to verify my Deriv account?" />,
+                title: show_branding ? (
+                    <Localize translate_text="Do I need to verify my Deriv account?" />
+                ) : (
+                    <Localize translate_text="Do I need to verify my account?" />
+                ),
                 category: 'Security',
                 sub_category: <Localize translate_text="Verification" />,
                 label: 'verify-account',

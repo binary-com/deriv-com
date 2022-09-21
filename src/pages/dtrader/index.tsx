@@ -63,7 +63,7 @@ const trading = [
     {
         title: <Localize translate_text="Trade what you want, when you want..." />,
         subtitle: (
-            <Localize translate_text="Forex, commodities, and indices – whether it’s the world markets or derived markets that excite you, you’ll find them here." />
+            <Localize translate_text="Forex, commodities, cryptocurrencies, and indices — whether it’s the world markets or derived markets that excite you, you’ll find them here." />
         ),
 
         image_name: 'trade_what_you_want',
@@ -93,7 +93,7 @@ const trading_eu = [
     {
         title: <Localize translate_text="Trade what you want, when you want..." />,
         subtitle: (
-            <Localize translate_text="Forex and indices – whether it’s the world markets or derived markets that excite you, you’ll find them here." />
+            <Localize translate_text="Forex, cryptocurrencies, and indices – whether it’s the world markets or derived markets that excite you, you’ll find them here." />
         ),
 
         image_name: 'trade_what_you_want_eu',

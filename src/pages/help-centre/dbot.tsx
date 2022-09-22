@@ -8,9 +8,6 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 // Images
 import GetStartedImage from 'images/common/help-centre/dbot-button-get-started.png'
-import CreateVariableImage from 'images/common/help-centre/dbot-create-variable.png'
-import NameVariableImage from 'images/common/help-centre/dbot-name-variable.png'
-import UserDefinedVariableImage from 'images/common/help-centre/dbot-user-defined-variable.png'
 import QuickStrategyImage from 'images/common/help-centre/dbot-quick-strategy.png'
 import StrategiesImage from 'images/common/help-centre/dbot-strategies.png'
 import AssetTradeTypeImage from 'images/common/help-centre/dbot-asset-trade-type.png'
@@ -96,6 +93,16 @@ const StyledLink = styled(ExternalLink)`
     }
 `
 
+const StyledListItem = styled.li<{ marginTop: string }>`
+    color: var(--color-black-3);
+    margin-top: ${(props) => props.marginTop};
+`
+
+const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
+    list-style: ${(props) => props.listStyle};
+    padding-left: ${(props) => props.paddingLeft};
+`
+
 const WhatIsDBot = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
@@ -110,34 +117,37 @@ const WhatIsDBot = ({ text }: ArticleProps) => (
 const FindBlocks = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text lh="5.4rem">{localize('Follow these steps:')}</Text>
-        <Text lh="4.4rem">
-            <Localize
-                translate_text="1. Go to <0>Bot Builder</0>."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <Text>
-            <Localize
-                translate_text={
-                    "2. Under the <0>Blocks menu</0>, you'll see a list of categories. Blocks are grouped within these categories. Choose the block you want and drag them to the workspace."
-                }
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <ImageWrapper>
-            <img
-                src={BlockMenuImage}
-                alt={localize('Get Started')}
-                style={{ width: '60rem' }}
-                loading="lazy"
-            />
-        </ImageWrapper>
-        <Text>
-            {localize(
-                '3. You can also search for the blocks you want using the search bar above the categories.',
-            )}
-        </Text>
+        <Text>{localize('Follow these steps:')}</Text>
+        <StyledList listStyle="decimal" paddingLeft="2rem">
+            <StyledListItem marginTop="1.6rem">
+                <Localize
+                    translate_text="Go to <0>Bot Builder</0>."
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <StyledListItem marginTop="0.8rem">
+                <Localize
+                    translate_text={
+                        "Under the <0>Blocks menu</0>, you'll see a list of categories. Blocks are grouped within these categories. Choose the block you want and drag them to the workspace."
+                    }
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            {/* Todo:(Mitra) fix the image issue caused by wrapping between StyledList component */}
+            <ImageWrapper>
+                <img
+                    src={BlockMenuImage}
+                    alt={localize('Get Started')}
+                    style={{ width: '60rem', margin: '0 -12.6rem' }}
+                    loading="lazy"
+                />
+            </ImageWrapper>
+            <StyledListItem marginTop="0">
+                {localize(
+                    'You can also search for the blocks you want using the search bar above the categories.',
+                )}
+            </StyledListItem>
+        </StyledList>
         <ImageWrapper>
             <img
                 src={BlockMenuSearchBarImage}
@@ -181,54 +191,25 @@ const RemoveBlocks = ({ text }: ArticleProps) => (
 const CreateVariables = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize("1. Click 'Get started' to open the blocks menu.")}</Text>
-        <ImageWrapper>
-            <img
-                src={GetStartedImage}
-                alt={localize('Get Started')}
-                width="14.2rem"
-                style={{ width: '14.2rem' }}
-                loading="lazy"
-            />
-        </ImageWrapper>
-        <Text>
-            <Localize
-                translate_text="2. Go to <0>Utility > Variables</0>."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <StyledText>{localize("3. Click 'Create variable'.")}</StyledText>
-        <ImageWrapper>
-            <img
-                src={CreateVariableImage}
-                alt={localize('Create variable')}
-                width="40.2rem"
-                style={{ width: '40.2rem' }}
-            />
-        </ImageWrapper>
-        <Text>{localize('4. Enter a name for the variable.')}</Text>
-        <ImageWrapper>
-            <img
-                src={NameVariableImage}
-                alt={localize('Name variable')}
-                width="40.8rem"
-                loading="lazy"
-                style={{ width: '40.8rem' }}
-            />
-        </ImageWrapper>
-        <Text>
-            {localize(
-                '5. The newly created variable is now available to be used in your strategy.',
-            )}
-        </Text>
-        <ImageWrapper>
-            <img
-                src={UserDefinedVariableImage}
-                alt={localize('User defined variable')}
-                width="27.2rem"
-                style={{ width: '27.2rem' }}
-            />
-        </ImageWrapper>
+        <StyledList listStyle="decimal" paddingLeft="2rem">
+            <StyledListItem marginTop="0">
+                <Localize
+                    translate_text={
+                        'Under the <0>Blocks</0> menu, go to <0>Utility > Variables.</0>'
+                    }
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <StyledListItem marginTop="0.8rem">
+                <Localize
+                    translate_text="Enter a name for your variable, and hit <0>Create</0>. New blocks containing your new variable will appear below."
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <StyledListItem marginTop="0.8rem">
+                {localize('Choose the block you want and drag it to the workspace.')}
+            </StyledListItem>
+        </StyledList>
     </ArticleWrapper>
 )
 

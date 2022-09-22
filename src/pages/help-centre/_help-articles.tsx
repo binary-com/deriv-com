@@ -887,6 +887,12 @@ export const articles: ArcticlesType[] = [
                 label: 'create-variables',
             },
             {
+                title: <Localize translate_text="Do you offer pre-built trading bots on DBot?" />,
+                category: 'DBot',
+                sub_category: <Localize translate_text="Strategy" />,
+                label: 'pre-built',
+            },
+            {
                 title: <Localize translate_text="What is a quick strategy and how do I use it?" />,
                 category: 'DBot',
                 sub_category: <Localize translate_text="Strategy" />,

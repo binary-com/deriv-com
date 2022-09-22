@@ -213,6 +213,19 @@ const CreateVariables = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
+const PreBuilt = ({ text }: ArticleProps) => (
+    <ArticleWrapper margin_left="2rem">
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text width="110%">
+            <Localize
+                translate_text={
+                    "Yes, you can get started with a pre-built bot using the <0>Quick strategy</0> feature. You’ll find some of the most popular trading strategies here: Martingale, D'Alembert, and Oscar's Grind. Grind. Just select the strategy, enter your trade parameters, and your bot will be created for you. You can always tweak the parameters later."
+                }
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
 const QuickStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4" width="65%">
@@ -728,8 +741,13 @@ const DBotArticle = () => {
                     label="create-variables"
                     is_mounted={is_mounted}
                 />
+                <PreBuilt
+                    text={localize('Do you offer pre-built trading bots on DBot?')}
+                    label="pre-built"
+                    is_mounted={is_mounted}
+                />
                 <QuickStrategy
-                    text={localize('What is a quick strategy and how do I use it?')}
+                    text={localize('What is quick strategy?')}
                     label="quick-strategy"
                     is_mounted={is_mounted}
                 />

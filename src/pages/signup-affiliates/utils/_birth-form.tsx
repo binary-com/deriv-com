@@ -1,19 +1,10 @@
 import React from 'react'
 import AffiliateBirthPicker from './_birth-picker'
-import { ExtraInfo, InputWrapper, RelativeWrapper } from 'components/form/input'
+import { ExtraInfo, InputProps, InputWrapper, RelativeWrapper } from 'components/form/input'
 
 type BirthPickerProps = {
-    border?: string
-    children?: React.ReactNode
-    error: string
-    focus_border?: string
-    id: string
-    label: string
-    extra_info?: string
-    label_color?: string
-    label_hover_color?: string
     setFieldValue: React.Dispatch<React.SetStateAction<string>>
-}
+} & InputProps
 
 const BirthPicker = ({
     label,

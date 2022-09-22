@@ -47,22 +47,22 @@ const CurrencyWrapper = styled.div`
     flex-direction: row;
     align-items: center;
 
-    h4 {
+    span {
         display: flex;
         flex-direction: row;
     }
-    h4::before,
-    h4::after {
+    span::before,
+    span::after {
         content: '';
         flex: 1 1;
         border-bottom: 1px solid;
         margin: auto;
         color: var(--color-grey-8);
     }
-    h4::before {
+    span::before {
         margin-right: 8px;
     }
-    h4::after {
+    span::after {
         margin-left: 8px;
     }
 `
@@ -485,7 +485,7 @@ const PersonalDetails = ({
                     })}
 
                     <CurrencyWrapper>
-                        <Header as="h4" type="paragraph-1" align="center" weight="normal">
+                        <Header as="span" type="paragraph-1" align="center" weight="normal">
                             {localize('Choose your currency')}
                         </Header>
                     </CurrencyWrapper>

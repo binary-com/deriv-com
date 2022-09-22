@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Input, Button, LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
@@ -10,7 +9,23 @@ import device from 'themes/device'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 
-const Wrapper = styled.div`
+type SignupFlatProps = {
+    autofocus?: boolean
+    clearEmail?: () => void
+    dark?: boolean
+    email?: string
+    email_error_msg?: string
+    handleInputChange?: (event) => void
+    handleLogin?: (event) => void
+    handleSocialSignup?: (event) => void
+    handleValidation?: (event) => void
+    is_submitting?: boolean
+}
+
+type DarkType = {
+    dark?: boolean
+}
+const Wrapper = styled.div<DarkType>`
     padding: 3.3rem 8.5rem;
     display: flex;
     flex-direction: row;
@@ -72,7 +87,7 @@ const SocialWrapper = styled.div`
     flex-wrap: nowrap;
     align-items: center;
 `
-const SocialButton = styled(Button)`
+const SocialButton = styled(Button)<DarkType>`
     background-color: ${(props) => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     border: none;
 `
@@ -89,7 +104,7 @@ const DemoButton = styled(LinkButton)`
     margin-top: 2.2rem;
     width: auto;
 `
-const Splitter = styled.div`
+const Splitter = styled.div<DarkType>`
     background-color: ${(props) => (props.dark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)')};
     height: 20rem;
     width: 0.2rem;
@@ -109,7 +124,7 @@ const SignupFlat = ({
     handleSocialSignup,
     is_submitting,
     dark,
-}) => {
+}: SignupFlatProps) => {
     return (
         <Wrapper dark={dark}>
             <FormWrapper>
@@ -210,19 +225,6 @@ const SignupFlat = ({
             </FormWrapper>
         </Wrapper>
     )
-}
-
-SignupFlat.propTypes = {
-    autofocus: PropTypes.bool,
-    clearEmail: PropTypes.func,
-    dark: PropTypes.bool,
-    email: PropTypes.string,
-    email_error_msg: PropTypes.string,
-    handleInputChange: PropTypes.func,
-    handleLogin: PropTypes.func,
-    handleSocialSignup: PropTypes.func,
-    handleValidation: PropTypes.func,
-    is_submitting: PropTypes.bool,
 }
 
 export default SignupFlat

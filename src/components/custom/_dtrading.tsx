@@ -1,10 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
+
+type TradingType = {
+    title?: string
+    subtitle?: string
+    second_title?: string
+    second_subtitle?: string
+    image_name?: string
+    image_alt?: string
+}
+
+type DTradingProps = {
+    reverse?: boolean
+    trading?: TradingType[]
+    two_title?: boolean
+}
+
+type ContentProps = {
+    margin_right?: string
+}
+
+type ImageWrapperProps = {
+    margin_right?: string
+}
+
+type RowProps = {
+    flex_direction?: string
+}
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -16,7 +42,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const Content = styled.div`
+const Content = styled.div<ContentProps>`
     width: 100%;
     max-width: 58.8rem;
     display: flex;
@@ -33,7 +59,7 @@ const Content = styled.div`
     }
 `
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<ImageWrapperProps>`
     max-width: 58.8rem;
     width: 100%;
     max-height: 30rem;
@@ -52,7 +78,7 @@ const StyledHeader = styled(Header)`
         margin-top: 2rem;
     }
 `
-const Row = styled.div`
+const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
@@ -131,13 +157,13 @@ const query = graphql`
         }
     }
 `
-const DTrading = ({ trading, reverse, two_title }) => {
+const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
             <Container direction="column">
                 {trading.map((item, index) => {
-                    let is_even = reverse ? (index + 1) % 2 : index % 2
+                    const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
@@ -167,12 +193,6 @@ const DTrading = ({ trading, reverse, two_title }) => {
             </Container>
         </StyledSection>
     )
-}
-
-DTrading.propTypes = {
-    reverse: PropTypes.bool,
-    trading: PropTypes.array,
-    two_title: PropTypes.bool,
 }
 
 export default DTrading

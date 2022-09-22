@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, CSSProperties } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
@@ -12,6 +11,23 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
+
+type SignupNewProps = {
+    autofocus?: boolean
+    clearEmail?: () => void
+    email?: string
+    email_error_msg?: string
+    handleInputChange?: (event) => void
+    handleLogin?: (event) => void
+    handleSocialSignup?: (event) => void
+    handleValidation?: (event) => void
+    is_ppc?: boolean
+    is_submitting?: boolean
+}
+
+type SocialButtonProps = {
+    bgColor?: string
+}
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -84,7 +100,7 @@ const InputGroup = styled.div`
         margin: 25px 0 16px 0;
     }
 `
-const EmailButton = styled(Button)`
+const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     width: 100%;
     font-size: 1.4rem;
     margin-bottom: 0.4rem;
@@ -110,7 +126,7 @@ const SignupWithContainer = styled.div`
     }
 `
 
-const SocialButton = styled(Button)`
+const SocialButton = styled(Button)<SocialButtonProps>`
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -138,8 +154,7 @@ const SocialButton = styled(Button)`
         }
     }
 `
-
-const SocialWrapper = styled.div`
+const SocialWrapper = styled.div<CSSProperties>`
     width: 100%;
     margin-top: 2.4rem;
     display: flex;
@@ -148,9 +163,6 @@ const SocialWrapper = styled.div`
     @media ${device.tabletL} {
         flex-direction: column;
         margin-top: 1rem;
-    }
-    @media ${device.mobile} {
-        justify-content: space-around;
     }
     @media ${device.mobileS} {
         justify-content: space-between;
@@ -212,7 +224,7 @@ const SignupNew = ({
     handleValidation,
     is_ppc,
     is_submitting,
-}) => {
+}: SignupNewProps) => {
     const [is_checked, setChecked] = useState(false)
     const { is_eu_country } = React.useContext(DerivStore)
 
@@ -285,7 +297,7 @@ const SignupNew = ({
                 isChecked={is_checked}
                 type="submit"
                 secondary
-                disabled={is_submitting || !is_checked || email_error_msg || !email}
+                disabled={is_submitting || !is_checked || email_error_msg !== '' || !email}
                 id="dm-new-signup"
             >
                 {localize('Create demo account')}
@@ -314,7 +326,7 @@ const SignupNew = ({
                 <Line />
             </SignupWithContainer>
 
-            <SocialWrapper justify="space-between" gap="0" grid="2">
+            <SocialWrapper gap="0" grid="2">
                 <SocialButton
                     onClick={handleSocialSignup}
                     provider="google"
@@ -363,19 +375,6 @@ const SignupNew = ({
             </LoginText>
         </SignupContent>
     )
-}
-
-SignupNew.propTypes = {
-    autofocus: PropTypes.bool,
-    clearEmail: PropTypes.func,
-    email: PropTypes.string,
-    email_error_msg: PropTypes.string,
-    handleInputChange: PropTypes.func,
-    handleLogin: PropTypes.func,
-    handleSocialSignup: PropTypes.func,
-    handleValidation: PropTypes.func,
-    is_ppc: PropTypes.bool,
-    is_submitting: PropTypes.bool,
 }
 
 export default SignupNew

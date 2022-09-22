@@ -1,11 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Button } from 'components/form'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
+
+type CookieBannerProps = {
+    is_open?: boolean
+    onAccept?: () => void
+    onDecline?: () => void
+}
+
+type WrapperProps = {
+    is_open?: boolean
+}
 
 const FadeInDown = keyframes`
     from {
@@ -28,7 +37,7 @@ const FadeOutUp = keyframes`
     }
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<WrapperProps>`
     position: fixed;
     width: 384px;
     min-height: 188px;
@@ -106,7 +115,7 @@ const LinkText = styled(LocalizedLinkText)`
     }
 `
 
-const CookieBanner = ({ onAccept, onDecline, is_open }) => {
+const CookieBanner = ({ onAccept, onDecline, is_open }: CookieBannerProps) => {
     return (
         <Wrapper is_open={is_open}>
             <StyledText>
@@ -128,12 +137,6 @@ const CookieBanner = ({ onAccept, onDecline, is_open }) => {
             </Flex>
         </Wrapper>
     )
-}
-
-CookieBanner.propTypes = {
-    is_open: PropTypes.bool,
-    onAccept: PropTypes.func,
-    onDecline: PropTypes.func,
 }
 
 export default CookieBanner

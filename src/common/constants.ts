@@ -68,6 +68,7 @@ export const affiliate_signup_url = `https://login.${getDomainUrl()}/signup.php`
 export const affiliate_signin_url = `https://login.${getDomainUrl()}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`
 export const oauth_url = `https://oauth.${getDomainUrl()}`
+export const whatsapp_url = `https://wa.me/35699578341`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 export const besquare_signup_url =

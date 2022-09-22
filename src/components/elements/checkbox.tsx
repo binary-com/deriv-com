@@ -11,13 +11,11 @@ type CheckboxProps = {
     className?: string
     onChange?: (event) => void
 }
-
 type StyledCheckboxProps = {
     secondary?: boolean
     checked?: boolean
     background?: string
 }
-
 type IconProps = {
     secondary?: boolean
     checked?: boolean

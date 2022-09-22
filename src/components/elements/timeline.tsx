@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { PropTypes } from 'prop-types'
 
 const Checkmark = styled.span`
     display: inline-block;
@@ -45,7 +44,7 @@ const OvalWrapper = styled.div`
     left: -13px;
 `
 
-const FlexWrapper = styled.div`
+const FlexWrapper = styled.div<TimelineTickProps>`
     display: flex;
     border-left: ${(props) => (props.is_border ? 'var(--color-red) dashed 1px' : 'unset')};
     position: relative;
@@ -59,11 +58,18 @@ const Oval = () => {
     )
 }
 
-Oval.propTypes = {
-    children: PropTypes.number,
+type TimelineTickProps = {
+    pb?: string
+    is_border?: boolean
+    color?: string
+    children?: ReactNode[]
 }
 
-const Timeline = ({ pb, children, ...props }) => {
+type TimelineProps = Pick<TimelineTickProps, 'pb' | 'children'>
+
+type ItemProps = Pick<TimelineTickProps, 'children'>
+
+const Timeline = ({ pb, children, ...props }: TimelineProps) => {
     return (
         <div {...props}>
             {children.map((child, idx) => (
@@ -78,7 +84,7 @@ const Timeline = ({ pb, children, ...props }) => {
     )
 }
 
-export const TimelineTick = ({ pb, color, children, ...props }) => {
+export const TimelineTick = ({ pb, color, children, ...props }: TimelineTickProps) => {
     return (
         <div {...props}>
             {children.map((child, idx) => (
@@ -97,26 +103,8 @@ export const TimelineTick = ({ pb, color, children, ...props }) => {
     )
 }
 
-const Item = ({ children, ...props }) => <div {...props}>{children}</div>
+const Item = ({ children, ...props }: ItemProps) => <div {...props}>{children}</div>
 Timeline.Item = Item
 TimelineTick.Item = Item
-
-Timeline.propTypes = {
-    children: PropTypes.node,
-    pb: PropTypes.string,
-    props: PropTypes.any,
-}
-
-TimelineTick.propTypes = {
-    children: PropTypes.node,
-    color: PropTypes.string,
-    pb: PropTypes.string,
-    props: PropTypes.any,
-}
-
-Item.propTypes = {
-    children: PropTypes.node,
-    props: PropTypes.any,
-}
 
 export default Timeline

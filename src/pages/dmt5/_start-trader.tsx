@@ -55,6 +55,9 @@ const query = graphql`
         real_step2_mobile: file(relativePath: { eq: "dmt5/dmt5-real-step2-mobile.png" }) {
             ...fadeIn
         }
+        real_step2_eu: file(relativePath: { eq: "dmt5/dmt5-real-step2-eu.png" }) {
+            ...fadeIn
+        }
         real_step3: file(relativePath: { eq: "dmt5/dmt5-real-step3.png" }) {
             ...fadeIn
         }
@@ -216,9 +219,9 @@ const StartTrader = () => {
     )
 
     const text_2 = is_eu_country ? (
-        <Localize translate_text="Create a Deriv real account." />
-    ) : (
         <Localize translate_text="Create a real Deriv Multipliers account" />
+    ) : (
+        <Localize translate_text="Create a Deriv real money account." />
     )
     const text_3 = is_eu_country ? (
         <Localize translate_text="Create a CFDs real account based on your trade preference." />
@@ -354,10 +357,17 @@ const StartTrader = () => {
                             <SideTab.Panel label="" description={text_2}>
                                 <ImageWrapper>
                                     <QueryImage
-                                        data={getImage(is_mobile, [
-                                            'real_step2_mobile',
-                                            'real_step2',
-                                        ])}
+                                        data={
+                                            is_eu_country
+                                                ? getImage(is_mobile, [
+                                                      'real_step2_mobile',
+                                                      'real_step2_eu',
+                                                  ])
+                                                : getImage(is_mobile, [
+                                                      'real_step2_mobile',
+                                                      'real_step2',
+                                                  ])
+                                        }
                                         alt="Real DMT5 account- step 2"
                                     />
                                 </ImageWrapper>

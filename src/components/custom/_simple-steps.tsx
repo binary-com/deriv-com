@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Header, Text } from 'components/elements'
@@ -9,6 +8,16 @@ import device from 'themes/device'
 import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+
+type SimpleStepsProps = {
+    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactNode }[]
+    header?: string
+    sign_up?: boolean
+}
+
+type ClientCardProps = {
+    order?: string
+}
 
 const StyledSection = styled(SectionContainer)`
     position: relative;
@@ -54,7 +63,7 @@ const TitleHeader = styled(Header)`
     }
 `
 
-const ClientCard = styled.article`
+const ClientCard = styled.article<ClientCardProps>`
     margin: 0 0 0 2rem;
     background-color: var(--color-white);
     border-radius: 4px;
@@ -120,7 +129,7 @@ const StyledLinkButton = styled(Button)`
     white-space: nowrap;
 `
 
-const SimpleSteps = ({ header, content, sign_up }) => {
+const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
     const handleSignup = useHandleSignup()
 
     return (
@@ -161,9 +170,5 @@ const SimpleSteps = ({ header, content, sign_up }) => {
         </StyledSection>
     )
 }
-SimpleSteps.propTypes = {
-    content: PropTypes.array.isRequired,
-    header: PropTypes.object.isRequired,
-    sign_up: PropTypes.bool,
-}
+
 export default SimpleSteps

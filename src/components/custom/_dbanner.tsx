@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
@@ -9,6 +9,12 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
+type DBannerProps = {
+    background_pattern?: string
+    data?: IGatsbyImageData
+    image_alt?: string
+    title?: string | JSX.Element
+}
 const Wrapper = styled.div`
     position: relative;
     display: flex;
@@ -25,7 +31,7 @@ const Wrapper = styled.div`
     }
 `
 
-const BackgroundWrapper = styled(Flex)`
+const BackgroundWrapper = styled(Flex)<DBannerProps>`
     width: 25%;
     background-image: url(${(props) => props.background_pattern});
     clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
@@ -114,7 +120,7 @@ const StyledHeader = styled(Header)`
         max-width: 329px;
     }
 `
-const DBanner = ({ title, data, background_pattern, image_alt }) => {
+const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) => {
     const handleSignup = useHandleSignup()
     const { is_eu, is_row } = useCountryRule()
 
@@ -147,13 +153,6 @@ const DBanner = ({ title, data, background_pattern, image_alt }) => {
             </TextWrapper>
         </Wrapper>
     )
-}
-
-DBanner.propTypes = {
-    background_pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    data: PropTypes.object.isRequired,
-    image_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 export default DBanner

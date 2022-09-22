@@ -1,13 +1,25 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
-import {
-    NavPlatform,
-    NavCompany,
-    NavResources,
-    NavMarket,
-} from 'components/custom/other-platforms.js'
+import { NavPlatform, NavCompany, NavResources, NavMarket } from 'components/custom/other-platforms'
 import { Container, Show, Flex } from 'components/containers'
+
+type PlatformsDropdownProps = {
+    active_dropdown?: string
+    current_ref?: {
+        offsetWidth?: number
+        offsetLeft?: number
+    }
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
+    parent?: string
+    setActiveDropdown?: (dropdownContainerRef) => void
+}
+
+type NavDropdownProps = {
+    offset?: number
+    is_trade?: boolean
+    offset_arrow?: number
+}
 
 const FadeInDown = keyframes`
     from {
@@ -19,7 +31,7 @@ const FadeInDown = keyframes`
         transform: translateY(7.2rem) rotateY(0);
     }
 `
-const NavDropdown = styled.div`
+const NavDropdown = styled.div<NavDropdownProps>`
     width: auto;
     max-width: 1200px;
     left: ${(props) => (props.offset ? props.offset + 'px !important' : 0)};
@@ -64,22 +76,22 @@ const PlatformsDropdown = ({
     parent,
     setActiveDropdown,
     active_dropdown,
-}) => {
+}: PlatformsDropdownProps) => {
     const dropdownContainerRef = useRef(null)
     const is_trade = active_dropdown === 'trade'
 
     const [left_offset, setLeftOffset] = useState(() => {
         if (is_trade) {
-            return current_ref?.getBoundingClientRect()?.x / 2
+            return (current_ref as HTMLElement)?.getBoundingClientRect()?.x / 2
         }
-        return current_ref?.getBoundingClientRect()?.x
+        return (current_ref as HTMLElement)?.getBoundingClientRect()?.x
     })
 
     const updateOffsets = useCallback(() => {
         if (is_trade) {
-            setLeftOffset(current_ref.getBoundingClientRect().x / 2)
+            setLeftOffset((current_ref as HTMLElement).getBoundingClientRect().x / 2)
         } else if (current_ref && !is_trade) {
-            setLeftOffset(current_ref.getBoundingClientRect().x)
+            setLeftOffset((current_ref as HTMLElement).getBoundingClientRect().x)
         }
     }, [current_ref])
 
@@ -104,15 +116,6 @@ const PlatformsDropdown = ({
             </Flex>
         </Show.Desktop>
     )
-}
-
-PlatformsDropdown.propTypes = {
-    active_dropdown: PropTypes.string,
-    current_ref: PropTypes.object,
-    is_ppc: PropTypes.bool,
-    is_ppc_redirect: PropTypes.bool,
-    parent: PropTypes.string,
-    setActiveDropdown: PropTypes.func,
 }
 
 export default React.memo(PlatformsDropdown)

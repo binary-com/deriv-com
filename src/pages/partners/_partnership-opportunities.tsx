@@ -3,14 +3,15 @@ import styled, { css } from 'styled-components'
 import { Header, Text, CardStyle } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
-// import device from 'themes/device'
 // Icons
 import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-affiliate.svg'
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
 import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
-const ClientCard = styled(LocalizedLink)`
+type ClientCardProps = { first?: boolean; second?: boolean; third?: boolean }
+
+const ClientCard = styled(LocalizedLink)<ClientCardProps>`
     ${CardStyle}
     text-decoration: none;
     max-width: 38.4rem;

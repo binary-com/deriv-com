@@ -2,12 +2,11 @@
 
 import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Header } from './typography'
 import { LocalizedLinkText } from 'components/elements'
 import { DerivStore } from 'store'
 
-const OffCanvasMenuCareer = styled.section`
+const OffCanvasMenuCareer = styled.section<OffCanvasMenuWrapperCareerProps>`
     position: fixed;
     background-color: var(--color-white);
     top: 7.2rem;
@@ -33,9 +32,17 @@ const OffCanvasMenuContainer = styled.div`
     }
 `
 
-export const OffCanvasMenuWrapperCareer = (props) => {
+type OffCanvasMenuWrapperCareerProps = {
+    closeOffCanvasMenu?: () => void
+    is_canvas_menu_open?: boolean
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
+    is_eu_country?: boolean
+}
+
+export const OffCanvasMenuWrapperCareer = (props: OffCanvasMenuWrapperCareerProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const canvas = useRef()
+    const canvas = useRef<HTMLDivElement>()
 
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()
@@ -73,11 +80,4 @@ export const OffCanvasMenuWrapperCareer = (props) => {
             </OffCanvasMenuContainer>
         </OffCanvasMenuCareer>
     )
-}
-
-OffCanvasMenuWrapperCareer.propTypes = {
-    closeOffCanvasMenu: PropTypes.func,
-    is_canvas_menu_open: PropTypes.bool,
-    is_ppc: PropTypes.bool,
-    is_ppc_redirect: PropTypes.bool,
 }

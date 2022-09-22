@@ -1,11 +1,52 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { useDropdown } from 'components/hooks/use-dropdown'
+import {
+    FormikErrorsType,
+    HandleChangeType,
+    NodesType,
+    OptionOrSelectedType,
+    OptionsType,
+    SelectedType,
+    ToggleListVisibilityType,
+    useDropdown,
+} from 'components/hooks/use-dropdown'
 import { Text } from 'components/elements/typography'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
+
+type DropdownStyledProps = {
+    open?: boolean
+    active?: boolean | React.SetStateAction<OptionOrSelectedType>
+} & Pick<DropdownProps, 'has_short_name'>
+
+type DropdownSelectedProps = {
+    role?: string
+    id?: string
+    tabIndex?: number
+    onClick?: ToggleListVisibilityType
+    onKeyDown?: ToggleListVisibilityType
+} & Pick<DropdownProps, 'has_short_name'>
+
+type ListItemProps = {
+    is_selected?: boolean
+    tabIndex?: number
+    id?: string
+    key?: number
+    ref?: ((instance: HTMLLIElement) => void) & ((c: number) => void)
+    onClick?: () => void
+    onKeyDown?: (e: React.KeyboardEvent<HTMLLIElement>) => void
+}
+type ArrowType = {
+    expanded?: boolean
+    onClick?: React.KeyboardEventHandler<HTMLInputElement> &
+        React.FocusEventHandler<HTMLInputElement> &
+        React.MouseEventHandler<HTMLInputElement> &
+        React.MouseEventHandler<SVGSVGElement>
+}
+type DropdownContainerProps = {
+    mb?: string
+} & Pick<DropdownProps, 'has_short_name' | 'active' | 'error'>
 
 const Symbol = styled(Flex)`
     width: fit-content;
@@ -39,7 +80,7 @@ const Symbol = styled(Flex)`
     }
 `
 
-export const DropdownContainer = styled.ul`
+export const DropdownContainer = styled.ul<DropdownContainerProps>`
     @media ${device.mobileL} {
         height: 43px;
     }
@@ -101,7 +142,7 @@ const StyledDiv = styled.div`
     top: -30px;
 `
 
-const DropdownSelected = styled.li`
+const DropdownSelected = styled.li<DropdownSelectedProps>`
     color: var(--color-grey-6);
     list-style-position: inside;
     white-space: nowrap;
@@ -128,7 +169,7 @@ const ListContainer = styled.li`
     list-style: none;
 `
 
-const ListItem = styled.li`
+const ListItem = styled.li<ListItemProps>`
     color: var(--color-grey-6);
     padding: 1rem 1.6rem;
     transition: background-color 0.1s linear, color 0.1s linear;
@@ -169,7 +210,7 @@ const ListItem = styled.li`
     }
 `
 
-const UnorderedList = styled.ul`
+const UnorderedList = styled.ul<DropdownStyledProps>`
     z-index: 1;
     list-style: none;
     margin: 0;
@@ -194,19 +235,19 @@ const UnorderedList = styled.ul`
         `}
 `
 
-export const Arrow = styled((props) => <Chevron {...props} />)`
+export const Arrow = styled(Chevron)<ArrowType>`
     position: absolute;
     right: 8px;
     top: 25%;
     transition: transform 0.2s linear;
-    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+    ${(props) => (props.expanded ? 'transform: rotate(-180deg);' : '')}
 
     & path {
         fill: var(--color-black);
     }
 `
 
-export const StyledLabel = styled.label`
+export const StyledLabel = styled.label<DropdownStyledProps>`
     color: gray;
     background: var(--color-white);
     font-size: 1.6rem;
@@ -262,7 +303,20 @@ const DefaultOptionText = styled(Text)`
     color: var(--color-grey-5);
 `
 
-export const ItemList = ({ error, handleChange, is_open, nodes, option_list, selected_option }) => {
+type ItemListProps = {
+    is_open?: boolean
+    nodes?: NodesType
+    handleChange?: (option: HandleChangeType, error: FormikErrorsType) => void
+} & Pick<DropdownProps, 'option_list' | 'error' | 'selected_option'>
+
+export const ItemList = ({
+    error,
+    handleChange,
+    is_open,
+    nodes,
+    option_list,
+    selected_option,
+}: ItemListProps) => {
     return (
         <ListContainer aria-expanded={is_open ? 'true' : 'false'} role="list">
             <UnorderedList open={is_open}>
@@ -271,8 +325,8 @@ export const ItemList = ({ error, handleChange, is_open, nodes, option_list, sel
                         (option) =>
                             option && (
                                 <ListItem
-                                    tabIndex="0"
-                                    id={option?.name}
+                                    tabIndex={0}
+                                    id={String(option?.name)}
                                     key={option?.name}
                                     ref={(c) => nodes.set(option?.display_name, c)}
                                     onClick={() => handleChange(option, error)}
@@ -295,17 +349,10 @@ export const ItemList = ({ error, handleChange, is_open, nodes, option_list, sel
     )
 }
 
-ItemList.propTypes = {
-    default_option: PropTypes.any,
-    error: PropTypes.any,
-    handleChange: PropTypes.func,
-    is_open: PropTypes.bool,
-    nodes: PropTypes.object,
-    option_list: PropTypes.array,
-    selected_option: PropTypes.any,
-}
-
-export const BottomLabel = ({ error, contractSize }) => {
+export const BottomLabel = ({
+    error,
+    contractSize,
+}: Pick<DropdownProps, 'error' | 'contractSize'>) => {
     return (
         <StyledDiv>
             <ErrorMessages lh="1.4" align="left">
@@ -320,11 +367,37 @@ export const BottomLabel = ({ error, contractSize }) => {
         </StyledDiv>
     )
 }
+type ItemsType = {
+    contractSize?: string
+    margin?: number
+    marginSymbol?: string
+    volume?: string
+    assetPrice?: string
+    accountType?: string
+    symbol?: string
+    leverage?: string
+    optionList?: SelectedType[]
+} & OptionsType
 
-BottomLabel.propTypes = {
-    contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-}
+export type DropdownProps = {
+    id?: string
+    active?: boolean
+    default_item?: SelectedType
+    default_option?: SelectedType
+    onBlur?: {
+        (e: React.FocusEvent<Element>): void
+    }
+    autoComplete?: string
+    has_short_name?: boolean
+    items?: ItemsType[]
+    label?: string
+    error?: FormikErrorsType
+    onChange?: (value: { symbol?: string } & string) => void
+    option_list?: ItemsType[]
+    selected_option?: OptionOrSelectedType
+    selected_item?: SelectedType
+    disabled?: boolean
+} & Pick<ItemsType, 'contractSize'>
 
 const Dropdown = ({
     default_option,
@@ -336,7 +409,7 @@ const Dropdown = ({
     selected_option,
     contractSize,
     ...props
-}) => {
+}: DropdownProps) => {
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility] = useDropdown(onChange)
 
     return (
@@ -352,7 +425,7 @@ const Dropdown = ({
                 <DropdownSelected
                     id="selected_dropdown"
                     role="button"
-                    tabIndex="0"
+                    tabIndex={0}
                     onClick={toggleListVisibility}
                     onKeyDown={toggleListVisibility}
                     has_short_name={has_short_name}
@@ -364,7 +437,7 @@ const Dropdown = ({
                             <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
                         )}
                     </Symbol>
-                    <Arrow expanded={is_open ? 'true' : 'false'} />
+                    <Arrow expanded={is_open} />
                 </DropdownSelected>
                 <ItemList
                     error={error}
@@ -378,17 +451,6 @@ const Dropdown = ({
             <BottomLabel contractSize={contractSize} error={error} />
         </>
     )
-}
-
-Dropdown.propTypes = {
-    contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    default_option: PropTypes.any,
-    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    has_short_name: PropTypes.bool,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-    option_list: PropTypes.array,
-    selected_option: PropTypes.any,
 }
 
 export default Dropdown

@@ -8,13 +8,11 @@ type CheckboxProps = {
     id?: string
     bg?: string
 }
-
 type StyledCheckboxProps = {
     secondary?: boolean
     checked?: boolean
     background?: string
 }
-
 type IconProps = {
     secondary?: boolean
     checked?: boolean

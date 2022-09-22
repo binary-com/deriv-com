@@ -28,7 +28,7 @@ export const EmblaContainer = styled.div`
     will-change: transform;
 `
 
-export const EmblaSlideInner = styled.div`
+export const EmblaSlideInner = styled.div<{ width?: string }>`
     position: relative;
     padding-left: 0;
     margin: 0 auto;
@@ -41,13 +41,19 @@ export const EmblaSlideInner = styled.div`
     }}
 `
 
-export const StyledButtonWrapper = styled.div`
+type StyledButtonWrapperProps = {
+    disabled?: boolean
+    is_reviews?: boolean
+    left?: boolean
+}
+
+export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
     position: absolute;
     bottom: 50%;
     opacity: ${(props) => (props.disabled ? '0.32' : '1')};
     ${(props) => {
         if (props.left)
-            return css`
+            return css<StyledButtonWrapperProps>`
                 left: 0;
 
                 @media ${device.tabletL} {
@@ -68,7 +74,7 @@ export const StyledButtonWrapper = styled.div`
                     }}
                 }
             `
-        return css`
+        return css<StyledButtonWrapperProps>`
             right: 0;
 
             @media ${device.tabletL} {
@@ -96,11 +102,11 @@ export const StyledButtonWrapper = styled.div`
     }
 `
 
-export const StyledChevron = styled((props) => <Chevron {...props} />)`
+export const StyledChevron = styled(Chevron)`
     height: 24px;
     width: 24px;
     ${(props) => {
-        if (props.red) {
+        if (props.color == 'red') {
             return css`
                 width: 16px;
                 height: 16px;
@@ -110,19 +116,10 @@ export const StyledChevron = styled((props) => <Chevron {...props} />)`
 
     path {
         ${(props) => {
-            if (props.black) {
-                return css`
-                    fill: var(--color-black);
-                `
-            } else if (props.red) {
-                return css`
-                    fill: var(--color-red);
-                `
-            }
+            const selected_color = `fill: var(--color-${props.color});`
+            const default_color = 'fill: var(--color-white);'
 
-            return css`
-                fill: var(--color-white);
-            `
+            return props.color == 'custom' ? default_color : selected_color
         }}
     }
 `
@@ -152,10 +149,14 @@ export const StyledDot = styled.div`
     background-color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-grey-21)')};
 `
 
-export const ChevronRight = styled(StyledChevron)`
+type ChevronRightAndLeftProps = {
+    black?: string | boolean
+    red?: string | boolean
+}
+export const ChevronRight = styled(StyledChevron)<ChevronRightAndLeftProps>`
     transform: rotate(180deg);
     right: 0;
 `
-export const ChevronLeft = styled(StyledChevron)`
+export const ChevronLeft = styled(StyledChevron)<ChevronRightAndLeftProps>`
     left: 0;
 `

@@ -194,6 +194,8 @@ export const ErrorMessages = styled(Header)`
     min-height: 16px;
     font-weight: normal;
     color: var(--color-red-1);
+    line-height: 1.5rem;
+    text-align: left;
 `
 export const StyledLabel = styled.label<StyledLabelProps>`
     color: ${({ label_color }) =>
@@ -292,12 +294,12 @@ const Input = ({
                     onClick={() => setPasswordVisible(!is_password_visible)}
                 />
             )}
-            {extra_info ? (
-                <ExtraInfo p="8px 0 16px 16px">{extra_info}</ExtraInfo>
+            {error ? (
+                <ErrorMessages>{error}</ErrorMessages>
             ) : (
-                <ErrorMessages lh="1.4" align="left" color="red-1">
-                    {error}
-                </ErrorMessages>
+                (extra_info && <ExtraInfo p="8px 0 16px 16px">{extra_info}</ExtraInfo>) || (
+                    <ErrorMessages>{error}</ErrorMessages>
+                )
             )}
             {error && (
                 <StyledError

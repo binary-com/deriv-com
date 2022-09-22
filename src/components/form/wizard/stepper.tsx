@@ -10,7 +10,8 @@ const StepperWrapper = styled.div`
     justify-content: space-between;
     width: 700px;
     margin: 0 auto;
-    @media ${device.tablet} {
+
+    @media ${device.tabletL} {
         width: 100%;
     }
 `

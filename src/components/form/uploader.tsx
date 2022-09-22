@@ -28,7 +28,13 @@ const StyledUpload = styled.div`
     }
 `
 
-const UploadLabel = styled(StyledLabel)``
+const UploadLabel = styled(StyledLabel)`
+    width: 70%;
+    padding-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`
 
 const Uploader = ({
     label = '',

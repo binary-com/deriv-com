@@ -33,7 +33,6 @@ const Modal = styled.div`
     left: 50%;
     background-color: white;
     transform: translate(-50%, -50%);
-    width: 50%;
     height: 668px;
     max-width: 1200px;
     z-index: 100;

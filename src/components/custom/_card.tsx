@@ -24,8 +24,9 @@ const StyledCard = styled.div<{ selected: boolean }>`
     border: ${(props) => (props.selected ? '1px solid #aad2d8' : '1px solid #ffffff')};
     border-radius: 8px;
     cursor: pointer;
+
     @media ${device.tablet} {
-        width: 100%;
+        width: 80%;
     }
 `
 

@@ -899,24 +899,6 @@ export const articles: ArcticlesType[] = [
                 label: 'quick-strategy',
             },
             {
-                title: <Localize translate_text="What is the Martingale strategy?" />,
-                category: 'DBot',
-                sub_category: <Localize translate_text="Strategy" />,
-                label: 'martingale-strategy',
-            },
-            {
-                title: <Localize translate_text="What is the D’Alembert strategy?" />,
-                category: 'DBot',
-                sub_category: <Localize translate_text="Strategy" />,
-                label: 'dalembert-strategy',
-            },
-            {
-                title: <Localize translate_text="What is the Oscar's Grind strategy?" />,
-                category: 'DBot',
-                sub_category: <Localize translate_text="Strategy" />,
-                label: 'oscars-grind-strategy',
-            },
-            {
                 title: <Localize translate_text="How do I save my strategy?" />,
                 category: 'DBot',
                 sub_category: <Localize translate_text="Strategy" />,

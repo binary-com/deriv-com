@@ -275,126 +275,16 @@ const QuickStrategy = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const MartingaleStrategy = ({ text }: ArticleProps) => (
-    <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'The Martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
-
-const AlembertStrategy = ({ text }: ArticleProps) => (
-    <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'Named after the popular 18th-century French roulette theorist, Jean le Rond d’Alembert, this strategy encourages traders to increase contract size after a loss and decrease it after a successful trade.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
-
-const OskarStrategy = ({ text }: ArticleProps) => (
-    <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'This is a low-risk positive progression strategy that first appeared in 1965. By using this strategy, you will increase the size of your contract after each successful trade, and decrease the size of your contract after each unsuccessful trade.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
-
 const SaveStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                "First, give your strategy a name. Click the 'Bot name' field on the toolbar at the top and enter a name.",
-            )}
-        </Text>
-        <ImageWrapper>
-            <img
-                src={BotNameImage}
-                alt={localize('Bot name')}
-                width="21.1rem"
-                loading="lazy"
-                style={{ width: '21.1rem' }}
-            />
-        </ImageWrapper>
-        <Text>
-            {localize(
-                "Next, click 'Save' on the toolbar at the top of the workspace. You can choose to save to your computer or to your Google Drive. Your strategy will be saved in the XML format.",
-            )}
-        </Text>
-        <ImageWrapper>
-            <img
-                src={SaveBotImage}
-                alt={localize('Save')}
-                width="40.7rem"
-                loading="lazy"
-                style={{ width: '40.7rem' }}
-            />
-        </ImageWrapper>
-        <Text>
+        <Text width="110%">
             <Localize
-                translate_text="<0>Saving to your computer</0>"
+                translate_text={
+                    'In <0>Bot</0> Builder, hit <0>Save</0> on the toolbar at the top to download your bot. Give your bot a name, and choose to download your bot to your device or Google Drive. Your bot will be downloaded as an XML file.'
+                }
                 components={[<strong key={0} />]}
             />
-        </Text>
-        <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
-        <ImageWrapper>
-            <img
-                src={SaveBotOptionImage}
-                alt={localize('Save bot')}
-                width="40rem"
-                loading="lazy"
-                style={{ width: '40rem' }}
-            />
-        </ImageWrapper>
-        <Text mt="2.4rem">
-            {localize(
-                "2. The XML file will be saved in the 'Downloads' folder of your internet browser.",
-            )}
-        </Text>
-        <Text mt="4rem">
-            <Localize
-                translate_text="<0>Saving to Google Drive</0>"
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <Text mt="2.4rem">{localize("1. Click 'Connect'.")}</Text>
-        <ImageWrapper>
-            <img
-                src={GoogleDriveImage}
-                alt={localize('Google Drive')}
-                style={{ width: '12.1rem' }}
-                loading="lazy"
-                width="12.1rem"
-            />
-        </ImageWrapper>
-        <Text mt="2.4rem">
-            {localize(
-                '2. Select your Google account and grant the necessary permission for DBot to access your Google Drive.',
-            )}
-        </Text>
-        <Text mt="2.4rem">{localize("3. Click 'Continue'.")}</Text>
-        <ImageWrapper>
-            <img
-                src={SaveBotDriveImage}
-                alt={localize('Save bot Google Drive')}
-                width="38.4rem"
-                loading="lazy"
-                style={{ width: '38.4rem' }}
-            />
-        </ImageWrapper>
-        <Text mt="2.4rem">
-            {localize(
-                "4. Choose the folder you want to save your strategy in and click  'Select'.",
-            )}
         </Text>
     </ArticleWrapper>
 )
@@ -708,21 +598,6 @@ const DBotArticle = () => {
                 <QuickStrategy
                     text={localize('What is quick strategy?')}
                     label="quick-strategy"
-                    is_mounted={is_mounted}
-                />
-                <MartingaleStrategy
-                    text={localize('What is the Martingale strategy?')}
-                    label="martingale-strategy"
-                    is_mounted={is_mounted}
-                />
-                <AlembertStrategy
-                    text={localize('What is the D’Alembert strategy?')}
-                    label="dalembert-strategy"
-                    is_mounted={is_mounted}
-                />
-                <OskarStrategy
-                    text={localize("What is the Oscar's Grind strategy?")}
-                    label="oscars-grind-strategy"
                     is_mounted={is_mounted}
                 />
                 <SaveStrategy

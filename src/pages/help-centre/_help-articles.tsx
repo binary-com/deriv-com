@@ -893,7 +893,7 @@ export const articles: ArcticlesType[] = [
                 label: 'pre-built',
             },
             {
-                title: <Localize translate_text="What is a quick strategy and how do I use it?" />,
+                title: <Localize translate_text="What is a quick strategy?" />,
                 category: 'DBot',
                 sub_category: <Localize translate_text="Strategy" />,
                 label: 'quick-strategy',

@@ -231,7 +231,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4" width="65%">
             {text}
         </StyledHeader>
-        <Text width="65%">
+        <Text width="110%">
             {localize(
                 "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind.",
             )}
@@ -239,80 +239,39 @@ const QuickStrategy = ({ text }: ArticleProps) => (
         <Text mt="4rem">
             <strong>{localize('Using a quick strategy')}</strong>
         </Text>
-        <StyledText>{localize("1. Click 'Get started' on the toolbar at the top.")}</StyledText>
-        <ImageWrapper>
-            <img
-                src={GetStartedImage}
-                alt={localize('Get Started')}
-                width="14.2rem"
-                style={{ width: '14.2rem' }}
-                loading="lazy"
-            />
-        </ImageWrapper>
-        <Text>
-            <Localize
-                translate_text="2. Click 'Quick Strategy'."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <ImageWrapper>
-            <img
-                src={QuickStrategyImage}
-                alt={localize('Quick strategy')}
-                width="16.6rem"
-                style={{ width: '16.6rem' }}
-                loading="lazy"
-            />
-        </ImageWrapper>
-        <Text>{localize('3. Choose the strategy that you want.')}</Text>
-        <ImageWrapper>
-            <img
-                src={StrategiesImage}
-                alt={localize('Strategies')}
-                style={{ width: '42.1rem' }}
-                width="42.1rem"
-                loading="lazy"
-            />
-        </ImageWrapper>
-        <Text>{localize('4. Select the asset and trade type.')}</Text>
-        <ImageWrapper>
-            <img
-                src={AssetTradeTypeImage}
-                alt={localize('Asset and trade type')}
-                style={{ width: '44rem' }}
-                loading="lazy"
-                width="44rem"
-            />
-        </ImageWrapper>
-        <Text>{localize("5. Enter your preferred trade parameters and click 'Create'.")}</Text>
-        <ImageWrapper>
-            <img
-                src={ParametersImage}
-                alt={localize('Parameters')}
-                width="44rem"
-                style={{ width: '44rem' }}
-                loading="lazy"
-            />
-        </ImageWrapper>
-        <Text>
-            {localize(
-                "6. The strategy is loaded onto the workspace. You may adjust your strategy however you want and when you’re ready to run your bot, click 'Run bot'.",
-            )}
-        </Text>
-        <ImageWrapper>
-            <img
-                src={RunBotImage}
-                alt={localize('Run bot')}
-                width="11.8rem"
-                loading="lazy"
-                style={{ width: '11.8rem' }}
-            />
-        </ImageWrapper>
-        <Text>
-            {localize(
-                '7. You may save your bot by either downloading it into your computer or by saving it on your Google Drive.',
-            )}
-        </Text>
+        <StyledList listStyle="decimal" paddingLeft="2.5rem">
+            <StyledListItem marginTop="1.8rem">
+                <Localize
+                    translate_text={'Go to Quick strategy and select the strategy you want.'}
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <StyledListItem marginTop="1.4rem">
+                {localize('Select the asset and trade type.')}
+            </StyledListItem>
+            <StyledListItem marginTop="1.4rem">
+                <Localize
+                    translate_text={'Set your trade parameters and hit <0>Create</0>.'}
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <StyledListItem marginTop="1.4rem">
+                <Localize
+                    translate_text={
+                        'Once the blocks are loaded onto the workspace, tweak the parameters if you want, or hit <0>Run</0> to start trading'
+                    }
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <StyledListItem marginTop="1.4rem">
+                <Localize
+                    translate_text={
+                        'Hit <0>Save</0> to download your bot. You can choose to download your bot to your device or your Google Drive.'
+                    }
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+        </StyledList>
     </ArticleWrapper>
 )
 

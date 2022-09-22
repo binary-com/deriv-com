@@ -6,6 +6,7 @@ import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
 import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
+import show_branding from 'config'
 
 const non_localized_links = ['/academy', '/bug-bounty', '/careers']
 
@@ -34,8 +35,8 @@ type TLocalizeResult<T = string> = {
     usedNS: string
 }
 type SeoProps = {
-    description?: TLocalizeResult<object> | string
-    title?: TLocalizeResult<object> | string
+    description?: TLocalizeResult<object> | (string & boolean) | string
+    title?: TLocalizeResult<object> | (string & boolean) | string
     has_organization_schema?: boolean
     meta?: { name: string; content: string | keyof MetaAttributesType }
     meta_attributes?: MetaAttributesType
@@ -71,13 +72,16 @@ const SEO = ({
     )
 
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
-    const metaDescription = description || queries.site.siteMetadata.description
-    const site_url = queries.site.siteMetadata.siteUrl
+    const metaDescription =
+        (show_branding && description) || (show_branding && queries.site.siteMetadata.description)
+    const site_url = show_branding && queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)
     const formatted_lang = lang.replace('_', '-')
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
-    const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
-    const default_og_description = localize('Trading platforms designed with you in mind.')
+    const default_og_title =
+        show_branding && localize('Online trading with Deriv | Simple. Flexible. Reliable.')
+    const default_og_description =
+        show_branding && localize('Trading platforms designed with you in mind.')
 
     // To block eu.deriv.com domain for search engines
     const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)

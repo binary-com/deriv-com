@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
-import flags from './flags'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
@@ -42,15 +41,12 @@ const Display = styled.div`
     }
 `
 
-const Arrow = styled(Chevron)<{ expanded: boolean }>`
+const Arrow = styled((props) => <Chevron {...props} />)<{ expanded: boolean }>`
     ${({ expanded }) => (expanded ? 'transform: rotate(-180deg);' : '')}
     transition: transform 0.25s;
 
     & path {
         fill: var(--color-white);
-    }
-    @media ${device.mobileL} {
-        display: none;
     }
 `
 
@@ -66,21 +62,21 @@ const Absolute = styled.div<AbsoluteProps>`
             return '5.5rem'
         }
     }};
-    left: -22rem;
-    height: auto;
+    left: -7rem;
+    max-height: 90vh;
+    overflow: auto;
     background-color: var(--color-white);
     transition: opacity 0.35s ease-in-out;
     cursor: default;
-    border-radius: 4px;
+    border-radius: 8px;
     will-change: opacity;
     display: ${({ is_open }) => !is_open && 'none'};
 
     @media ${device.mobileL} {
         top: ${({ is_high_nav }) => (is_high_nav ? '7rem' : '9rem')};
-        left: 0;
+        left: 15rem;
     }
 `
-/* stylelint-disable */
 const FadeInDown = keyframes`
     from {
         opacity:0;
@@ -100,10 +96,9 @@ const FadeOutUp = keyframes`
 
 const ItemContainer = styled.div<{ is_open: boolean }>`
     background-color: var(--color-white);
-    padding: 1.6rem 0.8rem;
+    padding: 0.4rem 0.8rem 0.5rem 0;
     position: relative;
     width: auto;
-    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 2.4rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
@@ -121,7 +116,6 @@ const ItemContainer = styled.div<{ is_open: boolean }>`
         content: '';
         position: absolute;
         width: 1px;
-        background: var(--color-grey-8);
         height: 80%;
         top: 0;
         left: 50%;
@@ -135,7 +129,7 @@ const Item = styled.div<{ disabled: boolean }>`
     align-items: center;
     pointer-events: ${({ disabled }) => (disabled ? 'none' : 'all')};
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-    padding: 0.8rem 1.6rem;
+    padding: 0.8rem 1.4rem 0.4rem 0.8rem;
     transition: background 0.25s;
 
     &:hover {
@@ -145,29 +139,8 @@ const Item = styled.div<{ disabled: boolean }>`
 
 const ResponsiveText = styled(Text)`
     white-space: nowrap;
-    color: white;
-
-    @media ${device.mobileL} {
-        display: none;
-    }
 `
-
-const LanguageText = styled(Text)`
-    color: ${({ current_option }) => (current_option ? 'red' : 'black')};
-`
-
 /* stylelint-enable */
-
-const Icon = styled.img`
-    width: 24px;
-    height: 16px;
-    margin-bottom: 3px;
-
-    @media ${device.mobileL} {
-        width: 20px;
-        height: 15px;
-    }
-`
 
 const Dropdown = ({
     default_option,
@@ -191,14 +164,11 @@ const Dropdown = ({
         closeList()
     }
 
-    const default_abbreviation = default_option.path.substring(0, 2)
-
     return (
         <>
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
-                    <Icon src={flags[default_abbreviation]} alt="language icon" />
-                    <ResponsiveText ml="0.8rem" weight="bold" mr="0.4rem">
+                    <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
                     </ResponsiveText>
                     <Arrow expanded={is_open ? true : false} />
@@ -208,7 +178,6 @@ const Dropdown = ({
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             if (!option) return null
-                            const abbreviation = option.path.substring(0, 2)
                             const current_option = default_option.path === option.path
                             return (
                                 <Item
@@ -220,10 +189,9 @@ const Dropdown = ({
                                     }}
                                     key={idx}
                                 >
-                                    <Icon src={flags[abbreviation]} alt="language icon" />
-                                    <LanguageText ml="0.8rem" current_option={current_option}>
+                                    <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
                                         {option.text}
-                                    </LanguageText>
+                                    </Text>
                                 </Item>
                             )
                         })}

@@ -1,6 +1,5 @@
-import React, { useContext, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import { Media } from 'themes/media'
-import { DerivStore } from 'store'
 
 type DesktopType = {
     children?: ReactNode
@@ -19,21 +18,7 @@ export const Mobile = ({ children, min_width, ...props }: any) => (
         {children}
     </Media>
 )
-
-type DomainType = { children: ReactNode }
-
-export const Eu = ({ children }: DomainType) => {
-    const { is_eu_country } = useContext(DerivStore)
-
-    if (is_eu_country) return <>{children}</>
-    else return null
-}
-
-export const NonEU = Eu
-
 export default {
-    Eu,
-    NonEU,
     Mobile,
     Desktop,
 }

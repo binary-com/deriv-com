@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import { CryptocurrenciesTradeType } from '../../markets/instruments/_submarkets'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
-import { Desktop, Mobile, NonUK } from 'components/containers/visibility'
+import { Desktop, Mobile } from 'components/containers/visibility'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
@@ -99,8 +100,9 @@ const CryptocurrenciesDetails = () => (
 )
 
 const Cryptocurrencies = () => {
+    const { is_non_uk } = useCountryRule()
     return (
-        <NonUK>
+        is_non_uk && (
             <SectionContainer padding="4rem 0 8rem">
                 <Flex max_width="79.2rem" m="0 auto" direction="column">
                     <StyledText mb="12px" align="center">
@@ -141,7 +143,7 @@ const Cryptocurrencies = () => {
                     </MarketsWrapper>
                 </Flex>
             </SectionContainer>
-        </NonUK>
+        )
     )
 }
 

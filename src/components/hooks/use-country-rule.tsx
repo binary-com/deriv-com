@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { eu_countries,latam_countries,african_countries } from 'common/country-base'
+import { eu_countries, latam_countries, african_countries } from 'common/country-base'
 import {
     getClientInformation,
     getDomain,

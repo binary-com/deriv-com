@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
 import Dp2p from './_dp2p'
@@ -12,6 +11,10 @@ import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+
+type StyledTableType = {
+    has_note: boolean
+}
 
 const meta_attributes = {
     og_title: localize('Payment Methods | Deposits and withdrawals | Deriv'),
@@ -67,7 +70,7 @@ const TopContainer = styled(Container)`
         width: 100%;
     }
 `
-const StyledTable = styled.table`
+const StyledTable = styled.table<StyledTableType>`
     table-layout: fixed;
     border-collapse: collapse;
     width: 110.4rem;
@@ -120,7 +123,44 @@ const MobileWrapper = styled.div`
         display: block;
     }
 `
-const DisplayAccordion = (locale) => {
+
+type LocaleType = { language?: string }
+
+type PaymentType = {
+    method?: ReactElement
+    currencies?: string | ReactElement
+    min_max_deposit?: ReactElement
+    min_max_withdrawal?: ReactElement
+    deposit_time?: ReactElement
+    withdrawal_time?: ReactElement
+    description?: ReactElement
+    name?: string
+    reference?: string
+    locales?: string[]
+    url?: string
+    reference_link?: ReactElement
+}
+export type PaymentProps = {
+    payment_data?: PaymentType
+    locale?: { locale?: LocaleType }
+    is_crypto?: boolean
+    is_fiat_onramp?: boolean
+    is_dp2p?: boolean
+}
+export type PaymentDataProps = {
+    name?: ReactElement
+    note?: ReactElement
+    is_crypto?: boolean
+    is_dp2p?: boolean
+    is_fiat_onramp?: boolean
+    locale?: LocaleType
+    data?: Array<PaymentType>
+}
+export type PaymentMethodsProps = {
+    locale?: PaymentDataProps
+    pd?: PaymentDataProps
+}
+const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     const { is_eu_country, is_p2p_allowed_country } = React.useContext(DerivStore)
     const [is_mobile] = useBrowserResize(992)
 
@@ -193,11 +233,9 @@ const DisplayAccordion = (locale) => {
     )
 }
 
-DisplayAccordion.propTypes = {
-    locale: PropTypes.object,
-}
+const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
+    const parse_to_integer = parseInt('2')
 
-const DisplayAccordianItem = ({ pd, locale }) => {
     return (
         <>
             <OuterDiv>
@@ -208,7 +246,7 @@ const DisplayAccordianItem = ({ pd, locale }) => {
                                 <Th>
                                     <BoldText>{localize('Method')}</BoldText>
                                 </Th>
-                                <Th colSpan={pd.is_fiat_onramp && '2'}>
+                                <Th colSpan={pd.is_fiat_onramp && parse_to_integer}>
                                     <BoldText>{localize('Currencies')}</BoldText>
                                 </Th>
                                 <Th style={pd.is_fiat_onramp && { width: '180px' }}>
@@ -240,7 +278,7 @@ const DisplayAccordianItem = ({ pd, locale }) => {
                                     </Th>
                                 )}
                                 {pd.is_fiat_onramp ? (
-                                    <Th colSpan="2">
+                                    <Th colSpan={2}>
                                         <BoldText>{localize('Deposit processing time')}</BoldText>
                                     </Th>
                                 ) : pd.is_dp2p ? (
@@ -278,7 +316,7 @@ const DisplayAccordianItem = ({ pd, locale }) => {
                                 return (
                                     <ExpandList
                                         key={indx}
-                                        data={data}
+                                        payment_data={data}
                                         is_crypto={pd.is_crypto}
                                         is_fiat_onramp={pd.is_fiat_onramp}
                                         locale={locale}
@@ -300,12 +338,7 @@ const DisplayAccordianItem = ({ pd, locale }) => {
     )
 }
 
-DisplayAccordianItem.propTypes = {
-    locale: PropTypes.object,
-    pd: PropTypes.object,
-}
-
-const PaymentMethods = (locale) => {
+const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
         <Layout>
@@ -367,10 +400,6 @@ const PaymentMethods = (locale) => {
             )}
         </Layout>
     )
-}
-
-PaymentMethods.propTypes = {
-    locale: PropTypes.object,
 }
 
 export default WithIntl()(PaymentMethods)

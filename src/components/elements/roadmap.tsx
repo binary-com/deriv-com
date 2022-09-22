@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
@@ -63,7 +62,15 @@ const StyledButton = styled(LinkButton)`
     max-width: 120px;
     z-index: 3;
 `
-const Roadmap = ({ portal }) => {
+
+type RoadmapProps = {
+    portal?: {
+        paragraph?: string
+        frame?: string
+        link?: string
+    }
+}
+const Roadmap = ({ portal }: RoadmapProps) => {
     return (
         <StyledSectionContainer>
             <Container>
@@ -92,10 +99,6 @@ const Roadmap = ({ portal }) => {
             </>
         </StyledSectionContainer>
     )
-}
-
-Roadmap.propTypes = {
-    portal: PropTypes.object,
 }
 
 export default Roadmap

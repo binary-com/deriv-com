@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { Header } from './typography'
 import { Flex } from 'components/containers'
@@ -8,12 +7,21 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
 
+type TabsStyledProps = {
+    mobile_tab_button_underline_length?: string
+    jc?: string
+    jc_laptopM?: string
+    jc_mobileL?: string
+    line_divider_length?: string
+    selected?: boolean
+}
+
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
 `
 
-const TabButton = styled.button`
+const TabButton = styled.button<TabsStyledProps>`
     z-index: 2;
     height: auto;
     padding: 8px 24px 10px;
@@ -50,7 +58,7 @@ const TabButton = styled.button`
     }
 `
 
-const TabList = styled.div`
+const TabList = styled.div<TabsStyledProps>`
     display: flex;
     width: 100%;
     justify-content: ${(props) => (props.jc ? props.jc : 'center')};
@@ -78,7 +86,7 @@ const TabList = styled.div`
     }
 `
 
-const LineDivider = styled.div`
+const LineDivider = styled.div<TabsStyledProps>`
     bottom: 0;
     position: absolute;
     height: 2px;
@@ -101,14 +109,23 @@ const TextWrapper = styled(Header)`
     }
 `
 
-const TabPanel = ({ children }) => (
-    <TabContent role="tabpanel" tabindex="0">
-        {children}
-    </TabContent>
+type TabPanelProps = {
+    children?: ReactElement
+}
+const TabPanel = ({ children }: TabPanelProps) => (
+    <TabContent role="tabpanel">{children}</TabContent>
 )
-
-TabPanel.propTypes = {
-    children: PropTypes.node,
+type TabsProps = {
+    children?: ReactElement | ReactElement[]
+    has_no_query?: boolean
+    jc?: string
+    jc_laptopM?: string
+    jc_mobileL?: string
+    line_divider_length?: string
+    mobile_font_size?: number
+    mobile_tab_button_underline_length?: string
+    tab_list?: string[]
+    starting_index?: number
 }
 
 const Tabs = ({
@@ -122,7 +139,7 @@ const Tabs = ({
     mobile_tab_button_underline_length,
     has_no_query,
     starting_index = 0,
-}) => {
+}: TabsProps) => {
     const [is_mobile] = useBrowserResize(768)
     const [is_mounted] = usePageLoaded()
     const [selected_tab, setSelectedTab] = useState(0)
@@ -184,7 +201,6 @@ const Tabs = ({
                 ))}
                 <LineDivider line_divider_length={line_divider_length} />
             </TabList>
-
             <Content>
                 {React.Children.map(children, (el, index) =>
                     selected_tab === index ? el : undefined,
@@ -195,18 +211,5 @@ const Tabs = ({
 }
 
 Tabs.Panel = TabPanel
-
-Tabs.propTypes = {
-    children: PropTypes.node,
-    has_no_query: PropTypes.bool,
-    jc: PropTypes.string,
-    jc_laptopM: PropTypes.string,
-    jc_mobileL: PropTypes.string,
-    line_divider_length: PropTypes.string,
-    mobile_font_size: PropTypes.number,
-    mobile_tab_button_underline_length: PropTypes.string,
-    starting_index: PropTypes.number,
-    tab_list: PropTypes.array,
-}
 
 export default Tabs

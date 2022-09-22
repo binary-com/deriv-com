@@ -28,6 +28,7 @@ import device from 'themes/device'
 import { DerivStore, useDerivWS } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -131,9 +132,9 @@ const Layout = ({
     no_login_signup,
     type,
 }) => {
+    const [is_mounted] = usePageLoaded()
     const { show_non_eu_popup, setShowNonEuPopup, academy_data } = React.useContext(DerivStore)
-    const { is_uk_eu } = useCountryRule()
-    const [has_mounted, setMounted] = React.useState(false)
+    const { is_loading, is_uk_eu } = useCountryRule()
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
@@ -143,22 +144,25 @@ const Layout = ({
     const { has_platform } = usePlatformQueryParam()
 
     const is_static = type === 'static'
+
     // Allow tracking cookie banner setup
     React.useEffect(() => {
-        if (typeof is_uk_eu === 'boolean') {
+        if (!is_loading) {
             const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
+            const is_tracking_accepted = tracking_status === 'accepted'
+            const allow_tracking = (!is_uk_eu || is_tracking_accepted) && !gtm_data && has_dataLayer
+
             if (is_uk_eu && !tracking_status) setShowCookieBanner(true)
-            const allow_tracking =
-                (!is_uk_eu || tracking_status === 'accepted') && !gtm_data && has_dataLayer
 
             if (allow_tracking) {
                 window.onload = () => {
                     window.setTimeout(() => {
-                        setGTMData({ event: 'allow_tracking' })
+                        if (is_tracking_accepted) {
+                            setGTMData({ event: 'allow_tracking' })
+                        }
                     }, 2000)
                 }
             }
-            setMounted(true)
         }
     }, [is_uk_eu])
 
@@ -269,7 +273,7 @@ const Layout = ({
     }
     return (
         <LocationProvider
-            has_mounted={has_mounted}
+            has_mounted={is_mounted}
             show_cookie_banner={show_cookie_banner}
             toggleModal={toggleModal}
             setModalPayload={setModalPayload}

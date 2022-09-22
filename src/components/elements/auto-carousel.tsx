@@ -1,9 +1,19 @@
-import React, { createRef } from 'react'
+import React, { createRef, ReactNode } from 'react'
 import styled, { keyframes } from 'styled-components'
-import PropTypes from 'prop-types'
 import { isBrowser } from 'common/utility'
 
-const AutoCarouselSection = styled.section`
+type CarouselItemProps = {
+    width?: string
+    padding?: number
+    total_translate?: number
+    should_carousel_move?: boolean
+    transition?: boolean
+    transition_duration?: number
+    count_child?: number
+    animation_status?: string
+}
+
+const AutoCarouselSection = styled.section<CarouselItemProps>`
     width: ${(props) => props.width};
     overflow: hidden;
     margin: 0 auto;
@@ -18,10 +28,11 @@ const move_items = (total_translate) => keyframes`
         transform: translateX(-${total_translate}px);
     }
 `
-const ItemContainer = styled.div`
+
+const ItemContainer = styled.div<CarouselItemProps>`
     padding: 0 ${(props) => props.padding / 2}px;
 `
-const ItemsWrapper = styled.div`
+const ItemsWrapper = styled.div<CarouselItemProps>`
     /* width: TODO: fix this ${(props) => props.total_translate}px; */
     display: flex;
     justify-content: flex-start;
@@ -39,8 +50,16 @@ const ItemsWrapper = styled.div`
     backface-visibility: hidden;
     cursor: default;
 `
-class AutoCarousel extends React.PureComponent {
-    my_ref = createRef()
+
+type AutoCarouselProps = {
+    carousel_width?: string
+    children?: ReactNode[]
+    items_padding?: number
+    transition_duration?: number
+}
+
+class AutoCarousel extends React.PureComponent<AutoCarouselProps> {
+    my_ref = createRef<HTMLDivElement>()
     // carousel_width: define carousel's width by percentage
     // items_padding: define items padding by pixle
     // transition_duaration: takes a whole loop, define it by ms
@@ -137,10 +156,5 @@ class AutoCarousel extends React.PureComponent {
         )
     }
 }
-AutoCarousel.propTypes = {
-    carousel_width: PropTypes.string,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-    items_padding: PropTypes.number,
-    transition_duration: PropTypes.number,
-}
+
 export default AutoCarousel

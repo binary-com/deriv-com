@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactNode, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography'
 import { Flex } from 'components/containers'
@@ -8,6 +7,14 @@ import device from 'themes/device'
 // SVG
 import Arrow from 'images/svg/elements/card-arrow.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
+
+type StyledProps = {
+    width?: string
+    padding?: string
+    background_color?: string
+    is_selected?: boolean
+    min_height?: string
+}
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -24,7 +31,7 @@ const CardContent = styled(Text)`
         font-size: var(--text-size-sm);
     }
 `
-const CardCover = styled.div`
+const CardCover = styled.div<StyledProps>`
     position: absolute;
     width: 100%;
     height: 100%;
@@ -47,7 +54,7 @@ const CardCover = styled.div`
     }
 `
 
-const CardWrapper = styled.article`
+const CardWrapper = styled.article<StyledProps>`
     ${CardStyle}
     position: relative;
     overflow: hidden;
@@ -86,38 +93,6 @@ const ContentWrapper = styled.div`
     }
 `
 
-const CardChildrenWrapper = styled.article`
-    ${Header} {
-        text-align: center;
-    }
-
-    ${CardStyle}
-    width: ${(props) => (props.width ? props.width : '50.2rem')};
-    height: 100%;
-    min-height: 26.8rem;
-    padding: 2.6rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    p {
-        font-size: var(--text-size-s);
-
-        a {
-            color: var(--color-red);
-            text-decoration: none;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-    svg,
-    img {
-        margin: 0.2rem 0 0.8rem 0;
-    }
-`
-
 const IconContainer = styled.div`
     display: flex;
     justify-content: flex-start;
@@ -130,7 +105,7 @@ const IconContainer = styled.div`
 const CardContentContainer = styled.div`
     margin-left: 1.6rem;
 `
-const Content = ({ content }) => (
+const Content = ({ content }: Pick<CardProps, 'content'>) => (
     <>
         {Array.isArray(content) ? (
             content.map((text) => <CardContent key={text}>{text}</CardContent>)
@@ -153,8 +128,20 @@ const CoverContent = styled(Text)`
     font-size: var(--text-size-m);
 `
 
-Content.propTypes = {
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+type CardProps = {
+    children?: ReactNode
+    className?: string
+    content?: string[]
+    cover_background?: string
+    cover_content?: string
+    Icon?: () => ReactElement
+    is_inline_icon?: boolean
+    is_selected?: boolean
+    min_height?: string
+    padding?: string
+    title?: string
+    width?: string
+    word_break_cover?: boolean
 }
 
 export const Card = ({
@@ -171,7 +158,16 @@ export const Card = ({
     padding,
     is_selected,
     word_break_cover,
-}) => {
+}: CardProps) => {
+    const final_content = word_break_cover ? (
+        <Flex direction="column" jc="flex-start" ai="flex-start">
+            <CoverContent>{cover_content.split(' ')[0]}</CoverContent>
+            <CoverContent>{cover_content.split(' ').slice(1).join(' ')}</CoverContent>
+        </Flex>
+    ) : (
+        <CoverContent>{cover_content}</CoverContent>
+    )
+
     return (
         <CardWrapper width={width} min_height={min_height} padding={padding} className={className}>
             {!children && (
@@ -183,18 +179,7 @@ export const Card = ({
                                 is_selected={is_selected}
                             >
                                 <div>
-                                    {word_break_cover ? (
-                                        <Flex direction="column" jc="flex-start" ai="flex-start">
-                                            <CoverContent>
-                                                {cover_content.split(' ')[0]}
-                                            </CoverContent>
-                                            <CoverContent>
-                                                {cover_content.split(' ').slice(1).join(' ')}
-                                            </CoverContent>
-                                        </Flex>
-                                    ) : (
-                                        <CoverContent>{cover_content}</CoverContent>
-                                    )}
+                                    {final_content}
                                     <img src={Arrow} alt="arrow" width="16" height="16" />
                                 </div>
                             </CardCover>
@@ -223,44 +208,9 @@ export const Card = ({
                     )}
                 </>
             )}
-            {children && children}
+            {children}
         </CardWrapper>
     )
-}
-
-Card.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    className: PropTypes.string,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-    cover_background: PropTypes.string,
-    cover_content: PropTypes.string,
-    Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-    is_inline_icon: PropTypes.bool,
-    is_selected: PropTypes.bool,
-    min_height: PropTypes.string,
-    padding: PropTypes.string,
-    title: PropTypes.string,
-    width: PropTypes.string,
-    word_break_cover: PropTypes.bool,
-}
-
-export const CardChildren = ({ Icon, title, width, children, icon_width, icon_height }) => (
-    <CardChildrenWrapper width={width}>
-        <Header as="h4" weight="500">
-            {title}
-        </Header>
-        <Icon width={icon_width} height={icon_height} />
-        {children}
-    </CardChildrenWrapper>
-)
-
-CardChildren.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    Icon: PropTypes.func,
-    icon_height: PropTypes.string,
-    icon_width: PropTypes.string,
-    title: PropTypes.string,
-    width: PropTypes.string,
 }
 
 const NavContent = styled.div`
@@ -336,7 +286,33 @@ const SvgWrapper = styled.div`
     }
 `
 
-export const NavCard = ({ content, external, icon: Icon, style, title, ...props }) => {
+type NavigationType = {
+    textDecoration?: string
+    maxWidth?: string
+}
+
+type NavCardProps = {
+    aria_label?: string
+    content?: ReactNode[] | ReactElement
+    external?: boolean
+    icon?: () => ReactElement
+    style?: NavigationType
+    title?: ReactNode
+    target?: string
+    type?: string
+    otherLinkProps?: { rel?: string }
+    onClick?: () => void
+    to?: string
+}
+
+export const NavCard = ({
+    content,
+    external,
+    icon: Icon,
+    style,
+    title,
+    ...props
+}: NavCardProps) => {
     return (
         <LocalizedLink
             style={{
@@ -353,7 +329,6 @@ export const NavCard = ({ content, external, icon: Icon, style, title, ...props 
                 <SvgWrapper>
                     <Icon />
                 </SvgWrapper>
-
                 <NavContent>
                     <ResponsiveHeader as="span" size="var(--text-size-s)" lh="1.14" mb="0.8rem">
                         {title}
@@ -362,20 +337,12 @@ export const NavCard = ({ content, external, icon: Icon, style, title, ...props 
                 </NavContent>
                 {external && (
                     <div>
-                        <RightDiagonal src={Diagonal} alt="Diagonal" widht="16" height="16" />
+                        <RightDiagonal src={Diagonal} alt="Diagonal" width="16" height="16" />
                     </div>
                 )}
             </FlexHover>
         </LocalizedLink>
     )
-}
-
-NavCard.propTypes = {
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
-    external: PropTypes.string,
-    icon: PropTypes.func,
-    style: PropTypes.object,
-    title: PropTypes.PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 const LinkRightDiagonal = styled.div`
@@ -412,8 +379,27 @@ const IconRightWrapper = styled.div`
 const RelativeFlex = styled(Flex)`
     position: relative;
 `
+type CardLinkProps = {
+    content: string
+    external: boolean
+    icon?: () => ReactElement
+    onClick: () => void
+    style: NavigationType
+    target: string
+    title: string
+    to: string
+}
 
-export const CardLink = ({ icon: Icon, title, to, style, external, target, onClick, ...props }) => {
+export const CardLink = ({
+    icon: Icon,
+    title,
+    to,
+    style,
+    external,
+    target,
+    onClick,
+    ...props
+}: CardLinkProps) => {
     return (
         <LocalizedLink
             target={target}
@@ -453,15 +439,4 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
             </HoverFlex>
         </LocalizedLink>
     )
-}
-
-CardLink.propTypes = {
-    content: PropTypes.string,
-    external: PropTypes.string,
-    icon: PropTypes.func,
-    onClick: PropTypes.func,
-    style: PropTypes.object,
-    target: PropTypes.string,
-    title: PropTypes.string,
-    to: PropTypes.string,
 }

@@ -477,6 +477,7 @@ const PersonalDetails = ({
                                     extra_info={item.extra_info}
                                     handleError={() => {
                                         item?.value_set('')
+                                        item?.error_set('')
                                     }}
                                 />
                             )

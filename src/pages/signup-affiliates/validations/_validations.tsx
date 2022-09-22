@@ -3,7 +3,7 @@ import { localize, Localize } from 'components/localization'
 /* eslint-disable */
 
 export const affiliate_validation_regex = {
-    alphabet: /^[A-Za-z]+([a-zA-Z\.' -])*[a-zA-Z\.' -]+$/,
+    alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
     phone: /^\+?[^\D]((-|\s)*\d)*$/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
     city: /[`~!@#%^&*)(_=+[}{\]\\/";:?><,|\d]+/,

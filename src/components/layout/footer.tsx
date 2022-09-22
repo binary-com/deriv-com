@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { LocationContext } from './location-context'
-import { DefaultFooter, FooterGrid } from './footer/common/style.js'
+import { DefaultFooter, FooterGrid } from './footer/common/style'
 import LogoSection from './footer/logo'
 import MainLinksSection from './footer/main-links'
 import DisclaimerSection from './footer/disclaimer'
@@ -10,7 +9,21 @@ import { Container, Mobile } from 'components/containers'
 import { DerivStore } from 'store'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 
-const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footer_links }) => {
+type FooterProps = {
+    academy?: boolean
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
+    no_footer_links?: boolean
+    type?: string
+}
+
+const Footer = ({
+    type = '',
+    is_ppc = false,
+    is_ppc_redirect = false,
+    academy = false,
+    no_footer_links = false,
+}: FooterProps) => {
     const { show_cookie_banner } = React.useContext(LocationContext)
     const { is_eu_country } = React.useContext(DerivStore)
 
@@ -30,14 +43,6 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footer_links }) => 
             </Container>
         </DefaultFooter>
     )
-}
-
-Footer.propTypes = {
-    academy: PropTypes.bool,
-    is_ppc: PropTypes.bool,
-    is_ppc_redirect: PropTypes.bool,
-    no_footer_links: PropTypes.bool,
-    type: PropTypes.string,
 }
 
 export default Footer

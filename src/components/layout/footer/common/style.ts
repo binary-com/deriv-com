@@ -4,7 +4,17 @@ import { StyledLink, Text } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
-export const DefaultFooter = styled.footer`
+type DefaultFooterProps = {
+    is_eu_country?: boolean
+    has_banner_cookie?: boolean
+}
+
+type DisclaimerParagraphProps = {
+    no_margin?: boolean
+    has_line_height?: boolean
+}
+
+export const DefaultFooter = styled.footer<DefaultFooterProps>`
     background-color: var(--color-grey-25);
     width: 100%;
     margin: 0 auto;
@@ -14,19 +24,19 @@ export const DefaultFooter = styled.footer`
     padding-bottom: 1.6rem;
 
     @media (max-width: 1090px) {
-        margin-bottom: ${(props) => props.is_eu_country && '9rem'};
+        margin-bottom: ${({ is_eu_country }) => is_eu_country && '9rem'};
     }
     @media (max-width: 991px) {
-        margin-bottom: ${(props) => props.is_eu_country && '11rem'};
+        margin-bottom: ${({ is_eu_country }) => is_eu_country && '11rem'};
     }
     @media (max-width: 826px) {
-        margin-bottom: ${(props) => props.is_eu_country && '12.2rem'};
+        margin-bottom: ${({ is_eu_country }) => is_eu_country && '12.2rem'};
     }
     @media (max-width: 710px) {
-        margin-bottom: ${(props) => props.is_eu_country && '10.6rem'};
+        margin-bottom: ${({ is_eu_country }) => is_eu_country && '10.6rem'};
     }
     @media (max-width: 538px) {
-        margin-bottom: ${(props) => props.is_eu_country && '13.8rem'};
+        margin-bottom: ${({ is_eu_country }) => is_eu_country && '13.8rem'};
     }
 
     ${Container} {
@@ -140,7 +150,7 @@ export const DisclaimerWrapper = styled.div`
     grid-area: disclaimer;
     background: var(--color-grey-25);
 `
-export const DisclaimerParagraph = styled(Text)`
+export const DisclaimerParagraph = styled(Text)<DisclaimerParagraphProps>`
     font-size: var(--text-size-xs);
     margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
 
@@ -148,7 +158,7 @@ export const DisclaimerParagraph = styled(Text)`
         width: 90%;
         margin: 16px auto 0;
         font-size: 12px;
-        line-height: ${(props) => (props.line_height ? '21px' : '18px')};
+        line-height: ${({ has_line_height }) => (has_line_height ? '21px' : '18px')};
     }
 `
 export const shared_css = css`

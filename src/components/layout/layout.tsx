@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, ReactNode, Ref } from 'react'
 import Loadable from '@loadable/component'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { closestMatch, distance } from 'closest-match'
 import useGTMData from '../hooks/use-gtm-data'
@@ -14,10 +13,10 @@ import NavPartners from './nav/nav-partner'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
+import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
 import { isBrowser, handleRedirect, isEuDomain } from 'common/utility'
@@ -29,6 +28,34 @@ import { DerivStore, useDerivWS } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+
+type CFDWarningProps = {
+    is_ppc: boolean
+}
+
+type LayoutProps = {
+    children: ReactNode
+    interim_type?: 'affiliate' | 'dbot' | 'deriv' | 'dmt5' | 'faq'
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
+    margin_top?: number | string
+    no_live_chat?: boolean
+    no_login_signup?: boolean
+    type?: string
+}
+
+type MainType = {
+    is_static?: boolean
+    margin_top?: number | string
+}
+
+export type ModalPayloadType = {
+    to: string
+    ref: Ref<HTMLAnchorElement>
+    rel: string
+    target: string
+    aria_label: string
+}
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -94,7 +121,7 @@ const CFDText = styled(Text)`
     }
 `
 
-export const CFDWarning = ({ is_ppc }) => {
+export const CFDWarning = ({ is_ppc }: CFDWarningProps) => {
     const { is_uk_eu } = useCountryRule()
 
     if (is_ppc || is_uk_eu) {
@@ -115,7 +142,7 @@ export const CFDWarning = ({ is_ppc }) => {
     return <></>
 }
 
-const Main = styled.main`
+const Main = styled.main<MainType>`
     margin-top: ${(props) => (props.margin_top && `${props.margin_top}rem`) || '7rem'};
     background: var(--color-white);
     height: 100%;
@@ -125,19 +152,19 @@ const Main = styled.main`
 const Layout = ({
     children,
     interim_type,
-    is_ppc,
-    is_ppc_redirect,
-    margin_top,
-    no_live_chat,
-    no_login_signup,
-    type,
-}) => {
+    is_ppc = false,
+    is_ppc_redirect = false,
+    margin_top = '',
+    no_live_chat = false,
+    no_login_signup = false,
+    type = '',
+}: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const { show_non_eu_popup, setShowNonEuPopup, academy_data } = React.useContext(DerivStore)
     const { is_loading, is_uk_eu } = useCountryRule()
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
-    const [modal_payload, setModalPayload] = React.useState({})
+    const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
     const [gtm_data, setGTMData] = useGTMData()
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
     const { send } = useDerivWS()
@@ -213,7 +240,7 @@ const Layout = ({
     }
 
     // Handle navigation types
-    let Navigation = <></>
+    let Navigation
     let FooterNav = <></>
     switch (type) {
         case 'academy':
@@ -311,22 +338,6 @@ const Layout = ({
             )}
         </LocationProvider>
     )
-}
-
-CFDWarning.propTypes = {
-    is_ppc: PropTypes.bool,
-}
-
-Layout.propTypes = {
-    children: PropTypes.node.isRequired,
-    interim_type: PropTypes.string,
-    is_ppc: PropTypes.bool,
-    is_ppc_redirect: PropTypes.bool,
-    margin_top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    nav_type: PropTypes.string,
-    no_live_chat: PropTypes.bool,
-    no_login_signup: PropTypes.bool,
-    type: PropTypes.string,
 }
 
 export default Layout

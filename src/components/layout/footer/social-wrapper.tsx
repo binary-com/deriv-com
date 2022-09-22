@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { SocialWrapper } from './common/style.js'
+import { SocialWrapper } from './common/style'
 import { LocalizedLink } from 'components/localization'
 import {
     reddit_url,
@@ -18,7 +17,28 @@ import Instagram from 'images/svg/layout/footer-instagram.svg'
 import Facebook from 'images/svg/layout/footer-facebook.svg'
 import Linkedin from 'images/svg/layout/footer-linkedin.svg'
 
-const SocialWrapperComponent = ({ is_career_page, fb_url, instagram_url, twitter_url }) => {
+type SocialWrapperComponentProps = {
+    fb_url?: string
+    instagram_url?: string
+    is_career_page?: boolean
+    twitter_url?: string
+}
+
+type TSocialAccount = {
+    link?: string
+    image?: string
+    image_alt?: string
+}
+type SocialMediaComponentProps = {
+    social_accounts: TSocialAccount[]
+}
+
+const SocialWrapperComponent = ({
+    is_career_page = false,
+    fb_url = '',
+    instagram_url = '',
+    twitter_url = '',
+}: SocialWrapperComponentProps) => {
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
         {
@@ -62,14 +82,7 @@ const SocialWrapperComponent = ({ is_career_page, fb_url, instagram_url, twitter
     return <SocialMediaComponent social_accounts={accounts} />
 }
 
-SocialWrapperComponent.propTypes = {
-    fb_url: PropTypes.string,
-    instagram_url: PropTypes.string,
-    is_career_page: PropTypes.bool,
-    twitter_url: PropTypes.string,
-}
-
-const SocialMediaComponent = ({ social_accounts }) => (
+const SocialMediaComponent = ({ social_accounts = [] }: SocialMediaComponentProps) => (
     <SocialWrapper>
         {social_accounts.map((account, index) => (
             <LocalizedLink
@@ -84,9 +97,5 @@ const SocialMediaComponent = ({ social_accounts }) => (
         ))}
     </SocialWrapper>
 )
-
-SocialMediaComponent.propTypes = {
-    social_accounts: PropTypes.array,
-}
 
 export default SocialWrapperComponent

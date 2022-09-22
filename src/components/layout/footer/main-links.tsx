@@ -1,12 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style.js'
+import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style'
 import { Localize } from 'components/localization'
 import { Flex, Desktop } from 'components/containers'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
-const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
+type MainLinksSectionProps = {
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
+}
+
+const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinksSectionProps) => {
     const { is_non_uk, is_row } = useCountryRule()
     return (
         <LinksWrapper>
@@ -123,7 +127,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{<Localize translate_text="TRADE" />}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
                                 {<Localize translate_text="Deriv MT5" />}
                             </Link>
@@ -273,9 +277,3 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
 }
 
 export default MainLinksSection
-
-MainLinksSection.propTypes = {
-    is_ppc: PropTypes.bool,
-    is_ppc_redirect: PropTypes.bool,
-    type: PropTypes.string,
-}

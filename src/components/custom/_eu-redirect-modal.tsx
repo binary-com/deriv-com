@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { Ref, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
@@ -7,6 +6,17 @@ import { Localize } from 'components/localization'
 import device from 'themes/device'
 // Icons
 import Close from 'images/svg/custom/close-2.svg'
+
+type EURedirectProps = {
+    aria_label?: string
+    closeModal?: () => void
+    is_open: boolean
+    ref?: Ref<HTMLAnchorElement>
+    rel?: string
+    target?: string
+    to?: string
+    toggle: (event: React.MouseEvent<HTMLElement>) => void
+}
 
 const ModalWrapper = styled.div`
     position: fixed;
@@ -85,7 +95,16 @@ const Cancel = styled.span`
     }
 `
 
-const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_label }) => {
+const EURedirect = ({
+    toggle,
+    is_open,
+    closeModal,
+    to = '',
+    target = '',
+    rel = '',
+    ref,
+    aria_label = '',
+}: EURedirectProps) => {
     const handleEscape = (e) => {
         if (e.keyCode === 27) {
             closeModal()
@@ -142,23 +161,11 @@ const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_la
     )
 }
 
-EURedirect.propTypes = {
-    aria_label: PropTypes.string,
-    closeModal: PropTypes.func,
-    is_open: PropTypes.bool.isRequired,
-    ref: PropTypes.object,
-    rel: PropTypes.string,
-    target: PropTypes.string,
-    to: PropTypes.string,
-    toggle: PropTypes.func.isRequired,
-}
-
 export default EURedirect
-
 export const useModal = (is_open = false) => {
     const [show_modal, setShowModal] = useState(is_open)
     const toggleModal = () => setShowModal(!show_modal)
     const closeModal = () => setShowModal(false)
 
-    return [show_modal, toggleModal, closeModal]
+    return [show_modal, toggleModal, closeModal] as const
 }

@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import SocialWrapperComponent from './social-wrapper'
-import { DerivLogoWrapper, StyledLogo } from './common/style.js'
+import { DerivLogoWrapper, StyledLogo } from './common/style'
 import { Desktop } from 'components/containers'
 import DerivLogo from 'images/svg/layout/deriv-footer.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -17,7 +16,11 @@ import {
     twitter_non_eu_url,
 } from 'common/constants'
 
-const LogoSection = ({ type }) => {
+type LogoSectionProps = {
+    type?: string
+}
+
+const LogoSection = ({ type = '' }: LogoSectionProps) => {
     const { is_eu, is_uk } = useCountryRule()
 
     return (
@@ -39,10 +42,6 @@ const LogoSection = ({ type }) => {
             </Desktop>
         </DerivLogoWrapper>
     )
-}
-
-LogoSection.propTypes = {
-    type: PropTypes.string,
 }
 
 export default LogoSection

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {
     DisclaimerWrapper,
     DisclaimerParagraph,
@@ -12,7 +11,11 @@ import { Localize, localize } from 'components/localization'
 import { loss_percent } from 'common/constants'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
-const DisclaimerSection = ({ is_academy }) => {
+type DisclaimerSectionProps = {
+    is_academy?: boolean
+}
+
+const DisclaimerSection = ({ is_academy = false }: DisclaimerSectionProps) => {
     const { is_eu, is_non_eu } = useCountryRule()
     return (
         <>
@@ -164,10 +167,6 @@ const DisclaimerSection = ({ is_academy }) => {
             </DisclaimerWrapper>
         </>
     )
-}
-
-DisclaimerSection.propTypes = {
-    is_academy: PropTypes.bool,
 }
 
 export default DisclaimerSection

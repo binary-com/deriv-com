@@ -121,7 +121,7 @@ const StyledInfo = styled.img`
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 20px;
-        margin-left: 16px;
+        padding-left: 16px;
         margin-top: 24px;
     }
 `

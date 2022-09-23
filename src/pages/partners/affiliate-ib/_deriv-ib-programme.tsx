@@ -110,7 +110,7 @@ const StyledHeaderCommission = styled(StyledHeader)`
         text-align: center;
     }
     @media ${device.mobileM} {
-        text-align: left;
+        text-align: center;
         width: 38rem;
     }
     @media (min-width: 1200px) and (max-width: 1680px) {

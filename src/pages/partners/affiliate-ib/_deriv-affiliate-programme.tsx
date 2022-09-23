@@ -117,7 +117,7 @@ const StyledCard = styled(Card)`
     }
 
     @media (max-width: 1313px) {
-        height: 59rem;
+        height: 63rem;
     }
 
     @media ${device.laptopM} {

@@ -240,7 +240,7 @@ export const commodities_options: Options = {
             },
         ],
         markets_list: {
-            col: 4,
+            col: 3,
         },
     },
     options: getOptions(false),

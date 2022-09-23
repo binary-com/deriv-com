@@ -7,21 +7,6 @@ import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 // Images
-import GetStartedImage from 'images/common/help-centre/dbot-button-get-started.png'
-import QuickStrategyImage from 'images/common/help-centre/dbot-quick-strategy.png'
-import StrategiesImage from 'images/common/help-centre/dbot-strategies.png'
-import AssetTradeTypeImage from 'images/common/help-centre/dbot-asset-trade-type.png'
-import ParametersImage from 'images/common/help-centre/dbot-parameters.png'
-import RunBotImage from 'images/common/help-centre/dbot-run-bot.png'
-import BotNameImage from 'images/common/help-centre/dbot-botname.png'
-import SaveBotImage from 'images/common/help-centre/dbot-save.png'
-import GoogleDriveImage from 'images/common/help-centre/dbot-google-drive.png'
-import SaveBotOptionImage from 'images/common/help-centre/dbot-save-bot.png'
-import SaveBotDriveImage from 'images/common/help-centre/dbot-savebot-drive.png'
-import ImportantStrategyImage from 'images/common/help-centre/dbot-import-strategy.png'
-import LoadBotImage from 'images/common/help-centre/dbot-load-bot.png'
-import LoadBotGDImage from 'images/common/help-centre/dbot-load-bot-gd.png'
-import ResetImage from 'images/common/help-centre/dbot-reset.png'
 import ClearStatImage from 'images/common/help-centre/dbot-clear-stat.png'
 import AreYouSureImage from 'images/common/help-centre/dbot-are-you-sure.png'
 import LossesImage from 'images/common/help-centre/dbot-losses.png'
@@ -350,19 +335,13 @@ const ResetWorkspace = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                "Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost.",
-            )}
-        </Text>
-        <ImageWrapper>
-            <img
-                src={ResetImage}
-                alt={localize('Reset')}
-                width="40.7rem"
-                loading="lazy"
-                style={{ width: '40.7rem' }}
+            <Localize
+                translate_text={
+                    'In <0>Bot Builder</0>, hit <0>Reset</0> on the toolbar at the top. This will clear the workspace. Please note that any unsaved changes will be lost.'
+                }
+                components={[<strong key={0} />]}
             />
-        </ImageWrapper>
+        </Text>
     </ArticleWrapper>
 )
 

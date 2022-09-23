@@ -2048,8 +2048,6 @@
   "-1177881596": "Select the asset and trade type.",
   "-227080090": "Just drag the XML file from your computer onto the workspace, and your bot will be loaded accordingly. Alternatively, you can hit Import in Bot Builder, and choose to import your bot from your computer or from your Google Drive.",
   "-1259784179": "Your bot will be loaded accordingly.",
-  "-380726654": "Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost.",
-  "-1856204727": "Reset",
   "-1671080983": "2. Click 'Ok'.",
   "-1886118844": "There are many ways you can control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:",
   "-986689483": "1. Create the following variables:",

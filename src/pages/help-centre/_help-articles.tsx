@@ -905,7 +905,7 @@ export const articles: ArcticlesType[] = [
                 label: 'save-strategy',
             },
             {
-                title: <Localize translate_text="How do I import my strategies into DBot?" />,
+                title: <Localize translate_text="How do I import my own trading bot into DBot?" />,
                 category: 'DBot',
                 sub_category: <Localize translate_text="Strategy" />,
                 label: 'import-strategy',

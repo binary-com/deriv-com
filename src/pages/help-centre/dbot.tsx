@@ -294,54 +294,55 @@ const ImportStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text width="88%">
             {localize(
-                "Just drag the XML file from your computer onto the workspace. Your blocks will be loaded accordingly. Alternatively, you can click 'Import' on the toolbar at the top of the workspace and choose to load your strategy from your computer or from your Google Drive.",
+                'Just drag the XML file from your computer onto the workspace, and your bot will be loaded accordingly. Alternatively, you can hit Import in Bot Builder, and choose to import your bot from your computer or from your Google Drive.',
             )}
         </Text>
-        <ImageWrapper>
-            <img
-                src={ImportantStrategyImage}
-                alt={localize('Import strategy')}
-                style={{ width: '40.7rem' }}
-                loading="lazy"
-                width="40.7rem"
-            />
-        </ImageWrapper>
         <Text mt="4rem">
             <strong>{localize('Importing from your computer')}</strong>
         </Text>
-        <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
-        <ImageWrapper>
-            <img
-                src={LoadBotImage}
-                alt={localize('Load bot')}
-                width="40.7rem"
-                loading="lazy"
-                style={{ width: '40.7rem' }}
-            />
-        </ImageWrapper>
-        <Text>
-            {localize(
-                "2. Select your strategy and click 'Open'. Your blocks will be loaded accordingly.",
-            )}
+        <StyledList listStyle="decimal" paddingLeft="2.3rem">
+            <StyledListItem marginTop="1.4rem">
+                <Localize
+                    translate_text={
+                        'After hitting <0>Import</0>, select <0>Local</0> and click <0>Continue</0>.'
+                    }
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <StyledListItem marginTop="1.4rem">
+                <Localize
+                    translate_text={'Select your XML file and hit <0>Open</0>.'}
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <StyledListItem marginTop="1.4rem">
+                {localize('Your bot will be loaded accordingly.')}
+            </StyledListItem>
+        </StyledList>
+
+        <Text mt="2rem">
+            <strong>{localize('Import from your Google Drive')}</strong>
         </Text>
-        <Text mt="4rem">
-            <strong>{localize('Importing from your Google Drive')}</strong>
-        </Text>
-        <Text mt="2.4rem">{localize("1. Select 'Google Drive' and click 'Continue'.")}</Text>
-        <ImageWrapper>
-            <img
-                src={LoadBotGDImage}
-                alt={localize('Load bot google Drive')}
-                width="40.7rem"
-                loading="lazy"
-                style={{ width: '40.7rem' }}
-            />
-        </ImageWrapper>
-        <Text>
-            {localize(
-                "2. Select your strategy and click 'Select'. Your blocks will be loaded accordingly.",
-            )}
-        </Text>
+
+        <StyledList listStyle="decimal" paddingLeft="2.3rem">
+            <StyledListItem marginTop="1.4rem">
+                <Localize
+                    translate_text={
+                        'After hitting <0>Import</0>, select <0>Google Drive</0> and click <0>Continue</0>.'
+                    }
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <StyledListItem marginTop="1.4rem">
+                <Localize
+                    translate_text={'Select your XML file and hit <0>Select</0>.'}
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <StyledListItem marginTop="1.4rem">
+                {localize('Your bot will be loaded accordingly.')}
+            </StyledListItem>
+        </StyledList>
     </ArticleWrapper>
 )
 
@@ -606,7 +607,7 @@ const DBotArticle = () => {
                     is_mounted={is_mounted}
                 />
                 <ImportStrategy
-                    text={localize('How do I import my strategies into DBot?')}
+                    text={localize('How do I import my own trading bot into DBot?')}
                     label="import-strategy"
                     is_mounted={is_mounted}
                 />

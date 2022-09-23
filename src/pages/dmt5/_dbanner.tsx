@@ -85,7 +85,7 @@ const TextWrapper = styled.div`
     }
     @media ${device.tabletS} {
         margin: 234px auto 0;
-        max-width: 328px;
+        max-width: 330px;
         text-align: center;
     }
 `
@@ -97,7 +97,7 @@ const StyledLinkButton = styled(Button)`
     display: inline-block;
 
     @media ${device.tabletS} {
-        margin: 0 auto;
+        margin: auto;
     }
 `
 const StyledHeader = styled(Header)`

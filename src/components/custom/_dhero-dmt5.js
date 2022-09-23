@@ -60,7 +60,6 @@ const LinkWrapper = styled.div`
         margin-bottom: 40px;
     }
     @media ${device.tabletL} {
-        max-width: 217px;
         max-height: 40px;
         margin-top: 12px;
     }
@@ -137,7 +136,7 @@ const InformationWrapper = styled(Flex)`
         margin-top: 22px;
     }
     @media ${device.mobileL} {
-        max-width: 328px;
+        max-width: 332px;
     }
 `
 

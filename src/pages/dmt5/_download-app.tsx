@@ -83,6 +83,14 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const StyledText = styled(Text)`
+    font-size: 24px;
+
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
+
 const DownloadApp = () => {
     const data = useStaticQuery(query)
 
@@ -149,7 +157,30 @@ const DownloadApp = () => {
                 </Desktop>
 
                 <Mobile>
-                    <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
+                    <StyledHeader as="h4">{localize('Desktop')}</StyledHeader>
+                    <Flex mt="0.8rem" jc="flex-start" height="auto">
+                        <DownloadLinkWrapper>
+                            <LocalizedLink
+                                external
+                                to={dmt5_windows_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={Windows} alt="windows" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external
+                                to={dmt5_mac_app_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={MacOS} alt="macos" />
+                            </LocalizedLink>
+                        </DownloadLinkWrapper>
+                    </Flex>
+                    <StyledHeader mt="2.4rem" as="h4">
+                        {localize('Mobile')}
+                    </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start">
                         <Box mr="0.8rem">
                             <LocalizedLink
@@ -175,29 +206,6 @@ const DownloadApp = () => {
                             />
                         </LocalizedLink>
                     </Flex>
-                    <StyledHeader mt="2.4rem" as="h4">
-                        {localize('Desktop')}
-                    </StyledHeader>
-                    <Flex mt="0.8rem" jc="flex-start" height="auto">
-                        <DownloadLinkWrapper>
-                            <LocalizedLink
-                                external
-                                to={dmt5_windows_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={Windows} alt="windows" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={dmt5_mac_app_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={MacOS} alt="macos" />
-                            </LocalizedLink>
-                        </DownloadLinkWrapper>
-                    </Flex>
                 </Mobile>
             </Flex>
 
@@ -214,12 +222,12 @@ const DownloadApp = () => {
                 laptopM={{ mr: '2px', ml: '2px' }}
             >
                 <StyledInfo src={MoreInfo} alt="more info" />
-                <Text width="100%" ml="1.6rem" size="var(--text-size-m)">
+                <StyledText width="100%" ml="1.6rem">
                     <Localize
                         translate_text="For mobile app sign-ups, set the broker code to <0>Deriv Limited</0>."
                         components={[<strong key={0} />]}
                     />
-                </Text>
+                </StyledText>
             </Flex>
             <ImageWrapper mt="4rem">
                 <QueryImage data={data['mobile_phone']} alt="DMT5 mobile app" />

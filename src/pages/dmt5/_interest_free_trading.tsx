@@ -12,13 +12,13 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const ImageWrapper = styled.div`
     width: 124px;
-    height: 84px;
+    height: 100px;
     object-fit: contain;
     margin-top: 4rem;
     @media ${device.tabletL} {
         margin-top: 60px;
-        height: 55px;
-        width: 80px;
+        height: 100px;
+        width: 132px;
     }
 `
 const ImageTag = styled.img`
@@ -67,7 +67,7 @@ const StyledHeader = styled(Header)`
     margin: 13.4rem 0 1.2rem;
     font-size: 48px;
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 28px;
         margin: 0 0 8px;
     }
 `
@@ -88,7 +88,8 @@ const StyledLinkButton = styled(LinkButton)`
     width: 24rem;
     margin: 0;
     @media ${device.tabletL} {
-        margin: auto;
+        padding: 1.5rem 1.6rem;
+        max-width: 206px;
     }
 
     @media ${device.mobileL} {

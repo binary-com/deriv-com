@@ -99,6 +99,16 @@ const Card = styled(Flex)`
         height: auto;
     }
 `
+
+const Image = styled.img`
+    width: 64px;
+    height: 64px;
+
+    @media ${device.mobileL} {
+        width: 48px;
+        height: 48px;
+    }
+`
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 32px;
@@ -131,7 +141,7 @@ const WhyTrader = () => {
                     return (
                         <Card key={card.key}>
                             <div>
-                                <img src={card.image} alt="" />
+                                <Image src={card.image} alt={card.header.props.translate_text} />
                             </div>
                             <StyledCardHeader
                                 mt="0.8rem"

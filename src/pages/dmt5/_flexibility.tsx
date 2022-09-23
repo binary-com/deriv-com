@@ -20,8 +20,8 @@ type ContentType = {
 
 const BaseIconStyle = css`
     @media ${device.mobileL} {
-        width: 24px;
-        height: 24px;
+        width: 32px;
+        height: 32px;
     }
 `
 const StyledIcon = styled.img`
@@ -70,7 +70,7 @@ const ClientCard = styled.article`
     margin-left: 2rem;
     background-color: var(--color-white);
     border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    box-shadow: 0 22px 20px 0 rgba(14, 14, 14, 0.1);
     width: 38.4rem;
     padding: 3.2rem 2.4rem 4rem;
     position: relative;

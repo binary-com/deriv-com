@@ -68,7 +68,7 @@ const ImageWrapper = styled.div`
 const MainHeader = styled(Header)`
     margin: 0 0 12px;
     @media ${device.tabletL} {
-        font-size: 32px;
+        font-size: 28px;
         margin-bottom: 24px;
         padding: 0 16px;
         text-align: center;

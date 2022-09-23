@@ -1,5 +1,4 @@
 import React from 'react'
-import Proptypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { CardStyle, Header, Text } from 'components/elements'
@@ -9,6 +8,10 @@ import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+
+type CheckedTextProps = {
+    children: string
+}
 
 const ImageWrapper = styled.div`
     width: 124px;
@@ -128,14 +131,15 @@ const StyledText = styled(Text)`
 `
 
 const StyledImg = styled.img`
+    margin-right: 8px;
+
     @media ${device.tabletL} {
         width: 16px;
         height: 16px;
-        margin-right: 8px;
     }
 `
 
-const CheckedText = ({ children }) => (
+const CheckedText = ({ children }: CheckedTextProps) => (
     <>
         <Flex jc="flex-start" ai="center">
             <StyledImg src={Checkmark} alt="Check mark" width="24" height="24" />
@@ -147,12 +151,8 @@ const CheckedText = ({ children }) => (
     </>
 )
 
-CheckedText.propTypes = {
-    children: Proptypes.string,
-}
-
 const InterestFreeTrading = () => {
-    const { is_uk, is_eu, is_row } = useCountryRule()
+    const { is_uk } = useCountryRule()
 
     return (
         <StyledContainer>
@@ -165,18 +165,13 @@ const InterestFreeTrading = () => {
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>
-                    {is_uk && <CheckedText>Stocks & indices</CheckedText>}
-                    {(is_eu || is_row) && (
-                        <>
-                            <CheckedText>Stocks & indices</CheckedText>
-                            <CheckedText>Cryptocurrencies</CheckedText>
-                        </>
-                    )}
-                    <CheckedText>Commodities</CheckedText>
                     <CheckedText>Derived</CheckedText>
+                    <CheckedText>Stocks & indices</CheckedText>
+                    {!is_uk && <CheckedText>Cryptocurrencies</CheckedText>}
+                    <CheckedText>Commodities</CheckedText>
                 </TextWrapperFlex>
             </InterestCardFlex>
-            <StyledFlex fd="column" jc="flex-start" ac="center" height="100%" width="51.4rem">
+            <StyledFlex fd="column" jc="flex-start" height="100%" width="51.4rem">
                 <StyledHeader as="h2" lh="1.25">
                     <Localize translate_text="Trade on the world markets without commission" />
                 </StyledHeader>

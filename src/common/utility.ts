@@ -124,25 +124,6 @@ export const sentenceCase = (input) => input.charAt(0).toUpperCase() + input.sli
 export const getCryptoDecimals = (input) =>
     input.toFixed(1 - Math.floor(Math.log(input) / Math.log(10)))
 
-export function debounce(func, wait, immediate) {
-    let timeout
-    return function () {
-        const context = this
-        const args = arguments
-
-        const later = function () {
-            timeout = null
-            if (!immediate) func.apply(context, args)
-        }
-
-        const callNow = immediate && !timeout
-
-        clearTimeout(timeout)
-        timeout = setTimeout(later, wait)
-        if (callNow) func.apply(context, args)
-    }
-}
-
 // This function is created to back traverse an array of style values
 export const responsiveFallback = (prop, start_from, fallback) => {
     let index = start_from ?? prop?.length ?? 0
@@ -203,9 +184,8 @@ export const nonENLangUrlReplace = (current_path) => {
 }
 export const getDateFromToday = (num_of_days) => {
     const today = new Date()
-    const end_date = new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
 
-    return end_date
+    return new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
 }
 
 export const isNullUndefined = (value) => value === null || typeof value === 'undefined'
@@ -371,10 +351,11 @@ export const removeSpecialCharacterUrl = (url) =>
         .replace(/\?+/g, '') // Replace question mark with empty value
         .replace(/[/]/g, '-') //Replace '/' with single -
 
+// make an object, include all the missing parameters and try to fix it
 export const queryParams = {
     get: (key) => {
         const params = new URLSearchParams(isBrowser() && location.search)
-        let param_values = {}
+        const param_values = {}
         //To get the params from the url
 
         if (typeof key === 'string') {
@@ -388,7 +369,7 @@ export const queryParams = {
     },
     set: (objects) => {
         // To set the params from the url
-        const url = new URL(location)
+        const url = new URL(location.href)
 
         Object.keys(objects).forEach((k) => {
             const value = objects[k]
@@ -399,7 +380,7 @@ export const queryParams = {
     },
     delete: (key) => {
         //To delete the params from the url
-        const url = new URL(location)
+        const url = new URL(location.href)
         if (typeof key === 'string') {
             url.searchParams.delete(key)
         } else {
@@ -414,7 +395,7 @@ export const queryParams = {
 
 export const redirectWithParamReference = (url = '', param = null) => {
     const param_value = queryParams.get(param)
-    const new_url = new URL(location)
+    const new_url = new URL(location.href)
 
     if (param) {
         new_url.searchParams.delete(param) // Remove the param reference so it will not be included on the final redirection link

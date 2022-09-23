@@ -77,9 +77,7 @@ const Uploader = ({
                 </div>
             </InputWrapper>
             {error ? (
-                <ErrorMessages lh="1.4" align="left" color="red-1">
-                    {error}
-                </ErrorMessages>
+                <ErrorMessages as="div">{error}</ErrorMessages>
             ) : (
                 <ExtraInfo>{extra_info}</ExtraInfo>
             )}

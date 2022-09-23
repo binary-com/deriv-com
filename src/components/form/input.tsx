@@ -295,10 +295,10 @@ const Input = ({
                 />
             )}
             {error ? (
-                <ErrorMessages>{error}</ErrorMessages>
+                <ErrorMessages as="div">{error}</ErrorMessages>
             ) : (
                 (extra_info && <ExtraInfo p="8px 0 16px 16px">{extra_info}</ExtraInfo>) || (
-                    <ErrorMessages>{error}</ErrorMessages>
+                    <ErrorMessages as="div">{error}</ErrorMessages>
                 )
             )}
             {error && (

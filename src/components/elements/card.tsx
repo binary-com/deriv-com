@@ -1,6 +1,6 @@
 import React, { ReactNode, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
-import { Text, Header } from './typography.js'
+import { Text, Header } from './typography'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'

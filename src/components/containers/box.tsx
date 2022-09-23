@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Margins, MarginsType, Paddings, PaddingsType } from '../../themes/function'
-import { size } from 'themes/device'
+import device, { size } from 'themes/device'
 
 export const mediaqueries = Object.keys(size)
     .sort(function (a, b) {
@@ -36,6 +36,9 @@ export type BaseStyleType = {
     pl?: string
     pr?: string
     pb?: string
+    jc?: string
+    fd?: string
+    ai?: string
     min_width?: string
     max_width?: string
     min_height?: string
@@ -75,6 +78,13 @@ const baseStyles = ({
 
 const responsiveStyles = generateResponsiveStyles(baseStyles)
 
+export type PartialRecord<K extends keyof any, T> = {
+    [P in K]?: T
+    //based on common typescript Record<>, but make everything optional
+}
+
+export type ResponseDeviceProps = PartialRecord<keyof typeof device, BaseStyleType>
+
 export type BoxType = {
     width?: string
     height?: string
@@ -83,7 +93,9 @@ export type BoxType = {
     position?: string
     background?: string
     bg?: string
-} & BaseStyleType
+    direction?: string
+} & ResponseDeviceProps &
+    BaseStyleType
 
 const Box = styled.div<BoxType>`
     width: ${(props) => (props.width ? props.width : '')};

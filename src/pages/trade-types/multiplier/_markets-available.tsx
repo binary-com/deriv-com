@@ -8,7 +8,6 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
 import Derived from 'images/svg/trade-types/derived.svg'
-import BasketIndices from 'images/svg/trade-types/basket-indices.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const MobileCardHeader = styled(Flex)`
@@ -56,16 +55,6 @@ const available_markets = [
             <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
         learn_more_path: '/markets/synthetic/',
-    },
-    {
-        name: 'Basket Indices',
-        img_src: BasketIndices,
-        img_alt: 'basket indices',
-        text: <Localize translate_text="Basket indices" />,
-        description: (
-            <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
-        ),
-        learn_more_path: '/markets/basket-indices/',
     },
 ]
 

@@ -6,6 +6,17 @@ import device from 'themes/device'
 import CrossIcon from 'images/svg/help/cross.svg'
 
 interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
+    height?: string
+    id?: string
+    label?: string
+    label_color?: string
+    label_hover_color?: string
+    tablet_background?: string
+    inputColor?: string
+    input_background?: string
+    label_focus_color?: string
+    labelSize?: string
+    labelTop?: string
     handleError?: (
         current_input?: { focus?: () => void } & React.MutableRefObject<HTMLInputElement>,
     ) => void

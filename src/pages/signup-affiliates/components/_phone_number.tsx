@@ -62,21 +62,21 @@ const OtpContainer = styled.form`
 `
 
 type PhoneNumberProps = {
-    updatedData: (e) => void
-    onValidate: (e) => void
+    updatedData: (value: { phone: number; prefix: string }) => void
+    onValidate: (valid: number | true) => void
     affiliate_phone_number: { phone: number; prefix: string }
 }
 
 const PhoneNumber = ({ updatedData, onValidate, affiliate_phone_number }: PhoneNumberProps) => {
     const [phone, setPhone] = useState(affiliate_phone_number.phone)
-    const [phonecode, setPhoneCode] = useState(affiliate_phone_number.prefix)
+    const [prefix, setPrefix] = useState(affiliate_phone_number.prefix)
 
     useEffect(() => {
         updatedData({
             phone,
-            phonecode,
+            prefix,
         })
-    }, [phone, phonecode])
+    }, [phone, prefix])
 
     // need to initialize a type of current wizard
     // in future can pass or set phone prefix
@@ -101,7 +101,7 @@ const PhoneNumber = ({ updatedData, onValidate, affiliate_phone_number }: PhoneN
 
             <CodeContainer>
                 <CodeWrapper>
-                    <CountryCode>{phonecode && <span>{`+${phonecode}`}</span>}</CountryCode>
+                    <CountryCode>{prefix && <span>{`+${prefix}`}</span>}</CountryCode>
                 </CodeWrapper>
 
                 <PhoneNumberInput

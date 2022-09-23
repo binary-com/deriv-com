@@ -32,8 +32,8 @@ type PersonalDataProps = {
     currency: string
 }
 type PersonalDetailsprops = {
-    updatedData: (e) => void
-    onValidate: (e) => void
+    updatedData: (value: PersonalDataProps) => void
+    onValidate: (valid: string | true) => void
     is_individual: boolean
     affiliate_personal_data: PersonalDataProps
 }

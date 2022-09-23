@@ -20,16 +20,16 @@ const AffiliateSignup = () => {
     const [next_btn_enabled, setNextBtnEnabled] = useState(false)
 
     const [affiliate_account, setAffiliateAccount] = useState({
-        account_type: 1,
+        account_type: -1,
         address_details: {
             country: null,
             state: '',
             city: '',
             street: '',
-            postal_code: '12345',
+            postal_code: '',
         },
         phone_number: {
-            phone: 1,
+            phone: null,
             prefix: '44',
         },
         personal_details: {

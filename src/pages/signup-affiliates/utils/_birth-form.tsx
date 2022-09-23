@@ -1,6 +1,7 @@
 import React from 'react'
 import AffiliateBirthPicker from './_birth-picker'
-import { ExtraInfo, InputProps, InputWrapper, RelativeWrapper } from 'components/form/input'
+import { ExtraInfo } from './_affiliate-input'
+import { InputProps, InputWrapper, RelativeWrapper } from 'components/form/input'
 
 type BirthPickerProps = {
     setFieldValue: React.Dispatch<React.SetStateAction<string>>
@@ -9,7 +10,6 @@ type BirthPickerProps = {
 const BirthPicker = ({
     label,
     border,
-    extra_info = '',
     focus_border,
     label_hover_color,
     label_color,
@@ -35,7 +35,7 @@ const BirthPicker = ({
                     label_color={label_color}
                 />
             </InputWrapper>
-            <ExtraInfo>{extra_info}</ExtraInfo>
+            <ExtraInfo />
         </RelativeWrapper>
     )
 }

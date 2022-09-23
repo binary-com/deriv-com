@@ -76,11 +76,28 @@ const passwordValidation = (input, field_name, min_digit, max_digit) => {
     }
     return null
 }
-const postcodeValidation = (input, field_name) => {
+const postcodeValidation = (input, field_name, min_digit, max_digit) => {
     if (!input) {
         return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+    } else if (
+        !validation_is_exceed_number(input, max_digit) ||
+        !validation_is_lack_number(input, min_digit)
+    ) {
+        return localize(`You should enter ${min_digit}-${max_digit} characters.`)
     } else if (!affiliate_validation_regex.postal_code.test(input)) {
-        return localize(`Postcode is invalid, you should enter 5 characters.`)
+        return localize(`Please enter a valid postcode.`)
+    }
+}
+const registrationNumberValidation = (input, field_name, min_digit, max_digit) => {
+    if (!input) {
+        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+    } else if (
+        !validation_is_exceed_number(input, max_digit) ||
+        !validation_is_lack_number(input, min_digit)
+    ) {
+        return localize(`You should enter ${min_digit}-${max_digit} characters.`)
+    } else if (!affiliate_validation_regex.postal_code.test(input)) {
+        return localize(`Please enter a valid company registration number.`)
     }
 }
 const stateValidation = (input, field_name, min_digit, max_digit) => {
@@ -142,10 +159,10 @@ const validation = {
         return stateValidation(input, localize('State'), 2, 100)
     },
     address_postal_code: (input) => {
-        return postcodeValidation(input, localize('Postcode'))
+        return postcodeValidation(input, localize('Postcode'), 5, 10)
     },
     address_street: (input) => {
-        return postcodeValidation(input, localize('Postcode'))
+        return postcodeValidation(input, localize('Postcode'), 5, 10)
     },
     phone: (input) => {
         return phoneValidation(input, localize('Mobile number'), 9, 35)
@@ -158,16 +175,16 @@ const validation = {
         return textValidation(input, localize('Company name'), 2, 70)
     },
     company_registration_number: (input) => {
-        return postcodeValidation(input, localize('Company registeration number'))
+        return registrationNumberValidation(input, localize('Company registeration number'), 2, 20)
     },
     certificate: (input) => {
         return textValidation(input, localize('certificate'), 2, 70)
     },
     website_url: (input) => {
-        return urlValidation(input, localize('website url'))
+        return urlValidation(input)
     },
     social_media_url: (input) => {
-        return urlValidation(input, localize('social media url'))
+        return urlValidation(input)
     },
 }
 export default validation

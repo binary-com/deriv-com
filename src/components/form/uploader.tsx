@@ -7,8 +7,10 @@ import {
     StyledLabel,
     RelativeWrapper,
     InputProps,
-    ExtraInfo,
 } from './input'
+import { ExtraInfo } from 'pages/signup-affiliates/utils/_affiliate-input'
+
+type UploaderProps = { extra_info?: string } & InputProps
 
 const StyledUpload = styled.div`
     margin-left: auto;
@@ -30,7 +32,7 @@ const StyledUpload = styled.div`
 
 const UploadLabel = styled(StyledLabel)`
     width: 70%;
-    padding-top: 1px;
+    line-height: 15px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -47,7 +49,7 @@ const Uploader = ({
     error = '',
     extra_info = '',
     ...props
-}: InputProps) => {
+}: UploaderProps) => {
     const hiddenFileInput = React.useRef(null)
 
     const handleClick = () => {

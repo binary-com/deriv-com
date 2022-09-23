@@ -42,6 +42,7 @@ const DropdownSearch = ({
     has_short_name,
     items,
     label,
+    label_color,
     onChange,
     selected_item,
     ...props
@@ -99,7 +100,10 @@ const DropdownSearch = ({
                 {...props}
             >
                 <Flex>
-                    <StyledLabel active={is_open || (!is_open && selected_item)}>
+                    <StyledLabel
+                        active={is_open || (!is_open && selected_item)}
+                        label_color={label_color}
+                    >
                         {label}
                     </StyledLabel>
                     <DropdownInput
@@ -138,6 +142,7 @@ DropdownSearch.propTypes = {
     has_short_name: PropTypes.bool,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    label_color: PropTypes.string,
     onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     selected_item: PropTypes.any,
 }

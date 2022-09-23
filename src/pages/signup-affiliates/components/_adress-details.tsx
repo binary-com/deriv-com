@@ -198,6 +198,7 @@ const AccountDetails = ({
                                     selected_item={country}
                                     onChange={(country) => setCountry(country)}
                                     error={item.error}
+                                    label_color="var(--color-grey-5)"
                                     items={item.list}
                                     label={localize('Country of residence')}
                                 />

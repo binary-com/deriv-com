@@ -207,7 +207,7 @@ export const Arrow = styled((props) => <Chevron {...props} />)`
 `
 
 export const StyledLabel = styled.label`
-    color: gray;
+    color: ${({ label_color }) => label_color || 'gray'};
     background: var(--color-white);
     font-size: 1.6rem;
     position: absolute;

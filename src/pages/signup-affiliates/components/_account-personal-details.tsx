@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import BirthPicker from '../utils/_birth-form'
 import validation from '../validations/_validations'
+import AffiliateInput from '../utils/_affiliate-input'
 import Currency from '../utils/_currency-affiliates'
 import { localize } from 'components/localization'
 import { DropdownSearch, Header } from 'components/elements'
-import { Input } from 'components/form'
 import device from 'themes/device'
 import { useDerivWS } from 'store'
 import Uploader from 'components/form/uploader'
@@ -403,11 +403,12 @@ const PersonalDetails = ({
                                 <DropdownSearchWrapper key={item.id}>
                                     <DropdownSearch
                                         id={item.id}
-                                        label_position={0.8}
+                                        label_position={1}
                                         key={item.id}
                                         selected_item={citizen}
                                         onChange={(value) => setCitizen(value)}
                                         error={item.error}
+                                        label_color="var(--color-grey-5)"
                                         default_item={''}
                                         items={item.list}
                                         type={item.type}
@@ -453,7 +454,7 @@ const PersonalDetails = ({
                             )
                         } else {
                             return (
-                                <Input
+                                <AffiliateInput
                                     width={500}
                                     id={item.id}
                                     key={item.id}

@@ -1,37 +1,24 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Header } from '../elements'
 import device from 'themes/device'
 // SVG Component
-import EyeIcon from 'images/svg/help/eye.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
 
 interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
     handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
 }
 
-export type InputProps = ReactInput &
-    InputWrapperProps &
-    StyledInputProps &
-    StyledLabelProps & { value?: TFile }
+export type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps
 
-type TFile = {
-    lastModified: number
-    lastModifiedDate: string
-    name: string
-    size: number
-    type: string
-    webkitRelativePath: string
-}
 type InputWrapperProps = {
     border?: string
     label_hover_color?: string
     focus_border?: string
     error?: string
     disabled?: boolean
-    extra_info?: string
 }
-type StyledInputProps = {
+export type StyledInputProps = {
     input_background?: string
     inputColor?: string
     showLabel?: string
@@ -39,7 +26,6 @@ type StyledInputProps = {
     background?: string
     label?: string
     error?: string
-    password_icon?: boolean
 }
 type ValidProps = {
     background?: string
@@ -210,32 +196,9 @@ export const StyledLabel = styled.label<StyledLabelProps>`
     padding: 0 0.4rem;
     background: none;
 `
-export const ExtraInfo = styled.div<{ p?: string }>`
-    padding: ${({ p }) => p || '8px 0 16px;'};
-    font-size: 12px;
-    color: var(--color-grey-5);
-    min-height: 30px;
-`
-const StyledIcon = styled.img<StyledInputProps>`
-    position: absolute;
-    right: ${({ password_icon }) => (password_icon ? '2.8rem' : '0.8rem')};
-    top: 1.5rem;
-    height: 1rem;
-    width: 1.5rem;
-    cursor: pointer;
-
-    @media ${device.tablet} {
-        right: ${({ password_icon }) => (password_icon ? '4rem' : '2rem')};
-        top: 1.6rem;
-    }
-    @media ${device.desktopL} {
-        top: 1rem;
-    }
-`
 
 const Input = ({
     label = '',
-    extra_info,
     height = '',
     border = '',
     focus_border = '',
@@ -248,11 +211,9 @@ const Input = ({
     tablet_background = '',
     handleError,
     maxLength,
-    password_icon,
     ...props
 }: InputProps) => {
     const current_input = useRef(null)
-    const [is_password_visible, setPasswordVisible] = useState(false)
 
     return (
         <RelativeWrapper>
@@ -272,7 +233,6 @@ const Input = ({
                     height={height}
                     showLabel={label}
                     {...props}
-                    type={is_password_visible ? 'text' : props.type}
                     ref={() => current_input}
                 />
                 {label && (
@@ -286,21 +246,9 @@ const Input = ({
                     </StyledLabel>
                 )}
             </InputWrapper>
-            {password_icon && (
-                <StyledIcon
-                    src={EyeIcon}
-                    password_icon={password_icon}
-                    alt="eye icon"
-                    onClick={() => setPasswordVisible(!is_password_visible)}
-                />
-            )}
-            {error ? (
-                <ErrorMessages as="div">{error}</ErrorMessages>
-            ) : (
-                (extra_info && <ExtraInfo p="8px 0 16px 16px">{extra_info}</ExtraInfo>) || (
-                    <ErrorMessages as="div">{error}</ErrorMessages>
-                )
-            )}
+            <ErrorMessages lh="1.4" align="left">
+                {error}
+            </ErrorMessages>
             {error && (
                 <StyledError
                     src={CrossIcon}

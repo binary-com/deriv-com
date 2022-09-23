@@ -135,12 +135,12 @@ const Item = styled.div<{ disabled: boolean }>`
     &:hover {
         background: rgba(245, 247, 250, 0.64);
     }
-
 `
 
 const ResponsiveText = styled(Text)`
     white-space: nowrap;
 `
+/* stylelint-enable */
 
 const Dropdown = ({
     default_option,

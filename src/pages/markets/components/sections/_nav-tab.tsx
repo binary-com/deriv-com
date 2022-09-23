@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
-import { Text } from 'components/elements'
+import { Text, Tabs } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -111,6 +111,13 @@ const StyledLink = styled(LocalizedLink)`
         color: red;
     }
 `
+const StyledTabs = styled(Tabs)`
+    display: none;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 912px;
+    height: 56px;
+`
 type TabList = {
     title: ReactElement
     tab_name: string
@@ -155,26 +162,30 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
 
     const ref = useRef(null)
 
-    useEffect(() => {
-        ref.current.scrollLeft = route_offset
-    })
-
     return (
         <TabsContainer>
-            <StyledFlex>
-                <TabList ref={ref}>
-                    {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
-                        return (
-                            <TabButton selected={route_from == item.tab_name} key={index}>
-                                <StyledLink to={item.route_to}>
-                                    <TextWrapper>{item.title}</TextWrapper>
-                                </StyledLink>
-                            </TabButton>
-                        )
-                    })}
-                    <LineDivider />
-                </TabList>
-            </StyledFlex>
+            <StyledTabs tab_list={['synthetic', 'basket-indices', 'derived-fx']}>
+                <StyledFlex>
+                    <TabList ref={ref}>
+                        {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map(
+                            (item, index) => {
+                                return (
+                                    <TabButton
+                                        selected={route_from == item.tab_name}
+                                        key={index}
+                                        id={item.tab_name}
+                                    >
+                                        <StyledLink to={item.route_to}>
+                                            <TextWrapper>{item.title}</TextWrapper>
+                                        </StyledLink>
+                                    </TabButton>
+                                )
+                            },
+                        )}
+                        <LineDivider />
+                    </TabList>
+                </StyledFlex>
+            </StyledTabs>
         </TabsContainer>
     )
 }

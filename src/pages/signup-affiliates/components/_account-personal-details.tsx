@@ -33,7 +33,7 @@ type PersonalDataProps = {
 }
 type PersonalDetailsprops = {
     updatedData: (value: PersonalDataProps) => void
-    onValidate: (valid: string | true) => void
+    onValidate: (valid: boolean) => void
     is_individual: boolean
     affiliate_personal_data: PersonalDataProps
 }
@@ -264,7 +264,7 @@ const PersonalDetails = ({
 
     const citizen_list = getCitizenList()
 
-    const validate =
+    const validate = !(
         first_name ||
         last_name ||
         date_birth ||
@@ -280,6 +280,7 @@ const PersonalDetails = ({
         !company_name_error_msg ||
         !company_registration_error_msg ||
         !certificate_error_msg
+    )
 
     useEffect(() => {
         send(citizen_list, (response) => {

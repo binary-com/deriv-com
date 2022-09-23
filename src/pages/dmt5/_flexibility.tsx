@@ -18,6 +18,11 @@ type ContentType = {
     show_always?: boolean
 }
 
+type StyledHeaderType = {
+    mobile_font_size: string
+    mobile_margin: string
+}
+
 const BaseIconStyle = css`
     @media ${device.mobileL} {
         width: 32px;
@@ -103,10 +108,11 @@ const StyledLinkButton = styled(LinkButton)`
     width: auto;
     margin: auto;
 `
-const StyledHeader = styled(Header)`
+
+const StyledHeader = styled(Header)<StyledHeaderType>`
     @media ${device.mobileL} {
-        font-size: ${(props) => props.mobile_font_size};
-        margin: ${(props) => props.mobile_margin};
+        font-size: ${({ mobile_font_size }) => mobile_font_size};
+        margin: ${({ mobile_margin }) => mobile_margin};
     }
 `
 const StyledText = styled(Text)`
@@ -135,9 +141,7 @@ const Flexibility = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {is_eu_country
-                    ? localize('Flexibility with multiple markets')
-                    : localize('Flexibility with two account types')}
+                {localize('Flexibility with multiple account types')}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {

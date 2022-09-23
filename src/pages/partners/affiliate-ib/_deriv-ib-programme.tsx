@@ -159,7 +159,7 @@ const DerivIBProgramme = () => {
                     <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         {localize('Earn commission from your clients’ trades on Deriv MT5.')}
                     </SubtitleHeader>
-                    <Header as="h2" mb="2rem" type="sub-section-title" mt="4rem" align="center">
+                    <Header as="h2" mb="2rem" type="page-title" mt="4rem" align="center">
                         {localize('Deriv MT5')}
                     </Header>
                 </TitleWrapper>

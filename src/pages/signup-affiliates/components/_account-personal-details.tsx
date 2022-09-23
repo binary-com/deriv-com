@@ -285,12 +285,11 @@ const PersonalDetails = ({
         send(citizen_list, (response) => {
             if (!response.error) {
                 const residence_list_response = response.residence_list.map(({ text, value }) => {
-                    const country = {
+                    return {
                         name: text,
                         display_name: text,
                         value: value,
                     }
-                    return country
                 })
                 setCitizenShipList(residence_list_response)
             }

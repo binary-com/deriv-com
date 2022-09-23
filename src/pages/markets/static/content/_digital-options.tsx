@@ -241,6 +241,7 @@ export const commodities_options: Options = {
         ],
         markets_list: {
             col: 3,
+            mobile_col: 2,
         },
     },
     options: getOptions(false),

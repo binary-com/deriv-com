@@ -23,7 +23,7 @@ const TabsContainer = styled(Flex)`
         margin-top: 20px;
     }
 `
-const StyledFlex = styled(Flex)`
+const StyledFlex = styled(Tabs)`
     flex-direction: column;
 `
 const TabList = styled.div`
@@ -111,13 +111,7 @@ const StyledLink = styled(LocalizedLink)`
         color: red;
     }
 `
-const StyledTabs = styled(Tabs)`
-    display: none;
-    flex-direction: row;
-    align-items: flex-start;
-    width: 912px;
-    height: 56px;
-`
+
 type TabList = {
     title: ReactElement
     tab_name: string
@@ -159,33 +153,30 @@ const tab_list_uk = [
 
 const NavTab = ({ route_from, route_offset }: NavTabProps) => {
     const { is_eu, is_uk } = useCountryRule()
+    const tabs = is_eu ? ['synthetic'] : ['synthetic', 'basket-indices', 'derived-fx']
 
     const ref = useRef(null)
 
     return (
         <TabsContainer>
-            <StyledTabs tab_list={['synthetic', 'basket-indices', 'derived-fx']}>
-                <StyledFlex>
-                    <TabList ref={ref}>
-                        {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map(
-                            (item, index) => {
-                                return (
-                                    <TabButton
-                                        selected={route_from == item.tab_name}
-                                        key={index}
-                                        id={item.tab_name}
-                                    >
-                                        <StyledLink to={item.route_to}>
-                                            <TextWrapper>{item.title}</TextWrapper>
-                                        </StyledLink>
-                                    </TabButton>
-                                )
-                            },
-                        )}
-                        <LineDivider />
-                    </TabList>
-                </StyledFlex>
-            </StyledTabs>
+            <StyledFlex tab_list={tabs} line_divider_length="unset" starting_index={0}>
+                <TabList ref={ref}>
+                    {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
+                        return (
+                            <TabButton
+                                selected={route_from == item.tab_name}
+                                key={index}
+                                id={item.tab_name}
+                            >
+                                <StyledLink to={item.route_to}>
+                                    <TextWrapper>{item.title}</TextWrapper>
+                                </StyledLink>
+                            </TabButton>
+                        )
+                    })}
+                    <LineDivider />
+                </TabList>
+            </StyledFlex>
         </TabsContainer>
     )
 }

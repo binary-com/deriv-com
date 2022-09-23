@@ -280,6 +280,8 @@ export const OtherPlatform = ({
 }
 
 export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformProps) => {
+    const { is_row, is_uk_eu } = useCountryRule()
+
     const getDtraderText = () => (
         <NavCard
             aria_label="Dtrader"

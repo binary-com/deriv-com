@@ -248,7 +248,7 @@ const MarginCalculator = () => {
         <SectionContainer>
             <StyledFlexContainer>
                 <StyledFlex
-                    ai="flex-end"
+                    ai="center"
                     jc="flex-start"
                     tablet_jc="center"
                     fd="column"

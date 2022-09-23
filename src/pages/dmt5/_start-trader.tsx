@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from './components/_side-tab'
+import DMT5QR from 'images/svg/dmt5/dmt5-qr.svg'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -10,7 +11,6 @@ import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useHandleLogin from 'components/hooks/use-handle-login'
-import DMT5QRRow from 'images/common/dmt5/dmt5-qr-row.png'
 
 type TabProps = {
     active?: boolean
@@ -392,7 +392,7 @@ const StartTrader = () => {
                                 </ImageWrapper>
                             </SideTab.Panel>
                         </SideTab>
-                        <QRImage src={DMT5QRRow} width="124px" height="124px" />
+                        <QRImage src={DMT5QR} width="124px" height="124px" />
                     </Flex>
                 )}
             </Flex>

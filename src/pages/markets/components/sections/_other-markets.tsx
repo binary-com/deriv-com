@@ -209,7 +209,7 @@ const Card = ({ market }: CardProps) => {
             </div>
 
             <Text size="16px" weight="bold" mt="1.6rem">
-                {localize(markets_type[market].title)}
+                {markets_type[market].title}
             </Text>
             <Text size="16px" mt="0.8rem">
                 {markets_type[market].content}
@@ -228,7 +228,7 @@ const MobileCard = ({ market }: CardProps) => {
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
             <Flex width="100%" jc="space-between" mb="2.4rem" ai="center">
                 <Text size="18px" weight="bold">
-                    {localize(markets_type[market].title)}
+                    {markets_type[market].title}
                 </Text>
                 <Icon dynamic_id={markets_type[market].id + '_mobile'} />
             </Flex>

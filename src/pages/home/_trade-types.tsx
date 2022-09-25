@@ -176,12 +176,9 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
 
     @media ${device.tablet} {
         max-width: 328px;
-        padding: 24px 32px 68px;
-        margin-bottom: 36px;
     }
 
     @media ${device.mobileS} {
-        padding: 12px;
         height: 424px;
     }
 `
@@ -207,6 +204,10 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
         display: flex;
         opacity: 1;
     }
+`
+
+const MobileContentFlex = styled(Flex)`
+    gap: 40px;
 `
 
 const LearnMore = styled(LocalizedLink)<{ $visibility }>`
@@ -347,11 +348,11 @@ const TradeTypes = (): React.ReactNode => {
                 </Flex>
             </DesktopWrapper>
             <MobileWrapper>
-                <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
+                <MobileContentFlex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
                     {items_details_by_region.map((item) => {
                         return <TradeItems key={item.link} items_details={item} />
                     })}
-                </Flex>
+                </MobileContentFlex>
             </MobileWrapper>
         </StyledSection>
     )

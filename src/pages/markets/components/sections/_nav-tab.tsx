@@ -1,6 +1,6 @@
-import React, { ReactElement, useEffect, useRef } from 'react'
+import React, { ReactElement, useRef } from 'react'
 import styled, { css } from 'styled-components'
-import { Text, Tabs } from 'components/elements'
+import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -22,9 +22,6 @@ const TabsContainer = styled(Flex)`
     @media ${device.tabletL} {
         margin-top: 20px;
     }
-`
-const StyledFlex = styled(Tabs)`
-    flex-direction: column;
 `
 const TabList = styled.div`
     display: flex;
@@ -121,17 +118,17 @@ const tab_list: TabList[] = [
     {
         title: <Localize translate_text="Synthetics" />,
         tab_name: 'synthetic',
-        route_to: '/markets/synthetic/',
+        route_to: '/markets/synthetic/#synthetic',
     },
     {
         title: <Localize translate_text="Basket indices" />,
         tab_name: 'basket-indices',
-        route_to: '/markets/basket-indices/',
+        route_to: '/markets/basket-indices/#basket-indices',
     },
     {
         title: <Localize translate_text="Derived FX" />,
         tab_name: 'derived-fx',
-        route_to: '/markets/derived-fx/',
+        route_to: '/markets/derived-fx/#derived-fx',
     },
 ]
 
@@ -139,7 +136,7 @@ const tab_list_eu: TabList[] = [
     {
         title: <Localize translate_text="Synthetics" />,
         tab_name: 'synthetic',
-        route_to: '/markets/synthetic/',
+        route_to: '/markets/synthetic/#synthetic',
     },
 ]
 
@@ -147,36 +144,32 @@ const tab_list_uk = [
     {
         title: <Localize translate_text="Derived FX" />,
         tab_name: 'derived-fx',
-        route_to: '/markets/derived-fx/',
+        route_to: '/markets/derived-fx/#synthetic',
     },
 ]
 
 const NavTab = ({ route_from, route_offset }: NavTabProps) => {
     const { is_eu, is_uk } = useCountryRule()
-    const tabs = is_eu ? ['synthetic'] : ['synthetic', 'basket-indices', 'derived-fx']
-
     const ref = useRef(null)
 
     return (
         <TabsContainer>
-            <StyledFlex tab_list={tabs} line_divider_length="unset" starting_index={0}>
-                <TabList ref={ref}>
-                    {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
-                        return (
-                            <TabButton
-                                selected={route_from == item.tab_name}
-                                key={index}
-                                id={item.tab_name}
-                            >
-                                <StyledLink to={item.route_to}>
-                                    <TextWrapper>{item.title}</TextWrapper>
-                                </StyledLink>
-                            </TabButton>
-                        )
-                    })}
-                    <LineDivider />
-                </TabList>
-            </StyledFlex>
+            <TabList ref={ref}>
+                {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
+                    return (
+                        <TabButton
+                            selected={route_from == item.tab_name}
+                            key={item.tab_name}
+                            id={item.tab_name}
+                        >
+                            <StyledLink to={item.route_to}>
+                                <TextWrapper>{item.title}</TextWrapper>
+                            </StyledLink>
+                        </TabButton>
+                    )
+                })}
+                <LineDivider />
+            </TabList>
         </TabsContainer>
     )
 }

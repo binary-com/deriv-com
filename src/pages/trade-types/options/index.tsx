@@ -32,9 +32,9 @@ const Options = () => {
         return is_row ? (
             <Layout>
                 <SEO
-                    title={localize('Options trading | Trade types | Deriv')}
+                    title={localize('Options trading | Trade digital options on Deriv')}
                     description={localize(
-                        'Learn about options trading on Deriv. Earn payouts by correctly predicting price movements in forex, synthetic indices, and other popular financial markets.',
+                        'Explore what are options on Deriv. Learn how to start trading options with forex, synthetics, stocks & indices, and basket indices.',
                     )}
                     meta_attributes={meta_attributes}
                 />

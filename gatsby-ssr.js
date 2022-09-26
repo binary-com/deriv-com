@@ -52,6 +52,12 @@ export const onRenderBody = (
          }`,
             }}
         />,
+        <script
+            key="trustpilot-widget"
+            type="text/javascript"
+            src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+            async={true}
+        />,
     ])
 }
-  
+

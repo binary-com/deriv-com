@@ -5,7 +5,7 @@ import Container from './_layout-components/_career_container'
 import { Header, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { zoho_url } from 'common/constants'
-import { LocationContext } from 'components/layout/location-context.js'
+import { LocationContext } from 'components/layout/location-context'
 import device from 'themes/device'
 
 const StyledHeader = styled(Header)`

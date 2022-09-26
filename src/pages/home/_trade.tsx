@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
+import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms'
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'

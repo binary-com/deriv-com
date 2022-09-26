@@ -56,6 +56,9 @@ const DownloadLinkWrapper = styled.div<LinkType>`
 `
 const DownloadLinkMobileWrapper = styled.div<LinkType>`
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     grid-gap: 8px;
     margin-top: ${(props) => (props.mt ? props.mt : '0')};
     margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
@@ -149,6 +152,7 @@ const StyledFlexMobile = styled(Flex)`
     margin-top: 0.8rem;
     height: auto;
     margin-bottom: 40px;
+    flex-wrap: wrap;
 `
 const StyledFlexBottom = styled(Flex)`
     display: flex;
@@ -285,24 +289,8 @@ const DownloadApp = () => {
                     <StyledHeader mt="2.4rem" as="h4">
                         {localize('Desktop')}
                     </StyledHeader>
-                    <Flex mt="1rem">
-                        <DownloadLinkWrapper>
-                            <LocalizedLink
-                                external
-                                to={dmt5_linux_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={LinuxOs} alt="linux" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={dmt5_web_browser_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={WebBrowser} alt="web browser" />
-                            </LocalizedLink>
+                    <StyledFlexMobile mt="1rem">
+                        <DownloadLinkMobileWrapper mr="16px">
                             <LocalizedLink
                                 external
                                 to={dmt5_windows}
@@ -319,11 +307,19 @@ const DownloadApp = () => {
                             >
                                 <img src={MacOs} alt="macos" />
                             </LocalizedLink>
-                        </DownloadLinkWrapper>
-                    </Flex>
+                            <LocalizedLink
+                                external
+                                to={dmt5_linux_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={LinuxOs} alt="linux" />
+                            </LocalizedLink>
+                        </DownloadLinkMobileWrapper>
+                    </StyledFlexMobile>
 
                     <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
-                    <StyledFlexMobile mt="0.8rem" wrap="wrap">
+                    <StyledFlexMobile mt="0.8rem">
                         <DownloadLinkMobileWrapper mr="8px">
                             <LocalizedLink
                                 external
@@ -365,6 +361,7 @@ const DownloadApp = () => {
                     </StyledFlexMobile>
                 </Mobile>
             </StyledFlex>
+
             <Desktop>
                 <StyledInfoContainer>
                     <Separator />

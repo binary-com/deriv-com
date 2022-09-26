@@ -48,7 +48,7 @@ export const forex_content: ForexContentElement[] = [
     {
         src: ResponsiveWebsite,
         alt: 'responsive website',
-        text: <Localize translate_text="Responsive, easy-to-use online traading platforms" />,
+        text: <Localize translate_text="Responsive, easy-to-use online trading platforms" />,
     },
     {
         src: AdvancedCharting,

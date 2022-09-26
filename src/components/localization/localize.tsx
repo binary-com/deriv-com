@@ -3,9 +3,9 @@ import { Trans } from 'react-i18next'
 import { TString } from 'types/generics'
 
 type LocalizeProps = {
-    translate_text: string | JSX.Element | TString
+    translate_text: string | TString
     values?: { email?: string }
-    components?: React.ReactNode[]
+    components?: React.ReactElement[]
 }
 
 export const Localize = ({ translate_text, values, components }: LocalizeProps) => {

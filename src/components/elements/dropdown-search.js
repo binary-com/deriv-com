@@ -42,7 +42,7 @@ const DropdownSearch = ({
     has_short_name,
     items,
     label,
-    label_color,
+    affiliate,
     onChange,
     selected_item,
     ...props
@@ -102,7 +102,7 @@ const DropdownSearch = ({
                 <Flex>
                     <StyledLabel
                         active={is_open || (!is_open && selected_item)}
-                        label_color={label_color}
+                        affiliate={affiliate}
                     >
                         {label}
                     </StyledLabel>
@@ -136,9 +136,11 @@ const DropdownSearch = ({
 }
 
 DropdownSearch.propTypes = {
+    affiliate: PropTypes.boolean,
     contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     default_item: PropTypes.any,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    font_size: PropTypes.string,
     has_short_name: PropTypes.bool,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

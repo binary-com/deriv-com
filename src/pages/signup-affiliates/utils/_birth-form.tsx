@@ -10,28 +10,22 @@ type BirthPickerProps = {
 const BirthPicker = ({
     label,
     border,
-    focus_border,
     label_hover_color,
     label_color,
     id,
     error,
+    value,
     setFieldValue,
 }: BirthPickerProps) => {
     return (
         <RelativeWrapper>
-            <InputWrapper
-                border={border}
-                focus_border={focus_border}
-                label_hover_color={label_hover_color}
-                error={error}
-            >
+            <InputWrapper border={border} label_hover_color={label_hover_color} error={error}>
                 <AffiliateBirthPicker
                     id={id}
-                    top_shift="1.5rem"
                     error={error}
+                    value={value}
                     label={label}
                     setFieldValue={setFieldValue}
-                    setFieldTouched={setFieldValue}
                     label_color={label_color}
                 />
             </InputWrapper>

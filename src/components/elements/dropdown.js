@@ -207,13 +207,13 @@ export const Arrow = styled((props) => <Chevron {...props} />)`
 `
 
 export const StyledLabel = styled.label`
-    color: ${({ label_color }) => label_color || 'gray'};
+    color: ${({ affiliate }) => (affiliate ? 'var(--color-grey-5)' : 'gray')};
     background: var(--color-white);
-    font-size: 1.6rem;
+    font-size: ${({ affiliate }) => (affiliate ? 'var(--text-size-xs)' : '1.6rem')};
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.1rem;
+    top: ${({ affiliate }) => (affiliate ? '1.3rem' : '1.1rem')};
     height: 2rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);

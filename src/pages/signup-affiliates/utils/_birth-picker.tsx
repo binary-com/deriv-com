@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import DatePicker from 'react-date-picker'
-import device from 'themes/device'
+import { AffiliateLabel } from './_affiliate-input'
+import Calendar from 'images/svg/signup-affiliates/calendar.svg'
 
 type BirthPickerWrapperProps = {
     is_date_field: boolean
-    current_value: string
+    value: string | Date | [Date, Date]
     error: string
-    label_focus_color: string
-}
-type LabelProps = {
-    label_color?: string
-    top_shift?: string
 }
 
 const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
@@ -75,13 +71,10 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
         transform: translate(-0.6rem, -2rem) scale(0.7);
         padding: 5px 4px;
         margin: -5px 0;
-        ${({ is_date_field, current_value }) => {
-            return is_date_field || current_value
+        ${({ is_date_field, value }) => {
+            return is_date_field || value
                 ? css<BirthPickerWrapperProps>`
                       transform: translate(-0.6rem, -2.2rem) scale(0.7);
-                      color: var(
-                          --color-${({ error, label_focus_color }) => (error ? 'red-1' : label_focus_color)}
-                      );
                   `
                 : css<BirthPickerWrapperProps>`
                       transform: translate(0rem, 0rem) scale(1);
@@ -90,55 +83,29 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
         }}
     }
 `
-const StyledLabel = styled.label<LabelProps>`
-    color: ${({ label_color }) =>
-        label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
-    font-size: 1.5rem;
-    position: absolute;
-    pointer-events: none;
-    left: 0.8rem;
-    top: ${({ top_shift }) => (top_shift ? top_shift : '1.2rem')};
-    transition: 0.25s ease transform;
-    transform: translateZ(0);
-    padding: 0 0.4rem;
-    background: none;
-
-    @media ${device.tabletL} {
-        top: 1.8rem;
-    }
-`
 
 type AffiliateBirthPickerProps = {
     id: string
     error: string
-    setFieldValue: (arg0: string, arg1: string) => void
-    setFieldTouched: (arg0: string, arg1: boolean) => void
+    value: Date | [Date, Date]
+    setFieldValue: (date: string) => void
     label?: string
     label_color?: string
-    top_shift?: string
     label_focus_color?: string
 }
 
 const AffiliateDatePicker = ({
     id,
     error,
+    value,
     setFieldValue,
-    setFieldTouched,
     label,
     label_color,
-    top_shift,
-    label_focus_color,
 }: AffiliateBirthPickerProps) => {
     const [is_date_field, selectDateField] = useState(false)
-    const [current_value, onChange] = useState()
 
     const onDateChange = (date) => {
-        onChange(date)
-        setFieldValue('date', date)
-    }
-    const onBlur = () => {
-        selectDateField(false)
-        setFieldTouched('date', true)
+        setFieldValue(date)
     }
     const subtractYears = (numOfYears, date = new Date()) => {
         date.setFullYear(date.getFullYear() - numOfYears)
@@ -150,25 +117,24 @@ const AffiliateDatePicker = ({
     return (
         <BirthPickerWrapper
             is_date_field={is_date_field}
-            current_value={current_value}
-            label_focus_color={label_focus_color}
+            value={value}
             error={error}
             onFocus={() => selectDateField(true)}
-            onBlur={onBlur}
             onKeyDown={(e) => e.preventDefault()}
         >
             <DatePicker
                 onChange={onDateChange}
-                value={current_value}
-                format={'dd/MM/yyyy'}
+                value={value}
+                format={'dd-MM-yyyy'}
                 maxDate={max_date}
                 defaultActiveStartDate={max_date}
                 showLeadingZeros={false}
+                calendarIcon={<img src={Calendar} alt="calendar icon" />}
                 clearIcon={null}
             />
-            <StyledLabel htmlFor={id} label_color={label_color} top_shift={top_shift}>
+            <AffiliateLabel htmlFor={id} label_color={label_color}>
                 {label}
-            </StyledLabel>
+            </AffiliateLabel>
         </BirthPickerWrapper>
     )
 }

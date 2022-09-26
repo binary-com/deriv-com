@@ -21,7 +21,7 @@ type TCertificate = {
 type PersonalDataProps = {
     first_name: string
     last_name: string
-    date_birth: string
+    date_birth: string | Date | [Date, Date]
     social_media_url: string
     website_url: string
     password: string
@@ -264,21 +264,21 @@ const PersonalDetails = ({
 
     const citizen_list = getCitizenList()
 
-    const validate = !(
-        first_name ||
-        last_name ||
-        date_birth ||
-        citizen ||
-        password ||
-        company_name ||
-        company_registration_number ||
-        currency ||
-        !first_name_error_msg ||
-        !last_name_error_msg ||
-        !citizen_error_msg ||
-        !password_error_msg ||
-        !company_name_error_msg ||
-        !company_registration_error_msg ||
+    const validate = !!(
+        first_name &&
+        last_name &&
+        date_birth &&
+        citizen &&
+        password &&
+        company_name &&
+        company_registration_number &&
+        currency &&
+        !first_name_error_msg &&
+        !last_name_error_msg &&
+        !citizen_error_msg &&
+        !password_error_msg &&
+        !company_name_error_msg &&
+        !company_registration_error_msg &&
         !certificate_error_msg
     )
 
@@ -409,12 +409,12 @@ const PersonalDetails = ({
                                         selected_item={citizen}
                                         onChange={(value) => setCitizen(value)}
                                         error={item.error}
-                                        label_color="var(--color-grey-5)"
                                         default_item={''}
                                         items={item.list}
                                         type={item.type}
                                         label={localize('Citizenship')}
                                         mb="48px"
+                                        affiliate
                                     />
                                 </DropdownSearchWrapper>
                             )
@@ -425,7 +425,10 @@ const PersonalDetails = ({
                                     id={item.id}
                                     key={item.id}
                                     error={item.error}
+                                    value={item.value}
                                     border="solid 1px var(--color-grey-7)"
+                                    label_color="grey-5"
+                                    label_hover_color="grey-5"
                                     label={localize(item.label)}
                                     setFieldValue={item.value_set}
                                 />

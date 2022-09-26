@@ -45,7 +45,7 @@ const StyledErrorMessages = styled(ErrorMessages)`
     padding: 8px 0 16px 16px;
     min-height: 30px;
 `
-const AffiliateLabel = styled(StyledLabel)`
+export const AffiliateLabel = styled(StyledLabel)`
     top: 1.6rem;
 `
 

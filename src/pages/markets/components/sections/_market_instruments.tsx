@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import MarketsAccordion from '../helper/_markets_accordion'
 import {
     Col,
@@ -14,7 +14,7 @@ type Contentelement = {
     component?: ReactElement
     mobile_title?: ReactElement
     title?: ReactElement
-    details?: (index?: number) => ReactElement | JSX.Element
+    details?: ReactNode
     col?: number
     tablet_col?: number
     mobile_col?: number
@@ -109,9 +109,9 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                 )}
                             </Row>
                         )}
-                        renderDetails={content.details}
-                        custom_index={content.custom_index}
-                    />
+                    >
+                        {content.details}
+                    </MarketsAccordion>
                 ) : (
                     <Row key={index} mobile_template={content.mobile_template}>
                         <Col mobile_template={content.mobile_template}>

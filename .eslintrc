@@ -9,7 +9,7 @@
     ],
     "overrides": [
         {
-            "files": ["*.{ts,tsx}"],
+            "files": ["*.ts", "*.tsx"], // Your TypeScript files extension
             "parser": "@typescript-eslint/parser",
             "extends": [
                 "eslint:recommended",

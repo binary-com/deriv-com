@@ -1,12 +1,10 @@
-import React from 'react'
+import React, { HTMLProps } from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
 
-type MarketsAccordionProps = {
+type MarketsAccordionProps = HTMLProps<HTMLDivElement> & {
     renderTitle: () => JSX.Element
-    renderDetails: (custom_index?: number) => JSX.Element
-    custom_index?: number
 }
 
 const Wrapper = styled.div`
@@ -28,7 +26,7 @@ const Details = styled(Box)`
     }
 `
 
-const MarketsAccordion = ({ renderTitle, renderDetails, custom_index }: MarketsAccordionProps) => {
+const MarketsAccordion = ({ renderTitle, children }: MarketsAccordionProps) => {
     return (
         <Wrapper>
             <Title>{renderTitle()}</Title>

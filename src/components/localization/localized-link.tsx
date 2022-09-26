@@ -2,7 +2,7 @@ import React, { CSSProperties, Ref, useContext, useEffect, useState } from 'reac
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
-import { LocationContext } from '../layout/location-context.js'
+import { LocationContext } from '../layout/location-context'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 import device from 'themes/device'

@@ -438,7 +438,7 @@ export const metals_options: MarketSymbol[] = [
     },
     {
         src: icons.SILVEREUR,
-        text: <Localize translate_text="Silver/EUR" />,
+        text: <Localize translate_text="Silver/USD" />,
     },
 ]
 

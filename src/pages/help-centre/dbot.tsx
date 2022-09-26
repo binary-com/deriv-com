@@ -348,28 +348,36 @@ const ResetWorkspace = ({ text }: ArticleProps) => (
 const TransactionLog = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize("1. In the panel on the right of the workspace, click 'Clear stat'.")}
-        </Text>
-        <ImageWrapper>
-            <img
-                src={ClearStatImage}
-                alt={localize('Clear stat')}
-                loading="lazy"
-                width="24.8rem"
-                style={{ width: '24.8rem' }}
-            />
-        </ImageWrapper>
-        <Text>{localize("2. Click 'Ok'.")}</Text>
-        <ImageWrapper>
-            <img
-                src={AreYouSureImage}
-                alt={localize('Are you sure?')}
-                loading="lazy"
-                style={{ width: '40rem' }}
-                width="40rem"
-            />
-        </ImageWrapper>
+        <StyledList listStyle="decimal" paddingLeft="2.3rem">
+            <StyledListItem marginTop="1.4rem">
+                <Localize
+                    translate_text={'Hit <0>Reset</0> at the bottom of stats panel.'}
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <ImageWrapper>
+                <img
+                    src={ClearStatImage}
+                    alt={localize('Clear stat')}
+                    loading="lazy"
+                    style={{ width: '60rem' }}
+                />
+            </ImageWrapper>
+            <StyledListItem marginTop="1.4rem">
+                <Localize
+                    translate_text={'Hit <0>OK</0> to confirm.'}
+                    components={[<strong key={0} />]}
+                />
+            </StyledListItem>
+            <ImageWrapper>
+                <img
+                    src={AreYouSureImage}
+                    alt={localize('Are you sure?')}
+                    loading="lazy"
+                    style={{ width: '60rem' }}
+                />
+            </ImageWrapper>
+        </StyledList>
     </ArticleWrapper>
 )
 

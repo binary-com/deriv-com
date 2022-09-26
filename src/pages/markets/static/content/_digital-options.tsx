@@ -240,7 +240,8 @@ export const commodities_options: Options = {
             },
         ],
         markets_list: {
-            col: 4,
+            col: 3,
+            mobile_col: 2,
         },
     },
     options: getOptions(false),
@@ -279,12 +280,12 @@ export const basket_options: Options = {
             {
                 title: <Localize translate_text="Commodities Basket" />,
                 component: <BasketIndicesCommodities />,
-                details: BasketCommoditiesDetails,
+                details: <BasketCommoditiesDetails />,
             },
             {
                 title: <Localize translate_text="Forex Basket" />,
                 component: <BasketIndicesCfds />,
-                details: BasketFXDetails,
+                details: <BasketFXDetails />,
             },
         ],
     },
@@ -304,7 +305,7 @@ export const stock_options: Options = {
                     />
                 ),
                 component: <Americas />,
-                details: AmericasDetails,
+                details: <AmericasDetails />,
                 tablet_col: 2,
                 mobile_col: 2,
                 padding: '32px 16px',
@@ -316,7 +317,7 @@ export const stock_options: Options = {
                     <Localize translate_text="Asian<0></0>indices" components={[<br key={0} />]} />
                 ),
                 component: <AsiaOceania />,
-                details: AsiaOceaniaDetails,
+                details: <AsiaOceaniaDetails />,
                 tablet_col: 2,
                 mobile_col: 2,
                 padding: '32px 16px',
@@ -331,8 +332,7 @@ export const stock_options: Options = {
                     />
                 ),
                 component: <Europe />,
-                details: EuropeDetails,
-                custom_index: -1,
+                details: <EuropeDetails custom_index={-1} />,
                 col: 4,
                 tablet_col: 2,
                 mobile_col: 2,
@@ -351,17 +351,17 @@ export const synthetic_options: Options = {
             {
                 title: <Localize translate_text="Continuous indices" />,
                 component: <ContinuousIndices />,
-                details: ContinuousIndicesDetails,
+                details: <ContinuousIndicesDetails />,
             },
             {
                 title: <Localize translate_text="Jump indices" />,
                 component: <JumpIndices />,
-                details: JumpIndicesDetails,
+                details: <JumpIndicesDetails />,
             },
             {
                 title: <Localize translate_text="Daily reset indices" />,
                 component: <DailyResetIndices />,
-                details: DailyResetIndicesDetails,
+                details: <DailyResetIndicesDetails />,
             },
         ],
     },

@@ -44,7 +44,7 @@ export const cyberjaya: LocationsType = {
     flagIcon: MalaysiaFlagIcon,
     thumbnail: 'thumbnail_cyberjaya',
     first_p:
-        "Deriv Group's headquarters is located in Cyberjaya and is home to a majority of teams such as Back-end and Front-end, IT Operations, Customer Support, Compliance, Marketing, Trading, Business Intelligence, and Human Resources, to name a few. Our teams’ efforts are focused on delivering a comprehensive suite of digital trading solutions with agile customer support.",
+        "Deriv Group's operational headquarters is located in Cyberjaya and is home to a majority of teams such as Back-end and Front-end, IT Operations, Customer Support, Compliance, Marketing, Trading, Business Intelligence, and Human Resources, to name a few. Our teams’ efforts are focused on delivering a comprehensive suite of digital trading solutions with agile customer support.",
     first_img: 'living_in_cyberjaya',
     first_img_alt: 'Group of ladies at shopping outlets',
     grid_images: ['cyberjaya_grid_1', 'cyberjaya_grid_2', 'cyberjaya_grid_3', 'cyberjaya_grid_4'],
@@ -392,7 +392,7 @@ export const guernsey: LocationsType = {
     flagIcon: ChannelIslandsFlagIcon,
     thumbnail: 'thumbnail_guernsey',
     first_p:
-        'Our focus at Guernsey shall be on compliance. We’re to form a team of experts in legislative and regulatory requirements to provide Deriv offices worldwide with compliance oversight. With their knowledge in corporate law, anti-money laundering, and other related legislations, the Guernsey team will anticipate and mitigate regulatory risks.',
+        'Our focus at Guernsey is on compliance. We’re forming a team of experts in legislative and regulatory requirements to provide Deriv offices worldwide with compliance oversight. With their knowledge in corporate law, anti-money laundering, and other related legislations, the Guernsey team anticipate and mitigate regulatory risks.',
     first_img: 'living_in_guernsey',
     first_img_alt: 'living_in_guernsey alt img',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey_grid_3', 'guernsey_grid_4'],
@@ -422,14 +422,14 @@ export const berlin: LocationsType = {
     thumbnail: 'thumbnail_berlin',
     address: address_guernsey,
     first_p:
-        'Deriv (Germany) will open later this year in the heart of the European Union. Home to tech professionals, this agile office will help the Deriv Group with its most ambitious technological challenges to create future-proof online trading solutions. ',
+        'Deriv (Germany) is our office at the heart of the European Union. Home to tech professionals, this agile office helps the Deriv Group with its most ambitious technological challenges to create future-proof online trading solutions.',
     first_img: 'living_in_berlin',
     first_img_alt: 'Working with Deriv’s Berlin team',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'berlin_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'berlin grid 3', 'guernsey grid 4'],
     map: '',
     map_text:
-        'Our Berlin office will be a new European base for Deriv fintech talent. The experts at this office will tackle exciting projects to create Deriv’s next-gen products. Join our Germany team if you’re in search of a worthy challenge in your career.',
+        'Our Berlin office is a new European base for Deriv fintech talent. The experts at this office tackle exciting projects to create Deriv’s next-gen products. Join our Germany team if you’re in search of a worthy challenge in your career.',
 }
 
 export const vanuatu: LocationsType = {

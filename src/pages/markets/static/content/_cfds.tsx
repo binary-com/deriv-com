@@ -258,7 +258,7 @@ export const derived_fx_cfds: MarketInstrumentsElement = {
         {
             title: <Localize translate_text="Derived FX" />,
             component: <DerivedCFDs />,
-            details: DerivedCFDsDetails,
+            details: <DerivedCFDsDetails />,
         },
     ],
 }

@@ -3,6 +3,10 @@ import styled from 'styled-components'
 import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
 
+type StyledChevron = {
+    is_show_detail: string
+}
+
 type MarketsAccordionProps = HTMLProps<HTMLDivElement> & {
     renderTitle: () => JSX.Element
 }
@@ -25,15 +29,18 @@ const Details = styled(Box)`
         padding: 1rem 1rem 2rem 1rem;
     }
 `
-
+const StyledChevron = styled.img<StyledChevron>`
+    transform: rotate(${(props) => (props.is_show_detail == 'true' ? '0' : '180')}deg);
+    transition: transform 100ms linear;
+    @media ${device.tabletL} {
+        height: 24px;
+    }
+`
 const MarketsAccordion = ({ renderTitle, children }: MarketsAccordionProps) => {
     return (
         <Wrapper>
             <Title>{renderTitle()}</Title>
-
-            <Details background="var(--color-grey-23)">
-                {custom_index ? renderDetails(custom_index) : renderDetails()}
-            </Details>
+            <Details background="var(--color-grey-23)">{children}</Details>
         </Wrapper>
     )
 }

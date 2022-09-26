@@ -388,7 +388,7 @@ export const JumpIndicesDetails = () => (
     </DetailsContainer>
 )
 
-export const DerivedCFDsDetails = (): ReactElement => (
+export const DerivedCFDsDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize

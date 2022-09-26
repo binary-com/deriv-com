@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { localize } from 'components/localization'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import { localize, Localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { QueryImage, Header } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
@@ -153,6 +154,7 @@ const DHero = ({
     content,
     image_name,
     join_us_for_free,
+    is_logged_in,
     go_to_live_demo,
     Logo,
 }) => {
@@ -175,11 +177,21 @@ const DHero = ({
                     </StyledHeaderTitle>
                 </HeroContent>
                 <LinkWrapper>
-                    {join_us_for_free && (
-                        <DemoButton onClick={handleSignup} id="dm-hero-signup-1" secondary>
-                            {localize('Create free demo account')}
-                        </DemoButton>
-                    )}
+                    {join_us_for_free &&
+                        (is_logged_in ? (
+                            <DemoButton
+                                onClick={handleGetTrading}
+                                id="dm-hero-signup"
+                                secondary
+                                type="mt5"
+                            >
+                                <Localize translate_text="Go to Deriv MT5 dashboard" />
+                            </DemoButton>
+                        ) : (
+                            <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
+                                <Localize translate_text="Create free demo account" />
+                            </DemoButton>
+                        ))}
                     {go_to_live_demo && (
                         <GoToLiveDemo
                             tertiary
@@ -204,6 +216,7 @@ DHero.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     image_name: PropTypes.string,
+    is_logged_in: PropTypes.bool,
     is_mobile: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

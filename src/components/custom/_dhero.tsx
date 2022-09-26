@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { localize } from 'components/localization'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import { Localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
@@ -17,6 +18,8 @@ type DHeroProps = {
     go_to_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean | string
+    is_logged_in: boolean
+    hide_signup_login?: boolean
     join_us_for_free?: boolean
     Logo?: string
     title?: string | JSX.Element
@@ -248,6 +251,7 @@ const DHero = ({
     content,
     image_name,
     join_us_for_free,
+    is_logged_in,
     go_to_live_demo,
     Logo,
 }: DHeroProps) => {
@@ -271,22 +275,16 @@ const DHero = ({
                     </Header>
                 </HeroContent>
                 <LinkWrapper>
-                    {join_us_for_free && (
-                        <DemoButton onClick={handleSignup} id="dm-hero-signup-1" secondary>
-                            {localize('Create free demo account')}
-                        </DemoButton>
-                    )}
-                    {go_to_live_demo && (
-                        <GoToLiveDemo
-                            tertiary
-                            external
-                            type={getLinkType()}
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                        >
-                            {localize('Go to live demo')}
-                        </GoToLiveDemo>
-                    )}
+                    {join_us_for_free &&
+                        (is_logged_in ? (
+                            <DemoButton onClick={handleGetTrading} id="dm-hero-signup" secondary>
+                                <Localize translate_text="Get Trading" />
+                            </DemoButton>
+                        ) : (
+                            <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
+                                <Localize translate_text="Create free demo account" />
+                            </DemoButton>
+                        ))}
                 </LinkWrapper>
             </InformationWrapper>
 

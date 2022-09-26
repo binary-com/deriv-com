@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
@@ -22,6 +23,8 @@ const query = graphql`
 
 type HeroProps = {
     is_ppc?: boolean
+    is_logged_in: boolean
+    hide_signup_login?: boolean
 }
 
 const contents = [
@@ -60,7 +63,6 @@ const HeroButton = styled(Button)`
     width: fit-content;
 
     @media ${device.tabletL} {
-        margin: 0 auto;
         font-size: 20px;
         line-height: 30px;
     }
@@ -76,7 +78,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const Hero = ({ is_ppc }: HeroProps) => {
+const Hero = ({ is_ppc, is_logged_in, hide_signup_login }: HeroProps) => {
     const data = useStaticQuery(query)
     const { is_uk, is_loading, is_eu, is_row } = useCountryRule()
     const handleSignup = useHandleSignup()
@@ -130,7 +132,6 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 as="h2"
                                 type="sub-section-title"
                                 color="white"
-                                max_width="430px"
                                 min_height="auto"
                                 weight="normal"
                             >
@@ -146,7 +147,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 )}
                                 {is_row && (
                                     <>
-                                        <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
+                                        <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities." />
                                     </>
                                 )}
                             </Header>
@@ -154,14 +155,25 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 contents={is_ppc && is_uk ? contents_ppc : contents}
                             />
                             <Box tabletL={{ mt: '-8px' }}>
-                                <HeroButton
-                                    disabled={is_loading}
-                                    onClick={handleSignup}
-                                    id="dm-hero-signup"
-                                    secondary
-                                >
-                                    <Localize translate_text="Create free demo account" />
-                                </HeroButton>
+                                {!hide_signup_login &&
+                                    (is_logged_in ? (
+                                        <HeroButton
+                                            onClick={handleGetTrading}
+                                            id="dm-hero-signup"
+                                            secondary
+                                        >
+                                            <Localize translate_text="Get Trading" />
+                                        </HeroButton>
+                                    ) : (
+                                        <HeroButton
+                                            disabled={is_loading}
+                                            onClick={handleSignup}
+                                            id="dm-hero-signup"
+                                            secondary
+                                        >
+                                            <Localize translate_text="Create free demo account" />
+                                        </HeroButton>
+                                    ))}
                             </Box>
                         </Flex>
                         <PlatformSlideshow />

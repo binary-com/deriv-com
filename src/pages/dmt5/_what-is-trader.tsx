@@ -39,14 +39,13 @@ const WhatIsTrader = () => {
                 {localize('What is Deriv MT5')}
             </StyledHeader>
             <StyledText max_width="79.2rem" align="center">
-                {is_row ||
-                    (is_eu && (
-                        <>
-                            {localize(
-                                'Deriv MT5 (DMT5) gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.',
-                            )}
-                        </>
-                    ))}
+                {(is_row || is_eu) && (
+                    <>
+                        {localize(
+                            'Deriv MT5 (DMT5) gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.',
+                        )}
+                    </>
+                )}
                 {is_uk && (
                     <>
                         {localize(

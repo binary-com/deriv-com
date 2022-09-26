@@ -386,7 +386,7 @@ const ControlLosses = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'There are many ways you can control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:',
+                'There are several ways to control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:',
             )}
         </Text>
 
@@ -408,9 +408,12 @@ const ControlLosses = ({ text }: ArticleProps) => (
                     </Th>
                     <Td>
                         <Text>
-                            {localize(
-                                'This will store the cumulative profit or loss while the bot is running. Set the initial value to 0.',
-                            )}
+                            <Localize
+                                translate_text={
+                                    'Use this variable to store the cumulative profit or loss while your bot is running. Set the initial value to <0>0</0>.'
+                                }
+                                components={[<strong key={0} />]}
+                            />
                         </Text>
                     </Td>
                 </Tr>
@@ -421,7 +424,7 @@ const ControlLosses = ({ text }: ArticleProps) => (
                     <Td>
                         <Text>
                             {localize(
-                                'This will store the stake amount used in the last purchased contract. You can assign any amount based on your strategy.',
+                                'Use this variable to store the stake amount used in the last contract. You can assign any amount you want, but it must be a positive number.',
                             )}
                         </Text>
                     </Td>
@@ -433,7 +436,7 @@ const ControlLosses = ({ text }: ArticleProps) => (
                     <Td>
                         <Text>
                             {localize(
-                                'This is your loss limit. You can assign any amount based on your strategy. The value must be a positive number.',
+                                'Use this variable to store your maximum loss limit. You can assign any amount you want, but it must be a positive number.',
                             )}
                         </Text>
                     </Td>
@@ -444,9 +447,12 @@ const ControlLosses = ({ text }: ArticleProps) => (
                     </Th>
                     <Td>
                         <Text>
-                            {localize(
-                                "This will be used to stop trading when your loss limit is reached. Set the initial value to 'true'.",
-                            )}
+                            <Localize
+                                translate_text={
+                                    'Use this variable to stop trading when your loss limit is reached. Set the initial value to <0>true</0>.'
+                                }
+                                components={[<strong key={0} />]}
+                            />
                         </Text>
                     </Td>
                 </Tr>
@@ -463,7 +469,7 @@ const ControlLosses = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             <Localize
-                translate_text="2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to 'false' to prevent the bot from running another cycle."
+                translate_text="2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to false' to prevent the bot from running another cycle."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -478,7 +484,7 @@ const ControlLosses = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text>
             <Localize
-                translate_text="3. Update <0>currentPL</0> with the profit from the last purchased contract. If the last contract was lost, the value of <0>currentPL</0> will be negative."
+                translate_text="3. Update <0>currentPL</0> with the profit from the last contract. If the last contract was lost, the value of <0>currentPL</0> will be negative."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -491,6 +497,20 @@ const ControlLosses = ({ text }: ArticleProps) => (
                 loading="lazy"
             />
         </ImageWrapper>
+    </ArticleWrapper>
+)
+
+const MultipleTabs = ({ text }: ArticleProps) => (
+    <ArticleWrapper margin_left="2rem">
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text width="110%">
+            <Localize
+                translate_text={
+                    'Yes, you can. However, there are limits on your account, such as maximum number of open positions and maximum aggregate payouts on open positions. So, just keep these limits in mind when opening multiple positions. You can find more info about these limits at <0>Settings > Account limits</0>.'
+                }
+                components={[<strong key={0} />]}
+            />
+        </Text>
     </ArticleWrapper>
 )
 
@@ -611,6 +631,11 @@ const DBotArticle = () => {
                 <ControlLosses
                     text={localize('How do I control my losses with DBot?')}
                     label="control-loss"
+                    is_mounted={is_mounted}
+                />
+                <MultipleTabs
+                    text={localize('Can I run DBot on multiple tabs in my web browser?')}
+                    label="multiple-tabs"
                     is_mounted={is_mounted}
                 />
                 <TradeStatus

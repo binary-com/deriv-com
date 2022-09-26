@@ -930,6 +930,14 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
+                    <Localize translate_text="Can I run DBot on multiple tabs in my web browser?" />
+                ),
+                category: 'DBot',
+                sub_category: <Localize translate_text="How to trade" />,
+                label: 'mutilple-tabs',
+            },
+            {
+                title: (
                     <Localize translate_text="Where can I see the status of my trades in DBot?" />
                 ),
                 category: 'DBot',

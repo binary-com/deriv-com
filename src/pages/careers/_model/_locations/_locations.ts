@@ -87,6 +87,7 @@ export const malta: LocationsType = {
     ],
     map: 'ChIJN3l6prJaDhMRHIoQuWdZDeI',
     badge: 'malta_great_place_to_work_badge',
+    badge_alt: 'Malta Great Place to Work 2022 Certification Badge',
     map_text:
         'Deriv (Malta) has a dynamic work culture. We perform a wide range of tasks crucial to the company’s sustainability and ambition. If work challenges excite you and being completely hands-on thrills you, join our team in Malta.',
     address: address_malta,
@@ -281,6 +282,7 @@ export const cyprus: LocationsType = {
     ],
     map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
     badge: 'cyprus_great_place_to_work_badge',
+    badge_alt: 'Cyprus Great Place to Work 2022 Certification Badge',
     map_text:
         'We give our people the freedom to solve problems and work together to get things done without hierarchy. The workplace encourages open communication, transparency, and a free flow of ideas. If you take pride in your work and are interested in working with the best global talent,  join our team in Limassol.',
     address: address_cyprus,
@@ -317,6 +319,7 @@ export const rwanda: LocationsType = {
         'We are a group of positive team players who are always eager to roll up our sleeves and work together to overcome challenges and achieve common goals. If you want to be a part of a young, dynamic and growing team, join our team in Kigali.',
     address: address_rwanda,
     badge: 'rwanda_great_place_to_work_badge',
+    badge_alt: 'Rwanda Great Place to Work 2022 Certification Badge',
     map_img: 'rwanda_map',
     google_map_link: 'https://goo.gl/maps/dy3BPr2y29usir648',
     has_iframe: false,
@@ -348,6 +351,7 @@ export const minsk: LocationsType = {
     ],
     map: 'ChIJF9lVNV_P20YRukiwrfpLP4E',
     badge: 'minsk_great_place_to_work_badge',
+    badge_alt: 'Minsk Great Place to Work 2022 Certification Badge',
     map_text:
         'The work culture at Deriv (Minsk) is lively and energetic. You will get exposure to global projects and work with highly skilled professionals from across the world. If working for a diverse and thriving team excites you, join our team in Minsk.',
     address: address_belarus,

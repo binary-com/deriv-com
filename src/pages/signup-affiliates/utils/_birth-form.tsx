@@ -1,13 +1,14 @@
 import React from 'react'
-import AffiliateBirthPicker from './_birth-picker'
+import BirthPicker, { SetStateDate } from './_birth-picker'
 import { ExtraInfo } from './_affiliate-input'
 import { InputProps, InputWrapper, RelativeWrapper } from 'components/form/input'
 
-type BirthPickerProps = {
-    setFieldValue: React.Dispatch<React.SetStateAction<string>>
+type BirthFormProps = {
+    setFieldValue: SetStateDate
+    value: Date | [Date, Date]
 } & InputProps
 
-const BirthPicker = ({
+const BirthForm = ({
     label,
     border,
     label_hover_color,
@@ -16,11 +17,11 @@ const BirthPicker = ({
     error,
     value,
     setFieldValue,
-}: BirthPickerProps) => {
+}: BirthFormProps) => {
     return (
         <RelativeWrapper>
             <InputWrapper border={border} label_hover_color={label_hover_color} error={error}>
-                <AffiliateBirthPicker
+                <BirthPicker
                     id={id}
                     error={error}
                     value={value}
@@ -34,4 +35,4 @@ const BirthPicker = ({
     )
 }
 
-export default BirthPicker
+export default BirthForm

@@ -66,7 +66,7 @@ const Uploader = ({
                 <UploadLabel error={error} htmlFor={id} label_color={label_color}>
                     {label}
                 </UploadLabel>
-                <div style={{}}>
+                <div>
                     <StyledUpload onClick={handleClick}>Browse</StyledUpload>
                     <StyledInput
                         id={id}

@@ -140,11 +140,9 @@ DropdownSearch.propTypes = {
     contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     default_item: PropTypes.any,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    font_size: PropTypes.string,
     has_short_name: PropTypes.bool,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    label_color: PropTypes.string,
     onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     selected_item: PropTypes.any,
 }

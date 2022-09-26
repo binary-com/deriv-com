@@ -1,13 +1,28 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import DatePicker from 'react-date-picker'
+import { TCertificate } from '../components/_account-personal-details'
 import { AffiliateLabel } from './_affiliate-input'
 import Calendar from 'images/svg/signup-affiliates/calendar.svg'
 
+export type SetStateDate =
+    | React.Dispatch<React.SetStateAction<string>>
+    | React.Dispatch<React.SetStateAction<Date | [Date, Date]>>
+    | React.Dispatch<React.SetStateAction<TCertificate>>
+
 type BirthPickerWrapperProps = {
     is_date_field: boolean
-    value: string | Date | [Date, Date]
+    value: Date | [Date, Date]
     error: string
+}
+type BirthPickerProps = {
+    id: string
+    error: string
+    value: Date | [Date, Date]
+    setFieldValue: SetStateDate
+    label?: string
+    label_color?: string
+    label_focus_color?: string
 }
 
 const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
@@ -84,24 +99,7 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
     }
 `
 
-type AffiliateBirthPickerProps = {
-    id: string
-    error: string
-    value: Date | [Date, Date]
-    setFieldValue: (date: string) => void
-    label?: string
-    label_color?: string
-    label_focus_color?: string
-}
-
-const AffiliateDatePicker = ({
-    id,
-    error,
-    value,
-    setFieldValue,
-    label,
-    label_color,
-}: AffiliateBirthPickerProps) => {
+const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: BirthPickerProps) => {
     const [is_date_field, selectDateField] = useState(false)
 
     const onDateChange = (date) => {
@@ -139,4 +137,4 @@ const AffiliateDatePicker = ({
     )
 }
 
-export default AffiliateDatePicker
+export default BirthPicker

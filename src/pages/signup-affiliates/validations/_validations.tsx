@@ -177,9 +177,6 @@ const validation = {
     company_registration_number: (input) => {
         return registrationNumberValidation(input, localize('Company registeration number'), 2, 20)
     },
-    certificate: (input) => {
-        return textValidation(input, localize('certificate'), 2, 70)
-    },
     website_url: (input) => {
         return urlValidation(input)
     },

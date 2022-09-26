@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
+import { TCertificate } from '../components/_account-personal-details'
 import device from 'themes/device'
 // SVG Component
 import EyeIcon from 'images/svg/help/eye.svg'

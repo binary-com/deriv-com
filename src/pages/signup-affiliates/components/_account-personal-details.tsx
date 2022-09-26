@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import BirthPicker from '../utils/_birth-form'
+import { AffiliateInput, BirthForm, Currency } from '../utils'
 import validation from '../validations/_validations'
-import AffiliateInput from '../utils/_affiliate-input'
-import Currency from '../utils/_currency-affiliates'
 import { localize } from 'components/localization'
 import { DropdownSearch, Header } from 'components/elements'
 import device from 'themes/device'
 import { useDerivWS } from 'store'
 import Uploader from 'components/form/uploader'
 
-type TCertificate = {
+export type TCertificate = {
     lastModified: string
     lastModifiedDate: string
     name: string
@@ -21,17 +19,17 @@ type TCertificate = {
 type PersonalDataProps = {
     first_name: string
     last_name: string
-    date_birth: string | Date | [Date, Date]
+    date_birth: Date | [Date, Date]
     social_media_url: string
     website_url: string
     password: string
     company_name: string
     company_registration_number: string
-    certificate: string | TCertificate | (() => string | TCertificate)
+    certificate: TCertificate
     citizen: string
     currency: string
 }
-type PersonalDetailsprops = {
+type PersonalDetailsProps = {
     updatedData: (value: PersonalDataProps) => void
     onValidate: (valid: boolean) => void
     is_individual: boolean
@@ -97,9 +95,8 @@ const PersonalDetails = ({
     affiliate_personal_data,
     updatedData,
     onValidate,
-}: PersonalDetailsprops) => {
+}: PersonalDetailsProps) => {
     const [citizenship_list, setCitizenShipList] = useState([])
-
     const [first_name, setFirstName] = useState(affiliate_personal_data.first_name)
     const [last_name, setLastName] = useState(affiliate_personal_data.last_name)
     const [date_birth, setDateBirth] = useState(affiliate_personal_data.date_birth)
@@ -264,7 +261,7 @@ const PersonalDetails = ({
 
     const citizen_list = getCitizenList()
 
-    const validate = !!(
+    const validate =
         first_name &&
         last_name &&
         date_birth &&
@@ -280,7 +277,6 @@ const PersonalDetails = ({
         !company_name_error_msg &&
         !company_registration_error_msg &&
         !certificate_error_msg
-    )
 
     useEffect(() => {
         send(citizen_list, (response) => {
@@ -344,7 +340,6 @@ const PersonalDetails = ({
         })
     }
     const handleInput = (e) => {
-        console.log(e)
         const { name, value } = e.target
         switch (name) {
             case 'first_name': {
@@ -412,7 +407,7 @@ const PersonalDetails = ({
                                         default_item={''}
                                         items={item.list}
                                         type={item.type}
-                                        label={localize('Citizenship')}
+                                        label={item.label}
                                         mb="48px"
                                         affiliate
                                     />
@@ -421,7 +416,7 @@ const PersonalDetails = ({
                         }
                         if (item.name === 'date_birth') {
                             return (
-                                <BirthPicker
+                                <BirthForm
                                     id={item.id}
                                     key={item.id}
                                     error={item.error}

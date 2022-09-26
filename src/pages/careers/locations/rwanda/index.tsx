@@ -29,6 +29,11 @@ const query = graphql`
         rwanda_map: file(relativePath: { eq: "maps/map-rwanda-career.png" }) {
             ...fadeIn
         }
+        rwanda_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/rwanda_great_place_to_work_badge.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

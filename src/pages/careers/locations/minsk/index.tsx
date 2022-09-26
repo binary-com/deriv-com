@@ -57,6 +57,11 @@ const query = graphql`
         minsk_map: file(relativePath: { eq: "maps/map-minsk-career.png" }) {
             ...fadeIn
         }
+        minsk_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/minsk_great_place_to_work_badge.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

@@ -52,9 +52,17 @@ const content: ContentType[] = [
 
 const eucontent: ContentType[] = [
     {
-        header: <Localize translate_text="CFDs" />,
+        header: <Localize translate_text="Derived" />,
         text: (
-            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage." />
+            <Localize translate_text="Trade CFDs on indices derived from real-world market movements." />
+        ),
+        icon: <StyledIcon src={DerivedIcon} alt="derived-icon" />,
+        show_eu: true,
+    },
+    {
+        header: <Localize translate_text="Financial" />,
+        text: (
+            <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived indices on high leverage." />
         ),
         icon: <StyledIcon src={FinancialIcon} alt="financial-icon" />,
         show_eu: true,

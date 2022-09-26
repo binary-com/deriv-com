@@ -22,7 +22,7 @@ module.exports = {
         `https://www.googletagmanager.com/gtm.js?id=GTM-NF7884S`,
         `https://assets.customer.io/assets/track-eu.js`,
         `https://assets.customer.io/assets/track.js`,
-        `https://static.deriv.com/scripts/cookie.js`,
+        `https://static.deriv.com/scripts/cookie-updated.js`,
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [

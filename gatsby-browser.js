@@ -132,9 +132,9 @@ export const onClientEntry = () => {
     }
 
     addScript({
-        src: 'https://static.deriv.com/scripts/cookie.js',
+        src: 'https://static.deriv.com/scripts/cookie-updated.js',
         async: true,
-        strategy: "off-main-thread",
+        strategy: 'off-main-thread',
     })
 
     checkLiveChatRedirection()

@@ -131,15 +131,15 @@ const CoverContent = styled(Text)`
 type CardProps = {
     children?: ReactNode
     className?: string
-    content?: string[]
+    content?: ReactNode
     cover_background?: string
-    cover_content?: string
+    cover_content?: ReactElement
     Icon?: () => ReactElement
     is_inline_icon?: boolean
     is_selected?: boolean
     min_height?: string
     padding?: string
-    title?: string
+    title?: ReactNode
     width?: string
     word_break_cover?: boolean
 }
@@ -161,8 +161,10 @@ export const Card = ({
 }: CardProps) => {
     const final_content = word_break_cover ? (
         <Flex direction="column" jc="flex-start" ai="flex-start">
-            <CoverContent>{cover_content.split(' ')[0]}</CoverContent>
-            <CoverContent>{cover_content.split(' ').slice(1).join(' ')}</CoverContent>
+            <CoverContent>{cover_content.props.translate_text.split(' ')[0]}</CoverContent>
+            <CoverContent>
+                {cover_content.props.translate_text.split(' ').slice(1).join(' ')}
+            </CoverContent>
         </Flex>
     ) : (
         <CoverContent>{cover_content}</CoverContent>
@@ -380,14 +382,16 @@ const RelativeFlex = styled(Flex)`
     position: relative;
 `
 type CardLinkProps = {
-    content: string
-    external: boolean
+    content?: string
+    external?: boolean
     icon?: () => ReactElement
-    onClick: () => void
-    style: NavigationType
-    target: string
-    title: string
+    onClick?: () => void
+    style?: NavigationType
+    target?: string
+    title: ReactNode
     to: string
+    type?: string
+    rel?: string
 }
 
 export const CardLink = ({

@@ -19,7 +19,6 @@ import AppStoreMobile from 'images/svg/dmt5/dmt5_app_store_mobile.svg'
 import {
     dmt5_web_browser_url,
     dmt5_windows,
-    dmt5_macos_url,
     dmt5_linux_url,
     dmt5_mac_app_url,
     dmt5_android_url,
@@ -257,7 +256,7 @@ const DownloadApp = () => {
                         <DownloadLinkWrapper>
                             <LocalizedLink
                                 external
-                                to={dmt5_macos_url}
+                                to={dmt5_mac_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -271,8 +270,6 @@ const DownloadApp = () => {
                             >
                                 <img src={GooglePlay} alt="google play" width="132" height="40" />
                             </LocalizedLink>
-                        </DownloadLinkWrapper>
-                        <DownloadLinkWrapper mt="8px" mb="8px">
                             <LocalizedLink
                                 external
                                 to={dmt5_app_gallery_url}
@@ -323,7 +320,7 @@ const DownloadApp = () => {
                         <DownloadLinkMobileWrapper mr="8px">
                             <LocalizedLink
                                 external
-                                to={dmt5_macos_url}
+                                to={dmt5_mac_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

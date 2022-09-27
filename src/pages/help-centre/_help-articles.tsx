@@ -937,6 +937,12 @@ export const articles: ArcticlesType[] = [
                 label: 'mutilple-tabs',
             },
             {
+                title: <Localize translate_text="Can I trade cryptocurrencies on DBot?" />,
+                category: 'Dbot',
+                sub_category: <Localize translate_text="cryptocurrencies" />,
+                label: 'cryptocurrencies',
+            },
+            {
                 title: (
                     <Localize translate_text="Where can I see the status of my trades in DBot?" />
                 ),

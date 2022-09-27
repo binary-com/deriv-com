@@ -514,6 +514,18 @@ const MultipleTabs = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
+const Cryptocurrencies = ({ text }: ArticleProps) => (
+    <ArticleWrapper margin_left="2rem">
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text width="110%">
+            <Localize
+                translate_text={"No, we don't offer cryptocurrencies on DBot."}
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
 const TradeStatus = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
@@ -636,6 +648,11 @@ const DBotArticle = () => {
                 <MultipleTabs
                     text={localize('Can I run DBot on multiple tabs in my web browser?')}
                     label="multiple-tabs"
+                    is_mounted={is_mounted}
+                />
+                <Cryptocurrencies
+                    text={localize('Can I trade cryptocurrencies on DBot?')}
+                    label="cryptocurrencies"
                     is_mounted={is_mounted}
                 />
                 <TradeStatus

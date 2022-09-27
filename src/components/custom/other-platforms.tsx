@@ -445,7 +445,7 @@ export const NavMarket = ({ onClick }: NavMarketProps) => {
                 aria_label="Derived"
                 icon={() => <img src={DerivedFX} alt="" width="32" height="32" />}
                 content={
-                    <Localize translate_text="Enjoy trading asset prices derived<br/> from real-world or simulated markets." />
+                    <Localize translate_text="Enjoy trading asset prices derived from real-world or simulated markets." />
                 }
                 title={<Localize translate_text="Derived" />}
                 onClick={onClick}

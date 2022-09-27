@@ -322,6 +322,7 @@ type AccordionItemProps = {
     header?: string | ReactNode
     text?: string
     plus?: boolean
+    is_showed?: boolean
 }
 
 const AccordionItem = ({ id, text, children, style }: AccordionItemProps) => {

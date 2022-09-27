@@ -29,6 +29,7 @@ import BinaryBotIcon from 'images/svg/binarybot-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/smarttrader.svg'
 import APIIcon from 'images/svg/api-logo.svg'
 import Browser from 'images/svg/app-download/web-browser.svg'
+import AppStore from 'images/svg/app-download/app-store.svg'
 import GooglePlay from 'images/svg/app-download/google-play.svg'
 import Linux from 'images/svg/app-download/linux.svg'
 import APK from 'images/svg/app-download/apk.svg'
@@ -38,6 +39,7 @@ import AppGallery from 'images/svg/app-download/app-store-app-gallery.svg'
 
 export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser
+    else if (type === 'app_store') return AppStore
     else if (type === 'google_play') return GooglePlay
     else if (type === 'linux') return Linux
     else if (type === 'apk') return APK

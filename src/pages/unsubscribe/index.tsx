@@ -5,6 +5,7 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import CheckIcon from 'images/common/check_icon.png'
 import device from 'themes/device'
+import { useDerivApi } from 'components/hooks/use-deriv-api'
 
 const UnsubscrubeWrapper = styled.div`
     display: flex;
@@ -91,70 +92,44 @@ const SuccessCard = styled.div`
 `
 
 const UnsubscrubePage = () => {
-    const [email, setEmail] = useState('')
-    const [completed_email, setCompletedEmail] = useState(false)
     const [complete_status, setCompleteStatus] = useState(false)
 
-    const validateEmail = (email) => {
-        const re = /\S+@\S+\.\S+/
-        return re.test(email)
-    }
-    const handleChange = (e) => setEmail(e.target.value)
-    const handleRefuse = () => setCompletedEmail(false)
     const handleConfirm = () => setCompleteStatus(true)
-    const handleSubmit = () => setCompletedEmail(validateEmail(email))
-
+    // Prepare to api call
+    // const deriv_api = useDerivApi()
+    // const { send } = deriv_api
+    // const APICall = send(
+    //     {
+    //         set_settings: 1,
+    //         email_consent: 0,
+    //     },
+    //     (response) => {
+    //         if (!response.error) {
+    //             setCompleteStatus(true)
+    //         }
+    //     },
+    // )
     return (
         <Layout>
             <UnsubscrubeWrapper>
-                {completed_email ? (
-                    complete_status ? (
-                        <SuccessCard>
-                            <img src={CheckIcon} alt="sucess" width={48} height={48} />
-                            Unsubscribe successfully
-                        </SuccessCard>
-                    ) : (
-                        <UnsubscribeForm>
-                            <Title>
-                                {localize('Are you sure you want to step receiving Deriv emails?')}
-                            </Title>
-                            <ConfirmWrapper>
-                                <ConfirmButton onClick={handleConfirm} type="submit" secondary>
-                                    {localize('Yes')}
-                                </ConfirmButton>
-                                <ConfirmButton onClick={handleRefuse} type="submit" tertiary>
-                                    {localize('No')}
-                                </ConfirmButton>
-                            </ConfirmWrapper>
-                        </UnsubscribeForm>
-                    )
+                {complete_status ? (
+                    <SuccessCard>
+                        <img src={CheckIcon} alt="sucess" width={48} height={48} />
+                        Unsubscribe successfully
+                    </SuccessCard>
                 ) : (
                     <UnsubscribeForm>
-                        <InputWrapper>
-                            <Title>{localize('Enter your email to unsubscribe')}</Title>
-                            <Input
-                                id="dm-email-input"
-                                name="email"
-                                type="text"
-                                border="solid 1px var(--color-grey-7)"
-                                label_color="grey-5"
-                                label_hover_color="grey-5"
-                                background="white"
-                                value={email}
-                                label={localize('Email')}
-                                placeholder={'Email'}
-                                onChange={handleChange}
-                                autoComplete="off"
-                            />
-                        </InputWrapper>
-                        <EmailButton
-                            onClick={handleSubmit}
-                            type="submit"
-                            disabled={!validateEmail(email)}
-                            secondary
-                        >
-                            {localize('Unsubscribe')}
-                        </EmailButton>
+                        <Title>
+                            {localize('Are you sure you want to step receiving Deriv emails?')}
+                        </Title>
+                        <ConfirmWrapper>
+                            <ConfirmButton onClick={handleConfirm} type="submit" secondary>
+                                {localize('Yes')}
+                            </ConfirmButton>
+                            <ConfirmButton type="submit" tertiary>
+                                {localize('No')}
+                            </ConfirmButton>
+                        </ConfirmWrapper>
                     </UnsubscribeForm>
                 )}
             </UnsubscrubeWrapper>

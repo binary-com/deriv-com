@@ -13,9 +13,6 @@ import LossesImage from 'images/common/help-centre/dbot-losses.png'
 import VariablesImage from 'images/common/help-centre/dbot-variables.png'
 import LogicBlockImage from 'images/common/help-centre/dbot-logic-block.png'
 import UpdateCurrentPlImage from 'images/common/help-centre/dbot-update-currentPL.png'
-import SummaryTabImage from 'images/common/help-centre/dbot-summary-tab.png'
-import TransactionsImage from 'images/common/help-centre/dbot-transactions.png'
-import ChartImage from 'images/common/help-centre/dbot-chart.png'
 import BlockMenuImage from 'images/common/help-centre/dbot-block-menu.png'
 import BlockMenuSearchBarImage from 'images/common/help-centre/dbot-block-menu-search-bar.png'
 
@@ -526,60 +523,73 @@ const Cryptocurrencies = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const TradeStatus = ({ text }: ArticleProps) => (
+const SellTradingBots = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
+        <Text width="120%">
             {localize(
-                "The panel on the right of the workspace gives you information about all your trades in DBot. The 'Summary' tab shows information such as your total stake, total payout, profit/loss, etc.",
+                "No, we don't. However, you'll find quick strategies on DBot that'll help you build your own trading bot for free.",
             )}
         </Text>
-
-        <ImageWrapper>
-            <img
-                src={SummaryTabImage}
-                alt={localize('Summary tab')}
-                width="33.3rem"
-                loading="lazy"
-                style={{ width: '33.3rem' }}
-            />
-        </ImageWrapper>
-
-        <Text>
-            {localize(
-                "The 'Transactions' tab gives you more detailed information on each trade such as duration, barrier, start and end times, etc.",
-            )}
-        </Text>
-        <ImageWrapper>
-            <img
-                src={TransactionsImage}
-                alt={localize('Transactions')}
-                width="33.3rem"
-                loading="lazy"
-                style={{ width: '33.3rem' }}
-            />
-        </ImageWrapper>
     </ArticleWrapper>
 )
 
-const ViewChart = ({ text }: ArticleProps) => (
+const DbotAvailableCountries = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
+            <Localize
+                translate_text="We offer our services in all countries, except for the ones <0>mentioned in our terms and conditions</0>."
+                components={[
+                    <StyledLink
+                        to="/tnc/general-terms.pdf"
+                        target="_blank"
+                        external
+                        style={{ fontWeight: 'Unset' }}
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const CloseBrowser = ({ text }: ArticleProps) => (
+    <ArticleWrapper margin_left="2rem">
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>{localize('No, DBot will stop running when your web browser is closed.')}</Text>
+    </ArticleWrapper>
+)
+const PopularSTrategies = ({ text }: ArticleProps) => (
+    <ArticleWrapper margin_left="2rem">
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text width="115%">
             {localize(
-                "Click 'Chart' at the bottom left corner of the workspace to view the chart.",
+                "Three of the most commonly used strategies in automated trading are Martingale, D'Alembert, and Oscar's Grind — you can find them already-made and waiting for you in DBot.",
             )}
         </Text>
+    </ArticleWrapper>
+)
 
-        <ImageWrapper>
-            <img
-                src={ChartImage}
-                alt={localize('Chart')}
-                width="22.5rem"
-                loading="lazy"
-                style={{ width: '22.5rem' }}
+const BuildTradingBot = ({ text }: ArticleProps) => (
+    <ArticleWrapper margin_left="2rem">
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="<0>Watch this video</0> to learn how to build a trading bot on DBot. Also, <0>check out this blog post</0> on building a trading bot."
+                components={[
+                    <StyledLink
+                        to="/tnc/general-terms.pdf"
+                        target="_blank"
+                        external
+                        style={{ fontWeight: 'Unset' }}
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
             />
-        </ImageWrapper>
+        </Text>
     </ArticleWrapper>
 )
 
@@ -655,14 +665,29 @@ const DBotArticle = () => {
                     label="cryptocurrencies"
                     is_mounted={is_mounted}
                 />
-                <TradeStatus
-                    text={localize('Where can I see the status of my trades in DBot?')}
-                    label="status-of-trades"
+                <SellTradingBots
+                    text={localize('Do you sell trading bots?')}
+                    label="sell-trading-bot"
                     is_mounted={is_mounted}
                 />
-                <ViewChart
-                    text={localize('How do I view the chart in DBot?')}
-                    label="view-chart"
+                <DbotAvailableCountries
+                    text={localize('In which countries is DBot available?')}
+                    label="Countires-offering-bot"
+                    is_mounted={is_mounted}
+                />
+                <CloseBrowser
+                    text={localize('If I close my web browser, will DBot continue to run?')}
+                    label="close_browser"
+                    is_mounted={is_mounted}
+                />
+                <PopularSTrategies
+                    text={localize('What are the most popular strategies for automated trading?')}
+                    label="popular_strategies"
+                    is_mounted={is_mounted}
+                />
+                <BuildTradingBot
+                    text={localize('How do I build a trading bot?')}
+                    label="build_trading_bot"
                     is_mounted={is_mounted}
                 />
             </Article>

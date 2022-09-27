@@ -938,23 +938,43 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: <Localize translate_text="Can I trade cryptocurrencies on DBot?" />,
-                category: 'Dbot',
+                category: 'DBot',
                 sub_category: <Localize translate_text="cryptocurrencies" />,
                 label: 'cryptocurrencies',
             },
             {
-                title: (
-                    <Localize translate_text="Where can I see the status of my trades in DBot?" />
-                ),
+                title: <Localize translate_text="Do you sell trading bots?" />,
+                category: 'DBot',
+                sub_category: <Localize translate_text="trading bot" />,
+                label: 'sell_trading_bots',
+            },
+            {
+                title: <Localize translate_text="In which countries is DBot available?" />,
                 category: 'DBot',
                 sub_category: <Localize translate_text="Logs" />,
                 label: 'status-of-trades',
             },
             {
-                title: <Localize translate_text="How do I view the chart in DBot?" />,
+                title: (
+                    <Localize translate_text="If I close my web browser, will DBot continue to run?" />
+                ),
                 category: 'DBot',
-                sub_category: <Localize translate_text="Chart" />,
-                label: 'view-chart',
+                sub_category: <Localize translate_text="Logs" />,
+                label: 'close_browser',
+            },
+            {
+                title: (
+                    <Localize translate_text="What are the most popular strategies for automated trading?" />
+                ),
+                category: 'DBot',
+                sub_category: <Localize translate_text="Popular strategies" />,
+                label: 'popular-strategies',
+            },
+            {
+                title: <Localize translate_text="How do I build a trading bot?" />,
+                category: 'DBot',
+                sub_category: <Localize translate_text="Build trading bot" />,
+                label: 'build_trading_bot',
             },
         ],
     },

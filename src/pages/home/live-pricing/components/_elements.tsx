@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import type { Header } from '@tanstack/react-table'
-import { TMarketData } from '../../_types'
+import { TMarketData } from '../_types'
 import { Header as HeaderText } from 'components/elements'
 import { Button } from 'components/form'
 

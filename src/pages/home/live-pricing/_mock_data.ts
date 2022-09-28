@@ -1,4 +1,4 @@
-import { TMarketData } from '../../_types'
+import { TMarketData } from './_types'
 
 export const synthetic_index_mock_data: TMarketData[] = [
     {

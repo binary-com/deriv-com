@@ -1,7 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table'
 import React, { useMemo } from 'react'
-import { DailyPercentageCell, TableCell, TableHeaderCell } from '../_components/elements'
-import { TMarketData } from '../_types'
+import { DailyPercentageCell, TableCell, TableHeaderCell } from './components/_elements'
+import { TMarketData } from './_types'
 import { USDJPY } from 'components/elements/symbols'
 import RefreshIcon from 'images/svg/refresh.svg'
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import LiveMarketTable from './_components/live_market_table'
+import LiveMarketTable from './components/_live_market_table'
 import { TAvailableLiveMarkets } from './_types'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'

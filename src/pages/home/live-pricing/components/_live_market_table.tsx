@@ -6,10 +6,10 @@ import {
     useReactTable,
 } from '@tanstack/react-table'
 import type { SortingState } from '@tanstack/react-table'
-import { TAvailableLiveMarkets, TMarketData, TMarketDataResponse } from '../../_types'
-import useLiveColumns from '../../_hooks/use-live-columns'
-import Spinner, { TableLoadingContainer, Table, TableContainer, TableRow } from '../elements'
-import { synthetic_index_mock_data } from '../common'
+import { TAvailableLiveMarkets, TMarketData, TMarketDataResponse } from '../_types'
+import useLiveColumns from '../_use-live-columns'
+import { synthetic_index_mock_data } from '../_mock_data'
+import Spinner, { TableLoadingContainer, Table, TableContainer, TableRow } from './_elements'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
 
 export type TLiveMarketTableProps = {

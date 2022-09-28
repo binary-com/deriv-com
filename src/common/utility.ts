@@ -461,7 +461,7 @@ export const isTestlink = () => !!(isBrowser() && window.location.hostname.inclu
 
 export const getSocailMediaUrl = (
     type: string,
-    is_career_page: boolean,
+    is_career_page = false,
     is_eu = false,
     is_uk = false,
 ): string => {

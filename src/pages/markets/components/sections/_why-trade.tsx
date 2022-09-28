@@ -23,7 +23,7 @@ const Item = styled(Flex)`
 
     @media ${device.tabletL} {
         max-width: 18rem;
-        gap: 16px;
+        gap: 6px;
 
         ${Text} {
             font-size: 14px;
@@ -40,7 +40,6 @@ const ItemContainer = styled(Box)`
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
-        align-items: center;
         margin: 20px 0 32px 0;
         gap: 22px;
     }

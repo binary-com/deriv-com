@@ -6,7 +6,7 @@ import {
     TradeTypes,
     P2PHomeBanner,
 } from './home/_lazy-load'
-import MarketsFold from './home/_markets_fold'
+import LivePricing from './home/live-pricing/live-pricing'
 import Hero from './home/_hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
@@ -32,7 +32,7 @@ const Home = () => {
                 has_organization_schema
             />
             <Hero />
-            <MarketsFold />
+            <LivePricing />
             <TradeTypes />
             <OurPlatforms />
             <WhatOurClientsSay />

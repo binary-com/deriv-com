@@ -1,14 +1,9 @@
 import React from 'react'
 import { SocialWrapper } from './common/style'
 import { LocalizedLink } from 'components/localization'
-import {
-    reddit_url,
-    telegram_url,
-    fb_url_career,
-    instagram_url_career,
-    linkedin_url,
-    linkedin_url_career,
-} from 'common/constants'
+import { reddit_url, telegram_url } from 'common/constants'
+import { useCountryRule } from 'components/hooks/use-country-rule'
+import { getSocailMediaUrl } from 'common/utility'
 //Logo
 import Reddit from 'images/svg/layout/footer-reddit.svg'
 import Telegram from 'images/svg/layout/footer-telegram.svg'
@@ -33,26 +28,28 @@ type SocialMediaComponentProps = {
     social_accounts: TSocialAccount[]
 }
 
-const SocialWrapperComponent = ({
-    is_career_page = false,
-    fb_url = '',
-    instagram_url = '',
-    twitter_url = '',
-}: SocialWrapperComponentProps) => {
+const SocialWrapperComponent = ({ is_career_page = false }: SocialWrapperComponentProps) => {
+    const { is_eu, is_uk } = useCountryRule()
+
+    const fb_url = getSocailMediaUrl('facebook', is_career_page, is_eu, is_uk)
+    const instagram_url = getSocailMediaUrl('instagram', is_career_page, is_eu, is_uk)
+    const twitter_url = getSocailMediaUrl('twitter', is_career_page, is_eu, is_uk)
+    const linkedin_url = getSocailMediaUrl('linkedin', is_career_page, is_eu, is_uk)
+
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
         {
-            link: is_career_page ? fb_url_career : fb_url,
+            link: fb_url,
             image: Facebook,
             image_alt: `facebook ${alt_string}`,
         },
         {
-            link: is_career_page ? instagram_url_career : instagram_url,
+            link: instagram_url,
             image: Instagram,
             image_alt: `instagram ${alt_string}`,
         },
         {
-            link: is_career_page ? linkedin_url_career : linkedin_url,
+            link: linkedin_url,
             image: Linkedin,
             image_alt: `linkedin ${alt_string}`,
         },

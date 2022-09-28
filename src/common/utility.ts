@@ -458,3 +458,65 @@ export const handleRedirect = (residence, current_client_country) => {
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
+
+export const getSocailMediaUrl = (
+    type: string,
+    is_career_page: boolean,
+    is_eu = false,
+    is_uk = false,
+): string => {
+    const language = getLanguage()
+
+    if (type == 'twitter') {
+        const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
+        const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
+        const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
+        const twitter_es_url = 'https://twitter.com/DerivEspanol'
+
+        const current_twitter_url =
+            (is_eu && twitter_eu_url) || (is_uk && twitter_uk_url) || twitter_non_eu_url
+
+        switch (language) {
+            case 'es':
+                return twitter_es_url
+            default:
+                return current_twitter_url
+        }
+    } else if (type == 'instagram') {
+        const instagram_url_career = 'https://www.instagram.com/derivcareers/'
+        const instagram_non_eu_url = 'https://www.instagram.com/deriv_official/'
+        const instagram_eu_url = 'https://www.instagram.com/deriv_eu/'
+        const instagram_uk_url = 'https://www.instagram.com/deriv_uk/'
+        const instagram_es_url = ' https://www.instagram.com/deriv_espanol/'
+
+        const current_instagram_url =
+            (is_eu && instagram_eu_url) || (is_uk && instagram_uk_url) || instagram_non_eu_url
+        switch (language) {
+            case 'es':
+                return is_career_page ? instagram_url_career : instagram_es_url
+            default:
+                return is_career_page ? instagram_url_career : current_instagram_url
+        }
+    } else if (type == 'facebook') {
+        const fb_url_career = 'https://www.facebook.com/derivcareers'
+        const fb_non_eu_url = 'https://www.facebook.com/derivdotcom'
+        const fb_eu_url = 'https://www.facebook.com/derivEU/'
+        const fb_uk_url = 'https://www.facebook.com/derivUK/'
+        const fb_es_url = 'https://www.facebook.com/derivespanol'
+
+        const current_facebook_url = (is_eu && fb_eu_url) || (is_uk && fb_uk_url) || fb_non_eu_url
+        switch (language) {
+            case 'es':
+                return is_career_page ? fb_url_career : fb_es_url
+            default:
+                return is_career_page ? fb_url_career : current_facebook_url
+        }
+    } else if (type == 'linkedin') {
+        const linkedin_url = 'https://www.linkedin.com/company/derivdotcom/'
+        const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom/life/'
+
+        const current_facebook_url = linkedin_url
+
+        return is_career_page ? linkedin_url_career : current_facebook_url
+    }
+}

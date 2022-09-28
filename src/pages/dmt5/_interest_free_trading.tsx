@@ -84,16 +84,11 @@ const StyledFlex = styled(Flex)`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    padding: 1rem 1.6rem;
+    padding: 10px 16px;
     font-size: 14px;
     height: auto;
     min-height: 4rem;
-    width: 24rem;
-    margin: 0;
-    @media ${device.tabletL} {
-        padding: 1.5rem 1.6rem;
-        max-width: 206px;
-    }
+    width: 230px;
 
     @media ${device.mobileL} {
         width: 100%;

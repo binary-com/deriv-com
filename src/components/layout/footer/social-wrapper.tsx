@@ -3,7 +3,7 @@ import { SocialWrapper } from './common/style'
 import { LocalizedLink } from 'components/localization'
 import { reddit_url, telegram_url } from 'common/constants'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import { getSocailMediaUrl } from 'common/utility'
+import { getSocialMediaUrl } from 'common/utility'
 //Logo
 import Reddit from 'images/svg/layout/footer-reddit.svg'
 import Telegram from 'images/svg/layout/footer-telegram.svg'
@@ -13,12 +13,8 @@ import Facebook from 'images/svg/layout/footer-facebook.svg'
 import Linkedin from 'images/svg/layout/footer-linkedin.svg'
 
 type SocialWrapperComponentProps = {
-    fb_url?: string
-    instagram_url?: string
     is_career_page?: boolean
-    twitter_url?: string
 }
-
 type TSocialAccount = {
     link?: string
     image?: string
@@ -31,11 +27,10 @@ type SocialMediaComponentProps = {
 const SocialWrapperComponent = ({ is_career_page = false }: SocialWrapperComponentProps) => {
     const { is_eu, is_uk } = useCountryRule()
 
-    const fb_url = getSocailMediaUrl('facebook', is_career_page, is_eu, is_uk)
-    const instagram_url = getSocailMediaUrl('instagram', is_career_page, is_eu, is_uk)
-    const twitter_url = getSocailMediaUrl('twitter', is_career_page, is_eu, is_uk)
-    const linkedin_url = getSocailMediaUrl('linkedin', is_career_page, is_eu, is_uk)
-
+    const fb_url = getSocialMediaUrl('facebook', is_eu, is_uk)
+    const instagram_url = getSocialMediaUrl('instagram', is_eu, is_uk)
+    const twitter_url = getSocialMediaUrl('twitter', is_eu, is_uk)
+    const linkedin_url = getSocialMediaUrl('linkedin', is_eu, is_uk)
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
         {

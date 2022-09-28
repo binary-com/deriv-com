@@ -277,7 +277,7 @@ const DHero = ({
                 <LinkWrapper>
                     {join_us_for_free &&
                         (is_logged_in ? (
-                            <DemoButton onClick={handleGetTrading} id="dm-hero-signup" secondary>
+                            <DemoButton onClick={handleGetTrading} secondary>
                                 <Localize translate_text="Get Trading" />
                             </DemoButton>
                         ) : (

@@ -179,12 +179,7 @@ const DHero = ({
                 <LinkWrapper>
                     {join_us_for_free &&
                         (is_logged_in ? (
-                            <DemoButton
-                                onClick={handleGetTrading}
-                                id="dm-hero-signup"
-                                secondary
-                                type="mt5"
-                            >
+                            <DemoButton onClick={handleGetTrading} secondary type="mt5">
                                 <Localize translate_text="Go to Deriv MT5 dashboard" />
                             </DemoButton>
                         ) : (

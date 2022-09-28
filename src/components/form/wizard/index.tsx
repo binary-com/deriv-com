@@ -33,15 +33,12 @@ const Modal = styled.div`
     left: 50%;
     background-color: white;
     transform: translate(-50%, -50%);
-    height: 668px;
-    max-width: 1200px;
+    height: 688px;
+    min-width: 904px;
     z-index: 100;
     border-radius: 8px;
 
     @media ${device.tablet} {
-        width: 100%;
-    }
-    @media ${device.tabletL} {
         width: 100%;
     }
     @media ${device.laptop} {

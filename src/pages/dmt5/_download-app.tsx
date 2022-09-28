@@ -12,11 +12,9 @@ import Windows from 'images/svg/dmt5/dmt5_windows.svg'
 import MacOs from 'images/svg/dmt5/dmt5_macos_dmg.svg'
 import GooglePlay from 'images/svg/dmt5/dmt5_google_play.svg'
 import AppGallery from 'images/svg/dmt5/dmt5_app_gallery.svg'
-import AppStore from 'images/svg/dmt5/dmt5_app_store.svg'
 import {
     dmt5_web_browser_url,
     dmt5_windows,
-    dmt5_macos_url,
     dmt5_linux_url,
     dmt5_mac_app_url,
     dmt5_android_url,
@@ -261,8 +259,6 @@ const DownloadApp = () => {
                             >
                                 <img src={GooglePlay} alt="google play" width="138" height="40" />
                             </LocalizedLink>
-                        </DownloadLinkWrapper>
-                        <DownloadLinkWrapper mt="8px" mb="8px">
                             <LocalizedLink
                                 external
                                 to={dmt5_app_gallery_url}
@@ -270,14 +266,6 @@ const DownloadApp = () => {
                                 rel="noopener noreferrer"
                             >
                                 <img src={AppGallery} alt="app gallery" width="138" height="40" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={dmt5_macos_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={AppStore} alt="app store" width="138" height="40" />
                             </LocalizedLink>
                         </DownloadLinkWrapper>
                     </Flex>
@@ -304,14 +292,6 @@ const DownloadApp = () => {
                                 rel="noopener noreferrer"
                             >
                                 <img src={AppGallery} alt="app gallery" width="138" height="40" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={dmt5_macos_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={AppStore} alt="app store" width="138" height="40" />
                             </LocalizedLink>
                         </DownloadLinkMobileWrapper>
                     </Flex>

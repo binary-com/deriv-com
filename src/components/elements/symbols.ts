@@ -349,6 +349,8 @@ import VBOOMIC300 from 'images/svg/symbols/volatility-boom-300-new.svg'
 import VCRASHIC300 from 'images/svg/symbols/volatility-crash-300-new.svg'
 import VINDEXIC200 from 'images/svg/symbols/volatility-index-ic-200.svg'
 import VINDEXIC300 from 'images/svg/symbols/volatility-index-ic-300.svg'
+import VINDEX2001S from 'images/svg/symbols/volatility_200_1s.svg'
+import VINDEX3001S from 'images/svg/symbols/volatility_300_1s.svg'
 import ZECUSD from 'images/svg/symbols/zec-usd.svg'
 
 export {
@@ -702,6 +704,8 @@ export {
     VCRASHIC300,
     VINDEXIC200,
     VINDEXIC300,
+    VINDEX2001S,
+    VINDEX3001S,
     USDCNH,
     USDBRENT,
 }

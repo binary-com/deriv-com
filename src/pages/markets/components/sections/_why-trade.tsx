@@ -42,6 +42,7 @@ const ItemContainer = styled(Box)`
         flex-wrap: wrap;
         margin: 20px 0 32px 0;
         gap: 22px;
+        max-width: 40.6rem;
     }
     @media (max-width: 336px) {
         justify-content: center;

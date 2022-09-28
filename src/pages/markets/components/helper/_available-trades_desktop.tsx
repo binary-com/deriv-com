@@ -135,10 +135,6 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         height: 48px;
         min-width: unset;
         padding: 8px 16px;
-
-        &:last-child {
-            padding-right: 40px;
-        }
     }
 `
 

@@ -360,41 +360,41 @@ const StartTrader = () => {
             </Flex>
 
             <Flex max_width="1200px">
-                {isDemo ? (
-                    <SideTab parent_tab={tab}>
-                        <SideTab.Panel
-                            description={
-                                <Localize
-                                    translate_text="Sign up for a free <0>Deriv demo account</0>"
-                                    components={[
-                                        <StyledLocalizedLink
-                                            onClick={handleSignup}
-                                            id="dm-dmt5-signup-link"
-                                            to=""
-                                            key={0}
-                                        />,
-                                    ]}
-                                />
-                            }
-                            item_width="24rem"
-                            mobile_item_width="36rem"
-                        >
-                            <ImageWrapper>{demo_step1_image}</ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel description={text_1}>
-                            <ImageWrapper>{demo_step2_image}</ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel
-                            description={
-                                <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
-                            }
-                            item_width="36rem"
-                        >
-                            <ImageWrapper>{demo_step3_image}</ImageWrapper>
-                        </SideTab.Panel>
-                    </SideTab>
-                ) : (
-                    <Flex direction="column" ai="end">
+                <Flex direction="column" ai="end">
+                    {isDemo ? (
+                        <SideTab parent_tab={tab}>
+                            <SideTab.Panel
+                                description={
+                                    <Localize
+                                        translate_text="Sign up for a free <0>Deriv demo account</0>"
+                                        components={[
+                                            <StyledLocalizedLink
+                                                onClick={handleSignup}
+                                                id="dm-dmt5-signup-link"
+                                                to=""
+                                                key={0}
+                                            />,
+                                        ]}
+                                    />
+                                }
+                                item_width="24rem"
+                                mobile_item_width="36rem"
+                            >
+                                <ImageWrapper>{demo_step1_image}</ImageWrapper>
+                            </SideTab.Panel>
+                            <SideTab.Panel description={text_1}>
+                                <ImageWrapper>{demo_step2_image}</ImageWrapper>
+                            </SideTab.Panel>
+                            <SideTab.Panel
+                                description={
+                                    <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
+                                }
+                                item_width="36rem"
+                            >
+                                <ImageWrapper>{demo_step3_image}</ImageWrapper>
+                            </SideTab.Panel>
+                        </SideTab>
+                    ) : (
                         <SideTab parent_tab={tab}>
                             <SideTab.Panel
                                 description={
@@ -427,9 +427,9 @@ const StartTrader = () => {
                                 <ImageWrapper>{real_step4_image}</ImageWrapper>
                             </SideTab.Panel>
                         </SideTab>
-                        <QRImage src={DMT5QR} width="124px" height="124px" />
-                    </Flex>
-                )}
+                    )}
+                    <QRImage src={DMT5QR} width="124px" height="124px" />
+                </Flex>
             </Flex>
         </Section>
     )

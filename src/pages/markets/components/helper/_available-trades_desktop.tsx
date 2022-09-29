@@ -96,7 +96,6 @@ const CardContainer = styled(Flex)<CardContainerProps>`
             width: 100%;
             height: 100%;
             justify-content: flex-start;
-            padding: 10px 0 0 0;
 
             img {
                 width: 16px;
@@ -152,6 +151,8 @@ const ContentWrapper = styled.div`
 `
 
 const CardHeader = styled(Header)`
+    line-height: 44px;
+
     @media ${device.tabletL} {
         font-size: 1.75rem;
     }

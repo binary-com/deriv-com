@@ -54,7 +54,6 @@ export default class DerivWS {
         const connection = new WebSocket(this.socket_url)
         connection.onopen = this.openHandler
         connection.onmessage = this.messageHandler
-
         this.connection = connection
     }
 
@@ -63,8 +62,15 @@ export default class DerivWS {
         return closed_state.includes(this.connection.readyState)
     }
 
+    private ping = () => {
+        this.send({ ping: 1 })
+    }
+
     private openHandler = () => {
         if (this.connection.readyState === 1) {
+            // HINT: [Mohsen Hajibeigloo] after a while the websocket connection will be close,
+            // so we have to set this up to keep it alive
+            setInterval(this.ping, 1000)
             this.connected.resolve()
         } else {
             setTimeout(this.openHandler, 50)

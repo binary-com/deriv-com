@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import LiveMarketTable from './components/_live_market_table'
 import { TAvailableLiveMarkets } from './_types'
-import { Flex, SectionContainer } from 'components/containers'
+import { market_buttons } from './_utils'
+import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
+import { Button } from 'components/form'
+import device from 'themes/device'
 
-const LivePricingSection = styled(SectionContainer)`
+const LivePricingSection = styled.section`
     background-color: #f9fbff;
-    min-height: 880px;
+    min-height: 780px;
 `
 
 const ContainerWrapper = styled(Flex)`
@@ -16,24 +19,46 @@ const ContainerWrapper = styled(Flex)`
     justify-content: center;
     align-items: center;
     gap: 36px;
-    margin: 80px auto;
-    width: 60vw;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 60%;
+    @media ${device.tablet} {
+        width: 100vw;
+    }
 `
 
-const MarketsContainer = styled(Flex)`
-    flex-direction: row;
+const MmdDiv = styled.div`
+    position: relative;
+    width: 100%;
+`
+
+const MarketsContainer = styled.div`
+    margin: 0 auto;
+    gap: 2rem;
+    overflow-y: hidden;
+    overflow-x: auto;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    display: flex;
+    padding: 2rem;
+    scrollbar-width: none; /* Firefox */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    @media ${device.tablet} {
+        justify-content: flex-start;
+    }
 `
 const MarketButton = styled.button<{ selected: boolean }>`
     min-height: 48px;
+    position: relative;
     background-color: #f2f3f4;
     border: none;
     padding: 12px;
     cursor: pointer;
     border-radius: 8px;
     transition: all 0.1s ease-in;
+    white-space: nowrap;
     ${({ selected }) =>
         selected
             ? css`
@@ -48,55 +73,22 @@ const MarketButton = styled.button<{ selected: boolean }>`
               `}
 `
 
-type TMarketButtons = {
-    id: number
-    button_text: string
-    market_name: TAvailableLiveMarkets
-}
-
-const market_buttons: TMarketButtons[] = [
-    {
-        id: 0,
-        button_text: 'Derived',
-        market_name: 'synthetic_index',
-    },
-    {
-        id: 1,
-        button_text: 'Forex',
-        market_name: 'forex',
-    },
-    {
-        id: 2,
-        button_text: 'Stock & Indices',
-        market_name: 'indices',
-    },
-    {
-        id: 3,
-        button_text: 'Cryptocurrency',
-        market_name: 'cryptocurrency',
-    },
-    {
-        id: 4,
-        button_text: 'Commodities',
-        market_name: 'commodities',
-    },
-    {
-        id: 6,
-        button_text: 'Basket Indices',
-        market_name: 'basket_index',
-    },
-]
-
 const LivePricing = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('synthetic_index')
+    const [show_all_markets, setShowAllMarkets] = useState(false)
+    const [is_expand_visible, setIsExpandVisible] = useState(false)
 
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
 
+    const toggle_show_all_markets = () => {
+        setShowAllMarkets((prevState) => !prevState)
+    }
+
     return (
         <LivePricingSection>
-            <ContainerWrapper>
+            <MmdDiv>
                 <MarketsContainer>
                     {market_buttons.map((marketItem) => (
                         <MarketButton
@@ -110,12 +102,23 @@ const LivePricing = () => {
                         </MarketButton>
                     ))}
                 </MarketsContainer>
+            </MmdDiv>
+            <ContainerWrapper>
                 <Header type="paragraph-2" weight="normal" align="center">
                     Benefit from round-the-clock trading hours (Monday to Friday), high liquidity,
                     low barriers to entry, a wide range of offerings, and opportunitiesto trade on
                     world events.
                 </Header>
-                <LiveMarketTable market={selected_market} />
+                <LiveMarketTable
+                    show_all_markets={show_all_markets}
+                    market={selected_market}
+                    setIsExpandVisible={setIsExpandVisible}
+                />
+                {is_expand_visible && (
+                    <Button tertiary onClick={toggle_show_all_markets}>
+                        {show_all_markets ? 'See trending markets' : 'See all markets'}
+                    </Button>
+                )}
             </ContainerWrapper>
         </LivePricingSection>
     )

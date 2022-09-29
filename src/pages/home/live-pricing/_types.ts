@@ -32,3 +32,9 @@ export type TAvailableLiveMarkets =
     | 'cryptocurrency'
     | 'synthetic_index'
     | 'commodities'
+
+export type TMarketButtons = {
+    id: number
+    button_text: string
+    market_name: TAvailableLiveMarkets
+}

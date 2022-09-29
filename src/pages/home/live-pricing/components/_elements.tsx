@@ -1,14 +1,7 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
-import type { Header } from '@tanstack/react-table'
-import { TMarketData } from '../_types'
 import { Header as HeaderText } from 'components/elements'
 import { Button } from 'components/form'
-
-const CellHeader = styled(HeaderText)`
-    cursor: pointer;
-    user-select: none;
-`
 
 export const TableContainer = styled.div`
     width: 100%;
@@ -53,10 +46,6 @@ export const Spinner = styled.div`
 export default Spinner
 
 export const Table = styled.table`
-    & th,
-    & td {
-        min-width: 20rem;
-    }
     td:nth-child(3),
     th:nth-child(3) {
         width: 40%;
@@ -99,7 +88,6 @@ type TTableHeaderCell = {
     text: string | number
     icon_src?: string
     on_icon_click?: () => void
-    header: Header<TMarketData, unknown>
 }
 
 type TTableCell = {
@@ -108,25 +96,12 @@ type TTableCell = {
     on_icon_click?: () => void
 }
 
-const ColumnSortIcons = {
-    asc: ' 🔼',
-    desc: ' 🔽',
-}
-
-export const TableHeaderCell = ({ text, icon_src, on_icon_click, header }: TTableHeaderCell) => {
-    const column_sort = header.column.getIsSorted() as string
-
+export const TableHeaderCell = ({ text, icon_src, on_icon_click }: TTableHeaderCell) => {
     return (
         <Cell>
-            <CellHeader
-                type="paragraph-2"
-                width="fit-content"
-                align="start"
-                onClick={header.column.getToggleSortingHandler()}
-            >
+            <HeaderText type="paragraph-2" width="fit-content" align="start">
                 {text}
-                {ColumnSortIcons[column_sort] ?? null}
-            </CellHeader>
+            </HeaderText>
             {icon_src && <img src={icon_src} width="24px" height="24px" onClick={on_icon_click} />}
         </Cell>
     )

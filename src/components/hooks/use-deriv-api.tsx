@@ -34,7 +34,6 @@ export const useDerivApi = () => {
         if (ws) {
             const response = await ws.current.send(data)
             callback?.(response)
-            ws.current.send({ forget: { req_id: response?.req_id } })
         }
     }, [])
 

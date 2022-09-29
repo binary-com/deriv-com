@@ -9,19 +9,25 @@ import type { SortingState } from '@tanstack/react-table'
 import { TAvailableLiveMarkets, TMarketData, TMarketDataResponse } from '../_types'
 import useLiveColumns from '../_use-live-columns'
 import { synthetic_index_mock_data } from '../_mock_data'
+import { TABLE_VISIBLE_ROWS } from '../_utils'
 import Spinner, { TableLoadingContainer, Table, TableContainer, TableRow } from './_elements'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
 
 export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
+    show_all_markets: boolean
+    setIsExpandVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const randomIntFromInterval = (min, max) => {
-    // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
+const LiveMarketTable = ({
+    market,
+    show_all_markets,
+    setIsExpandVisible,
+}: TLiveMarketTableProps) => {
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
         temp.set('synthetic_index', synthetic_index_mock_data)
@@ -32,8 +38,13 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     const table_data = useMemo(() => {
         const data = markets_data.get(market)
+        if (data?.length >= TABLE_VISIBLE_ROWS) {
+            setIsExpandVisible(true)
+        } else {
+            setIsExpandVisible(false)
+        }
         return data ?? []
-    }, [market, markets_data])
+    }, [market, markets_data, setIsExpandVisible])
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
@@ -41,6 +52,7 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     const requestMarketsData = useCallback(() => {
         setIsLoading(true)
+
         sendOnce(
             { active_symbols: 'full', landing_company: 'svg' },
             (response: TMarketDataResponse) => {
@@ -81,6 +93,10 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
         requestMarketsData()
     }, [requestMarketsData])
 
+    const rows = show_all_markets
+        ? table.getRowModel().rows
+        : table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
+
     return (
         <TableContainer>
             {is_loading && (
@@ -106,18 +122,15 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                     ))}
                 </thead>
                 <tbody>
-                    {table
-                        .getRowModel()
-                        .rows.slice(0, 6)
-                        .map((row) => (
-                            <TableRow key={row.id}>
-                                {row.getVisibleCells().map((cell) => (
-                                    <td key={cell.id}>
-                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                    </td>
-                                ))}
-                            </TableRow>
-                        ))}
+                    {rows.map((row) => (
+                        <TableRow key={row.id}>
+                            {row.getVisibleCells().map((cell) => (
+                                <td key={cell.id}>
+                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                </td>
+                            ))}
+                        </TableRow>
+                    ))}
                 </tbody>
             </Table>
         </TableContainer>

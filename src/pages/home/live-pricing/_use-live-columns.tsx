@@ -11,13 +11,12 @@ const useLiveColumns = (request_market_data: () => void) => {
     const columns = useMemo(() => {
         return [
             liveMarketColumnHelper.accessor('display_name', {
-                header: ({ header }) => <TableHeaderCell header={header} text={'Trading Pairs'} />,
+                header: () => <TableHeaderCell text={'Trading Pairs'} />,
                 cell: (info) => <TableCell text={info.getValue()} icon_src={USDJPY} />,
             }),
             liveMarketColumnHelper.accessor('spot', {
-                header: ({ header }) => (
+                header: () => (
                     <TableHeaderCell
-                        header={header}
                         text={'Last Price'}
                         icon_src={RefreshIcon}
                         on_icon_click={request_market_data}
@@ -26,7 +25,7 @@ const useLiveColumns = (request_market_data: () => void) => {
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('spot_percentage_change', {
-                header: ({ header }) => <TableHeaderCell header={header} text={'Daily % Change'} />,
+                header: () => <TableHeaderCell text={'Daily % Change'} />,
                 cell: (info) => <DailyPercentageCell value={info.getValue()} />,
             }),
         ]

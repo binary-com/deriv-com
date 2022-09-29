@@ -304,7 +304,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_no_multi_win']}
-                                            alt="Profit with x500 multiplier"
+                                            alt="Profit without multipliers"
                                         />
                                     </ImgWrapper>
                                     <TextWrapper>
@@ -323,7 +323,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_with_multi_win']}
-                                            alt="Profit without Deriv's multiplier"
+                                            alt="Profit with x500 multipliers"
                                         />
                                     </ImgWrapper>
 

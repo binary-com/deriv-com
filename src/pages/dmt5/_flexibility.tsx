@@ -87,17 +87,14 @@ const ClientCard = styled.article`
     width: 38.4rem;
     padding: 3.2rem 2.4rem 4rem;
     position: relative;
+    height: 176px;
 
     :first-child {
         margin: 0;
     }
-    @media ${device.laptopM} {
-        min-height: 22rem;
-        height: 100%;
-    }
     @media ${device.tablet} {
         margin: 0 0 24px 0;
-        max-height: unset;
+        height: auto;
         padding: 24px;
         max-width: 328px;
         width: 100%;

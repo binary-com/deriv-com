@@ -262,7 +262,7 @@ const StartTrader = () => {
         />
     ) : (
         <QueryImage
-            data={getImage(is_mobile, ['demo_step2_mobile', 'demo_step2'])}
+            data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])}
             alt="Demo DMT5 account- step 1"
         />
     )

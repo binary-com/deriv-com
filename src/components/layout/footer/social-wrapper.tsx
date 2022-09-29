@@ -2,8 +2,7 @@ import React from 'react'
 import { SocialWrapper } from './common/style'
 import { LocalizedLink } from 'components/localization'
 import { reddit_url, telegram_url } from 'common/constants'
-import { useCountryRule } from 'components/hooks/use-country-rule'
-import { getSocialMediaUrl } from 'common/utility'
+import { useSocialMediaUrl } from 'components/hooks/use-social-media-url'
 //Logo
 import Reddit from 'images/svg/layout/footer-reddit.svg'
 import Telegram from 'images/svg/layout/footer-telegram.svg'
@@ -25,13 +24,12 @@ type SocialMediaComponentProps = {
 }
 
 const SocialWrapperComponent = ({ is_career_page = false }: SocialWrapperComponentProps) => {
-    const { is_eu, is_uk } = useCountryRule()
-
-    const fb_url = getSocialMediaUrl('facebook', is_eu, is_uk)
-    const instagram_url = getSocialMediaUrl('instagram', is_eu, is_uk)
-    const twitter_url = getSocialMediaUrl('twitter', is_eu, is_uk)
-    const linkedin_url = getSocialMediaUrl('linkedin', is_eu, is_uk)
+    const fb_url = useSocialMediaUrl('facebook')
+    const instagram_url = useSocialMediaUrl('instagram')
+    const twitter_url = useSocialMediaUrl('twitter')
+    const linkedin_url = useSocialMediaUrl('linkedin')
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
+
     const accounts = [
         {
             link: fb_url,

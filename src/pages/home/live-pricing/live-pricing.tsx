@@ -27,7 +27,7 @@ const ContainerWrapper = styled(Flex)`
     }
 `
 
-const MmdDiv = styled.div`
+const Markets = styled.div`
     position: relative;
     width: 100%;
 `
@@ -88,7 +88,7 @@ const LivePricing = () => {
 
     return (
         <LivePricingSection>
-            <MmdDiv>
+            <Markets>
                 <MarketsContainer>
                     {market_buttons.map((marketItem) => (
                         <MarketButton
@@ -102,7 +102,7 @@ const LivePricing = () => {
                         </MarketButton>
                     ))}
                 </MarketsContainer>
-            </MmdDiv>
+            </Markets>
             <ContainerWrapper>
                 <Header type="paragraph-2" weight="normal" align="center">
                     Benefit from round-the-clock trading hours (Monday to Friday), high liquidity,

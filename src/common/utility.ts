@@ -105,16 +105,6 @@ export const isLoggedIn = () => {
     return !!client_information
 }
 
-//This function returns true if user's location (IP address) is Uk or user's account is MX account (Uk resident)
-export const isUKOrMXAccount = (current_client_country) => {
-    const domain = getDomain()
-    const { residence } = getClientInformation(domain) || {
-        residence: '',
-    }
-
-    return residence === 'gb' || isUK(current_client_country)
-}
-
 export const isIndexEven = (index, reverse) => (reverse ? (index + 1) % 2 : index % 2)
 
 export const sanitize = (input) => input.replace(/[.*+?^${}()|[\]\\]/g, '')

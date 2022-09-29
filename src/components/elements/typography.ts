@@ -103,7 +103,7 @@ export const BaseElement = css<BaseElementProps>`
     }
 `
 
-/** @deprecated Use Header instead */
+/** @deprecated Use `Header` component instead */
 
 export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
     ${BaseElement}

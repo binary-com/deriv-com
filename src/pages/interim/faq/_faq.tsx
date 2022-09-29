@@ -136,7 +136,9 @@ const FAQ = () => {
                             >
                                 <NewProducts />
                             </AccordionItem>
+
                             <AccordionItem
+                                is_showed={!is_eu_country}
                                 header={
                                     <Localize translate_text="What else can we expect from Deriv.com?" />
                                 }

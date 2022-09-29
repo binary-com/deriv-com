@@ -12,10 +12,8 @@ import Windows from 'images/svg/dmt5/dmt5_windows.svg'
 import MacOs from 'images/svg/dmt5/dmt5_macos_dmg.svg'
 import GooglePlay from 'images/svg/dmt5/dmt5_google_play.svg'
 import AppGallery from 'images/svg/dmt5/dmt5_app_gallery.svg'
-import AppStore from 'images/svg/dmt5/dmt5_app_store.svg'
 import GooglePlayMobile from 'images/svg/dmt5/dmt5_google_play_mobile.svg'
 import AppGalleryMobile from 'images/svg/dmt5/dmt5_app_gallery_mobile.svg'
-import AppStoreMobile from 'images/svg/dmt5/dmt5_app_store_mobile.svg'
 import {
     dmt5_web_browser_url,
     dmt5_windows,
@@ -256,14 +254,6 @@ const DownloadApp = () => {
                         <DownloadLinkWrapper>
                             <LocalizedLink
                                 external
-                                to={dmt5_mac_app_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={AppStore} alt="app store" width="132" height="40" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
                                 to={dmt5_android_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -320,14 +310,6 @@ const DownloadApp = () => {
                         <DownloadLinkMobileWrapper mr="8px">
                             <LocalizedLink
                                 external
-                                to={dmt5_mac_app_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={AppStoreMobile} alt="app store" width="160" height="40" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
                                 to={dmt5_android_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -339,8 +321,7 @@ const DownloadApp = () => {
                                     height="40"
                                 />
                             </LocalizedLink>
-                        </DownloadLinkMobileWrapper>
-                        <DownloadLinkMobileWrapper mt="8px">
+
                             <LocalizedLink
                                 external
                                 to={dmt5_app_gallery_url}

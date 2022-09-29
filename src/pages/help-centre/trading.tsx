@@ -64,7 +64,7 @@ const Derived = ({ text }: ArticleProps) => (
             />
         </StyledText>
         <StyledText>
-            <Localize translate_text="Derived FX indices are simulated assets with prices derived from the price movements of real major forex pairs. Our algorithms to track real-world currency prices and dampen fluctuations caused by news events and market sentiment. Plus, you can choose to trade them at the volatility you prefer." />
+            <Localize translate_text="Derived FX indices are simulated assets with prices derived from the price movements of real major forex pairs. Our algorithms track real-world currency prices and dampen fluctuations caused by news events and market sentiment. Plus, you can choose to trade them at the volatility you prefer." />
         </StyledText>
         <StyledText>
             <Localize translate_text="With basket indices, you can trade your favourite asset against a basket of five major global currencies, each weighted by 20%." />

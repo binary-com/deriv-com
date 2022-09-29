@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import { Input, Button } from 'components/form'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import CheckIcon from 'images/common/check_icon.png'
 import device from 'themes/device'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
+import { getLocationHash } from 'common/utility'
 
 const UnsubscrubeWrapper = styled.div`
     display: flex;
@@ -91,24 +93,41 @@ const SuccessCard = styled.div`
     }
 `
 
-const UnsubscrubePage = () => {
+type UnsubscrubePage = {
+    location: any
+}
+
+const UnsubscrubePage = ({ location }: UnsubscrubePage) => {
     const [complete_status, setCompleteStatus] = useState(false)
 
-    const handleConfirm = () => setCompleteStatus(true)
-    // Prepare to api call
-    // const deriv_api = useDerivApi()
-    // const { send } = deriv_api
-    // const APICall = send(
-    //     {
-    //         set_settings: 1,
-    //         email_consent: 0,
-    //     },
-    //     (response) => {
-    //         if (!response.error) {
-    //             setCompleteStatus(true)
-    //         }
-    //     },
-    // )
+    const url_props = location.search
+    const id_string_start = url_props.indexOf('binary_user_id=') + 'binary_user_id='.length
+    const id_string_end = url_props.indexOf('&')
+    const checksum_string = url_props.indexOf('checksum=') + 'checksum='.length
+
+    const binary_user_id = url_props.substring(id_string_start, id_string_end)
+    const checksum = url_props.substr(checksum_string)
+
+    const deriv_api = useDerivApi()
+    const { send } = deriv_api
+
+    const APICall = () =>
+        send(
+            {
+                unsubscribe_email: 1,
+                binary_user_id: binary_user_id,
+                checksum: checksum,
+            },
+            (response) => {
+                if (!response.error) {
+                    console.log('done')
+                    setCompleteStatus(true)
+                }
+                if (response.error) {
+                    console.log('fail')
+                }
+            },
+        )
     return (
         <Layout>
             <UnsubscrubeWrapper>
@@ -123,7 +142,7 @@ const UnsubscrubePage = () => {
                             {localize('Are you sure you want to step receiving Deriv emails?')}
                         </Title>
                         <ConfirmWrapper>
-                            <ConfirmButton onClick={handleConfirm} type="submit" secondary>
+                            <ConfirmButton onClick={APICall} type="submit" secondary>
                                 {localize('Yes')}
                             </ConfirmButton>
                             <ConfirmButton type="submit" tertiary>

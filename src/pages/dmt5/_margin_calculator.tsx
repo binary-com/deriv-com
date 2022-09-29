@@ -31,6 +31,14 @@ const query = graphql`
         ) {
             ...fadeIn
         }
+        margin_calculator_eu: file(relativePath: { eq: "dmt5/dmt5-margin-calculator-eu.png" }) {
+            ...fadeIn
+        }
+        margin_calculator_eu_mobile: file(
+            relativePath: { eq: "dmt5/dmt5-margin-calculator-mobile-eu.png" }
+        ) {
+            ...fadeIn
+        }
         swap_calculator: file(relativePath: { eq: "dmt5/dmt5-swap-calculator.png" }) {
             ...fadeIn
         }
@@ -199,7 +207,7 @@ CalculatorCard.propTypes = {
     text: Proptypes.string,
 }
 
-const calculators: CalculatorProps[] = [
+const calculators_row: CalculatorProps[] = [
     {
         index: 0,
         name: <Localize translate_text="Margin calculator" />,
@@ -207,6 +215,30 @@ const calculators: CalculatorProps[] = [
             <Localize translate_text="Calculate the margin you need to open and hold your positions with our margin calculator." />
         ),
         image_name: 'margin_calculator',
+        image_alt_name: localize('DMT5 margin trading calculator'),
+        button_text: <Localize translate_text="Try our margin calculator" />,
+        link: '/trader-tools/margin-calculator/',
+    },
+    {
+        index: 1,
+        name: <Localize translate_text="Swap calculator" />,
+        text: (
+            <Localize translate_text="Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract." />
+        ),
+        image_name: 'swap_calculator',
+        image_alt_name: localize('DMT5 swap trading calculator'),
+        button_text: <Localize translate_text="Try our swap calculator" />,
+        link: '/trader-tools/swap-calculator/',
+    },
+]
+const calculators_eu: CalculatorProps[] = [
+    {
+        index: 0,
+        name: <Localize translate_text="Margin calculator" />,
+        text: (
+            <Localize translate_text="Calculate the margin you need to open and hold your positions with our margin calculator." />
+        ),
+        image_name: 'margin_calculator_eu',
         image_alt_name: localize('DMT5 margin trading calculator'),
         button_text: <Localize translate_text="Try our margin calculator" />,
         link: '/trader-tools/margin-calculator/',
@@ -243,7 +275,8 @@ const MarginCalculator = () => {
         },
     }
 
-    const { is_eu, is_non_eu } = useCountryRule()
+    const { is_uk_eu } = useCountryRule()
+    const calculators = is_uk_eu ? calculators_eu : calculators_row
     return (
         <SectionContainer>
             <StyledFlexContainer>
@@ -260,7 +293,7 @@ const MarginCalculator = () => {
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>
-                            {is_eu && (
+                            {is_uk_eu && (
                                 <>
                                     <Localize
                                         translate_text="Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
@@ -276,7 +309,7 @@ const MarginCalculator = () => {
                                     />
                                 </>
                             )}
-                            {is_non_eu && (
+                            {!is_uk_eu && (
                                 <>
                                     <Localize
                                         translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."

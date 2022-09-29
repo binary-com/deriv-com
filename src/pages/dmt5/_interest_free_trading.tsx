@@ -90,10 +90,6 @@ const StyledLinkButton = styled(LinkButton)`
     min-height: 4rem;
     width: 230px;
 
-    @media ${device.mobileL} {
-        width: 100%;
-    }
-
     :active {
         outline: none;
         border: none;

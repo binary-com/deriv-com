@@ -12,7 +12,7 @@ import {
     eu_domains,
     uk_domains,
 } from './constants'
-import { isUK, eu_countries } from 'common/country-base'
+import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
 
 export const trimSpaces = (value) => value?.trim()

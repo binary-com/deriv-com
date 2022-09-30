@@ -157,11 +157,11 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
             <TabList ref={ref}>
                 {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
                     return (
-                        <TabButton selected={route_from == item.tab_name} key={item.tab_name}>
-                            <StyledLink to={item.route_to}>
+                        <StyledLink to={item.route_to} key={item.tab_name}>
+                            <TabButton selected={route_from == item.tab_name}>
                                 <TextWrapper>{item.title}</TextWrapper>
-                            </StyledLink>
-                        </TabButton>
+                            </TabButton>
+                        </StyledLink>
                     )
                 })}
                 <LineDivider />

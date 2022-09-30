@@ -135,11 +135,11 @@ export const volatility_indices: MarketSymbol[] = [
 
 export const volatility_indices_eu: MarketSymbol[] = [
     {
-        src: icons.VINDEXIC200,
+        src: icons.VINDEX2001S,
         text: <Localize translate_text="Volatility 200 (1s) Index" />,
     },
     {
-        src: icons.VINDEXIC300,
+        src: icons.VINDEX3001S,
         text: <Localize translate_text="Volatility 300 (1s) Index" />,
     },
 ]

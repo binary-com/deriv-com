@@ -34,15 +34,6 @@ type OtherMarketsProps = {
     except: string
 }
 const markets_type: MarketsType = {
-    derived: {
-        icon: () => <img src={DerivedFX} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Derived" />,
-        content: (
-            <Localize translate_text="Trading derived indices lets you benefit from correctly predicting the price movements of simulated markets and indices derived from real-world markets." />
-        ),
-        to: '/markets/derived-fx/',
-        id: 'marketderivedothermarkets',
-    },
     forex: {
         icon: () => <img src={Forex} alt="" width="64" height="64" />,
         title: <Localize translate_text="Forex" />,
@@ -51,6 +42,15 @@ const markets_type: MarketsType = {
         ),
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
+    },
+    derived: {
+        icon: () => <img src={DerivedFX} alt="" width="64" height="64" />,
+        title: <Localize translate_text="Derived" />,
+        content: (
+            <Localize translate_text="Trading derived indices lets you benefit from correctly predicting the price movements of simulated markets and indices derived from real-world markets." />
+        ),
+        to: '/markets/derived-fx/',
+        id: 'marketderivedothermarkets',
     },
     stock_indices: {
         icon: () => <img src={StockIndices} alt="" width="64" height="64" />,
@@ -267,7 +267,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const { is_uk, is_eu } = useCountryRule()
 
-    const markets = ['', 'derived', 'forex', 'stock_indices', 'cryptocurrencies', 'commodities', '']
+    const markets = ['', 'forex', 'derived', 'stock_indices', 'cryptocurrencies', 'commodities', '']
 
     const eu_markets = [
         '',

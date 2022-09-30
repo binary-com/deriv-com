@@ -373,7 +373,7 @@ export const paris: LocationsType = {
         'Deriv (France) is the heart of our research and development. We have an elite think tank in this centre that helps create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
     address: address_france,
     map_img: 'paris_map',
-    google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
+    google_map_link: 'https://goo.gl/maps/5xvdS7tvZM7kKkDK8',
     has_iframe: true,
     has_map: true,
 }

@@ -55,20 +55,22 @@ const CardContainer = styled(Flex)`
 `
 
 const ImageWrapper = styled.div`
+    display: flex;
     width: 392px;
     height: 386px;
     object-fit: contain;
     margin-bottom: 2.4rem;
 
     @media ${device.tabletL} {
-        max-width: 232px;
-        width: 100%;
-        margin-bottom: 24px;
-        height: unset;
+        align-items: center;
+        justify-content: center;
+        width: 232px;
+        height: 229px;
 
         div {
             max-width: 232px;
             width: 100%;
+            height: auto;
         }
     }
 `
@@ -121,7 +123,7 @@ const StyledCardContainer = styled(Flex)`
     align-items: center;
     @media ${device.tabletL} {
         height: auto;
-        min-height: 518px;
+        min-height: 480px;
         justify-content: flex-start;
     }
 `

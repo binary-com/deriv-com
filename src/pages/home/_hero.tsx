@@ -135,19 +135,14 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 weight="normal"
                             >
                                 {is_eu && (
-                                    <>
-                                        <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities." />
-                                    </>
+                                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
                                 )}
+
                                 {is_uk && (
-                                    <>
-                                        <Localize translate_text="Trade forex, stocks & indices, and commodities." />
-                                    </>
+                                    <Localize translate_text="Trade forex, stocks & indices, and commodities." />
                                 )}
                                 {is_row && (
-                                    <>
-                                        <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
-                                    </>
+                                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
                                 )}
                             </Header>
                             <VerticalCarousel

@@ -42,9 +42,7 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                         )}
                     </StyledText>
                     {(market_tab_name && market_tab_name === 'stock-indices') ||
-                    market_tab_name === 'derived-fx' ||
-                    market_tab_name === 'basket-indices' ||
-                    market_tab_name === 'synthetic-indices' ? (
+                    market_tab_name === 'derived-fx' ? (
                         <AvailablePlatforms dmt5 />
                     ) : (
                         <AvailablePlatforms dmt5 derivx />

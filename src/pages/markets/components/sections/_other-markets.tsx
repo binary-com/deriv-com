@@ -271,15 +271,15 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
 
     const eu_markets = [
         '',
-        'derived',
         'forex',
+        'derived',
         'stock_indices',
         'cryptocurrencies',
         'commodities',
         '',
     ]
 
-    const uk_markets = ['', 'derived', 'forex', 'stock_indices', 'commodities', '']
+    const uk_markets = ['', 'forex', 'derived', 'stock_indices', 'commodities', '']
 
     const filteredMarkets = (is_eu ? eu_markets : is_uk ? uk_markets : markets).filter(
         (market) => market !== except,

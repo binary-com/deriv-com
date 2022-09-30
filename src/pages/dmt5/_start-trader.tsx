@@ -399,7 +399,7 @@ const StartTrader = () => {
                             <SideTab.Panel
                                 description={
                                     <Localize
-                                        translate_text="Create or <0>sign in</0> to your Demo Deriv account"
+                                        translate_text="Create or <0>sign in</0> to your demo Deriv account"
                                         components={[
                                             <StyledLocalizedLink
                                                 key={0}

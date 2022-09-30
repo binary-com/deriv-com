@@ -250,7 +250,7 @@ const StartTrader = () => {
         <Localize translate_text="Create a Deriv real money account." />
     )
     const text_3 = is_uk_eu ? (
-        <Localize translate_text="Create a CFDs real account based on your trade preference." />
+        <Localize translate_text="Create a CFDs real account." />
     ) : (
         <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
     )
@@ -399,7 +399,7 @@ const StartTrader = () => {
                             <SideTab.Panel
                                 description={
                                     <Localize
-                                        translate_text="Create or <0>sign in</0> to your Deriv account"
+                                        translate_text="Create or <0>sign in</0> to your Demo Deriv account"
                                         components={[
                                             <StyledLocalizedLink
                                                 key={0}

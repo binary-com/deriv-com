@@ -200,6 +200,8 @@ import PLATINUMUSD from 'images/svg/symbols/platinum-usd.svg'
 import PYPL from 'images/svg/symbols/pypl.svg'
 import RANGEBREAK100 from 'images/svg/symbols/rb-100.svg'
 import RANGEBREAK200 from 'images/svg/symbols/rb-200.svg'
+import RANGEBREAK100New from 'images/svg/symbols/rb-100-new.svg'
+import RANGEBREAK200New from 'images/svg/symbols/rb-200-new.svg'
 import SGDJPY from 'images/svg/symbols/sgd-jpy.svg'
 import SILVERUSD from 'images/svg/symbols/silver-usd.svg'
 import SOLUSD from 'images/svg/symbols/sol-usd.svg'
@@ -557,6 +559,8 @@ export {
     PLATINUMUSD,
     PYPL,
     RANGEBREAK100,
+    RANGEBREAK100New,
+    RANGEBREAK200New,
     RANGEBREAK200,
     SGDJPY,
     SILVERUSD,

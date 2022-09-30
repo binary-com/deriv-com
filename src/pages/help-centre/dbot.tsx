@@ -17,20 +17,14 @@ import BlockMenuImage from 'images/common/help-centre/dbot-block-menu.png'
 import BlockMenuSearchBarImage from 'images/common/help-centre/dbot-block-menu-search-bar.png'
 
 const ImageWrapper = styled.div`
-    padding: 2.4rem 0;
-    max-width: 60rem;
-    width: 100%;
-    margin: 0 11rem;
     display: flex;
-    align-self: flex-end;
-
+    padding: 2.4rem 0;
     @media ${device.laptopL} {
-        padding: 2.4rem 0;
         width: auto;
     }
     @media ${device.mobileL} {
         & > img {
-            width: 110% !important;
+            max-width: 100% !important;
         }
     }
 `
@@ -99,42 +93,39 @@ const WhatIsDBot = ({ text }: ArticleProps) => (
 const FindBlocks = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Follow these steps:')}</Text>
-        <StyledList listStyle="decimal" paddingLeft="2rem">
-            <StyledListItem marginTop="1.6rem">
-                <Localize
-                    translate_text="Go to <0>Bot Builder</0>."
-                    components={[<strong key={0} />]}
-                />
-            </StyledListItem>
-            <StyledListItem marginTop="0.8rem">
-                <Localize
-                    translate_text={
-                        "Under the <0>Blocks menu</0>, you'll see a list of categories. Blocks are grouped within these categories. Choose the block you want and drag them to the workspace."
-                    }
-                    components={[<strong key={0} />]}
-                />
-            </StyledListItem>
-            {/* Todo:(Mitra) fix the image issue caused by wrapping between StyledList component */}
-            <ImageWrapper>
-                <img
-                    src={BlockMenuImage}
-                    alt={localize('Get Started')}
-                    style={{ width: '60rem', margin: '0 -12.6rem' }}
-                    loading="lazy"
-                />
-            </ImageWrapper>
-            <StyledListItem marginTop="0">
-                {localize(
-                    'You can also search for the blocks you want using the search bar above the categories.',
-                )}
-            </StyledListItem>
-        </StyledList>
+        <Text mb="1.6rem">{localize('Follow these steps:')}</Text>
+        <Text mb="0.6rem">
+            <Localize
+                translate_text="1. Go to <0>Bot Builder</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text text-indent="30px">
+            <Localize
+                translate_text={
+                    "2. Under the <0>Blocks menu</0>, you'll see a list of categories. Blocks are grouped within these categories. Choose the block you want and drag them to the workspace."
+                }
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <ImageWrapper>
+            <img
+                src={BlockMenuImage}
+                alt={localize('Get Started')}
+                style={{ width: '60rem' }}
+                loading="lazy"
+            />
+        </ImageWrapper>
+        <Text>
+            {localize(
+                '3. You can also search for the blocks you want using the search bar above the categories.',
+            )}
+        </Text>
         <ImageWrapper>
             <img
                 src={BlockMenuSearchBarImage}
                 alt={localize('Get Started')}
-                style={{ width: '60rem', alignSelf: 'end' }}
+                style={{ width: '60rem' }}
                 loading="lazy"
             />
         </ImageWrapper>

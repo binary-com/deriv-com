@@ -42,7 +42,11 @@ const StyledFlex = styled(Flex)`
 export const Community = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer padding="4rem" background="var(--color-grey-25)">
+        <SectionContainer
+            padding="4rem"
+            background="var(--color-white)"
+            style={{ borderTop: '1px solid var(--color-grey-8)' }}
+        >
             <Container>
                 <Flex tablet_direction="column" tablet_ai="center" max_width="92rem">
                     <QueryImage alt="community" data={data['community']} width="41rem" />

@@ -12,7 +12,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 import { whatsapp_url } from 'common/constants'
 
 const DFYAWrapper = styled.section`
-    background-color: var(--color-black-3);
+    background-color: var(--color-black);
 `
 const DFYASection = styled(Container)`
     padding: 3.5rem 0;

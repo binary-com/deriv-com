@@ -19,6 +19,13 @@ export type ArticleProps = {
     has_note?: string
 }
 
+const BackArrowStyle = styled(StyledLink)`
+    @media ${device.mobileL} {
+        border-bottom: 1px solid var(--color-grey-8);
+        padding-bottom: 1.6rem;
+        font-size: var(--text-size-sm) !important;
+    }
+`
 const Content = styled.div`
     display: flex;
     flex-direction: row;
@@ -29,8 +36,8 @@ const TabWrapper = styled.div`
     width: 100%;
     margin-top: 8rem;
 
-    @media ${device.tabletL} {
-        margin-top: 0;
+    @media ${device.mobileL} {
+        margin-top: 4rem;
     }
 `
 const ContactContainer = styled.div`
@@ -57,7 +64,7 @@ export const Article = ({
                 is_mounted={is_mounted}
             />
             <Container align="left" justify="flex-start" direction="column">
-                <StyledLink
+                <BackArrowStyle
                     to={has_platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
                     has_arrow="true"
                     color="black"
@@ -67,7 +74,9 @@ export const Article = ({
                     margin="4rem 0 0"
                 >
                     {localize('Back')}
-                </StyledLink>
+                </BackArrowStyle>
+            </Container>
+            <Container align="left" justify="flex-start" direction="column">
                 <Content>
                     <TabWrapper>
                         <SideTab

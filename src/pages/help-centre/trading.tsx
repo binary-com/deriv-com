@@ -383,11 +383,6 @@ const TradingArticle = () => {
                     label="what-is-forex"
                     is_mounted={is_mounted}
                 />
-                <Derived
-                    text={localize('What is Derived?')}
-                    label="what-is-derived"
-                    is_mounted={is_mounted}
-                />
                 <Commodities
                     text={localize('What are commodities?')}
                     label="what-are-commodities"
@@ -395,6 +390,11 @@ const TradingArticle = () => {
                 <StockIndices
                     text={localize('What are stock indices?')}
                     label="what-are-stock-indices"
+                    is_mounted={is_mounted}
+                />
+                <Derived
+                    text={localize('What is Derived?')}
+                    label="what-is-derived"
                     is_mounted={is_mounted}
                 />
                 <SyntheticIndices

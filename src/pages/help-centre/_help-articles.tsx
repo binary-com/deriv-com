@@ -172,12 +172,6 @@ export const articles: ArcticlesType[] = [
                 label: 'what-is-forex',
             },
             {
-                title: <Localize translate_text="What is Derived?" />,
-                category: 'Trading',
-                sub_category: <Localize translate_text="Markets" />,
-                label: 'what-is-derived',
-            },
-            {
                 title: <Localize translate_text="What are commodities?" />,
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,
@@ -188,6 +182,12 @@ export const articles: ArcticlesType[] = [
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,
                 label: 'what-are-stock-indices',
+            },
+            {
+                title: <Localize translate_text="What is Derived?" />,
+                category: 'Trading',
+                sub_category: <Localize translate_text="Markets" />,
+                label: 'what-is-derived',
             },
             {
                 title: <Localize translate_text="What are synthetic indices?" />,

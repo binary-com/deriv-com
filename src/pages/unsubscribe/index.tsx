@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
-import { Input, Button } from 'components/form'
+import { Button } from 'components/form'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import CheckIcon from 'images/common/check_icon.png'
 import device from 'themes/device'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
-import { getLocationHash } from 'common/utility'
 
 const UnsubscrubeWrapper = styled.div`
     display: flex;
@@ -93,11 +91,23 @@ const SuccessCard = styled.div`
     }
 `
 
-type UnsubscrubePage = {
-    location: any
+type TLocation = {
+    location: {
+        hash: string
+        host: string
+        hostname: string
+        href: string
+        key: string
+        origin: string
+        pathname: string
+        port: string
+        protocol: string
+        search: string
+        state: null | string
+    }
 }
 
-const UnsubscrubePage = ({ location }: UnsubscrubePage) => {
+const UnsubscrubePage = ({ location }: TLocation) => {
     const [complete_status, setCompleteStatus] = useState(false)
 
     const url_props = location.search

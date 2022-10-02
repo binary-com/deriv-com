@@ -130,7 +130,200 @@ const BlogPreview = () => {
 
     return (
         <Layout type="academy" margin_top={'14.4'}>
-            <div>abar</div>
+            <SEO description={post_data?.meta_description} title={post_data?.meta_title} no_index />
+            <>
+                {post_data && (
+                    <SectionContainer padding="0" position="relative">
+                        <Background>
+                            <StickyBreadCrumbsWrapper scroll={visible}>
+                                <BreadcrumbsWrapper scroll={visible}>
+                                    <Flex jc="flex-start" ai="center">
+                                        <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
+                                            All articles
+                                        </StyledBreadcrumbsLink>
+                                        <StyledImg src={RightArrow} height="16" width="16" />
+                                        <StyledBreadcrumbsTitle>
+                                            {is_mobile
+                                                ? truncateString(article_title, truncateLength)
+                                                : article_title}
+                                        </StyledBreadcrumbsTitle>
+                                        <SocialSharing />
+                                    </Flex>
+                                </BreadcrumbsWrapper>
+                            </StickyBreadCrumbsWrapper>
+                            <HeroContainer>
+                                <HeroLeftWrapper width="100%">
+                                    <InfoText mb="16px" size="14px">
+                                        {post_data?.published_date &&
+                                            convertDate(post_data?.published_date)}
+                                    </InfoText>
+                                    <ArticleTitle as="h1" type="page-title">
+                                        {post_data?.blog_title}
+                                    </ArticleTitle>
+                                    <InfoText size="14px" mt="16px">
+                                        {getMinRead(post_data?.blog_post)}
+                                    </InfoText>
+                                    <Mobile breakpoint="laptop">
+                                        <SideBarContainer fd="column" mr="126px" height="auto">
+                                            <Flex
+                                                fw="wrap"
+                                                jc="flex-start"
+                                                max-width="100%"
+                                                width=" 100%"
+                                            >
+                                                {post_data?.tags.map((tag) => {
+                                                    return (
+                                                        <>
+                                                            {tag?.tags_id?.id && (
+                                                                <Tag
+                                                                    key={tag?.tags_id?.id}
+                                                                    onClick={() =>
+                                                                        handleTag(
+                                                                            tag?.tags_id?.tag_name,
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    {tag?.tags_id?.tag_name}
+                                                                </Tag>
+                                                            )}
+                                                        </>
+                                                    )
+                                                })}
+                                            </Flex>
+                                        </SideBarContainer>
+                                    </Mobile>
+
+                                    <Desktop breakpoint="laptop">
+                                        {post_data?.author && (
+                                            <Flex ai="center" mt="40px" jc="flex-start">
+                                                <>
+                                                    {post_data?.author?.image && (
+                                                        <WriterImage>
+                                                            <img
+                                                                src={`${cms_assets_end_point}${post_data?.author?.image.id}`}
+                                                                alt=""
+                                                                width="48"
+                                                                height="48"
+                                                            />
+                                                        </WriterImage>
+                                                    )}
+                                                </>
+
+                                                <Box>
+                                                    <WrittenbyText color="grey-5" size="12px">
+                                                        {localize('Written by')}
+                                                    </WrittenbyText>
+                                                    <InfoText>{post_data?.author?.name}</InfoText>
+                                                </Box>
+                                            </Flex>
+                                        )}
+                                    </Desktop>
+                                </HeroLeftWrapper>
+                                <HeroRightWrapper>
+                                    <HeroImageContainer tabletL={{ mt: '24px' }}>
+                                        <img
+                                            src={`${cms_assets_end_point}${post_data?.main_image?.id}`}
+                                            alt=""
+                                            className="standard-query-img"
+                                        />
+                                    </HeroImageContainer>
+                                </HeroRightWrapper>
+                            </HeroContainer>
+                        </Background>
+
+                        <BodyContainer>
+                            <LeftBodyContainerWrapper>
+                                <Mobile breakpoint="laptop">
+                                    {post_data?.author && (
+                                        <Flex ai="center" jc="flex-start">
+                                            <>
+                                                {post_data?.author?.image && (
+                                                    <WriterImage>
+                                                        <img
+                                                            src={`${cms_assets_end_point}${post_data?.author?.image.id}`}
+                                                            alt=""
+                                                        />
+                                                    </WriterImage>
+                                                )}
+                                            </>
+
+                                            <Box>
+                                                <WrittenbyText color="grey-5" size="12px">
+                                                    {localize('Written by')}
+                                                </WrittenbyText>
+                                                <InfoText>{post_data?.author?.name}</InfoText>
+                                            </Box>
+                                        </Flex>
+                                    )}
+                                </Mobile>
+                                <Desktop breakpoint="laptop">
+                                    <SideBarContainer fd="column" height="auto">
+                                        <Flex
+                                            jc="flex-start"
+                                            mb="40px"
+                                            fw="wrap"
+                                            max-width="255px"
+                                            width=" 100%"
+                                        >
+                                            {post_data?.tags.map((tag) => {
+                                                return (
+                                                    <>
+                                                        {tag?.tags_id?.id && (
+                                                            <Tag
+                                                                key={tag?.tags_id?.id}
+                                                                onClick={() =>
+                                                                    handleTag(
+                                                                        tag?.tags_id?.tag_name,
+                                                                    )
+                                                                }
+                                                            >
+                                                                {tag?.tags_id?.tag_name}
+                                                            </Tag>
+                                                        )}
+                                                    </>
+                                                )
+                                            })}
+                                        </Flex>
+                                        {side_banner_data_details?.imgSrcDesktop && (
+                                            <Banner detailsPreviewObj={side_banner_data_details} />
+                                        )}
+                                        <DesktopWrapper>
+                                            <SideSubscriptionBanner />
+                                        </DesktopWrapper>
+                                    </SideBarContainer>
+                                </Desktop>
+                            </LeftBodyContainerWrapper>
+                            <RightBodyContainerWrapper>
+                                <Flex fd="column" margin="0 auto" ai="center">
+                                    <PreviewContainer
+                                        dangerouslySetInnerHTML={{
+                                            __html: post_data?.blog_post
+                                                .replace(/<p><img /g, '<img ')
+                                                .replace(/\/><\/p>/g, '/>'),
+                                        }}
+                                    />
+
+                                    {footer_banner_details?.imgSrcDesktop && (
+                                        <Banner detailsPreviewObj={footer_banner_details} />
+                                    )}
+                                    {side_banner_data_details && (
+                                        <Mobile>
+                                            <Flex mt="24px">
+                                                <Banner
+                                                    detailsPreviewObj={side_banner_data_details}
+                                                />
+                                            </Flex>
+                                        </Mobile>
+                                    )}
+                                    <MobileWrapper>
+                                        <SideSubscriptionBanner />
+                                    </MobileWrapper>
+                                </Flex>
+                            </RightBodyContainerWrapper>
+                        </BodyContainer>
+                    </SectionContainer>
+                )}
+            </>
         </Layout>
     )
 }

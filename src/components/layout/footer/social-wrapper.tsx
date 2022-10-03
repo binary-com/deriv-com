@@ -24,10 +24,7 @@ type SocialMediaComponentProps = {
 }
 
 const SocialWrapperComponent = ({ is_career_page = false }: SocialWrapperComponentProps) => {
-    const fb_url = useSocialMediaUrl('facebook')
-    const instagram_url = useSocialMediaUrl('instagram')
-    const twitter_url = useSocialMediaUrl('twitter')
-    const linkedin_url = useSocialMediaUrl('linkedin')
+    const { fb_url, instagram_url, twitter_url, linkedin_url } = useSocialMediaUrl()
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
 
     const accounts = [

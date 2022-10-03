@@ -8,7 +8,7 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const StocksAndIndicesPage = () => (
-    <Layout>
+    <Layout type="noNav">
         <SEO
             description={localize(
                 'Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets.',

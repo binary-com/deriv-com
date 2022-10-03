@@ -248,6 +248,9 @@ const Layout = ({
             Navigation = <NavAcademy />
             FooterNav = <Footer academy={true} />
             break
+        case 'noNav':
+            Navigation = <></>
+            break
         case 'static':
             Navigation = <NavStatic is_ppc={is_ppc} />
             break

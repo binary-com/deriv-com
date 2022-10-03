@@ -8,7 +8,7 @@ import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const CryptocurrenciesPage = () => (
-    <Layout>
+    <Layout type="noNav">
         <SEO
             description={localize(
                 "Start trading the world's most popular cryptocurrencies on Deriv, and take advantage of a highly volatile market with round-the-clock trading.",

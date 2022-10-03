@@ -8,7 +8,7 @@ import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const ForexPage = () => (
-    <Layout>
+    <Layout type="noNav">
         <SEO
             description={localize(
                 'Trade forex online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms.',

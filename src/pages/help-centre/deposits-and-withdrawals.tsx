@@ -188,7 +188,6 @@ const WithdrawMaestroMastercard = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/payment-methods/'}
                         target="_blank"
-                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}

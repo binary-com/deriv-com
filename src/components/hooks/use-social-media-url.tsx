@@ -67,7 +67,5 @@ export const useSocialMediaUrl = () => {
         })
     }, [])
 
-    console.log('🚀 ~ file: social_media', social_media)
-
     return social_media
 }

@@ -952,7 +952,7 @@ export const articles: ArcticlesType[] = [
                 title: <Localize translate_text="In which countries is DBot available?" />,
                 category: 'DBot',
                 sub_category: <Localize translate_text="Logs" />,
-                label: 'status-of-trades',
+                label: 'Countires_offering_bot',
             },
             {
                 title: (
@@ -968,7 +968,7 @@ export const articles: ArcticlesType[] = [
                 ),
                 category: 'DBot',
                 sub_category: <Localize translate_text="Popular strategies" />,
-                label: 'popular-strategies',
+                label: 'popular_strategies',
             },
             {
                 title: <Localize translate_text="How do I build a trading bot?" />,

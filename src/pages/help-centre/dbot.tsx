@@ -204,7 +204,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4" width="65%">
             {text}
         </StyledHeader>
-        <Text width="110%">
+        <Text max-width="110%">
             {localize(
                 "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind.",
             )}
@@ -251,7 +251,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
 const SaveStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text width="110%">
+        <Text max-width="110%">
             <Localize
                 translate_text={
                     'In <0>Bot</0> Builder, hit <0>Save</0> on the toolbar at the top to download your bot. Give your bot a name, and choose to download your bot to your device or Google Drive. Your bot will be downloaded as an XML file.'
@@ -265,7 +265,7 @@ const SaveStrategy = ({ text }: ArticleProps) => (
 const ImportStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text width="88%">
+        <Text max-width="88%">
             {localize(
                 'Just drag the XML file from your computer onto the workspace, and your bot will be loaded accordingly. Alternatively, you can hit Import in Bot Builder, and choose to import your bot from your computer or from your Google Drive.',
             )}
@@ -336,36 +336,34 @@ const ResetWorkspace = ({ text }: ArticleProps) => (
 const TransactionLog = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <StyledList listStyle="decimal" paddingLeft="2.3rem">
-            <StyledListItem marginTop="1.4rem">
-                <Localize
-                    translate_text={'Hit <0>Reset</0> at the bottom of stats panel.'}
-                    components={[<strong key={0} />]}
-                />
-            </StyledListItem>
-            <ImageWrapper>
-                <img
-                    src={ClearStatImage}
-                    alt={localize('Clear stat')}
-                    loading="lazy"
-                    style={{ width: '60rem' }}
-                />
-            </ImageWrapper>
-            <StyledListItem marginTop="1.4rem">
-                <Localize
-                    translate_text={'Hit <0>OK</0> to confirm.'}
-                    components={[<strong key={0} />]}
-                />
-            </StyledListItem>
-            <ImageWrapper>
-                <img
-                    src={AreYouSureImage}
-                    alt={localize('Are you sure?')}
-                    loading="lazy"
-                    style={{ width: '60rem' }}
-                />
-            </ImageWrapper>
-        </StyledList>
+        <Text mt="1.4rem">
+            <Localize
+                translate_text={'1. Hit <0>Reset</0> at the bottom of stats panel.'}
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <ImageWrapper>
+            <img
+                src={ClearStatImage}
+                alt={localize('Clear stat')}
+                loading="lazy"
+                style={{ width: '60rem' }}
+            />
+        </ImageWrapper>
+        <Text mt="1.4rem">
+            <Localize
+                translate_text={'2. Hit <0>OK</0> to confirm.'}
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <ImageWrapper>
+            <img
+                src={AreYouSureImage}
+                alt={localize('Are you sure?')}
+                loading="lazy"
+                style={{ width: '60rem' }}
+            />
+        </ImageWrapper>
     </ArticleWrapper>
 )
 
@@ -517,7 +515,7 @@ const Cryptocurrencies = ({ text }: ArticleProps) => (
 const SellTradingBots = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text width="120%">
+        <Text max-width="120%">
             {localize(
                 "No, we don't. However, you'll find quick strategies on DBot that'll help you build your own trading bot for free.",
             )}
@@ -555,7 +553,7 @@ const CloseBrowser = ({ text }: ArticleProps) => (
 const PopularSTrategies = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text width="115%">
+        <Text max-width="115%">
             {localize(
                 "Three of the most commonly used strategies in automated trading are Martingale, D'Alembert, and Oscar's Grind — you can find them already-made and waiting for you in DBot.",
             )}
@@ -568,15 +566,23 @@ const BuildTradingBot = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="<0>Watch this video</0> to learn how to build a trading bot on DBot. Also, <0>check out this blog post</0> on building a trading bot."
+                translate_text="<0>Watch this video</0> to learn how to build a trading bot on DBot. Also, <1>check out this blog post</1> on building a trading bot."
                 components={[
                     <StyledLink
-                        to="/tnc/general-terms.pdf"
+                        to="https://www.youtube.com/watch?v=QdI5zCkO4Gk&t=203s"
                         target="_blank"
                         external
                         style={{ fontWeight: 'Unset' }}
                         rel="noopener noreferrer"
                         key={0}
+                    />,
+                    <StyledLink
+                        to="/academy/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/"
+                        target="_blank"
+                        external
+                        style={{ fontWeight: 'Unset' }}
+                        rel="noopener noreferrer"
+                        key={1}
                     />,
                 ]}
             />
@@ -658,12 +664,12 @@ const DBotArticle = () => {
                 />
                 <SellTradingBots
                     text={localize('Do you sell trading bots?')}
-                    label="sell-trading-bot"
+                    label="sell_trading_bots"
                     is_mounted={is_mounted}
                 />
                 <DbotAvailableCountries
                     text={localize('In which countries is DBot available?')}
-                    label="Countires-offering-bot"
+                    label="Countires_offering_bot"
                     is_mounted={is_mounted}
                 />
                 <CloseBrowser

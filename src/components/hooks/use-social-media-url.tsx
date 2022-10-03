@@ -46,7 +46,7 @@ export const useSocialMediaUrl = () => {
     const current_path = getLocationPathname()
     const is_career_page = current_path === '/careers/'
 
-    const urls = types.map((type) => {
+    const urls_array = types.map((type) => {
         const special_language_url = special_language_urls[language]?.[type]
         const current_url = is_career_page
             ? social_media_urls[type]?.url_career
@@ -56,14 +56,18 @@ export const useSocialMediaUrl = () => {
         return { [type]: special_language_url || current_url }
     })
 
+    const urls = Object.assign({}, ...urls_array)
+
     useEffect(() => {
         setSocialMedia({
-            fb_url: urls[0]['facebook'],
-            instagram_url: urls[1]['instagram'],
-            twitter_url: urls[2]['twitter'],
-            linkedin_url: urls[3]['linkedin'],
+            fb_url: urls.facebook,
+            instagram_url: urls.instagram,
+            twitter_url: urls.twitter,
+            linkedin_url: urls.linkedin,
         })
     }, [])
+
+    console.log('🚀 ~ file: social_media', social_media)
 
     return social_media
 }

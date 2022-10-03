@@ -25,9 +25,6 @@ jobs:
                   node-version: '16.x'
             - name: Installing Crowdin     
               run: npm i -g @crowdin/cli
-            - name: Pushing Strings & Translations ⬆️
-              run:  
-                  crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Download New Translations ⬇️
               if: github.event.workflow_run.head_commit.message == 'auto-pull-translation'
               run: |
@@ -43,6 +40,9 @@ jobs:
                     git commit -m "translation: 📚 sync translations from crowdin feature branch"
                     git push origin ${{ github.event.workflow_run.head_branch }}
                   fi
+            - name: Pushing Strings & Translations ⬆️
+              run:  
+                  crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:

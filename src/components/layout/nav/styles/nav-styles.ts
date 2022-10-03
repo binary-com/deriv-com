@@ -230,8 +230,6 @@ export const PartnerNavigationBarWrapper = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
-    position: relative;
-    z-index: 1;
     @media ${device.tabletL} {
         height: auto;
     }

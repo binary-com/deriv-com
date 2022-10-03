@@ -18,7 +18,7 @@ const DerivedFxPage = () => {
         <Localize translate_text="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices." />
     )
     return (
-        <Layout>
+        <Layout type="noNav">
             <SEO
                 description={localize(
                     'Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices.',

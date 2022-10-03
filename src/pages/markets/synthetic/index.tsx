@@ -18,7 +18,7 @@ const Markets = () => {
         <Localize translate_text="Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices." />
     )
     return (
-        <Layout>
+        <Layout type="noNav">
             <SEO
                 description={localize(
                     "Deriv's proprietary synthetics are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms.",

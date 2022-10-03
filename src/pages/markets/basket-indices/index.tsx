@@ -9,7 +9,7 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const BasketPage = () => (
-    <Layout>
+    <Layout type="noNav">
         <SEO
             description={localize(
                 'Trade Basket indices online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms.',

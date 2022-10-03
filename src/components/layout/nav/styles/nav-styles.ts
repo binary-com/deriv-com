@@ -82,6 +82,7 @@ export const NavRight = styled.div<NavRightProps>`
     align-items: center;
     text-align: right;
     justify-content: center;
+    z-index: 10;
     padding: 0;
     opacity: ${({ mounted }) => (mounted ? '1' : '0')};
     transition: ${({ move, has_scrolled }) =>

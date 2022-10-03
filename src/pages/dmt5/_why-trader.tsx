@@ -29,7 +29,7 @@ const card_content: CardContentType[] = [
     {
         header: <Localize translate_text="Multiple assets on a single platform" />,
         text: (
-            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities in one place." />
+            <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived in one place." />
         ),
         image: SyntheticIndices,
         key: 1,
@@ -37,7 +37,7 @@ const card_content: CardContentType[] = [
     {
         header: <Localize translate_text="24/7 trading" />,
         text: (
-            <Localize translate_text="Trade round-the-clock, even on weekends, with our proprietary synthetic indices." />
+            <Localize translate_text="Trade round-the-clock, even on weekends, with our proprietary derived." />
         ),
         image: Seven,
         key: 2,
@@ -99,6 +99,16 @@ const Card = styled(Flex)`
         height: auto;
     }
 `
+
+const Image = styled.img`
+    width: 64px;
+    height: 64px;
+
+    @media ${device.mobileL} {
+        width: 48px;
+        height: 48px;
+    }
+`
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 32px;
@@ -131,7 +141,7 @@ const WhyTrader = () => {
                     return (
                         <Card key={card.key}>
                             <div>
-                                <img src={card.image} alt="" />
+                                <Image src={card.image} alt={card.header.props.translate_text} />
                             </div>
                             <StyledCardHeader
                                 mt="0.8rem"
@@ -141,11 +151,7 @@ const WhyTrader = () => {
                             >
                                 {card.header}
                             </StyledCardHeader>
-                            {card.key == 1 && is_eu ? (
-                                <StyledText>
-                                    <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place." />
-                                </StyledText>
-                            ) : card.key == 1 && is_uk ? (
+                            {card.key == 1 && is_uk ? (
                                 <StyledText>
                                     <Localize translate_text="Trade forex, stocks, stock indices, and commodities in one place." />
                                 </StyledText>

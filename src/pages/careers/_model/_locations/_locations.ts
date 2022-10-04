@@ -55,6 +55,8 @@ export const cyberjaya: LocationsType = {
         'Boys playing foosball',
     ],
     map: 'ChIJQyOushS3zTER-d3unGdC7P0',
+    badge: 'malaysia_great_place_to_work_badge',
+    badge_alt: 'Malaysia Great Place to Work 2022 Certification Badge',
     map_text:
         'We believe in fostering an environment that allows a balanced lifestyle between work responsibilities and personal commitments. Every project is exciting, keeping you intellectually challenged. If you want to be inspired every day, join our team in Cyberjaya.',
     address: address_cyberjaya,
@@ -153,6 +155,8 @@ export const labuan: LocationsType = {
         'Round table discussion',
     ],
     map: 'ChIJufrjrbsZIzIRXIqlV1KLS14',
+    badge: 'malaysia_great_place_to_work_badge',
+    badge_alt: 'Malaysia Great Place to Work 2022 Certification Badge',
     map_text:
         'Our people drive our growth and success. We are expanding our business, which offers exciting work engagements. We provide an inclusive and rewarding work culture that encourages employee development and work-life balance. If you are as passionate about your future as we are, join our team in Labuan.',
     address: address_labuan,
@@ -218,6 +222,8 @@ export const melaka: LocationsType = {
         'Man playing pool',
     ],
     map: 'ChIJk1cT0pTx0TERIAdpj9tM6KM',
+    badge: 'malaysia_great_place_to_work_badge',
+    badge_alt: 'Malaysia Great Place to Work 2022 Certification Badge',
     map_text:
         'We are proud to be working with some of the best minds in the industry. We nurture a learning culture to enable our people to unlock growth opportunities. If you wish to learn and gain experience with the best talent in the industry, join our team in Melaka.',
     address: address_melaka,
@@ -249,6 +255,8 @@ export const ipoh: LocationsType = {
         'Girls having a coffee break',
     ],
     map: 'ChIJOadQ93_tyjERnNrpdgyMd48',
+    badge: 'malaysia_great_place_to_work_badge',
+    badge_alt: 'Malaysia Great Place to Work 2022 Certification Badge',
     map_text:
         'Our work culture integrates values such as diversity and inclusion, customer focus, and innovation. Our people have a curious mindset with a determination to grow. If you like to see the world differently and love to work in a creative work environment, join our team in Ipoh.',
     address: address_ipoh,

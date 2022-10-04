@@ -94,7 +94,7 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                         </LinkWrapper>
                         {is_non_uk && (
                             <LinkWrapper>
-                                <Link to="/markets/synthetic/">
+                                <Link to="/markets/derived-fx/">
                                     {<Localize translate_text="Derived" />}
                                 </Link>
                             </LinkWrapper>

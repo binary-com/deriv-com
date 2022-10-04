@@ -15,7 +15,7 @@ type TabsStyledProps = {
     line_height?: string
 }
 
-const StyledSideTab = styled(() => <Box />)`
+const StyledSideTab = styled((props) => <Box {...props} />)`
     padding: 0;
     display: flex;
 

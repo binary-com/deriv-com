@@ -12,6 +12,7 @@ type MainLinksSectionProps = {
 
 const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinksSectionProps) => {
     const { is_non_uk, is_row } = useCountryRule()
+
     return (
         <LinksWrapper>
             <Desktop>
@@ -91,10 +92,10 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                         <LinkWrapper>
                             <Link to="/markets/forex/">{<Localize translate_text="Forex" />}</Link>
                         </LinkWrapper>
-                        {is_non_uk && !is_ppc && (
+                        {is_non_uk && (
                             <LinkWrapper>
-                                <Link to="/markets/synthetic/">
-                                    {<Localize translate_text="Synthetic indices" />}
+                                <Link to="/markets/derived-fx/">
+                                    {<Localize translate_text="Derived" />}
                                 </Link>
                             </LinkWrapper>
                         )}
@@ -107,13 +108,6 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                             <LinkWrapper>
                                 <Link to="/markets/cryptocurrencies/">
                                     {<Localize translate_text="Cryptocurrencies" />}
-                                </Link>
-                            </LinkWrapper>
-                        )}
-                        {is_row && (
-                            <LinkWrapper>
-                                <Link to="/markets/basket-indices/">
-                                    {<Localize translate_text="Basket indices" />}
                                 </Link>
                             </LinkWrapper>
                         )}

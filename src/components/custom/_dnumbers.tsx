@@ -44,7 +44,11 @@ const DNumbers = ({ items, justify }: DNumbersProps) => {
     return (
         <StyledContainer justify={justify || 'space-between'}>
             {items.map((item, index) => (
-                <NumberWrapper key={index}>
+                <NumberWrapper
+                    key={
+                        item?.subtitle && typeof item.subtitle === 'string' ? item.subtitle : index
+                    }
+                >
                     <Header as="p" type="page-title" align="center">
                         {item.title}
                     </Header>

@@ -84,9 +84,9 @@ const SocialWrapperComponent = ({
 
 const SocialMediaComponent = ({ social_accounts = [] }: SocialMediaComponentProps) => (
     <SocialWrapper>
-        {social_accounts.map((account, index) => (
+        {social_accounts.map((account) => (
             <LocalizedLink
-                key={index}
+                key={account.link}
                 external
                 to={account.link}
                 target="_blank"

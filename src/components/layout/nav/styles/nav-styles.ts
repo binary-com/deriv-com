@@ -74,6 +74,7 @@ export const MobileWrapper = styled.div<DesktopWrapperProps>`
     display: none;
     @media ${({ media }) => media || device.tabletL} {
         display: block;
+        background: var(--color-black);
     }
 `
 

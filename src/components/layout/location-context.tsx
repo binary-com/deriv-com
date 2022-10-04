@@ -9,7 +9,7 @@ type LocationProviderProps = {
     toggleModal?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-export const LocationContext = React.createContext(true) // undefined => true
+export const LocationContext = React.createContext(true)
 
 export const LocationProvider = ({
     has_mounted = false,

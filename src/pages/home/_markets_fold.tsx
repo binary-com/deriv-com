@@ -93,7 +93,7 @@ const market_data = [
             <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
         img_name: 'market_derived',
-        to: '/markets/synthetic/',
+        to: '/markets/derived-fx/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
     },
@@ -145,7 +145,7 @@ const market_data_eu = [
             <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
         img_name: 'market_derived',
-        to: '/markets/synthetic/',
+        to: '/markets/derived-fx/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
     },

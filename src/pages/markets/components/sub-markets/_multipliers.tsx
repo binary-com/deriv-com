@@ -1,7 +1,6 @@
 import React from 'react'
 import AvailablePlatforms from '../helper/_available-platforms'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
-import MarketInstruments from '../sections/_market_instruments'
 import type {
     ForexAndBasketMultiplier,
     CryptoMultiplier,

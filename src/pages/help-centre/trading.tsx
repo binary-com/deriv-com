@@ -72,7 +72,7 @@ const Derived = ({ text }: ArticleProps) => (
 
         <StyledText>
             <Localize
-                translate_text="Due to regulatory requirements, synthetic indices are unavailable in some countries. Refer to ‘Product offering’ in our <0>terms of use</0> for more info."
+                translate_text="Due to regulatory requirements, derived indices are unavailable in some countries. Refer to ‘Product offering’ in our <0>terms of use</0> for more info."
                 components={[
                     <StyledLink
                         to={'/tnc/general-terms.pdf'}

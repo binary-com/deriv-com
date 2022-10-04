@@ -29,11 +29,7 @@ const Multipliers = ({ market_content }: MultipliersProps) => {
                     </StyledText>
                     <AvailablePlatforms dtrader />
                 </Descriptions>
-                <StyledText font_size={'16px'} weight="bold" mt="2.4rem">
-                    {localize('Instruments available for multipliers trading')}
-                </StyledText>
-                <MarketInstruments market_content={market_content} />
-                {/* deprecated?? */}
+
                 {is_eu &&
                     market_content.eu_content?.map((text, index) => (
                         <Text key={index} mt="1.6rem" color="grey-5" size="var(--text-size-xs)">

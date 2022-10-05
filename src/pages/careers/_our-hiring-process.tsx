@@ -9,11 +9,12 @@ import Career3 from 'images/svg/careers/career-3.svg'
 import Career4 from 'images/svg/careers/career-4.svg'
 import DownwardsLeft from 'images/svg/careers/downwards-left.svg'
 import DownwardsRight from 'images/svg/careers/downwards-right.svg'
-import { Container, SectionContainer, Flex, Show } from 'components/containers'
+import { Container, SectionContainer, Flex } from 'components/containers'
 import { Text, Header, LinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import TipIcon from 'images/svg/careers/career-tip.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledSectionContainer = styled(SectionContainer)`
     padding: 8rem 0 5rem 0;
@@ -292,133 +293,134 @@ const StyledLinkText = styled(LinkText)`
     margin: 0.5rem;
 `
 
-const OurHiringProcess = () => (
-    <StyledSectionContainer>
-        <Container direction="column">
-            <StyledHeader as="h3" type="section-title" align="center">
-                Our hiring process
-            </StyledHeader>
-            <ProcessContainer>
-                <ResponsiveFlex1 direction="row">
-                    <TipsCard
-                        content={
-                            "Apply for the jobs that match your skills and interest. If you want, link to your portfolio or other examples of work that demonstrate you're the one for the role."
-                        }
-                        style={{ marginTop: '4.7rem' }}
-                        right
-                    />
-                    <SubResponsiveFlex1 direction="row" justify="unset">
-                        <StyledCareer1 src={Career1} alt="career1" />
-                        <Process
-                            title={'Apply'}
-                            description={
-                                "Found a great role in an ad or our website? Let us know you're interested by sending us your CV. Every CV is read by our recruitment team. If there's a match, we'll get in touch."
+const OurHiringProcess = () => {
+    const { is_eu } = useCountryRule()
+    return (
+        <StyledSectionContainer>
+            <Container direction="column">
+                <StyledHeader as="h3" type="section-title" align="center">
+                    Our hiring process
+                </StyledHeader>
+                <ProcessContainer>
+                    <ResponsiveFlex1 direction="row">
+                        <TipsCard
+                            content={
+                                "Apply for the jobs that match your skills and interest. If you want, link to your portfolio or other examples of work that demonstrate you're the one for the role."
                             }
-                            style={{ marginTop: '1.7rem' }}
+                            style={{ marginTop: '4.7rem' }}
+                            right
                         />
-                    </SubResponsiveFlex1>
-                </ResponsiveFlex1>
-                <DownwardsShape>
-                    <StyledDownwardsRight1 src={DownwardsRight} alt="downwards right" />
-                </DownwardsShape>
-                <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem" width="unset">
-                    <SubResponsiveFlex2 direction="row" width="unset">
-                        <Process
-                            title={'Application form'}
-                            description={
-                                'Complete our comprehensive application form to tell us more about yourself and showcase your approach to problem-solving.'
+                        <SubResponsiveFlex1 direction="row" justify="unset">
+                            <StyledCareer1 src={Career1} alt="career1" />
+                            <Process
+                                title={'Apply'}
+                                description={
+                                    "Found a great role in an ad or our website? Let us know you're interested by sending us your CV. Every CV is read by our recruitment team. If there's a match, we'll get in touch."
+                                }
+                                style={{ marginTop: '1.7rem' }}
+                            />
+                        </SubResponsiveFlex1>
+                    </ResponsiveFlex1>
+                    <DownwardsShape>
+                        <StyledDownwardsRight1 src={DownwardsRight} alt="downwards right" />
+                    </DownwardsShape>
+                    <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem" width="unset">
+                        <SubResponsiveFlex2 direction="row" width="unset">
+                            <Process
+                                title={'Application form'}
+                                description={
+                                    'Complete our comprehensive application form to tell us more about yourself and showcase your approach to problem-solving.'
+                                }
+                                style={{ maxWidth: '38.4rem' }}
+                            />
+                            <StyledCareer2 src={Career2} alt="career2" />
+                        </SubResponsiveFlex2>
+                        <TipsCard
+                            content={
+                                'The application form gives you an opportunity to tell us about your background, values, and character strengths in your own words. It helps us to evaluate if our company can be a productive work environment for you.'
                             }
-                            style={{ maxWidth: '38.4rem' }}
+                            style={{ maxWidth: '35.7rem', marginTop: '2.3rem' }}
                         />
-                        <StyledCareer2 src={Career2} alt="career2" />
-                    </SubResponsiveFlex2>
-                    <TipsCard
-                        content={
-                            'The application form gives you an opportunity to tell us about your background, values, and character strengths in your own words. It helps us to evaluate if our company can be a productive work environment for you.'
-                        }
-                        style={{ maxWidth: '35.7rem', marginTop: '2.3rem' }}
-                    />
-                </ResponsiveFlex2>
-                <DownwardsShape>
-                    <StyledDownwardsLeft src={DownwardsLeft} alt="downwards left" />
-                </DownwardsShape>
-                <ResponsiveFlex3 direction="row" mt="2rem">
-                    <TipsCard
-                        content={
-                            'Be prepared to clarify and elaborate on the answers you gave in your self-assessment questionnaire. Remember, the interview is also an opportunity for you to ask questions about the company and your potential role.'
-                        }
-                        right
-                        style={{ marginTop: '4.7rem', maxWidth: '35.6rem' }}
-                    />
-                    <SubResponsiveFlex3 direction="row">
-                        <StyledCareer3 src={Career3} alt="career3" />
-                        <Process
-                            title={'Interview'}
-                            description={
-                                "This is where you get to meet our team. Our interviews are not just about evaluating your technical ability and experience. We also try to understand what's important to you, how you work with others, and how you approach problems."
+                    </ResponsiveFlex2>
+                    <DownwardsShape>
+                        <StyledDownwardsLeft src={DownwardsLeft} alt="downwards left" />
+                    </DownwardsShape>
+                    <ResponsiveFlex3 direction="row" mt="2rem">
+                        <TipsCard
+                            content={
+                                'Be prepared to clarify and elaborate on the answers you gave in your self-assessment questionnaire. Remember, the interview is also an opportunity for you to ask questions about the company and your potential role.'
                             }
-                            style={{ marginTop: '1.7rem' }}
+                            right
+                            style={{ marginTop: '4.7rem', maxWidth: '35.6rem' }}
                         />
-                    </SubResponsiveFlex3>
-                </ResponsiveFlex3>
-                <DownwardsShape>
-                    <StyledDownwardsRight src={DownwardsRight} alt="downwards right 2" />
-                </DownwardsShape>
-                <ResponsiveFlex4 direction="row" mt="1.6rem" width="unset">
-                    <SubResponsiveFlex4 direction="row" width="unset">
-                        <Process
-                            title={'Decision'}
-                            description={
-                                "We make a decision and proceed with reference and background checks. If all is well, you'll receive an official offer letter in your email inbox. Then it's over to you."
+                        <SubResponsiveFlex3 direction="row">
+                            <StyledCareer3 src={Career3} alt="career3" />
+                            <Process
+                                title={'Interview'}
+                                description={
+                                    "This is where you get to meet our team. Our interviews are not just about evaluating your technical ability and experience. We also try to understand what's important to you, how you work with others, and how you approach problems."
+                                }
+                                style={{ marginTop: '1.7rem' }}
+                            />
+                        </SubResponsiveFlex3>
+                    </ResponsiveFlex3>
+                    <DownwardsShape>
+                        <StyledDownwardsRight src={DownwardsRight} alt="downwards right 2" />
+                    </DownwardsShape>
+                    <ResponsiveFlex4 direction="row" mt="1.6rem" width="unset">
+                        <SubResponsiveFlex4 direction="row" width="unset">
+                            <Process
+                                title={'Decision'}
+                                description={
+                                    "We make a decision and proceed with reference and background checks. If all is well, you'll receive an official offer letter in your email inbox. Then it's over to you."
+                                }
+                                style={{ maxWidth: '38.4rem' }}
+                            />
+                            <StyledCareer4 src={Career4} alt="career4" />
+                        </SubResponsiveFlex4>
+                        <TipsCard
+                            content={
+                                'Congratulations! Now all you have to do is read through your offer letter carefully. If you have a question about something in the offer letter, don’t be afraid to ask us.'
                             }
-                            style={{ maxWidth: '38.4rem' }}
+                            style={{ maxWidth: '34rem', marginTop: '2.3rem' }}
                         />
-                        <StyledCareer4 src={Career4} alt="career4" />
-                    </SubResponsiveFlex4>
-                    <TipsCard
-                        content={
-                            'Congratulations! Now all you have to do is read through your offer letter carefully. If you have a question about something in the offer letter, don’t be afraid to ask us.'
-                        }
-                        style={{ maxWidth: '34rem', marginTop: '2.3rem' }}
-                    />
-                </ResponsiveFlex4>
-            </ProcessContainer>
-        </Container>
-
-        <StyledContainer>
-            <StyledAnotherHeader as="h3" type="section-title" align="center">
-                Make an impact. Start your Deriv journey <span>now</span>.
-            </StyledAnotherHeader>
-            <StyledLinkButton
-                secondary="true"
-                to={zoho_url}
-                external="true"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                See all jobs
-            </StyledLinkButton>
-        </StyledContainer>
-
-        <Show.Eu>
-            <Container>
-                <StyledText mt="8rem">
-                    Please read this
-                    <StyledLinkText
-                        color="red"
-                        key={0}
-                        target="_blank"
-                        href="/regulatory/Job_application_privacy_policy_.pdf"
-                        rel="noopener noreferrer"
-                    >
-                        privacy policy
-                    </StyledLinkText>
-                    before submitting your application.
-                </StyledText>
+                    </ResponsiveFlex4>
+                </ProcessContainer>
             </Container>
-        </Show.Eu>
-    </StyledSectionContainer>
-)
+            <StyledContainer>
+                <StyledAnotherHeader as="h3" type="section-title" align="center">
+                    Make an impact. Start your Deriv journey <span>now</span>.
+                </StyledAnotherHeader>
+                <StyledLinkButton
+                    secondary
+                    to={zoho_url}
+                    external
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    See all jobs
+                </StyledLinkButton>
+            </StyledContainer>
+            {is_eu && (
+                <Container>
+                    <StyledText mt="8rem">
+                        Please read this
+                        <StyledLinkText
+                            color="red"
+                            key={0}
+                            target="_blank"
+                            href="/regulatory/Job_application_privacy_policy_.pdf"
+                            rel="noopener noreferrer"
+                        >
+                            privacy policy
+                        </StyledLinkText>
+                        before submitting your application.
+                    </StyledText>
+                </Container>
+            )}
+        </StyledSectionContainer>
+    )
+}
 
 Process.propTypes = {
     description: PropTypes.string,

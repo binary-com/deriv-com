@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Flex, Show, Box } from 'components/containers'
+import { Container, Flex, Box } from 'components/containers'
 import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const ContentWrapper = styled(Flex)`
     justify-content: center;
@@ -80,6 +81,7 @@ const StyledSubHeader = styled(Header)`
 `
 
 const TradingLimits = () => {
+    const { is_non_eu, is_eu } = useCountryRule()
     return (
         <Flex tablet_direction="column">
             <Flex height="auto">
@@ -136,7 +138,7 @@ const TradingLimits = () => {
                                         <LocalizedLinkText
                                             to="/account/self-exclusion"
                                             type="deriv_app"
-                                            external="true"
+                                            external
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             color="red"
@@ -156,7 +158,7 @@ const TradingLimits = () => {
                             {localize('How trading limits and self-exclusion work')}
                         </StyledHeader>
                         <div>
-                            <Show.NonEU>
+                            {is_non_eu && (
                                 <Text ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">
                                         <TimelineTick.Item>
@@ -176,9 +178,8 @@ const TradingLimits = () => {
                                         </TimelineTick.Item>
                                     </TimelineTick>
                                 </Text>
-                            </Show.NonEU>
-
-                            <Show.Eu>
+                            )}
+                            {is_eu && (
                                 <Box ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">
                                         <TimelineTick.Item>
@@ -225,10 +226,10 @@ const TradingLimits = () => {
                                         </TimelineTick.Item>
                                     </TimelineTick>
                                 </Box>
-                            </Show.Eu>
+                            )}
                         </div>
                         <div>
-                            <Show.NonEU>
+                            {is_non_eu && (
                                 <Text mt="1.4rem">
                                     <Localize
                                         translate_text="If you wish to reduce or remove the self-exclusion period, contact <0>Customer Support</0>."
@@ -241,8 +242,12 @@ const TradingLimits = () => {
                                         ]}
                                     />
                                 </Text>
-                            </Show.NonEU>
+                            )}
+                        </div>
+                        <div>
                             {/* <Show.Eu>
+                            </NonEU>
+                            {/* <EU>
                                 <Text mt="1.4rem">
                                     <Localize
                                         translate_text="You may <0>contact us</0> to set or adjust your self-exclusion or trading limits."
@@ -255,7 +260,7 @@ const TradingLimits = () => {
                                         ]}
                                     />
                                 </Text>
-                            </Show.Eu> */}
+                            </EU> */}
                         </div>
                     </StyledContainer>
                 </ContentWrapperRight>

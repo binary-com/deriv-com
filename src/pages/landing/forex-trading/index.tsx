@@ -9,9 +9,10 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
+import { ContentType } from 'pages/landing/_types'
 const IconTextRow = Loadable(() => import('./components/_icon-text-row'))
 
-const DP2P_CONTENT = [
+const DP2P_CONTENT: ContentType[] = [
     {
         title: <Localize translate_text="Step 1" />,
         subtitle1: (

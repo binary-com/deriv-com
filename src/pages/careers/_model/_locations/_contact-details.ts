@@ -5,11 +5,17 @@ const address_asuncion = [
 
 const address_belarus = ['Level 2, 25/1-3 Vera Khoruzhey Street,', 'Minsk 220123']
 
+const address_ciudad = ['World Trade Center Ciudad del Este, Andrés Rojas, Cd. del Este, Paraguay']
+
 const address_cyberjaya = ['Deriv HQ, 3500, Jalan Teknokrat 3, 63000 Cyberjaya, Selangor']
 
 const address_cyprus = ['Level 5, 42 Agias Filaxeos', 'Limassol 3025']
 
 const address_dubai = ['Office 1902, Jumeirah Business', 'Center 1, JLT Cluster G']
+
+const address_georgetown = [
+    'Cayman Enterprise City, Strathvale House, 2nd Floor, 90 N Church St, George Town, Cayman Islands',
+]
 
 const address_ipoh = ['E-5-6, Soho Ipoh 2,', 'Jalan Sultan Idris Shah,', 'Ipoh 30000, Perak']
 
@@ -42,8 +48,10 @@ export {
     address_ipoh,
     address_labuan,
     address_malta,
+    address_ciudad,
     address_melaka,
     address_rwanda,
     address_france,
     address_guernsey,
+    address_georgetown,
 }

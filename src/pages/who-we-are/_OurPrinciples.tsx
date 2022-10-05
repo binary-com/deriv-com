@@ -118,7 +118,7 @@ const OurPrinciples = () => {
                     color="grey-8"
                 />
             </StyledFlex>
-            <StyledLinkButton to="/our-principles/" secondary="true">
+            <StyledLinkButton to="/our-principles/" secondary>
                 {localize('Learn more about our principles')}
             </StyledLinkButton>
         </StyledSection>

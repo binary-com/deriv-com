@@ -103,6 +103,7 @@ const ErrorMessages = styled(Text)`
     min-height: 16px;
     margin-top: -4px;
     margin-bottom: 4px;
+    color: var(--color-red-1);
 `
 const StyledError = styled.img`
     position: absolute;
@@ -261,21 +262,19 @@ const SideSubscriptionBanner = () => {
                     <InputWrapper>
                         <Input
                             placeholder="Your name"
-                            focus_border="var(--color-grey-6)"
                             autoComplete="off"
                             id="name"
                             name="text"
                             type="text"
                             value={name}
-                            error={name_error_msg}
-                            maxLength="70"
+                            maxLength={70}
                             required
                             onChange={handleInputNameChange}
                         />
 
                         {name_error_msg && (
                             <>
-                                <ErrorMessages lh="1.4" align="left" color="red-1">
+                                <ErrorMessages lh="1.4" align="left">
                                     {name_error_msg}
                                 </ErrorMessages>
 
@@ -292,19 +291,18 @@ const SideSubscriptionBanner = () => {
                     <InputWrapper>
                         <Input
                             placeholder="Your email address"
-                            focus_border="var(--color-grey-6)"
                             autoComplete="off"
                             id="email"
                             name="email"
                             type="text"
-                            maxLength="254"
+                            maxLength={254}
                             value={email}
                             required
                             onChange={handleInputChange}
                         />
                         {email_error_msg && (
                             <>
-                                <ErrorMessages lh="1.4" align="left" color="red-1">
+                                <ErrorMessages lh="1.4" align="left">
                                     {email_error_msg}
                                 </ErrorMessages>
 
@@ -320,14 +318,14 @@ const SideSubscriptionBanner = () => {
                         <EmailButton
                             id="gtm-signup-email"
                             type="submit"
-                            secondary="true"
-                            disabled={
+                            secondary
+                            disabled={Boolean(
                                 is_submitting ||
-                                email_error_msg ||
-                                !email ||
-                                name_error_msg ||
-                                !name
-                            }
+                                    email_error_msg ||
+                                    !email ||
+                                    name_error_msg ||
+                                    !name,
+                            )}
                         >
                             {localize('Subscribe')}
                         </EmailButton>
@@ -341,13 +339,12 @@ const SideSubscriptionBanner = () => {
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize
-                                        fontSize="14px"
                                         translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
                                         components={[
                                             <StyledLocalizedLink
                                                 key={0}
                                                 type="tnc/security-and-privacy.pdf"
-                                                external="true"
+                                                external
                                                 rel="noopener noreferrer"
                                                 size="14px"
                                                 color="red"

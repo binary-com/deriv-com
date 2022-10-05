@@ -62,7 +62,7 @@ const Everything = () => {
                                         <LocalizedLinkText
                                             id="dm-binary-login-link-2"
                                             key={0}
-                                            external="true"
+                                            external
                                             weight="bold"
                                             to="home"
                                             type="binary"

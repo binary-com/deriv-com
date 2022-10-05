@@ -144,7 +144,7 @@ const RightCTASection = (params: RightCTASectionProps) => {
                 {header}
             </Header>
             <FitButton
-                external="true"
+                external
                 white
                 to={button_url}
                 target="_blank"

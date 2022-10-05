@@ -2,28 +2,22 @@ import styled, { css } from 'styled-components'
 import { Paddings, Margins, MarginsType, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
-type TrueOrFalse = boolean | 'true' | 'false'
-
 type SharedButtonStyleProps = {
     width?: string
     provider?: string
-    primary?: TrueOrFalse
-    secondary?: TrueOrFalse
-    tertiary?: TrueOrFalse
-    loading?: TrueOrFalse
-    tertiary_light?: TrueOrFalse
-    flat?: TrueOrFalse
-    social?: TrueOrFalse
-    white?: TrueOrFalse
-    hero?: TrueOrFalse
-}
-
-type ButtonProps = React.HTMLProps<HTMLButtonElement> &
-    SharedButtonStyleProps &
-    MarginsType &
+    primary?: boolean
+    secondary?: boolean
+    tertiary?: boolean
+    loading?: boolean
+    tertiary_light?: boolean
+    flat?: boolean
+    social?: boolean
+    white?: boolean
+    hero?: boolean
+} & MarginsType &
     PaddingsType
 
-export const SharedButtonStyle = css<ButtonProps>`
+export const SharedButtonStyle = css<SharedButtonStyleProps>`
     border-radius: 4px;
     padding: 10px 16px;
     font-size: 14px;
@@ -146,7 +140,7 @@ export const SharedButtonStyle = css<ButtonProps>`
     ${Margins}
 `
 
-const Button = styled.button<ButtonProps>`
+const Button = styled.button<SharedButtonStyleProps>`
     ${SharedButtonStyle}
 
     &:hover {

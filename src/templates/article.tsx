@@ -105,7 +105,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
         max_w_tablet: '320px',
         isExternal: footer_banner_data?.cta_url?.search(/deriv\.(com|me)/g) === -1 ? true : false,
         redirectLink: side_banner_data?.cta_url,
-        imgSrcDesktop: side_banner_data?.banner_image?.imageFile,
+        imgSrcDesktop: side_banner_data?.banner_image?.imageFile.childImageSharp.gatsbyImageData,
         imgAltDesktop: side_banner_data?.banner_image?.description,
     }
 
@@ -114,9 +114,11 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
         max_w_tablet: '580px',
         isExternal: footer_banner_data?.cta_url?.search(/deriv\.(com|me)/g) === -1 ? true : false,
         redirectLink: footer_banner_data?.cta_url,
-        imgSrcDesktop: footer_banner_data?.desktop_banner_image?.imageFile,
+        imgSrcDesktop:
+            footer_banner_data?.desktop_banner_image?.imageFile.childImageSharp.gatsbyImageData,
         imgAltDesktop: footer_banner_data?.desktop_banner_image?.description,
-        imgSrcMobile: footer_banner_data?.mobile_banner_image?.imageFile,
+        imgSrcMobile:
+            footer_banner_data?.mobile_banner_image?.imageFile.childImageSharp.gatsbyImageData,
         imgAltMobile: footer_banner_data?.mobile_banner_image?.description,
     }
 
@@ -207,7 +209,8 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                                             <QueryImage
                                                                 data={
                                                                     post_data?.author?.image
-                                                                        ?.imageFile
+                                                                        ?.imageFile.childImageSharp
+                                                                        .gatsbyImageData
                                                                 }
                                                                 alt={
                                                                     post_data?.author?.image
@@ -233,7 +236,10 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                 <HeroRightWrapper>
                                     <HeroImageContainer tabletL={{ mt: '24px' }}>
                                         <QueryImage
-                                            data={post_data?.main_image?.imageFile}
+                                            data={
+                                                post_data?.main_image?.imageFile.childImageSharp
+                                                    .gatsbyImageData
+                                            }
                                             alt={post_data?.main_image?.description || ''}
                                             className="standard-query-img"
                                         />
@@ -253,6 +259,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                                         <QueryImage
                                                             data={
                                                                 post_data?.author?.image?.imageFile
+                                                                    .childImageSharp.gatsbyImageData
                                                             }
                                                             alt={
                                                                 post_data?.author?.image

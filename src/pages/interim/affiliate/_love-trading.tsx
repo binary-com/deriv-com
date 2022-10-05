@@ -20,7 +20,7 @@ const content = {
                     <LocalizedLinkText
                         color="red"
                         weight="bold"
-                        external="true"
+                        external
                         to="mailto:partners@deriv.com"
                     >
                         partners@deriv.com

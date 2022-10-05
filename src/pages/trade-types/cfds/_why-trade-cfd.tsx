@@ -5,9 +5,9 @@ import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import HighLeverge from 'images/svg/trade-types/high-leverage.svg'
-import MaximizePotentialProfit from 'images/svg/trade-types/maximize-potential-profit.svg'
+import GoLongOrShort from 'images/svg/trade-types/go-long-or-short.svg'
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
-import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import FavoriteMarket from 'images/svg/trade-types/favoritemarket.svg'
 import { Button } from 'components/form'
 import { DerivStore, DerivStoreType } from 'store'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -41,7 +41,7 @@ const WhyTradeCFD = () => {
                         </Text>
                     </WhyTradeItem>
                     <WhyTradeItem>
-                        <img src={SyntheticIndices} alt="synthetic indices" />
+                        <img src={FavoriteMarket} alt="synthetic indices" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
                             {localize('All your favourite markets')}
                         </Text>
@@ -56,7 +56,7 @@ const WhyTradeCFD = () => {
                         </Text>
                     </WhyTradeItem>
                     <WhyTradeItem>
-                        <img src={MaximizePotentialProfit} alt="maximize potential profit" />
+                        <img src={GoLongOrShort} alt="maximize potential profit" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
                             {localize('Go long or short')}
                         </Text>
@@ -88,7 +88,7 @@ const WhyTradeCFD = () => {
                 <Text align="left" width="100%" weight="bold">
                     {localize("Don't have a Deriv account yet?")}
                 </Text>
-                <Button onClick={handleSignup} id="dm-cfd-signup" mt="1.6rem" secondary="true">
+                <Button onClick={handleSignup} id="dm-cfd-signup" mt="1.6rem" secondary>
                     {localize('Create free demo account')}
                 </Button>
             </SmallContainer>

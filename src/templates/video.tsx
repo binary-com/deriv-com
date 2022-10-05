@@ -408,6 +408,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                                             video?.video_thumbnail?.imageFile
                                                                 ?.childImageSharp?.gatsbyImageData
                                                         }
+                                                        alt={video?.video_title}
                                                         width="161px"
                                                         height="96px"
                                                     />

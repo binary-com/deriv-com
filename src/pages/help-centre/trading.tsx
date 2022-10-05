@@ -29,7 +29,55 @@ const Forex = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/what-is-forex-live-trading/'}
                         target="_blank"
-                        external="true"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
+    </ArticleWrapper>
+)
+
+const Derived = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            {localize(
+                'Derived indices consist of asset prices generated from real-world and simulated markets and indices, with little to no influence from real-world events.  You can trade from a variety of derived indices, including synthetic indices, derived FX indices, and basket indices.',
+            )}
+        </Text>
+        <StyledText>
+            <Localize
+                translate_text="Available 24/7, our synthetic indices emulate price movements of real-world markets with varying levels of volatility. As they aren't based on actual underlying assets, they are unaffected by real-world market events. The pricing of our synthetic indices is backed by algorithms that are audited for fairness by an independent third party. Read <0>this article</0> to learn more about trading synthetic indices on Deriv."
+                components={[
+                    <StyledLink
+                        to={'/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
+        <StyledText>
+            <Localize translate_text="Derived FX indices are simulated assets with prices derived from the price movements of real major forex pairs. Our algorithms track real-world currency prices and dampen fluctuations caused by news events and market sentiment. Plus, you can choose to trade them at the volatility you prefer." />
+        </StyledText>
+        <StyledText>
+            <Localize translate_text="With basket indices, you can trade your favourite asset against a basket of five major global currencies, each weighted by 20%." />
+        </StyledText>
+
+        <StyledText>
+            <Localize
+                translate_text="Due to regulatory requirements, derived indices are unavailable in some countries. Refer to ‘Product offering’ in our <0>terms of use</0> for more info."
+                components={[
+                    <StyledLink
+                        to={'/tnc/general-terms.pdf'}
+                        target="_blank"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -55,7 +103,7 @@ const Commodities = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/what-are-commodities/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -81,7 +129,7 @@ const StockIndices = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/what-are-stocks-how-and-where-to-trade-them/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -107,7 +155,7 @@ const SyntheticIndices = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/tnc/general-terms.pdf'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -122,7 +170,7 @@ const SyntheticIndices = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -148,7 +196,7 @@ const CFD = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/what-is-cfd-trading/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -180,7 +228,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/dmt5/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -188,7 +236,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/derivx/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={1}
@@ -196,7 +244,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/dtrader/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={2}
@@ -204,7 +252,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/dbot/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={3}
@@ -212,7 +260,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'https://smarttrader.deriv.com/en/trading.html'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={4}
@@ -220,7 +268,7 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'https://bot.deriv.com/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={5}
@@ -251,7 +299,7 @@ const AutomateTradingStrategy = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/dbot/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -259,7 +307,7 @@ const AutomateTradingStrategy = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'https://bot.deriv.com/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={1}
@@ -274,7 +322,7 @@ const AutomateTradingStrategy = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/academy/blog/posts/automated-trading-what-you-need-to-know/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -294,14 +342,14 @@ const TradingLimits = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={`${deriv_app_url}/account/account-limits`}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
                     />,
                     <ExternalLink
                         to={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -342,6 +390,11 @@ const TradingArticle = () => {
                 <StockIndices
                     text={localize('What are stock indices?')}
                     label="what-are-stock-indices"
+                    is_mounted={is_mounted}
+                />
+                <Derived
+                    text={localize('What is Derived?')}
+                    label="what-is-derived"
                     is_mounted={is_mounted}
                 />
                 <SyntheticIndices

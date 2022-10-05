@@ -191,7 +191,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         <StyledHeader
                             as="h5"
                             type="paragraph-1"
-                            align="center"
+                            align="left"
                             weight="normal"
                             maxwidth="792px"
                         >
@@ -285,7 +285,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments (via DMT5 Financial account), Financial STP (via DMT5 Financial STP account), and synthetic indices (via DMT5 Synthetic account) can have MetaTrader 5 accounts under Deriv (BVI) Ltd.',
+                                    'Clients in the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments (via DMT5 Financial account or DMT5 Financial STP account) and synthetic indices (via DMT5 Synthetic account) can have MetaTrader 5 accounts under Deriv (BVI) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -311,7 +311,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (V) Ltd – 1276, Kumul Highway, Port Vila, Vanuatu – is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
+                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) – 1276, Kumul Highway, Port Vila, Vanuatu – is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
                                     components={[
                                         <LinkText
                                             key={0}

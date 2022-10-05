@@ -9,7 +9,7 @@
     ],
     "overrides": [
         {
-            "files": ["*.{ts,tsx}"],
+            "files": ["*.ts", "*.tsx"], // Your TypeScript files extension
             "parser": "@typescript-eslint/parser",
             "extends": [
                 "eslint:recommended",
@@ -28,7 +28,7 @@
             }
         }
     ],
-    "plugins": ["@typescript-eslint"],
+    "plugins": ["@typescript-eslint", "jest"],
     "rules": {
         "strict": 0,
         "camelcase": 0,
@@ -84,13 +84,20 @@
                 "ignoreCase": true,
                 "sortShapeProp": true
             }
-        ]
+        ],
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error",
+        "react/react-in-jsx-scope": "off"
     },
     "env": {
         "es6": true,
         "browser": true,
         "amd": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "settings": {
         "import/resolver": {

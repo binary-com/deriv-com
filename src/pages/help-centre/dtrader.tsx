@@ -6,6 +6,7 @@ import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
+import { DerivStore } from 'store'
 
 const StyledLink = styled(ExternalLink)`
     @media ${device.tabletL} {
@@ -33,7 +34,7 @@ const WhatIsDMT5 = ({ text }: ArticleProps) => (
                     <StyledLink
                         to={'/dtrader/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -44,16 +45,24 @@ const WhatIsDMT5 = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DTraderMarkets = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and synthetic indices on DTrader. Some markets may not be available in certain countries.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
+const DTraderMarkets = ({ text }: ArticleProps) => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                {is_eu_country
+                    ? localize(
+                          'You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and derived on DTrader. Some markets may not be available in certain countries.',
+                      )
+                    : localize(
+                          'You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and derived indices on DTrader. Some markets may not be available in certain countries.',
+                      )}
+            </Text>
+        </ArticleWrapper>
+    )
+}
 
 const DTraderContracts = ({ text }: ArticleProps) => (
     <ArticleWrapper>

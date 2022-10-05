@@ -98,7 +98,7 @@ const SocialSharing = () => {
                     {social_media.map((account, index) => (
                         <LocalizedLink
                             key={index}
-                            external="true"
+                            external
                             to={account.link}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -124,7 +124,7 @@ const SocialSharing = () => {
                                 {social_media.map((account, index) => (
                                     <LocalizedLink
                                         key={index}
-                                        external="true"
+                                        external
                                         to={account.link}
                                         target="_blank"
                                         rel="noopener noreferrer"

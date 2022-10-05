@@ -31,6 +31,7 @@ import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
 import Signals from 'images/svg/menu/signals.svg'
+import Accumulators from 'images/svg/custom/accumulators.svg'
 import Smarttrader from 'images/svg/custom/smarttrader.svg'
 import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
@@ -416,6 +417,18 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             title={<Localize translate_text="Binary Bot" />}
                             to={binary_bot_url}
                             external
+                            target="_blank"
+                            onClick={onClick}
+                            otherLinkProps={{ rel: 'noopener noreferrer' }}
+                        />
+                        <NavCard
+                            aria_label="Accumulators"
+                            icon={() => <img src={Accumulators} alt="" width="32" height="32" />}
+                            content={
+                                <Localize translate_text="Grow your potential payout exponentially without risking more than your stake." />
+                            }
+                            title={<Localize translate_text="Accumulators" />}
+                            //redirection to be added when pageto={binary_bot_url}
                             target="_blank"
                             onClick={onClick}
                             otherLinkProps={{ rel: 'noopener noreferrer' }}

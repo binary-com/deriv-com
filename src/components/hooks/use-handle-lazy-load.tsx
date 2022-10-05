@@ -12,18 +12,15 @@ export const useHandleLazyLoad = (lazyTemplates: ReactNode, targetId: string, op
             observer.disconnect()
         }
     }
-    useEffect(() => {
-        createObserver()
-        if (window.innerHeight >= 990) {
-            setLargeScreen(true)
-        }
-    }, [])
 
-    const createObserver = () => {
+    useEffect(() => {
         const target = document.querySelector(targetId)
         const observer = new IntersectionObserver(handleIntersect, options)
         observer.observe(target)
-    }
+        if (window.innerHeight >= 990) {
+            setLargeScreen(true)
+        }
+    }, [targetId, options])
 
     return is_visible || is_large_screen ? (
         <>{lazyTemplates}</>

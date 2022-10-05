@@ -44,7 +44,7 @@ const query = graphql`
                 )
             }
         }
-        minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_4.jpg" }) {
+        minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_4.png" }) {
             childImageSharp {
                 gatsbyImageData(
                     formats: [AUTO, WEBP]

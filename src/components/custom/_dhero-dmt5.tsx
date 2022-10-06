@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { QueryImage, Header } from 'components/elements'
@@ -8,6 +7,18 @@ import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
+type DHeroProps = {
+    background?: string | JSX.Element
+    background_alt?: string | JSX.Element
+    background_image_name?: string
+    content?: string | JSX.Element
+    go_to_live_demo?: boolean
+    image_name?: string
+    is_mobile?: string | boolean
+    join_us_for_free?: boolean
+    Logo?: string | JSX.Element
+    title?: string
+}
 const Wrapper = styled.div`
     position: relative;
     background-color: var(--color-black);
@@ -150,7 +161,7 @@ const DHero = ({
     join_us_for_free,
     go_to_live_demo,
     Logo,
-}) => {
+}: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
 
@@ -190,19 +201,6 @@ const DHero = ({
             </InformationWrapper>
         </Wrapper>
     )
-}
-
-DHero.propTypes = {
-    background: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    background_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    background_image_name: PropTypes.string,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    go_to_live_demo: PropTypes.bool,
-    image_name: PropTypes.string,
-    is_mobile: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    join_us_for_free: PropTypes.bool,
-    Logo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
 }
 
 export default DHero

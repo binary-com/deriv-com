@@ -21,7 +21,7 @@ type DerivedProps = {
 const Derived = ({ simple_step_content }: DerivedProps) => {
     const { is_row } = useCountryRule()
     const description = is_row ? (
-        <Localize translate_text="Derived FX gives you the opportunity to trade on simulated assets based on major forex pairs at the volatility of your choice.Our advanced algorithms track real - world currency prices and dampen the fluctuations caused by market sentiment and unexpected news events." />
+        <Localize translate_text="Derived FX gives you the opportunity to trade on simulated assets based on major forex pairs at the volatility of your choice. Our advanced algorithms track real - world currency prices and dampen the fluctuations caused by market sentiment and unexpected news events." />
     ) : (
         ''
     )

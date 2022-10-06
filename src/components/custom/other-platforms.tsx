@@ -338,6 +338,22 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             onClick={onClick}
                             to="/trade-types/multiplier/"
                         />
+                        {is_row && (
+                            <NavCard
+                                aria_label="Accumulators"
+                                icon={() => (
+                                    <img src={Accumulators} alt="" width="32" height="32" />
+                                )}
+                                content={
+                                    <Localize translate_text="Grow your potential payout exponentially without risking more than your stake." />
+                                }
+                                title={<Localize translate_text="Accumulators" />}
+                                //redirection to be added when pageto={binary_bot_url}
+                                target="_blank"
+                                onClick={onClick}
+                                otherLinkProps={{ rel: 'noopener noreferrer' }}
+                            />
+                        )}
                     </Flex>
                 </>
             )}
@@ -417,18 +433,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             title={<Localize translate_text="Binary Bot" />}
                             to={binary_bot_url}
                             external
-                            target="_blank"
-                            onClick={onClick}
-                            otherLinkProps={{ rel: 'noopener noreferrer' }}
-                        />
-                        <NavCard
-                            aria_label="Accumulators"
-                            icon={() => <img src={Accumulators} alt="" width="32" height="32" />}
-                            content={
-                                <Localize translate_text="Grow your potential payout exponentially without risking more than your stake." />
-                            }
-                            title={<Localize translate_text="Accumulators" />}
-                            //redirection to be added when pageto={binary_bot_url}
                             target="_blank"
                             onClick={onClick}
                             otherLinkProps={{ rel: 'noopener noreferrer' }}

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import type { IGatsbyImageData, ImageDataLike } from 'gatsby-plugin-image'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { QueryImage, Header } from 'components/elements'
@@ -8,13 +9,11 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type DHeroProps = {
-    background?: string | JSX.Element
+    background: ImageDataLike | IGatsbyImageData
     background_alt?: string | JSX.Element
-    background_image_name?: string
     content?: string | JSX.Element
     go_to_live_demo?: boolean
     image_name?: string
-    is_mobile?: string | boolean
     join_us_for_free?: boolean
     Logo?: string | JSX.Element
     title?: string

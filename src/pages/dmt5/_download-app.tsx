@@ -12,6 +12,8 @@ import Windows from 'images/svg/dmt5/dmt5_windows.svg'
 import MacOs from 'images/svg/dmt5/dmt5_macos_dmg.svg'
 import GooglePlay from 'images/svg/dmt5/dmt5_google_play.svg'
 import AppGallery from 'images/svg/dmt5/dmt5_app_gallery.svg'
+import GooglePlayMobile from 'images/svg/dmt5/dmt5_google_play_mobile.svg'
+import AppGalleryMobile from 'images/svg/dmt5/dmt5_app_gallery_mobile.svg'
 import {
     dmt5_web_browser_url,
     dmt5_windows,
@@ -51,20 +53,18 @@ const DownloadLinkWrapper = styled.div<LinkType>`
 `
 const DownloadLinkMobileWrapper = styled.div<LinkType>`
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     grid-gap: 8px;
     margin-top: ${(props) => (props.mt ? props.mt : '0')};
     margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
     margin-right: ${(props) => (props.mr ? props.mr : '0')};
-
-    @media ${device.tabletL} {
-        margin-top: 8px;
-        margin-right: 8px;
-    }
 `
 const Section = styled.section`
     display: flex;
     align-items: flex-start;
-    padding: 0 15rem;
+    padding: 3rem 15rem;
     justify-content: center;
     width: 100%;
     background-color: var(--color-grey-25);
@@ -121,8 +121,8 @@ const StyledInfo = styled.img`
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 20px;
-        text-align: center;
-        margin-top: 30px;
+        padding-left: 16px;
+        margin-top: 24px;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -149,6 +149,7 @@ const StyledFlexMobile = styled(Flex)`
     margin-top: 0.8rem;
     height: auto;
     margin-bottom: 40px;
+    flex-wrap: wrap;
 `
 const StyledFlexBottom = styled(Flex)`
     display: flex;
@@ -257,7 +258,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={GooglePlay} alt="google play" width="138" height="40" />
+                                <img src={GooglePlay} alt="google play" width="132" height="40" />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
@@ -265,57 +266,18 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={AppGallery} alt="app gallery" width="138" height="40" />
+                                <img src={AppGallery} alt="app gallery" width="132" height="40" />
                             </LocalizedLink>
                         </DownloadLinkWrapper>
                     </Flex>
                 </Desktop>
 
                 <Mobile>
-                    <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
-                    <Flex mt="0.8rem" wrap="wrap">
-                        <DownloadLinkMobileWrapper mr="8px">
-                            <LocalizedLink
-                                external
-                                to={dmt5_android_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={GooglePlay} alt="google play" width="138" height="40" />
-                            </LocalizedLink>
-                        </DownloadLinkMobileWrapper>
-                        <DownloadLinkMobileWrapper mt="8px">
-                            <LocalizedLink
-                                external
-                                to={dmt5_app_gallery_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={AppGallery} alt="app gallery" width="138" height="40" />
-                            </LocalizedLink>
-                        </DownloadLinkMobileWrapper>
-                    </Flex>
                     <StyledHeader mt="2.4rem" as="h4">
                         {localize('Desktop')}
                     </StyledHeader>
-                    <StyledFlexMobile>
-                        <DownloadLinkWrapper>
-                            <LocalizedLink
-                                external
-                                to={dmt5_linux_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={LinuxOs} alt="linux" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={dmt5_web_browser_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={WebBrowser} alt="web browser" />
-                            </LocalizedLink>
+                    <StyledFlexMobile mt="1rem">
+                        <DownloadLinkMobileWrapper mr="16px">
                             <LocalizedLink
                                 external
                                 to={dmt5_windows}
@@ -332,10 +294,52 @@ const DownloadApp = () => {
                             >
                                 <img src={MacOs} alt="macos" />
                             </LocalizedLink>
-                        </DownloadLinkWrapper>
+                            <LocalizedLink
+                                external
+                                to={dmt5_linux_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={LinuxOs} alt="linux" />
+                            </LocalizedLink>
+                        </DownloadLinkMobileWrapper>
+                    </StyledFlexMobile>
+
+                    <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
+                    <StyledFlexMobile mt="0.8rem">
+                        <DownloadLinkMobileWrapper mr="8px">
+                            <LocalizedLink
+                                external
+                                to={dmt5_android_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src={GooglePlayMobile}
+                                    alt="google play"
+                                    width="160"
+                                    height="40"
+                                />
+                            </LocalizedLink>
+
+                            <LocalizedLink
+                                external
+                                to={dmt5_app_gallery_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src={AppGalleryMobile}
+                                    alt="app gallery"
+                                    width="180"
+                                    height="40"
+                                />
+                            </LocalizedLink>
+                        </DownloadLinkMobileWrapper>
                     </StyledFlexMobile>
                 </Mobile>
             </StyledFlex>
+
             <Desktop>
                 <StyledInfoContainer>
                     <Separator />

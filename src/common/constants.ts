@@ -162,4 +162,4 @@ export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
-export const loss_percent = 69
+export const loss_percent = 70

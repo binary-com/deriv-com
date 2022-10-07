@@ -190,12 +190,6 @@ export const articles: ArcticlesType[] = [
                 label: 'what-is-derived',
             },
             {
-                title: <Localize translate_text="What are synthetic indices?" />,
-                category: 'Trading',
-                sub_category: <Localize translate_text="Markets" />,
-                label: 'what-are-synthetic-indices',
-            },
-            {
                 title: <Localize translate_text="What are contracts for difference (CFDs)?" />,
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,

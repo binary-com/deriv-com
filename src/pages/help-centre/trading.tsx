@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
-import device from 'themes/device.ts'
+import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
@@ -28,6 +28,54 @@ const Forex = ({ text }: ArticleProps) => (
                 components={[
                     <StyledLink
                         to={'/academy/blog/posts/what-is-forex-live-trading/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
+    </ArticleWrapper>
+)
+
+const Derived = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            {localize(
+                'Derived indices consist of asset prices generated from real-world and simulated markets and indices, with little to no influence from real-world events.  You can trade from a variety of derived indices, including synthetic indices, derived FX indices, and basket indices.',
+            )}
+        </Text>
+        <StyledText>
+            <Localize
+                translate_text="Available 24/7, our synthetic indices emulate price movements of real-world markets with varying levels of volatility. As they aren't based on actual underlying assets, they are unaffected by real-world market events. The pricing of our synthetic indices is backed by algorithms that are audited for fairness by an independent third party. Read <0>this article</0> to learn more about trading synthetic indices on Deriv."
+                components={[
+                    <StyledLink
+                        to={'/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
+        <StyledText>
+            <Localize translate_text="Derived FX indices are simulated assets with prices derived from the price movements of real major forex pairs. Our algorithms track real-world currency prices and dampen fluctuations caused by news events and market sentiment. Plus, you can choose to trade them at the volatility you prefer." />
+        </StyledText>
+        <StyledText>
+            <Localize translate_text="With basket indices, you can trade your favourite asset against a basket of five major global currencies, each weighted by 20%." />
+        </StyledText>
+
+        <StyledText>
+            <Localize
+                translate_text="Due to regulatory requirements, derived indices are unavailable in some countries. Refer to ‘Product offering’ in our <0>terms of use</0> for more info."
+                components={[
+                    <StyledLink
+                        to={'/tnc/general-terms.pdf'}
                         target="_blank"
                         external
                         weight="bold"
@@ -80,47 +128,6 @@ const StockIndices = ({ text }: ArticleProps) => (
                 components={[
                     <StyledLink
                         to={'/academy/blog/posts/what-are-stocks-how-and-where-to-trade-them/'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </StyledText>
-    </ArticleWrapper>
-)
-
-const SyntheticIndices = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                "Available 24/7, our synthetic indices emulate price movements of real-world markets with varying levels of volatility. As they aren't based on actual underlying assets, they are unaffected by real-world market events.",
-            )}
-        </Text>
-        <StyledText>
-            <Localize
-                translate_text="The pricing of our synthetic indices is backed by algorithms that are audited for fairness by an independent third party. Due to regulatory requirements, synthetic indices are unavailable in some countries. Refer to ‘Product offering’ in our <0>terms of use</0> for more info."
-                components={[
-                    <StyledLink
-                        to={'/tnc/general-terms.pdf'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </StyledText>
-        <StyledText>
-            <Localize
-                translate_text="Read <0>this article</0> to learn more about trading synthetic indices on Deriv."
-                components={[
-                    <StyledLink
-                        to={'/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'}
                         target="_blank"
                         external
                         weight="bold"
@@ -344,9 +351,9 @@ const TradingArticle = () => {
                     label="what-are-stock-indices"
                     is_mounted={is_mounted}
                 />
-                <SyntheticIndices
-                    text={localize('What are synthetic indices?')}
-                    label="what-are-synthetic-indices"
+                <Derived
+                    text={localize('What is Derived?')}
+                    label="what-is-derived"
                     is_mounted={is_mounted}
                 />
                 <CFD

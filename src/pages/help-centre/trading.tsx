@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
-import device from 'themes/device.ts'
+import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
@@ -128,47 +128,6 @@ const StockIndices = ({ text }: ArticleProps) => (
                 components={[
                     <StyledLink
                         to={'/academy/blog/posts/what-are-stocks-how-and-where-to-trade-them/'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </StyledText>
-    </ArticleWrapper>
-)
-
-const SyntheticIndices = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                "Available 24/7, our synthetic indices emulate price movements of real-world markets with varying levels of volatility. As they aren't based on actual underlying assets, they are unaffected by real-world market events.",
-            )}
-        </Text>
-        <StyledText>
-            <Localize
-                translate_text="The pricing of our synthetic indices is backed by algorithms that are audited for fairness by an independent third party. Due to regulatory requirements, synthetic indices are unavailable in some countries. Refer to ‘Product offering’ in our <0>terms of use</0> for more info."
-                components={[
-                    <StyledLink
-                        to={'/tnc/general-terms.pdf'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </StyledText>
-        <StyledText>
-            <Localize
-                translate_text="Read <0>this article</0> to learn more about trading synthetic indices on Deriv."
-                components={[
-                    <StyledLink
-                        to={'/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'}
                         target="_blank"
                         external
                         weight="bold"
@@ -395,11 +354,6 @@ const TradingArticle = () => {
                 <Derived
                     text={localize('What is Derived?')}
                     label="what-is-derived"
-                    is_mounted={is_mounted}
-                />
-                <SyntheticIndices
-                    text={localize('What are synthetic indices?')}
-                    label="what-are-synthetic-indices"
                     is_mounted={is_mounted}
                 />
                 <CFD

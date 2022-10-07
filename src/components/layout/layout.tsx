@@ -250,6 +250,7 @@ const Layout = ({
             break
         case 'noNav':
             Navigation = <></>
+            FooterNav = <Footer />
             break
         case 'static':
             Navigation = <NavStatic is_ppc={is_ppc} />

@@ -36,7 +36,6 @@ const Login = (() => {
 
     const initOneAll = (provider) => {
         const social_login_url = `${loginUrl()}&social_signup=${provider}`
-
         window.location.href = social_login_url
     }
 

@@ -146,7 +146,7 @@ const Flexibility = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {localize('Flexibility with multiple account types')}
+                {localize('Flexibility with two account types')}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {

@@ -186,14 +186,26 @@ const HelpCentre = () => {
         ? data.all_articles.filter((el) => !eu_discards.includes(el.category))
         : data.all_articles
 
-    const filtered_articles = matchSorter(articles_by_domain, data.search.trim(), {
+    const searched_articles = matchSorter(articles_by_domain, data.search.trim(), {
         keys: ['title', 'sub_category'],
     })
 
+    const filtered_articles = is_eu_country
+        ? searched_articles.filter((article) => !article.hide_for_eu)
+        : searched_articles.filter((article) => !article.hide_for_non_eu)
+
     const has_results = !!filtered_articles.length
 
-    const general_articles = articles.filter((article) => article.section === 'General')
-    const platforms_articles = articles.filter((article) => article.section === 'Platforms')
+    const general_articles = React.useMemo(
+        () => articles.filter((article) => article.section === 'General'),
+        [],
+    )
+
+    const platforms_articles = React.useMemo(
+        () => articles.filter((article) => article.section === 'Platforms'),
+        [],
+    )
+
     const { is_deriv_go } = usePlatformQueryParam()
 
     return (

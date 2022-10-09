@@ -6,6 +6,7 @@ import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type ExpandListType = {
     is_expanded?: boolean
@@ -106,9 +107,22 @@ const Withdrawal = styled(Td)`
     }
 `
 
+const LtrText = styled(Text)<{ is_rtl: boolean }>`
+    direction: ltr;
+    ${({ is_rtl }) =>
+        is_rtl
+            ? css`
+                  text-align: end;
+              `
+            : css`
+                  text-align: start;
+              `}
+`
+
 const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const parse_to_integer = parseInt('2')
+    const is_rtl = useIsRtl()
 
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
@@ -123,9 +137,13 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                 </Td>
                 <Td>
                     {Array.isArray(payment_data.min_max_deposit) ? (
-                        payment_data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
+                        payment_data.min_max_deposit.map((md, idx) => (
+                            <LtrText is_rtl={is_rtl} key={idx}>
+                                {md}
+                            </LtrText>
+                        ))
                     ) : (
-                        <Text>{payment_data.min_max_deposit}</Text>
+                        <LtrText is_rtl={is_rtl}>{payment_data.min_max_deposit}</LtrText>
                     )}
                 </Td>
                 {!is_fiat_onramp && (
@@ -133,10 +151,12 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                         <>
                             {Array.isArray(payment_data.min_max_withdrawal) ? (
                                 payment_data.min_max_withdrawal.map((md, idx) => (
-                                    <Text key={idx}>{md}</Text>
+                                    <LtrText is_rtl={is_rtl} key={idx}>
+                                        {md}
+                                    </LtrText>
                                 ))
                             ) : (
-                                <Text>{payment_data.min_max_withdrawal}</Text>
+                                <LtrText is_rtl={is_rtl}>{payment_data.min_max_withdrawal}</LtrText>
                             )}
                         </>
                     </Td>

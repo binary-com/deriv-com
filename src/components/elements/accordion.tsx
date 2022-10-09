@@ -209,7 +209,7 @@ const SingleAccordionContent = ({
     id,
 }: SingleAccordionContentProps) => {
     const render_nodes = React.Children.map(children, (child, child_idx) => {
-        return (
+        return child ? (
             <ItemExpanded
                 key={child_idx}
                 is_default_open={is_default_open}
@@ -218,7 +218,7 @@ const SingleAccordionContent = ({
                 nodes={nodes}
                 id={id}
             />
-        )
+        ) : null
     })
 
     return <>{render_nodes}</>

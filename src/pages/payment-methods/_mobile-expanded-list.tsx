@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { PaymentProps } from './index'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
@@ -8,6 +8,7 @@ import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Button } from 'components/form/'
 import device from 'themes/device'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type StyledProps = {
     expanded?: boolean
@@ -66,9 +67,18 @@ const StyledRow = styled(Flex)`
         border-bottom: none;
     }
 `
-const ValueText = styled(Header)`
+const ValueText = styled(Header)<{ is_rtl: boolean }>`
     text-align: end;
     white-space: pre-line;
+    direction: ltr;
+    ${({ is_rtl }) =>
+        is_rtl
+            ? css`
+                  text-align: start;
+              `
+            : css`
+                  text-align: end;
+              `}
 
     @media ${device.mobileL} {
         text-align: start;
@@ -103,6 +113,7 @@ const MobileExpandedList = ({
     payment_data,
 }: PaymentProps) => {
     const [is_expanded, setExpanded] = React.useState(false)
+    const is_rtl = useIsRtl()
     const toggleExpand = () => {
         setExpanded(!is_expanded)
     }
@@ -130,7 +141,7 @@ const MobileExpandedList = ({
                             </Header>
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            <ValueText type="subtitle-2" weight="normal">
+                            <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                 {payment_data.currencies}
                             </ValueText>
                         </StyledKeyDiv>
@@ -159,7 +170,7 @@ const MobileExpandedList = ({
                             )}
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            <ValueText type="subtitle-2" weight="normal">
+                            <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                 {payment_data.min_max_deposit}
                             </ValueText>
                         </StyledKeyDiv>
@@ -192,12 +203,21 @@ const MobileExpandedList = ({
                                 <StyledKeyDiv>
                                     {Array.isArray(payment_data.min_max_withdrawal) ? (
                                         payment_data.min_max_withdrawal.map((md, idx) => (
-                                            <ValueText type="subtitle-2" weight="normal" key={idx}>
+                                            <ValueText
+                                                is_rtl={is_rtl}
+                                                type="subtitle-2"
+                                                weight="normal"
+                                                key={idx}
+                                            >
                                                 {md}
                                             </ValueText>
                                         ))
                                     ) : (
-                                        <ValueText type="subtitle-2" weight="normal">
+                                        <ValueText
+                                            is_rtl={is_rtl}
+                                            type="subtitle-2"
+                                            weight="normal"
+                                        >
                                             {payment_data.min_max_withdrawal}
                                         </ValueText>
                                     )}
@@ -229,7 +249,7 @@ const MobileExpandedList = ({
                             )}
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            <ValueText type="subtitle-2" weight="normal">
+                            <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                 {payment_data.deposit_time}
                             </ValueText>
                         </StyledKeyDiv>
@@ -247,7 +267,7 @@ const MobileExpandedList = ({
                                 </Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
-                                <ValueText type="subtitle-2" weight="normal">
+                                <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                     {payment_data.withdrawal_time}
                                 </ValueText>
                             </StyledKeyDiv>
@@ -261,7 +281,7 @@ const MobileExpandedList = ({
                                 </Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
-                                <ValueText type="subtitle-2" weight="normal">
+                                <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                     {payment_data.withdrawal_time}
                                 </ValueText>
                             </StyledKeyDiv>
@@ -297,7 +317,7 @@ const MobileExpandedList = ({
                                         {payment_data.reference_link}
                                     </StyledRefLink>
                                 ) : (
-                                    <ValueText type="subtitle-2" weight="normal">
+                                    <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                         -
                                     </ValueText>
                                 )}

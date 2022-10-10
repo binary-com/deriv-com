@@ -1,7 +1,7 @@
 import React from 'react'
 import { redirectOpenLiveChatBox } from 'common/utility'
 
-export const useOpenLiveChat = (props) => {
+export const useOpenLiveChat = (props?: boolean) => {
     let script_timeout = null
     const [is_mounted, setMounted] = React.useState(false)
     React.useEffect(() => {

@@ -319,9 +319,10 @@ export const african_countries = [
     'zm',
     'zw',
 ]
-export const isEuCountry = (clients_country) => eu_countries.includes(clients_country)
+export const isEuCountry = (clients_country: string): boolean =>
+    eu_countries.includes(clients_country)
 
-export const isP2PAllowedCountry = (clients_country) =>
+export const isP2PAllowedCountry = (clients_country: string): boolean =>
     p2p_allowed_countries.includes(clients_country)
 
-export const isUK = (clients_country) => clients_country === 'gb'
+export const isUK = (clients_country: string): boolean => clients_country === 'gb'

@@ -15,25 +15,11 @@ import {
 import { isUK, eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
 
-export const trimSpaces = (value) => value?.trim()
-
-export const toISOFormat = (date) => {
-    if (date instanceof Date) {
-        const utc_year = date.getUTCFullYear()
-        const utc_month = (date.getUTCMonth() + 1 < 10 ? '0' : '') + (date.getMonth() + 1)
-        const utc_date = (date.getUTCDate() < 10 ? '0' : '') + date.getUTCDate()
-
-        return `${utc_year}-${utc_month}-${utc_date}`
-    }
-
-    return ''
-}
-
-export const toHashFormat = (string) => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
+export const trimSpaces = (value: string): string => value?.trim()
 
 export const isBrowser = () => typeof window !== 'undefined'
 
-export const isEmptyObject = (obj) => {
+export const isEmptyObject = (obj: unknown): boolean => {
     let is_empty = true
     if (obj && obj instanceof Object) {
         Object.keys(obj).forEach((key) => {
@@ -78,26 +64,42 @@ export const routeBack = () => {
         window.history.back()
     }
 }
-export const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
+export const checkElemInArray = (tab_list: string[], tab: string): boolean => tab_list.includes(tab)
 
 export const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 
 export const getLanguage = () =>
     isBrowser() ? localStorage.getItem('i18n') || navigator.language : null
 
-export const getDerivAppLocalizedURL = (link, locale, to = '') => {
+export const getDerivAppLocalizedURL = (link: string, locale: string, to = '') => {
     const lang = deriv_app_languages.includes(locale) ? locale : 'en'
     return `${link}${to}?lang=${lang.toUpperCase()}`
 }
 
-export const getThaiExcludedLocale = (locale) => (locale === 'th' ? 'en' : locale)
+export const getThaiExcludedLocale = (locale: string): string => (locale === 'th' ? 'en' : locale)
 
-export const getCrowdin = () =>
+export const getCrowdin = (): string | null =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
 
-export const getClientInformation = (domain) => Cookies.getJSON('client_information', { domain })
+type TClientInformation = {
+    residence: string
+    loginid: string
+    first_name: string
+    last_name: string
+    email: string
+    landing_company_shortcode: string
+    currency: string
+}
+export const getClientInformation = (domain: string): TClientInformation =>
+    Cookies.getJSON('client_information', { domain })
 
-export const getUTMData = (domain) => Cookies.getJSON('utm_data', { domain })
+type TUTMData = {
+    utm_source: string
+    utm_medium: string
+    utm_campaign: string
+}
+
+export const getUTMData = (domain: string): TUTMData => Cookies.getJSON('utm_data', { domain })
 
 export const isLoggedIn = () => {
     const domain = getDomain()
@@ -115,17 +117,20 @@ export const isUKOrMXAccount = (current_client_country) => {
     return residence === 'gb' || isUK(current_client_country)
 }
 
-export const isIndexEven = (index, reverse) => (reverse ? (index + 1) % 2 : index % 2)
+export const isIndexEven = (index: number, reverse: boolean): number =>
+    reverse ? (index + 1) % 2 : index % 2
 
-export const sanitize = (input) => input.replace(/[.*+?^${}()|[\]\\]/g, '')
+export const sanitize = (input: string): string => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
-export const sentenceCase = (input) => input.charAt(0).toUpperCase() + input.slice(1)
-
-export const getCryptoDecimals = (input) =>
-    input.toFixed(1 - Math.floor(Math.log(input) / Math.log(10)))
+export const sentenceCase = (input: string): string =>
+    input.charAt(0).toUpperCase() + input.slice(1)
 
 // This function is created to back traverse an array of style values
-export const responsiveFallback = (prop, start_from, fallback) => {
+export const responsiveFallback = (
+    prop: string | string[],
+    start_from?: number,
+    fallback?: number | 'auto',
+): string | number | undefined => {
     let index = start_from ?? prop?.length ?? 0
     while (prop && index > 0) {
         if (prop[index]) {
@@ -138,7 +143,11 @@ export const responsiveFallback = (prop, start_from, fallback) => {
 }
 
 // populate style by traversing keys of props
-export const populateStyle = (props, default_props_object, curr_index) => {
+export const populateStyle = <Props, DefaultProps>(
+    props: Props,
+    default_props_object: DefaultProps,
+    curr_index?: number,
+): string => {
     let style = ''
 
     Object.keys(props).forEach((prop) => {
@@ -155,10 +164,14 @@ export const populateStyle = (props, default_props_object, curr_index) => {
     })
 
     style += applyDefaultValues(props, default_props_object)
+
     return style
 }
 
-export const applyDefaultValues = (props, default_props_object) => {
+export const applyDefaultValues = <Props, DefaultProps>(
+    props: Props,
+    default_props_object: DefaultProps,
+) => {
     let style = ''
 
     Object.keys(default_props_object).forEach((prop) => {
@@ -176,23 +189,17 @@ export const getDomain = () =>
         ? deriv_cookie_domain
         : 'binary.sx'
 
-export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `/` : to}`
+export const getLocalizedUrl = (path: string, is_index: boolean, to: string) =>
+    `/${path}${is_index ? `/` : to}`
 
-export const nonENLangUrlReplace = (current_path) => {
+export const nonENLangUrlReplace = (current_path: string): string => {
     const path_with_or_without_slash = /\/.+?(\/)|(\/[a-zA-Z'-]+)/u
     return current_path.replace(path_with_or_without_slash, '')
 }
-export const getDateFromToday = (num_of_days) => {
-    const today = new Date()
 
-    return new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
-}
+export const isNullUndefined = (value: unknown) => value === null || typeof value === 'undefined'
 
-export const isNullUndefined = (value) => value === null || typeof value === 'undefined'
-
-export const isObject = (value) => typeof value === 'object'
-
-export const isJSONString = (value) => {
+export const isJSONString = (value: string) => {
     try {
         return JSON.parse(value) && !!value
     } catch (e) {
@@ -200,7 +207,7 @@ export const isJSONString = (value) => {
     }
 }
 
-export const parseJSONString = (value) => (isJSONString(value) ? JSON.parse(value) : value)
+export const parseJSONString = (value: string) => (isJSONString(value) ? JSON.parse(value) : value)
 
 export const getLiveChatStorage = () =>
     isBrowser() ? localStorage.getItem('live_chat_redirection') : null
@@ -216,7 +223,7 @@ export const getLiveChatRedirectStatus = (lang_status) => {
 
 // set lang to true to allow all lang to redirect, default is en,
 // and pass to getLiveChatRedirectStatus
-export const redirectOpenLiveChatBox = (is_redirect) => {
+export const redirectOpenLiveChatBox = (is_redirect: boolean) => {
     const live_chat_status = getLiveChatRedirectStatus(is_redirect)
 
     removeLocalStorage(live_chat_key)
@@ -225,7 +232,7 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
     }
 }
 
-export const convertDate = (date) => {
+export const convertDate = (date: string) => {
     const newdate = new Date(date)
     return (
         newdate.toLocaleString('en', { day: 'numeric' }) +
@@ -237,7 +244,7 @@ export const convertDate = (date) => {
 }
 
 // CMS Related Utilities
-export const getAssetUrl = (id) => `${cms_assets_end_point}${id}`
+export const getAssetUrl = (id: string) => `${cms_assets_end_point}${id}`
 
 export const getVideoObject = (video_data) => {
     const {
@@ -267,14 +274,13 @@ export const getVideoObject = (video_data) => {
 }
 
 // remove spaces before appending "..." on truncated strings
-const getLimit = (input, limit) => {
+const getLimit = (input: string, limit: number) => {
     if (input[limit - 1] === ' ') {
         return limit - 1
     }
     return limit
 }
-
-export const truncateString = (input, limit) =>
+export const truncateString = (input: string, limit: number) =>
     input.length > limit ? `${input.substring(0, getLimit(input, limit))}...` : input
 // Function which returns sub path to the specific trading platform
 const supported_platforms = ['mt5', 'bot', 'derivx']
@@ -284,7 +290,12 @@ export const redirectToTradingPlatform = () =>
     )
 
 // Function to manually add external js files.
-export const addScript = (settings) => {
+type TSettings = {
+    src: 'https://static.deriv.com/scripts/cookie.js'
+    async: boolean
+    strategy?: 'off-main-thread'
+}
+export const addScript = (settings: TSettings) => {
     const script = document.createElement('script')
 
     Object.keys(settings).forEach((key) => {
@@ -297,11 +308,8 @@ export const addScript = (settings) => {
     document.body.appendChild(script)
 }
 
-// Function to get the user selected language, can be used in the future once need to check other languages
-export const isChoosenLanguage = () => ({ english: getLanguage() === 'en' })
-
 // Function to manually replace server's locale ("zh_tw" or "zh_cn") to "zh-tw"/"zh-cn"
-export const replaceLocale = (url) => {
+export const replaceLocale = (url: string): string => {
     let checked_locale = url
     const excluded_paths = ['smarttrader']
     if (!excluded_paths.some((path) => url.includes(path))) {
@@ -314,19 +322,17 @@ export const replaceLocale = (url) => {
     }
     return checked_locale
 }
-
-export const stripHTML = (str) => str?.replace(/<[^>]*>?/gm, '')
-
-export const calculateReadTime = (text) => {
+// 3 functions below can be removed after academy migration
+const stripHTML = (str: string): string => str?.replace(/<[^>]*>?/gm, '')
+const calculateReadTime = (text: string) => {
     const wpm = 275 // adjusted to fit the average reading speed of a person
     const content_without_HTML = stripHTML(text)
     const words = content_without_HTML?.trim().split(/\s+/).length
     return Math.ceil(words / wpm)
 }
-
 export const getMinRead = (text) => calculateReadTime(text).toString() + ' ' + localize('min read')
 
-export const slugify = (text) =>
+export const slugify = (text: string): string =>
     text &&
     text
         .toString()
@@ -351,7 +357,7 @@ export const removeSpecialCharacterUrl = (url) =>
         .replace(/\?+/g, '') // Replace question mark with empty value
         .replace(/[/]/g, '-') //Replace '/' with single -
 
-// make an object, include all the missing parameters and try to fix it
+// 2 functions below can be removed after academy migration                                      make an object, include all the missing parameters and try to fix it
 export const queryParams = {
     get: (key) => {
         const params = new URLSearchParams(isBrowser() && location.search)
@@ -414,8 +420,8 @@ export const getBaseRef = (ref) => {
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
 }
 
-export const useCallbackRef = (callback) => {
-    const callback_ref = useRef()
+export const useCallbackRef = (callback: () => void) => {
+    const callback_ref = useRef<() => void>()
 
     useEffect(() => {
         callback_ref.current = callback
@@ -426,12 +432,12 @@ export const useCallbackRef = (callback) => {
 
 const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
 
-const redirect = (subdomain) => {
+const redirect = (subdomain: string) => {
     const redirection_url = `${subdomain}.deriv.com`
     window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
-export const handleDerivRedirect = (country, subdomain) => {
+export const handleDerivRedirect = (country: string, subdomain: string) => {
     if (eu_subdomain_countries.includes(country)) {
         redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
     }
@@ -445,7 +451,7 @@ export const isEuDomain = () =>
 export const isUkDomain = () =>
     !!uk_domains.some((uk_sub_domain) => uk_sub_domain.test(getSubdomain()))
 
-export const handleRedirect = (residence, current_client_country) => {
+export const handleRedirect = (residence: string, current_client_country: string): boolean => {
     const country = residence ? residence : current_client_country
 
     if (isLocalhost() || isTestlink()) {

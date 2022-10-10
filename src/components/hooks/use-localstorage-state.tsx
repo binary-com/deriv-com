@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
 import { isBrowser, isNullUndefined, parseJSONString } from 'common/utility'
 
-export const useLocalStorageState = (defaultValue, key) => {
+export const useLocalStorageState = (
+    defaultValue: string | number,
+    key: string,
+): [value: string | number, setValue: React.Dispatch<string | number>] => {
     const [value, setValue] = useState(() => {
         const sticky_value = isBrowser() ? window.localStorage.getItem(key) : null
         return sticky_value ? parseJSONString(sticky_value) : defaultValue

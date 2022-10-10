@@ -6,9 +6,7 @@ export const useCookieState = (key: string, options: { expires: Date }) => {
     const cookie_state = new CookieStorage(key)
     const [value, setValue] = useState(() => {
         const sticky_value = cookie_state.get(key)
-        const result = sticky_value ? parseJSONString(sticky_value) : null
-
-        return result
+        return sticky_value ? parseJSONString(sticky_value) : null
     })
 
     useEffect(() => {

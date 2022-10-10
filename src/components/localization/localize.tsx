@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next'
 
 type LocalizeProps = {
     translate_text: string
-    values?: { email?: string }
+    values?: { [key: string]: string | number }
     components?: React.ReactElement[]
 }
 

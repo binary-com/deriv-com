@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import styled, { css } from 'styled-components'
+import Autoplay from 'embla-carousel-autoplay'
 import { PlatformContent, ImageTag } from './_utils'
 import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const SelectedZone = styled(Flex)`
     left: 0;
@@ -108,20 +108,36 @@ type PlatformSliderProps = {
 }
 
 const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
-    const { is_row } = useCountryRule()
+    const [viewportRef, embla] = useEmblaCarousel(
+        {
+            startIndex: 0,
+            loop: false,
+            axis: 'y',
+            skipSnaps: false,
+            draggable: false,
+        },
+        [Autoplay({ delay: 3000 })],
+    )
 
-    const slide_starting_index = (is_row && 42) || (!is_row && 0)
+    useEffect(() => {
+        if (embla) {
+            embla.on('select', () => {
+                onSelectSlide(embla.selectedScrollSnap())
+            })
+        }
+    }, [embla, onSelectSlide])
 
-    const [viewportRef, embla] = useEmblaCarousel({
-        startIndex: slide_starting_index,
-        loop: is_row ? true : false,
-        axis: 'y',
-        skipSnaps: false,
-        draggable: false,
-    })
+    const scrollHandler = useCallback(
+        (index) => {
+            if (embla) {
+                embla.scrollTo(index)
+            }
+        },
+        [embla],
+    )
 
     const clickHandler = (index) => {
-        embla.scrollTo(index)
+        scrollHandler(index)
         onSelectSlide(index)
     }
 

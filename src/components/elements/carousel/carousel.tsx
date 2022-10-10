@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback, CSSProperties, ReactNode } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
+import type { FlattenSimpleInterpolation } from 'styled-components'
+import type { EmblaOptionsType, EmblaPluginType } from 'embla-carousel-react'
 import {
     Embla,
     EmblaContainer,
@@ -77,16 +79,11 @@ type ChevronStyleType = {
 }
 type NavigationStyleType = {
     nav_color?: string
-    bottom_offset?: number
+    bottom_offset?: number | string
     chevron_right?: CSSProperties
     height?: number
 }
-type OptionsType = {
-    align?: number
-    containScroll?: 'trimSnaps' | 'keepSnaps'
-    loop?: boolean
-    slidesToScroll?: number
-}
+
 type CarouselProps = {
     autoplay_delay?: number
     autoplay_interval?: number
@@ -96,13 +93,14 @@ type CarouselProps = {
     embla_style?: CSSProperties
     has_autoplay?: boolean
     navigation_style?: NavigationStyleType
-    options?: OptionsType
-    slide_style: CSSProperties
+    options?: EmblaOptionsType
+    plugins?: EmblaPluginType[]
+    slide_style?: CSSProperties
     slide_inner_width?: string
     vertical_container?: CSSProperties
     view_port?: CSSProperties
     last_slide_no_spacing?: boolean
-    navigation_css?: string[]
+    navigation_css?: FlattenSimpleInterpolation
 }
 
 export const Carousel = ({
@@ -115,6 +113,7 @@ export const Carousel = ({
     has_autoplay,
     navigation_style,
     options,
+    plugins,
     slide_style,
     slide_inner_width,
     vertical_container,
@@ -122,7 +121,7 @@ export const Carousel = ({
     last_slide_no_spacing = false,
     navigation_css,
 }: CarouselProps) => {
-    const [emblaRef, embla] = useEmblaCarousel(options)
+    const [emblaRef, embla] = useEmblaCarousel(options, plugins)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
     const [selectedIndex, setSelectedIndex] = useState(0)

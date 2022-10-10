@@ -49,6 +49,7 @@ import {
     Accordion,
     AccordionItem,
     Header,
+    ImageWithDireciton,
     LocalizedLinkText,
     QueryImage,
     Text,
@@ -154,7 +155,7 @@ const PnlMarginCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"

@@ -66,7 +66,7 @@ const IconGrid = () => {
             content: localize('What you’re agreeing to when you sign up to use Deriv'),
             eu_links: [
                 {
-                    url: '/tnc/general-terms.pdf',
+                    url: '/tnc/eu/general-terms.pdf',
                     title: localize('General terms of use'),
                 },
             ],

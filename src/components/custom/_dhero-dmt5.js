@@ -61,7 +61,6 @@ const LinkWrapper = styled.div`
         margin-bottom: 40px;
     }
     @media ${device.tabletL} {
-        max-width: 217px;
         max-height: 40px;
         margin-top: 12px;
     }
@@ -91,14 +90,13 @@ const DemoButton = styled(Button)`
     margin-right: 1.6rem;
     border: unset;
 
+    @media ${device.tabletL} {
+        margin-bottom: 40px;
+    }
     @media ${device.mobileL} {
         white-space: nowrap;
         margin-bottom: 1.6rem;
-        margin-right: unset;
         width: 100%;
-    }
-    @media ${device.tabletL} {
-        margin-bottom: 40px;
     }
 `
 const ImgWrapper = styled.div`
@@ -136,9 +134,6 @@ const InformationWrapper = styled(Flex)`
     @media ${device.tablet} {
         width: 100%;
         margin-top: 22px;
-    }
-    @media ${device.mobileL} {
-        max-width: 328px;
     }
 `
 

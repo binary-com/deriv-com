@@ -52,10 +52,11 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
-import { Flex, Show } from 'components/containers'
+import { Flex } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
+import { Desktop, Mobile } from 'components/containers/visibility'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]
@@ -486,18 +487,18 @@ const SwapCalculator = () => {
                                             )}
                                         </Text>
 
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <QueryImage
                                                 data={data.swap_synthetic_formula}
                                                 alt={localize('swap synthetic formula')}
                                             />
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <QueryImage
                                                 data={data.swap_synthetic_formula_mobile}
                                                 alt={localize('swap synthetic formula mobile')}
                                             />
-                                        </Show.Mobile>
+                                        </Mobile>
                                         <FormulaText>
                                             <StyledOl>
                                                 <li>
@@ -737,18 +738,18 @@ const SwapCalculator = () => {
                                             )}
                                         </Text>
 
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <QueryImage
                                                 data={data.swap_forex_formula}
                                                 alt={localize('Swap forex formula')}
                                             />
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <QueryImage
                                                 data={data.swap_forex_formula_mobile}
                                                 alt={localize('Swap forex formula mobile')}
                                             />
-                                        </Show.Mobile>
+                                        </Mobile>
                                         <FormulaText>
                                             <StyledOl>
                                                 <li>

@@ -1,8 +1,9 @@
 import React, { useEffect, ReactElement } from 'react'
 import styled, { css, keyframes } from 'styled-components'
-import { Flex, Show } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
+import { Desktop, Mobile } from 'components/containers/visibility'
 
 const TabContent = styled.div`
     flex: 1;
@@ -105,11 +106,11 @@ const CarouselContainer = styled.div`
     align-self: center;
     margin-right: 36px;
 `
-const Desktop = styled(Show.Desktop)`
+const DesktopWrapper = styled(Desktop)`
     flex: 1;
     width: 100%;
 `
-const Mobile = styled(Show.Mobile)`
+const MobileWrapper = styled(Mobile)`
     @media ${device.tabletL} {
         margin-top: 0.8rem;
         margin-bottom: 0;
@@ -189,24 +190,24 @@ const Tabs = ({ children, is_reverse, className, max_width }: TabsProps) => {
                                         {description}
                                     </TextDesc>
                                 </TabButton>
-                                <Mobile
+                                <MobileWrapper
                                     className="side-tab__mobile"
                                     min_width={max_width || 'tabletL'}
                                 >
                                     <Content>{selected_tab === index ? child : undefined}</Content>
-                                </Mobile>
+                                </MobileWrapper>
                             </>
                         )
                     })}
                 </TabList>
             </TabListWrapper>
-            <Desktop className="side-tab__desktop" max_width={max_width || 'tabletL'}>
+            <DesktopWrapper className="side-tab__desktop" max_width={max_width || 'tabletL'}>
                 <Content>
                     {React.Children.map(children, (el, index) => {
                         return selected_tab === index ? el : undefined
                     })}
                 </Content>
-            </Desktop>
+            </DesktopWrapper>
             <CarouselContainer>
                 {React.Children.map(children, (child, index) => (
                     <CarouselDot selected={selected_tab === index} />

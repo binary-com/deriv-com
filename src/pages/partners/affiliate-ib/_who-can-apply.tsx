@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Container, Show } from 'components/containers'
+import { SectionContainer, Container } from 'components/containers'
+import { Desktop } from 'components/containers/visibility'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
@@ -259,9 +260,9 @@ const WhoCanApply = () => {
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Show.Desktop max_width="bp749">
+                                    <Desktop breakpoint={'bp749'}>
                                         <ImageWrapper src={Apply} alt="" />
-                                    </Show.Desktop>
+                                    </Desktop>
                                     <GetStartedContent max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Sign up')}
@@ -276,9 +277,9 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Show.Desktop max_width="bp749">
+                                    <Desktop breakpoint={'bp749'}>
                                         <ImageWrapper src={Advertise} alt="" />
-                                    </Show.Desktop>
+                                    </Desktop>
                                     <GetStartedContent max_width="32.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Advertise')}
@@ -293,9 +294,9 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Show.Desktop max_width="bp749">
+                                    <Desktop breakpoint={'bp749'}>
                                         <ImageWrapper src={Earn} alt="" />
-                                    </Show.Desktop>
+                                    </Desktop>
                                     <GetStartedContent max_width="32.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Earn')}

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SmallContainer } from './_style'
-import { Show } from 'components/containers'
+import { Mobile } from 'components/containers/visibility'
 import { Carousel } from 'components/elements'
 import device from 'themes/device'
 
@@ -88,12 +88,12 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
                 <Background />
                 <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
             </Wrapper>
-            <Show.Mobile min_width={'bp680'}>
+            <Mobile breakpoint={'bp680'}>
                 <MobileBackground>
                     <SmallContainer fd="column">{children}</SmallContainer>
                     <GreenBG />
                 </MobileBackground>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }

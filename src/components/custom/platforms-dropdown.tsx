@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { NavPlatform, NavCompany, NavResources, NavMarket } from 'components/custom/other-platforms'
-import { Container, Show, Flex } from 'components/containers'
+import { Container, Flex } from 'components/containers'
+import { Desktop } from 'components/containers/visibility'
 
 type PlatformsDropdownProps = {
     active_dropdown?: string
@@ -106,7 +107,7 @@ const PlatformsDropdown = ({
     }, [])
 
     return (
-        <Show.Desktop>
+        <Desktop>
             <Flex>
                 <NavDropdown ref={dropdownContainerRef} offset={left_offset}>
                     <StyledContainer>
@@ -114,7 +115,7 @@ const PlatformsDropdown = ({
                     </StyledContainer>
                 </NavDropdown>
             </Flex>
-        </Show.Desktop>
+        </Desktop>
     )
 }
 

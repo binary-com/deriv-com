@@ -4,7 +4,7 @@ import { Text, Header } from './typography'
 import device, { size } from 'themes/device'
 import { getWindowWidth } from 'common/utility'
 import { Box } from 'components/containers'
-import { Desktop } from 'components/containers/show'
+import { Desktop } from 'components/containers/visibility'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 
 type TabsStyledProps = {

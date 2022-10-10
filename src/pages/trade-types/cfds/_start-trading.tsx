@@ -5,7 +5,7 @@ import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
 import { DerivStore, DerivStoreType } from 'store'
-import { Show } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers/visibility'
 
 const StartTrading = () => {
     const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
@@ -13,19 +13,19 @@ const StartTrading = () => {
         <>
             <StartTradingBg>
                 <SmallContainer direction="column" ai="flex-start">
-                    <Show.Desktop>
+                    <Desktop>
                         <Header as="h3" type="section-title" mb="4rem">
                             {localize('Start trading CFDs on Deriv')}
                         </Header>
-                    </Show.Desktop>
-                    <Show.Mobile>
+                    </Desktop>
+                    <Mobile>
                         <Header as="h3" type="section-title" mb="4rem">
                             <Localize
                                 translate_text="Start trading CFDs on <0/>Deriv<0/>"
                                 components={[<br key={0} />]}
                             />
                         </Header>
-                    </Show.Mobile>
+                    </Mobile>
 
                     <Timeline>
                         <Timeline.Item title={<Localize translate_text="Practise" />}>

@@ -1,18 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Flex, Show } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
+import { Desktop, Mobile } from 'components/containers/visibility'
 
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
 `
-// const Mobile = styled(Show.Mobile)`
-
-// `
 
 type TabButtonType = {
     selected: boolean
@@ -73,12 +71,12 @@ const Content = styled.div`
     width: 100%;
 `
 
-const Desktop = styled(Show.Desktop)`
+const DesktopWrapper = styled(Desktop)`
     flex: 1;
     width: 100%;
 `
 
-const Mobile = styled(Show.Mobile)`
+const MobileWrapper = styled(Mobile)`
     @media ${device.tabletS} {
         margin-top: 1.6rem;
         margin-bottom: 2.3rem;
@@ -170,12 +168,12 @@ const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_c
                                         {description}
                                     </Text>
                                 </TabButton>
-                                <Mobile
+                                <MobileWrapper
                                     className="side-tab__mobile"
-                                    min_width={max_width || 'tabletS'}
+                                    breakpoint={max_width || 'tabletS'}
                                 >
                                     <Content>{selected_tab === index ? child : undefined}</Content>
-                                </Mobile>
+                                </MobileWrapper>
                             </>
                         )
                     })}
@@ -187,13 +185,13 @@ const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_c
                     </NoticeWrapper>
                 )}
             </TabListWrapper>
-            <Desktop className="side-tab__desktop" max_width={max_width || 'tabletS'}>
+            <DesktopWrapper className="side-tab__desktop" breakpoint={max_width || 'tabletS'}>
                 <Content>
                     {React.Children.map(children, (el, index) => {
                         return selected_tab === index ? el : undefined
                     })}
                 </Content>
-            </Desktop>
+            </DesktopWrapper>
         </Flex>
     )
 }

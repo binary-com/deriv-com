@@ -1,9 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { Desktop, Mobile } from 'components/containers/visibility'
 import device, { size } from 'themes/device'
 import { Text, Header, QueryImage } from 'components/elements'
-import { Flex, Show } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Button, LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import { deriv_dp2p_app_url, dp2p_google_play_url } from 'common/constants'
@@ -178,14 +179,14 @@ const Dp2p = () => {
             <Header as="h2" size="var(--text-size-xl)" align="center" mb="1.2rem" lh="1.25">
                 {localize('Deriv peer-to-peer (DP2P)')}
             </Header>
-            <Show.Mobile>
+            <Mobile>
                 <Text align="center" size="var(--text-size-sm)">
                     {localize(
                         'A fast and secure peer-to-peer deposit and withdrawal service. Easily exchange with fellow traders to move funds in and out of your Deriv account.',
                     )}
                 </Text>
-            </Show.Mobile>
-            <Show.Desktop>
+            </Mobile>
+            <Desktop>
                 <Text align="center" size="var(--text-size-m)">
                     {localize('A fast and secure peer-to-peer deposit and withdrawal service.')}
                 </Text>
@@ -194,7 +195,7 @@ const Dp2p = () => {
                         'Easily exchange with fellow traders to move funds in and out of your Deriv account.',
                     )}
                 </Text>
-            </Show.Desktop>
+            </Desktop>
             <StyledContainer>
                 <ContentLeft>
                     {dp2p_checklist.map((item, index) => (

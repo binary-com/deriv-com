@@ -49,8 +49,9 @@ import {
 } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { Flex, Show } from 'components/containers'
+import { Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
+import { Desktop, Mobile } from 'components/containers/visibility'
 
 const PipCalculator = () => {
     const query = graphql`
@@ -339,15 +340,15 @@ const PipCalculator = () => {
                                     )}
                                 </Text>
 
-                                <Show.Desktop>
+                                <Desktop>
                                     <QueryImage
                                         data={data.pip_value_formula}
                                         alt={localize('Margin formula')}
                                     />
                                     <QueryImage data={data.pip_info} alt={localize('Pip Info')} />
-                                </Show.Desktop>
+                                </Desktop>
 
-                                <Show.Mobile>
+                                <Mobile>
                                     <QueryImage
                                         data={data.pip_value_formula_mobile}
                                         alt={localize('Margin formula mobile')}
@@ -356,7 +357,7 @@ const PipCalculator = () => {
                                         data={data.pip_info_mobile}
                                         alt={localize('Pip Info')}
                                     />
-                                </Show.Mobile>
+                                </Mobile>
                                 <FormulaText>
                                     <StyledOl>
                                         <li>
@@ -392,19 +393,19 @@ const PipCalculator = () => {
                                     {localize('Let’s say you want to trade 2 lots of EUR/USD.')}
                                 </Text>
 
-                                <Show.Desktop>
+                                <Desktop>
                                     <QueryImage
                                         data={data.pip_value_forex_formula}
                                         alt={localize('Pip Forex formula')}
                                     />
-                                </Show.Desktop>
+                                </Desktop>
 
-                                <Show.Mobile>
+                                <Mobile>
                                     <QueryImage
                                         data={data.pip_value_forex_formula_mobile}
                                         alt={localize('Pip Forex formula')}
                                     />
-                                </Show.Mobile>
+                                </Mobile>
 
                                 <FormulaText>
                                     <StyledOl>

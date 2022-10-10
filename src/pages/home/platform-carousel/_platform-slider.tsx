@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
+import type { EmblaOptionsType } from 'embla-carousel-react'
 import styled, { css } from 'styled-components'
 import Autoplay from 'embla-carousel-autoplay'
-import { PlatformContent, ImageTag } from './_utils'
+import { PlatformContent, ImageTag, PLATFORMS_CAROUSEL_DELAY } from './_utils'
 import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -107,17 +108,18 @@ type PlatformSliderProps = {
     platform_details: TPlatformDetails[]
 }
 
+const carouselOptions: EmblaOptionsType = {
+    startIndex: 0,
+    loop: false,
+    axis: 'y',
+    skipSnaps: false,
+    draggable: false,
+}
+
+const auto_play = Autoplay({ delay: PLATFORMS_CAROUSEL_DELAY })
+
 const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
-    const [viewportRef, embla] = useEmblaCarousel(
-        {
-            startIndex: 0,
-            loop: false,
-            axis: 'y',
-            skipSnaps: false,
-            draggable: false,
-        },
-        [Autoplay({ delay: 3000 })],
-    )
+    const [viewportRef, embla] = useEmblaCarousel(carouselOptions, [auto_play])
 
     useEffect(() => {
         if (embla) {
@@ -126,6 +128,14 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
             })
         }
     }, [embla, onSelectSlide])
+
+    // Since the platform_details is changing based on useCountryRule hook, we have to reInit the carousel
+    // to make it aware of the change.
+    useEffect(() => {
+        if (embla) {
+            embla.reInit(carouselOptions, [auto_play])
+        }
+    }, [embla, platform_details])
 
     const scrollHandler = useCallback(
         (index) => {

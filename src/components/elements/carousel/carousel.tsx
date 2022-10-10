@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, CSSProperties, ReactNode } from 'react'
+import React, { useState, useEffect, useCallback, CSSProperties, ReactNode, Children } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import type { FlattenSimpleInterpolation } from 'styled-components'
 import type { EmblaOptionsType, EmblaPluginType } from 'embla-carousel-react'
@@ -101,6 +101,7 @@ type CarouselProps = {
     view_port?: CSSProperties
     last_slide_no_spacing?: boolean
     navigation_css?: FlattenSimpleInterpolation
+    is_reinit_enabled?: boolean // if you need to re-initialize the carousel on children change, pass true
 }
 
 export const Carousel = ({
@@ -120,11 +121,20 @@ export const Carousel = ({
     view_port,
     last_slide_no_spacing = false,
     navigation_css,
+    is_reinit_enabled = false,
 }: CarouselProps) => {
     const [emblaRef, embla] = useEmblaCarousel(options, plugins)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
     const [selectedIndex, setSelectedIndex] = useState(0)
+
+    // we have to reInit the carousel on children count change
+    // to make it aware of the change.
+    useEffect(() => {
+        if (is_reinit_enabled && embla && Children.count(children)) {
+            embla.reInit(options, plugins)
+        }
+    }, [children, embla, options, plugins, is_reinit_enabled])
 
     const autoplay = useCallback(() => {
         if (has_autoplay) {

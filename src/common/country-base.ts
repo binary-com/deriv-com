@@ -318,12 +318,11 @@ export const african_countries = [
     'zw',
 ] as const
 
-type TEuCountries = typeof eu_countries[number]
-export const isEuCountry = (clients_country: TEuCountries): boolean =>
+export const isEuCountry = (clients_country: typeof eu_countries[number]): boolean =>
     eu_countries.includes(clients_country)
 
-type TP2pCountries = typeof p2p_allowed_countries[number]
-export const isP2PAllowedCountry = (clients_country: TP2pCountries): boolean =>
-    p2p_allowed_countries.includes(clients_country)
+export const isP2PAllowedCountry = (
+    clients_country: typeof p2p_allowed_countries[number],
+): boolean => p2p_allowed_countries.includes(clients_country)
 
 export const isUK = (clients_country: string): boolean => clients_country === 'gb'

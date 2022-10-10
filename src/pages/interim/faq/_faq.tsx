@@ -136,6 +136,7 @@ const FAQ = () => {
                             >
                                 <NewProducts />
                             </AccordionItem>
+
                             <AccordionItem
                                 is_showed={!is_eu_country}
                                 header={

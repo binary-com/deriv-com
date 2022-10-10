@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 
@@ -7,14 +7,15 @@ type CheckboxProps = {
     secondary?: boolean
     id?: string
     bg?: string
+    style?: CSSProperties
+    className?: string
+    onChange?: (event) => void
 }
-
 type StyledCheckboxProps = {
     secondary?: boolean
     checked?: boolean
     background?: string
 }
-
 type IconProps = {
     secondary?: boolean
     checked?: boolean

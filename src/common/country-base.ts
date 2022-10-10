@@ -29,7 +29,7 @@ export const eu_countries = [
     'im',
     'gb',
     'mt',
-]
+] as const
 export const latam_countries = [
     'ag',
     'aw',
@@ -71,8 +71,7 @@ export const latam_countries = [
     'sr',
     'uy',
     've',
-]
-
+] as const
 const p2p_allowed_countries = [
     'af',
     'ag',
@@ -259,8 +258,7 @@ const p2p_allowed_countries = [
     'za',
     'zm',
     'zw',
-]
-
+] as const
 export const african_countries = [
     'dz',
     'ao',
@@ -318,11 +316,14 @@ export const african_countries = [
     'eh',
     'zm',
     'zw',
-]
-export const isEuCountry = (clients_country: string): boolean =>
+] as const
+
+type TEuCountries = typeof eu_countries[number]
+export const isEuCountry = (clients_country: TEuCountries): boolean =>
     eu_countries.includes(clients_country)
 
-export const isP2PAllowedCountry = (clients_country: string): boolean =>
+type TP2pCountries = typeof p2p_allowed_countries[number]
+export const isP2PAllowedCountry = (clients_country: TP2pCountries): boolean =>
     p2p_allowed_countries.includes(clients_country)
 
-export const isUK = (clients_country: string): boolean => clients_country === 'gb'
+export const isUK = (clients_country: 'gb'): boolean => clients_country === 'gb'

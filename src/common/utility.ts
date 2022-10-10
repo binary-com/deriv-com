@@ -128,10 +128,10 @@ export const sentenceCase = (input: string): string =>
 // This function is created to back traverse an array of style values
 export const responsiveFallback = (
     prop: string | string[],
-    start_from?: number,
+    start_from?: number | boolean,
     fallback?: number | 'auto',
 ): string | number | undefined => {
-    let index = start_from ?? prop?.length ?? 0
+    let index: number = (start_from as number) ?? prop?.length ?? 0
     while (prop && index > 0) {
         if (prop[index]) {
             return prop[index]

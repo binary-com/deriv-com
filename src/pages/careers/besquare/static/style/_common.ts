@@ -11,7 +11,7 @@ export const TextWrapper = styled(Text)<{ grid_area?: string }>`
     width: fit-content;
 
     @media ${device.tabletL} {
-        max-width: ${({ max_width }) => responsiveFallback(max_width)};
+        max-width: ${({ max_width }) => responsiveFallback(max_width, max_width?.length !== 2)};
         grid-area: ${({ grid_area }) => responsiveFallback(grid_area, 1)};
     }
 

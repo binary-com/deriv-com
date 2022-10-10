@@ -112,8 +112,8 @@ const Endpoint = () => {
     const resetEndpointSettings = (setStatus: (status?: unknown) => void) => {
         // reset local storage values
         setResetLoading(true)
-        setServerUrl(null)
-        setAppId(null)
+        setServerUrl()
+        setAppId()
         // adding the default storage values
         setTimeout(() => {
             setServerUrl(default_server_url)

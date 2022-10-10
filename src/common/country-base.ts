@@ -326,4 +326,4 @@ type TP2pCountries = typeof p2p_allowed_countries[number]
 export const isP2PAllowedCountry = (clients_country: TP2pCountries): boolean =>
     p2p_allowed_countries.includes(clients_country)
 
-export const isUK = (clients_country: 'gb'): boolean => clients_country === 'gb'
+export const isUK = (clients_country: string): boolean => clients_country === 'gb'

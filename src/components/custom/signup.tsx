@@ -150,7 +150,7 @@ const Signup = (props: SignupProps) => {
             const success_default_link = `signup-success?email=${email}`
             const link_with_language = `${getLanguage()}/${success_default_link}`
             const success_link = `/${
-                getLanguage() == 'en' ? success_default_link : link_with_language
+                getLanguage() === 'en' ? success_default_link : link_with_language
             }`
             navigate(success_link, { replace: true })
         }

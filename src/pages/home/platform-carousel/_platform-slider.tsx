@@ -118,12 +118,13 @@ const carouselOptions: EmblaOptionsType = {
 }
 
 const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
+    const { is_eu } = useCountryRule()
     const auto_play = useMemo(() => {
         return Autoplay({
             delay: PLATFORMS_CAROUSEL_DELAY,
-            playOnInit: platform_details?.length >= 3 ? true : false,
+            playOnInit: !is_eu,
         })
-    }, [platform_details?.length])
+    }, [is_eu])
 
     const [viewportRef, embla] = useEmblaCarousel(carouselOptions, [auto_play])
 

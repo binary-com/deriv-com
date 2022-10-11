@@ -92,15 +92,6 @@ const TextWrapper = styled(Text)`
         font-size: 18px;
     }
 `
-const LineDivider = styled.div`
-    bottom: 0;
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background: var(--color-grey-2);
-    z-index: 1;
-`
-
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
 
@@ -148,14 +139,14 @@ const tab_list_uk = [
     },
 ]
 
-const NavTab = ({ route_from, route_offset }: NavTabProps) => {
+const NavTab = ({ route_from }: NavTabProps) => {
     const { is_eu, is_uk } = useCountryRule()
     const ref = useRef(null)
 
     return (
         <TabsContainer>
             <TabList ref={ref}>
-                {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
+                {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item) => {
                     return (
                         <StyledLink to={item.route_to} key={item.tab_name}>
                             <TabButton selected={route_from == item.tab_name}>
@@ -164,7 +155,6 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
                         </StyledLink>
                     )
                 })}
-                <LineDivider />
             </TabList>
         </TabsContainer>
     )

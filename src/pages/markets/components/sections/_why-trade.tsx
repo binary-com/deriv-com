@@ -14,7 +14,6 @@ type WhyTradeProps = {
 const Item = styled(Flex)`
     max-width: 19rem;
     width: 100%;
-    gap: 24px;
 
     img {
         width: 48px;

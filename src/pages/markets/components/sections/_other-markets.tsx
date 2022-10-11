@@ -258,10 +258,6 @@ const StyledSectionContainer = styled(SectionContainer)`
     padding: 100px 0;
     margin: auto;
     background: #f9fbff;
-
-    @media ${device.tabletL} {
-        background: white;
-    }
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {

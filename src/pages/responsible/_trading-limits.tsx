@@ -244,7 +244,6 @@ const TradingLimits = () => {
                                 </Text>
                             )}
                         </div>
-                        <div></div>
                     </StyledContainer>
                 </ContentWrapperRight>
             </Flex>

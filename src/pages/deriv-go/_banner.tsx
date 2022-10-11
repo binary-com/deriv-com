@@ -221,7 +221,7 @@ const Banner = () => {
                                 laptopM={{ m: '7px 8px 48px' }}
                             >
                                 <AppButton
-                                    external="true"
+                                    external
                                     to={deriv_go_ios_url}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -229,7 +229,7 @@ const Banner = () => {
                                     <QueryImage data={data['app_store']} alt="app store logo" />
                                 </AppButton>
                                 <AppButton
-                                    external="true"
+                                    external
                                     to={deriv_go_playstore_url}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -237,7 +237,7 @@ const Banner = () => {
                                     <QueryImage data={data['google_play']} alt="google play logo" />
                                 </AppButton>
                                 <AppButton
-                                    external="true"
+                                    external
                                     to={deriv_go_huaweiappgallery_url}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -252,7 +252,7 @@ const Banner = () => {
                     </div>
                 </Flex>
                 <Mobile>
-                    <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
+                    <ButtonDerivGO secondary onClick={handleExternalLink}>
                         {localize('Download Deriv GO')}
                     </ButtonDerivGO>
                 </Mobile>

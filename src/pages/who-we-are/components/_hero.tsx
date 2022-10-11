@@ -7,7 +7,6 @@ import device from 'themes/device'
 import { localize } from 'components/localization'
 import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
 import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
-import { getWindowWidth } from 'common/utility'
 
 const query = graphql`
     query {
@@ -49,7 +48,12 @@ const MobileHeader = styled.h1`
     line-height: 94px;
     font-weight: bold;
 
+    @media ${device.tabletS} {
+        max-width: 300px;
+        width: 100%;
+    }
     @media ${device.mobileL} {
+        max-width: 210px;
         font-size: 64px;
         line-height: 1.25;
     }
@@ -88,16 +92,7 @@ const StyledMobileQueryImage = styled(QueryImage)`
 `
 const Hero = () => {
     const data = useStaticQuery(query)
-    const title =
-        getWindowWidth() > 576 ? (
-            localize('Who we are')
-        ) : (
-            <>
-                {localize('Who')}
-                <br></br>
-                {localize('we are')}
-            </>
-        )
+    const title = localize('Who we are')
 
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>

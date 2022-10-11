@@ -418,7 +418,7 @@ const P2PHomeBanner = () => {
                             <StyledBadge>
                                 <StyledTopBadge>
                                     <AppStoreTopBadge
-                                        external="true"
+                                        external
                                         to={p2p_applestore_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -429,7 +429,7 @@ const P2PHomeBanner = () => {
                                         />
                                     </AppStoreTopBadge>
                                     <AppStoreTopBadge
-                                        external="true"
+                                        external
                                         to={p2p_playstore_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -442,7 +442,7 @@ const P2PHomeBanner = () => {
                                 </StyledTopBadge>
                                 <StyledBottomBadge>
                                     <AppStoreBottomBadge
-                                        external="true"
+                                        external
                                         to={p2p_huawei_appgallery_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -459,7 +459,7 @@ const P2PHomeBanner = () => {
                             <StyledBadge>
                                 <StyledTopBadge>
                                     <AppStoreTopBadge
-                                        external="true"
+                                        external
                                         to={p2p_applestore_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -470,7 +470,7 @@ const P2PHomeBanner = () => {
                                         />
                                     </AppStoreTopBadge>
                                     <AppStoreTopBadge
-                                        external="true"
+                                        external
                                         to={p2p_playstore_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -481,7 +481,7 @@ const P2PHomeBanner = () => {
                                         />
                                     </AppStoreTopBadge>
                                     <AppStoreTopBadge
-                                        external="true"
+                                        external
                                         to={p2p_huawei_appgallery_url}
                                         target="_blank"
                                         rel="noopener noreferrer"

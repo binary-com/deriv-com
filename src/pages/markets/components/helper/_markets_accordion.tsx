@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLProps } from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
@@ -8,10 +8,8 @@ type StyledChevron = {
     is_show_detail: string
 }
 
-type MarketsAccordionProps = {
+type MarketsAccordionProps = HTMLProps<HTMLDivElement> & {
     renderTitle: () => JSX.Element
-    renderDetails: (custom_index?: number) => JSX.Element
-    custom_index?: number
 }
 
 const Wrapper = styled.div`
@@ -54,7 +52,7 @@ const Details = styled(Box)`
     }
 `
 
-const MarketsAccordion = ({ renderTitle, renderDetails, custom_index }: MarketsAccordionProps) => {
+const MarketsAccordion = ({ renderTitle, children }: MarketsAccordionProps) => {
     const [is_show_detail, setShow] = React.useState(false)
     return (
         <Wrapper>
@@ -70,11 +68,7 @@ const MarketsAccordion = ({ renderTitle, renderDetails, custom_index }: MarketsA
                     />
                 </Button>
             </Title>
-            {is_show_detail && (
-                <Details background="var(--color-grey-23)">
-                    {custom_index ? renderDetails(custom_index) : renderDetails()}
-                </Details>
-            )}
+            {is_show_detail && <Details background="var(--color-grey-23)">{children}</Details>}
         </Wrapper>
     )
 }

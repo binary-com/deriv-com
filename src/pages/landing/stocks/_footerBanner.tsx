@@ -175,7 +175,7 @@ const FooterBanner = ({
                             <StyledLinkButton
                                 id="dm-footerbanner-signup-1"
                                 type="submit"
-                                secondary="true"
+                                secondary
                                 to={is_ppc ? '/landing/signup/' : '/signup/'}
                             >
                                 {localize('Create a demo account')}

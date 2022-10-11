@@ -102,7 +102,7 @@ const SecureAccount = () => {
                                         <LocalizedLinkText
                                             key={0}
                                             type="deriv_app"
-                                            external="true"
+                                            external
                                             rel="noopener noreferrer"
                                             to="/account/two-factor-authentication"
                                             color="red"

@@ -161,9 +161,9 @@ const Numbers = () => {
                     })}
                 </Flex>
                 <StyledLinkButton
-                    secondary="true"
+                    secondary
+                    external
                     to="/cashier/p2p"
-                    external="true"
                     type="deriv_app"
                     target="_blank"
                     rel="noopener noreferrer"

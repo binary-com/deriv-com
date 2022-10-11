@@ -144,7 +144,7 @@ const Accounts = () => {
             <StyledLinkButton
                 external
                 type="derivx"
-                secondary="true"
+                secondary
                 target="_blank"
                 rel="nofollow noopener noreferrer"
             >

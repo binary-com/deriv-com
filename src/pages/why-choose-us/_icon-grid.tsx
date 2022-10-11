@@ -144,7 +144,7 @@ export const IconGrid = () => (
                                 key={1}
                                 to=""
                                 type="community"
-                                external="true"
+                                external
                                 target="_blank"
                                 rel="noopener noreferrer"
                             />,

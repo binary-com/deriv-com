@@ -16,7 +16,7 @@ const NeedSignUp = () => (
                     <LocalizedLinkText
                         id="dm-binary-login-link-3"
                         key={0}
-                        external="true"
+                        external
                         to="home"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -37,7 +37,7 @@ const BinaryRemoved = () => (
                 components={[
                     <LocalizedLinkText
                         key={0}
-                        external="true"
+                        external
                         to="home"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -59,7 +59,7 @@ const DerivSecure = () => (
                 components={[
                     <LocalizedLinkText
                         key={0}
-                        external="true"
+                        external
                         to="home"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -82,7 +82,7 @@ const OtherChanges = () => (
                     <LocalizedLinkText key={0} to="/" weight="bold" />,
                     <LocalizedLinkText
                         key={1}
-                        external="true"
+                        external
                         to="home"
                         target="_blank"
                         rel="noopener noreferrer"

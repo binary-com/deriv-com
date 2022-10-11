@@ -6,6 +6,14 @@ import type { TPlatformDetails } from './_utils'
 import { Flex } from 'components/containers'
 import { QueryImage, StyledLink } from 'components/elements'
 
+const StyledFlex = styled(Flex)`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 630px;
+    margin-bottom: 20px;
+`
 const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
@@ -76,20 +84,26 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
                 />
             </Flex>
             <Flex>
-                {selected_platform?.download_links?.map((link, index) => {
-                    return (
-                        <DownloadLink
-                            key={index}
-                            external="true"
-                            type={link?.link_type}
-                            to={link?.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src={getOSIcon(link.type)} alt="platform icon" loading="lazy" />
-                        </DownloadLink>
-                    )
-                })}
+                <StyledFlex>
+                    {selected_platform?.download_links.is_desktop?.map((link, index) => {
+                        return (
+                            <DownloadLink
+                                key={link.type}
+                                external
+                                type={link?.link_type}
+                                to={link?.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src={getOSIcon(link.type)}
+                                    alt="platform icon"
+                                    loading="lazy"
+                                />
+                            </DownloadLink>
+                        )
+                    })}
+                </StyledFlex>
             </Flex>
         </Flex>
     )

@@ -163,7 +163,7 @@ const FooterBanner = () => {
                             </StyledSubTitle>
                         </Desktop>
                         <Mobile>
-                            <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
+                            <ButtonDerivGO secondary onClick={handleExternalLink}>
                                 {localize('Download Deriv GO')}
                             </ButtonDerivGO>
                         </Mobile>

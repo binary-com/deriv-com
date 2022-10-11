@@ -59,12 +59,7 @@ const PartnerCTA = () => {
                     <Text align="center" color="white" mt="0.8rem">
                         {localize('The Deriv affiliate management team is here to help.')}
                     </Text>
-                    <LightButton
-                        external="true"
-                        to="mailto:affiliates@deriv.com"
-                        tertiary
-                        is_mail_link
-                    >
+                    <LightButton external to="mailto:affiliates@deriv.com" tertiary is_mail_link>
                         {localize('Contact us')}
                     </LightButton>
                 </Flex>
@@ -78,7 +73,7 @@ const PartnerCTA = () => {
                         id="dm-cta-affiliate-signup"
                         mt="2rem"
                         to={affiliate_signup_url}
-                        external="true"
+                        external
                         target="_blank"
                         type="affiliate_sign_up"
                         secondary

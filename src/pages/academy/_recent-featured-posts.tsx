@@ -263,7 +263,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                     </Tabs.Panel>
                 )}
             </StyledTabs>
-            <AllArticleButton tertiary="true" to="/academy/blog/">
+            <AllArticleButton tertiary to="/academy/blog/">
                 {localize('See all articles')}
             </AllArticleButton>
         </StyledContainer>

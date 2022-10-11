@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import type { EmblaOptionsType } from 'embla-carousel-react'
@@ -9,6 +9,7 @@ import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const SelectedZone = styled(Flex)`
     left: 0;
@@ -116,9 +117,14 @@ const carouselOptions: EmblaOptionsType = {
     draggable: false,
 }
 
-const auto_play = Autoplay({ delay: PLATFORMS_CAROUSEL_DELAY })
-
 const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
+    const auto_play = useMemo(() => {
+        return Autoplay({
+            delay: PLATFORMS_CAROUSEL_DELAY,
+            playOnInit: platform_details?.length >= 3 ? true : false,
+        })
+    }, [platform_details?.length])
+
     const [viewportRef, embla] = useEmblaCarousel(carouselOptions, [auto_play])
 
     useEffect(() => {
@@ -135,7 +141,7 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
         if (embla) {
             embla.reInit(carouselOptions, [auto_play])
         }
-    }, [embla, platform_details])
+    }, [embla, platform_details, auto_play])
 
     const scrollHandler = useCallback(
         (index) => {

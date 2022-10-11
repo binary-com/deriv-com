@@ -166,21 +166,25 @@ const CreateVariables = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <StyledList listStyle="decimal" paddingLeft="2rem">
             <StyledListItem marginTop="0">
-                <Localize
-                    translate_text={
-                        'Under the <0>Blocks</0> menu, go to <0>Utility > Variables.</0>'
-                    }
-                    components={[<strong key={0} />]}
-                />
+                <Text>
+                    <Localize
+                        translate_text={
+                            'Under the <0>Blocks</0> menu, go to <0>Utility > Variables.</0>'
+                        }
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.8rem">
-                <Localize
-                    translate_text="Enter a name for your variable, and hit <0>Create</0>. New blocks containing your new variable will appear below."
-                    components={[<strong key={0} />]}
-                />
+                <Text>
+                    <Localize
+                        translate_text="Enter a name for your variable, and hit <0>Create</0>. New blocks containing your new variable will appear below."
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.8rem">
-                {localize('Choose the block you want and drag it to the workspace.')}
+                <Text>{localize('Choose the block you want and drag it to the workspace.')}</Text>
             </StyledListItem>
         </StyledList>
     </ArticleWrapper>
@@ -214,35 +218,43 @@ const QuickStrategy = ({ text }: ArticleProps) => (
         </Text>
         <StyledList listStyle="decimal" paddingLeft="2.5rem">
             <StyledListItem marginTop="1.8rem">
-                <Localize
-                    translate_text={'Go to Quick strategy and select the strategy you want.'}
-                    components={[<strong key={0} />]}
-                />
+                <Text>
+                    <Localize
+                        translate_text={'Go to Quick strategy and select the strategy you want.'}
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="1.4rem">
-                {localize('Select the asset and trade type.')}
+                <Text>{localize('Select the asset and trade type.')}</Text>
             </StyledListItem>
             <StyledListItem marginTop="1.4rem">
-                <Localize
-                    translate_text={'Set your trade parameters and hit <0>Create</0>.'}
-                    components={[<strong key={0} />]}
-                />
+                <Text>
+                    <Localize
+                        translate_text={'Set your trade parameters and hit <0>Create</0>.'}
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="1.4rem">
-                <Localize
-                    translate_text={
-                        'Once the blocks are loaded onto the workspace, tweak the parameters if you want, or hit <0>Run</0> to start trading'
-                    }
-                    components={[<strong key={0} />]}
-                />
+                <Text>
+                    <Localize
+                        translate_text={
+                            'Once the blocks are loaded onto the workspace, tweak the parameters if you want, or hit <0>Run</0> to start trading'
+                        }
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="1.4rem">
-                <Localize
-                    translate_text={
-                        'Hit <0>Save</0> to download your bot. You can choose to download your bot to your device or your Google Drive.'
-                    }
-                    components={[<strong key={0} />]}
-                />
+                <Text>
+                    <Localize
+                        translate_text={
+                            'Hit <0>Save</0> to download your bot. You can choose to download your bot to your device or your Google Drive.'
+                        }
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
             </StyledListItem>
         </StyledList>
     </ArticleWrapper>
@@ -275,21 +287,25 @@ const ImportStrategy = ({ text }: ArticleProps) => (
         </Text>
         <StyledList listStyle="decimal" paddingLeft="2.3rem">
             <StyledListItem marginTop="1.4rem">
-                <Localize
-                    translate_text={
-                        'After hitting <0>Import</0>, select <0>Local</0> and click <0>Continue</0>.'
-                    }
-                    components={[<strong key={0} />]}
-                />
+                <Text>
+                    <Localize
+                        translate_text={
+                            'After hitting <0>Import</0>, select <0>Local</0> and click <0>Continue</0>.'
+                        }
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="1.4rem">
-                <Localize
-                    translate_text={'Select your XML file and hit <0>Open</0>.'}
-                    components={[<strong key={0} />]}
-                />
+                <Text>
+                    <Localize
+                        translate_text={'Select your XML file and hit <0>Open</0>.'}
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="1.4rem">
-                {localize('Your bot will be loaded accordingly.')}
+                <Text>{localize('Your bot will be loaded accordingly.')}</Text>
             </StyledListItem>
         </StyledList>
 
@@ -299,21 +315,25 @@ const ImportStrategy = ({ text }: ArticleProps) => (
 
         <StyledList listStyle="decimal" paddingLeft="2.3rem">
             <StyledListItem marginTop="1.4rem">
-                <Localize
-                    translate_text={
-                        'After hitting <0>Import</0>, select <0>Google Drive</0> and click <0>Continue</0>.'
-                    }
-                    components={[<strong key={0} />]}
-                />
+                <Text>
+                    <Localize
+                        translate_text={
+                            'After hitting <0>Import</0>, select <0>Google Drive</0> and click <0>Continue</0>.'
+                        }
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="1.4rem">
-                <Localize
-                    translate_text={'Select your XML file and hit <0>Select</0>.'}
-                    components={[<strong key={0} />]}
-                />
+                <Text>
+                    <Localize
+                        translate_text={'Select your XML file and hit <0>Select</0>.'}
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="1.4rem">
-                {localize('Your bot will be loaded accordingly.')}
+                <Text>{localize('Your bot will be loaded accordingly.')}</Text>
             </StyledListItem>
         </StyledList>
     </ArticleWrapper>

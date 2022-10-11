@@ -3,8 +3,7 @@ import styled, { css } from 'styled-components'
 import { Text, Header } from './typography'
 import device, { size } from 'themes/device'
 import { getWindowWidth } from 'common/utility'
-import { Box } from 'components/containers'
-import { Desktop } from 'components/containers/visibility'
+import { Box, Desktop } from 'components/containers'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 
 type TabsStyledProps = {

@@ -2,12 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import { Desktop, Mobile } from 'components/containers/visibility'
 
 const query = graphql`
     query {

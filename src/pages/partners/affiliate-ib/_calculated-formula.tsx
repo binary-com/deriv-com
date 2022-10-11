@@ -20,7 +20,7 @@ import {
     PointerText,
     PointerTextMobile,
 } from './_style'
-import { Desktop, Mobile } from 'components/containers/visibility'
+import { Desktop, Mobile } from 'components/containers'
 
 const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
     const itemList = data.list

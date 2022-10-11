@@ -40,7 +40,7 @@ import {
     StyledSection,
 } from '../common/_style'
 import { localize, Localize } from 'components/localization'
-import { Flex } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import {
     Accordion,
     AccordionItem,
@@ -54,7 +54,6 @@ import {
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
-import { Desktop, Mobile } from 'components/containers/visibility'
 
 const MarginCalculator = () => {
     const query = graphql`

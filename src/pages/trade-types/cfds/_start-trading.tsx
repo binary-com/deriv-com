@@ -5,7 +5,7 @@ import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
 import { DerivStore, DerivStoreType } from 'store'
-import { Desktop, Mobile } from 'components/containers/visibility'
+import { Desktop, Mobile } from 'components/containers'
 
 const StartTrading = () => {
     const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SmallContainer } from './_style'
-import { Mobile } from 'components/containers/visibility'
+import { Mobile } from 'components/containers'
 import { Carousel } from 'components/elements'
 import device from 'themes/device'
 

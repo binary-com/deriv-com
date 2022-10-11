@@ -1,9 +1,8 @@
 import React, { useEffect, ReactElement } from 'react'
 import styled, { css, keyframes } from 'styled-components'
-import { Flex } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
-import { Desktop, Mobile } from 'components/containers/visibility'
 
 const TabContent = styled.div`
     flex: 1;

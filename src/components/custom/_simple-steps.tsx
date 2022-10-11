@@ -3,12 +3,11 @@ import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Header, Text } from 'components/elements'
-import { Container, SectionContainer, Flex } from 'components/containers'
+import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
 import device from 'themes/device'
 import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { Desktop, Mobile } from 'components/containers/visibility'
 
 type SimpleStepsProps = {
     content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactNode }[]

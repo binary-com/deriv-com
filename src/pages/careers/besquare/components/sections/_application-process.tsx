@@ -11,7 +11,7 @@ import {
 } from '../../static/style/_application-process'
 import { TextWrapper, Title } from '../../static/style/_common'
 import { Line01, Line02 } from '../../static/images/_application-process'
-import { Mobile } from 'components/containers/visibility'
+import { Mobile } from 'components/containers'
 
 const StyledMobile = styled(Mobile)`
     margin: 16px auto;

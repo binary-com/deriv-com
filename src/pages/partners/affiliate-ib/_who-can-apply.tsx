@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Container } from 'components/containers'
-import { Desktop } from 'components/containers/visibility'
+import { SectionContainer, Container, Desktop } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'

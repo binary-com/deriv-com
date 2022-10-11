@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { NavPlatform, NavCompany, NavResources, NavMarket } from 'components/custom/other-platforms'
-import { Container, Flex } from 'components/containers'
-import { Desktop } from 'components/containers/visibility'
+import { Container, Flex, Desktop } from 'components/containers'
 
 type PlatformsDropdownProps = {
     active_dropdown?: string

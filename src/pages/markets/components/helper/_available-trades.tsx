@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import AvailableTradesMobile from './_available-trades_mobile'
 import AvailableTradesDesktop from './_available-trades_desktop'
-import { Desktop, Mobile } from 'components/containers/visibility'
+import { Desktop, Mobile } from 'components/containers'
 
 type AvailableTradesProps = {
     CFDs: ReactElement

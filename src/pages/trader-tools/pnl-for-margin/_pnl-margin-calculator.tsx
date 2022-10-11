@@ -43,7 +43,6 @@ import {
     StyledSection,
     SwapTabSelector,
 } from '../common/_style'
-import { Desktop, Mobile } from 'components/containers/visibility'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
@@ -53,7 +52,7 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
-import { Flex } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 

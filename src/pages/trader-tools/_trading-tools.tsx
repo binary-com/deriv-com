@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { isIndexEven } from 'common/utility'
-import { Container, SectionContainer, Flex } from 'components/containers'
+import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
-import { Desktop, Mobile } from 'components/containers/visibility'
 
 type ToolsType = {
     title: JSX.Element

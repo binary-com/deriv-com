@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Flex } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
-import { Desktop, Mobile } from 'components/containers/visibility'
 
 const TabContent = styled.div`
     flex: 1;

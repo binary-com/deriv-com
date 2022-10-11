@@ -10,7 +10,7 @@ import {
     TextContainer,
 } from '../../static/style/_faq'
 import { Accordion, AccordionItem } from 'components/elements'
-import { Desktop } from 'components/containers/visibility'
+import { Desktop } from 'components/containers'
 import Vector from 'images/svg/be-square/vector.svg'
 
 const FAQ = () => {

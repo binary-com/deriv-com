@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
 import { StyledLinkButton } from './_trading-cfd-increases'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import { Desktop, Mobile } from 'components/containers/visibility'
 
 const query = graphql`
     query {

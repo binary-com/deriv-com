@@ -52,11 +52,10 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
-import { Flex } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
-import { Desktop, Mobile } from 'components/containers/visibility'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]

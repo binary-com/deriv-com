@@ -130,6 +130,22 @@ const YourCssStyle = styled.div`
 
 to configure responsiveness based on JS changes or different component render, you can use `Desktop or Mobile` component in `/containers` directory
 
+Usage example (chain):
+
+```js
+import { Desktop,Mobile } from 'components/containers'
+
+const Example = () => (
+    <div>
+        <h1>Device Test!</h1>
+        <Desktop minDeviceWidth={size.tabletL} device={{ deviceWidth: size.desktopS }}>
+            you are desktop
+        </Desktop>
+        <Mobile>you are mobile</Show.Mobile>
+    </div>
+)
+```
+
 Usage example (with components):
 
 ```js
@@ -138,7 +154,7 @@ import { Desktop, Mobile } from 'components/containers'
 const Example = () => (
     <div>
         <h1>Device Test!</h1>
-        <Desktop minDeviceWidth={size.tabletL} device={{ deviceWidth: size.desktopS }}>
+        <Desktop breakpoint={size.tabletL} className="any-classname">
             you are desktop
         </Desktop>
         <Mobile>you are mobile</Mobile>

@@ -208,7 +208,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
                 "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind.",
             )}
         </Text>
-        <Text mt="4rem">
+        <Text mt="2rem">
             <strong>{localize('Using a quick strategy')}</strong>
         </Text>
         <StyledList listStyle="decimal" paddingLeft="2.5rem">
@@ -277,8 +277,8 @@ const ImportStrategy = ({ text }: ArticleProps) => (
                 'Just drag the XML file from your computer onto the workspace, and your bot will be loaded accordingly. Alternatively, you can hit Import in Bot Builder, and choose to import your bot from your computer or from your Google Drive.',
             )}
         </Text>
-        <Text mt="4rem">
-            <strong>{localize('Importing from your computer')}</strong>
+        <Text mt="2rem">
+            <strong>{localize('Import from your computer')}</strong>
         </Text>
         <StyledList listStyle="decimal" paddingLeft="2.3rem">
             <StyledListItem marginTop="1.4rem">

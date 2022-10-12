@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Article, ArticleProps } from './_article'
-import { ArticleWrapper, StyledHeader, StyledText, ExternalLink } from './_help-centre-style'
+import { ArticleWrapper, StyledHeader } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { Text } from 'components/elements'
+import { Text, LinkText } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 // Images
@@ -62,11 +62,6 @@ const StyledTable = styled.table<ArticleProps>`
     border-collapse: collapse;
     width: 100%;
     margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
-`
-const StyledLink = styled(ExternalLink)`
-    @media ${device.tabletL} {
-        font-size: 16px;
-    }
 `
 
 const StyledListItem = styled.li<{ marginTop: string }>`
@@ -133,13 +128,13 @@ const FindBlocks = ({ text }: ArticleProps) => (
             <Localize
                 translate_text="For more info, <0>check out this blog post</0> on the basics of building a trading bot."
                 components={[
-                    <StyledLink
-                        to="/academy/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/"
+                    <LinkText
+                        href="/academy/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/"
                         target="_blank"
                         external
-                        weight="bold"
                         rel="noopener noreferrer"
                         key={0}
+                        color="red"
                     />,
                 ]}
             />
@@ -193,7 +188,7 @@ const CreateVariables = ({ text }: ArticleProps) => (
 const PreBuilt = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text width="110%">
+        <Text>
             <Localize
                 translate_text={
                     "Yes, you can get started with a pre-built bot using the <0>Quick strategy</0> feature. You’ll find some of the most popular trading strategies here: Martingale, D'Alembert, and Oscar's Grind. Grind. Just select the strategy, enter your trade parameters, and your bot will be created for you. You can always tweak the parameters later."
@@ -208,7 +203,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4" width="65%">
             {text}
         </StyledHeader>
-        <Text max-width="110%">
+        <Text>
             {localize(
                 "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind.",
             )}
@@ -263,7 +258,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
 const SaveStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text max-width="110%">
+        <Text>
             <Localize
                 translate_text={
                     'In <0>Bot</0> Builder, hit <0>Save</0> on the toolbar at the top to download your bot. Give your bot a name, and choose to download your bot to your device or Google Drive. Your bot will be downloaded as an XML file.'
@@ -277,7 +272,7 @@ const SaveStrategy = ({ text }: ArticleProps) => (
 const ImportStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text max-width="88%">
+        <Text>
             {localize(
                 'Just drag the XML file from your computer onto the workspace, and your bot will be loaded accordingly. Alternatively, you can hit Import in Bot Builder, and choose to import your bot from your computer or from your Google Drive.',
             )}
@@ -509,12 +504,20 @@ const ControlLosses = ({ text }: ArticleProps) => (
 const MultipleTabs = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text width="110%">
+        <Text>
             <Localize
-                translate_text={
-                    'Yes, you can. However, there are limits on your account, such as maximum number of open positions and maximum aggregate payouts on open positions. So, just keep these limits in mind when opening multiple positions. You can find more info about these limits at <0>Settings > Account limits</0>.'
-                }
-                components={[<strong key={0} />]}
+                translate_text="Yes, you can. However, there are limits on your account, such as maximum number of open positions and maximum aggregate payouts on open positions. So, just keep these limits in mind when opening multiple positions. You can find more info about these limits at <0>Settings > Account limits</0>."
+                components={[
+                    <LinkText
+                        href="https://app.deriv.com/account/account-limits"
+                        target="_blank"
+                        external
+                        style={{ fontWeight: 'Unset' }}
+                        rel="noopener noreferrer"
+                        key={0}
+                        color="red"
+                    />,
+                ]}
             />
         </Text>
     </ArticleWrapper>
@@ -523,7 +526,7 @@ const MultipleTabs = ({ text }: ArticleProps) => (
 const Cryptocurrencies = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text width="110%">
+        <Text>
             <Localize
                 translate_text={"No, we don't offer cryptocurrencies on DBot."}
                 components={[<strong key={0} />]}
@@ -535,7 +538,7 @@ const Cryptocurrencies = ({ text }: ArticleProps) => (
 const SellTradingBots = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text max-width="120%">
+        <Text>
             {localize(
                 "No, we don't. However, you'll find quick strategies on DBot that'll help you build your own trading bot for free.",
             )}
@@ -550,13 +553,14 @@ const DbotAvailableCountries = ({ text }: ArticleProps) => (
             <Localize
                 translate_text="We offer our services in all countries, except for the ones <0>mentioned in our terms and conditions</0>."
                 components={[
-                    <StyledLink
-                        to="/tnc/general-terms.pdf"
+                    <LinkText
+                        href="/tnc/general-terms.pdf"
                         target="_blank"
                         external
                         style={{ fontWeight: 'Unset' }}
                         rel="noopener noreferrer"
                         key={0}
+                        color="red"
                     />,
                 ]}
             />
@@ -573,7 +577,7 @@ const CloseBrowser = ({ text }: ArticleProps) => (
 const PopularSTrategies = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text max-width="115%">
+        <Text>
             {localize(
                 "Three of the most commonly used strategies in automated trading are Martingale, D'Alembert, and Oscar's Grind — you can find them already-made and waiting for you in DBot.",
             )}
@@ -588,21 +592,23 @@ const BuildTradingBot = ({ text }: ArticleProps) => (
             <Localize
                 translate_text="<0>Watch this video</0> to learn how to build a trading bot on DBot. Also, <1>check out this blog post</1> on building a trading bot."
                 components={[
-                    <StyledLink
-                        to="https://www.youtube.com/watch?v=QdI5zCkO4Gk&t=203s"
+                    <LinkText
+                        href="https://www.youtube.com/watch?v=QdI5zCkO4Gk&t=203s"
                         target="_blank"
                         external
                         style={{ fontWeight: 'Unset' }}
                         rel="noopener noreferrer"
                         key={0}
+                        color="red"
                     />,
-                    <StyledLink
-                        to="/academy/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/"
+                    <LinkText
+                        href="/academy/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/"
                         target="_blank"
                         external
                         style={{ fontWeight: 'Unset' }}
                         rel="noopener noreferrer"
                         key={1}
+                        color="red"
                     />,
                 ]}
             />

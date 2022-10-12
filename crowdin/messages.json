@@ -2043,6 +2043,7 @@
   "-1739325003": "Logic block",
   "-484325406": "3. Update <0>currentPL</0> with the profit from the last contract. If the last contract was lost, the value of <0>currentPL</0> will be negative.",
   "-148855952": "Update currentPL",
+  "-1823467206": "Yes, you can. However, there are limits on your account, such as maximum number of open positions and maximum aggregate payouts on open positions. So, just keep these limits in mind when opening multiple positions. You can find more info about these limits at <0>Settings > Account limits</0>.",
   "-1353036415": "No, we don't. However, you'll find quick strategies on DBot that'll help you build your own trading bot for free.",
   "-1529254446": "We offer our services in all countries, except for the ones <0>mentioned in our terms and conditions</0>.",
   "-1086244340": "Three of the most commonly used strategies in automated trading are Martingale, D'Alembert, and Oscar's Grind — you can find them already-made and waiting for you in DBot.",

@@ -147,6 +147,7 @@ const ContentWrapper = styled.div`
 
     @media ${device.tabletL} {
         padding: 0 2rem;
+        box-shadow: none;
     }
 `
 

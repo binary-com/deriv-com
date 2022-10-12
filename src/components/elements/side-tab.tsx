@@ -172,8 +172,9 @@ const SideTab = ({
     const Tabs = (props) => {
         return children.map((child, idx) => {
             const { label, text, onClick } = child.props
+
             return (
-                <div key={idx}>
+                <div key={text ?? idx}>
                     <Tab
                         font_size={font_size}
                         mobile={props.is_mobile}

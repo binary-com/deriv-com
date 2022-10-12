@@ -906,7 +906,7 @@ export const articles: ArcticlesType[] = [
                 title: <Localize translate_text="Do you offer pre-built trading bots on DBot?" />,
                 category: 'DBot',
                 sub_category: <Localize translate_text="Strategy" />,
-                label: 'pre-built',
+                label: 'pre-built-strategy',
             },
             {
                 title: <Localize translate_text="What is a quick strategy?" />,
@@ -950,47 +950,47 @@ export const articles: ArcticlesType[] = [
                 ),
                 category: 'DBot',
                 sub_category: <Localize translate_text="How to trade" />,
-                label: 'mutilple-tabs',
+                label: 'trade-in-multiple-tabs',
             },
             {
                 title: <Localize translate_text="Can I trade cryptocurrencies on DBot?" />,
                 category: 'DBot',
-                sub_category: <Localize translate_text="cryptocurrencies" />,
+                sub_category: <Localize translate_text="Cryptocurrencies" />,
                 label: 'cryptocurrencies',
             },
             {
                 title: <Localize translate_text="Do you sell trading bots?" />,
                 category: 'DBot',
-                sub_category: <Localize translate_text="trading bot" />,
-                label: 'sell_trading_bots',
+                sub_category: <Localize translate_text="Trading Bot" />,
+                label: 'sell-trading-bots',
             },
             {
                 title: <Localize translate_text="In which countries is DBot available?" />,
                 category: 'DBot',
-                sub_category: <Localize translate_text="Logs" />,
-                label: 'Countires_offering_bot',
+                sub_category: <Localize translate_text="Available countries" />,
+                label: 'Countries-offering-bot',
             },
             {
                 title: (
                     <Localize translate_text="If I close my web browser, will DBot continue to run?" />
                 ),
                 category: 'DBot',
-                sub_category: <Localize translate_text="Logs" />,
-                label: 'close_browser',
+                sub_category: <Localize translate_text="Close Browser" />,
+                label: 'close-browser',
             },
             {
                 title: (
                     <Localize translate_text="What are the most popular strategies for automated trading?" />
                 ),
                 category: 'DBot',
-                sub_category: <Localize translate_text="Popular strategies" />,
-                label: 'popular_strategies',
+                sub_category: <Localize translate_text="Popular Strategies" />,
+                label: 'popular-strategies',
             },
             {
                 title: <Localize translate_text="How do I build a trading bot?" />,
                 category: 'DBot',
-                sub_category: <Localize translate_text="Build trading bot" />,
-                label: 'build_trading_bot',
+                sub_category: <Localize translate_text="Build Trading Bot" />,
+                label: 'build-trading-bot',
             },
         ],
     },

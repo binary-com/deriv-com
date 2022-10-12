@@ -645,7 +645,7 @@ const DBotArticle = () => {
                 />
                 <PreBuilt
                     text={localize('Do you offer pre-built trading bots on DBot?')}
-                    label="pre-built"
+                    label="pre-built-strategy"
                     is_mounted={is_mounted}
                 />
                 <QuickStrategy
@@ -680,7 +680,7 @@ const DBotArticle = () => {
                 />
                 <MultipleTabs
                     text={localize('Can I run DBot on multiple tabs in my web browser?')}
-                    label="multiple-tabs"
+                    label="trade-in-multiple-tabs"
                     is_mounted={is_mounted}
                 />
                 <Cryptocurrencies
@@ -690,27 +690,27 @@ const DBotArticle = () => {
                 />
                 <SellTradingBots
                     text={localize('Do you sell trading bots?')}
-                    label="sell_trading_bots"
+                    label="sell-trading-bots"
                     is_mounted={is_mounted}
                 />
                 <DbotAvailableCountries
                     text={localize('In which countries is DBot available?')}
-                    label="Countires_offering_bot"
+                    label="Countries-offering-bot"
                     is_mounted={is_mounted}
                 />
                 <CloseBrowser
                     text={localize('If I close my web browser, will DBot continue to run?')}
-                    label="close_browser"
+                    label="close-browser"
                     is_mounted={is_mounted}
                 />
                 <PopularSTrategies
                     text={localize('What are the most popular strategies for automated trading?')}
-                    label="popular_strategies"
+                    label="popular-strategies"
                     is_mounted={is_mounted}
                 />
                 <BuildTradingBot
                     text={localize('How do I build a trading bot?')}
-                    label="build_trading_bot"
+                    label="build-trading-bot"
                     is_mounted={is_mounted}
                 />
             </Article>

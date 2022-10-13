@@ -368,12 +368,12 @@ export const paris: LocationsType = {
         "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
-    map: 'ChIJ71ubXstv5kcRgI6dxotwI4Y',
+    map: 'ChIJGfkBiTBu5kcRK2m0KBW8x0Q',
     map_text:
         'Deriv (France) is the heart of our research and development. We have an elite think tank in this centre that helps create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
     address: address_france,
     map_img: 'paris_map',
-    google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
+    google_map_link: 'https://goo.gl/maps/5xvdS7tvZM7kKkDK8',
     has_iframe: true,
     has_map: true,
 }

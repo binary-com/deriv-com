@@ -77,7 +77,7 @@ const ClientCard = styled.article`
     background-color: var(--color-white);
     border-radius: 4px;
     box-shadow: 0 22px 20px 0 rgba(14, 14, 14, 0.1);
-    width: 38.4rem;
+    max-width: 40rem;
     padding: 3.2rem 2.4rem 4rem;
     position: relative;
     height: 176px;

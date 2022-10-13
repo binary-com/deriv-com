@@ -81,14 +81,13 @@ const ArticleSectionComponent = ({
 }: ArticleSectionComponentProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const { platform } = usePlatformQueryParam()
-    console.log(articles)
 
     return (
         <ArticleSection>
             <SectionName>{section_name}</SectionName>
             <HorizontalLine />
             <RowDiv>
-                {articles.map((item, idx) => {
+                {articles.map((item) => {
                     if (
                         is_eu_country &&
                         (item.category.props.translate_text === 'Deriv X' ||

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import { Localize } from 'components/localization'
 import { Flex } from 'components/containers'
@@ -18,7 +19,6 @@ type DHeroProps = {
     go_to_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean | string
-    is_logged_in: boolean
     hide_signup_login?: boolean
     join_us_for_free?: boolean
     Logo?: string
@@ -251,7 +251,6 @@ const DHero = ({
     content,
     image_name,
     join_us_for_free,
-    is_logged_in,
     go_to_live_demo,
     Logo,
 }: DHeroProps) => {
@@ -259,6 +258,7 @@ const DHero = ({
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
     const { is_eu } = useCountryRule()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <Wrapper>

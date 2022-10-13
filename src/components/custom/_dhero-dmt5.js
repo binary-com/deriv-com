@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import { localize, Localize } from 'components/localization'
 import { Flex } from 'components/containers'
@@ -149,12 +150,12 @@ const DHero = ({
     content,
     image_name,
     join_us_for_free,
-    is_logged_in,
     go_to_live_demo,
     Logo,
 }) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <Wrapper>
@@ -206,7 +207,6 @@ DHero.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     image_name: PropTypes.string,
-    is_logged_in: PropTypes.bool,
     is_mobile: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

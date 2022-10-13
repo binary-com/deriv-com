@@ -82,6 +82,61 @@ const AccordionWrapper = styled.div`
         margin: 0 16px;
     }
 `
+const parent_style = {
+    marginBottom: '2.4rem',
+}
+const item_style = {
+    padding: '4rem',
+    background: 'rgba(133, 147, 164, 0.08)',
+}
+const header_style = {
+    padding: '1.6rem 4rem',
+    border: 'none',
+    borderRadius: '8px',
+    position: 'relative',
+    boxShadow: '0 4px 8px 0 rgba(14, 14, 14, 0.1)',
+}
+
+type TFaqContent = {
+    deriv_affiliate: {
+        header: string
+        component: React.ReactElement
+        test_classname_id: string
+    }[]
+    deriv_ib: { header: string; component: React.ReactElement; test_classname_id: string }[]
+}
+const faq_content: TFaqContent = {
+    deriv_affiliate: [
+        {
+            header: 'General',
+            component: <AffiliateGeneral />,
+            test_classname_id: 'general-affiliate',
+        },
+        {
+            header: 'Account management',
+            component: <AffiliateAccountManagement />,
+            test_classname_id: 'account-management-affiliate',
+        },
+        {
+            header: 'Referral tools',
+            component: <AffiliateReferralTools />,
+            test_classname_id: 'referal-tools-affiliate',
+        },
+    ],
+    deriv_ib: [
+        { header: 'General', component: <IBGeneral />, test_classname_id: 'general-ib' },
+        {
+            header: 'Account management',
+            component: <IBAccountManagement />,
+            test_classname_id: 'account-management-ib',
+        },
+        {
+            header: 'Referral tools',
+            component: <IBReferralTools />,
+            test_classname_id: 'referal-tools-ib',
+        },
+    ],
+}
 
 const StyledAccordionWrapper = styled(AccordionWrapper)`
     p,
@@ -91,20 +146,6 @@ const StyledAccordionWrapper = styled(AccordionWrapper)`
     }
 `
 const Faq = () => {
-    const parent_style = {
-        marginBottom: '2.4rem',
-    }
-    const item_style = {
-        padding: '4rem',
-        background: 'rgba(133, 147, 164, 0.08)',
-    }
-    const header_style = {
-        padding: '1.6rem 4rem',
-        border: 'none',
-        borderRadius: '8px',
-        position: 'relative',
-        boxShadow: '0 4px 8px 0 rgba(14, 14, 14, 0.1)',
-    }
     return (
         <RelativeContainer>
             <FaqHeader as="h2" size="4.8rem" align="center">
@@ -119,35 +160,23 @@ const Faq = () => {
             >
                 {localize('Deriv Affiliate Programme')}
             </FaqSubHeader>
-            <StyledAccordionWrapper>
+            <StyledAccordionWrapper id="faq-list">
                 <Accordion has_single_state>
-                    <AccordionItem
-                        header={localize('General')}
-                        parent_style={parent_style}
-                        header_style={header_style}
-                        style={item_style}
-                        plus
-                    >
-                        {<AffiliateGeneral />}
-                    </AccordionItem>
-                    <AccordionItem
-                        header={localize('Account management')}
-                        parent_style={parent_style}
-                        header_style={header_style}
-                        style={item_style}
-                        plus
-                    >
-                        {<AffiliateAccountManagement />}
-                    </AccordionItem>
-                    <AccordionItem
-                        header={localize('Referral tools')}
-                        parent_style={parent_style}
-                        header_style={header_style}
-                        style={item_style}
-                        plus
-                    >
-                        {<AffiliateReferralTools />}
-                    </AccordionItem>
+                    {faq_content.deriv_affiliate.map((item) => {
+                        return (
+                            <AccordionItem
+                                key={item.test_classname_id}
+                                header={localize(`${item.header}`)}
+                                parent_style={parent_style}
+                                header_style={header_style}
+                                style={item_style}
+                                test_classname_id={item.test_classname_id}
+                                plus
+                            >
+                                {item.component}
+                            </AccordionItem>
+                        )
+                    })}
                 </Accordion>
             </StyledAccordionWrapper>
             <FaqSubHeader
@@ -161,33 +190,21 @@ const Faq = () => {
             </FaqSubHeader>
             <StyledAccordionWrapper>
                 <Accordion has_single_state is_faq>
-                    <AccordionItem
-                        header={localize('General')}
-                        parent_style={parent_style}
-                        header_style={header_style}
-                        style={item_style}
-                        plus
-                    >
-                        {<IBGeneral />}
-                    </AccordionItem>
-                    <AccordionItem
-                        header={localize('Account management')}
-                        parent_style={parent_style}
-                        header_style={header_style}
-                        style={item_style}
-                        plus
-                    >
-                        {<IBAccountManagement />}
-                    </AccordionItem>
-                    <AccordionItem
-                        header={localize('Referral tools')}
-                        parent_style={parent_style}
-                        header_style={header_style}
-                        style={item_style}
-                        plus
-                    >
-                        {<IBReferralTools />}
-                    </AccordionItem>
+                    {faq_content.deriv_ib.map((item) => {
+                        return (
+                            <AccordionItem
+                                key={item.test_classname_id}
+                                header={localize(`${item.header}`)}
+                                parent_style={parent_style}
+                                header_style={header_style}
+                                style={item_style}
+                                test_classname_id={item.test_classname_id}
+                                plus
+                            >
+                                {item.component}
+                            </AccordionItem>
+                        )
+                    })}
                 </Accordion>
             </StyledAccordionWrapper>
             <TopLeftDot src={DotPattern} />

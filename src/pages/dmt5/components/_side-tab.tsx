@@ -13,21 +13,22 @@ type ContentProps = {
     selected?: boolean
     is_reverse?: boolean | string
 }
-
+type TProps = {
+    label?: string
+    description?: React.ReactElement
+    item_width?: string
+    mobile_item_width?: string
+    test_classname_id?: string
+}
 type TabProps = {
     children?: React.ReactNode
     is_reverse?: string
     parent_tab?: ObjectConstructor | string
     has_download_button?: boolean
     download_links?: { ios: string; android: string }
-    props?: {
-        label?: string
-        description?: React.ReactElement
-        item_width?: string
-        mobile_item_width?: string
-    }
+    props?: TProps
     has_qr_code?: boolean
-}
+} & TProps
 
 const query = graphql`
     query {
@@ -173,10 +174,16 @@ const SideTab = ({
                 })}
             </DesktopWrapper>
             <div>
-                <TabList role="tablist" is_reverse={is_reverse}>
+                <TabList role="tablist" is_reverse={is_reverse} id="tablist">
                     {React.Children.map(children, (child: TabProps, index) => {
                         const {
-                            props: { label, description, item_width, mobile_item_width },
+                            props: {
+                                label,
+                                description,
+                                item_width,
+                                mobile_item_width,
+                                test_classname_id,
+                            },
                         } = child
                         return (
                             <>
@@ -185,6 +192,7 @@ const SideTab = ({
                                     selected={selected_tab === index}
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => selectTab(index)}
+                                    className={test_classname_id}
                                 >
                                     <Text weight="bold">{label}</Text>
                                     <StyledText

@@ -41,6 +41,7 @@ export const PrevButton = ({
         left
         style={style}
         is_reviews={is_reviews}
+        className="previous-arrow"
     >
         {color ? <ChevronLeft color={color} /> : <ChevronLeft />}
     </StyledButtonWrapper>
@@ -64,6 +65,7 @@ export const NextButton = ({
         disabled={!enabled}
         style={style}
         is_reviews={is_reviews}
+        className="next-arrow"
     >
         {color ? <ChevronRight color={color} /> : <ChevronRight />}
     </StyledButtonWrapper>
@@ -79,7 +81,7 @@ type NavigationStyleType = {
     nav_color?: string
     bottom_offset?: number
     chevron_right?: CSSProperties
-    height?: number
+    height?: string
 }
 type OptionsType = {
     align?: number

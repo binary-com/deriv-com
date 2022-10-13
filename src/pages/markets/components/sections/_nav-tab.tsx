@@ -182,12 +182,16 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
     })
 
     return (
-        <TabsContainer>
+        <TabsContainer id="markets-list">
             <Flex direction="column">
                 <TabList ref={ref}>
-                    {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
+                    {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item) => {
                         return (
-                            <TabButton selected={route_from == item.tab_name} key={index}>
+                            <TabButton
+                                selected={route_from == item.tab_name}
+                                key={item.tab_name}
+                                className={item.tab_name}
+                            >
                                 <StyledLink to={item.route_to}>
                                     <TextWrapper>{item.title}</TextWrapper>
                                 </StyledLink>

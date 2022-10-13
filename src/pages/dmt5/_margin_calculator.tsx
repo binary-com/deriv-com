@@ -149,11 +149,11 @@ const StyledFlexContainer = styled(Flex)`
     }
 `
 
-const StyledFlex = styled(Flex)`
+const StyledFlex = styled(Flex)<{ has_color?: boolean }>`
     width: 50%;
     min-height: 694px;
     margin-right: 2.4rem;
-    background-color: ${(props) => (props.has_color ? 'var(--color-grey-25)' : 'inherit')};
+    background-color: ${({ has_color }) => (has_color ? 'var(--color-grey-25)' : 'inherit')};
     @media ${device.tabletL} {
         width: 100%;
         min-height: 340px;
@@ -255,7 +255,7 @@ const MarginCalculator = () => {
                     tablet_jc="center"
                     fd="column"
                     wrap="wrap"
-                    has_color={true}
+                    has_color
                 >
                     <StyledBox max_width="100%">
                         <MainHeader as="h2" type="page-title" lh="1.25" align="left">
@@ -310,9 +310,9 @@ const MarginCalculator = () => {
                 >
                     <CardContainer>
                         <Carousel {...settings}>
-                            {calculators.map((calculator, idx) => (
+                            {calculators.map((calculator) => (
                                 <CalculatorCard
-                                    key={idx}
+                                    key={calculator.index}
                                     name={calculator.name}
                                     image_name={calculator.image_name}
                                     image_alt_name={calculator.image_alt_name}

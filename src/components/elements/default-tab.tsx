@@ -5,6 +5,7 @@ import { Flex } from 'components/containers'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { slugify } from 'common/utility'
 import device from 'themes/device'
 
 type TabsStyledProps = {
@@ -172,6 +173,7 @@ const Tabs = ({
         <Flex direction="column">
             <TabList
                 role="tablist"
+                id="tablist"
                 jc={jc}
                 jc_mobileL={jc_mobileL}
                 jc_laptopM={jc_laptopM}
@@ -188,6 +190,7 @@ const Tabs = ({
                             setActiveTab(tab_list[index])
                         }}
                         mobile_tab_button_underline_length={mobile_tab_button_underline_length}
+                        className={slugify(label)}
                     >
                         <TextWrapper
                             as="p"

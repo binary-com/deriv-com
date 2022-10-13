@@ -192,7 +192,12 @@ const CardHeader = styled(Header)`
 
 const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
     return (
-        <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
+        <CardContainer
+            name={name}
+            active_tab={active_tab}
+            onClick={() => onTabChange(name)}
+            className={name.toLowerCase()}
+        >
             <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'hidden' }}>
                 {name === 'CFDs' && (
                     <TabIcon src={CFDIcon} alt="" name={name} active_tab={active_tab} />
@@ -229,7 +234,7 @@ const AvailableTradesDesctop = ({
                 {display_title}
             </StyledHeader>
             <StyledContainer direction="column">
-                <CardWrapper margin="0" position="relative">
+                <CardWrapper margin="0" position="relative" id="available-trades">
                     {CFDs && (
                         <Card
                             name="CFDs"

@@ -225,7 +225,7 @@ export const europe: MarketSymbol[] = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY30,
+        src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
     },
     {
@@ -736,7 +736,7 @@ export const stocks_european_indices: MarketSymbol[] = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY30,
+        src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
     },
     {

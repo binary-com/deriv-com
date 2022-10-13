@@ -11,6 +11,10 @@ import { convertDate, getVideoObject } from 'common/utility'
 import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 
+type VideoCarouselProps = {
+    carousel_items: NonFeaturedVideoListDataType
+}
+
 const SmallDetailsWrapper = styled(Flex)`
     @media ${device.tabletL} {
         padding-top: 0;
@@ -65,15 +69,11 @@ const PlayerIcon = styled.img`
     }
 `
 
-type VideoCarouselProps = {
-    carousel_items: NonFeaturedVideoListDataType
-}
-
 const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
     const settings = {
         options: {
-            align: 'start',
-            draggable: 'false',
+            align: 0,
+            draggable: false,
         },
         container_style: {
             maxWidth: '100%',
@@ -83,11 +83,9 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
         slide_style: {
             width: '372px',
             marginRight: '24px',
-            position: 'relative',
         },
         slide_mobile_style: {
             width: '100%',
-            position: 'relative',
             paddingRight: '16px',
         },
         view_port: {
@@ -135,8 +133,6 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
                                                         .gatsbyImageData
                                                 }
                                                 alt={thumbnail_img_alt}
-                                                width="100%"
-                                                height="100%"
                                             />
                                             <PlayerIconWrapper absolute ai="center">
                                                 <IconDiv>

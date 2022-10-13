@@ -16,7 +16,7 @@ const meta_attributes = {
 
 const Security = () => {
     return (
-        <Layout type="security" margin_top={10}>
+        <Layout type="security">
             <SEO
                 title={localize('Bug bounty program | Trading platform and apps security | Deriv')}
                 description={localize(

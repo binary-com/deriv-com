@@ -49,11 +49,11 @@ const Titlebtn = ({ btnlabel, text }: TitlebtnProps) => {
                     {text}
                 </StyledText>
                 <TryButton
+                    secondary
                     m="4.2rem 0 40px"
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     type="submit"
-                    secondary="true"
                     to={'/signup/'}
                 >
                     {btnlabel}

@@ -106,7 +106,7 @@ const AboutUsBanner = () => {
                     >
                         {localize('Join and grow with us.')}
                     </StyledHeader2>
-                    <StyledLinkButton secondary="true" to="/careers/">
+                    <StyledLinkButton secondary to="/careers/">
                         {localize('See our open positions')}
                     </StyledLinkButton>
                 </PictureFlex>

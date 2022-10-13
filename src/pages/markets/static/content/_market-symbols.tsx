@@ -225,7 +225,7 @@ export const europe: MarketSymbol[] = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY30,
+        src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
     },
     {
@@ -438,7 +438,7 @@ export const metals_options: MarketSymbol[] = [
     },
     {
         src: icons.SILVEREUR,
-        text: <Localize translate_text="Silver/EUR" />,
+        text: <Localize translate_text="Silver/USD" />,
     },
 ]
 
@@ -734,7 +734,7 @@ export const stocks_european_indices: MarketSymbol[] = [
         eu: true,
     },
     {
-        src: icons.STOCKSGERMANY30,
+        src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
         eu: true,
     },

@@ -53,7 +53,7 @@ const Subscription = () => {
                     <Subscribe />
                 </Flex>
                 <Flex>
-                    <LinkButton secondary="true" to="/academy/">
+                    <LinkButton secondary to="/academy/">
                         {localize('Take me to Academy')}
                     </LinkButton>
                 </Flex>

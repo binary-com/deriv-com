@@ -16,9 +16,9 @@ const CFD = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Margin trading | Trade types | Deriv')}
+                title={localize('CFD trading | Online trading platform | Deriv')}
                 description={localize(
-                    'Learn about CFD trading and margin on Deriv. Start trading with leverage in forex, synthetic indices, and other popular financial markets.',
+                    'Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses.',
                 )}
             />
             <Hero jc="cneter" ai="center">

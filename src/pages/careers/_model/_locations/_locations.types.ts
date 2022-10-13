@@ -1,7 +1,9 @@
 export type LocationsType = {
     name: string
     link: string
-    display_name: string
+    display_name?: string
+    display_thumbnail_name?: string
+    display_title_name?: string
     img_alt?: string
     map_office_name: string
     country: string

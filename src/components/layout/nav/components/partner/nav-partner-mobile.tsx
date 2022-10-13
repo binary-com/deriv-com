@@ -65,11 +65,11 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
 
                 {!hide_login_signup && (
                     <LoginLink
+                        external
+                        primary
                         to={affiliate_signin_url}
                         type="affiliate_sign_in"
-                        external="true"
                         target="_blank"
-                        primary
                     >
                         {localize('Log in')}
                     </LoginLink>

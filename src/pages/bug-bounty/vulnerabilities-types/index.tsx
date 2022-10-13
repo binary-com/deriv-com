@@ -72,7 +72,7 @@ const StyledLi = styled.li`
 
 const VulnerabilitiesTypes = () => {
     return (
-        <Layout type="security" margin_top={10}>
+        <Layout type="security">
             <SEO
                 title={localize('Types of vulnerabilities')}
                 description={localize('Types of vulnerabilities')}
@@ -90,7 +90,7 @@ const VulnerabilitiesTypes = () => {
                                 <Flex mt="40px" ai="center">
                                     <IconWrap src={item.icon} />
                                     <Header as="h2" type="subtitle-1" ml="8px">
-                                        {localize(item.title)}
+                                        {item.title}
                                     </Header>
                                 </Flex>
 
@@ -139,11 +139,7 @@ const VulnerabilitiesTypes = () => {
 
                                 <StyledUl>
                                     {item.examples.map((example_item, example_idx) => {
-                                        return (
-                                            <StyledLi key={example_idx}>
-                                                {localize(example_item)}
-                                            </StyledLi>
-                                        )
+                                        return <StyledLi key={example_idx}>{example_item}</StyledLi>
                                     })}
                                 </StyledUl>
                             </React.Fragment>

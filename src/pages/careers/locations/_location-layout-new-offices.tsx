@@ -7,7 +7,7 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, Header, LinkText, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { map_api_key, zoho_url } from 'common/constants'
+import { map_api_key, zoho_locations_url } from 'common/constants'
 import MapPin from 'images/svg/careers/map.svg'
 
 const StyledBackground = styled(BackgroundImage)`
@@ -43,14 +43,20 @@ type HeroProps = {
     display_name: string
     img_data: string
     img_alt: string
+    jobs_name?: string
 }
 
-const Hero = ({ display_name, img_data, img_alt }: HeroProps) => {
+const Hero = ({ display_name, img_data, img_alt, jobs_name }: HeroProps) => {
     return (
         <StyledBackground data={img_data} alt={img_alt}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
-                <LinkButton hero has_no_end_slash to={zoho_url} rel="noopener noreferrer">
+                <LinkButton
+                    hero
+                    has_no_end_slash
+                    to={zoho_locations_url + jobs_name}
+                    rel="noopener noreferrer"
+                >
                     View open positions in {display_name === 'Vanuatu' ? 'Port Vila' : display_name}
                 </LinkButton>
             </StyledContainer>
@@ -214,7 +220,7 @@ type LocationLayoutProps = {
 }
 
 export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => {
-    const { display_name, display_title_name, map_office_name } = location
+    const { display_name, display_title_name, map_office_name, jobs_name } = location
     if (!display_name) return null
 
     return (
@@ -223,6 +229,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                 display_name={display_name}
                 img_data={images[location.name]}
                 img_alt={location.img_alt}
+                jobs_name={jobs_name}
             />
             <FirstSection>
                 <SecondStyledHeader

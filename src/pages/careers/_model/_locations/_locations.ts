@@ -32,6 +32,7 @@ import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
+    jobs_name: 'Cyberjaya',
     continent: 'asia',
     display_continent: 'Asia',
     link: '/careers/locations/cyberjaya/',
@@ -66,6 +67,7 @@ export const cyberjaya: LocationsType = {
 
 export const malta: LocationsType = {
     name: 'malta',
+    jobs_name: 'Birkirkara',
     continent: 'europe',
     display_continent: 'Europe',
     link: '/careers/locations/malta/',
@@ -99,6 +101,7 @@ export const malta: LocationsType = {
 
 export const dubai: LocationsType = {
     name: 'dubai',
+    jobs_name: 'Dubai',
     continent: 'middle_east',
     display_continent: 'Middle East',
     link: '/careers/locations/dubai/',
@@ -132,6 +135,7 @@ export const dubai: LocationsType = {
 
 export const labuan: LocationsType = {
     name: 'labuan',
+    jobs_name: 'Labuan',
     continent: 'asia',
     display_continent: 'Asia',
     link: '/careers/locations/labuan/',
@@ -166,6 +170,7 @@ export const labuan: LocationsType = {
 
 export const asuncion: LocationsType = {
     name: 'asuncion',
+    jobs_name: 'Asuncion',
     continent: 'latam',
     display_continent: 'Latam',
     link: '/careers/locations/asuncion/',
@@ -199,6 +204,7 @@ export const asuncion: LocationsType = {
 
 export const melaka: LocationsType = {
     name: 'melaka',
+    jobs_name: 'Melaka',
     continent: 'asia',
     display_continent: 'Asia',
     link: '/careers/locations/melaka/',
@@ -233,6 +239,7 @@ export const melaka: LocationsType = {
 
 export const ipoh: LocationsType = {
     name: 'ipoh',
+    jobs_name: 'Ipoh',
     continent: 'asia',
     display_continent: 'Asia',
     link: '/careers/locations/ipoh/',
@@ -266,6 +273,7 @@ export const ipoh: LocationsType = {
 
 export const cyprus: LocationsType = {
     name: 'cyprus',
+    jobs_name: 'Limassol',
     continent: 'europe',
     display_continent: 'Europe',
     link: '/careers/locations/cyprus/',
@@ -300,6 +308,7 @@ export const cyprus: LocationsType = {
 
 export const rwanda: LocationsType = {
     name: 'rwanda',
+    jobs_name: 'Kigali',
     continent: 'africa',
     display_continent: 'Africa',
     link: '/careers/locations/rwanda/',
@@ -335,6 +344,7 @@ export const rwanda: LocationsType = {
 
 export const minsk: LocationsType = {
     name: 'minsk',
+    jobs_name: 'Minsk',
     continent: 'eastern_europe',
     display_continent: 'Eastern Europe',
     link: '/careers/locations/minsk/',
@@ -370,6 +380,7 @@ export const minsk: LocationsType = {
 
 export const paris: LocationsType = {
     name: 'paris',
+    jobs_name: 'Paris',
     continent: 'europe',
     display_continent: 'Europe',
     link: '/careers/locations/paris/',
@@ -396,6 +407,7 @@ export const paris: LocationsType = {
 
 export const guernsey: LocationsType = {
     name: 'guernsey',
+    jobs_name: 'Guernsey',
     continent: 'europe',
     display_continent: 'Europe',
     link: '/careers/locations/guernsey/',
@@ -425,6 +437,7 @@ export const guernsey: LocationsType = {
 
 export const berlin: LocationsType = {
     name: 'berlin',
+    jobs_name: 'Berlin',
     continent: 'europe',
     display_continent: 'Europe',
     link: '/careers/locations/berlin/',
@@ -450,6 +463,7 @@ export const berlin: LocationsType = {
 
 export const vanuatu: LocationsType = {
     name: 'vanuatu',
+    jobs_name: 'Port-Vila',
     continent: 'asia',
     display_continent: 'Asia',
     link: '/careers/locations/vanuatu/',
@@ -482,6 +496,7 @@ export const vanuatu: LocationsType = {
 
 export const georgetown: LocationsType = {
     name: 'georgetown',
+    jobs_name: 'George-Town',
     continent: 'caribbean',
     display_continent: 'Caribbean',
     link: '/careers/locations/georgetown/',
@@ -509,6 +524,7 @@ export const georgetown: LocationsType = {
 
 export const jordan: LocationsType = {
     name: 'jordan',
+    jobs_name: 'Amman',
     continent: 'middle_east',
     display_continent: 'Middle East',
     link: '/careers/locations/jordan/',
@@ -538,6 +554,7 @@ export const jordan: LocationsType = {
 
 export const singapore: LocationsType = {
     name: 'singapore',
+    jobs_name: 'Singapore',
     continent: 'asia',
     display_continent: 'Asia',
     link: '/careers/locations/singapore/',
@@ -568,6 +585,7 @@ export const singapore: LocationsType = {
 
 export const ciudad: LocationsType = {
     name: 'ciudad',
+    jobs_name: 'Ciudad-del-Este',
     continent: 'latam',
     display_continent: 'Latam',
     link: '/careers/locations/ciudad/',

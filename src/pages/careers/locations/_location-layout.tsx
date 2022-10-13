@@ -8,7 +8,7 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { map_api_key, zoho_url } from 'common/constants'
+import { map_api_key, zoho_locations_url } from 'common/constants'
 import { LocalizedLink } from 'components/localization'
 import MapPin from 'images/svg/careers/map.svg'
 
@@ -68,17 +68,23 @@ const HeroBadge = styled(QueryImage)`
 type HeroProps = {
     display_name: string
     img_data: ImageDataLike
+    jobs_name?: string
     badge_data?: ImageDataLike
     badge_alt?: string
 }
 
-const Hero = ({ display_name, img_data, badge_data, badge_alt }: HeroProps) => {
+const Hero = ({ display_name, img_data, badge_data, badge_alt, jobs_name }: HeroProps) => {
     return (
         <StyledBackground data={img_data} alt={display_name}>
             {badge_data && <HeroBadge data={badge_data} alt={badge_alt} />}
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
-                <LinkButton hero has_no_end_slash to={zoho_url} rel="noopener noreferrer">
+                <LinkButton
+                    hero
+                    has_no_end_slash
+                    to={zoho_locations_url + jobs_name}
+                    rel="noopener noreferrer"
+                >
                     View open positions in {display_name}
                 </LinkButton>
             </StyledContainer>
@@ -354,7 +360,7 @@ type LocationLayoutProps = {
 }
 
 export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
-    const { display_name, map_office_name } = location
+    const { display_name, map_office_name, jobs_name } = location
     if (!display_name) return null
 
     return (
@@ -364,6 +370,7 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
                 img_data={images[location.name]}
                 badge_data={images[location.badge]}
                 badge_alt={location.badge_alt}
+                jobs_name={jobs_name}
             />
             <FirstSection>
                 <SecondStyledHeader

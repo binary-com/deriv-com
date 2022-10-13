@@ -55,6 +55,8 @@ export const cyberjaya: LocationsType = {
         'Boys playing foosball',
     ],
     map: 'ChIJQyOushS3zTER-d3unGdC7P0',
+    badge: 'malaysia_great_place_to_work_badge',
+    badge_alt: 'Malaysia Great Place to Work 2022 Certification Badge',
     map_text:
         'We believe in fostering an environment that allows a balanced lifestyle between work responsibilities and personal commitments. Every project is exciting, keeping you intellectually challenged. If you want to be inspired every day, join our team in Cyberjaya.',
     address: address_cyberjaya,
@@ -86,6 +88,8 @@ export const malta: LocationsType = {
         'Group playing foosball',
     ],
     map: 'ChIJN3l6prJaDhMRHIoQuWdZDeI',
+    badge: 'malta_great_place_to_work_badge',
+    badge_alt: 'Malta Great Place to Work 2022 Certification Badge',
     map_text:
         'Deriv (Malta) has a dynamic work culture. We perform a wide range of tasks crucial to the company’s sustainability and ambition. If work challenges excite you and being completely hands-on thrills you, join our team in Malta.',
     address: address_malta,
@@ -151,6 +155,8 @@ export const labuan: LocationsType = {
         'Round table discussion',
     ],
     map: 'ChIJufrjrbsZIzIRXIqlV1KLS14',
+    badge: 'malaysia_great_place_to_work_badge',
+    badge_alt: 'Malaysia Great Place to Work 2022 Certification Badge',
     map_text:
         'Our people drive our growth and success. We are expanding our business, which offers exciting work engagements. We provide an inclusive and rewarding work culture that encourages employee development and work-life balance. If you are as passionate about your future as we are, join our team in Labuan.',
     address: address_labuan,
@@ -216,6 +222,8 @@ export const melaka: LocationsType = {
         'Man playing pool',
     ],
     map: 'ChIJk1cT0pTx0TERIAdpj9tM6KM',
+    badge: 'malaysia_great_place_to_work_badge',
+    badge_alt: 'Malaysia Great Place to Work 2022 Certification Badge',
     map_text:
         'We are proud to be working with some of the best minds in the industry. We nurture a learning culture to enable our people to unlock growth opportunities. If you wish to learn and gain experience with the best talent in the industry, join our team in Melaka.',
     address: address_melaka,
@@ -247,6 +255,8 @@ export const ipoh: LocationsType = {
         'Girls having a coffee break',
     ],
     map: 'ChIJOadQ93_tyjERnNrpdgyMd48',
+    badge: 'malaysia_great_place_to_work_badge',
+    badge_alt: 'Malaysia Great Place to Work 2022 Certification Badge',
     map_text:
         'Our work culture integrates values such as diversity and inclusion, customer focus, and innovation. Our people have a curious mindset with a determination to grow. If you like to see the world differently and love to work in a creative work environment, join our team in Ipoh.',
     address: address_ipoh,
@@ -279,6 +289,8 @@ export const cyprus: LocationsType = {
         "Deriv's office location in Limassol,Cyprus",
     ],
     map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
+    badge: 'cyprus_great_place_to_work_badge',
+    badge_alt: 'Cyprus Great Place to Work 2022 Certification Badge',
     map_text:
         'We give our people the freedom to solve problems and work together to get things done without hierarchy. The workplace encourages open communication, transparency, and a free flow of ideas. If you take pride in your work and are interested in working with the best global talent,  join our team in Limassol.',
     address: address_cyprus,
@@ -314,6 +326,8 @@ export const rwanda: LocationsType = {
     map_text:
         'We are a group of positive team players who are always eager to roll up our sleeves and work together to overcome challenges and achieve common goals. If you want to be a part of a young, dynamic and growing team, join our team in Kigali.',
     address: address_rwanda,
+    badge: 'rwanda_great_place_to_work_badge',
+    badge_alt: 'Rwanda Great Place to Work 2022 Certification Badge',
     map_img: 'rwanda_map',
     google_map_link: 'https://goo.gl/maps/dy3BPr2y29usir648',
     has_iframe: false,
@@ -344,6 +358,8 @@ export const minsk: LocationsType = {
         'Girl having a chat ',
     ],
     map: 'ChIJF9lVNV_P20YRukiwrfpLP4E',
+    badge: 'minsk_great_place_to_work_badge',
+    badge_alt: 'Minsk Great Place to Work 2022 Certification Badge',
     map_text:
         'The work culture at Deriv (Minsk) is lively and energetic. You will get exposure to global projects and work with highly skilled professionals from across the world. If working for a diverse and thriving team excites you, join our team in Minsk.',
     address: address_belarus,
@@ -368,12 +384,12 @@ export const paris: LocationsType = {
         "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
-    map: 'ChIJ71ubXstv5kcRgI6dxotwI4Y',
+    map: 'ChIJGfkBiTBu5kcRK2m0KBW8x0Q',
     map_text:
         'Deriv (France) is the heart of our research and development. We have an elite think tank in this centre that helps create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
     address: address_france,
     map_img: 'paris_map',
-    google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
+    google_map_link: 'https://goo.gl/maps/5xvdS7tvZM7kKkDK8',
     has_iframe: true,
     has_map: true,
 }

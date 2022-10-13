@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import { size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
+type BreakPointType = number | SizeType
+
 type ResponsiveContainerProps = {
     children: ReactNode
-    breakpoint?: number | SizeType
+    breakpoint?: BreakPointType
     className?: string
 }
 
@@ -27,7 +29,7 @@ const MobileLayer = styled.div<LayerProps>`
     }
 `
 
-const getBreakPoint = (breakpoint: ResponsiveContainerProps['breakpoint']) => {
+const getBreakPoint = (breakpoint: BreakPointType) => {
     if (typeof breakpoint === 'number') {
         return breakpoint
     } else {

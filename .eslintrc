@@ -28,11 +28,12 @@
             }
         }
     ],
-    "plugins": ["@typescript-eslint", "jest"],
+    "plugins": ["deprecation", "@typescript-eslint", "jest"],
     "rules": {
         "strict": 0,
         "camelcase": 0,
         "no-console": "warn",
+        "deprecation/deprecation": "warn",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "no-trailing-spaces": [

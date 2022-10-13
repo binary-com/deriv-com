@@ -19,7 +19,7 @@ const address_georgetown = [
 
 const address_ipoh = ['E-5-6, Soho Ipoh 2,', 'Jalan Sultan Idris Shah,', 'Ipoh 30000, Perak']
 
-const address_france = ['Wojo Madeleine, 18 Boulevard Malesherbes,', '75008 Paris']
+const address_france = ["17 Rue d'Antin, 75002 Paris"]
 
 const address_guernsey = ['Suite 5, One Cornet Street, St Peter Port, Guernsey GY1 1 BZ']
 

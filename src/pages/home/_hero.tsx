@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
+import { contents, contents_ppc, header_items } from './_data'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import device from 'themes/device'
@@ -12,6 +13,7 @@ import { BackgroundImage, Header } from 'components/elements'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { TString } from 'types/generics'
 
 const query = graphql`
     query {
@@ -24,21 +26,6 @@ const query = graphql`
 type HeroProps = {
     is_ppc?: boolean
 }
-
-const contents = [
-    <Localize key={0} translate_text="Tight spreads" />,
-    <Localize key={1} translate_text="Sharp prices" />,
-    <Localize key={2} translate_text="24x7 trading" />,
-    <Localize key={3} translate_text="100+ tradeable assets" />,
-    <Localize key={4} translate_text="20+ years of experience" />,
-]
-
-const contents_ppc = [
-    <Localize key={3} translate_text="Tight spreads" />,
-    <Localize key={2} translate_text="Sharp prices" />,
-    <Localize key={1} translate_text="100+ tradeable assets" />,
-    <Localize key={0} translate_text="20+ years of experience" />,
-]
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -75,6 +62,14 @@ const StyledHeader = styled(Header)`
         width: unset;
     }
 `
+
+const HeroHeader = ({ text }: { text: TString }) => {
+    return (
+        <StyledHeader type="main-landing-title" color="white">
+            <Localize translate_text={text} />
+        </StyledHeader>
+    )
+}
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
@@ -117,15 +112,9 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                     max_width: '100%',
                                 }}
                             >
-                                <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Simple." />
-                                </StyledHeader>
-                                <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Flexible." />
-                                </StyledHeader>
-                                <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Reliable." />
-                                </StyledHeader>
+                                {header_items.map((item) => (
+                                    <HeroHeader key={item.id} text={item.text} />
+                                ))}
                             </Flex>
                             <Header
                                 as="h2"

@@ -245,7 +245,7 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://g.page/wojo-madeleine-coworking-paris-8?share"
+                                        to="https://goo.gl/maps/5xvdS7tvZM7kKkDK8"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -258,7 +258,7 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://g.page/wojo-madeleine-coworking-paris-8?share"
+                                    to="https://goo.gl/maps/5xvdS7tvZM7kKkDK8"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -266,12 +266,11 @@ export const Offices = () => {
                                     ml="1.6rem"
                                 >
                                     <Desktop>
-                                        <p>Wojo Madeleine, 18 Boulevard</p>
-                                        <p>Malesherbes, Paris 75008</p>
+                                        <p>17 Rue d&apos;Antin, 75002 Paris</p>
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>
-                                            Wojo Madeleine, 18 Boulevard Malesherbes, Paris 75008
+                                            17 Rue d&apos;Antin, 75002 Paris
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>

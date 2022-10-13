@@ -55,7 +55,7 @@ const HeroBadge = styled(QueryImage)`
     height: 190px;
 
     @media ${device.laptopS} {
-        left: 230px;
+        left: 138px;
     }
 
     @media ${device.mobileL} {

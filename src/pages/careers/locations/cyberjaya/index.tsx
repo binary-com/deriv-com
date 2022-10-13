@@ -26,6 +26,11 @@ const query = graphql`
         cyberjaya_grid_4: file(relativePath: { eq: "careers/cyberjaya_grid_4.png" }) {
             ...fadeIn
         }
+        malaysia_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/malaysia_great_place_to_work_badge.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

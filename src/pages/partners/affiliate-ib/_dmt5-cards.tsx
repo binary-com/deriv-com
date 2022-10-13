@@ -215,11 +215,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
     }
 
     return (
-        <StyledCard
-            padding="2.4rem 2.4rem 0"
-            id="affiliate-card
-        "
-        >
+        <StyledCard padding="2.4rem 2.4rem 0" id="affiliate-card">
             {!is_calculated ? (
                 <>
                     <CardWrappers>
@@ -231,12 +227,12 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                             <Accordion has_single_state>
                                 {data.type.map((value) => (
                                     <AccordionItem
-                                        key={value.test_classname_id}
+                                        key={value.test_id}
                                         header={value.title}
                                         parent_style={parent_style}
                                         style={item_style}
                                         header_style={header_style}
-                                        test_classname_id={value.test_classname_id}
+                                        test_id={value.test_id}
                                         plus
                                     >
                                         <TableWrapper grid_col_number={2} is_balance={true}>

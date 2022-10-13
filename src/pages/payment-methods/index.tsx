@@ -188,7 +188,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 
     return (
         <Accordion has_single_state>
-            {payment_data.map((pd, idx) => {
+            {payment_data.map((pd) => {
                 const styles = is_mobile
                     ? {
                           padding: '0 16px 0',
@@ -213,12 +213,13 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                 } else
                     return (
                         <AccordionItem
-                            key={idx}
+                            key={pd.test_id}
                             content_style={content_style}
                             header_style={header_style}
                             style={styles}
                             parent_style={parent_style}
                             header={pd.name}
+                            test_id={pd.test_id}
                         >
                             <DesktopWrapper>
                                 <DisplayAccordianItem pd={pd} locale={locale} />
@@ -377,7 +378,7 @@ const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
             <Divider height="2px" />
             <SectionContentContainer>
                 <Container direction="column">
-                    <AccordionContainer>
+                    <AccordionContainer id="payment-list">
                         <DisplayAccordion locale={locale} />
                     </AccordionContainer>
                     <Header mt="1.6rem" type="paragraph-2" align="left" weight="normal">

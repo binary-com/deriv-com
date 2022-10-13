@@ -22,7 +22,7 @@ type TypeForType = {
     title: React.ReactElement
     headerHeight: string
     assets: AssetsType
-    test_classname_id: string
+    test_id: string
 }[]
 
 type NoteType = {
@@ -239,7 +239,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            test_classname_id: 'crash-boom',
+            test_id: 'crash-boom',
         },
         {
             title: <Localize translate_text="Volatility indices" />,
@@ -280,7 +280,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            test_classname_id: 'volatility-indices',
+            test_id: 'volatility-indices',
         },
         {
             title: <Localize translate_text="Step index" />,
@@ -295,7 +295,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     list: [<Localize key={1} translate_text="0.10" />],
                 },
             ],
-            test_classname_id: 'step-index',
+            test_id: 'step-index',
         },
         {
             title: <Localize translate_text="Jump indices" />,
@@ -322,7 +322,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            test_classname_id: 'jump-index',
+            test_id: 'jump-index',
         },
     ],
     countDetails: [
@@ -376,7 +376,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
-            test_classname_id: 'forex-and-metals',
+            test_id: 'forex-and-metals',
         },
         {
             title: <Localize translate_text="Stock indices" />,
@@ -397,7 +397,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
-            test_classname_id: 'stock-indices',
+            test_id: 'stock-indices',
         },
         {
             title: <Localize translate_text="Cryptocurrencies" />,
@@ -412,7 +412,7 @@ const ib_dmt5_financial: DMT5Type = {
                     list: [<Localize key={1} translate_text="10" />],
                 },
             ],
-            test_classname_id: 'cryptocurrencies-financial',
+            test_id: 'cryptocurrencies-financial',
         },
     ],
     countDetails: [
@@ -479,7 +479,7 @@ const ib_dmt5_financialSTP: DMT5Type = {
                     list: [<Localize key={1} translate_text="2.5" />],
                 },
             ],
-            test_classname_id: 'forex',
+            test_id: 'forex',
         },
         {
             title: <Localize translate_text="Cryptocurrencies" />,
@@ -494,7 +494,7 @@ const ib_dmt5_financialSTP: DMT5Type = {
                     list: [<Localize key={1} translate_text="10" />],
                 },
             ],
-            test_classname_id: 'cryptocurrencies-stp',
+            test_id: 'cryptocurrencies-stp',
         },
     ],
     countDetails: [

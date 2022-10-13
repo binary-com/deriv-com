@@ -34,7 +34,7 @@ type ItemType = {
 }
 
 type ArticleComponentProps = {
-    idx: number
+    category: string
     id: number
     item: ItemType
     all_categories: CategoryType
@@ -133,7 +133,7 @@ const StyledView = styled.div`
 `
 
 const ArticleComponent = ({
-    idx,
+    category,
     item,
     all_categories,
     toggleArticle,
@@ -149,7 +149,7 @@ const ArticleComponent = ({
     )
 
     return (
-        <ArticleDiv key={idx}>
+        <ArticleDiv key={category}>
             <ListWrapper>
                 <StyledHeader type="section-title">{item.category}</StyledHeader>
                 {articles.map((ar, idxb) => {
@@ -162,7 +162,7 @@ const ArticleComponent = ({
                         category_is_expanded && can_expand && idxb === item.articles.length - 1
 
                     return (
-                        <ListNoBullets key={ar.label}>
+                        <ListNoBullets key={ar.label} className="view">
                             <ShowItem should_show_item={should_show_item}>
                                 <StyledLink
                                     to={convertToHash(

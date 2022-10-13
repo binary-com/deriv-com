@@ -8,6 +8,7 @@ import {
 } from '../../static/style/_card'
 import { TextWrapper } from '../../static/style/_common'
 import { Minimize, Maximize } from '../../static/images/_what-lies-ahead'
+import { slugify } from 'common/utility'
 
 type CardWrapperProps = {
     grid_template_columns?: string[]
@@ -50,6 +51,7 @@ type CardProps = {
 
 const Card = ({ card_content, custom_icon, has_list, style, title_component }: CardProps) => {
     const [is_list_open, setIsListOpen] = useState(false)
+    console.log(card_content)
 
     const getCurrentDropdownComponent = () => {
         const DropdownComponent = (
@@ -86,7 +88,7 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }: C
 
     const { card_wrapper, icon_wrapper, text_wrapper } = style
     return (
-        <CardWrapper {...card_wrapper}>
+        <CardWrapper {...card_wrapper} className={slugify(card_content?.text)}>
             <IconWrapper {...icon_wrapper} src={custom_icon?.src || card_content.src} alt="" />
             {title_component}
             <TextWrapper {...text_wrapper}>{card_content.text}</TextWrapper>

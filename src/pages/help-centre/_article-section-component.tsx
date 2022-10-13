@@ -81,6 +81,7 @@ const ArticleSectionComponent = ({
 }: ArticleSectionComponentProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const { platform } = usePlatformQueryParam()
+    console.log(articles)
 
     return (
         <ArticleSection>
@@ -93,13 +94,13 @@ const ArticleSectionComponent = ({
                         (item.category.props.translate_text === 'Deriv X' ||
                             item.category.props.translate_text === 'Deriv P2P')
                     ) {
-                        return <React.Fragment key={idx}></React.Fragment>
+                        return <React.Fragment key={item.section}></React.Fragment>
                     }
 
                     return (
                         <ArticleComponent
-                            key={idx}
-                            idx={idx}
+                            key={item.section}
+                            category={item.category}
                             item={item}
                             all_categories={data.all_categories}
                             toggleArticle={toggleArticle}

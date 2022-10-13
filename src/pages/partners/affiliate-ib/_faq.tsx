@@ -101,39 +101,39 @@ type TFaqContent = {
     deriv_affiliate: {
         header: string
         component: React.ReactElement
-        test_classname_id: string
+        test_id: string
     }[]
-    deriv_ib: { header: string; component: React.ReactElement; test_classname_id: string }[]
+    deriv_ib: { header: string; component: React.ReactElement; test_id: string }[]
 }
 const faq_content: TFaqContent = {
     deriv_affiliate: [
         {
             header: 'General',
             component: <AffiliateGeneral />,
-            test_classname_id: 'general-affiliate',
+            test_id: 'general-affiliate',
         },
         {
             header: 'Account management',
             component: <AffiliateAccountManagement />,
-            test_classname_id: 'account-management-affiliate',
+            test_id: 'account-management-affiliate',
         },
         {
             header: 'Referral tools',
             component: <AffiliateReferralTools />,
-            test_classname_id: 'referal-tools-affiliate',
+            test_id: 'referal-tools-affiliate',
         },
     ],
     deriv_ib: [
-        { header: 'General', component: <IBGeneral />, test_classname_id: 'general-ib' },
+        { header: 'General', component: <IBGeneral />, test_id: 'general-ib' },
         {
             header: 'Account management',
             component: <IBAccountManagement />,
-            test_classname_id: 'account-management-ib',
+            test_id: 'account-management-ib',
         },
         {
             header: 'Referral tools',
             component: <IBReferralTools />,
-            test_classname_id: 'referal-tools-ib',
+            test_id: 'referal-tools-ib',
         },
     ],
 }
@@ -165,12 +165,12 @@ const Faq = () => {
                     {faq_content.deriv_affiliate.map((item) => {
                         return (
                             <AccordionItem
-                                key={item.test_classname_id}
+                                key={item.test_id}
                                 header={localize(`${item.header}`)}
                                 parent_style={parent_style}
                                 header_style={header_style}
                                 style={item_style}
-                                test_classname_id={item.test_classname_id}
+                                test_id={item.test_id}
                                 plus
                             >
                                 {item.component}
@@ -193,12 +193,12 @@ const Faq = () => {
                     {faq_content.deriv_ib.map((item) => {
                         return (
                             <AccordionItem
-                                key={item.test_classname_id}
+                                key={item.test_id}
                                 header={localize(`${item.header}`)}
                                 parent_style={parent_style}
                                 header_style={header_style}
                                 style={item_style}
-                                test_classname_id={item.test_classname_id}
+                                test_id={item.test_id}
                                 plus
                             >
                                 {item.component}

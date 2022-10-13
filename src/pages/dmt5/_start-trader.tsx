@@ -379,11 +379,11 @@ const StartTrader = () => {
                                 }
                                 item_width="24rem"
                                 mobile_item_width="36rem"
-                                test_classname_id="sign-in"
+                                test_id="sign-in"
                             >
                                 <ImageWrapper>{demo_step1_image}</ImageWrapper>
                             </SideTab.Panel>
-                            <SideTab.Panel description={text_1} test_classname_id="add-account">
+                            <SideTab.Panel description={text_1} test_id="add-account">
                                 <ImageWrapper>{demo_step2_image}</ImageWrapper>
                             </SideTab.Panel>
                             <SideTab.Panel
@@ -391,7 +391,7 @@ const StartTrader = () => {
                                     <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
                                 }
                                 item_width="36rem"
-                                test_classname_id="practise-trading"
+                                test_id="practise-trading"
                             >
                                 <ImageWrapper>{demo_step3_image}</ImageWrapper>
                             </SideTab.Panel>

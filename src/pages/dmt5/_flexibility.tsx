@@ -6,6 +6,7 @@ import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
+import CFDsIcon from 'images/svg/dmt5/cfds.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -52,19 +53,11 @@ const content: ContentType[] = [
 
 const eucontent: ContentType[] = [
     {
-        header: <Localize translate_text="Derived" />,
+        header: <Localize translate_text="CFDs" />,
         text: (
-            <Localize translate_text="Trade CFDs on indices derived from real-world market movements." />
+            <Localize translate_text="Trade CFDs on forex, stocks, stock indices, derived, cryptocurrencies, and commodities." />
         ),
-        icon: <StyledIcon src={DerivedIcon} alt="derived-icon" />,
-        show_eu: true,
-    },
-    {
-        header: <Localize translate_text="Financial" />,
-        text: (
-            <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived indices on high leverage." />
-        ),
-        icon: <StyledIcon src={FinancialIcon} alt="financial-icon" />,
+        icon: <StyledIcon src={CFDsIcon} alt="cfds-icon" />,
         show_eu: true,
     },
 ]
@@ -135,6 +128,9 @@ const Flexibility = () => {
     const { is_uk } = useCountryRule()
 
     const chosen_content = is_eu_country ? eucontent : content
+    const title = is_eu_country
+        ? localize('Flexibility with multiple markets')
+        : localize('Flexibility with two account types')
 
     return (
         <Section>
@@ -146,7 +142,7 @@ const Flexibility = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {localize('Flexibility with two account types')}
+                {title}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {

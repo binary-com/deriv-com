@@ -4,7 +4,7 @@ import { TString } from 'types/generics'
 
 type LocalizeProps = {
     translate_text: string | TString
-    values?: { email?: string }
+    values?: { [key: string]: string | number }
     components?: React.ReactElement[]
 }
 

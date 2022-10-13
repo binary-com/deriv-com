@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
@@ -46,13 +46,18 @@ import {
     LocalizedLinkText,
     QueryImage,
     Text,
+    DropdownSearch,
 } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { Flex, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
+import { useDerivApi } from 'components/hooks/use-deriv-api'
 
 const PipCalculator = () => {
+    const [activeSymbols, setActiveSymbols] = useState([])
+    const [disableDropdown, setDisableDropdown] = useState(true)
+    const [symbolSpotPrice, setSymbolSpotPrice] = useState({})
     const query = graphql`
         query {
             pip_value_formula: file(relativePath: { eq: "trade-tools/pip-value-formula.png" }) {
@@ -191,24 +196,26 @@ const PipCalculator = () => {
                                             </CalculatorTabItem>
                                         </Flex>
 
-                                        <CalculatorDropdown
-                                            option_list={values.optionList}
-                                            label={localize('Symbol')}
-                                            default_option={optionItemDefault}
-                                            selected_option={values.symbol}
+                                        <DropdownSearch
                                             id="symbol"
+                                            key={tab}
+                                            contractSize={values.contractSize}
+                                            default_item={optionItemDefault}
+                                            error={touched.symbol && errors.symbol}
+                                            items={values.optionList}
+                                            label={localize('Symbol')}
                                             onChange={(value) => {
                                                 setFieldValue('marginSymbol', getCurrency(value))
                                                 setFieldValue(
                                                     'contractSize',
                                                     getContractSize(value),
                                                 )
-                                                setFieldValue('symbol', value)
+                                                setFieldValue('symbol', value.symbol)
+                                                fetchTickData(value.symbol, setFieldValue)
                                             }}
-                                            error={touched.symbol && errors.symbol}
+                                            selected_item={values.symbol}
                                             onBlur={handleBlur}
-                                            autocomplete="off"
-                                            contractSize={values.contractSize}
+                                            disabled={disableDropdown}
                                         />
 
                                         <InputGroup>

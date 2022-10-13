@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
+import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import device from 'themes/device'
 import { Button } from 'components/form'
@@ -23,8 +23,6 @@ const query = graphql`
 
 type HeroProps = {
     is_ppc?: boolean
-    is_logged_in: boolean
-    hide_signup_login?: boolean
 }
 
 const contents = [
@@ -78,10 +76,11 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const Hero = ({ is_ppc, is_logged_in, hide_signup_login }: HeroProps) => {
+const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
     const { is_uk, is_loading, is_eu, is_row } = useCountryRule()
     const handleSignup = useHandleSignup()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <HeroWrapper>
@@ -155,25 +154,24 @@ const Hero = ({ is_ppc, is_logged_in, hide_signup_login }: HeroProps) => {
                                 contents={is_ppc && is_uk ? contents_ppc : contents}
                             />
                             <Box tabletL={{ mt: '-8px' }}>
-                                {!hide_signup_login &&
-                                    (is_logged_in ? (
-                                        <HeroButton
-                                            onClick={handleGetTrading}
-                                            id="dm-hero-signup"
-                                            secondary
-                                        >
-                                            <Localize translate_text="Get Trading" />
-                                        </HeroButton>
-                                    ) : (
-                                        <HeroButton
-                                            disabled={is_loading}
-                                            onClick={handleSignup}
-                                            id="dm-hero-signup"
-                                            secondary
-                                        >
-                                            <Localize translate_text="Create free demo account" />
-                                        </HeroButton>
-                                    ))}
+                                {is_logged_in ? (
+                                    <HeroButton
+                                        onClick={handleGetTrading}
+                                        id="dm-hero-signup"
+                                        secondary
+                                    >
+                                        <Localize translate_text="Get Trading" />
+                                    </HeroButton>
+                                ) : (
+                                    <HeroButton
+                                        disabled={is_loading}
+                                        onClick={handleSignup}
+                                        id="dm-hero-signup"
+                                        secondary
+                                    >
+                                        <Localize translate_text="Create free demo account" />
+                                    </HeroButton>
+                                )}
                             </Box>
                         </Flex>
                         <PlatformSlideshow />
@@ -182,10 +180,6 @@ const Hero = ({ is_ppc, is_logged_in, hide_signup_login }: HeroProps) => {
             </BackgroundImage>
         </HeroWrapper>
     )
-}
-
-Hero.propTypes = {
-    is_ppc: PropTypes.bool,
 }
 
 export default Hero

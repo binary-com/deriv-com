@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import device from 'themes/device'
 import WhatsAppIcon from 'images/svg/layout/whatsapp.svg'
 import WhatsAppHover from 'images/svg/layout/whatsapp-hover.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -18,6 +19,10 @@ const StyledWhatsApp = styled.div`
     cursor: pointer;
     border-radius: 50%;
     z-index: 999;
+
+    @media ${device.tablet} {
+        bottom: 10rem;
+    }
 `
 
 const WhatsApp = () => {

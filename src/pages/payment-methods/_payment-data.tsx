@@ -54,6 +54,11 @@ import Astropay from 'images/svg/payment-methods/payment-astropay.svg'
 import OneForYou from 'images/svg/payment-methods/payment-one-for-you.svg'
 import Advcash from 'images/svg/payment-methods/payment-advcash.svg'
 import Dp2p from 'images/svg/payment-methods/payment-dp2p.svg'
+import Eps from 'images/svg/payment-methods/payment-eps.svg'
+import GiroPay from 'images/svg/payment-methods/payment-giropay.svg'
+import Nordea from 'images/svg/payment-methods/payment-nordea.svg'
+import Przelewy from 'images/svg/payment-methods/payment-przelewy.svg'
+import RapidTransfer from 'images/svg/payment-methods/payment-rapidtransfer.svg'
 
 const StyledIcon = styled.img`
     width: 100%;
@@ -72,7 +77,6 @@ const StyledRefLink = styled(LocalizedLink)`
 //     font-weight: bold;
 //     text-align: center;
 // `
-
 const payment_data = [
     {
         name: <Localize translate_text="Online banking" />,
@@ -166,6 +170,71 @@ const payment_data = [
                 name: 'NganLuong',
                 reference: 'nganluong-payment-method.pdf',
                 locales: ['vi'],
+            },
+        ],
+    },
+    {
+        name: <Localize translate_text="Online banking" />,
+        data: [
+            {
+                method: <StyledIcon src={Eps} alt="eps" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not available" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not available" />,
+                description: (
+                    <Localize translate_text="Make deposits and withdrawals through your local bank in real-time." />
+                ),
+                name: 'Eps',
+            },
+            {
+                method: <StyledIcon src={GiroPay} alt="giropay" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not available" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not available" />,
+                description: (
+                    <Localize translate_text="Make safe, instant, and easy transactions via Germany's most popular payment method." />
+                ),
+                name: 'Eps',
+            },
+            {
+                method: <StyledIcon src={Nordea} alt="nordea" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not available" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not available" />,
+                description: (
+                    <Localize translate_text="Make fast deposits with your Nordea bank account and enjoy benefits from its mobile app." />
+                ),
+                name: 'Nordea',
+            },
+            {
+                method: <StyledIcon src={Przelewy} alt="przelewy" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not available" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not available" />,
+                description: (
+                    <Localize translate_text="Make easy transactions via any major local banks and their mobile apps through Przelewy24." />
+                ),
+                name: 'Przelewy',
+            },
+            {
+                method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not available" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not available" />,
+                description: (
+                    <Localize translate_text="Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program." />
+                ),
+                name: 'Przelewy',
             },
         ],
     },

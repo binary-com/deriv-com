@@ -1,7 +1,14 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { getOSIcon, PlatformContent, ImageTag, TPlatformDetails } from './_utils'
+import Autoplay from 'embla-carousel-autoplay'
+import {
+    getOSIcon,
+    PlatformContent,
+    ImageTag,
+    TPlatformDetails,
+    PLATFORMS_CAROUSEL_DELAY,
+} from './_utils'
 import type { PlatformDetailsProps } from './_utils'
 import { image_query } from './_details'
 import { LocalizedLink } from 'components/localization'
@@ -38,6 +45,44 @@ const MobileImage = styled(QueryImage)`
 const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
+
+const settings = {
+    container_style: {
+        width: '100%',
+        margin: '0 auto',
+    },
+    slide_style: {
+        width: '100vw',
+        height: 'auto',
+        paddingRight: '1.6rem',
+        position: 'relative',
+    },
+    navigation_style: {
+        bottom_offset: '420px',
+        nav_color: 'red',
+    },
+    slide_inner_width: '100vw',
+    navigation_css: css`
+        position: relative;
+        width: 100%;
+        height: 8px;
+        @media ${device.tabletL} {
+            bottom: 228px;
+        }
+        @media (max-width: 660px) {
+            bottom: 268px;
+        }
+        @media (max-width: 425px) {
+            bottom: 292px;
+        }
+        @media (max-width: 375px) {
+            bottom: 304px;
+        }
+        @media (max-width: 317px) {
+            bottom: 362px;
+        }
+    `,
+} as const
 
 const PlatformDetails = ({ title, icon, description, learn_more_link }: PlatformDetailsProps) => {
     return (
@@ -91,51 +136,18 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
 
     const lang_direction = useLangDirection()
 
-    const settings = {
-        options: {
-            loop: false,
-            align: 'center',
-            containScroll: 'trimSnaps',
-            direction: lang_direction,
-        },
-        container_style: {
-            width: '100%',
-            margin: '0 auto',
-        },
-        slide_style: {
-            width: '100vw',
-            height: 'auto',
-            paddingRight: '1.6rem',
-            position: 'relative',
-        },
-        navigation_style: {
-            bottom_offset: '420px',
-            nav_color: 'red',
-        },
-        slide_inner_width: '100vw',
-        navigation_css: css`
-            position: relative;
-            width: 100%;
-            height: 8px;
-            @media ${device.tabletL} {
-                bottom: 228px;
-            }
-            @media (max-width: 660px) {
-                bottom: 268px;
-            }
-            @media (max-width: 425px) {
-                bottom: 292px;
-            }
-            @media (max-width: 375px) {
-                bottom: 304px;
-            }
-            @media (max-width: 317px) {
-                bottom: 362px;
-            }
-        `,
-    }
     return (
-        <Carousel {...settings}>
+        <Carousel
+            {...settings}
+            options={{
+                loop: false,
+                align: 'center',
+                containScroll: 'trimSnaps',
+                direction: lang_direction,
+            }}
+            plugins={[Autoplay({ delay: PLATFORMS_CAROUSEL_DELAY })]}
+            is_reinit_enabled={true}
+        >
             {carousel_data?.map(
                 ({ image_key, title, icon, description, learn_more_link, download_links }) => {
                     return (

@@ -165,12 +165,12 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                     colSpan={is_fiat_onramp && parse_to_integer}
                     is_fiat_onramp={is_fiat_onramp}
                 >
-                    <Text>{payment_data.deposit_time}</Text>
+                    <LtrText is_rtl={is_rtl}>{payment_data.deposit_time}</LtrText>
                 </Deposit>
 
                 {!is_fiat_onramp && (
                     <Withdrawal>
-                        <Text>{payment_data.withdrawal_time}</Text>
+                        <LtrText is_rtl={is_rtl}>{payment_data.withdrawal_time}</LtrText>
                     </Withdrawal>
                 )}
 

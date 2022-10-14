@@ -746,7 +746,7 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?" />
+                    <Localize translate_text="What are the major differences between DTrader, Deriv MT5 and Deriv X?" />
                 ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,

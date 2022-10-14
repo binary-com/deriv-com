@@ -29,7 +29,7 @@ const special_language_urls = {
     es: {
         instagram: 'https://www.instagram.com/deriv_espanol/',
         twitter: 'https://twitter.com/DerivEspanol',
-        facebook: 'https://www.facebook.com/derivespanol',
+        // facebook: 'https://www.facebook.com/derivespanol', need to add once fb account restored
     },
 }
 const types = ['facebook', 'instagram', 'twitter', 'linkedin']

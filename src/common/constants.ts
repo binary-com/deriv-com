@@ -120,6 +120,7 @@ export const p2p_huawei_appgallery_url = 'https://appgallery.huawei.com/#/app/C1
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.eu'
+export const zoho_jobs_url = 'https://deriv.zohorecruit.eu/jobs/'
 export const zoho_career_url = 'https://deriv.zohorecruit.eu/jobs/Careers'
 export const live_chat_redirection_link = `?is_livechat_open=true`
 export const localized_link_url = Object.freeze({
@@ -145,19 +146,6 @@ export const default_server_url = 'green.binaryws.com'
 
 export const live_chat_key = 'live_chat_redirection'
 
-export const fb_non_eu_url = 'https://www.facebook.com/derivdotcom'
-export const fb_uk_url = 'https://www.facebook.com/derivUK/'
-export const fb_eu_url = 'https://www.facebook.com/derivEU/'
-export const fb_url_career = 'https://www.facebook.com/derivcareers'
-export const instagram_non_eu_url = 'https://www.instagram.com/deriv_official/'
-export const instagram_uk_url = 'https://www.instagram.com/deriv_uk/'
-export const instagram_eu_url = 'https://www.instagram.com/deriv_eu/'
-export const instagram_url_career = 'https://www.instagram.com/derivcareers/'
-export const linkedin_url = 'https://www.linkedin.com/company/derivdotcom/'
-export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom/life/'
-export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
-export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
-export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const cms_end_point = 'https://deriv-academy.directus.app'

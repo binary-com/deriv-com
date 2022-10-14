@@ -263,9 +263,7 @@ const DerivAffiliateProgramme = () => {
                                     {Turnover.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
                                             <StyledTrap isTitle="true">
-                                                <StyledText weight="bold">
-                                                    {localize(col.title)}
-                                                </StyledText>
+                                                <StyledText weight="bold">{col.title}</StyledText>
                                             </StyledTrap>
                                             {col.data.map((data, id) => (
                                                 <TRAPREVERSE even={id % 2 ? 'true' : ''} key={id}>

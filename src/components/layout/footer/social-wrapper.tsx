@@ -1,14 +1,8 @@
 import React from 'react'
 import { SocialWrapper } from './common/style'
 import { LocalizedLink } from 'components/localization'
-import {
-    reddit_url,
-    telegram_url,
-    fb_url_career,
-    instagram_url_career,
-    linkedin_url,
-    linkedin_url_career,
-} from 'common/constants'
+import { reddit_url, telegram_url } from 'common/constants'
+import { useSocialMediaUrl } from 'components/hooks/use-social-media-url'
 //Logo
 import Reddit from 'images/svg/layout/footer-reddit.svg'
 import Telegram from 'images/svg/layout/footer-telegram.svg'
@@ -18,12 +12,8 @@ import Facebook from 'images/svg/layout/footer-facebook.svg'
 import Linkedin from 'images/svg/layout/footer-linkedin.svg'
 
 type SocialWrapperComponentProps = {
-    fb_url?: string
-    instagram_url?: string
     is_career_page?: boolean
-    twitter_url?: string
 }
-
 type TSocialAccount = {
     link?: string
     image?: string
@@ -33,26 +23,23 @@ type SocialMediaComponentProps = {
     social_accounts: TSocialAccount[]
 }
 
-const SocialWrapperComponent = ({
-    is_career_page = false,
-    fb_url = '',
-    instagram_url = '',
-    twitter_url = '',
-}: SocialWrapperComponentProps) => {
+const SocialWrapperComponent = ({ is_career_page = false }: SocialWrapperComponentProps) => {
+    const { fb_url, instagram_url, twitter_url, linkedin_url } = useSocialMediaUrl()
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
+
     const accounts = [
         {
-            link: is_career_page ? fb_url_career : fb_url,
+            link: fb_url,
             image: Facebook,
             image_alt: `facebook ${alt_string}`,
         },
         {
-            link: is_career_page ? instagram_url_career : instagram_url,
+            link: instagram_url,
             image: Instagram,
             image_alt: `instagram ${alt_string}`,
         },
         {
-            link: is_career_page ? linkedin_url_career : linkedin_url,
+            link: linkedin_url,
             image: Linkedin,
             image_alt: `linkedin ${alt_string}`,
         },

@@ -19,7 +19,6 @@ module.exports = {
         siteUrl: site_url,
     },
     partytownProxiedURLs: [
-        `https://www.googletagmanager.com/gtm.js?id=GTM-NF7884S`,
         `https://assets.customer.io/assets/track-eu.js`,
         `https://assets.customer.io/assets/track.js`,
         `https://static.deriv.com/scripts/cookie.js`,
@@ -221,7 +220,6 @@ module.exports = {
             options: {
                 id: 'GTM-NF7884S',
                 includeInDevelopment: false,
-                strategy: 'off-main-thread',
             },
         },
         {

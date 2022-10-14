@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { QueryImage, ImageWrapper, Header } from 'components/elements'
@@ -7,10 +7,14 @@ import { LocalizedLink, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { p2p_playstore_url, p2p_applestore_url, p2p_huawei_appgallery_url } from 'common/constants'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const query = graphql`
     query {
         p2p_home_banner: file(relativePath: { eq: "home/p2p_home_banner.png" }) {
+            ...fadeIn
+        }
+        p2p_home_banner_rtl: file(relativePath: { eq: "home/p2p_home_banner_rtl.png" }) {
             ...fadeIn
         }
         deriv_p2p_logo: file(relativePath: { eq: "home/deriv_p2p_logo.png" }) {
@@ -381,7 +385,15 @@ const AppStoreBottomBadge = styled(LocalizedLink)`
 const P2PHomeBanner = () => {
     const data = useStaticQuery(query)
     const [is_tabletL] = useBrowserResize(size.tabletL)
-    const background = is_tabletL ? data['p2p_mobile_banner'] : data['p2p_home_banner']
+    const is_rtl = useIsRtl()
+
+    const background = useMemo(() => {
+        if (is_tabletL) {
+            return data['p2p_mobile_banner']
+        } else {
+            return is_rtl ? data['p2p_home_banner_rtl'] : data['p2p_home_banner']
+        }
+    }, [data, is_rtl, is_tabletL])
 
     return (
         <BackgroundWrapper>

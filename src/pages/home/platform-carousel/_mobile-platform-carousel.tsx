@@ -54,7 +54,7 @@ const settings = {
     slide_style: {
         width: '100vw',
         height: 'auto',
-        paddingRight: '1.6rem',
+        paddingInlineEnd: '1.6rem',
         position: 'relative',
     },
     navigation_style: {

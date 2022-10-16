@@ -102,7 +102,7 @@ const LearnMore = styled(LocalizedLink)`
     border-radius: 100px;
     background-color: var(--color-white);
     position: absolute;
-    bottom: -33px;
+    bottom: -20px;
     margin-left: auto;
     margin-right: auto;
     left: 0;

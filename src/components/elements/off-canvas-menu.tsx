@@ -6,7 +6,14 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
 import { DerivStore } from 'store'
 import { LocalizedLink, Localize } from 'components/localization'
-import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
+import {
+    Accordion,
+    AccordionItem,
+    NavCard,
+    Text,
+    Divider,
+    ImageWithDireciton,
+} from 'components/elements'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
@@ -465,7 +472,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             </div>
                             <Span>{<Localize translate_text="Deriv life" />}</Span>
                             <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
+                                <ImageWithDireciton src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
@@ -493,7 +500,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             </div>
                             <Span>{<Localize translate_text="Community" />}</Span>
                             <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
+                                <ImageWithDireciton src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
                         <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
@@ -531,7 +538,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             </div>
                             <Span>{<Localize translate_text="Status page" />}</Span>
                             <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
+                                <ImageWithDireciton src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
                         <StyledLink to="/academy/" onClick={handleArrowClick}>
@@ -621,6 +628,7 @@ type OffCanvasMenuPartnerProps = {
 export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     const canvas = useRef<HTMLDivElement>()
     const { is_row } = useCountryRule()
+    const is_rtl = useIsRtl()
 
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()
@@ -640,7 +648,11 @@ export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     }, [])
 
     return (
-        <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
+        <OffCanvasMenuSecondary
+            is_rtl={is_rtl}
+            is_canvas_menu_open={props.is_canvas_menu_open}
+            ref={canvas}
+        >
             <OffCanvasMenuContainer>
                 <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
                     <div>

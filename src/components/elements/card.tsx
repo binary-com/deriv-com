@@ -238,7 +238,10 @@ const NavContent = styled.div`
     display: flex;
     flex-direction: column;
 `
-const RightDiagonal = styled.img`
+const RightDiagonal = styled.img<{ is_rtl: boolean }>`
+    transform: ${({ is_rtl }) => {
+        return is_rtl ? 'scaleX(-1)' : null
+    }};
     opacity: 0;
     transition: opacity 0.2s;
     position: absolute;
@@ -333,6 +336,7 @@ export const NavCard = ({
     title,
     ...props
 }: NavCardProps) => {
+    const is_rtl = useIsRtl()
     return (
         <LocalizedLink
             style={{
@@ -357,7 +361,13 @@ export const NavCard = ({
                 </NavContent>
                 {external && (
                     <div>
-                        <RightDiagonal src={Diagonal} alt="Diagonal" width="16" height="16" />
+                        <RightDiagonal
+                            is_rtl={is_rtl}
+                            src={Diagonal}
+                            alt="Diagonal"
+                            width="16"
+                            height="16"
+                        />
                     </div>
                 )}
             </FlexHover>
@@ -454,7 +464,12 @@ export const CardLink = ({
                     </ResponsiveHeader>
                     {external && (
                         <LinkRightDiagonal>
-                            <img src={Diagonal} alt="Diagonal" width="16" height="16" />
+                            <ImageWithDireciton
+                                src={Diagonal}
+                                alt="Diagonal"
+                                width="16"
+                                height="16"
+                            />
                         </LinkRightDiagonal>
                     )}
                 </RelativeFlex>

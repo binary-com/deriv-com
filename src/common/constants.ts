@@ -53,7 +53,7 @@ export const uk_domains = [
 export const domain_full_url = `https://${getDomainUrl()}`
 export const deriv_app_id = getDomainAppID()
 export const deriv_app_url = `https://app.${getDomainUrl()}`
-export const deriv_api_url = `https://api.${getDomainUrl()}`
+export const deriv_api_url = `https://api.${getDomainUrl()}/docs`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
@@ -120,6 +120,7 @@ export const p2p_huawei_appgallery_url = 'https://appgallery.huawei.com/#/app/C1
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.eu'
+export const zoho_jobs_url = 'https://deriv.zohorecruit.eu/jobs/'
 export const zoho_career_url = 'https://deriv.zohorecruit.eu/jobs/Careers'
 export const live_chat_redirection_link = `?is_livechat_open=true`
 export const localized_link_url = Object.freeze({

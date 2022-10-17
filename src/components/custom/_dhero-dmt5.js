@@ -9,13 +9,11 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const Wrapper = styled.div`
-    position: relative;
-    background-color: var(--color-black);
-    width: 100%;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    padding-left: 120px;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--color-black);
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -157,9 +155,6 @@ const DHero = ({
 
     return (
         <Wrapper>
-            <ImgWrapper>
-                <QueryImage data={background} alt={background_alt} />
-            </ImgWrapper>
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" weight="normal">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
@@ -189,6 +184,9 @@ const DHero = ({
                     )}
                 </LinkWrapper>
             </InformationWrapper>
+            <ImgWrapper>
+                <QueryImage data={background} alt={background_alt} />
+            </ImgWrapper>
         </Wrapper>
     )
 }

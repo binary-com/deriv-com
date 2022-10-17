@@ -13,6 +13,7 @@ import NavPartners from './nav/nav-partner'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
+import Footer from './footer'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
@@ -28,6 +29,10 @@ import { DerivStore, useDerivWS } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+
+const LoadableFooter = Loadable(() => import('./footer'))
+const BeSquareFooter = Loadable(() => import('./besquare/footer'))
+const LiveChat = Loadable(() => import('./livechat'))
 
 type CFDWarningProps = {
     is_ppc: boolean
@@ -56,10 +61,6 @@ export type ModalPayloadType = {
     target: string
     aria_label: string
 }
-
-const Footer = Loadable(() => import('./footer'))
-const BeSquareFooter = Loadable(() => import('./besquare/footer'))
-const LiveChat = Loadable(() => import('./livechat'))
 
 const has_dataLayer = isBrowser() && window.dataLayer
 
@@ -245,7 +246,7 @@ const Layout = ({
     switch (type) {
         case 'academy':
             Navigation = <NavAcademy />
-            FooterNav = <Footer academy={true} />
+            FooterNav = <LoadableFooter academy={true} />
             break
         case 'static':
             Navigation = <NavStatic is_ppc={is_ppc} />
@@ -255,23 +256,23 @@ const Layout = ({
             break
         case 'partners':
             Navigation = <NavPartners hide_login_signup={no_login_signup} />
-            FooterNav = <Footer />
+            FooterNav = <LoadableFooter />
             break
         case 'security':
             Navigation = <NavSecurity />
-            FooterNav = <Footer />
+            FooterNav = <LoadableFooter />
             break
         case 'ebook':
             Navigation = <Nav hide_signup_login />
-            FooterNav = <Footer />
+            FooterNav = <LoadableFooter />
             break
         case 'landing-page':
             Navigation = <NavInterim landing_type />
-            FooterNav = <Footer no_footer_links />
+            FooterNav = <LoadableFooter no_footer_links />
             break
         case 'jump-indices':
             Navigation = <NavJumpIndice />
-            FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+            FooterNav = <LoadableFooter is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         case 'besquare':
             Navigation = <NavCareers is_besquare />
@@ -279,15 +280,19 @@ const Layout = ({
             break
         case 'careers':
             Navigation = <NavCareers />
-            FooterNav = <Footer no_language={true} type={type} />
+            FooterNav = <LoadableFooter no_language={true} type={type} />
             break
         case 'transparent':
+            Navigation = <NavTransparent is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            FooterNav = <LoadableFooter is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+            break
+        case 'payment-methods':
             Navigation = <NavTransparent is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:
             Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
-            FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+            FooterNav = <LoadableFooter is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
     //Handle page layout when redirection from mobile app.

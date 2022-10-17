@@ -57,23 +57,42 @@ const Derived = ({ text }: ArticleProps) => {
                       )}
             </Text>
             <StyledText>
-                <Localize
-                    translate_text={
-                        is_eu
-                            ? 'Available 24/7 with varying levels of volatility, our synthetic indices are priced based on algorithms that are audited for fairness by an independent third party. Read <0>this article</0> to learn more about trading synthetic indices on Deriv.'
-                            : "Available 24/7, our synthetic indices emulate price movements of real-world markets with varying levels of volatility. As they aren't based on actual underlying assets, they are unaffected by real-world market events. The pricing of our synthetic indices is backed by algorithms that are audited for fairness by an independent third party. Read <0>this article</0> to learn more about trading synthetic indices on Deriv."
-                    }
-                    components={[
-                        <StyledLink
-                            to={'/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'}
-                            target="_blank"
-                            external
-                            weight="bold"
-                            rel="noopener noreferrer"
-                            key={0}
-                        />,
-                    ]}
-                />
+                <>
+                    {is_eu && (
+                        <Localize
+                            translate_text="Available 24/7 with varying levels of volatility, our synthetic indices are priced based on algorithms that are audited for fairness by an independent third party. Read <0>this article</0> to learn more about trading synthetic indices on Deriv."
+                            components={[
+                                <StyledLink
+                                    to={
+                                        '/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'
+                                    }
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={0}
+                                />,
+                            ]}
+                        />
+                    )}
+                    {is_row && (
+                        <Localize
+                            translate_text="Available 24/7, our synthetic indices emulate price movements of real-world markets with varying levels of volatility. As they aren't based on actual underlying assets, they are unaffected by real-world market events. The pricing of our synthetic indices is backed by algorithms that are audited for fairness by an independent third party. Read <0>this article</0> to learn more about trading synthetic indices on Deriv."
+                            components={[
+                                <StyledLink
+                                    to={
+                                        '/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'
+                                    }
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={0}
+                                />,
+                            ]}
+                        />
+                    )}
+                </>
             </StyledText>
             {is_row && (
                 <>

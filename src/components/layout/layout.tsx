@@ -172,6 +172,7 @@ const Layout = ({
     const { has_platform } = usePlatformQueryParam()
 
     const is_static = type === 'static'
+    console.log(type)
 
     // Allow tracking cookie banner setup
     React.useEffect(() => {

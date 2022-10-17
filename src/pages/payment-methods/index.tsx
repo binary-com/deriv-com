@@ -341,7 +341,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
 const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
-        <Layout>
+        <Layout type="payment-methods">
             <SEO
                 title={localize('Payment Methods | Deposits and withdrawals | Deriv')}
                 description={localize(

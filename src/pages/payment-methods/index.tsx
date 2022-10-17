@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import ExpandList from './_expanded-list'
+import Loadable from '@loadable/component'
 import payment_data from './_payment-data'
 import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
@@ -11,6 +11,8 @@ import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+
+const ExpandList = Loadable(() => import('./_expanded-list'))
 
 type StyledTableType = {
     has_note: boolean

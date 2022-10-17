@@ -302,7 +302,7 @@ export const cyprus: LocationsType = {
     map_text:
         'We give our people the freedom to solve problems and work together to get things done without hierarchy. The workplace encourages open communication, transparency, and a free flow of ideas. If you take pride in your work and are interested in working with the best global talent,  join our team in Limassol.',
     address: address_cyprus,
-    google_map_link: 'https://goo.gl/maps/MP8aqZQ4xt8LJ9id9',
+    google_map_link: 'https://goo.gl/maps/j7fs9r73dfwQtHgj8',
     has_iframe: true,
 }
 

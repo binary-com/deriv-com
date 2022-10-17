@@ -12,7 +12,7 @@ import {
     eu_domains,
     uk_domains,
 } from './constants'
-import { isUK, eu_countries } from 'common/country-base'
+import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
 
 export const trimSpaces = (value: string): string => value?.trim()
@@ -107,17 +107,7 @@ export const isLoggedIn = () => {
     return !!client_information
 }
 
-//This function returns true if user's location (IP address) is Uk or user's account is MX account (Uk resident)
-export const isUKOrMXAccount = (current_client_country) => {
-    const domain = getDomain()
-    const { residence } = getClientInformation(domain) || {
-        residence: '',
-    }
-
-    return residence === 'gb' || isUK(current_client_country)
-}
-
-export const isIndexEven = (index: number, reverse: boolean): number =>
+export const isIndexEven = (index: number, reverse: boolean) =>
     reverse ? (index + 1) % 2 : index % 2
 
 export const sanitize = (input: string): string => input.replace(/[.*+?^${}()|[\]\\]/g, '')

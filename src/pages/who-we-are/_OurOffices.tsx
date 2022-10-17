@@ -80,6 +80,7 @@ const MapImage = styled(BackgroundImage)`
     height: 414px;
     background-color: transparent;
     background-size: cover;
+    direction: ltr;
 
     @media ${device.tabletL} {
         width: 328px;

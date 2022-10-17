@@ -120,7 +120,7 @@ const IconGrid = () => {
 
             eu_links: [
                 {
-                    url: '/tnc/eu/security-and-privacy.pdf',
+                    url: '/tnc/security-and-privacy.pdf',
                     title: localize('Security & privacy'),
                 },
             ],

@@ -97,7 +97,6 @@ const DemoButton = styled(Button)`
     @media ${device.mobileL} {
         white-space: nowrap;
         margin-bottom: 1.6rem;
-        width: 100%;
     }
 `
 const ImgWrapper = styled.div`

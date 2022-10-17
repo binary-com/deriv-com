@@ -157,7 +157,6 @@ const DemoButton = styled(Button)`
         white-space: nowrap;
         margin-bottom: 1.6rem;
         margin-right: unset;
-        width: 100%;
     }
 `
 
@@ -277,7 +276,7 @@ const DHero = ({
                 <LinkWrapper>
                     {join_us_for_free &&
                         (is_logged_in ? (
-                            <DemoButton onClick={handleGetTrading} secondary>
+                            <DemoButton width="128px" onClick={handleGetTrading} secondary>
                                 <Localize translate_text="Get Trading" />
                             </DemoButton>
                         ) : (

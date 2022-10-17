@@ -296,7 +296,7 @@ export const cyprus: LocationsType = {
         'Girl having a call online',
         "Deriv's office location in Limassol,Cyprus",
     ],
-    map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
+    map: 'ChIJcwIu_VQz5xQR_cm_eAWo2XY',
     badge: 'cyprus_great_place_to_work_badge',
     badge_alt: 'Cyprus Great Place to Work 2022 Certification Badge',
     map_text:

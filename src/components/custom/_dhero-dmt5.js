@@ -14,6 +14,7 @@ const Wrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-between;
     padding-left: 120px;
 
     @media ${device.tabletL} {

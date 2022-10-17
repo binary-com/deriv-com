@@ -13,6 +13,7 @@ const Wrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    padding-left: 120px;
     background-color: var(--color-black);
 
     @media ${device.tabletL} {

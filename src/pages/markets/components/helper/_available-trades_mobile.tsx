@@ -10,6 +10,7 @@ import OptionsIcon from 'images/svg/custom/options-nav.svg'
 import Minus from 'images/svg/elements/minus.svg'
 import Plus from 'images/svg/elements/plus.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type CardProps = {
     active_tab: string[]
@@ -32,6 +33,7 @@ type AvailableTradesProps = {
 type CardContainerProps = {
     active_tab: string[]
     name: string
+    is_rtl: boolean
 }
 
 const StyledSection = styled(SectionContainer)`
@@ -100,10 +102,11 @@ const CardContainer = styled(Flex)<CardContainerProps>`
             box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
             ${(props) => {
                 if (props.active_tab.includes(props.name))
-                    return css`
+                    return css<{ is_rtl: boolean }>`
                         border-radius: 12px 16px 0 0;
                         transform: perspective(7px) rotateX(0.8deg);
-                        transform-origin: bottom left;
+                        transform-origin: ${(props) =>
+                            props.is_rtl ? 'bottom right' : 'bottom left'};
                     `
             }}
         }
@@ -138,8 +141,9 @@ const StyledSvg = styled.img`
 `
 
 const Card = ({ display_name, active_tab, name }: CardProps) => {
+    const is_rtl = useIsRtl()
     return (
-        <CardContainer name={name} active_tab={active_tab}>
+        <CardContainer is_rtl={is_rtl} name={name} active_tab={active_tab}>
             <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'hidden' }}>
                 {name === 'CFDs' && (
                     <TabIcon src={CFDIcon} alt="" name={name} active_tab={active_tab} />

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import BgMobile from 'images/common/who-we-are/about-us-banner-mobile.jpg'
+import BgMobileRTL from 'images/common/who-we-are/about-us-banner-mobile_rtl.jpg'
 import Bg from 'images/common/who-we-are/about-us-banner.jpg'
 import BgRTL from 'images/common/who-we-are/about-us-banner_rtl.jpg'
 import { localize } from 'components/localization'
@@ -42,9 +43,16 @@ const StyledFlex = styled(Flex)<{ is_rtl: boolean }>`
         width: 100%;
     }
     @media (max-width: 610px) {
-        background-image: url(${BgMobile});
-        background-position-x: unset;
-        background-position: left;
+        ${({ is_rtl }) =>
+            is_rtl
+                ? css`
+                      background-image: url(${BgMobileRTL});
+                      background-position-x: right;
+                  `
+                : css`
+                      background-image: url(${BgMobile});
+                      background-position-x: left;
+                  `};
         height: 546px;
     }
     @media (max-width: 359px) {

@@ -5,7 +5,7 @@ import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-
 import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
-import { Text } from 'components/elements'
+import { Text, LinkText } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
@@ -62,14 +62,15 @@ const Derived = ({ text }: ArticleProps) => {
                         <Localize
                             translate_text="Available 24/7 with varying levels of volatility, our synthetic indices are priced based on algorithms that are audited for fairness by an independent third party. Read <0>this article</0> to learn more about trading synthetic indices on Deriv."
                             components={[
-                                <StyledLink
-                                    to={
+                                <LinkText
+                                    href={
                                         '/academy/blog/posts/an-introduction-to-synthetic-indices-trading/'
                                     }
                                     target="_blank"
                                     weight="bold"
                                     rel="noopener noreferrer"
                                     key={0}
+                                    color="red"
                                 />,
                             ]}
                         />

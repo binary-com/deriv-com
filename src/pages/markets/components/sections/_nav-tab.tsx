@@ -5,6 +5,7 @@ import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type NavTabProps = {
     route_from: string
@@ -174,12 +175,13 @@ const tab_list_uk = [
 
 const NavTab = ({ route_from, route_offset }: NavTabProps) => {
     const { is_eu, is_uk } = useCountryRule()
-
+    const is_rtl = useIsRtl()
     const ref = useRef(null)
 
     useEffect(() => {
-        ref.current.scrollLeft = route_offset
-    })
+        // if the direction is RTL we have to provide the negative value fo route_offset
+        ref.current.scrollLeft = is_rtl ? -1 * route_offset : route_offset
+    }, [route_offset, is_rtl])
 
     return (
         <TabsContainer>

@@ -4,6 +4,7 @@ import device from 'themes/device'
 import WhatsAppIcon from 'images/svg/layout/whatsapp.svg'
 import WhatsAppHover from 'images/svg/layout/whatsapp-hover.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useLivechat } from 'components/hooks/use-livechat'
 import { whatsapp_url } from 'common/constants'
 
 const StyledWhatsApp = styled.div`
@@ -26,9 +27,10 @@ const StyledWhatsApp = styled.div`
 const WhatsApp = () => {
     const { is_nigeria, is_south_africa } = useCountryRule()
     const [is_whatsapp_hover, setWhatsAppHover] = useState(false)
+    const [is_livechat_interactive] = useLivechat()
     return (
         <>
-            {(is_nigeria || is_south_africa) && (
+            {is_livechat_interactive && (is_nigeria || is_south_africa) && (
                 <StyledWhatsApp
                     onClick={() => window.open(whatsapp_url, '_blank')}
                     onMouseEnter={() => setWhatsAppHover(true)}

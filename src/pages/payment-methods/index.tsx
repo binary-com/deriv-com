@@ -144,6 +144,8 @@ export type PaymentProps = {
     payment_data?: PaymentType
     locale?: { locale?: LocaleType }
     is_crypto?: boolean
+    is_row?: boolean
+    is_eu?: boolean
     is_fiat_onramp?: boolean
     is_dp2p?: boolean
 }
@@ -151,6 +153,8 @@ export type PaymentDataProps = {
     name?: ReactElement
     note?: ReactElement
     is_crypto?: boolean
+    is_row?: boolean
+    is_eu?: boolean
     is_dp2p?: boolean
     is_fiat_onramp?: boolean
     locale?: LocaleType
@@ -202,6 +206,12 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                           background: 'var(--color-white)',
                           paddingBottom: pd.note ? '5rem' : '2.2rem',
                       }
+                if (pd.is_row && is_eu_country) {
+                    return []
+                }
+                if (pd.is_eu && !is_eu_country) {
+                    return []
+                }
 
                 if (pd.is_crypto && is_eu_country) {
                     return []

@@ -166,7 +166,7 @@ const SocialWrapper = styled(Flex)`
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
-        justify-content: left;
+        justify-content: flex-start;
     }
 
     @media ${device.tabletL} {

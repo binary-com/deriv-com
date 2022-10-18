@@ -215,7 +215,7 @@ const career_data = {
         {
             header: {
                 background: 'people_management_bg',
-                title: 'People Management',
+                title: 'Human Resources',
                 subtitle:
                     'We bring in the go-getters; from the inspiring leaders to the ambitious grads. We link the best people with the right opportunities and support them in every way to help them grow in their professional careers at Deriv.',
             },
@@ -228,7 +228,7 @@ const career_data = {
                     },
                 ],
             },
-            link_url: 'https://deriv.zohorecruit.eu/jobs/People-Management',
+            link_url: 'https://deriv.zohorecruit.eu/jobs/Human-Resources',
             open_position: [
                 {
                     title: 'Talent Acquisition Specialist',

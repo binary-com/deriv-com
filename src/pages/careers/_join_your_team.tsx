@@ -112,9 +112,9 @@ const JoinYourTeam = () => {
         },
         {
             img_data: data.peopleManagement,
-            to: '/careers/people-management/',
-            img_alt: 'People management jobs at Deriv',
-            display_team_name: 'People Management',
+            to: '/careers/human-resources/',
+            img_alt: 'Human Resources jobs at Deriv',
+            display_team_name: 'Human Resources',
             tagline:
                 'We bring in go-getters, link them with the right opportunities, and support them in every way to help them grow.',
         },

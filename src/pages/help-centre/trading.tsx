@@ -60,7 +60,7 @@ const Derived = ({ text }: ArticleProps) => {
                 <>
                     {is_eu && (
                         <Localize
-                            translate_text="Available 24/7 with varying levels of volatility, our synthetic indices are priced based on algorithms that are audited for fairness by an independent third party. Read <0>this article</0> to learn more about trading synthetic indices on Deriv."
+                            translate_text="Available 24/7 with varying levels of volatility, our synthetic indices are priced based on algorithms that are audited for fairness by an independent third party."
                             components={[
                                 <LinkText
                                     href={

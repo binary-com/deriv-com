@@ -147,8 +147,15 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
             </Container>
             <StyledFlex wrap="wrap">
                 {content.map((item, idx) => {
+                    console.log(item)
                     return (
-                        <ClientCard key={idx}>
+                        <ClientCard
+                            key={
+                                typeof item.text === 'string'
+                                    ? item.text
+                                    : item.text.props.translate_text
+                            }
+                        >
                             <Flex ai="center" height="fit-content">
                                 <StyledHeader as="h4" type="sub-section-title">
                                     {item.header}

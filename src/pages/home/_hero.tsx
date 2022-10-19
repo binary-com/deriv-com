@@ -48,7 +48,24 @@ const HeroButton = styled(Button)`
     width: fit-content;
 
     @media ${device.tabletL} {
+        font-size: 14px;
+        padding: 14px 16px;
+    }
+    @media ${device.mobileS} {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+`
+const HeroDemoButton = styled(Button)`
+    padding: 17px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+
+    @media ${device.tabletL} {
         font-size: 20px;
+        margin: 0 24px;
         line-height: 30px;
     }
     @media ${device.mobileS} {
@@ -152,14 +169,14 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                         <Localize translate_text="Get Trading" />
                                     </HeroButton>
                                 ) : (
-                                    <HeroButton
+                                    <HeroDemoButton
                                         disabled={is_loading}
                                         onClick={handleSignup}
                                         id="dm-hero-signup"
                                         secondary
                                     >
                                         <Localize translate_text="Create free demo account" />
-                                    </HeroButton>
+                                    </HeroDemoButton>
                                 )}
                             </Box>
                         </Flex>

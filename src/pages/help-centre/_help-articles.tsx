@@ -184,7 +184,7 @@ export const articles: ArcticlesType[] = [
                 label: 'what-are-stock-indices',
             },
             {
-                title: <Localize translate_text="What is Derived?" />,
+                title: <Localize translate_text="What is derived?" />,
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,
                 label: 'what-is-derived',

@@ -6,11 +6,13 @@ import Layout from 'components/layout/layout'
 import { Desktop, Mobile, SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { size } from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { isBrowser } from 'common/utility'
 import ExtendedTimeSVG from 'images/svg/stock-indices/stocks-extended-time.svg'
 import NoCommisionSVG from 'images/svg/stock-indices/stocks-no-commission.svg'
 import HighLeverageSVG from 'images/svg/stock-indices/stocks-high-leverage.svg'
-import TwelveIndicesSVG from 'images/svg/stock-indices/stocks-12-world-indices.svg'
+import ElevenIndicesSVG from 'images/svg/stock-indices/stocks-11-world-indices.svg'
+import TenIndicesSVG from 'images/svg/stock-indices/stocks-10-world-indices.svg'
 import FourtyStocksSVG from 'images/svg/stock-indices/stocks-80-analytic-objects.svg'
 import LowCapitalSVG from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import { ContentType } from 'pages/landing/_types'
@@ -18,6 +20,16 @@ import { ContentType } from 'pages/landing/_types'
 const query = graphql`
     query {
         stocks_banner: file(relativePath: { eq: "stock-indices/mac-book-pro-with-iphone.png" }) {
+            ...fadeIn
+        }
+        stocks_banner_eu: file(
+            relativePath: { eq: "stock-indices/mac-book-pro-with-iphone-eu.png" }
+        ) {
+            ...fadeIn
+        }
+        stocks_banner_mobile_eu: file(
+            relativePath: { eq: "stock-indices/mac-book-pro-with-iphone-mobile-eu.png" }
+        ) {
             ...fadeIn
         }
         stocks_banner_mobile: file(
@@ -43,8 +55,31 @@ const WhyTradeWithUsArr: ContentType[] = [
         icon: HighLeverageSVG,
     },
     {
-        title: <Localize translate_text="12+ world indices" />,
-        icon: TwelveIndicesSVG,
+        title: <Localize translate_text="11 world indices" />,
+        icon: ElevenIndicesSVG,
+    },
+    {
+        title: <Localize translate_text="40+ stocks" />,
+        icon: FourtyStocksSVG,
+    },
+    {
+        title: <Localize translate_text="Low capital requirement" />,
+        icon: LowCapitalSVG,
+    },
+]
+
+const WhyTradeWithUsArr_eu = [
+    {
+        title: <Localize translate_text="Extended market hours" />,
+        icon: ExtendedTimeSVG,
+    },
+    {
+        title: <Localize translate_text="No commissions" />,
+        icon: NoCommisionSVG,
+    },
+    {
+        title: <Localize translate_text="10 world indices" />,
+        icon: TenIndicesSVG,
     },
     {
         title: <Localize translate_text="40+ stocks" />,
@@ -58,9 +93,9 @@ const WhyTradeWithUsArr: ContentType[] = [
 
 const trading: ContentType[] = [
     {
-        title: <Localize translate_text="No commision, no fees" />,
+        title: <Localize translate_text="No commission" />,
         subtitle: (
-            <Localize translate_text="Predict the performance of global giants including Apple, Amazon, and Netflix. Trade CFDs with leverage and no commissions on a range of both stocks and stock indices." />
+            <Localize translate_text="Predict the performance of global giants including Apple, Amazon, and Netflix. Trade CFDs with leverage and no commission on stocks and stock indices." />
         ),
 
         image_name: 'stocks_zero_fees',
@@ -70,9 +105,9 @@ const trading: ContentType[] = [
 
 const tradingMobile: ContentType[] = [
     {
-        title: <Localize translate_text="No commision, no fees" />,
+        title: <Localize translate_text="No commission" />,
         subtitle: (
-            <Localize translate_text="Predict the performance of global giants including Apple, Amazon, and Netflix. Trade CFDs with leverage and no commissions on a range of both stocks and stock indices." />
+            <Localize translate_text="Predict the performance of global giants including Apple, Amazon, and Netflix. Trade CFDs with leverage and no commission on stocks and stock indices." />
         ),
     },
 ]
@@ -80,7 +115,7 @@ const blueChips: ContentType[] = [
     {
         title: <Localize translate_text="Blue chip, blue skies" />,
         subtitle: (
-            <Localize translate_text="Diversify your portfolio with commission-free trading on the biggest international stock market indices. Trade on world renowned indices such as the Wall Street 30, US Tech 100, UK 100, plus many more. Get trading from as low as $5." />
+            <Localize translate_text="Diversify your portfolio with commission-free trading on the biggest international stock market indices. Trade on world renowned indices such as the Wall Street 30, US Tech 100, UK 100, plus many more. Get trading with as low as $5." />
         ),
 
         image_name: 'stocks_blue_chip',
@@ -94,6 +129,7 @@ const Stocks = () => {
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
+    const { is_row } = useCountryRule()
 
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -102,6 +138,7 @@ const Stocks = () => {
 
     const data = useStaticQuery(query)
 
+    const display_items = is_row ? WhyTradeWithUsArr : WhyTradeWithUsArr_eu
     return (
         <Layout is_ppc_redirect={true}>
             <SEO
@@ -130,15 +167,21 @@ const Stocks = () => {
                 contentMargin={'24px'}
             />
             <WhyTradeWithUs
-                itemsArr={WhyTradeWithUsArr}
+                itemsArr={display_items}
                 mainTitle={<Localize translate_text="Why trade stocks and indices on Deriv" />}
                 columnPerRow={3}
             />
             <FooterBanner
                 background_pattern={is_mobile ? '' : BackgroundFooterStocksPattern}
-                title={<Localize translate_text="All this is available on our DMT5 platform" />}
+                title={
+                    <Localize translate_text="All this is available on our Deriv MT5 platform" />
+                }
                 small_title={
-                    <Localize translate_text="Enjoy high leverage and low spreads on our DMT5 platform, now offering a range of stocks and stock indices from the brands you love." />
+                    is_row ? (
+                        <Localize translate_text="Enjoy high leverage and low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love." />
+                    ) : (
+                        <Localize translate_text="Enjoy low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love." />
+                    )
                 }
                 data={data}
                 is_ppc={true}

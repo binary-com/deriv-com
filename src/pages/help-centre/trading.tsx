@@ -5,7 +5,7 @@ import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-
 import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
-import { Text, LinkText } from 'components/elements'
+import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 

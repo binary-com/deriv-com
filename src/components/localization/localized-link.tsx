@@ -2,7 +2,7 @@ import React, { CSSProperties, Ref, useContext, useEffect, useState } from 'reac
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
-import { LocationContext } from '../layout/location-context.js'
+import { LocationContext } from '../layout/location-context'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 import { localized_link_url } from 'common/constants'
@@ -82,25 +82,7 @@ export const SharedLinkStyle = css<SharedLinkStyleProps>`
         `}
 `
 
-const ShareDisabledStyle = css<{ disabled: boolean }>`
-    ${({ disabled }) =>
-        disabled &&
-        `
-        pointer-events: none;
-        opacity: 0.32;`}
-`
-
-const StyledAnchor = styled.a`
-    ${ShareDisabledStyle}
-`
-
-const StyledAnchorLink = styled(AnchorLink)`
-    ${ShareDisabledStyle}
-`
-
-const StyledGatsbyLink = styled(GatsbyLink)`
-    ${ShareDisabledStyle}
-`
+const StyledGatsbyLink = styled(GatsbyLink)``
 
 export const LocalizedLink = React.forwardRef(
     ({ external, ...props }: LocalizedLinkProps, ref: Ref<GatsbyLink<string>>) => {
@@ -148,12 +130,10 @@ const InternalLink = ({
     internal_to = has_no_end_slash ? internal_to.replace(/\/$/, '') : internal_to
 
     if (is_anchor) {
-        return (
-            <StyledAnchorLink title={aria_label} to={internal_to} disabled={!mounted} {...props} />
-        )
+        return <AnchorLink title={aria_label} to={internal_to} {...props} />
     }
     return (
-        <StyledGatsbyLink aria-label={aria_label} to={internal_to} disabled={!mounted} {...props}>
+        <StyledGatsbyLink aria-label={aria_label} to={internal_to} {...props}>
             {children}
         </StyledGatsbyLink>
     )
@@ -241,17 +221,16 @@ const ExternalLink = ({
     }
 
     return (
-        <StyledAnchor
+        <a
             style={style ? style : default_style}
             aria-label={aria_label}
             href={!show_modal ? url : ''}
             onClick={show_modal ? handleClick : null}
-            disabled={!mounted}
             target={final_target}
             rel={rel}
             {...props}
         >
             {children}
-        </StyledAnchor>
+        </a>
     )
 }

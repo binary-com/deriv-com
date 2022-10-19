@@ -1,25 +1,24 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { getOSIcon, PlatformContent, ImageTag, TPlatformDetails } from './_utils'
+import Autoplay from 'embla-carousel-autoplay'
+import {
+    getOSIcon,
+    PlatformContent,
+    ImageTag,
+    TPlatformDetails,
+    PLATFORMS_CAROUSEL_DELAY,
+} from './_utils'
 import type { PlatformDetailsProps } from './_utils'
 import { image_query } from './_details'
 import { LocalizedLink } from 'components/localization'
-import {
-    dmt5_macos_url,
-    dmt5_android_url,
-    dmt5_app_gallery,
-    deriv_mt5_app_url,
-} from 'common/constants'
+import { dmt5_android_url, dmt5_app_gallery, deriv_mt5_app_url } from 'common/constants'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
 
 const query = graphql`
     {
-        dmt5_mobile_mac_app_store: file(relativePath: { eq: "home/dmt5_mobile_app_store.png" }) {
-            ...fadeIn
-        }
         dmt5_mobile_google_play: file(relativePath: { eq: "home/dmt5_mobile_google_play.png" }) {
             ...fadeIn
         }
@@ -87,7 +86,7 @@ const settings = {
             bottom: 362px;
         }
     `,
-}
+} as const
 
 const PlatformDetails = ({ title, icon, description, learn_more_link }: PlatformDetailsProps) => {
     return (
@@ -140,7 +139,11 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
     const data = useStaticQuery(query)
 
     return (
-        <Carousel {...settings}>
+        <Carousel
+            {...settings}
+            plugins={[Autoplay({ delay: PLATFORMS_CAROUSEL_DELAY })]}
+            is_reinit_enabled={true}
+        >
             {carousel_data?.map(
                 ({ image_key, title, icon, description, learn_more_link, download_links }) => {
                     return (
@@ -162,17 +165,6 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                             </Flex>
                             {title === 'Deriv MT5' ? (
                                 <OsBadges>
-                                    <AppStoreBadge
-                                        external
-                                        to={dmt5_macos_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['dmt5_mobile_mac_app_store']}
-                                            alt="dmt5 mac app store"
-                                        />
-                                    </AppStoreBadge>
                                     <AppStoreBadge
                                         external
                                         to={dmt5_android_url}

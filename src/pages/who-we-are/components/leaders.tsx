@@ -161,7 +161,7 @@ const Leaders = () => {
         },
         {
             name: 'Tom Molesworth',
-            position: <Localize translate_text="Chief Technology Officer" />,
+            position: <Localize translate_text="Chief Information Officer" />,
             link: '',
             image: leaders_data.tom,
         },

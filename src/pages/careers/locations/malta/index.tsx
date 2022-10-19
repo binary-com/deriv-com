@@ -26,6 +26,11 @@ const query = graphql`
         malta_grid_4: file(relativePath: { eq: "careers/malta_grid_4.png" }) {
             ...fadeIn
         }
+        malta_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/malta_great_place_to_work_badge.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

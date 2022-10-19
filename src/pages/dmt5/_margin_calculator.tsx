@@ -2,11 +2,12 @@ import React from 'react'
 import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Box, Flex, SectionContainer, EU, NonEU, Desktop, Mobile } from 'components/containers'
+import { Box, Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type CalculatorProps = {
     children?: React.ReactNode
@@ -46,20 +47,22 @@ const CardContainer = styled(Flex)`
 `
 
 const ImageWrapper = styled.div`
+    display: flex;
     width: 392px;
     height: 386px;
     object-fit: contain;
     margin-bottom: 2.4rem;
 
     @media ${device.tabletL} {
-        max-width: 232px;
-        width: 100%;
-        margin-bottom: 24px;
-        height: unset;
+        align-items: center;
+        justify-content: center;
+        width: 232px;
+        height: 229px;
 
         div {
             max-width: 232px;
             width: 100%;
+            height: auto;
         }
     }
 `
@@ -67,7 +70,7 @@ const ImageWrapper = styled.div`
 const MainHeader = styled(Header)`
     margin: 0 0 12px;
     @media ${device.tabletL} {
-        font-size: 32px;
+        font-size: 28px;
         margin-bottom: 24px;
         padding: 0 16px;
         text-align: center;
@@ -112,7 +115,7 @@ const StyledCardContainer = styled(Flex)`
     align-items: center;
     @media ${device.tabletL} {
         height: auto;
-        min-height: 518px;
+        min-height: 480px;
         justify-content: flex-start;
     }
 `
@@ -242,11 +245,12 @@ const MarginCalculator = () => {
         },
     }
 
+    const { is_uk_eu } = useCountryRule()
     return (
         <SectionContainer>
             <StyledFlexContainer>
                 <StyledFlex
-                    ai="flex-end"
+                    ai="center"
                     jc="flex-start"
                     tablet_jc="center"
                     fd="column"
@@ -258,34 +262,38 @@ const MarginCalculator = () => {
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>
-                            <EU>
-                                <Localize
-                                    translate_text="Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
-                                    components={[
-                                        <LinkText
-                                            color="red"
-                                            key={0}
-                                            target="_blank"
-                                            href="/trade-types/cfds/"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </EU>
-                            <NonEU>
-                                <Localize
-                                    translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
-                                    components={[
-                                        <LinkText
-                                            color="red"
-                                            key={0}
-                                            target="_blank"
-                                            href="/trade-types/cfds/"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </NonEU>
+                            {is_uk_eu && (
+                                <>
+                                    <Localize
+                                        translate_text="Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
+                                        components={[
+                                            <LinkText
+                                                color="red"
+                                                key={0}
+                                                target="_blank"
+                                                href="/trade-types/cfds/"
+                                                rel="noopener noreferrer"
+                                            />,
+                                        ]}
+                                    />
+                                </>
+                            )}
+                            {!is_uk_eu && (
+                                <>
+                                    <Localize
+                                        translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
+                                        components={[
+                                            <LinkText
+                                                color="red"
+                                                key={0}
+                                                target="_blank"
+                                                href="/trade-types/cfds/"
+                                                rel="noopener noreferrer"
+                                            />,
+                                        ]}
+                                    />
+                                </>
+                            )}
                         </StyledText>
                         <StyledText>
                             <Localize translate_text="With the calculators and numerous analytical tools available on the Deriv MT5 platform, you’ll be able to manage your capital and trading positions better." />

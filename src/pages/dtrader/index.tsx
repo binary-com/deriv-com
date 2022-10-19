@@ -2,24 +2,23 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
-import { OtherPlatform } from 'components/custom/other-platforms.js'
+import { OtherPlatform } from 'components/custom/other-platforms'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import { EU, ROW } from 'components/containers/visibility'
 import dtrader_logo from 'images/svg/dtrader/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DTraderBGMobile from 'images/svg/dtrader/dtrader-bg-mobile.svg'
 import DTraderBG from 'images/svg/dtrader/dtrader-bg.svg'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
-import DHero from 'components/custom/_dhero.js'
-import DNumber from 'components/custom/_dnumbers.js'
+import DHero from 'components/custom/_dhero'
+import DNumber from 'components/custom/_dnumbers'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
-const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
-const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
-const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
+const DTrading = Loadable(() => import('components/custom/_dtrading'))
+const DBanner = Loadable(() => import('components/custom/_dbanner'))
+const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works'))
 
 const meta_attributes = {
     og_title: localize('DTrader | Online Trading Platform | Deriv.com'),
@@ -115,7 +114,7 @@ const PlatformContainer = styled.div`
 `
 const Dtrader = () => {
     const [is_mobile, setMobile] = useState(false)
-    const { is_eu } = useCountryRule()
+    const { is_eu, is_row } = useCountryRule()
 
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -151,22 +150,14 @@ const Dtrader = () => {
                 background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
                 background_alt={localize('Trade volatility indices with DTrader at Deriv')}
             />
-            <ROW>
-                <DNumber items={items} justify="space-around" />
-            </ROW>
-            <EU>
-                <DNumber items={itemsEU} justify="space-around" />
-            </EU>
+            {is_row && <DNumber items={items} justify="space-around" />}
+            {is_eu && <DNumber items={itemsEU} justify="space-around" />}
             <DHowItWorks
                 Video={DtraderVideo}
                 title={<Localize translate_text="Make a trade in 3 easy steps" />}
             />
-            <ROW>
-                <DTrading trading={trading} />
-            </ROW>
-            <EU>
-                <DTrading trading={trading_eu} />
-            </EU>
+            {is_row && <DTrading trading={trading} />}
+            {is_eu && <DTrading trading={trading_eu} />}
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />
             </PlatformContainer>

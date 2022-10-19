@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from './components/_side-tab'
+import DMT5QR from 'images/svg/dmt5/dmt5-qr.svg'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import { DerivStore } from 'store'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useHandleLogin from 'components/hooks/use-handle-login'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type TabProps = {
     active?: boolean
@@ -21,16 +22,22 @@ const query = graphql`
         demo_step1: file(relativePath: { eq: "dmt5/dmt5-demo-step1.png" }) {
             ...fadeIn
         }
+        demo_step1_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step1-eu.png" }) {
+            ...fadeIn
+        }
         demo_step1_mobile: file(relativePath: { eq: "dmt5/dmt5-demo-step1-mobile.png" }) {
+            ...fadeIn
+        }
+        demo_step1_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step1-mobile-eu.png" }) {
             ...fadeIn
         }
         demo_step2: file(relativePath: { eq: "dmt5/dmt5-demo-step2.png" }) {
             ...fadeIn
         }
-        demo_step2_mobile: file(relativePath: { eq: "dmt5/dmt5-demo-step2-mobile.png" }) {
+        demo_step2_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step2-eu.png" }) {
             ...fadeIn
         }
-        demo_step2_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step2-eu.png" }) {
+        demo_step2_mobile: file(relativePath: { eq: "dmt5/dmt5-demo-step2-mobile.png" }) {
             ...fadeIn
         }
         demo_step2_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step2-mobile-eu.png" }) {
@@ -39,28 +46,46 @@ const query = graphql`
         demo_step3: file(relativePath: { eq: "dmt5/dmt5-demo-step3.png" }) {
             ...fadeIn
         }
+        demo_step3_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step3-eu.png" }) {
+            ...fadeIn
+        }
         demo_step3_mobile: file(relativePath: { eq: "dmt5/dmt5-demo-step3-mobile.png" }) {
+            ...fadeIn
+        }
+        demo_step3_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step3-mobile-eu.png" }) {
             ...fadeIn
         }
         real_step1: file(relativePath: { eq: "dmt5/dmt5-real-step1.png" }) {
             ...fadeIn
         }
+        real_step1_eu: file(relativePath: { eq: "dmt5/dmt5-real-step1-eu.png" }) {
+            ...fadeIn
+        }
         real_step1_mobile: file(relativePath: { eq: "dmt5/dmt5-real-step1-mobile.png" }) {
+            ...fadeIn
+        }
+        real_step1_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-real-step1-mobile-eu.png" }) {
             ...fadeIn
         }
         real_step2: file(relativePath: { eq: "dmt5/dmt5-real-step2.png" }) {
             ...fadeIn
         }
+        real_step2_eu: file(relativePath: { eq: "dmt5/dmt5-real-step2-eu.png" }) {
+            ...fadeIn
+        }
         real_step2_mobile: file(relativePath: { eq: "dmt5/dmt5-real-step2-mobile.png" }) {
+            ...fadeIn
+        }
+        real_step2_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-real-step2-mobile-eu.png" }) {
             ...fadeIn
         }
         real_step3: file(relativePath: { eq: "dmt5/dmt5-real-step3.png" }) {
             ...fadeIn
         }
-        real_step3_mobile: file(relativePath: { eq: "dmt5/dmt5-real-step3-mobile.png" }) {
+        real_step3_eu: file(relativePath: { eq: "dmt5/dmt5-real-step3-eu.png" }) {
             ...fadeIn
         }
-        real_step3_eu: file(relativePath: { eq: "dmt5/dmt5-real-step3-eu.png" }) {
+        real_step3_mobile: file(relativePath: { eq: "dmt5/dmt5-real-step3-mobile.png" }) {
             ...fadeIn
         }
         real_step3_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-real-step3-mobile-eu.png" }) {
@@ -69,7 +94,13 @@ const query = graphql`
         real_step4: file(relativePath: { eq: "dmt5/dmt5-real-step4.png" }) {
             ...fadeIn
         }
+        real_step4_eu: file(relativePath: { eq: "dmt5/dmt5-real-step4-eu.png" }) {
+            ...fadeIn
+        }
         real_step4_mobile: file(relativePath: { eq: "dmt5/dmt5-real-step4-mobile.png" }) {
+            ...fadeIn
+        }
+        real_step4_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-real-step4-mobile-eu.png" }) {
             ...fadeIn
         }
     }
@@ -111,6 +142,17 @@ const ImageWrapper = styled.div`
         }
     }
 `
+
+const QRImage = styled.img`
+    margin-right: 280px;
+    @media ${device.laptop} {
+        margin-right: 200px;
+    }
+    @media ${device.tablet} {
+        display: none;
+    }
+`
+
 const demoActive = css`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border: unset;
@@ -148,7 +190,7 @@ const TabItem = styled.div<TabProps>`
 `
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
-        font-size: 32px;
+        font-size: 28px;
         margin-bottom: 24px;
         padding: 0 16px;
     }
@@ -187,7 +229,7 @@ const StartTrader = () => {
 
     const handleSignup = useHandleSignup()
 
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_uk_eu } = useCountryRule()
 
     const getImage = (is_mob: boolean, options: string[]) => {
         return is_mob ? data[options[0]] : data[options[1]]
@@ -195,30 +237,37 @@ const StartTrader = () => {
     const isDemo = tab === 'Demo'
     const isReal = tab === 'Real'
 
-    const account = is_eu_country ? localize('Real account') : localize('Real money account')
-
-    const text_1 = is_eu_country ? (
+    const text_1 = is_uk_eu ? (
         <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
     ) : (
         <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
     )
-
-    const text_2 = is_eu_country ? (
-        <Localize translate_text="Create a Deriv real account." />
+    const text_2 = is_uk_eu ? (
+        <Localize translate_text="Create a real Deriv Multipliers account" />
     ) : (
         <Localize translate_text="Create a Deriv real money account." />
     )
-
-    const text_3 = is_eu_country ? (
-        <Localize translate_text="Create a CFDs real account based on your trade preference." />
+    const text_3 = is_uk_eu ? (
+        <Localize translate_text="Create a CFDs real account." />
     ) : (
         <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
     )
 
-    const step_2_image = is_eu_country ? (
+    const demo_step1_image = is_uk_eu ? (
+        <QueryImage
+            data={getImage(is_mobile, ['demo_step1_mobile_eu', 'demo_step1_eu'])}
+            alt="Demo DMT5 account- step 1"
+        />
+    ) : (
+        <QueryImage
+            data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])}
+            alt="Demo DMT5 account- step 1"
+        />
+    )
+    const demo_step2_image = is_uk_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['demo_step2_mobile_eu', 'demo_step2_eu'])}
-            alt="demo_step2_eu"
+            alt="Demo DMT5 account- step 2"
         />
     ) : (
         <QueryImage
@@ -226,8 +275,40 @@ const StartTrader = () => {
             alt="Demo DMT5 account- step 2"
         />
     )
-
-    const step_3_image = is_eu_country ? (
+    const demo_step3_image = is_uk_eu ? (
+        <QueryImage
+            data={getImage(is_mobile, ['demo_step3_mobile_eu', 'demo_step3_eu'])}
+            alt="Demo DMT5 account- step 3"
+        />
+    ) : (
+        <QueryImage
+            data={getImage(is_mobile, ['demo_step3_mobile', 'demo_step3'])}
+            alt="Demo DMT5 account- step 3"
+        />
+    )
+    const real_step1_image = is_uk_eu ? (
+        <QueryImage
+            data={getImage(is_mobile, ['real_step1_mobile_eu', 'real_step1_eu'])}
+            alt="Real DMT5 account- step 1"
+        />
+    ) : (
+        <QueryImage
+            data={getImage(is_mobile, ['real_step1_mobile', 'real_step1'])}
+            alt="Real DMT5 account- step 1"
+        />
+    )
+    const real_step2_image = is_uk_eu ? (
+        <QueryImage
+            data={getImage(is_mobile, ['real_step2_mobile_eu', 'real_step2_eu'])}
+            alt="Real DMT5 account- step 2"
+        />
+    ) : (
+        <QueryImage
+            data={getImage(is_mobile, ['real_step2_mobile', 'real_step2'])}
+            alt="Real DMT5 account- step 2"
+        />
+    )
+    const real_step3_image = is_uk_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['real_step3_mobile_eu', 'real_step3_eu'])}
             alt="Real DMT5 account- step 3"
@@ -236,6 +317,17 @@ const StartTrader = () => {
         <QueryImage
             data={getImage(is_mobile, ['real_step3_mobile', 'real_step3'])}
             alt="Real DMT5 account- step 3"
+        />
+    )
+    const real_step4_image = is_uk_eu ? (
+        <QueryImage
+            data={getImage(is_mobile, ['real_step4_mobile_eu', 'real_step4_eu'])}
+            alt="Real DMT5 account- step 4"
+        />
+    ) : (
+        <QueryImage
+            data={getImage(is_mobile, ['real_step4_mobile', 'real_step4'])}
+            alt="Real DMT5 account- step 4"
         />
     )
 
@@ -255,109 +347,87 @@ const StartTrader = () => {
                     </StyledText>
                 </TabItem>
                 <TabItem
-                    mobile_padding={is_eu_country ? '21px 12px' : '10px'}
+                    mobile_padding={is_uk_eu ? '21px 12px' : '10px'}
                     active={isReal}
                     onClick={() => onTabClick('Real')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {account}
+                        {localize('Real money account')}
                     </StyledText>
                 </TabItem>
             </Flex>
 
             <Flex max_width="1200px">
-                {isDemo ? (
-                    <SideTab parent_tab={tab}>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                <Localize
-                                    translate_text="Sign up for a free <0>Deriv demo account</0>"
-                                    components={[
-                                        <StyledLocalizedLink
-                                            onClick={handleSignup}
-                                            id="dm-dmt5-signup-link"
-                                            to=""
-                                            key={0}
-                                        />,
-                                    ]}
-                                />
-                            }
-                            item_width="24rem"
-                            mobile_item_width="36rem"
-                        >
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])}
-                                    alt="Demo DMT5 account- step 2"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel label="" description={text_1}>
-                            <ImageWrapper>{step_2_image}</ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
-                            }
-                            item_width="36rem"
-                        >
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={getImage(is_mobile, ['demo_step3_mobile', 'demo_step3'])}
-                                    alt="Demo DMT5 account- step 3"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                    </SideTab>
-                ) : (
-                    <SideTab parent_tab={tab}>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                <Localize
-                                    translate_text="Create or <0>sign in</0> to your Deriv account"
-                                    components={[
-                                        <StyledLocalizedLink key={0} onClick={handleLogin} to="" />,
-                                    ]}
-                                />
-                            }
-                            item_width="27rem"
-                        >
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={getImage(is_mobile, ['real_step1_mobile', 'real_step1'])}
-                                    alt="Real DMT5 account- step 1"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel label="" description={text_2}>
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={getImage(is_mobile, ['real_step2_mobile', 'real_step2'])}
-                                    alt="Real DMT5 account- step 2"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel label="" description={text_3}>
-                            <ImageWrapper>{step_3_image}</ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
-                            }
-                        >
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={getImage(is_mobile, ['real_step4_mobile', 'real_step4'])}
-                                    alt="Real DMT5 account- step 4"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                    </SideTab>
-                )}
+                <Flex direction="column" ai="end">
+                    {isDemo ? (
+                        <SideTab parent_tab={tab}>
+                            <SideTab.Panel
+                                description={
+                                    <Localize
+                                        translate_text="Sign up for a free <0>Deriv demo account</0>"
+                                        components={[
+                                            <StyledLocalizedLink
+                                                onClick={handleSignup}
+                                                id="dm-dmt5-signup-link"
+                                                to=""
+                                                key={0}
+                                            />,
+                                        ]}
+                                    />
+                                }
+                                item_width="24rem"
+                                mobile_item_width="36rem"
+                            >
+                                <ImageWrapper>{demo_step1_image}</ImageWrapper>
+                            </SideTab.Panel>
+                            <SideTab.Panel description={text_1}>
+                                <ImageWrapper>{demo_step2_image}</ImageWrapper>
+                            </SideTab.Panel>
+                            <SideTab.Panel
+                                description={
+                                    <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
+                                }
+                                item_width="36rem"
+                            >
+                                <ImageWrapper>{demo_step3_image}</ImageWrapper>
+                            </SideTab.Panel>
+                        </SideTab>
+                    ) : (
+                        <SideTab parent_tab={tab}>
+                            <SideTab.Panel
+                                description={
+                                    <Localize
+                                        translate_text="Create or <0>sign in</0> to your demo Deriv account"
+                                        components={[
+                                            <StyledLocalizedLink
+                                                key={0}
+                                                onClick={handleLogin}
+                                                to=""
+                                            />,
+                                        ]}
+                                    />
+                                }
+                                item_width="27rem"
+                            >
+                                <ImageWrapper>{real_step1_image}</ImageWrapper>
+                            </SideTab.Panel>
+                            <SideTab.Panel description={text_2}>
+                                <ImageWrapper>{real_step2_image}</ImageWrapper>
+                            </SideTab.Panel>
+                            <SideTab.Panel description={text_3}>
+                                <ImageWrapper>{real_step3_image}</ImageWrapper>
+                            </SideTab.Panel>
+                            <SideTab.Panel
+                                description={
+                                    <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
+                                }
+                            >
+                                <ImageWrapper>{real_step4_image}</ImageWrapper>
+                            </SideTab.Panel>
+                        </SideTab>
+                    )}
+                    <QRImage src={DMT5QR} width="124px" height="124px" />
+                </Flex>
             </Flex>
         </Section>
     )

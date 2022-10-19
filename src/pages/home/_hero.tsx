@@ -4,14 +4,15 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
+import { contents, contents_ppc, header_items } from './_data'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
-import { EU, UK, ROW } from 'components/containers/visibility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { TString } from 'types/generics'
 
 const query = graphql`
     query {
@@ -24,21 +25,6 @@ const query = graphql`
 type HeroProps = {
     is_ppc?: boolean
 }
-
-const contents = [
-    <Localize key={0} translate_text="Tight spreads" />,
-    <Localize key={1} translate_text="Sharp prices" />,
-    <Localize key={2} translate_text="24x7 trading" />,
-    <Localize key={3} translate_text="100+ tradeable assets" />,
-    <Localize key={4} translate_text="20+ years of experience" />,
-]
-
-const contents_ppc = [
-    <Localize key={3} translate_text="Tight spreads" />,
-    <Localize key={2} translate_text="Sharp prices" />,
-    <Localize key={1} translate_text="100+ tradeable assets" />,
-    <Localize key={0} translate_text="20+ years of experience" />,
-]
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -77,9 +63,17 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const HeroHeader = ({ text }: { text: TString }) => {
+    return (
+        <StyledHeader type="main-landing-title" color="white">
+            <Localize translate_text={text} />
+        </StyledHeader>
+    )
+}
+
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const { is_uk, is_loading } = useCountryRule()
+    const { is_uk, is_loading, is_eu, is_row } = useCountryRule()
     const handleSignup = useHandleSignup()
 
     return (
@@ -117,15 +111,9 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                     max_width: '100%',
                                 }}
                             >
-                                <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Simple." />
-                                </StyledHeader>
-                                <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Flexible." />
-                                </StyledHeader>
-                                <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Reliable." />
-                                </StyledHeader>
+                                {header_items.map((item) => (
+                                    <HeroHeader key={item.id} text={item.text} />
+                                ))}
                             </Flex>
                             <Header
                                 as="h2"
@@ -135,15 +123,21 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 min_height="auto"
                                 weight="normal"
                             >
-                                <EU>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities." />
-                                </EU>
-                                <UK>
-                                    <Localize translate_text="Trade forex, stocks & indices, and commodities." />
-                                </UK>
-                                <ROW>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
-                                </ROW>
+                                {is_eu && (
+                                    <>
+                                        <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities." />
+                                    </>
+                                )}
+                                {is_uk && (
+                                    <>
+                                        <Localize translate_text="Trade forex, stocks & indices, and commodities." />
+                                    </>
+                                )}
+                                {is_row && (
+                                    <>
+                                        <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
+                                    </>
+                                )}
                             </Header>
                             <VerticalCarousel
                                 contents={is_ppc && is_uk ? contents_ppc : contents}

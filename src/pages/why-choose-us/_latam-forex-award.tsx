@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { BackgroundImage, Header, QueryImage } from 'components/elements'
-import { WithIntl, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
@@ -23,8 +23,6 @@ const query = graphql`
 
 const AwardImageWrapper = styled.div`
     position: relative;
-
-    /* right: -5.5%; */
     top: 40px;
     margin-top: 40px;
     margin-right: -100px;
@@ -32,8 +30,7 @@ const AwardImageWrapper = styled.div`
     padding: 38px 62px;
     max-width: 324px;
     background: #ffffff;
-
-    /* box-shadow: 0px 32px 64px -12px rgba(14, 14, 14, 0.14); */
+    box-shadow: 0px 32px 64px -12px rgba(14, 14, 14, 0.14);
     border-radius: 8px;
 
     @media (max-width: 1300px) {
@@ -49,12 +46,10 @@ const AwardImageWrapper = styled.div`
 const AwardImageWrapperMobile = styled.div`
     z-index: 2;
     padding: 36px 18px;
-    max-width: 328px;
+    max-width: 305px;
+    margin-top: -2rem;
     background: #ffffff;
-
-    /* box-shadow: 0px 32px 64px -12px rgba(14, 14, 14, .14); */
-
-    /* box-shadow: 0px 25px 50px -9.5px rgba(14, 14, 14, 0.14); */
+    box-shadow: 0px 25.3563px 50.7126px -9.50862px rgba(14, 14, 14, 0.14);
     border-radius: 8px;
 `
 
@@ -64,13 +59,6 @@ const StyledFlex = styled(Flex)`
     @media (max-width: 1200px) {
         padding: 0 50px 40px 50px;
     }
-`
-const StyledFlexMobile = styled(Flex)`
-    /* padding: 80px 120px 160px 120px;
-    
-    @media (max-width: 1200px) {
-        padding: 0 50px 40px 50px;
-    } */
 `
 
 const StyledHeader = styled(Header)`
@@ -125,38 +113,36 @@ const LatamAward = () => {
                 </StyledFlex>
             </Desktop>
             <Mobile>
-                <StyledFlexMobile>
-                    <Flex fd="column" ai="center">
-                        <BackgroundImage
-                            data={data.latam_award_background_mobile}
-                            style={{
-                                backgroundRepeat: 'no-repeat',
-                                backgroundSize: 'contain',
-                                width: '315px',
-                                height: '325px',
-                                maxWidth: '450px',
-                                backgroundColor: 'white',
-                                margin: ' 0 1rem',
-                            }}
-                        >
-                            <StyledHeaderMobile type="heading-2" align="center" color="white">
-                                {<Localize translate_text="Best Forex Broker Latin America" />}
-                            </StyledHeaderMobile>
-                            <Header as="h2" width="50%"></Header>
-                        </BackgroundImage>
-                        <AwardImageWrapperMobile>
-                            <QueryImage
-                                data={data.latam_award}
-                                alt={'Latin America Forex Award'}
-                                width="auto"
-                                height="100%"
-                            />
-                        </AwardImageWrapperMobile>
-                    </Flex>
-                </StyledFlexMobile>
+                <Flex fd="column" ai="center">
+                    <BackgroundImage
+                        data={data.latam_award_background_mobile}
+                        style={{
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'contain',
+                            width: '315px',
+                            height: '325px',
+                            maxWidth: '450px',
+                            backgroundColor: 'white',
+                            margin: ' 0 1rem',
+                        }}
+                    >
+                        <StyledHeaderMobile type="heading-2" align="center" color="white">
+                            {<Localize translate_text="Best Forex Broker Latin America" />}
+                        </StyledHeaderMobile>
+                        <Header as="h2" width="50%"></Header>
+                    </BackgroundImage>
+                    <AwardImageWrapperMobile>
+                        <QueryImage
+                            data={data.latam_award}
+                            alt={'Latin America Forex Award'}
+                            width="auto"
+                            height="100%"
+                        />
+                    </AwardImageWrapperMobile>
+                </Flex>
             </Mobile>
         </>
     )
 }
 
-export default WithIntl()(LatamAward)
+export default LatamAward

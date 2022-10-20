@@ -1,13 +1,34 @@
-import { getDomain } from 'common/utility'
-
 const language_config = require(`./i18n-config.js`)
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
+const deriv_com_url = 'deriv.com'
+const deriv_me_url = 'deriv.me'
+const deriv_be_url = 'deriv.be'
+const staging_deriv_be_url = 'staging.deriv.be'
+const domain_url_pair = {
+    [deriv_com_url]: deriv_com_url,
+    [deriv_me_url]: deriv_me_url,
+    [deriv_be_url]: deriv_be_url,
+    [staging_deriv_be_url]: deriv_be_url,
+}
+const getDomainUrl = () =>
+    isBrowser() && window.location.hostname in domain_url_pair
+        ? domain_url_pair[window.location.hostname]
+        : deriv_com_url
+
+const deriv_cookie_domain = getDomainUrl()
+
+const isBrowser = () => typeof window !== 'undefined'
+const getDomain = () =>
+    isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
+        ? deriv_cookie_domain
+        : 'binary.sx'
+
 const site_url = getDomain()
 
-module.exports = {
+module.s = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
         FAST_DEV: true,

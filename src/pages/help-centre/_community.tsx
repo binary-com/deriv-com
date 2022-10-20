@@ -39,7 +39,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-export const Community = () => {
+const Community = () => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer padding="4rem" background="var(--color-grey-25)">

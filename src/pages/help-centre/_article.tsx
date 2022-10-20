@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
-import { Community } from './_community'
+import Community from './_community'
+import SideTab from './components/_side-tab'
 import Layout from 'components/layout/layout'
 import { localize } from 'components/localization'
-import { SideTab, StyledLink } from 'components/elements'
+import { StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import device from 'themes/device'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+
 export type ArticleProps = {
     children?: React.ReactNode
     header?: string

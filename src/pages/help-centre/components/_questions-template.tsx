@@ -1,36 +1,35 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
-import SideTab, { TChildren } from '../side-tab'
-import { Community, DidntFindYourAnswerBanner } from '../_lazy-load'
+import SideTab, { TChildren } from './_side-tab'
+import { Community, DidntFindYourAnswerBanner } from './_lazy-load'
 import { ArticlesType } from './_data'
 import Layout from 'components/layout/layout'
 import { Localize, localize } from 'components/localization'
 import { StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import { TString } from 'types/generics'
 
-type QuestionsTemplateType = Record<'seo_title' | 'seo_description' | 'tab_header', TString> & {
-    data: ArticlesType
+type QuestionsTemplateType = {
+    data: ArticlesType[]
     children: TChildren
+    category: string
 }
 
 const ContactContainer = styled.div`
     margin-top: 8rem;
 `
 
-const QuestionsTemplate = ({
-    children,
-    seo_title,
-    seo_description,
-    tab_header,
-    data,
-}: QuestionsTemplateType) => {
+const QuestionsTemplate = ({ children, category, data }: QuestionsTemplateType) => {
     const { platform, has_platform } = usePlatformQueryParam()
 
     return (
         <Layout>
-            <SEO title={localize(seo_title)} description={localize(seo_description)} />
+            <SEO
+                title={localize(
+                    `_t_Help centre | Frequently asked questions | ${category} | Deriv_t_`,
+                )}
+                description={localize(`_t_Frequently asked questions - ${category}_t_`)}
+            />
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
                     to={has_platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
@@ -44,7 +43,7 @@ const QuestionsTemplate = ({
                     <Localize translate_text="_t_Back_t_" />
                 </StyledLink>
 
-                <SideTab data={data} tab_header={tab_header}>
+                <SideTab data={data} tab_header={`_t_${category}_t_`}>
                     {children}
                 </SideTab>
             </Container>

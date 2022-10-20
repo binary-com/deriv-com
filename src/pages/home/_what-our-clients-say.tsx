@@ -1,11 +1,10 @@
-import React, { ReactElement, useEffect } from 'react'
+import React, { ReactElement, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import Carousel from './_testimonial-carousel'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
-import { addScript } from 'common/utility'
 import Quote from 'images/svg/testimonials/quote.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
@@ -269,14 +268,10 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 
 const WhatOurClientsSay = () => {
     const { is_eu, is_uk } = useCountryRule()
+    const ref = useRef()
 
     useEffect(() => {
-        addScript({
-            src: 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js',
-            id: 'trust-pilot',
-            async: true,
-            strategy: 'off-main-thread',
-        })
+        window?.Trustpilot?.loadFromElement(ref.current, true)
     }, [])
 
     return (
@@ -312,6 +307,7 @@ const WhatOurClientsSay = () => {
                             }}
                         >
                             <div
+                                ref={ref}
                                 className="trustpilot-widget"
                                 data-locale="en-US"
                                 data-template-id="53aa8807dec7e10d38f59f32"

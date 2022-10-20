@@ -147,7 +147,6 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
             </Container>
             <StyledFlex wrap="wrap">
                 {content.map((item, idx) => {
-                    console.log(item)
                     return (
                         <ClientCard
                             key={

@@ -128,24 +128,6 @@ const LinkWrapper = styled.div`
         flex-wrap: wrap;
     }
 `
-
-const GoToLiveDemo = styled(LinkButton)`
-    color: var(--color-white);
-    border-color: var(--color-black-5);
-    padding: 12px 16px;
-    width: auto;
-
-    @media ${device.mobileL} {
-        max-width: 100%;
-        white-space: nowrap;
-        margin-left: 0;
-        width: 100%;
-    }
-
-    @media (max-width: 360px) {
-        white-space: nowrap;
-    }
-`
 const DemoButton = styled(Button)`
     padding: 14px 16px;
     width: auto;
@@ -154,6 +136,7 @@ const DemoButton = styled(Button)`
     border: unset;
 
     @media ${device.mobileL} {
+        width: 100%;
         white-space: nowrap;
         margin-bottom: 1.6rem;
         margin-right: unset;

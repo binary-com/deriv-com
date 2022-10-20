@@ -93,6 +93,7 @@ const DemoButton = styled(Button)`
 
     @media ${device.tabletL} {
         margin-bottom: 40px;
+        width: 100%;
     }
     @media ${device.mobileL} {
         white-space: nowrap;

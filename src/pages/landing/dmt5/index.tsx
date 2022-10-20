@@ -60,7 +60,7 @@ const DMT5 = () => {
                 no_index
             />
             <DHero
-                title={localize('Deriv MT5 (DMT5)')}
+                title={localize('Deriv MT5')}
                 content={
                     <Localize translate_text="Trade 24/7 on forex, stocks, synthetic indices, and commodities" />
                 }

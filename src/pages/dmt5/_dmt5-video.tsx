@@ -110,7 +110,7 @@ const Dmt5Video = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_2')}
                     >
-                        {localize('2. Create a DMT5 account')}
+                        {localize('2. Create a Deriv MT5 account')}
                     </Step>
                 </Tab>
                 <Tab>
@@ -130,7 +130,7 @@ const Dmt5Video = () => {
             <VideoWrapper>
                 <QueryImage
                     data={data[current_step]}
-                    alt={localize(`DMT5 - ${current_step}`)}
+                    alt={localize(`Deriv MT5 - ${current_step}`)}
                     width="100%"
                 />
             </VideoWrapper>

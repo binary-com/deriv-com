@@ -504,7 +504,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                     <img src={Signals} alt="" width="24" height="24" />
                                 </SvgWrapper>
                             </div>
-                            <span>{<Localize translate_text="DMT5 Signals" />}</span>
+                            <span>{<Localize translate_text="Deriv MT5 Signals" />}</span>
                         </StyledLink>
                         <StyledLink
                             to={deriv_status_page_url}

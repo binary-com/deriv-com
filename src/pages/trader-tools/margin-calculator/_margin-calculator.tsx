@@ -134,7 +134,7 @@ const MarginCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5 (DMT5).',
+                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5.',
                     )}
                 </SectionSubtitle>
                 <ContentContainer mt="8rem" mb="4rem">

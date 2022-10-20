@@ -79,9 +79,7 @@ const other_apps: ContentType[] = [
         id: 0,
         icon: DMT5,
         title: <Localize translate_text="DMT5" />,
-        content: (
-            <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one CFD trading app." />
-        ),
+        content: <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading app." />,
         url: (
             <LearnMore to="/dmt5/">
                 <Localize translate_text="Learn more" />

@@ -95,7 +95,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DMT5} alt="" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv MT5 (DMT5)')}</Text>
+                            <Text ml="0.4rem">{localize('Deriv MT5')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

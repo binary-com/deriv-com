@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
@@ -9,11 +9,7 @@ import {
     numberSubmitFormat,
     getMaxLength,
 } from '../common/_utility'
-import {
-    optionItemDefault,
-    syntheticItemLists,
-    financialItemLists,
-} from '../common/_underlying-data'
+import { optionItemDefault } from '../common/_underlying-data'
 import {
     BreadCrumbContainer,
     CalculateButton,
@@ -51,8 +47,13 @@ import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { Flex, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
+import { useDerivApi } from 'components/hooks/use-deriv-api'
 
 const PipCalculator = () => {
+    const [activeSymbols, setActiveSymbols] = useState([])
+    const [syntheticSymbolNames, setSyntheticSymbolNames] = useState([])
+    const [financialSymbolNames, setFinancialSymbolNames] = useState([])
+
     const query = graphql`
         query {
             pip_value_formula: file(relativePath: { eq: "trade-tools/pip-value-formula.png" }) {
@@ -82,6 +83,50 @@ const PipCalculator = () => {
     const onTabClick = (t) => {
         setTab(t)
     }
+
+    const deriv_api = useDerivApi()
+
+    useEffect(() => {
+        const { send } = deriv_api
+        send({ active_symbols: 'full' }, (response) => {
+            if (!response.error && response.active_symbols.length > 0) {
+                const data = response.active_symbols
+                setActiveSymbols(data)
+            }
+        })
+    }, [])
+
+    useEffect(() => {
+        const tempSyntheticNames = []
+        if (activeSymbols.length < 1) {
+            return
+        }
+        activeSymbols.forEach((item) => {
+            if (item.market == 'synthetic_index') {
+                tempSyntheticNames.push(item.display_name)
+            }
+        })
+
+        setSyntheticSymbolNames(tempSyntheticNames)
+    }, [activeSymbols])
+
+    console.log(syntheticSymbolNames)
+
+    useEffect(() => {
+        const tempFinancialNames = []
+        if (activeSymbols.length < 1) {
+            return
+        }
+        activeSymbols.forEach((item) => {
+            if (item.market == 'forex') {
+                tempFinancialNames.push(item.display_name)
+            }
+        })
+
+        setFinancialSymbolNames(tempFinancialNames)
+    }, [activeSymbols])
+
+    console.log(financialSymbolNames)
 
     return (
         <>
@@ -118,7 +163,7 @@ const PipCalculator = () => {
                                 symbol: '',
                                 volume: '',
                                 pointValue: '',
-                                optionList: syntheticItemLists,
+                                optionList: syntheticSymbolNames,
                                 contractSize: '',
                             }}
                             validate={resetValidationPip}
@@ -184,7 +229,10 @@ const PipCalculator = () => {
                                                     setErrors({})
                                                     resetForm({})
                                                     setFieldValue('accountType', 'Financial')
-                                                    setFieldValue('optionList', financialItemLists)
+                                                    setFieldValue(
+                                                        'optionList',
+                                                        financialSymbolNames,
+                                                    )
                                                 }}
                                             >
                                                 <Text align="center">{localize('Financial')}</Text>

@@ -1,6 +1,6 @@
 import { ArcticlesType } from './_help-articles'
 
-export const eu_discards = ['Deriv X', 'Deriv P2P']
+export const eu_discards = ['Deriv X', 'Deriv P2P', 'Deriv MT5']
 const countryDomainFilter = (array) => {
     array.forEach((el, key) => {
         eu_discards.forEach((discard) => {
@@ -13,6 +13,11 @@ const countryDomainFilter = (array) => {
 
 export const convertToHash = (category, label, qparam) => {
     const categoryFormatter = category.replace(/\s/g, '-').toLowerCase()
+    if (categoryFormatter.includes('deriv-mt5')) {
+        if (qparam) {
+            return `/help-centre/dmt5/?platform=${qparam}#${label}`
+        } else return `/help-centre/dmt5/#${label}`
+    }
     if (qparam) {
         return `/help-centre/${categoryFormatter}/?platform=${qparam}#${label}`
     } else {

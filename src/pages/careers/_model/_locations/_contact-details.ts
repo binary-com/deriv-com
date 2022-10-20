@@ -9,7 +9,9 @@ const address_ciudad = ['World Trade Center Ciudad del Este, Andrés Rojas, Cd. 
 
 const address_cyberjaya = ['Deriv HQ, 3500, Jalan Teknokrat 3, 63000 Cyberjaya, Selangor']
 
-const address_cyprus = ['Level 5, 42 Agias Filaxeos', 'Limassol 3025']
+const address_cyprus = [
+    '181, Leoforos Archiepiskopou Makariou III Avenue 15 Business Centre, 1st Floor, 3030, Limassol Cyprus',
+]
 
 const address_dubai = ['Office 1902, Jumeirah Business', 'Center 1, JLT Cluster G']
 

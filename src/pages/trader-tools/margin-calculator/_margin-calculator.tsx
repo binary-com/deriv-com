@@ -357,7 +357,7 @@ const MarginCalculator = () => {
                             {localize('How to calculate margin')}
                         </Header>
                         <Text>
-                            <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
+                            <Localize translate_text="The margin required for a contract on Deriv MT5 is calculated based on the formula:" />
                         </Text>
                         <Text mb="1.6rem">
                             <Localize

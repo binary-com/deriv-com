@@ -24,9 +24,6 @@ const query = graphql`
         bvi_grid_3: file(relativePath: { eq: "careers/bvi_grid_3.jpg" }) {
             ...fadeIn
         }
-        thumbnail_georgetown: file(relativePath: { eq: "careers/thumbnail_georgetown.jpg" }) {
-            ...fadeIn
-        }
     }
 `
 

@@ -146,7 +146,7 @@ export function debounce(func, wait, immediate) {
 // This function is created to back traverse an array of style values
 export const responsiveFallback = (prop, start_from, fallback) => {
     let index = start_from ?? prop?.length ?? 0
-    while (prop && index > 0) {
+    while (index > 0) {
         if (prop[index]) {
             return prop[index]
         }

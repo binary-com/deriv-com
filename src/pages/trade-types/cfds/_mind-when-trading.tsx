@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
 import { StyledLinkButton } from './_trading-cfd-increases'
 import { SectionContainer, Show } from 'components/containers'
-import { Header, Text, QueryImage } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -41,14 +41,14 @@ const MindWhenTrading = () => {
                 <Header as="h3" type="section-title" mb="2rem">
                     {localize('Things to keep in mind when trading CFDs')}
                 </Header>
-                <Text as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem">
+                <Header as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem">
                     {localize('CFDs are traded on margin')}
-                </Text>
-                <Text mb="3.2rem">
+                </Header>
+                <Header weight="normal" type="main-paragraph" mb="3.2rem">
                     {localize(
                         'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure.',
                     )}
-                </Text>
+                </Header>
             </SmallContainer>
             <Show.Desktop max_width={'bp680'}>
                 <SmallContainer direction="column" ai="flex-start">
@@ -69,11 +69,11 @@ const MindWhenTrading = () => {
                 </ImageWrapper>
             </Show.Mobile>
             <SmallContainer direction="column" ai="flex-start">
-                <Text mt="3.2rem">
+                <Header weight="normal" type="main-paragraph" mt="3.2rem">
                     {localize(
                         'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.',
                     )}
-                </Text>
+                </Header>
 
                 <StyledLinkButton mt="4rem" secondary to="/trader-tools/margin-calculator/">
                     {localize('Margin calculator')}

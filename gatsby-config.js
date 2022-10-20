@@ -1,9 +1,11 @@
+import { getDomain } from 'common/utility'
+
 const language_config = require(`./i18n-config.js`)
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
-const site_url = 'https://deriv.com'
+const site_url = getDomain()
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment

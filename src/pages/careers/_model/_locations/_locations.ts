@@ -23,7 +23,7 @@ import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg'
 import CaymanFlagIcon from 'images/svg/careers/flag_cayman.svg'
 import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
-import BVIFlagIcon from 'images/svg/careers/flag_france.svg'
+import BVIFlagIcon from 'images/svg/careers/flag_bvi.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
 import GermanyFlagIcon from 'images/svg/careers/flag_germany.svg'
@@ -532,15 +532,15 @@ export const roadtown: LocationsType = {
     display_name: 'Road Town',
     display_thumbnail_name: 'Road Town',
     display_title_name: 'Road Town',
-    img_alt: ' Deriv’s Cayman Islands office at Road Town ',
+    img_alt: ' Deriv’s British Virgin Islands office at Road Town ',
     map_office_name: '(BVI)',
     country: 'British Virgin Islands',
-    flagIcon: CaymanFlagIcon,
+    flagIcon: BVIFlagIcon,
     thumbnail: 'thumbnail_roadtown',
     first_p:
         'Experts in regulatory and legislative requirements will work together at Deriv (BVI) to provide compliance guidance in our British Virgin Islands licensed operations. Their expertise in corporate law, anti-money laundering, and other legislation will enable them to anticipate and mitigate regulatory risks. ',
     first_img: 'living_in_roadtown',
-    first_img_alt: 'Deriv’s office in the Cayman Islands',
+    first_img_alt: 'Deriv’s office in the British Virgin Islands',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'bvi_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'bvi_grid_3', 'guernsey grid 4'],
     map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',

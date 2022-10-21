@@ -20,6 +20,8 @@ const StyledLiveChat = styled.div<StyledLiveChatTypes>`
     right: 1.6rem;
     background-color: var(--color-white);
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
     padding: 1.6rem;
     display: flex;
     cursor: pointer;

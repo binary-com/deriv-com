@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 
 type NavTabProps = {
@@ -173,8 +173,7 @@ const tab_list_uk = [
 ]
 
 const NavTab = ({ route_from, route_offset }: NavTabProps) => {
-    const { is_uk } = getCountryRule()
-    const { is_eu } = getCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     const ref = useRef(null)
 

@@ -6,7 +6,7 @@ import { Header, Text, LinkText } from 'components/elements'
 import { affiliate_signup_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
 
-const ItemContainer = styled(SectionContainer)`
+const ItemContainer = styled(Header)`
     padding: 0;
 `
 const TextSecondary = styled(Text)`
@@ -93,7 +93,7 @@ const AffiliateGeneral = () => (
 
             <Text>
                 {localize(
-                    'Provides expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
+                    'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
                 )}
             </Text>
 
@@ -102,9 +102,7 @@ const AffiliateGeneral = () => (
             </li>
 
             <Text>
-                {localize(
-                    'Develops web, desktop, and mobile applications. Also has extensive experience working with APIs.',
-                )}
+                {localize('Develop web, desktop, and mobile applications using Deriv API.')}
             </Text>
 
             <li>
@@ -113,7 +111,7 @@ const AffiliateGeneral = () => (
 
             <Text>
                 {localize(
-                    'Manages an active online community that’s passionate about online trading, investing, or personal finance.',
+                    'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
                 )}
             </Text>
         </StyledUl>
@@ -137,7 +135,7 @@ const AffiliateGeneral = () => (
             }}
         >
             {localize(
-                'Deriv is a customer-centric online trading experience, created by Binary.com. Backed by over 20 years of experience and award-winning innovation, we’ve reimagined the online trading experience from the ground up so that anyone can easily start trading.',
+                'Deriv is a customer-centric online trading experience. Backed by over 20 years of experience and award-winning innovation, we’ve reimagined the online trading experience from the ground up so that anyone can easily start trading.',
             )}
         </Header>
         <Header
@@ -181,7 +179,7 @@ const AffiliateGeneral = () => (
             }}
         >
             {localize(
-                'A referred client is someone who has clicked on your unique affiliate link, signed up with Deriv, and deposited money into their Deriv account. They must be aged 18 years and above and have not previously been a Deriv or Binary.com client.',
+                'A referred client is someone who has clicked on your unique affiliate link, signed up with Deriv, and deposited money into their Deriv account. They must be aged 18 years or above and have not previously been a Deriv or Binary.com client.',
             )}
         </Header>
         <Header
@@ -204,7 +202,7 @@ const AffiliateGeneral = () => (
             }}
         >
             <Localize
-                translate_text="Anyone aged 18 years and above who isn’t a resident of a restricted country can become a Deriv client.  You can find the list of restricted countries in our <0>terms and conditions</0>."
+                translate_text="Anyone aged 18 years or above who isn’t a resident of a restricted country can become a Deriv client.  You can find the list of restricted countries in our <0>terms and conditions</0>."
                 components={[<LocalizedLinkText to="/terms-and-conditions/#clients" key={0} />]}
             />
         </Header>
@@ -236,7 +234,7 @@ const AffiliateAccountManagement = () => (
                 components={[
                     <LocalizedLinkText
                         to={affiliate_signup_url}
-                        external="true"
+                        external
                         type="affiliate_sign_up"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -360,7 +358,7 @@ const AffiliateAccountManagement = () => (
             }}
         >
             {localize(
-                'You can generate all kinds of insightful reports to track and optimise your campaigns, such as the',
+                'You can generate all kinds of helpful reports to track and optimise your campaigns, such as the',
             )}
         </Header>
         <StyledUl>
@@ -375,7 +373,7 @@ const AffiliateAccountManagement = () => (
                     }}
                 >
                     <Localize
-                        translate_text="<0>Hits & Impression</0> report: Displays your hit and clickthrough rates"
+                        translate_text="<0>Hits & Impression</0> report: Displays your hit and click-through rates"
                         components={[<strong key={0} />]}
                     />
                 </Header>
@@ -503,7 +501,7 @@ const IBGeneral = () => (
             }}
         >
             {localize(
-                'The Deriv IB Programme is a partnership where you benefit from referring new clients to trade on our DMT5 platform.',
+                'The Deriv IB Programme is a partnership where you benefit from referring new clients to trade on our Deriv MT5 platform.',
             )}
         </Header>
         <Header
@@ -514,7 +512,7 @@ const IBGeneral = () => (
                 type: 'paragraph-2',
             }}
         >
-            {localize('How much can I earn from referring new clients to your DMT5 platform?')}
+            {localize('How much can I earn from referring new clients to your Deriv MT5 platform?')}
         </Header>
         <Header
             as="p"
@@ -603,7 +601,7 @@ const IBAccountManagement = () => (
                 components={[
                     <LocalizedLinkText
                         to={affiliate_signup_url}
-                        external="true"
+                        external
                         type="affiliate_sign_up"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -638,7 +636,7 @@ const IBAccountManagement = () => (
             }}
         >
             {localize(
-                'Your IB commissions are credited directly into your DMT5 account daily. You can transfer the funds to your Deriv account and withdraw them to your preferred payment method.',
+                'Your IB commissions are credited directly into your Deriv MT5 account daily. You can transfer the funds to your Deriv account and withdraw them via your preferred payment method.',
             )}
         </Header>
     </ItemContainer>
@@ -666,7 +664,7 @@ const IBReferralTools = () => (
             }}
         >
             {localize(
-                'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our DMT5 platform.',
+                'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our Deriv MT5 platform.',
             )}
         </Header>
     </ItemContainer>

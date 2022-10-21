@@ -1,13 +1,12 @@
-import React, { ReactElement, useEffect } from 'react'
+import React, { ReactElement, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import Carousel from './_testimonial-carousel'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
-import { addScript } from 'common/utility'
 import Quote from 'images/svg/testimonials/quote.svg'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledContainer = styled.div`
     background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
@@ -24,7 +23,7 @@ const ClientContainer = styled(Container)`
     align-items: center;
     width: 100%;
     max-width: 100%;
-    margin: 0 auto 80px;
+    margin: 0 auto;
 `
 
 const ClientFlex = styled(Flex)`
@@ -268,15 +267,12 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 )
 
 const WhatOurClientsSay = () => {
-    const { is_row, is_eu, is_uk } = getCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
+    const ref = useRef()
 
     useEffect(() => {
-        addScript({
-            src: 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js',
-            id: 'trust-pilot',
-            async: true,
-        })
-    }, [document])
+        window?.Trustpilot?.loadFromElement(ref.current, true)
+    }, [])
 
     return (
         <StyledContainer>
@@ -311,6 +307,7 @@ const WhatOurClientsSay = () => {
                             }}
                         >
                             <div
+                                ref={ref}
                                 className="trustpilot-widget"
                                 data-locale="en-US"
                                 data-template-id="53aa8807dec7e10d38f59f32"
@@ -344,9 +341,9 @@ const WhatOurClientsSay = () => {
                         >
                             <Carousel>
                                 {(
-                                    (is_row && testimonial_slides) ||
                                     (is_eu && filtered_testimonial(unavailable_testimonial_eu)) ||
-                                    (is_uk && filtered_testimonial(unavailable_testimonial_uk))
+                                    (is_uk && filtered_testimonial(unavailable_testimonial_uk)) ||
+                                    testimonial_slides
                                 ).map(({ id, name, quote }) => (
                                     <ClientSlide key={id} quote={quote} name={name} />
                                 ))}

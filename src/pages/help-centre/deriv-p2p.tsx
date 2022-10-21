@@ -26,7 +26,7 @@ const WhatisDerivP2P = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/p2p/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -68,7 +68,7 @@ const NeedDerivAccounttouseDerivP2P = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/signup/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -88,7 +88,7 @@ const NeedDerivAccounttouseDerivP2P = ({ text }: ArticleProps) => (
                             <ExternalLink
                                 to={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -136,7 +136,7 @@ const TermsOfUseForDerivP2P = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/tnc/funds-and-transfers.pdf'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -162,7 +162,7 @@ const DerivP2PAccountBlocked = ({ text }: ArticleProps) => (
                             <ExternalLink
                                 to={'/contact_us/?is_livechat_open=true'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -179,7 +179,7 @@ const DerivP2PAccountBlocked = ({ text }: ArticleProps) => (
                             <ExternalLink
                                 to={'/contact_us/?is_livechat_open=true'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -209,7 +209,7 @@ const BuyOrSellLimit = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/contact_us/?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -250,7 +250,7 @@ const CreateAnAd = ({ text }: ArticleProps) => (
                             <ExternalLink
                                 to={'https://app.deriv.com/cashier/p2p'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -302,7 +302,7 @@ const SeeMyAds = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://app.deriv.com/cashier/p2p'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -327,7 +327,7 @@ const MakeAnOrder = ({ text }: ArticleProps) => (
                             <ExternalLink
                                 to={'https://app.deriv.com/cashier/p2p'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -399,7 +399,7 @@ const SeeMyoOrders = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://app.deriv.com/cashier/p2p'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -444,7 +444,7 @@ const DisputeWithTheTrader = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/contact_us/?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -485,7 +485,7 @@ const DisputeWithTheTrader = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/tnc/funds-and-transfers.pdf'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -614,7 +614,7 @@ const DerivP2PTransactionsAreSuccessful = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/tnc/funds-and-transfers.pdf'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}

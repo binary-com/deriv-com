@@ -6,6 +6,7 @@ import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;
@@ -47,9 +48,10 @@ const Faq = () => {
         borderRadius: '8px',
         border: 'none',
     }
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
-        <RelativeContainer>
-            <Header as="h2" size="3.6rem" mb="4rem" align="center">
+        <RelativeContainer padding={is_p2p_allowed_country ? '5rem 0' : '0 0 5rem'}>
+            <Header as="h2" size="3.6rem" mb="3.2rem" align="center">
                 {localize('FAQs')}
             </Header>
             <AccordionWrapper>

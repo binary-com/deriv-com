@@ -1,17 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import Loadable from '@loadable/component'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
-import CFDs from './_cfds'
-import SyntheticIndices from './_synthetic-indices'
-import Cryptocurrencies from './_cryptocurrencies'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { LinkButton } from 'components/form'
-import { getCountryRule } from 'components/containers/visibility'
+import { Button } from 'components/form'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
@@ -19,7 +15,7 @@ import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
-const AvailableTrades = Loadable(() => import('./_available-trades'))
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -159,7 +155,8 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_uk, is_uk_eu } = getCountryRule()
+    const { is_non_uk, is_row, is_uk_eu } = useCountryRule()
+    const handleSignup = useHandleSignup()
 
     return (
         <>
@@ -198,7 +195,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_no_multi_win_eu']}
-                                            alt="Profit with x500 multiplier"
+                                            alt="Profit without multipliers"
                                         />
                                     </ImgWrapper>
                                     <TextWrapper>
@@ -217,7 +214,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_with_multi_win_eu']}
-                                            alt="Profit without Deriv's multiplier"
+                                            alt="Profit with x500 multipliers"
                                         />
                                     </ImgWrapper>
 
@@ -301,7 +298,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_no_multi_win']}
-                                            alt="Profit with x500 multiplier"
+                                            alt="Profit without multipliers"
                                         />
                                     </ImgWrapper>
                                     <TextWrapper>
@@ -320,7 +317,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_with_multi_win']}
-                                            alt="Profit without Deriv's multiplier"
+                                            alt="Profit with x500 multipliers"
                                         />
                                     </ImgWrapper>
 
@@ -384,21 +381,6 @@ const WhatAreOptions = () => {
                     )}
                 </SmallContainer>
             </StyledSectionContainer>
-
-            {is_uk ? (
-                <AvailableTrades
-                    display_title={localize('Instruments available to trade on Multipliers')}
-                    Forex={CFDs}
-                />
-            ) : (
-                <AvailableTrades
-                    display_title={localize('Instruments available to trade on Multipliers')}
-                    Forex={CFDs}
-                    SyntheticIndices={SyntheticIndices}
-                    Cryptocurrencies={Cryptocurrencies}
-                />
-            )}
-
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
                     <Header as="h3" size="3.2rem" mb="4rem">
@@ -491,9 +473,9 @@ const WhatAreOptions = () => {
                     <Text mt="4rem" mb="1.6rem" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <LinkButton id="dm-multipliers-signup-1" to="/signup/" secondary>
+                    <Button onClick={handleSignup} id="dm-multipliers-signup-1" to="" secondary>
                         {localize('Create free demo account')}
-                    </LinkButton>
+                    </Button>
                 </SmallContainer>
             </SectionContainer>
         </>

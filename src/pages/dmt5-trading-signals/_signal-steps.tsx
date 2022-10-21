@@ -43,7 +43,7 @@ const content = {
                 components={[
                     <strong key={0} />,
                     <LocalizedLinkText
-                        external="true"
+                        external
                         to="https://www.mql5.com/en/signals"
                         color="red"
                         target="_blank"
@@ -64,9 +64,10 @@ const content = {
                 translate_text="In the <0>MQL5 signals showcase page</0>, click the Create signal button."
                 components={[
                     <LocalizedLinkText
-                        external="true"
+                        external
                         to="https://www.mql5.com/en/signals"
                         color="red"
+                        target="_blank"
                         size={16}
                         key={0}
                     />,
@@ -76,13 +77,12 @@ const content = {
         step_two_header: <Localize translate_text="2. Fill the broker field" />,
         step_two_text: (
             <Localize
-                translate_text="Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>
-(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)"
+                translate_text="Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)"
                 components={[
                     <strong key={0} />,
                     <br key={1} />,
                     <LocalizedLinkText
-                        external="true"
+                        external
                         to="https://app.deriv.com/mt5"
                         color="red"
                         target="_blank"
@@ -102,7 +102,7 @@ const content = {
                 translate_text="<1>Note:</1> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <0>follow the steps on this page</0> to register as a seller."
                 components={[
                     <LocalizedLinkText
-                        external="true"
+                        external
                         to="https://www.metatrader5.com/en/terminal/help/signals/signal_provider"
                         color="red"
                         target="_blank"

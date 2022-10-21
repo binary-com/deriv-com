@@ -1,7 +1,7 @@
 import { Accordion, AccordionItem } from './accordion'
 import AutoCarousel from './auto-carousel'
 import BackgroundImage from './background-image'
-import { Card, CardChildren, CardStyle, NavCard, CardLink } from './card'
+import { Card, CardStyle, NavCard, CardLink } from './card'
 import Divider from './divider'
 import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
@@ -12,8 +12,9 @@ import { StyledLink } from './link'
 import {
     OffCanvasMenuWrapper as OffCanvasMenu,
     OffCanvasMenuPartner,
-    moveOffCanvasMenu,
+    useMoveOffCanvasMenu,
 } from './off-canvas-menu'
+import { OffCanvasMenuWrapperCareer } from './off-canvas-menu-career'
 import SideTab from './side-tab'
 import Tabs from './default-tab'
 import { Text, LinkText, Header, BaseElement, SpanLinkText } from './typography'
@@ -31,7 +32,6 @@ export {
     BackgroundImage,
     BaseElement,
     Card,
-    CardChildren,
     CardLink,
     CardStyle,
     Carousel,
@@ -45,10 +45,11 @@ export {
     Li,
     LinkText,
     LocalizedLinkText,
-    moveOffCanvasMenu,
+    useMoveOffCanvasMenu,
     NavCard,
     OffCanvasMenu,
     OffCanvasMenuPartner,
+    OffCanvasMenuWrapperCareer,
     QueryImage,
     SideTab,
     SpanLinkText,

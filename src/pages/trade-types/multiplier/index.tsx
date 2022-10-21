@@ -14,9 +14,9 @@ const MarketsAvailable = Loadable(() => import('./_markets-available'))
 const WhatAreMultiplier = Loadable(() => import('./_what-are-options'))
 
 const meta_attributes = {
-    og_title: localize('Multipliers trading | Trade types | Deriv'),
+    og_title: localize('Multipliers trading | Trade multipliers on Deriv'),
     og_description: localize(
-        'Learn about multipliers trading on Deriv. Enjoy a new way to trade with leverage without risking more than your stake — more profit potential, no swap charges.',
+        'Explore trading on markets with multipliers on Deriv. Trade forex, cryptocurrencies, and more and maximise potential profit without risking more than your stake.',
     ),
 }
 
@@ -30,9 +30,9 @@ const Multipliers = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Multipliers trading | Trade types | Deriv')}
+                title={localize('Multipliers trading | Trade multipliers on Deriv')}
                 description={localize(
-                    'Learn about Deriv multipliers. Maximise potential profit without risking more than your stake. Available on forex, synthetic indices, and cryptocurrencies.',
+                    'Explore trading on markets with multipliers on Deriv. Trade forex, cryptocurrencies, and more and maximise potential profit without risking more than your stake.',
                 )}
                 meta_attributes={meta_attributes}
             />

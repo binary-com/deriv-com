@@ -87,6 +87,7 @@ export const MainArticle = styled(Flex)`
     transition: transform 0.3s;
     border-radius: 8px;
     overflow: hidden;
+    transform: translateZ(0);
 
     ::before {
         content: '';

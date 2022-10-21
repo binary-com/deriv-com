@@ -3,15 +3,18 @@ import { SmallContainer, Grid, Ul, WhyTradeItem } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 // Icon
 import FixedPayout from 'images/svg/trade-types/fixed-payout.svg'
-import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import FavoriteMarket from 'images/svg/trade-types/favoritemarket.svg'
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
-import UserFriendly from 'images/svg/trade-types/user-friendly-platforms.svg'
+import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import FlexibleTrade from 'images/svg/trade-types/flexible-trade-types.svg'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const WhatAreOptions = () => {
+    const handleSignup = useHandleSignup()
+
     return (
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
@@ -79,7 +82,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={SyntheticIndices} alt="" />
+                                <img src={FavoriteMarket} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('All favourite markets and more')}
@@ -101,7 +104,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={UserFriendly} alt="" />
+                                <img src={FriendlySupport} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('User-friendly platforms with powerful chart widgets')}
@@ -129,9 +132,9 @@ const WhatAreOptions = () => {
                     <Text mt="4rem" mb="1.6rem" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <LinkButton id="dm-options-signup-1" to="/signup/" secondary>
+                    <Button onClick={handleSignup} id="dm-options-signup-1" secondary>
                         {localize('Create free demo account')}
-                    </LinkButton>
+                    </Button>
                 </SmallContainer>
             </SectionContainer>
         </>

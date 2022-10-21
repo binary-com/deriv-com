@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { VideoBannerProps } from '../../_video-banner'
-import VideoPlayer from '../_video-player'
+import { RedirectLink } from '../recent-featured-posts/_style'
 import VideoCarousel from './_VideoCarousel'
 import { convertDate, getVideoObject } from 'common/utility'
 import { Flex, Container } from 'components/containers'
@@ -93,10 +93,6 @@ const AllVideosButton = styled(LinkButton)`
 `
 
 const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: VideoBannerProps) => {
-    const [show, setShow] = useState(false)
-    const handleCloseVideo = () => setShow(false)
-    const handleOpenVideo = () => setShow(true)
-
     let featured_video
     if (featured_video_list_data && featured_video_list_data.length) {
         featured_video = featured_video_list_data[0]
@@ -111,14 +107,10 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
         video_title,
         video_description,
         video_thumbnail,
-        video_url,
         video_duration,
+        video_slug,
         types,
     } = getVideoObject(featured_video)
-
-    useEffect(() => {
-        document.body.style.overflow = show ? 'hidden' : 'unset'
-    }, [show])
 
     return (
         <>
@@ -128,24 +120,16 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
                         <GatsbyImage
                             image={getImage(video_thumbnail.imageFile)}
                             alt={thumbnail_img}
-                            width="100%"
-                            height="100%"
-                            layout="fullWidth"
-                            transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
                         />
                     </BackgroundImageContainer>
                 </BackgroundImageWrapper>
                 <GradientWrapper />
                 <Container direction="column" jc="flex-start" style={{ zIndex: 5 }}>
                     <Flex direction="column" jc="flex-start" height="auto">
-                        <PlayerIconWrapper
-                            ai="center"
-                            width="64px"
-                            height="64px"
-                            mb="24px"
-                            onClick={handleOpenVideo}
-                        >
-                            <PlayerIcon width="20px" height="20px" src={PlayIcon} />
+                        <PlayerIconWrapper ai="center" width="64px" height="64px" mb="24px">
+                            <RedirectLink to={`/academy/videos/${video_slug}/`}>
+                                <PlayerIcon width="20px" height="20px" src={PlayIcon} />
+                            </RedirectLink>
                         </PlayerIconWrapper>
                         <TagParentWrapper height="22px" jc="flex-start">
                             {types.slice(0, 2).map((t) => (
@@ -201,12 +185,11 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
                         </Flex>
                     </Flex>
                     <VideoCarousel carousel_items={non_featured_video_list_data} />
-                    <AllVideosButton tertiary_light="true" to="/academy/videos/">
+                    <AllVideosButton tertiary_light to="/academy/videos/">
                         See all videos
                     </AllVideosButton>
                 </Container>
             </ParentWrapper>
-            {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}
         </>
     )
 }

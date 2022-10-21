@@ -8,18 +8,6 @@ import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
-const Column = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    flex-grow: 0;
-    width: 10rem;
-
-    :first-child {
-        flex-basis: 10%;
-    }
-`
-
 const Row = styled.div`
     display: flex;
     flex-direction: row;
@@ -39,9 +27,14 @@ const Section = styled(SectionContainer)`
     }
 `
 const CardContainer = styled(Flex)`
+    gap: 24px;
+
     @media ${device.laptopM} {
         max-width: 58rem;
         flex-wrap: wrap;
+    }
+    @media ${device.tabletL} {
+        gap: 0;
     }
 `
 const Card = styled(Flex)`
@@ -61,11 +54,10 @@ const Card = styled(Flex)`
         width: 328px;
     }
     @media ${device.tablet} {
-        margin-bottom: 40px;
         max-width: 100%;
 
         :last-child {
-            margin-bottom: 0;
+            margin-bottom: 40px;
         }
     }
     @media ${device.mobileL} {
@@ -77,19 +69,21 @@ const Card = styled(Flex)`
     }
 `
 const StyledHeader = styled(Header)`
-    @media ${device.tablet} {
-        margin-bottom: 24px;
-    }
+    margin-bottom: 60px;
+
     @media ${device.mobileL} {
-        font-size: 24px;
+        font-size: 28px;
+        padding: 0 2px;
+        margin-bottom: 0;
     }
 `
 const StyledCardHeader = styled(Header)`
     font-size: 24px;
 
-    @media ${device.mobileL} {
-        font-size: 20px;
-        margin-bottom: 8px;
+    @media ${device.tabletL} {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 16px;
         margin-top: 16px;
         line-height: 1.2;
     }
@@ -98,7 +92,19 @@ const StyledText = styled(Text)`
     font-size: 2.4rem;
 
     @media ${device.tabletL} {
+        font-size: 18px;
+        text-align: center;
+    }
+`
+const StyledNote = styled(Text)`
+    font-size: 20px;
+    line-height: 30px;
+    color: #999999;
+    margin-top: 10px;
+
+    @media ${device.tabletL} {
         font-size: 16px;
+        text-align: center;
     }
 `
 const ImageTag = styled.img`
@@ -108,7 +114,7 @@ const ImageTag = styled.img`
 const ExchangeSteps = () => {
     return (
         <Section>
-            <StyledHeader type="page-title" align="center" mb="4rem" as="h2">
+            <StyledHeader type="page-title" align="center" as="h2">
                 {localize('3 steps for faster deposits and withdrawals')}
             </StyledHeader>
             <CardContainer>
@@ -116,67 +122,41 @@ const ExchangeSteps = () => {
                     <Row>
                         <ImageTag src={RightAd} alt="" />
                     </Row>
-                    <Row>
-                        <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {'1.'}
-                            </StyledCardHeader>
-                        </Column>
-                        <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {localize('Find or create an ad')}
-                            </StyledCardHeader>
-                            <StyledText>
-                                {localize(
-                                    'Pick the best rates and place an order, or create an ad for the rates you want.',
-                                )}
-                            </StyledText>
-                        </Column>
-                    </Row>
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
+                        {localize('1. Find or create an ad')}
+                    </StyledCardHeader>
+                    <StyledText>
+                        {localize(
+                            'Pick the best rates and place an order, or create an ad for the rates you want.',
+                        )}
+                    </StyledText>
                 </Card>
                 <Card>
                     <Row>
                         <ImageTag src={SettlePayment} alt="" />
                     </Row>
-                    <Row>
-                        <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {'2.'}
-                            </StyledCardHeader>
-                        </Column>
-                        <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {localize('Send or receive payment')}
-                            </StyledCardHeader>
-                            <StyledText>
-                                {localize(
-                                    'Settle the payment with the counterparty of your transaction.',
-                                )}
-                            </StyledText>
-                        </Column>
-                    </Row>
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
+                        {localize('2. Send or receive payment')}
+                    </StyledCardHeader>
+                    <StyledText>
+                        {localize('Settle the payment with the counterparty of your transaction.')}
+                    </StyledText>
                 </Card>
                 <Card>
                     <Row>
                         <ImageTag src={CompleteOrder} alt="" />
                     </Row>
-                    <Row>
-                        <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {'3.'}
-                            </StyledCardHeader>
-                        </Column>
-                        <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {localize('Complete the transaction')}
-                            </StyledCardHeader>
-                            <StyledText>
-                                {localize(
-                                    'Every order must be completed and confirmed within 2 hours. Note: Funds are only released when the transaction is complete.',
-                                )}
-                            </StyledText>
-                        </Column>
-                    </Row>
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
+                        {localize('3. Complete the transaction')}
+                    </StyledCardHeader>
+                    <StyledText>
+                        {localize('Every order must be completed and confirmed within 1 hour.')}
+                    </StyledText>
+                    <StyledNote>
+                        {localize(
+                            'Note: Funds are only released when the transaction is complete.',
+                        )}
+                    </StyledNote>
                 </Card>
             </CardContainer>
         </Section>

@@ -16,39 +16,39 @@ type HeroProps = {
 }
 
 const StyledBackground = styled(BackgroundImage)`
-    max-width: 560px;
-    width: 100%;
-    height: 504px;
+    width: 1200px;
+    height: 480px;
     object-fit: cover;
     background-size: cover;
     background-color: transparent;
     background-repeat: no-repeat, no-repeat;
-    padding: 40px 40px 0 0;
     position: relative;
 
     @media ${device.tablet} {
-        width: 100%;
         height: 304px;
         padding: 40px 16px 0 16px;
-        margin-top: 32px;
     }
 `
 const Wrapper = styled.div`
-    padding: 40px 16px 0 16px;
+    left: 0;
+    top: 35px;
+    position: absolute;
     z-index: 1;
     flex-direction: column;
+    padding: 20px 16px 0 16px;
 
     @media screen and (min-width: 1980px) {
         max-width: 1900px;
     }
 
-    @media screen and (min-width: 785px) {
+    @media screen and (min-width: 768px) {
         padding: 80px 0 0 102px;
     }
 `
 const Container = styled(Flex)`
     background: #0e0e0e;
     border-radius: 8px;
+    overflow: hidden;
     width: 100%;
     height: 100%;
     position: relative;
@@ -56,10 +56,6 @@ const Container = styled(Flex)`
 
     @media ${device.laptopM} {
         flex-direction: row;
-    }
-
-    @media ${device.tablet} {
-        flex-direction: column;
     }
 `
 const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroProps) => {

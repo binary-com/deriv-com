@@ -130,7 +130,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    'Yes. As a payment agent, you will still be able to trade with your account.',
+                    'No. You can only use your account as a payment agent to perform clients’ deposits and withdrawal requests. For trading purposes, you will need to open a separate account.',
                 ),
             },
         },

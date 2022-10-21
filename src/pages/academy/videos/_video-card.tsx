@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
-import { VideoDataType } from './index'
+import { RedirectLink } from '../components/recent-featured-posts/_style'
 import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import Triangle from 'images/svg/triangle.svg'
+import { VideosType } from 'components/hooks/use-academy-data'
 
 const VideoCardWrapper = styled.div`
     max-width: 384px;
@@ -112,25 +113,28 @@ const ContentWrapper = styled.div`
 `
 
 type VideoCardProps = {
-    item: VideoDataType[0]
-    openVideo: (track_id: string, video_title: string) => void
+    item: VideosType
 }
 
-const VideoCard = ({ item, openVideo }: VideoCardProps) => {
+const VideoCard = ({ item }: VideoCardProps) => {
     const first_2_tags = item.tags?.slice(0, 2)
     const another_tags_number = item.tags.length > 2 ? `+${item.tags.length - 2}` : ''
     const converted_date = convertDate(item.published_date)
     return (
         // the extra div surrounding the videocard is to get around Safari's different
         // interpretation of height: 100%
-        <div>
-            <VideoCardWrapper onClick={openVideo}>
+        <RedirectLink to={`/academy/videos/${item.video_slug}/`}>
+            <VideoCardWrapper>
                 <ImageWrapper>
                     <ImageOverlay />
                     <CategoriesContainer jc="flex-start" fw="wrap">
                         {item.tags &&
                             first_2_tags.map((tag) => (
-                                <StyledCategories as="h4" type="paragraph-2" key={tag?.tags_id?.id}>
+                                <StyledCategories
+                                    as="h4"
+                                    type="paragraph-2"
+                                    key={tag?.tags_id?.tag_name}
+                                >
                                     {tag?.tags_id?.tag_name}
                                 </StyledCategories>
                             ))}
@@ -162,7 +166,7 @@ const VideoCard = ({ item, openVideo }: VideoCardProps) => {
                     </Header>
                 </ContentWrapper>
             </VideoCardWrapper>
-        </div>
+        </RedirectLink>
     )
 }
 

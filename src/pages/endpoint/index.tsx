@@ -237,7 +237,7 @@ const Endpoint = () => {
                                     Reset to original settings
                                 </StyledButton>
                                 <StyledButton
-                                    secondary="true"
+                                    secondary
                                     disabled={isSubmitting || !dirty || !touched || !isValid}
                                     type="submit"
                                 >

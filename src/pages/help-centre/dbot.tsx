@@ -49,7 +49,7 @@ const ImageWrapper = styled.div`
     }
     @media ${device.mobileL} {
         & > img {
-            width: 37rem !important;
+            width: 110% !important;
         }
     }
 `
@@ -192,8 +192,8 @@ const CreateVariables = ({ text }: ArticleProps) => (
             <img
                 src={CreateVariableImage}
                 alt={localize('Create variable')}
-                width="47.2rem"
-                style={{ width: '47.2rem' }}
+                width="40.2rem"
+                style={{ width: '40.2rem' }}
             />
         </ImageWrapper>
         <Text>{localize('4. Enter a name for the variable.')}</Text>
@@ -201,9 +201,9 @@ const CreateVariables = ({ text }: ArticleProps) => (
             <img
                 src={NameVariableImage}
                 alt={localize('Name variable')}
-                width="43.8rem"
+                width="40.8rem"
                 loading="lazy"
-                style={{ width: '43.8rem' }}
+                style={{ width: '40.8rem' }}
             />
         </ImageWrapper>
         <Text>
@@ -224,8 +224,10 @@ const CreateVariables = ({ text }: ArticleProps) => (
 
 const QuickStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
+        <StyledHeader as="h4" width="65%">
+            {text}
+        </StyledHeader>
+        <Text width="65%">
             {localize(
                 "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind.",
             )}
@@ -437,7 +439,7 @@ const SaveStrategy = ({ text }: ArticleProps) => (
 const ImportStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
+        <Text width="88%">
             {localize(
                 "Just drag the XML file from your computer onto the workspace. Your blocks will be loaded accordingly. Alternatively, you can click 'Import' on the toolbar at the top of the workspace and choose to load your strategy from your computer or from your Google Drive.",
             )}
@@ -531,8 +533,8 @@ const TransactionLog = ({ text }: ArticleProps) => (
                 src={AreYouSureImage}
                 alt={localize('Are you sure?')}
                 loading="lazy"
-                style={{ width: '50.9rem' }}
-                width="50.9rem"
+                style={{ width: '40rem' }}
+                width="40rem"
             />
         </ImageWrapper>
     </ArticleWrapper>

@@ -108,7 +108,7 @@ const LiftWithdrawalLimits = ({ text }: ArticleProps) => (
                 components={[
                     <ExternalLink
                         to={`${deriv_app_url}/account/account-limits`}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -156,7 +156,7 @@ const CreditCardDepositDeclined = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://www.binary.com/en/home.html?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -182,9 +182,18 @@ const WithdrawMaestroMastercard = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'Mastercard and Maestro card withdrawals are only available for UK clients. If you are not from the UK, you’ll need to use a withdrawal method that’s available in your country.',
-            )}
+            <Localize
+                translate_text="Making withdrawals using Maestro and Mastercard is not possible in your country. You can check the <0>list of  our payment methods</0> to find a withdrawal method available to you."
+                components={[
+                    <ExternalLink
+                        to={'/payment-methods/'}
+                        target="_blank"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
         </Text>
     </ArticleWrapper>
 )
@@ -210,7 +219,7 @@ const HowCanICancelMyWithdrawal = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={`${deriv_app_url}/cashier/`}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -240,7 +249,7 @@ const HowCanICancelMyWithdrawal = ({ text }: ArticleProps) => (
                             <ExternalLink
                                 to={`${deriv_app_url}/cashier/withdrawal`}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -295,7 +304,7 @@ const PaymentMethodsOnTheWithdrawalPage = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/contact_us/?is_livechat_open=true'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}

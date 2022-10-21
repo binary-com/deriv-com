@@ -88,7 +88,10 @@ const MarketNews = ({ data }: MarketNewsProps) => {
                                         mobileL_height="70px"
                                     >
                                         <QueryImage
-                                            data={post.main_image.imageFile}
+                                            data={
+                                                post.main_image.imageFile.childImageSharp
+                                                    .gatsbyImageData
+                                            }
                                             alt={post.main_image.description || ''}
                                             className="standard-query-img"
                                         />

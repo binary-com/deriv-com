@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 import { graphql } from 'gatsby'
 import {
     ArticleTitle,
@@ -30,7 +30,7 @@ import {
 import Banner from '../pages/academy/components/_banner'
 import SideSubscriptionBanner from '../pages/academy/components/_side-subscription-banner'
 import SocialSharing from '../pages/academy/components/_social-sharing'
-import { handleTag } from 'pages/academy/components/utility'
+import { handleTag } from 'pages/academy/components/_utility'
 import { ArticleQuery } from 'types/graphql.types'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -40,7 +40,7 @@ import { convertDate, getMinRead, truncateString } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { getTruncateLength } from 'pages/academy/blog/posts/preview'
+import { useTruncateLength } from 'pages/academy/blog/posts/preview'
 
 type ArticlesTemplateProps = {
     data: ArticleQuery
@@ -51,6 +51,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded()
+    const truncateLength = useTruncateLength()
 
     useEffect(() => {
         if (is_mounted) {
@@ -68,11 +69,11 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
         barElement.current.style.width = scrolled + '%'
     }
 
-    const handleScroll = () => {
+    const handleScroll = useCallback(() => {
         const currentScrollPos = window.scrollY
         setPrevScrollPos(currentScrollPos)
         setVisible(currentScrollPos > 72)
-    }
+    }, [])
 
     useEffect(() => {
         window.addEventListener('scroll', scrollFunc, { passive: true })
@@ -104,7 +105,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
         max_w_tablet: '320px',
         isExternal: footer_banner_data?.cta_url?.search(/deriv\.(com|me)/g) === -1 ? true : false,
         redirectLink: side_banner_data?.cta_url,
-        imgSrcDesktop: side_banner_data?.banner_image?.imageFile,
+        imgSrcDesktop: side_banner_data?.banner_image?.imageFile.childImageSharp.gatsbyImageData,
         imgAltDesktop: side_banner_data?.banner_image?.description,
     }
 
@@ -113,9 +114,11 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
         max_w_tablet: '580px',
         isExternal: footer_banner_data?.cta_url?.search(/deriv\.(com|me)/g) === -1 ? true : false,
         redirectLink: footer_banner_data?.cta_url,
-        imgSrcDesktop: footer_banner_data?.desktop_banner_image?.imageFile,
+        imgSrcDesktop:
+            footer_banner_data?.desktop_banner_image?.imageFile.childImageSharp.gatsbyImageData,
         imgAltDesktop: footer_banner_data?.desktop_banner_image?.description,
-        imgSrcMobile: footer_banner_data?.mobile_banner_image?.imageFile,
+        imgSrcMobile:
+            footer_banner_data?.mobile_banner_image?.imageFile.childImageSharp.gatsbyImageData,
         imgAltMobile: footer_banner_data?.mobile_banner_image?.description,
     }
 
@@ -149,7 +152,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                         <img src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
                                             {is_mobile
-                                                ? truncateString(article_title, getTruncateLength())
+                                                ? truncateString(article_title, truncateLength)
                                                 : article_title}
                                         </StyledBreadcrumbsTitle>
                                         <SocialSharing />
@@ -206,7 +209,8 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                                             <QueryImage
                                                                 data={
                                                                     post_data?.author?.image
-                                                                        ?.imageFile
+                                                                        ?.imageFile.childImageSharp
+                                                                        .gatsbyImageData
                                                                 }
                                                                 alt={
                                                                     post_data?.author?.image
@@ -232,7 +236,10 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                 <HeroRightWrapper>
                                     <HeroImageContainer tabletL={{ mt: '24px' }}>
                                         <QueryImage
-                                            data={post_data?.main_image?.imageFile}
+                                            data={
+                                                post_data?.main_image?.imageFile.childImageSharp
+                                                    .gatsbyImageData
+                                            }
                                             alt={post_data?.main_image?.description || ''}
                                             className="standard-query-img"
                                         />
@@ -252,6 +259,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                                         <QueryImage
                                                             data={
                                                                 post_data?.author?.image?.imageFile
+                                                                    .childImageSharp.gatsbyImageData
                                                             }
                                                             alt={
                                                                 post_data?.author?.image

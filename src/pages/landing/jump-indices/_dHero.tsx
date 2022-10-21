@@ -155,12 +155,12 @@ const DHero = () => {
                     <BtnDiv>
                         {is_mounted && (
                             <StyledLinkButton
-                                external="true"
+                                external
                                 type="deriv_app"
                                 to="/mt5"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                secondary="true"
+                                secondary
                                 hero
                             >
                                 {localize('Start trading')}

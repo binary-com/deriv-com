@@ -6,6 +6,14 @@ import type { TPlatformDetails } from './_utils'
 import { Flex } from 'components/containers'
 import { QueryImage, StyledLink } from 'components/elements'
 
+const StyledFlex = styled(Flex)`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 630px;
+    margin-bottom: 20px;
+`
 const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
@@ -64,24 +72,24 @@ type DetailsProps = {
 
 const Details = ({ slide, platform_details }: DetailsProps) => {
     const images = useStaticQuery(image_query)
-    const selected_platform = platform_details[slide]
+    const selected_platform = platform_details && platform_details[slide]
 
-    if (selected_platform) {
-        return (
-            <Flex width="60%" fd="column" ai="center" jc="end" laptopM={{ width: '50%' }}>
-                <Flex max_height="550px" mb="24px">
-                    <StyledQueryImage
-                        height="100%"
-                        data={images[selected_platform.image_key]}
-                        alt="test"
-                    />
-                </Flex>
-                <Flex>
-                    {selected_platform.download_links.map((link, index) => {
+    return (
+        <Flex width="60%" fd="column" ai="center" jc="end" laptopM={{ width: '50%' }}>
+            <Flex max_height="550px" mb="24px">
+                <StyledQueryImage
+                    height="100%"
+                    data={images[selected_platform?.image_key]}
+                    alt="test"
+                />
+            </Flex>
+            <Flex>
+                <StyledFlex>
+                    {selected_platform?.download_links.is_desktop?.map((link, index) => {
                         return (
                             <DownloadLink
-                                key={index}
-                                external="true"
+                                key={link.type}
+                                external
                                 type={link?.link_type}
                                 to={link?.url}
                                 target="_blank"
@@ -91,12 +99,10 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
                             </DownloadLink>
                         )
                     })}
-                </Flex>
+                </StyledFlex>
             </Flex>
-        )
-    }
-
-    return <></>
+        </Flex>
+    )
 }
 
 export default Details

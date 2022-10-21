@@ -146,9 +146,15 @@ export const LogoLink = styled(LocalizedLink)<LogoLinkProps>`
     }
 `
 
-export const NavLink = styled.li<{ margin?: boolean }>`
+type NavLinkProps = {
+    isOpen: boolean
+    margin?: boolean
+}
+
+export const NavLink = styled.li<NavLinkProps>`
     list-style-type: none;
     display: flex;
+    position: relative;
     align-items: center;
     text-align: center;
     margin-right: 2.4rem;
@@ -162,6 +168,34 @@ export const NavLink = styled.li<{ margin?: boolean }>`
     }
 
     ${({ margin }) => margin && 'margin: 0 4rem;'}
+
+    @keyframes fadeIn {
+        from {
+            visibility: hidden;
+        }
+        to {
+            visibility: visible;
+        }
+    }
+
+    ${({ isOpen }) =>
+        isOpen &&
+        `
+     ::after {
+        visibility: hidden;
+        animation: 1s fadeIn;
+        animation-delay: 0.1s;
+        animation-fill-mode: forwards;
+        content: ' ';
+        position: absolute;
+        top: 40px;
+        left: 15px;
+        border-top: none;
+        border-right: 15px solid transparent;
+        border-left: 15px solid transparent;
+        border-bottom: 15px solid white;
+    }
+   `}
 `
 
 export const Line = styled.div`

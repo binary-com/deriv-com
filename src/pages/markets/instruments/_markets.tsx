@@ -30,8 +30,7 @@ import {
     volatility_indices,
     volatility_indices_trade_type_eu,
 } from './_market-symbols'
-import { getCountryRule } from 'components/containers/visibility'
-import { ROW } from 'components/containers'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 export const AmericanIndices = () => <Symbol instruments_type={stocks_american_indices} />
 
@@ -50,16 +49,18 @@ export const ContinuousIndices = () => <Symbol instruments_type={continuous_indi
 export const CrashBoomEU = () => <Symbol instruments_type={crash_boom_eu} />
 
 export const CrashBoomMultipliers = () => {
-    const { is_eu } = getCountryRule()
+    const { is_eu } = useCountryRule()
     return <Symbol instruments_type={is_eu ? crash_boom_eu : crash_boom_multipliers} />
 }
 
 export const CrashBoom = () => {
-    const { is_eu } = getCountryRule()
+    const { is_eu } = useCountryRule()
     return <Symbol instruments_type={is_eu ? crash_boom_trade_type_eu : crash_boom} />
 }
 
-export const CryptocurrenciesCFDs = () => <Symbol instruments_type={cryptocurrencies_cfds} />
+export const CryptocurrenciesCFDs = () => {
+    return <Symbol instruments_type={cryptocurrencies_cfds} />
+}
 
 export const CryptocurrenciesMultipliers = () => (
     <Symbol instruments_type={cryptocurrencies_multipliers} />
@@ -87,11 +88,10 @@ export const MajorPairs = () => <Symbol instruments_type={major_pairs} />
 
 export const MetalsCFDs = () => <Symbol instruments_type={metals_cfds} />
 
-export const MetalsOptions = () => (
-    <ROW>
-        <Symbol instruments_type={metals_options} />
-    </ROW>
-)
+export const MetalsOptions = () => {
+    const { is_row } = useCountryRule()
+    return is_row ? <Symbol instruments_type={metals_options} /> : <></>
+}
 
 export const MicroPairs = () => <Symbol instruments_type={micro_pairs} />
 
@@ -108,7 +108,7 @@ export const SwapFreePairs = () => <Symbol instruments_type={swap_free_pairs} />
 export const VolatilityIndicesEU = () => <Symbol instruments_type={volatility_indices_eu} />
 
 export const VolatilityIndices = () => {
-    const { is_eu } = getCountryRule()
+    const { is_eu } = useCountryRule()
     return (
         <Symbol instruments_type={is_eu ? volatility_indices_trade_type_eu : volatility_indices} />
     )

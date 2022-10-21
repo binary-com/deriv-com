@@ -14,7 +14,6 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_contact_us = /contact_us/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
     const who_we_are = /who-we-are/g.test(page.path)
-    const is_market = /markets/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
 
     if (is_responsible_trading) {
@@ -102,21 +101,6 @@ exports.onCreatePage = ({ page, actions }) => {
         createRedirect({
             fromPath: `/leadership`,
             toPath: `/who-we-are/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
-
-    if (is_market) {
-        createRedirect({
-            fromPath: `/markets/`,
-            toPath: `/markets/forex/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/markets`,
-            toPath: `/markets/forex/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -275,21 +259,6 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
-        if (is_market) {
-            createRedirect({
-                fromPath: `/${lang}/markets/`,
-                toPath: `/${lang}/markets/forex/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/markets`,
-                toPath: `/${lang}/markets/forex/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
-
         if (is_cfds) {
             createRedirect({
                 fromPath: `/${lang}/trade-types/margin/`,
@@ -325,12 +294,6 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     actions.setWebpackConfig({
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
-            alias: {
-                react: 'preact/compat',
-                'react-dom/test-utils': 'preact/test-utils',
-                'react-dom': 'preact/compat',
-                'react/jsx-runtime': 'preact/jsx-runtime',
-            },
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
     })
@@ -340,14 +303,18 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
 exports.createPages = async ({ reporter, actions, graphql }) => {
     const { createPage } = actions
     const articleTemplate = path.resolve(__dirname, 'src/templates/article.tsx')
+    const videoTemplate = path.resolve(__dirname, 'src/templates/video.tsx')
 
     // Query our published articles
     const result = await graphql(`
         query MyQuery {
             directus {
-                blog(filter: { status: { _eq: "published" } }) {
+                blog(filter: { status: { _eq: "published" } }, limit: -1) {
                     id
                     slug
+                }
+                videos(filter: { status: { _eq: "published" } }) {
+                    video_slug
                 }
             }
         }
@@ -365,6 +332,18 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
                 locale: 'en',
                 pathname: `/academy/blog/posts/${blog_post.slug}/`,
                 slug: blog_post.slug,
+            },
+        })
+    })
+    const videos = result.data.directus.videos
+    videos.forEach((video) => {
+        createPage({
+            path: `/academy/videos/${video.video_slug}/`,
+            component: videoTemplate,
+            context: {
+                locale: 'en',
+                pathname: `/academy/videos/${video.video_slug}/`,
+                slug: video.video_slug,
             },
         })
     })

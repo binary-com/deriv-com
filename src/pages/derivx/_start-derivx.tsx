@@ -2,11 +2,13 @@ import React, { useState, useEffect, useCallback, ReactElement, ReactNode } from
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from '../dmt5/components/_side-tab'
-import { Flex, SectionContainer } from 'components/containers'
+import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
+import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
+import { mobileOSDetect } from 'common/os-detect'
 import { derivx_android_url, derivx_ios_url } from 'common/constants'
 
 interface StartDerivXProps {
@@ -19,11 +21,6 @@ type RealOrDemoShowType = {
     description: ReactElement
     image_data: string
     image_alt: string
-}
-
-type DownloadLinkType = {
-    android: string
-    ios: string
 }
 
 const query = graphql`
@@ -68,6 +65,9 @@ const query = graphql`
             ...fadeIn
         }
         real_step4_mobile: file(relativePath: { eq: "deriv-x/mobile-start-trading.png" }) {
+            ...fadeIn
+        }
+        qr_code: file(relativePath: { eq: "deriv-x/derivx-footer-qr.png" }) {
             ...fadeIn
         }
     }
@@ -122,11 +122,16 @@ const real: RealOrDemoShowType[] = [
     },
 ]
 
-const download_links: DownloadLinkType = {
-    android: derivx_android_url,
-    ios: derivx_ios_url,
+const handleExternalLink = () => {
+    let link = ''
+    if (mobileOSDetect() === 'Android') {
+        link = derivx_android_url
+    }
+    if (mobileOSDetect() === 'iOS') {
+        link = derivx_ios_url
+    }
+    window.open(link, '_blank')
 }
-
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -167,17 +172,32 @@ const ImageWrapper = styled.div`
 const demoActive = css`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border: unset;
+
     ${Text} {
         font-weight: bold;
     }
 `
 const realActive = css`
     box-shadow: unset;
+
     ${Text} {
         font-weight: unset;
     }
 `
-
+const ButtonDp2p = styled(Button)`
+    padding: 10px 16px;
+    height: 40px;
+    width: 25rem;
+    white-space: nowrap;
+    margin-top: 24px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #ff444f;
+    border-radius: 4px;
+`
 const TabItem = styled.div<StartDerivXProps>`
     padding: 2.4rem 4rem;
     width: fit-content;
@@ -258,7 +278,7 @@ const StartDerivX = () => {
             </Flex>
 
             <Flex max_width="1200px">
-                <SideTab parent_tab={tab} has_download_button download_links={download_links}>
+                <SideTab parent_tab={tab} has_qr_code={true}>
                     {(tab === 'demo' ? demo : real).map((currentTab, index) => {
                         return (
                             <SideTab.Panel
@@ -284,6 +304,11 @@ const StartDerivX = () => {
                     })}
                 </SideTab>
             </Flex>
+            <Mobile>
+                <ButtonDp2p secondary onClick={handleExternalLink}>
+                    {localize('Download Deriv X app')}
+                </ButtonDp2p>
+            </Mobile>
         </Section>
     )
 }

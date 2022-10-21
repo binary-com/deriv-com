@@ -21,9 +21,6 @@ type LeaderType = {
 
 const query = graphql`
     query {
-        antony: file(relativePath: { eq: "who-we-are/antony.jpg" }) {
-            ...fadeIn
-        }
         derek: file(relativePath: { eq: "who-we-are/derek.jpg" }) {
             ...fadeIn
         }
@@ -164,7 +161,7 @@ const Leaders = () => {
         },
         {
             name: 'Tom Molesworth',
-            position: <Localize translate_text="Chief Technology Officer" />,
+            position: <Localize translate_text="Chief Information Officer" />,
             link: '',
             image: leaders_data.tom,
         },
@@ -227,12 +224,6 @@ const Leaders = () => {
             position: <Localize translate_text="Vice President of Customer Support" />,
             link: 'https://www.linkedin.com/in/jeyavarthini-vairakanan-812b7a121/',
             image: leaders_data.jeya,
-        },
-        {
-            name: 'Antony Pradeep Charles',
-            position: <Localize translate_text="Vice President of Strategy & Project Management" />,
-            link: 'https://www.linkedin.com/in/antonypradeep/',
-            image: leaders_data.antony,
         },
         {
             name: 'Gary Ross Vytialingam',

@@ -3,10 +3,10 @@ import { Flex, SectionContainer } from 'components/containers'
 import PlatformCarousel from 'pages/home/platform-carousel/_platform-carousel'
 import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const OurPlatforms = () => {
-    const { is_row } = getCountryRule()
+    const { is_row } = useCountryRule()
 
     return (
         <SectionContainer

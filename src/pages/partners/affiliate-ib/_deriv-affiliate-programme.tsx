@@ -239,7 +239,7 @@ const DerivAffiliateProgramme = () => {
                                     id="dm-card-affiliate-signup-1"
                                     secondary
                                     to={affiliate_signup_url}
-                                    external="true"
+                                    external
                                     target="_blank"
                                     type="affiliate_sign_up"
                                     mt_mobile="40px"
@@ -263,9 +263,7 @@ const DerivAffiliateProgramme = () => {
                                     {Turnover.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
                                             <StyledTrap isTitle="true">
-                                                <StyledText weight="bold">
-                                                    {localize(col.title)}
-                                                </StyledText>
+                                                <StyledText weight="bold">{col.title}</StyledText>
                                             </StyledTrap>
                                             {col.data.map((data, id) => (
                                                 <TRAPREVERSE even={id % 2 ? 'true' : ''} key={id}>
@@ -287,7 +285,7 @@ const DerivAffiliateProgramme = () => {
                                     id="dm-card-affiliate-signup-2"
                                     secondary
                                     to={affiliate_signup_url}
-                                    external="true"
+                                    external
                                     target="_blank"
                                     type="affiliate_sign_up"
                                     mt_mobile="24px"
@@ -311,7 +309,7 @@ const DerivAffiliateProgramme = () => {
                                     </Text>
                                     <Text>
                                         <Localize
-                                            translate_text="This plan is available exclusively for EU-based clients."
+                                            translate_text="This plan is available exclusively for EU-based clients. <0>Please note that according to regulations, you cannot have clients who reside in Portugal or Spain.</0>"
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>
@@ -322,7 +320,7 @@ const DerivAffiliateProgramme = () => {
                                     id="dm-card-affiliate-signup-3"
                                     secondary
                                     to={affiliate_signup_url}
-                                    external="true"
+                                    external
                                     target="_blank"
                                     type="affiliate_sign_up"
                                     mt_mobile="32px"

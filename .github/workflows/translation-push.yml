@@ -22,9 +22,24 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:
-                  node-version: '14.x'
+                  node-version: '16.x'
             - name: Installing Crowdin     
               run: npm i -g @crowdin/cli
+            - name: Download New Translations ⬇️
+              if: github.event.workflow_run.head_commit.message == 'auto-pull-translation'
+              run: |
+                  crowdin download -b  ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  ${{ github.event.workflow_run.head_branch }} -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
+                  if git diff --exit-code; then
+                    echo "No new translation data to commit"
+                  else
+                    echo "Committing new translation data 📝"
+                    echo "Setting up Git identity"
+                    git config --global user.name "DerivFE"
+                    git config --global user.email "80095553+DerivFE@users.noreply.github.com"
+                    git add -u
+                    git commit -m "translation: 📚 sync translations from crowdin feature branch"
+                    git push origin ${{ github.event.workflow_run.head_branch }}
+                  fi
             - name: Pushing Strings & Translations ⬆️
               run:  
                   crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
@@ -37,9 +52,9 @@ jobs:
                       {
                         attachments: [{
                           color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                          text: `*[Deriv.com]*  New strings are ready for translation and uploaded on crowdin branch: *${{ github.event.workflow_run.head_branch }} *`
+                          text: `*[Deriv.com]*  New strings are ready for translation and uploaded on crowdin branch: *${{ github.event.workflow_run.head_branch }} (https://crowdin.com/project/deriv-com/content/files) *`
                         }]
                       }
               env:
-                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_TEST }}
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_TRANSLATION }}
 

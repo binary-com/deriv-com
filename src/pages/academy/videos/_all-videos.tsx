@@ -1,78 +1,59 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
-import VideoPlayer from '../components/_video-player'
+import { RedirectLink } from '../components/recent-featured-posts/_style'
 import VideoCard from './_video-card'
-import { VideoDataType } from './index'
-import { DirectusData_Videos } from 'types/graphql.types'
+import { VideosType } from 'components/hooks/use-academy-data'
+import Pagination from 'components/elements/pagination'
 import { Flex } from 'components/containers'
-import { cms_assets_end_point } from 'common/constants'
-import { slugify, removeSpecialCharacterUrl, queryParams } from 'common/utility'
 import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { queryParams } from 'common/utility'
 
 type AllVideosProps = {
-    video_data: VideoDataType
+    video_data: VideosType[]
 }
 
 const AllVideos = ({ video_data }: AllVideosProps) => {
-    const [show, setShow] = useState(false)
-    const [play_video_id, setPlayVideoId] = useState('')
-    const [title_params, setTitleParams] = useState('')
-    const [is_loaded, setIsLoaded] = useState(false)
+    const url_page_number = Number(queryParams.get('page') || 1)
 
-    const hasVideo = (item: DirectusData_Videos) => {
-        const new_title_params = removeSpecialCharacterUrl(title_params)
-        const video_slugify = removeSpecialCharacterUrl(item.video_title)
+    // Our grid items change in 1333 width which is our tablet size
+    const tablet_width = 1333
+    const [show_pagination, setShowPagination] = useState(false)
+    const [is_mobile] = useBrowserResize()
+    const [is_tablet] = useBrowserResize(tablet_width)
+    const [current_page, setCurrentPage] = useState(url_page_number)
+    const desktop_max_videos = 18
+    const tablet_max_videos = 12
+    const mobile_max_videos = 10
+    const videos_per_page =
+        (is_mobile && mobile_max_videos) || (is_tablet && tablet_max_videos) || desktop_max_videos
 
-        return video_slugify === new_title_params
+    const index_of_last_post = current_page * videos_per_page
+    const index_of_first_post = index_of_last_post - videos_per_page
+    const current_videos = video_data.slice(index_of_first_post, index_of_last_post)
+
+    const myRef = useRef(null)
+
+    const paginate = (page_number) => {
+        myRef.current.scrollIntoView({ behavior: 'smooth' })
+        setCurrentPage(page_number)
     }
 
     useEffect(() => {
-        const title = queryParams.get('t')
-        if (title) {
-            setTitleParams(title)
+        if (is_mobile) {
+            video_data.length >= mobile_max_videos && setShowPagination(true)
+        } else if (is_tablet) {
+            video_data.length >= tablet_max_videos && setShowPagination(true)
+        } else if (!is_mobile && !is_tablet) {
+            video_data.length >= desktop_max_videos && setShowPagination(true)
+        } else {
+            setShowPagination(false)
         }
-        setIsLoaded(true)
-    }, [])
-    // opens the video player based on the valid video title passed to url params
-    useEffect(() => {
-        if (is_loaded) {
-            const video_track = video_data.find((item: DirectusData_Videos) => hasVideo(item))
-                ?.video_file.id
-            const video_title_param = removeSpecialCharacterUrl(title_params)
+    }, [is_mobile, is_tablet, video_data])
 
-            if (video_track) {
-                openVideo(video_track, video_title_param)
-
-                queryParams.set({
-                    t: title_params,
-                })
-            } else {
-                closeVideo()
-            }
-        }
-    }, [title_params])
-
-    useEffect(() => {
-        document.body.style.overflow = show ? 'hidden' : 'unset'
-    }, [show])
-
-    const play_video_src = `${cms_assets_end_point}${play_video_id}`
-
-    const openVideo = (track_id: string, video_title: string): void => {
-        setPlayVideoId(track_id)
-        setTitleParams(video_title)
-        setShow(true)
-    }
-
-    const closeVideo = (): void => {
-        setShow(false)
-        setPlayVideoId('')
-        setTitleParams('')
-        queryParams.delete('t')
-    }
     return (
-        <Container m="0 auto" fd="column">
+        <Container ref={myRef} m="0 auto" fd="column">
             <Flex jc="flex-start" ai="center" mt="4rem">
                 <LocalizedLinkText to="/academy/" color="grey-5">
                     Home
@@ -81,19 +62,25 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
                 <Text>All videos</Text>
             </Flex>
             <VideoGrid margin="8rem 0">
-                {video_data.map((item) => {
+                {current_videos.map((item) => {
                     return (
-                        <VideoCard
-                            key={item.video_id}
-                            item={item}
-                            openVideo={() =>
-                                openVideo(item.video_file.id, slugify(item.video_title))
-                            }
-                        />
+                        <RedirectLink
+                            key={item.video_slug}
+                            to={`/academy/videos/${item.video_slug}/`}
+                        >
+                            <VideoCard item={item} />
+                        </RedirectLink>
                     )
                 })}
             </VideoGrid>
-            {show && <VideoPlayer video_src={play_video_src} closeVideo={closeVideo} />}
+            {show_pagination && (
+                <Pagination
+                    items_per_page={videos_per_page}
+                    total_items={video_data.length}
+                    paginate={paginate}
+                    current_page={current_page}
+                />
+            )}
         </Container>
     )
 }

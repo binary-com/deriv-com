@@ -22,7 +22,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v1
               with:
-                  node-version: 14
+                  node-version: 16
             - name: Cache dependencies
               id: cache
               uses: actions/cache@v2
@@ -62,18 +62,10 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:
-                  node-version: '14.x'
+                  node-version: '16.x'
 
             - name: Set version env variable
               run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                  path: ~/.npm
-                  key: ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}
 
             - name: Cache Gatsby
               id: gatsby-cache-build
@@ -125,6 +117,16 @@ jobs:
                   cd devops-ci-scripts/k8s-build_tools
                   echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
                   ./release.sh deriv-com ${{ steps.get_tag_name.outputs.VERSION }}
+
+            - name: Deploy to Cloudflare ☁️
+              uses: cloudflare/wrangler-action@2.0.0
+              with:
+                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                command: pages publish public --project-name=deriv-com-pages --branch=main
+
+            - name: Cloudflare production link ✨
+              run: echo "New website - http://cf-pages-deriv-com.deriv.com"
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

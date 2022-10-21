@@ -5,6 +5,7 @@ import { Localize } from 'components/localization'
 export type MarketSymbol = {
     src: string
     text: ReactElement
+    eu?: boolean
 }
 export const americas: MarketSymbol[] = [
     {
@@ -224,7 +225,7 @@ export const europe: MarketSymbol[] = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY30,
+        src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
     },
     {
@@ -437,7 +438,7 @@ export const metals_options: MarketSymbol[] = [
     },
     {
         src: icons.SILVEREUR,
-        text: <Localize translate_text="Silver/EUR" />,
+        text: <Localize translate_text="Silver/USD" />,
     },
 ]
 
@@ -723,28 +724,34 @@ export const stocks_asian_indices: MarketSymbol[] = [
 
 export const stocks_european_indices: MarketSymbol[] = [
     {
-        src: icons.STOCKSNETHERLAND25,
-        text: <Localize translate_text="Netherland 25" />,
-    },
-    {
         src: icons.STOCKSEUROPE50,
-        text: <Localize translate_text="Europe 50" />,
+        text: <Localize translate_text="Euro 50" />,
+        eu: true,
     },
     {
         src: icons.STOCKSFRANCE40,
         text: <Localize translate_text="France 40" />,
+        eu: true,
     },
     {
-        src: icons.STOCKSGERMANY30,
+        src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
+        eu: true,
     },
     {
-        src: icons.STOCKSUK100,
-        text: <Localize translate_text="UK 100" />,
+        src: icons.STOCKSNETHERLAND25,
+        text: <Localize translate_text="Netherland 25" />,
+        eu: false,
     },
     {
         src: icons.STOCKSSPAIN35,
         text: <Localize translate_text="Spain 35" />,
+        eu: true,
+    },
+    {
+        src: icons.STOCKSUK100,
+        text: <Localize translate_text="UK 100" />,
+        eu: true,
     },
 ]
 
@@ -876,10 +883,6 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="HP Inc" />,
     },
     {
-        src: icons.STOCKSHUGOBOSS,
-        text: <Localize translate_text="Hugo Boss AG Common Stock" />,
-    },
-    {
         src: icons.STOCKSIBM,
         text: <Localize translate_text="IBM" />,
     },
@@ -912,20 +915,12 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Moderna Inc" />,
     },
     {
-        src: icons.STOCKSNESTLE,
-        text: <Localize translate_text="Nestle SA" />,
-    },
-    {
         src: icons.STOCKSNETFLIX,
         text: <Localize translate_text="Netflix Inc" />,
     },
     {
         src: icons.STOCKSNIKE,
         text: <Localize translate_text="Nike" />,
-    },
-    {
-        src: icons.STOCKSNOVARTIS,
-        text: <Localize translate_text="Novartis AG" />,
     },
     {
         src: icons.STOCKSNVIDIA,
@@ -1049,14 +1044,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="BTC/LTC" />,
     },
     {
-        src: icons.BTCXAG,
-        text: <Localize translate_text="BTC/XAG" />,
-    },
-    {
-        src: icons.BTCXAU,
-        text: <Localize translate_text="BTC/XAU" />,
-    },
-    {
         src: icons.DOGUSD,
         text: <Localize translate_text="DOG/USD" />,
     },
@@ -1117,10 +1104,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="SOL/USD" />,
     },
     {
-        src: icons.TERUSD,
-        text: <Localize translate_text="TER/USD" />,
-    },
-    {
         src: icons.TRXUSD,
         text: <Localize translate_text="TRX/USD" />,
     },
@@ -1149,7 +1132,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="ZEC/USD" />,
     },
 ]
-
 export const cryptocurrencies_multipliers: MarketSymbol[] = [
     {
         src: icons.BTCUSD,

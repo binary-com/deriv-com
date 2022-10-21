@@ -10,7 +10,7 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize, localize } from 'components/localization'
 // import { DerivStore } from 'store'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
@@ -22,8 +22,7 @@ type ForexProps = {
     simple_step_content: SimpleStepsContent[]
 }
 const Forex = ({ simple_step_content }: ForexProps) => {
-    // const { is_eu_country } = React.useContext(DerivStore)
-    const { is_row, is_uk_eu } = getCountryRule()
+    const { is_row, is_uk_eu } = useCountryRule()
     return (
         <>
             <WhyTrade

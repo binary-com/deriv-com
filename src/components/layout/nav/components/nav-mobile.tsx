@@ -8,15 +8,17 @@ import {
     HamburgerMenu,
     CloseIcon,
 } from '../styles/nav-styles'
-import { handleGetTrading, handleLogin } from '../util/nav-methods'
+import { handleGetTrading } from '../util/nav-methods'
 import device from 'themes/device'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
-import { OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
+import { OffCanvasMenu, useMoveOffCanvasMenu } from 'components/elements'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
+import useHandleLogin from 'components/hooks/use-handle-login'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type NavMobileProps = {
     is_ppc?: boolean
@@ -51,7 +53,9 @@ const NavMobile = ({
     hide_language_switcher,
     hide_signup_login,
 }: NavMobileProps) => {
-    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
+    const handleLogin = useHandleLogin()
+    const { is_loading } = useCountryRule()
 
     return (
         <MobileWrapper>
@@ -86,6 +90,7 @@ const NavMobile = ({
                                 id="dm-mobile-nav-login-button"
                                 onClick={handleLogin}
                                 primary
+                                disabled={is_loading}
                             >
                                 {localize('Log in')}
                             </StyledButton>

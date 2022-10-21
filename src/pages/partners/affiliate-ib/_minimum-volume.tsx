@@ -138,7 +138,7 @@ const MinimumVolume = () => {
                     <CalculationWrapper ai="center" mb="24px">
                         <LeftWrapper>
                             <Text size="16px">
-                                <Localize translate_text="A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 10. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:" />
+                                <Localize translate_text="A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 10. The minimum volume required to receive the minimum commission of USD 0.01 is determined using this formula:" />
                             </Text>
                         </LeftWrapper>
                         <RightWrapper>
@@ -148,7 +148,7 @@ const MinimumVolume = () => {
                     <CalculationWrapper ai="center">
                         <LeftWrapper>
                             <Text size="16px">
-                                <Localize translate_text="A deal for 1 lot of the Volatility Index 75 for a price of USD 500,000 per USD 100,000 turnover will pay out a commission of USD 5. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:" />
+                                <Localize translate_text="A deal for 1 lot of the Volatility Index 75 for a price of USD 500,000 per USD 100,000 turnover will pay out a commission of USD 5. The minimum volume required to receive the minimum commission of USD 0.01 is determined using this formula:" />
                             </Text>
                         </LeftWrapper>
                         <RightWrapper>

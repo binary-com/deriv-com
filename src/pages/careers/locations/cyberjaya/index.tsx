@@ -8,7 +8,7 @@ import { localize, WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
-        cyberjaya: file(relativePath: { eq: "careers/cyberjaya.jpg" }) {
+        cyberjaya: file(relativePath: { eq: "careers/cyberjaya.png" }) {
             ...heroImage
         }
         living_in_cyberjaya: file(relativePath: { eq: "careers/living_in_cyberjaya.png" }) {
@@ -24,6 +24,11 @@ const query = graphql`
             ...fadeIn
         }
         cyberjaya_grid_4: file(relativePath: { eq: "careers/cyberjaya_grid_4.png" }) {
+            ...fadeIn
+        }
+        malaysia_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/malaysia_great_place_to_work_badge.png" }
+        ) {
             ...fadeIn
         }
     }

@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Signup, WhatOurClientsSay } from '../../home/_lazy-load'
 import ImageText from './components/_image-text'
 import Topics from './components/_topics'
+import { StocksEbookProps } from './forex'
 import Hero from './components/_hero'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
@@ -48,10 +49,6 @@ const query = graphql`
     }
 `
 
-type StocksEbookProps = {
-    language: string
-}
-
 const StocksEbook = ({ language }: StocksEbookProps) => {
     const ebook_languages = ['es', 'pt', 'fr']
     const ebook_image = ebook_languages.includes(language) ? `_${language}` : ''
@@ -71,9 +68,9 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
                     ) + ' '
                 }
                 authorName={localize('Vince Stanzione.')}
-                bg="linear-gradient(90deg, #EBCA93, #EBC17A)"
-                bgMobile="linear-gradient(180deg, #EBCA93, #EBC17A)"
-                color="black"
+                bg="linear-gradient(180deg, #1f1f1f, #0E0E0E)"
+                bgMobile="linear-gradient(180deg, #333333, #0E0E0E)"
+                color="white"
                 ebook_utm_code="cryptocurrencies-ebook"
                 introSub=""
                 introMain={localize('Learn how to trade cryptocurrencies with Deriv')}

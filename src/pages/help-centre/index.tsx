@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
-import { getAllArticles } from './_utility'
+import { eu_discards, getAllArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
 import ArticleSectionComponent from './_article-section-component'
 import { SEO, Desktop, Container } from 'components/containers'
@@ -13,10 +13,12 @@ import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
+import { DerivStore } from 'store'
 
 //Lazy-load
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
@@ -121,6 +123,7 @@ const ResponsiveHeader = styled(Header)`
 `
 
 const HelpCentre = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
     const [data, setData] = useState({
         search: '',
         toggle_search: true,
@@ -179,18 +182,31 @@ const HelpCentre = () => {
         setData({ ...data, search: sanitize(e.target.value) })
     }
 
-    const filtered_articles = matchSorter(data.all_articles, data.search.trim(), {
+    const articles_by_domain = is_eu_country
+        ? data.all_articles.filter((el) => !eu_discards.includes(el.category))
+        : data.all_articles
+
+    const searched_articles = matchSorter(articles_by_domain, data.search.trim(), {
         keys: ['title', 'sub_category'],
     })
 
-    // const splitted_articles = is_eu_country
-    //     ? euArticles(splitArticles(articles, 3))
-    //     : splitArticles(articles, 3)
+    const filtered_articles = is_eu_country
+        ? searched_articles.filter((article) => !article.hide_for_eu)
+        : searched_articles.filter((article) => !article.hide_for_non_eu)
 
     const has_results = !!filtered_articles.length
 
-    const general_articles = articles.filter((article) => article.section === 'General')
-    const platforms_articles = articles.filter((article) => article.section === 'Platforms')
+    const general_articles = React.useMemo(
+        () => articles.filter((article) => article.section === 'General'),
+        [],
+    )
+
+    const platforms_articles = React.useMemo(
+        () => articles.filter((article) => article.section === 'Platforms'),
+        [],
+    )
+
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <Layout>
@@ -260,7 +276,7 @@ const HelpCentre = () => {
             <Desktop breakpoint={'tabletS'}>
                 <Community />
             </Desktop>
-            <DidntFindYourAnswerBanner />
+            {!is_deriv_go && <DidntFindYourAnswerBanner />}
         </Layout>
     )
 }

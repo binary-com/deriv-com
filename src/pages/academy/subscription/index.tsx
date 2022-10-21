@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useQueryParam, StringParam } from 'use-query-params'
-import { addScriptForCIO } from '../components/utility'
+import { addScriptForCIO } from '../components/_utility'
 import AcademyNav from './_academy-nav'
 import Subscribe from './_subscribe'
 import { SectionContainer, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form/'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const Subscription = () => {
     const [email] = useQueryParam('email', StringParam)
     const [confirmation_code] = useQueryParam('c', StringParam)
     const [is_script_loaded, setScriptLoaded] = useState(false)
-    const { is_eu } = getCountryRule()
+    const { is_eu } = useCountryRule()
 
     useEffect(() => {
         if (email && confirmation_code) {
@@ -53,7 +53,7 @@ const Subscription = () => {
                     <Subscribe />
                 </Flex>
                 <Flex>
-                    <LinkButton secondary="true" to="/academy/">
+                    <LinkButton secondary to="/academy/">
                         {localize('Take me to Academy')}
                     </LinkButton>
                 </Flex>

@@ -96,7 +96,7 @@ const Faq = () => {
     }
     const item_style = {
         padding: '4rem',
-        background: 'var(--color-grey-35)',
+        background: 'rgba(133, 147, 164, 0.08)',
     }
     const header_style = {
         padding: '1.6rem 4rem',

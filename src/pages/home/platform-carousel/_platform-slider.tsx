@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
+import type { EmblaOptionsType } from 'embla-carousel-react'
 import styled, { css } from 'styled-components'
-import { PlatformContent, ImageTag, getSlideStartingIndex } from './_utils'
+import Autoplay from 'embla-carousel-autoplay'
+import { PlatformContent, ImageTag, PLATFORMS_CAROUSEL_DELAY } from './_utils'
 import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const SelectedZone = styled(Flex)`
     left: 0;
@@ -106,57 +109,97 @@ type PlatformSliderProps = {
     platform_details: TPlatformDetails[]
 }
 
+const carouselOptions: EmblaOptionsType = {
+    startIndex: 0,
+    loop: false,
+    axis: 'y',
+    skipSnaps: false,
+    draggable: false,
+}
+
 const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
-    const [viewportRef, embla] = useEmblaCarousel({
-        startIndex: getSlideStartingIndex(),
-        loop: getSlideStartingIndex() > 2 ? true : false,
-        axis: 'y',
-        skipSnaps: false,
-        draggable: false,
-    })
+    const { is_eu } = useCountryRule()
+    const auto_play = useMemo(() => {
+        return Autoplay({
+            delay: PLATFORMS_CAROUSEL_DELAY,
+            playOnInit: !is_eu,
+        })
+    }, [is_eu])
+
+    const [viewportRef, embla] = useEmblaCarousel(carouselOptions, [auto_play])
+
+    useEffect(() => {
+        if (embla) {
+            embla.on('select', () => {
+                onSelectSlide(embla.selectedScrollSnap())
+            })
+        }
+    }, [embla, onSelectSlide])
+
+    // Since the platform_details is changing based on useCountryRule hook, we have to reInit the carousel
+    // to make it aware of the change.
+    useEffect(() => {
+        if (embla) {
+            embla.reInit(carouselOptions, [auto_play])
+        }
+    }, [embla, platform_details, auto_play])
+
+    const scrollHandler = useCallback(
+        (index) => {
+            if (embla) {
+                embla.scrollTo(index)
+            }
+        },
+        [embla],
+    )
 
     const clickHandler = (index) => {
-        embla.scrollTo(index)
+        scrollHandler(index)
         onSelectSlide(index)
     }
 
-    return (
-        <Box
-            width="fit-content"
-            height="640px"
-            background="rgba(249, 251, 255, 1)"
-            p="0 20px 8px"
-            m="0 auto"
-        >
-            <StyledFlex position="relative" m="0 auto" jc="unset">
-                <Shadow location="start" />
-                <Shadow location="end" />
-                <SelectedSlide
-                    selected_slide={platform_details[slide_index] || platform_details[0]}
-                />
-                <Flex ai="center" jc="unset">
-                    <Scene>
-                        <Viewport position="relative" ai="center" ref={viewportRef}>
-                            <WheelContainer>
-                                {platform_details.map(({ title, icon, learn_more_link }, index) => {
-                                    return (
-                                        <Slide
-                                            distance_center={index - slide_index}
-                                            key={learn_more_link}
-                                            onClick={() => clickHandler(index)}
-                                        >
-                                            <ImageTag src={icon} />
-                                            <Header type="subtitle-1">{title}</Header>
-                                        </Slide>
-                                    )
-                                })}
-                            </WheelContainer>
-                        </Viewport>
-                    </Scene>
-                </Flex>
-            </StyledFlex>
-        </Box>
-    )
+    if (platform_details) {
+        return (
+            <Box
+                width="fit-content"
+                height="640px"
+                background="rgba(249, 251, 255, 1)"
+                p="0 20px 8px"
+                m="0 auto"
+            >
+                <StyledFlex position="relative" m="0 auto" jc="unset">
+                    <Shadow location="start" />
+                    <Shadow location="end" />
+                    <SelectedSlide
+                        selected_slide={platform_details[slide_index] || platform_details[0]}
+                    />
+                    <Flex ai="center" jc="unset">
+                        <Scene>
+                            <Viewport position="relative" ai="center" ref={viewportRef}>
+                                <WheelContainer>
+                                    {platform_details.map(
+                                        ({ title, icon, learn_more_link }, index) => {
+                                            return (
+                                                <Slide
+                                                    distance_center={index - slide_index}
+                                                    key={learn_more_link}
+                                                    onClick={() => clickHandler(index)}
+                                                >
+                                                    <ImageTag src={icon} />
+                                                    <Header type="subtitle-1">{title}</Header>
+                                                </Slide>
+                                            )
+                                        },
+                                    )}
+                                </WheelContainer>
+                            </Viewport>
+                        </Scene>
+                    </Flex>
+                </StyledFlex>
+            </Box>
+        )
+    }
+    return <></>
 }
 
 export default PlatformSlider

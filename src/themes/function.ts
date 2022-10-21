@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-type MarginsType = {
+export type MarginsType = {
     m?: string
     mt?: string
     ml?: string
@@ -8,7 +8,7 @@ type MarginsType = {
     mb?: string
 }
 
-type PaddingsType = {
+export type PaddingsType = {
     p?: string
     pt?: string
     pl?: string

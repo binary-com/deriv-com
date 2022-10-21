@@ -48,7 +48,7 @@ const Hero = ({
     authorName,
     bg,
     bgMobile,
-    color = 'var(--color-white)',
+    color,
     ebook_utm_code,
     introMain,
     introSub,
@@ -126,7 +126,7 @@ const Hero = ({
                             </AuthorNameText>
                         </AuthorText>
                         <Box m="10px">
-                            <GetEbook ebook_utm_code={ebook_utm_code} color="black" />
+                            <GetEbook ebook_utm_code={ebook_utm_code} color={color} />
                         </Box>
                     </Box>
                 </Flex>

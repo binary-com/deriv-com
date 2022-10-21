@@ -79,8 +79,8 @@ const HowTo = ({ active_tab }: HowToProps) => {
                 <SignalSteps active_tab={active_tab} />
                 {signal_provider && (
                     <DMT5Button
-                        secondary="true"
-                        external="true"
+                        secondary
+                        external
                         type="mt5"
                         to=""
                         target="_blank"

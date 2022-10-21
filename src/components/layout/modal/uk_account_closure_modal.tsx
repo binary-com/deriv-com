@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import { ModalRefType } from 'components/elements/modal'
 import { Localize } from 'components/localization'
 import { Modal, Header } from 'components/elements'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { CookieStorage } from 'common/storage'
 
 const UKAccountClosureModal = () => {
     const modalRef = React.useRef<ModalRefType>()
-    const { is_uk } = getCountryRule()
+    const { is_uk } = useCountryRule()
     const cookie_key = 'uk_account_closure_modal_shown'
     const cookie = new CookieStorage(cookie_key)
 

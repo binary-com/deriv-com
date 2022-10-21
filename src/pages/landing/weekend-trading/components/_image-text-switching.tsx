@@ -7,14 +7,7 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-
-type ImageWrapperProps = {
-    margin_right: string
-}
-
-type RowProps = {
-    flex_direction: string
-}
+import { ContentType, StyledProps } from 'pages/landing/_types'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -26,7 +19,7 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-const Content = styled.div<ImageWrapperProps>`
+const Content = styled.div<StyledProps>`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,7 +39,7 @@ const Content = styled.div<ImageWrapperProps>`
     }
 `
 
-const ImageWrapper = styled.div<ImageWrapperProps>`
+const ImageWrapper = styled.div<StyledProps>`
     max-width: 47.1rem;
     width: 100%;
     max-height: 30rem;
@@ -68,7 +61,7 @@ const StyledText = styled(Text)`
         line-height: 30px;
     }
 `
-const Row = styled.div<RowProps>`
+const Row = styled.div<StyledProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
@@ -95,18 +88,8 @@ const query = graphql`
     }
 `
 
-type P2PType = {
-    title: React.ReactElement
-    subtitle1: React.ReactElement
-    subtitle2: React.ReactElement
-    subtitle_mobile1: React.ReactElement
-    subtitle_mobile2: React.ReactElement
-    image_name: string
-    image_alt: string
-}
-
 type ImageTextSwitchingProps = {
-    P2P: P2PType[]
+    P2P: ContentType[]
     reverse: boolean
 }
 

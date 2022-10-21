@@ -1,7 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Box, Desktop, Mobile } from 'components/containers'
-import { Text } from 'components/elements'
+import { Text, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
 import AppStore from 'images/svg/dmt5/app-store.svg'
 import GooglePlay from 'images/svg/dmt5/google-play.svg'
@@ -25,7 +26,16 @@ type TabProps = {
         item_width?: string
         mobile_item_width?: string
     }
+    has_qr_code?: boolean
 }
+
+const query = graphql`
+    query {
+        qr_code: file(relativePath: { eq: "deriv-x/derivx-footer-qr.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const DownloadFlex = styled(Flex)`
     @media ${device.tabletS} {
@@ -134,6 +144,7 @@ const SideTab = ({
     parent_tab = '',
     has_download_button = false,
     download_links = { ios: '', android: '' },
+    has_qr_code = false,
 }: TabProps) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const [old_parent_tab, setOldParentTab] = React.useState(parent_tab)
@@ -147,6 +158,8 @@ const SideTab = ({
         setSelectedTab(tabIndex)
         setOldParentTab(parent_tab)
     }
+
+    const data = useStaticQuery(query)
 
     return (
         <StyledFlex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
@@ -191,12 +204,24 @@ const SideTab = ({
                             </>
                         )
                     })}
+                    {has_qr_code && (
+                        <Desktop>
+                            <Flex jc="flex-start">
+                                <QueryImage
+                                    data={data['qr_code']}
+                                    alt={'qr_code'}
+                                    width="108px"
+                                    height="108px"
+                                />
+                            </Flex>
+                        </Desktop>
+                    )}
                 </TabList>
                 {has_download_button && (
                     <DownloadFlex mt="1rem" jc="flex-start">
                         <Box mr="1.2rem">
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={download_links.ios}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -206,7 +231,7 @@ const SideTab = ({
                         </Box>
 
                         <LocalizedLink
-                            external="true"
+                            external
                             to={download_links.android}
                             target="_blank"
                             rel="noopener noreferrer"

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
-import { dataFilter } from '../components/utility'
+import { useDataFilter } from '../components/_utility'
 import AllArticles from './_all-articles'
 import { AllArticlesQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
@@ -52,7 +52,7 @@ type ArticlesPageProps = {
 export type ArticleDataType = AllArticlesQuery['directus']['blog']
 
 const ArticlesPage = ({ data }: ArticlesPageProps) => {
-    const article_data = dataFilter(data.directus.blog)
+    const article_data = useDataFilter(data.directus.blog)
 
     const meta_attributes = {
         og_title: 'Trading tips, guides, and more.',
@@ -110,6 +110,7 @@ export const query = graphql`
             blog(
                 filter: { status: { _eq: "published" }, test_data: { _eq: false } }
                 sort: "-published_date"
+                limit: -1
             ) {
                 id
                 main_image {

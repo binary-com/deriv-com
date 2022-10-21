@@ -7,7 +7,7 @@ import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
 const StartTrading = Loadable(() => import('./_start-trading'))
@@ -21,20 +21,20 @@ const meta_attributes = {
 }
 
 const Options = () => {
-    const { is_row } = getCountryRule()
+    const { is_row } = useCountryRule()
     const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         setLoaded(true)
-    }, [getCountryRule])
+    }, [useCountryRule])
 
     if (is_loaded) {
         return is_row ? (
             <Layout>
                 <SEO
-                    title={localize('Options trading | Trade types | Deriv')}
+                    title={localize('Options trading | Trade digital options on Deriv')}
                     description={localize(
-                        'Learn about options trading on Deriv. Earn payouts by correctly predicting price movements in forex, synthetic indices, and other popular financial markets.',
+                        'Explore what are options on Deriv. Learn how to start trading options with forex, synthetics, stocks & indices, and basket indices.',
                     )}
                     meta_attributes={meta_attributes}
                 />
@@ -56,7 +56,16 @@ const Options = () => {
         )
     }
 
-    return <></>
+    return (
+        <>
+            <SEO
+                title={localize('Options trading | Trade types | Deriv')}
+                description={localize(
+                    'Learn about options trading on Deriv. Earn payouts by correctly predicting price movements in forex, synthetic indices, and other popular financial markets.',
+                )}
+            />
+        </>
+    )
 }
 
 export default WithIntl()(Options)

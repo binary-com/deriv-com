@@ -11,6 +11,7 @@ export const americas: MarketSymbol[] = [
         src: icons.STOCKSUS500,
         text: <Localize translate_text="US 500" />,
     },
+
     {
         src: icons.STOCKSUSTECH100,
         text: <Localize translate_text="US Tech 100" />,
@@ -224,7 +225,7 @@ export const europe: MarketSymbol[] = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY30,
+        src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
     },
     {
@@ -735,7 +736,7 @@ export const stocks_european_indices: MarketSymbol[] = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY30,
+        src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
     },
     {
@@ -1049,14 +1050,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="BTC/LTC" />,
     },
     {
-        src: icons.BTCXAG,
-        text: <Localize translate_text="BTC/XAG" />,
-    },
-    {
-        src: icons.BTCXAU,
-        text: <Localize translate_text="BTC/XAU" />,
-    },
-    {
         src: icons.DOGUSD,
         text: <Localize translate_text="DOG/USD" />,
     },
@@ -1115,10 +1108,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
     {
         src: icons.SOLUSD,
         text: <Localize translate_text="SOL/USD" />,
-    },
-    {
-        src: icons.TERUSD,
-        text: <Localize translate_text="TER/USD" />,
     },
     {
         src: icons.TRXUSD,

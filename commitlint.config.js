@@ -18,6 +18,7 @@ module.exports = {
                 'text',
                 'revert',
                 'empty',
+                'translation',
             ],
         ],
     },

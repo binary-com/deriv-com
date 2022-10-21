@@ -1,6 +1,6 @@
 import { ArcticlesType } from './_help-articles'
 
-export const eu_discards = ['Deriv X', 'Deriv P2P', 'Deriv MT5']
+export const eu_discards = ['Deriv X', 'Deriv P2P']
 const countryDomainFilter = (array) => {
     array.forEach((el, key) => {
         eu_discards.forEach((discard) => {

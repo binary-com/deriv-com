@@ -182,7 +182,7 @@ const DifferenceDMT5DTraderEU = ({ text }: ArticleProps) => {
                     translate_text="<0>Deriv MT5</0> offers CFD trading on a similar range of assets, where you're able to open positions with leverage and your potential profit is only known when you close your positions. It's riskier than multipliers trading because while you may potentially gain a lot if you win, you may also lose a lot if you don't. Deriv MT5 is popular among our traders who enjoy the risks as part of the excitement of CFD trading."
                     components={[
                         <ExternalLink
-                            to={'/deriv-mt5/'}
+                            to={'/dmt5/'}
                             external
                             target="_blank"
                             rel="noopener noreferrer"

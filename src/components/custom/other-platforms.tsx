@@ -585,7 +585,7 @@ export const NavResources = ({ onClick }: NavResourcesProps) => (
         />
         <CardLink
             icon={() => <img src={Signals} alt="" width="24" height="24" />}
-            title={<Localize translate_text="DMT5 Signals" />}
+            title={<Localize translate_text="Deriv MT5 Signals" />}
             onClick={onClick}
             to="/dmt5-trading-signals/#signal-subscriber/"
         />

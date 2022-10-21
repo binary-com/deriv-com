@@ -301,7 +301,7 @@ const PipCalculator = () => {
 
                         <Text>
                             {localize(
-                                'The pip value for a contract on DMT5 is calculated based on this formula:',
+                                'The pip value for a contract on Deriv MT5 is calculated based on this formula:',
                             )}
                         </Text>
                         <Text mb="1.6rem">

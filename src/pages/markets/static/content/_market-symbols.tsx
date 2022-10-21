@@ -437,7 +437,7 @@ export const metals_options: MarketSymbol[] = [
         text: <Localize translate_text="Platinum/USD" />,
     },
     {
-        src: icons.SILVEREUR,
+        src: icons.SILVERUSD,
         text: <Localize translate_text="Silver/USD" />,
     },
 ]

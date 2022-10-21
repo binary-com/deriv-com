@@ -355,8 +355,10 @@ export const Offices = () => {
                                     ml="1.6rem"
                                 >
                                     <Desktop>
-                                        <p>Level 5, 42 Agias Filaxeos,</p>
-                                        <p>Limassol 3025</p>
+                                        <p>
+                                            181, Leoforos Archiepiskopou Makariou III Avenue 15
+                                            Business Centre, 1st Floor, 3030, Limassol Cyprus
+                                        </p>
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>

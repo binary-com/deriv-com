@@ -7,7 +7,13 @@ const validation_regex = {
     number: /^\d+$/,
 }
 
-const validation = {
+type ValidationMethodType = (arg1: string, arg2?: string) => string | null
+
+type ValidationType = {
+    [key: string]: ValidationMethodType
+}
+
+const validation: ValidationType = {
     // Validation will return a string for error message
     email: (input, message) => {
         if (!validation_regex.email.test(input)) {

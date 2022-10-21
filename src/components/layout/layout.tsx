@@ -61,6 +61,7 @@ export type ModalPayloadType = {
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
+const WhatsApp = Loadable(() => import('./whatsapp'))
 
 const has_dataLayer = isBrowser() && window.dataLayer
 
@@ -327,6 +328,7 @@ const Layout = ({
             )}
 
             {!no_live_chat && <LiveChat is_banner_shown={show_cookie_banner} />}
+            <WhatsApp />
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}

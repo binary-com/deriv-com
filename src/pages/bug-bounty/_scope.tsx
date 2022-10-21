@@ -52,10 +52,10 @@ const Scope = () => {
                         return (
                             <Card key={idx}>
                                 <Header as="h3" type="subtitle-2" color="black-3">
-                                    {localize(list.title)}
+                                    {list.title}
                                 </Header>
                                 <Header type="paragraph-1" color="black-3" weight="normal" as="p">
-                                    {localize(list.description)}
+                                    {list.description}
                                 </Header>
 
                                 {list.check_list.map((item, index) => {

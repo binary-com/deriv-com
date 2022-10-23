@@ -11,7 +11,7 @@ type TWrapper = {
     margin_left?: string
 }
 
-type DefaultAnswerType = TWrapper & {
+type AnswerCardType = TWrapper & {
     question: TString
     label: string
     answer?: TAnswer
@@ -32,7 +32,7 @@ const Wrapper = styled.div<TWrapper>`
     }
 `
 
-const DefaultAnswer = ({ question, answer }: DefaultAnswerType) => {
+const AnswerCard = ({ question, answer }: AnswerCardType) => {
     return (
         <Wrapper>
             <Header size="2.4rem" mb="2.4rem">
@@ -60,4 +60,4 @@ const DefaultAnswer = ({ question, answer }: DefaultAnswerType) => {
     )
 }
 
-export default DefaultAnswer
+export default AnswerCard

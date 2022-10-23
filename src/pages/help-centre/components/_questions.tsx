@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import styled from 'styled-components'
 import { TArticlesData } from '../data/_data-types'
 import SideTab from './_side-tab'
-import DefaultAnswer from './_default-answer'
+import AnswerCard from './_answer-card'
 import { Community, DidntFindYourAnswerBanner } from './_lazy-load'
 import Layout from 'components/layout/layout'
 import { Localize, localize } from 'components/localization'
@@ -46,12 +46,7 @@ const Questions = ({ data }: QuestionsType) => {
 
                 <SideTab data={articles} tab_header={category}>
                     {articles.map(({ label, question, answer }) => (
-                        <DefaultAnswer
-                            key={label}
-                            question={question}
-                            answer={answer}
-                            label={label}
-                        />
+                        <AnswerCard key={label} question={question} answer={answer} label={label} />
                     ))}
                 </SideTab>
             </Container>

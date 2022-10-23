@@ -182,7 +182,7 @@ const SocialButton = styled(Button)`
         justify-content: center;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Header)<{ position?: string }>`
     width: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
     @media ${device.tablet} {
@@ -310,6 +310,31 @@ const MobilePlatform = styled.div`
         }
     }
 `
+
+type SocialButtonContent = {
+    provider: string
+    id: string
+    img: string
+}[]
+
+const social_button_content: SocialButtonContent = [
+    {
+        provider: 'google',
+        id: 'gtm-signup-google',
+        img: Google,
+    },
+    {
+        provider: 'facebook',
+        id: 'gtm-signup-facebook',
+        img: Facebook,
+    },
+    {
+        provider: 'apple',
+        id: 'gtm-signup-apple',
+        img: Apple,
+    },
+]
+
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -389,36 +414,19 @@ const SignupPublic = ({
                                 />
                                 <SocialWrapper jc="unset" ai="center">
                                     <SignInText>{localize('Or sign up with')}</SignInText>
-                                    <SocialButton
-                                        onClick={handleSocialSignup}
-                                        provider="google"
-                                        data-provider="google"
-                                        id="gtm-signup-google"
-                                        type="button"
-                                        social
-                                    >
-                                        <img src={Google} alt="google" width="40" height="40" />
-                                    </SocialButton>
-                                    <SocialButton
-                                        onClick={handleSocialSignup}
-                                        provider="facebook"
-                                        data-provider="facebook"
-                                        id="gtm-signup-facebook"
-                                        type="button"
-                                        social
-                                    >
-                                        <img src={Facebook} alt="facebook" width="40" height="40" />
-                                    </SocialButton>
-                                    <SocialButton
-                                        onClick={handleSocialSignup}
-                                        provider="apple"
-                                        data-provider="apple"
-                                        id="gtm-signup-apple"
-                                        type="button"
-                                        social
-                                    >
-                                        <img src={Apple} alt="apple" width="40" height="40" />
-                                    </SocialButton>
+                                    {social_button_content.map(({ provider, id, img }) => (
+                                        <SocialButton
+                                            key={provider}
+                                            onClick={handleSocialSignup}
+                                            provider={provider}
+                                            data-provider={provider}
+                                            id={id}
+                                            type="button"
+                                            social
+                                        >
+                                            <img src={img} alt={provider} width="40" height="40" />
+                                        </SocialButton>
+                                    ))}
                                 </SocialWrapper>
                             </StyledFormWrapper>
                         </SignupFormWrapper>
@@ -542,41 +550,24 @@ const SignupPublic = ({
                                         {localize('Or sign in with')}
                                     </MobileSignInText>
                                     <Flex>
-                                        <SocialButton
-                                            onClick={handleSocialSignup}
-                                            provider="google"
-                                            data-provider="google"
-                                            id="gtm-signup-google"
-                                            type="button"
-                                            social
-                                        >
-                                            <img src={Google} alt="google" width="40" height="40" />
-                                        </SocialButton>
-                                        <SocialButton
-                                            onClick={handleSocialSignup}
-                                            provider="facebook"
-                                            data-provider="facebook"
-                                            id="gtm-signup-facebook"
-                                            type="button"
-                                            social
-                                        >
-                                            <img
-                                                src={Facebook}
-                                                alt="facebook"
-                                                width="40"
-                                                height="40"
-                                            />
-                                        </SocialButton>
-                                        <SocialButton
-                                            onClick={handleSocialSignup}
-                                            provider="apple"
-                                            data-provider="apple"
-                                            id="gtm-signup-apple"
-                                            type="button"
-                                            social
-                                        >
-                                            <img src={Apple} alt="apple" width="40" height="40" />
-                                        </SocialButton>
+                                        {social_button_content.map(({ provider, id, img }) => (
+                                            <SocialButton
+                                                key={provider}
+                                                onClick={handleSocialSignup}
+                                                provider={provider}
+                                                data-provider={provider}
+                                                id={id}
+                                                type="button"
+                                                social
+                                            >
+                                                <img
+                                                    src={img}
+                                                    alt={provider}
+                                                    width="40"
+                                                    height="40"
+                                                />
+                                            </SocialButton>
+                                        ))}
                                     </Flex>
                                 </MobileSocialWrapper>
                             </div>

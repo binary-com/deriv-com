@@ -235,6 +235,20 @@ const ButtonDp2p = styled(Button)`
     order: 1;
     flex-grow: 0;
 `
+
+type HeroItemsType = {
+    url: string
+    image: string
+    alt: string
+}[]
+
+const HeroItems: HeroItemsType = [
+    { url: derivx_ios_url, image: 'app_store', alt: 'app store logo' },
+    { url: derivx_android_url, image: 'google_play', alt: 'google play logo' },
+    { url: derivx_huawei_url, image: 'huawei_app', alt: 'huawei app gallery' },
+    { url: derivx_app_url, image: 'web_browser', alt: 'web browser logo' },
+]
+
 const DHero = ({
     title,
     background_alt,
@@ -337,7 +351,7 @@ const DHero = ({
             )}
 
             <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h4" type="sub-section-title" weight={500}>
+                <StyledHeader as="h4" type="sub-section-title" weight="500">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
                     {title}
                 </StyledHeader>
@@ -369,39 +383,17 @@ const DHero = ({
                         tablet_fw="wrap"
                         laptopM={{ m: '7px 8px 48px' }}
                     >
-                        <AppButton
-                            external
-                            to={derivx_ios_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <QueryImage data={data['app_store']} alt="app store logo" />
-                        </AppButton>
-                        <AppButton
-                            external
-                            to={derivx_android_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <QueryImage data={data['google_play']} alt="google play logo" />
-                        </AppButton>
-
-                        <AppButton
-                            external
-                            to={derivx_huawei_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
-                        </AppButton>
-                        <AppButton
-                            external
-                            to={derivx_app_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <QueryImage data={data['web_browser']} alt="web browser logo" />
-                        </AppButton>
+                        {HeroItems.map(({ url, image, alt }) => (
+                            <AppButton
+                                key={alt}
+                                external
+                                to={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <QueryImage data={data[image]} alt={alt} />
+                            </AppButton>
+                        ))}
                     </Flex>
                 </Desktop>
                 <Mobile>

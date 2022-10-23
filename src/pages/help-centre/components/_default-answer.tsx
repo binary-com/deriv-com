@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { AnswerType } from './_data'
+import { TAnswer } from '../data/_data-types'
 import TranslationComponents from './_translation-components'
 import device from 'themes/device'
 import { Header } from 'components/elements'
@@ -14,7 +14,7 @@ type TWrapper = {
 type DefaultAnswerType = TWrapper & {
     question: TString
     label: string
-    answer?: AnswerType
+    answer?: TAnswer
 }
 
 const Wrapper = styled.div<TWrapper>`

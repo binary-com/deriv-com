@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     background-color: var(--color-black);
 
     @media ${device.tabletL} {
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding-left: 0;
     }
 `

@@ -296,13 +296,13 @@ export const cyprus: LocationsType = {
         'Girl having a call online',
         "Deriv's office location in Limassol,Cyprus",
     ],
-    map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
+    map: 'ChIJcwIu_VQz5xQR_cm_eAWo2XY',
     badge: 'cyprus_great_place_to_work_badge',
     badge_alt: 'Cyprus Great Place to Work 2022 Certification Badge',
     map_text:
         'We give our people the freedom to solve problems and work together to get things done without hierarchy. The workplace encourages open communication, transparency, and a free flow of ideas. If you take pride in your work and are interested in working with the best global talent,  join our team in Limassol.',
     address: address_cyprus,
-    google_map_link: 'https://goo.gl/maps/MP8aqZQ4xt8LJ9id9',
+    google_map_link: 'https://goo.gl/maps/j7fs9r73dfwQtHgj8',
     has_iframe: true,
 }
 

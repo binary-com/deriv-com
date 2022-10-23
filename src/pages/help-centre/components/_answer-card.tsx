@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
-import { TAnswer } from '../data/_data-types'
+import { AnswerType } from '../data/_data-types'
 import TranslationComponents from './_translation-components'
+import List from './_list'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
@@ -14,7 +15,8 @@ type TWrapper = {
 type AnswerCardType = TWrapper & {
     question: TString
     label: string
-    answer?: TAnswer
+    answer?: AnswerType
+    RenderProp?: FunctionComponent
 }
 
 const Wrapper = styled.div<TWrapper>`
@@ -32,29 +34,33 @@ const Wrapper = styled.div<TWrapper>`
     }
 `
 
-const AnswerCard = ({ question, answer }: AnswerCardType) => {
+const AnswerCard = ({ question, answer, RenderProp }: AnswerCardType) => {
     return (
         <Wrapper>
             <Header size="2.4rem" mb="2.4rem">
                 <Localize translate_text={question} />
             </Header>
-
+            {RenderProp && <RenderProp />}
             {answer &&
-                answer.map(({ translation_text, translation_components, has_margin_top }) => (
-                    <Header
-                        key={translation_text}
-                        size="1.6rem"
-                        weight="normal"
-                        mt={has_margin_top ? '1.7rem' : '0'}
-                    >
-                        <Localize
-                            translate_text={translation_text}
-                            components={
-                                translation_components &&
-                                TranslationComponents(translation_components)
-                            }
-                        />
-                    </Header>
+                answer.map(({ translation_text, translation_components, has_margin_top, list }) => (
+                    <>
+                        <Header
+                            key={translation_text}
+                            size="1.6rem"
+                            weight="normal"
+                            mt={has_margin_top ? '1.7rem' : '0'}
+                        >
+                            <Localize
+                                translate_text={translation_text}
+                                components={
+                                    translation_components &&
+                                    TranslationComponents(translation_components)
+                                }
+                            />
+                        </Header>
+
+                        {list && <List {...list} />}
+                    </>
                 ))}
         </Wrapper>
     )

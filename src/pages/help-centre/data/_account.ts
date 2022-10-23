@@ -1,7 +1,7 @@
-import { TArticlesData } from './_data-types'
+import { ArticlesDataType } from './_data-types'
 import { deriv_app_url } from 'common/constants'
 
-const account_data: TArticlesData = {
+const account_data: ArticlesDataType = {
     section: 'General',
     category: '_t_Account_t_',
     articles: [

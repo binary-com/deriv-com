@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
-import { TArticlesData } from '../data/_data-types'
+import { ArticlesDataType } from '../data/_data-types'
 import SideTab from './_side-tab'
 import AnswerCard from './_answer-card'
 import { Community, DidntFindYourAnswerBanner } from './_lazy-load'
@@ -11,7 +11,7 @@ import { Container, SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type QuestionsType = {
-    data: TArticlesData
+    data: ArticlesDataType
 }
 
 const ContactContainer = styled.div`
@@ -45,8 +45,14 @@ const Questions = ({ data }: QuestionsType) => {
                 </StyledLink>
 
                 <SideTab data={articles} tab_header={category}>
-                    {articles.map(({ label, question, answer }) => (
-                        <AnswerCard key={label} question={question} answer={answer} label={label} />
+                    {articles.map(({ label, question, answer, renderProp }) => (
+                        <AnswerCard
+                            key={label}
+                            question={question}
+                            answer={answer}
+                            label={label}
+                            RenderProp={renderProp}
+                        />
                     ))}
                 </SideTab>
             </Container>

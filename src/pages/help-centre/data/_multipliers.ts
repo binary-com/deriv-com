@@ -1,6 +1,6 @@
-import { TArticlesData } from './_data-types'
+import { ArticlesDataType } from './_data-types'
 
-const multiplier_data: TArticlesData = {
+const multiplier_data: ArticlesDataType = {
     section: 'Platforms',
     category: '_t_Multipliers_t_',
     articles: [

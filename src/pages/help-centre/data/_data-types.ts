@@ -1,24 +1,39 @@
+import { FunctionComponent } from 'react'
 import { TString } from 'types/generics'
 
-export type TTranslationComponents = {
+export type TranslationComponentsType = {
     key: number
     type: 'link' | 'strong'
     to?: string
 }[]
 
-export type TAnswer = {
+type LocalizeType = {
     translation_text: TString
-    translation_components?: TTranslationComponents
-    has_margin_top?: boolean
-}[]
+    translation_components?: TranslationComponentsType
+}
 
-export type TArticles = Record<'question' | 'sub_category', TString> &
+type AnswerPropsType = {
+    has_margin_top?: boolean
+    list?: ListType
+}
+
+export type ListType = {
+    list_style: 'disc'
+    items: LocalizeType[]
+    margin_top: string
+    padding_left?: string
+}
+
+export type AnswerType = Array<AnswerPropsType & LocalizeType>
+
+export type ArticlesType = Record<'question' | 'sub_category', TString> &
     Record<'category' | 'label', string> & {
-        answer?: TAnswer
+        answer?: AnswerType
+        renderProp?: FunctionComponent
     }
 
-export type TArticlesData = {
+export type ArticlesDataType = {
     section: string
     category: TString
-    articles: TArticles[]
+    articles: ArticlesType[]
 }

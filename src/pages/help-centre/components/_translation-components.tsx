@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TTranslationComponents } from '../data/_data-types'
+import { TranslationComponentsType } from '../data/_data-types'
 import device from 'themes/device'
 import { LocalizedLink } from 'components/localization'
 
@@ -19,7 +19,7 @@ const Link = styled(LocalizedLink)`
     }
 `
 
-const TranslationComponents = (components: TTranslationComponents) =>
+const TranslationComponents = (components: TranslationComponentsType) =>
     components.map(({ type, to, key }) => {
         const component = {
             link: (

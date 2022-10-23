@@ -1,6 +1,6 @@
-import { TArticlesData } from './_data-types'
+import { ArticlesDataType } from './_data-types'
 
-const security_data: TArticlesData = {
+const security_data: ArticlesDataType = {
     section: 'General',
     category: '_t_Security_t_',
     articles: [

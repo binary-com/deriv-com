@@ -1,6 +1,6 @@
-import { TArticlesData } from './_data-types'
+import { ArticlesDataType } from './_data-types'
 
-const about_deriv_data: TArticlesData = {
+const about_deriv_data: ArticlesDataType = {
     section: 'General',
     category: '_t_About Deriv_t_',
     articles: [

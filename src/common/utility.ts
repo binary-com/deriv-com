@@ -405,7 +405,7 @@ export const getBaseRef = (ref) => {
 }
 
 export const useCallbackRef = (callback) => {
-    const callback_ref = useRef()
+    const callback_ref = useRef(null)
 
     useEffect(() => {
         callback_ref.current = callback

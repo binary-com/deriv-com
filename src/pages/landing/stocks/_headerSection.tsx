@@ -270,7 +270,7 @@ const HeaderSection = () => {
                                 weight="normal"
                             >
                                 {localize(
-                                    'Trade global stocks and stock indices now on our DMT5 platform',
+                                    'Trade global stocks and stock indices now on our Deriv MT5 platform',
                                 )}
                             </StyledHeaderSmall>
                             <BtnDiv>
@@ -333,7 +333,7 @@ const HeaderSection = () => {
                     </SectionStyledHeader>
                     <SectionStyledHeaderSmall type="sub-section-title" weight="normal">
                         {localize(
-                            'Facebook. Tesla. Zoom. Mcdonalds. Trade on the global household names you see every day on our DMT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
+                            'Facebook. Tesla. Zoom. McDonald’s. Trade on the global household names you see every day on our Deriv MT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
                         )}
                     </SectionStyledHeaderSmall>
 

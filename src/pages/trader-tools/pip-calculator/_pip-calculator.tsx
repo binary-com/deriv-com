@@ -9,7 +9,7 @@ import {
     numberSubmitFormat,
     getMaxLength,
 } from '../common/_utility'
-import { optionItemDefault, financialItemLists } from '../common/_underlying-data'
+import { optionItemDefault } from '../common/_underlying-data'
 import {
     BreadCrumbContainer,
     CalculateButton,
@@ -81,6 +81,7 @@ const PipCalculator = () => {
     const [tab, setTab] = useState('Synthetic')
     const [activeSymbols, setActiveSymbols] = useState([])
     const [syntheticSymbolNames, setSyntheticSymbolNames] = useState({})
+    const [financialSymbolNames, setFinancialSymbolNames] = useState({})
 
     const onTabClick = (t) => {
         setTab(t)
@@ -105,10 +106,37 @@ const PipCalculator = () => {
             return
         }
         const data = activeSymbols.filter((activeSymbol) => {
-            return activeSymbol.market === 'indices'
+            return activeSymbol.market === 'synthetic_index'
         })
         tempSyntheticSymbolNames.push(data)
         setSyntheticSymbolNames(tempSyntheticSymbolNames)
+    }, [activeSymbols])
+
+    useEffect(() => {
+        const tempFinancialSymbolNames = []
+
+        if (activeSymbols.length < 1) {
+            return
+        }
+        const data = activeSymbols.filter((activeSymbol) => {
+            return activeSymbol.market === 'forex'
+        })
+        const basket_data = activeSymbols.filter((activeSymbol) => {
+            return activeSymbol.market === 'basket_index'
+        })
+        const crypto_data = activeSymbols.filter((activeSymbol) => {
+            return activeSymbol.market === 'cryptocurrency'
+        })
+        const commodities_data = activeSymbols.filter((activeSymbol) => {
+            return activeSymbol.market === 'commodities'
+        })
+        const indices_data = activeSymbols.filter((activeSymbol) => {
+            return activeSymbol.market === 'indices'
+        })
+
+        data.push(...basket_data, ...crypto_data, ...commodities_data, ...indices_data)
+        tempFinancialSymbolNames.push(data)
+        setFinancialSymbolNames(tempFinancialSymbolNames)
     }, [activeSymbols])
 
     return (
@@ -212,7 +240,11 @@ const PipCalculator = () => {
                                                     setErrors({})
                                                     resetForm({})
                                                     setFieldValue('accountType', 'Financial')
-                                                    setFieldValue('optionList', financialItemLists)
+                                                    setFieldValue(
+                                                        'optionList',
+                                                        financialSymbolNames &&
+                                                            financialSymbolNames[0],
+                                                    )
                                                 }}
                                             >
                                                 <Text align="center">{localize('Financial')}</Text>

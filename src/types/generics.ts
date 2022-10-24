@@ -9,3 +9,9 @@ export type PopupModalTypes = {
 }
 
 export type TString = `_t_${string}_t_`
+export type ObjectPropType<TObj, TProp extends keyof TObj> = TObj[TProp]
+export interface TSmartContent<T, V extends object> {
+    id: number
+    data: T
+    visiblity: V
+}

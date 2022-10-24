@@ -8,6 +8,7 @@ import {
 } from './home/_lazy-load'
 import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
+// import TestCarousel from './home/_test-carousel'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
@@ -85,6 +86,7 @@ const Home = () => {
                 has_organization_schema
             />
             <Hero />
+            {/* <TestCarousel /> */}
             <MarketsFold />
             {lazyTemplate}
         </Layout>

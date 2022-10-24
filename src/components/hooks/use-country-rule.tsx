@@ -10,8 +10,25 @@ import {
 } from 'common/utility'
 import { DerivStore } from 'store'
 
+export type TRegion = {
+    is_loading: boolean
+    is_eu_location: boolean
+    is_uk_location: boolean
+    is_eu: boolean
+    is_uk: boolean
+    is_non_uk: boolean
+    is_non_eu: boolean
+    is_uk_eu: boolean
+    is_latam: boolean
+    is_row: boolean
+    is_dev: boolean
+    is_africa: boolean
+    is_south_africa: boolean
+    is_nigeria: boolean
+}
+
 export const useCountryRule = () => {
-    const [region, setRegion] = useState({
+    const [region, setRegion] = useState<TRegion>({
         is_loading: true,
         is_eu_location: false,
         is_uk_location: false,

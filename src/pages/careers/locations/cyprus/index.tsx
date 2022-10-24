@@ -29,6 +29,11 @@ const query = graphql`
         map_cyprus: file(relativePath: { eq: "careers/maps/map-cyprus.png" }) {
             ...fadeIn
         }
+        cyprus_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/cyprus_great_place_to_work_badge.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

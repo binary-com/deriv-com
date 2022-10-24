@@ -42,26 +42,34 @@ const AnswerCard = ({ question, answer, RenderProp }: AnswerCardType) => {
             </Header>
             {RenderProp && <RenderProp />}
             {answer &&
-                answer.map(({ translation_text, translation_components, has_margin_top, list }) => (
-                    <>
-                        <Header
-                            key={translation_text}
-                            size="1.6rem"
-                            weight="normal"
-                            mt={has_margin_top ? '1.7rem' : '0'}
-                        >
-                            <Localize
-                                translate_text={translation_text}
-                                components={
-                                    translation_components &&
-                                    TranslationComponents(translation_components)
-                                }
-                            />
-                        </Header>
+                answer.map(
+                    ({
+                        translation_text,
+                        translation_components,
+                        has_margin_top,
+                        list,
+                        margin_top,
+                    }) => (
+                        <>
+                            <Header
+                                key={translation_text}
+                                size="1.6rem"
+                                weight="normal"
+                                mt={has_margin_top ? '1.7rem' : margin_top}
+                            >
+                                <Localize
+                                    translate_text={translation_text}
+                                    components={
+                                        translation_components &&
+                                        TranslationComponents(translation_components)
+                                    }
+                                />
+                            </Header>
 
-                        {list && <List {...list} />}
-                    </>
-                ))}
+                            {list && <List {...list} />}
+                        </>
+                    ),
+                )}
         </Wrapper>
     )
 }

@@ -101,6 +101,48 @@ const affiliate_programme_data: ArticlesDataType = {
             category: 'Affiliate programme',
             sub_category: '_t_Partners_t_',
             label: 'who-can-apply',
+            answer: [
+                {
+                    translation_text: '_t_We encourage you to become our affiliate if you are:_t_',
+                    list: {
+                        list_style: 'disc',
+                        padding_left: '5rem',
+                        margin_top: '1rem',
+                        items: [
+                            {
+                                translation_text:
+                                    '_t_<0>A webmaster</0><br/>Do you have a trading-related website? Join our network of affiliates and turn your traffic into revenue by promoting our products and services._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>A signal provider</0><br/>Do you provide trading data for others to follow? Grow your community of traders and earn commission when they sign up and trade on our platforms._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>A trading mentor</0><br/>Do you mentor other traders? Help them become better traders and earn commission when they sign up and trade on our platforms._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>A software developer</0><br/>Build your own trading platform using our API and earn commission when your clients sign up and trade._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>A social media admin</0><br/>Promote our products and services on your social media pages, and earn commission when you convert your audience into traders._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>A blogger/vlogger</0><br/>Promote our products and services and earn commission when you convert your audience into traders._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                        ],
+                    },
+                },
+            ],
         },
         {
             question: '_t_Is it free to join your affiliate programme?_t_',
@@ -133,36 +175,164 @@ const affiliate_programme_data: ArticlesDataType = {
             category: 'Affiliate programme',
             sub_category: '_t_Partners_t_',
             label: 'forgot-password',
+            answer: [
+                {
+                    translation_text: '_t_You can reset your affiliate password <0>here</0>._t_',
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: 'https://login.deriv.com/password-reset.php?lang=0',
+                        },
+                    ],
+                },
+            ],
         },
         {
             question: '_t_Where can I find my referral link?_t_',
             category: 'Affiliate programme',
             sub_category: '_t_Partners_t_',
             label: 'referral-link',
+            answer: [
+                {
+                    translation_text: '_t_Follow these steps to get your referral link:_t_',
+                    list: {
+                        list_style: 'decimal',
+                        padding_left: '5rem',
+                        margin_top: '1rem',
+                        items: [
+                            {
+                                translation_text:
+                                    '_t_<0>Log in</0> to your affiliate dashboard._t_',
+                                translation_components: [
+                                    {
+                                        key: 0,
+                                        type: 'link',
+                                        to: 'https://login.deriv.com/signin.php?lang=0',
+                                    },
+                                ],
+                            },
+                            {
+                                translation_text: '_t_Click the <0>Marketing<0/> tab._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Go to the first item in the media gallery and click <0>Get media</0> code._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Copy the link in the <0>Landing page URL</0> field. This is the referral link that you can share with your clients._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                        ],
+                    },
+                },
+            ],
         },
         {
             question: '_t_How do I change my affiliate payment method?_t_',
             category: 'Affiliate programme',
             sub_category: '_t_Partners_t_',
             label: 'payment-method',
+            answer: [
+                {
+                    translation_text: '_t_Follow these steps to change your payment method:_t_',
+                    list: {
+                        list_style: 'decimal',
+                        padding_left: '5rem',
+                        margin_top: '1rem',
+                        items: [
+                            {
+                                translation_text: '_t_<0>Log in</0> to your dashboard._t_',
+                                translation_components: [
+                                    {
+                                        key: 0,
+                                        type: 'link',
+                                        to: 'https://login.deriv.com/signin.php',
+                                    },
+                                ],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Click the <0>Finances</0> tab and select <0>Payment instructions</0>._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Select your preferred payment method, enter the necessary details, and click <0>Update</0>._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                        ],
+                    },
+                },
+            ],
         },
         {
             question: '_t_How and when will I receive my commission payout?_t_',
             category: 'Affiliate programme',
             sub_category: '_t_Partners_t_',
             label: 'commission-payout',
+            answer: [
+                {
+                    translation_text:
+                        "_t_We'll credit your commission for the previous month into your trading account after the 15th of every month. As an affiliate, you’ll earn commission when your referred clients trade on options and multipliers. To earn from your clients' MT5 trades, you'll need to sign up as an introducing broker. (see <0>How do I sign up as an introducing broker (IB)?</0>)_t_",
+                    translation_components: [
+                        { key: 0, type: 'link', to: '/help-centre/ib-programme/#ib-sign-up' },
+                    ],
+                },
+            ],
         },
         {
             question: '_t_How do I see my earnings?_t_',
             category: 'Affiliate programme',
             sub_category: '_t_Partners_t_',
             label: 'see-earnings',
+            answer: [
+                {
+                    translation_text: '_t_Follow these steps to see your earnings:_t_',
+                    list: {
+                        list_style: 'decimal',
+                        padding_left: '5rem',
+                        margin_top: '1rem',
+                        items: [
+                            {
+                                translation_text: '_t_<0>Log in</0> to your dashboard._t_',
+                                translation_components: [
+                                    {
+                                        key: 0,
+                                        type: 'link',
+                                        to: 'https://login.deriv.com/signin.php',
+                                    },
+                                ],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Go to <0>Reports</0>, and select <0>Detailed activity report</0>._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Set the duration and filters and click <0>Display report</0> or <0>Download report</0>._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                        ],
+                    },
+                },
+            ],
         },
         {
             question: '_t_What type of reports will I have access to?_t_',
             category: 'Affiliate programme',
             sub_category: '_t_Partners_t_',
             label: 'reports-access',
+            answer: [
+                {
+                    translation_text:
+                        "_t_You'll have access to reports that show your hits, impressions, click-through rates, clients' trading activity, and more._t_",
+                },
+            ],
         },
     ],
 }

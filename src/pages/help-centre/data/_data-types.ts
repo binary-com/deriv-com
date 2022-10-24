@@ -13,14 +13,16 @@ type LocalizeType = {
 }
 
 type AnswerPropsType = {
-    has_margin_top?: boolean
+    has_margin_top?: boolean // default 1.7rem
+    margin_top?: string
     list?: ListType
 }
 
 export type ListType = {
-    list_style: 'disc'
+    list_style: 'disc' | 'decimal'
     items: LocalizeType[]
     margin_top: string
+    first_child_margin_top?: string
     padding_left?: string
 }
 

@@ -74,9 +74,8 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledHeaderMobile = styled(Header)`
-    word-break: break-word;
     margin-top: 25%;
-    padding: 0 10rem;
+    padding: 0 7rem;
 `
 
 const LatamAward = () => {

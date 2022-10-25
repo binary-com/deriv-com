@@ -5,6 +5,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { LocationContext } from '../layout/location-context'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
+import device from 'themes/device'
 import { localized_link_url } from 'common/constants'
 import {
     getLocalizedUrl,
@@ -81,8 +82,57 @@ export const SharedLinkStyle = css<SharedLinkStyleProps>`
             }
         `}
 `
+export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: text-shadow 0.25s;
+    position: relative;
 
-const StyledGatsbyLink = styled(GatsbyLink)``
+    &::before {
+        content: '';
+        position: absolute;
+        transition: width 0.25s;
+        height: 0.2rem;
+        width: 0;
+        background-color: var(--color-red);
+        bottom: 0;
+    }
+    &:hover {
+        color: gray;
+    }
+    &.active {
+        color: gray;
+    }
+
+    ${({ active }) =>
+        active &&
+        css`
+            color: gray;
+        `}
+    @media ${device.laptopL} {
+        font-size: 14px;
+    }
+`
+const ShareDisabledStyle = css<{ disabled: boolean }>`
+    ${({ disabled }) =>
+        disabled &&
+        `
+        pointer-events: none;
+        opacity: 0.32;`}
+`
+
+const StyledAnchor = styled.a`
+    ${ShareDisabledStyle}
+`
+
+const StyledAnchorLink = styled(AnchorLink)`
+    ${ShareDisabledStyle}
+`
+
+const StyledGatsbyLink = styled(GatsbyLink)`
+    ${ShareDisabledStyle}
+`
 
 export const LocalizedLink = React.forwardRef(
     ({ external, ...props }: LocalizedLinkProps, ref: Ref<GatsbyLink<string>>) => {

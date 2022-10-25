@@ -32,10 +32,10 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
             {is_row && (
                 <>
                     <WhyTrade
-                        header={<Localize translate_text="Why trade basket indices on Deriv" />}
-                        text={
+                        description={
                             <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
                         }
+                        header={<Localize translate_text="Why trade basket indices on Deriv" />}
                     >
                         {(!is_eu_country ? basket_indices_content : basket_indices_content_eu).map(
                             (content: BasketIndicesContent, index) => (
@@ -48,7 +48,9 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         )}
                     </WhyTrade>
                     <AvailableTrades
-                        CFDs={<CFDs market_content={basket_cfds} />}
+                        CFDs={
+                            <CFDs market_content={basket_cfds} market_tab_name={'basket-indices'} />
+                        }
                         DigitalOptions={
                             <DigitalOptions
                                 market_type="basket-indices"
@@ -68,7 +70,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         content={simple_step_content}
                         sign_up
                     />
-                    <OtherMarkets except="basket_indices" />
+                    <OtherMarkets except="derived" />
                 </>
             )}
             {is_uk_eu && <PageNotFound />}

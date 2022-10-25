@@ -444,11 +444,11 @@ export const metals_options: MarketSymbol[] = [
 
 export const range_break: MarketSymbol[] = [
     {
-        src: icons.RANGEBREAK100,
+        src: icons.RANGEBREAK100New,
         text: <Localize translate_text="Range Break 100 Index" />,
     },
     {
-        src: icons.RANGEBREAK200,
+        src: icons.RANGEBREAK200New,
         text: <Localize translate_text="Range Break 200 Index" />,
     },
 ]

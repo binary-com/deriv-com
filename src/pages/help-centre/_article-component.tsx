@@ -23,9 +23,9 @@ type CategoryType = {
 type ArticleType = {
     category: string
     label: string
-    title: CategoryType
-    title_eu: boolean
-    label_eu: boolean
+    title: React.ReactElement
+    hide_for_eu?: boolean
+    hide_for_non_eu?: boolean
 }
 
 type ItemType = {
@@ -140,11 +140,19 @@ const ArticleComponent = ({
     is_eu_country,
     param,
 }: ArticleComponentProps) => {
+    const eu_articles = item.articles.filter((article) => !article.hide_for_eu)
+    const row_articles = item.articles.filter((article) => !article.hide_for_non_eu)
+
+    const articles = React.useMemo(
+        () => (is_eu_country ? eu_articles : row_articles),
+        [eu_articles, is_eu_country, row_articles],
+    )
+
     return (
         <ArticleDiv key={idx}>
             <ListWrapper>
                 <StyledHeader type="section-title">{item.category}</StyledHeader>
-                {item.articles.map((ar, idxb) => {
+                {articles.map((ar, idxb) => {
                     const category_is_expanded =
                         ar.category in all_categories && all_categories[ar.category].is_expanded
                     const should_show_item = idxb < 3 || category_is_expanded
@@ -152,21 +160,18 @@ const ArticleComponent = ({
                     const should_show_expand = !category_is_expanded && can_expand && idxb === 3
                     const should_show_collapse =
                         category_is_expanded && can_expand && idxb === item.articles.length - 1
-                    const title_type = is_eu_country && ar.title_eu ? ar.title_eu : ar.title
-
-                    const label_type = is_eu_country && ar.label_eu ? ar.label_eu : ar.label
 
                     return (
-                        <ListNoBullets key={idxb}>
+                        <ListNoBullets key={ar.label}>
                             <ShowItem should_show_item={should_show_item}>
                                 <StyledLink
                                     to={convertToHash(
                                         item.category.props.translate_text,
-                                        label_type,
+                                        ar.label,
                                         param,
                                     )}
                                 >
-                                    {title_type}
+                                    {ar.title}
                                 </StyledLink>
                             </ShowItem>
 

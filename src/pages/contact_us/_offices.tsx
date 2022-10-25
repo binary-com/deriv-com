@@ -334,7 +334,7 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/MP8aqZQ4xt8LJ9id9"
+                                        to="https://goo.gl/maps/j7fs9r73dfwQtHgj8"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -347,7 +347,7 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/MP8aqZQ4xt8LJ9id9"
+                                    to="https://goo.gl/maps/j7fs9r73dfwQtHgj8"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -355,12 +355,15 @@ export const Offices = () => {
                                     ml="1.6rem"
                                 >
                                     <Desktop>
-                                        <p>Level 5, 42 Agias Filaxeos,</p>
-                                        <p>Limassol 3025</p>
+                                        <p>
+                                            181, Leoforos Archiepiskopou Makariou III Avenue 15
+                                            Business Centre, 1st Floor, 3030, Limassol Cyprus
+                                        </p>
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>
-                                            Level 5, 42 Agias Filaxeos Limassol 3025
+                                            181, Leoforos Archiepiskopou Makariou III Avenue 15
+                                            Business Centre, 1st Floor, 3030, Limassol Cyprus
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>

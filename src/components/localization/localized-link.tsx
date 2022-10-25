@@ -14,6 +14,7 @@ import {
     replaceLocale,
 } from 'common/utility'
 import { DerivStore } from 'store'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type InternalLinkProps = {
     aria_label?: string
@@ -137,17 +138,13 @@ const StyledGatsbyLink = styled(GatsbyLink)`
 export const LocalizedLink = React.forwardRef(
     ({ external, ...props }: LocalizedLinkProps, ref: Ref<GatsbyLink<string>>) => {
         const { locale } = useContext(LocaleContext)
-        const [has_mounted, setMounted] = useState(false)
-
-        useEffect(() => {
-            setMounted(true)
-        }, [])
+        const [is_mounted] = usePageLoaded()
 
         if (external) {
-            return <ExternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
+            return <ExternalLink mounted={is_mounted} locale={locale} ref={ref} {...props} />
         }
 
-        return <InternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
+        return <InternalLink mounted={is_mounted} locale={locale} ref={ref} {...props} />
     },
 )
 

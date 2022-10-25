@@ -1,8 +1,12 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { CrashText, DetailsContainer } from '../style/_markets-style'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+
+type TEuropeDetailsProps = {
+    custom_index: number
+}
 
 export const AmericasDetails = () => (
     <DetailsContainer>
@@ -126,7 +130,8 @@ export const DailyResetIndicesDetails = () => (
     </DetailsContainer>
 )
 
-export const EuropeDetails = (index: number): ReactElement => {
+export const EuropeDetails = (props: TEuropeDetailsProps) => {
+    const { custom_index: index } = props
     const children = [
         <Text key={0}>
             {localize(
@@ -182,7 +187,7 @@ export const EuropeDetails = (index: number): ReactElement => {
     )
 }
 
-export const RangeBreakIndicesDetails = (): ReactElement => (
+export const RangeBreakIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -273,7 +278,7 @@ export const VolatilityIndicesDetails = () => (
     </DetailsContainer>
 )
 
-export const VolatilityIndicesDetailsEU = (): ReactElement => (
+export const VolatilityIndicesDetailsEU = () => (
     <DetailsContainer>
         <Text>
             <Localize
@@ -290,35 +295,7 @@ export const VolatilityIndicesDetailsEU = (): ReactElement => (
     </DetailsContainer>
 )
 
-export const AmericanIndicesDetails = (): ReactElement => (
-    <DetailsContainer>
-        <Text>
-            {localize(
-                'Each of these indices replicates the performance of top publicly traded companies in a segment of the US economy.',
-            )}
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>US 500</0> follows the stock performance of the 500 largest publicly traded companies in the US."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>US Tech 100</0> follows the stock performance of the 100 largest non-financial companies in the US."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>Wall Street 30</0> follows the stock performance of the top 30 listed companies in the US."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-    </DetailsContainer>
-)
-
-export const AsianIndicesDetails = (): ReactElement => (
+export const AsianIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -340,7 +317,7 @@ export const AsianIndicesDetails = (): ReactElement => (
     </DetailsContainer>
 )
 
-export const EuropeanIndicesDetails = (): ReactElement => {
+export const EuropeanIndicesDetails = () => {
     const { is_row } = useCountryRule()
     return (
         <DetailsContainer>
@@ -390,7 +367,7 @@ export const EuropeanIndicesDetails = (): ReactElement => {
         </DetailsContainer>
     )
 }
-export const CryptocurrenciesDetails = (): ReactElement => (
+export const CryptocurrenciesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -400,11 +377,22 @@ export const CryptocurrenciesDetails = (): ReactElement => (
     </DetailsContainer>
 )
 
-export const JumpIndicesDetails = (): ReactElement => (
+export const JumpIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
                 translate_text="These indices correspond to simulated markets with <0>constant volatilities of 10%, 25%, 50%, 75%, and 100%.</0> There is an equal probability of an up or down jump <0>every 20 minutes</0>, on average. The jump size is <0>around 30 times</0> the normal price movement, on average."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
+export const DerivedCFDsDetails = () => (
+    <DetailsContainer>
+        <Text>
+            <Localize
+                translate_text="These indices correspond to financial markets with volatilities of 10% and 100%. One tick is generated for every tick of the corresponding forex pair."
                 components={[<strong key={0} />]}
             />
         </Text>

@@ -4,9 +4,9 @@ import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
-import FinancialStpIcon from 'images/svg/dmt5/financial-stp.svg'
 import FinancialIcon from 'images/svg/dmt5/financial.svg'
-import SyntheticIcon from 'images/svg/dmt5/synthetic.svg'
+import DerivedIcon from 'images/svg/dmt5/derived.svg'
+import CFDsIcon from 'images/svg/dmt5/cfds.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -19,43 +19,35 @@ type ContentType = {
     show_always?: boolean
 }
 
+type StyledHeaderType = {
+    mobile_font_size: string
+    mobile_margin: string
+}
+
 const BaseIconStyle = css`
     @media ${device.mobileL} {
-        width: 24px;
-        height: 24px;
+        width: 32px;
+        height: 32px;
     }
 `
-const StyledFinancialStpIcon = styled.img`
-    ${BaseIconStyle}
-`
-const StyledFinancialIcon = styled.img`
-    ${BaseIconStyle}
-`
-const StyledSyntheticIcon = styled.img`
+const StyledIcon = styled.img`
     ${BaseIconStyle}
 `
 
 const content: ContentType[] = [
     {
-        header: <Localize translate_text="Synthetic" />,
+        header: <Localize translate_text="Derived" />,
         text: (
-            <Localize translate_text="Trade CFDs 24/7 on our exclusive, proprietary synthetic indices, which simulate real-world market movements." />
+            <Localize translate_text="Trade CFDs on indices derived from real-world market movements." />
         ),
-        icon: <StyledSyntheticIcon src={SyntheticIcon} alt="" />,
+        icon: <StyledIcon src={DerivedIcon} alt="derived-icon" />,
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade forex, stocks, stock indices, cryptocurrencies, basket indices, and commodities on high leverage." />
+            <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, and commodities on high leverage." />
         ),
-        icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
-    },
-    {
-        header: <Localize translate_text="Financial STP" />,
-        text: (
-            <Localize translate_text="Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes, straight to the market." />
-        ),
-        icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="" />,
+        icon: <StyledIcon src={FinancialIcon} alt="financial-icon" />,
     },
 ]
 
@@ -63,9 +55,9 @@ const eucontent: ContentType[] = [
     {
         header: <Localize translate_text="CFDs" />,
         text: (
-            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage." />
+            <Localize translate_text="Trade CFDs on forex, stocks, stock indices, derived, cryptocurrencies, and commodities." />
         ),
-        icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
+        icon: <StyledIcon src={CFDsIcon} alt="cfds-icon" />,
         show_eu: true,
     },
 ]
@@ -84,21 +76,18 @@ const ClientCard = styled.article`
     margin-left: 2rem;
     background-color: var(--color-white);
     border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-    width: 38.4rem;
+    box-shadow: 0 22px 20px 0 rgba(14, 14, 14, 0.1);
+    max-width: 40rem;
     padding: 3.2rem 2.4rem 4rem;
     position: relative;
+    height: 176px;
 
     :first-child {
         margin: 0;
     }
-    @media ${device.laptopM} {
-        min-height: 22rem;
-        height: 100%;
-    }
     @media ${device.tablet} {
         margin: 0 0 24px 0;
-        max-height: unset;
+        height: auto;
         padding: 24px;
         max-width: 328px;
         width: 100%;
@@ -117,10 +106,11 @@ const StyledLinkButton = styled(LinkButton)`
     width: auto;
     margin: auto;
 `
-const StyledHeader = styled(Header)`
+
+const StyledHeader = styled(Header)<StyledHeaderType>`
     @media ${device.mobileL} {
-        font-size: ${(props) => props.mobile_font_size};
-        margin: ${(props) => props.mobile_margin};
+        font-size: ${({ mobile_font_size }) => mobile_font_size};
+        margin: ${({ mobile_margin }) => mobile_margin};
     }
 `
 const StyledText = styled(Text)`
@@ -138,6 +128,9 @@ const Flexibility = () => {
     const { is_uk } = useCountryRule()
 
     const chosen_content = is_eu_country ? eucontent : content
+    const title = is_eu_country
+        ? localize('Flexibility with multiple markets')
+        : localize('Flexibility with two account types')
 
     return (
         <Section>
@@ -149,9 +142,7 @@ const Flexibility = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {is_eu_country
-                    ? localize('Flexibility with multiple markets')
-                    : localize('Flexibility with multiple account types')}
+                {title}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {

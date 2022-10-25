@@ -1,10 +1,11 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import MarketsAccordion from '../helper/_markets_accordion'
 import {
     Col,
     LatestMarketsList,
     MarketsWrapper,
     MarketsList,
+    DerivedMarketsList,
     Row,
     Title,
 } from '../../static/style/_markets-style'
@@ -13,7 +14,7 @@ type Contentelement = {
     component?: ReactElement
     mobile_title?: ReactElement
     title?: ReactElement
-    details?: (index?: number) => ReactElement | JSX.Element
+    details?: ReactNode
     col?: number
     tablet_col?: number
     mobile_col?: number
@@ -70,6 +71,28 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                             {content.component}
                                         </LatestMarketsList>
                                     </>
+                                ) : market_content.template == 3 ? (
+                                    <>
+                                        <Col full_width={true}>
+                                            {is_mobile && content.mobile_title ? (
+                                                <Title>{content.mobile_title}</Title>
+                                            ) : (
+                                                <Title>{content.title}</Title>
+                                            )}
+                                        </Col>
+                                        <DerivedMarketsList
+                                            has_right_border={true}
+                                            col={content.col}
+                                            tablet_col={content.tablet_col}
+                                            mobile_col={content.mobile_col}
+                                            padding={content.padding}
+                                            flex={content.flex}
+                                            gap={content.gap}
+                                            gap_mobile={content.gap_mobile}
+                                        >
+                                            {content.component}
+                                        </DerivedMarketsList>
+                                    </>
                                 ) : (
                                     <>
                                         <Col>
@@ -86,9 +109,9 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                 )}
                             </Row>
                         )}
-                        renderDetails={content.details}
-                        custom_index={content.custom_index}
-                    />
+                    >
+                        {content.details}
+                    </MarketsAccordion>
                 ) : (
                     <Row key={index} mobile_template={content.mobile_template}>
                         <Col mobile_template={content.mobile_template}>

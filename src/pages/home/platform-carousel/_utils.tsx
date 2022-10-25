@@ -37,6 +37,8 @@ import Windows from 'images/svg/app-download/app-store-windows.svg'
 import MacAppStore from 'images/svg/app-download/app-store-mac.svg'
 import AppGallery from 'images/svg/app-download/app-store-app-gallery.svg'
 
+export const PLATFORMS_CAROUSEL_DELAY = 3000
+
 export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser
     else if (type === 'app_store') return AppStore
@@ -84,7 +86,6 @@ export const platform_details_cr: TPlatformDetails[] = [
                 { type: 'windows', url: dmt5_windows_download_url },
                 { type: 'linux', url: dmt5_linux_url },
                 { type: 'browser', link_type: 'mt5' },
-                { type: 'app_store', url: dmt5_macos_url },
                 { type: 'google_play', url: dmt5_android_url },
                 { type: 'app_gallery', url: dmt5_app_gallery },
             ],
@@ -173,7 +174,6 @@ export const platform_details_eu: TPlatformDetails[] = [
                 { type: 'windows', url: dmt5_windows_download_url },
                 { type: 'linux', url: dmt5_linux_url },
                 { type: 'browser', link_type: 'mt5' },
-                { type: 'app_store', url: dmt5_macos_url },
                 { type: 'google_play', url: dmt5_android_url },
                 { type: 'app_gallery', url: dmt5_app_gallery },
             ],
@@ -204,7 +204,6 @@ export const platform_details_uk: TPlatformDetails[] = [
                 { type: 'windows', url: dmt5_windows_download_url },
                 { type: 'linux', url: dmt5_linux_url },
                 { type: 'browser', link_type: 'mt5' },
-                { type: 'app_store', url: dmt5_macos_url },
                 { type: 'google_play', url: dmt5_android_url },
                 { type: 'app_gallery', url: dmt5_app_gallery },
             ],

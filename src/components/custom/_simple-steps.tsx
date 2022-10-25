@@ -41,6 +41,7 @@ const StyledFlex = styled(Flex)`
     @media ${device.tabletL} {
         flex-direction: column;
         align-items: center;
+        margin: 2rem 0 0 0;
 
         article {
             margin: 16px auto 0;
@@ -58,7 +59,7 @@ const StyledHeader = styled(Header)`
 
 const TitleHeader = styled(Header)`
     @media ${device.tabletL} {
-        font-size: 32px;
+        font-size: 24px;
         line-height: 1.5;
     }
 `

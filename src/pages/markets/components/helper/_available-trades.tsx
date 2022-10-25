@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import AvailableTradesMobile from './_available-trades_mobile'
 import AvailableTradesDesktop from './_available-trades_desktop'
 import { Desktop, Mobile } from 'components/containers'
 
@@ -27,7 +26,7 @@ const AvailableTrades = ({
                 />
             </Desktop>
             <Mobile breakpoint={'tablet'}>
-                <AvailableTradesMobile
+                <AvailableTradesDesktop
                     CFDs={CFDs}
                     DigitalOptions={DigitalOptions}
                     Multipliers={Multipliers}

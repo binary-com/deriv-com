@@ -88,12 +88,12 @@ const market_data = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Synthetic indices" />,
+        header: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
+            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
-        img_name: 'market_synthetic_indices',
-        to: '/markets/synthetic/',
+        img_name: 'market_derived',
+        to: '/markets/derived-fx/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
     },
@@ -118,16 +118,6 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Basket indices" />,
-        description: (
-            <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
-        ),
-        img_name: 'market_basket_indices',
-        to: '/markets/basket-indices/',
-        gradient_start: '#555110',
-        gradient_end: '#151404',
-    },
-    {
         header: <Localize translate_text="Commodities" />,
         description: (
             <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
@@ -150,12 +140,12 @@ const market_data_eu = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Synthetic indices" />,
+        header: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
+            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
-        img_name: 'market_synthetic_indices',
-        to: '/markets/synthetic/',
+        img_name: 'market_derived',
+        to: '/markets/derived-fx/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
     },
@@ -244,6 +234,9 @@ const query = graphql`
         market_commodities: file(relativePath: { eq: "home/market_commodities.png" }) {
             ...fadeIn
         }
+        market_derived: file(relativePath: { eq: "home/market_derived.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -287,7 +280,12 @@ const CarouselItem = ({
                     </Header>
                     <Desktop>
                         <>
-                            <StyledDescription lh="24px" type="paragraph-1" $hovered={is_hovered}>
+                            <StyledDescription
+                                lh="24px"
+                                color="white"
+                                type="paragraph-1"
+                                $hovered={is_hovered}
+                            >
                                 {description}
                             </StyledDescription>
                             <CarouselItemImageDesktop

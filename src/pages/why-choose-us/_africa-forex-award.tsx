@@ -45,4 +45,4 @@ const AfricaAward = () => {
     )
 }
 
-export default WithIntl()(AfricaAward)
+export default AfricaAward

@@ -346,7 +346,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
     )
 }
 
-export default WithIntl()(ArticlesTemplate)
+export default ArticlesTemplate
 
 // Query our published articles by slug
 export const query = graphql`

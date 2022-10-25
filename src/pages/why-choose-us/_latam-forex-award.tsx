@@ -44,4 +44,4 @@ const LatamAward = () => {
     )
 }
 
-export default WithIntl()(LatamAward)
+export default LatamAward

@@ -10,6 +10,7 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import device from 'themes/device'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const meta_attributes = {
     og_title: localize('Deriv MetaTrader 5 trading signals | Resources | Deriv'),
@@ -112,15 +113,11 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabStateQuery(['signal-subscriber', 'signal-provider'])
-    const [is_mounted, setMounted] = useState(false) //needs to fix bug with hightlight of the 1st loading
+    const [is_mounted] = usePageLoaded() //needs to fix bug with hightlight of the 1st loading
     const [signal_subscriber, signal_provider] = [
         active_tab === 'signal-subscriber',
         active_tab === 'signal-provider',
     ]
-
-    useEffect(() => {
-        setMounted(true)
-    }, [])
 
     return (
         <Layout>

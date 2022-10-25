@@ -163,7 +163,6 @@ const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
         <StyledSection>
             <Container direction="column">
                 {trading.map((item, index) => {
-                    console.log(item)
                     const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row

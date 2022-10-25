@@ -40,7 +40,7 @@ import {
     StyledSection,
 } from '../common/_style'
 import { localize, Localize } from 'components/localization'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import {
     Accordion,
     AccordionItem,
@@ -388,18 +388,18 @@ const MarginCalculator = () => {
                                         'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
                                     )}
                                 </Text>
-                                <Show.Desktop>
+                                <Desktop>
                                     <QueryImage
                                         data={data.margin_formula}
                                         alt={localize('Margin formula')}
                                     />
-                                </Show.Desktop>
-                                <Show.Mobile>
+                                </Desktop>
+                                <Mobile>
                                     <QueryImage
                                         data={data.margin_formula_mobile}
                                         alt={localize('Margin formula mobile')}
                                     />
-                                </Show.Mobile>
+                                </Mobile>
                                 <FormulaText>
                                     <StyledOl>
                                         <li>

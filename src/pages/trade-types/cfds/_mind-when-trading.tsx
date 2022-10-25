@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
 import { StyledLinkButton } from './_trading-cfd-increases'
-import { SectionContainer, Show } from 'components/containers'
+import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -50,7 +50,7 @@ const MindWhenTrading = () => {
                     )}
                 </Text>
             </SmallContainer>
-            <Show.Desktop max_width={'bp680'}>
+            <Desktop breakpoint={'bp680'}>
                 <SmallContainer direction="column" ai="flex-start">
                     <ImageWrapper>
                         <QueryImage
@@ -59,15 +59,15 @@ const MindWhenTrading = () => {
                         />
                     </ImageWrapper>
                 </SmallContainer>
-            </Show.Desktop>
-            <Show.Mobile min_width={'bp680'}>
+            </Desktop>
+            <Mobile breakpoint={'bp680'}>
                 <ImageWrapper>
                     <QueryImage
                         data={data['margin_mobile_relationship_piechart']}
                         alt="Trade types margin market"
                     />
                 </ImageWrapper>
-            </Show.Mobile>
+            </Mobile>
             <SmallContainer direction="column" ai="flex-start">
                 <Text mt="3.2rem">
                     {localize(

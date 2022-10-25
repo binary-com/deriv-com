@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Header, Text } from 'components/elements'
-import { Container, SectionContainer, Flex, Show } from 'components/containers'
+import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
 import device from 'themes/device'
 import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
@@ -135,12 +135,12 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
 
     return (
         <StyledSection>
-            <Show.Desktop>
+            <Desktop>
                 <BackgroundPattern src={Pattern} alt="pattern" />
-            </Show.Desktop>
-            <Show.Mobile>
+            </Desktop>
+            <Mobile>
                 <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
-            </Show.Mobile>
+            </Mobile>
             <Container direction="column">
                 <TitleHeader align="center" as="h3" type="section-title">
                     {header}

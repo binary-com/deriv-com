@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { NavLink, StyledLinkMarket, MarketWrapper, Wrapper } from '../../styles/nav-styles'
 import device from 'themes/device'
 import { localize } from 'components/localization'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 
 const StyledWrapper = styled(Wrapper)`
@@ -37,6 +38,7 @@ type NavLinkCardTypes = {
 
 const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
     const current_page = useActiveLinkState('markets')
+
     return (
         <NavLink>
             <StyledLinkMarket
@@ -52,26 +54,32 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
 }
 
 const NavMarketDesktop = () => {
+    const { is_non_uk } = useCountryRule()
+
     return (
         <MarketWrapper>
             <StyledWrapper>
                 <NavigationBar>
                     <NavLinkCard active="forex" to="/markets/forex/" title={localize('Forex')} />
-                    <NavLinkCard
-                        active="derived"
-                        to="/markets/synthetic/"
-                        title={localize('Derived')}
-                    />
+                    {is_non_uk && (
+                        <NavLinkCard
+                            active="derived"
+                            to="/markets/synthetic/"
+                            title={localize('Derived')}
+                        />
+                    )}
                     <NavLinkCard
                         active="stock"
                         to="/markets/stock/"
                         title={localize('Stocks & indices')}
                     />
-                    <NavLinkCard
-                        active="cryptocurrencies"
-                        to="/markets/cryptocurrencies/"
-                        title={localize('Cryptocurrencies')}
-                    />
+                    {is_non_uk && (
+                        <NavLinkCard
+                            active="cryptocurrencies"
+                            to="/markets/cryptocurrencies/"
+                            title={localize('Cryptocurrencies')}
+                        />
+                    )}
                     <NavLinkCard
                         active="commodities"
                         to="/markets/commodities/"

@@ -15,9 +15,8 @@ import SupportIcon from 'images/svg/binary-to-deriv/support-icon.svg'
 import { move_to_explore_url, move_to_explore_is_eu_url } from 'common/constants'
 
 const ParentWrapper = styled(Container)`
-    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     max-width: 964px;
     width: 100%;
 
@@ -88,7 +87,7 @@ const benefitsItems = [
         icon: FavoriteIcon,
         icon_alt: 'Your favourites in one place',
         header: 'Your favourites in one place',
-        desc: 'Trade the way you like on the Deriv MetaTrader 5 (DMT5) and DTrader. ',
+        desc: 'Trade the way you like on the Deriv MetaTrader 5 and DTrader. ',
     },
     {
         icon: ModernIcon,

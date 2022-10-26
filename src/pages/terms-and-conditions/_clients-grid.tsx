@@ -83,7 +83,7 @@ const IconGrid = () => {
             content: localize('Rules for making trades on any Deriv trading platform'),
             eu_links: [
                 {
-                    url: '/tnc/trading-terms.pdf',
+                    url: '/tnc/eu/trading-terms.pdf',
                     title: localize('Trading terms'),
                 },
             ],
@@ -120,7 +120,7 @@ const IconGrid = () => {
 
             eu_links: [
                 {
-                    url: '/tnc/security-and-privacy.pdf',
+                    url: '/tnc/eu/security-and-privacy.pdf',
                     title: localize('Security & privacy'),
                 },
             ],

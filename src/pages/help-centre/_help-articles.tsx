@@ -184,7 +184,7 @@ export const articles: ArcticlesType[] = [
                 label: 'what-are-stock-indices',
             },
             {
-                title: <Localize translate_text="What is Derived?" />,
+                title: <Localize translate_text="What is derived?" />,
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,
                 label: 'what-is-derived',
@@ -518,7 +518,7 @@ export const articles: ArcticlesType[] = [
     },
     {
         section: 'Platforms',
-        category: <Localize translate_text="DMT5" />,
+        category: <Localize translate_text="Deriv MT5" />,
         articles: [
             {
                 title: <Localize translate_text="What is Deriv MetaTrader 5 (Deriv MT5)?" />,
@@ -746,7 +746,7 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?" />
+                    <Localize translate_text="What are the major differences between DTrader, Deriv MT5 and Deriv X?" />
                 ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,

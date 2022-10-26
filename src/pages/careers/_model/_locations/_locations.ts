@@ -532,7 +532,7 @@ export const roadtown: LocationsType = {
     display_name: 'Road Town',
     display_thumbnail_name: 'Road Town',
     display_title_name: 'Road Town',
-    img_alt: ' Deriv’s British Virgin Islands office at Road Town ',
+    img_alt: 'Deriv’s British Virgin Islands office at Road Town',
     map_office_name: '(BVI)',
     country: 'British Virgin Islands',
     flagIcon: BVIFlagIcon,
@@ -540,9 +540,14 @@ export const roadtown: LocationsType = {
     first_p:
         'Experts in regulatory and legislative requirements will work together at Deriv (BVI) to provide compliance guidance in our British Virgin Islands licensed operations. Their expertise in corporate law, anti-money laundering, and other legislation will enable them to anticipate and mitigate regulatory risks. ',
     first_img: 'living_in_roadtown',
-    first_img_alt: 'Deriv’s office in the British Virgin Islands',
+    first_img_alt: 'Road Town, British Virgin Islands',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'bvi_grid_3', 'guernsey_grid_4'],
-    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'bvi_grid_3', 'guernsey grid 4'],
+    grid_img_alt: [
+        'guernsey grid 1',
+        'guernsey grid 2',
+        'Deriv’s British Virgin Islands team',
+        'guernsey grid 4',
+    ],
     map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',
     map_text:
         'Being part of our British Virgin Islands team gives you the chance to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to make sure our BVI compliance strategies are effective. If you have a passion for law and look for worthy challenges in your career, join us at Deriv (BVI).',

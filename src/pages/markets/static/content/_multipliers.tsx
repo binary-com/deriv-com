@@ -124,9 +124,7 @@ export const synthetic_multiplier: SyntheticMultiplier = {
         },
         {
             title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: (
-                <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
-            ),
+            mobile_title: <Localize translate_text="Crash/Boom" />,
             component: <CrashBoomMultipliers />,
             details: <CrashBoomMultipliersDetails />,
         },
@@ -164,9 +162,7 @@ export const synthetic_multiplier_eu: SyntheticMultiplier = {
         },
         {
             title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: (
-                <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
-            ),
+            mobile_title: <Localize translate_text="Crash/Boom" />,
             component: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
         },

@@ -20,14 +20,14 @@ import {
     PointerText,
     PointerTextMobile,
 } from './_style'
-import { Show } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers'
 
 const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
     const itemList = data.list
 
     return (
         <>
-            <Show.Desktop>
+            <Desktop>
                 {itemList.map((value, index) => {
                     const { formula, result } = value
                     return (
@@ -61,8 +61,8 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                         </FormulaContainer>
                     )
                 })}
-            </Show.Desktop>
-            <Show.Mobile>
+            </Desktop>
+            <Mobile>
                 <>
                     {itemList.map((value, index) => {
                         const { totalItem, formula } = value
@@ -161,7 +161,7 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                         )
                     })}
                 </>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }

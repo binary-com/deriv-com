@@ -138,7 +138,7 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="1. Market" />}
                         description={
-                            <Localize translate_text="Choose from the four markets offered on Deriv – forex, stocks & indices, commodities, synthetic indices." />
+                            <Localize translate_text="Choose from forex, stocks & indices, commodities, derived." />
                         }
                     >
                         <QueryImage

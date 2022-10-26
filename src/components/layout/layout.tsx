@@ -16,7 +16,6 @@ import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
@@ -341,12 +340,6 @@ const Layout = ({
                 aria_label={modal_payload.aria_label}
             />
             <UKAccountClosureModal />
-            {show_non_eu_popup && (
-                <NonEuRedirectPopUp
-                    is_open={show_non_eu_popup}
-                    setShowNonEuPopup={setShowNonEuPopup}
-                />
-            )}
         </LocationProvider>
     )
 }

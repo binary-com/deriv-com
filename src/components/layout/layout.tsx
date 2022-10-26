@@ -4,16 +4,16 @@ import styled from 'styled-components'
 import { closestMatch, distance } from 'closest-match'
 import useGTMData from '../hooks/use-gtm-data'
 import { LocationProvider } from './location-context'
-import NavAcademy from './nav/nav-academy'
-import NavStatic from './nav/nav-static'
-import Nav from './nav/nav'
-import NavTransparent from './nav/nav-transparent'
-import NavCareers from './nav/nav-careers'
-import NavPartners from './nav/nav-partner'
-import NavMarkets from './nav/nav-markets'
-import NavInterim from './nav/nav-interim'
-import NavSecurity from './nav/nav-security'
-import NavJumpIndice from './nav/nav-jump-indices'
+// import NavAcademy from './nav/nav-academy'
+// import NavStatic from './nav/nav-static'
+// import Nav from './nav/nav'
+// import NavTransparent from './nav/nav-transparent'
+// import NavCareers from './nav/nav-careers'
+// import NavPartners from './nav/nav-partner'
+// import NavMarkets from './nav/nav-markets'
+// import NavInterim from './nav/nav-interim'
+// import NavSecurity from './nav/nav-security'
+// import NavJumpIndice from './nav/nav-jump-indices'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
@@ -245,58 +245,58 @@ const Layout = ({
     let Navigation
     let FooterNav = <></>
     switch (type) {
-        case 'academy':
-            Navigation = <NavAcademy />
-            FooterNav = <Footer academy={true} />
-            break
-        case 'noNav':
-            Navigation = <></>
-            FooterNav = <Footer />
-            break
-        case 'static':
-            Navigation = <NavStatic is_ppc={is_ppc} />
-            break
-        case 'interim':
-            Navigation = <NavInterim interim_type={interim_type} />
-            break
-        case 'partners':
-            Navigation = <NavPartners hide_login_signup={no_login_signup} />
-            FooterNav = <Footer />
-            break
-        case 'markets':
-            Navigation = <NavMarkets />
-            FooterNav = <Footer />
-            break
-        case 'security':
-            Navigation = <NavSecurity />
-            FooterNav = <Footer />
-            break
-        case 'ebook':
-            Navigation = <Nav hide_signup_login />
-            FooterNav = <Footer />
-            break
-        case 'landing-page':
-            Navigation = <NavInterim landing_type />
-            FooterNav = <Footer no_footer_links />
-            break
-        case 'jump-indices':
-            Navigation = <NavJumpIndice />
-            FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
-            break
-        case 'besquare':
-            Navigation = <NavCareers is_besquare />
-            FooterNav = <BeSquareFooter />
-            break
-        case 'careers':
-            Navigation = <NavCareers />
-            FooterNav = <Footer no_language={true} type={type} />
-            break
+        // case 'academy':
+        //     Navigation = <NavAcademy />
+        //     FooterNav = <Footer academy={true} />
+        //     break
+        // case 'noNav':
+        //     Navigation = <></>
+        //     FooterNav = <Footer />
+        //     break
+        // case 'static':
+        //     Navigation = <NavStatic is_ppc={is_ppc} />
+        //     break
+        // case 'interim':
+        //     Navigation = <NavInterim interim_type={interim_type} />
+        //     break
+        // case 'partners':
+        //     Navigation = <NavPartners hide_login_signup={no_login_signup} />
+        //     FooterNav = <Footer />
+        //     break
+        // case 'markets':
+        //     Navigation = <NavMarkets />
+        //     FooterNav = <Footer />
+        //     break
+        // case 'security':
+        //     Navigation = <NavSecurity />
+        //     FooterNav = <Footer />
+        //     break
+        // case 'ebook':
+        //     Navigation = <Nav hide_signup_login />
+        //     FooterNav = <Footer />
+        //     break
+        // case 'landing-page':
+        //     Navigation = <NavInterim landing_type />
+        //     FooterNav = <Footer no_footer_links />
+        //     break
+        // case 'jump-indices':
+        //     Navigation = <NavJumpIndice />
+        //     FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+        //     break
+        // case 'besquare':
+        //     Navigation = <NavCareers is_besquare />
+        //     FooterNav = <BeSquareFooter />
+        //     break
+        // case 'careers':
+        //     Navigation = <NavCareers />
+        //     FooterNav = <Footer no_language={true} type={type} />
+        //     break
         case 'transparent':
-            Navigation = <NavTransparent is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = <div style={{ padding: 30, color: 'red' }}>transparent</div>
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:
-            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = <div style={{ padding: 30, color: 'red' }}>default</div>
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }

@@ -375,7 +375,7 @@ const TradingArticle = () => {
                     is_mounted={is_mounted}
                 />
                 <Derived
-                    text={localize('What is Derived?')}
+                    text={localize('What is derived?')}
                     label="what-is-derived"
                     is_mounted={is_mounted}
                 />

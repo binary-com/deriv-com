@@ -441,16 +441,18 @@ export const NavMarket = ({ onClick }: NavMarketProps) => {
                 onClick={onClick}
                 to="/markets/forex/"
             />
-            <NavCard
-                aria_label="Derived"
-                icon={() => <img src={DerivedFX} alt="" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Enjoy trading asset prices derived from real-world or simulated markets." />
-                }
-                title={<Localize translate_text="Derived" />}
-                onClick={onClick}
-                to="/markets/synthetic/"
-            />
+            {is_non_uk && (
+                <NavCard
+                    aria_label="Derived"
+                    icon={() => <img src={DerivedFX} alt="" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Enjoy trading asset prices derived from real-world or simulated markets." />
+                    }
+                    title={<Localize translate_text="Derived" />}
+                    onClick={onClick}
+                    to="/markets/synthetic/"
+                />
+            )}
             <NavCard
                 aria_label="Stocks & indices"
                 icon={() => <img src={StockIndices} alt="" width="32" height="32" />}

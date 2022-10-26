@@ -30,6 +30,100 @@ const account_data: ArticlesDataType = {
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'change-account-currency',
+            answer: [
+                {
+                    translation_text:
+                        '_t_While the currencies of your virtual and cryptocurrency accounts are fixed, you can change the currency of your fiat account by following the steps below._t_',
+                },
+                {
+                    translation_text:
+                        '_t_If you haven’t made a deposit or added a real MT5 account, follow these steps:_t_',
+                    has_margin_top: true,
+                    list: {
+                        list_style: 'decimal',
+                        padding_left: '5rem',
+                        first_child_margin_top: '1.6rem',
+                        margin_top: '0.3rem',
+                        items: [
+                            {
+                                translation_text:
+                                    '_t_Click on your account balance and click <0>Add or manage account.</0>_t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Select <0>Fiat currencies,</0> choose the currency you want, and click <0>Change currency.</0>_t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                        ],
+                    },
+                },
+                {
+                    translation_text: '_t_Need help? Please <0>contact us via live chat.</0>_t_',
+                    translation_components: [
+                        { key: 0, type: 'link', to: '/contact_us/?is_livechat' },
+                    ],
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_If you have made a deposit or have added a real MT5 account, follow these steps:_t_',
+                    has_margin_top: true,
+                    list: {
+                        list_style: 'decimal',
+                        padding_left: '5rem',
+                        margin_top: '1.6rem',
+                        items: [
+                            {
+                                translation_text:
+                                    '_t_If you have open positions, close them first._t_',
+                                sub_items: {
+                                    list_style: 'circle',
+                                    padding_left: '5rem',
+                                    margin_top: '0.3rem',
+                                    items: [
+                                        {
+                                            translation_text:
+                                                '_t_For your Deriv real account, go to <0>Reports</0> to close or sell your open positions._t_',
+                                            translation_components: [{ key: 0, type: 'strong' }],
+                                        },
+                                        {
+                                            translation_text:
+                                                '_t_For your Deriv MT5 and Deriv X real accounts, log in to close any open positions._t_',
+                                        },
+                                    ],
+                                },
+                            },
+                            {
+                                translation_text: '_t_Then, withdraw your funds._t_',
+                                sub_items: {
+                                    list_style: 'circle',
+                                    padding_left: '5rem',
+                                    margin_top: '0.3rem',
+                                    items: [
+                                        {
+                                            translation_text:
+                                                '_t_For your Deriv real account, go to <0>Cashier</0> to withdraw your funds._t_',
+                                            translation_components: [{ key: 0, type: 'strong' }],
+                                        },
+                                        {
+                                            translation_text:
+                                                '_t_For your Deriv MT5 and Deriv X real accounts, go to your dashboard to withdraw your funds._t_',
+                                        },
+                                    ],
+                                },
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>Contact us via live chat</0> and we’ll help you change the currency of your account._t_',
+                                translation_components: [
+                                    { key: 0, type: 'link', to: '/contact_us/?is_livechat' },
+                                ],
+                            },
+                        ],
+                    },
+                },
+            ],
         },
         {
             question: '_t_Can I change my email address?_t_',
@@ -51,6 +145,38 @@ const account_data: ArticlesDataType = {
             category: 'account',
             sub_category: '_t_Opening an account_t_',
             label: 'who-can-open-an-account',
+            answer: [
+                {
+                    translation_text:
+                        "_t_Here are some possible reasons you aren't able to create an account:_t_",
+                    list: {
+                        list_style: 'disc',
+                        padding_left: '5rem',
+                        margin_top: '0.3rem',
+                        items: [
+                            {
+                                translation_text: '_t_You’re below 18 years old._t_',
+                            },
+                            {
+                                translation_text: '_t_You may already have a Deriv account._t_',
+                            },
+                            {
+                                translation_text:
+                                    "_t_Our services aren't available in your country of residence._t_",
+                            },
+                        ],
+                    },
+                },
+                {
+                    translation_text:
+                        '_t_You may refer to <0>our terms</0> for more information. If you need help getting into your account, <1>contact us via live chat.</1>_t_',
+                    has_margin_top: true,
+                    translation_components: [
+                        { key: 0, type: 'link', to: '/tnc/general-terms.pdf' },
+                        { key: 1, type: 'link', to: '/contact_us/?is_livechat' },
+                    ],
+                },
+            ],
         },
         {
             question:
@@ -58,6 +184,48 @@ const account_data: ArticlesDataType = {
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'recovering-your-password',
+            answer: [
+                {
+                    translation_text:
+                        '_t_If you created your Deriv account using Apple/Google/Facebook, try resetting your Apple/Google/Facebook password. After that, you should be able to log in to Deriv as usual._t_',
+                },
+                {
+                    translation_text:
+                        "_t_If you'd like to log in using your email address instead, follow these steps:_t_",
+                    has_margin_top: true,
+                    list: {
+                        list_style: 'decimal',
+                        padding_left: '5rem',
+                        margin_top: '0.3rem',
+                        items: [
+                            {
+                                translation_text:
+                                    '_t_Hit <0>Forgot password?</0> on the <1>login page.</1>_t_',
+                                translation_components: [
+                                    { key: 0, type: 'link', to: '/reset-password' },
+                                    {
+                                        key: 1,
+                                        type: 'link',
+                                        to: 'https://oauth.deriv.com/oauth2/authorize?app_id=16929',
+                                    },
+                                ],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Enter the same email address you use for your Apple/Google/Facebook account._t_',
+                            },
+                            {
+                                translation_text:
+                                    "_t_We'll email you a verification link. Click that link and set a new password for your Deriv account._t_",
+                            },
+                            {
+                                translation_text:
+                                    "_t_Now, you'll be able to log in to your Deriv account using your email address and password._t_",
+                            },
+                        ],
+                    },
+                },
+            ],
         },
         {
             question: '_t_How can I close my account?_t_',
@@ -117,6 +285,45 @@ const account_data: ArticlesDataType = {
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'open-a-corporate-or-business-account',
+            answer: [
+                {
+                    translation_text:
+                        "_t_Yes. <0>Contact us via live chat</0>, and we'll help you through it. We'll need the following information:_t_",
+                    translation_components: [
+                        { key: 0, type: 'link', to: '/contact_us/?is_livechat' },
+                    ],
+                    list: {
+                        list_style: 'disc',
+                        padding_left: '5rem',
+                        margin_top: '0.3rem',
+                        items: [
+                            { translation_text: '_t_Name of entity_t_' },
+                            { translation_text: '_t_Certificate of incorporation_t_' },
+                            { translation_text: '_t_Memorandum and articles of association_t_' },
+                            { translation_text: '_t_List of directors_t_' },
+                            { translation_text: '_t_List of shareholders_t_' },
+                            {
+                                translation_text:
+                                    '_t_Authorisation to manage the account (if your business has more than one director)_t_',
+                            },
+                            {
+                                translation_text:
+                                    '_t_Passport and utility bill/bank statement of the person managing the account and of each director and shareholder (if your business has more than 1)_t_',
+                            },
+                            {
+                                translation_text:
+                                    '_t_Utility bill/bank statement containing the address of the business_t_',
+                            },
+                            { translation_text: '_t_Source of wealth documentation_t_' },
+                        ],
+                    },
+                },
+                {
+                    has_margin_top: true,
+                    translation_text:
+                        '_t_We may request more information during the signup process._t_',
+                },
+            ],
         },
         {
             question: '_t_Do I need to pay taxes on my trades/profits?_t_',
@@ -238,12 +445,80 @@ const account_data: ArticlesDataType = {
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'How-do-I-verify-my-account',
+            answer: [
+                {
+                    translation_text:
+                        '_t_When we prompt you to verify your account, follow these steps:_t_',
+                    list: {
+                        list_style: 'decimal',
+                        padding_left: '5rem',
+                        margin_top: '0.3rem',
+                        items: [
+                            {
+                                translation_text: '_t_<0>Log in</0> to your Deriv account._t_',
+                                translation_components: [
+                                    {
+                                        key: 0,
+                                        type: 'link',
+                                        to: 'https://oauth.deriv.com/oauth2/authorize?app_id=16929',
+                                    },
+                                ],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Go to <0>Settings</0> > <1>Proof of identity</1> or <1>Proof of address</1>._t_',
+                                translation_components: [
+                                    {
+                                        key: 0,
+                                        type: 'link',
+                                        to: `${deriv_app_url}/account/personal-details`,
+                                    },
+                                    { key: 1, type: 'strong' },
+                                ],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Follow the instructions on the screen to verify your account._t_',
+                            },
+                        ],
+                    },
+                },
+                {
+                    translation_text:
+                        '_t_<0>Note:</0> The <0>Proof of identity</0> and <0>Proof of address</0> pages will not be available if your account doesn’t need verification at this time._t_',
+                    translation_components: [{ key: 0, type: 'strong' }],
+                    has_margin_top: true,
+                },
+            ],
         },
         {
             question: '_t_What documents do I need to verify my account?_t_',
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'documents-do-I-need-to-verify-my-account',
+            answer: [
+                {
+                    translation_text:
+                        '_t_You’ll need the following documents to verify your account:_t_',
+                    list: {
+                        list_style: 'disc',
+                        padding_left: '5rem',
+                        margin_top: '1.6rem',
+                        items: [
+                            {
+                                translation_text:
+                                    "_t_<0>Proof of identity</0><br />You’ll need a valid government-issued identity document such as a national ID card, passport, or driver's licence. Your document must clearly show your name, photo, and date of birth._t_",
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>Proof of address</0><br/>You’ll need a bank statement, credit card statement, tax statement, or utility bill. Your document must be issued within the last 6 months. It must contain your name, address, the name of the company that issued the document, and the issue date._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                        ],
+                    },
+                },
+            ],
         },
         {
             question: '_t_Why do I need to verify my account?_t_',

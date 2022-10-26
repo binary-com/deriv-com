@@ -1,6 +1,8 @@
 import { FunctionComponent } from 'react'
 import { TString } from 'types/generics'
 
+export type ListStyleType = 'disc' | 'decimal' | 'circle'
+
 export type TranslationComponentsType = {
     key: number
     type: 'link' | 'strong'
@@ -18,9 +20,13 @@ type AnswerPropsType = {
     list?: ListType
 }
 
+type SubItemsType = {
+    sub_items?: ListType
+}
+
 export type ListType = {
-    list_style: 'disc' | 'decimal'
-    items: LocalizeType[]
+    list_style: ListStyleType
+    items: Array<LocalizeType & SubItemsType>
     margin_top: string
     first_child_margin_top?: string
     padding_left?: string

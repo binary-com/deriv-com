@@ -104,6 +104,12 @@ exports.onCreatePage = ({ page, actions }) => {
             redirectInBrowser: true,
             isPermanent: true,
         })
+        createRedirect({
+            fromPath: `/careers/people-management`,
+            toPath: `/careers/human-resources`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
     }
 
     if (is_cfds) {

@@ -11,7 +11,7 @@ import {
 } from '../../static/style/_faq'
 import { Accordion, AccordionItem } from 'components/elements'
 import { slugify } from 'common/utility'
-import { Show } from 'components/containers'
+import { Desktop } from 'components/containers'
 import Vector from 'images/svg/be-square/vector.svg'
 
 const FAQ = () => {
@@ -31,9 +31,9 @@ const FAQ = () => {
     return (
         <Section>
             <div style={{ margin: '0 auto' }}>
-                <Show.Desktop max_width={'tabletL'}>
+                <Desktop breakpoint={'tabletL'}>
                     <ImageWrapper src={Vector} alt="Dotted image" />
-                </Show.Desktop>
+                </Desktop>
                 <ContentContainer>
                     <Title as="h2">FAQs</Title>
                 </ContentContainer>
@@ -46,7 +46,7 @@ const FAQ = () => {
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
-                                test_id={slugify(topic.title)}
+                                classname_for_tests={slugify(topic.title)}
                                 plus
                             >
                                 <TextContainer>

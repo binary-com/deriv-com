@@ -125,7 +125,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 header_style={header_style}
                 style={item_style}
                 parent_style={parent_style}
-                test_id="disclosure-report"
+                classname_for_tests="disclosure-report"
             >
                 <Text>
                     {localize(
@@ -150,7 +150,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 header_style={header_style}
                 style={item_style}
                 parent_style={parent_style}
-                test_id="key-information"
+                classname_for_tests="key-information"
             >
                 <Text>
                     {localize(
@@ -185,7 +185,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 header_style={header_style}
                 style={item_style}
                 parent_style={parent_style}
-                test_id="rts"
+                classname_for_tests="rts"
             >
                 <Flex>
                     <RTS27_28 />

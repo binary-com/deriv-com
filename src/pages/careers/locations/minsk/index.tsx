@@ -44,7 +44,7 @@ const query = graphql`
                 )
             }
         }
-        minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_4.jpg" }) {
+        minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_4.png" }) {
             childImageSharp {
                 gatsbyImageData(
                     formats: [AUTO, WEBP]
@@ -55,6 +55,11 @@ const query = graphql`
             }
         }
         minsk_map: file(relativePath: { eq: "maps/map-minsk-career.png" }) {
+            ...fadeIn
+        }
+        minsk_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/minsk_great_place_to_work_badge.png" }
+        ) {
             ...fadeIn
         }
     }

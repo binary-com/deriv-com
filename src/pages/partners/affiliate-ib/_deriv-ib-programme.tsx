@@ -22,7 +22,7 @@ type TypeForType = {
     title: React.ReactElement
     headerHeight: string
     assets: AssetsType
-    test_id: string
+    classname_for_tests: string
 }[]
 
 type NoteType = {
@@ -107,29 +107,21 @@ const LinkButtonContactUs = styled(LinkButton)`
 `
 
 const StyledHeaderCommission = styled(StyledHeader)`
-    margin-bottom: 0;
-    @media ${device.desktopL} {
-        margin-left: 0;
-        text-align: left;
-    }
-
-    @media (max-width: 1444px) {
-        margin-left: auto;
-        text-align: left;
-        padding-left: 0.35rem;
-    }
     @media ${device.laptopM} {
         text-align: center;
-        padding-left: unset;
     }
-    @media ${device.mobileL} {
-        width: 40rem;
-    }
-
     @media ${device.mobileM} {
-        text-align: left;
-        margin: auto;
+        text-align: center;
         width: 38rem;
+    }
+    @media (min-width: 1200px) and (max-width: 1680px) {
+        padding-left: 12vw;
+    }
+    @media (min-width: 1680px) and (max-width: 2560px) {
+        padding-left: 11vw;
+    }
+    @media (min-width: 2560px) {
+        padding-left: 10vw;
     }
 `
 
@@ -168,6 +160,9 @@ const DerivIBProgramme = () => {
                     <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         {localize('Earn commission from your clients’ trades on Deriv MT5.')}
                     </SubtitleHeader>
+                    <Header as="h2" mb="2rem" type="page-title" mt="4rem" align="center">
+                        {localize('Deriv MT5')}
+                    </Header>
                 </TitleWrapper>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">
                     <StyledHeaderCommission as="h4" type="main-paragraph" mb="1.6rem">
@@ -176,7 +171,6 @@ const DerivIBProgramme = () => {
                     <StyledCardWrapper>
                         <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
                         <DERIVIBDMT5Cards data={ib_dmt5_financial} />
-                        <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
                     </StyledCardWrapper>
                     <DecideSection align="center">
                         <StyledHeader
@@ -207,9 +201,9 @@ const DerivIBProgramme = () => {
 }
 
 const ib_dmt5_synthetic: DMT5Type = {
-    name: <Localize translate_text="Deriv MT5 Synthetics" />,
+    name: <Localize translate_text="Deriv MT5 Derived" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on an MT5 Synthetics account." />
+        <Localize translate_text="Earn when your clients trade on an MT5 Derived account." />
     ),
     type: [
         {
@@ -239,7 +233,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            test_id: 'crash-boom',
+            classname_for_tests: 'crash-boom',
         },
         {
             title: <Localize translate_text="Volatility indices" />,
@@ -280,7 +274,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            test_id: 'volatility-indices',
+            classname_for_tests: 'volatility-indices',
         },
         {
             title: <Localize translate_text="Step index" />,
@@ -295,7 +289,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     list: [<Localize key={1} translate_text="0.10" />],
                 },
             ],
-            test_id: 'step-index',
+            classname_for_tests: 'step-index',
         },
         {
             title: <Localize translate_text="Jump indices" />,
@@ -322,7 +316,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            test_id: 'jump-index',
+            classname_for_tests: 'jump-index',
         },
     ],
     countDetails: [
@@ -376,7 +370,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
-            test_id: 'forex-and-metals',
+            classname_for_tests: 'forex-and-metals',
         },
         {
             title: <Localize translate_text="Stock indices" />,
@@ -397,7 +391,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
-            test_id: 'stock-indices',
+            classname_for_tests: 'stock-indices',
         },
         {
             title: <Localize translate_text="Cryptocurrencies" />,
@@ -412,7 +406,7 @@ const ib_dmt5_financial: DMT5Type = {
                     list: [<Localize key={1} translate_text="10" />],
                 },
             ],
-            test_id: 'cryptocurrencies-financial',
+            classname_for_tests: 'cryptocurrencies-financial',
         },
     ],
     countDetails: [
@@ -446,84 +440,6 @@ const ib_dmt5_financial: DMT5Type = {
                     title: <Localize translate_text="Please note:" />,
                     desc: {
                         firstText: (
-                            <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
-                        ),
-                    },
-                },
-            ],
-        },
-    ],
-}
-
-const ib_dmt5_financialSTP: DMT5Type = {
-    name: <Localize translate_text="Deriv MT5 Financial STP" />,
-    description: (
-        <Localize translate_text="Earn when your clients trade on an MT5 Financial STP account." />
-    ),
-    type: [
-        {
-            title: <Localize translate_text="Forex" />,
-            headerHeight: '8.0rem',
-            assets: [
-                {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [<Localize key={1} translate_text="Forex" />],
-                },
-                {
-                    title: (
-                        <Localize
-                            key={0}
-                            translate_text="Commission per lot (1 standard lot is 100k units)"
-                        />
-                    ),
-                    list: [<Localize key={1} translate_text="2.5" />],
-                },
-            ],
-            test_id: 'forex',
-        },
-        {
-            title: <Localize translate_text="Cryptocurrencies" />,
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [<Localize key={1} translate_text="Cryptocurrencies" />],
-                },
-                {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
-                    list: [<Localize key={1} translate_text="10" />],
-                },
-            ],
-            test_id: 'cryptocurrencies-stp',
-        },
-    ],
-    countDetails: [
-        {
-            title: <Localize translate_text="How it’s calculated" />,
-            list: [
-                {
-                    details: (
-                        <Localize translate_text="For forex, a deal for 1 lot of EUR/USD will pay out EUR 2.5 in commission based on the following formula:" />
-                    ),
-                    icon: 'dmt5_financial_stp_calculator_one',
-                    iconAlt: <Localize translate_text="DMT5 Financial STP calculated first" />,
-                },
-                {
-                    details: (
-                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:" />
-                    ),
-                    icon: 'dmt5_financial_stp_calculator_two',
-                    iconAlt: <Localize translate_text="DMT5 Financial STP calculated second" />,
-                },
-            ],
-            notes: [
-                {
-                    title: <Localize translate_text="Please note:" />,
-                    desc: {
-                        firstText: (
-                            <Localize translate_text="For forex, your commission is represented in the base currency (EUR in the above example)." />
-                        ),
-                        secondText: (
                             <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
                         ),
                     },

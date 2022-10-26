@@ -238,7 +238,7 @@ const StartTrader = () => {
     const isReal = tab === 'Real'
 
     const text_1 = is_uk_eu ? (
-        <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
+        <Localize translate_text="Add a CFDs demo account." />
     ) : (
         <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
     )
@@ -379,11 +379,11 @@ const StartTrader = () => {
                                 }
                                 item_width="24rem"
                                 mobile_item_width="36rem"
-                                test_id="sign-in"
+                                classname_for_tests="sign-in"
                             >
                                 <ImageWrapper>{demo_step1_image}</ImageWrapper>
                             </SideTab.Panel>
-                            <SideTab.Panel description={text_1} test_id="add-account">
+                            <SideTab.Panel description={text_1} classname_for_tests="add-account">
                                 <ImageWrapper>{demo_step2_image}</ImageWrapper>
                             </SideTab.Panel>
                             <SideTab.Panel
@@ -391,7 +391,7 @@ const StartTrader = () => {
                                     <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
                                 }
                                 item_width="36rem"
-                                test_id="practise-trading"
+                                classname_for_tests="practise-trading"
                             >
                                 <ImageWrapper>{demo_step3_image}</ImageWrapper>
                             </SideTab.Panel>

@@ -18,7 +18,7 @@ interface StartDerivXProps {
 }
 
 type RealOrDemoShowType = {
-    test_id: string
+    classname_for_tests: string
     description: ReactElement
     image_data: string
     image_alt: string
@@ -76,7 +76,7 @@ const query = graphql`
 
 const demo: RealOrDemoShowType[] = [
     {
-        test_id: 'sign-in',
+        classname_for_tests: 'sign-in',
         description: (
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
         ),
@@ -84,13 +84,13 @@ const demo: RealOrDemoShowType[] = [
         image_alt: localize('Deriv X demo account signup page'),
     },
     {
-        test_id: 'add-account',
+        classname_for_tests: 'add-account',
         description: <Localize translate_text="Add a Deriv X demo account." />,
         image_data: 'demo_step2',
         image_alt: localize('Deriv X dashboard showing demo account comparison'),
     },
     {
-        test_id: 'start-trading',
+        classname_for_tests: 'start-trading',
         description: (
             <Localize translate_text="Start trading on the mobile app or through your web browser." />
         ),
@@ -101,7 +101,7 @@ const demo: RealOrDemoShowType[] = [
 
 const real: RealOrDemoShowType[] = [
     {
-        test_id: 'sign-in',
+        classname_for_tests: 'sign-in',
         description: (
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
         ),
@@ -109,19 +109,19 @@ const real: RealOrDemoShowType[] = [
         image_alt: 'real_step1',
     },
     {
-        test_id: 'add-account',
+        classname_for_tests: 'add-account',
         description: <Localize translate_text="Add a Deriv real account." />,
         image_data: 'real_step2',
         image_alt: 'real_step2',
     },
     {
-        test_id: 'add-derivx-account',
+        classname_for_tests: 'add-derivx-account',
         description: <Localize translate_text="Add a Deriv X real account." />,
         image_data: 'real_step3',
         image_alt: 'real_step3',
     },
     {
-        test_id: 'start-trading',
+        classname_for_tests: 'start-trading',
         description: (
             <Localize translate_text="Start trading on the mobile app or through your web browser." />
         ),
@@ -292,11 +292,11 @@ const StartDerivX = () => {
                     {(tab === 'demo' ? demo : real).map((currentTab) => {
                         return (
                             <SideTab.Panel
-                                key={currentTab.test_id}
+                                key={currentTab.classname_for_tests}
                                 label=""
                                 description={currentTab.description}
                                 mobile_item_width="35rem"
-                                test_id={currentTab.test_id}
+                                classname_for_tests={currentTab.classname_for_tests}
                             >
                                 <ImageWrapper>
                                     <QueryImage

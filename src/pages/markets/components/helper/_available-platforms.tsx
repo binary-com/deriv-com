@@ -50,10 +50,12 @@ const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: 16px;
         text-align: center;
+        margin-bottom: 12px;
     }
     @media ${device.mobileL} {
         margin-right: 0;
         font-size: 14px;
+        margin-bottom: 12px;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -83,7 +85,7 @@ const AvailablePlatforms = ({
             fd={flex_direction}
             mobileL={{ mt: '16px' }}
             mt={m_top ? m_top : '2.4rem'}
-            tablet_direction={tablet_direction}
+            tablet_direction="column"
             ai="center"
         >
             <StyledText tablet_direction={tablet_direction}>{localize('Available on')}</StyledText>

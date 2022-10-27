@@ -4,6 +4,7 @@ import PlatformCarousel from 'pages/home/platform-carousel/_platform-carousel'
 import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import PlatformsCarousel from 'features/home/carousels/platforms'
 
 const OurPlatforms = () => {
     const { is_row } = useCountryRule()
@@ -40,6 +41,7 @@ const OurPlatforms = () => {
                     </Header>
                 </Flex>
                 <PlatformCarousel />
+                <PlatformsCarousel />
             </Flex>
             <div></div>
         </SectionContainer>

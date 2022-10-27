@@ -18,6 +18,8 @@ const Wrapper = styled.div<{ mode: TCarouselMode }>`
     -webkit-tap-highlight-color: transparent;
     height: 100%;
     width: 100%;
+    will-change: auto;
+    transform: translateZ(0);
 `
 
 const Slides = ({ children }: React.HTMLAttributes<HTMLDivElement>) => {

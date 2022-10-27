@@ -12,7 +12,6 @@ import useVisibleContent from 'components/hooks/use-visible-content'
 import device from 'themes/device'
 import { Mobile } from 'components/containers/visibility'
 import { useWindowSize } from 'components/hooks/use-window-size'
-import useDynamicVisibleContent from 'components/hooks/use-dynamic-visible-content'
 
 const StyledCarousel = styled(Carousel)`
     max-width: 100%;

@@ -1,12 +1,16 @@
 import styled, { css } from 'styled-components'
 import React from 'react'
 import useCarousel from './use-carousel'
-import { TCarouselMode, TNavPlacement } from './carousel.types'
+import { TCarouselMode, TNavPlacement, TOffset } from './carousel.types'
 
 type TNavigationWrapperProps = {
     placement: TNavPlacement
     mode: TCarouselMode
-    offset: number
+    offset: TOffset
+}
+
+const getOffsetValue = (offset: TOffset) => {
+    return typeof offset === 'number' ? `${offset}px` : offset
 }
 
 const NavigationWrapper = styled.div<TNavigationWrapperProps>`
@@ -18,33 +22,33 @@ const NavigationWrapper = styled.div<TNavigationWrapperProps>`
     ${({ placement, mode }) => {
         if (mode === 'vertical') {
             if (placement === 'start') {
-                return css<{ offset: number }>`
+                return css<{ offset: TOffset }>`
                     height: 100%;
-                    left: ${({ offset }) => `-${offset}px`};
+                    left: ${({ offset }) => getOffsetValue(offset)};
                     top: 0;
                     width: 8px;
                     flex-direction: column;
                 `
             }
-            return css<{ offset: number }>`
+            return css<{ offset: TOffset }>`
                 height: 100%;
-                right: ${({ offset }) => `-${offset}px`};
+                right: ${({ offset }) => getOffsetValue(offset)};
                 top: 0;
                 width: 8px;
                 flex-direction: column;
             `
         } else {
             if (placement === 'start') {
-                return css<{ offset: number }>`
+                return css<{ offset: TOffset }>`
                     width: 100%;
-                    top: ${({ offset }) => `-${offset}px`};
+                    top: ${({ offset }) => getOffsetValue(offset)};
                     height: 8px;
                     flex-direction: row;
                 `
             }
-            return css<{ offset: number }>`
+            return css<{ offset: TOffset }>`
                 width: 100%;
-                bottom: ${({ offset }) => `-${offset}px`};
+                bottom: ${({ offset }) => getOffsetValue(offset)};
                 height: 8px;
                 flex-direction: row;
             `

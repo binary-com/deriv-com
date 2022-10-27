@@ -17,12 +17,14 @@ import { Flex } from 'components/containers'
 
 type DropdownStyledProps = {
     open?: boolean
+    is_calculator?: boolean
     active?: boolean | React.SetStateAction<OptionOrSelectedType>
 } & Pick<DropdownProps, 'has_short_name'>
 
 type DropdownSelectedProps = {
     role?: string
     id?: string
+    is_calculator?: boolean
     tabIndex?: number
     onClick?: ToggleListVisibilityType
     onKeyDown?: ToggleListVisibilityType
@@ -31,6 +33,7 @@ type DropdownSelectedProps = {
 type ListItemProps = {
     is_selected?: boolean
     tabIndex?: number
+    is_calculator?: boolean
     id?: string
     key?: number
     ref?: ((instance: HTMLLIElement) => void) & ((c: number) => void)
@@ -46,7 +49,7 @@ type ArrowType = {
 }
 type DropdownContainerProps = {
     mb?: string
-} & Pick<DropdownProps, 'has_short_name' | 'active' | 'error'>
+} & Pick<DropdownProps, 'is_calculator' | 'has_short_name' | 'active' | 'error'>
 
 const Symbol = styled(Flex)`
     width: fit-content;
@@ -179,7 +182,7 @@ const ListItem = styled.li<ListItemProps>`
     text-overflow: ellipsis;
     font-size: var(--text-size-xs);
     background-color: ${(props) =>
-        props.is_selected ? 'var(--color-grey-6)' : 'var(--color-white)'};
+        !props.is_calculator && props.is_selected ? 'var(--color-grey-6)' : 'var(--color-white)'};
 
     &:hover {
         background-color: var(--color-grey-6);
@@ -202,7 +205,10 @@ const ListItem = styled.li<ListItemProps>`
         font-size: var(--text-size-xs);
         line-height: 1.14;
         margin-top: 8px;
-        color: ${(props) => (props.is_selected ? 'var(--color-red-1)' : 'var(--color-black-3)')};
+        color: ${(props) =>
+            !props.is_calculator && props.is_selected
+                ? 'var(--color-red-1)'
+                : 'var(--color-black-3)'};
 
         @media ${device.mobileL} {
             font-size: 14px;
@@ -305,6 +311,7 @@ const DefaultOptionText = styled(Text)`
 
 type ItemListProps = {
     is_open?: boolean
+    is_calculator?: boolean
     nodes?: NodesType
     handleChange?: (option: HandleChangeType, error: FormikErrorsType) => void
 } & Pick<DropdownProps, 'option_list' | 'error' | 'selected_option'>
@@ -315,6 +322,7 @@ export const ItemList = ({
     is_open,
     nodes,
     option_list,
+    is_calculator,
     selected_option,
 }: ItemListProps) => {
     return (
@@ -336,6 +344,7 @@ export const ItemList = ({
                                         }
                                     }}
                                     is_selected={option?.name === selected_option?.name}
+                                    is_calculator={is_calculator}
                                 >
                                     <Symbol>
                                         {option?.icon}
@@ -389,6 +398,7 @@ export type DropdownProps = {
     }
     autoComplete?: string
     has_short_name?: boolean
+    is_calculator?: boolean
     items?: ItemsType[]
     label?: string
     error?: FormikErrorsType
@@ -404,6 +414,7 @@ const Dropdown = ({
     onChange,
     option_list,
     has_short_name,
+    is_calculator,
     label,
     error,
     selected_option,
@@ -418,6 +429,7 @@ const Dropdown = ({
                 active={is_open}
                 ref={dropdown_ref}
                 has_short_name={has_short_name}
+                is_calculator={is_calculator}
                 error={error}
                 {...props}
             >
@@ -444,6 +456,7 @@ const Dropdown = ({
                     handleChange={handleChange}
                     is_open={is_open}
                     nodes={nodes}
+                    is_calculator={is_calculator}
                     option_list={option_list}
                     selected_option={selected_option}
                 />

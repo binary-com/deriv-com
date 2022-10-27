@@ -254,6 +254,7 @@ const PipCalculator = () => {
                                         <CalculatorDropdown
                                             option_list={values.optionList}
                                             label={localize('Symbol')}
+                                            is_calculator={true}
                                             default_option={optionItemDefault}
                                             selected_option={values.symbol}
                                             id="symbol"

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Flex, SectionContainer } from 'components/containers'
-import PlatformCarousel from 'pages/home/platform-carousel/_platform-carousel'
 import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -40,7 +39,6 @@ const OurPlatforms = () => {
                         />
                     </Header>
                 </Flex>
-                <PlatformCarousel />
                 <PlatformsCarousel />
             </Flex>
             <div></div>

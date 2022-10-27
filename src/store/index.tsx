@@ -3,7 +3,7 @@ import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
-import { domains } from 'common/constants'
+import { new_domains } from 'common/constants'
 
 type DerivProviderProps = {
     children?: ReactNode
@@ -70,7 +70,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     useEffect(() => {
         const branding = () => {
             const host_name = location.hostname
-            return domains.some((item) => item === host_name)
+            return new_domains.some((item) => item === host_name)
         }
         setHideBranding(branding)
     }, [hide_branding])

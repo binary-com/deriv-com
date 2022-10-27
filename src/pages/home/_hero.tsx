@@ -2,9 +2,8 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
-import { contents, contents_ppc, header_items } from './_data'
+import { header_items } from './_data'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
@@ -13,6 +12,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
+import HeroContentCarousel from 'features/home/carousels/hero_content'
 
 const query = graphql`
     query {
@@ -139,9 +139,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                     </>
                                 )}
                             </Header>
-                            <VerticalCarousel
-                                contents={is_ppc && is_uk ? contents_ppc : contents}
-                            />
+                            <HeroContentCarousel />
                             <Box tabletL={{ mt: '-8px' }}>
                                 <HeroButton
                                     disabled={is_loading}

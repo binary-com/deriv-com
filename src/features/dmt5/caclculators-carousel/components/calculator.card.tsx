@@ -36,6 +36,7 @@ const SubHeader = styled(Header)`
 `
 
 const CardText = styled(Header)`
+    width: unset;
     margin: 0.8rem 4rem 2.4rem;
 
     @media ${device.tabletL} {

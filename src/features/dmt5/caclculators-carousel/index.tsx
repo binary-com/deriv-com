@@ -27,7 +27,7 @@ const CalculatorsCarousel = () => {
             embla={embla}
             config={{
                 nav_offset: 25,
-                controls_offset: -5,
+                controls_offset: 25,
             }}
         >
             <Carousel.Container>
@@ -41,8 +41,8 @@ const CalculatorsCarousel = () => {
                             )
                         })}
                     </Carousel.Slides>
-                    <Carousel.Controls />
                 </Carousel.ViewPort>
+                <Carousel.Controls />
                 <Carousel.Nav />
             </Carousel.Container>
         </StyledCarousel>

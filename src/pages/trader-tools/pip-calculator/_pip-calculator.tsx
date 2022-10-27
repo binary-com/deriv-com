@@ -119,14 +119,10 @@ const PipCalculator = () => {
             return
         }
 
+        const markets = ['forex', 'cryptocurrency', 'basket_index', 'commodities', 'indices']
+
         const data = activeSymbols.filter((activeSymbol) => {
-            return (
-                activeSymbol.market === 'forex' ||
-                activeSymbol.market === 'basket_index' ||
-                activeSymbol.market === 'cryptocurrency' ||
-                activeSymbol.market === 'commodities' ||
-                activeSymbol.market === 'indices'
-            )
+            return markets.includes(activeSymbol.market)
         })
 
         tempFinancialSymbolNames.push(data)

@@ -118,23 +118,17 @@ const PipCalculator = () => {
         if (activeSymbols.length < 1) {
             return
         }
+
         const data = activeSymbols.filter((activeSymbol) => {
-            return activeSymbol.market === 'forex'
-        })
-        const basket_data = activeSymbols.filter((activeSymbol) => {
-            return activeSymbol.market === 'basket_index'
-        })
-        const crypto_data = activeSymbols.filter((activeSymbol) => {
-            return activeSymbol.market === 'cryptocurrency'
-        })
-        const commodities_data = activeSymbols.filter((activeSymbol) => {
-            return activeSymbol.market === 'commodities'
-        })
-        const indices_data = activeSymbols.filter((activeSymbol) => {
-            return activeSymbol.market === 'indices'
+            return (
+                activeSymbol.market === 'forex' ||
+                activeSymbol.market === 'basket_index' ||
+                activeSymbol.market === 'cryptocurrency' ||
+                activeSymbol.market === 'commodities' ||
+                activeSymbol.market === 'indices'
+            )
         })
 
-        data.push(...basket_data, ...crypto_data, ...commodities_data, ...indices_data)
         tempFinancialSymbolNames.push(data)
         setFinancialSymbolNames(tempFinancialSymbolNames)
     }, [activeSymbols])

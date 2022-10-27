@@ -12,6 +12,7 @@ import { LocationContext } from 'components/layout/location-context'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { besquare_signup_url, zoho_career_url } from 'common/constants'
+import { DerivStore } from 'store'
 
 type NavCareersProps = {
     is_besquare?: boolean
@@ -129,6 +130,7 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
     const { has_mounted } = React.useContext(LocationContext)
     const current_page = useActiveLinkState('careers')
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
+    const { hide_branding } = React.useContext(DerivStore)
 
     return (
         <NavTemplate>
@@ -146,16 +148,18 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                         )}
                     </Mobile>
 
-                    <LogoSection>
-                        <StyledLogoLink to="/" aria-label="Home">
-                            <QueryImage
-                                data={data['deriv']}
-                                alt="Deriv"
-                                height="auto"
-                                loading="eager"
-                            />
-                        </StyledLogoLink>
-                    </LogoSection>
+                    {hide_branding && (
+                        <LogoSection>
+                            <StyledLogoLink to="/" aria-label="Home">
+                                <QueryImage
+                                    data={data['deriv']}
+                                    alt="Deriv"
+                                    height="auto"
+                                    loading="eager"
+                                />
+                            </StyledLogoLink>
+                        </LogoSection>
+                    )}
                     <Desktop>
                         <HeaderSection>
                             {links.map(({ to, active, aria_label, title }) => (

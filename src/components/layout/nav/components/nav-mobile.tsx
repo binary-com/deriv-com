@@ -19,6 +19,7 @@ import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { DerivStore } from 'store'
 
 type NavMobileProps = {
     is_ppc?: boolean
@@ -56,6 +57,7 @@ const NavMobile = ({
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
     const handleLogin = useHandleLogin()
     const { is_loading } = useCountryRule()
+    const { hide_branding } = React.useContext(DerivStore)
 
     return (
         <MobileWrapper>
@@ -70,13 +72,15 @@ const NavMobile = ({
                     />
                 )}
 
-                <LogoWrapper to="/" aria-label="Home">
-                    <img src={LogoOnly} alt="deriv logo" width={115} />
-                    <LogoDescription ai="center">
-                        <Line />
-                        <img src={GetTrading} alt="get trading" />
-                    </LogoDescription>
-                </LogoWrapper>
+                {hide_branding && (
+                    <LogoWrapper to="/" aria-label="Home">
+                        <img src={LogoOnly} alt="deriv logo" width={115} />
+                        <LogoDescription ai="center">
+                            <Line />
+                            <img src={GetTrading} alt="get trading" />
+                        </LogoDescription>
+                    </LogoWrapper>
+                )}
 
                 <LeftSection>
                     {!hide_language_switcher && <LanguageSwitcher has_short_name is_high_nav />}

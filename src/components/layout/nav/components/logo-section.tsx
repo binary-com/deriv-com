@@ -5,6 +5,7 @@ import { LocalizedLink } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 type LogoSectionProps = {
     is_ppc_redirect?: boolean
@@ -53,19 +54,22 @@ const query = graphql`
 const LogoSection = ({ is_ppc_redirect, base, hide_get_trading }: LogoSectionProps) => {
     const data = useStaticQuery(query)
     const to = is_ppc_redirect ? '/landing' : base || '/'
+    const { hide_branding } = React.useContext(DerivStore)
 
     return (
         <Wrapper>
-            <LogoLink to={to} aria-label="Home">
-                <QueryImage
-                    data={data['deriv']}
-                    alt="deriv logo"
-                    max_width="16.4rem"
-                    width="100%"
-                    height="auto"
-                />
-            </LogoLink>
-            {!hide_get_trading && (
+            {hide_branding && (
+                <LogoLink to={to} aria-label="Home">
+                    <QueryImage
+                        data={data['deriv']}
+                        alt="deriv logo"
+                        max_width="16.4rem"
+                        width="100%"
+                        height="auto"
+                    />
+                </LogoLink>
+            )}
+            {!hide_get_trading && hide_branding && (
                 <>
                     <Line />
                     <img src={GetTrading} alt="get trading" />

@@ -17,6 +17,7 @@ import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { DerivStore } from 'store'
 
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean
@@ -133,6 +134,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const [show_button, showButton, hideButton] = useMoveButton()
     const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
+    const { hide_branding } = React.useContext(DerivStore)
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -150,9 +152,11 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
         <DesktopWrapper>
             <StyledWrapper hide_login_signup={hide_login_signup}>
                 <LeftSide>
-                    <StyledLogoLink to="/partners/" aria-label="Partners">
-                        <img src={LogoPartner} alt="deriv logo" />
-                    </StyledLogoLink>
+                    {hide_branding && (
+                        <StyledLogoLink to="/partners/" aria-label="Partners">
+                            <img src={LogoPartner} alt="deriv logo" />
+                        </StyledLogoLink>
+                    )}
                 </LeftSide>
 
                 <NavigationBar>

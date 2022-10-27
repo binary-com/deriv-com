@@ -10,6 +10,7 @@ import { affiliate_signin_url } from 'common/constants'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
+import { DerivStore } from 'store'
 
 type NavPartnerMobileProps = {
     hide_login_signup: boolean
@@ -41,6 +42,7 @@ const LoginLink = styled(LinkButton)`
 
 const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
+    const { hide_branding } = React.useContext(DerivStore)
 
     return (
         <Mobile>
@@ -55,10 +57,11 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
                     />
                 )}
 
-                <LogoLink to="/partners/" aria-label="Home">
-                    <Logo src={LogoOnly} alt="deriv logo" />
-                </LogoLink>
-
+                {hide_branding && (
+                    <LogoLink to="/partners/" aria-label="Home">
+                        <Logo src={LogoOnly} alt="deriv logo" />
+                    </LogoLink>
+                )}
                 <Flex ml="auto" ai="center" width="auto">
                     <LanguageSwitcher has_short_name is_high_nav />
                 </Flex>

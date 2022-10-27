@@ -1,4 +1,4 @@
-import { TMarketSmartContent } from './_type'
+import { TMarketSmartContent } from './types'
 
 export const market_data: TMarketSmartContent[] = [
     {

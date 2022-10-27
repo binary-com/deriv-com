@@ -46,7 +46,7 @@ const CarouselItemDetail = ({
     learn_more_link,
     is_from_slider,
 }: PlatformDetailsProps) => {
-    const is_mobile = useMediaQuery(device.tabletL)
+    const is_smaller_than_Ltablet = useMediaQuery(device.tabletL)
     const {
         config: { mode },
     } = useCarousel()
@@ -59,7 +59,10 @@ const CarouselItemDetail = ({
         <Container>
             <ImageTag width="40px" height="40px" src={icon} alt="platform" />
             <Flex fd="column" ai="flex-start" jc="center" width="unset" height="unset">
-                <Header type={is_mobile ? 'subtitle-2' : 'subtitle-1'} tablet={{ mb: '8px' }}>
+                <Header
+                    type={is_smaller_than_Ltablet ? 'subtitle-2' : 'subtitle-1'}
+                    tablet={{ mb: '8px' }}
+                >
                     <Localize translate_text={title} />
                 </Header>
                 {is_detail_visible && (

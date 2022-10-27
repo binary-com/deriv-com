@@ -50,24 +50,24 @@ const Container = styled.div`
 
 const PlatformsCarousel = () => {
     const rules = useCountryRule()
-    const is_mobile = useMediaQuery(device.tabletL)
+    const is_smaller_than_Ltablet = useMediaQuery(device.tabletL)
 
     const auto_play = useMemo(() => {
         return Autoplay({
             delay: 3000,
-            playOnInit: is_mobile ? true : !rules.is_eu,
+            playOnInit: is_smaller_than_Ltablet ? true : !rules.is_eu,
         })
-    }, [is_mobile, rules.is_eu])
+    }, [is_smaller_than_Ltablet, rules.is_eu])
 
     const { embla, emblaRef, mode } = useInitCarousel({
         options: {
             startIndex: 0,
             loop: false,
-            align: is_mobile ? 'center' : 0.3,
-            draggable: is_mobile ? true : false,
+            align: is_smaller_than_Ltablet ? 'center' : 0.3,
+            draggable: is_smaller_than_Ltablet ? true : false,
         },
         plugins: [auto_play],
-        mode: is_mobile ? 'horizontal' : 'vertical',
+        mode: is_smaller_than_Ltablet ? 'horizontal' : 'vertical',
     })
 
     const visible_data = useVisibleContent<TPlatformSmartContent>({

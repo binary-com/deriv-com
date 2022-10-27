@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TMarketModel, TUseStaticMarketImagesQuery } from './_type'
+import { TMarketModel, TUseStaticMarketImagesQuery } from './types'
 import { Header, QueryImage, Text } from 'components/elements'
 import { LocalizedLink, Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'

@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import MarketsFoldCarousel from './_markets-carousel/_markets_fold.carousel'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
+import MarketsFoldCarousel from 'features/home/carousels/markets_folds'
 
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;

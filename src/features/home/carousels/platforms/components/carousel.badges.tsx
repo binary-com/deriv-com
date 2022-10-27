@@ -24,11 +24,11 @@ type TPlatformCarouselBadgesProps = {
 }
 
 const PlatformCarouselBadges = ({ badges }: TPlatformCarouselBadgesProps) => {
-    const is_mobile = useMediaQuery(device.tabletL)
+    const is_smaller_than_Ltablet = useMediaQuery(device.tabletL)
 
     const download_link_badges = useMemo(() => {
-        return typeof badges === 'function' ? badges(is_mobile) : badges
-    }, [is_mobile, badges])
+        return typeof badges === 'function' ? badges(is_smaller_than_Ltablet) : badges
+    }, [is_smaller_than_Ltablet, badges])
 
     return (
         <Flex

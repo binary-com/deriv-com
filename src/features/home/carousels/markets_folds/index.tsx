@@ -2,16 +2,16 @@ import Autoplay from 'embla-carousel-autoplay'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { market_data } from './_data'
-import { TMarketSmartContent, TUseStaticMarketImagesQuery } from './_type'
-import MarketFoldCarouselItem from './_markets_carousel.item'
+import { market_data } from './data'
+import { TMarketSmartContent, TUseStaticMarketImagesQuery } from './types'
+import MarketFoldCarouselItem from './markets_carousel.item'
 import Carousel from 'components/elements/michosel'
 import useInitCarousel from 'components/elements/michosel/use-init-carousel'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import device from 'themes/device'
 import { Mobile } from 'components/containers/visibility'
-import { useWindowSize } from 'components/hooks/use-window-size'
+import useMediaQuery from 'components/hooks/use-media-query'
 
 const StyledCarousel = styled(Carousel)`
     max-width: 100%;
@@ -72,8 +72,8 @@ const MarketsFoldCarousel = () => {
         })
     }, [])
 
-    const size = useWindowSize()
-    const is_mobile = size.width < 768
+    const is_smaller_than_tablet = useMediaQuery(device.tablet)
+
     const rules = useCountryRule()
 
     const visible_data = useVisibleContent<TMarketSmartContent>({
@@ -86,7 +86,7 @@ const MarketsFoldCarousel = () => {
             loop: true,
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
-            align: is_mobile ? 0.04 : 'center',
+            align: is_smaller_than_tablet ? 0.04 : 'center',
         },
         plugins: [auto_play],
         mode: 'horizontal',

@@ -19,7 +19,7 @@ type AnswerCardType = TWrapper & {
     RenderProp?: FunctionComponent
 }
 
-const Wrapper = styled.div<TWrapper>`
+export const Wrapper = styled.div<TWrapper>`
     max-width: 71.2rem;
     margin-left: 12.6rem;
     margin-top: 1.6rem;

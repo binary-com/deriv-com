@@ -34,11 +34,16 @@ export type ListType = {
 
 export type AnswerType = Array<AnswerPropsType & LocalizeType>
 
-export type ArticlesType = Record<'question' | 'sub_category', TString> &
-    Record<'category' | 'label', string> & {
-        answer?: AnswerType
-        renderProp?: FunctionComponent
-    }
+export type ArticlesType = {
+    question: TString
+    sub_category: TString
+    category: string
+    label: string
+    answer?: AnswerType
+    renderProp?: FunctionComponent
+    hide_for_non_eu?: boolean
+    hide_for_eu?: boolean
+}
 
 export type ArticlesDataType = {
     section: string

@@ -1,37 +1,19 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled, { css } from 'styled-components'
 import Subscribe from './components/_subscribe'
 import RecentFeaturedPosts from './_recent-featured-posts'
 import VideoBanner from './_video-banner'
-import Hero from './components/_hero'
 import MarketNews from './components/_market-news'
 import { AcademyIndexFragment } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import { Carousel } from 'components/elements'
-import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import AcademyMainCarousel from 'features/academy/main_carousel'
 
 export const query = graphql`
     query {
         ...AcademyIndex
-    }
-`
-
-const MainWrapper = styled.div`
-    display: flex;
-    width: 90%;
-    background-color: var(--color-white);
-    flex-direction: column;
-    overflow: hidden;
-    max-width: 1200px;
-    padding-top: 40px;
-    margin: 0 auto;
-
-    @media ${device.desktopL} {
-        max-width: 1600px;
     }
 `
 
@@ -55,36 +37,6 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
     const meta_attributes = {
         og_title: 'Blogs, video tutorials, and more | Deriv Academy',
         og_description: 'Your one-stop online trading learning hub.',
-    }
-
-    const settings = {
-        options: {
-            loop: true,
-        },
-        container_style: {
-            maxWidth: '100%',
-            margin: '0 auto',
-            borderRadius: '8px',
-            overflow: 'hidden',
-        },
-        slide_style: {
-            minWidth: '100%',
-            position: 'relative',
-        },
-        navigation_style: {
-            nav_color: 'white',
-            height: '0',
-        },
-        navigation_css: css`
-            position: relative;
-            width: 100%;
-            bottom: 40px;
-            padding-left: 16px;
-            justify-content: left;
-            @media screen and (min-width: 785px) {
-                padding-left: 102px;
-            }
-        `,
     }
 
     let market_news_data = data.directus.market_news
@@ -137,26 +89,7 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
                 )}
                 meta_attributes={meta_attributes}
             />
-            <MainWrapper>
-                <Carousel has_autoplay autoplay_interval={6000} {...settings}>
-                    {homepage_banner_data.map((page_data) => {
-                        return (
-                            <Flex key={page_data.id}>
-                                <Hero
-                                    imageData={
-                                        page_data.image?.imageFile.childImageSharp.gatsbyImageData
-                                    }
-                                    imageAlt={page_data?.image?.description}
-                                    title={page_data.heading}
-                                    description={page_data.sub_heading}
-                                    href={page_data.link}
-                                    cta_text={page_data.button_text}
-                                />
-                            </Flex>
-                        )
-                    })}
-                </Carousel>
-            </MainWrapper>
+            <AcademyMainCarousel banner_data={homepage_banner_data} />
             <RecentFeaturedPosts recent_data={recent_data} featured_data={featured_data} />
             <VideoBanner
                 featured_video_list_data={featured_video_list_data}

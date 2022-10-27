@@ -14,6 +14,21 @@ import Carousel from 'components/elements/michosel'
 import useMediaQuery from 'components/hooks/use-media-query'
 import device from 'themes/device'
 
+const Container = styled.div`
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    @media ${device.tabletL} {
+        width: 100%;
+    }
+`
+
+const StyledCarouselContainer = styled(Carousel.Container)`
+    height: 100%;
+`
+
 const StyledCarousel = styled(Carousel)`
     height: 640px;
     margin: 0 auto;
@@ -30,21 +45,6 @@ const StyledSlide = styled(Carousel.Slide)`
     align-items: center;
     @media ${device.tabletL} {
         min-width: 100%;
-    }
-`
-
-const StyledCarouselContainer = styled(Carousel.Container)`
-    height: 100%;
-`
-
-const Container = styled.div`
-    display: flex;
-    width: 100%;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    @media ${device.tabletL} {
-        width: 100%;
     }
 `
 

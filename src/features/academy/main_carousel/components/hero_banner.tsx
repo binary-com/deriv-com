@@ -58,7 +58,7 @@ const Container = styled(Flex)`
         flex-direction: row;
     }
 `
-const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroProps) => {
+const HeroBanner = ({ cta_text, href, imageAlt, imageData, title, description }: HeroProps) => {
     const button_text = cta_text ? cta_text : 'Learn more'
 
     return (
@@ -88,4 +88,4 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroP
     )
 }
 
-export default Hero
+export default HeroBanner

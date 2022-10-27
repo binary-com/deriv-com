@@ -27,7 +27,7 @@ const CarouselNavContainer = styled(Carousel.NavigationContainer)`
     align-items: flex-start;
     justify-content: flex-start;
     left: 102px;
-    bottom: 20px;
+    bottom: 30px;
     width: unset;
     @media ${device.tablet} {
         left: 16px;

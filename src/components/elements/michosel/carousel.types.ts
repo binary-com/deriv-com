@@ -26,5 +26,5 @@ export type TCarouselConfig = {
     nav_placement?: TNavPlacement
     nav_color?: ColorPalette
     nav_offset?: TOffset
-    mode: TCarouselMode
+    mode?: TCarouselMode
 }

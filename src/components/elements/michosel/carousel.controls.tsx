@@ -1,17 +1,17 @@
-import React, { CSSProperties, ReactNode, useCallback, useEffect, useState } from 'react'
+import React, { ReactNode, useCallback, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { ChevronLeft, ChevronRight } from './carousel.styles'
-import { TCarouselButtonType, TCarouselControlPlacement, TCarouselMode } from './carousel.types'
+import { TCarouselButtonType, TCarouselMode, TOffset } from './carousel.types'
 import useCarousel from './use-carousel'
+import { getOffsetValue } from './utils'
+import { TColor } from 'themes/theme.types'
 
 const CarouselButton = styled.button<{
     button_type: TCarouselButtonType
-    placement: TCarouselControlPlacement
     mode: TCarouselMode
-    color?: CSSProperties['backgroundColor']
+    color?: TColor
+    offset: TOffset
 }>`
-    width: 24px;
-    height: 24px;
     outline: 0;
     cursor: pointer;
     background-color: transparent;
@@ -34,27 +34,26 @@ const CarouselButton = styled.button<{
                   `}
     }
 
-    ${({ button_type, placement, mode }) => {
-        const placement_offset = placement === 'inside' ? 25 : -50
+    ${({ button_type, mode }) => {
         if (mode === 'horizontal') {
             return button_type === 'next'
-                ? css`
+                ? css<{ offset: TOffset }>`
                       top: 50%;
-                      right: ${placement_offset}px;
+                      right: ${({ offset }) => getOffsetValue(offset)};
                   `
-                : css`
+                : css<{ offset: TOffset }>`
                       top: 50%;
-                      left: ${placement_offset}px;
+                      left: ${({ offset }) => getOffsetValue(offset)};
                   `
         } else {
             return button_type === 'next'
-                ? css`
-                      bottom: ${placement_offset}px;
+                ? css<{ offset: TOffset }>`
+                      bottom: ${({ offset }) => getOffsetValue(offset)};
                       left: 50%;
                       transform: rotate(90deg);
                   `
-                : css`
-                      top: ${placement_offset}px;
+                : css<{ offset: TOffset }>`
+                      top: ${({ offset }) => getOffsetValue(offset)};
                       left: 50%;
                       transform: rotate(90deg);
                   `
@@ -72,7 +71,7 @@ export type TControlsProps = {
 const Controls = ({ render_next_button, render_prev_button }: TControlsProps) => {
     const {
         embla,
-        config: { controls_placement, mode, controls_active_color },
+        config: { controls_placement, mode, controls_active_color, controls_offset },
     } = useCarousel()
 
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
@@ -98,21 +97,21 @@ const Controls = ({ render_next_button, render_prev_button }: TControlsProps) =>
     return (
         <>
             <CarouselButton
-                placement={controls_placement}
                 mode={mode}
                 button_type="previous"
                 disabled={!prevBtnEnabled}
                 color={controls_active_color}
+                offset={controls_offset}
                 onClick={scrollPrev}
             >
                 {render_prev_button?.({ enabled: prevBtnEnabled }) ?? <ChevronLeft />}
             </CarouselButton>
             <CarouselButton
                 mode={mode}
-                placement={controls_placement}
                 button_type="next"
                 disabled={!nextBtnEnabled}
                 color={controls_active_color}
+                offset={controls_offset}
                 onClick={scrollNext}
             >
                 {render_next_button?.({ enabled: nextBtnEnabled }) ?? <ChevronRight />}

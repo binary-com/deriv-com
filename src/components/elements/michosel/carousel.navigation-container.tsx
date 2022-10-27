@@ -2,15 +2,12 @@ import styled, { css } from 'styled-components'
 import React from 'react'
 import useCarousel from './use-carousel'
 import { TCarouselMode, TNavPlacement, TOffset } from './carousel.types'
+import { getOffsetValue } from './utils'
 
 type TNavigationWrapperProps = {
     placement: TNavPlacement
     mode: TCarouselMode
     offset: TOffset
-}
-
-const getOffsetValue = (offset: TOffset) => {
-    return typeof offset === 'number' ? `${offset}px` : offset
 }
 
 const NavigationWrapper = styled.div<TNavigationWrapperProps>`

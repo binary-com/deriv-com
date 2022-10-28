@@ -25,7 +25,10 @@ export const domains = [
     'deriv-com-git-fork',
 ] //deriv-com-git-fork for vercel server, localhost - for developer mode
 
-export const new_domains = [...domains, 'binary.sx']
+export const new_domains = [
+    ...domains,
+    `${location.hostname.split('.binary.sx')[0]}.${'binary.sx'}`,
+]
 
 const getDomainUrl = (): string =>
     isBrowser() && window.location.hostname in domain_url_pair

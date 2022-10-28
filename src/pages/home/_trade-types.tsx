@@ -10,7 +10,7 @@ import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type TradeTypesProps = {
-    classname_for_tests: string
+    classname: string
     image_url: string
     image_alt: ReactElement
     header: ReactElement
@@ -60,7 +60,7 @@ const query = graphql`
 
 const items_details_cr: TradeTypesProps[] = [
     {
-        classname_for_tests: 'cfds',
+        classname: 'cfds',
         image_url: 'trade_type_cfds',
         image_alt: <Localize translate_text="CFDs" />,
         header: <Localize translate_text="CFDs" />,
@@ -71,7 +71,7 @@ const items_details_cr: TradeTypesProps[] = [
         link_text: <Localize translate_text="More on CFDs" />,
     },
     {
-        classname_for_tests: 'multipliers',
+        classname: 'multipliers',
         image_url: 'trade_type_multipliers',
         image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
@@ -82,7 +82,7 @@ const items_details_cr: TradeTypesProps[] = [
         link_text: <Localize translate_text="More on multipliers" />,
     },
     {
-        classname_for_tests: 'options',
+        classname: 'options',
         image_url: 'trade_type_digitaloptions',
         image_alt: <Localize translate_text="Options" />,
         header: <Localize translate_text="Options" />,
@@ -94,7 +94,7 @@ const items_details_cr: TradeTypesProps[] = [
 
 const items_details_eu: TradeTypesProps[] = [
     {
-        classname_for_tests: 'cfds',
+        classname: 'cfds',
         image_url: 'trade_type_cfds_eu',
         image_alt: <Localize translate_text="CFDs" />,
         header: <Localize translate_text="CFDs" />,
@@ -105,7 +105,7 @@ const items_details_eu: TradeTypesProps[] = [
         link_text: <Localize translate_text="More on CFDs" />,
     },
     {
-        classname_for_tests: 'multipliers',
+        classname: 'multipliers',
         image_url: 'trade_type_multipliers_eu',
         image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
@@ -119,7 +119,7 @@ const items_details_eu: TradeTypesProps[] = [
 
 const items_details_uk: TradeTypesProps[] = [
     {
-        classname_for_tests: 'cfds',
+        classname: 'cfds',
         image_url: 'trade_type_cfds_uk',
         image_alt: <Localize translate_text="CFDs" />,
         header: <Localize translate_text="CFDs" />,
@@ -130,7 +130,7 @@ const items_details_uk: TradeTypesProps[] = [
         link_text: <Localize translate_text="More on CFDs" />,
     },
     {
-        classname_for_tests: 'multipliers',
+        classname: 'multipliers',
         image_url: 'trade_type_multipliers_uk',
         image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
@@ -258,7 +258,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
             onMouseOver={() => setDetailsVisibility(true)}
             onMouseOut={() => setDetailsVisibility(false)}
             $visibility={details_visible && !is_mobile}
-            className={items_details.classname_for_tests}
+            className={items_details.classname}
         >
             <ImageWrapper mb="24px">
                 <QueryImage

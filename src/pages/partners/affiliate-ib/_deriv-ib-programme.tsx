@@ -22,7 +22,7 @@ type TypeForType = {
     title: React.ReactElement
     headerHeight: string
     assets: AssetsType
-    classname_for_tests: string
+    classname: string
 }[]
 
 type NoteType = {
@@ -233,7 +233,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            classname_for_tests: 'crash-boom',
+            classname: 'crash-boom',
         },
         {
             title: <Localize translate_text="Volatility indices" />,
@@ -274,7 +274,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            classname_for_tests: 'volatility-indices',
+            classname: 'volatility-indices',
         },
         {
             title: <Localize translate_text="Step index" />,
@@ -289,7 +289,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     list: [<Localize key={1} translate_text="0.10" />],
                 },
             ],
-            classname_for_tests: 'step-index',
+            classname: 'step-index',
         },
         {
             title: <Localize translate_text="Jump indices" />,
@@ -316,7 +316,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            classname_for_tests: 'jump-index',
+            classname: 'jump-index',
         },
     ],
     countDetails: [
@@ -370,7 +370,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
-            classname_for_tests: 'forex-and-metals',
+            classname: 'forex-and-metals',
         },
         {
             title: <Localize translate_text="Stock indices" />,
@@ -391,7 +391,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
-            classname_for_tests: 'stock-indices',
+            classname: 'stock-indices',
         },
         {
             title: <Localize translate_text="Cryptocurrencies" />,
@@ -406,7 +406,7 @@ const ib_dmt5_financial: DMT5Type = {
                     list: [<Localize key={1} translate_text="10" />],
                 },
             ],
-            classname_for_tests: 'cryptocurrencies-financial',
+            classname: 'cryptocurrencies-financial',
         },
     ],
     countDetails: [

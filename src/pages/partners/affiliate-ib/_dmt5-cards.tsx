@@ -227,12 +227,12 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                             <Accordion has_single_state>
                                 {data.type.map((value) => (
                                     <AccordionItem
-                                        key={value.classname_for_tests}
+                                        key={value.classname}
                                         header={value.title}
                                         parent_style={parent_style}
                                         style={item_style}
                                         header_style={header_style}
-                                        classname_for_tests={value.classname_for_tests}
+                                        classname={value.classname}
                                         plus
                                     >
                                         <TableWrapper grid_col_number={2} is_balance={true}>

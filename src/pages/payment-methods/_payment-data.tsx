@@ -168,7 +168,7 @@ const payment_data = [
                 locales: ['vi'],
             },
         ],
-        classname_for_tests: 'online-banking',
+        classname: 'online-banking',
     },
     {
         name: <Localize translate_text="Credit/debit cards" />,
@@ -273,7 +273,7 @@ const payment_data = [
                 ),
             },
         ],
-        classname_for_tests: 'cards',
+        classname: 'cards',
     },
     {
         name: <Localize translate_text="E-wallets" />,
@@ -614,7 +614,7 @@ const payment_data = [
             //     name: 'trustly',
             // },
         ],
-        classname_for_tests: 'e-wallets',
+        classname: 'e-wallets',
     },
     {
         name: <Localize translate_text="Cryptocurrencies" />,
@@ -783,7 +783,7 @@ const payment_data = [
             //     name: 'eUSDT',
             // },
         ],
-        classname_for_tests: 'cryptocurrencies',
+        classname: 'cryptocurrencies',
     },
     {
         name: <Localize translate_text="Fiat onramp - Buy crypto on popular exchanges." />,
@@ -839,7 +839,7 @@ const payment_data = [
                 name: 'Xanpool',
             },
         ],
-        classname_for_tests: 'fiat-onramp',
+        classname: 'fiat-onramp',
     },
     {
         is_dp2p: true,
@@ -863,7 +863,7 @@ const payment_data = [
                 name: 'DP2P',
             },
         ],
-        classname_for_tests: 'deriv-p2p',
+        classname: 'deriv-p2p',
     },
 ]
 

@@ -18,7 +18,7 @@ type TProps = {
     description?: React.ReactElement
     item_width?: string
     mobile_item_width?: string
-    classname_for_tests?: string
+    classname?: string
 }
 type TabProps = {
     children?: React.ReactNode
@@ -177,13 +177,7 @@ const SideTab = ({
                 <TabList role="tablist" is_reverse={is_reverse} id="tablist">
                     {React.Children.map(children, (child: TabProps, index) => {
                         const {
-                            props: {
-                                label,
-                                description,
-                                item_width,
-                                mobile_item_width,
-                                classname_for_tests,
-                            },
+                            props: { label, description, item_width, mobile_item_width, classname },
                         } = child
                         return (
                             <>
@@ -192,7 +186,7 @@ const SideTab = ({
                                     selected={selected_tab === index}
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => selectTab(index)}
-                                    className={classname_for_tests}
+                                    className={classname}
                                 >
                                     <Text weight="bold">{label}</Text>
                                     <StyledText

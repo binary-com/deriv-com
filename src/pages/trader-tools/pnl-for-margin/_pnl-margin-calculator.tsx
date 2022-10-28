@@ -876,7 +876,7 @@ const PnlMarginCalculator = () => {
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 (Deriv MT5) is calculated based on the formula:',
+                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">

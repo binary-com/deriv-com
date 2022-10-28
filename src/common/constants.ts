@@ -27,7 +27,7 @@ export const domains = [
 
 export const new_domains = [
     ...domains,
-    `${location.hostname.split('.binary.sx')[0]}.${'binary.sx'}`,
+    `${window.location.hostname.split('.binary.sx')[0]}.${'binary.sx'}`,
 ]
 
 const getDomainUrl = (): string =>

@@ -2,13 +2,12 @@ import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { Flex, SectionContainer } from 'components/containers'
+import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { LocalizedLink, Localize } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
-import { Desktop, Mobile } from 'components/containers/visibility'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const FoldWrapper = styled(SectionContainer)`
@@ -69,6 +68,7 @@ const StyledDescription = styled(Text)<{ $hovered: boolean }>`
     visibility: ${(props) => (props.$hovered ? 'visible' : 'hidden')};
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
     z-index: 2;
+    color: white;
 `
 
 const StyledLink = styled(LocalizedLink)`
@@ -354,7 +354,7 @@ const MarketsFold = () => {
     }
 
     return (
-        <FoldWrapper>
+        <FoldWrapper id="market-fold">
             <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
                     <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>

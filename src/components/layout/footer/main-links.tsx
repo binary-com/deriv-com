@@ -12,7 +12,6 @@ type MainLinksSectionProps = {
 
 const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinksSectionProps) => {
     const { is_non_uk, is_row } = useCountryRule()
-
     return (
         <LinksWrapper>
             <Desktop>
@@ -94,7 +93,7 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                         </LinkWrapper>
                         {is_non_uk && (
                             <LinkWrapper>
-                                <Link to="/markets/derived-fx/">
+                                <Link to="/markets/synthetic/">
                                     {<Localize translate_text="Derived" />}
                                 </Link>
                             </LinkWrapper>
@@ -111,6 +110,7 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                                 </Link>
                             </LinkWrapper>
                         )}
+
                         <LinkWrapper>
                             <Link to="/markets/commodities/">
                                 {<Localize translate_text="Commodities" />}

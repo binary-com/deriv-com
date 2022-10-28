@@ -311,7 +311,7 @@ module.exports = {
                 offset: -100,
             },
         },
-        /*  {
+        {
             resolve: '@directus/gatsby-source-directus',
             options: {
                 url: 'https://deriv-academy.directus.app',
@@ -322,7 +322,7 @@ module.exports = {
                     refresh: '5s',
                 },
             },
-        }, */
+        },
         'gatsby-plugin-use-query-params',
         {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',

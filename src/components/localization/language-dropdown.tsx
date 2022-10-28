@@ -52,7 +52,7 @@ const Arrow = styled((props) => <Chevron {...props} />)<{ expanded: boolean }>`
 
 const Absolute = styled.div<AbsoluteProps>`
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     top: ${(props) => {
         if (props.is_high_nav) {
             return '4.8rem'

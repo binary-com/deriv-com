@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
-import { SectionContainer, Show } from 'components/containers'
+import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
@@ -100,18 +100,18 @@ const TradingCFDIncreases = () => {
                         'When the market price climbs to 8,700 USD, you decide to set the stop loss level at 8,200 USD. After a few ticks, the price dives to 8,100 USD, surpassing your stop loss level. Your trade will automatically close at 8,100 USD.',
                     )}
                 </Text>
-                <Show.Desktop>
+                <Desktop>
                     <ExampleImage
                         data={data['example']}
                         alt="Example for stop loss with crash/boom indices"
                     />
-                </Show.Desktop>
-                <Show.Mobile width="100%">
+                </Desktop>
+                <Mobile width="100%">
                     <ExampleImage
                         data={data['example_mobile']}
                         alt="Example for stop loss with crash/boom indices"
                     />
-                </Show.Mobile>
+                </Mobile>
 
                 <Header mt="3.2rem" as="h5" type="main-paragraph" mb="0.8rem">
                     {localize('Stop out')}

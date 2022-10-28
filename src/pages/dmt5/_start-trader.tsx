@@ -238,7 +238,7 @@ const StartTrader = () => {
     const isReal = tab === 'Real'
 
     const text_1 = is_uk_eu ? (
-        <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
+        <Localize translate_text="Add a CFDs demo account." />
     ) : (
         <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
     )

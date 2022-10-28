@@ -246,7 +246,6 @@ module.exports = {
                         sizes: `512x512`,
                         type: `image/png`,
                     },
-
                 ],
                 gcm_sender_id: '370236002280',
                 gcm_user_visible_only: true,
@@ -312,7 +311,7 @@ module.exports = {
                 offset: -100,
             },
         },
-        {
+        /*  {
             resolve: '@directus/gatsby-source-directus',
             options: {
                 url: 'https://deriv-academy.directus.app',
@@ -323,7 +322,7 @@ module.exports = {
                     refresh: '5s',
                 },
             },
-        },
+        }, */
         'gatsby-plugin-use-query-params',
         {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',

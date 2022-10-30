@@ -38,7 +38,7 @@ const Ol = styled.ol`
 `
 
 const Li = styled.li`
-    max-width: 38.4rem;
+    max-width: 38rem;
     cursor: pointer;
     font-size: var(--text-size-s);
     font-weight: 500;

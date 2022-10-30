@@ -17,6 +17,7 @@ type LocalizeType = {
 type AnswerPropsType = {
     has_margin_top?: boolean // default 1.7rem
     margin_top?: string
+    eu_translation_text?: TString
     list?: ListType
 }
 

@@ -50,10 +50,12 @@ const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: 16px;
         text-align: center;
+        margin-bottom: 12px;
     }
     @media ${device.mobileL} {
         margin-right: 0;
         font-size: 14px;
+        margin-bottom: 12px;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -83,7 +85,7 @@ const AvailablePlatforms = ({
             fd={flex_direction}
             mobileL={{ mt: '16px' }}
             mt={m_top ? m_top : '2.4rem'}
-            tablet_direction={tablet_direction}
+            tablet_direction="column"
             ai="center"
         >
             <StyledText tablet_direction={tablet_direction}>{localize('Available on')}</StyledText>
@@ -95,7 +97,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DMT5} alt="Deriv MT5 (DMT5)" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv MT5 (DMT5)')}</Text>
+                            <Text ml="0.4rem">{localize('Deriv MT5')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

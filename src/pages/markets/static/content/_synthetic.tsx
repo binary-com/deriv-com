@@ -27,7 +27,7 @@ export const simple_step_content_synthetic: SimpleStepsContent[] = [
     {
         header: <Localize translate_text="Trade" />,
         text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading synthetic indices and other markets." />
+            <Localize translate_text="Open a real account, make a deposit, and start trading synthetics and other markets." />
         ),
         icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
     },

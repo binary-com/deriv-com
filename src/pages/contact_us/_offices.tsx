@@ -245,7 +245,7 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://g.page/wojo-madeleine-coworking-paris-8?share"
+                                        to="https://goo.gl/maps/5xvdS7tvZM7kKkDK8"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -258,7 +258,7 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://g.page/wojo-madeleine-coworking-paris-8?share"
+                                    to="https://goo.gl/maps/5xvdS7tvZM7kKkDK8"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -266,12 +266,11 @@ export const Offices = () => {
                                     ml="1.6rem"
                                 >
                                     <Desktop>
-                                        <p>Wojo Madeleine, 18 Boulevard</p>
-                                        <p>Malesherbes, Paris 75008</p>
+                                        <p>17 Rue d&apos;Antin, 75002 Paris</p>
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>
-                                            Wojo Madeleine, 18 Boulevard Malesherbes, Paris 75008
+                                            17 Rue d&apos;Antin, 75002 Paris
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>
@@ -335,7 +334,7 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/MP8aqZQ4xt8LJ9id9"
+                                        to="https://goo.gl/maps/j7fs9r73dfwQtHgj8"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -348,7 +347,7 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/MP8aqZQ4xt8LJ9id9"
+                                    to="https://goo.gl/maps/j7fs9r73dfwQtHgj8"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -356,12 +355,15 @@ export const Offices = () => {
                                     ml="1.6rem"
                                 >
                                     <Desktop>
-                                        <p>Level 5, 42 Agias Filaxeos,</p>
-                                        <p>Limassol 3025</p>
+                                        <p>
+                                            181, Leoforos Archiepiskopou Makariou III Avenue 15
+                                            Business Centre, 1st Floor, 3030, Limassol Cyprus
+                                        </p>
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>
-                                            Level 5, 42 Agias Filaxeos Limassol 3025
+                                            181, Leoforos Archiepiskopou Makariou III Avenue 15
+                                            Business Centre, 1st Floor, 3030, Limassol Cyprus
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>

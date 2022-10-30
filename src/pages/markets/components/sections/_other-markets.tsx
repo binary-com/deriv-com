@@ -5,12 +5,11 @@ import { Carousel, Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
-import Basket from 'images/svg/custom/basket-nav.svg'
 import Commodities from 'images/svg/markets/commodities-new.svg'
 import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
-import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
+import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 
@@ -22,12 +21,11 @@ type MarketType = {
     id: string
 }
 type MarketsType = {
+    derived: MarketType
     forex: MarketType
-    synthetic_indices: MarketType
     stock_indices: MarketType
     commodities: MarketType
     cryptocurrencies: MarketType
-    basket_indices: MarketType
 }
 type CardProps = {
     market: string
@@ -45,14 +43,14 @@ const markets_type: MarketsType = {
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
-    synthetic_indices: {
-        icon: () => <img src={SyntheticIndices} alt="Synthetic indices" width="64" height="64" />,
-        title: <Localize translate_text="Synthetic indices" />,
+    derived: {
+        icon: () => <img src={DerivedFX} alt="Synthetic indices" width="64" height="64" />,
+        title: <Localize translate_text="Derived" />,
         content: (
-            <Localize translate_text="Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that simulate real-world market movements." />
+            <Localize translate_text="Trading derived indices lets you benefit from correctly predicting the price movements of simulated markets and indices derived from real-world markets." />
         ),
-        to: '/markets/synthetic/',
-        id: 'marketsyntheticothermarkets',
+        to: '/markets/derived-fx/',
+        id: 'marketderivedothermarkets',
     },
     stock_indices: {
         icon: () => <img src={StockIndices} alt="Stocks & indices" width="64" height="64" />,
@@ -82,15 +80,6 @@ const markets_type: MarketsType = {
         ),
         to: '/markets/cryptocurrencies/',
         id: 'marketcryptocurrenciesothermarket',
-    },
-    basket_indices: {
-        icon: () => <img src={Basket} alt="Basket indices" width="64" height="64" />,
-        title: <Localize translate_text="Basket indices" />,
-        content: (
-            <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
-        ),
-        to: '/markets/basket-indices/',
-        id: 'marketbasket_indicesothermarket',
     },
 }
 
@@ -209,7 +198,7 @@ const Card = ({ market }: CardProps) => {
             </div>
 
             <Text size="16px" weight="bold" mt="1.6rem">
-                {localize(markets_type[market].title)}
+                {markets_type[market].title}
             </Text>
             <Text size="16px" mt="0.8rem">
                 {markets_type[market].content}
@@ -228,7 +217,7 @@ const MobileCard = ({ market }: CardProps) => {
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
             <Flex width="100%" jc="space-between" mb="2.4rem" ai="center">
                 <Text size="18px" weight="bold">
-                    {localize(markets_type[market].title)}
+                    {markets_type[market].title}
                 </Text>
                 <Icon dynamic_id={markets_type[market].id + '_mobile'} />
             </Flex>
@@ -265,39 +254,35 @@ const MobileCardContainer = styled(Flex)`
         margin-top: 0;
     }
 `
+const StyledSectionContainer = styled(SectionContainer)`
+    padding: 100px 0;
+    margin: auto;
+    background: #f9fbff;
+`
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const { is_uk, is_eu } = useCountryRule()
 
-    const markets = [
-        '',
-        'forex',
-        'synthetic_indices',
-        'stock_indices',
-        'cryptocurrencies',
-        'basket_indices',
-        'commodities',
-        '',
-    ]
+    const markets = ['', 'forex', 'derived', 'stock_indices', 'cryptocurrencies', 'commodities', '']
 
     const eu_markets = [
         '',
         'forex',
-        'synthetic_indices',
+        'derived',
         'stock_indices',
         'cryptocurrencies',
         'commodities',
         '',
     ]
 
-    const uk_markets = ['', 'forex', 'stock_indices', 'commodities', '']
+    const uk_markets = ['', 'forex', 'derived', 'stock_indices', 'commodities', '']
 
     const filteredMarkets = (is_eu ? eu_markets : is_uk ? uk_markets : markets).filter(
         (market) => market !== except,
     )
 
     return (
-        <SectionContainer padding="100px 0" margin="auto" background="#f9fbff">
+        <StyledSectionContainer>
             <Desktop max_width="mobileL">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
@@ -322,7 +307,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     )}
                 </MobileCardContainer>
             </Mobile>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

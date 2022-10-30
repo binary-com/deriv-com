@@ -13,7 +13,7 @@ type FirstSectionTextsType = {
 export const first_section_texts: FirstSectionTextsType[] = [
     {
         text: (
-            <Localize translate_text="Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, indices, cryptocurrencies, commodities, and synthetics to millions of registered users across the globe." />
+            <Localize translate_text="Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, stocks & indices, cryptocurrencies, commodities, and derived to millions of registered users across the globe." />
         ),
     },
     {
@@ -342,8 +342,14 @@ export const our_offices_count: DerivNumbersType[] = [
         count: <Localize translate_text="50+" />,
         title: <Localize translate_text="nationalities" />,
     },
-    { count: localize(all_offices.length), title: <Localize translate_text="locations" /> },
-    { count: localize(all_countries.length), title: <Localize translate_text="countries" /> },
+    {
+        count: <Localize translate_text={String(all_offices.length)} />,
+        title: <Localize translate_text="locations" />,
+    },
+    {
+        count: <Localize translate_text={String(all_countries.length)} />,
+        title: <Localize translate_text="countries" />,
+    },
 ]
 
 export const deriv_numbers: DerivNumbersType[][] = [

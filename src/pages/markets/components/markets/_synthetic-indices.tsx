@@ -26,10 +26,10 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     return (
         <div>
             <WhyTrade
-                header={<Localize translate_text="Why trade synthetic indices on Deriv" />}
-                text={
-                    <Localize translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
+                description={
+                    <Localize translate_text="Deriv’s proprietary synthetics simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
                 }
+                header={<Localize translate_text="Why trade synthetics on Deriv" />}
             >
                 {synthetic_content.map((content, index) => (
                     <StyledBox
@@ -40,10 +40,15 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_eu_country ? synthetic_cfds_eu : synthetic_cfds} />}
+                CFDs={
+                    <CFDs
+                        market_content={is_eu_country ? synthetic_cfds_eu : synthetic_cfds}
+                        market_tab_name={'synthetic-indices'}
+                    />
+                }
                 DigitalOptions={
                     <DigitalOptions
-                        market_name={localize('synthetic indices')}
+                        market_name={localize('synthetics')}
                         options_list={synthetic_options}
                     />
                 }
@@ -55,18 +60,16 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                         }
                     />
                 }
-                display_title={
-                    <Localize translate_text="Synthetic indices trades available on Deriv" />
-                }
+                display_title={<Localize translate_text="Synthetics trades available on Deriv" />}
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading synthetic indices on Deriv in 3 simple steps" />
+                    <Localize translate_text="Start trading synthetics on Deriv in 3 simple steps" />
                 }
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="synthetic_indices" />
+            <OtherMarkets except="derived" />
         </div>
     )
 }

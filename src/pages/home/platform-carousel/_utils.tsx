@@ -37,6 +37,8 @@ import Windows from 'images/svg/app-download/app-store-windows.svg'
 import MacAppStore from 'images/svg/app-download/app-store-mac.svg'
 import AppGallery from 'images/svg/app-download/app-store-app-gallery.svg'
 
+export const PLATFORMS_CAROUSEL_DELAY = 3000
+
 export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser
     else if (type === 'app_store') return AppStore

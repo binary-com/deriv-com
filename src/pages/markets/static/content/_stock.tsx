@@ -12,6 +12,7 @@ import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 type Stock = {
     src: string
     text: ReactElement
+    alt: string
 }
 
 export const simple_step_content_stock: SimpleStepsContent[] = [
@@ -20,21 +21,21 @@ export const simple_step_content_stock: SimpleStepsContent[] = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <img src={PractiseIcon} alt="" width="32" height="32" />,
+        icon: <img src={PractiseIcon} alt="Practise" width="32" height="32" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading stocks & indices and other markets." />
         ),
-        icon: <img src={TradeIcon} alt="" width="32" height="28" />,
+        icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <img src={WithdrawIcon} alt="" width="32" height="32" />,
+        icon: <img src={WithdrawIcon} alt="Withdraw" width="32" height="32" />,
     },
 ]
 
@@ -42,22 +43,27 @@ const stocks: Stock[] = [
     {
         src: ExtendedTime,
         text: <Localize translate_text="Minimal capital requirements, limited risk" />,
+        alt: 'minimal capital requirements',
     },
     {
         src: MinimalCapital,
         text: <Localize translate_text="Extended trading time, up to 18 hours a day" />,
+        alt: 'extended trading time',
     },
     {
         src: WithdrawIcon,
         text: <Localize translate_text="Fast and secure deposit and withdrawal options" />,
+        alt: 'withdrawal',
     },
     {
         src: ResponsiveWebsite,
         text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        alt: 'responsive, easy-to-use platforms',
     },
     {
         src: FriendlySupport,
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        alt: 'smart and friendly support',
     },
 ]
 export default stocks

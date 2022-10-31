@@ -83,7 +83,7 @@ const other_apps: ContentType[] = [
         url: (
             <LearnMore to="/dmt5/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="" />
+                <img src={Arrow} alt="arrow" />
             </LearnMore>
         ),
     },
@@ -97,7 +97,7 @@ const other_apps: ContentType[] = [
         url: (
             <LearnMore to="/derivx/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="" />
+                <img src={Arrow} alt="arrow" />
             </LearnMore>
         ),
     },
@@ -125,7 +125,7 @@ const OtherApps = () => {
                             return (
                                 <Card key={item.id}>
                                     <div>
-                                        <img src={item.icon} alt="" />
+                                        <img src={item.icon} alt="icon" />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
                                         {item.title}

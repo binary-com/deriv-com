@@ -116,7 +116,7 @@ const Rewards = () => {
                         {card_content.map((item, idx) => {
                             return (
                                 <Card key={idx}>
-                                    <img src={item.icon} />
+                                    <img src={item.icon} alt={item.header} />
                                     <Header
                                         as="h3"
                                         mt="8px"

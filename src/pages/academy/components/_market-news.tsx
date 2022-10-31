@@ -107,7 +107,12 @@ const MarketNews = ({ data }: MarketNewsProps) => {
                                             jc="center"
                                             ai="center"
                                         >
-                                            <img src={EyeIcon} width="16px" height="11px" />
+                                            <img
+                                                src={EyeIcon}
+                                                alt="Eye icon"
+                                                width="16px"
+                                                height="11px"
+                                            />
                                             <Header
                                                 ml="4px"
                                                 mt="3px"

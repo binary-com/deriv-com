@@ -3,7 +3,7 @@ import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
-import { new_domains } from 'common/constants'
+import { branding_domains } from 'common/constants'
 import { getDomainName, isBrowser } from 'common/utility'
 
 type DerivProviderProps = {
@@ -72,7 +72,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
         const branding = () => {
             const host_name = location.hostname
             const domain_name = getDomainName(isBrowser && window.location.hostname)
-            return new_domains.some((item) => item === host_name || item === domain_name)
+            return branding_domains.some((item) => item === host_name || item === domain_name)
         }
 
         setHideBranding(branding)

@@ -25,7 +25,7 @@ const Footer = ({
 }: FooterProps) => {
     const { show_cookie_banner } = React.useContext(LocationContext)
     const { is_eu_country } = React.useContext(DerivStore)
-
+    const { hide_branding } = React.useContext(DerivStore)
     return (
         <DefaultFooter has_banner_cookie={show_cookie_banner} is_eu_country={is_eu_country}>
             <Container>
@@ -34,7 +34,7 @@ const Footer = ({
                     {!no_footer_links && (
                         <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
                     )}
-                    <DisclaimerSection is_academy={academy} />
+                    {hide_branding && <DisclaimerSection is_academy={academy} />}
                 </FooterGrid>
             </Container>
         </DefaultFooter>

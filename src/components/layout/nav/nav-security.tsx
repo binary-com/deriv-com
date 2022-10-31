@@ -10,6 +10,7 @@ import device from 'themes/device'
 import LogoBugBounty from 'images/svg/layout/logo-bug-bounty.svg'
 import { CFDWarning } from 'components/layout'
 import { DerivStore } from 'store'
+import Branding from 'components/containers/branding'
 
 const Wrapper = styled(Container)`
     height: 7.2rem;
@@ -43,11 +44,14 @@ const NavSecurity = () => {
                 <MainNav is_security />
                 <PartnerNavigationBarWrapper>
                     <Wrapper jc="space-between">
-                        {hide_branding && (
-                            <StyledLogoLink to="/" aria-label="Bug bounty">
-                                <Logo src={LogoBugBounty} alt="logo bug bounty" />
-                            </StyledLogoLink>
-                        )}
+                        <Branding>
+                            {hide_branding && (
+                                <StyledLogoLink to="/" aria-label="Bug bounty">
+                                    <Logo src={LogoBugBounty} alt="logo bug bounty" />
+                                </StyledLogoLink>
+                            )}
+                        </Branding>
+
                         <SubmissionButton
                             external
                             tertiary

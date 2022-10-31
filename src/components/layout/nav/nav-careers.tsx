@@ -13,6 +13,7 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { besquare_signup_url, zoho_career_url } from 'common/constants'
 import { DerivStore } from 'store'
+import Branding from 'components/containers/branding'
 
 type NavCareersProps = {
     is_besquare?: boolean
@@ -147,19 +148,21 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                             />
                         )}
                     </Mobile>
+                    <Branding>
+                        {hide_branding && (
+                            <LogoSection>
+                                <StyledLogoLink to="/" aria-label="Home">
+                                    <QueryImage
+                                        data={data['deriv']}
+                                        alt="Deriv"
+                                        height="auto"
+                                        loading="eager"
+                                    />
+                                </StyledLogoLink>
+                            </LogoSection>
+                        )}
+                    </Branding>
 
-                    {hide_branding && (
-                        <LogoSection>
-                            <StyledLogoLink to="/" aria-label="Home">
-                                <QueryImage
-                                    data={data['deriv']}
-                                    alt="Deriv"
-                                    height="auto"
-                                    loading="eager"
-                                />
-                            </StyledLogoLink>
-                        </LogoSection>
-                    )}
                     <Desktop>
                         <HeaderSection>
                             {links.map(({ to, active, aria_label, title }) => (

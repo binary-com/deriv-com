@@ -8,6 +8,7 @@ import { QueryImage } from 'components/elements'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import { DerivStore } from 'store'
+import Branding from 'components/containers/branding'
 
 const ContentContainer = styled(Container)`
     justify-content: space-between;
@@ -61,21 +62,23 @@ const NavJumpIndice = () => {
     return (
         <NavTemplate nav_height_mobile="48px">
             <ContentContainer>
-                {hide_branding && (
-                    <LogoWrapper>
-                        <LogoLink to="/" aria-label="Home">
-                            <QueryImage
-                                data={data['deriv']}
-                                alt="deriv logo"
-                                max_width="16.4rem"
-                                width="100%"
-                                height="auto"
-                            />
-                        </LogoLink>
-                        <Line />
-                        <ImgWrapper src={GetTrading} alt="get trading" />
-                    </LogoWrapper>
-                )}
+                <Branding>
+                    {hide_branding && (
+                        <LogoWrapper>
+                            <LogoLink to="/" aria-label="Home">
+                                <QueryImage
+                                    data={data['deriv']}
+                                    alt="deriv logo"
+                                    max_width="16.4rem"
+                                    width="100%"
+                                    height="auto"
+                                />
+                            </LogoLink>
+                            <Line />
+                            <ImgWrapper src={GetTrading} alt="get trading" />
+                        </LogoWrapper>
+                    )}
+                </Branding>
             </ContentContainer>
         </NavTemplate>
     )

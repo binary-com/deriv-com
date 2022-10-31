@@ -5,6 +5,7 @@ import { Desktop } from 'components/containers'
 import DerivLogo from 'images/svg/layout/deriv-footer.svg'
 import { Mobile } from 'pages/interim/_hero'
 import { DerivStore } from 'store'
+import Branding from 'components/containers/branding'
 
 type LogoSectionProps = {
     type?: string
@@ -13,13 +14,19 @@ type LogoSectionProps = {
 const LogoSection = ({ type = '' }: LogoSectionProps) => {
     const is_career_page = type === 'careers'
     const { hide_branding } = React.useContext(DerivStore)
+
     return (
         <>
             <DerivLogoWrapper>
-                {hide_branding && <StyledLogo src={DerivLogo} alt="logo" width="147" height="25" />}
-                <Desktop>
-                    <SocialWrapperComponent is_career_page={is_career_page} />
-                </Desktop>
+                <Branding>
+                    {hide_branding && (
+                        <StyledLogo src={DerivLogo} alt="logo" width="147" height="25" />
+                    )}
+
+                    <Desktop>
+                        <SocialWrapperComponent is_career_page={is_career_page} />
+                    </Desktop>
+                </Branding>
             </DerivLogoWrapper>
             <Mobile>
                 <SocialWrapperComponent is_career_page={is_career_page} />

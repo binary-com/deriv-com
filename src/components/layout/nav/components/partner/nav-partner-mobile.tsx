@@ -11,6 +11,7 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import { DerivStore } from 'store'
+import Branding from 'components/containers/branding'
 
 type NavPartnerMobileProps = {
     hide_login_signup: boolean
@@ -56,12 +57,14 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
                         onClick={openOffCanvasMenu}
                     />
                 )}
+                <Branding>
+                    {hide_branding && (
+                        <LogoLink to="/partners/" aria-label="Home">
+                            <Logo src={LogoOnly} alt="deriv logo" />
+                        </LogoLink>
+                    )}
+                </Branding>
 
-                {hide_branding && (
-                    <LogoLink to="/partners/" aria-label="Home">
-                        <Logo src={LogoOnly} alt="deriv logo" />
-                    </LogoLink>
-                )}
                 <Flex ml="auto" ai="center" width="auto">
                     <LanguageSwitcher has_short_name is_high_nav />
                 </Flex>

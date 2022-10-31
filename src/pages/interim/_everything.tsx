@@ -49,7 +49,7 @@ const Everything = () => {
                 <Ul jc="center" ai="center">
                     <Li>
                         <div>
-                            <img src={EasySignup} alt="" width="64" height="64" />
+                            <img src={EasySignup} alt="easy signup" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -76,7 +76,12 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={SyntheticIndices} alt="" width="64" height="64" />
+                            <img
+                                src={SyntheticIndices}
+                                alt="Synthetic Indices"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -91,7 +96,12 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={Enhanced} alt="" width="64" height="64" />
+                            <img
+                                src={Enhanced}
+                                alt="An enhanced experience"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -106,7 +116,12 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={TradingPlatform} alt="" width="64" height="64" />
+                            <img
+                                src={TradingPlatform}
+                                alt="trading platforms"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -121,7 +136,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={UserFriendly} alt="" width="64" height="64" />
+                            <img src={UserFriendly} alt="User Friendly" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -136,7 +151,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={Support} alt="" width="64" height="64" />
+                            <img src={Support} alt="Support" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">

@@ -11,14 +11,14 @@ const Symbol = ({ instruments_type, src, text }: SymbolProps) => (
             <React.Fragment>
                 {instruments_type.map((symbol, index) => (
                     <SymbolContainer key={index}>
-                        <img src={symbol.src} />
+                        <img src={symbol.src} alt="symbol" />
                         <Text>{symbol.text}</Text>
                     </SymbolContainer>
                 ))}
             </React.Fragment>
         ) : (
             <SymbolContainer>
-                <img src={src} />
+                <img src={src} alt="symbol" />
                 <Text>{text}</Text>
             </SymbolContainer>
         )}

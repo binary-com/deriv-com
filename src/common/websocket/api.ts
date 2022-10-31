@@ -54,6 +54,7 @@ export default class DerivWS {
         const connection = new WebSocket(this.socket_url)
         connection.onopen = this.openHandler
         connection.onmessage = this.messageHandler
+        connection.onclose = this.reloadPage
 
         this.connection = connection
     }
@@ -97,5 +98,17 @@ export default class DerivWS {
             this.pendingRequests[reqId].resolve(response)
             delete this.pendingRequests[reqId]
         }
+    }
+
+    private reloadPage = () => {
+        let lastActionTaken = new Date().getTime()
+        const checkLastAction = () => {
+            const now = new Date().getTime()
+            if (now > lastActionTaken) window.location.reload()
+            else lastActionTaken = now
+        }
+        window.addEventListener('mousemove', checkLastAction)
+        window.addEventListener('touchstart', checkLastAction)
+        window.addEventListener('keydown', checkLastAction)
     }
 }

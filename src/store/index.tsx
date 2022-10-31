@@ -4,6 +4,7 @@ import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-da
 import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 import { new_domains } from 'common/constants'
+import { getDomainName, isBrowser } from 'common/utility'
 
 type DerivProviderProps = {
     children?: ReactNode
@@ -70,8 +71,10 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     useEffect(() => {
         const branding = () => {
             const host_name = location.hostname
-            return new_domains.some((item) => item === host_name)
+            const domain_name = getDomainName(isBrowser && window.location.hostname)
+            return new_domains.some((item) => item === host_name || item === domain_name)
         }
+
         setHideBranding(branding)
     }, [hide_branding])
 

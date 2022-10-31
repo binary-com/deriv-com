@@ -115,9 +115,9 @@ const BeSquareFooter = () => {
                             >
                                 {localize('Follow us')}
                             </TextWrapper>
-                            {social_media_content.map(({ alt, link_to, src }, index) => (
+                            {social_media_content.map(({ alt, link_to, src }) => (
                                 <LocalizedLink
-                                    key={index}
+                                    key={alt}
                                     external
                                     to={link_to}
                                     target="_blank"

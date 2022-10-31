@@ -26,8 +26,7 @@ const Footer = ({
     no_footer_links = false,
 }: FooterProps) => {
     const { show_cookie_banner } = React.useContext(LocationContext)
-    const { is_eu_country } = React.useContext(DerivStore)
-    const { hide_branding } = React.useContext(DerivStore)
+    const { is_eu_country, hide_branding } = React.useContext(DerivStore)
 
     return (
         <DefaultFooter has_banner_cookie={show_cookie_banner} is_eu_country={is_eu_country}>

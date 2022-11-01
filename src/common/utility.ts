@@ -458,7 +458,7 @@ export const isShowBranding = () => {
 
 export const getDomainName = () => {
     const hostname = isBrowser() && window.location.hostname
-    return hostname.substring(
-        hostname.toString().lastIndexOf('.', hostname.toString().lastIndexOf('.') - 1) + 1,
+    return (
+        hostname && hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1)
     )
 }

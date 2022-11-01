@@ -8,7 +8,6 @@ import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
 import CFDsIcon from 'images/svg/dmt5/cfds.svg'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ContentType = {
@@ -124,11 +123,10 @@ const StyledText = styled(Text)`
 `
 
 const Flexibility = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
-    const { is_uk } = useCountryRule()
+    const { is_uk, is_eu } = useCountryRule()
 
-    const chosen_content = is_eu_country ? eucontent : content
-    const title = is_eu_country
+    const chosen_content = is_eu ? eucontent : content
+    const title = is_eu
         ? localize('Flexibility with multiple markets')
         : localize('Flexibility with two account types')
 
@@ -147,8 +145,8 @@ const Flexibility = () => {
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {
                     return (
-                        ((is_eu_country && item.show_eu) ||
-                            (!is_eu_country && !item.show_eu) ||
+                        ((is_eu && item.show_eu) ||
+                            (!is_eu && !item.show_eu) ||
                             item.show_always) && (
                             <ClientCard key={idx}>
                                 <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
@@ -162,7 +160,7 @@ const Flexibility = () => {
                                     </StyledHeader>
                                     {item.icon}
                                 </Flex>
-                                {is_eu_country && is_uk ? (
+                                {is_eu && is_uk ? (
                                     <StyledText>
                                         <Localize translate_text="Trade forex, stocks, stock indices, and commodities on leverage." />
                                     </StyledText>

@@ -17,7 +17,6 @@ import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { DerivStore } from 'store'
 import { Branding } from 'components/containers'
 
 type NavPartnerDesktopProps = {
@@ -135,7 +134,6 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const [show_button, showButton, hideButton] = useMoveButton()
     const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
-    const { hide_branding } = React.useContext(DerivStore)
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)

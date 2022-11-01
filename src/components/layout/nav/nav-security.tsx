@@ -9,7 +9,6 @@ import { Container, Branding } from 'components/containers'
 import device from 'themes/device'
 import LogoBugBounty from 'images/svg/layout/logo-bug-bounty.svg'
 import { CFDWarning } from 'components/layout'
-import { DerivStore } from 'store'
 
 const Wrapper = styled(Container)`
     height: 7.2rem;
@@ -35,8 +34,6 @@ const Logo = styled.img`
 `
 
 const NavSecurity = () => {
-    const { hide_branding } = React.useContext(DerivStore)
-
     return (
         <>
             <PartnerWrapper>

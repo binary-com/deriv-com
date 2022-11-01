@@ -16,7 +16,6 @@ import device from 'themes/device'
 import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
-import { DerivStore } from 'store'
 
 type NavInterimProps = {
     interim_type?: 'affiliate' | 'dbot' | 'deriv' | 'dmt5' | 'faq'
@@ -48,8 +47,6 @@ const RightSection = styled(Flex)`
 `
 
 const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => {
-    const { hide_branding } = React.useContext(DerivStore)
-
     return (
         <NavTemplate>
             <Container jc="space-between" p="2.4rem 0">

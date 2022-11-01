@@ -19,7 +19,6 @@ import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import { DerivStore } from 'store'
 import { Branding } from 'components/containers'
 
 type NavMobileProps = {
@@ -58,7 +57,6 @@ const NavMobile = ({
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
     const handleLogin = useHandleLogin()
     const { is_loading } = useCountryRule()
-    const { hide_branding } = React.useContext(DerivStore)
 
     return (
         <MobileWrapper>

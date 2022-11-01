@@ -4,15 +4,12 @@ import { LogoLink, Line } from './styles/nav-styles'
 import { Flex, Branding } from 'components/containers'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
-import { DerivStore } from 'store'
 
 type NavStaticProps = {
     is_ppc: boolean
 }
 
 const NavStatic = ({ is_ppc }: NavStaticProps) => {
-    const { hide_branding } = React.useContext(DerivStore)
-
     return (
         <NavTemplate
             is_ppc={is_ppc}

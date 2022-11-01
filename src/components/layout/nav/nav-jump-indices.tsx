@@ -7,7 +7,6 @@ import GetTrading from 'images/svg/layout/get-trading.svg'
 import { QueryImage } from 'components/elements'
 import { Container, Flex, Branding } from 'components/containers'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 
 const ContentContainer = styled(Container)`
     justify-content: space-between;
@@ -56,7 +55,6 @@ const query = graphql`
 
 const NavJumpIndice = () => {
     const data = useStaticQuery(query)
-    const { hide_branding } = React.useContext(DerivStore)
 
     return (
         <NavTemplate nav_height_mobile="48px">

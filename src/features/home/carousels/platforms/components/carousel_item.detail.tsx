@@ -6,7 +6,7 @@ import { localize, Localize } from 'components/localization'
 import { TString } from 'types/generics'
 import useMediaQuery from 'components/hooks/use-media-query'
 import device from 'themes/device'
-import useCarousel from 'components/elements/michosel/use-carousel'
+import useCarousel from 'components/elements/carousel/use-carousel'
 
 export const ImageTag = styled.img`
     width: 40px;

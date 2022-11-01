@@ -21,7 +21,7 @@ import { Text, LinkText, Header, BaseElement, SpanLinkText } from './typography'
 import LocalizedLinkText from './localized-link-text'
 import Timeline from './timeline'
 import { Ul, Li } from './lists'
-import { Carousel } from './carousel'
+import Carousel from './carousel'
 import VideoPlayer from './video-player'
 import Modal from './modal'
 

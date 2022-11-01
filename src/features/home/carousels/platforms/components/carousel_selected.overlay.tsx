@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { TPlatformModel, TPlatformSmartContent } from '../types'
 import { CarouselItemWrapper } from './carousel.item'
 import CarouselItemDetail from './carousel_item.detail'
-import useCarousel from 'components/elements/michosel/use-carousel'
+import useCarousel from 'components/elements/carousel/use-carousel'
 
 const SelectedItemContainer = styled(CarouselItemWrapper)`
     position: absolute;

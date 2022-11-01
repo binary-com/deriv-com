@@ -5,7 +5,7 @@ import ItemHeroImage from './item_hero.image'
 import CarouselItemDetail from './carousel_item.detail'
 import PlatformCarouselBadges from './carousel.badges'
 import device from 'themes/device'
-import useCarousel from 'components/elements/michosel/use-carousel'
+import useCarousel from 'components/elements/carousel/use-carousel'
 
 export const CarouselItemWrapper = styled.div`
     width: 380px;

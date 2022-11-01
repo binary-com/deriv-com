@@ -1,5 +1,5 @@
 import type { EmblaCarouselType } from 'embla-carousel-react'
-import { ButtonsProps } from '../carousel'
+import { ButtonsProps } from '.'
 import { ColorPalette, TColor } from 'themes/theme.types'
 
 export type TCarouselMode = 'vertical' | 'horizontal'

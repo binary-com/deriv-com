@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Autoplay from 'embla-carousel-autoplay'
 import { TOtherMarketsContent } from '../types'
 import OtherMarketsCard from './other-markets-card'
-import Carousel from 'components/elements/michosel'
-import useInitCarousel from 'components/elements/michosel/use-init-carousel'
+import Carousel from 'components/elements/carousel'
+import useInitCarousel from 'components/elements/carousel/use-init-carousel'
 
 const StyledSlide = styled(Carousel.Slide)`
     min-width: 282px;

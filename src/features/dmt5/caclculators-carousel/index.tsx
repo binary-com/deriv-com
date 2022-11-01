@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { calculators } from './data'
 import CalculatorCard from './components/calculator.card'
-import useInitCarousel from 'components/elements/michosel/use-init-carousel'
-import Carousel from 'components/elements/michosel'
+import useInitCarousel from 'components/elements/carousel/use-init-carousel'
+import Carousel from 'components/elements/carousel'
 
 const StyledCarousel = styled(Carousel)`
     max-width: 588px;

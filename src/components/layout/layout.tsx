@@ -10,6 +10,7 @@ import Nav from './nav/nav'
 import NavTransparent from './nav/nav-transparent'
 import NavCareers from './nav/nav-careers'
 import NavPartners from './nav/nav-partner'
+import NavMarkets from './nav/nav-markets'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
@@ -33,6 +34,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
+const WhatsApp = Loadable(() => import('./whatsapp'))
 
 type CFDWarningProps = {
     is_ppc: boolean
@@ -248,6 +250,10 @@ const Layout = ({
             Navigation = <NavAcademy />
             FooterNav = <LoadableFooter academy={true} />
             break
+        case 'noNav':
+            Navigation = <></>
+            FooterNav = <Footer />
+            break
         case 'static':
             Navigation = <NavStatic is_ppc={is_ppc} />
             break
@@ -257,6 +263,10 @@ const Layout = ({
         case 'partners':
             Navigation = <NavPartners hide_login_signup={no_login_signup} />
             FooterNav = <LoadableFooter />
+            break
+        case 'markets':
+            Navigation = <NavMarkets />
+            FooterNav = <Footer />
             break
         case 'security':
             Navigation = <NavSecurity />
@@ -323,6 +333,7 @@ const Layout = ({
             )}
 
             {!no_live_chat && <LiveChat is_banner_shown={show_cookie_banner} />}
+            <WhatsApp />
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}

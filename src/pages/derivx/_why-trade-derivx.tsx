@@ -20,6 +20,7 @@ type CardType = {
     icon?: string
     title?: JSX.Element
     subtitle?: JSX.Element
+    image_alt: string
 }
 
 const StyledHeader = styled(Header)`
@@ -95,6 +96,7 @@ const card_data: CardType[] = [
         subtitle: (
             <Localize translate_text="Deriv X is our second CFD platform, after MT5. It’s packed with features and built to fit your trading style." />
         ),
+        image_alt: 'new and promising',
     },
     {
         icon: IconMultipleMarketing,
@@ -102,6 +104,7 @@ const card_data: CardType[] = [
         subtitle: (
             <Localize translate_text="Trade various assets in multiple markets simultaneously." />
         ),
+        image_alt: 'multiple markets',
     },
     {
         icon: Icon24_7,
@@ -109,6 +112,7 @@ const card_data: CardType[] = [
         subtitle: (
             <Localize translate_text="Trade cryptocurrencies and synthetic indices anytime, even on weekends and holidays." />
         ),
+        image_alt: '24/7 trading',
     },
 ]
 
@@ -125,7 +129,7 @@ const WhyTradeDerivX = () => {
                             return (
                                 <Card key={index}>
                                     <div>
-                                        <img src={card.icon} alt="" />
+                                        <img src={card.icon} alt={card.image_alt} />
                                     </div>
                                     <Header
                                         width="240px"

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { getLocationPathname } from 'common/utility'
+import { getLocationPathname, getLanguage } from 'common/utility'
 
 // Maps navigation main elements (keys) to root pages (values)
 const getNavigationMap = (type) => {
@@ -36,6 +36,14 @@ const getNavigationMap = (type) => {
                 affiliate: ['affiliate-ib'],
                 payment: ['payment-agent'],
             }
+        case 'markets':
+            return {
+                derived: ['derived-fx', 'basket-indices', 'synthetic'],
+                forex: ['forex'],
+                stock: ['stock'],
+                cryptocurrencies: ['cryptocurrencies'],
+                commodities: ['commodities'],
+            }
     }
 }
 
@@ -49,8 +57,14 @@ export const useActiveLinkState = (type) => {
             const current_root_page = getLocationPathname().match(/\/([a-zA-Z0-9-_]+)/g)
             if (!current_root_page || current_root_page.length === 0) return
 
-            // Only get the first level root page on main pages. Else take the second level.
-            const level = type === 'main' || current_root_page.length === 1 ? 0 : 1
+            const current_lang = getLanguage()
+            let level = 0
+            if (current_lang == 'en') {
+                // Only get the first level root page on main pages. Else take the second level.
+                level = type === 'main' || current_root_page.length === 1 ? 0 : 1
+            } else {
+                level = current_root_page.length === 1 ? 0 : type === 'markets' ? 2 : 1
+            }
 
             Object.keys(navigation_map).forEach((key) => {
                 if (navigation_map[key].includes(current_root_page[level].replace('/', ''))) {

@@ -309,7 +309,7 @@ const SignupNew = ({
                         <StyledLocalizedLink
                             external
                             key={0}
-                            to="/tnc/security-and-privacy.pdf"
+                            to={`/tnc${is_eu_country ? '/eu' : ''}/security-and-privacy.pdf`}
                             size="1.2rem"
                             color="red"
                             rel="noopener noreferrer"

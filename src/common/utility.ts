@@ -451,7 +451,7 @@ export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'dev
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
 
 export const isShowBranding = () => {
-    const host_name = location.hostname
+    const host_name = isBrowser && window.location.hostname
     const domain_name = getDomainName()
     return branding_domains.some((item) => item === host_name || item === domain_name)
 }

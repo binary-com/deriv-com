@@ -13,7 +13,7 @@ import { StyledBox } from '../../static/style/_markets-style'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
+const OtherMarkets = Loadable(() => import('features/markets/other-markets'))
 import { DerivStore } from 'store'
 
 type StockIndicesProps = {

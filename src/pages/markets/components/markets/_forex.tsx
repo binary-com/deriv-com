@@ -16,7 +16,7 @@ import { Localize, localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
+const OtherMarkets = Loadable(() => import('features/markets/other-markets'))
 
 type ForexProps = {
     simple_step_content: SimpleStepsContent[]

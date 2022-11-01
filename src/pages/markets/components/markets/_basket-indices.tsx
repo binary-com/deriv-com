@@ -18,7 +18,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
+const OtherMarkets = Loadable(() => import('features/markets/other-markets'))
 
 type BasketIndicesProps = {
     simple_step_content: SimpleStepContentElement[]

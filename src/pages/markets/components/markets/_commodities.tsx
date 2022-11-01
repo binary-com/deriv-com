@@ -13,7 +13,7 @@ import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import { DerivStore } from 'store'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
+const OtherMarkets = Loadable(() => import('features/markets/other-markets'))
 
 type CommoditiesProps = {
     simple_step_content: SimpleStepsContent[]

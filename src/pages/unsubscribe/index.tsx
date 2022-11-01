@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { Button } from 'components/form'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import CheckIcon from 'images/common/check_icon.png'
 import device from 'themes/device'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
+import { queryParams } from 'common/utility'
+import { decode } from 'common/url-base64-functions'
 
 const UnsubscrubeWrapper = styled.div`
     display: flex;
@@ -91,32 +94,13 @@ const SuccessCard = styled.div`
     }
 `
 
-type TLocation = {
-    location: {
-        hash: string
-        host: string
-        hostname: string
-        href: string
-        key: string
-        origin: string
-        pathname: string
-        port: string
-        protocol: string
-        search: string
-        state: null | string
-    }
-}
-
-const UnsubscrubePage = ({ location }: TLocation) => {
+const UnsubscrubePage = () => {
     const [complete_status, setCompleteStatus] = useState(false)
 
-    const url_props = location.search
-    const id_string_start = url_props.indexOf('binary_user_id=') + 'binary_user_id='.length
-    const id_string_end = url_props.indexOf('&')
-    const checksum_string = url_props.indexOf('checksum=') + 'checksum='.length
+    const decoded_url = decode(queryParams.get('hash')).split('+')
 
-    const binary_user_id = url_props.substring(id_string_start, id_string_end)
-    const checksum = url_props.substr(checksum_string)
+    const binary_user_id = decoded_url[0]
+    const checksum = decoded_url[1]
 
     const deriv_api = useDerivApi()
     const { send } = deriv_api
@@ -134,7 +118,7 @@ const UnsubscrubePage = ({ location }: TLocation) => {
                     setCompleteStatus(true)
                 }
                 if (response.error) {
-                    console.log('fail')
+                    console.log(response.error.message)
                 }
             },
         )
@@ -155,9 +139,11 @@ const UnsubscrubePage = ({ location }: TLocation) => {
                             <ConfirmButton onClick={APICall} type="submit" secondary>
                                 {localize('Yes')}
                             </ConfirmButton>
-                            <ConfirmButton type="submit" tertiary>
-                                {localize('No')}
-                            </ConfirmButton>
+                            <Link to="https://app.deriv.com/account/personal-details">
+                                <ConfirmButton type="submit" tertiary>
+                                    {localize('No')}
+                                </ConfirmButton>
+                            </Link>
                         </ConfirmWrapper>
                     </UnsubscribeForm>
                 )}

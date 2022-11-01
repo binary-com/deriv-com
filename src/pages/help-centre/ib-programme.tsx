@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Article, ArticleProps } from './_article'
-import { ArticleWrapper, StyledHeader, ExternalLink } from './_help-centre-style'
+import { ArticleWrapper, StyledHeader } from './_help-centre-style'
+import { useLivechat } from 'components/hooks/use-livechat'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { Text } from 'components/elements'
+import { Text, LinkText, LocalizedLinkText } from 'components/elements'
+import device from 'themes/device'
 import { localize, Localize, WithIntl } from 'components/localization'
 
 const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
@@ -16,34 +18,52 @@ const StyledListItem = styled.li<{ marginTop: string }>`
     margin-top: ${(props) => props.marginTop};
 `
 
-const SignUp = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="To become an IB, you'll need to be an existing affiliate with a Deriv account and an MT5 Synthetic real account. If you do, you can apply to become an IB by writing to us at <0>affiliates@deriv.com</0>. <1>Get more info about our IB programme</1>."
-                components={[
-                    <ExternalLink
-                        to={'mailto:affiliates@deriv.com'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                    <ExternalLink
-                        to={'https://deriv.com/partners/affiliate-ib/'}
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={1}
-                    />,
-                ]}
-            />
-        </Text>
-    </ArticleWrapper>
-)
+const ExternalLink = styled(LocalizedLinkText)`
+    text-decoration: none;
+    font-size: var(--text-size-s);
+    font-weight: normal;
+    color: var(--color-red);
 
+    :hover {
+        text-decoration: underline;
+    }
+
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
+const SignUp = ({ text }: ArticleProps) => {
+    const [is_livechat_interactive, LC_API] = useLivechat()
+
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                <Localize
+                    translate_text="First, you need to be an affiliate with a Deriv account and an MT5 Derived real account. Then, <0>contact us via live chat</0> to apply for an IB account. <1>Get more info about our IB programme.</1>"
+                    components={[
+                        <LinkText
+                            color="red"
+                            mt="1rem"
+                            key={0}
+                            onClick={() => {
+                                is_livechat_interactive && LC_API.open_chat_window()
+                            }}
+                        />,
+                        <ExternalLink
+                            to={'https://deriv.com/partners/affiliate-ib/'}
+                            external
+                            weight="bold"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={1}
+                        />,
+                    ]}
+                />
+            </Text>
+        </ArticleWrapper>
+    )
+}
 const WhyIb = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>

@@ -27,7 +27,7 @@ export const Wrapper = styled.div<TWrapper>`
     height: 100%;
 
     @media ${device.laptopL} {
-        margin-left: ${({ margin_left }) => margin_left ?? '12.6rem'};
+        margin-left: ${({ margin_left }) => margin_left ?? '2rem'};
     }
 
     @media ${device.tabletL} {
@@ -57,7 +57,7 @@ const AnswerCard = ({ question, answer, RenderProp }: AnswerCardType) => {
                         <>
                             <Header
                                 key={translation_text}
-                                size="1.6rem"
+                                size="16px"
                                 weight="normal"
                                 mt={has_margin_top ? '1.7rem' : margin_top}
                             >

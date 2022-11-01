@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Questions from './components/_questions'
+import dbot_data from './data/_dbot'
 import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -99,54 +101,6 @@ const StyledTable = styled.table<ArticleProps>`
     width: 100%;
     margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
 `
-
-const WhatIsDBot = ({ text }: ArticleProps) => (
-    <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                "DBot is a web-based strategy builder for trading digital options. It’s a platform where you can build your own trading bot using drag-and-drop 'blocks'.",
-            )}
-        </Text>
-    </ArticleWrapper>
-)
-
-const FindBlocks = ({ text }: ArticleProps) => (
-    <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize("1. Click 'Get started' at the top left corner to open the blocks menu.")}
-        </Text>
-        <ImageWrapper>
-            <img
-                src={GetStartedImage}
-                alt={localize('Get Started')}
-                width="14.2rem"
-                style={{ width: '14.2rem' }}
-                loading="lazy"
-            />
-        </ImageWrapper>
-        <Text>
-            {localize(
-                '2. The blocks are categorised accordingly. Just choose the blocks you want and drag them to the workspace.',
-            )}
-        </Text>
-        <StyledText>
-            {localize(
-                '3. You can also search for the blocks you want using the search field on the toolbar at the top of the workspace.',
-            )}
-        </StyledText>
-        <ImageWrapper>
-            <img
-                src={SearchBarImage}
-                alt={localize('Search')}
-                width="17.9rem"
-                style={{ width: '17.9rem' }}
-                loading="lazy"
-            />
-        </ImageWrapper>
-    </ArticleWrapper>
-)
 
 const RemoveBlocks = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
@@ -307,39 +261,6 @@ const QuickStrategy = ({ text }: ArticleProps) => (
         <Text>
             {localize(
                 '7. You may save your bot by either downloading it into your computer or by saving it on your Google Drive.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
-
-const MartingaleStrategy = ({ text }: ArticleProps) => (
-    <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'The Martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
-
-const AlembertStrategy = ({ text }: ArticleProps) => (
-    <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'Named after the popular 18th-century French roulette theorist, Jean le Rond d’Alembert, this strategy encourages traders to increase contract size after a loss and decrease it after a successful trade.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
-
-const OskarStrategy = ({ text }: ArticleProps) => (
-    <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'This is a low-risk positive progression strategy that first appeared in 1965. By using this strategy, you will increase the size of your contract after each successful trade, and decrease the size of your contract after each unsuccessful trade.',
             )}
         </Text>
     </ArticleWrapper>
@@ -710,91 +631,6 @@ const ViewChart = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DBotArticle = () => {
-    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+const DBot = () => <Questions data={dbot_data} />
 
-    return (
-        <div>
-            <Article
-                header="DBot"
-                title={localize('Help centre | Frequently asked questions | DBot | Deriv')}
-                description={localize('Frequently asked questions - DBot')}
-                is_mounted={is_mounted}
-            >
-                <WhatIsDBot text={localize('What is DBot?')} label="what-is-dbot" />
-                <FindBlocks
-                    text={localize('How do I find the blocks I need?')}
-                    label="find-blocks"
-                    is_mounted={is_mounted}
-                />
-                <RemoveBlocks
-                    text={localize('How do I remove blocks from the workspace?')}
-                    label="remove-blocks"
-                    is_mounted={is_mounted}
-                />
-                <CreateVariables
-                    text={localize('How do I create variables?')}
-                    label="create-variables"
-                    is_mounted={is_mounted}
-                />
-                <QuickStrategy
-                    text={localize('What is a quick strategy and how do I use it?')}
-                    label="quick-strategy"
-                    is_mounted={is_mounted}
-                />
-                <MartingaleStrategy
-                    text={localize('What is the Martingale strategy?')}
-                    label="martingale-strategy"
-                    is_mounted={is_mounted}
-                />
-                <AlembertStrategy
-                    text={localize('What is the D’Alembert strategy?')}
-                    label="dalembert-strategy"
-                    is_mounted={is_mounted}
-                />
-                <OskarStrategy
-                    text={localize("What is the Oscar's Grind strategy?")}
-                    label="oscars-grind-strategy"
-                    is_mounted={is_mounted}
-                />
-                <SaveStrategy
-                    text={localize('How do I save my strategy?')}
-                    label="save-strategy"
-                    is_mounted={is_mounted}
-                />
-                <ImportStrategy
-                    text={localize('How do I import my strategies into DBot?')}
-                    label="import-strategy"
-                    is_mounted={is_mounted}
-                />
-                <ResetWorkspace
-                    text={localize('How do I reset the workspace?')}
-                    label="reset-workspace"
-                    is_mounted={is_mounted}
-                />
-                <TransactionLog
-                    text={localize('How do I clear my transaction log?')}
-                    label="clear-transaction-log"
-                    is_mounted={is_mounted}
-                />
-                <ControlLosses
-                    text={localize('How do I control my losses with DBot?')}
-                    label="control-loss"
-                    is_mounted={is_mounted}
-                />
-                <TradeStatus
-                    text={localize('Where can I see the status of my trades in DBot?')}
-                    label="status-of-trades"
-                    is_mounted={is_mounted}
-                />
-                <ViewChart
-                    text={localize('How do I view the chart in DBot?')}
-                    label="view-chart"
-                    is_mounted={is_mounted}
-                />
-            </Article>
-        </div>
-    )
-}
-
-export default WithIntl()(DBotArticle)
+export default WithIntl()(DBot)

@@ -1,7 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { NavigationButtonProps } from './carousel.types'
 import { StyledDot } from './carousel.styles'
 import useCarousel from './use-carousel'
+import { ColorPalette } from 'themes/theme.types'
+
+export type NavigationButtonProps = {
+    color: ColorPalette
+    is_enabled: boolean
+    onClick: () => void
+}
 
 const NavigationButton = ({ color, is_enabled, onClick }: NavigationButtonProps) => (
     <StyledDot onClick={onClick} color={is_enabled ? color : null} />
@@ -17,8 +23,6 @@ const Navigation = () => {
     useEffect(() => {
         if (embla) {
             setSlideCount(embla.slideNodes().length)
-            console.log('slide nodes: ', embla.slideNodes().length)
-
             embla.on('select', () => {
                 setSelected(embla.selectedScrollSnap)
             })

@@ -51,44 +51,44 @@ const TestimonialCarousel = () => {
             embla={embla}
             config={{
                 nav_offset: -10,
-                controls_placement: 'inside',
                 controls_offset: 0,
                 controls_active_color: '#000000',
             }}
         >
-            <Carousel.Container>
-                <Carousel.ViewPort ref={emblaRef}>
-                    <Carousel.Slides>
-                        {employeee_testimonials.map((item) => {
-                            return (
-                                <StyledSlide key={item.name}>
-                                    <EmployeeSlide item={item} />
-                                </StyledSlide>
-                            )
-                        })}
-                    </Carousel.Slides>
-                </Carousel.ViewPort>
-                {!is_smaller_than_Ltablet && (
-                    <Carousel.Controls
-                        render_next_button={() => {
-                            return (
-                                <StyledChevronContainer>
-                                    <ChevronRight />
-                                </StyledChevronContainer>
-                            )
-                        }}
-                        render_prev_button={() => {
-                            return (
-                                <StyledChevronContainer>
-                                    <ChevronLeft />
-                                </StyledChevronContainer>
-                            )
-                        }}
-                    />
+            <Carousel.Body
+                ref={emblaRef}
+                render_controls={() => (
+                    <>
+                        {!is_smaller_than_Ltablet && (
+                            <Carousel.Controls
+                                render_next_button={() => {
+                                    return (
+                                        <StyledChevronContainer>
+                                            <ChevronRight />
+                                        </StyledChevronContainer>
+                                    )
+                                }}
+                                render_prev_button={() => {
+                                    return (
+                                        <StyledChevronContainer>
+                                            <ChevronLeft />
+                                        </StyledChevronContainer>
+                                    )
+                                }}
+                            />
+                        )}
+                    </>
                 )}
-
-                <Carousel.Nav />
-            </Carousel.Container>
+                render_nav={() => <Carousel.Nav />}
+            >
+                {employeee_testimonials.map((item) => {
+                    return (
+                        <StyledSlide key={item.name}>
+                            <EmployeeSlide item={item} />
+                        </StyledSlide>
+                    )
+                })}
+            </Carousel.Body>
         </StyledCarouselContainer>
     )
 }

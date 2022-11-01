@@ -60,34 +60,34 @@ const AcademyMainCarousel = ({ banner_data }: TAcademyMainCarousel) => {
     return (
         <Container>
             <Carousel embla={embla}>
-                <Carousel.Container>
-                    <Carousel.ViewPort ref={emblaRef}>
-                        <Carousel.Slides>
-                            {banner_data?.map((page_data) => {
-                                return (
-                                    <StyledSlide key={page_data.id}>
-                                        <Flex>
-                                            <HeroBanner
-                                                imageData={
-                                                    page_data.image?.imageFile.childImageSharp
-                                                        .gatsbyImageData
-                                                }
-                                                imageAlt={page_data?.image?.description}
-                                                title={page_data.heading}
-                                                description={page_data.sub_heading}
-                                                href={page_data.link}
-                                                cta_text={page_data.button_text}
-                                            />
-                                        </Flex>
-                                    </StyledSlide>
-                                )
-                            })}
-                        </Carousel.Slides>
+                <Carousel.Body
+                    ref={emblaRef}
+                    render_nav={() => (
                         <CarouselNavContainer>
                             <Carousel.Navigation />
                         </CarouselNavContainer>
-                    </Carousel.ViewPort>
-                </Carousel.Container>
+                    )}
+                >
+                    {banner_data?.map((page_data) => {
+                        return (
+                            <StyledSlide key={page_data.id}>
+                                <Flex>
+                                    <HeroBanner
+                                        imageData={
+                                            page_data.image?.imageFile.childImageSharp
+                                                .gatsbyImageData
+                                        }
+                                        imageAlt={page_data?.image?.description}
+                                        title={page_data.heading}
+                                        description={page_data.sub_heading}
+                                        href={page_data.link}
+                                        cta_text={page_data.button_text}
+                                    />
+                                </Flex>
+                            </StyledSlide>
+                        )
+                    })}
+                </Carousel.Body>
             </Carousel>
         </Container>
     )

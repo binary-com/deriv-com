@@ -26,11 +26,6 @@ const StyledSlide = styled(Carousel.Slide)`
     min-width: 100%;
 `
 
-const StyledCarouselContainer = styled(Carousel.Container)`
-    height: 100%;
-    width: 100%;
-`
-
 const HeroContentCarousel = () => {
     const rules = useCountryRule()
 
@@ -57,21 +52,17 @@ const HeroContentCarousel = () => {
 
     return (
         <StyledCarousel mode={mode} embla={embla} config={{ mode }}>
-            <StyledCarouselContainer>
-                <Carousel.ViewPort ref={emblaRef}>
-                    <Carousel.Slides>
-                        {visible_data?.map((item) => {
-                            return (
-                                <StyledSlide key={item.id}>
-                                    <StyledHeader as="h3" type="sub-section-title" color="white">
-                                        <Localize translate_text={item.data.text} />
-                                    </StyledHeader>
-                                </StyledSlide>
-                            )
-                        })}
-                    </Carousel.Slides>
-                </Carousel.ViewPort>
-            </StyledCarouselContainer>
+            <Carousel.Body ref={emblaRef}>
+                {visible_data?.map((item) => {
+                    return (
+                        <StyledSlide key={item.id}>
+                            <StyledHeader as="h3" type="sub-section-title" color="white">
+                                <Localize translate_text={item.data.text} />
+                            </StyledHeader>
+                        </StyledSlide>
+                    )
+                })}
+            </Carousel.Body>
         </StyledCarousel>
     )
 }

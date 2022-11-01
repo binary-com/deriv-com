@@ -18,7 +18,6 @@ export interface ICarouselProps extends React.HtmlHTMLAttributes<HTMLDivElement>
 }
 
 const carousel_default_config: TCarouselConfig = {
-    controls_placement: 'outside',
     controls_active_color: '#ff2244',
     controls_offset: -30,
     nav_color: 'orange',

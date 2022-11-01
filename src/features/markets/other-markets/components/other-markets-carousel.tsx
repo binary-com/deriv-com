@@ -36,17 +36,13 @@ const OtherMarketsCarousel = ({ items }: TOtherMarketsCarouselProps) => {
 
     return (
         <Carousel embla={embla}>
-            <Carousel.Container>
-                <Carousel.ViewPort ref={emblaRef}>
-                    <Carousel.Slides>
-                        {items?.map((item) => (
-                            <StyledSlide key={item.id}>
-                                <OtherMarketsCard item={item.data} />
-                            </StyledSlide>
-                        ))}
-                    </Carousel.Slides>
-                </Carousel.ViewPort>
-            </Carousel.Container>
+            <Carousel.Body ref={emblaRef}>
+                {items?.map((item) => (
+                    <StyledSlide key={item.id}>
+                        <OtherMarketsCard item={item.data} />
+                    </StyledSlide>
+                ))}
+            </Carousel.Body>
         </Carousel>
     )
 }

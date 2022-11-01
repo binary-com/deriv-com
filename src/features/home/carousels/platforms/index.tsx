@@ -25,10 +25,6 @@ const Container = styled.div`
     }
 `
 
-const StyledCarouselContainer = styled(Carousel.Container)`
-    height: 100%;
-`
-
 const StyledCarousel = styled(Carousel)`
     height: 640px;
     margin: 0 auto;
@@ -92,24 +88,25 @@ const PlatformsCarousel = () => {
                 embla={embla}
                 config={{ mode, nav_offset: '60vw', nav_placement: 'start' }}
             >
-                <StyledCarouselContainer>
-                    {is_vertical && (
-                        <>
-                            <SelectedOverlay visible_data={visible_data} />
-                            <CarouselShadows />
-                        </>
-                    )}
-                    <Carousel.ViewPort ref={emblaRef}>
-                        <Carousel.Slides>
-                            {visible_data.map((item, index) => (
-                                <StyledSlide key={item.id} onClick={() => scrollHandler(index)}>
-                                    <PlatformCarouselItem item={item.data} />
-                                </StyledSlide>
-                            ))}
-                        </Carousel.Slides>
-                    </Carousel.ViewPort>
-                    {!is_vertical && <Carousel.Nav />}
-                </StyledCarouselContainer>
+                <Carousel.Body
+                    ref={emblaRef}
+                    render_nav={() => {
+                        return is_vertical ? (
+                            <>
+                                <SelectedOverlay visible_data={visible_data} />
+                                <CarouselShadows />
+                            </>
+                        ) : (
+                            <Carousel.Nav />
+                        )
+                    }}
+                >
+                    {visible_data.map((item, index) => (
+                        <StyledSlide key={item.id} onClick={() => scrollHandler(index)}>
+                            <PlatformCarouselItem item={item.data} />
+                        </StyledSlide>
+                    ))}
+                </Carousel.Body>
             </StyledCarousel>
             {is_vertical && visible_data && (
                 <PlatformContentContainer embla={embla} items={visible_data} />

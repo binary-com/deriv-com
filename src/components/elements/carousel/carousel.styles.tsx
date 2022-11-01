@@ -3,6 +3,8 @@ import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.s
 
 export const Container = styled.div`
     position: relative;
+    height: 100%;
+    width: 100%;
 `
 
 export const Slide = styled.div`

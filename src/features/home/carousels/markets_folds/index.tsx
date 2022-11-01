@@ -14,11 +14,8 @@ import { Mobile } from 'components/containers/visibility'
 import useMediaQuery from 'components/hooks/use-media-query'
 
 const StyledCarousel = styled(Carousel)`
-    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
-`
-
-const StyledCarouselContainer = styled(Carousel.Container)`
     @media ${device.desktopL} {
         max-width: 1600px;
     }
@@ -94,20 +91,20 @@ const MarketsFoldCarousel = () => {
 
     return (
         <StyledCarousel embla={embla} config={{ mode }}>
-            <StyledCarouselContainer>
-                <Carousel.ViewPort ref={emblaRef}>
-                    <Carousel.Slides>
-                        {visible_data.map((item) => (
-                            <StyledSlide key={item.id}>
-                                <MarketFoldCarouselItem item={item.data} image_data={image_data} />
-                            </StyledSlide>
-                        ))}
-                    </Carousel.Slides>
-                </Carousel.ViewPort>
-                <Mobile>
-                    <Carousel.Nav />
-                </Mobile>
-            </StyledCarouselContainer>
+            <Carousel.Body
+                ref={emblaRef}
+                render_nav={() => (
+                    <Mobile>
+                        <Carousel.Nav />
+                    </Mobile>
+                )}
+            >
+                {visible_data.map((item) => (
+                    <StyledSlide key={item.id}>
+                        <MarketFoldCarouselItem item={item.data} image_data={image_data} />
+                    </StyledSlide>
+                ))}
+            </Carousel.Body>
         </StyledCarousel>
     )
 }

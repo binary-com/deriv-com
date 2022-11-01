@@ -1,5 +1,4 @@
 import type { EmblaCarouselType } from 'embla-carousel-react'
-import { ButtonsProps } from '.'
 import { ColorPalette, TColor } from 'themes/theme.types'
 
 export type TCarouselMode = 'vertical' | 'horizontal'
@@ -8,9 +7,7 @@ export type TCarouselContent = {
     config?: TCarouselConfig
 }
 export type TCarouselButtonType = 'next' | 'previous'
-export type TCarouselControlPlacement = 'outside' | 'inside'
 
-export type NavigationButtonProps = Pick<ButtonsProps, 'color' | 'is_enabled' | 'onClick'>
 export type TNavPlacement = 'start' | 'end'
 export type TOffset =
     | number
@@ -20,7 +17,6 @@ export type TOffset =
     | `${number}vw`
     | `${number}vh`
 export type TCarouselConfig = {
-    controls_placement?: TCarouselControlPlacement
     controls_active_color?: TColor
     controls_offset?: TOffset
     nav_placement?: TNavPlacement

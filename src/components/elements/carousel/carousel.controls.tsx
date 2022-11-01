@@ -71,7 +71,7 @@ export type TControlsProps = {
 const Controls = ({ render_next_button, render_prev_button }: TControlsProps) => {
     const {
         embla,
-        config: { controls_placement, mode, controls_active_color, controls_offset },
+        config: { mode, controls_active_color, controls_offset },
     } = useCarousel()
 
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)

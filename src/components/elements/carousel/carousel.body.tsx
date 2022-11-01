@@ -1,18 +1,24 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, ReactNode } from 'react'
+import Slides from './carousel.slides'
 import { Container } from './carousel.styles'
 import ViewPort from './carousel.viewport'
 
-export type ICarouselBody = React.HtmlHTMLAttributes<HTMLDivElement>
+export interface ICarouselBody extends React.HtmlHTMLAttributes<HTMLDivElement> {
+    render_nav?: () => ReactNode
+    render_controls?: () => ReactNode
+}
 
 const CarouselBody = (
-    { children, ...rest }: React.PropsWithChildren<ICarouselBody>,
+    { render_nav, render_controls, children, ...rest }: React.PropsWithChildren<ICarouselBody>,
     ref: React.ForwardedRef<HTMLDivElement>,
 ) => {
     return (
         <Container>
             <ViewPort ref={ref} {...rest}>
-                {children}
+                <Slides>{children}</Slides>
             </ViewPort>
+            {render_nav?.()}
+            {render_controls?.()}
         </Container>
     )
 }

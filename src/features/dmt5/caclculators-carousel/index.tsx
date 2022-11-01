@@ -30,21 +30,19 @@ const CalculatorsCarousel = () => {
                 controls_offset: 25,
             }}
         >
-            <Carousel.Container>
-                <Carousel.ViewPort ref={emblaRef}>
-                    <Carousel.Slides>
-                        {calculators.map((item) => {
-                            return (
-                                <StyledSlide key={item.name}>
-                                    <CalculatorCard item={item} />
-                                </StyledSlide>
-                            )
-                        })}
-                    </Carousel.Slides>
-                </Carousel.ViewPort>
-                <Carousel.Controls />
-                <Carousel.Nav />
-            </Carousel.Container>
+            <Carousel.Body
+                ref={emblaRef}
+                render_controls={() => <Carousel.Controls />}
+                render_nav={() => <Carousel.Nav />}
+            >
+                {calculators.map((item) => {
+                    return (
+                        <StyledSlide key={item.name}>
+                            <CalculatorCard item={item} />
+                        </StyledSlide>
+                    )
+                })}
+            </Carousel.Body>
         </StyledCarousel>
     )
 }

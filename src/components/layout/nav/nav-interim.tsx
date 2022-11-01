@@ -11,13 +11,12 @@ import {
 import NavTemplate from './components/nav-template'
 import { localize, LanguageSwitcher } from 'components/localization'
 import { LinkButton } from 'components/form'
-import { Container, Flex } from 'components/containers'
+import { Container, Flex, Branding } from 'components/containers'
 import device from 'themes/device'
 import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import { DerivStore } from 'store'
-import Branding from 'components/containers/branding'
 
 type NavInterimProps = {
     interim_type?: 'affiliate' | 'dbot' | 'deriv' | 'dmt5' | 'faq'
@@ -57,22 +56,20 @@ const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => {
                 <Flex ai="center" jc="flex-start">
                     <DesktopWrapper>
                         <Branding>
-                            {hide_branding && (
-                                <LogoWrapper
-                                    to={interim_type ? `/interim/${interim_type}/` : `/landing/`}
-                                    aria-label="Home"
-                                >
-                                    <Flex ai="center">
-                                        <img src={Logo} alt="deriv logo" width="190" height="27" />
-                                        <img
-                                            src={GetTrading}
-                                            alt="get trading"
-                                            width="120"
-                                            height="17"
-                                        />
-                                    </Flex>
-                                </LogoWrapper>
-                            )}
+                            <LogoWrapper
+                                to={interim_type ? `/interim/${interim_type}/` : `/landing/`}
+                                aria-label="Home"
+                            >
+                                <Flex ai="center">
+                                    <img src={Logo} alt="deriv logo" width="190" height="27" />
+                                    <img
+                                        src={GetTrading}
+                                        alt="get trading"
+                                        width="120"
+                                        height="17"
+                                    />
+                                </Flex>
+                            </LogoWrapper>
                         </Branding>
                     </DesktopWrapper>
 
@@ -82,25 +79,23 @@ const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => {
                             aria-label="Home"
                         >
                             <Branding>
-                                {hide_branding && (
-                                    <Flex ai="center">
+                                <Flex ai="center">
+                                    <img
+                                        src={LogoOnly}
+                                        alt="deriv logo"
+                                        width="115"
+                                        height="19.4"
+                                    />
+                                    <LogoDescription ai="center">
+                                        <Line />
                                         <img
-                                            src={LogoOnly}
-                                            alt="deriv logo"
-                                            width="115"
-                                            height="19.4"
+                                            src={GetTrading}
+                                            alt="get trading"
+                                            width="120"
+                                            height="17"
                                         />
-                                        <LogoDescription ai="center">
-                                            <Line />
-                                            <img
-                                                src={GetTrading}
-                                                alt="get trading"
-                                                width="120"
-                                                height="17"
-                                            />
-                                        </LogoDescription>
-                                    </Flex>
-                                )}
+                                    </LogoDescription>
+                                </Flex>
                             </Branding>
                         </LogoLinkMobile>
                     </MobileWrapper>

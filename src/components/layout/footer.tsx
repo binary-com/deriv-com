@@ -4,9 +4,8 @@ import { DefaultFooter, FooterGrid } from './footer/common/style'
 import LogoSection from './footer/logo'
 import MainLinksSection from './footer/main-links'
 import DisclaimerSection from './footer/disclaimer'
-import { Container } from 'components/containers'
+import { Container, Branding } from 'components/containers'
 import { DerivStore } from 'store'
-import Branding from 'components/containers/branding'
 
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 
@@ -37,7 +36,7 @@ const Footer = ({
                         <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
                     )}
                     <Branding>
-                        {hide_branding && <DisclaimerSection is_academy={academy} />}
+                        <DisclaimerSection is_academy={academy} />
                     </Branding>
                 </FooterGrid>
             </Container>

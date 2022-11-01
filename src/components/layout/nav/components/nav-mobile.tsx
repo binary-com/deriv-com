@@ -20,7 +20,7 @@ import GetTrading from 'images/svg/layout/get-trading.svg'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { DerivStore } from 'store'
-import Branding from 'components/containers/branding'
+import { Branding } from 'components/containers'
 
 type NavMobileProps = {
     is_ppc?: boolean
@@ -73,15 +73,13 @@ const NavMobile = ({
                     />
                 )}
                 <Branding>
-                    {hide_branding && (
-                        <LogoWrapper to="/" aria-label="Home">
-                            <img src={LogoOnly} alt="deriv logo" width={115} />
-                            <LogoDescription ai="center">
-                                <Line />
-                                <img src={GetTrading} alt="get trading" />
-                            </LogoDescription>
-                        </LogoWrapper>
-                    )}
+                    <LogoWrapper to="/" aria-label="Home">
+                        <img src={LogoOnly} alt="deriv logo" width={115} />
+                        <LogoDescription ai="center">
+                            <Line />
+                            <img src={GetTrading} alt="get trading" />
+                        </LogoDescription>
+                    </LogoWrapper>
                 </Branding>
                 <LeftSection>
                     {!hide_language_switcher && <LanguageSwitcher has_short_name is_high_nav />}

@@ -5,12 +5,11 @@ import { StyledLogoLink } from './components/partner/nav-partner-desktop'
 import { PartnerWrapper, PartnerNavigationBarWrapper } from './styles/nav-styles'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import { Container } from 'components/containers'
+import { Container, Branding } from 'components/containers'
 import device from 'themes/device'
 import LogoBugBounty from 'images/svg/layout/logo-bug-bounty.svg'
 import { CFDWarning } from 'components/layout'
 import { DerivStore } from 'store'
-import Branding from 'components/containers/branding'
 
 const Wrapper = styled(Container)`
     height: 7.2rem;
@@ -45,11 +44,9 @@ const NavSecurity = () => {
                 <PartnerNavigationBarWrapper>
                     <Wrapper jc="space-between">
                         <Branding>
-                            {hide_branding && (
-                                <StyledLogoLink to="/" aria-label="Bug bounty">
-                                    <Logo src={LogoBugBounty} alt="logo bug bounty" />
-                                </StyledLogoLink>
-                            )}
+                            <StyledLogoLink to="/" aria-label="Bug bounty">
+                                <Logo src={LogoBugBounty} alt="logo bug bounty" />
+                            </StyledLogoLink>
                         </Branding>
 
                         <SubmissionButton

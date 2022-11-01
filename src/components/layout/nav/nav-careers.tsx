@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import NavTemplate from './components/nav-template'
 import { LogoLink, StyledLink, HamburgerMenu, CloseIcon } from './styles/nav-styles'
-import { Flex, Desktop, Mobile } from 'components/containers'
+import { Flex, Desktop, Mobile, Branding } from 'components/containers'
 import { QueryImage, OffCanvasMenuWrapperCareer, useMoveOffCanvasMenu } from 'components/elements'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
@@ -13,7 +13,6 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { besquare_signup_url, zoho_career_url } from 'common/constants'
 import { DerivStore } from 'store'
-import Branding from 'components/containers/branding'
 
 type NavCareersProps = {
     is_besquare?: boolean
@@ -149,18 +148,16 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                         )}
                     </Mobile>
                     <Branding>
-                        {hide_branding && (
-                            <LogoSection>
-                                <StyledLogoLink to="/" aria-label="Home">
-                                    <QueryImage
-                                        data={data['deriv']}
-                                        alt="Deriv"
-                                        height="auto"
-                                        loading="eager"
-                                    />
-                                </StyledLogoLink>
-                            </LogoSection>
-                        )}
+                        <LogoSection>
+                            <StyledLogoLink to="/" aria-label="Home">
+                                <QueryImage
+                                    data={data['deriv']}
+                                    alt="Deriv"
+                                    height="auto"
+                                    loading="eager"
+                                />
+                            </StyledLogoLink>
+                        </LogoSection>
                     </Branding>
 
                     <Desktop>

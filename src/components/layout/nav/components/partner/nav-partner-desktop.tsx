@@ -18,7 +18,7 @@ import LogoPartner from 'images/svg/layout/logo-partners.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { DerivStore } from 'store'
-import Branding from 'components/containers/branding'
+import { Branding } from 'components/containers'
 
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean
@@ -154,11 +154,9 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
             <StyledWrapper hide_login_signup={hide_login_signup}>
                 <LeftSide>
                     <Branding>
-                        {hide_branding && (
-                            <StyledLogoLink to="/partners/" aria-label="Partners">
-                                <img src={LogoPartner} alt="deriv logo" />
-                            </StyledLogoLink>
-                        )}
+                        <StyledLogoLink to="/partners/" aria-label="Partners">
+                            <img src={LogoPartner} alt="deriv logo" />
+                        </StyledLogoLink>
                     </Branding>
                 </LeftSide>
 

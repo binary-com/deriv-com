@@ -71,7 +71,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     useEffect(() => {
         const branding = () => {
             const host_name = location.hostname
-            const domain_name = getDomainName(isBrowser && window.location.hostname)
+            const domain_name = getDomainName()
             return branding_domains.some((item) => item === host_name || item === domain_name)
         }
 

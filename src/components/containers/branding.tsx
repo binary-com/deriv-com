@@ -1,9 +1,13 @@
 import React, { ReactNode } from 'react'
+import { DerivStore } from 'store'
 
-type BrandingType = {
+type BrandingProps = {
     children: ReactNode
 }
-const Branding = ({ children }: BrandingType) => {
-    return <>{children}</>
+
+const Branding = ({ children }: BrandingProps) => {
+    const { hide_branding } = React.useContext(DerivStore)
+
+    return hide_branding && <>{children}</>
 }
 export default Branding

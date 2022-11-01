@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Wrapper, MobileWrapper, HamburgerMenu, CloseIcon } from '../../styles/nav-styles'
 import { localize, LanguageSwitcher, LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
-import { Flex } from 'components/containers'
+import { Flex, Branding } from 'components/containers'
 import { OffCanvasMenuPartner, useMoveOffCanvasMenu } from 'components/elements'
 import device from 'themes/device'
 import { affiliate_signin_url } from 'common/constants'
@@ -11,7 +11,6 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import { DerivStore } from 'store'
-import Branding from 'components/containers/branding'
 
 type NavPartnerMobileProps = {
     hide_login_signup: boolean
@@ -58,11 +57,9 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
                     />
                 )}
                 <Branding>
-                    {hide_branding && (
-                        <LogoLink to="/partners/" aria-label="Home">
-                            <Logo src={LogoOnly} alt="deriv logo" />
-                        </LogoLink>
-                    )}
+                    <LogoLink to="/partners/" aria-label="Home">
+                        <Logo src={LogoOnly} alt="deriv logo" />
+                    </LogoLink>
                 </Branding>
 
                 <Flex ml="auto" ai="center" width="auto">

@@ -449,6 +449,7 @@ export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'dev
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
 
-export const getDomainName = (hostname) => {
+export const getDomainName = () => {
+    const hostname = isBrowser && window.location.hostname
     return hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1)
 }

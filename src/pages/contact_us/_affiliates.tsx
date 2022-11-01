@@ -18,7 +18,6 @@ const CardContainer = styled(Container)`
     position: relative;
     padding: 4rem 9.5rem;
     display: flex;
-    flex-direction: row;
     justify-content: left;
     align-items: center;
     gap: 82px;

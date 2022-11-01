@@ -599,8 +599,7 @@ const IBAccountManagement = () => {
                 }}
             >
                 <Localize
-                    translate_text="All you need to do is head to the signup page and fill out the application form. We’ll review your application and get in touch if it’s successful.
-                    If you’re already registered as a Deriv affiliate, "
+                    translate_text="All you need to do is head to the signup page and fill out the application form. We’ll review your application and get in touch if it’s successful."
                     components={[
                         <LocalizedLinkText
                             to={affiliate_signup_url}

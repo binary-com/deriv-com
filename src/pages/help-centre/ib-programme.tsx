@@ -51,7 +51,7 @@ const SignUp = ({ text }: ArticleProps) => {
                             }}
                         />,
                         <ExternalLink
-                            to={'https://deriv.com/partners/affiliate-ib/'}
+                            to={'/partners/affiliate-ib/'}
                             external
                             weight="bold"
                             target="_blank"

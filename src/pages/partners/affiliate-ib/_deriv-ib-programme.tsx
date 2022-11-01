@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import DERIVIBDMT5Cards from './_dmt5-cards'
 import { CardWrapper } from './_partner-card'
-import { SectionContainer, Container, Flex } from 'components/containers'
+import { SectionContainer, Container } from 'components/containers'
 import { Header, LinkText } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import { useLivechat } from 'components/hooks/use-livechat'
-import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 type AssetsType = {

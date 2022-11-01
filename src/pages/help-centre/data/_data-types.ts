@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import { ReactNode } from 'react'
 import { TString } from 'types/generics'
 
 export type ListStyleType = 'disc' | 'decimal' | 'circle'
@@ -41,7 +41,7 @@ export type ArticlesType = {
     category: string
     label: string
     answer?: AnswerType
-    renderProp?: FunctionComponent
+    renderProp?: () => ReactNode
     hide_for_non_eu?: boolean
     hide_for_eu?: boolean
 }

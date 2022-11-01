@@ -57,7 +57,7 @@ const Questions = ({ data }: QuestionsType) => {
                             question={question}
                             answer={answer}
                             label={label}
-                            RenderProp={renderProp}
+                            renderProp={renderProp}
                         />
                     ))}
                 </SideTab>

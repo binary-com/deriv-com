@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext } from 'react'
+import React, { ReactNode, useContext } from 'react'
 import styled from 'styled-components'
 import { AnswerType } from '../data/_data-types'
 import TranslationComponents from './_translation-components'
@@ -17,7 +17,7 @@ type AnswerCardType = TWrapper & {
     question: TString
     label: string
     answer?: AnswerType
-    RenderProp?: FunctionComponent
+    renderProp?: () => ReactNode
 }
 
 export const Wrapper = styled.div<TWrapper>`
@@ -35,7 +35,7 @@ export const Wrapper = styled.div<TWrapper>`
     }
 `
 
-const AnswerCard = ({ question, answer, RenderProp }: AnswerCardType) => {
+const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
     const { is_eu_country } = useContext(DerivStore)
 
     return (
@@ -43,7 +43,7 @@ const AnswerCard = ({ question, answer, RenderProp }: AnswerCardType) => {
             <Header size="2.4rem" mb="2.4rem">
                 <Localize translate_text={question} />
             </Header>
-            {RenderProp && <RenderProp />}
+            {renderProp && renderProp()}
             {answer &&
                 answer.map(
                     ({

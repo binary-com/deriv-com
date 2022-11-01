@@ -22,6 +22,7 @@ const dbot_data: ArticlesDataType = {
             category: 'DBot',
             sub_category: '_t_Blocks_t_',
             label: 'find-blocks',
+            renderProp: FindBlocks,
         },
         {
             question: '_t_How do I remove blocks from the workspace?_t_',

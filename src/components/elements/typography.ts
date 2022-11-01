@@ -38,7 +38,7 @@ type BaseElementProps = {
     min_height?: string
     max_height?: string
     mobile_max_width?: string
-    type?: Types
+    type?: string[] | Types
 } & MarginsType &
     PaddingsType
 
@@ -81,6 +81,7 @@ const createElement = React.createElement
 export const BaseLink = css`
     text-decoration: none;
     cursor: pointer;
+    font-weight: normal;
 
     &:hover {
         color: var(--color-red);
@@ -103,9 +104,7 @@ export const BaseElement = css<BaseElementProps>`
     }
 `
 
-//////////////////////////////////////////////////////////////////////////////
-/////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
-//////////////////////////////////////////////////////////////////////////////
+/** @deprecated Use `Header` component instead. */
 
 export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
     ${BaseElement}
@@ -119,12 +118,14 @@ export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
 
     ${responsiveStyles}
 `
-//////////////////////////////////////////////////////////////////////////////
-/////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
-//////////////////////////////////////////////////////////////////////////////
-
 type HeaderProps = {
     as?: string
+    href?: string
+    external?: boolean
+    start_time?: number
+    current_time?: number
+    end_time?: number
+    onClick?: () => void
     children?: React.ReactNode
 } & ResponseDeviceProps &
     BaseElementProps
@@ -223,7 +224,7 @@ export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     ${responsiveStyles}
 `
 
-export const LinkText = styled(Text).attrs({ as: 'a' })`
+export const LinkText = styled(Header).attrs({ as: 'a' })`
     ${BaseLink}
 `
 

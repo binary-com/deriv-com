@@ -23,7 +23,7 @@ const validation = {
             return null
         }
     },
-    required: (input, message) => {
+    required: (input, message?: any) => {
         if (!input) {
             return message ? message : localize('This field is required')
         } else {
@@ -44,7 +44,7 @@ const validation = {
             return null
         }
     },
-    alphabetic: (input, message) => {
+    alphabetic: (input, message?: any) => {
         if (!validation_regex.alphabetic.test(input)) {
             return message ? message : localize('Please enter only alphabetic characters')
         } else {

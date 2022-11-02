@@ -5,8 +5,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import { LiveChatLinkText } from 'components/elements'
-import { useLivechat } from 'components/hooks/use-livechat'
-import { localize, Localize } from 'components/localization'
+import { localize } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 
 const StyledSection = styled(SectionContainer)`

@@ -14,14 +14,14 @@ import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type StockIndicesProps = {
     simple_step_content: SimpleStepsContent[]
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     return (
         <div>
@@ -42,7 +42,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
             <AvailableTrades
                 CFDs={
                     <CFDs
-                        market_content={is_eu_country ? synthetic_cfds_eu : synthetic_cfds}
+                        market_content={is_eu ? synthetic_cfds_eu : synthetic_cfds}
                         market_tab_name={'synthetic-indices'}
                     />
                 }
@@ -55,9 +55,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 Multipliers={
                     <Multipliers
                         is_crypto
-                        market_content={
-                            is_eu_country ? synthetic_multiplier_eu : synthetic_multiplier
-                        }
+                        market_content={is_eu ? synthetic_multiplier_eu : synthetic_multiplier}
                     />
                 }
                 display_title={<Localize translate_text="Synthetics trades available on Deriv" />}

@@ -31,7 +31,7 @@ const _U8Afrom =
               new Uint8Array(Array.prototype.slice.call(it, 0).map(fn))
 const _mkUriSafe = (src: string) =>
     src.replace(/=/g, '').replace(/[+\/]/g, (m0) => (m0 == '+' ? '-' : '_'))
-const _tidyB64 = (s: string) => s.replace(/[^A-Za-z0-9\+\/]/g, '')
+const _tidyB64 = (s: string) => s?.replace(/[^A-Za-z0-9\+\/]/g, '')
 
 const btoaPolyfill = (bin: string) => {
     let u32, c0, c1, c2
@@ -51,7 +51,7 @@ const btoaPolyfill = (bin: string) => {
             b64chs[(u32 >> 6) & 63] +
             b64chs[u32 & 63]
     }
-    return pad ? asc.slice(0, pad - 3) + '==='.substring(pad) : asc
+    return pad ? asc?.slice(0, pad - 3) + '==='.substring(pad) : asc
 }
 
 const _btoa = _hasbtoa
@@ -65,13 +65,13 @@ const _fromUint8Array = _hasBuffer
           const maxargs = 0x1000
           const strs: string[] = []
           for (let i = 0, l = u8a.length; i < l; i += maxargs) {
-              strs.push(_fromCC.apply(null, u8a.subarray(i, i + maxargs)))
+              strs?.push(_fromCC.apply(null, u8a.subarray(i, i + maxargs)))
           }
-          return _btoa(strs.join(''))
+          return _btoa(strs?.join(''))
       }
 const cb_utob = (c: string) => {
     if (c.length < 2) {
-        const cc = c.charCodeAt(0)
+        const cc = c?.charCodeAt(0)
         return cc < 0x80
             ? c
             : cc < 0x800
@@ -80,7 +80,7 @@ const cb_utob = (c: string) => {
               _fromCC(0x80 | ((cc >>> 6) & 0x3f)) +
               _fromCC(0x80 | (cc & 0x3f))
     } else {
-        const cc = 0x10000 + (c.charCodeAt(0) - 0xd800) * 0x400 + (c.charCodeAt(1) - 0xdc00)
+        const cc = 0x10000 + (c?.charCodeAt(0) - 0xd800) * 0x400 + (c?.charCodeAt(1) - 0xdc00)
         return (
             _fromCC(0xf0 | ((cc >>> 18) & 0x07)) +
             _fromCC(0x80 | ((cc >>> 12) & 0x3f)) +
@@ -91,10 +91,10 @@ const cb_utob = (c: string) => {
 }
 const re_utob = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g
 
-const utob = (u: string) => u.replace(re_utob, cb_utob)
+const utob = (u: string) => u?.replace(re_utob, cb_utob)
 
 const _encode = _hasBuffer
-    ? (s: string) => Buffer.from(s, 'utf8').toString('base64')
+    ? (s: string) => Buffer?.from(s, 'utf8').toString('base64')
     : _TE
     ? (s: string) => _fromUint8Array(_TE.encode(s))
     : (s: string) => _btoa(utob(s))
@@ -154,7 +154,7 @@ const _atob = _hasatob
 
 const _toUint8Array = _hasBuffer
     ? (a: string) => _U8Afrom(Buffer.from(a, 'base64'))
-    : (a: string) => _U8Afrom(_atob(a), (c) => c.charCodeAt(0))
+    : (a: string) => _U8Afrom(_atob(a), (c) => c?.charCodeAt(0))
 
 const _decode = _hasBuffer
     ? (a: string) => Buffer.from(a, 'base64').toString('utf8')
@@ -169,7 +169,7 @@ const decode = (src: string) => _decode(_unURI(src))
 
 const isValid = (src: any) => {
     if (typeof src !== 'string') return false
-    const s = src.replace(/\s+/g, '').replace(/={0,2}$/, '')
+    const s = src?.replace(/\s+/g, '')?.replace(/={0,2}$/, '')
     return !/[^\s0-9a-zA-Z\+/]/.test(s) || !/[^\s0-9a-zA-Z\-_]/.test(s)
 }
 export { decode as fromBase64 }

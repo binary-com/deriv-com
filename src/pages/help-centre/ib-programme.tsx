@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
-import { useLivechat } from 'components/hooks/use-livechat'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { Text, LinkText, LocalizedLinkText } from 'components/elements'
+import { Text, LocalizedLinkText, LiveChatLinkText } from 'components/elements'
 import device from 'themes/device'
 import { localize, Localize, WithIntl } from 'components/localization'
 
@@ -33,23 +32,14 @@ const ExternalLink = styled(LocalizedLinkText)`
     }
 `
 const SignUp = ({ text }: ArticleProps) => {
-    const [is_livechat_interactive, LC_API] = useLivechat()
-
     return (
         <ArticleWrapper>
             <StyledHeader as="h4">{text}</StyledHeader>
             <Text>
                 <Localize
-                    translate_text="First, you need to be an affiliate with a Deriv account and an MT5 Derived real account. Then, <0>contact us via live chat</0> to apply for an IB account. <1>Get more info about our IB programme.</1>"
+                    translate_text="First, you need to be an affiliate with a Deriv account and an MT5 Derived real account. Then, <0></0> to apply for an IB account. <1>Get more info about our IB programme.</1>"
                     components={[
-                        <LinkText
-                            color="red"
-                            mt="1rem"
-                            key={0}
-                            onClick={() => {
-                                is_livechat_interactive && LC_API.open_chat_window()
-                            }}
-                        />,
+                        <LiveChatLinkText text="contact us via live chat" key={0} />,
                         <ExternalLink
                             to={'/partners/affiliate-ib/'}
                             external

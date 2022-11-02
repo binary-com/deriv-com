@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { Header, Text, LinkText } from 'components/elements'
+import { Header, Text, LinkText, LiveChatLinkText } from 'components/elements'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { affiliate_signup_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
@@ -462,10 +462,8 @@ const AffiliateReferralTools = () => (
                 type: 'paragraph-2',
             }}
         >
-            <Localize
-                translate_text="We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, please contact your account manager at <0>affiliates@deriv.com</0>."
-                components={[<StyledLink href="mailto:affiliates@deriv.com" key={0} />]}
-            />
+            <Localize translate_text="We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, please " />
+            <LiveChatLinkText text="contact us via live chat." />
         </Header>
     </ItemContainer>
 )
@@ -614,15 +612,7 @@ const IBAccountManagement = () => {
             </Header>
             <TextSecondary>
                 <Localize translate_text="If you’re already registered as a Deriv affiliate, " />
-                <LinkText
-                    color="red"
-                    mt="1rem"
-                    onClick={() => {
-                        is_livechat_interactive && LC_API.open_chat_window()
-                    }}
-                >
-                    <Localize translate_text="contact us via live chat" />
-                </LinkText>
+                <LiveChatLinkText text="contact us via live chat." />
             </TextSecondary>
             <Header
                 as="p"
@@ -651,7 +641,6 @@ const IBAccountManagement = () => {
     )
 }
 const IBReferralTools = () => {
-    const [is_livechat_interactive, LC_API] = useLivechat()
     return (
         <ItemContainer>
             <Header
@@ -676,15 +665,7 @@ const IBReferralTools = () => {
                 {localize(
                     'We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, ',
                 )}
-                <LinkText
-                    color="red"
-                    mt="1rem"
-                    onClick={() => {
-                        is_livechat_interactive && LC_API.open_chat_window()
-                    }}
-                >
-                    <Localize translate_text="contact us via live chat" />
-                </LinkText>
+                <LiveChatLinkText text="contact us via live chat." />
             </Header>
         </ItemContainer>
     )

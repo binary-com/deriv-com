@@ -1,13 +1,10 @@
 import React from 'react'
 import { LoveTradingComponent } from '../_love-trading'
 import { Flex } from 'components/containers'
-import { useLivechat } from 'components/hooks/use-livechat'
-import { Header, LinkText, Text } from 'components/elements'
+import { Header, Text, LiveChatLinkText } from 'components/elements'
 import { Localize } from 'components/localization'
 
 const LoveTrading = () => {
-    const [is_livechat_interactive, LC_API] = useLivechat()
-
     const content = {
         left: {
             header: <Localize translate_text="Got more questions?" />,
@@ -18,16 +15,7 @@ const LoveTrading = () => {
                         <Localize translate_text="Got more questions?" />
                     </Header>
                     <Text>
-                        <LinkText
-                            color="red"
-                            mt="1rem"
-                            size="var(--text-size-s)"
-                            onClick={() => {
-                                is_livechat_interactive && LC_API.open_chat_window()
-                            }}
-                        >
-                            <Localize translate_text="Contact us via live chat" />
-                        </LinkText>
+                        <LiveChatLinkText text="Contact us via live chat" />
                     </Text>
                 </>
             ),

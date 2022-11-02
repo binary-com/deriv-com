@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, Text, LinkText } from 'components/elements'
+import { Header, Text, LinkText, LiveChatLinkText } from 'components/elements'
 import { Localize } from 'components/localization'
-import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 // SVG
 
@@ -59,8 +58,6 @@ const TextWrapper = styled(Text)`
 `
 
 export const Affiliates = () => {
-    const [is_livechat_interactive, LC_API] = useLivechat()
-
     return (
         <Wrapper padding="40px 0">
             <CardContainer>
@@ -72,15 +69,7 @@ export const Affiliates = () => {
                         <Text m="0.8rem 0">
                             <Localize translate_text="Questions about becoming our affiliates or other business collaboration opportunities? " />
                         </Text>
-                        <LinkText
-                            color="red"
-                            size="var(--text-size-s)"
-                            onClick={() => {
-                                is_livechat_interactive && LC_API.open_chat_window()
-                            }}
-                        >
-                            <Localize translate_text="Contact us via live chat" />
-                        </LinkText>
+                        <LiveChatLinkText text="Contact us via live chat" />
                     </TextWrapper>
                 </Item>
             </CardContainer>

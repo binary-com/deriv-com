@@ -19,6 +19,7 @@ import SideTab from './side-tab'
 import Tabs from './default-tab'
 import { Text, LinkText, Header, BaseElement, SpanLinkText } from './typography'
 import LocalizedLinkText from './localized-link-text'
+import LiveChatLinkText from './livechat-link-text'
 import Timeline from './timeline'
 import { Ul, Li } from './lists'
 import { Carousel } from './carousel'
@@ -39,6 +40,7 @@ export {
     Divider,
     DotLoader,
     Dropdown,
+    LiveChatLinkText,
     DropdownSearch,
     Header,
     ImageWrapper,

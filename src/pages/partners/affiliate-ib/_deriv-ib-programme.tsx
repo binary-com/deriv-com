@@ -4,8 +4,8 @@ import DERIVIBDMT5Cards from './_dmt5-cards'
 import { CardWrapper } from './_partner-card'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, LinkText } from 'components/elements/typography'
+import { LiveChatLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 
 type AssetsType = {
@@ -133,8 +133,6 @@ const SubtitleHeader = styled(Header)`
 `
 
 const DerivIBProgramme = () => {
-    const [is_livechat_interactive, LC_API] = useLivechat()
-
     return (
         <StyledSection shadow id="deriv-ib">
             <Container direction="column">
@@ -173,16 +171,7 @@ const DerivIBProgramme = () => {
                         >
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
-                        <LinkText
-                            color="red"
-                            weight="bold"
-                            mt="1rem"
-                            onClick={() => {
-                                is_livechat_interactive && LC_API.open_chat_window()
-                            }}
-                        >
-                            <Localize translate_text="Contact us via live chat" />
-                        </LinkText>
+                        <LiveChatLinkText text="Contact us via live chat" weight="bold" />
                     </DecideSection>
                 </IBSectionContainer>
             </Container>

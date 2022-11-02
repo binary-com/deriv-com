@@ -21,7 +21,6 @@ export type DerivStoreType = {
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType
-    hide_branding: boolean
     deriv_api: DerivApiProps
     show_non_eu_popup: boolean
     setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>

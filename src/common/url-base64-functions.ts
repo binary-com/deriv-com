@@ -161,7 +161,7 @@ const _decode = _hasBuffer
     : _TD
     ? (a: string) => _TD.decode(_toUint8Array(a))
     : (a: string) => btou(_atob(a))
-const _unURI = (a: string) => _tidyB64(a.replace(/[-_]/g, (m0) => (m0 == '-' ? '+' : '/')))
+const _unURI = (a: string) => _tidyB64(a?.replace(/[-_]/g, (m0) => (m0 == '-' ? '+' : '/')))
 
 const encode = (src: string, urlsafe = false) => (urlsafe ? _mkUriSafe(_encode(src)) : _encode(src))
 

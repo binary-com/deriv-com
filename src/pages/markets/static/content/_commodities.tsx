@@ -13,6 +13,7 @@ import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
 export type CommoditiesContent = {
     src: string
     text: ReactElement
+    alt: string
 }
 export const simple_step_content_commodities: SimpleStepsContent[] = [
     {
@@ -20,43 +21,48 @@ export const simple_step_content_commodities: SimpleStepsContent[] = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <img src={PractiseIcon} alt="" width="32" height="32" />,
+        icon: <img src={PractiseIcon} alt="Practise" width="32" height="32" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
         ),
-        icon: <img src={TradeIcon} alt="" width="32" height="28" />,
+        icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <img src={WithdrawIcon} alt="" width="32" height="32" />,
+        icon: <img src={WithdrawIcon} alt="Withdraw" width="32" height="32" />,
     },
 ]
 const commodities: CommoditiesContent[] = [
     {
         src: VariableSpreads,
         text: <Localize translate_text="Competitive fixed and variable spreads" />,
+        alt: 'variable spreads',
     },
     {
         src: NoCommission,
         text: <Localize translate_text="No commission on any commodity contract" />,
+        alt: 'no commission',
     },
     {
         src: MetalAndOil,
         text: <Localize translate_text="All four precious metals and crude oil available" />,
+        alt: 'metals and oil',
     },
     {
         src: ResponsiveWebsite,
         text: <Localize translate_text="Easy-to-use platforms, superior chart technology" />,
+        alt: 'responsive website',
     },
     {
         src: FriendlySupport,
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        alt: 'support',
     },
 ]
 

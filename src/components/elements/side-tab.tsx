@@ -169,10 +169,15 @@ const SideTab = ({
     const [is_menu, setMenu] = useState(false)
 
     const Tabs = (props) => {
-        return children.map((child, idx) => {
+        return React.Children.map(children, (child) => {
             const { label, text, onClick } = child.props
+
+            if (!React.isValidElement(child)) {
+                return <></>
+            }
+
             return (
-                <div key={idx}>
+                <div>
                     <Tab
                         font_size={font_size}
                         mobile={props.is_mobile}

@@ -10,6 +10,7 @@ import Nav from './nav/nav'
 import NavTransparent from './nav/nav-transparent'
 import NavCareers from './nav/nav-careers'
 import NavPartners from './nav/nav-partner'
+import NavMarkets from './nav/nav-markets'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
@@ -60,6 +61,7 @@ export type ModalPayloadType = {
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
+const WhatsApp = Loadable(() => import('./whatsapp'))
 
 const has_dataLayer = isBrowser() && window.dataLayer
 
@@ -246,6 +248,10 @@ const Layout = ({
             Navigation = <NavAcademy />
             FooterNav = <Footer academy={true} />
             break
+        case 'noNav':
+            Navigation = <></>
+            FooterNav = <Footer />
+            break
         case 'static':
             Navigation = <NavStatic is_ppc={is_ppc} />
             break
@@ -254,6 +260,10 @@ const Layout = ({
             break
         case 'partners':
             Navigation = <NavPartners hide_login_signup={no_login_signup} />
+            FooterNav = <Footer />
+            break
+        case 'markets':
+            Navigation = <NavMarkets />
             FooterNav = <Footer />
             break
         case 'security':
@@ -317,6 +327,7 @@ const Layout = ({
             )}
 
             {!no_live_chat && <LiveChat is_banner_shown={show_cookie_banner} />}
+            <WhatsApp />
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}

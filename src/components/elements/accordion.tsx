@@ -195,6 +195,10 @@ type SingleAccordionContentProps = {
 
 const SingleAccordionContent = ({ nodes, children, id }: SingleAccordionContentProps) => {
     const render_nodes = React.Children.map(children, (child, child_idx) => {
+        if (!React.isValidElement(child)) {
+            return <></>
+        }
+
         return (
             <ItemExpanded
                 key={child_idx}

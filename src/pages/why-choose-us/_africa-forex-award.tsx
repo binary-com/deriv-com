@@ -30,7 +30,7 @@ const AwardImageWrapper = styled.div`
     padding: 38px 62px;
     max-width: 414px;
     background: #ffffff;
-    box-shadow: 0px 32px 64px -12px rgba(14, 14, 14, 0.14);
+    box-shadow: 0 32px 64px -12px rgba(14, 14, 14, 0.14);
     border-radius: 8px;
     @media (max-width: 1400px) {
         max-width: 35%;
@@ -57,7 +57,7 @@ const AwardImageWrapperMobile = styled.div`
     margin-top: -2rem;
     background: #ffffff;
     border-radius: 8px;
-    box-shadow: 0px 25.3563px 50.7126px -9.50862px rgba(14, 14, 14, 0.14);
+    box-shadow: 0 25.3563px 50.7126px -9.5086px rgba(14, 14, 14, 0.14);
 `
 
 const StyledFlex = styled(Flex)`

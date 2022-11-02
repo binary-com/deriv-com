@@ -4,8 +4,8 @@ export const deriv_com_url = 'deriv.com'
 export const deriv_me_url = 'deriv.me'
 export const deriv_be_url = 'deriv.be'
 export const staging_deriv_be_url = 'staging.deriv.be'
-export const binary_deriv_be_url = 'binary.sx'
-export const localhost_deriv_be_url = 'localhost'
+export const testlink_url = 'binary.sx'
+export const localhost_url = 'localhost'
 export const git_fork_deriv_be_url = 'deriv-com-git-fork'
 
 export const deriv_com_app_id = 16929
@@ -24,11 +24,11 @@ export const domains = [
     deriv_me_url,
     deriv_be_url,
     staging_deriv_be_url,
-    localhost_deriv_be_url,
+    localhost_url,
     git_fork_deriv_be_url,
 ] //deriv-com-git-fork for vercel server, localhost - for developer mode
 
-export const branding_domains = [...domains, binary_deriv_be_url]
+export const branding_domains = [...domains, testlink_url]
 
 const getDomainUrl = (): string =>
     isBrowser() && window.location.hostname in domain_url_pair

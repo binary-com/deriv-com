@@ -452,13 +452,5 @@ export const isTestlink = () => !!(isBrowser() && window.location.hostname.inclu
 
 export const isShowBranding = () => {
     const host_name = isBrowser() && window.location.hostname
-    const domain_name = getDomainName()
-    return branding_domains.some((item) => item === host_name || item === domain_name)
-}
-
-export const getDomainName = () => {
-    const hostname = isBrowser() && window.location.hostname
-    return (
-        hostname && hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1)
-    )
+    return branding_domains.some((item) => host_name.includes(item))
 }

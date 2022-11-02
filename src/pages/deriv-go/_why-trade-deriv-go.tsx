@@ -45,6 +45,7 @@ const trade_data: ContentType[] = [
         subtitle: (
             <Localize translate_text="Trade synthetics and cryptocurrencies round the clock and forex during regular market hours." />
         ),
+        image_alt: '24/7 trading',
     },
     {
         icon: IconUserFriendly,
@@ -52,6 +53,7 @@ const trade_data: ContentType[] = [
         subtitle: (
             <Localize translate_text="Enjoy a smooth trading experience with easy-to-use charts and a pleasant dark theme." />
         ),
+        image_alt: 'user-friendly',
     },
     {
         icon: IconEasyAccess,
@@ -59,6 +61,7 @@ const trade_data: ContentType[] = [
         subtitle: (
             <Localize translate_text="Get instant access to your trades wherever you are whenever you want." />
         ),
+        image_alt: 'easy access',
     },
 ]
 
@@ -75,7 +78,12 @@ const WhyTradeDerivGo = () => {
                             return (
                                 <Card key={index}>
                                     <div>
-                                        <img src={item.icon} width={72} height={72} alt="" />
+                                        <img
+                                            src={item.icon}
+                                            width={72}
+                                            height={72}
+                                            alt={item.image_alt}
+                                        />
                                     </div>
                                     <Header as="h3" type="heading-3" align="center" mt="24px">
                                         {item.title}

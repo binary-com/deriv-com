@@ -97,9 +97,7 @@ const FindBlocks = ({ text }: ArticleProps) => (
         </Text>
         <Text text-indent="30px">
             <Localize
-                translate_text={
-                    "2. Under the <0>Blocks menu</0>, you'll see a list of categories. Blocks are grouped within these categories. Choose the block you want and drag them to the workspace."
-                }
+                translate_text="2. Under the <0>Blocks menu</0>, you'll see a list of categories. Blocks are grouped within these categories. Choose the block you want and drag them to the workspace."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -147,9 +145,7 @@ const RemoveBlocks = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text={
-                    'Click on the block you want to remove and press <0>Delete</0> on your keyboard.'
-                }
+                translate_text="Click on the block you want to remove and press <0>Delete</0> on your keyboard."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -163,9 +159,7 @@ const CreateVariables = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="0">
                 <Text>
                     <Localize
-                        translate_text={
-                            'Under the <0>Blocks</0> menu, go to <0>Utility > Variables.</0>'
-                        }
+                        translate_text="Under the <0>Blocks</0> menu, go to <0>Utility > Variables</0>."
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -190,9 +184,7 @@ const PreBuilt = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text={
-                    "Yes, you can get started with a pre-built bot using the <0>Quick strategy</0> feature. You’ll find some of the most popular trading strategies here: Martingale, D'Alembert, and Oscar's Grind. Grind. Just select the strategy, enter your trade parameters, and your bot will be created for you. You can always tweak the parameters later."
-                }
+                translate_text="Yes, you can get started with a pre-built bot using the <0>Quick strategy</0> feature. You’ll find some of the most popular trading strategies here: Martingale, D'Alembert, and Oscar's Grind. Grind. Just select the strategy, enter your trade parameters, and your bot will be created for you. You can always tweak the parameters later."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -215,7 +207,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1.8rem">
                 <Text>
                     <Localize
-                        translate_text={'Go to Quick strategy and select the strategy you want.'}
+                        translate_text="Go to Quick strategy and select the strategy you want."
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -226,7 +218,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1.4rem">
                 <Text>
                     <Localize
-                        translate_text={'Set your trade parameters and hit <0>Create</0>.'}
+                        translate_text="Set your trade parameters and hit <0>Create</0>."
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -234,9 +226,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1.4rem">
                 <Text>
                     <Localize
-                        translate_text={
-                            'Once the blocks are loaded onto the workspace, tweak the parameters if you want, or hit <0>Run</0> to start trading'
-                        }
+                        translate_text="Once the blocks are loaded onto the workspace, tweak the parameters if you want, or hit <0>Run</0> to start trading."
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -244,9 +234,7 @@ const QuickStrategy = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1.4rem">
                 <Text>
                     <Localize
-                        translate_text={
-                            'Hit <0>Save</0> to download your bot. You can choose to download your bot to your device or your Google Drive.'
-                        }
+                        translate_text="Hit <0>Save</0> to download your bot. You can choose to download your bot to your device or your Google Drive."
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -260,9 +248,7 @@ const SaveStrategy = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text={
-                    'In <0>Bot</0> Builder, hit <0>Save</0> on the toolbar at the top to download your bot. Give your bot a name, and choose to download your bot to your device or Google Drive. Your bot will be downloaded as an XML file.'
-                }
+                translate_text="In <0>Bot</0> Builder, hit <0>Save</0> on the toolbar at the top to download your bot. Give your bot a name, and choose to download your bot to your device or Google Drive. Your bot will be downloaded as an XML file."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -284,9 +270,7 @@ const ImportStrategy = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1.4rem">
                 <Text>
                     <Localize
-                        translate_text={
-                            'After hitting <0>Import</0>, select <0>Local</0> and click <0>Continue</0>.'
-                        }
+                        translate_text="After hitting <0>Import</0>, select <0>Local</0> and click <0>Continue</0>."
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -294,7 +278,7 @@ const ImportStrategy = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1.4rem">
                 <Text>
                     <Localize
-                        translate_text={'Select your XML file and hit <0>Open</0>.'}
+                        translate_text="Select your XML file and hit <0>Open</0>."
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -312,9 +296,7 @@ const ImportStrategy = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1.4rem">
                 <Text>
                     <Localize
-                        translate_text={
-                            'After hitting <0>Import</0>, select <0>Google Drive</0> and click <0>Continue</0>.'
-                        }
+                        translate_text="After hitting <0>Import</0>, select <0>Google Drive</0> and click <0>Continue</0>."
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -322,7 +304,7 @@ const ImportStrategy = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1.4rem">
                 <Text>
                     <Localize
-                        translate_text={'Select your XML file and hit <0>Select</0>.'}
+                        translate_text="Select your XML file and hit <0>Select</0>."
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -339,9 +321,7 @@ const ResetWorkspace = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text={
-                    'In <0>Bot Builder</0>, hit <0>Reset</0> on the toolbar at the top. This will clear the workspace. Please note that any unsaved changes will be lost.'
-                }
+                translate_text="In <0>Bot Builder</0>, hit <0>Reset</0> on the toolbar at the top. This will clear the workspace. Please note that any unsaved changes will be lost."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -353,7 +333,7 @@ const TransactionLog = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text mt="1.4rem">
             <Localize
-                translate_text={'1. Hit <0>Reset</0> at the bottom of stats panel.'}
+                translate_text="1. Hit <0>Reset</0> at the bottom of stats panel."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -367,7 +347,7 @@ const TransactionLog = ({ text }: ArticleProps) => (
         </ImageWrapper>
         <Text mt="1.4rem">
             <Localize
-                translate_text={'2. Hit <0>OK</0> to confirm.'}
+                translate_text="2. Hit <0>OK</0> to confirm."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -410,9 +390,7 @@ const ControlLosses = ({ text }: ArticleProps) => (
                     <Td>
                         <Text>
                             <Localize
-                                translate_text={
-                                    'Use this variable to store the cumulative profit or loss while your bot is running. Set the initial value to <0>0</0>.'
-                                }
+                                translate_text="Use this variable to store the cumulative profit or loss while your bot is running. Set the initial value to <0>0</0>."
                                 components={[<strong key={0} />]}
                             />
                         </Text>
@@ -449,9 +427,7 @@ const ControlLosses = ({ text }: ArticleProps) => (
                     <Td>
                         <Text>
                             <Localize
-                                translate_text={
-                                    'Use this variable to stop trading when your loss limit is reached. Set the initial value to <0>true</0>.'
-                                }
+                                translate_text="Use this variable to stop trading when your loss limit is reached. Set the initial value to <0>true</0>."
                                 components={[<strong key={0} />]}
                             />
                         </Text>
@@ -528,7 +504,7 @@ const Cryptocurrencies = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text={"No, we don't offer cryptocurrencies on DBot."}
+                translate_text="No, we don't offer cryptocurrencies on DBot."
                 components={[<strong key={0} />]}
             />
         </Text>

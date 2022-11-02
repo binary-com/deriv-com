@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import { Button } from 'components/form'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -39,10 +39,6 @@ const UnsubscribeForm = styled.div`
         padding: 40px 80px;
     }
 `
-const InputWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-`
 const ConfirmWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -55,14 +51,6 @@ const Title = styled.div`
 
     @media ${device.tablet} {
         font-size: 24px;
-    }
-`
-const EmailButton = styled(Button)`
-    width: 40%;
-    font-size: 14px;
-
-    @media ${device.tabletS} {
-        width: 75%;
     }
 `
 const ConfirmButton = styled(Button)`
@@ -97,10 +85,9 @@ const SuccessCard = styled.div`
 const UnsubscrubePage = () => {
     const [complete_status, setCompleteStatus] = useState(false)
 
-    const decoded_url = decode(queryParams.get('hash')).split('+')
-
-    const binary_user_id = decoded_url[0]
-    const checksum = decoded_url[1]
+    const unsubscribe_hash = decode(queryParams.get('hash')).split('+')
+    const binary_user_id = unsubscribe_hash[0]
+    const checksum = unsubscribe_hash[1]
 
     const deriv_api = useDerivApi()
     const { send } = deriv_api
@@ -114,11 +101,12 @@ const UnsubscrubePage = () => {
             },
             (response) => {
                 if (!response.error) {
-                    console.log('done')
                     setCompleteStatus(true)
                 }
                 if (response.error) {
-                    console.log(response.error.message)
+                    setTimeout(() => {
+                        navigate('https://app.deriv.com/account/personal-details')
+                    }, 2000)
                 }
             },
         )

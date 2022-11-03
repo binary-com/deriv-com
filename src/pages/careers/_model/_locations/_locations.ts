@@ -542,12 +542,7 @@ export const roadtown: LocationsType = {
     first_img: 'living_in_roadtown',
     first_img_alt: 'Road Town, British Virgin Islands',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'bvi_grid_3', 'guernsey_grid_4'],
-    grid_img_alt: [
-        'guernsey grid 1',
-        'guernsey grid 2',
-        'Deriv’s British Virgin Islands team',
-        'guernsey grid 4',
-    ],
+    grid_img_alt: ['Deriv’s British Virgin Islands team'],
     map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',
     map_text:
         'Being part of our British Virgin Islands team gives you the chance to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to make sure our BVI compliance strategies are effective. If you have a passion for law and look for worthy challenges in your career, join us at Deriv (BVI).',

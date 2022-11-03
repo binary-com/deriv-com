@@ -76,7 +76,10 @@ export default class DerivWS {
             let lastActionTaken = new Date().getTime()
             const checkLastAction = () => {
                 const now = new Date().getTime()
-                if (now - lastActionTaken > 500) {
+                if (now - lastActionTaken > 0) {
+                    window.removeEventListener('mousemove', checkLastAction)
+                    window.removeEventListener('touchstart', checkLastAction)
+                    window.removeEventListener('keydown', checkLastAction)
                     this.recursiveConnect()
                 }
                 lastActionTaken = now

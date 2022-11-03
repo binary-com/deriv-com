@@ -1,14 +1,3 @@
-/**
- *  base64.ts
- *
- *  Licensed under the BSD 3-Clause License.
- *    http://opensource.org/licenses/BSD-3-Clause
- *
- *  References:
- *    http://en.wikipedia.org/wiki/Base64
- *
- * @author Dan Kogai (https://github.com/dankogai)
- */
 /* eslint-disable */
 const _hasatob = typeof atob === 'function'
 const _hasbtoa = typeof btoa === 'function'
@@ -126,10 +115,10 @@ const atobPolyfill = (asc: string) => {
     asc = asc.replace(/\s+/g, '')
     if (!b64re.test(asc)) throw new TypeError('malformed base64.')
     asc += '=='.slice(2 - (asc.length & 3))
-    let u24,
-        bin = ''
-    let r1
-    let r2
+    let bin = '',
+        r1,
+        r2,
+        u24
     for (let i = 0; i < asc.length; ) {
         u24 =
             (b64tab[asc.charAt(i++)] << 18) |

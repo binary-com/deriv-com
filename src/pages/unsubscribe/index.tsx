@@ -85,7 +85,7 @@ const SuccessCard = styled.div`
 const UnsubscrubePage = () => {
     const [complete_status, setCompleteStatus] = useState(false)
 
-    const unsubscribe_hash = decode(queryParams.get('hash')).split('+')
+    const unsubscribe_hash = decode(queryParams.get('hash') || '').split('+')
     const binary_user_id = unsubscribe_hash[0]
     const checksum = unsubscribe_hash[1]
 

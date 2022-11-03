@@ -14,7 +14,7 @@ import {
 } from './constants'
 import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
-import { branding_domains } from 'common/constants'
+import { branding_domains, testlink_url } from 'common/constants'
 
 export const trimSpaces = (value) => value?.trim()
 
@@ -448,7 +448,7 @@ export const handleRedirect = (residence, current_client_country) => {
 
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
-export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
+export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes(testlink_url))
 
 export const isShowBranding = () => {
     const host_name = isBrowser() && window.location.hostname

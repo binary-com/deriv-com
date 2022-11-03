@@ -81,9 +81,47 @@ const SuccessCard = styled.div`
         gap: 16px;
     }
 `
+const StyledSpinner = styled.svg`
+    animation: rotate 1s linear infinite;
+    margin: 40px;
+    width: 200px;
+    height: 200px;
+
+    & .path {
+        stroke: var(--color-red-5);
+        stroke-linecap: round;
+        animation: dash 1.5s ease-in-out infinite;
+    }
+
+    @keyframes rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes dash {
+        0% {
+            stroke-dasharray: 1, 150;
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dasharray: 90, 150;
+            stroke-dashoffset: -35;
+        }
+        100% {
+            stroke-dasharray: 90, 150;
+            stroke-dashoffset: -124;
+        }
+    }
+`
+const Spinner = () => (
+    <StyledSpinner viewBox="0 0 50 50">
+        <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="2" />
+    </StyledSpinner>
+)
 
 const UnsubscrubePage = () => {
     const [complete_status, setCompleteStatus] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const unsubscribe_hash = decode(queryParams.get('hash') || '').split('+')
     const binary_user_id = unsubscribe_hash[0]
@@ -92,7 +130,8 @@ const UnsubscrubePage = () => {
     const deriv_api = useDerivApi()
     const { send } = deriv_api
 
-    const APICall = () =>
+    const UnsubscribeAPICall = () => {
+        setLoading(true)
         send(
             {
                 unsubscribe_email: 1,
@@ -101,41 +140,48 @@ const UnsubscrubePage = () => {
             },
             (response) => {
                 if (!response.error) {
+                    setLoading(false)
                     setCompleteStatus(true)
                 }
                 if (response.error) {
-                    setTimeout(() => {
-                        navigate('https://app.deriv.com/account/personal-details')
-                    }, 2000)
+                    navigate('https://app.deriv.com/account/personal-details')
                 }
             },
         )
+    }
     return (
         <Layout>
-            <UnsubscrubeWrapper>
-                {complete_status ? (
-                    <SuccessCard>
-                        <img src={CheckIcon} alt="sucess" width={48} height={48} />
-                        Unsubscribe successfully
-                    </SuccessCard>
-                ) : (
-                    <UnsubscribeForm>
-                        <Title>
-                            {localize('Are you sure you want to step receiving Deriv emails?')}
-                        </Title>
-                        <ConfirmWrapper>
-                            <ConfirmButton onClick={APICall} type="submit" secondary>
-                                {localize('Yes')}
-                            </ConfirmButton>
-                            <Link to="https://app.deriv.com/account/personal-details">
-                                <ConfirmButton type="submit" tertiary>
-                                    {localize('No')}
+            {loading && (
+                <UnsubscrubeWrapper>
+                    <Spinner />
+                </UnsubscrubeWrapper>
+            )}
+            {!loading && (
+                <UnsubscrubeWrapper>
+                    {complete_status ? (
+                        <SuccessCard>
+                            <img src={CheckIcon} alt="sucess" width={48} height={48} />
+                            Unsubscribe successfully
+                        </SuccessCard>
+                    ) : (
+                        <UnsubscribeForm>
+                            <Title>
+                                {localize('Are you sure you want to step receiving Deriv emails?')}
+                            </Title>
+                            <ConfirmWrapper>
+                                <ConfirmButton onClick={UnsubscribeAPICall} type="submit" secondary>
+                                    {localize('Yes')}
                                 </ConfirmButton>
-                            </Link>
-                        </ConfirmWrapper>
-                    </UnsubscribeForm>
-                )}
-            </UnsubscrubeWrapper>
+                                <Link to="https://app.deriv.com/account/personal-details">
+                                    <ConfirmButton type="submit" tertiary>
+                                        {localize('No')}
+                                    </ConfirmButton>
+                                </Link>
+                            </ConfirmWrapper>
+                        </UnsubscribeForm>
+                    )}
+                </UnsubscrubeWrapper>
+            )}
         </Layout>
     )
 }

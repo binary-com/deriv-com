@@ -130,6 +130,10 @@ const ImageWrapper = styled.div`
     div {
         width: 100%;
     }
+    @media (min-width: 581px) and (max-width: 767px) {
+        height: 47.4rem;
+    }
+
     @media ${device.tabletS} {
         max-width: 576px;
         width: 100%;
@@ -338,7 +342,7 @@ const StartTrader = () => {
             </StyledHeader>
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
                 <TabItem
-                    mobile_padding="21px 12px"
+                    mobile_padding="12px 12px"
                     active={isDemo}
                     onClick={() => onTabClick('Demo')}
                 >
@@ -347,7 +351,7 @@ const StartTrader = () => {
                     </StyledText>
                 </TabItem>
                 <TabItem
-                    mobile_padding={is_uk_eu ? '21px 12px' : '10px'}
+                    mobile_padding={is_uk_eu ? '12px 12px' : '10px'}
                     active={isReal}
                     onClick={() => onTabClick('Real')}
                 >

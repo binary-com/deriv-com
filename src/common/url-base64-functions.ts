@@ -78,7 +78,7 @@ const cb_utob = (c: string) => {
         )
     }
 }
-const re_utob = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g
+const re_utob = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x7F]/g
 
 const utob = (u: string) => u?.replace(re_utob, cb_utob)
 

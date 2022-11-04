@@ -119,7 +119,7 @@ const Spinner = () => (
     </StyledSpinner>
 )
 
-const UnsubscrubePage = () => {
+const UnsubscribePage = () => {
     const [complete_status, setCompleteStatus] = useState(false)
     const [loading, setLoading] = useState(false)
 
@@ -187,4 +187,4 @@ const UnsubscrubePage = () => {
     )
 }
 
-export default WithIntl()(UnsubscrubePage)
+export default WithIntl()(UnsubscribePage)

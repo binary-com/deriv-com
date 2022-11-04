@@ -10,7 +10,7 @@ import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
-import { DerivStore, DerivStoreType } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -38,7 +38,7 @@ const StyledText = styled(Text)`
 `
 
 const AvailableMarkets = () => {
-    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
+    const { is_eu } = useCountryRule()
     return (
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -57,7 +57,7 @@ const AvailableMarkets = () => {
                                     <StyledText weight="bold">{localize('Forex')}</StyledText>
                                 </MobileCardHeader>
                                 <Text>
-                                    {is_eu_country ? (
+                                    {is_eu ? (
                                         <Localize translate_text="Access over 30 assets and also trade with up to 1:30 leverage and zero commission on trades." />
                                     ) : (
                                         <Localize translate_text="Access over 50 assets and also trade with up to 1:1000 leverage and zero commission on trades." />

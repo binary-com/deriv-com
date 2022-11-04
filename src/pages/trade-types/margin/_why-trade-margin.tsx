@@ -32,10 +32,10 @@ const WhyTradeMargin = () => {
                             <Text mb="4rem">
                                 {is_eu_country
                                     ? localize(
-                                          'Take advantage of high leverage and low spreads on Deriv MT5 (DMT5).',
+                                          'Take advantage of high leverage and low spreads on Deriv MT5.',
                                       )
                                     : localize(
-                                          'Take advantage of high leverage and low spreads on Deriv MT5 (DMT5) and Deriv X.',
+                                          'Take advantage of high leverage and low spreads on Deriv MT5 and Deriv X.',
                                       )}
                             </Text>
                         </WhyTradeItem>

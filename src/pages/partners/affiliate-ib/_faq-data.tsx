@@ -663,9 +663,8 @@ const IBReferralTools = () => {
                 }}
             >
                 {localize(
-                    'We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, ',
+                    'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our Deriv MT5 platform. ',
                 )}
-                <LiveChatLinkText text="contact us via live chat." />
             </Header>
         </ItemContainer>
     )

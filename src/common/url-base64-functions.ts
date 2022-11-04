@@ -154,7 +154,7 @@ const _unURI = (a: string) => _tidyB64(a?.replace(/[-_]/g, (m0) => (m0 == '-' ? 
 
 const encode = (src: string, urlsafe = false) => (urlsafe ? _mkUriSafe(_encode(src)) : _encode(src))
 
-const decode = (src: string) => _decode(_unURI(src))
+const decode = (src: any) => _decode(_unURI(src))
 
 const isValid = (src: any) => {
     if (typeof src !== 'string') return false

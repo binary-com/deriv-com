@@ -57,7 +57,7 @@ const isStaging = () => isBrowser() && domain_config.staging.hostname === window
 const isLive = () => isProduction() || isStaging()
 const isLocalHost = () => isBrowser() && domain_config.local.hostname === window.location.hostname
 
-const getAppId = () => {
+const getAppId = (): null | number | string => {
     let app_id = null
     const user_app_id = '' // you can insert Application ID of your registered application here
     if (isBrowser()) {

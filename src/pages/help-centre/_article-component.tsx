@@ -17,7 +17,7 @@ type CategoryType = {
     props: TranslateTextType
     translate_text: string
     is_expanded: boolean
-    is_eu_country?: boolean
+    is_eu?: boolean
 }
 
 type ArticleType = {
@@ -39,7 +39,7 @@ type ArticleComponentProps = {
     item: ItemType
     all_categories: CategoryType
     toggleArticle: (arg: string) => void
-    is_eu_country: boolean
+    is_eu: boolean
     param: string
 }
 
@@ -137,15 +137,15 @@ const ArticleComponent = ({
     item,
     all_categories,
     toggleArticle,
-    is_eu_country,
+    is_eu,
     param,
 }: ArticleComponentProps) => {
     const eu_articles = item.articles.filter((article) => !article.hide_for_eu)
     const row_articles = item.articles.filter((article) => !article.hide_for_non_eu)
 
     const articles = React.useMemo(
-        () => (is_eu_country ? eu_articles : row_articles),
-        [eu_articles, is_eu_country, row_articles],
+        () => (is_eu ? eu_articles : row_articles),
+        [eu_articles, is_eu, row_articles],
     )
 
     return (

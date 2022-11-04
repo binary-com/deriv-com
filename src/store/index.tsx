@@ -2,7 +2,7 @@ import React, { useState, useEffect, createContext, Dispatch, ReactNode } from '
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
-import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
+import { isEuCountry, isUK } from 'common/country-base'
 
 type DerivProviderProps = {
     children?: ReactNode
@@ -46,20 +46,20 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
         send({ website_status: 1 }, (response) => {
             if (!response.error && !website_status) {
                 const {
-                    website_status: { clients_country },
+                    website_status: { clients_country, p2p_config },
                 } = response
 
-                setWebsiteStatus({ clients_country })
+                setWebsiteStatus({ clients_country, p2p_config })
             }
         })
     }, [])
 
     useEffect(() => {
         if (website_status) {
-            const { clients_country } = website_status
+            const { clients_country, p2p_config } = website_status
             setEuCountry(!!isEuCountry(clients_country))
             setUkCountry(!!isUK(clients_country))
-            setP2PAllowedCountry(isP2PAllowedCountry(clients_country))
+            setP2PAllowedCountry(!!p2p_config)
             setUserCountry(clients_country)
         }
     }, [website_status])

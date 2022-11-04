@@ -80,7 +80,7 @@ const ClientCard = styled.article`
     max-width: 40rem;
     padding: 3.2rem 2.4rem 4rem;
     position: relative;
-    height: 176px;
+    height: 196px;
 
     :first-child {
         margin: 0;

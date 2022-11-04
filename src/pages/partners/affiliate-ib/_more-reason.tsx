@@ -83,7 +83,7 @@ const MoreReason = () => {
                 </ReasonHeader>
                 <StyledFlex jc="center">
                     <Reason>
-                        <img src={HighValue} alt="" />
+                        <img src={HighValue} alt="High-value partnership" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('High-value partnership')}
                         </Header>
@@ -94,7 +94,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={Advertise} alt="" />
+                        <img src={Advertise} alt="Proven creative materials" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Proven creative materials')}
                         </Header>
@@ -105,7 +105,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={GlobalAffiliate} alt="" />
+                        <img src={GlobalAffiliate} alt="Global affiliate support" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Global affiliate support')}
                         </Header>

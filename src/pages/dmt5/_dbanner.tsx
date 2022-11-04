@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
@@ -85,7 +84,7 @@ const TextWrapper = styled.div`
     }
     @media ${device.tabletS} {
         margin: 234px auto 0;
-        max-width: 328px;
+        max-width: 330px;
         text-align: center;
     }
 `
@@ -97,7 +96,7 @@ const StyledLinkButton = styled(Button)`
     display: inline-block;
 
     @media ${device.tabletS} {
-        margin: 0 auto;
+        margin: auto;
     }
 `
 const StyledHeader = styled(Header)`
@@ -166,14 +165,6 @@ const DBanner = ({
             </Wrapper>
         </Flex>
     )
-}
-
-DBanner.propTypes = {
-    background_pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    data: PropTypes.object.isRequired,
-    image_alt: PropTypes.string,
-    is_ppc: PropTypes.bool,
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 export default DBanner

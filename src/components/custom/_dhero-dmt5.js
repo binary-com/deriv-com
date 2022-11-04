@@ -9,15 +9,15 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const Wrapper = styled.div`
-    position: relative;
-    background-color: var(--color-black);
-    width: 100%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
     padding-left: 120px;
+    background-color: var(--color-black);
 
     @media ${device.tabletL} {
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding-left: 0;
     }
 `
@@ -60,7 +60,6 @@ const LinkWrapper = styled.div`
         margin-bottom: 40px;
     }
     @media ${device.tabletL} {
-        max-width: 217px;
         max-height: 40px;
         margin-top: 12px;
     }
@@ -90,14 +89,13 @@ const DemoButton = styled(Button)`
     margin-right: 1.6rem;
     border: unset;
 
+    @media ${device.tabletL} {
+        margin-bottom: 40px;
+    }
     @media ${device.mobileL} {
         white-space: nowrap;
         margin-bottom: 1.6rem;
-        margin-right: unset;
         width: 100%;
-    }
-    @media ${device.tabletL} {
-        margin-bottom: 40px;
     }
 `
 const ImgWrapper = styled.div`
@@ -136,9 +134,6 @@ const InformationWrapper = styled(Flex)`
         width: 100%;
         margin-top: 22px;
     }
-    @media ${device.mobileL} {
-        max-width: 328px;
-    }
 `
 
 const DLogo = styled.img`
@@ -161,9 +156,6 @@ const DHero = ({
 
     return (
         <Wrapper>
-            <ImgWrapper>
-                <QueryImage data={background} alt={background_alt} />
-            </ImgWrapper>
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" weight="normal">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
@@ -193,6 +185,9 @@ const DHero = ({
                     )}
                 </LinkWrapper>
             </InformationWrapper>
+            <ImgWrapper>
+                <QueryImage data={background} alt={background_alt} />
+            </ImgWrapper>
         </Wrapper>
     )
 }

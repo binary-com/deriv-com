@@ -161,7 +161,7 @@ const Leaders = () => {
         },
         {
             name: 'Tom Molesworth',
-            position: <Localize translate_text="Chief Technology Officer" />,
+            position: <Localize translate_text="Chief Information Officer" />,
             link: '',
             image: leaders_data.tom,
         },
@@ -227,7 +227,7 @@ const Leaders = () => {
         },
         {
             name: 'Gary Ross Vytialingam',
-            position: <Localize translate_text="Chief Risk Officer" />,
+            position: <Localize translate_text="Chief Audit Executive" />,
             link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',
             image: leaders_data.gary,
         },

@@ -5,26 +5,25 @@ import { Text } from 'components/elements'
 
 //TODO: refactor this component to always use instruments_type
 type SymbolProps = MarketSymbol & { instruments_type?: MarketSymbol[] }
-const Symbol = ({ instruments_type, src, text }: SymbolProps) => {
-    return (
-        <>
-            {instruments_type ? (
-                <>
-                    {instruments_type.map((symbol) => (
-                        <SymbolContainer key={symbol.text.props.translate_text}>
-                            <img src={symbol.src} />
-                            <Text>{symbol.text}</Text>
-                        </SymbolContainer>
-                    ))}
-                </>
-            ) : (
-                <SymbolContainer>
-                    <img src={src} />
-                    <Text>{text}</Text>
-                </SymbolContainer>
-            )}
-        </>
-    )
-}
+
+const Symbol = ({ instruments_type, src, text }: SymbolProps) => (
+    <React.Fragment>
+        {instruments_type ? (
+            <React.Fragment>
+                {instruments_type.map((symbol, index) => (
+                    <SymbolContainer key={index}>
+                        <img src={symbol.src} alt="symbol" />
+                        <Text>{symbol.text}</Text>
+                    </SymbolContainer>
+                ))}
+            </React.Fragment>
+        ) : (
+            <SymbolContainer>
+                <img src={src} alt="symbol" />
+                <Text>{text}</Text>
+            </SymbolContainer>
+        )}
+    </React.Fragment>
+)
 
 export default Symbol

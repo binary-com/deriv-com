@@ -123,7 +123,8 @@ const UnsubscrubePage = () => {
     const [complete_status, setCompleteStatus] = useState(false)
     const [loading, setLoading] = useState(false)
 
-    const unsubscribe_hash = decode(queryParams.get('hash') || {}).split('+')
+    const query = queryParams.get('hash') || ''
+    const unsubscribe_hash = decode(query).split('+')
     const binary_user_id = unsubscribe_hash[0]
     const checksum = unsubscribe_hash[1]
 

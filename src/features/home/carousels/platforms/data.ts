@@ -75,7 +75,6 @@ export const platforms_data: TPlatformSmartContent[] = [
                       ]
             },
         },
-        visiblity: {},
     },
 
     {
@@ -96,7 +95,6 @@ export const platforms_data: TPlatformSmartContent[] = [
             learn_more_link: '/dtrader/',
             download_links: [{ type: 'browser', link_type: 'deriv_app' }],
         },
-        visiblity: {},
     },
     {
         id: 3,

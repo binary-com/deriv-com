@@ -12,7 +12,6 @@ export const market_data: TMarketSmartContent[] = [
             gradient_start: '#661B20',
             gradient_end: '#190708',
         },
-        visiblity: {},
     },
     {
         id: 1,
@@ -40,7 +39,6 @@ export const market_data: TMarketSmartContent[] = [
             gradient_start: '#2A2040',
             gradient_end: '#0A0810',
         },
-        visiblity: {},
     },
     {
         id: 3,
@@ -84,6 +82,5 @@ export const market_data: TMarketSmartContent[] = [
             gradient_start: '#183046',
             gradient_end: '#060C11',
         },
-        visiblity: {},
     },
 ]

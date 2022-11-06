@@ -19,7 +19,6 @@ export const trade_types: TTradeTypeSmartContent[] = [
             link: '/trade-types/cfds/',
             link_text: '_t_More on CFDs_t_',
         },
-        visiblity: {},
     },
     {
         id: 1,
@@ -39,7 +38,6 @@ export const trade_types: TTradeTypeSmartContent[] = [
             link: '/trade-types/multiplier/',
             link_text: '_t_More on multipliers_t_',
         },
-        visiblity: {},
     },
     {
         id: 2,

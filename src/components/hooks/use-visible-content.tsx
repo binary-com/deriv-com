@@ -13,7 +13,7 @@ function filterVisibleContent<T extends TSmartContent<unknown, object>, K extend
     const filterKeys = Object.keys(filters)
     return array.filter((item) => {
         return filterKeys.every((key) => {
-            if (item.visiblity[key] === undefined) return true
+            if (item?.visiblity?.[key] === undefined) return true
             return filters[key] === item.visiblity[key]
         })
     })

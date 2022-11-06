@@ -19,7 +19,6 @@ export const other_markets_data: TOtherMarketsContent[] = [
             to: '/markets/forex/',
             dynamic_id: 'marketforexothermarkets',
         },
-        visiblity: {},
     },
     {
         id: 1,
@@ -47,7 +46,6 @@ export const other_markets_data: TOtherMarketsContent[] = [
             to: '/markets/stock/',
             dynamic_id: 'marketstockothermarkets',
         },
-        visiblity: {},
     },
     {
         id: 3,
@@ -60,7 +58,6 @@ export const other_markets_data: TOtherMarketsContent[] = [
             to: '/markets/commodities/',
             dynamic_id: 'marketcommoditiesothermarket',
         },
-        visiblity: {},
     },
     {
         id: 4,

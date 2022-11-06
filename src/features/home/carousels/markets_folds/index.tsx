@@ -14,13 +14,13 @@ import { Mobile } from 'components/containers/visibility'
 import useMediaQuery from 'components/hooks/use-media-query'
 
 const StyledCarousel = styled(Carousel)`
-    width: 100%;
     margin: 0 auto;
     @media ${device.desktopL} {
         max-width: 1600px;
     }
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
+        width: 100%;
         max-width: 100%;
         max-height: 364px;
     }
@@ -31,9 +31,9 @@ const StyledCarousel = styled(Carousel)`
 
 const StyledSlide = styled(Carousel.Slide)`
     height: auto;
-    margin-inline: 8px;
+    margin-right: 16px;
     @media ${device.desktop} {
-        margin-inline: 12px;
+        margin-right: 24px;
     }
 `
 

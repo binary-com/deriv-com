@@ -18,7 +18,7 @@ function filterDynamicVisibleContent<T extends TSmartContent<unknown, object>, K
         return filterKeys.every((key) => {
             // ignores non-function predicates
             if (typeof filters[key] !== 'function') return true
-            return filters[key](item.visiblity[key])
+            return filters[key](item?.visiblity?.[key])
         })
     })
 }

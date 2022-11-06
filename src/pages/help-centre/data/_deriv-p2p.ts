@@ -1,6 +1,6 @@
 import { ArticlesDataType } from './_data-types'
 
-const p2p_data: ArticlesDataType = {
+const deriv_p2p: ArticlesDataType = {
     section: 'Platforms',
     category: '_t_Deriv P2P_t_',
     articles: [
@@ -552,4 +552,4 @@ const p2p_data: ArticlesDataType = {
     ],
 }
 
-export default p2p_data
+export default deriv_p2p

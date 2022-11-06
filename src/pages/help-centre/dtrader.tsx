@@ -1,8 +1,8 @@
 import React from 'react'
 import Questions from './components/_questions'
-import dtrader_data from './data/_dtrader'
+import dtrader from './data/_dtrader'
 import { WithIntl } from 'components/localization'
 
-const DTraderArticle = () => <Questions data={dtrader_data} />
+const DTrader = () => <Questions data={dtrader} />
 
-export default WithIntl()(DTraderArticle)
+export default WithIntl()(DTrader)

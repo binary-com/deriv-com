@@ -1,8 +1,8 @@
 import React from 'react'
 import Questions from './components/_questions'
-import dmt5_data from './data/_dmt5'
+import dmt5 from './data/_dmt5'
 import { WithIntl } from 'components/localization'
 
-const DMT5Article = () => <Questions data={dmt5_data} />
+const DMT5 = () => <Questions data={dmt5} />
 
-export default WithIntl()(DMT5Article)
+export default WithIntl()(DMT5)

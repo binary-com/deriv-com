@@ -1,6 +1,6 @@
 import { ArticlesDataType } from './_data-types'
 
-const affiliate_programme_data: ArticlesDataType = {
+const affiliate_programme: ArticlesDataType = {
     section: 'General',
     category: '_t_Affiliate programme_t_',
     articles: [
@@ -337,4 +337,4 @@ const affiliate_programme_data: ArticlesDataType = {
     ],
 }
 
-export default affiliate_programme_data
+export default affiliate_programme

@@ -1,6 +1,6 @@
 import { ArticlesDataType } from './_data-types'
 
-const about_deriv_data: ArticlesDataType = {
+const about_deriv: ArticlesDataType = {
     section: 'General',
     category: '_t_About Deriv_t_',
     articles: [
@@ -50,4 +50,4 @@ const about_deriv_data: ArticlesDataType = {
     ],
 }
 
-export default about_deriv_data
+export default about_deriv

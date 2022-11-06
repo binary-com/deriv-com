@@ -1,7 +1,7 @@
 import { ArticlesDataType } from './_data-types'
 import { deriv_app_url } from 'common/constants'
 
-const dmt5_data: ArticlesDataType = {
+const dmt5: ArticlesDataType = {
     section: 'Platforms',
     category: '_t_DMT5_t_',
     articles: [
@@ -446,4 +446,4 @@ const dmt5_data: ArticlesDataType = {
     ],
 }
 
-export default dmt5_data
+export default dmt5

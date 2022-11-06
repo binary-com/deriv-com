@@ -1,7 +1,7 @@
 import { ArticlesDataType } from './_data-types'
 import { deriv_app_url } from 'common/constants'
 
-const account_data: ArticlesDataType = {
+const account: ArticlesDataType = {
     section: 'General',
     category: '_t_Account_t_',
     articles: [
@@ -604,4 +604,4 @@ const account_data: ArticlesDataType = {
     ],
 }
 
-export default account_data
+export default account

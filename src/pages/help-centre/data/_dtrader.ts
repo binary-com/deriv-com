@@ -1,6 +1,6 @@
 import { ArticlesDataType } from './_data-types'
 
-const dtrader_data: ArticlesDataType = {
+const dtrader: ArticlesDataType = {
     section: 'Platforms',
     category: '_t_DTrader_t_',
     articles: [
@@ -107,4 +107,4 @@ const dtrader_data: ArticlesDataType = {
     ],
 }
 
-export default dtrader_data
+export default dtrader

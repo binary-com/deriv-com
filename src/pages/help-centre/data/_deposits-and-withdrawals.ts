@@ -1,7 +1,7 @@
 import { ArticlesDataType } from './_data-types'
 import { deriv_app_url } from 'common/constants'
 
-const deposits_and_withdrawals_data: ArticlesDataType = {
+const deposits_and_withdrawals: ArticlesDataType = {
     section: 'General',
     category: '_t_Deposits and withdrawals_t_',
     articles: [
@@ -256,4 +256,4 @@ const deposits_and_withdrawals_data: ArticlesDataType = {
     ],
 }
 
-export default deposits_and_withdrawals_data
+export default deposits_and_withdrawals

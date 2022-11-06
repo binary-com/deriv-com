@@ -1,6 +1,6 @@
 import { ArticlesDataType } from './_data-types'
 
-const security_data: ArticlesDataType = {
+const security: ArticlesDataType = {
     section: 'General',
     category: '_t_Security_t_',
     articles: [
@@ -63,4 +63,4 @@ const security_data: ArticlesDataType = {
     ],
 }
 
-export default security_data
+export default security

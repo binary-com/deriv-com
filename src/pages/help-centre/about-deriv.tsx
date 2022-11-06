@@ -1,8 +1,8 @@
 import React from 'react'
 import Questions from './components/_questions'
-import about_deriv_data from './data/_about-deriv'
+import about_deriv from './data/_about-deriv'
 import { WithIntl } from 'components/localization'
 
-const AboutDerivArticle = () => <Questions data={about_deriv_data} />
+const AboutDeriv = () => <Questions data={about_deriv} />
 
-export default WithIntl()(AboutDerivArticle)
+export default WithIntl()(AboutDeriv)

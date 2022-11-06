@@ -1,7 +1,7 @@
 import { ArticlesDataType } from './_data-types'
 import { deriv_app_url } from 'common/constants'
 
-const trading_data: ArticlesDataType = {
+const trading: ArticlesDataType = {
     section: 'General',
     category: '_t_Trading_t_',
     articles: [
@@ -252,4 +252,4 @@ const trading_data: ArticlesDataType = {
     ],
 }
 
-export default trading_data
+export default trading

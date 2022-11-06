@@ -1,7 +1,7 @@
 import { ArticlesDataType } from './_data-types'
 import { deriv_app_url, derivx_app_url } from 'common/constants'
 
-const deriv_x_data: ArticlesDataType = {
+const derivx: ArticlesDataType = {
     section: 'Platforms',
     category: '_t_Deriv X_t_',
     articles: [
@@ -292,4 +292,4 @@ const deriv_x_data: ArticlesDataType = {
     ],
 }
 
-export default deriv_x_data
+export default derivx

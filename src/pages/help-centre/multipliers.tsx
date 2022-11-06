@@ -1,8 +1,8 @@
 import React from 'react'
-import multiplier_data from './data/_multipliers'
+import multiplier from './data/_multipliers'
 import Questions from './components/_questions'
 import { WithIntl } from 'components/localization'
 
-const Multiplier = () => <Questions data={multiplier_data} />
+const Multiplier = () => <Questions data={multiplier} />
 
 export default WithIntl()(Multiplier)

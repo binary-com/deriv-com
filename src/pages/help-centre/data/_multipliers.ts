@@ -1,6 +1,6 @@
 import { ArticlesDataType } from './_data-types'
 
-const multiplier_data: ArticlesDataType = {
+const multiplier: ArticlesDataType = {
     section: 'Platforms',
     category: '_t_Multipliers_t_',
     articles: [
@@ -41,4 +41,4 @@ const multiplier_data: ArticlesDataType = {
     ],
 }
 
-export default multiplier_data
+export default multiplier

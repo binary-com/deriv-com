@@ -1,6 +1,6 @@
 import { ArticlesDataType } from './_data-types'
 
-const ib_programme_data: ArticlesDataType = {
+const ib_programme: ArticlesDataType = {
     section: 'General',
     category: '_t_IB programme_t_',
     articles: [
@@ -123,4 +123,4 @@ const ib_programme_data: ArticlesDataType = {
     ],
 }
 
-export default ib_programme_data
+export default ib_programme

@@ -72,17 +72,19 @@ const SocialWrapperComponent = ({ is_career_page = false }: SocialWrapperCompone
 
 const SocialMediaComponent = ({ social_accounts = [] }: SocialMediaComponentProps) => (
     <SocialWrapper>
-        {social_accounts.map((account, index) => (
-            <LocalizedLink
-                key={index}
-                external
-                to={account.link}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={account.image} alt={account.image_alt} width="41" height="41" />
-            </LocalizedLink>
-        ))}
+        {social_accounts.map((account, index) => {
+            return (
+                <LocalizedLink
+                    key={account.image_alt}
+                    external
+                    to={account.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src={account.image} alt={account.image_alt} width="41" height="41" />
+                </LocalizedLink>
+            )
+        })}
     </SocialWrapper>
 )
 

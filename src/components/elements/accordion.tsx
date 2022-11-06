@@ -1,7 +1,6 @@
 import React, { useState, useEffect, ReactNode } from 'react'
 import styled from 'styled-components'
 import { Text } from './typography'
-import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
 import Chevron from 'images/svg/custom/chevron-bottom.svg'
 import ChevronThick from 'images/svg/custom/chevron-thick.svg'
 import Minus from 'images/svg/elements/minus.svg'
@@ -67,14 +66,13 @@ type AccordionProps = {
     has_single_state?: boolean
     is_faq?: boolean
     id?: string
-    is_default_open?: boolean
 }
 
 // TODO: keyboard events and find a way to add proper focus handling
-const Accordion = ({ children, has_single_state, id, is_default_open }: AccordionProps) => {
+const Accordion = ({ children, has_single_state, id }: AccordionProps) => {
     const nodes = []
     return has_single_state ? (
-        <SingleAccordionContent id={id} is_default_open={is_default_open} nodes={nodes}>
+        <SingleAccordionContent id={id} nodes={nodes}>
             {children}
         </SingleAccordionContent>
     ) : (
@@ -116,11 +114,10 @@ type ItemExpandedProps = {
     child?: ChildType
     child_idx?: number
     id?: string
-    is_default_open?: boolean
     nodes?: ReactNode
 }
 
-const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpandedProps) => {
+const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
     const getHeight = (active_idx: number) => {
         return (
             nodes[active_idx] &&
@@ -128,18 +125,13 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpa
         )
     }
     const [is_expanded, setExpanded] = useState(false)
-    const [height, setHeight] = useStateWithCallback(0, () => {
-        // set height to auto to allow content that can resize inside the accordion
-        // reset height to content height before collapse for transition (height: auto does not support transitions)
-        if (is_expanded) setTimeout(() => setHeight('auto'), 200)
-        else setHeight(0)
-    })
-
-    useEffect(() => {
-        if (is_default_open) setExpanded(true)
-    }, [])
+    const [height, setHeight] = useState(null)
 
     useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
+    useEffect(() => {
+        if (is_expanded) setTimeout(() => setHeight('auto'), 200)
+        else setHeight(0)
+    }, [height])
 
     const deployer = <img src={is_expanded ? Minus : Plus} alt="Minus" height="16" width="16" />
 
@@ -198,21 +190,18 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpa
 type SingleAccordionContentProps = {
     children?: ChildType | ChildType[]
     id?: string
-    is_default_open?: boolean
     nodes?: ReactNode[]
 }
 
-const SingleAccordionContent = ({
-    is_default_open = false,
-    nodes,
-    children,
-    id,
-}: SingleAccordionContentProps) => {
+const SingleAccordionContent = ({ nodes, children, id }: SingleAccordionContentProps) => {
     const render_nodes = React.Children.map(children, (child, child_idx) => {
+        if (!React.isValidElement(child)) {
+            return <></>
+        }
+
         return (
             <ItemExpanded
                 key={child_idx}
-                is_default_open={is_default_open}
                 child={child}
                 child_idx={child_idx}
                 nodes={nodes}

@@ -67,7 +67,7 @@ const DMT5 = () => {
             />
             <Desktop>
                 <DHero
-                    title={localize('Deriv MT5 (DMT5)')}
+                    title={localize('Deriv MT5')}
                     content={
                         <Localize
                             translate_text="The all-in-one <0/>CFD trading<0/> platform"
@@ -82,7 +82,7 @@ const DMT5 = () => {
             </Desktop>
             <Mobile>
                 <DHero
-                    title={localize('Deriv MT5 (DMT5)')}
+                    title={localize('Deriv MT5')}
                     content={
                         <Localize
                             translate_text="The all-in-one <0/> CFD trading platform <0/>  "

@@ -27,6 +27,7 @@ type CryptocurrenciesProps = {
 type CryptoContent = {
     src: string
     text: ReactElement
+    alt: string
 }
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
@@ -39,18 +40,22 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
             ) : (
                 <Localize translate_text="1:100 leverage" />
             ),
+            alt: 'leverage',
         },
         {
             src: TightSpread,
             text: <Localize translate_text="Tight spreads" />,
+            alt: 'tight spreads',
         },
         {
             src: CryptoPairs,
             text: <Localize translate_text="25+ crypto pairs" />,
+            alt: '25+ crypto pairs',
         },
         {
             src: ZeroCommission,
             text: <Localize translate_text="Zero commission" />,
+            alt: 'zero commission',
         },
     ]
 

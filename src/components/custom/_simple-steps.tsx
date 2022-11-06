@@ -3,14 +3,16 @@ import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Header, Text } from 'components/elements'
-import { Container, SectionContainer, Flex, Show } from 'components/containers'
+import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
 import device from 'themes/device'
 import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
+export type SimpleStepsContent = { header?: ReactNode; icon?: HTMLImageElement; text?: ReactNode }
+
 type SimpleStepsProps = {
-    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactNode }[]
+    content?: SimpleStepsContent[]
     header?: string
     sign_up?: boolean
 }
@@ -41,6 +43,7 @@ const StyledFlex = styled(Flex)`
     @media ${device.tabletL} {
         flex-direction: column;
         align-items: center;
+        margin: 2rem 0 0 0;
 
         article {
             margin: 16px auto 0;
@@ -58,7 +61,7 @@ const StyledHeader = styled(Header)`
 
 const TitleHeader = styled(Header)`
     @media ${device.tabletL} {
-        font-size: 32px;
+        font-size: 24px;
         line-height: 1.5;
     }
 `
@@ -134,12 +137,12 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
 
     return (
         <StyledSection>
-            <Show.Desktop>
+            <Desktop>
                 <BackgroundPattern src={Pattern} alt="pattern" />
-            </Show.Desktop>
-            <Show.Mobile>
+            </Desktop>
+            <Mobile>
                 <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
-            </Show.Mobile>
+            </Mobile>
             <Container direction="column">
                 <TitleHeader align="center" as="h3" type="section-title">
                     {header}
@@ -148,7 +151,13 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
             <StyledFlex wrap="wrap">
                 {content.map((item, idx) => {
                     return (
-                        <ClientCard key={idx}>
+                        <ClientCard
+                            key={
+                                typeof item.text === 'string'
+                                    ? item.text
+                                    : item.text.props.translate_text
+                            }
+                        >
                             <Flex ai="center" height="fit-content">
                                 <StyledHeader as="h4" type="sub-section-title">
                                     {item.header}

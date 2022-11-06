@@ -11,6 +11,7 @@ import Instagram from 'images/svg/layout/footer-instagram.svg'
 import Facebook from 'images/svg/layout/footer-facebook.svg'
 import Linkedin from 'images/svg/layout/footer-linkedin.svg'
 
+// test
 type SocialWrapperComponentProps = {
     is_career_page?: boolean
 }

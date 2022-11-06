@@ -1,6 +1,6 @@
 import React, { memo, useContext } from 'react'
 import styled from 'styled-components'
-import { ArticlesDataType } from '../data/_data-types'
+import { TQuestionsData } from '../data/_data-types'
 import SideTab from './_side-tab'
 import AnswerCard from './_answer-card'
 import { Community, DidntFindYourAnswerBanner } from './_lazy-load'
@@ -12,7 +12,7 @@ import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param
 import { DerivStore } from 'store'
 
 type QuestionsType = {
-    data: ArticlesDataType
+    data: TQuestionsData
 }
 
 const ContactContainer = styled.div`
@@ -22,12 +22,12 @@ const ContactContainer = styled.div`
 const Questions = ({ data }: QuestionsType) => {
     const { is_eu_country } = useContext(DerivStore)
     const { platform, has_platform } = usePlatformQueryParam()
-    const { articles, category } = data
+    const { questions, category } = data
     const untranslate_category = category.substring(3, category.length - 3)
 
-    const filtered_articles = is_eu_country
-        ? articles.filter((article) => !article.hide_for_eu)
-        : articles.filter((article) => !article.hide_for_non_eu)
+    const filtered_questions = questions.filter(({ hide_for_eu, hide_for_non_eu }) =>
+        is_eu_country ? !hide_for_eu : !hide_for_non_eu,
+    )
 
     return (
         <Layout>
@@ -50,8 +50,8 @@ const Questions = ({ data }: QuestionsType) => {
                     <Localize translate_text="_t_Back_t_" />
                 </StyledLink>
 
-                <SideTab data={filtered_articles} tab_header={category}>
-                    {filtered_articles.map(({ label, question, answer, renderProp }) => (
+                <SideTab data={filtered_questions} tab_header={category}>
+                    {filtered_questions.map(({ label, question, answer, renderProp }) => (
                         <AnswerCard
                             key={label}
                             question={question}

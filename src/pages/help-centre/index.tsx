@@ -6,7 +6,7 @@ import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 import { eu_discards, getAllArticles } from './_utility'
-import { faq_schema } from './_faq-schema'
+import { faq_schema } from './components/_faq-schema'
 import ArticleSectionComponent from './_article-section-component'
 import { SEO, Desktop, Container } from 'components/containers'
 import { Header } from 'components/elements'
@@ -21,8 +21,8 @@ import CrossIcon from 'images/svg/help/cross.svg'
 import { DerivStore } from 'store'
 
 //Lazy-load
-const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
-const Community = Loadable(() => import('./_community'))
+const DidntFindYourAnswerBanner = Loadable(() => import('./components/_didnt-find-answer'))
+const Community = Loadable(() => import('./components/_community'))
 
 type StyledProps = {
     wrap?: string

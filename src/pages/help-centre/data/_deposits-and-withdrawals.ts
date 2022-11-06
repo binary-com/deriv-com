@@ -1,10 +1,10 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 import { deriv_app_url } from 'common/constants'
 
-const deposits_and_withdrawals: ArticlesDataType = {
+const deposits_and_withdrawals: TQuestionsData = {
     section: 'General',
     category: '_t_Deposits and withdrawals_t_',
-    articles: [
+    questions: [
         {
             question: '_t_What payment methods can I use for deposits and withdrawals?_t_',
             category: 'Deposits and withdrawals',
@@ -89,7 +89,6 @@ const deposits_and_withdrawals: ArticlesDataType = {
                         '_t_Here are some reasons why your credit card deposit was declined:_t_',
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         first_child_margin_top: '1.6rem',
                         items: [
@@ -177,7 +176,6 @@ const deposits_and_withdrawals: ArticlesDataType = {
                     ],
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             { translation_text: '_t_you reside in the UK, or_t_' },
@@ -193,7 +191,6 @@ const deposits_and_withdrawals: ArticlesDataType = {
                     has_margin_top: true,
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {

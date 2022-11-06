@@ -1,9 +1,9 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 
-const deriv_p2p: ArticlesDataType = {
+const deriv_p2p: TQuestionsData = {
     section: 'Platforms',
     category: '_t_Deriv P2P_t_',
-    articles: [
+    questions: [
         {
             question: '_t_What is Deriv P2P?_t_',
             category: 'Deriv P2P',
@@ -56,7 +56,6 @@ const deriv_p2p: ArticlesDataType = {
                     has_margin_top: true,
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -121,7 +120,6 @@ const deriv_p2p: ArticlesDataType = {
                         '_t_Your Deriv P2P account may be blocked for one of the following reasons:_t_',
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -183,7 +181,6 @@ const deriv_p2p: ArticlesDataType = {
                     translation_text: '_t_Follow these steps:_t_',
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -249,7 +246,6 @@ const deriv_p2p: ArticlesDataType = {
                     translation_text: '_t_Follow these steps:_t_',
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -285,7 +281,6 @@ const deriv_p2p: ArticlesDataType = {
                     has_margin_top: true,
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -366,7 +361,6 @@ const deriv_p2p: ArticlesDataType = {
                     has_margin_top: true,
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         first_child_margin_top: '1.6rem',
                         margin_top: '0.3rem',
                         items: [
@@ -438,7 +432,6 @@ const deriv_p2p: ArticlesDataType = {
                         '_t_For successful Deriv P2P transactions, follow these guidelines:_t_',
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -470,7 +463,6 @@ const deriv_p2p: ArticlesDataType = {
                     has_margin_top: true,
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -492,7 +484,6 @@ const deriv_p2p: ArticlesDataType = {
                     has_margin_top: true,
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {

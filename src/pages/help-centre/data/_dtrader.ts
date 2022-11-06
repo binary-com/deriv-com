@@ -1,9 +1,9 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 
-const dtrader: ArticlesDataType = {
+const dtrader: TQuestionsData = {
     section: 'Platforms',
     category: '_t_DTrader_t_',
-    articles: [
+    questions: [
         {
             question: '_t_What is DTrader?_t_',
             category: 'DTrader',
@@ -41,7 +41,6 @@ const dtrader: ArticlesDataType = {
                     translation_text: '_t_These contracts are available on DTrader:_t_',
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -51,7 +50,6 @@ const dtrader: ArticlesDataType = {
                                 translation_text: '_t_Ups & Downs_t_',
                                 sub_items: {
                                     list_style: 'circle',
-                                    padding_left: '5rem',
                                     margin_top: '0.3rem',
                                     items: [{ translation_text: '_t_Rise/Fall_t_' }],
                                 },
@@ -60,7 +58,6 @@ const dtrader: ArticlesDataType = {
                                 translation_text: '_t_Highs & Lows_t_',
                                 sub_items: {
                                     list_style: 'circle',
-                                    padding_left: '5rem',
                                     margin_top: '0.3rem',
                                     items: [
                                         { translation_text: '_t_Higher/Lower_t_' },
@@ -72,7 +69,6 @@ const dtrader: ArticlesDataType = {
                                 translation_text: '_t_Digits_t_',
                                 sub_items: {
                                     list_style: 'circle',
-                                    padding_left: '5rem',
                                     margin_top: '0.3rem',
                                     items: [
                                         { translation_text: '_t_Matches/Differs_t_' },

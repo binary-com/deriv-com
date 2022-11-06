@@ -1,9 +1,9 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 
-const security: ArticlesDataType = {
+const security: TQuestionsData = {
     section: 'General',
     category: '_t_Security_t_',
-    articles: [
+    questions: [
         {
             question: '_t_Do I need to verify my Deriv account?_t_',
             category: 'Security',

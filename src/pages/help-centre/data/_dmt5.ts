@@ -1,10 +1,10 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 import { deriv_app_url } from 'common/constants'
 
-const dmt5: ArticlesDataType = {
+const dmt5: TQuestionsData = {
     section: 'Platforms',
     category: '_t_DMT5_t_',
-    articles: [
+    questions: [
         {
             question: '_t_What is Deriv MetaTrader 5 (Deriv MT5)?_t_',
             category: 'DMT5',
@@ -145,7 +145,6 @@ const dmt5: ArticlesDataType = {
                     translation_text: '_t_Follow these steps to reset your Deriv MT5 password:_t_',
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         first_child_margin_top: '1.6rem',
                         margin_top: '0.3rem',
                         items: [
@@ -336,7 +335,6 @@ const dmt5: ArticlesDataType = {
                         '_t_If you need a statement of your trades on Deriv MT5, follow these steps to download a 3-month statement:_t_',
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {

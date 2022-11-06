@@ -1,53 +1,54 @@
 import { ReactNode } from 'react'
 import { TString } from 'types/generics'
 
-export type ListStyleType = 'disc' | 'decimal' | 'circle'
+export type TListStyle = 'disc' | 'decimal' | 'circle' | 'none'
 
-export type TranslationComponentsType = {
+export type TTranslationComponents = {
     key: number
     type: 'link' | 'strong'
     to?: string
 }[]
 
-type LocalizeType = {
-    translation_text: TString
-    translation_components?: TranslationComponentsType
+type TLocalize = {
+    translation_text?: TString
+    translation_components?: TTranslationComponents
+    img?: {
+        src: string
+        alt: string
+        width: string
+    }
 }
 
-type AnswerPropsType = {
+export type TList = {
+    list_style: TListStyle
+    items: Array<TLocalize & { sub_items?: TList }>
+    margin_top: string
+    first_child_margin_top?: string
+    // padding_left?: string
+}
+
+type TAnswerProps = {
     has_margin_top?: boolean // default 1.7rem
     margin_top?: string
     eu_translation_text?: TString
-    list?: ListType
+    list?: TList
 }
 
-type SubItemsType = {
-    sub_items?: ListType
-}
+export type TAnswer = Array<TAnswerProps & TLocalize>
 
-export type ListType = {
-    list_style: ListStyleType
-    items: Array<LocalizeType & SubItemsType>
-    margin_top: string
-    first_child_margin_top?: string
-    padding_left?: string
-}
-
-export type AnswerType = Array<AnswerPropsType & LocalizeType>
-
-export type ArticlesType = {
-    question: TString
+export type TQuestions = {
     sub_category: TString
     category: string
     label: string
-    answer?: AnswerType
+    question: TString
+    answer?: TAnswer
     renderProp?: () => ReactNode
     hide_for_non_eu?: boolean
     hide_for_eu?: boolean
 }
 
-export type ArticlesDataType = {
+export type TQuestionsData = {
     section: string
     category: TString
-    articles: ArticlesType[]
+    questions: TQuestions[]
 }

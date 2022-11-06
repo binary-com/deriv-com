@@ -1,10 +1,10 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 import { deriv_app_url, derivx_app_url } from 'common/constants'
 
-const derivx: ArticlesDataType = {
+const derivx: TQuestionsData = {
     section: 'Platforms',
     category: '_t_Deriv X_t_',
-    articles: [
+    questions: [
         {
             question: '_t_What is Deriv X?_t_',
             category: 'Deriv X',
@@ -97,7 +97,6 @@ const derivx: ArticlesDataType = {
                     translation_text: '_t_Follow these steps to add a Deriv X account:_t_',
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '1rem',
                         items: [
                             {
@@ -149,7 +148,6 @@ const derivx: ArticlesDataType = {
                         "_t_You'll need to add a Deriv X account first. After that, follow these steps to log in:_t_",
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '1rem',
                         items: [
                             {

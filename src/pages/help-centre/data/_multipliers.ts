@@ -1,9 +1,9 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 
-const multiplier: ArticlesDataType = {
+const multiplier: TQuestionsData = {
     section: 'Platforms',
     category: '_t_Multipliers_t_',
-    articles: [
+    questions: [
         {
             question: '_t_What are multipliers?_t_',
             category: 'Multipliers',

@@ -1,9 +1,9 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 
-const about_deriv: ArticlesDataType = {
+const about_deriv: TQuestionsData = {
     section: 'General',
     category: '_t_About Deriv_t_',
-    articles: [
+    questions: [
         {
             question: '_t_Is Deriv regulated?_t_',
             category: 'About Deriv',
@@ -14,7 +14,6 @@ const about_deriv: ArticlesDataType = {
                     translation_text: '_t_Yes, we’re regulated by_t_',
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             { translation_text: '_t_the Malta Financial Services Authority_t_' },

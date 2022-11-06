@@ -1,9 +1,9 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 
-const ib_programme: ArticlesDataType = {
+const ib_programme: TQuestionsData = {
     section: 'General',
     category: '_t_IB programme_t_',
-    articles: [
+    questions: [
         {
             question: '_t_How do I sign up as an introducing broker (IB)?_t_',
             category: 'IB programme',
@@ -30,7 +30,6 @@ const ib_programme: ArticlesDataType = {
                     translation_text: '_t_When you join our IB programme,_t_',
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '1rem',
                         items: [
                             {

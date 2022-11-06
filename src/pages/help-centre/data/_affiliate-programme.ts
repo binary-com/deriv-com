@@ -1,9 +1,9 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 
-const affiliate_programme: ArticlesDataType = {
+const affiliate_programme: TQuestionsData = {
     section: 'General',
     category: '_t_Affiliate programme_t_',
-    articles: [
+    questions: [
         {
             question: '_t_How do I sign up as an affiliate?_t_',
             category: 'Affiliate programme',
@@ -30,7 +30,6 @@ const affiliate_programme: ArticlesDataType = {
                     translation_text: '_t_When you join our affiliate programme,_t_',
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -106,7 +105,6 @@ const affiliate_programme: ArticlesDataType = {
                     translation_text: '_t_We encourage you to become our affiliate if you are:_t_',
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '1rem',
                         items: [
                             {
@@ -198,7 +196,6 @@ const affiliate_programme: ArticlesDataType = {
                     translation_text: '_t_Follow these steps to get your referral link:_t_',
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '1rem',
                         items: [
                             {
@@ -241,7 +238,6 @@ const affiliate_programme: ArticlesDataType = {
                     translation_text: '_t_Follow these steps to change your payment method:_t_',
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '1rem',
                         items: [
                             {
@@ -294,7 +290,6 @@ const affiliate_programme: ArticlesDataType = {
                     translation_text: '_t_Follow these steps to see your earnings:_t_',
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '1rem',
                         items: [
                             {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { ArticlesType } from '../data/_data-types'
+import { TQuestions } from '../data/_data-types'
 import { Header } from 'components/elements'
 import device, { size } from 'themes/device'
 import { getWindowWidth } from 'common/utility'
@@ -17,7 +17,7 @@ export type TChildren = {
 
 type SideTabType = {
     tab_header: TString
-    data: ArticlesType[]
+    data: TQuestions[]
     children: TChildren
 }
 

@@ -1,10 +1,10 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 import { deriv_app_url } from 'common/constants'
 
-const trading: ArticlesDataType = {
+const trading: TQuestionsData = {
     section: 'General',
     category: '_t_Trading_t_',
-    articles: [
+    questions: [
         {
             question: '_t_What is forex?_t_',
             category: 'Trading',

@@ -1,10 +1,10 @@
-import { ArticlesDataType } from './_data-types'
+import { TQuestionsData } from './_data-types'
 import { deriv_app_url } from 'common/constants'
 
-const account: ArticlesDataType = {
+const account: TQuestionsData = {
     section: 'General',
     category: '_t_Account_t_',
-    articles: [
+    questions: [
         {
             question: '_t_How can I change my personal details?_t_',
             category: 'account',
@@ -41,7 +41,6 @@ const account: ArticlesDataType = {
                     has_margin_top: true,
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         first_child_margin_top: '1.6rem',
                         margin_top: '0.3rem',
                         items: [
@@ -71,7 +70,6 @@ const account: ArticlesDataType = {
                     has_margin_top: true,
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '1.6rem',
                         items: [
                             {
@@ -79,7 +77,6 @@ const account: ArticlesDataType = {
                                     '_t_If you have open positions, close them first._t_',
                                 sub_items: {
                                     list_style: 'circle',
-                                    padding_left: '5rem',
                                     margin_top: '0.3rem',
                                     items: [
                                         {
@@ -98,7 +95,6 @@ const account: ArticlesDataType = {
                                 translation_text: '_t_Then, withdraw your funds._t_',
                                 sub_items: {
                                     list_style: 'circle',
-                                    padding_left: '5rem',
                                     margin_top: '0.3rem',
                                     items: [
                                         {
@@ -151,7 +147,6 @@ const account: ArticlesDataType = {
                         "_t_Here are some possible reasons you aren't able to create an account:_t_",
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -195,7 +190,6 @@ const account: ArticlesDataType = {
                     has_margin_top: true,
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -294,7 +288,6 @@ const account: ArticlesDataType = {
                     ],
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             { translation_text: '_t_Name of entity_t_' },
@@ -451,7 +444,6 @@ const account: ArticlesDataType = {
                         '_t_When we prompt you to verify your account, follow these steps:_t_',
                     list: {
                         list_style: 'decimal',
-                        padding_left: '5rem',
                         margin_top: '0.3rem',
                         items: [
                             {
@@ -502,7 +494,6 @@ const account: ArticlesDataType = {
                         '_t_You’ll need the following documents to verify your account:_t_',
                     list: {
                         list_style: 'disc',
-                        padding_left: '5rem',
                         margin_top: '1.6rem',
                         items: [
                             {

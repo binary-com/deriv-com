@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useRef } from 'react'
+import React, { ReactElement, useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
@@ -16,71 +16,82 @@ type TabButtonProps = {
 }
 
 const TabsContainer = styled(Flex)`
-    background-color: var(--color-grey-23);
+    justify-content: center;
+    margin-top: 24px;
+
+    @media ${device.tabletL} {
+        margin-top: 20px;
+    }
 `
 const TabList = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
-    position: relative;
-    overflow: auto;
+    overflow: hidden;
     padding-top: 2.4rem;
+    gap: 16px;
 
     @media ${device.tabletL} {
-        justify-content: start;
         overflow-x: scroll;
         scroll-behavior: smooth;
-        padding-top: 16px;
+        gap: 16px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 `
 
 const TabButton = styled.button<TabButtonProps>`
     z-index: 2;
     height: auto;
-    padding: 8px 24px 10px;
+    padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: transparent;
     outline: none;
     transition: border-color 0.2s ease-in;
     border: none;
     border-bottom: 2px solid var(--color-grey-2);
     white-space: nowrap;
+    background: #f2f3f4;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
     ${(props) =>
         props.selected &&
         css`
-            border-color: var(--color-red);
+            background: white;
             ${Text} {
                 font-weight: bold;
+                color: black;
             }
         `}
     &:hover,
     &:focus,
     &:active {
-        border-bottom: 2px solid
-            ${(props) => (props.selected ? 'var(--color-red)' : 'var(--color-red-2)')};
+        background: white;
+    }
+
+    @media ${device.tabletL} {
+        height: 40px;
+        padding: 24px 12px;
     }
 `
 const TextWrapper = styled(Text)`
     text-align: center;
     font-size: var(--text-size-m);
-    color: var(--color-black);
+    color: #999999;
+    ${(props) =>
+        props.selected &&
+        css`
+            color: black;
+        `}
 
     @media ${device.tabletS} {
-        font-size: 24px;
+        font-size: 18px;
     }
 `
-const LineDivider = styled.div`
-    bottom: 0;
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background: var(--color-grey-2);
-    z-index: 1;
-`
-
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
 
@@ -88,6 +99,7 @@ const StyledLink = styled(LocalizedLink)`
         color: red;
     }
 `
+
 type TabList = {
     title: ReactElement
     tab_name: string
@@ -95,108 +107,55 @@ type TabList = {
 }
 const tab_list: TabList[] = [
     {
-        title: <Localize translate_text="Forex" />,
-        tab_name: 'forex',
-        route_to: '/markets/forex/',
-    },
-    {
-        title: <Localize translate_text="Synthetic indices" />,
+        title: <Localize translate_text="Synthetics" />,
         tab_name: 'synthetic',
-        route_to: '/markets/synthetic/',
-    },
-    {
-        title: <Localize translate_text="Stocks & indices" />,
-        tab_name: 'stock',
-        route_to: '/markets/stock/',
-    },
-    {
-        title: <Localize translate_text="Cryptocurrencies" />,
-        tab_name: 'cryptocurrencies',
-        route_to: '/markets/cryptocurrencies/',
+        route_to: '/markets/synthetic/#synthetic',
     },
     {
         title: <Localize translate_text="Basket indices" />,
         tab_name: 'basket-indices',
-        route_to: '/markets/basket-indices/',
+        route_to: '/markets/basket-indices/#basket-indices',
     },
     {
-        title: <Localize translate_text="Commodities" />,
-        tab_name: 'commodities',
-        route_to: '/markets/commodities/',
+        title: <Localize translate_text="Derived FX" />,
+        tab_name: 'derived-fx',
+        route_to: '/markets/derived-fx/#derived-fx',
     },
 ]
 
 const tab_list_eu: TabList[] = [
     {
-        title: <Localize translate_text="Forex" />,
-        tab_name: 'forex',
-        route_to: '/markets/forex/',
-    },
-    {
-        title: <Localize translate_text="Synthetic indices" />,
+        title: <Localize translate_text="Synthetics" />,
         tab_name: 'synthetic',
-        route_to: '/markets/synthetic/',
-    },
-    {
-        title: <Localize translate_text="Stocks & indices" />,
-        tab_name: 'stock',
-        route_to: '/markets/stock/',
-    },
-    {
-        title: <Localize translate_text="Cryptocurrencies" />,
-        tab_name: 'cryptocurrencies',
-        route_to: '/markets/cryptocurrencies/',
-    },
-    {
-        title: <Localize translate_text="Commodities" />,
-        tab_name: 'commodities',
-        route_to: '/markets/commodities/',
+        route_to: '/markets/synthetic/#synthetic',
     },
 ]
 
 const tab_list_uk = [
     {
-        title: <Localize translate_text="Forex" />,
-        tab_name: 'forex',
-        route_to: '/markets/forex/',
-    },
-    {
-        title: <Localize translate_text="Stocks & indices" />,
-        tab_name: 'stock',
-        route_to: '/markets/stock/',
-    },
-    {
-        title: <Localize translate_text="Commodities" />,
-        tab_name: 'commodities',
-        route_to: '/markets/commodities/',
+        title: <Localize translate_text="Derived FX" />,
+        tab_name: 'derived-fx',
+        route_to: '/markets/derived-fx/#synthetic',
     },
 ]
 
-const NavTab = ({ route_from, route_offset }: NavTabProps) => {
+const NavTab = ({ route_from }: NavTabProps) => {
     const { is_eu, is_uk } = useCountryRule()
-
     const ref = useRef(null)
-
-    useEffect(() => {
-        ref.current.scrollLeft = route_offset
-    })
 
     return (
         <TabsContainer>
-            <Flex direction="column">
-                <TabList ref={ref}>
-                    {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
-                        return (
-                            <TabButton selected={route_from == item.tab_name} key={index}>
-                                <StyledLink to={item.route_to}>
-                                    <TextWrapper>{item.title}</TextWrapper>
-                                </StyledLink>
+            <TabList ref={ref}>
+                {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item) => {
+                    return (
+                        <StyledLink to={item.route_to} key={item.tab_name}>
+                            <TabButton selected={route_from == item.tab_name}>
+                                <TextWrapper>{item.title}</TextWrapper>
                             </TabButton>
-                        )
-                    })}
-                    <LineDivider />
-                </TabList>
-            </Flex>
+                        </StyledLink>
+                    )
+                })}
+            </TabList>
         </TabsContainer>
     )
 }

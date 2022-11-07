@@ -612,7 +612,7 @@ const IBAccountManagement = () => {
             </Header>
             <TextSecondary>
                 <Localize translate_text="If you’re already registered as a Deriv affiliate, " />
-                <LiveChatLinkText text="contact us via live chat." />
+    <LiveChatLinkText text="_t_contact us via live chat._t_" />
             </TextSecondary>
             <Header
                 as="p"

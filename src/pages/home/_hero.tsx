@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import PlatformSlideshow from './_platform-slideshow'
 import { header_items } from './_data'
 import device from 'themes/device'
@@ -13,6 +12,8 @@ import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
 import HeroContentCarousel from 'features/home/carousels/hero_content'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 
 const query = graphql`
     query {
@@ -47,9 +48,9 @@ const HeroButton = styled(Button)`
     width: fit-content;
 
     @media ${device.tabletL} {
-        margin: 0 auto;
-        font-size: 20px;
-        line-height: 30px;
+        width: 100%;
+        font-size: 14px;
+        padding: 14px 16px;
     }
     @media ${device.mobileS} {
         font-size: 18px;
@@ -75,6 +76,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
     const { is_uk, is_loading, is_eu, is_row } = useCountryRule()
     const handleSignup = useHandleSignup()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <HeroWrapper>
@@ -119,7 +121,6 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 as="h2"
                                 type="sub-section-title"
                                 color="white"
-                                max_width="430px"
                                 min_height="auto"
                                 weight="normal"
                             >
@@ -135,14 +136,24 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             </Header>
                             <HeroContentCarousel />
                             <Box tabletL={{ mt: '-8px' }}>
-                                <HeroButton
-                                    disabled={is_loading}
-                                    onClick={handleSignup}
-                                    id="dm-hero-signup"
-                                    secondary
-                                >
-                                    <Localize translate_text="Create free demo account" />
-                                </HeroButton>
+                                {is_logged_in ? (
+                                    <HeroButton
+                                        onClick={handleGetTrading}
+                                        id="dm-hero-signup"
+                                        secondary
+                                    >
+                                        <Localize translate_text="Get Trading" />
+                                    </HeroButton>
+                                ) : (
+                                    <HeroButton
+                                        disabled={is_loading}
+                                        onClick={handleSignup}
+                                        id="dm-hero-signup"
+                                        secondary
+                                    >
+                                        <Localize translate_text="Create free demo account" />
+                                    </HeroButton>
+                                )}
                             </Box>
                         </Flex>
                         <PlatformSlideshow />
@@ -151,10 +162,6 @@ const Hero = ({ is_ppc }: HeroProps) => {
             </BackgroundImage>
         </HeroWrapper>
     )
-}
-
-Hero.propTypes = {
-    is_ppc: PropTypes.bool,
 }
 
 export default Hero

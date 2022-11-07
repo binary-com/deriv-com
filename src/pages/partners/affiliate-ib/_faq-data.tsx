@@ -463,7 +463,7 @@ const AffiliateReferralTools = () => (
             }}
         >
             <Localize translate_text="We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, " />
-            <LiveChatLinkText text="contact us via live chat." />
+            <LiveChatLinkText text="_t_contact us via live chat._t_" />
         </Header>
     </ItemContainer>
 )

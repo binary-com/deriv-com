@@ -20,7 +20,7 @@ const CardContainer = styled(Container)`
     justify-content: left;
     align-items: center;
     gap: 82px;
-    width: 50vw;
+    width: 62vw;
     @media (max-width: 1444px) {
         flex-direction: column;
         padding: 4rem 2.4rem;

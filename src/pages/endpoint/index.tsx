@@ -15,8 +15,8 @@ import { DerivStore } from 'store'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
 
 type ValuesType = {
-    server_url?: string
-    app_id?: string
+    server_url?: string | number
+    app_id?: string | number
     clients_country?: string
 }
 

@@ -43,8 +43,14 @@ const StyledContainer = styled(Container)`
 const DNumbers = ({ items, justify }: DNumbersProps) => {
     return (
         <StyledContainer justify={justify || 'space-between'}>
-            {items.map((item, index) => (
-                <NumberWrapper key={index}>
+            {items.map((item) => (
+                <NumberWrapper
+                    key={
+                        typeof item.subtitle === 'string'
+                            ? item.subtitle
+                            : item.subtitle.props.translate_text
+                    }
+                >
                     <Header as="p" type="page-title" align="center">
                         {item.title}
                     </Header>

@@ -40,7 +40,7 @@ import {
     StyledSection,
 } from '../common/_style'
 import { localize, Localize } from 'components/localization'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import {
     Accordion,
     AccordionItem,
@@ -134,7 +134,7 @@ const MarginCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5 (DMT5).',
+                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5.',
                     )}
                 </SectionSubtitle>
                 <ContentContainer mt="8rem" mb="4rem">
@@ -357,7 +357,7 @@ const MarginCalculator = () => {
                             {localize('How to calculate margin')}
                         </Header>
                         <Text>
-                            <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
+                            <Localize translate_text="The margin required for a contract on Deriv MT5 is calculated based on the formula:" />
                         </Text>
                         <Text mb="1.6rem">
                             <Localize
@@ -388,18 +388,18 @@ const MarginCalculator = () => {
                                         'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
                                     )}
                                 </Text>
-                                <Show.Desktop>
+                                <Desktop>
                                     <QueryImage
                                         data={data.margin_formula}
                                         alt={localize('Margin formula')}
                                     />
-                                </Show.Desktop>
-                                <Show.Mobile>
+                                </Desktop>
+                                <Mobile>
                                     <QueryImage
                                         data={data.margin_formula_mobile}
                                         alt={localize('Margin formula mobile')}
                                     />
-                                </Show.Mobile>
+                                </Mobile>
                                 <FormulaText>
                                     <StyledOl>
                                         <li>

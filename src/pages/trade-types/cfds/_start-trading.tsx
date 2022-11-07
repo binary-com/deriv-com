@@ -4,11 +4,11 @@ import { SmallContainer, StartTradingBg } from '../components/_style'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
-import { DerivStore, DerivStoreType } from 'store'
 import { Desktop, Mobile } from 'components/containers'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StartTrading = () => {
-    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
+    const { is_eu } = useCountryRule()
     return (
         <>
             <StartTradingBg>
@@ -29,7 +29,7 @@ const StartTrading = () => {
 
                     <Timeline>
                         <Timeline.Item title={<Localize translate_text="Practise" />}>
-                            {is_eu_country
+                            {is_eu
                                 ? localize(
                                       'Open a demo CFDs account and practise with an unlimited amount of virtual funds.',
                                   )
@@ -38,7 +38,7 @@ const StartTrading = () => {
                                   )}
                         </Timeline.Item>
                         <Timeline.Item title={<Localize translate_text="Trade" />}>
-                            {is_eu_country
+                            {is_eu
                                 ? localize(
                                       'Trade with a real CFDs account. Get access to leverage and trade positions larger than your existing capital.',
                                   )

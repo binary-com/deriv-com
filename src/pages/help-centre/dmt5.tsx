@@ -6,7 +6,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
     list-style: ${(props) => props.listStyle};
@@ -19,13 +19,13 @@ const StyledListItem = styled.li<{ marginTop: string }>`
 `
 
 const WhatIsDMT5 = ({ text }: ArticleProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     return (
         <ArticleWrapper>
             <StyledHeader as="h4">{text}</StyledHeader>
             <Text>
-                {is_eu_country ? (
+                {is_eu ? (
                     <Localize
                         translate_text="Deriv MT5 is a CFD trading platform that gives you access to forex, stocks, stock indices, commodities, cryptocurrencies, and derived. Learn more about Deriv MT5 <0>here</0>."
                         components={[
@@ -58,13 +58,13 @@ const WhatIsDMT5 = ({ text }: ArticleProps) => {
 }
 
 const DifferenceDMT5DTrader = ({ text }: ArticleProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     return (
         <ArticleWrapper>
             <StyledHeader as="h4">{text}</StyledHeader>
             <Text>
-                {is_eu_country ? (
+                {is_eu ? (
                     <Localize
                         translate_text="<0>DTrader</0>, <1>SmartTrader</1>, <2>DBot</2>, and <3>Binary Bot</3> offer digital options trading on a range of underlying assets such as forex, stock indices, commodities, and derived. These platforms allow you to set the contract duration before opening positions, and you'll know exactly how much you'll earn if you win. You may find these platforms more intuitive if you're new to the trading world."
                         components={[
@@ -605,7 +605,7 @@ const MinimumVolumeforMicroForexPairs = ({ text }: ArticleProps) => (
 
 const DMT5Article = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     return (
         <div>
@@ -619,7 +619,7 @@ const DMT5Article = () => {
                     label="what-is-dmt5"
                     is_mounted={is_mounted}
                 />
-                {is_eu_country ? (
+                {is_eu ? (
                     <DifferenceDMT5DTraderEU
                         text={localize(
                             'What are the main differences between your multipliers and CFD platforms?',
@@ -636,7 +636,7 @@ const DMT5Article = () => {
                         is_mounted={is_mounted}
                     />
                 )}
-                {is_eu_country ? (
+                {is_eu ? (
                     <WhatIsCFDsAccount
                         text={localize('What is the CFDs account?')}
                         label="what-is-cfds-account"

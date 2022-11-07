@@ -18,7 +18,7 @@ import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 //Lazy-load
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
@@ -123,7 +123,7 @@ const ResponsiveHeader = styled(Header)`
 `
 
 const HelpCentre = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     const [data, setData] = useState({
         search: '',
         toggle_search: true,
@@ -182,7 +182,7 @@ const HelpCentre = () => {
         setData({ ...data, search: sanitize(e.target.value) })
     }
 
-    const articles_by_domain = is_eu_country
+    const articles_by_domain = is_eu
         ? data.all_articles.filter((el) => !eu_discards.includes(el.category))
         : data.all_articles
 
@@ -190,7 +190,7 @@ const HelpCentre = () => {
         keys: ['title', 'sub_category'],
     })
 
-    const filtered_articles = is_eu_country
+    const filtered_articles = is_eu
         ? searched_articles.filter((article) => !article.hide_for_eu)
         : searched_articles.filter((article) => !article.hide_for_non_eu)
 

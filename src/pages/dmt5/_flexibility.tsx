@@ -164,7 +164,7 @@ const Flexibility = () => {
                                 </Flex>
                                 {is_eu_country && is_uk ? (
                                     <StyledText>
-                                        <Localize translate_text="Trade forex, stocks, stock indices, and commodities on leverage." />
+                                        <Localize translate_text="Trade CFDs on forex, stocks, stock indices, synthetic indices, cryptocurrencies, and commodities with leverage." />
                                     </StyledText>
                                 ) : (
                                     <StyledText>{item.text}</StyledText>

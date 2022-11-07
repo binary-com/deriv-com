@@ -39,7 +39,7 @@ const SignUp = ({ text }: ArticleProps) => {
                 <Localize
                     translate_text="First, you need to be an affiliate with a Deriv account and an MT5 Derived real account. Then, <0></0> to apply for an IB account. <1>Get more info about our IB programme.</1>"
                     components={[
-                        <LiveChatLinkText text="contact us via live chat" key={0} />,
+    <LiveChatLinkText text="_t_contact us via live chat_t_" key={0}/>
                         <ExternalLink
                             to={'/partners/affiliate-ib/'}
                             external

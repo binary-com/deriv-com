@@ -167,7 +167,7 @@ const UnsubscribePage = () => {
                     ) : (
                         <UnsubscribeForm>
                             <Title>
-                                {localize('Are you sure you want to step receiving Deriv emails?')}
+                                {localize('Are you sure you want to stop receiving Deriv emails?')}
                             </Title>
                             <ConfirmWrapper>
                                 <ConfirmButton onClick={UnsubscribeAPICall} type="submit" secondary>

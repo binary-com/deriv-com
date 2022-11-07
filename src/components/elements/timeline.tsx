@@ -72,14 +72,20 @@ type ItemProps = Pick<TimelineTickProps, 'children'>
 const Timeline = ({ pb, children, ...props }: TimelineProps) => {
     return (
         <div {...props}>
-            {children.map((child, idx) => (
-                <FlexWrapper key={idx} is_border={children.length !== idx + 1} pb={pb}>
-                    <Oval></Oval>
-                    <ContentWrapper>
-                        <div>{child}</div>
-                    </ContentWrapper>
-                </FlexWrapper>
-            ))}
+            {React.Children.map(children, (child, index) => {
+                if (!React.isValidElement(child)) {
+                    return <></>
+                }
+
+                return (
+                    <FlexWrapper is_border={children.length !== index + 1} pb={pb}>
+                        <Oval></Oval>
+                        <ContentWrapper>
+                            <div>{child}</div>
+                        </ContentWrapper>
+                    </FlexWrapper>
+                )
+            })}
         </div>
     )
 }
@@ -87,18 +93,23 @@ const Timeline = ({ pb, children, ...props }: TimelineProps) => {
 export const TimelineTick = ({ pb, color, children, ...props }: TimelineTickProps) => {
     return (
         <div {...props}>
-            {children.map((child, idx) => (
-                <React.Fragment key={idx}>
-                    {child && (
-                        <FlexWrapper is_border={false} pb={pb}>
-                            <OvalWrapper color="transparent">
-                                <Checkmark color={color}></Checkmark>
-                            </OvalWrapper>
-                            <ContentWrapper>{child}</ContentWrapper>
-                        </FlexWrapper>
-                    )}
-                </React.Fragment>
-            ))}
+            {React.Children.map(children, (child) => {
+                if (!React.isValidElement(child)) {
+                    return <></>
+                }
+                return (
+                    <React.Fragment>
+                        {child && (
+                            <FlexWrapper is_border={false} pb={pb}>
+                                <OvalWrapper color="transparent">
+                                    <Checkmark color={color}></Checkmark>
+                                </OvalWrapper>
+                                <ContentWrapper>{child}</ContentWrapper>
+                            </FlexWrapper>
+                        )}
+                    </React.Fragment>
+                )
+            })}
         </div>
     )
 }

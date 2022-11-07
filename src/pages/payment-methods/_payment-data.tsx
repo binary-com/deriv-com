@@ -616,7 +616,7 @@ const payment_data = [
                 method: <StyledIcon src={Neteller} alt="Neteller" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 10,000" />,
+                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
@@ -628,10 +628,7 @@ const payment_data = [
                 method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
                 currencies: 'USD GBP EUR',
                 min_max_deposit: (
-                    <Localize
-                        translate_text="5 - 1,000<0></0>5 - 10,000"
-                        components={[<br key={0} />]}
-                    />
+                    <Localize translate_text="5 - 1,000" components={[<br key={0} />]} />
                 ),
                 min_max_withdrawal: <Localize translate_text="5 - 1800" />,
                 deposit_time: <Localize translate_text="Instant" />,

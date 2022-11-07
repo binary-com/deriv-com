@@ -20,7 +20,7 @@ export type LocationsType = {
     map: string
     map_img?: string
     map_text: string
-    address: string[]
+    address?: string[]
     google_map_link?: string
     has_iframe?: boolean
     // has_map check is for the new offices with ready office addresses

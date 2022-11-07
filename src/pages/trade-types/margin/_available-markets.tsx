@@ -10,7 +10,7 @@ import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
-import { DerivStore, DerivStoreType } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -38,7 +38,7 @@ const StyledText = styled(Text)`
 `
 
 const AvailableMarkets = () => {
-    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
+    const { is_eu } = useCountryRule()
     return (
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -52,12 +52,12 @@ const AvailableMarkets = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={Forex} alt="" width="64" height="64" />
+                                    <img src={Forex} alt="Forex" width="64" height="64" />
 
                                     <StyledText weight="bold">{localize('Forex')}</StyledText>
                                 </MobileCardHeader>
                                 <Text>
-                                    {is_eu_country ? (
+                                    {is_eu ? (
                                         <Localize translate_text="Access over 30 assets and also trade with up to 1:30 leverage and zero commission on trades." />
                                     ) : (
                                         <Localize translate_text="Access over 50 assets and also trade with up to 1:1000 leverage and zero commission on trades." />
@@ -74,7 +74,12 @@ const AvailableMarkets = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={SyntheticIndices} alt="" width="64" height="64" />
+                                    <img
+                                        src={SyntheticIndices}
+                                        alt="Synthetic indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <StyledText weight="bold">
                                         {localize('Synthetic indices')}
@@ -96,7 +101,12 @@ const AvailableMarkets = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={Commodities} alt="" width="64" height="64" />
+                                    <img
+                                        src={Commodities}
+                                        alt="Commodities"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <StyledText weight="bold">{localize('Commodities')}</StyledText>
                                 </MobileCardHeader>
@@ -116,7 +126,12 @@ const AvailableMarkets = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={StockIndices} alt="" width="64" height="64" />
+                                    <img
+                                        src={StockIndices}
+                                        alt="Stock indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <StyledText weight="bold">
                                         {localize('Stock indices')}

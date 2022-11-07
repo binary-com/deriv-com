@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { localize } from 'components/localization'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import { localize, Localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { QueryImage, Header } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
@@ -9,15 +11,15 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const Wrapper = styled.div`
-    position: relative;
-    background-color: var(--color-black);
-    width: 100%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
     padding-left: 120px;
+    background-color: var(--color-black);
 
     @media ${device.tabletL} {
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding-left: 0;
     }
 `
@@ -60,7 +62,6 @@ const LinkWrapper = styled.div`
         margin-bottom: 40px;
     }
     @media ${device.tabletL} {
-        max-width: 217px;
         max-height: 40px;
         margin-top: 12px;
     }
@@ -90,14 +91,13 @@ const DemoButton = styled(Button)`
     margin-right: 1.6rem;
     border: unset;
 
+    @media ${device.tabletL} {
+        margin-bottom: 40px;
+        width: 100%;
+    }
     @media ${device.mobileL} {
         white-space: nowrap;
         margin-bottom: 1.6rem;
-        margin-right: unset;
-        width: 100%;
-    }
-    @media ${device.tabletL} {
-        margin-bottom: 40px;
     }
 `
 const ImgWrapper = styled.div`
@@ -136,9 +136,6 @@ const InformationWrapper = styled(Flex)`
         width: 100%;
         margin-top: 22px;
     }
-    @media ${device.mobileL} {
-        max-width: 328px;
-    }
 `
 
 const DLogo = styled.img`
@@ -158,12 +155,10 @@ const DHero = ({
 }) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <Wrapper>
-            <ImgWrapper>
-                <QueryImage data={background} alt={background_alt} />
-            </ImgWrapper>
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" weight="normal">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
@@ -175,11 +170,16 @@ const DHero = ({
                     </StyledHeaderTitle>
                 </HeroContent>
                 <LinkWrapper>
-                    {join_us_for_free && (
-                        <DemoButton onClick={handleSignup} id="dm-hero-signup-1" secondary>
-                            {localize('Create free demo account')}
-                        </DemoButton>
-                    )}
+                    {join_us_for_free &&
+                        (is_logged_in ? (
+                            <DemoButton onClick={handleGetTrading} secondary type="mt5">
+                                <Localize translate_text="Go to Deriv MT5 dashboard" />
+                            </DemoButton>
+                        ) : (
+                            <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
+                                <Localize translate_text="Create free demo account" />
+                            </DemoButton>
+                        ))}
                     {go_to_live_demo && (
                         <GoToLiveDemo
                             tertiary
@@ -193,6 +193,9 @@ const DHero = ({
                     )}
                 </LinkWrapper>
             </InformationWrapper>
+            <ImgWrapper>
+                <QueryImage data={background} alt={background_alt} />
+            </ImgWrapper>
         </Wrapper>
     )
 }

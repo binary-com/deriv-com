@@ -81,7 +81,7 @@ const DifferenceDMT5DTraderDerivX = ({ text }: ArticleProps) => (
         </Text>
         <StyledText>
             {localize(
-                'Deriv MT5 (DMT5) and Deriv X are both multi-asset trading platforms where you can trade spot forex and CFDs with leverage on multiple asset classes. The major difference between them is platform layout — MT5 has a simple all-in-one view, while on Deriv X you can customise the layout according to your preference.',
+                'Deriv MT5 and Deriv X are both multi-asset trading platforms where you can trade spot forex and CFDs with leverage on multiple asset classes. The major difference between them is platform layout — MT5 has a simple all-in-one view, while on Deriv X you can customise the layout according to your preference.',
             )}
         </StyledText>
     </ArticleWrapper>
@@ -382,7 +382,7 @@ const DerivXArticle = () => {
                 />
                 <DifferenceDMT5DTraderDerivX
                     text={localize(
-                        'What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?',
+                        'What are the major differences between DTrader, Deriv MT5 and Deriv X?',
                     )}
                     label="differences-of-dtrader-dmt5-deriv-x"
                     is_mounted={is_mounted}

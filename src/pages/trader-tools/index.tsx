@@ -10,7 +10,7 @@ const tools = [
     {
         title: <Localize translate_text="Margin calculator" />,
         subtitle: (
-            <Localize translate_text="Estimate the margin you need to hold your positions. The result depends on leverage, volume lot, and your DMT5 account balance." />
+            <Localize translate_text="Estimate the margin you need to hold your positions. The result depends on leverage, volume lot, and your Deriv MT5 account balance." />
         ),
         link: {
             text: <Localize translate_text="Try margin calculator" />,

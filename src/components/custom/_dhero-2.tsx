@@ -240,9 +240,9 @@ type HeroItemsType = {
     url: string
     image: string
     alt: string
-}[]
+}
 
-const HeroItems: HeroItemsType = [
+const HeroItems: HeroItemsType[] = [
     { url: derivx_ios_url, image: 'app_store', alt: 'app store logo' },
     { url: derivx_android_url, image: 'google_play', alt: 'google play logo' },
     { url: derivx_huawei_url, image: 'huawei_app', alt: 'huawei app gallery' },

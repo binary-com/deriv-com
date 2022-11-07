@@ -315,9 +315,9 @@ type SocialButtonContent = {
     provider: string
     id: string
     img: string
-}[]
+}
 
-const social_button_content: SocialButtonContent = [
+const social_button_content: SocialButtonContent[] = [
     {
         provider: 'google',
         id: 'gtm-signup-google',

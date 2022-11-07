@@ -1,6 +1,7 @@
 import React, { ReactNode, useContext } from 'react'
 import styled from 'styled-components'
-import { AnswerType } from '../data/_data-types'
+import { TAnswer } from '../data/_data-types'
+import ImageCard from './_image-card'
 import TranslationComponents from './_translation-components'
 import List from './_list'
 import device from 'themes/device'
@@ -9,25 +10,21 @@ import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
 import { DerivStore } from 'store'
 
-type TWrapper = {
-    margin_left?: string
-}
-
-type AnswerCardType = TWrapper & {
-    question: TString
+type AnswerCardType = {
     label: string
-    answer?: AnswerType
+    question: TString
+    answer?: TAnswer
     renderProp?: () => ReactNode
 }
 
-export const Wrapper = styled.div<TWrapper>`
+export const Wrapper = styled.div`
     max-width: 71.2rem;
     margin-left: 12.6rem;
     margin-top: 1.6rem;
     height: 100%;
 
     @media ${device.laptopL} {
-        margin-left: ${({ margin_left }) => margin_left ?? '2rem'};
+        margin-left: 2rem;
     }
 
     @media ${device.tabletL} {
@@ -48,11 +45,12 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                 answer.map(
                     ({
                         translation_text,
+                        eu_translation_text,
                         translation_components,
                         has_margin_top,
-                        list,
                         margin_top,
-                        eu_translation_text,
+                        list,
+                        img,
                     }) => (
                         <>
                             <Header
@@ -61,19 +59,21 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                                 weight="normal"
                                 mt={has_margin_top ? '1.7rem' : margin_top}
                             >
-                                <Localize
-                                    translate_text={
-                                        is_eu_country && eu_translation_text
-                                            ? eu_translation_text
-                                            : translation_text
-                                    }
-                                    components={
-                                        translation_components &&
-                                        TranslationComponents(translation_components)
-                                    }
-                                />
+                                {translation_text && (
+                                    <Localize
+                                        translate_text={
+                                            is_eu_country && eu_translation_text
+                                                ? eu_translation_text
+                                                : translation_text
+                                        }
+                                        components={
+                                            translation_components &&
+                                            TranslationComponents(translation_components)
+                                        }
+                                    />
+                                )}
                             </Header>
-
+                            {img && <ImageCard {...img} />}
                             {list && <List {...list} />}
                         </>
                     ),

@@ -2,6 +2,11 @@ import { ReactNode } from 'react'
 import { TString } from 'types/generics'
 
 export type TListStyle = 'disc' | 'decimal' | 'circle' | 'none'
+export type TImage = {
+    src: string
+    alt: string
+    width: string
+}
 
 export type TTranslationComponents = {
     key: number
@@ -12,19 +17,15 @@ export type TTranslationComponents = {
 type TLocalize = {
     translation_text?: TString
     translation_components?: TTranslationComponents
-    img?: {
-        src: string
-        alt: string
-        width: string
-    }
+    img?: TImage
 }
 
 export type TList = {
     list_style: TListStyle
-    items: Array<TLocalize & { sub_items?: TList }>
+    items: Array<TLocalize & { sub_items?: Omit<TList, 'padding_left'> }>
     margin_top: string
     first_child_margin_top?: string
-    // padding_left?: string
+    padding_left?: string
 }
 
 type TAnswerProps = {

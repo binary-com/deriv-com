@@ -1,12 +1,11 @@
+import React from 'react'
 import styled from 'styled-components'
+import { TImage } from '../data/_data-types'
 import device from 'themes/device'
 
-type ImageType = {
-    width: string
-}
-
-export const ImageWrapper = styled.div`
+const Wrapper = styled.div`
     padding: 2.4rem 20.2rem;
+    padding-bottom: 0.7rem;
     max-width: 60rem;
 
     @media ${device.laptopL} {
@@ -18,10 +17,18 @@ export const ImageWrapper = styled.div`
     }
 `
 
-export const Image = styled.img<ImageType>`
+const Image = styled.img<{ width: string }>`
     width: ${({ width }) => width};
 
     @media ${device.mobileL} {
         width: 110%;
     }
 `
+
+const ImageCard = ({ src, alt, width }: TImage) => (
+    <Wrapper>
+        <Image src={src} alt={alt} width={width} loading="lazy" />
+    </Wrapper>
+)
+
+export default ImageCard

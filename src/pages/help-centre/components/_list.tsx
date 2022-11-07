@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ListStyleType, ListType } from '../data/_data-types'
+import { TListStyle, TList } from '../data/_data-types'
+import ImageCard from './_image-card'
 import TranslationComponents from './_translation-components'
 import { Localize } from 'components/localization'
 
 type UlType = {
-    list_style: ListStyleType
+    list_style: TListStyle
     padding_left: string
 }
 
@@ -30,16 +31,10 @@ const Li = styled.li<LiType>`
     }
 `
 
-const List = ({
-    list_style,
-    padding_left,
-    margin_top,
-    first_child_margin_top,
-    items,
-}: ListType) => {
+const List = ({ list_style, padding_left, margin_top, first_child_margin_top, items }: TList) => {
     return (
-        <Ul list_style={list_style} padding_left={padding_left}>
-            {items.map(({ translation_text, translation_components, sub_items }) => (
+        <Ul list_style={list_style} padding_left={padding_left || '5rem'}>
+            {items.map(({ translation_text, translation_components, sub_items, img }) => (
                 <>
                     <Li
                         key={translation_text}
@@ -53,9 +48,10 @@ const List = ({
                                 TranslationComponents(translation_components)
                             }
                         />
+                        {img && <ImageCard {...img} />}
                     </Li>
                     {sub_items && (
-                        <Ul list_style={sub_items.list_style} padding_left={sub_items.padding_left}>
+                        <Ul list_style={sub_items.list_style} padding_left="5rem">
                             {sub_items.items.map(({ translation_text, translation_components }) => (
                                 <Li key={translation_text} margin_top={sub_items.margin_top}>
                                     <Localize

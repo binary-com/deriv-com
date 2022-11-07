@@ -15,6 +15,12 @@ import Facebook from 'images/svg/custom/facebook-40.svg'
 import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
 
+type SocialButtonContent = {
+    provider: string
+    id: string
+    img: string
+}
+
 type SignupPublicProps = {
     autofocus?: boolean
     clearEmail?: () => void
@@ -310,12 +316,6 @@ const MobilePlatform = styled.div`
         }
     }
 `
-
-type SocialButtonContent = {
-    provider: string
-    id: string
-    img: string
-}
 
 const social_button_content: SocialButtonContent[] = [
     {

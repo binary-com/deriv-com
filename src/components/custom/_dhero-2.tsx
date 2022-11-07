@@ -14,6 +14,12 @@ import {
     derivx_app_url,
 } from 'common/constants'
 
+type HeroItemsType = {
+    url: string
+    image: string
+    alt: string
+}
+
 type DHeroProps = {
     background_alt?: string
     background_image_name?: string
@@ -236,11 +242,64 @@ const ButtonDp2p = styled(Button)`
     flex-grow: 0;
 `
 
-type HeroItemsType = {
-    url: string
-    image: string
-    alt: string
-}
+const DLogo = styled.img`
+    width: 32px !important;
+    height: 32px !important;
+    margin-right: 1.6rem;
+    margin-bottom: 6px;
+    @media ${device.tabletS} {
+        margin-right: 1rem;
+    }
+`
+const HeroBackground = css`
+    @media ${device.laptopM} {
+        width: 48%;
+        max-width: 492px;
+        height: initial;
+    }
+    @media ${device.laptop} {
+        width: 50%;
+    }
+    @media ${device.tabletL} {
+        width: 45%;
+        max-width: 350px;
+    }
+    @media ${device.tablet} {
+        width: 70%;
+    }
+    @media ${device.tabletS} {
+        width: 80%;
+        max-width: 337px;
+    }
+    @media ${device.mobileL} {
+        max-width: 250px;
+        min-height: 244px;
+    }
+    @media ${device.mobileM} {
+        max-width: 205px;
+        min-height: 0;
+    }
+`
+const BackgroundSVG = styled.img`
+    ${HeroBackground}
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @media ${device.tablet} {
+        top: 170px;
+    }
+`
+const BackgroundSVG2 = styled.img`
+    ${HeroBackground}
+    position: absolute;
+    top: 0;
+    right: 214px;
+
+    @media ${device.tabletL} {
+        right: 120px;
+    }
+`
 
 const HeroItems: HeroItemsType[] = [
     { url: derivx_ios_url, image: 'app_store', alt: 'app store logo' },
@@ -266,64 +325,6 @@ const DHero = ({
 }: DHeroProps) => {
     const data = useStaticQuery(query)
 
-    const DLogo = styled.img`
-        width: 32px !important;
-        height: 32px !important;
-        margin-right: 1.6rem;
-        margin-bottom: 6px;
-        @media ${device.tabletS} {
-            margin-right: 1rem;
-        }
-    `
-    const HeroBackground = css`
-        @media ${device.laptopM} {
-            width: 48%;
-            max-width: 492px;
-            height: initial;
-        }
-        @media ${device.laptop} {
-            width: 50%;
-        }
-        @media ${device.tabletL} {
-            width: 45%;
-            max-width: 350px;
-        }
-        @media ${device.tablet} {
-            width: 70%;
-        }
-        @media ${device.tabletS} {
-            width: 80%;
-            max-width: 337px;
-        }
-        @media ${device.mobileL} {
-            max-width: 250px;
-            min-height: 244px;
-        }
-        @media ${device.mobileM} {
-            max-width: 205px;
-            min-height: 0;
-        }
-    `
-    const BackgroundSVG = styled.img`
-        ${HeroBackground}
-        position: absolute;
-        bottom: 0;
-        right: 0;
-
-        @media ${device.tablet} {
-            top: 170px;
-        }
-    `
-    const BackgroundSVG2 = styled.img`
-        ${HeroBackground}
-        position: absolute;
-        top: 0;
-        right: 214px;
-
-        @media ${device.tabletL} {
-            right: 120px;
-        }
-    `
     const handleExternalLink = () => {
         let link = ''
 

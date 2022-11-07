@@ -69,7 +69,7 @@ export const Affiliates = () => {
                         <Text m="0.8rem 0">
                             <Localize translate_text="Questions about becoming our affiliates or other business collaboration opportunities? " />
                         </Text>
-                        <LiveChatLinkText text="Contact us via live chat" />
+        <LiveChatLinkText text="_t_Contact us via live chat_t_" />
                     </TextWrapper>
                 </Item>
             </CardContainer>

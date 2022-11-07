@@ -4,7 +4,7 @@ import { useLivechat } from 'components/hooks/use-livechat'
 import { LinkText } from 'components/elements'
 
 type LiveChatLinkTextProps = {
-    text?: string
+    text?: TString
     weight?: string
 }
 

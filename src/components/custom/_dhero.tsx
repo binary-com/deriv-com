@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { localize } from 'components/localization'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import { Localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
@@ -17,6 +19,7 @@ type DHeroProps = {
     go_to_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean | string
+    hide_signup_login?: boolean
     join_us_for_free?: boolean
     Logo?: string
     title?: string | JSX.Element
@@ -125,24 +128,6 @@ const LinkWrapper = styled.div`
         flex-wrap: wrap;
     }
 `
-
-const GoToLiveDemo = styled(LinkButton)`
-    color: var(--color-white);
-    border-color: var(--color-black-5);
-    padding: 12px 16px;
-    width: auto;
-
-    @media ${device.mobileL} {
-        max-width: 100%;
-        white-space: nowrap;
-        margin-left: 0;
-        width: 100%;
-    }
-
-    @media (max-width: 360px) {
-        white-space: nowrap;
-    }
-`
 const DemoButton = styled(Button)`
     padding: 14px 16px;
     width: auto;
@@ -151,10 +136,10 @@ const DemoButton = styled(Button)`
     border: unset;
 
     @media ${device.mobileL} {
+        width: 100%;
         white-space: nowrap;
         margin-bottom: 1.6rem;
         margin-right: unset;
-        width: 100%;
     }
 `
 
@@ -255,6 +240,7 @@ const DHero = ({
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
     const { is_eu } = useCountryRule()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <Wrapper>
@@ -271,22 +257,16 @@ const DHero = ({
                     </Header>
                 </HeroContent>
                 <LinkWrapper>
-                    {join_us_for_free && (
-                        <DemoButton onClick={handleSignup} id="dm-hero-signup-1" secondary>
-                            {localize('Create free demo account')}
-                        </DemoButton>
-                    )}
-                    {go_to_live_demo && (
-                        <GoToLiveDemo
-                            tertiary
-                            external
-                            type={getLinkType()}
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                        >
-                            {localize('Go to live demo')}
-                        </GoToLiveDemo>
-                    )}
+                    {join_us_for_free &&
+                        (is_logged_in ? (
+                            <DemoButton width="128px" onClick={handleGetTrading} secondary>
+                                <Localize translate_text="Get Trading" />
+                            </DemoButton>
+                        ) : (
+                            <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
+                                <Localize translate_text="Create free demo account" />
+                            </DemoButton>
+                        ))}
                 </LinkWrapper>
             </InformationWrapper>
 

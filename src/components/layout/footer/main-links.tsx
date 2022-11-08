@@ -255,6 +255,7 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                                 to={deriv_status_page_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                external
                             >
                                 {<Localize translate_text="Status page" />}
                             </Link>

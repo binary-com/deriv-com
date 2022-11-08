@@ -70,20 +70,20 @@ const RightSection = ({
                     {is_logged_in ? (
                         <StyledButton
                             disabled={is_loading}
-                            id="dm-nav-login-button"
-                            onClick={handleLogin}
-                            primary
-                        >
-                            {localize('Log in')}
-                        </StyledButton>
-                    ) : (
-                        <StyledButton
-                            disabled={is_loading}
                             onClick={handleGetTrading}
                             id="dm-hero-signup"
                             primary
                         >
                             {localize('Get Trading')}
+                        </StyledButton>
+                    ) : (
+                        <StyledButton
+                            disabled={is_loading}
+                            id="dm-nav-login-button"
+                            onClick={handleLogin}
+                            primary
+                        >
+                            {localize('Log in')}
                         </StyledButton>
                     )}
 

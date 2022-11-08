@@ -202,7 +202,7 @@ export const syntheticItemLists = [
     {
         name: 'Volatility 25 Index',
         display_name: 'Volatility 25 Index',
-        icon: <img src={INDEX25} alt="" />,
+        icon: <img src={INDEX25} alt="Volatility 25" />,
         market: 'synthetic_indices',
         symbol: 'R_25',
     },

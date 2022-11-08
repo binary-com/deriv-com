@@ -13,8 +13,8 @@ import {
     getThaiExcludedLocale,
     replaceLocale,
 } from 'common/utility'
-import { DerivStore } from 'store'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type InternalLinkProps = {
     aria_label?: string
@@ -231,12 +231,12 @@ const ExternalLink = ({
     type,
     ...props
 }: ExternalLinkProps) => {
-    const { is_eu_country } = useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
     const url = replaceLocale(getURLFormat(type, locale, to, affiliate_lang))
     const show_modal =
-        is_eu_country &&
+        is_eu &&
         !is_mail_link &&
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&

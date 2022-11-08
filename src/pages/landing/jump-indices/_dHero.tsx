@@ -149,7 +149,7 @@ const DHero = () => {
                     </StyledHeader>
                     <StyledHeaderSmall type="sub-section-title" color="white" weight="normal">
                         {localize(
-                            'Brand new synthetic indices are now available on DTrader and Deriv MT5 (DMT5)',
+                            'Brand new synthetic indices are now available on DTrader and Deriv MT5',
                         )}
                     </StyledHeaderSmall>
                     <BtnDiv>

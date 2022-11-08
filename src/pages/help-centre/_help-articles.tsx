@@ -523,6 +523,7 @@ export const articles: ArcticlesType[] = [
             {
                 title: <Localize translate_text="What is Deriv MetaTrader 5 (Deriv MT5)?" />,
                 category: 'Deriv MT5',
+
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'what-is-dmt5',
             },

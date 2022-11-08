@@ -170,7 +170,21 @@ const BackgroundSVG = styled.img`
         height: 250px;
     }
 `
-
+const GoToLiveDemo = styled(LinkButton)`
+    color: var(--color-white);
+    border-color: var(--color-black-5);
+    padding: 14px 16px;
+    width: auto;
+    @media ${device.mobileL} {
+        max-width: 100%;
+        white-space: nowrap;
+        margin-left: 0;
+        width: 100%;
+    }
+    @media (max-width: 360px) {
+        white-space: nowrap;
+    }
+`
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
@@ -267,6 +281,17 @@ const DHero = ({
                                 <Localize translate_text="Create free demo account" />
                             </DemoButton>
                         ))}
+                    {go_to_live_demo && (
+                        <GoToLiveDemo
+                            tertiary
+                            external
+                            type={getLinkType()}
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                        >
+                            <Localize translate_text="Go to live demo" />
+                        </GoToLiveDemo>
+                    )}
                 </LinkWrapper>
             </InformationWrapper>
 

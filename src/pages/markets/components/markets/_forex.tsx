@@ -35,7 +35,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     <StyledBox
                         key={index}
                         text={content.text}
-                        icon={<img src={content.src} alt="" />}
+                        icon={<img src={content.src} alt={content.alt} />}
                     />
                 ))}
             </WhyTrade>

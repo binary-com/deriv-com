@@ -244,24 +244,6 @@ const TradingLimits = () => {
                                 </Text>
                             )}
                         </div>
-                        <div>
-                            {/* <Show.Eu>
-                            </NonEU>
-                            {/* <EU>
-                                <Text mt="1.4rem">
-                                    <Localize
-                                        translate_text="You may <0>contact us</0> to set or adjust your self-exclusion or trading limits."
-                                        components={[
-                                            <LocalizedLinkText
-                                                to="/contact_us/"
-                                                color="red"
-                                                key={0}
-                                            />,
-                                        ]}
-                                    />
-                                </Text>
-                            </EU> */}
-                        </div>
                     </StyledContainer>
                 </ContentWrapperRight>
             </Flex>

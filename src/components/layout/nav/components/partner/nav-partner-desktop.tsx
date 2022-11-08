@@ -16,6 +16,7 @@ import { affiliate_signin_url, affiliate_signup_url } from 'common/constants'
 import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean
@@ -130,7 +131,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const { is_row } = useCountryRule()
     const button_ref = useRef<HTMLButtonElement | null>(null)
     const [show_button, showButton, hideButton] = useMoveButton()
-    const [mounted, setMounted] = useState(false)
+    const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
 
     const buttonHandleScroll = () => {
@@ -139,7 +140,6 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     }
 
     useEffect(() => {
-        setMounted(true)
         if (!hide_login_signup) {
             document.addEventListener('scroll', buttonHandleScroll, { passive: true })
             return () => document.removeEventListener('scroll', buttonHandleScroll)
@@ -185,7 +185,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                     <StyledNavRight
                         move={show_button}
                         button_ref={button_ref}
-                        mounted={mounted}
+                        mounted={is_mounted}
                         has_scrolled={has_scrolled}
                     >
                         <LinkButton

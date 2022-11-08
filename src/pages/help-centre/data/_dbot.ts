@@ -49,6 +49,7 @@ const dbot: TQuestionsData = {
                     list: {
                         list_style: 'none',
                         margin_top: '1.7rem',
+                        padding_left: '0',
                         items: [
                             {
                                 translation_text:
@@ -94,6 +95,7 @@ const dbot: TQuestionsData = {
                     list: {
                         list_style: 'decimal',
                         margin_top: '1.7rem',
+                        padding_left: '2rem',
                         items: [
                             {
                                 translation_text:
@@ -143,7 +145,12 @@ const dbot: TQuestionsData = {
             category: 'DBot',
             sub_category: '_t_Strategy_t_',
             label: 'quick-strategy',
-            renderProp: QuickStrategy,
+            answer: [
+                {
+                    translation_text:
+                        "_t_A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind._t_",
+                },
+            ],
         },
         {
             question: '_t_What is the Martingale strategy?_t_',

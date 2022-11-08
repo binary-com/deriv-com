@@ -78,7 +78,7 @@ const trading: TQuestionsData = {
             ],
         },
         {
-            question: '_t_What is Derived?_t_',
+            question: '_t_What is derived?_t_',
             category: 'Trading',
             sub_category: '_t_Markets_t_',
             label: 'what-is-derived',

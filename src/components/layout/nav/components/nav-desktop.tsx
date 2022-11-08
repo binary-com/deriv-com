@@ -58,18 +58,14 @@ const Tab = styled.span<TabProps>`
     }
 `
 
-let links = [
+const links = [
     { active: 'trade', title: <Localize translate_text="Trade" /> },
     { active: 'markets', title: <Localize translate_text="Markets" /> },
     { active: 'about', title: <Localize translate_text="About us" /> },
     { active: 'resources', title: <Localize translate_text="Resources" /> },
-]
-
-if (!isShowBranding()) {
-    links = links.filter((item) => {
-        return item.active !== 'about'
-    })
-}
+].filter((item) => {
+    return !isShowBranding() ? item.active !== 'about' : item
+})
 
 const NavDesktop = ({
     base,

@@ -136,9 +136,9 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
 
     useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
 
-    let accordian_array = [
+    const accordian_array = [
         {
-            id: 1,
+            id: 'trade_types_01',
             title: 'Trade',
             component: (
                 <>
@@ -195,7 +195,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
             ),
         },
         {
-            id: 2,
+            id: 'market_types_02',
             title: 'Markets',
             component: (
                 <>
@@ -267,7 +267,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
             ),
         },
         {
-            id: 3,
+            id: 'about_us_03',
             title: 'About us',
             component: (
                 <>
@@ -321,7 +321,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
             ),
         },
         {
-            id: 4,
+            id: 'resources_04',
             title: 'Resources',
             component: (
                 <>
@@ -395,7 +395,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
             ),
         },
         {
-            id: 5,
+            id: 'legal_05',
             title: 'Legal',
             component: (
                 <>
@@ -421,7 +421,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
             ),
         },
         {
-            id: 6,
+            id: 'partner_06',
             title: 'Partner',
             component: (
                 <>
@@ -461,13 +461,9 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                 </>
             ),
         },
-    ]
-
-    if (!isShowBranding()) {
-        accordian_array = accordian_array.filter((item) => {
-            return item.title !== 'About us'
-        })
-    }
+    ].filter((item) => {
+        return !isShowBranding() ? item.title !== 'About us' : item
+    })
 
     return (
         <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>

@@ -27,6 +27,12 @@ const SignupButton = styled(Button)`
     margin-left: 1.6rem;
     opacity: 0;
 `
+const Wrapper = styled.div`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+`
 
 const Language = ({ hide_component }: LanguageProps) =>
     !hide_component && <LanguageSwitcher has_short_name is_high_nav />
@@ -54,6 +60,16 @@ const RightSection = ({
         document.addEventListener('scroll', buttonHandleScroll, { passive: true })
         return () => document.removeEventListener('scroll', buttonHandleScroll)
     }, [])
+    if (is_logged_in) {
+        return (
+            <Wrapper>
+                <Language hide_component={hide_language_switcher} />
+                <StyledButton onClick={handleGetTrading} primary>
+                    {localize('Get Trading')}
+                </StyledButton>
+            </Wrapper>
+        )
+    }
 
     return (
         <NavRight
@@ -67,26 +83,14 @@ const RightSection = ({
 
             {!hide_signup_login && (
                 <>
-                    {is_logged_in ? (
-                        <StyledButton
-                            disabled={is_loading}
-                            onClick={handleGetTrading}
-                            id="dm-hero-signup"
-                            primary
-                        >
-                            {localize('Get Trading')}
-                        </StyledButton>
-                    ) : (
-                        <StyledButton
-                            disabled={is_loading}
-                            id="dm-nav-login-button"
-                            onClick={handleLogin}
-                            primary
-                        >
-                            {localize('Log in')}
-                        </StyledButton>
-                    )}
-
+                    <StyledButton
+                        disabled={is_loading}
+                        id="dm-nav-login-button"
+                        onClick={handleLogin}
+                        primary
+                    >
+                        {localize('Log in')}
+                    </StyledButton>
                     <SignupButton
                         disabled={is_loading}
                         onClick={handleSignup}

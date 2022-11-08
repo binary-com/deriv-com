@@ -9,6 +9,8 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 
 type DBannerProps = {
     background_pattern?: string
@@ -129,6 +131,7 @@ const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) =
     const handleSignup = useHandleSignup()
     const { is_eu, is_row } = useCountryRule()
     const is_rtl = useIsRtl()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <Wrapper>
@@ -152,10 +155,27 @@ const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) =
                 <StyledHeader as="h4" align="center" color="white" size="5.6rem" mb="3.2rem">
                     {title}
                 </StyledHeader>
+
                 <DemoButton>
-                    <Button onClick={handleSignup} id="dm-dbanner-signup" type="submit" secondary>
-                        {localize('Create free demo account')}
-                    </Button>
+                    {is_logged_in ? (
+                        <Button
+                            onClick={handleGetTrading}
+                            id="dm-dbanner-signup"
+                            type="submit"
+                            secondary
+                        >
+                            {localize('Get Trading')}
+                        </Button>
+                    ) : (
+                        <Button
+                            onClick={handleSignup}
+                            id="dm-dbanner-signup"
+                            type="submit"
+                            secondary
+                        >
+                            {localize('Create free demo account')}
+                        </Button>
+                    )}
                 </DemoButton>
             </TextWrapper>
         </Wrapper>

@@ -123,6 +123,7 @@ const DMT5 = () => {
                 title={<Localize translate_text="Get into the Deriv MT5 experience" />}
                 data={data}
                 image_alt="DMT5 trading platform"
+                is_mt5
             />
         </Layout>
     )

@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 
 type DBannerProps = {
     background_pattern?: string
@@ -14,6 +16,7 @@ type DBannerProps = {
     is_ppc?: boolean
     title?: string
     image_alt?: string
+    is_mt5?: boolean
 }
 
 const Wrapper = styled(Flex)`
@@ -141,9 +144,12 @@ const DBanner = ({
     is_ppc = false,
     title = '',
     image_alt = '',
+    is_mt5 = false,
 }: DBannerProps) => {
     const handleSignup = useHandleSignup(is_ppc)
     const is_rtl = useIsRtl()
+    const [is_logged_in] = useAuthCheck()
+    const platform_name = is_mt5 ? 'Deriv MT5' : 'Deriv X'
 
     return (
         <Flex position="relative">
@@ -155,14 +161,28 @@ const DBanner = ({
                     <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="52rem">
                         {title}
                     </StyledHeader>
-                    <StyledLinkButton
-                        onClick={handleSignup}
-                        id="dm-dbanner-signup-1"
-                        type="submit"
-                        secondary
-                    >
-                        {localize('Create free demo account')}
-                    </StyledLinkButton>
+                    {is_logged_in ? (
+                        <StyledLinkButton
+                            onClick={handleGetTrading}
+                            id="dm-dbanner-signup-1"
+                            type="submit"
+                            secondary
+                        >
+                            <Localize
+                                translate_text="Go to {{platform_name}} dashboard"
+                                values={{ platform_name }}
+                            />
+                        </StyledLinkButton>
+                    ) : (
+                        <StyledLinkButton
+                            onClick={handleSignup}
+                            id="dm-dbanner-signup-1"
+                            type="submit"
+                            secondary
+                        >
+                            {localize('Create free demo account')}
+                        </StyledLinkButton>
+                    )}
                 </TextWrapper>
                 <BackgroundPattern
                     is_rtl={is_rtl}

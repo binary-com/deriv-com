@@ -9,6 +9,7 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Localize } from 'components/localization'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
+import { isShowBranding } from 'common/utility'
 
 type NavDesktopProps = {
     base?: string
@@ -57,12 +58,18 @@ const Tab = styled.span<TabProps>`
     }
 `
 
-const links = [
+let links = [
     { active: 'trade', title: <Localize translate_text="Trade" /> },
     { active: 'markets', title: <Localize translate_text="Markets" /> },
     { active: 'about', title: <Localize translate_text="About us" /> },
     { active: 'resources', title: <Localize translate_text="Resources" /> },
 ]
+
+if (!isShowBranding()) {
+    links = links.filter((item) => {
+        return item.active !== 'about'
+    })
+}
 
 const NavDesktop = ({
     base,

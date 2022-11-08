@@ -1,7 +1,7 @@
 import React from 'react'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style'
 import { Localize } from 'components/localization'
-import { Flex, Desktop } from 'components/containers'
+import { Flex, Desktop, Branding } from 'components/containers'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
@@ -16,50 +16,52 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
         <LinksWrapper>
             <Desktop>
                 <Flex jc="space-between">
-                    <LinksCol>
-                        <LinkWrapper>
-                            <Title>{<Localize translate_text="ABOUT US" />}</Title>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/who-we-are/">
-                                {<Localize translate_text="Who we are" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/why-choose-us/">
-                                {<Localize translate_text="Why choose us" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/our-principles/">
-                                {<Localize translate_text="Principles" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/partners/">
-                                {<Localize translate_text="Partnership programmes" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/contact_us/">
-                                {<Localize translate_text="Contact us" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/careers/">{<Localize translate_text="Careers" />}</Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link
-                                to=""
-                                type="derivlife"
-                                external={true}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {<Localize translate_text="Deriv life" />}
-                            </Link>
-                        </LinkWrapper>
-                    </LinksCol>
+                    <Branding>
+                        <LinksCol>
+                            <LinkWrapper>
+                                <Title>{<Localize translate_text="ABOUT US" />}</Title>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/who-we-are/">
+                                    {<Localize translate_text="Who we are" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/why-choose-us/">
+                                    {<Localize translate_text="Why choose us" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/our-principles/">
+                                    {<Localize translate_text="Principles" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/partners/">
+                                    {<Localize translate_text="Partnership programmes" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/contact_us/">
+                                    {<Localize translate_text="Contact us" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/careers/">{<Localize translate_text="Careers" />}</Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link
+                                    to=""
+                                    type="derivlife"
+                                    external={true}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {<Localize translate_text="Deriv life" />}
+                                </Link>
+                            </LinkWrapper>
+                        </LinksCol>
+                    </Branding>
                     {!is_ppc && (
                         <LinksCol>
                             <LinkWrapper>

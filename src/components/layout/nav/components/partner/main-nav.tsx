@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { LocalizedLink, LanguageSwitcher, Localize } from 'components/localization'
-import { Container } from 'components/containers'
+import { Container, Branding } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 
@@ -56,23 +56,25 @@ const MainNav = ({ is_security }: MainNavProps) => {
 
     return (
         <Wrapper>
-            <StyledContainer justify="space-between">
-                <Navigation justify="flex-start">
-                    {links.map(({ to, title }) => (
-                        <Link key={to} to={to}>
-                            <Header weight="normal" color="grey-19" type="paragraph-2">
-                                {title}
-                            </Header>
-                        </Link>
-                    ))}
-                </Navigation>
+            <Branding>
+                <StyledContainer justify="space-between">
+                    <Navigation justify="flex-start">
+                        {links.map(({ to, title }) => (
+                            <Link key={to} to={to}>
+                                <Header weight="normal" color="grey-19" type="paragraph-2">
+                                    {title}
+                                </Header>
+                            </Link>
+                        ))}
+                    </Navigation>
 
-                <Desktop is_security={is_security}>
-                    <LanguageWrapper is_security={is_security}>
-                        <LanguageSwitcher has_short_name is_security={is_security} />
-                    </LanguageWrapper>
-                </Desktop>
-            </StyledContainer>
+                    <Desktop is_security={is_security}>
+                        <LanguageWrapper is_security={is_security}>
+                            <LanguageSwitcher has_short_name is_security={is_security} />
+                        </LanguageWrapper>
+                    </Desktop>
+                </StyledContainer>
+            </Branding>
         </Wrapper>
     )
 }

@@ -8,6 +8,7 @@ import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type RightSectionProps = {
     is_logged_in: boolean
@@ -45,7 +46,7 @@ const RightSection = ({
     hide_signup_login,
 }: RightSectionProps) => {
     const button_ref = useRef(null)
-    const [mounted, setMounted] = useState(false)
+    const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
     const [show_button, showButton, hideButton] = useMoveButton()
     const { is_loading } = useCountryRule()
@@ -59,10 +60,9 @@ const RightSection = ({
     }, [])
 
     useEffect(() => {
-        setMounted(true)
         document.addEventListener('scroll', buttonHandleScroll, { passive: true })
         return () => document.removeEventListener('scroll', buttonHandleScroll)
-    }, [mounted])
+    }, [])
 
     if (is_logged_in) {
         return (
@@ -81,7 +81,7 @@ const RightSection = ({
             is_rtl={is_rtl}
             hide_signup_login={hide_signup_login}
             button_ref={button_ref}
-            mounted={mounted}
+            mounted={is_mounted}
             has_scrolled={has_scrolled}
         >
             <Language hide_component={hide_language_switcher} />

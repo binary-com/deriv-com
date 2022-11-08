@@ -78,11 +78,14 @@ const other_apps: ContentType[] = [
     {
         id: 0,
         icon: DMT5,
-        title: <Localize translate_text="DMT5" />,
-        content: (
-            <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one CFD trading app." />
+        title: <Localize translate_text="Deriv MT5" />,
+        content: <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading app." />,
+        url: (
+            <LearnMore to="/dmt5/">
+                <Localize translate_text="Learn more" />
+                <img src={Arrow} alt="arrow" />
+            </LearnMore>
         ),
-        url: '/dmt5/',
     },
     {
         id: 1,
@@ -91,7 +94,12 @@ const other_apps: ContentType[] = [
         content: (
             <Localize translate_text="Customise your trading experience and trade CFDs on the Deriv X app." />
         ),
-        url: '/derivx/',
+        url: (
+            <LearnMore to="/derivx/">
+                <Localize translate_text="Learn more" />
+                <img src={Arrow} alt="arrow" />
+            </LearnMore>
+        ),
     },
 ]
 
@@ -117,7 +125,7 @@ const OtherApps = () => {
                             return (
                                 <Card key={item.id}>
                                     <div>
-                                        <img src={item.icon} alt="" />
+                                        <img src={item.icon} alt="icon" />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
                                         {item.title}

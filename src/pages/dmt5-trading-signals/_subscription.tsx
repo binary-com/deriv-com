@@ -253,12 +253,12 @@ const Subscription = () => {
                     </StyledCardText>
                     <StyledCardText mt="16px">
                         {localize(
-                            '3. You can only subscribe to one signal provider with one DMT5 account at any given time. You can use your signal on up to 3 computers.',
+                            '3. You can only subscribe to one signal provider with one Deriv MT5 account at any given time. You can use your signal on up to 3 computers.',
                         )}
                     </StyledCardText>
                     <StyledCardText mt="16px">
                         {localize(
-                            "4. You won't be able to trade manually with the same DMT5 account once you've subscribed to a signal.",
+                            "4. You won't be able to trade manually with the same Deriv MT5 account once you've subscribed to a signal.",
                         )}
                     </StyledCardText>
                     <StyledCardText mt="16px">
@@ -285,7 +285,7 @@ const Subscription = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    {localize('Go to your DMT5 terminal')}
+                    {localize('Go to your Deriv MT5 terminal')}
                 </DMT5Button>
             </StyledContainer>
         </StyledSectionContainer>

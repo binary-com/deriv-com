@@ -26,6 +26,7 @@ import AmericanStocks from './_american-stocks'
 import AsianIndices from './_asian-indices'
 import EuropeanIndices from './_european-indices'
 import CryptocurrenciesMultipliers from './_cryptocurrencies-multipliers'
+import DerivedCFDs from './_derived-cfds'
 import CryptocurrenciesCFDs from './_cryptocurrencies-cfds'
 import CryptocurrenciesTradeType from './_cryptocurrencies-trade-type'
 import JumpIndices from './_jump_indices'
@@ -45,6 +46,7 @@ export {
     CryptocurrenciesCFDs,
     CryptocurrenciesTradeType,
     DailyResetIndices,
+    DerivedCFDs,
     Energy,
     EnergyOptions,
     Europe,

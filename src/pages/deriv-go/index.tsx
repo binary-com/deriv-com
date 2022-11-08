@@ -16,7 +16,7 @@ export type ContentType = {
     title: ReactElement | string
     subtitle?: ReactElement
     content?: ReactElement
-    url?: string
+    url?: ReactElement | ReactElement[]
     icon?: string
     image_name?: string
     image_alt?: string

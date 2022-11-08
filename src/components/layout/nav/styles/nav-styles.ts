@@ -4,7 +4,7 @@ import device from 'themes/device'
 import { getBaseRef } from 'common/utility'
 import { Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
-import { SharedLinkStyle } from 'components/localization/localized-link'
+import { SharedLinkStyle, SharedLinkStyleMarket } from 'components/localization/localized-link'
 
 type NavRightProps = {
     button_ref: HTMLButtonElement
@@ -59,11 +59,23 @@ export const DesktopWrapper = styled.div<DesktopWrapperProps>`
         display: none;
     }
 `
+export const MarketWrapper = styled.div<DesktopWrapperProps>`
+    display: block;
+    @media ${device.tabletL} {
+        justify-content: start;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
 
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+`
 export const MobileWrapper = styled.div<DesktopWrapperProps>`
     display: none;
     @media ${({ media }) => media || device.tabletL} {
         display: block;
+        background: var(--color-black);
     }
 `
 
@@ -167,6 +179,9 @@ export const NavLink = styled.li<NavLinkProps>`
     @media ${device.laptopM} {
         margin-right: 1rem;
     }
+    @media ${device.tabletL} {
+        margin-right: 4rem;
+    }
 
     ${({ margin }) => margin && 'margin: 0 4rem;'}
 
@@ -210,13 +225,16 @@ export const Line = styled.div`
 export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
-
+export const StyledLinkMarket = styled(LocalizedLink)`
+    ${SharedLinkStyleMarket}
+`
 export const PartnerNavigationBarWrapper = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: -1;
+
     @media ${device.tabletL} {
         height: auto;
     }

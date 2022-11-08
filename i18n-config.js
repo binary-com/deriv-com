@@ -90,6 +90,12 @@ module.exports = {
         display_name: 'العربية',
         short_name: 'العربية',
     },
+    ko: {
+        path: 'ko',
+        display_name: '한국어',
+        short_name: 'KO',
+        affiliate_lang: 16,
+    },
     ach: {
         path: 'ach',
         display_name: 'Crowdin',

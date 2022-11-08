@@ -229,13 +229,16 @@ export const Carousel = ({
                 <Embla style={embla_style}>
                     <ViewPort style={view_port} ref={emblaRef}>
                         <EmblaContainer style={vertical_container ? vertical_container : null}>
-                            {children.map((child, idx) => {
+                            {React.Children.map(children, (child, idx) => {
+                                if (!React.isValidElement(child)) {
+                                    return <></>
+                                }
                                 const new_style =
                                     last_slide_no_spacing && idx === children.length - 1
                                         ? { ...slide_style, marginRight: 0, paddingRight: 0 }
                                         : slide_style
                                 return (
-                                    <div key={idx} style={new_style}>
+                                    <div style={new_style}>
                                         <EmblaSlideInner width={slide_inner_width}>
                                             {child}
                                         </EmblaSlideInner>
@@ -270,14 +273,18 @@ export const Carousel = ({
                         >
                             {/* We need the `child` below as an argument for embla-carousel to
                         correctly render the navigation buttons */}
-                            {children?.map((child, idx) => (
-                                <NavigationButton
-                                    key={idx}
-                                    color={nav_color}
-                                    is_enabled={idx === selectedIndex}
-                                    onClick={() => scrollTo(idx)}
-                                />
-                            ))}
+                            {React.Children.map(children, (child, idx) => {
+                                if (!React.isValidElement(child)) {
+                                    return <></>
+                                }
+                                return (
+                                    <NavigationButton
+                                        color={nav_color}
+                                        is_enabled={idx === selectedIndex}
+                                        onClick={() => scrollTo(idx)}
+                                    />
+                                )
+                            })}
                         </NavigationContainer>
                     )}
                 </Embla>

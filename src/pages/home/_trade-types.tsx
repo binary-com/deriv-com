@@ -17,6 +17,7 @@ type TradeTypesProps = {
     desc: ReactElement
     link: string
     link_text: ReactElement
+    alt: string
 }
 
 type TradeItemsProps = {
@@ -68,6 +69,7 @@ const items_details_cr: TradeTypesProps[] = [
         ),
         link: '/trade-types/cfds/',
         link_text: <Localize translate_text="More on CFDs" />,
+        alt: 'cfd',
     },
     {
         image_url: 'trade_type_multipliers',
@@ -78,6 +80,7 @@ const items_details_cr: TradeTypesProps[] = [
         ),
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
+        alt: 'multipliers',
     },
     {
         image_url: 'trade_type_digitaloptions',
@@ -86,6 +89,7 @@ const items_details_cr: TradeTypesProps[] = [
         desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
         link: '/trade-types/options/',
         link_text: <Localize translate_text="More on options" />,
+        alt: 'options',
     },
 ]
 
@@ -99,6 +103,7 @@ const items_details_eu: TradeTypesProps[] = [
         ),
         link: '/trade-types/cfds/',
         link_text: <Localize translate_text="More on CFDs" />,
+        alt: 'cfd',
     },
     {
         image_url: 'trade_type_multipliers_eu',
@@ -109,6 +114,7 @@ const items_details_eu: TradeTypesProps[] = [
         ),
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
+        alt: 'multipliers',
     },
 ]
 
@@ -122,6 +128,7 @@ const items_details_uk: TradeTypesProps[] = [
         ),
         link: '/trade-types/cfds/',
         link_text: <Localize translate_text="More on CFDs" />,
+        alt: 'cfd',
     },
     {
         image_url: 'trade_type_multipliers_uk',
@@ -132,6 +139,7 @@ const items_details_uk: TradeTypesProps[] = [
         ),
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
+        alt: 'multipliers',
     },
 ]
 
@@ -277,7 +285,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
             </DescriptionContainer>
             <LearnMore to={items_details.link} $visibility={details_visible && !is_mobile}>
                 <Text mr="1rem">{items_details.link_text}</Text>
-                <ImageWithDireciton src={Arrow} alt="" />
+                <ImageWithDireciton src={Arrow} alt={items_details.alt} />
             </LearnMore>
         </ItemsWrapper>
     )

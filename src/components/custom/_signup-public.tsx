@@ -5,7 +5,7 @@ import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
 import { localize } from 'components/localization'
-import { Flex, Show, Box, Container } from 'components/containers'
+import { Flex, Box, Container, Desktop, Mobile } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
@@ -339,7 +339,7 @@ const SignupPublic = ({
     }
     return (
         <StyledSectionContainer>
-            <Show.Desktop>
+            <Desktop>
                 <Container>
                     <Wrapper>
                         <SignupFormWrapper>
@@ -466,8 +466,8 @@ const SignupPublic = ({
                         </BackgroundWrapper>
                     </Wrapper>
                 </Container>
-            </Show.Desktop>
-            <Show.Mobile>
+            </Desktop>
+            <Mobile>
                 <Container>
                     <MobileWrapper>
                         <MobileBackground>
@@ -599,7 +599,7 @@ const SignupPublic = ({
                         </MobileSignupFormWrapper>
                     </MobileWrapper>
                 </Container>
-            </Show.Mobile>
+            </Mobile>
         </StyledSectionContainer>
     )
 }

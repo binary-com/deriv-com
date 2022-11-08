@@ -21,7 +21,7 @@ type DHeroProps = {
     background_svg2?: string
     content?: string | JSX.Element
     d_height?: string
-    go_to_live_demo?: boolean
+    is_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean
     is_ppc?: boolean

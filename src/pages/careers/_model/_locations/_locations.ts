@@ -23,6 +23,7 @@ import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg'
 import CaymanFlagIcon from 'images/svg/careers/flag_cayman.svg'
 import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
+import BVIFlagIcon from 'images/svg/careers/flag_bvi.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
 import GermanyFlagIcon from 'images/svg/careers/flag_germany.svg'
@@ -296,13 +297,13 @@ export const cyprus: LocationsType = {
         'Girl having a call online',
         "Deriv's office location in Limassol,Cyprus",
     ],
-    map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
+    map: 'ChIJcwIu_VQz5xQR_cm_eAWo2XY',
     badge: 'cyprus_great_place_to_work_badge',
     badge_alt: 'Cyprus Great Place to Work 2022 Certification Badge',
     map_text:
         'We give our people the freedom to solve problems and work together to get things done without hierarchy. The workplace encourages open communication, transparency, and a free flow of ideas. If you take pride in your work and are interested in working with the best global talent,  join our team in Limassol.',
     address: address_cyprus,
-    google_map_link: 'https://goo.gl/maps/MP8aqZQ4xt8LJ9id9',
+    google_map_link: 'https://goo.gl/maps/j7fs9r73dfwQtHgj8',
     has_iframe: true,
 }
 
@@ -522,6 +523,31 @@ export const georgetown: LocationsType = {
     has_map: true,
 }
 
+export const roadtown: LocationsType = {
+    name: 'roadtown',
+    job_location: 'British-Virgin-Islands',
+    continent: 'caribbean',
+    display_continent: 'Caribbean',
+    link: '/careers/locations/roadtown/',
+    display_name: 'Road Town',
+    display_thumbnail_name: 'Road Town',
+    display_title_name: 'Road Town',
+    img_alt: 'Deriv’s British Virgin Islands office at Road Town',
+    map_office_name: '(BVI)',
+    country: 'British Virgin Islands',
+    flagIcon: BVIFlagIcon,
+    thumbnail: 'thumbnail_roadtown',
+    first_p:
+        'Experts in regulatory and legislative requirements will work together at Deriv (BVI) to provide compliance guidance in our British Virgin Islands licensed operations. Their expertise in corporate law, anti-money laundering, and other legislation will enable them to anticipate and mitigate regulatory risks. ',
+    first_img: 'living_in_roadtown',
+    first_img_alt: 'Road Town, British Virgin Islands',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'bvi_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['Deriv’s British Virgin Islands team'],
+    map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',
+    map_text:
+        'Being part of our British Virgin Islands team gives you the chance to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to make sure our BVI compliance strategies are effective. If you have a passion for law and look for worthy challenges in your career, join us at Deriv (BVI).',
+}
+
 export const jordan: LocationsType = {
     name: 'jordan',
     job_location: 'Amman',
@@ -637,6 +663,7 @@ export const all_offices: LocationsType[] = [
     asuncion,
     ciudad,
     georgetown,
+    roadtown,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
@@ -657,6 +684,7 @@ export const locations = {
     jordan: `${jordan.display_name}, ${jordan.country}`,
     singapore: `${singapore.display_name}, ${singapore.country}`,
     georgetown: `${georgetown.display_name}, ${georgetown.country}`,
+    roadtown: `${roadtown.display_name}, ${roadtown.country}`,
 }
 
 export const allContinents = {

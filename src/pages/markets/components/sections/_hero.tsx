@@ -93,7 +93,7 @@ export const Hero = () => {
                 >
                     {is_eu && (
                         <>
-                            <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies and commodities." />
+                            <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetics, stocks & indices, cryptocurrencies and commodities." />
                         </>
                     )}
                     {is_uk && (
@@ -103,7 +103,7 @@ export const Hero = () => {
                     )}
                     {is_row && (
                         <>
-                            <Localize translate_text=" Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies, basket indices, and commodities." />
+                            <Localize translate_text=" Learn about the markets that you can trade online with Deriv, including forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
                         </>
                     )}
                 </MarketSubHeader>

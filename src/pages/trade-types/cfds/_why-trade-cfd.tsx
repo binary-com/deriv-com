@@ -9,11 +9,11 @@ import GoLongOrShort from 'images/svg/trade-types/go-long-or-short.svg'
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import FavoriteMarket from 'images/svg/trade-types/favoritemarket.svg'
 import { Button } from 'components/form'
-import { DerivStore, DerivStoreType } from 'store'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const WhyTradeCFD = () => {
-    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
+    const { is_eu } = useCountryRule()
     const handleSignup = useHandleSignup()
 
     return (
@@ -26,12 +26,12 @@ const WhyTradeCFD = () => {
                     <WhyTradeItem>
                         <img src={HighLeverge} alt="high leverage" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                            {is_eu_country
+                            {is_eu
                                 ? localize('Tight spreads')
                                 : localize('High leverage, tight spreads')}
                         </Text>
                         <Text mb="4rem">
-                            {is_eu_country
+                            {is_eu
                                 ? localize(
                                       'Take advantage of tight spreads on Deriv’s CFD trading platforms.',
                                   )
@@ -46,7 +46,7 @@ const WhyTradeCFD = () => {
                             {localize('All your favourite markets')}
                         </Text>
                         <Text mb="4rem">
-                            {is_eu_country
+                            {is_eu
                                 ? localize(
                                       'Trade on all popular markets plus our proprietary synthetic indices that are available 24/7.',
                                   )

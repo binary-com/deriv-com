@@ -119,9 +119,9 @@ const StyledText = styled(Text)`
 `
 
 const items: ItemsType = [
-    { title: '47K+', subtitle: <Localize translate_text="members" /> },
-    { title: '$14M+', subtitle: <Localize translate_text="paid out" /> },
-    { title: '200+', subtitle: <Localize translate_text="countries" /> },
+    { title: '60K+', subtitle: <Localize translate_text="members" /> },
+    { title: '$47M+', subtitle: <Localize translate_text="paid out since inception" /> },
+    { title: '190+', subtitle: <Localize translate_text="countries" /> },
     { title: '1M+', subtitle: <Localize translate_text="clients" /> },
 ]
 

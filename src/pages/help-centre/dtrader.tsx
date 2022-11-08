@@ -6,7 +6,7 @@ import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledLink = styled(ExternalLink)`
     @media ${device.tabletL} {
@@ -46,13 +46,13 @@ const WhatIsDMT5 = ({ text }: ArticleProps) => (
 )
 
 const DTraderMarkets = ({ text }: ArticleProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     return (
         <ArticleWrapper>
             <StyledHeader as="h4">{text}</StyledHeader>
             <Text>
-                {is_eu_country
+                {is_eu
                     ? localize(
                           'You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and derived on DTrader. Some markets may not be available in certain countries.',
                       )

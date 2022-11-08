@@ -123,7 +123,7 @@ const DBanner = ({
 }: DBannerProps) => {
     const handleSignup = useHandleSignup(is_ppc)
     const [is_logged_in] = useAuthCheck()
-    const platform_name = is_mt5 ? 'MT5' : 'X'
+    const platform_name = is_mt5 ? 'Deriv MT5' : 'Deriv X'
 
     const BackgroundPattern = styled.img`
         position: absolute;
@@ -166,7 +166,7 @@ const DBanner = ({
                             secondary
                         >
                             <Localize
-                                translate_text=" Go to Deriv {{platform_name}} dashboard"
+                                translate_text=" Go to {{platform_name}} dashboard"
                                 values={{ platform_name }}
                             />
                         </StyledLinkButton>

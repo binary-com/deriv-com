@@ -36,8 +36,8 @@ const btoaPolyfill = (bin: string) => {
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/btoa
-const btoa = is_btoa
-    ? (bin: string) => btoa(bin)
+const _btoa = is_btoa
+    ? (bin: string) => _btoa(bin)
     : is_buffer
     ? (bin: string) => Buffer.from(bin, 'binary').toString('base64')
     : btoaPolyfill
@@ -52,7 +52,7 @@ const fromUint8Array = is_buffer
           for (let i = 0, l = u8a.length; i < l; i += maxargs) {
               strs?.push(_fromCharCode.apply(null, u8a.subarray(i, i + maxargs)))
           }
-          return btoa(strs?.join(''))
+          return _btoa(strs?.join(''))
       }
 
 const encodeUTF16 = (c: string) => {
@@ -77,14 +77,14 @@ const encodeUTF16 = (c: string) => {
     }
 }
 const fromUTF8toUTF16 = (u: string) => {
-    u?.replace(/[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x7F]/g, encodeUTF16)
+    return u?.replace(/[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x7F]/g, encodeUTF16)
 }
 
 const encodeString = is_buffer
     ? (s: string) => Buffer?.from(s, 'utf8').toString('base64')
     : is_text_encoder
     ? (s: string) => fromUint8Array(is_text_encoder.encode(s))
-    : (s: string) => btoa(fromUTF8toUTF16(s))
+    : (s: string) => _btoa(fromUTF8toUTF16(s))
 
 const encodeUTF8 = (context: string) => {
     switch (context.length) {
@@ -157,21 +157,21 @@ const toU8A =
               new Uint8Array(Array.prototype.slice.call(it, 0).map(fn))
 
 // https://developer.mozilla.org/en-US/docs/Web/API/atob
-const atob = is_atob
-    ? (asc: string) => atob(cleanB64(asc))
+const _atob = is_atob
+    ? (asc: string) => _atob(cleanB64(asc))
     : is_buffer
     ? (asc: string) => Buffer.from(asc, 'base64').toString('binary')
     : atobPolyfill
 
 const toUint8Array = is_buffer
     ? (a: string) => toU8A(Buffer.from(a, 'base64'))
-    : (a: string) => toU8A(atob(a), (c) => c?.charCodeAt(0))
+    : (a: string) => toU8A(_atob(a), (c) => c?.charCodeAt(0))
 
 const toUTF8 = is_buffer
     ? (a: string) => Buffer.from(a, 'base64').toString('utf8')
     : is_text_decoder
     ? (a: string) => is_text_decoder.decode(toUint8Array(a))
-    : (a: string) => fromUTF16toUTF8(atob(a))
+    : (a: string) => fromUTF16toUTF8(_atob(a))
 const _unURI = (a: string) => cleanB64(a?.replace(/[-_]/g, (m0) => (m0 == '-' ? '+' : '/')))
 
 // takes Base 64 string and returns encrypted string

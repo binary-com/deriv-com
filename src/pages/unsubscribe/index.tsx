@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { Link, navigate } from 'gatsby'
 import { Button } from 'components/form'
@@ -6,9 +6,9 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import CheckIcon from 'images/common/check_icon.png'
 import device from 'themes/device'
-import { useDerivApi } from 'components/hooks/use-deriv-api'
 import { queryParams } from 'common/utility'
 import { decode } from 'common/url-base64-functions'
+import { useDerivWS } from 'store'
 
 const UnsubscrubeWrapper = styled.div`
     display: flex;
@@ -18,7 +18,6 @@ const UnsubscrubeWrapper = styled.div`
     width: 100%;
     background: var(--color-grey-8);
 `
-
 const UnsubscribeForm = styled.div`
     display: flex;
     flex-direction: column;
@@ -124,14 +123,14 @@ const UnsubscribePage = () => {
     const [loading, setLoading] = useState(false)
 
     const query = queryParams.get('hash') || ''
+
     const unsubscribe_hash = decode(query).split('+')
     const binary_user_id = unsubscribe_hash[0]
     const checksum = unsubscribe_hash[1]
 
-    const deriv_api = useDerivApi()
-    const { send } = deriv_api
+    const { send } = useDerivWS()
 
-    const UnsubscribeAPICall = () => {
+    const UnsubscribeAPICall = useCallback(() => {
         setLoading(true)
         send(
             {
@@ -149,7 +148,8 @@ const UnsubscribePage = () => {
                 }
             },
         )
-    }
+    }, [send, binary_user_id, checksum])
+
     return (
         <Layout>
             {loading && (
@@ -162,7 +162,7 @@ const UnsubscribePage = () => {
                     {complete_status ? (
                         <SuccessCard>
                             <img src={CheckIcon} alt="sucess" width={48} height={48} />
-                            Unsubscribe successfully
+                            {localize('Unsubscribe successfully')}
                         </SuccessCard>
                     ) : (
                         <UnsubscribeForm>

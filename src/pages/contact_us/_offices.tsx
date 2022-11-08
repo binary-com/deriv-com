@@ -436,7 +436,7 @@ export const Offices = () => {
                         </Flex>
                     </GridLayout>
                     <Flex fd="column" mt="30px" id="malaysia">
-                        <ContinentHeader>{localize('Asia    ')}</ContinentHeader>
+                        <ContinentHeader>{localize('Asia')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Malaysia} alt="Malaysia - Petronas Twin Towers" />

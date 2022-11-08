@@ -16,7 +16,7 @@ type DHeroProps = {
     background_image_name?: string
     background_svg?: string
     content?: string | JSX.Element
-    go_to_live_demo?: boolean
+    is_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean | string
     hide_signup_login?: boolean
@@ -247,7 +247,7 @@ const DHero = ({
     content,
     image_name,
     join_us_for_free,
-    go_to_live_demo,
+    is_live_demo,
     Logo,
 }: DHeroProps) => {
     const data = useStaticQuery(query)
@@ -281,7 +281,7 @@ const DHero = ({
                                 <Localize translate_text="Create free demo account" />
                             </DemoButton>
                         ))}
-                    {go_to_live_demo && (
+                    {is_live_demo && (
                         <GoToLiveDemo
                             tertiary
                             external

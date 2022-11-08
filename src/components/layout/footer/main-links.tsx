@@ -174,26 +174,28 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                             </>
                         )}
                     </LinksCol>
-                    <LinksCol>
-                        <LinkWrapper>
-                            <Title>{<Localize translate_text="LEGAL" />}</Title>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/regulatory/">
-                                {<Localize translate_text="Regulatory information" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/terms-and-conditions/#clients">
-                                {<Localize translate_text="Terms & conditions" />}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/responsible/">
-                                {<Localize translate_text="Secure & responsible trading" />}
-                            </Link>
-                        </LinkWrapper>
-                    </LinksCol>
+                    <Branding>
+                        <LinksCol>
+                            <LinkWrapper>
+                                <Title>{<Localize translate_text="LEGAL" />}</Title>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/regulatory/">
+                                    {<Localize translate_text="Regulatory information" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/terms-and-conditions/#clients">
+                                    {<Localize translate_text="Terms & conditions" />}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/responsible/">
+                                    {<Localize translate_text="Secure & responsible trading" />}
+                                </Link>
+                            </LinkWrapper>
+                        </LinksCol>
+                    </Branding>
                     <LinksCol>
                         <LinkWrapper>
                             <Title>{<Localize translate_text="PARTNER" />}</Title>

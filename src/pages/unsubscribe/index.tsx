@@ -10,7 +10,7 @@ import { queryParams } from 'common/utility'
 import { decode } from 'common/url-base64-functions'
 import { useDerivWS } from 'store'
 
-const UnsubscrubeWrapper = styled.div`
+const UnsubscribeWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -153,12 +153,12 @@ const UnsubscribePage = () => {
     return (
         <Layout>
             {loading && (
-                <UnsubscrubeWrapper>
+                <UnsubscribeWrapper>
                     <Spinner />
-                </UnsubscrubeWrapper>
+                </UnsubscribeWrapper>
             )}
             {!loading && (
-                <UnsubscrubeWrapper>
+                <UnsubscribeWrapper>
                     {complete_status ? (
                         <SuccessCard>
                             <img src={CheckIcon} alt="sucess" width={48} height={48} />
@@ -167,7 +167,7 @@ const UnsubscribePage = () => {
                     ) : (
                         <UnsubscribeForm>
                             <Title>
-                                {localize('Are you sure you want to step receiving Deriv emails?')}
+                                {localize('Are you sure you want to stop receiving Deriv emails?')}
                             </Title>
                             <ConfirmWrapper>
                                 <ConfirmButton onClick={UnsubscribeAPICall} type="submit" secondary>
@@ -181,7 +181,7 @@ const UnsubscribePage = () => {
                             </ConfirmWrapper>
                         </UnsubscribeForm>
                     )}
-                </UnsubscrubeWrapper>
+                </UnsubscribeWrapper>
             )}
         </Layout>
     )

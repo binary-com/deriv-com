@@ -174,11 +174,14 @@ const toUTF8 = is_buffer
     : (a: string) => fromUTF16toUTF8(atob(a))
 const _unURI = (a: string) => cleanB64(a?.replace(/[-_]/g, (m0) => (m0 == '-' ? '+' : '/')))
 
+// takes Base 64 string and returns encrypted string
 const encode = (src: string, urlsafe = false) =>
     urlsafe ? defendURI(encodeString(src)) : encodeString(src)
 
+// takes encrypted string and returns decoded Base 64 string
 const decode = (src: string) => toUTF8(_unURI(src))
 
+// checks that string is valid for decode
 const isValid = (src: any) => {
     if (typeof src !== 'string') return false
     const s = src?.replace(/\s+/g, '')?.replace(/={0,2}$/, '')

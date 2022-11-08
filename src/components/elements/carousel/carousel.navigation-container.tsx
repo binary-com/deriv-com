@@ -17,43 +17,25 @@ const NavigationWrapper = styled.div<TNavigationWrapperProps>`
     align-items: center;
     gap: 8px;
     ${({ placement, mode }) => {
-        if (mode === 'vertical') {
-            if (placement === 'start') {
-                return css<{ offset: TOffset }>`
-                    height: 100%;
-                    left: ${({ offset }) => getOffsetValue(offset)};
-                    top: 0;
-                    width: 8px;
-                    flex-direction: column;
-                `
-            }
-            return css<{ offset: TOffset }>`
-                height: 100%;
-                right: ${({ offset }) => getOffsetValue(offset)};
-                top: 0;
-                width: 8px;
-                flex-direction: column;
-            `
-        } else {
-            if (placement === 'start') {
-                return css<{ offset: TOffset }>`
-                    width: 100%;
-                    top: ${({ offset }) => getOffsetValue(offset)};
-                    height: 8px;
-                    flex-direction: row;
-                `
-            }
-            return css<{ offset: TOffset }>`
-                width: 100%;
-                bottom: ${({ offset }) => getOffsetValue(offset)};
-                height: 8px;
-                flex-direction: row;
-            `
-        }
+        const is_vertical = mode === 'vertical'
+        const is_placement_start = placement === 'start'
+        const vertical_direction = is_placement_start ? 'left' : 'right'
+        const horizontal_direction = is_placement_start ? 'top' : 'bottom'
+        const height = is_vertical ? '100%' : '8px'
+        const width = is_vertical ? '8px' : '100%'
+        const flex_direction = is_vertical ? 'column' : 'row'
+        return css<{ offset: TOffset }>`
+            ${is_vertical ? vertical_direction : horizontal_direction}: ${({ offset }) =>
+                getOffsetValue(offset)};
+            ${is_vertical ? 'top: 0' : ''};
+            flex-direction: ${flex_direction};
+            height: ${height};
+            width: ${width};
+        `
     }}
 `
 
-const NavigatonContainer = ({ children, ...rest }: React.HtmlHTMLAttributes<HTMLDivElement>) => {
+const NavigationContainer = ({ children, ...rest }: React.HtmlHTMLAttributes<HTMLDivElement>) => {
     const {
         config: { mode, nav_placement, nav_offset },
     } = useCarousel()
@@ -64,4 +46,4 @@ const NavigatonContainer = ({ children, ...rest }: React.HtmlHTMLAttributes<HTML
     )
 }
 
-export default NavigatonContainer
+export default NavigationContainer

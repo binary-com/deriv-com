@@ -25,39 +25,22 @@ const CarouselButton = styled.button<{
     }
     path {
         ${({ color }) =>
-            color
-                ? css`
-                      fill: ${color};
-                  `
-                : css`
-                      fill: unset;
-                  `}
+            css`
+                fill: ${color ?? 'unset'};
+            `}
     }
 
     ${({ button_type, mode }) => {
-        if (mode === 'horizontal') {
-            return button_type === 'next'
-                ? css<{ offset: TOffset }>`
-                      top: 50%;
-                      right: ${({ offset }) => getOffsetValue(offset)};
-                  `
-                : css<{ offset: TOffset }>`
-                      top: 50%;
-                      left: ${({ offset }) => getOffsetValue(offset)};
-                  `
-        } else {
-            return button_type === 'next'
-                ? css<{ offset: TOffset }>`
-                      bottom: ${({ offset }) => getOffsetValue(offset)};
-                      left: 50%;
-                      transform: rotate(90deg);
-                  `
-                : css<{ offset: TOffset }>`
-                      top: ${({ offset }) => getOffsetValue(offset)};
-                      left: 50%;
-                      transform: rotate(90deg);
-                  `
-        }
+        const is_horizontal = mode === 'horizontal'
+        const is_next_button = button_type === 'next'
+        const horizontal_direction = is_next_button ? 'right' : 'left'
+        const vertical_direction = is_next_button ? 'bottom' : 'top'
+        return css<{ offset: TOffset }>`
+            ${is_horizontal ? 'top' : 'left'}: 50%;
+            ${!is_horizontal ? 'transform: rotate(90deg)' : ''};
+            ${is_horizontal ? horizontal_direction : vertical_direction}: ${({ offset }) =>
+                getOffsetValue(offset)};
+        `
     }}
 `
 

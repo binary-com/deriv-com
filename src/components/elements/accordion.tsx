@@ -1,7 +1,6 @@
 import React, { useState, useEffect, ReactNode } from 'react'
 import styled from 'styled-components'
 import { Text } from './typography'
-import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
 import Chevron from 'images/svg/custom/chevron-bottom.svg'
 import ChevronThick from 'images/svg/custom/chevron-thick.svg'
 import Minus from 'images/svg/elements/minus.svg'
@@ -67,15 +66,13 @@ type AccordionProps = {
     has_single_state?: boolean
     is_faq?: boolean
     id?: string
-    is_default_open?: boolean
 }
 
 // TODO: keyboard events and find a way to add proper focus handling
-const Accordion = ({ children, has_single_state, id, is_default_open }: AccordionProps) => {
+const Accordion = ({ children, has_single_state, id }: AccordionProps) => {
     const nodes = []
-
     return has_single_state ? (
-        <SingleAccordionContent id={id} is_default_open={is_default_open} nodes={nodes}>
+        <SingleAccordionContent id={id} nodes={nodes}>
             {children}
         </SingleAccordionContent>
     ) : (
@@ -109,6 +106,7 @@ type ChildType = {
         header?: string
         plus?: boolean
         arrow_thin?: boolean
+        is_showed?: boolean
     }
 }
 
@@ -116,11 +114,10 @@ type ItemExpandedProps = {
     child?: ChildType
     child_idx?: number
     id?: string
-    is_default_open?: boolean
     nodes?: ReactNode
 }
 
-const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpandedProps) => {
+const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
     const getHeight = (active_idx: number) => {
         return (
             nodes[active_idx] &&
@@ -128,24 +125,19 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpa
         )
     }
     const [is_expanded, setExpanded] = useState(false)
-    const [height, setHeight] = useStateWithCallback(0, () => {
-        // set height to auto to allow content that can resize inside the accordion
-        // reset height to content height before collapse for transition (height: auto does not support transitions)
-        if (is_expanded) setTimeout(() => setHeight('auto'), 200)
-        else setHeight(0)
-    })
-
-    useEffect(() => {
-        if (is_default_open) setExpanded(true)
-    }, [])
+    const [height, setHeight] = useState(null)
 
     useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
+    useEffect(() => {
+        if (is_expanded) setTimeout(() => setHeight('auto'), 200)
+        else setHeight(0)
+    }, [height])
 
     const deployer = <img src={is_expanded ? Minus : Plus} alt="Minus" height="16" width="16" />
 
     const expanded_state = is_expanded ? true : false
 
-    const current_arrow = child.props.arrow_thin ? (
+    const current_arrow = child?.props.arrow_thin ? (
         <Arrow src={Chevron} alt="Chevron" width="32" height="32" expanded={expanded_state} />
     ) : (
         <ThickArrow
@@ -159,36 +151,38 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpa
 
     return (
         <>
-            <div
-                key={child_idx}
-                style={child.props.parent_style}
-                id={id}
-                ref={(div) => {
-                    nodes[child_idx] = { ref: div }
-                }}
-            >
-                <AccordionWrapper>
-                    <AccordionHeader
-                        onClick={() => setExpanded(!is_expanded)}
-                        role="button"
-                        aria-expanded={is_expanded}
-                        style={child.props.header_style}
-                    >
-                        <Text weight="bold">{child.props.header}</Text>
-                        <div>{child.props.plus ? deployer : current_arrow}</div>
-                    </AccordionHeader>
-                    <div
-                        style={{
-                            overflow: 'hidden',
-                            transition: `height ${TRANSITION_DURATION}ms ease`,
-                            height,
-                            ...child.props.content_style,
-                        }}
-                    >
-                        {child}
-                    </div>
-                </AccordionWrapper>
-            </div>
+            {child.props.is_showed != false && (
+                <div
+                    key={child_idx}
+                    style={child?.props.parent_style}
+                    id={id}
+                    ref={(div) => {
+                        nodes[child_idx] = { ref: div }
+                    }}
+                >
+                    <AccordionWrapper>
+                        <AccordionHeader
+                            onClick={() => setExpanded(!is_expanded)}
+                            role="button"
+                            aria-expanded={is_expanded}
+                            style={child?.props.header_style}
+                        >
+                            <Text weight="bold">{child?.props.header}</Text>
+                            <div>{child?.props.plus ? deployer : current_arrow}</div>
+                        </AccordionHeader>
+                        <div
+                            style={{
+                                overflow: 'hidden',
+                                transition: `height ${TRANSITION_DURATION}ms ease`,
+                                height,
+                                ...child?.props.content_style,
+                            }}
+                        >
+                            {child}
+                        </div>
+                    </AccordionWrapper>
+                </div>
+            )}
         </>
     )
 }
@@ -196,21 +190,18 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpa
 type SingleAccordionContentProps = {
     children?: ChildType | ChildType[]
     id?: string
-    is_default_open?: boolean
     nodes?: ReactNode[]
 }
 
-const SingleAccordionContent = ({
-    is_default_open = false,
-    nodes,
-    children,
-    id,
-}: SingleAccordionContentProps) => {
+const SingleAccordionContent = ({ nodes, children, id }: SingleAccordionContentProps) => {
     const render_nodes = React.Children.map(children, (child, child_idx) => {
+        if (!React.isValidElement(child)) {
+            return <></>
+        }
+
         return (
             <ItemExpanded
                 key={child_idx}
-                is_default_open={is_default_open}
                 child={child}
                 child_idx={child_idx}
                 nodes={nodes}
@@ -262,7 +253,7 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
 
         const expanded_state = is_expanded ? true : false
 
-        const current_arrow = child.props.arrow_thin ? (
+        const current_arrow = child?.props.arrow_thin ? (
             <Arrow src={Chevron} alt="Chevron" width="32" height="32" expanded={expanded_state} />
         ) : (
             <ThickArrow
@@ -288,8 +279,8 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
                         aria-expanded={is_expanded}
                         style={child.props.header_style}
                     >
-                        <Text weight="bold">{child.props.header}</Text>
-                        {child.props.plus ? deployer : current_arrow}
+                        <Text weight="bold">{child?.props.header}</Text>
+                        {child?.props.plus ? deployer : current_arrow}
                     </AccordionHeader>
                     <div
                         style={{
@@ -297,7 +288,7 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
                             /* prettier-ignore */
                             transition: `height ${TRANSITION_DURATION}ms ease`,
                             height: height,
-                            ...child.props.content_style,
+                            ...child?.props.content_style,
                         }}
                     >
                         {child}
@@ -320,6 +311,7 @@ type AccordionItemProps = {
     header?: string | ReactNode
     text?: string
     plus?: boolean
+    is_showed?: boolean
 }
 
 const AccordionItem = ({ id, text, children, style }: AccordionItemProps) => {

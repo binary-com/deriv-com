@@ -248,8 +248,7 @@ const ResponsiveHeader = styled(Header)`
 const ResponsiveText = styled(Text)`
     transition: color 0.2s;
     font-size: var(--text-size-xs);
-    color: var(--color-grey-5);
-
+    max-width: 212px;
     @media ${device.tabletL} {
         font-size: 14px;
     }

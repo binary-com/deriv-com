@@ -5,6 +5,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { LocationContext } from '../layout/location-context'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
+import device from 'themes/device'
 import { localized_link_url } from 'common/constants'
 import {
     getLocalizedUrl,
@@ -12,7 +13,8 @@ import {
     getThaiExcludedLocale,
     replaceLocale,
 } from 'common/utility'
-import { DerivStore } from 'store'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type InternalLinkProps = {
     aria_label?: string
@@ -81,23 +83,68 @@ export const SharedLinkStyle = css<SharedLinkStyleProps>`
             }
         `}
 `
+export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: text-shadow 0.25s;
+    position: relative;
 
-const StyledGatsbyLink = styled(GatsbyLink)``
+    &::before {
+        content: '';
+        position: absolute;
+        transition: width 0.25s;
+        height: 0.2rem;
+        width: 0;
+        background-color: var(--color-red);
+        bottom: 0;
+    }
+    &:hover {
+        color: gray;
+    }
+    &.active {
+        color: gray;
+    }
+
+    ${({ active }) =>
+        active &&
+        css`
+            color: gray;
+        `}
+    @media ${device.laptopL} {
+        font-size: 14px;
+    }
+`
+const ShareDisabledStyle = css<{ disabled: boolean }>`
+    ${({ disabled }) =>
+        disabled &&
+        `
+        pointer-events: none;
+        opacity: 0.32;`}
+`
+
+const StyledAnchor = styled.a`
+    ${ShareDisabledStyle}
+`
+
+const StyledAnchorLink = styled(AnchorLink)`
+    ${ShareDisabledStyle}
+`
+
+const StyledGatsbyLink = styled(GatsbyLink)`
+    ${ShareDisabledStyle}
+`
 
 export const LocalizedLink = React.forwardRef(
     ({ external, ...props }: LocalizedLinkProps, ref: Ref<GatsbyLink<string>>) => {
         const { locale } = useContext(LocaleContext)
-        const [has_mounted, setMounted] = useState(false)
-
-        useEffect(() => {
-            setMounted(true)
-        }, [])
+        const [is_mounted] = usePageLoaded()
 
         if (external) {
-            return <ExternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
+            return <ExternalLink mounted={is_mounted} locale={locale} ref={ref} {...props} />
         }
 
-        return <InternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
+        return <InternalLink mounted={is_mounted} locale={locale} ref={ref} {...props} />
     },
 )
 
@@ -184,12 +231,12 @@ const ExternalLink = ({
     type,
     ...props
 }: ExternalLinkProps) => {
-    const { is_eu_country } = useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
     const url = replaceLocale(getURLFormat(type, locale, to, affiliate_lang))
     const show_modal =
-        is_eu_country &&
+        is_eu &&
         !is_mail_link &&
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&

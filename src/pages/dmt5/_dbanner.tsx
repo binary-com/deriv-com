@@ -166,7 +166,7 @@ const DBanner = ({
                             secondary
                         >
                             <Localize
-                                translate_text=" Go to {{platform_name}} dashboard"
+                                translate_text="Go to {{platform_name}} dashboard"
                                 values={{ platform_name }}
                             />
                         </StyledLinkButton>

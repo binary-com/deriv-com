@@ -27,11 +27,11 @@ export type PopupModalTypes = {
 
 export type TString = `_t_${string}_t_`
 export type ObjectPropType<TObj, TProp extends keyof TObj> = TObj[TProp]
-export interface TSmartContent<T, V extends object> {
+export interface TSmartContent<BaseModel, Config extends object> {
     id: number
-    data: T
-    visiblity?: V // if the visiblity object is not provided or it's empty, the data will be visible by default with all config
+    data: BaseModel
+    visiblity?: Config // if the visiblity object is not provided or it's empty, the data will be visible by default with all config
 }
 
-export type TRegionSmartContent<T> = TSmartContent<T, Partial<TRegion>>
+export type TRegionSmartContent<BaseModel> = TSmartContent<BaseModel, Partial<TRegion>>
 export type TObjectKeys<T extends object> = keyof T

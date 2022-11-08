@@ -16,7 +16,7 @@ type DHeroProps = {
     background_image_name?: string
     background_svg?: string
     content?: string | JSX.Element
-    go_to_live_demo?: boolean
+    is_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean | string
     hide_signup_login?: boolean
@@ -170,7 +170,21 @@ const BackgroundSVG = styled.img`
         height: 250px;
     }
 `
-
+const GoToLiveDemo = styled(LinkButton)`
+    color: var(--color-white);
+    border-color: var(--color-black-5);
+    padding: 14px 16px;
+    width: auto;
+    @media ${device.mobileL} {
+        max-width: 100%;
+        white-space: nowrap;
+        margin-left: 0;
+        width: 100%;
+    }
+    @media (max-width: 360px) {
+        white-space: nowrap;
+    }
+`
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
@@ -233,7 +247,7 @@ const DHero = ({
     content,
     image_name,
     join_us_for_free,
-    go_to_live_demo,
+    is_live_demo,
     Logo,
 }: DHeroProps) => {
     const data = useStaticQuery(query)
@@ -267,6 +281,17 @@ const DHero = ({
                                 <Localize translate_text="Create free demo account" />
                             </DemoButton>
                         ))}
+                    {is_live_demo && (
+                        <GoToLiveDemo
+                            tertiary
+                            external
+                            type={getLinkType()}
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                        >
+                            <Localize translate_text="Go to live demo" />
+                        </GoToLiveDemo>
+                    )}
                 </LinkWrapper>
             </InformationWrapper>
 

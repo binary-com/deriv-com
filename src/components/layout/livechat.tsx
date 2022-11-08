@@ -19,16 +19,14 @@ type StyledLiveChatTypes = LiveChatProps & {
 const StyledLiveChat = styled.div<StyledLiveChatTypes>`
     position: fixed;
     bottom: ${(props) => (props.is_eu_country ? '9rem' : '1.6rem')};
-    ${({ is_rtl }) => {
-        if (is_rtl) {
-            return css`
-                inset-inline-start: 1.6rem;
-            `
-        }
-        return css`
-            inset-inline-end: 1.6rem;
-        `
-    }}
+    ${({ is_rtl }) =>
+        is_rtl
+            ? css`
+                  inset-inline-start: 1.6rem;
+              `
+            : css`
+                  inset-inline-end: 1.6rem;
+              `}
     background-color: var(--color-white);
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     -webkit-tap-highlight-color: transparent;

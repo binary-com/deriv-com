@@ -48,7 +48,7 @@ const PartnerCTA = () => {
                     <Text align="center" color="white" mt="0.8rem">
                         {localize('The Deriv affiliate management team is here to help.')}
                     </Text>
-                    <LiveChatLinkText text="Contact us via live chat" weight="bold" />
+                    <LiveChatLinkText text="_t_Contact us via live chat_t_" weight="bold" />
                 </Flex>
                 <Flex direction="column" ai="center">
                     <Header as="h4" type="sub-section-title" align="center" color="white">

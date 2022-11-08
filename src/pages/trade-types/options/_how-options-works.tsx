@@ -86,7 +86,7 @@ const HowOptionsWorks = () => {
                         <HowItWorksItem>
                             <OptionItems>
                                 <div>
-                                    <img src={DefinePosition} alt="" />
+                                    <img src={DefinePosition} alt="Define Position" />
                                 </div>
                                 <StyledText weight="bold">
                                     {localize('Define your position')}
@@ -101,7 +101,7 @@ const HowOptionsWorks = () => {
                         <HowItWorksItem>
                             <OptionItems>
                                 <div>
-                                    <img src={GetQuote} alt="" />
+                                    <img src={GetQuote} alt="Get quote" />
                                 </div>
                                 <StyledText weight="bold">{localize('Get quote')}</StyledText>
                             </OptionItems>
@@ -114,7 +114,7 @@ const HowOptionsWorks = () => {
                         <HowItWorksItem>
                             <OptionItems>
                                 <div>
-                                    <img src={PurchaseContract} alt="" />
+                                    <img src={PurchaseContract} alt="Purchase Contract" />
                                 </div>
                                 <StyledText weight="bold">
                                     {localize('Purchase your contract')}

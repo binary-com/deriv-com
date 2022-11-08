@@ -13,7 +13,6 @@ import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { Localize, localize } from 'components/localization'
-import { DerivStore } from 'store'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 //Lazy-load
@@ -25,7 +24,7 @@ type BasketIndicesProps = {
 }
 
 const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     const { is_uk_eu, is_row } = useCountryRule()
     return (
         <>
@@ -37,12 +36,12 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         }
                         header={<Localize translate_text="Why trade basket indices on Deriv" />}
                     >
-                        {(!is_eu_country ? basket_indices_content : basket_indices_content_eu).map(
+                        {(!is_eu ? basket_indices_content : basket_indices_content_eu).map(
                             (content: BasketIndicesContent, index) => (
                                 <StyledBox
                                     key={index}
                                     text={content.text}
-                                    icon={<img src={content.src} alt="" />}
+                                    icon={<img src={content.src} alt={content.alt} />}
                                 />
                             ),
                         )}

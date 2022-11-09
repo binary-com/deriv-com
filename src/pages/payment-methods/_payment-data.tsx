@@ -308,7 +308,7 @@ const payment_data = [
         data: [
             {
                 method: <StyledIcon src={Visa} alt="Visa" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
                 min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
                 deposit_time: <Localize translate_text="Instant" />,
@@ -320,7 +320,7 @@ const payment_data = [
             },
             {
                 method: <StyledIcon src={VisaElectron} alt="Visa Electron" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
                 min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
                 deposit_time: <Localize translate_text="Instant" />,
@@ -332,7 +332,7 @@ const payment_data = [
             },
             {
                 method: <StyledIcon src={MasterCard} alt="Mastercard" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
                 min_max_withdrawal: <Localize translate_text="Not available" />,
                 deposit_time: <Localize translate_text="Instant" />,
@@ -344,7 +344,7 @@ const payment_data = [
             },
             {
                 method: <StyledIcon src={Maestro} alt="Maestro" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
                 min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
                 deposit_time: <Localize translate_text="Instant" />,
@@ -599,6 +599,9 @@ const payment_data = [
     {
         name: <Localize translate_text="E-wallets" />,
         is_eu: true,
+        note: (
+            <Localize translate_text="Not all payment methods are available in your country. Kindly check your cashier for further information." />
+        ),
         data: [
             {
                 method: <StyledIcon src={Skrill} alt="Skrill" />,
@@ -625,34 +628,6 @@ const payment_data = [
                 ),
                 name: 'neteller',
                 url: 'https://www.neteller.com/',
-            },
-            {
-                method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
-                currencies: 'USD GBP EUR',
-                min_max_deposit: (
-                    <Localize translate_text="5 - 1,000" components={[<br key={0} />]} />
-                ),
-                min_max_withdrawal: <Localize translate_text="5 - 1800" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
-                description: (
-                    <Localize translate_text="Make deposits without a bank account or credit card. Use the local voucher system with the prepaid code to make your transactions." />
-                ),
-                name: 'paysafe',
-                url: 'https://www.paysafecard.com/',
-            },
-            {
-                method: <StyledIcon src={Airtm} alt="Airtm" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="5 - 2,500" />,
-                min_max_withdrawal: <Localize translate_text="5 - 2,500" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
-                description: (
-                    <Localize translate_text="Easily convert your currency to USD and transfer money worldwide. Used by more than 500,000 clients in 163 countries." />
-                ),
-                name: 'airtm',
-                url: 'https://www.airtm.io/#/',
             },
             {
                 method: <StyledIcon src={PostePay} alt="postepay" />,

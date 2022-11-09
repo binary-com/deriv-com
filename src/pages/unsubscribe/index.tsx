@@ -142,8 +142,7 @@ const UnsubscribePage = () => {
                 if (!response.error) {
                     setLoading(false)
                     setCompleteStatus(true)
-                }
-                if (response.error) {
+                } else {
                     navigate('https://app.deriv.com/account/personal-details')
                 }
             },

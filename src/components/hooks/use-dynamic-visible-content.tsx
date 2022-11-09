@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { ObjectPropType, TSmartContent } from 'types/generics'
 
-interface IUseDynamicVisibleContent<T extends TSmartContent<unknown, object>> {
+export interface IUseDynamicVisibleContent<T extends TSmartContent<unknown, object>> {
     config: {
         [key in keyof T['visiblity']]?: (value: ObjectPropType<T['visiblity'], key>) => boolean
     }

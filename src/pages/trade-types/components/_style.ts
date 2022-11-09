@@ -129,14 +129,6 @@ const HowItWorksItem = styled(Flex)`
     }
 `
 
-const MarketsItem = styled(Flex)`
-    align-items: center;
-    height: 100%;
-    padding: 4px 0;
-    margin-bottom: 2.8rem;
-    position: relative;
-    z-index: 2;
-`
 const StartTradingBg = styled(Flex)`
     background: var(--color-white);
     background-image: url(${CfdPattern});
@@ -157,6 +149,5 @@ export {
     Card,
     OptionGrid,
     OptionGridSecondary,
-    MarketsItem,
     StartTradingBg,
 }

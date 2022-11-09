@@ -7,10 +7,11 @@ import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
+import { multiplier_available_markets } from 'features/trade-types/carousels/available-markets/data'
 const HowMultiplierWorks = Loadable(() => import('./_how-options-works'))
 const ThingsInMind = Loadable(() => import('./_things-in-mind'))
 const StartTrading = Loadable(() => import('./_start-trading'))
-const MarketsAvailable = Loadable(() => import('./_markets-available'))
+const AvailableMarkets = Loadable(() => import('features/trade-types/carousels/available-markets'))
 const WhatAreMultiplier = Loadable(() => import('./_what-are-options'))
 
 const meta_attributes = {
@@ -47,7 +48,7 @@ const Multipliers = () => {
             <HowMultiplierWorks />
             <ThingsInMind />
             <StartTrading />
-            <MarketsAvailable />
+            <AvailableMarkets items={multiplier_available_markets} />
         </Layout>
     )
 }

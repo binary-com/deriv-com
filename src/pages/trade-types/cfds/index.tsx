@@ -6,11 +6,12 @@ import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+import { cfd_available_markets } from 'features/trade-types/carousels/available-markets/data'
 const WhyTradeCFD = Loadable(() => import('./_why-trade-cfd'))
 const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const ThingsToKeep = Loadable(() => import('./_mind-when-trading'))
-const AvailableMarkets = Loadable(() => import('./_available-markets'))
+const AvailableMarkets = Loadable(() => import('features/trade-types/carousels/available-markets'))
 
 const CFD = () => {
     return (
@@ -33,7 +34,7 @@ const CFD = () => {
             <TradingCFDIncreases />
             <WhyTradeCFD />
             <StartTrading />
-            <AvailableMarkets />
+            <AvailableMarkets items={cfd_available_markets} />
         </Layout>
     )
 }

@@ -8,10 +8,11 @@ import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { options_available_markets } from 'features/trade-types/carousels/available-markets/data'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
 const StartTrading = Loadable(() => import('./_start-trading'))
-const MarketsAvailable = Loadable(() => import('./_markets-available'))
+import AvailableMarkets from 'features/trade-types/carousels/available-markets'
 
 const meta_attributes = {
     og_title: localize('Options trading | Trading types | Deriv'),
@@ -49,7 +50,7 @@ const Options = () => {
                 <HowOptionsWorks />
                 <OptionsToTrade />
                 <StartTrading />
-                <MarketsAvailable />
+                <AvailableMarkets items={options_available_markets} />
             </Layout>
         ) : (
             <PageNotFound />

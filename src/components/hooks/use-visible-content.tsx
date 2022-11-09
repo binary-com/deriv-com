@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { TSmartContent } from 'types/generics'
 
-interface IUseVisibleContent<T extends TSmartContent<unknown, object>> {
+export interface IUseVisibleContent<T extends TSmartContent<unknown, object>> {
     config: T['visiblity']
     content: T[]
 }

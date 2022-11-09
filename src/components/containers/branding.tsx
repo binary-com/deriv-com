@@ -1,10 +1,13 @@
 import React, { ReactNode } from 'react'
-import { isShowBranding } from 'common/utility'
+import { DerivStore } from 'store'
 
 type BrandingProps = {
     children: ReactNode
 }
 
-const Branding = ({ children }: BrandingProps) => isShowBranding() && <>{children}</>
+const Branding = ({ children }: BrandingProps) => {
+    const { is_show_branding } = React.useContext(DerivStore)
+    return is_show_branding && <>{children}</>
+}
 
 export default Branding

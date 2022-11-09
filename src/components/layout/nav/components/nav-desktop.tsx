@@ -9,7 +9,7 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Localize } from 'components/localization'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
-import { isShowBranding } from 'common/utility'
+import { DerivStore } from 'store'
 
 type NavDesktopProps = {
     base?: string
@@ -58,15 +58,6 @@ const Tab = styled.span<TabProps>`
     }
 `
 
-const links = [
-    { active: 'trade', title: <Localize translate_text="Trade" /> },
-    { active: 'markets', title: <Localize translate_text="Markets" /> },
-    { active: 'about', title: <Localize translate_text="About us" /> },
-    { active: 'resources', title: <Localize translate_text="Resources" /> },
-].filter((item) => {
-    return !isShowBranding() ? item.active !== 'about' : item
-})
-
 const NavDesktop = ({
     base,
     is_ppc,
@@ -76,6 +67,17 @@ const NavDesktop = ({
     hide_language_switcher,
     hide_get_trading,
 }: NavDesktopProps) => {
+    const { is_show_branding } = React.useContext(DerivStore)
+
+    const links = [
+        { active: 'trade', title: <Localize translate_text="Trade" /> },
+        { active: 'markets', title: <Localize translate_text="Markets" /> },
+        { active: 'about', title: <Localize translate_text="About us" /> },
+        { active: 'resources', title: <Localize translate_text="Resources" /> },
+    ].filter((item) => {
+        return !is_show_branding ? item.active !== 'about' : item
+    })
+
     const navigation_bar_ref = useRef(null)
     const current_page = useActiveLinkState('main')
     const [active_dropdown_ref, setActiveDropdownRef] = useState(null)

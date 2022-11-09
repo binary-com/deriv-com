@@ -44,7 +44,6 @@ import Terms from 'images/svg/menu/terms.svg'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import { isShowBranding } from 'common/utility'
 
 const OffCanvasMenu = styled.section<OffCanvasMenuWrapperPropps>`
     position: fixed;
@@ -134,7 +133,7 @@ type OffCanvasMenuWrapperPropps = {
 }
 
 export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
-    const { is_uk_country } = React.useContext(DerivStore)
+    const { is_uk_country, is_show_branding } = React.useContext(DerivStore)
     const { is_row } = useCountryRule()
     const canvas = useRef()
 
@@ -642,7 +641,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
             ),
         },
     ].filter((item) => {
-        return !isShowBranding() ? item.title !== 'About us' : item
+        return !is_show_branding ? item.title !== 'About us' : item
     })
 
     return (

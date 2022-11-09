@@ -3,6 +3,7 @@ import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
+import { isShowBranding } from 'common/utility'
 
 type DerivProviderProps = {
     children?: ReactNode
@@ -24,6 +25,7 @@ export type DerivStoreType = {
     deriv_api: DerivApiProps
     show_non_eu_popup: boolean
     setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
+    is_show_branding: boolean
 }
 
 export const DerivStore = createContext<DerivStoreType>(null)
@@ -38,6 +40,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [is_uk_country, setUkCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [user_country, setUserCountry] = useState(null)
+    const is_show_branding = isShowBranding()
 
     useEffect(() => {
         // Fetch website status from the API & save in the cookies
@@ -78,6 +81,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 deriv_api,
                 show_non_eu_popup,
                 setShowNonEuPopup,
+                is_show_branding,
             }}
         >
             {children}

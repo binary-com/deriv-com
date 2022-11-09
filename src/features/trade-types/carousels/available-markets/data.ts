@@ -102,13 +102,8 @@ export const cfd_available_markets: TAvailableMarketSmartContent[] = [
         id: 4,
         data: {
             ...commodities_market_data,
-            description: ({ is_uk_eu }) => {
-                if (is_uk_eu) {
-                    return '_t_Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits._t_'
-                } else {
-                    return '_t_Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits._t_'
-                }
-            },
+            description:
+                '_t_Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits._t_',
         },
     },
 ]

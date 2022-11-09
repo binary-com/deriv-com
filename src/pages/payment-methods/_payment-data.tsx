@@ -611,6 +611,7 @@ const payment_data = [
                     <Localize translate_text="Make instant and secure transactions using Skrill and earn rewards through its loyalty programme." />
                 ),
                 name: 'skrill',
+                url: 'https://www.skrill.com/',
             },
             {
                 method: <StyledIcon src={Neteller} alt="Neteller" />,
@@ -623,6 +624,7 @@ const payment_data = [
                     <Localize translate_text="Make fast, easy transactions using Neteller and earn rewards through its loyalty programme." />
                 ),
                 name: 'neteller',
+                url: 'https://www.neteller.com/',
             },
             {
                 method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
@@ -637,6 +639,7 @@ const payment_data = [
                     <Localize translate_text="Make deposits without a bank account or credit card. Use the local voucher system with the prepaid code to make your transactions." />
                 ),
                 name: 'paysafe',
+                url: 'https://www.paysafecard.com/',
             },
             {
                 method: <StyledIcon src={Airtm} alt="Airtm" />,
@@ -649,6 +652,7 @@ const payment_data = [
                     <Localize translate_text="Easily convert your currency to USD and transfer money worldwide. Used by more than 500,000 clients in 163 countries." />
                 ),
                 name: 'airtm',
+                url: 'https://www.airtm.io/#/',
             },
             {
                 method: <StyledIcon src={PostePay} alt="postepay" />,

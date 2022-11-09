@@ -9,21 +9,22 @@ const Shadow = styled.div<{ location: 'start' | 'end' }>`
     z-index: 1;
     pointer-events: none;
     ${({ location }) => {
-        if (location === 'start') {
-            return css`
-                top: -0.5px;
-                background: linear-gradient(
-                    to top,
-                    rgba(249, 251, 255, 0) 0%,
-                    rgba(249, 251, 255, 1) 100%
-                );
-            `
-        } else {
-            return css`
-                bottom: -0.5px;
-                background: linear-gradient(rgba(249, 251, 255, 0) 0%, rgba(249, 251, 255, 1) 100%);
-            `
-        }
+        return location === 'start'
+            ? css`
+                  top: -0.5px;
+                  background: linear-gradient(
+                      to top,
+                      rgba(249, 251, 255, 0) 0%,
+                      rgba(249, 251, 255, 1) 100%
+                  );
+              `
+            : css`
+                  bottom: -0.5px;
+                  background: linear-gradient(
+                      rgba(249, 251, 255, 0) 0%,
+                      rgba(249, 251, 255, 1) 100%
+                  );
+              `
     }}
 `
 

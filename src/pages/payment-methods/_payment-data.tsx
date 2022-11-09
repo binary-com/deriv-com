@@ -665,6 +665,7 @@ const payment_data = [
                     <Localize translate_text="Make instant and safe transactions via Postepay, and enjoy its mobile app's benefits." />
                 ),
                 name: 'postepay',
+                url: 'https://postepay.poste.it/',
             },
         ],
     },

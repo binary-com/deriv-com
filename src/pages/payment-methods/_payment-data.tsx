@@ -151,6 +151,9 @@ const payment_data = [
     {
         name: <Localize translate_text="Online banking" />,
         is_eu: true,
+        note: (
+            <Localize translate_text="Not all payment methods are available in your country. Kindly check your cashier for further information." />
+        ),
         data: [
             {
                 method: <StyledIcon src={Eps} alt="eps" />,

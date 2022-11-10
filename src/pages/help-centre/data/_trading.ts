@@ -1,3 +1,4 @@
+import Derived from '../components/-derived'
 import { TQuestionsData } from './_data-types'
 import { deriv_app_url } from 'common/constants'
 
@@ -82,42 +83,7 @@ const trading: TQuestionsData = {
             category: 'Trading',
             sub_category: '_t_Markets_t_',
             label: 'what-is-derived',
-            answer: [
-                {
-                    translation_text:
-                        '_t_Derived indices consist of asset prices generated from real-world and simulated markets and indices, with little to no influence from real-world events.  You can trade from a variety of derived indices, including synthetic indices, derived FX indices, and basket indices._t_',
-                },
-                {
-                    translation_text:
-                        "_t_Available 24/7, our synthetic indices emulate price movements of real-world markets with varying levels of volatility. As they aren't based on actual underlying assets, they are unaffected by real-world market events. The pricing of our synthetic indices is backed by algorithms that are audited for fairness by an independent third party. Read <0>this article</0> to learn more about trading synthetic indices on Deriv._t_",
-                    translation_components: [
-                        {
-                            key: 0,
-                            type: 'link',
-                            to: '/academy/blog/posts/an-introduction-to-synthetic-indices-trading/',
-                        },
-                    ],
-                    has_margin_top: true,
-                },
-                {
-                    translation_text:
-                        '_t_Derived FX indices are simulated assets with prices derived from the price movements of real major forex pairs. Our algorithms track real-world currency prices and dampen fluctuations caused by news events and market sentiment. Plus, you can choose to trade them at the volatility you prefer._t_',
-                    has_margin_top: true,
-                },
-                {
-                    translation_text:
-                        '_t_With basket indices, you can trade your favourite asset against a basket of five major global currencies, each weighted by 20%._t_',
-                    has_margin_top: true,
-                },
-                {
-                    translation_text:
-                        '_t_Due to regulatory requirements, derived indices are unavailable in some countries. Refer to ‘Product offering’ in our <0>terms of use</0> for more info._t_',
-                    translation_components: [
-                        { key: 0, type: 'link', to: '/tnc/general-terms.pdf' },
-                    ],
-                    has_margin_top: true,
-                },
-            ],
+            renderProp: Derived,
         },
         {
             question: '_t_What are contracts for difference (CFDs)?_t_',

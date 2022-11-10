@@ -55,7 +55,7 @@ const derivx: TQuestionsData = {
         },
         {
             question:
-                '_t_What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?_t_',
+                '_t_What are the major differences between DTrader, Deriv MT5 and Deriv X?_t_',
             category: 'Deriv X',
             sub_category: '_t_Platforms_t_',
             label: 'differences-of-dtrader-dmt5-deriv-x',
@@ -66,7 +66,7 @@ const derivx: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_Deriv MT5 (DMT5) and Deriv X are both multi-asset trading platforms where you can trade spot forex and CFDs with leverage on multiple asset classes. The major difference between them is platform layout — MT5 has a simple all-in-one view, while on Deriv X you can customise the layout according to your preference._t_',
+                        '_t_Deriv MT5 and Deriv X are both multi-asset trading platforms where you can trade spot forex and CFDs with leverage on multiple asset classes. The major difference between them is platform layout — MT5 has a simple all-in-one view, while on Deriv X you can customise the layout according to your preference._t_',
                     has_margin_top: true,
                 },
             ],

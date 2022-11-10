@@ -1,5 +1,4 @@
-import QuickStrategy from '../components/dbot/_quick-strategy'
-import RemoveBlocks from '../components/dbot/_remove-blocks'
+import RemoveBlocks from '../components/_remove-blocks'
 import ControlLosses from '../components/dbot/_control-losses'
 import { TQuestionsData } from './_data-types'
 // images
@@ -22,6 +21,11 @@ import AreYouSureImage from 'images/common/help-centre/dbot-are-you-sure.png'
 import SummaryTabImage from 'images/common/help-centre/dbot-summary-tab.png'
 import TransactionsImage from 'images/common/help-centre/dbot-transactions.png'
 import ChartImage from 'images/common/help-centre/dbot-chart.png'
+import QuickStrategyImage from 'images/common/help-centre/dbot-quick-strategy.png'
+import StrategiesImage from 'images/common/help-centre/dbot-strategies.png'
+import AssetTradeTypeImage from 'images/common/help-centre/dbot-asset-trade-type.png'
+import ParametersImage from 'images/common/help-centre/dbot-parameters.png'
+import RunBotImage from 'images/common/help-centre/dbot-run-bot.png'
 
 const dbot: TQuestionsData = {
     section: 'Platforms',
@@ -150,6 +154,74 @@ const dbot: TQuestionsData = {
                     translation_text:
                         "_t_A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind._t_",
                 },
+                {
+                    translation_text: '_t_<0>Using a quick strategy</0>_t_',
+                    translation_components: [{ key: 0, type: 'strong' }],
+                    margin_top: '4rem',
+                    list: {
+                        list_style: 'decimal',
+                        first_child_margin_top: '1.7rem',
+                        margin_top: '0',
+                        padding_left: '2rem',
+                        items: [
+                            {
+                                translation_text:
+                                    "_t_Click 'Get started' on the toolbar at the top._t_",
+                                img: {
+                                    src: GetStartedImage,
+                                    alt: 'Get Started',
+                                    width: '14.2rem',
+                                },
+                            },
+                            {
+                                translation_text: "_t_Click 'Quick Strategy_t_",
+                                img: {
+                                    src: QuickStrategyImage,
+                                    alt: 'Quick strategy',
+                                    width: '16.6rem',
+                                },
+                            },
+                            {
+                                translation_text: '_t_Choose the strategy that you want._t_',
+                                img: {
+                                    src: StrategiesImage,
+                                    alt: 'Strategies',
+                                    width: '42.1rem',
+                                },
+                            },
+                            {
+                                translation_text: '_t_Select the asset and trade type._t_',
+                                img: {
+                                    src: AssetTradeTypeImage,
+                                    alt: 'Asset and trade type',
+                                    width: '44rem',
+                                },
+                            },
+                            {
+                                translation_text:
+                                    "_t_Enter your preferred trade parameters and click 'Create'._t_",
+                                img: {
+                                    src: ParametersImage,
+                                    alt: 'Parameters',
+                                    width: '44rem',
+                                },
+                            },
+                            {
+                                translation_text:
+                                    "_t_The strategy is loaded onto the workspace. You may adjust your strategy however you want and when you’re ready to run your bot, click 'Run bot'._t_",
+                                img: {
+                                    src: RunBotImage,
+                                    alt: 'Run bot',
+                                    width: '11.8rem',
+                                },
+                            },
+                            {
+                                translation_text:
+                                    '_t_You may save your bot by either downloading it into your computer or by saving it on your Google Drive._t_',
+                            },
+                        ],
+                    },
+                },
             ],
         },
         {
@@ -220,6 +292,7 @@ const dbot: TQuestionsData = {
                     list: {
                         list_style: 'decimal',
                         margin_top: '2.4rem',
+                        padding_left: '2rem',
                         items: [
                             {
                                 translation_text: "_t_Select 'Local' and click 'Continue'._t_",
@@ -243,6 +316,7 @@ const dbot: TQuestionsData = {
                     list: {
                         list_style: 'decimal',
                         margin_top: '2.4rem',
+                        padding_left: '2rem',
                         items: [
                             {
                                 translation_text: "_t_Click 'Connect'._t_",
@@ -296,6 +370,7 @@ const dbot: TQuestionsData = {
                         list_style: 'decimal',
                         first_child_margin_top: '2.4rem',
                         margin_top: '1.7rem',
+                        padding_left: '2rem',
                         items: [
                             {
                                 translation_text: "_t_Select 'Local' and click 'Continue'._t_",
@@ -320,6 +395,7 @@ const dbot: TQuestionsData = {
                         list_style: 'decimal',
                         first_child_margin_top: '2.4rem',
                         margin_top: '1.7rem',
+                        padding_left: '2rem',
                         items: [
                             {
                                 translation_text:
@@ -365,7 +441,8 @@ const dbot: TQuestionsData = {
                 {
                     list: {
                         list_style: 'decimal',
-                        margin_top: '1.7rem',
+                        margin_top: '0',
+                        padding_left: '2rem',
                         items: [
                             {
                                 translation_text:

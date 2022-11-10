@@ -121,7 +121,7 @@ export const DerivedMarketsList = styled(CssGrid)<MarketsListProps>`
     border-left: 1px solid var(--color-grey-22);
     border-right: ${({ has_right_border }) =>
         has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
-    grid-template-columns: ${({ col }) => `repeat(${col ?? 2}, 1fr)`};
+    grid-template-columns: ${({ col }) => `repeat(${col ?? 1}, 1fr)`};
     width: 100%;
     height: fit-content;
     padding: ${({ padding }) => (padding ? padding : '24px')};

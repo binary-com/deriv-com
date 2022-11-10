@@ -20,10 +20,9 @@ import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect, isEuDomain } from 'common/utility'
+import { isBrowser, handleDerivRedirect, isEuDomain } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
-import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import device from 'themes/device'
 import { DerivStore, useDerivWS } from 'store'
 import { Container } from 'components/containers'
@@ -124,9 +123,9 @@ const CFDText = styled(Text)`
 `
 
 export const CFDWarning = ({ is_ppc }: CFDWarningProps) => {
-    const { is_uk_eu } = useCountryRule()
+    const { is_eu } = useCountryRule()
 
-    if (is_ppc || is_uk_eu) {
+    if (is_ppc || is_eu) {
         return (
             <CFDWrapper>
                 <CFDContainer>
@@ -163,7 +162,7 @@ const Layout = ({
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const { show_non_eu_popup, setShowNonEuPopup, academy_data } = React.useContext(DerivStore)
-    const { is_loading, is_uk_eu } = useCountryRule()
+    const { is_loading, is_eu } = useCountryRule()
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
@@ -179,9 +178,9 @@ const Layout = ({
         if (!is_loading) {
             const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
             const is_tracking_accepted = tracking_status === 'accepted'
-            const allow_tracking = (!is_uk_eu || is_tracking_accepted) && !gtm_data && has_dataLayer
+            const allow_tracking = (!is_eu || is_tracking_accepted) && !gtm_data && has_dataLayer
 
-            if (is_uk_eu && !tracking_status) setShowCookieBanner(true)
+            if (is_eu && !tracking_status) setShowCookieBanner(true)
 
             if (allow_tracking) {
                 window.onload = () => {
@@ -193,7 +192,7 @@ const Layout = ({
                 }
             }
         }
-    }, [is_uk_eu])
+    }, [is_eu])
 
     React.useEffect(() => {
         if (!is_redirection_applied) {
@@ -207,7 +206,7 @@ const Layout = ({
                     const client_information_cookie = new CookieStorage('client_information')
                     const residence = client_information_cookie.get('residence')
                     setRedirectionApplied(true)
-                    !isEuDomain() && handleRedirect(residence, current_client_country)
+                    !isEuDomain() && handleDerivRedirect(residence, current_client_country)
                 }
             })
         }
@@ -339,7 +338,6 @@ const Layout = ({
                 ref={modal_payload.ref}
                 aria_label={modal_payload.aria_label}
             />
-            <UKAccountClosureModal />
             {show_non_eu_popup && (
                 <NonEuRedirectPopUp
                     is_open={show_non_eu_popup}

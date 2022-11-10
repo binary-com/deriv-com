@@ -155,7 +155,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_non_uk, is_row, is_uk_eu } = useCountryRule()
+    const { is_eu } = useCountryRule()
     const handleSignup = useHandleSignup()
 
     return (
@@ -172,7 +172,7 @@ const WhatAreOptions = () => {
             </StyledSectionContainerHead>
             <StyledSectionContainer padding="4rem 0 0">
                 <SmallContainer direction="column" ai="flex-start">
-                    {is_uk_eu ? (
+                    {is_eu ? (
                         <Flex fd="column">
                             <Row mb="2rem">
                                 <RowColumn isHeader>
@@ -442,12 +442,12 @@ const WhatAreOptions = () => {
                                 <img src={Seven} alt="Trade" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {is_uk_eu
+                                {is_eu
                                     ? localize('Trade anytime')
                                     : localize('Trade 24/7, 365 days a year')}
                             </Text>
                             <Text>
-                                {is_uk_eu
+                                {is_eu
                                     ? localize(
                                           'Trade multipliers on synthetic indices 24/7, 365 days a year. Trade multipliers on forex round the clock on weekdays.',
                                       )

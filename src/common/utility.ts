@@ -10,7 +10,6 @@ import {
     live_chat_key,
     domains,
     eu_domains,
-    uk_domains,
 } from './constants'
 import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
@@ -437,19 +436,6 @@ const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 
 export const isEuDomain = () =>
     !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
-
-export const isUkDomain = () =>
-    !!uk_domains.some((uk_sub_domain) => uk_sub_domain.test(getSubdomain()))
-
-export const handleRedirect = (residence: string, current_client_country: string): boolean => {
-    const country = residence ? residence : current_client_country
-
-    if (isLocalhost() || isTestlink()) {
-        return false
-    } else {
-        handleDerivRedirect(country, getSubdomain())
-    }
-}
 
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 

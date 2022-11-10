@@ -27,9 +27,9 @@ export const eu_countries = [
     'se',
     'ie',
     'im',
-    'gb',
     'mt',
 ] as const
+
 export const latam_countries = [
     'ag',
     'aw',
@@ -324,5 +324,3 @@ export const isEuCountry = (clients_country: typeof eu_countries[number]): boole
 export const isP2PAllowedCountry = (
     clients_country: typeof p2p_allowed_countries[number],
 ): boolean => p2p_allowed_countries.includes(clients_country)
-
-export const isUK = (clients_country: string): boolean => clients_country === 'gb'

@@ -133,7 +133,6 @@ type OffCanvasMenuWrapperPropps = {
 }
 
 export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
-    const { is_uk_country } = React.useContext(DerivStore)
     const { is_row } = useCountryRule()
     const canvas = useRef()
 
@@ -400,27 +399,25 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                 to="/markets/stock/"
                             />
                         </Flex>
-                        {!is_uk_country && (
-                            <Flex mb="3.2rem">
-                                <NavCard
-                                    aria_label="Cryptocurrencies"
-                                    icon={() => (
-                                        <img
-                                            src={Cryptocurrencies}
-                                            alt="Cryptocurrencies"
-                                            width="32"
-                                            height="32"
-                                        />
-                                    )}
-                                    content={
-                                        <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
-                                    }
-                                    title={<Localize translate_text="Cryptocurrencies" />}
-                                    onClick={handleArrowClick}
-                                    to="/markets/cryptocurrencies/"
-                                />
-                            </Flex>
-                        )}
+                        <Flex mb="3.2rem">
+                            <NavCard
+                                aria_label="Cryptocurrencies"
+                                icon={() => (
+                                    <img
+                                        src={Cryptocurrencies}
+                                        alt="Cryptocurrencies"
+                                        width="32"
+                                        height="32"
+                                    />
+                                )}
+                                content={
+                                    <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
+                                }
+                                title={<Localize translate_text="Cryptocurrencies" />}
+                                onClick={handleArrowClick}
+                                to="/markets/cryptocurrencies/"
+                            />
+                        </Flex>
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"

@@ -47,7 +47,7 @@ const available_markets = [
         description: (
             <Localize translate_text="Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure." />
         ),
-        uk_eu_description: (
+        eu_description: (
             <Localize translate_text="Access over 30+ currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
         ),
         learn_more_path: '/markets/forex/',
@@ -90,25 +90,18 @@ const available_markets = [
         description: (
             <Localize translate_text="Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits." />
         ),
-        uk_eu_description: (
-            <Localize translate_text="Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits." />
-        ),
         learn_more_path: '/markets/commodities/',
     },
 ]
 
-const uk_restricted_markets = ['Synthetic Indices', 'Cryptocurrencies', 'Basket Indices']
 const eu_restricted_markets = ['Basket Indices']
 
-const uk_available_markets = available_markets.filter(
-    (el) => !uk_restricted_markets.includes(el.name),
-)
 const eu_available_markets = available_markets.filter(
     (el) => !eu_restricted_markets.includes(el.name),
 )
 
 const AvailableMarkets = () => {
-    const { is_uk_eu, is_row, is_uk, is_eu } = useCountryRule()
+    const { is_row, is_eu } = useCountryRule()
 
     return (
         <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -136,46 +129,7 @@ const AvailableMarkets = () => {
 
                                                 <StyledText weight="bold">{market.text}</StyledText>
                                             </MobileCardHeader>
-                                            <Text>
-                                                {is_uk_eu
-                                                    ? market.uk_eu_description || market.description
-                                                    : market.description}
-                                            </Text>
-                                            <LearnMore
-                                                text={<Localize translate_text="Learn more" />}
-                                                to={market.learn_more_path}
-                                            />
-                                        </Card>
-                                    </MarketsItem>
-                                </MarketsCarousel.Item>
-                            )
-                        })}
-                    </MarketsCarousel>
-                </>
-            )}
-            {is_uk && (
-                <>
-                    <MarketsCarousel>
-                        {uk_available_markets.map((market) => {
-                            return (
-                                <MarketsCarousel.Item key={market.name}>
-                                    <MarketsItem>
-                                        <Card>
-                                            <MobileCardHeader>
-                                                <img
-                                                    src={market.img_src}
-                                                    alt={market.img_alt}
-                                                    width="64"
-                                                    height="64"
-                                                />
-
-                                                <StyledText weight="bold">{market.text}</StyledText>
-                                            </MobileCardHeader>
-                                            <Text>
-                                                {is_uk_eu
-                                                    ? market.uk_eu_description || market.description
-                                                    : market.description}
-                                            </Text>
+                                            <Text>{market.description}</Text>
                                             <LearnMore
                                                 text={<Localize translate_text="Learn more" />}
                                                 to={market.learn_more_path}
@@ -207,8 +161,8 @@ const AvailableMarkets = () => {
                                                 <StyledText weight="bold">{market.text}</StyledText>
                                             </MobileCardHeader>
                                             <Text>
-                                                {is_uk_eu
-                                                    ? market.uk_eu_description || market.description
+                                                {is_eu
+                                                    ? market.eu_description || market.description
                                                     : market.description}
                                             </Text>
                                             <LearnMore

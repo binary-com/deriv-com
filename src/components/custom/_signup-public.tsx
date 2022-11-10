@@ -35,9 +35,6 @@ const query = graphql`
         deriv_platform_eu: file(relativePath: { eq: "sign-up/banner-phone-eu.png" }) {
             ...fadeIn
         }
-        deriv_platform_uk: file(relativePath: { eq: "sign-up/banner-phone-uk.png" }) {
-            ...fadeIn
-        }
     }
 `
 const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
@@ -321,7 +318,7 @@ const SignupPublic = ({
     is_submitting,
 }: SignupPublicProps) => {
     const data = useStaticQuery(query)
-    const { is_row, is_eu, is_uk } = useCountryRule()
+    const { is_row, is_eu } = useCountryRule()
     const [is_checked, setChecked] = useState(false)
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -426,8 +423,7 @@ const SignupPublic = ({
                             <QueryImage
                                 data={
                                     (is_row && data['deriv_platform']) ||
-                                    (is_eu && data['deriv_platform_eu']) ||
-                                    (is_uk && data['deriv_platform_uk'])
+                                    (is_eu && data['deriv_platform_eu'])
                                 }
                                 alt="DTrader platform black theme"
                                 width="225px"
@@ -464,8 +460,7 @@ const SignupPublic = ({
                                 <QueryImage
                                     data={
                                         (is_row && data['deriv_platform']) ||
-                                        (is_eu && data['deriv_platform_eu']) ||
-                                        (is_uk && data['deriv_platform_uk'])
+                                        (is_eu && data['deriv_platform_eu'])
                                     }
                                     alt="DTrader platform black theme"
                                     width="100%"

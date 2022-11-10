@@ -240,10 +240,10 @@ export const OtherPlatform = ({
     is_ppc_redirect,
 }: OtherPlatformProps) => {
     const excludetoLowerCase = exclude.toLowerCase()
-    const { is_row, is_uk_eu } = useCountryRule()
+    const { is_row, is_eu } = useCountryRule()
     const getHeaderText = () => (
         <>
-            {is_uk_eu && <Localize translate_text="Check out our other platform" />}
+            {is_eu && <Localize translate_text="Check out our other platform" />}
             {is_row && <Localize translate_text="Check out our other platforms" />}
         </>
     )
@@ -281,7 +281,7 @@ export const OtherPlatform = ({
 }
 
 export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformProps) => {
-    const { is_row, is_uk_eu } = useCountryRule()
+    const { is_row, is_eu } = useCountryRule()
 
     const getDtraderText = () => (
         <NavCard
@@ -387,7 +387,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                         />
                     </>
                 )}
-                {is_uk_eu && <>{getDtraderText()}</>}
+                {is_eu && <>{getDtraderText()}</>}
             </Flex>
             {is_row && (
                 <>
@@ -437,8 +437,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
 }
 
 export const NavMarket = ({ onClick }: NavMarketProps) => {
-    const { is_non_uk } = useCountryRule()
-
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
             <NavCard
@@ -473,20 +471,18 @@ export const NavMarket = ({ onClick }: NavMarketProps) => {
                 onClick={onClick}
                 to="/markets/stock/"
             />
-            {is_non_uk && (
-                <NavCard
-                    aria_label="Cryptocurrencies"
-                    icon={() => (
-                        <img src={Cryptocurrencies} alt="Cryptocurrencies" width="32" height="32" />
-                    )}
-                    content={
-                        <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
-                    }
-                    title={<Localize translate_text="Cryptocurrencies" />}
-                    onClick={onClick}
-                    to="/markets/cryptocurrencies/"
-                />
-            )}
+            <NavCard
+                aria_label="Cryptocurrencies"
+                icon={() => (
+                    <img src={Cryptocurrencies} alt="Cryptocurrencies" width="32" height="32" />
+                )}
+                content={
+                    <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
+                }
+                title={<Localize translate_text="Cryptocurrencies" />}
+                onClick={onClick}
+                to="/markets/cryptocurrencies/"
+            />
             <NavCard
                 aria_label="Commodities"
                 icon={() => <img src={Commodities} alt="Commodities" width="32" height="32" />}

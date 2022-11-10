@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
@@ -9,11 +9,7 @@ import {
     numberSubmitFormat,
     getMaxLength,
 } from '../common/_utility'
-import {
-    optionItemDefault,
-    syntheticItemLists,
-    financialItemLists,
-} from '../common/_underlying-data'
+import { optionItemDefault } from '../common/_underlying-data'
 import {
     BreadCrumbContainer,
     CalculateButton,
@@ -51,6 +47,13 @@ import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { localize, Localize } from 'components/localization'
+import { useDerivApi } from 'components/hooks/use-deriv-api'
+import { useCountryRule } from 'components/hooks/use-country-rule'
+
+interface DerivAPIResponse {
+    active_symbols: []
+    error: unknown
+}
 
 const PipCalculator = () => {
     const query = graphql`
@@ -76,12 +79,79 @@ const PipCalculator = () => {
         }
     `
     const data = useStaticQuery(query)
-
+    const { is_row } = useCountryRule()
     const [tab, setTab] = useState('Synthetic')
+    const [activeSymbols, setActiveSymbols] = useState([])
+    const [syntheticSymbolNames, setSyntheticSymbolNames] = useState({})
+    const [financialSymbolNames, setFinancialSymbolNames] = useState({})
+    const [euSymbolNames, setEuSymbolNames] = useState({})
 
     const onTabClick = (t) => {
         setTab(t)
     }
+
+    const deriv_api = useDerivApi()
+
+    useEffect(() => {
+        const { send } = deriv_api
+        send(
+            is_row
+                ? { active_symbols: 'full' }
+                : {
+                      trading_platform_product_listing: 1,
+                      country_code: 'de',
+                  },
+            (response: DerivAPIResponse) => {
+                if (!response.error && response.active_symbols.length > 0) {
+                    const data = response.active_symbols
+                    setActiveSymbols(data)
+                }
+            },
+        )
+    }, [])
+
+    useEffect(() => {
+        const tempEuSymbolNames = []
+
+        if (activeSymbols.length < 1) {
+            return
+        }
+        const data = activeSymbols.filter((activeSymbol) => {
+            return activeSymbol
+        })
+        tempEuSymbolNames.push(data)
+        setEuSymbolNames(tempEuSymbolNames)
+    }, [activeSymbols])
+
+    useEffect(() => {
+        const tempSyntheticSymbolNames = []
+
+        if (activeSymbols.length < 1) {
+            return
+        }
+        const data = activeSymbols.filter((activeSymbol) => {
+            return activeSymbol.market === 'synthetic_index'
+        })
+        tempSyntheticSymbolNames.push(data)
+        setSyntheticSymbolNames(tempSyntheticSymbolNames)
+    }, [activeSymbols])
+
+    useEffect(() => {
+        const tempFinancialSymbolNames = []
+
+        if (activeSymbols.length < 1) {
+            return
+        }
+
+        const markets = ['forex', 'cryptocurrency', 'basket_index', 'commodities', 'indices']
+
+        const data = activeSymbols.filter((activeSymbol) => {
+            return markets.includes(activeSymbol.market)
+        })
+
+        tempFinancialSymbolNames.push(data)
+        setFinancialSymbolNames(tempFinancialSymbolNames)
+    }, [activeSymbols])
 
     return (
         <>
@@ -118,7 +188,9 @@ const PipCalculator = () => {
                                 symbol: '',
                                 volume: '',
                                 pointValue: '',
-                                optionList: syntheticItemLists,
+                                optionList: is_row
+                                    ? syntheticSymbolNames && syntheticSymbolNames[0]
+                                    : euSymbolNames && euSymbolNames[0],
                                 contractSize: '',
                             }}
                             validate={resetValidationPip}
@@ -157,43 +229,59 @@ const PipCalculator = () => {
                                     </CalculatorHeader>
 
                                     <CalculatorBody>
-                                        <CalculatorLabel>
-                                            {localize('Account type')}
-                                        </CalculatorLabel>
-                                        <Flex
-                                            mb="3rem"
-                                            mt="1rem"
-                                            jc="space-between"
-                                            tablet={{ height: 'unset' }}
-                                        >
-                                            <CalculatorTabItem
-                                                active={tab === 'Synthetic'}
-                                                onClick={() => {
-                                                    onTabClick('Synthetic')
-                                                    setErrors({})
-                                                    resetForm({})
-                                                }}
-                                            >
-                                                <Text align="center">{localize('Synthetic')}</Text>
-                                            </CalculatorTabItem>
-                                            <CalculatorTabItem
-                                                active={tab === 'Financial'}
-                                                disabled={tab === 'Financial'}
-                                                onClick={() => {
-                                                    onTabClick('Financial')
-                                                    setErrors({})
-                                                    resetForm({})
-                                                    setFieldValue('accountType', 'Financial')
-                                                    setFieldValue('optionList', financialItemLists)
-                                                }}
-                                            >
-                                                <Text align="center">{localize('Financial')}</Text>
-                                            </CalculatorTabItem>
-                                        </Flex>
+                                        {is_row && (
+                                            <>
+                                                <CalculatorLabel>
+                                                    {localize('Account type')}
+                                                </CalculatorLabel>
 
+                                                <Flex
+                                                    mb="3rem"
+                                                    mt="1rem"
+                                                    jc="space-between"
+                                                    tablet={{ height: 'unset' }}
+                                                >
+                                                    <CalculatorTabItem
+                                                        active={tab === 'Synthetic'}
+                                                        onClick={() => {
+                                                            onTabClick('Synthetic')
+                                                            setErrors({})
+                                                            resetForm({})
+                                                        }}
+                                                    >
+                                                        <Text align="center">
+                                                            {localize('Synthetic')}
+                                                        </Text>
+                                                    </CalculatorTabItem>
+                                                    <CalculatorTabItem
+                                                        active={tab === 'Financial'}
+                                                        disabled={tab === 'Financial'}
+                                                        onClick={() => {
+                                                            onTabClick('Financial')
+                                                            setErrors({})
+                                                            resetForm({})
+                                                            setFieldValue(
+                                                                'accountType',
+                                                                'Financial',
+                                                            )
+                                                            setFieldValue(
+                                                                'optionList',
+                                                                financialSymbolNames &&
+                                                                    financialSymbolNames[0],
+                                                            )
+                                                        }}
+                                                    >
+                                                        <Text align="center">
+                                                            {localize('Financial')}
+                                                        </Text>
+                                                    </CalculatorTabItem>
+                                                </Flex>
+                                            </>
+                                        )}
                                         <CalculatorDropdown
                                             option_list={values.optionList}
                                             label={localize('Symbol')}
+                                            is_calculator={true}
                                             default_option={optionItemDefault}
                                             selected_option={values.symbol}
                                             id="symbol"
@@ -313,12 +401,16 @@ const PipCalculator = () => {
 
                         <Text mb="1.6rem">
                             {localize(
-                                'For synthetic accounts, the pip value is calculated in USD.',
+                                is_row
+                                    ? 'For synthetic accounts, the pip value is calculated in USD.'
+                                    : 'The pip value is calculated in USD for synthetic indices, metals, energies, stocks, equities, and cryptocurrencies.',
                             )}
                         </Text>
                         <Text mb="40px">
                             {localize(
-                                'For financial accounts, the pip value is in the quote currency for forex pairs.',
+                                is_row
+                                    ? 'For financial accounts, the pip value is in the quote currency for forex pairs.'
+                                    : 'The pip value is calculated in the quote currency for forex pairs.',
                             )}
                         </Text>
 
@@ -335,7 +427,9 @@ const PipCalculator = () => {
                             >
                                 <Text mb="16px">
                                     {localize(
-                                        'Let’s say you want to trade 1 lot of Volatility 75 Index.',
+                                        is_row
+                                            ? 'Let’s say you want to trade 1 lot of Volatility 75 Index.'
+                                            : 'Let’s say you want to trade 1 lot of Volatility 200 (1s) Index',
                                     )}
                                 </Text>
 
@@ -369,7 +463,9 @@ const PipCalculator = () => {
                                         <li>
                                             <span>
                                                 {localize(
-                                                    'The contract size is one standard lot of Volatility 75 index = 1',
+                                                    is_row
+                                                        ? 'The contract size is one standard lot of Volatility 75 index = 1'
+                                                        : 'The contract size is one standard lot of Volatility 200 (1s) Index = 1',
                                                 )}
                                             </span>
                                         </li>

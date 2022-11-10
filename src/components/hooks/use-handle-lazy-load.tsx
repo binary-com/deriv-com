@@ -2,6 +2,10 @@ import React, { ReactNode, useEffect, useState } from 'react'
 import { DotLoader } from 'components/elements'
 
 export const useHandleLazyLoad = (lazyTemplates: ReactNode, targetId: string, options: object) => {
+    console.log('target id:', targetId)
+    console.log('lazyTemplates:', lazyTemplates)
+    console.log('options:', options)
+
     const [is_visible, setIsVisible] = useState(false)
     const [is_large_screen, setLargeScreen] = useState(false)
 

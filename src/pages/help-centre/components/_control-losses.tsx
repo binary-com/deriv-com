@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ImageCard from '../_image-card'
+import ImageCard from './_image-card'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import LossesImage from 'images/common/help-centre/dbot-losses.png'

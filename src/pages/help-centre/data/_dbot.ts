@@ -1,5 +1,5 @@
 import RemoveBlocks from '../components/_remove-blocks'
-import ControlLosses from '../components/dbot/_control-losses'
+import ControlLosses from '../components/_control-losses'
 import { TQuestionsData } from './_data-types'
 // images
 import GetStartedImage from 'images/common/help-centre/dbot-button-get-started.png'

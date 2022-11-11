@@ -9,6 +9,7 @@ import Layout from 'components/layout/layout'
 const tools = [
     {
         title: <Localize translate_text="Margin calculator" />,
+        is_row_margin: true,
         subtitle: (
             <Localize translate_text="Estimate the margin you need to hold your positions. The result depends on leverage, volume lot, and your Deriv MT5 account balance." />
         ),
@@ -17,6 +18,20 @@ const tools = [
             route: '/trader-tools/margin-calculator/',
         },
         image_name: 'margin',
+        image_alt: localize('margin calculator'),
+    },
+    {
+        title: <Localize translate_text="Margin calculator" />,
+        is_eu: true,
+        is_eu_margin: true,
+        subtitle: (
+            <Localize translate_text="Estimate the margin you need to hold your positions. The result depends on leverage, volume lot, and your Deriv MT5 account balance." />
+        ),
+        link: {
+            text: <Localize translate_text="Try margin calculator" />,
+            route: '/trader-tools/margin-calculator/',
+        },
+        image_name: 'eu_margin',
         image_alt: localize('margin calculator'),
     },
     {

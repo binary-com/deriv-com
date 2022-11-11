@@ -5,6 +5,7 @@ import { isIndexEven } from 'common/utility'
 import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 
 type ToolsType = {
@@ -13,11 +14,17 @@ type ToolsType = {
     link: { text: JSX.Element; route: string }
     image_name: string
     image_alt: string
+    is_eu?: boolean
+    is_row_margin?: boolean
+    is_eu_margin?: boolean
 }[]
 
 type TradingToolsProps = {
     reverse?: boolean
     tools: ToolsType
+    is_row_margin?: boolean
+    is_eu?: boolean
+    is_eu_margin?: boolean
 }
 
 type ColumnProps = {
@@ -90,10 +97,12 @@ const Divider = styled.div`
         }
     }
 `
-
 const query = graphql`
     query {
         margin: file(relativePath: { eq: "trade-tools/landing/margin-calculator.png" }) {
+            ...fadeIn
+        }
+        eu_margin: file(relativePath: { eq: "trade-tools/landing/eu-margin-calculator.png" }) {
             ...fadeIn
         }
         swap: file(relativePath: { eq: "trade-tools/landing/swap-calculator.png" }) {
@@ -110,6 +119,11 @@ const query = graphql`
         }
         margin_mobile: file(
             relativePath: { eq: "trade-tools/landing/margin-calculator-mobile.png" }
+        ) {
+            ...fadeIn
+        }
+        eu_margin_mobile: file(
+            relativePath: { eq: "trade-tools/landing/eu-margin-calculator-mobile.png" }
         ) {
             ...fadeIn
         }
@@ -134,55 +148,62 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
     const inner_margin = '24px'
     const outer_margin = '102px'
     const data = useStaticQuery(query)
+    const { is_eu } = useCountryRule()
     return (
         <StyledSection background="white">
             <Container fd="column">
                 {tools.map((item, index) => {
                     const is_even = isIndexEven(index)
-                    return (
-                        <React.Fragment key={item.image_alt}>
-                            <ToolWrapper flex_direction={is_even ? 'row-reverse' : 'row'}>
-                                <Column>
-                                    <Desktop>
-                                        <QueryImage
-                                            data={data[item.image_name]}
-                                            alt={item.image_alt}
-                                            height="100%"
-                                            loading={index === 0 ? 'eager' : 'lazy'}
-                                        />
-                                    </Desktop>
-                                    <Mobile className="margin-calculator-btn">
-                                        <QueryImage
-                                            data={data[item.image_name + '_mobile']}
-                                            alt={item.image_alt}
-                                            height="100%"
-                                            loading={index === 0 ? 'eager' : 'lazy'}
-                                        />
-                                        <StyledLinkButton tertiary to={item.link.route}>
-                                            {item.link.text}
-                                        </StyledLinkButton>
-                                    </Mobile>
-                                </Column>
-                                <Content
-                                    height="auto"
-                                    fd="column"
-                                    margin_right={is_even ? inner_margin : outer_margin}
-                                    margin_left={is_even ? outer_margin : inner_margin}
-                                >
-                                    <Header as="h3" type="section-title" mb="8px">
-                                        {item.title}
-                                    </Header>
-                                    <Text>{item.subtitle}</Text>
-                                    <Desktop className="margin-calculator-btn">
-                                        <StyledLinkButton tertiary to={item.link.route}>
-                                            {item.link.text}
-                                        </StyledLinkButton>
-                                    </Desktop>
-                                </Content>
-                            </ToolWrapper>
-                            <Divider />
-                        </React.Fragment>
-                    )
+                    if (item.is_row_margin && is_eu) {
+                        return []
+                    }
+                    if (item.is_eu_margin && !is_eu) {
+                        return []
+                    } else
+                        return (
+                            <React.Fragment key={item.image_alt}>
+                                <ToolWrapper flex_direction={is_even ? 'row-reverse' : 'row'}>
+                                    <Column>
+                                        <Desktop>
+                                            <QueryImage
+                                                data={data[item.image_name]}
+                                                alt={item.image_alt}
+                                                height="100%"
+                                                loading={index === 0 ? 'eager' : 'lazy'}
+                                            />
+                                        </Desktop>
+                                        <Mobile className="margin-calculator-btn">
+                                            <QueryImage
+                                                data={data[item.image_name + '_mobile']}
+                                                alt={item.image_alt}
+                                                height="100%"
+                                                loading={index === 0 ? 'eager' : 'lazy'}
+                                            />
+                                            <StyledLinkButton tertiary to={item.link.route}>
+                                                {item.link.text}
+                                            </StyledLinkButton>
+                                        </Mobile>
+                                    </Column>
+                                    <Content
+                                        height="auto"
+                                        fd="column"
+                                        margin_right={is_even ? inner_margin : outer_margin}
+                                        margin_left={is_even ? outer_margin : inner_margin}
+                                    >
+                                        <Header as="h3" type="section-title" mb="8px">
+                                            {item.title}
+                                        </Header>
+                                        <Text>{item.subtitle}</Text>
+                                        <Desktop className="margin-calculator-btn">
+                                            <StyledLinkButton tertiary to={item.link.route}>
+                                                {item.link.text}
+                                            </StyledLinkButton>
+                                        </Desktop>
+                                    </Content>
+                                </ToolWrapper>
+                                <Divider />
+                            </React.Fragment>
+                        )
                 })}
             </Container>
         </StyledSection>

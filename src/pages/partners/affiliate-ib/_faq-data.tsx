@@ -612,7 +612,7 @@ const IBAccountManagement = () => {
             </Header>
             <TextSecondary>
                 <Localize translate_text="If you’re already registered as a Deriv affiliate, " />
-    <LiveChatLinkText text="_t_contact us via live chat._t_" />
+                <LiveChatLinkText text="_t_contact us via live chat._t_" />
             </TextSecondary>
             <Header
                 as="p"
@@ -662,9 +662,7 @@ const IBReferralTools = () => {
                     type: 'paragraph-2',
                 }}
             >
-                {localize(
-                    'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our Deriv MT5 platform. ',
-                )}
+                <Localize translate_text="Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our Deriv MT5 platform." />
             </Header>
         </ItemContainer>
     )

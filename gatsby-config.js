@@ -1,5 +1,5 @@
 const language_config = require(`./i18n-config.js`)
-const isBrowser = typeof window !== "undefined"
+const isBrowser = require(`./src/common/utility`)
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
@@ -101,7 +101,7 @@ module.exports = {
                     }
                 }
                 `,
-                resolveSiteUrl: () => isBrowser && (window.location.hostname) || `https://deriv.com/`,
+                resolveSiteUrl: () => (isBrowser && window.location.hostname) || site_url,
                 resolvePages: ({ allSitePage: { nodes: allPages } }) => {
                     return allPages.map((page) => {
                         return { ...page }

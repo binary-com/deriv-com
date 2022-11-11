@@ -8,6 +8,7 @@ export const ConferenceNavWrapper = styled.div`
     position: fixed;
     top: 0;
     z-index: 100;
+    background-color: var(--color-black);
 `
 
 const NavConference = () => {

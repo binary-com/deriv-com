@@ -4,7 +4,9 @@ import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import stock_content from '../../static/content/_stock'
 import { stock_cfds } from '../../static/content/_cfds'
+import { stock_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
+import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { localize, Localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
@@ -39,6 +41,12 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
             </WhyTrade>
             <AvailableTrades
                 CFDs={<CFDs market_tab_name={'stock-indices'} market_content={stock_cfds} />}
+                DigitalOptions={
+                    <DigitalOptions
+                        market_name={localize('stocks & indices')}
+                        options_list={stock_options}
+                    />
+                }
                 display_title={
                     <Localize translate_text="Stocks & indices trades available on Deriv" />
                 }

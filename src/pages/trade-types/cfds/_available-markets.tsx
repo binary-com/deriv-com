@@ -90,6 +90,9 @@ const available_markets = [
         description: (
             <Localize translate_text="Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits." />
         ),
+        eu_description: (
+            <Localize translate_text="Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits." />
+        ),
         learn_more_path: '/markets/commodities/',
     },
 ]
@@ -101,7 +104,7 @@ const eu_available_markets = available_markets.filter(
 )
 
 const AvailableMarkets = () => {
-    const { is_row, is_eu } = useCountryRule()
+    const { is_eu, is_row } = useCountryRule()
 
     return (
         <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -129,7 +132,11 @@ const AvailableMarkets = () => {
 
                                                 <StyledText weight="bold">{market.text}</StyledText>
                                             </MobileCardHeader>
-                                            <Text>{market.description}</Text>
+                                            <Text>
+                                                {is_eu
+                                                    ? market.eu_description || market.description
+                                                    : market.description}
+                                            </Text>
                                             <LearnMore
                                                 text={<Localize translate_text="Learn more" />}
                                                 to={market.learn_more_path}

@@ -40,9 +40,7 @@ export const useDataFilter = (data) => {
     const { is_eu } = useCountryRule()
     let filtered_data = data
     if (is_eu) {
-        filtered_data = data.filter(
-            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu',
-        )
+        filtered_data = data.filter((item) => item.visibility !== 'hide_for_eu')
     }
     return filtered_data
 }

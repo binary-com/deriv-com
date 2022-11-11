@@ -1,5 +1,5 @@
 const language_config = require(`./i18n-config.js`)
-const isBrowser = require(`./src/common/utility`)
+const isBrowser = typeof window !== "undefined"
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,

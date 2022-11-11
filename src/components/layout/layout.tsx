@@ -10,6 +10,7 @@ import Nav from './nav/nav'
 import NavTransparent from './nav/nav-transparent'
 import NavCareers from './nav/nav-careers'
 import NavPartners from './nav/nav-partner'
+import NavConference from './nav/nav-conference'
 import NavMarkets from './nav/nav-markets'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
@@ -293,6 +294,10 @@ const Layout = ({
         case 'transparent':
             Navigation = <NavTransparent is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+            break
+        case 'conference':
+            Navigation = <NavConference />
+            FooterNav = <Footer />
             break
         default:
             Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />

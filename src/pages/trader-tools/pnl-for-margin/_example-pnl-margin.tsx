@@ -20,20 +20,18 @@ import {
     PointerTextMobile,
     FormulaTopWrapperMobile,
     FormulaBottomWrapperPnlMobile,
-    Sup,
     FormulaTopWrapper,
     StyledSpan,
     FormulaValuePnlMobile,
     FormulaValuePnlMobileTakeProfit,
 } from '../common/_style'
 import { Localize } from 'components/localization'
-import { Show } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers'
 
-// Buy data
 export const StopLoss = () => {
     return (
         <>
-            <Show.Desktop>
+            <Desktop>
                 <FormulaContainer height="176px">
                     <FormulaHighlight jc="space-evenly" pl="30px" pr="30px">
                         <FormulaValueSwapSynthetic>
@@ -106,9 +104,9 @@ export const StopLoss = () => {
                         </FormulaValueSwapSynthetic>
                     </FormulaHighlight>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile>
+            <Mobile>
                 <FormulaContainerMobile pt="60px" height="208px">
                     <FormulaHighlightMobile fs="14px" height="90px" jc="space-evenly">
                         <FormulaTopWrapperMobile mt="-20px">
@@ -194,7 +192,7 @@ export const StopLoss = () => {
                         </FormulaBottomWrapperPnlMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }
@@ -202,7 +200,7 @@ export const StopLoss = () => {
 export const PipValue = () => {
     return (
         <>
-            <Show.Desktop>
+            <Desktop>
                 <FormulaContainer height="176px">
                     <FormulaHighlight jc="space-evenly" pr="76px" pl="76px">
                         <FormulaValueSwapSynthetic>
@@ -266,9 +264,9 @@ export const PipValue = () => {
                         </FormulaValueSwapSynthetic>
                     </FormulaHighlight>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile>
+            <Mobile>
                 <FormulaContainerMobile height="200px" pt="66px">
                     <FormulaHighlightMobile height="78px">
                         <FormulaValueMobile>
@@ -333,17 +331,15 @@ export const PipValue = () => {
                         </FormulaValueMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }
 
-// Sell data
-
 export const TakeProfitLevel = () => {
     return (
         <>
-            <Show.Desktop max_width="tablet">
+            <Desktop max_width="tablet">
                 <FormulaContainer height="176px">
                     <FormulaHighlight pr="45px" pl="45px">
                         <FormulaValue>
@@ -422,9 +418,9 @@ export const TakeProfitLevel = () => {
                         </FormulaValue>
                     </FormulaHighlight>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile>
+            <Mobile>
                 <FormulaContainerMobile height="180px" pt="65px">
                     <FormulaHighlightMobile>
                         <FormulaValueMobile>
@@ -506,7 +502,7 @@ export const TakeProfitLevel = () => {
                         </FormulaValueMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }
@@ -514,7 +510,7 @@ export const TakeProfitLevel = () => {
 export const ProfitPipValue = () => {
     return (
         <>
-            <Show.Desktop>
+            <Desktop>
                 <FormulaContainer height="176px">
                     <FormulaHighlight jc="space-evenly" pl="41px" pr="41px">
                         <FormulaValueSwapSynthetic>
@@ -578,9 +574,9 @@ export const ProfitPipValue = () => {
                         </FormulaValueSwapSynthetic>
                     </FormulaHighlight>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile>
+            <Mobile>
                 <FormulaContainerMobile pt="60px" height="212px">
                     <FormulaHighlightMobile height="100px">
                         <FormulaTopWrapperMobile mt="-20px" cg="6px" ml="-100px">
@@ -651,7 +647,7 @@ export const ProfitPipValue = () => {
                         </FormulaBottomWrapperPnlMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }

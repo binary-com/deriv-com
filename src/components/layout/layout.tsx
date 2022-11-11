@@ -10,6 +10,7 @@ import Nav from './nav/nav'
 import NavTransparent from './nav/nav-transparent'
 import NavCareers from './nav/nav-careers'
 import NavPartners from './nav/nav-partner'
+import NavMarkets from './nav/nav-markets'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
@@ -206,8 +207,7 @@ const Layout = ({
                     const client_information_cookie = new CookieStorage('client_information')
                     const residence = client_information_cookie.get('residence')
                     setRedirectionApplied(true)
-                    !isEuDomain() &&
-                        handleRedirect(residence, current_client_country, window.location.hostname)
+                    !isEuDomain() && handleRedirect(residence, current_client_country)
                 }
             })
         }
@@ -248,6 +248,10 @@ const Layout = ({
             Navigation = <NavAcademy />
             FooterNav = <Footer academy={true} />
             break
+        case 'noNav':
+            Navigation = <></>
+            FooterNav = <Footer />
+            break
         case 'static':
             Navigation = <NavStatic is_ppc={is_ppc} />
             break
@@ -256,6 +260,10 @@ const Layout = ({
             break
         case 'partners':
             Navigation = <NavPartners hide_login_signup={no_login_signup} />
+            FooterNav = <Footer />
+            break
+        case 'markets':
+            Navigation = <NavMarkets />
             FooterNav = <Footer />
             break
         case 'security':

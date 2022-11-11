@@ -16,15 +16,14 @@ import {
     PointerStickMobile,
     PointerDotMobile,
     PointerTextMobile,
-    Sup,
 } from '../common/_style'
 import { Localize } from 'components/localization'
-import { Show } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers'
 
 export const PipSyntheticExample = () => {
     return (
         <>
-            <Show.Desktop>
+            <Desktop>
                 <FormulaContainer pt="8px">
                     <FormulaHighlight jc="space-evenly" pl="100px" pr="100px">
                         <FormulaValue>
@@ -89,9 +88,9 @@ export const PipSyntheticExample = () => {
                         </FormulaValue>
                     </FormulaHighlight>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile>
+            <Mobile>
                 <FormulaContainerMobile>
                     <FormulaHighlightMobile jc="space-evenly">
                         <FormulaValueMobile>
@@ -155,7 +154,7 @@ export const PipSyntheticExample = () => {
                         </FormulaValueMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }
@@ -163,7 +162,7 @@ export const PipSyntheticExample = () => {
 export const PipForexExample = () => {
     return (
         <>
-            <Show.Desktop>
+            <Desktop>
                 <FormulaContainer pt="8px">
                     <FormulaHighlight jc="space-evenly" pl="71px" pr="71px">
                         <FormulaValue>
@@ -228,9 +227,9 @@ export const PipForexExample = () => {
                         </FormulaValue>
                     </FormulaHighlight>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile>
+            <Mobile>
                 <FormulaContainerMobile>
                     <FormulaHighlightMobile jc="space-evenly">
                         <FormulaValueMobile>
@@ -294,7 +293,7 @@ export const PipForexExample = () => {
                         </FormulaValueMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }

@@ -6,7 +6,6 @@ import { Dropdown, Header, Text } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
-import { Grid } from 'pages/trade-types/components/_style'
 
 type CalculatorTabItemProps = {
     active?: ReactNode

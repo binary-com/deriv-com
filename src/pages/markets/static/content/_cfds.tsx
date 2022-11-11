@@ -20,12 +20,14 @@ import {
     AsianIndices,
     EuropeanIndices,
     JumpIndices,
+    DerivedCFDs,
 } from '../../instruments/_submarkets'
 import {
     BasketCommoditiesDetails,
     BasketFXDetails,
     CrashBoomDetails,
     CrashBoomDetailsEU,
+    DerivedCFDsDetails,
     RangeBreakIndicesDetails,
     StepIndicesDetails,
     VolatilityIndicesDetails,
@@ -114,9 +116,7 @@ export const synthetic_cfds: MarketInstrumentsElement = {
         },
         {
             title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: (
-                <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
-            ),
+            mobile_title: <Localize translate_text="Crash/Boom" />,
             component: <CrashBoom />,
             details: <CrashBoomDetails />,
         },
@@ -154,9 +154,7 @@ export const synthetic_cfds_eu: MarketInstrumentsElement = {
         },
         {
             title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: (
-                <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
-            ),
+            mobile_title: <Localize translate_text="Crash/Boom" />,
             component: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
         },
@@ -246,6 +244,21 @@ export const basket_cfds: MarketInstrumentsElement = {
             title: <Localize translate_text="Forex Basket" />,
             component: <BasketIndicesCfds />,
             details: <BasketFXDetails />,
+        },
+    ],
+}
+export const derived_fx_cfds: MarketInstrumentsElement = {
+    markets_list: {
+        col: 2,
+        tablet_col: 2,
+        mobile_col: 2,
+    },
+    template: 3,
+    content: [
+        {
+            title: <Localize translate_text="Derived FX" />,
+            component: <DerivedCFDs />,
+            details: <DerivedCFDsDetails />,
         },
     ],
 }

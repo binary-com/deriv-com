@@ -42,7 +42,7 @@ import { PipSyntheticExample, PipForexExample } from './_example-pip'
 import { Accordion, AccordionItem, Header, LocalizedLinkText, Text } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 
 const PipCalculator = () => {
@@ -270,7 +270,7 @@ const PipCalculator = () => {
 
                         <Text>
                             {localize(
-                                'The pip value for a contract on DMT5 is calculated based on this formula:',
+                                'The pip value for a contract on Deriv MT5 is calculated based on this formula:',
                             )}
                         </Text>
                         <Text mb="1.6rem">
@@ -308,13 +308,13 @@ const PipCalculator = () => {
                                     )}
                                 </Text>
 
-                                <Show.Desktop>
+                                <Desktop>
                                     <PipSyntheticExample />
-                                </Show.Desktop>
+                                </Desktop>
 
-                                <Show.Mobile>
+                                <Mobile>
                                     <PipSyntheticExample />
-                                </Show.Mobile>
+                                </Mobile>
                                 <FormulaText>
                                     <StyledOl>
                                         <li>
@@ -350,13 +350,13 @@ const PipCalculator = () => {
                                     {localize('Let’s say you want to trade 2 lots of EUR/USD.')}
                                 </Text>
 
-                                <Show.Desktop>
+                                <Desktop>
                                     <PipForexExample />
-                                </Show.Desktop>
+                                </Desktop>
 
-                                <Show.Mobile>
+                                <Mobile>
                                     <PipForexExample />
-                                </Show.Mobile>
+                                </Mobile>
 
                                 <FormulaText>
                                     <StyledOl>

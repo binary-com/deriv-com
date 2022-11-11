@@ -69,6 +69,7 @@ const YourControlContainer = styled(SectionContainer)`
 type CardItemType = {
     img_src: string
     card_text: ReactElement
+    alt: string
 }
 const cardItems: CardItemType[] = [
     {
@@ -76,22 +77,26 @@ const cardItems: CardItemType[] = [
         card_text: (
             <Localize translate_text="Determine your commission per transaction, subject to our established thresholds." />
         ),
+        alt: 'commission',
     },
     {
         img_src: LoudSpeaker,
         card_text: (
             <Localize translate_text="Promote your services to Deriv clients in your country." />
         ),
+        alt: 'loud speaker',
     },
     {
         img_src: WithdrawDeposit,
         card_text: (
             <Localize translate_text="Help Deriv clients to make multiple deposits and withdrawals daily." />
         ),
+        alt: 'multiple deposits and withdrawals daily',
     },
     {
         img_src: CloseAccount,
         card_text: <Localize translate_text="Close your account at any time you want." />,
+        alt: 'close account',
     },
 ]
 const YourControl = () => {
@@ -116,7 +121,7 @@ const YourControl = () => {
                 >
                     {cardItems.map((item, index) => (
                         <Card key={`key-${index}`}>
-                            <img src={item.img_src} alt={''} />
+                            <img src={item.img_src} alt={item.alt} />
                             <CardText>{item.card_text}</CardText>
                         </Card>
                     ))}

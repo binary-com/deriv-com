@@ -51,7 +51,7 @@ import {
     LocalizedLinkText,
     Text,
 } from 'components/elements'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
@@ -244,7 +244,7 @@ const SwapCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5 (DMT5).',
+                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5.',
                     )}
                 </SectionSubtitle>
 
@@ -461,12 +461,12 @@ const SwapCalculator = () => {
                                             )}
                                         </Text>
 
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <SwapSyntheticExample />
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <SwapSyntheticExample />
-                                        </Show.Mobile>
+                                        </Mobile>
                                         <FormulaText>
                                             <StyledOl>
                                                 <li>
@@ -706,12 +706,12 @@ const SwapCalculator = () => {
                                             )}
                                         </Text>
 
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <SwapFinancialExample />
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <SwapFinancialExample />
-                                        </Show.Mobile>
+                                        </Mobile>
                                         <FormulaText>
                                             <StyledOl>
                                                 <li>

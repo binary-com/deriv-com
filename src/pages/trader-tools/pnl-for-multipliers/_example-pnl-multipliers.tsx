@@ -21,7 +21,6 @@ import {
     PointerDotMobile,
     PointerTextMobile,
     PointerTextMobilePnlMultiplier,
-    Sup,
     StyledSpan,
     FormulaHighlightForPnlMultiplier,
     FormulaValuePnlMultiplierMobile,
@@ -32,13 +31,12 @@ import {
     FormulaBottomWrapperPnlMobile,
 } from '../common/_style'
 import { Localize } from 'components/localization'
-import { Show } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers'
 
-// Level data
 export const StopLossLevelUp = () => {
     return (
         <>
-            <Show.Desktop>
+            <Desktop>
                 <FormulaContainer height="176px">
                     <FormulaHighlight>
                         <FormulaValueSwapSynthetic>
@@ -138,9 +136,9 @@ export const StopLossLevelUp = () => {
                         </FormulaValueSwapSynthetic>
                     </FormulaHighlight>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile>
+            <Mobile>
                 <FormulaContainerMobile height="202px" pt="65px">
                     <FormulaHighlightMobile height="90px" syn_mobile fs="14px">
                         <FormulaTopWrapperPnlMultiplierMobile ml="12px" cg="5px">
@@ -244,7 +242,7 @@ export const StopLossLevelUp = () => {
                         </FormulaBottomWrapperPnlMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }
@@ -252,7 +250,7 @@ export const StopLossLevelUp = () => {
 export const TakeProfitLevelUp = () => {
     return (
         <>
-            <Show.Desktop>
+            <Desktop>
                 <FormulaContainer height="176px">
                     <FormulaHighlight>
                         <FormulaValueSwapSynthetic>
@@ -352,9 +350,9 @@ export const TakeProfitLevelUp = () => {
                         </FormulaValueSwapSynthetic>
                     </FormulaHighlight>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile>
+            <Mobile>
                 <FormulaContainerMobile height="202px" pt="65px">
                     <FormulaHighlightMobile height="90px" syn_mobile fs="14px">
                         <FormulaTopWrapperPnlMultiplierMobile ml="12px" cg="5px">
@@ -458,7 +456,7 @@ export const TakeProfitLevelUp = () => {
                         </FormulaBottomWrapperPnlMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }
@@ -468,7 +466,7 @@ export const TakeProfitLevelUp = () => {
 export const TakeProfitAmountUp = () => {
     return (
         <>
-            <Show.Desktop max_width="tablet">
+            <Desktop max_width="tablet">
                 <FormulaContainer height="227px" pt="0">
                     <FormulaHighlightForPnlMultiplier height="110px" mt="60px" mb="60px">
                         <FormulaTopWrapperPnl mt="29px">
@@ -597,9 +595,9 @@ export const TakeProfitAmountUp = () => {
                         </FormulaBottomWrapperPnl>
                     </FormulaHighlightForPnlMultiplier>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile min_width="tablet">
+            <Mobile min_width="tablet">
                 <FormulaContainerMobile height="220px" pt="65px">
                     <FormulaHighlightMobile height="107px" syn_mobile fs="13px">
                         <FormulaTopWrapperMobile ml="-13px" mt="-2px">
@@ -732,7 +730,7 @@ export const TakeProfitAmountUp = () => {
                         </FormulaBottomWrapperPnlMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }
@@ -740,7 +738,7 @@ export const TakeProfitAmountUp = () => {
 export const StopLossAmountDown = () => {
     return (
         <>
-            <Show.Desktop max_width="tablet">
+            <Desktop max_width="tablet">
                 <FormulaContainer height="227px" pt="0">
                     <FormulaHighlightForPnlMultiplier height="110px" mt="60px" mb="60px">
                         <FormulaTopWrapperPnl mt="29px">
@@ -870,9 +868,9 @@ export const StopLossAmountDown = () => {
                         </FormulaBottomWrapperPnl>
                     </FormulaHighlightForPnlMultiplier>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile min_width="tablet">
+            <Mobile min_width="tablet">
                 <FormulaContainerMobile height="220px" pt="65px">
                     <FormulaHighlightMobile height="107px" syn_mobile fs="13px">
                         <FormulaTopWrapperMobile ml="-13px" mt="-2px">
@@ -1005,7 +1003,7 @@ export const StopLossAmountDown = () => {
                         </FormulaBottomWrapperPnlMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }

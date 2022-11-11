@@ -17,7 +17,6 @@ import {
     PointerStickMobile,
     PointerDotMobile,
     PointerTextMobile,
-    Sup,
     StyledSpan,
     FormulaTopWrapperSwapMobile,
     FormulaTopWrapperMobile,
@@ -25,12 +24,12 @@ import {
     FormulaContainerSwapMobile,
 } from '../common/_style'
 import { Localize } from 'components/localization'
-import { Show } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers'
 
 export const SwapSyntheticExample = () => {
     return (
         <>
-            <Show.Desktop>
+            <Desktop>
                 <FormulaContainer height="176px">
                     <FormulaHighlight>
                         <FormulaValueSwapSynthetic>
@@ -126,9 +125,9 @@ export const SwapSyntheticExample = () => {
                         </FormulaValueSwapSynthetic>
                     </FormulaHighlight>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile>
+            <Mobile>
                 <FormulaContainerSwapMobile height="210px">
                     <FormulaHighlightMobile height="107px" syn_mobile>
                         <FormulaTopWrapperSwapMobile>
@@ -227,7 +226,7 @@ export const SwapSyntheticExample = () => {
                         </FormulaBottomWrapperMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerSwapMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }
@@ -235,7 +234,7 @@ export const SwapSyntheticExample = () => {
 export const SwapFinancialExample = () => {
     return (
         <>
-            <Show.Desktop>
+            <Desktop>
                 <FormulaContainer height="132px" pt="8px">
                     <FormulaHighlight jc="space-evenly" pr="78px" pl="78px">
                         <FormulaValueSwapSynthetic>
@@ -316,9 +315,9 @@ export const SwapFinancialExample = () => {
                         </FormulaValueSwapSynthetic>
                     </FormulaHighlight>
                 </FormulaContainer>
-            </Show.Desktop>
+            </Desktop>
 
-            <Show.Mobile>
+            <Mobile>
                 <FormulaContainerMobile>
                     <FormulaHighlightMobile>
                         <FormulaTopWrapperMobile>
@@ -400,7 +399,7 @@ export const SwapFinancialExample = () => {
                         </FormulaTopWrapperMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }

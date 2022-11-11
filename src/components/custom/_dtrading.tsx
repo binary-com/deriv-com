@@ -165,7 +165,14 @@ const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
                 {trading.map((item, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
-                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
+                        <Row
+                            flex_direction={!is_even ? 'row' : 'row-reverse'}
+                            key={
+                                typeof item.title === 'string'
+                                    ? item.title
+                                    : item.title.props.translate_text
+                            }
+                        >
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
                                 <StyledHeader type="page-title" as="h2">
                                     {item.title}

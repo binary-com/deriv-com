@@ -6,8 +6,8 @@ import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
+import CFDsIcon from 'images/svg/dmt5/cfds.svg'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ContentType = {
@@ -52,19 +52,11 @@ const content: ContentType[] = [
 
 const eucontent: ContentType[] = [
     {
-        header: <Localize translate_text="Derived" />,
+        header: <Localize translate_text="CFDs" />,
         text: (
-            <Localize translate_text="Trade CFDs on indices derived from real-world market movements." />
+            <Localize translate_text="Trade CFDs on forex, stocks, stock indices, derived, cryptocurrencies, and commodities." />
         ),
-        icon: <StyledIcon src={DerivedIcon} alt="derived-icon" />,
-        show_eu: true,
-    },
-    {
-        header: <Localize translate_text="Financial" />,
-        text: (
-            <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived indices on high leverage." />
-        ),
-        icon: <StyledIcon src={FinancialIcon} alt="financial-icon" />,
+        icon: <StyledIcon src={CFDsIcon} alt="cfds-icon" />,
         show_eu: true,
     },
 ]
@@ -84,7 +76,7 @@ const ClientCard = styled.article`
     background-color: var(--color-white);
     border-radius: 4px;
     box-shadow: 0 22px 20px 0 rgba(14, 14, 14, 0.1);
-    width: 38.4rem;
+    max-width: 40rem;
     padding: 3.2rem 2.4rem 4rem;
     position: relative;
     height: 176px;
@@ -131,10 +123,12 @@ const StyledText = styled(Text)`
 `
 
 const Flexibility = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
-    const { is_uk } = useCountryRule()
+    const { is_uk, is_eu } = useCountryRule()
 
-    const chosen_content = is_eu_country ? eucontent : content
+    const chosen_content = is_eu ? eucontent : content
+    const title = is_eu
+        ? localize('Flexibility with multiple markets')
+        : localize('Flexibility with two account types')
 
     return (
         <Section>
@@ -146,13 +140,13 @@ const Flexibility = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {localize('Flexibility with two account types')}
+                {title}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {
                     return (
-                        ((is_eu_country && item.show_eu) ||
-                            (!is_eu_country && !item.show_eu) ||
+                        ((is_eu && item.show_eu) ||
+                            (!is_eu && !item.show_eu) ||
                             item.show_always) && (
                             <ClientCard key={idx}>
                                 <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
@@ -166,7 +160,7 @@ const Flexibility = () => {
                                     </StyledHeader>
                                     {item.icon}
                                 </Flex>
-                                {is_eu_country && is_uk ? (
+                                {is_uk ? (
                                     <StyledText>
                                         <Localize translate_text="Trade forex, stocks, stock indices, and commodities on leverage." />
                                     </StyledText>

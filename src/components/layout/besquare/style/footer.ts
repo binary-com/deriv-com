@@ -14,7 +14,7 @@ export const Section = styled(SectionContainer)`
     padding: 0;
 `
 export const FooterSection = styled(Section)`
-    margin-bottom: ${(props) => props.is_eu_country && '12.3rem'};
+    margin-bottom: ${(props) => props.is_eu && '12.3rem'};
 `
 
 export const ContentContainer = styled(Container)`

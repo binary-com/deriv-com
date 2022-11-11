@@ -10,7 +10,7 @@ import device from 'themes/device'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import SetOptionalParameters from 'images/svg/trade-types/set-optional-parameters.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const query = graphql`
     query {
@@ -117,7 +117,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     return (
         <StyledSectionContainer padding="8rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
@@ -179,7 +179,7 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Choose an asset from the list of markets offered on Deriv." />
                         }
                     >
-                        {is_eu_country ? (
+                        {is_eu ? (
                             <QueryImage
                                 data={data['multiplier_market_eu']}
                                 alt="Select market to trade"
@@ -197,7 +197,7 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Choose ‘Multipliers’ from the list of trade types." />
                         }
                     >
-                        {is_eu_country ? (
+                        {is_eu ? (
                             <QueryImage
                                 data={data['multiplier_trade_type_eu']}
                                 alt="Selecting multiplier"
@@ -220,14 +220,14 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="4. Multiplier value" />}
                         description={
-                            is_eu_country ? (
+                            is_eu ? (
                                 <Localize translate_text="Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 5. Your loss will never be more than your stake." />
                             ) : (
                                 <Localize translate_text="Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount." />
                             )
                         }
                     >
-                        {is_eu_country ? (
+                        {is_eu ? (
                             <QueryImage
                                 data={data['multiplier_value_eu']}
                                 alt="Enter multiplier value"

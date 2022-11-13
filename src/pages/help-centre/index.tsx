@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 import { eu_discards, getAllArticles } from './_utility'
-import { faq_schema } from './_faq-schema'
+import FaqSchema from './components/_faq-schema'
 import ArticleSectionComponent from './_article-section-component'
 import { SEO, Desktop, Container } from 'components/containers'
 import { Header } from 'components/elements'
@@ -216,9 +215,7 @@ const HelpCentre = () => {
                     'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
                 )}
             />
-            <Helmet>
-                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-            </Helmet>
+            <FaqSchema />
             <SearchSection show={data.toggle_search} has_transition={data.search_has_transition}>
                 <Backdrop>
                     <Container align="left" justify="flex-start" direction="column">

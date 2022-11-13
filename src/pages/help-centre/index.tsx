@@ -3,8 +3,10 @@ import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
+import QuestionsSection from './components/_questions-section'
 import { SearchSuccess, SearchError } from './_search-results'
 import { eu_discards, getAllArticles } from './_utility'
+import all_questions from './data/_all-questions'
 import FaqSchema from './components/_faq-schema'
 import ArticleSectionComponent from './_article-section-component'
 import { SEO, Desktop, Container } from 'components/containers'
@@ -210,12 +212,13 @@ const HelpCentre = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Help centre | Frequently asked questions | Deriv')}
+                title={localize('_t_Help centre | Frequently asked questions | Deriv_t_')}
                 description={localize(
-                    'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
+                    '_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_',
                 )}
             />
             <FaqSchema />
+
             <SearchSection show={data.toggle_search} has_transition={data.search_has_transition}>
                 <Backdrop>
                     <Container align="left" justify="flex-start" direction="column">
@@ -256,7 +259,10 @@ const HelpCentre = () => {
                     </Container>
                 </Backdrop>
             </SearchSection>
+
             <Container align="left" justify="flex-start" direction="column">
+                <QuestionsSection data={all_questions} />
+
                 <ArticleSectionComponent
                     section_name="General"
                     articles={general_articles}
@@ -270,7 +276,8 @@ const HelpCentre = () => {
                     toggleArticle={toggleArticle}
                 />
             </Container>
-            <Desktop breakpoint={'tabletS'}>
+
+            <Desktop breakpoint="tabletS">
                 <Community />
             </Desktop>
             {!is_deriv_go && <DidntFindYourAnswerBanner />}

@@ -48,7 +48,12 @@ const Community = () => {
                             <Localize translate_text="_t_Have a question?_t_" />
                         </StyledHeader>
 
-                        <StyledHeader size="var(--text-size-m)" pt="0.8rem" pb="3.4rem">
+                        <StyledHeader
+                            size="var(--text-size-m)"
+                            pt="0.8rem"
+                            pb="3.4rem"
+                            weight="normal"
+                        >
                             <Localize translate_text="_t_Our Deriv support community can help you find answers._t_" />
                         </StyledHeader>
 

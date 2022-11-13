@@ -1,8 +1,8 @@
 import React from 'react'
-import Questions from './components/_questions'
+import QuestionsTemplate from './components/_questions-template'
 import derivx from './data/_deriv-x'
 import { WithIntl } from 'components/localization'
 
-const DerivX = () => <Questions data={derivx} />
+const DerivX = () => <QuestionsTemplate data={derivx} />
 
 export default WithIntl()(DerivX)

@@ -4,6 +4,7 @@ import { deriv_app_url, derivx_app_url } from 'common/constants'
 const derivx: TQuestionsData = {
     section: 'Platforms',
     category: '_t_Deriv X_t_',
+    hide_for_eu: true,
     questions: [
         {
             question: '_t_What is Deriv X?_t_',

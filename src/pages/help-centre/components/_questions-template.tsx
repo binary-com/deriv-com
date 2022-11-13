@@ -11,7 +11,7 @@ import { Container, SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { DerivStore } from 'store'
 
-type QuestionsType = {
+type TQuestionsTemplate = {
     data: TQuestionsData
 }
 
@@ -19,7 +19,7 @@ const ContactContainer = styled.div`
     margin-top: 8rem;
 `
 
-const Questions = ({ data }: QuestionsType) => {
+const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     const { is_eu_country } = useContext(DerivStore)
     const { platform, has_platform } = usePlatformQueryParam()
     const { questions, category } = data
@@ -72,4 +72,4 @@ const Questions = ({ data }: QuestionsType) => {
     )
 }
 
-export default memo(Questions)
+export default memo(QuestionsTemplate)

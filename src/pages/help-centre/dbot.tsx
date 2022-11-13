@@ -1,8 +1,8 @@
 import React from 'react'
-import Questions from './components/_questions'
+import QuestionsTemplate from './components/_questions-template'
 import dbot from './data/_dbot'
 import { WithIntl } from 'components/localization'
 
-const DBot = () => <Questions data={dbot} />
+const DBot = () => <QuestionsTemplate data={dbot} />
 
 export default WithIntl()(DBot)

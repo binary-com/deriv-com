@@ -48,6 +48,7 @@ const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
 
     @media ${device.tabletL} {
         padding: 0 0 40px;
+        margin-top: 40px;
     }
 `
 const Wrapper = styled.div`

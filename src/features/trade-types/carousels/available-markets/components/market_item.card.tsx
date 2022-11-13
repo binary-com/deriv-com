@@ -105,7 +105,7 @@ const LearnMore = ({ text, to }: LearnMoreProps) => {
         <LearnMoreWrapper className="learn-more">
             <Link to={to}>
                 <LearnMoreItem>
-                    <Header type={'paragraph-1'} color="red">
+                    <Header type={'paragraph-1'} color="red" pr={'12px'}>
                         <Localize translate_text={text} />
                     </Header>
                     <img src={Arrow} alt="arrow right" />

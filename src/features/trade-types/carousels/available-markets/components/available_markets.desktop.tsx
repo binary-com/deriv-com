@@ -6,6 +6,7 @@ import { Carousel } from 'components/elements'
 import useInitCarousel from 'components/elements/carousel/use-init-carousel'
 import { Container } from 'components/containers'
 import device from 'themes/device'
+import { ChevronRight, ChevronLeft } from 'components/elements/carousel/carousel.styles'
 
 const SmallContainer = styled(Container)`
     width: 60%;
@@ -59,6 +60,20 @@ const Background = styled.div`
     top: 0;
 `
 
+const StyledChevronContainer = styled.div`
+    width: 18px;
+    height: 18px;
+
+    & svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
+`
+
 interface IDesktopAvailableMarketsProps<T> {
     items: T[]
 }
@@ -83,13 +98,30 @@ const DesktopAvailableMarkets = <T extends TAvailableMarketSmartContent>({
             <StyledCarouselContainer
                 embla={embla}
                 config={{
-                    controls_offset: -10,
+                    controls_offset: 10,
                 }}
             >
                 <Carousel.Body
                     ref={emblaRef}
                     render_controls={() => {
-                        return is_control_enabled ? <Carousel.Controls /> : null
+                        return is_control_enabled ? (
+                            <Carousel.Controls
+                                render_next_button={() => {
+                                    return (
+                                        <StyledChevronContainer>
+                                            <ChevronRight />
+                                        </StyledChevronContainer>
+                                    )
+                                }}
+                                render_prev_button={() => {
+                                    return (
+                                        <StyledChevronContainer>
+                                            <ChevronLeft />
+                                        </StyledChevronContainer>
+                                    )
+                                }}
+                            />
+                        ) : null
                     }}
                 >
                     {items.map((item) => {

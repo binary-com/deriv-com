@@ -13,15 +13,17 @@ const CarouselButton = styled.button<{
     offset: TOffset
 }>`
     outline: 0;
-    cursor: pointer;
     background-color: transparent;
     touch-action: manipulation;
     position: absolute;
     z-index: 1;
     border: 0;
 
+    :not([disabled]) {
+        cursor: pointer;
+    }
     :disabled {
-        opacity: 0.6;
+        opacity: 0.3;
     }
     path {
         ${({ color }) =>

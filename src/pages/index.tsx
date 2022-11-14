@@ -86,7 +86,11 @@ const Home = () => {
             />
             <Hero />
             <MarketsFold />
-            {lazyTemplate}
+            <TradeTypes />
+            <OurPlatforms />
+            <WhatOurClientsSay />
+            {is_p2p_allowed_country && <P2PHomeBanner />}
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

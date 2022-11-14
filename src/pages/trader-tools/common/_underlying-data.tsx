@@ -249,20 +249,6 @@ export const syntheticItemLists = [
         symbol: 'R_100',
     },
     {
-        name: 'Volatility 200 (1s) Index',
-        display_name: 'Volatility 200 (1s) Index',
-        icon: <img src={VINDEXIC200} alt="vol 200 1s" />,
-        market: 'synthetic_indices',
-        symbol: '1HZ200V',
-    },
-    {
-        name: 'Volatility 300 (1s) Index',
-        display_name: 'Volatility 300 (1s) Index',
-        icon: <img src={VINDEXIC300} alt="vol 300 1s" />,
-        market: 'synthetic_indices',
-        symbol: '1HZ300V',
-    },
-    {
         name: 'Jump 10 Index',
         display_name: 'Jump 10 Index',
         icon: <img src={JUMP10NEW} alt="jump 10" />,

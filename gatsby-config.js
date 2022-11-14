@@ -6,6 +6,7 @@ require('dotenv').config({
 })
 
 const site_url = 'https://deriv.com'
+const domain_url = isBrowser && window.location.hostname || site_url
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -31,7 +32,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-react-helmet-canonical-urls`,
             options: {
-                siteUrl: `${site_url}`,
+                siteUrl: `${domain_url}`,
                 noQueryString: true,
             },
         },
@@ -101,7 +102,7 @@ module.exports = {
                     }
                 }
                 `,
-                resolveSiteUrl: () => (isBrowser && window.location.hostname) || site_url,
+                resolveSiteUrl: () => domain_url,
                 resolvePages: ({ allSitePage: { nodes: allPages } }) => {
                     return allPages.map((page) => {
                         return { ...page }
@@ -129,7 +130,7 @@ module.exports = {
                             const replaced_locale = locale.replace('_', '-')
                             const is_default = ['en', 'x-default'].includes(locale)
                             const href_locale = is_default ? '' : `/${replaced_locale}`
-                            const href = `${site_url}${href_locale}${current_page}`
+                            const href = `${domain_url}${href_locale}${current_page}`
                             return { lang: replaced_locale, url: href }
                         }
                     })

@@ -7,7 +7,7 @@ import Layout from 'components/layout/layout'
 import CheckIcon from 'images/common/check_icon.png'
 import device from 'themes/device'
 import { queryParams } from 'common/utility'
-import { decode } from 'common/url-base64-functions'
+import { decode, isValid } from 'common/url-base64-functions'
 import { useDerivWS } from 'store'
 
 const UnsubscribeWrapper = styled.div`
@@ -119,16 +119,15 @@ const Spinner = () => (
 )
 
 const UnsubscribePage = () => {
+    const { send } = useDerivWS()
+
     const [complete_status, setCompleteStatus] = useState(false)
     const [loading, setLoading] = useState(false)
 
     const query = queryParams.get('hash') || ''
-
-    const unsubscribe_hash = decode(query).split('+')
+    const unsubscribe_hash = isValid(query) && decode(query).split('+')
     const binary_user_id = unsubscribe_hash[0]
     const checksum = unsubscribe_hash[1]
-
-    const { send } = useDerivWS()
 
     const UnsubscribeAPICall = useCallback(() => {
         setLoading(true)

@@ -10,10 +10,15 @@ const is_text_encoder = typeof TextEncoder === 'function' ? new TextEncoder() : 
 const b64_chars = Array.prototype.slice.call(
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
 )
-
+/**
+ * converts a UTF-8-encoded string to URL-safe Base64 RFC4648 §5.
+ * @returns {string} Base64 string
+ */
 const defendURI = (src: string) =>
     src.replace(/=/g, '').replace(/[+\/]/g, (m0) => (m0 == '+' ? '-' : '_'))
-
+/**
+ * polyfill version of `btoa`
+ */
 const btoaPolyfill = (bin: string) => {
     let u32, c0, c1, c2
     let asc = ''
@@ -34,8 +39,12 @@ const btoaPolyfill = (bin: string) => {
     }
     return pad ? asc?.slice(0, pad - 3) + '==='.substring(pad) : asc
 }
-
-// https://developer.mozilla.org/en-US/docs/Web/API/btoa
+/**
+ * https://developer.mozilla.org/en-US/docs/Web/API/btoa
+ * does what `window.btoa` of web browsers do.
+ * @param {String} bin binary string
+ * @returns {string} Base64-encoded string
+ */
 const _btoa = is_btoa
     ? (bin: string) => _btoa(bin)
     : is_buffer
@@ -43,7 +52,11 @@ const _btoa = is_btoa
     : btoaPolyfill
 
 const _fromCharCode = String.fromCharCode.bind(String)
-
+/**
+ * converts a Uint8Array to a Base64 string.
+ * @param {boolean} [urlsafe] URL-and-filename-safe a la RFC4648 §5
+ * @returns {string} Base64 string
+ */
 const fromUint8Array = is_buffer
     ? (u8a: Uint8Array) => Buffer.from(u8a).toString('base64')
     : (u8a: Uint8Array) => {
@@ -76,8 +89,12 @@ const encodeUTF16 = (c: string) => {
         )
     }
 }
+/**
+ * @param {string} src UTF-8 string
+ * @returns {string} UTF-16 string
+ */
 const fromUTF8toUTF16 = (u: string) => {
-    return u?.replace(/[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x7F]/g, encodeUTF16)
+    u?.replace(/[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x7F]/g, encodeUTF16)
 }
 
 const encodeString = is_buffer
@@ -110,6 +127,10 @@ const encodeUTF8 = (context: string) => {
             )
     }
 }
+/**
+ * @param {string} src UTF-16 string
+ * @returns {string} UTF-8 string
+ */
 const fromUTF16toUTF8 = (b: string) =>
     b.replace(
         /[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3}/g,
@@ -123,7 +144,9 @@ const b64_tab = ((a) => {
     a.forEach((c, i) => (tab[c] = i))
     return tab
 })(b64_chars)
-
+/**
+ * polyfill version of `atob`
+ */
 const atobPolyfill = (asc: string) => {
     asc = asc.replace(/\s+/g, '')
     if (!b64_regexp.test(asc)) throw new TypeError('malformed base64.')
@@ -156,9 +179,14 @@ const toU8A =
         : (it, fn: (any) => number = (x) => x) =>
               new Uint8Array(Array.prototype.slice.call(it, 0).map(fn))
 
-// https://developer.mozilla.org/en-US/docs/Web/API/atob
+/**
+ * https://developer.mozilla.org/en-US/docs/Web/API/atob
+ * does what `window.atob` of web browsers do.
+ * @param {String} asc Base64-encoded string
+ * @returns {string} binary string
+ */
 const _atob = is_atob
-    ? (asc: string) => _atob(cleanB64(asc))
+    ? (asc: string) => atob(cleanB64(asc))
     : is_buffer
     ? (asc: string) => Buffer.from(asc, 'base64').toString('binary')
     : atobPolyfill
@@ -182,7 +210,7 @@ const encode = (src: string, urlsafe = false) =>
 const decode = (src: string) => toUTF8(_unURI(src))
 
 // checks that string is valid for decode
-const isValid = (src: any) => {
+const isValid = (src: unknown) => {
     if (typeof src !== 'string') return false
     const s = src?.replace(/\s+/g, '')?.replace(/={0,2}$/, '')
     return !/[^\s0-9a-zA-Z\+/]/.test(s) || !/[^\s0-9a-zA-Z\-_]/.test(s)

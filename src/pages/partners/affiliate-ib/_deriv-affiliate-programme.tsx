@@ -117,7 +117,7 @@ const StyledCard = styled(Card)`
     }
 
     @media (max-width: 1313px) {
-        height: 59rem;
+        height: 63rem;
     }
 
     @media ${device.laptopM} {
@@ -209,7 +209,7 @@ const DerivAffiliateProgramme = () => {
                         {localize('Choose a commission plan:')}
                     </StyledHeader>
                     <CardWrapper>
-                        <StyledCard height="57.0rem" tabletHeight="auto" padding="2.4rem">
+                        <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
                             <div>
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Revenue share')}
@@ -248,7 +248,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="57.0rem" tabletHeight="auto" padding="2.4rem">
+                        <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
                             <div>
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Turnover')}
@@ -263,9 +263,7 @@ const DerivAffiliateProgramme = () => {
                                     {Turnover.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
                                             <StyledTrap isTitle="true">
-                                                <StyledText weight="bold">
-                                                    {localize(col.title)}
-                                                </StyledText>
+                                                <StyledText weight="bold">{col.title}</StyledText>
                                             </StyledTrap>
                                             {col.data.map((data, id) => (
                                                 <TRAPREVERSE even={id % 2 ? 'true' : ''} key={id}>
@@ -278,6 +276,12 @@ const DerivAffiliateProgramme = () => {
                                 <Text mt="2.4rem">
                                     <Localize
                                         translate_text="<0>Multipliers:</0> Earn 40% of the commissions generated from your clients’ trades."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </Text>
+                                <Text mt="2.4rem">
+                                    <Localize
+                                        translate_text="<0>Lookbacks:</0> Earn 0.8% on the stake of each lookbacks trade on SmartTrader."
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>
@@ -296,7 +300,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="57.0rem" tabletHeight="auto" padding="2.4rem">
+                        <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
                             <div>
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('CPA (EU only)')}

@@ -22,6 +22,7 @@ import Vanuatu from 'images/common/regulatory/vanuatu.png'
 import VanuatuFMA from 'images/common/regulatory/vanuatu-fma.png'
 import FSC from 'images/common/regulatory/bvi.png'
 import Labuan from 'images/common/regulatory/labuan.png'
+import LabuanFintech from 'images/common/regulatory/labuan-fintech.png'
 import Deriv from 'images/common/regulatory/deriv.png'
 import TFC from 'images/common/regulatory/tfc.png'
 import SVG from 'images/svg/regulatory/svg.svg'
@@ -40,6 +41,12 @@ const Img = styled.img`
     display: flex;
     width: 16rem;
     height: 8rem;
+`
+
+const ImgFintech = styled.img`
+    display: flex;
+    width: 160px;
+    height: 38.8px;
 `
 
 const StyledHeader = styled(Header)`
@@ -224,6 +231,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 </StyledHeader>
                             </MobileWrapper>
                             <Img src={Labuan} alt="Labuan Financial Services Authority " />
+                            <ImgFintech src={LabuanFintech} alt="Labuan Fintech Association " />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <DesktopWrapper>
@@ -233,7 +241,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </DesktopWrapper>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (FX) Ltd – F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia – is licensed by Labuan Financial Services Authority(<0>licence no. MB/18/0024</0>)."
+                                    translate_text="Deriv (FX) Ltd — F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia — is licensed by Labuan Financial Services Authority (<0>licence no. MB/18/0024</0>) and is a member of the <1>Labuan Fintech Association</1>."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -242,12 +250,19 @@ const Regulatory = (locale: RegulatoryProps) => {
                                             href="/regulatory/Deriv_(FX)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
+                                        <LinkText
+                                            key={1}
+                                            weight="bold"
+                                            target="_blank"
+                                            href="https://www.labuanfintech.org/"
+                                            rel="noopener noreferrer"
+                                        />,
                                     ]}
                                 />
                             </Text>
                             <Text mt="2rem" max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on forex and cryptocurrencies can have DMT5 Financial STP accounts under Deriv (FX) Ltd.',
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on forex and cryptocurrencies can have Deriv MT5 Financial STP accounts under Deriv (FX) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -285,7 +300,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments (via DMT5 Financial account or DMT5 Financial STP account) and synthetic indices (via DMT5 Synthetic account) can have MetaTrader 5 accounts under Deriv (BVI) Ltd.',
+                                    'Clients in the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments (via Deriv MT5 Financial account or Deriv MT5 Financial STP account) and synthetic indices (via Deriv MT5 Synthetic account) can have MetaTrader 5 accounts under Deriv (BVI) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -332,7 +347,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments can have DMT5 Financial accounts and Deriv X Financial accounts under Deriv (V) Ltd. This company does not offer CFDs on cryptocurrencies.',
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments, including cryptocurrencies can have Deriv MT5 Financial accounts and Deriv X Financial accounts under Deriv (V) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>

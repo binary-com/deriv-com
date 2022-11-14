@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import InstantAccess from 'images/svg/trade-types/instant-access.svg'
-import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
-import Seven from 'images/svg/trade-types/seven.svg'
-import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import DemoSignUP from 'images/svg/dmt5/demo-signup.svg'
+import LicensedAndRegulated from 'images/svg/dmt5/licensed-and-regulated.svg'
+import MultipleAssets from 'images/svg/dmt5/multiple-assets.svg'
+import TwentyFourSeven from 'images/svg/dmt5/twenty-four-seven.svg'
 import { localize, Localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
@@ -15,6 +15,7 @@ type CardContentType = {
     text: React.ReactElement
     image: string
     key: number
+    image_alt: string
 }
 
 const card_content: CardContentType[] = [
@@ -23,32 +24,36 @@ const card_content: CardContentType[] = [
         text: (
             <Localize translate_text="Practise with a demo account preloaded with unlimited virtual funds." />
         ),
-        image: InstantAccess,
+        image: DemoSignUP,
         key: 0,
+        image_alt: 'quick demo account sign-up',
     },
     {
         header: <Localize translate_text="Multiple assets on a single platform" />,
         text: (
             <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived in one place." />
         ),
-        image: SyntheticIndices,
+        image: MultipleAssets,
         key: 1,
+        image_alt: 'synthetic indices',
     },
     {
         header: <Localize translate_text="24/7 trading" />,
         text: (
             <Localize translate_text="Trade round-the-clock, even on weekends, with our proprietary derived." />
         ),
-        image: Seven,
+        image: TwentyFourSeven,
         key: 2,
+        image_alt: '24/7 trading',
     },
     {
         header: <Localize translate_text="Licensed and regulated" />,
         text: (
             <Localize translate_text="Trade with a regulated industry pioneer trusted by traders for more than 20 years." />
         ),
-        image: MinimalRisk,
+        image: LicensedAndRegulated,
         key: 3,
+        image_alt: 'licensed and regulated',
     },
 ]
 

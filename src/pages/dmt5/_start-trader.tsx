@@ -237,10 +237,8 @@ const StartTrader = () => {
     const isDemo = tab === 'Demo'
     const isReal = tab === 'Real'
 
-    const account = is_uk_eu ? localize('Real account') : localize('Real money account')
-
     const text_1 = is_uk_eu ? (
-        <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
+        <Localize translate_text="Add a CFDs demo account." />
     ) : (
         <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
     )
@@ -354,7 +352,7 @@ const StartTrader = () => {
                     onClick={() => onTabClick('Real')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {account}
+                        {localize('Real money account')}
                     </StyledText>
                 </TabItem>
             </Flex>

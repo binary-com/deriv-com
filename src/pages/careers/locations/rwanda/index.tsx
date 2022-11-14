@@ -23,10 +23,15 @@ const query = graphql`
         rwanda_grid_3: file(relativePath: { eq: "careers/rwanda_grid_3.jpg" }) {
             ...fadeIn
         }
-        rwanda_grid_4: file(relativePath: { eq: "careers/rwanda_grid_4.jpg" }) {
+        rwanda_grid_4: file(relativePath: { eq: "careers/rwanda_grid_4.png" }) {
             ...fadeIn
         }
         rwanda_map: file(relativePath: { eq: "maps/map-rwanda-career.png" }) {
+            ...fadeIn
+        }
+        rwanda_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/rwanda_great_place_to_work_badge.png" }
+        ) {
             ...fadeIn
         }
     }

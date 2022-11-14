@@ -172,7 +172,7 @@ const payment_data = [
     {
         name: <Localize translate_text="Credit/debit cards" />,
         note: (
-            <Localize translate_text="Withdrawals may take up to 15 working days to reflect on your card. Mastercard and Maestro withdrawals are only available for UK clients." />
+            <Localize translate_text="Withdrawals may take up to 15 working days to reflect on your card." />
         ),
         data: [
             {

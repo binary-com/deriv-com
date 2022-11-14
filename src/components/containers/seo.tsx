@@ -3,11 +3,12 @@ import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
-import { isBrowser } from 'common/utility'
+import { isBrowser, getDomain } from 'common/utility'
 import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 
 const non_localized_links = ['/academy', '/bug-bounty', '/careers']
+const domain_url = getDomain()
 
 type SiteMetadataType = {
     siteMetadata?: {
@@ -65,7 +66,7 @@ const SEO = ({
 
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
-    const site_url = queries.site.siteMetadata.siteUrl
+
     const { locale: lang, pathname } = React.useContext(LocaleContext)
     const formatted_lang = lang.replace('_', '-')
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
@@ -219,7 +220,7 @@ const SEO = ({
                         const replaced_local = locale.replace('_', '-')
                         const is_default = locale === 'en' || locale === 'x-default'
                         const href_lang = is_default ? '' : `/${replaced_local}`
-                        const href = `${site_url}${href_lang}${current_page}`
+                        const href = `${domain_url}${href_lang}${current_page}`
 
                         return (
                             <link

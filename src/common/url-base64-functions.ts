@@ -94,7 +94,7 @@ const encodeUTF16 = (c: string) => {
  * @returns {string} UTF-16 string
  */
 const fromUTF8toUTF16 = (u: string) => {
-    u?.replace(/[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x7F]/g, encodeUTF16)
+    return u?.replace(/[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x7F]/g, encodeUTF16)
 }
 
 const encodeString = is_buffer

@@ -467,8 +467,8 @@ export const berlin: LocationsType = {
 export const vanuatu: LocationsType = {
     name: 'vanuatu',
     job_location: 'Port-Vila',
-    continent: 'asia',
-    display_continent: 'Asia',
+    continent: 'oceania',
+    display_continent: 'Oceania',
     link: '/careers/locations/vanuatu/',
     display_name: 'Vanuatu',
     display_thumbnail_name: 'Port Vila',
@@ -661,6 +661,7 @@ export const allContinents = {
     all: all_offices,
     europe: [],
     asia: [],
+    oceania: [],
     middle_east: [],
     eastern_europe: [],
     africa: [],

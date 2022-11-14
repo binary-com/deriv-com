@@ -1,7 +1,6 @@
 import React from 'react'
 import { Hero } from '../common/_style'
 import MarginCalculatorSection from './_margin-calculator'
-import EuMarginCalculatorSection from './_eu-margin-calculator'
 import { Container, SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
@@ -23,7 +22,7 @@ const MarginCalculator = () => {
                     </Header>
                 </Container>
             </Hero>
-            {is_eu ? <EuMarginCalculatorSection /> : <MarginCalculatorSection />}
+            <MarginCalculatorSection />
         </Layout>
     )
 }

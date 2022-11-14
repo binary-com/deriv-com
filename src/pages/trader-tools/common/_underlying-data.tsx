@@ -114,6 +114,14 @@ export const leverageItemLists = [
     { name: 5, display_name: 5, key: '18', icon: '' },
 ]
 
+export const leverageItemListsEU = [
+    { name: 30, display_name: 30, key: '1', icon: '' },
+    { name: 20, display_name: 20, key: '2', icon: '' },
+    { name: 10, display_name: 10, key: '3', icon: '' },
+    { name: 5, display_name: 5, key: '4', icon: '' },
+    { name: 2, display_name: 2, key: '5', icon: '' },
+]
+
 export const syntheticItemLists = [
     {
         name: 'Boom 1000 Index',
@@ -642,5 +650,20 @@ export const financialItemLists = [
         icon: <img src={GOLDBASKET} alt="gold basket" />,
         market: 'basket_indices',
         symbol: 'WLDXAU',
+    },
+]
+
+export const euMarketData = [
+    {
+        name: 'Boom 300 Index',
+        display_name: 'Boom 300 Index',
+        market: 'other',
+        symbol: 'BOOM300',
+    },
+    {
+        name: 'Crash 300 Index',
+        display_name: 'Crash 300 Index',
+        market: 'other',
+        symbol: 'CRASH300',
     },
 ]

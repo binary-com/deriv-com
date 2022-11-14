@@ -50,8 +50,13 @@ export default class DerivWS {
     }&brand=${brand_name.toLowerCase()}`
     connection: WebSocket
 
+    private ping = () => {
+        this.send({ ping: 1 })
+    }
+
     private openHandler = () => {
         if (this.connection.readyState === 1) {
+            setInterval(this.ping, 1000)
             this.connected.resolve()
         } else {
             setTimeout(this.openHandler, 50)
@@ -68,30 +73,12 @@ export default class DerivWS {
         }
     }
 
-    private recursiveConnect = () => {
-        this.connection = new WebSocket(this.socket_url)
-        this.connection.onopen = this.openHandler
-        this.connection.onmessage = this.messageHandler
-        this.connection.onclose = () => {
-            let lastActionTaken = new Date().getTime()
-            const checkLastAction = () => {
-                const now = new Date().getTime()
-                if (now - lastActionTaken > 0) {
-                    window.removeEventListener('mousemove', checkLastAction)
-                    window.removeEventListener('touchstart', checkLastAction)
-                    window.removeEventListener('keydown', checkLastAction)
-                    this.recursiveConnect()
-                }
-                lastActionTaken = now
-            }
-            window.addEventListener('mousemove', checkLastAction)
-            window.addEventListener('touchstart', checkLastAction)
-            window.addEventListener('keydown', checkLastAction)
-        }
-    }
-
     constructor() {
-        this.recursiveConnect()
+        const connection = new WebSocket(this.socket_url)
+        connection.onopen = this.openHandler
+        connection.onmessage = this.messageHandler
+
+        this.connection = connection
     }
 
     isConnectionClosed() {

@@ -66,8 +66,6 @@ const SEO = ({
 
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
-    const site_url = queries.site.siteMetadata.siteUrl
-    console.log(site_url, 13)
 
     const { locale: lang, pathname } = React.useContext(LocaleContext)
     const formatted_lang = lang.replace('_', '-')

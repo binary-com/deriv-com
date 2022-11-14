@@ -32,10 +32,7 @@ const content = {
             <Localize translate_text="From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers." />
         ),
         step_one_text_eu: (
-            <Localize
-                translate_text="
-            Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version."
-            />
+            <Localize translate_text="Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version." />
         ),
         step_two_header: <Localize translate_text="2. Subscribe to a signal provider" />,
         step_two_text: (

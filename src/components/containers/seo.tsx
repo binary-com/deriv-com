@@ -3,12 +3,12 @@ import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
-import { isBrowser, getDomain } from 'common/utility'
+import { isBrowser } from 'common/utility'
 import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 
 const non_localized_links = ['/academy', '/bug-bounty', '/careers']
-const domain_url = getDomain()
+const domain_url = isBrowser() && window.location.hostname
 
 type SiteMetadataType = {
     siteMetadata?: {

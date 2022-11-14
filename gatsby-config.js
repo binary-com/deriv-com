@@ -19,7 +19,7 @@ module.exports = {
         description:
             'Deriv.com gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.',
         author: 'Deriv.com',
-        siteUrl: site_url,
+        siteUrl: domain_url,
     },
     partytownProxiedURLs: [
         `https://assets.customer.io/assets/track-eu.js`,

@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TQuestionsData } from '../data/_data-types'
-import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import QuestionsCategory from './_questions-category'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { Localize } from 'components/localization'
 
 type TQuestionsSection = {
     data: TQuestionsData[]
+    section_name: string
 }
 
 const Section = styled.section`
@@ -53,25 +55,23 @@ const Div = styled.div`
     }
 `
 
-const QuestionsSection = ({ data }: TQuestionsSection) => {
+const QuestionsSection = ({ data, section_name }: TQuestionsSection) => {
     const { is_eu } = useCountryRule()
-    const { platform } = usePlatformQueryParam()
 
     return (
         <Section>
-            <SectionName>General</SectionName>
+            <SectionName>
+                <Localize translate_text={`_t_${section_name}_t_`} />
+            </SectionName>
             <HorizontalLine />
             <Div>
-                {data.map(({ hide_for_eu, category }) => {
-                    const hide_component = is_eu && hide_for_eu
+                {data.map((item) => {
+                    const { hide_for_eu, category } = item
+                    // const hide_component = is_eu && hide_for_eu
 
-                    if (!hide_component) {
-                        return (
-                            <div key={category}>
-                                <span>category</span>
-                            </div>
-                        )
-                    }
+                    // if (!hide_component) {
+                    return <QuestionsCategory key={category} data={item} />
+                    // }
                 })}
             </Div>
         </Section>

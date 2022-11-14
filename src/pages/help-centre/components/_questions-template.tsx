@@ -1,6 +1,8 @@
-import React, { memo, useContext } from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components'
 import { TQuestionsData } from '../data/_data-types'
+import useFilteredQuestions from '../data/_use-filtered-questions'
+import { getUntranslatedCategory } from '../_utility'
 import SideTab from './_side-tab'
 import AnswerCard from './_answer-card'
 import { Community, DidntFindYourAnswerBanner } from './_lazy-load'
@@ -9,7 +11,6 @@ import { Localize, localize } from 'components/localization'
 import { StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import { DerivStore } from 'store'
 
 type TQuestionsTemplate = {
     data: TQuestionsData
@@ -20,14 +21,10 @@ const ContactContainer = styled.div`
 `
 
 const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
-    const { is_eu_country } = useContext(DerivStore)
     const { platform, has_platform } = usePlatformQueryParam()
     const { questions, category } = data
-    const untranslate_category = category.substring(3, category.length - 3)
-
-    const filtered_questions = questions.filter(({ hide_for_eu, hide_for_non_eu }) =>
-        is_eu_country ? !hide_for_eu : !hide_for_non_eu,
-    )
+    const untranslate_category = getUntranslatedCategory(category)
+    const filtered_questions = useFilteredQuestions(questions)
 
     return (
         <Layout>

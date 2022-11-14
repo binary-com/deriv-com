@@ -3,10 +3,8 @@ import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
-import QuestionsSection from './components/_questions-section'
 import { SearchSuccess, SearchError } from './_search-results'
 import { eu_discards, getAllArticles } from './_utility'
-import all_questions from './data/_all-questions'
 import FaqSchema from './components/_faq-schema'
 import ArticleSectionComponent from './_article-section-component'
 import { SEO, Desktop, Container } from 'components/containers'
@@ -261,8 +259,6 @@ const HelpCentre = () => {
             </SearchSection>
 
             <Container align="left" justify="flex-start" direction="column">
-                <QuestionsSection data={all_questions} />
-
                 <ArticleSectionComponent
                     section_name="General"
                     articles={general_articles}

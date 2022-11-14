@@ -1,4 +1,8 @@
 import { ArcticlesType } from './_help-articles'
+import { TString } from 'types/generics'
+
+export const getUntranslatedCategory = (category: TString) =>
+    category.substring(3, category.length - 3)
 
 export const eu_discards = ['Deriv X', 'Deriv P2P']
 const countryDomainFilter = (array) => {

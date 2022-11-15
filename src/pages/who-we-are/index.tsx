@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
+import { useFetching } from '../../components/hooks/use-fetching'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
 import ImageMarquee from './carousel/_ImageMarquee'
@@ -38,14 +40,19 @@ const EndSeparator = styled.div`
 
 const AboutUs = () => {
     const [content, setContent] = useState({})
+
+    const [fetchPosts, isDataLoading] = useFetching(async () => {
+        const response = await axios.get(
+            'https://deriv-com-content.herokuapp.com/api/menus/?nested&populate=*',
+        )
+        console.log('data', response.data.data[1])
+        setContent(response.data.data[1])
+    })
+
     useEffect(() => {
-        fetch('https://deriv-com-content.herokuapp.com/api/menus/?nested&populate=*')
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('data', data.data[1])
-                setContent(data.data[1])
-            })
+        fetchPosts()
     }, [])
+
     return (
         <Layout type="transparent" margin_top="0">
             <SEO
@@ -54,17 +61,21 @@ const AboutUs = () => {
                     'Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade.',
                 )}
             />
-            <Hero header={content?.title} />
-            <MakeTrading query={content?.items?.[0].children[0]} />
-            <StartSeparator />
-            <OurValues query={content?.items?.[0].children[1]} />
-            <EndSeparator />
-            <OurPrinciples query={content?.items?.[0].children[2]} />
-            <OurLeadership />
-            <DerivNumbers query={content?.items?.[0].children[3]} />
-            <ImageMarquee />
-            <OurOffices quer={content?.items?.[0].children[4]} />
-            <AboutUsBanner />
+            <Hero />
+            {!isDataLoading && (
+                <>
+                    <MakeTrading query={content?.items?.[0].children[0]} />
+                    <StartSeparator />
+                    <OurValues query={content?.items?.[0].children[1]} />
+                    <EndSeparator />
+                    <OurPrinciples query={content?.items?.[0].children[2]} />
+                    <OurLeadership />
+                    <DerivNumbers query={content?.items?.[0].children[3]} />
+                    <ImageMarquee />
+                    <OurOffices quer={content?.items?.[0].children[4]} />
+                    <AboutUsBanner />
+                </>
+            )}
         </Layout>
     )
 }

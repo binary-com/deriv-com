@@ -90,9 +90,9 @@ const StyledQueryImage = styled(QueryImage)`
 const StyledMobileQueryImage = styled(QueryImage)`
     max-width: 445px;
 `
-const Hero = ({ header }: any) => {
+const Hero = () => {
     const data = useStaticQuery(query)
-    const title = localize(String(header))
+    const title = localize('Who we are')
 
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>

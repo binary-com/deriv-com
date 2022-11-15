@@ -76,7 +76,7 @@ const AboutDeriv = () => {
                         mb="16px"
                         laptopM={{ mb: '14px' }}
                     >
-                        <Localize translate_text="We provide online trading services to over 2 million clients via desktop and mobile applications across multiple platforms." />
+                        <Localize translate_text="test" />
                     </Header>
                     <Header type="paragraph-1" weight="normal" as="p">
                         <Localize translate_text="Security is important to us. We continuously improve our products and services by collaborating with independent security researchers worldwide." />

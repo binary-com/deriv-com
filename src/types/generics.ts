@@ -10,3 +10,4 @@ export type PopupModalTypes = {
 }
 
 export type ComponentProps = PropsWithChildren<{ foo: string }>
+export type TString = `_t_${string}_t_`

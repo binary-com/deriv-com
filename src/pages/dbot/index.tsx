@@ -12,14 +12,14 @@ import DBotBGMobile from 'images/svg/dbot/dbot-bg-mobile.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
-import DHero from 'components/custom/_dhero.js'
-import DNumber from 'components/custom/_dnumbers.js'
+import DHero from 'components/custom/_dhero'
+import DNumber from 'components/custom/_dnumbers'
 import { MetaAttributesType } from 'types/page.types'
 const DBotVideo = Loadable(() => import('./_dbot-video'))
-const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
-const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
-const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
-const OtherPlatform = Loadable(() => import('components/custom/other-platforms.js'))
+const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works'))
+const DTrading = Loadable(() => import('components/custom/_dtrading'))
+const DBanner = Loadable(() => import('components/custom/_dbanner'))
+const OtherPlatform = Loadable(() => import('components/custom/other-platforms'))
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ItemType = {
@@ -141,7 +141,7 @@ const Dbot = () => {
                         title={localize('DBot')}
                         content={localize('Automate your trading ideas without writing code')}
                         join_us_for_free
-                        go_to_live_demo
+                        is_live_demo
                         Logo={dbot_logo}
                         background_svg={is_mobile ? DBotBGMobile : DBotBG}
                         image_name="dbot"

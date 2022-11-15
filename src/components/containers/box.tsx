@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components'
-import { Margins, Paddings } from '../../themes/function'
-import { size } from 'themes/device'
+import { Margins, MarginsType, Paddings, PaddingsType } from '../../themes/function'
+import device, { size } from 'themes/device'
 
 export const mediaqueries = Object.keys(size)
     .sort(function (a, b) {
         return size[b] - size[a]
     })
     .reduce((accumulator, label) => {
-        accumulator[label] = (...args) => css`
+        accumulator[label] = (...args: [TemplateStringsArray]) => css`
             @media (max-width: ${size[label]}px) {
                 ${css(...args)};
             }
@@ -36,13 +36,17 @@ export type BaseStyleType = {
     pl?: string
     pr?: string
     pb?: string
+    jc?: string
+    fd?: string
+    ai?: string
     min_width?: string
     max_width?: string
     min_height?: string
     max_height?: string
     width?: string
     height?: string
-}
+} & MarginsType &
+    PaddingsType
 
 const baseStyles = ({
     m,
@@ -74,6 +78,13 @@ const baseStyles = ({
 
 const responsiveStyles = generateResponsiveStyles(baseStyles)
 
+export type PartialRecord<K extends keyof any, T> = {
+    [P in K]?: T
+    //based on common typescript Record<>, but make everything optional
+}
+
+export type ResponseDeviceProps = PartialRecord<keyof typeof device, BaseStyleType>
+
 export type BoxType = {
     width?: string
     height?: string
@@ -82,9 +93,11 @@ export type BoxType = {
     position?: string
     background?: string
     bg?: string
-}
+    direction?: string
+} & ResponseDeviceProps &
+    BaseStyleType
 
-const Box = styled.div<BoxType>`
+const Box = styled.div<BoxType & BaseStyleType>`
     width: ${(props) => (props.width ? props.width : '')};
     height: ${(props) => (props.height ? props.height : '')};
     min-height: ${(props) => (props.min_height ? props.min_height : '')};

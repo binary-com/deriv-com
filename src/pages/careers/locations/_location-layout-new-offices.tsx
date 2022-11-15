@@ -7,7 +7,7 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, Header, LinkText, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { map_api_key, zoho_url } from 'common/constants'
+import { map_api_key, zoho_jobs_url } from 'common/constants'
 import MapPin from 'images/svg/careers/map.svg'
 
 const StyledBackground = styled(BackgroundImage)`
@@ -43,14 +43,20 @@ type HeroProps = {
     display_name: string
     img_data: string
     img_alt: string
+    job_location?: string
 }
 
-const Hero = ({ display_name, img_data, img_alt }: HeroProps) => {
+const Hero = ({ display_name, img_data, img_alt, job_location }: HeroProps) => {
     return (
         <StyledBackground data={img_data} alt={img_alt}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
-                <LinkButton hero has_no_end_slash to={zoho_url} rel="noopener noreferrer">
+                <LinkButton
+                    hero
+                    has_no_end_slash
+                    to={zoho_jobs_url + job_location}
+                    rel="noopener noreferrer"
+                >
                     View open positions in {display_name === 'Vanuatu' ? 'Port Vila' : display_name}
                 </LinkButton>
             </StyledContainer>
@@ -207,14 +213,14 @@ const WorkingQueryImage = styled(QueryImage)`
 `
 
 type LocationLayoutProps = {
-    display_name: string
+    display_name?: string
     display_title_name?: string
     location: LocationsType
     images: LocationsType
 }
 
 export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => {
-    const { display_name, display_title_name, map_office_name } = location
+    const { display_name, display_title_name, map_office_name, job_location } = location
     if (!display_name) return null
 
     return (
@@ -223,6 +229,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                 display_name={display_name}
                 img_data={images[location.name]}
                 img_alt={location.img_alt}
+                job_location={job_location}
             />
             <FirstSection>
                 <SecondStyledHeader

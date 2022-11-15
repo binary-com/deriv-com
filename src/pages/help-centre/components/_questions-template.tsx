@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
 import { TQuestionsData } from '../data/_data-types'
-import useFilteredQuestions from '../data/_use-filtered-questions'
-import { getUntranslatedCategory } from "./_utility"
+import { useFilteredQuestions } from '../data/_hooks'
+import { getUntranslatedCategory } from './_utility'
 import SideTab from './_side-tab'
 import AnswerCard from './_answer-card'
 import { Community, DidntFindYourAnswerBanner } from './_lazy-load'

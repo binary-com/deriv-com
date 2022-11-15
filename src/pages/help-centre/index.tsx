@@ -1,195 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { matchSorter } from 'match-sorter'
-import styled from 'styled-components'
-import Loadable from '@loadable/component'
+import React from 'react'
 import QuestionsSection from './components/_questions-section'
-import SearchResult from './components/_search-result'
-import { all_questions } from './components/_utility'
-import { articles } from './_help-articles'
+import SearchSection from './components/_search-section'
 import FaqSchema from './components/_faq-schema'
+import { DidntFindYourAnswerBanner, Community } from './components/_lazy-load'
+import { PLATFORMS, GENERAL, getQuestionsBySection } from './components/_utility'
 import { SEO, Desktop, Container } from 'components/containers'
-import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { Localize, localize, WithIntl } from 'components/localization'
-import { getLocationHash, sanitize } from 'common/utility'
+import { localize, WithIntl } from 'components/localization'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import device from 'themes/device'
-// Icons
-import SearchIcon from 'images/svg/help/search.svg'
-import CrossIcon from 'images/svg/help/cross.svg'
-import { DerivStore } from 'store'
-
-//Lazy-load
-const DidntFindYourAnswerBanner = Loadable(() => import('./components/_didnt-find-answer'))
-const Community = Loadable(() => import('./components/_community'))
-
-const GENERAL = 'General'
-const PLATFORMS = 'Platforms'
-
-type TSearchSection = {
-    show_result: boolean
-    has_transition: boolean
-}
-
-const SearchSection = styled.section<TSearchSection>`
-    padding: 8rem 0;
-    background-color: var(--color-white);
-    border-bottom: 1px solid var(--color-grey-8);
-    max-height: ${({ show_result }) => (show_result ? '100rem' : '0')};
-    transition: ${({ has_transition }) =>
-        has_transition ? 'max-height 0.6s ease-in-out' : 'none'};
-
-    @media ${device.tabletL} {
-        padding: 8rem 0 4rem;
-    }
-`
-const Wrapper = styled.div`
-    @media ${device.tabletL} {
-        padding: 2rem 0;
-    }
-`
-const ResponsiveHeader = styled(Header)`
-    @media ${device.tabletL} {
-        text-align: center;
-    }
-    @media ${device.mobileL} {
-        font-size: 4rem;
-    }
-`
-const SearchForm = styled.form`
-    position: relative;
-    padding-left: 6.4rem;
-    border: 1px solid var(--color-grey-17);
-    border-radius: 4px;
-    width: 99.6rem;
-    height: 6.4rem;
-
-    @media ${device.laptop} {
-        width: 100%;
-
-        svg {
-            width: 2.5rem;
-            height: 3.55rem;
-        }
-    }
-`
-const StyledSearchIcon = styled.img`
-    width: 2.3rem;
-    height: 2.3rem;
-    position: absolute;
-    left: 2.4rem;
-    top: 2rem;
-`
-const SearchInput = styled.input`
-    width: 95%;
-    font-size: var(--text-size-m);
-    font-weight: 500;
-    color: var(--color-black);
-    background-color: var(--color-white);
-    border: none;
-    outline: none;
-    height: 6rem;
-
-    ::placeholder {
-        color: var(--color-grey-17);
-    }
-`
-const SearchCrossIcon = styled.img`
-    width: 2.3rem;
-    height: 2.3rem;
-    position: absolute;
-    top: 1.4rem;
-    right: 2rem;
-
-    :hover {
-        cursor: pointer;
-    }
-`
 
 const HelpCentre = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
-    const [data, setData] = useState({
-        search: '',
-        toggle_search: true,
-        search_has_transition: false,
-        all_categories: {},
-        all_articles: [],
-    })
-
-    const eu_discards = ['Deriv X', 'Deriv P2P']
-
-    const getAllArticles = (articles) =>
-        articles
-            .map((category) => category.articles)
-            // flatten the array, gatsby build does not support .flat() yet
-            .reduce((arr, article_arr) => arr.concat(article_arr), [])
-
-    useEffect(() => {
-        const current_label = getLocationHash()
-        const deepClone = (arr) => {
-            const out = []
-            for (let i = 0, len = arr.length; i < len; i++) {
-                const item = arr[i]
-                const obj = {}
-                for (const k in item) {
-                    obj[k] = item[k]
-                }
-                out.push(obj)
-            }
-            return out
-        }
-
-        if (current_label) {
-            setData({ ...data, toggle_search: false, search_has_transition: false })
-        }
-        const all_articles = getAllArticles(articles)
-
-        const duplicate_articles = deepClone(all_articles)
-        const translated_articles = duplicate_articles.map((article) => {
-            article.title = article.title.props.translate_text
-            article.sub_category = article.sub_category.props.translate_text
-            return article
-        })
-
-        const all_categories = {}
-        Object.keys(all_articles).forEach((article) => {
-            all_categories[all_articles[article].category] = { is_expanded: false }
-        })
-
-        setData({ ...data, all_categories, all_articles: translated_articles })
-    }, [])
-
-    const handleSubmit = (e) => e.preventDefault()
-    const clearSearch = () => setData({ ...data, search: '' })
-    const handleInputChange = (e) => {
-        e.preventDefault()
-        setData({ ...data, search: sanitize(e.target.value) })
-    }
-
-    const articles_by_domain = is_eu_country
-        ? data.all_articles.filter((el) => !eu_discards.includes(el.category))
-        : data.all_articles
-
-    const searched_articles = matchSorter(articles_by_domain, data.search.trim(), {
-        keys: ['title', 'sub_category'],
-    })
-
-    const filtered_articles = is_eu_country
-        ? searched_articles.filter((article) => !article.hide_for_eu)
-        : searched_articles.filter((article) => !article.hide_for_non_eu)
-
-    const has_results = !!filtered_articles.length
-
-    const general_articles = React.useMemo(
-        () => all_questions.filter(({ section }) => section === GENERAL),
-        [],
-    )
-
-    const platforms_articles = React.useMemo(
-        () => all_questions.filter(({ section }) => section === PLATFORMS),
-        [],
-    )
-
     const { is_deriv_go } = usePlatformQueryParam()
 
     return (
@@ -201,71 +21,14 @@ const HelpCentre = () => {
                 )}
             />
             <FaqSchema />
-
-            <SearchSection
-                show_result={data.toggle_search}
-                has_transition={data.search_has_transition}
-            >
-                <Container align="left" justify="flex-start" direction="column">
-                    <Wrapper>
-                        <ResponsiveHeader as="h1" type="heading-1" mb="4rem">
-                            <Localize translate_text="_t_How can we help?_t_" />
-                        </ResponsiveHeader>
-
-                        <SearchForm onSubmit={handleSubmit}>
-                            <StyledSearchIcon src={SearchIcon} alt="search-icon" />
-                            <SearchInput
-                                autoFocus
-                                value={data.search}
-                                onChange={handleInputChange}
-                                placeholder={localize('_t_Try “Trade”_t_')}
-                                data-lpignore="true"
-                                autoComplete="off"
-                            />
-                            {data.search.length > 0 && (
-                                <SearchCrossIcon
-                                    src={CrossIcon}
-                                    alt="cross-icon"
-                                    onClick={clearSearch}
-                                />
-                            )}
-                        </SearchForm>
-
-                        {data.search.length > 0 && (
-                            <SearchResult
-                                has_result={!!has_results && !!data.search.length}
-                                has_no_result={!has_results && !!data.search.length}
-                                search_value={data.search}
-                                // suggested_topics={filtered_articles}
-                                suggested_topics={[
-                                    {
-                                        question:
-                                            '_t_How and when will I receive my commission payout?_t_',
-                                        category: 'account',
-                                        label: 'changing-your-personal-details',
-                                    },
-                                    {
-                                        question:
-                                            '_t_How and when will I receive my IB commission payout?_t_',
-                                        category: 'account',
-                                        label: 'changing-your-personal-details',
-                                    },
-                                    {
-                                        question:
-                                            '_t_How can I adjust or remove my self-exclusion limits?_t_',
-                                        category: 'account',
-                                        label: 'changing-your-personal-details',
-                                    },
-                                ]}
-                            />
-                        )}
-                    </Wrapper>
-                </Container>
-            </SearchSection>
+            <SearchSection />
 
             <Container align="left" justify="flex-start" direction="column">
-                <QuestionsSection data={general_articles} section_name={GENERAL} />
-                <QuestionsSection data={platforms_articles} section_name={PLATFORMS} />
+                <QuestionsSection data={getQuestionsBySection(GENERAL)} section_name={GENERAL} />
+                <QuestionsSection
+                    data={getQuestionsBySection(PLATFORMS)}
+                    section_name={PLATFORMS}
+                />
             </Container>
 
             <Desktop breakpoint="tabletL">

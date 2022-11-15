@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TQuestionsData } from '../data/_data-types'
+import { useFilteredCategory } from '../data/_hooks'
 import QuestionsCategory from './_questions-category'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
 
 type TQuestionsSection = {
@@ -56,7 +56,7 @@ const Div = styled.div`
 `
 
 const QuestionsSection = ({ data, section_name }: TQuestionsSection) => {
-    const { is_eu } = useCountryRule()
+    const filtered_data = useFilteredCategory(data)
 
     return (
         <Section>
@@ -65,14 +65,9 @@ const QuestionsSection = ({ data, section_name }: TQuestionsSection) => {
             </SectionName>
             <HorizontalLine />
             <Div>
-                {data.map((item) => {
-                    const { hide_for_eu, category } = item
-                    const hide_component = is_eu && hide_for_eu
-
-                    if (!hide_component) {
-                        return <QuestionsCategory key={category} data={item} />
-                    }
-                })}
+                {filtered_data.map((item) => (
+                    <QuestionsCategory key={item.category} data={item} />
+                ))}
             </Div>
         </Section>
     )

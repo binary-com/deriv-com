@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
@@ -46,7 +46,7 @@ const Ul = styled.ul`
 `
 
 const SearchError = ({ search_value }: TSearchError) => (
-    <Fragment>
+    <>
         <Error as="h5" type="paragraph-1" color="black" size="var(--text-size-sm)">
             <Localize
                 translate_text="_t_Sorry, we couldn’t find any results matching '{{search_value}}'._t_"
@@ -64,7 +64,7 @@ const SearchError = ({ search_value }: TSearchError) => (
                 </li>
             ))}
         </Ul>
-    </Fragment>
+    </>
 )
 
 export default SearchError

@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { TQuestions } from '../data/_data-types'
-import { convertToHash } from "./_utility"
+import { convertToHash } from './_utility'
 import { Header } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
 
@@ -34,7 +34,7 @@ const Link = styled(LocalizedLink)`
 `
 
 const SearchSuccess = ({ suggested_topics }: TSearchSuccess) => (
-    <Fragment>
+    <>
         <Header as="h3" type="heading-3" color="black">
             <Localize translate_text="_t_Topic suggestions_t_" />
         </Header>
@@ -48,7 +48,7 @@ const SearchSuccess = ({ suggested_topics }: TSearchSuccess) => (
                 </Li>
             ))}
         </Ul>
-    </Fragment>
+    </>
 )
 
 export default SearchSuccess

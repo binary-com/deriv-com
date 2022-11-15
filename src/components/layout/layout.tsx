@@ -10,6 +10,7 @@ import Nav from './nav/nav'
 import NavTransparent from './nav/nav-transparent'
 import NavCareers from './nav/nav-careers'
 import NavPartners from './nav/nav-partner'
+import NavConference from './nav/nav-conference'
 import NavMarkets from './nav/nav-markets'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
@@ -297,6 +298,10 @@ const Layout = ({
             break
         case 'payment-methods':
             Navigation = <Nav />
+            FooterNav = <Footer />
+            break
+        case 'conference':
+            Navigation = <NavConference />
             FooterNav = <Footer />
             break
         default:

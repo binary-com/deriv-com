@@ -38,7 +38,7 @@ type TAnswerProps = {
 export type TAnswer = Array<TAnswerProps & TLocalize>
 
 export type TQuestions = {
-    sub_category: TString
+    sub_category?: TString
     category: string
     label: string
     question: TString

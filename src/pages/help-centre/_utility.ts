@@ -15,7 +15,7 @@ const countryDomainFilter = (array) => {
     })
 }
 
-export const convertToHash = (category, label, qparam) => {
+export const convertToHash = (category: string, label: string, qparam?: string) => {
     const categoryFormatter = category.replace(/\s/g, '-').toLowerCase()
     if (categoryFormatter.includes('deriv-mt5')) {
         if (qparam) {

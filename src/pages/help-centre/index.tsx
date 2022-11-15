@@ -3,15 +3,15 @@ import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import QuestionsSection from './components/_questions-section'
+import SearchResult from './components/_search-result'
 import all_questions from './data/_all-questions'
 import { articles } from './_help-articles'
-import { SearchSuccess, SearchError } from './_search-results'
 import { eu_discards, getAllArticles } from './_utility'
 import FaqSchema from './components/_faq-schema'
 import { SEO, Desktop, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import device from 'themes/device'
@@ -27,48 +27,36 @@ const Community = Loadable(() => import('./components/_community'))
 const GENERAL = 'General'
 const PLATFORMS = 'Platforms'
 
-type StyledProps = {
-    wrap?: string
-    show?: boolean
-    has_transition?: boolean
-    align?: string
-    direction?: string
+type TSearchSection = {
+    show_result: boolean
+    has_transition: boolean
 }
 
-const Backdrop = styled.div`
+const SearchSection = styled.section<TSearchSection>`
     padding: 8rem 0;
     background-color: var(--color-white);
     border-bottom: 1px solid var(--color-grey-8);
+    max-height: ${({ show_result }) => (show_result ? '100rem' : '0')};
+    transition: ${({ has_transition }) =>
+        has_transition ? 'max-height 0.6s ease-in-out' : 'none'};
 
     @media ${device.tabletL} {
         padding: 8rem 0 4rem;
     }
 `
-const StyledContainer = styled.div<StyledProps>`
+const Wrapper = styled.div`
     @media ${device.tabletL} {
-        padding: 2rem 0 2rem 0;
+        padding: 2rem 0;
     }
 `
-const SearchSection = styled.section<StyledProps>`
-    ${Backdrop} {
-        max-height: ${(props) => (props.show ? '100rem' : '0')};
-        transition: ${(props) => (props.has_transition ? 'max-height 0.6s ease-in-out' : 'none')};
-        overflow: hidden;
+const ResponsiveHeader = styled(Header)`
+    @media ${device.tabletL} {
+        text-align: center;
+    }
+    @media ${device.mobileL} {
+        font-size: 4rem;
     }
 `
-
-const SearchCrossIcon = styled.img`
-    width: 2.3rem;
-    height: 2.3rem;
-    position: absolute;
-    top: 1.4rem;
-    right: 2rem;
-
-    :hover {
-        cursor: pointer;
-    }
-`
-
 const SearchForm = styled.form`
     position: relative;
     padding-left: 6.4rem;
@@ -76,7 +64,6 @@ const SearchForm = styled.form`
     border-radius: 4px;
     width: 99.6rem;
     height: 6.4rem;
-    max-width: 99.6rem;
 
     @media ${device.laptop} {
         width: 100%;
@@ -87,14 +74,14 @@ const SearchForm = styled.form`
         }
     }
 `
-const SearchIconBig = styled.img`
+const StyledSearchIcon = styled.img`
     width: 2.3rem;
     height: 2.3rem;
     position: absolute;
     left: 2.4rem;
     top: 2rem;
 `
-const Search = styled.input`
+const SearchInput = styled.input`
     width: 95%;
     font-size: var(--text-size-m);
     font-weight: 500;
@@ -108,20 +95,15 @@ const Search = styled.input`
         color: var(--color-grey-17);
     }
 `
+const SearchCrossIcon = styled.img`
+    width: 2.3rem;
+    height: 2.3rem;
+    position: absolute;
+    top: 1.4rem;
+    right: 2rem;
 
-const ResultWrapper = styled.div`
-    > :first-child {
-        margin-top: 4rem;
-        margin-bottom: 3.6rem;
-    }
-`
-
-const ResponsiveHeader = styled(Header)`
-    @media ${device.tabletL} {
-        text-align: center;
-    }
-    @media ${device.mobileL} {
-        font-size: 4rem;
+    :hover {
+        cursor: pointer;
     }
 `
 
@@ -213,45 +195,65 @@ const HelpCentre = () => {
             />
             <FaqSchema />
 
-            <SearchSection show={data.toggle_search} has_transition={data.search_has_transition}>
-                <Backdrop>
-                    <Container align="left" justify="flex-start" direction="column">
-                        <StyledContainer align="normal" direction="column">
-                            <ResponsiveHeader as="h1" type="display-title" mb="4rem">
-                                {localize('How can we help?')}
-                            </ResponsiveHeader>
-                            <SearchForm onSubmit={handleSubmit}>
-                                <SearchIconBig src={SearchIcon} alt="search-icon" />
-                                <Search
-                                    autoFocus
-                                    value={data.search}
-                                    onChange={handleInputChange}
-                                    placeholder={localize('Try “Trade”')}
-                                    data-lpignore="true"
-                                    autoComplete="off"
+            <SearchSection
+                show_result={data.toggle_search}
+                has_transition={data.search_has_transition}
+            >
+                <Container align="left" justify="flex-start" direction="column">
+                    <Wrapper>
+                        <ResponsiveHeader as="h1" type="heading-1" mb="4rem">
+                            <Localize translate_text="_t_How can we help?_t_" />
+                        </ResponsiveHeader>
+
+                        <SearchForm onSubmit={handleSubmit}>
+                            <StyledSearchIcon src={SearchIcon} alt="search-icon" />
+                            <SearchInput
+                                autoFocus
+                                value={data.search}
+                                onChange={handleInputChange}
+                                placeholder={localize('_t_Try “Trade”_t_')}
+                                data-lpignore="true"
+                                autoComplete="off"
+                            />
+                            {data.search.length > 0 && (
+                                <SearchCrossIcon
+                                    src={CrossIcon}
+                                    alt="cross-icon"
+                                    onClick={clearSearch}
                                 />
-                                {data.search.length > 0 && (
-                                    <SearchCrossIcon
-                                        src={CrossIcon}
-                                        alt="cross icon"
-                                        onClick={clearSearch}
-                                    />
-                                )}
-                            </SearchForm>
-                            <ResultWrapper>
-                                {!!has_results && !!data.search.length && (
-                                    <SearchSuccess
-                                        suggested_topics={filtered_articles}
-                                        max_length={3}
-                                    />
-                                )}
-                                {!has_results && !!data.search.length && (
-                                    <SearchError search={data.search} />
-                                )}
-                            </ResultWrapper>
-                        </StyledContainer>
-                    </Container>
-                </Backdrop>
+                            )}
+                        </SearchForm>
+
+                        {data.search.length > 0 && (
+                            <SearchResult
+                                has_result={!!has_results && !!data.search.length}
+                                has_no_result={!has_results && !!data.search.length}
+                                search_value={data.search}
+                                // suggested_topics={filtered_articles}
+                                suggested_topics={[
+                                    {
+                                        question:
+                                            '_t_How and when will I receive my commission payout?_t_',
+                                        category: 'account',
+                                        label: 'changing-your-personal-details',
+                                    },
+                                    {
+                                        question:
+                                            '_t_How and when will I receive my IB commission payout?_t_',
+                                        category: 'account',
+                                        label: 'changing-your-personal-details',
+                                    },
+                                    {
+                                        question:
+                                            '_t_How can I adjust or remove my self-exclusion limits?_t_',
+                                        category: 'account',
+                                        label: 'changing-your-personal-details',
+                                    },
+                                ]}
+                            />
+                        )}
+                    </Wrapper>
+                </Container>
             </SearchSection>
 
             <Container align="left" justify="flex-start" direction="column">

@@ -31,7 +31,7 @@ const FAQ = () => {
         <Section>
             <div style={{ margin: '0 auto' }}>
                 <Desktop breakpoint={'tabletL'}>
-                    <ImageWrapper src={Vector} alt="Dotted image" />
+                    <ImageWrapper src={Vector} alt="Dotted images" />
                 </Desktop>
                 <ContentContainer>
                     <Title as="h2">FAQs</Title>

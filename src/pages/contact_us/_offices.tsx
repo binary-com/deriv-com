@@ -16,7 +16,6 @@ import Rwanda from 'images/svg/contact/rwanda.svg'
 import Belarus from 'images/svg/contact/belarus.svg'
 import Singapore from 'images/svg/contact/singapore.svg'
 import Jordan from 'images/svg/contact/jordan.svg'
-import Cayman from 'images/svg/contact/cayman.svg'
 import Vanuatu from 'images/svg/contact/vanuatu.svg'
 
 type GridLayoutProps = {
@@ -28,9 +27,6 @@ type GridLayoutProps = {
 const query = graphql`
     query {
         map_paraguay: file(relativePath: { eq: "maps/map-paraguay.png" }) {
-            ...fadeIn
-        }
-        map_cayman: file(relativePath: { eq: "maps/map-cayman.png" }) {
             ...fadeIn
         }
         map_dubai: file(relativePath: { eq: "maps/map-dubai.png" }) {
@@ -49,9 +45,6 @@ const query = graphql`
             ...fadeIn
         }
         map_singapore: file(relativePath: { eq: "maps/map-singapore.png" }) {
-            ...fadeIn
-        }
-        map_ciudad: file(relativePath: { eq: "maps/map-ciudad.png" }) {
             ...fadeIn
         }
         map_malta: file(relativePath: { eq: "maps/map-malta.png" }) {
@@ -857,7 +850,6 @@ export const Offices = () => {
                                         </LocalizedLink>
                                     </MapContainer>
                                     <Box mt="0.8rem" ml="1.6rem">
-                                        <CountryText>Cyberjaya</CountryText>
                                         <LocalizedLinkText
                                             to="https://goo.gl/maps/ci85LgJcyNj97uDa7"
                                             external
@@ -878,91 +870,8 @@ export const Offices = () => {
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
-                                <FullBox id="ciudad">
-                                    <MapContainer>
-                                        <LocalizedLink
-                                            to="https://goo.gl/maps/5d1aeBeeJDEWG1SW7"
-                                            external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <QueryImage
-                                                alt="Deriv's office location map in Ciudad del Este"
-                                                data={data['map_ciudad']}
-                                                height="100%"
-                                            />
-                                        </LocalizedLink>
-                                    </MapContainer>
-                                    <Box mt="0.8rem" ml="1.6rem">
-                                        <CountryText>Labuan</CountryText>
-                                        <LocalizedLinkText
-                                            to="https://goo.gl/maps/5d1aeBeeJDEWG1SW7"
-                                            external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <Desktop>
-                                                <p>World Trade Center Ciudad del Este</p>
-                                            </Desktop>
-                                            <Mobile>
-                                                <StyledMobileAddress>
-                                                    World Trade Center Ciudad del Este
-                                                </StyledMobileAddress>
-                                            </Mobile>
-                                        </LocalizedLinkText>
-                                    </Box>
-                                </FullBox>
                             </GridLayout>
                         </FullBorder>
-                    </Flex>
-
-                    <Flex mt="30px" fd="column" id="cayman">
-                        <ContinentHeader>{localize('North America')}</ContinentHeader>
-                        <OfficeHeader>
-                            <div>
-                                <img src={Cayman} alt="Cayman Islands - George Town" />
-                            </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                {localize('Cayman')}
-                            </Header>
-                        </OfficeHeader>
-                    </Flex>
-                    <Flex max_width="48.6rem">
-                        <BorderBox>
-                            <MapContainer>
-                                <LocalizedLink
-                                    to="https://goo.gl/maps/4bg5B7dkvUv5Pa11A"
-                                    external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <QueryImage
-                                        alt="Deriv's office location map in Cayman"
-                                        data={data['map_cayman']}
-                                        height="100%"
-                                    />
-                                </LocalizedLink>
-                            </MapContainer>
-                            <LocalizedLinkText
-                                to="https://goo.gl/maps/4bg5B7dkvUv5Pa11A"
-                                external
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                mt="0.8rem"
-                                ml="1.6rem"
-                            >
-                                <Desktop>
-                                    Cayman Enterprise City,Strathvale House, 2nd Floor, Church St,
-                                    George Town, Cayman 90 N Islands
-                                </Desktop>
-                                <Mobile>
-                                    <StyledMobileAddress>
-                                        Cayman Enterprise City, Strathvale House, 2nd Floor, 90 N
-                                        Church St, George Town, Cayman Islands
-                                    </StyledMobileAddress>
-                                </Mobile>
-                            </LocalizedLinkText>
-                        </BorderBox>
                     </Flex>
                     <Flex mt="30px" fd="column" id="vanuatu">
                         <ContinentHeader>{localize('Oceania')}</ContinentHeader>

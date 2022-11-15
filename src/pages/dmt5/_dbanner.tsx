@@ -145,7 +145,6 @@ const DBanner = ({
         }
         @media ${device.mobileL} {
             width: unset;
-            max-width: unset;
         }
     `
     return (

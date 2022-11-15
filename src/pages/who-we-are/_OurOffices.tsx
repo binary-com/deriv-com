@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { desktop_pins, mobile_pins, our_offices_count } from './_data'
+import { desktop_pins, mobile_pins } from './_data'
 import MapPin from './components/map-pin'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
@@ -95,14 +95,36 @@ const MapImage = styled(BackgroundImage)`
 const StyledFlex = styled(Flex)`
     height: unset;
 `
+type DerivNumbersType = {
+    count: ReactElement
+    title: ReactElement
+}
 
-const OurOffices = () => {
+const OurOffices = ({ quer }: any) => {
     const data = useStaticQuery(query)
+    const our_offices_count: DerivNumbersType[] = [
+        {
+            count: <Localize translate_text={String(quer?.description_1_1)} />,
+            title: <Localize translate_text={String(quer?.description_1_2)} />,
+        },
+        {
+            count: <Localize translate_text={String(quer?.description_2_1)} />,
+            title: <Localize translate_text={String(quer?.description_2_2)} />,
+        },
+        {
+            count: <Localize translate_text={String(quer?.description_3_1)} />,
+            title: <Localize translate_text={String(quer?.description_3_2)} />,
+        },
+        {
+            count: <Localize translate_text={String(quer?.description_4_1)} />,
+            title: <Localize translate_text={String(quer?.description_4_2)} />,
+        },
+    ]
 
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {localize('Our locations')}
+                {localize(String(quer?.header))}
             </StyledHeader>
 
             <Flex>

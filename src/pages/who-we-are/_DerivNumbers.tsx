@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { deriv_numbers } from './_data'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
@@ -101,19 +101,41 @@ const NumberText = styled(Text)`
     font-weight: 400;
     text-align: left;
 `
+type DerivNumbersType = {
+    count: ReactElement
+    title: ReactElement
+}
 
-const DerivNumbers = () => {
+const DerivNumbers = ({ query }: any) => {
+    const deriv_numbers: DerivNumbersType[][] = [
+        [
+            {
+                count: <Localize translate_text={String(query?.description_1_1)} />,
+                title: <Localize translate_text={String(query?.description_1_2)} />,
+            },
+            {
+                count: <Localize translate_text={String(query?.description_2_1)} />,
+                title: <Localize translate_text={String(query?.description_2_2)} />,
+            },
+            {
+                count: <Localize translate_text={String(query?.description_3_1)} />,
+                title: <Localize translate_text={String(query?.description_3_2)} />,
+            },
+            {
+                count: <Localize translate_text={String(query?.description_4_1)} />,
+                title: <Localize translate_text={String(query?.description_4_2)} />,
+            },
+        ],
+    ]
     return (
         <StyledSection>
             <StyledFlex>
                 <TitleSection fd="column">
                     <TitleHeader as="h6" color="black-2" align="left" type="unset">
-                        {localize('Deriv in numbers')}
+                        {localize(String(query?.header))}
                     </TitleHeader>
                     <StyledHeader as="h6" size="24px" align="left" weight="400" type="unset">
-                        {localize(
-                            'We aim to deliver market-leading products that are trusted around the world.',
-                        )}
+                        {localize(String(query?.subheader))}
                     </StyledHeader>
                 </TitleSection>
                 <NumberSection

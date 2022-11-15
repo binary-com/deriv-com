@@ -88,7 +88,7 @@ module.exports = {
     ar: {
         path: 'ar',
         display_name: 'العربية',
-        short_name: 'العربية',
+        short_name: 'AR',
     },
     ko: {
         path: 'ko',

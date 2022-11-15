@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import { SectionContainer, Flex } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 
 const Wrapper = styled.div``

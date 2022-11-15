@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import Dia1 from './event-images/dia1.png'
-import Dia2 from './event-images/dia2.png'
-import Dia3 from './event-images/dia3.png'
 import { localize } from 'components/localization'
-import { SectionContainer, Flex } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
+import Dia1 from 'images/common/conference/dia1.png'
+import Dia2 from 'images/common/conference/dia2.png'
+import Dia3 from 'images/common/conference/dia3.png'
 
 const EventsWrapper = styled.div`
     display: flex;

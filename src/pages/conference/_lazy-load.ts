@@ -1,3 +1,3 @@
 import Loadable from '@loadable/component'
 
-// export const OurValues = Loadable(() => import('./_OurValues'))
+export const Preview = Loadable(() => import('./_preview'))

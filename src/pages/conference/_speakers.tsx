@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import Alcino from './event-images/Alcino.png'
-import Alejandro from './event-images/Alejandro.png'
-import Claudia from './event-images/Claudia.png'
-import Raul from './event-images/Raul.png'
-import Name1 from './event-images/name1.png'
-import Name2 from './event-images/name2.png'
-import Name3 from './event-images/name3.png'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
+import Alcino from 'images/common/conference/Alcino.png'
+import Alejandro from 'images/common/conference/Alejandro.png'
+import Claudia from 'images/common/conference/Claudia.png'
+import Raul from 'images/common/conference/Raul.png'
+import Name1 from 'images/common/conference/name1.png'
+import Name2 from 'images/common/conference/name2.png'
+import Name3 from 'images/common/conference/name3.png'
 
 const SpeakersWrapper = styled.div`
     display: flex;

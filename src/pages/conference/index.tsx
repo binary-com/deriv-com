@@ -3,10 +3,10 @@ import Hero from './_hero'
 import Login from './_login'
 import Events from './_events'
 import Speakers from './_speakers'
-import Preview from './_preview'
+import { Preview } from './_lazy-load'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 
 const Conferencies = () => {
     return (

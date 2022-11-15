@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import PreviewImage from './event-images/preview.png'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
+import PreviewImage from 'images/common/conference/preview.png'
 
 const PreviewWrapper = styled.div`
     padding: 80px 120px;

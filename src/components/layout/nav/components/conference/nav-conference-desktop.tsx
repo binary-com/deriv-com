@@ -12,6 +12,8 @@ const StyledWrapper = styled.div`
     font-size: 16px;
 `
 const LeftSide = styled.div`
+    display: flex;
+    align-items: center;
     width: 100%;
     padding: 22px 0 22px 120px;
     font-size: 16px;
@@ -20,7 +22,7 @@ const LeftSide = styled.div`
 export const StyledLogoLink = styled(LocalizedLink)`
     width: 28px;
     height: 28px;
-    padding-right: 20px;
+    margin-right: 20px;
 `
 const NavigationBar = styled.ul`
     display: flex;
@@ -45,7 +47,7 @@ type NavLinkCardTypes = {
     rel?: string
 }
 
-const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
+const NavLinkCard = ({ title, active, ...props }: NavLinkCardTypes) => {
     const current_page = useActiveLinkState('conference')
     return (
         <NavLink>
@@ -53,7 +55,7 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
                 active={current_page === active}
                 activeClassName="active"
                 aria-label={title}
-                {...rest}
+                {...props}
             >
                 {title}
             </StyledLink>

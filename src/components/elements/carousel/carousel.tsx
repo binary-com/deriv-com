@@ -1,12 +1,4 @@
-import React, {
-    useState,
-    useMemo,
-    useEffect,
-    useCallback,
-    CSSProperties,
-    ReactNode,
-    Children,
-} from 'react'
+import React, { useState, useEffect, useCallback, CSSProperties, ReactNode, Children } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import type { FlattenSimpleInterpolation } from 'styled-components'
 import type { EmblaOptionsType, EmblaPluginType } from 'embla-carousel-react'
@@ -46,13 +38,6 @@ export const PrevButton = ({
     onClick,
     style,
 }: PrevAndNextButtonsProps) => {
-    const { is_black, is_red } = useMemo(() => {
-        return {
-            is_black: color === 'black',
-            is_red: color === 'red',
-        }
-    }, [color])
-
     const is_rtl = useIsRtl()
 
     return (
@@ -81,13 +66,6 @@ export const NextButton = ({
     onClick,
     style,
 }: PrevAndNextButtonsProps) => {
-    const { is_black, is_red } = useMemo(() => {
-        return {
-            is_black: color === 'black',
-            is_red: color === 'red',
-        }
-    }, [color])
-
     const is_rtl = useIsRtl()
 
     return (

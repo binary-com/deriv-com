@@ -92,18 +92,13 @@ export const plugin = (context, content) => {
     // 1 property context :  on a property declaration ex. color: red;
     // 2 selector block context : after a selector block of css has been processed ex. .foo {color:red;}
     // 3 @at-rule block context :  after a @at-rule block of css has been processed ex. @media {h1{color:red;}}
-
-    switch (context) {
-        case STYLIS_PROPERTY_CONTEXT:
-            return transformCSSProperties(content)
-        default:
-            break
+    if (context === STYLIS_PROPERTY_CONTEXT) {
+        return transformCSSProperties(content)
     }
 }
 
 const transformProperty = (logicalName: string, value: string) => {
     if (value) {
-        const result = `${logicalName}:${value}`
-        return result
+        return `${logicalName}:${value}`
     }
 }

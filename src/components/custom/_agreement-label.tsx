@@ -39,7 +39,7 @@ const AgreementLabel = ({
         <label
             style={{
                 fontWeight: 'normal',
-                // TODO: This component should be improved, there are alignment issues with RTL and LTR
+                // HINT: This component should be improved, there are alignment issues with RTL and LTR
                 lineHeight: is_rtl ? '18px' : '1px',
                 marginTop: '5px',
                 marginBottom: '0',

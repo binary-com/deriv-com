@@ -144,7 +144,7 @@ export const LocalizedLink = React.forwardRef(
             return (
                 <ExternalLink
                     mounted={is_mounted}
-                    // TODO: In our project we don't have Arabic translations yet, so we have to use the default locale (en) instead
+                    // HINT: In our project we don't have Arabic translations yet, so we have to use the default locale (en) instead
                     locale={locale === 'ar' ? 'en' : locale}
                     ref={ref}
                     {...props}

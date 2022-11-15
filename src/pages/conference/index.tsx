@@ -3,7 +3,7 @@ import Hero from './_hero'
 import Login from './_login'
 import Events from './_events'
 import Speakers from './_speakers'
-import { Preview } from './_lazy-load'
+import { NoticableLogin, Preview, Venue } from './_lazy-load'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
@@ -20,6 +20,8 @@ const Conferencies = () => {
             <Events />
             <Preview />
             <Speakers />
+            <Venue />
+            <NoticableLogin />
         </Layout>
     )
 }

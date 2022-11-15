@@ -13,19 +13,19 @@ import security from './_security'
 import trading from './_trading'
 
 const all_questions = [
-    about_deriv,
     account,
-    affiliate_programme,
-    dbot,
-    deposits_and_withdrawals,
-    deriv_p2p,
-    derivx,
-    dmt5,
-    dtrader,
-    ib_programme,
-    multiplier,
-    security,
     trading,
+    deposits_and_withdrawals,
+    security,
+    affiliate_programme,
+    ib_programme,
+    about_deriv,
+    dmt5,
+    derivx,
+    dtrader,
+    multiplier,
+    dbot,
+    deriv_p2p,
 ]
 
 export default all_questions

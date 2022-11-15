@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
+import QuestionsSection from './components/_questions-section'
+import all_questions from './data/_all-questions'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 import { eu_discards, getAllArticles } from './_utility'
 import FaqSchema from './components/_faq-schema'
-import ArticleSectionComponent from './_article-section-component'
 import { SEO, Desktop, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
@@ -17,11 +18,14 @@ import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { DerivStore } from 'store'
 
 //Lazy-load
 const DidntFindYourAnswerBanner = Loadable(() => import('./components/_didnt-find-answer'))
 const Community = Loadable(() => import('./components/_community'))
+
+const GENERAL = 'General'
+const PLATFORMS = 'Platforms'
 
 type StyledProps = {
     wrap?: string
@@ -122,7 +126,7 @@ const ResponsiveHeader = styled(Header)`
 `
 
 const HelpCentre = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu_country } = React.useContext(DerivStore)
     const [data, setData] = useState({
         search: '',
         toggle_search: true,
@@ -130,14 +134,6 @@ const HelpCentre = () => {
         all_categories: {},
         all_articles: [],
     })
-
-    const toggleArticle = (category) => {
-        if (data.all_categories[category]) {
-            const categories = { ...data.all_categories }
-            categories[category].is_expanded = !categories[category].is_expanded
-            setData({ ...data, all_categories: categories })
-        }
-    }
 
     useEffect(() => {
         const current_label = getLocationHash()
@@ -181,7 +177,7 @@ const HelpCentre = () => {
         setData({ ...data, search: sanitize(e.target.value) })
     }
 
-    const articles_by_domain = is_eu
+    const articles_by_domain = is_eu_country
         ? data.all_articles.filter((el) => !eu_discards.includes(el.category))
         : data.all_articles
 
@@ -189,19 +185,19 @@ const HelpCentre = () => {
         keys: ['title', 'sub_category'],
     })
 
-    const filtered_articles = is_eu
+    const filtered_articles = is_eu_country
         ? searched_articles.filter((article) => !article.hide_for_eu)
         : searched_articles.filter((article) => !article.hide_for_non_eu)
 
     const has_results = !!filtered_articles.length
 
     const general_articles = React.useMemo(
-        () => articles.filter((article) => article.section === 'General'),
+        () => all_questions.filter(({ section }) => section === GENERAL),
         [],
     )
 
     const platforms_articles = React.useMemo(
-        () => articles.filter((article) => article.section === 'Platforms'),
+        () => all_questions.filter(({ section }) => section === PLATFORMS),
         [],
     )
 
@@ -259,21 +255,11 @@ const HelpCentre = () => {
             </SearchSection>
 
             <Container align="left" justify="flex-start" direction="column">
-                <ArticleSectionComponent
-                    section_name="General"
-                    articles={general_articles}
-                    data={data}
-                    toggleArticle={toggleArticle}
-                />
-                <ArticleSectionComponent
-                    section_name="Platforms"
-                    articles={platforms_articles}
-                    data={data}
-                    toggleArticle={toggleArticle}
-                />
+                <QuestionsSection data={general_articles} section_name={GENERAL} />
+                <QuestionsSection data={platforms_articles} section_name={PLATFORMS} />
             </Container>
 
-            <Desktop breakpoint="tabletS">
+            <Desktop breakpoint="tabletL">
                 <Community />
             </Desktop>
             {!is_deriv_go && <DidntFindYourAnswerBanner />}

@@ -54,12 +54,12 @@ const ShowMore = styled.span`
 `
 
 const QuestionsCategory = ({ data }: TQuestionsCategory) => {
-    const [show_more, setShowMore] = useState(false)
     const { category, questions } = data
-    const filtered_data = useFilteredQuestions(questions)
     const { platform } = usePlatformQueryParam()
-    const questions_to_show = show_more ? questions : questions.splice(0, 3)
-    const can_expand = questions.length > 3
+    const [show_more, setShowMore] = useState(false)
+    const filtered_data = useFilteredQuestions(questions)
+    const can_expand = filtered_data.length > 3
+    const questions_to_show = show_more ? filtered_data : filtered_data.splice(0, 3)
 
     const handleShowMoreClick = () => setShowMore(!show_more)
 
@@ -70,7 +70,7 @@ const QuestionsCategory = ({ data }: TQuestionsCategory) => {
             </Header>
 
             <Ul>
-                {questions.map(({ question, label }) => {
+                {questions_to_show.map(({ question, label }) => {
                     const to = convertToHash(getUntranslatedCategory(category), label, platform)
                     return (
                         <Link key={label} to={to}>

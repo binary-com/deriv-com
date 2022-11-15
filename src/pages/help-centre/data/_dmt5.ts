@@ -3,7 +3,7 @@ import { deriv_app_url } from 'common/constants'
 
 const dmt5: TQuestionsData = {
     section: 'Platforms',
-    category: '_t_DMT5_t_',
+    category: '_t_Deriv MT5_t_',
     questions: [
         {
             question: '_t_What is Deriv MetaTrader 5 (Deriv MT5)?_t_',

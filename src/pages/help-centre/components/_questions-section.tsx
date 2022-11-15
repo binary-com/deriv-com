@@ -67,11 +67,11 @@ const QuestionsSection = ({ data, section_name }: TQuestionsSection) => {
             <Div>
                 {data.map((item) => {
                     const { hide_for_eu, category } = item
-                    // const hide_component = is_eu && hide_for_eu
+                    const hide_component = is_eu && hide_for_eu
 
-                    // if (!hide_component) {
-                    return <QuestionsCategory key={category} data={item} />
-                    // }
+                    if (!hide_component) {
+                        return <QuestionsCategory key={category} data={item} />
+                    }
                 })}
             </Div>
         </Section>

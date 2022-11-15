@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import ExpandList from './_expanded-list'
+import Loadable from '@loadable/component'
 import payment_data from './_payment-data'
 import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
@@ -12,6 +12,8 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+
+const ExpandList = Loadable(() => import('./_expanded-list'))
 
 type StyledTableType = {
     has_note: boolean
@@ -343,7 +345,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
 const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
-        <Layout>
+        <Layout type="payment-methods">
             <SEO
                 title={localize('Payment Methods | Deposits and withdrawals | Deriv')}
                 description={localize(

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { TQuestions } from '../data/_data-types'
-import { convertToHash } from '../_utility'
+import { convertToHash } from "./_utility"
 import { Header } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
 

@@ -4,9 +4,8 @@ import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import QuestionsSection from './components/_questions-section'
 import SearchResult from './components/_search-result'
-import all_questions from './data/_all-questions'
+import { all_questions } from './components/_utility'
 import { articles } from './_help-articles'
-import { eu_discards, getAllArticles } from './_utility'
 import FaqSchema from './components/_faq-schema'
 import { SEO, Desktop, Container } from 'components/containers'
 import { Header } from 'components/elements'
@@ -116,6 +115,14 @@ const HelpCentre = () => {
         all_categories: {},
         all_articles: [],
     })
+
+    const eu_discards = ['Deriv X', 'Deriv P2P']
+
+    const getAllArticles = (articles) =>
+        articles
+            .map((category) => category.articles)
+            // flatten the array, gatsby build does not support .flat() yet
+            .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
     useEffect(() => {
         const current_label = getLocationHash()

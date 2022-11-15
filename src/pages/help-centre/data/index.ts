@@ -12,7 +12,7 @@ import multiplier from './_multipliers'
 import security from './_security'
 import trading from './_trading'
 
-const all_questions = [
+export {
     account,
     trading,
     deposits_and_withdrawals,
@@ -26,6 +26,4 @@ const all_questions = [
     multiplier,
     dbot,
     deriv_p2p,
-]
-
-export default all_questions
+}

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { TQuestionsData } from '../data/_data-types'
 import useFilteredQuestions from '../data/_use-filtered-questions'
-import { convertToHash, getUntranslatedCategory } from '../_utility'
+import { getUntranslatedCategory, convertToHash } from "./_utility"
 import { Localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
 import device from 'themes/device'

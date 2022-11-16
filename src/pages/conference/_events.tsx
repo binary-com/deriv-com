@@ -25,8 +25,15 @@ const EventsHeader = styled(Header)`
     color: var(--color-black-3);
 `
 
+type TEvents = {
+    day: string
+    icon: string
+    title: string
+    subtitle: string
+}
+
 const Events = () => {
-    const events = [
+    const events: TEvents[] = [
         {
             day: 'Dia 1',
             icon: Dia1,

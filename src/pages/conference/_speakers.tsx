@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import Alcino from 'images/common/conference/Alcino.png'
+import Ricardo from 'images/common/conference/Ricardo.png'
+import Sebastian from 'images/common/conference/Sebastian.png'
 import Alejandro from 'images/common/conference/Alejandro.png'
 import Claudia from 'images/common/conference/Claudia.png'
 import Raul from 'images/common/conference/Raul.png'
-import Name1 from 'images/common/conference/name1.png'
-import Name2 from 'images/common/conference/name2.png'
-import Name3 from 'images/common/conference/name3.png'
+import Sasky from 'images/common/conference/Sasky.png'
+import Ana from 'images/common/conference/Ana.png'
 
 const SpeakersWrapper = styled.div`
     display: flex;
@@ -29,7 +30,6 @@ const IndividualSpeaker = styled.div`
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
     width: 282px;
     height: 296px;
     margin: 0 12px 56px 12px;
@@ -42,18 +42,19 @@ const Photo = styled.img`
 `
 const SpeakerInfo = styled(Header)`
     text-align: center;
+    white-space: nowrap;
 `
 
 const Speakers = () => {
     const speakers_info = [
         { name: 'Alcino', role: 'Generate LATAM Deriv', photo: Alcino },
-        { name: 'Ricardo', role: 'Lider da equipe America Central Deriv', photo: Alcino },
-        { name: 'Name', role: 'Lider equipe LATAM Deriv', photo: Name1 },
-        { name: 'Name', role: 'Lider de equipe Brasil Deriv', photo: Name2 },
+        { name: 'Ricardo', role: 'Lider da equipe America Central Deriv', photo: Ricardo },
+        { name: 'Sebastian', role: 'Conferencia de Affiliados da Deriv 2022', photo: Sebastian },
+        { name: 'Sasky', role: 'Lider de equipe Brasil Deriv', photo: Sasky },
         { name: 'Claudia', role: 'Gestora de affiaclod Deriv', photo: Claudia },
         { name: 'Raul', role: 'Gestora de afficaclos Deriv', photo: Raul },
         { name: 'Alejandro', role: 'Suporte ao cliente Deriv', photo: Alejandro },
-        { name: 'Name', role: 'Gestoramdemaffiados Deriv', photo: Name3 },
+        { name: 'Ana', role: 'Gestora de affiados Deriv', photo: Ana },
     ]
 
     return (
@@ -66,10 +67,16 @@ const Speakers = () => {
                     return (
                         <IndividualSpeaker key={speaker.name}>
                             <Photo src={speaker.photo} alt={speaker.name} />
-                            <SpeakerInfo as="div" type="subtitle-1">
+                            <SpeakerInfo as="div" type="subtitle-1" pt="20px">
                                 {speaker.name}
                             </SpeakerInfo>
-                            <SpeakerInfo as="div" type="paragraph-1" weight="normal">
+                            <SpeakerInfo
+                                as="div"
+                                type="paragraph-1"
+                                weight="normal"
+                                pt="20px"
+                                pb="16px"
+                            >
                                 {speaker.role}
                             </SpeakerInfo>
                         </IndividualSpeaker>

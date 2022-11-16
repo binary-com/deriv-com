@@ -19,10 +19,10 @@ const Card = styled(Flex)`
     max-width: 384px;
     height: 434px;
 `
-const EventsHeader = styled(Header)<{ attention?: boolean }>`
+const EventsHeader = styled(Header)`
     text-align: center;
     white-space: nowrap;
-    color: ${({ attention }) => (attention ? 'var(--color-red)' : 'var(--color-black-3)')};
+    color: var(--color-black-3);
 `
 
 const Events = () => {
@@ -52,11 +52,11 @@ const Events = () => {
             {events.map((event) => {
                 return (
                     <Card key={event.day}>
-                        <EventsHeader as="div" type="heading-3">
+                        <EventsHeader as="div" type="heading-3" pb="32px">
                             {event.day}
                         </EventsHeader>
                         <img src={event.icon} alt="day" width={384} height={256} />
-                        <EventsHeader as="div" weight="normal" type="subtitle-2" attention>
+                        <EventsHeader as="div" weight="normal" type="subtitle-2" pt="24px" pb="8px">
                             {event.title}
                         </EventsHeader>
                         <EventsHeader as="div" weight="normal" type="subtitle-1">

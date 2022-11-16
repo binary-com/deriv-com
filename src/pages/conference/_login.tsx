@@ -25,7 +25,7 @@ const Login = () => {
             <LoginHeader as="div" weight="normal" type="subtitle-1" pt="32px">
                 ou, se ja tiver seu acesso ao evento
             </LoginHeader>
-            <Button secondary>Faca login</Button>
+            <Button primary>Faca login</Button>
         </LoginWrapper>
     )
 }

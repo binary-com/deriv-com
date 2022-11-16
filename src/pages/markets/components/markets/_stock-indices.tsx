@@ -8,8 +8,8 @@ import { stock_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
+import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { localize, Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 //Lazy-load
@@ -17,20 +17,16 @@ const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type StockIndicesProps = {
-    simple_step_content: SimpleStepsContent[]
+    simple_step_content: SimpleStepContentElement[]
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_uk } = useCountryRule()
-
-    simple_step_content[1].text = localize(
-        'Open a real account, make a deposit, and start trading stocks, indices and other markets.',
-    )
     return (
         <div>
             <WhyTrade
                 header={<Localize translate_text="Why trade stocks & indices on Deriv" />}
-                text={
+                description={
                     <Localize translate_text="Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets." />
                 }
             >

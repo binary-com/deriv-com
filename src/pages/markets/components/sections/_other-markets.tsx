@@ -33,6 +33,9 @@ type CardProps = {
 type OtherMarketsProps = {
     except: string
 }
+type LearnMoreProps = {
+    visibility?: string
+}
 const markets_type: MarketsType = {
     forex: {
         icon: () => <img src={Forex} alt="Forex" width="64" height="64" />,
@@ -83,7 +86,7 @@ const markets_type: MarketsType = {
     },
 }
 
-const LearnMore = styled(LocalizedLink)`
+const LearnMore = styled(LocalizedLink)<LearnMoreProps>`
     opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
     width: 142px;
     height: 40px;
@@ -283,7 +286,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
 
     return (
         <StyledSectionContainer>
-            <Desktop max_width="mobileL">
+            <Desktop>
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
@@ -295,7 +298,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     </Carousel>
                 </MarketsWrapper>
             </Desktop>
-            <Mobile min_width="mobileL">
+            <Mobile>
                 <StyledHeader as="h3" type="section-title" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>

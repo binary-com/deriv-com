@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Deposit from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
@@ -15,7 +14,7 @@ export type ForexContentElement = {
     text: ReactElement
 }
 
-export const simple_step_content_forex: SimpleStepsContent[] = [
+export const simple_step_content_forex = [
     {
         header: <Localize translate_text="Practise" />,
         text: (

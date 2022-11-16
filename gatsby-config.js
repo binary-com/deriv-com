@@ -1,4 +1,6 @@
 const language_config = require(`./i18n-config.js`)
+const isBrowser = typeof window !== "undefined"
+
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 })
@@ -99,7 +101,7 @@ module.exports = {
                     }
                 }
                 `,
-                resolveSiteUrl: () => site_url,
+                resolveSiteUrl: () => (isBrowser && window.location.hostname) || site_url,
                 resolvePages: ({ allSitePage: { nodes: allPages } }) => {
                     return allPages.map((page) => {
                         return { ...page }

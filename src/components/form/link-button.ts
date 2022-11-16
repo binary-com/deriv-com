@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { ButtonProps, SharedButtonStyle } from './button'
+import { SharedButtonStyleProps, SharedButtonStyle } from './button'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
-type LinkButtonProps = ButtonProps & {
+type LinkButtonProps = SharedButtonStyleProps & {
     hero?: boolean
 }
 

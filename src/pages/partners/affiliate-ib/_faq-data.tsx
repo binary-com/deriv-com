@@ -243,6 +243,10 @@ const AffiliateAccountManagement = () => (
                 ]}
             />
         </Header>
+        <TextSecondary>
+            <Localize translate_text="If you’re already registered as a Deriv affiliate, " />
+            <LiveChatLinkText text="_t_contact us via live chat._t_" />
+        </TextSecondary>
         <Header
             as="p"
             type="paragraph-1"
@@ -597,7 +601,7 @@ const IBAccountManagement = () => {
                 }}
             >
                 <Localize
-                    translate_text="All you need to do is head to the signup page and fill out the application form. We’ll review your application and get in touch if it’s successful."
+                    translate_text="All you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
                     components={[
                         <LocalizedLinkText
                             to={affiliate_signup_url}

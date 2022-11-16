@@ -5,5 +5,5 @@ declare module '*.svg?inline' {
 
 declare module '*.svg' {
     const content: any
-    export default content
+    export default content //test
 }

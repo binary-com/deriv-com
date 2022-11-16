@@ -1,7 +1,8 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { size, SizeType } from 'themes/device'
+import device, { TDevices, size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import useMediaQuery from 'components/hooks/use-media-query'
 
 type BreakPointType = number | SizeType
 
@@ -77,4 +78,24 @@ export const Mobile = ({
     ) : (
         <MobileLayer breakpoint={breakpoint_size}>{children}</MobileLayer>
     )
+}
+
+/**
+ * checks if the query is actually one of the items in our devices object
+ * @param device_key {string}
+ * @returns {string} the value of the devices, or the initial query
+ */
+const getDeviceQuery = (device_key: TDevices) => {
+    return device[device_key] ?? device_key
+}
+
+type TVisiblityProps = {
+    device_key: TDevices
+    children?: ReactNode
+}
+
+export const Visiblity = ({ children, device_key }: TVisiblityProps) => {
+    const matches = useMediaQuery(getDeviceQuery(device_key))
+
+    return matches ? <>{children}</> : null
 }

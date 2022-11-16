@@ -6,6 +6,7 @@ import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+import { Visiblity } from 'components/containers/visibility'
 const WhyTradeCFD = Loadable(() => import('./_why-trade-cfd'))
 const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))

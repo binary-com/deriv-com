@@ -4,12 +4,18 @@ import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { Visiblity } from 'components/containers/visibility'
 
 const WhatIsCFD = () => {
     const { is_eu } = useCountryRule()
     return (
         <SectionContainer background="white" padding="8rem 0 1.2rem">
             <SmallContainer direction="column" ai="flex-start">
+                <Visiblity device_key="tablet">
+                    <Header as="h2" type="page-title" mb="1.2rem">
+                        What is CFD trading? Tablet
+                    </Header>
+                </Visiblity>
                 <Header as="h2" type="page-title" mb="1.2rem">
                     {localize('What is CFD trading?')}
                 </Header>

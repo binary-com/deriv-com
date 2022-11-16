@@ -243,10 +243,6 @@ const AffiliateAccountManagement = () => (
                 ]}
             />
         </Header>
-        <TextSecondary>
-            <Localize translate_text="If you’re already registered as a Deriv affiliate, " />
-            <LiveChatLinkText text="_t_contact us via live chat._t_" />
-        </TextSecondary>
         <Header
             as="p"
             type="paragraph-1"

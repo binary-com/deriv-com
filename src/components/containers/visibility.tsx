@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import device, { TDevices, size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -90,12 +90,21 @@ const getDeviceQuery = (device_key: TDevices) => {
 }
 
 type TVisiblityProps = {
-    device_key: TDevices
+    device_key?: TDevices
+    media_query?: string
     children?: ReactNode
 }
 
-export const Visiblity = ({ children, device_key }: TVisiblityProps) => {
-    const matches = useMediaQuery(getDeviceQuery(device_key))
+// either pass the device_key or the media_key, device_key has higher priority
+export const Visibility = ({ children, device_key, media_query = '' }: TVisiblityProps) => {
+    const query = useMemo(() => {
+        if (device_key) {
+            return getDeviceQuery(device_key)
+        }
+        return media_query
+    }, [device_key, media_query])
+
+    const matches = useMediaQuery(query)
 
     return matches ? <>{children}</> : null
 }

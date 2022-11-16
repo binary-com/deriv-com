@@ -21,7 +21,7 @@ const StartTrading = () => {
                     <Visibility device_key="tabletL">
                         <Header as="h3" type="section-title" mb="4rem">
                             <Localize
-                                translate_text="Start trading CFDs 111 on <0/>Deriv<0/>"
+                                translate_text="Start trading CFDs on <0/>Deriv<0/>"
                                 components={[<br key={0} />]}
                             />
                         </Header>

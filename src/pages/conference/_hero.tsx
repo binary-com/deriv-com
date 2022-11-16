@@ -17,7 +17,7 @@ const Newsbreak = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 190px 0 0 120px;
+    padding: 190px 0 348px 120px;
 `
 const StyledHeroHeader = styled(Header)`
     padding: 20px 0 20px 12px;
@@ -36,7 +36,7 @@ const Hero = () => {
                     Conferencia de Afiliados Derov do Brazil
                 </StyledHeroHeader>
                 <HeaderWrapper>
-                    <img src={Calendar} alt="calendar icon" width="28px" height="28px" />
+                    <img src={Calendar} alt="calendar icon" width={28} height={28} />
                     <StyledHeroHeader as="h2" type="heading-3" weight="normal">
                         30 de Novembro a de Dezembro 2022
                     </StyledHeroHeader>

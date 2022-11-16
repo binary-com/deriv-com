@@ -63,7 +63,7 @@ const trading = [
     {
         title: <Localize translate_text="Trade what you want, when you want..." />,
         subtitle: (
-            <Localize translate_text="Forex, indices, commodities and synthetic indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here." />
+            <Localize translate_text="Forex, commodities, cryptocurrencies, and indices — whether it’s the world markets or derived markets that excite you, you’ll find them here." />
         ),
 
         image_name: 'trade_what_you_want',
@@ -93,7 +93,7 @@ const trading_eu = [
     {
         title: <Localize translate_text="Trade what you want, when you want..." />,
         subtitle: (
-            <Localize translate_text="Synthetic indices, forex, and cryptocurrencies — whether it’s the world financial markets or synthetic markets that excite you, you’ll find them here." />
+            <Localize translate_text="Forex, cryptocurrencies, and indices – whether it’s the world markets or derived markets that excite you, you’ll find them here." />
         ),
 
         image_name: 'trade_what_you_want_eu',
@@ -143,7 +143,7 @@ const Dtrader = () => {
                     />
                 }
                 join_us_for_free
-                go_to_live_demo
+                is_live_demo
                 Logo={dtrader_logo}
                 image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
                 is_mobile={is_mobile}

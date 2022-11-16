@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { DerivStore } from 'store'
 import { smarttrader_url } from 'common/constants'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
@@ -11,6 +10,7 @@ import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import SmartTrader from 'images/svg/custom/smarttrader.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type AvailablePlatformsProps = {
     dmt5?: boolean
@@ -77,7 +77,7 @@ const AvailablePlatforms = ({
     tablet_direction,
     m_top,
 }: AvailablePlatformsProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     return (
         <Flex
@@ -125,7 +125,7 @@ const AvailablePlatforms = ({
                         </StyledFlex>
                     </a>
                 )}
-                {derivx && !is_eu_country && (
+                {derivx && !is_eu && (
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivX} alt="Deriv X" width="32" height="32" />

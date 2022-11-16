@@ -42,7 +42,7 @@ useStaticQuery.mockReturnValue({
 describe('NewSignUp', () => {
     it('must contain create demo account Button', () => {
         render(
-            <DerivProvider value={{ is_eu_country: true }}>
+            <DerivProvider value={{ is_eu: true }}>
                 <LocaleContextWrapper pageContext={{ locale: 'en', pathname: '/en/signup' }}>
                     <QueryParamProvider>
                         <NewSignup />,

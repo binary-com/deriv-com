@@ -4,19 +4,19 @@ import { useLivechat } from 'components/hooks/use-livechat'
 import LiveChatIC from 'images/svg/layout/livechat.svg'
 import LiveChatHover from 'images/svg/layout/livechat-hover.svg'
 import device from 'themes/device'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type LiveChatProps = {
     is_banner_shown: boolean
 }
 
 type StyledLiveChatTypes = LiveChatProps & {
-    is_eu_country: boolean
+    is_eu: boolean
 }
 
 const StyledLiveChat = styled.div<StyledLiveChatTypes>`
     position: fixed;
-    bottom: ${(props) => (props.is_eu_country ? '9rem' : '1.6rem')};
+    bottom: ${(props) => (props.is_eu ? '9rem' : '1.6rem')};
     right: 1.6rem;
     background-color: var(--color-white);
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
@@ -28,7 +28,7 @@ const StyledLiveChat = styled.div<StyledLiveChatTypes>`
     border-radius: 50%;
     z-index: 999;
     ${(props) => {
-        if (props.is_eu_country) {
+        if (props.is_eu) {
             return css<StyledLiveChatTypes>`
                 @media (max-width: 1269px) {
                     bottom: 11rem;
@@ -57,7 +57,7 @@ const StyledLiveChat = styled.div<StyledLiveChatTypes>`
 const LiveChat = ({ is_banner_shown }: LiveChatProps) => {
     const [is_livechat_hover, setLivechatHover] = useState(false)
     const [is_livechat_interactive, LC_API] = useLivechat()
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     return (
         <>
@@ -65,7 +65,7 @@ const LiveChat = ({ is_banner_shown }: LiveChatProps) => {
                 <StyledLiveChat
                     className="gtm-deriv-livechat"
                     is_banner_shown={is_banner_shown}
-                    is_eu_country={is_eu_country}
+                    is_eu={is_eu}
                     onClick={() => {
                         LC_API.open_chat_window()
                     }}

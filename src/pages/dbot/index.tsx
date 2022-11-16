@@ -141,7 +141,7 @@ const Dbot = () => {
                         title={localize('DBot')}
                         content={localize('Automate your trading ideas without writing code')}
                         join_us_for_free
-                        go_to_live_demo
+                        is_live_demo
                         Logo={dbot_logo}
                         background_svg={is_mobile ? DBotBGMobile : DBotBG}
                         image_name="dbot"

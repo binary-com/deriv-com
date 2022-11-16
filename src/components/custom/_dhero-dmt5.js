@@ -150,7 +150,7 @@ const DHero = ({
     content,
     image_name,
     join_us_for_free,
-    go_to_live_demo,
+    is_live_demo,
     Logo,
 }) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
@@ -180,7 +180,7 @@ const DHero = ({
                                 <Localize translate_text="Create free demo account" />
                             </DemoButton>
                         ))}
-                    {go_to_live_demo && (
+                    {is_live_demo && (
                         <GoToLiveDemo
                             tertiary
                             external
@@ -205,8 +205,8 @@ DHero.propTypes = {
     background_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     background_image_name: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    go_to_live_demo: PropTypes.bool,
     image_name: PropTypes.string,
+    is_live_demo: PropTypes.bool,
     is_mobile: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

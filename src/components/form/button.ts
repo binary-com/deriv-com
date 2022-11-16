@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { Paddings, Margins, MarginsType, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
-type SharedButtonStyleProps = {
+export type SharedButtonStyleProps = {
     width?: string
     provider?: string
     primary?: boolean

@@ -129,7 +129,7 @@ const Everything = () => {
                             </Header>
                             <Text>
                                 {localize(
-                                    'Trade the way you like on the Deriv MT5 (DMT5), DTrader, DBot — and the classic SmartTrader.',
+                                    'Trade the way you like on the Deriv MT5, DTrader, DBot — and the classic SmartTrader.',
                                 )}
                             </Text>
                         </ResponsiveBox>

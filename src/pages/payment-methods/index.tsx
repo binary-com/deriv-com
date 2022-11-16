@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import ExpandList from './_expanded-list'
+import Loadable from '@loadable/component'
 import payment_data from './_payment-data'
 import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
@@ -11,6 +11,9 @@ import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
+
+const ExpandList = Loadable(() => import('./_expanded-list'))
 
 type StyledTableType = {
     has_note: boolean
@@ -161,7 +164,8 @@ export type PaymentMethodsProps = {
     pd?: PaymentDataProps
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
-    const { is_eu_country, is_p2p_allowed_country } = React.useContext(DerivStore)
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     const [is_mobile] = useBrowserResize(992)
 
     const content_style = is_mobile
@@ -203,10 +207,10 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                           paddingBottom: pd.note ? '5rem' : '2.2rem',
                       }
 
-                if (pd.is_crypto && is_eu_country) {
+                if (pd.is_crypto && is_eu) {
                     return []
                 }
-                if (pd.is_fiat_onramp && is_eu_country) {
+                if (pd.is_fiat_onramp && is_eu) {
                     return []
                 } else if (pd.is_dp2p && !is_p2p_allowed_country) {
                     return []
@@ -341,7 +345,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
 const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
-        <Layout>
+        <Layout type="payment-methods">
             <SEO
                 title={localize('Payment Methods | Deposits and withdrawals | Deriv')}
                 description={localize(

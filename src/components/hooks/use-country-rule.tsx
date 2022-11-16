@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useContext, useLayoutEffect } from 'react'
 import { eu_countries, latam_countries, african_countries } from 'common/country-base'
 import {
     getClientInformation,
@@ -12,16 +12,16 @@ import { DerivStore } from 'store'
 
 export const useCountryRule = () => {
     const [region, setRegion] = useState({
-        is_loading: true,
-        is_eu_location: false,
-        is_uk_location: false,
-        is_eu: false,
-        is_uk: false,
-        is_non_uk: true,
-        is_non_eu: true,
-        is_uk_eu: false,
+        is_loading: false,
+        is_eu_location: isEuDomain(),
+        is_uk_location: isUkDomain(),
+        is_eu: isEuDomain(),
+        is_uk: isUkDomain(),
+        is_non_uk: !isUkDomain(),
+        is_non_eu: !isEuDomain(),
+        is_uk_eu: isUkDomain() || isEuDomain(),
         is_latam: false,
-        is_row: true,
+        is_row: !isEuDomain() && !isUkDomain(),
         is_dev: false,
         is_africa: false,
         is_south_africa: false,
@@ -34,7 +34,7 @@ export const useCountryRule = () => {
         residence: '',
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const eu_countries_uk_excluded = eu_countries.filter((country: string) => country !== 'gb')
         const is_eu_country = eu_countries_uk_excluded.includes(user_ip_country)
         const is_africa = african_countries.includes(user_ip_country)

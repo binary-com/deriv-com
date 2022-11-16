@@ -129,6 +129,12 @@ const UnsubscribePage = () => {
     const binary_user_id = unsubscribe_hash[0]
     const checksum = unsubscribe_hash[1]
 
+    const onClose = () => {
+        window.opener = null
+        window.open('about:blank', '_self')
+        window.close()
+    }
+
     const UnsubscribeAPICall = useCallback(() => {
         setLoading(true)
         send(
@@ -171,11 +177,9 @@ const UnsubscribePage = () => {
                                 <ConfirmButton onClick={UnsubscribeAPICall} type="submit" secondary>
                                     {localize('Yes')}
                                 </ConfirmButton>
-                                <Link to="https://app.deriv.com/account/personal-details">
-                                    <ConfirmButton type="submit" tertiary>
-                                        {localize('No')}
-                                    </ConfirmButton>
-                                </Link>
+                                <ConfirmButton onClick={onClose} type="submit" tertiary>
+                                    {localize('No')}
+                                </ConfirmButton>
                             </ConfirmWrapper>
                         </UnsubscribeForm>
                     )}

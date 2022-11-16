@@ -46,7 +46,7 @@ const Loader = styled.div`
   animation: rotate 1.5s infinite linear;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0;
+  margin-top: 50px;
   @keyframes rotate {
     from {
       transform: rotate(0deg) scale(0.8);

@@ -52,7 +52,7 @@ const Arrow = styled((props) => <Chevron {...props} />)<{ expanded: boolean }>`
 
 const Absolute = styled.div<AbsoluteProps>`
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     top: ${(props) => {
         if (props.is_high_nav) {
             return '4.8rem'
@@ -176,7 +176,7 @@ const Dropdown = ({
 
                 <Absolute is_high_nav={is_high_nav} is_security={is_security} is_open={is_open}>
                     <ItemContainer is_open={is_open}>
-                        {option_list.map((option, idx) => {
+                        {option_list.map((option) => {
                             if (!option) return null
                             const current_option = default_option.path === option.path
                             return (
@@ -187,7 +187,7 @@ const Dropdown = ({
                                         handleSelect(option.value)
                                         Cookies.set('lang_is_fixed', 'true')
                                     }}
-                                    key={idx}
+                                    key={option.path}
                                 >
                                     <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
                                         {option.text}

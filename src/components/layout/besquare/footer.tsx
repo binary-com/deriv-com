@@ -19,7 +19,8 @@ import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
 import Facebook from 'images/svg/be-square/facebook.svg'
 import Instagram from 'images/svg/be-square/instagram.svg'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
+
 const query = graphql`
     query {
         footer_image: file(relativePath: { eq: "be-square/footer-image.png" }) {
@@ -53,10 +54,10 @@ const BeSquareFooter = () => {
     ]
 
     const data = useStaticQuery(query)
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     return (
         <React.Fragment>
-            <FooterSection color="black" is_eu_country={is_eu_country}>
+            <FooterSection color="black" is_eu={is_eu}>
                 <ContentContainer>
                     <ImageWrapper
                         data={data['footer_image']}
@@ -115,9 +116,9 @@ const BeSquareFooter = () => {
                             >
                                 {localize('Follow us')}
                             </TextWrapper>
-                            {social_media_content.map(({ alt, link_to, src }, index) => (
+                            {social_media_content.map(({ alt, link_to, src }) => (
                                 <LocalizedLink
-                                    key={index}
+                                    key={alt}
                                     external
                                     to={link_to}
                                     target="_blank"

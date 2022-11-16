@@ -2,13 +2,12 @@ import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { Flex, SectionContainer } from 'components/containers'
+import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { LocalizedLink, Localize } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
-import { Desktop, Mobile } from 'components/containers/visibility'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const FoldWrapper = styled(SectionContainer)`
@@ -89,11 +88,11 @@ const market_data = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Synthetic indices" />,
+        header: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
+            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
-        img_name: 'market_synthetic_indices',
+        img_name: 'market_derived',
         to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
@@ -119,16 +118,6 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Basket indices" />,
-        description: (
-            <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
-        ),
-        img_name: 'market_basket_indices',
-        to: '/markets/basket-indices/',
-        gradient_start: '#555110',
-        gradient_end: '#151404',
-    },
-    {
         header: <Localize translate_text="Commodities" />,
         description: (
             <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
@@ -151,11 +140,11 @@ const market_data_eu = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Synthetic indices" />,
+        header: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
+            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
-        img_name: 'market_synthetic_indices',
+        img_name: 'market_derived',
         to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
@@ -245,6 +234,9 @@ const query = graphql`
         market_commodities: file(relativePath: { eq: "home/market_commodities.png" }) {
             ...fadeIn
         }
+        market_derived: file(relativePath: { eq: "home/market_derived.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -288,7 +280,12 @@ const CarouselItem = ({
                     </Header>
                     <Desktop>
                         <>
-                            <StyledDescription lh="24px" type="paragraph-1" $hovered={is_hovered}>
+                            <StyledDescription
+                                lh="24px"
+                                color="white"
+                                type="paragraph-1"
+                                $hovered={is_hovered}
+                            >
                                 {description}
                             </StyledDescription>
                             <CarouselItemImageDesktop
@@ -357,7 +354,7 @@ const MarketsFold = () => {
     }
 
     return (
-        <FoldWrapper>
+        <FoldWrapper id="market-fold">
             <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
                     <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>

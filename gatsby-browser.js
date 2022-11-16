@@ -53,7 +53,7 @@ const pushwooshInit = (push_woosh) => {
     push_woosh.push([
         'init',
         {
-            logLevel: 'error', // or info or debug
+            logLevel: 'error', // or info or debug ssss
             applicationCode: pushwoosh_app_code,
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',

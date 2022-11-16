@@ -7,7 +7,6 @@ import device from 'themes/device'
 type WhyTradeProps = {
     children: ReactElement[]
     header: ReactElement
-    text: ReactElement
     description?: ReactElement
 }
 

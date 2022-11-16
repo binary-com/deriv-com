@@ -64,7 +64,6 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                             tablet_col={content.tablet_col}
                                             mobile_col={content.mobile_col}
                                             padding={content.padding}
-                                            flex={content.flex}
                                             gap={content.gap}
                                             gap_mobile={content.gap_mobile}
                                         >
@@ -86,7 +85,6 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                             tablet_col={content.tablet_col}
                                             mobile_col={content.mobile_col}
                                             padding={content.padding}
-                                            flex={content.flex}
                                             gap={content.gap}
                                             gap_mobile={content.gap_mobile}
                                         >
@@ -127,7 +125,6 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                 tablet_col={content.tablet_col}
                                 mobile_col={content.mobile_col}
                                 padding={content.padding}
-                                flex={content.flex}
                                 gap={content.gap}
                                 mobile_template={content.mobile_template}
                                 gap_mobile={content.gap_mobile}

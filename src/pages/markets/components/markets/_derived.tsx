@@ -9,22 +9,18 @@ import { synthetic_multiplier_eu } from '../../static/content/_multipliers'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import { StyledBox } from '../../static/style/_markets-style'
+import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { Localize } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type DerivedProps = {
-    simple_step_content: SimpleStepsContent[]
+    simple_step_content: SimpleStepContentElement[]
 }
 const Derived = ({ simple_step_content }: DerivedProps) => {
     const { is_row } = useCountryRule()
-    const description = is_row ? (
-        <Localize translate_text="Derived FX gives you the opportunity to trade on simulated assets based on major forex pairs at the volatility of your choice. Our advanced algorithms track real-world currency prices and dampen the fluctuations caused by market sentiment and unexpected news events." />
-    ) : (
-        ''
-    )
+
     const header = is_row ? (
         <Localize translate_text="Why trade Derived FX on Deriv" />
     ) : (
@@ -44,7 +40,12 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
 
     return (
         <>
-            <WhyTrade description={description} header={header}>
+            <WhyTrade
+                description={
+                    <Localize translate_text="Derived FX gives you the opportunity to trade on simulated assets based on major forex pairs at the volatility of your choice. Our advanced algorithms track real-world currency prices and dampen the fluctuations caused by market sentiment and unexpected news events." />
+                }
+                header={header}
+            >
                 {market_content.map((content, index) => (
                     <StyledBox
                         key={index}

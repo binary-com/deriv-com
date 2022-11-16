@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { ReactElement } from 'react'
 import { Box, CssGrid, Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
@@ -8,31 +9,47 @@ type DescriptionsProps = {
 }
 
 type MarketsListProps = {
-    has_right_border: string
-    col: number
-    tablet_col: number
-    mobile_col: number
-    gap: string
+    has_right_border?: boolean
+    col?: number
+    tablet_col?: number
+    mobile_col?: number
+    gap?: string
+    flex?: string
+    gap_mobile?: string
+    mobile_template?: boolean
 }
 type OptionsRowProps = {
     is_first_child: boolean
 }
 
 type LatestMarketsListProps = {
-    flex: string
-    has_right_border: boolean
-    col: number
-    tablet_col: number
-    padding: string
-    gap: string
+    has_right_border?: boolean
+    col?: number
+    tablet_col?: number
+    padding?: string
+    gap?: string
+    mobile_col?: number
+    flex?: number
+    mobile_template?: boolean
+    gap_mobile?: string
 }
 
 type StyledTextProps = {
-    font_size: string
-    align: string
+    font_size?: string
+    align?: string
 }
 
-export const Col = styled(Flex)`
+type RowProps = {
+    is_accordion_row?: boolean
+    mobile_template?: boolean
+}
+
+type ColProps = {
+    full_width?: boolean
+    mobile_template?: boolean
+}
+
+export const Col = styled(Flex)<ColProps>`
     max-width: 130px;
     padding: 0 4px;
 
@@ -80,7 +97,7 @@ export const DetailsContainer = styled(Flex)`
     }
 `
 
-export const Row = styled(Flex)`
+export const Row = styled(Flex)<RowProps>`
     ${({ is_accordion_row }) => {
         if (!is_accordion_row) {
             return css`
@@ -241,8 +258,9 @@ export const Title = styled(Text)`
     }
 `
 type StyledBoxProps = {
-    text: string
+    text: ReactElement
+    icon: ReactElement
 }
 export const StyledBox = styled(Box)<StyledBoxProps>`
-    content: ${(props) => (props.text ? props.text : '')};
+    content: ${(props: { text: any }) => (props.text ? props.text : '')};
 `

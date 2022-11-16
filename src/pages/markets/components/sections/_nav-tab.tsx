@@ -12,7 +12,7 @@ type NavTabProps = {
 }
 
 type TabButtonProps = {
-    selected: boolean
+    selected?: boolean
 }
 
 const TabsContainer = styled(Flex)`
@@ -78,7 +78,7 @@ const TabButton = styled.button<TabButtonProps>`
         padding: 24px 12px;
     }
 `
-const TextWrapper = styled(Text)`
+const TextWrapper = styled(Text)<TabButtonProps>`
     text-align: center;
     font-size: var(--text-size-m);
     color: #999999;

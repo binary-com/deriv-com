@@ -22,7 +22,7 @@ type TypeForType = {
     title: React.ReactElement
     headerHeight: string
     assets: AssetsType
-    classname: string
+    class_name: string
 }[]
 
 type NoteType = {
@@ -233,7 +233,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            classname: 'crash-boom',
+            class_name: 'crash-boom',
         },
         {
             title: <Localize translate_text="Volatility indices" />,
@@ -274,7 +274,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            classname: 'volatility-indices',
+            class_name: 'volatility-indices',
         },
         {
             title: <Localize translate_text="Step index" />,
@@ -289,7 +289,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     list: [<Localize key={1} translate_text="0.10" />],
                 },
             ],
-            classname: 'step-index',
+            class_name: 'step-index',
         },
         {
             title: <Localize translate_text="Jump indices" />,
@@ -316,7 +316,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
-            classname: 'jump-index',
+            class_name: 'jump-index',
         },
     ],
     countDetails: [
@@ -370,7 +370,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
-            classname: 'forex-and-metals',
+            class_name: 'forex-and-metals',
         },
         {
             title: <Localize translate_text="Stock indices" />,
@@ -391,7 +391,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
-            classname: 'stock-indices',
+            class_name: 'stock-indices',
         },
         {
             title: <Localize translate_text="Cryptocurrencies" />,
@@ -406,7 +406,7 @@ const ib_dmt5_financial: DMT5Type = {
                     list: [<Localize key={1} translate_text="10" />],
                 },
             ],
-            classname: 'cryptocurrencies-financial',
+            class_name: 'cryptocurrencies-financial',
         },
     ],
     countDetails: [

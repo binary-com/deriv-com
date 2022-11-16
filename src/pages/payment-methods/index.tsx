@@ -213,13 +213,13 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                 } else
                     return (
                         <AccordionItem
-                            key={pd.classname}
+                            key={pd.class_name}
                             content_style={content_style}
                             header_style={header_style}
                             style={styles}
                             parent_style={parent_style}
                             header={pd.name}
-                            classname={pd.classname}
+                            classname={pd.class_name}
                         >
                             <DesktopWrapper>
                                 <DisplayAccordianItem pd={pd} locale={locale} />

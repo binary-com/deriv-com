@@ -18,7 +18,7 @@ interface StartDerivXProps {
 }
 
 type RealOrDemoShowType = {
-    classname: string
+    class_name: string
     description: ReactElement
     image_data: string
     image_alt: string
@@ -76,7 +76,7 @@ const query = graphql`
 
 const demo: RealOrDemoShowType[] = [
     {
-        classname: 'sign-in',
+        class_name: 'sign-in',
         description: (
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
         ),
@@ -84,13 +84,13 @@ const demo: RealOrDemoShowType[] = [
         image_alt: localize('Deriv X demo account signup page'),
     },
     {
-        classname: 'add-account',
+        class_name: 'add-account',
         description: <Localize translate_text="Add a Deriv X demo account." />,
         image_data: 'demo_step2',
         image_alt: localize('Deriv X dashboard showing demo account comparison'),
     },
     {
-        classname: 'start-trading',
+        class_name: 'start-trading',
         description: (
             <Localize translate_text="Start trading on the mobile app or through your web browser." />
         ),
@@ -101,7 +101,7 @@ const demo: RealOrDemoShowType[] = [
 
 const real: RealOrDemoShowType[] = [
     {
-        classname: 'sign-in',
+        class_name: 'sign-in',
         description: (
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
         ),
@@ -109,19 +109,19 @@ const real: RealOrDemoShowType[] = [
         image_alt: 'real_step1',
     },
     {
-        classname: 'add-account',
+        class_name: 'add-account',
         description: <Localize translate_text="Add a Deriv real account." />,
         image_data: 'real_step2',
         image_alt: 'real_step2',
     },
     {
-        classname: 'add-derivx-account',
+        class_name: 'add-derivx-account',
         description: <Localize translate_text="Add a Deriv X real account." />,
         image_data: 'real_step3',
         image_alt: 'real_step3',
     },
     {
-        classname: 'start-trading',
+        class_name: 'start-trading',
         description: (
             <Localize translate_text="Start trading on the mobile app or through your web browser." />
         ),
@@ -292,11 +292,11 @@ const StartDerivX = () => {
                     {(tab === 'demo' ? demo : real).map((currentTab) => {
                         return (
                             <SideTab.Panel
-                                key={currentTab.classname}
+                                key={currentTab.class_name}
                                 label=""
                                 description={currentTab.description}
                                 mobile_item_width="35rem"
-                                classname={currentTab.classname}
+                                classname={currentTab.class_name}
                             >
                                 <ImageWrapper>
                                     <QueryImage

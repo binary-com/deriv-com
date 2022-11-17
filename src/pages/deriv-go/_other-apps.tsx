@@ -83,7 +83,7 @@ const other_apps: ContentType[] = [
         url: (
             <LearnMore to="/dmt5/">
                 <Localize translate_text="Learn more" />
-                <ImageWithDireciton src={Arrow} alt="" />
+                <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
     },
@@ -97,7 +97,7 @@ const other_apps: ContentType[] = [
         url: (
             <LearnMore to="/derivx/">
                 <Localize translate_text="Learn more" />
-                <ImageWithDireciton src={Arrow} alt="" />
+                <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
     },

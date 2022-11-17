@@ -5,7 +5,9 @@ require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
-const site_url = 'https://deriv.com'
+const allDomainUrl = window.location.hostname
+
+const site_url = allDomainUrl
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment

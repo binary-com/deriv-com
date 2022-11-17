@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
-import { eu_urls, eu_locales, eu_url } from 'common/constants'
+import { eu_urls, eu_locales, eu_url, allDomainUrl } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
@@ -223,7 +223,7 @@ const SEO = ({
                         const replaced_local = locale.replace('_', '-')
                         const is_default = locale === 'en' || locale === 'x-default'
                         const href_lang = is_default ? '' : `/${replaced_local}`
-                        const href = `${current_site_url}${href_lang}${current_page}`
+                        const href = `${allDomainUrl}${href_lang}${current_page}`
                         return (
                             <link
                                 rel="alternate"

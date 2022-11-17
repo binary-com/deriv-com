@@ -30,6 +30,9 @@ const getDomainUrl = (): string =>
         ? domain_url_pair[window.location.hostname]
         : deriv_com_url
 
+export const allDomainUrl = window.location.hostname
+console.log('nadbsjhbnd', allDomainUrl)
+
 const getDomainAppID = () => {
     if (getDomainUrl() === deriv_me_url) return deriv_me_app_id
     else if (getDomainUrl() === deriv_be_url) return deriv_be_app_id

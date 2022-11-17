@@ -105,7 +105,7 @@ const DescText = styled(ParimaryText)`
     }
 
     @media ${device.tablet} {
-        text-align: start;
+        text-align: left;
         max-width: 100%;
     }
 `

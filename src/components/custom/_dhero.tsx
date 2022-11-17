@@ -10,7 +10,6 @@ import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type DHeroProps = {
     background_alt?: string
@@ -144,15 +143,12 @@ const DemoButton = styled(Button)`
     }
 `
 
-const BackgroundSVG = styled.img<{ is_rtl: boolean }>`
+const BackgroundSVG = styled.img`
     position: absolute;
     top: 0;
     right: 0;
     height: 100%;
-    width: 630px;
-    transform: ${({ is_rtl }) => {
-        return is_rtl ? 'scaleX(-1)' : null
-    }};
+    width: 600px;
 
     @media (max-width: 1680px) {
         width: 40%;
@@ -258,12 +254,11 @@ const DHero = ({
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
     const { is_eu } = useCountryRule()
-    const is_rtl = useIsRtl()
     const [is_logged_in] = useAuthCheck()
 
     return (
         <Wrapper>
-            <BackgroundSVG is_rtl={is_rtl} src={background_svg} alt="background svg" />
+            <BackgroundSVG src={background_svg} alt="background svg" />
 
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" weight="normal">

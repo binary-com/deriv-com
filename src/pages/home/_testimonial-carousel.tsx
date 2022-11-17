@@ -7,7 +7,6 @@ import ArrowRight from 'images/svg/testimonials/arrow-right.svg'
 import ArrowLeftFade from 'images/svg/testimonials/arrow-left-fade.svg'
 import ArrowRightFade from 'images/svg/testimonials/arrow-right-fade.svg'
 import device from 'themes/device'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const CarouselItem = styled(Flex)`
     overflow: hidden;
@@ -62,19 +61,10 @@ const renderNavigations = (
     active: number,
     setActive: Dispatch<SetStateAction<number>>,
     animate: (action) => void,
-    is_rtl: boolean,
 ) => {
     const is_carousel = count > 1
     const has_prev = active !== 0
     const has_next = active < count - 1
-
-    const NextArrow = is_rtl
-        ? { normal: ArrowLeft, fade: ArrowLeftFade }
-        : { normal: ArrowRight, fade: ArrowRightFade }
-
-    const PrevArrow = is_rtl
-        ? { normal: ArrowRight, fade: ArrowRightFade }
-        : { normal: ArrowLeft, fade: ArrowLeftFade }
 
     const validSlide = (n) => {
         // values that are out of slide range will return it's respective boundaries
@@ -117,12 +107,12 @@ const renderNavigations = (
                 }}
             >
                 <Arrows
-                    src={has_prev ? PrevArrow.normal : PrevArrow.fade}
+                    src={has_prev ? ArrowLeft : ArrowLeftFade}
                     onClick={previous}
                     alt="previous arrow"
                 />
                 <Arrows
-                    src={has_next ? NextArrow.normal : NextArrow.fade}
+                    src={has_next ? ArrowRight : ArrowRightFade}
                     onClick={next}
                     alt="next arrow"
                 />
@@ -150,7 +140,6 @@ const TestimonialCarousel = ({
     const molder_ref = useRef(null)
     const flexible_ref = useRef(null)
     const has_active = active !== null
-    const is_rtl = useIsRtl()
 
     const animate = (action) => {
         container_ref.current.style.opacity = 0
@@ -160,7 +149,7 @@ const TestimonialCarousel = ({
         }, 100)
     }
 
-    const navigations = renderNavigations(children_array.length, active, setActive, animate, is_rtl)
+    const navigations = renderNavigations(children_array.length, active, setActive, animate)
 
     useEffect(() => {
         setActive(default_active)

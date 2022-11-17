@@ -79,7 +79,7 @@ const VulnerabilitiesTypes = () => {
             />
             <Hero />
 
-            <StyledContainer direction="column" align="start">
+            <StyledContainer direction="column" align="left">
                 <Header type="heading-2" align="center">
                     {localize('Types of vulnerabilities')}
                 </Header>

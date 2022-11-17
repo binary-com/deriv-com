@@ -6,7 +6,6 @@ import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type ExpandListType = {
     is_expanded?: boolean
@@ -29,7 +28,7 @@ const StyledPDF = styled.img`
     width: 32px;
 `
 const ExpandedContent = styled.td`
-    text-align: start;
+    text-align: left;
 `
 const Tr = styled.tr<ExpandListType>`
     border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
@@ -107,22 +106,9 @@ const Withdrawal = styled(Td)`
     }
 `
 
-const LtrText = styled(Text)<{ is_rtl: boolean }>`
-    direction: ltr;
-    ${({ is_rtl }) =>
-        is_rtl
-            ? css`
-                  text-align: end;
-              `
-            : css`
-                  text-align: start;
-              `}
-`
-
 const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const parse_to_integer = parseInt('2')
-    const is_rtl = useIsRtl()
 
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
@@ -137,13 +123,9 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                 </Td>
                 <Td>
                     {Array.isArray(payment_data.min_max_deposit) ? (
-                        payment_data.min_max_deposit.map((md, idx) => (
-                            <LtrText is_rtl={is_rtl} key={idx}>
-                                {md}
-                            </LtrText>
-                        ))
+                        payment_data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
                     ) : (
-                        <LtrText is_rtl={is_rtl}>{payment_data.min_max_deposit}</LtrText>
+                        <Text>{payment_data.min_max_deposit}</Text>
                     )}
                 </Td>
                 {!is_fiat_onramp && (
@@ -151,12 +133,10 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                         <>
                             {Array.isArray(payment_data.min_max_withdrawal) ? (
                                 payment_data.min_max_withdrawal.map((md, idx) => (
-                                    <LtrText is_rtl={is_rtl} key={idx}>
-                                        {md}
-                                    </LtrText>
+                                    <Text key={idx}>{md}</Text>
                                 ))
                             ) : (
-                                <LtrText is_rtl={is_rtl}>{payment_data.min_max_withdrawal}</LtrText>
+                                <Text>{payment_data.min_max_withdrawal}</Text>
                             )}
                         </>
                     </Td>
@@ -165,12 +145,12 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                     colSpan={is_fiat_onramp && parse_to_integer}
                     is_fiat_onramp={is_fiat_onramp}
                 >
-                    <LtrText is_rtl={is_rtl}>{payment_data.deposit_time}</LtrText>
+                    <Text>{payment_data.deposit_time}</Text>
                 </Deposit>
 
                 {!is_fiat_onramp && (
                     <Withdrawal>
-                        <LtrText is_rtl={is_rtl}>{payment_data.withdrawal_time}</LtrText>
+                        <Text>{payment_data.withdrawal_time}</Text>
                     </Withdrawal>
                 )}
 

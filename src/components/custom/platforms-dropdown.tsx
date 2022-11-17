@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import styled, { css, keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { NavPlatform, NavCompany, NavResources, NavMarket } from 'components/custom/other-platforms'
-import { useIsRtl } from 'components/hooks/use-isrtl'
-import { withLangDirection } from 'themes/function'
 import { Container, Flex, Desktop } from 'components/containers'
 
 type PlatformsDropdownProps = {
@@ -21,7 +19,6 @@ type NavDropdownProps = {
     offset?: number
     is_trade?: boolean
     offset_arrow?: number
-    is_rtl: boolean
 }
 
 const FadeInDown = keyframes`
@@ -37,6 +34,7 @@ const FadeInDown = keyframes`
 const NavDropdown = styled.div<NavDropdownProps>`
     width: auto;
     max-width: 1200px;
+    left: ${(props) => (props.offset ? props.offset + 'px !important' : 0)};
     position: absolute;
     padding: 2.2rem 0.8rem;
     z-index: 10;
@@ -52,15 +50,6 @@ const NavDropdown = styled.div<NavDropdownProps>`
     animation-fill-mode: both;
     animation-duration: 0.3s;
     overflow: visible;
-    ${({ offset }) =>
-        withLangDirection({
-            rtl_styles: css`
-                right: ${offset ?? 0}px !important;
-            `,
-            ltr_styles: css`
-                left: ${offset ?? 0}px !important;
-            `,
-        })}
 `
 
 const StyledContainer = styled(Container)`
@@ -89,10 +78,9 @@ const PlatformsDropdown = ({
     active_dropdown,
 }: PlatformsDropdownProps) => {
     const dropdownContainerRef = useRef(null)
-    const is_rtl = useIsRtl()
     const is_trade = active_dropdown === 'trade'
 
-    const [offset, setOffset] = useState(() => {
+    const [left_offset, setLeftOffset] = useState(() => {
         if (is_trade) {
             return (current_ref as HTMLElement)?.getBoundingClientRect()?.x / 2
         }
@@ -101,11 +89,11 @@ const PlatformsDropdown = ({
 
     const updateOffsets = useCallback(() => {
         if (is_trade) {
-            setOffset((current_ref as HTMLElement).getBoundingClientRect().x / 2)
+            setLeftOffset((current_ref as HTMLElement).getBoundingClientRect().x / 2)
         } else if (current_ref && !is_trade) {
-            setOffset((current_ref as HTMLElement).getBoundingClientRect().x)
+            setLeftOffset((current_ref as HTMLElement).getBoundingClientRect().x)
         }
-    }, [current_ref, is_trade])
+    }, [current_ref])
 
     useEffect(() => {
         if (dropdownContainerRef) {
@@ -115,12 +103,12 @@ const PlatformsDropdown = ({
         return () => {
             window.removeEventListener('resize', updateOffsets)
         }
-    }, [setActiveDropdown, updateOffsets])
+    }, [])
 
     return (
         <Desktop>
             <Flex>
-                <NavDropdown ref={dropdownContainerRef} offset={offset} is_rtl={is_rtl}>
+                <NavDropdown ref={dropdownContainerRef} offset={left_offset}>
                     <StyledContainer>
                         {getNavigationContents(parent, is_ppc, is_ppc_redirect)}
                     </StyledContainer>

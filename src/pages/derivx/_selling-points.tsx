@@ -43,10 +43,6 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const StyledSectionContainer = styled(SectionContainer)`
-    direction: ltr;
-`
-
 const selling_points: SellingPointsType[] = [
     {
         title: '100+',
@@ -64,7 +60,7 @@ const selling_points: SellingPointsType[] = [
 
 const SellingPoints = () => {
     return (
-        <StyledSectionContainer padding="40px 0" background="grey-25">
+        <SectionContainer padding="40px 0" background="grey-25">
             <Container>
                 <Flex tablet_direction="column">
                     {selling_points.map((selling_point, index) => {
@@ -77,7 +73,7 @@ const SellingPoints = () => {
                     })}
                 </Flex>
             </Container>
-        </StyledSectionContainer>
+        </SectionContainer>
     )
 }
 

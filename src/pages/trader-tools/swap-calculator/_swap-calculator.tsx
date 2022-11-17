@@ -48,7 +48,6 @@ import {
     AccordionItem,
     Dropdown,
     Header,
-    ImageWithDireciton,
     LocalizedLinkText,
     Text,
 } from 'components/elements'
@@ -232,7 +231,7 @@ const SwapCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <ImageWithDireciton
+                    <img
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"

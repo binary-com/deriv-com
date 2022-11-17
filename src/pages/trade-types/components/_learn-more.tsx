@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Text, ImageWithDireciton } from 'components/elements'
+import { Text } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 
@@ -50,7 +50,7 @@ const LearnMore = ({ text, to }: LearnMoreProps) => {
                     <Text mr="0.8rem" weight="bold" color="red">
                         {text}
                     </Text>
-                    <ImageWithDireciton src={Arrow} alt="arrow right" />
+                    <img src={Arrow} alt="arrow right" />
                 </Item>
             </Link>
         </Wrapper>

@@ -9,7 +9,7 @@ const Hero = () => (
             <Title
                 as="h1"
                 color={'white'}
-                text_align={'start'}
+                text_align={'left'}
                 font_size={['80px', '40px']}
                 line_height={['100px', '50px']}
                 max_width={['415px', '237px']}

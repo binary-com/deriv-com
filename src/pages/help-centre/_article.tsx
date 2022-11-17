@@ -8,7 +8,6 @@ import { SideTab, StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import device from 'themes/device'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 export type ArticleProps = {
     children?: React.ReactNode
     header?: string
@@ -47,7 +46,7 @@ export const Article = ({
     is_mounted = false,
 }: ArticleProps) => {
     const { platform, has_platform } = usePlatformQueryParam()
-    const is_rtl = useIsRtl()
+
     return (
         <Layout>
             <SEO
@@ -57,12 +56,11 @@ export const Article = ({
                 label={label}
                 is_mounted={is_mounted}
             />
-            <Container align="start" justify="flex-start" direction="column">
+            <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
                     to={has_platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
                     has_arrow="true"
                     color="black"
-                    is_rtl={is_rtl}
                     size="var(--text-size-s)"
                     weight="bold"
                     arrow_margin="1rem"

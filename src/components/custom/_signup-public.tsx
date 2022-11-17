@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
+import { Header, LinkText, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Box, Container, Desktop, Mobile } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
@@ -14,7 +14,6 @@ import Apple from 'images/svg/custom/apple-40.svg'
 import Facebook from 'images/svg/custom/facebook-40.svg'
 import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type SocialButtonContent = {
     provider: string
@@ -47,7 +46,7 @@ const query = graphql`
         }
     }
 `
-const StyledSectionContainer = styled(Box)`
+const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
     width: 100%;
     padding: 80px 0;
     position: static;
@@ -173,7 +172,7 @@ const SocialWrapper = styled(Flex)`
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
-        justify-content: flex-start;
+        justify-content: left;
     }
 
     @media ${device.tabletL} {
@@ -307,21 +306,14 @@ const DerivExperience = styled(LinkText)`
         color: var(--color-white);
     }
 `
-const MobilePlatform = styled.div<{ is_rtl: boolean }>`
+const MobilePlatform = styled.div`
     width: 100%;
     max-width: 35.7rem;
     z-index: 10;
 
     @media screen and (max-width: 991px) {
         img {
-            ${({ is_rtl }) =>
-                is_rtl
-                    ? css`
-                          left: 0px !important;
-                      `
-                    : css`
-                          left: 20px !important;
-                      `}
+            left: 20px !important;
         }
     }
 `
@@ -357,8 +349,6 @@ const SignupPublic = ({
     const data = useStaticQuery(query)
     const { is_row, is_eu, is_uk } = useCountryRule()
     const [is_checked, setChecked] = useState(false)
-    const is_rtl = useIsRtl()
-
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
@@ -461,7 +451,7 @@ const SignupPublic = ({
                                 <StyledHeader
                                     size="4rem"
                                     width="330px"
-                                    align="start"
+                                    align="left"
                                     color="grey-8"
                                     mr="1.2rem"
                                     ml="-4rem"
@@ -469,7 +459,7 @@ const SignupPublic = ({
                                 >
                                     {localize('Get a taste of the Deriv experience')}
                                 </StyledHeader>
-                                <ImageWithDireciton src={Arrow} alt="arrow desktop" />
+                                <img src={Arrow} alt="arrow desktop" />
                             </LinkFlex>
                         </BackgroundWrapper>
                     </Wrapper>
@@ -479,7 +469,7 @@ const SignupPublic = ({
                 <Container>
                     <MobileWrapper>
                         <MobileBackground>
-                            <MobilePlatform is_rtl={is_rtl}>
+                            <MobilePlatform>
                                 <QueryImage
                                     data={
                                         (is_row && data['deriv_platform']) ||
@@ -499,12 +489,7 @@ const SignupPublic = ({
                                 <Header size="4rem">
                                     {localize('Get a taste of the Deriv experience')}
                                 </Header>
-                                <ImageWithDireciton
-                                    src={Arrow}
-                                    alt="arrow mobile"
-                                    width="32"
-                                    height="33"
-                                />
+                                <img src={Arrow} alt="arrow mobile" width="32" height="33" />
                             </DerivExperience>
                         </MobileBackground>
                         <MobileSignupFormWrapper>

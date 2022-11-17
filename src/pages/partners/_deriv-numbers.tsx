@@ -5,7 +5,6 @@ import { Header, CardStyle, Text } from 'components/elements'
 import { localize } from 'components/localization'
 
 const Wrapper = styled(Flex)`
-    direction: ltr;
     flex-wrap: wrap;
 `
 

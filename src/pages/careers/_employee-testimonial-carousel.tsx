@@ -9,7 +9,6 @@ import AhmadImage from 'images/common/careers/ahmad.jpg'
 import AdityaImage from 'images/common/careers/aditya.jpg'
 import GaryImage from 'images/common/careers/gary.jpg'
 import MeiThengImage from 'images/common/careers/mei_theng.jpg'
-import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -52,7 +51,7 @@ const EmployeeCard = styled.article`
 `
 
 const QuoteText = styled(Text)`
-    text-align: start;
+    text-align: left;
     padding-bottom: 2.4rem;
     z-index: 10;
     position: relative;
@@ -146,11 +145,9 @@ const gary = {
 const employee_testimonials = [ahmad, aditya, mei_theng, gary]
 
 const EmployeeTestimonialCarousel = () => {
-    const lang_direction = useLangDirection()
     const settings = {
         options: {
             loop: true,
-            direction: lang_direction,
         },
         container_style: {
             maxWidth: '1200px',

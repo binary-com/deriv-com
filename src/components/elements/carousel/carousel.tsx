@@ -14,7 +14,6 @@ import {
     StyledDot,
 } from './carousel-style'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 export type ButtonsProps = React.HTMLAttributes<HTMLDivElement> & {
     color?: string
@@ -37,21 +36,17 @@ export const PrevButton = ({
     is_reviews,
     onClick,
     style,
-}: PrevAndNextButtonsProps) => {
-    const is_rtl = useIsRtl()
-
-    return (
-        <StyledButtonWrapper
-            onClick={onClick}
-            disabled={!enabled}
-            left
-            style={style}
-            is_reviews={is_reviews}
-        >
-            {is_rtl ? <ChevronRight color={color} /> : <ChevronLeft color={color} />}
-        </StyledButtonWrapper>
-    )
-}
+}: PrevAndNextButtonsProps) => (
+    <StyledButtonWrapper
+        onClick={onClick}
+        disabled={!enabled}
+        left
+        style={style}
+        is_reviews={is_reviews}
+    >
+        {color ? <ChevronLeft color={color} /> : <ChevronLeft />}
+    </StyledButtonWrapper>
+)
 
 type NavigationButtonProps = Pick<ButtonsProps, 'color' | 'is_enabled' | 'onClick'>
 
@@ -65,20 +60,16 @@ export const NextButton = ({
     is_reviews,
     onClick,
     style,
-}: PrevAndNextButtonsProps) => {
-    const is_rtl = useIsRtl()
-
-    return (
-        <StyledButtonWrapper
-            onClick={onClick}
-            disabled={!enabled}
-            style={style}
-            is_reviews={is_reviews}
-        >
-            {is_rtl ? <ChevronLeft color={color} /> : <ChevronRight color={color} />}
-        </StyledButtonWrapper>
-    )
-}
+}: PrevAndNextButtonsProps) => (
+    <StyledButtonWrapper
+        onClick={onClick}
+        disabled={!enabled}
+        style={style}
+        is_reviews={is_reviews}
+    >
+        {color ? <ChevronRight color={color} /> : <ChevronRight />}
+    </StyledButtonWrapper>
+)
 
 type ChevronStyleType = {
     chevron_color?: string

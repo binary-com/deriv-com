@@ -19,7 +19,7 @@ const StyledHeader = styled(Header)`
     color: var(--color-white);
 
     @media ${device.tablet} {
-        text-align: start;
+        text-align: left;
     }
 `
 
@@ -28,7 +28,7 @@ const Subheadline = styled(Header)`
     max-width: 99.6rem;
 
     @media ${device.tablet} {
-        text-align: start;
+        text-align: left;
     }
 `
 

@@ -30,7 +30,6 @@ const StyledText = styled(Text)`
 `
 
 const StyledContainer = styled(Container)`
-    direction: ltr;
     width: 100%;
     margin-top: 3rem;
     @media ${device.tabletL} {

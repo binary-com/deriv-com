@@ -17,7 +17,7 @@ const StyledHeader = styled(Header)`
     line-height: 100px;
 
     @media ${device.tablet} {
-        text-align: start;
+        text-align: left;
         font-size: 40px;
         line-height: 50px;
     }
@@ -32,7 +32,7 @@ const Subheadline = styled(Header)`
     line-height: 30px;
 
     @media ${device.tablet} {
-        text-align: start;
+        text-align: left;
         font-size: 18px;
         line-height: 26px;
     }
@@ -48,7 +48,7 @@ const JoinHeader = styled(Header)`
     line-height: 30px;
 
     @media ${device.tablet} {
-        text-align: start;
+        text-align: left;
         font-size: 18px;
         line-height: 26px;
     }

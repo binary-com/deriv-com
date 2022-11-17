@@ -18,7 +18,7 @@ const CheckEmail = () => {
             />
             <SectionContainer>
                 <GridContainer align="center">
-                    <Text size="var(--text-size-sm)" color="var(--color-black-2)" align="start">
+                    <Text size="var(--text-size-sm)" color="var(--color-black-2)" align="left">
                         {localize(
                             "If you don't see an email from us within a few minutes, a few things could have happened:",
                         )}

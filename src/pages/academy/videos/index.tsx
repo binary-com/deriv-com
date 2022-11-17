@@ -86,7 +86,7 @@ const VideosPage = ({ data }: VideosPageProps) => {
                             type="subtitle-1"
                             color="white"
                             weight="regular"
-                            align="start"
+                            align="left"
                         >
                             Video tutorials
                         </Header>
@@ -94,7 +94,7 @@ const VideosPage = ({ data }: VideosPageProps) => {
                             as="h2"
                             type="heading-2"
                             color="white"
-                            align="start"
+                            align="left"
                             tabletL={{ mt: '8px' }}
                         >
                             Our latest videos and webinars

@@ -60,7 +60,7 @@ const TitleWrapper = styled(Flex)`
 const StyledHeader = styled(Header)`
     max-width: 1200px;
     margin: 0 auto 24px;
-    text-align: start;
+    text-align: left;
 
     @media ${device.mobileL} {
         max-width: unset;

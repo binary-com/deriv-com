@@ -79,7 +79,7 @@ const ArticleCard = ({ items }: ArticleCardProps) => {
                         type="paragraph-2"
                         color="grey-5"
                         weight="normal"
-                        align="end"
+                        align="right"
                         width="auto"
                         tablet={{ align: 'left', mt: '4px' }}
                     >

@@ -46,7 +46,7 @@ const WhatLiesAhead = () => {
                         max_width={['792px', '328px']}
                         font_size={['24px', '18px']}
                         line_height={['36px', '26px']}
-                        text_align={['center', 'start']}
+                        text_align={['center', 'left']}
                     >
                         {what_lies_ahead.subtitle}
                     </TextWrapper>
@@ -60,7 +60,7 @@ const WhatLiesAhead = () => {
                     max_width={['783px', '328px']}
                     font_size={['16px', '14px']}
                     line_height={['24px', '20px']}
-                    text_align={['center', 'start']}
+                    text_align={['center', 'left']}
                 >
                     {what_lies_ahead.text}
                 </TextWrapper>

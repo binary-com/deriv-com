@@ -36,7 +36,7 @@ const Hero = () => {
                             as="h2"
                             type="page-title"
                             mb="1.2rem"
-                            align="start"
+                            align="left"
                             lh="1.25"
                         >
                             <Localize translate_text="Binary.com has rebranded to Deriv.com and here is everything you need to know" />

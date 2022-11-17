@@ -44,7 +44,6 @@ const LoveTrading = () => {
         },
     }
 
-
     return <LoveTradingComponent {...content} />
 }
 export default LoveTrading

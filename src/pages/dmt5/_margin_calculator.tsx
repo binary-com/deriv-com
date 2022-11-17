@@ -8,7 +8,6 @@ import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type CalculatorProps = {
     children?: React.ReactNode
@@ -228,12 +227,7 @@ const calculators: CalculatorProps[] = [
 ]
 
 const MarginCalculator = () => {
-    const lang_direction = useLangDirection()
-
     const settings = {
-        options: {
-            direction: lang_direction,
-        },
         container_style: {
             maxWidth: '100%',
             margin: '0',
@@ -264,7 +258,7 @@ const MarginCalculator = () => {
                     has_color={true}
                 >
                     <StyledBox max_width="100%">
-                        <MainHeader as="h2" type="page-title" lh="1.25" align="start">
+                        <MainHeader as="h2" type="page-title" lh="1.25" align="left">
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>

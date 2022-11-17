@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, ImageWithDireciton, LocalizedLinkText } from 'components/elements'
+import { Header, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // icons
@@ -181,7 +181,7 @@ const Rewards = () => {
                             />,
                         ]}
                     />
-                    <ImageWithDireciton src={Arrow} alt="arrow" width="16" height="16" />
+                    <img src={Arrow} alt="arrow" width="16" height="16" />
                 </Flex>
             </Container>
         </StyledSectionContainer>

@@ -44,14 +44,7 @@ import {
 } from '../common/_style'
 import { StopLoss, PipValue, TakeProfitLevel, ProfitPipValue } from './_example-pnl-margin'
 import { localize, Localize } from 'components/localization'
-import {
-    Accordion,
-    AccordionItem,
-    Header,
-    ImageWithDireciton,
-    LocalizedLinkText,
-    Text,
-} from 'components/elements'
+import { Accordion, AccordionItem, Header, LocalizedLinkText, Text } from 'components/elements'
 import { Desktop, Mobile } from 'components/containers/visibility'
 import { Flex } from 'components/containers'
 import Input from 'components/form/input'
@@ -108,7 +101,7 @@ const PnlMarginCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <ImageWithDireciton
+                    <img
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"

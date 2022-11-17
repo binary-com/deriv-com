@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
@@ -15,7 +15,6 @@ import {
     p2p_huawei_appgallery_url,
     deriv_dp2p_app_url,
 } from 'common/constants'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const BackgroundWrapper = styled(Background)`
     height: 100%;
@@ -182,9 +181,6 @@ const query = graphql`
         p2p_hero_background: file(relativePath: { eq: "p2p/p2p_hero_background.png" }) {
             ...fadeIn
         }
-        p2p_hero_background_rtl: file(relativePath: { eq: "p2p/p2p_hero_background_rtl.png" }) {
-            ...fadeIn
-        }
         p2p_hero_background_mobile: file(
             relativePath: { eq: "p2p/p2p_hero_background_mobile.png" }
         ) {
@@ -214,14 +210,7 @@ const query = graphql`
 const Hero = () => {
     const data = useStaticQuery(query)
     const [is_tabletL] = useBrowserResize(size.tabletL)
-    const is_rtl = useIsRtl()
-    const background = useMemo(() => {
-        if (is_tabletL) {
-            return data['p2p_hero_background_mobile']
-        } else {
-            return is_rtl ? data['p2p_hero_background_rtl'] : data['p2p_hero_background']
-        }
-    }, [data, is_rtl, is_tabletL])
+    const background = is_tabletL ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
 
     const handleExternalLink = () => {
         let link = ''

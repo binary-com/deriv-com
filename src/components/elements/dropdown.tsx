@@ -355,12 +355,12 @@ export const BottomLabel = ({
 }: Pick<DropdownProps, 'error' | 'contractSize'>) => {
     return (
         <StyledDiv>
-            <ErrorMessages lh="1.4" align="start">
+            <ErrorMessages lh="1.4" align="left">
                 {error}
             </ErrorMessages>
 
             {contractSize && (
-                <ContractSizeWrapper lh="1.4" align="start">
+                <ContractSizeWrapper lh="1.4" align="left">
                     Contract size : {contractSize}
                 </ContractSizeWrapper>
             )}

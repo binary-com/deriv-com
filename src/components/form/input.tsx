@@ -262,7 +262,7 @@ const Input = ({
                     </StyledLabel>
                 )}
             </InputWrapper>
-            <ErrorMessages lh="1.4" align="start">
+            <ErrorMessages lh="1.4" align="left">
                 {error}
             </ErrorMessages>
             {error && (

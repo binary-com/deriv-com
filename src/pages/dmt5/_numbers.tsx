@@ -12,7 +12,6 @@ type NumbersContentType = {
 }
 
 const NumberSection = styled(SectionContainer)`
-    direction: ltr;
     display: Flex;
     background-color: var(--color-grey-25);
     padding: 4rem 12rem;

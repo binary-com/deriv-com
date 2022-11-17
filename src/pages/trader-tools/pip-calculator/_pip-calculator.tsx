@@ -39,14 +39,7 @@ import {
     StyledOl,
 } from '../common/_style'
 import { PipSyntheticExample, PipForexExample } from './_example-pip'
-import {
-    Accordion,
-    AccordionItem,
-    Header,
-    LocalizedLinkText,
-    Text,
-    ImageWithDireciton,
-} from 'components/elements'
+import { Accordion, AccordionItem, Header, LocalizedLinkText, Text } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { Flex, Desktop, Mobile } from 'components/containers'
@@ -66,7 +59,7 @@ const PipCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <ImageWithDireciton
+                    <img
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"

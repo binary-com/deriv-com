@@ -5,7 +5,6 @@ import Ticker from 'react-ticker'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const queryCarouselData = graphql`
     query {
@@ -90,7 +89,7 @@ const StyledImageWrapper = styled.div`
         height: 240px;
     }
 `
-const StyledQueryImage = styled(QueryImage)<{ is_rtl: boolean }>`
+const StyledQueryImage = styled(QueryImage)`
     position: absolute;
     display: block;
     top: 50%;
@@ -98,7 +97,8 @@ const StyledQueryImage = styled(QueryImage)<{ is_rtl: boolean }>`
     min-height: 100%;
     min-width: 100%;
     height: 480px;
-    transform: ${({ is_rtl }) => (is_rtl ? 'translate(50%, -50%)' : 'translate(-50%, -50%)')};
+    transform: translate(-50%, -50%);
+
     @media ${device.tablet} {
         height: 240px;
     }
@@ -123,8 +123,6 @@ const ImageMarquee = () => {
         carousel_data.media6,
     ]
 
-    const is_rtl = useIsRtl()
-
     return (
         <Ticker speed={20}>
             {() => (
@@ -132,12 +130,7 @@ const ImageMarquee = () => {
                     {carousel_images.map((carouselItem, index) => (
                         <CarouselSlide key={index}>
                             <StyledImageWrapper>
-                                <StyledQueryImage
-                                    is_rtl={is_rtl}
-                                    data={carouselItem}
-                                    alt=""
-                                    loading="eager"
-                                />
+                                <StyledQueryImage data={carouselItem} alt="" loading="eager" />
                             </StyledImageWrapper>
                         </CarouselSlide>
                     ))}

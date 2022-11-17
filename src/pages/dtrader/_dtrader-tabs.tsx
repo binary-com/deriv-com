@@ -54,7 +54,7 @@ const StepCommon = css<StepCommonType>`
     cursor: pointer;
     padding-left: 1.8rem;
     @media ${device.tabletL} {
-        text-align: start;
+        text-align: left;
         border: none;
         margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
@@ -205,7 +205,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             type="sub-section-title"
                             lh="1.5"
-                            align="start"
+                            align="left"
                             no_margin
                             start_time={0}
                             end_time={7}
@@ -223,7 +223,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             type="sub-section-title"
                             lh="1.5"
-                            align="start"
+                            align="left"
                             start_time={7}
                             end_time={13}
                             current_time={this.state.current_time}
@@ -240,7 +240,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             type="sub-section-title"
                             lh="1.5"
-                            align="start"
+                            align="left"
                             start_time={13}
                             end_time={30}
                             current_time={this.state.current_time}

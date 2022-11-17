@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { Localize } from 'components/localization'
-import { Header, LocalizedLinkText, QueryImage } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
 
@@ -27,14 +27,6 @@ type LinkTextProps = {
 const LinkText = styled.a<LinkTextProps>`
     color: var(--color-red);
     text-decoration: none;
-    font-size: ${({ sm }) => (sm ? '14px' : '4.8rem')};
-
-    @media ${device.tabletL} {
-        font-size: ${({ sm }) => (sm ? '14px' : '28px')};
-    }
-`
-
-const StyledLocalizedLinkText = styled(LocalizedLinkText)<{ LinkTextProps }>`
     font-size: ${({ sm }) => (sm ? '14px' : '4.8rem')};
 
     @media ${device.tabletL} {
@@ -131,12 +123,7 @@ const SubmitABugReport = () => {
                     <Localize
                         translate_text="Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program."
                         components={[
-                            <StyledLocalizedLinkText
-                                key={0}
-                                to="/terms-and-conditions/#business-partners"
-                                color="red"
-                                sm
-                            />,
+                            <LinkText key={0} href="/terms-and-conditions/#business-partners" sm />,
                         ]}
                     />
                 </Header>

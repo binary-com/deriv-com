@@ -80,7 +80,7 @@ const WhyTradeMargin = () => {
                             </Text>
                         </WhyTradeItem>
                     </Grid>
-                    <Text align="start" width="100%" weight="bold">
+                    <Text align="left" width="100%" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
                     <Button onClick={handleSignup} id="dm-cfd-signup" mt="1.6rem" secondary>

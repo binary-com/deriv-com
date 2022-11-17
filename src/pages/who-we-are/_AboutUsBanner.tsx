@@ -1,15 +1,12 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import BgMobile from 'images/common/who-we-are/about-us-banner-mobile.jpg'
-import BgMobileRTL from 'images/common/who-we-are/about-us-banner-mobile_rtl.jpg'
 import Bg from 'images/common/who-we-are/about-us-banner.jpg'
-import BgRTL from 'images/common/who-we-are/about-us-banner_rtl.jpg'
 import { localize } from 'components/localization'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
@@ -25,16 +22,9 @@ const StyledSectionContainer = styled(SectionContainer)`
     }
 `
 
-const StyledFlex = styled(Flex)<{ is_rtl: boolean }>`
+const StyledFlex = styled(Flex)`
     border-radius: 10px;
-    ${({ is_rtl }) =>
-        is_rtl
-            ? css`
-                  background-image: url(${BgRTL});
-              `
-            : css`
-                  background-image: url(${Bg});
-              `};
+    background-image: url(${Bg});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -43,16 +33,9 @@ const StyledFlex = styled(Flex)<{ is_rtl: boolean }>`
         width: 100%;
     }
     @media (max-width: 610px) {
-        ${({ is_rtl }) =>
-            is_rtl
-                ? css`
-                      background-image: url(${BgMobileRTL});
-                      background-position-x: right;
-                  `
-                : css`
-                      background-image: url(${BgMobile});
-                      background-position-x: left;
-                  `};
+        background-image: url(${BgMobile});
+        background-position-x: unset;
+        background-position: left;
         height: 546px;
     }
     @media (max-width: 359px) {
@@ -107,16 +90,9 @@ const StyledLinkButton = styled(LinkButton)`
 `
 
 const AboutUsBanner = () => {
-    const is_rtl = useIsRtl()
     return (
         <StyledSectionContainer>
-            <StyledFlex
-                is_rtl={is_rtl}
-                direction="column"
-                height="auto"
-                min_height="288px"
-                width="1200px"
-            >
+            <StyledFlex direction="column" height="auto" min_height="288px" width="1200px">
                 <PictureFlex jc="start" ai="start" direction="column">
                     <StyledHeader as="h3" width="100%" type="unset" size="32px" color="white">
                         {localize('We have a huge mission, an incredible team, and rapid growth.')}

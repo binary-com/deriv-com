@@ -14,9 +14,6 @@ import Malaysia from 'images/svg/contact/malaysia.svg'
 import Cyprus from 'images/svg/contact/cyprus.svg'
 import Rwanda from 'images/svg/contact/rwanda.svg'
 import Belarus from 'images/svg/contact/belarus.svg'
-import Singapore from 'images/svg/contact/singapore.svg'
-import Jordan from 'images/svg/contact/jordan.svg'
-import Vanuatu from 'images/svg/contact/vanuatu.svg'
 
 type GridLayoutProps = {
     children?: React.ReactNode | React.ReactChild
@@ -32,9 +29,6 @@ const query = graphql`
         map_dubai: file(relativePath: { eq: "maps/map-dubai.png" }) {
             ...fadeIn
         }
-        map_jordan: file(relativePath: { eq: "maps/map-jordan.png" }) {
-            ...fadeIn
-        }
         map_labuan: file(relativePath: { eq: "maps/map-labuan.png" }) {
             ...fadeIn
         }
@@ -44,16 +38,10 @@ const query = graphql`
         map_melaka: file(relativePath: { eq: "maps/map-melaka.png" }) {
             ...fadeIn
         }
-        map_singapore: file(relativePath: { eq: "maps/map-singapore.png" }) {
-            ...fadeIn
-        }
         map_malta: file(relativePath: { eq: "maps/map-malta.png" }) {
             ...fadeIn
         }
         map_france: file(relativePath: { eq: "maps/map-france.jpg" }) {
-            ...fadeIn
-        }
-        map_vanuatu: file(relativePath: { eq: "maps/map-vanuatu.png" }) {
             ...fadeIn
         }
         map_cyberjaya: file(relativePath: { eq: "maps/map-cyberjaya.png" }) {
@@ -159,7 +147,6 @@ const ContinentHeader = styled(Header)`
     line-height: 30px;
     white-space: nowrap;
     margin-bottom: 38px;
-    text-transform: uppercase;
     margin-top: 30px;
     color: #85acb0;
     flex: none;
@@ -243,7 +230,7 @@ export const Offices = () => {
                     <ResHeader as="h2" type="page-title">
                         {localize('Our offices')}
                     </ResHeader>
-                    <ContinentHeader>{localize('Europe')}</ContinentHeader>
+                    <ContinentHeader>{localize('EUROPE')}</ContinentHeader>
                     <GridLayout>
                         <Flex mt="30px" fd="column" max_width="48.6rem" id="france">
                             <OfficeHeader>
@@ -429,7 +416,7 @@ export const Offices = () => {
                         </Flex>
                     </GridLayout>
                     <Flex fd="column" mt="30px" id="malaysia">
-                        <ContinentHeader>{localize('Asia')}</ContinentHeader>
+                        <ContinentHeader>{localize('ASIA')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Malaysia} alt="Malaysia - Petronas Twin Towers" />
@@ -590,13 +577,14 @@ export const Offices = () => {
                             </GridLayout>
                         </FullBorder>
                     </Flex>
-                    <Flex mt="30px" fd="column" id="singapore">
+                    <Flex mt="30px" mb="30px" fd="column" id="dubai">
+                        <ContinentHeader>{localize('MIDDLE EAST')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Singapore} alt="Singapore - Merlion Park" />
+                                <img src={Dubai} alt="Dubai - Burj Al Arab" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                {localize('Singapore')}
+                                {localize('Dubai')}
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -604,131 +592,40 @@ export const Offices = () => {
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
-                                    to="https://goo.gl/maps/4bg5B7dkvUv5Pa11A"
+                                    to="https://goo.gl/maps/fz9kjz1MLiCekhRy5"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <QueryImage
-                                        alt="Deriv's office location map in Singapore"
-                                        data={data['map_singapore']}
+                                        alt="Deriv's office location map in Dubai"
+                                        data={data['map_dubai']}
                                         height="100%"
                                     />
                                 </LocalizedLink>
                             </MapContainer>
                             <LocalizedLinkText
-                                to="https://goo.gl/maps/4bg5B7dkvUv5Pa11A"
+                                to="https://goo.gl/maps/fz9kjz1MLiCekhRy5"
                                 external
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 mt="0.8rem"
                                 ml="1.6rem"
                             >
-                                <Desktop>80 Robinson Road, #11-03, Singapore 068898</Desktop>
+                                <Desktop>
+                                    <p>Office 1902, Jumeirah Business</p>
+                                    <p> Center 1, JLT Cluster G</p>
+                                </Desktop>
                                 <Mobile>
                                     <StyledMobileAddress>
-                                        80 Robinson Road, #11-03, Singapore 068898
+                                        Office 1902, Jumeirah Business Center 1, JLT Cluster G
                                     </StyledMobileAddress>
                                 </Mobile>
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
-                    <ContinentHeader>{localize('Middle East')}</ContinentHeader>
-                    <GridLayout>
-                        <Flex mt="30px" fd="column" max_width="48.6rem" id="dubai">
-                            <OfficeHeader>
-                                <div>
-                                    <img src={Dubai} alt="Dubai - Burj Al Arab" />
-                                </div>
-                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                    {localize('Dubai')}
-                                </Header>
-                            </OfficeHeader>
-                            <BorderBox>
-                                <MapContainer>
-                                    <LocalizedLink
-                                        to="https://goo.gl/maps/fz9kjz1MLiCekhRy5"
-                                        external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            alt="Deriv's office location map in Dubai"
-                                            data={data['map_dubai']}
-                                            height="100%"
-                                        />
-                                    </LocalizedLink>
-                                </MapContainer>
-                                <LocalizedLinkText
-                                    to="https://goo.gl/maps/fz9kjz1MLiCekhRy5"
-                                    external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
-                                >
-                                    <Desktop>
-                                        <p>Office 1902, Jumeirah Business</p>
-                                        <p> Center 1, JLT Cluster G</p>
-                                    </Desktop>
-                                    <Mobile>
-                                        <StyledMobileAddress>
-                                            Office 1902, Jumeirah Business Center 1, JLT Cluster G
-                                        </StyledMobileAddress>
-                                    </Mobile>
-                                </LocalizedLinkText>
-                            </BorderBox>
-                        </Flex>
-                        <Flex mt="30px" fd="column" max_width="48.6rem" id="jordan">
-                            <OfficeHeader>
-                                <div>
-                                    <img src={Jordan} alt="Jordan - Petra Gate" />
-                                </div>
-                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                    {localize('Jordan')}
-                                </Header>
-                            </OfficeHeader>
-                            <BorderBox>
-                                <MapContainer>
-                                    <LocalizedLink
-                                        to="https://goo.gl/maps/JuQYXXJpw37mu9ii7"
-                                        external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            alt="Deriv's office location map in Jordan"
-                                            data={data['map_jordan']}
-                                            height="100%"
-                                        />
-                                    </LocalizedLink>
-                                </MapContainer>
-                                <LocalizedLinkText
-                                    to="https://goo.gl/maps/JuQYXXJpw37mu9ii7"
-                                    external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
-                                >
-                                    <Desktop>
-                                        <p>
-                                            AJIB Building, No 12A & 12B, 3rd Floor, Al Bonouk
-                                            Street,Al Abdali Boulevard, Amman - Jordan.
-                                        </p>
-                                    </Desktop>
-                                    <Mobile>
-                                        <StyledMobileAddress>
-                                            AJIB Building, No 12A & 12B, 3rd Floor, Al Bonouk
-                                            Street, Al Abdali Boulevard, Amman - Jordan.
-                                        </StyledMobileAddress>
-                                    </Mobile>
-                                </LocalizedLinkText>
-                            </BorderBox>
-                        </Flex>
-                    </GridLayout>
                     <Flex mt="30px" fd="column" id="belarus">
-                        <ContinentHeader>{localize('Eastern Europe')}</ContinentHeader>
+                        <ContinentHeader>{localize('EASTERN EUROPE')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Belarus} alt="Belarus - National Library" />
@@ -775,7 +672,7 @@ export const Offices = () => {
                         </BorderBox>
                     </Flex>
                     <Flex mt="30px" fd="column" id="rwanda">
-                        <ContinentHeader>{localize('Africa')}</ContinentHeader>
+                        <ContinentHeader>{localize('AFRICA')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Rwanda} alt="Rwanda - Kigali Convention Center" />
@@ -822,8 +719,8 @@ export const Offices = () => {
                         </BorderBox>
                     </Flex>
 
-                    <Flex fd="column" mt="30px" id="malaysia">
-                        <ContinentHeader>{localize('Latin America')}</ContinentHeader>
+                    <Flex mt="30px" fd="column" id="paraguay">
+                        <ContinentHeader>{localize('LATIN AMERICA')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Paraguay} alt="Paraguay - National Pantheon of Heroes" />
@@ -832,76 +729,25 @@ export const Offices = () => {
                                 {localize('Paraguay')}
                             </Header>
                         </OfficeHeader>
-                        <FullBorder>
-                            <GridLayout>
-                                <FullBox id="paraguay">
-                                    <MapContainer>
-                                        <LocalizedLink
-                                            to="https://goo.gl/maps/taw811vL1Wht9z4YA"
-                                            external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <QueryImage
-                                                alt="Deriv's office location map in Cyberjaya"
-                                                data={data['map_paraguay']}
-                                                height="100%"
-                                            />
-                                        </LocalizedLink>
-                                    </MapContainer>
-                                    <Box mt="0.8rem" ml="1.6rem">
-                                        <LocalizedLinkText
-                                            to="https://goo.gl/maps/ci85LgJcyNj97uDa7"
-                                            external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <Desktop>
-                                                <p>Edificio Atrium, Piso 2,</p>
-                                                <p>Guido Spano Esq. Doctor Morra,</p>
-                                                <p>Asunción 1849</p>
-                                            </Desktop>
-                                            <Mobile>
-                                                <StyledMobileAddress>
-                                                    Edificio Atrium, Piso 2, Guido Spano Esq. Doctor
-                                                    Morra, Asunción 1849
-                                                </StyledMobileAddress>
-                                            </Mobile>
-                                        </LocalizedLinkText>
-                                    </Box>
-                                </FullBox>
-                            </GridLayout>
-                        </FullBorder>
-                    </Flex>
-                    <Flex mt="30px" fd="column" id="vanuatu">
-                        <ContinentHeader>{localize('Oceania')}</ContinentHeader>
-                        <OfficeHeader>
-                            <div>
-                                <img src={Vanuatu} alt="Vanuatu - Port Vila" />
-                            </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                {localize('Vanuatu')}
-                            </Header>
-                        </OfficeHeader>
                     </Flex>
                     <Flex max_width="48.6rem">
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
-                                    to="https://goo.gl/maps/Zr7u7jf3w9LQ2MpXA"
+                                    to="https://goo.gl/maps/ci85LgJcyNj97uDa7"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <QueryImage
-                                        alt="Deriv's office location map in Vanuatu"
-                                        data={data['map_vanuatu']}
+                                        alt="Deriv's office location map in Paraguay"
+                                        data={data['map_paraguay']}
                                         height="100%"
                                     />
                                 </LocalizedLink>
                             </MapContainer>
                             <LocalizedLinkText
-                                to="https://goo.gl/maps/Zr7u7jf3w9LQ2MpXA"
+                                to="https://goo.gl/maps/ci85LgJcyNj97uDa7"
                                 external
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -909,13 +755,14 @@ export const Offices = () => {
                                 ml="1.6rem"
                             >
                                 <Desktop>
-                                    Yumiwork, Lolam building, Kumul Highway, Land # 11/OD22/021,
-                                    Port Vila, Vanuatu.
+                                    <p>Edificio Atrium, Piso 2,</p>
+                                    <p>Guido Spano Esq. Doctor Morra,</p>
+                                    <p>Asunción 1849</p>
                                 </Desktop>
                                 <Mobile>
                                     <StyledMobileAddress>
-                                        Yumiwork, Lolam building, Kumul Highway, Land # 11/OD22/021,
-                                        Port Vila, Vanuatu.
+                                        Edificio Atrium, Piso 2, Guido Spano Esq. Doctor Morra,
+                                        Asunción 1849
                                     </StyledMobileAddress>
                                 </Mobile>
                             </LocalizedLinkText>

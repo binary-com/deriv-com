@@ -1,19 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
-import styled, { css } from 'styled-components'
-import { withLangDirection } from 'themes/function'
-import { useIsRtl } from 'components/hooks/use-isrtl'
+import styled from 'styled-components'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
 import { DerivStore } from 'store'
 import { LocalizedLink, Localize } from 'components/localization'
-import {
-    Accordion,
-    AccordionItem,
-    NavCard,
-    Text,
-    Divider,
-    ImageWithDireciton,
-} from 'components/elements'
+import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
@@ -54,15 +45,7 @@ import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
-type OffCanvasMenuWrapperProps = {
-    closeOffCanvasMenu?: () => void
-    is_canvas_menu_open?: boolean
-    is_ppc?: boolean
-    is_ppc_redirect?: boolean
-    is_rtl: boolean
-}
-
-const OffCanvasMenu = styled.section<OffCanvasMenuWrapperProps>`
+const OffCanvasMenu = styled.section<OffCanvasMenuWrapperPropps>`
     position: fixed;
     background-color: var(--color-white);
     top: 7.2rem;
@@ -73,16 +56,8 @@ const OffCanvasMenu = styled.section<OffCanvasMenuWrapperProps>`
     transition: transform 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     left: -254px;
-    ${({ is_canvas_menu_open }) =>
-        withLangDirection({
-            rtl_styles: css`
-                transform: ${is_canvas_menu_open ? 'translateX(-254px)' : null};
-            `,
-            ltr_styles: css`
-                transform: ${is_canvas_menu_open ? 'translateX(254px)' : null};
-            `,
-        })}
     z-index: 4;
+    ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(254px)'};
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
@@ -150,7 +125,14 @@ const content_style = {
     display: 'flex',
 }
 
-export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
+type OffCanvasMenuWrapperPropps = {
+    closeOffCanvasMenu?: () => void
+    is_canvas_menu_open?: boolean
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
+}
+
+export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
     const { is_uk_country } = React.useContext(DerivStore)
     const { is_row } = useCountryRule()
     const canvas = useRef()
@@ -159,12 +141,10 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
         props.closeOffCanvasMenu()
     }
 
-    const is_rtl = useIsRtl()
-
     useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
 
     return (
-        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} is_rtl={is_rtl} ref={canvas}>
+        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
                 <Accordion>
                     <AccordionItem
@@ -509,12 +489,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             </div>
                             <Span>{<Localize translate_text="Deriv life" />}</Span>
                             <SpanSvg>
-                                <ImageWithDireciton
-                                    src={Diagonal}
-                                    alt="Diagonal"
-                                    width="16"
-                                    height="16"
-                                />
+                                <img src={Diagonal} alt="Diagonal" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
@@ -542,12 +517,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             </div>
                             <Span>{<Localize translate_text="Community" />}</Span>
                             <SpanSvg>
-                                <ImageWithDireciton
-                                    src={Diagonal}
-                                    alt="Diagonal"
-                                    width="16"
-                                    height="16"
-                                />
+                                <img src={Diagonal} alt="Diagonal" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
                         <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
@@ -590,12 +560,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             </div>
                             <Span>{<Localize translate_text="Status page" />}</Span>
                             <SpanSvg>
-                                <ImageWithDireciton
-                                    src={Diagonal}
-                                    alt="Diagonal"
-                                    width="16"
-                                    height="16"
-                                />
+                                <img src={Diagonal} alt="Diagonal" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
                         <StyledLink to="/academy/" onClick={handleArrowClick}>
@@ -710,7 +675,6 @@ type OffCanvasMenuPartnerProps = {
 export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     const canvas = useRef<HTMLDivElement>()
     const { is_row } = useCountryRule()
-    const is_rtl = useIsRtl()
 
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()
@@ -730,11 +694,7 @@ export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     }, [])
 
     return (
-        <OffCanvasMenuSecondary
-            is_rtl={is_rtl}
-            is_canvas_menu_open={props.is_canvas_menu_open}
-            ref={canvas}
-        >
+        <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
                 <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
                     <div>

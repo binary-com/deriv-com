@@ -130,10 +130,6 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
     }
 `
 
-const NavFlex = styled(Flex)`
-    border-right: 1px solid var(--color-grey-8);
-`
-
 export const TraderCard = ({ is_selected, word_break_cover }: CardProps) => (
     <StyledLink aria_label="DTrader" to="/dtrader/">
         <Card
@@ -303,7 +299,12 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
         <Flex>
             {!is_ppc && (
                 <>
-                    <NavFlex direction="column" wrap="wrap" jc="flex-start">
+                    <Flex
+                        direction="column"
+                        wrap="wrap"
+                        jc="flex-start"
+                        style={{ boxShadow: 'inset -1px 0px 0px var(--color-grey-8)' }}
+                    >
                         <StyledText>{<Localize translate_text="Trade types" />}</StyledText>
                         <NavCard
                             aria_label="CFDs"
@@ -341,7 +342,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             onClick={onClick}
                             to="/trade-types/multiplier/"
                         />
-                    </NavFlex>
+                    </Flex>
                 </>
             )}
             <Flex direction="column" wrap="wrap" jc="flex-start">

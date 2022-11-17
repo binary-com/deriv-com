@@ -55,7 +55,7 @@ const WrapText = styled(Flex)`
 
 const StyledHeader = styled(Header)`
     @media ${device.laptopM} {
-        text-align: start;
+        text-align: left;
     }
 `
 

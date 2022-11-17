@@ -38,23 +38,23 @@ const StyledContainer = styled(Container)`
         padding: 12.5rem 0;
 
         h1 {
-            text-align: start;
+            text-align: left;
         }
         h4 {
-            text-align: start;
+            text-align: left;
         }
     }
 `
 const Video = styled.video`
     position: absolute;
-    right: 30%;
-    transform: scale(2);
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%) scale(2);
     width: 100%;
     height: 100%;
 
     @media ${device.tabletL} {
-        right: 20%;
-        transform: scale(1.5);
+        transform: translate(-40%, -50%) scale(1.5);
     }
 `
 

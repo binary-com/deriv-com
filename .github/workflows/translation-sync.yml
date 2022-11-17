@@ -19,7 +19,7 @@ jobs:
             - name: Fetch Crowdin Master Translation ⬇️ 
               run: |
                     crowdin download -b  master -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b master -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
-                      if git diff --exit-code; then
+                    if git diff --exit-code; then
                       echo "No new translation data to commit"
                     else
                       echo "Committing new translation data 📝"
@@ -28,6 +28,7 @@ jobs:
                       git config --global user.email "80095553+DerivFE@users.noreply.github.com"
                       git add -u
                       git commit -m "translation: 📚 sync translations from crowdin master branch"
+                      git push origin master
                     fi
             - name: Push New Strings & Translations ⬆️
               run:  

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ContentType } from './index'
 import { Container, Flex, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 // svg
@@ -131,7 +131,12 @@ const OtherApps = () => {
                                         {item.title}
                                     </Header>
                                     <StyledText>{item.content}</StyledText>
-                                    <div>{item.url}</div>
+                                    <div>
+                                        <LearnMore to={item.url}>
+                                            <Localize translate_text="Learn more" />
+                                            <ImageWithDireciton src={Arrow} alt="" />
+                                        </LearnMore>
+                                    </div>
                                 </Card>
                             )
                         })}

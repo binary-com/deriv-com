@@ -9,6 +9,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;
@@ -312,6 +313,8 @@ const MarketsFold = () => {
     const is_not_big_screen = size.width < 1980 && size.width >= 768
     const is_mobile = size.width < 768
 
+    const lang_direction = useLangDirection()
+
     const getMaxWidth = () => {
         if (is_mobile) return '100%'
         if (is_not_big_screen) return '1210px'
@@ -332,19 +335,23 @@ const MarketsFold = () => {
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
             align: is_mobile ? 0.04 : 'center',
+            direction: lang_direction,
         },
         container_style: {
-            maxWidth: '100%',
-            margin: '0 auto',
+            maxInlineSize: '100%',
+            marginBlockStart: '0',
+            marginBlockEnd: '0',
+            marginInlineStart: 'auto',
+            marginInlineEnd: 'auto',
         },
         embla_style: {
-            minHeight: is_mobile ? '364px' : 'auto',
-            maxWidth: getMaxWidth(),
+            minBlockSize: is_mobile ? '364px' : 'auto',
+            maxInlineSize: getMaxWidth(),
         },
         slide_style: {
-            width: is_not_big_screen ? '282px' : '400px',
-            height: 'auto',
-            marginRight: is_mobile ? '16px' : '24px',
+            inlineSize: is_not_big_screen ? '282px' : '400px',
+            blockSize: 'auto',
+            marginInlineEnd: is_mobile ? '16px' : '24px',
             position: 'relative',
         },
         navigation_style: {

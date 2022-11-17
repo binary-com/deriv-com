@@ -27,6 +27,7 @@ const flags = {
     zh,
     tr,
     ac,
+    ar: en,
     bn,
 }
 

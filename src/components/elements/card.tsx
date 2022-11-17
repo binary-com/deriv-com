@@ -7,6 +7,8 @@ import device from 'themes/device'
 // SVG
 import Arrow from 'images/svg/elements/card-arrow.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import { ImageWithDireciton } from 'components/elements'
 
 type StyledProps = {
     width?: string
@@ -14,6 +16,7 @@ type StyledProps = {
     background_color?: string
     is_selected?: boolean
     min_height?: string
+    is_rtl: boolean
 }
 
 export const CardStyle = css`
@@ -66,10 +69,12 @@ const CardWrapper = styled.article<StyledProps>`
 
     &:hover {
         ${CardCover} {
-            transform: translate3d(-3%, 0, 0);
+            transform: ${(props) =>
+                props.is_rtl ? 'translate3d(3%, 0, 0)' : 'translate3d(-3%, 0, 0)'};
 
             @media ${device.tabletL} {
-                transform: translate3d(-5%, 0, 0);
+                transform: ${(props) =>
+                    props.is_rtl ? 'translate3d(5%, 0, 0)' : 'translate3d(-5%, 0, 0)'};
             }
         }
     }
@@ -159,6 +164,7 @@ export const Card = ({
     is_selected,
     word_break_cover,
 }: CardProps) => {
+    const is_rtl = useIsRtl()
     const final_content = word_break_cover ? (
         <Flex direction="column" jc="flex-start" ai="flex-start">
             <CoverContent>{cover_content.props.translate_text.split(' ')[0]}</CoverContent>
@@ -171,7 +177,13 @@ export const Card = ({
     )
 
     return (
-        <CardWrapper width={width} min_height={min_height} padding={padding} className={className}>
+        <CardWrapper
+            is_rtl={is_rtl}
+            width={width}
+            min_height={min_height}
+            padding={padding}
+            className={className}
+        >
             {!children && (
                 <>
                     {is_inline_icon ? (
@@ -179,10 +191,16 @@ export const Card = ({
                             <CardCover
                                 background_color={cover_background}
                                 is_selected={is_selected}
+                                is_rtl={is_rtl}
                             >
                                 <div>
                                     {final_content}
-                                    <img src={Arrow} alt="arrow" width="16" height="16" />
+                                    <ImageWithDireciton
+                                        src={Arrow}
+                                        alt="arrow"
+                                        width="16"
+                                        height="16"
+                                    />
                                 </div>
                             </CardCover>
                             <IconContainer>
@@ -220,7 +238,10 @@ const NavContent = styled.div`
     display: flex;
     flex-direction: column;
 `
-const RightDiagonal = styled.img`
+const RightDiagonal = styled.img<{ is_rtl: boolean }>`
+    transform: ${({ is_rtl }) => {
+        return is_rtl ? 'scaleX(-1)' : null
+    }};
     opacity: 0;
     transition: opacity 0.2s;
     position: absolute;
@@ -314,6 +335,7 @@ export const NavCard = ({
     title,
     ...props
 }: NavCardProps) => {
+    const is_rtl = useIsRtl()
     return (
         <LocalizedLink
             style={{
@@ -338,7 +360,13 @@ export const NavCard = ({
                 </NavContent>
                 {external && (
                     <div>
-                        <RightDiagonal src={Diagonal} alt="Diagonal" width="16" height="16" />
+                        <RightDiagonal
+                            is_rtl={is_rtl}
+                            src={Diagonal}
+                            alt="Diagonal"
+                            width="16"
+                            height="16"
+                        />
                     </div>
                 )}
             </FlexHover>
@@ -435,7 +463,12 @@ export const CardLink = ({
                     </ResponsiveHeader>
                     {external && (
                         <LinkRightDiagonal>
-                            <img src={Diagonal} alt="Diagonal" width="16" height="16" />
+                            <ImageWithDireciton
+                                src={Diagonal}
+                                alt="Diagonal"
+                                width="16"
+                                height="16"
+                            />
                         </LinkRightDiagonal>
                     )}
                 </RelativeFlex>

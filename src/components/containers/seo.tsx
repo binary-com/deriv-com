@@ -6,6 +6,7 @@ import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
 import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const non_localized_links = ['/academy', '/bug-bounty', '/careers']
 
@@ -111,12 +112,17 @@ const SEO = ({
         }
     }
 
+    const lang_direction = useLangDirection()
+
     const is_non_localized = non_localized_links.some((link) => current_page.includes(link))
 
     return (
         <Helmet
             htmlAttributes={{
                 lang: formatted_lang,
+            }}
+            bodyAttributes={{
+                dir: lang_direction,
             }}
             title={title}
             defer={false}

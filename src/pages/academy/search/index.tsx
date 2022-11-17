@@ -294,11 +294,11 @@ const SearchPage = () => {
                         Articles
                     </Header>
                     {items_type ? (
-                        <Header as="span" type="paragraph-2" align="right">
+                        <Header as="span" type="paragraph-2" align="end">
                             {getPaginationItemCountText()}
                         </Header>
                     ) : (
-                        <Header as="span" type="paragraph-2" align="right">
+                        <Header as="span" type="paragraph-2" align="end">
                             {getTotalArticleText()}
                         </Header>
                     )}
@@ -330,7 +330,7 @@ const SearchPage = () => {
                     <Header as="h3" type="subtitle-2">
                         Videos
                     </Header>
-                    <Header as="span" type="paragraph-2" align="right">
+                    <Header as="span" type="paragraph-2" align="end">
                         <>
                             {total_video > 1 && !items_type
                                 ? `1-2 of ${total_video} results`

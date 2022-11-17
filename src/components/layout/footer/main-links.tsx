@@ -238,32 +238,36 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                                 {<Localize translate_text="Help centre" />}
                             </Link>
                         </LinkWrapper>
-                        <LinkWrapper>
-                            <Link
-                                to=""
-                                type="community"
-                                external
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {<Localize translate_text="Community" />}
-                            </Link>
-                        </LinkWrapper>
+                        <Branding>
+                            <LinkWrapper>
+                                <Link
+                                    to=""
+                                    type="community"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {<Localize translate_text="Community" />}
+                                </Link>
+                            </LinkWrapper>
+                        </Branding>
                         <LinkWrapper>
                             <Link to="/payment-methods/">
                                 {<Localize translate_text="Payment methods" />}
                             </Link>
                         </LinkWrapper>
-                        <LinkWrapper>
-                            <Link
-                                to={deriv_status_page_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                external
-                            >
-                                {<Localize translate_text="Status page" />}
-                            </Link>
-                        </LinkWrapper>
+                        <Branding>
+                            <LinkWrapper>
+                                <Link
+                                    to={deriv_status_page_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    external
+                                >
+                                    {<Localize translate_text="Status page" />}
+                                </Link>
+                            </LinkWrapper>
+                        </Branding>
                         <LinkWrapper>
                             <Link to="/academy/">{<Localize translate_text="Academy" />}</Link>
                         </LinkWrapper>

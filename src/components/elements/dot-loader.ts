@@ -24,9 +24,10 @@ const dots = keyframes`
             0.5em 0 0 grey;
     }
 `
-const InitialLoader = styled.span`
+const InitialLoader = styled.div`
     text-align: center;
-    margin: 0 49% 0 49%;
+    width: 100vw;
+    margin: 0 auto;
 
     ::after {
         color: grey;

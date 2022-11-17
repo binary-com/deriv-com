@@ -1,16 +1,13 @@
 import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
+import type { WebsiteStatus, ServerStatusResponse } from '@deriv/api-types'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
-import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
+import { isEuCountry, isUK } from 'common/country-base'
 import { isShowBranding } from 'common/utility'
 
 type DerivProviderProps = {
     children?: ReactNode
-}
-
-type WebsiteStatusType = {
-    clients_country: string
 }
 
 export type DerivStoreType = {
@@ -18,10 +15,10 @@ export type DerivStoreType = {
     is_eu_country: boolean
     is_p2p_allowed_country: boolean
     is_uk_country: boolean
-    setWebsiteStatus: Dispatch<WebsiteStatusType | void>
+    setWebsiteStatus: Dispatch<WebsiteStatus | void>
     user_country: string
     website_status_loading: boolean
-    website_status: WebsiteStatusType
+    website_status: WebsiteStatus
     deriv_api: DerivApiProps
     show_non_eu_popup: boolean
     setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
@@ -46,23 +43,23 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
         // Fetch website status from the API & save in the cookies
         const { send } = deriv_api
 
-        send({ website_status: 1 }, (response) => {
+        send({ website_status: 1 }, (response: ServerStatusResponse) => {
             if (!response.error && !website_status) {
                 const {
-                    website_status: { clients_country },
+                    website_status: { clients_country, p2p_config },
                 } = response
 
-                setWebsiteStatus({ clients_country })
+                setWebsiteStatus({ clients_country, p2p_config })
             }
         })
     }, [])
 
     useEffect(() => {
         if (website_status) {
-            const { clients_country } = website_status
+            const { clients_country, p2p_config } = website_status
             setEuCountry(!!isEuCountry(clients_country))
             setUkCountry(!!isUK(clients_country))
-            setP2PAllowedCountry(isP2PAllowedCountry(clients_country))
+            setP2PAllowedCountry(!!p2p_config)
             setUserCountry(clients_country)
         }
     }, [website_status])

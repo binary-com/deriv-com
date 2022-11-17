@@ -9,7 +9,14 @@ import { localize, WithIntl } from 'components/localization'
 const query = graphql`
     query {
         vanuatu: file(relativePath: { eq: "careers/vanuatu.png" }) {
-            ...heroImage
+            childImageSharp {
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 100
+                    placeholder: NONE
+                )
+            }
         }
         living_in_vanuatu: file(relativePath: { eq: "careers/living_in_vanuatu.png" }) {
             ...fadeIn

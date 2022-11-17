@@ -123,7 +123,7 @@ const StyledText = styled(Text)`
 `
 
 const Flexibility = () => {
-    const { is_uk_eu, is_eu } = useCountryRule()
+    const { is_uk, is_eu } = useCountryRule()
 
     const chosen_content = is_eu ? eucontent : content
     const title = is_eu
@@ -160,7 +160,7 @@ const Flexibility = () => {
                                     </StyledHeader>
                                     {item.icon}
                                 </Flex>
-                                {is_uk_eu ? (
+                                {is_uk ? (
                                     <StyledText>
                                         <Localize translate_text="Trade forex, stocks, stock indices, and commodities on leverage." />
                                     </StyledText>

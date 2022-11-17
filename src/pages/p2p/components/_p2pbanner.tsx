@@ -9,6 +9,7 @@ import device from 'themes/device'
 import { Background } from 'components/elements/background-image'
 import { mobileOSDetect } from 'common/os-detect'
 import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type P2PBannerProps = {
     title: string
@@ -123,9 +124,16 @@ const StyledText = styled(Text)`
     }
 `
 
+const StyledBackground = styled(Background)`
+    transform: scaleX(-1);
+`
+
 const query = graphql`
     query {
         p2p_banner: file(relativePath: { eq: "p2p/p2p_banner.png" }) {
+            ...fadeIn
+        }
+        p2p_banner_rtl: file(relativePath: { eq: "p2p/p2p_banner_rtl.png" }) {
             ...fadeIn
         }
         p2p_banner_mobile: file(relativePath: { eq: "p2p/p2p_banner_mobile.png" }) {
@@ -136,6 +144,7 @@ const query = graphql`
 
 const P2PBanner = ({ title }: P2PBannerProps) => {
     const data = useStaticQuery(query)
+    const is_rtl = useIsRtl()
     const handleExternalLink = () => {
         let link = ''
         if (mobileOSDetect() === 'Android') {
@@ -166,7 +175,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
             <Desktop>
                 <Background
                     style={{ height: '340px', backgroundPosition: '20% 20%' }}
-                    data={data['p2p_banner']}
+                    data={is_rtl ? data['p2p_banner_rtl'] : data['p2p_banner']}
                 >
                     <Wrapper>
                         <InformationWrapper height="unset" direction="column">

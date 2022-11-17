@@ -14,7 +14,8 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding-top: 0;
     }
 `
-const StyledContainer = styled(Container)`
+const NumberStyledContainer = styled(Container)`
+    direction: ltr;
     padding: 40px 0 104px;
     width: 100%;
     justify-content: space-around;
@@ -70,7 +71,7 @@ const items: ContentType[] = [
 const WhatIsDerivGo = () => {
     return (
         <StyledSectionContainer>
-            <StyledContainer>
+            <NumberStyledContainer>
                 {items.map((item) => (
                     <NumberWrapper key={item.id}>
                         <StyledTitle as="h3" type="heading-3" align="center">
@@ -79,7 +80,7 @@ const WhatIsDerivGo = () => {
                         <StyledSubTitle align="center">{item.subtitle}</StyledSubTitle>
                     </NumberWrapper>
                 ))}
-            </StyledContainer>
+            </NumberStyledContainer>
             <Container>
                 <Flex width="1202px" fd="column" ai="center" jc="center">
                     <StyledHeader as="h2" type="heading-2" align="center">

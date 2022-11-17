@@ -83,9 +83,6 @@ const StyledQueryImage = styled(QueryImage)`
     max-width: 591px;
     z-index: 2;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 `
 const StyledMobileQueryImage = styled(QueryImage)`
     max-width: 445px;

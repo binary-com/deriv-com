@@ -76,7 +76,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
                             type="subtitle-1"
                             color="white"
                             weight="regular"
-                            align="left"
+                            align="start"
                         >
                             {localize('Blog')}
                         </Header>
@@ -84,7 +84,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
                             as="h2"
                             type="heading-2"
                             color="white"
-                            align="left"
+                            align="start"
                             tabletL={{ mt: '8px' }}
                         >
                             {localize('The latest articles and resources')}

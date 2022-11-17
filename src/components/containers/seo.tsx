@@ -4,9 +4,10 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
-import { eu_urls, eu_locales, eu_url, allDomainUrl } from 'common/constants'
+import { eu_urls, eu_locales, allDomainUrl } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const non_localized_links = ['/academy', '/bug-bounty', '/careers']
 
@@ -66,7 +67,6 @@ const SEO = ({
 
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
-    const site_url = queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)
     const formatted_lang = lang.replace('_', '-')
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
@@ -75,7 +75,6 @@ const SEO = ({
     const { is_eu } = useCountryRule()
 
     const localized_language = is_eu ? eu_locales : languages
-    const current_site_url = is_eu ? eu_url : site_url
 
     // To block eu.deriv.com domain for search engines
     const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)
@@ -116,12 +115,17 @@ const SEO = ({
         }
     }
 
+    const lang_direction = useLangDirection()
+
     const is_non_localized = non_localized_links.some((link) => current_page.includes(link))
 
     return (
         <Helmet
             htmlAttributes={{
                 lang: formatted_lang,
+            }}
+            bodyAttributes={{
+                dir: lang_direction,
             }}
             title={title}
             defer={false}

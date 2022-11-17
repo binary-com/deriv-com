@@ -1,13 +1,13 @@
 const language_config = require(`./i18n-config.js`)
-const isBrowser = typeof window !== "undefined"
+const isBrowser = () => typeof window !== 'undefined'
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
-const allDomainUrl = window.location.hostname
+const allDomainUrl = isBrowser() && window.location.hostname
 
-const site_url = allDomainUrl
+const site_url = 'https://deriv.com'
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -103,7 +103,7 @@ module.exports = {
                     }
                 }
                 `,
-                resolveSiteUrl: () => (isBrowser && window.location.hostname) || site_url,
+                resolveSiteUrl: () => (isBrowser() && window.location.hostname) || site_url,
                 resolvePages: ({ allSitePage: { nodes: allPages } }) => {
                     return allPages.map((page) => {
                         return { ...page }
@@ -131,7 +131,7 @@ module.exports = {
                             const replaced_locale = locale.replace('_', '-')
                             const is_default = ['en', 'x-default'].includes(locale)
                             const href_locale = is_default ? '' : `/${replaced_locale}`
-                            const href = `${site_url}${href_locale}${current_page}`
+                            const href = `${allDomainUrl}${href_locale}${current_page}`
                             return { lang: replaced_locale, url: href }
                         }
                     })

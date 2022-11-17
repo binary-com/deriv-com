@@ -13,6 +13,9 @@ import {
     address_belarus,
     address_france,
     address_guernsey,
+    address_jordan,
+    address_singapore,
+    address_vanuatu,
 } from './_contact-details'
 import { LocationsType } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
@@ -465,8 +468,8 @@ export const berlin: LocationsType = {
 export const vanuatu: LocationsType = {
     name: 'vanuatu',
     job_location: 'Port-Vila',
-    continent: 'asia',
-    display_continent: 'Asia',
+    continent: 'oceania',
+    display_continent: 'Oceania',
     link: '/careers/locations/vanuatu/',
     display_name: 'Vanuatu',
     display_thumbnail_name: 'Port Vila',
@@ -481,18 +484,14 @@ export const vanuatu: LocationsType = {
     first_img: 'living_in_vanuatu',
     first_img_alt: 'Deriv’s Vanuatu office at Port Vila',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'vanuatu_grid_3', 'guernsey_grid_4'],
-    grid_img_alt: [
-        'guernsey grid 1',
-        'guernsey grid 2',
-        'Working with Deriv’s Vanuatu team',
-        'guernsey grid 4',
-    ],
-    map: '',
+    grid_img_alt: ['Working with Deriv’s Vanuatu team'],
+    map: 'ChIJl5Awq85hiW4RvzSGwMVXibE',
+    address: address_vanuatu,
     map_text:
         'The Vanuatu office will bring experts together to provide the best trading solutions and services for our customers. Join our team at Vanuatu for a rewarding career.',
-    address: address_guernsey,
-    map_img: '',
-    google_map_link: '',
+    google_map_link: 'https://goo.gl/maps/gp9UUrKu95PMCVFK9',
+    has_iframe: true,
+    has_map: true,
 }
 
 export const georgetown: LocationsType = {
@@ -550,7 +549,7 @@ export const roadtown: LocationsType = {
 
 export const jordan: LocationsType = {
     name: 'jordan',
-    job_location: 'Amman',
+    job_location: 'Jordan',
     continent: 'middle_east',
     display_continent: 'Middle East',
     link: '/careers/locations/jordan/',
@@ -567,15 +566,14 @@ export const jordan: LocationsType = {
     first_img: 'living_in_jordan',
     first_img_alt: 'living_in_jordan alt img',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'jordan_grid_3', 'guernsey_grid_4'],
-    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'jordan grid 3', 'guernsey grid 4'],
-    map: '',
+    grid_img_alt: ['jordan grid 3'],
     map_text:
         'Software developers, technical engineers, software testers, and IT specialists at our Amman office will work together to build state-of-the-art applications, trading platforms, and other technical systems. Join our Jordan team for a thriving tech career.',
-    address: address_guernsey,
-    map_img: 'georgetown_',
-    google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
-    has_iframe: false,
-    has_map: false,
+    address: address_jordan,
+    map: 'ChIJHaZseXGgHBUROYIYmKL-Po4',
+    google_map_link: 'https://goo.gl/maps/Bc8aa4XsXfH6PdVH9',
+    has_iframe: true,
+    has_map: true,
 }
 
 export const singapore: LocationsType = {
@@ -599,14 +597,14 @@ export const singapore: LocationsType = {
 
     grid_images: ['singapore_grid', 'guernsey_grid_2', 'singapore_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['Working with Deriv’s Singapore team'],
-    map: '',
+    map: 'ChIJqZat5gsZ2jERAuS99CP0atQ',
     map_text:
         'Our Singapore office will be home to a team of bright trading minds who will make Deriv everyone’s first choice for trading CFDs. Start a thriving career at Deriv in Singapore to influence the trading experience of over two million clients around the globe.',
-    address: address_guernsey,
     map_img: 'singapore_map',
-    google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
-    has_iframe: false,
-    has_map: false,
+    address: address_singapore,
+    google_map_link: 'https://goo.gl/maps/RAMcoQRgpY3ykb299',
+    has_iframe: true,
+    has_map: true,
 }
 
 export const ciudad: LocationsType = {
@@ -691,6 +689,7 @@ export const allContinents = {
     all: all_offices,
     europe: [],
     asia: [],
+    oceania: [],
     middle_east: [],
     eastern_europe: [],
     africa: [],

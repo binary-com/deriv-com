@@ -83,7 +83,7 @@ const other_apps: ContentType[] = [
         url: (
             <LearnMore to="/dmt5/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="arrow" />
+                <ImageWithDireciton src={Arrow} alt="" />
             </LearnMore>
         ),
     },
@@ -97,7 +97,7 @@ const other_apps: ContentType[] = [
         url: (
             <LearnMore to="/derivx/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="arrow" />
+                <ImageWithDireciton src={Arrow} alt="" />
             </LearnMore>
         ),
     },
@@ -131,12 +131,7 @@ const OtherApps = () => {
                                         {item.title}
                                     </Header>
                                     <StyledText>{item.content}</StyledText>
-                                    <div>
-                                        <LearnMore to={item.url}>
-                                            <Localize translate_text="Learn more" />
-                                            <ImageWithDireciton src={Arrow} alt="" />
-                                        </LearnMore>
-                                    </div>
+                                    <div>{item.url}</div>
                                 </Card>
                             )
                         })}

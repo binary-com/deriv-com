@@ -28,7 +28,6 @@ jobs:
                       git config --global user.email "80095553+DerivFE@users.noreply.github.com"
                       git add -u
                       git commit -m "translation: 📚 sync translations from crowdin master branch"
-                      git push origin master
                     fi
             - name: Push New Strings & Translations ⬆️
               run:  

@@ -47,14 +47,14 @@ const SpeakerInfo = styled(Header)`
 
 const Speakers = () => {
     const speakers_info = [
-        { name: 'Alcino', role: 'Generate LATAM Deriv', photo: Alcino },
-        { name: 'Ricardo', role: 'Lider da equipe America Central Deriv', photo: Ricardo },
-        { name: 'Sebastian', role: 'Conferencia de Affiliados da Deriv 2022', photo: Sebastian },
-        { name: 'Sasky', role: 'Lider de equipe Brasil Deriv', photo: Sasky },
-        { name: 'Claudia', role: 'Gestora de affiaclod Deriv', photo: Claudia },
+        { name: 'Alcino', role: 'Gerente LATAM Deriv', photo: Alcino },
+        { name: 'Ricardo', role: 'Líder da equipe America Central Deriv', photo: Ricardo },
+        { name: 'Sebastian', role: 'Conferência de Afiliados da Deriv 2022', photo: Sebastian },
+        { name: 'Sasky', role: 'Líder da equipe Brasil Deriv', photo: Sasky },
+        { name: 'Claudia', role: 'Gestora de afiliados Deriv', photo: Claudia },
         { name: 'Raul', role: 'Gestora de afficaclos Deriv', photo: Raul },
         { name: 'Alejandro', role: 'Suporte ao cliente Deriv', photo: Alejandro },
-        { name: 'Ana', role: 'Gestora de affiados Deriv', photo: Ana },
+        { name: 'Ana', role: 'Gestora de afiliados Deriv', photo: Ana },
     ]
 
     return (

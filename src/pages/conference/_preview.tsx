@@ -24,13 +24,13 @@ const Preview = () => {
     return (
         <PreviewWrapper>
             <PreviewHeader as="h4" type="subtitle-1">
-                O objevito deste evento e reunir nossos parceiros de alto desempenho e criar um
-                espaco de colaboracio
+                O objetivo deste evento é reunir nossos parceiros de alto desempenho e criar um
+                espaço de colaboração.
             </PreviewHeader>
             <Flex fd="column" ai="center">
                 <StyledImage src={PreviewImage} alt="preview image" />
                 <PreviewHeader as="div" type="subtitle-2">
-                    Aprena insights de seus produtos Deriv facoritos.
+                    Aprenda insights de seus produtos Deriv favoritos.
                 </PreviewHeader>
             </Flex>
         </PreviewWrapper>

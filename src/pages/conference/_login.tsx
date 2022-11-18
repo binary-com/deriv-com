@@ -19,13 +19,13 @@ const Login = () => {
     return (
         <LoginWrapper>
             <LoginHeader as="h3" type="subtitle-1">
-                Tres dias de conteudo, networking e novidades.
+                Três dias de conteúdo, networking e novidades.
             </LoginHeader>
             <Button secondary>Cadstre-se aqui</Button>
             <LoginHeader as="div" weight="normal" type="subtitle-1" pt="32px">
                 ou, se ja tiver seu acesso ao evento
             </LoginHeader>
-            <Button primary>Faca login</Button>
+            <Button primary>Faça login</Button>
         </LoginWrapper>
     )
 }

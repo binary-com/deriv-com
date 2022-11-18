@@ -33,18 +33,18 @@ const Hero = () => {
         <HeroWrapper>
             <Newsbreak>
                 <StyledHeroHeader as="h1" type="heading-2" height="60px">
-                    Conferencia de Afiliados Derov do Brazil
+                    Conferência de Afiliados Deriv do Brazil
                 </StyledHeroHeader>
                 <HeaderWrapper>
                     <img src={Calendar} alt="calendar icon" width={28} height={28} />
                     <StyledHeroHeader as="h2" type="heading-3" weight="normal">
-                        30 de Novembro a de Dezembro 2022
+                        30 de Novembro a 2 de Dezembro 2022
                     </StyledHeroHeader>
                 </HeaderWrapper>
                 <HeaderWrapper>
                     <img src={Pin} alt="pin icon" width={24} height={32} />
                     <StyledHeroHeader as="div" type="heading-3" weight="normal">
-                        em Assuncao, Paraguai
+                        em Assunção, Paraguai.
                     </StyledHeroHeader>
                 </HeaderWrapper>
             </Newsbreak>

@@ -37,20 +37,20 @@ const Events = () => {
         {
             day: 'Dia 1',
             icon: Dia1,
-            title: '30 de Novembro - Virual e presencial',
-            subtitle: 'Introducao e palestras',
+            title: '30 de Novembro - Virtual e presencial',
+            subtitle: 'Introdução e palestras',
         },
         {
             day: 'Dia 2',
             icon: Dia2,
-            title: '1 de Dezembro - Virual e presencial',
+            title: '1 de Dezembro - Virtual e presencial',
             subtitle: 'Palestras',
         },
         {
             day: 'Dia 3',
             icon: Dia3,
-            title: '2 de Dezembro - Somento presencial',
-            subtitle: 'Workshop e reunioes individuals',
+            title: '2 de Dezembro - Somente presencial',
+            subtitle: 'Workshops e reuniões individuais',
         },
     ]
 

@@ -50,15 +50,15 @@ const Venue = () => {
             <VenueWrapper>
                 <Announce>
                     <ExperienceHeader as="h6" type="subtitle-2" weight="normal">
-                        Embora o objetivo seja nossos parceiros participem online, voce tambem pode
-                        e ter a experiencia completa
+                        Embora o objetivo seja que nossos parceiros participem online, você também
+                        pode vir e ter a experiência completa.
                     </ExperienceHeader>
                     <Experience src={ExperienceImage} alt="expirience image" />
                 </Announce>
             </VenueWrapper>
             <Place>
                 <PlacementHeader as="div" type="heading-3">
-                    Endereco
+                    Endereço
                 </PlacementHeader>
                 <PlacementHeader as="div" type="subtitle-2" weight="normal">
                     Paseo La Galeria Centro de Eventos Asuncion Paraguay

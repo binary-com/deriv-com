@@ -21,9 +21,9 @@ export const NoticableLogin = () => {
     return (
         <NoticableLoginWrapper>
             <LoginHeader as="div" type="heading-3">
-                Deixe-nos saber se voce vai estar presente!
+                Deixe-nos saber se você vai estar presente!
             </LoginHeader>
-            <Button secondary>Cadstre-se aqui</Button>
+            <Button secondary>Cadastre-se aqui</Button>
         </NoticableLoginWrapper>
     )
 }

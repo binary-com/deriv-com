@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements/typography'
+import { Header, Text, LinkText } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
-import { LiveChatLinkText } from 'components/elements'
-import { localize } from 'components/localization'
+import { useLivechat } from 'components/hooks/use-livechat'
+import { localize, Localize } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 
 const StyledSection = styled(SectionContainer)`
@@ -38,6 +38,8 @@ const RedButton = styled(LinkButton)`
 `
 
 const PartnerCTA = () => {
+    const [is_livechat_interactive, LC_API] = useLivechat()
+
     return (
         <StyledSection padding="4rem 0">
             <Container>
@@ -48,7 +50,17 @@ const PartnerCTA = () => {
                     <Text align="center" color="white" mt="0.8rem">
                         {localize('The Deriv affiliate management team is here to help.')}
                     </Text>
-                    <LiveChatLinkText text="_t_Contact us via live chat_t_" weight="bold" />
+                    <LinkText
+                        color="red"
+                        weight="bold"
+                        mt="1rem"
+                        size="var(--text-size-s)"
+                        onClick={() => {
+                            is_livechat_interactive && LC_API.open_chat_window()
+                        }}
+                    >
+                        <Localize translate_text="Contact us via live chat" />
+                    </LinkText>
                 </Flex>
                 <Flex direction="column" ai="center">
                     <Header as="h4" type="sub-section-title" align="center" color="white">

@@ -291,7 +291,7 @@ const Subscribe = () => {
         <SignupFormWrapper>
             <PaperPlaneImage src={paperPlane} alt="Paper Plane" />
             <StyledFormContent>
-                <Header as="h3" type="heading-3" color="white" align="left">
+                <Header as="h3" type="heading-3" color="white" align="start">
                     {localize('Subscribe to our academy via email')}
                 </Header>
                 <Header
@@ -300,7 +300,7 @@ const Subscribe = () => {
                     type="paragraph-1"
                     mt="8px"
                     max_width="492px"
-                    align="left"
+                    align="start"
                     weight="regular"
                     tabletL={{ max_width: '100%' }}
                 >

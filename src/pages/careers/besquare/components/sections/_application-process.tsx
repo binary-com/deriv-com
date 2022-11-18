@@ -29,7 +29,7 @@ const ApplicationProcess = () => (
                         max_width={['240px', '280px']}
                         font_size={['24px', '16px']}
                         line_height={['36px', '24px']}
-                        text_align={['left', 'center']}
+                        text_align={['start', 'center']}
                     >
                         {card.text}
                     </TextWrapper>

@@ -25,6 +25,7 @@ import { Ul, Li } from './lists'
 import { Carousel } from './carousel'
 import VideoPlayer from './video-player'
 import Modal from './modal'
+import ImageWithDireciton from './image-with-direction'
 
 export {
     Accordion,
@@ -62,4 +63,5 @@ export {
     Ul,
     VideoPlayer,
     Modal,
+    ImageWithDireciton,
 }

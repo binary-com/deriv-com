@@ -166,7 +166,7 @@ const UnsubscribePage = () => {
                     {complete_status ? (
                         <SuccessCard>
                             <img src={CheckIcon} alt="sucess" width={48} height={48} />
-                            {localize('Unsubscribe successfully')}
+                            {localize('Unsubscribed successfully')}
                         </SuccessCard>
                     ) : (
                         <UnsubscribeForm>

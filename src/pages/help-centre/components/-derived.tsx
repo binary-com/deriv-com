@@ -6,17 +6,14 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const Derived = () => {
     const { is_row, is_eu } = useCountryRule()
+    const first_paragraph = is_eu
+        ? '_t_Derived in the EU consist of synthetic indices whose prices are generated using a random number generator with no influence from real-world events._t_'
+        : '_t_Derived indices consist of asset prices generated from real-world and simulated markets and indices, with little to no influence from real-world events. You can trade from a variety of derived indices, including synthetic indices, derived FX indices, and basket indices._t_'
 
     return (
         <>
             <Header size="16px" weight="normal" mt="1.7rem">
-                <Localize
-                    translate_text={
-                        is_eu
-                            ? '_t_Derived in the EU consist of synthetic indices whose prices are generated using a random number generator with no influence from real-world events._t_'
-                            : '_t_Derived indices consist of asset prices generated from real-world and simulated markets and indices, with little to no influence from real-world events. You can trade from a variety of derived indices, including synthetic indices, derived FX indices, and basket indices._t_'
-                    }
-                />
+                <Localize translate_text={first_paragraph} />
             </Header>
 
             <Header size="16px" weight="normal" mt="1.7rem">

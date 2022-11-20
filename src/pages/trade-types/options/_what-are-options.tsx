@@ -30,7 +30,7 @@ const WhatAreOptions = () => {
                     <Header as="h3" type="section-title" mb="0.8rem">
                         {localize('Options available on Deriv')}
                     </Header>
-                    <Text align="left" mb="0.8rem">
+                    <Text align="start" mb="0.8rem">
                         {localize('You can trade the following options on Deriv:')}
                     </Text>
                     <Ul>

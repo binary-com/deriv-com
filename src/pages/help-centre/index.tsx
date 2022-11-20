@@ -23,7 +23,7 @@ const HelpCentre = () => {
             <FaqSchema />
             <SearchSection />
 
-            <Container align="left" justify="flex-start" direction="column">
+            <Container align="start" justify="flex-start" direction="column">
                 <QuestionsSection data={getQuestionsBySection(GENERAL)} section_name={GENERAL} />
                 <QuestionsSection
                     data={getQuestionsBySection(PLATFORMS)}

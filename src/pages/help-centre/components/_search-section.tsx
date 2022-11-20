@@ -114,7 +114,7 @@ const SearchSection = () => {
 
     return (
         <Section>
-            <Container align="left" justify="flex-start" direction="column">
+            <Container align="start" justify="flex-start" direction="column">
                 <Wrapper>
                     <ResponsiveHeader as="h1" type="heading-1" mb="4rem">
                         <Localize translate_text="_t_How can we help?_t_" />

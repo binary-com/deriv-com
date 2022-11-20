@@ -51,32 +51,31 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                         margin_top,
                         list,
                         img,
-                    }) => (
-                        <>
-                            <Header
-                                key={translation_text}
-                                size="16px"
-                                weight="normal"
-                                mt={has_margin_top ? '1.7rem' : margin_top}
-                            >
-                                {translation_text && (
-                                    <Localize
-                                        translate_text={
-                                            is_eu_country && eu_translation_text
-                                                ? eu_translation_text
-                                                : translation_text
-                                        }
-                                        components={
-                                            translation_components &&
-                                            TranslationComponents(translation_components)
-                                        }
-                                    />
-                                )}
-                            </Header>
-                            {img && <ImageCard {...img} />}
-                            {list && <List {...list} />}
-                        </>
-                    ),
+                    }) => {
+                        const text =
+                            is_eu_country && eu_translation_text
+                                ? eu_translation_text
+                                : translation_text
+                        const component =
+                            translation_components && TranslationComponents(translation_components)
+
+                        return (
+                            <>
+                                <Header
+                                    key={translation_text}
+                                    size="16px"
+                                    weight="normal"
+                                    mt={has_margin_top ? '1.7rem' : margin_top}
+                                >
+                                    {translation_text && (
+                                        <Localize translate_text={text} components={component} />
+                                    )}
+                                </Header>
+                                {img && <ImageCard {...img} />}
+                                {list && <List {...list} />}
+                            </>
+                        )
+                    },
                 )}
         </Wrapper>
     )

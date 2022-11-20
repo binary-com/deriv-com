@@ -1,4 +1,5 @@
 import { TQuestionsData } from './_data-types'
+import { deriv_api_url, oauth_url } from 'common/constants'
 
 const deriv_p2p: TQuestionsData = {
     section: 'Platforms',
@@ -65,7 +66,7 @@ const deriv_p2p: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https://oauth.deriv.com/oauth2/authorize?app_id=16929',
+                                        to: `${oauth_url}/oauth2/authorize?app_id=16929`,
                                     },
                                 ],
                             },
@@ -190,7 +191,7 @@ const deriv_p2p: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https://app.deriv.com/cashier/p2p',
+                                        to: `${deriv_api_url}/cashier/p2p`,
                                     },
                                     { key: 1, type: 'strong' },
                                 ],
@@ -231,7 +232,7 @@ const deriv_p2p: TQuestionsData = {
                     translation_text:
                         '_t_Your ads are available in the <1>My ads</1> tab at <0>Cashier > Deriv P2P</0>._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: 'https://app.deriv.com/cashier/p2p' },
+                        { key: 0, type: 'link', to: `${deriv_api_url}/cashier/p2p` },
                         { key: 1, type: 'strong' },
                     ],
                 },
@@ -255,7 +256,7 @@ const deriv_p2p: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https://app.deriv.com/cashier/p2p',
+                                        to: `${deriv_api_url}/cashier/p2p`,
                                     },
                                     { key: 1, type: 'strong' },
                                 ],
@@ -311,7 +312,7 @@ const deriv_p2p: TQuestionsData = {
                     translation_text:
                         '_t_Your orders are available in the <1>Orders</1> tab at <0>Cashier > Deriv P2P</0>._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: 'https://app.deriv.com/cashier/p2p' },
+                        { key: 0, type: 'link', to: `${deriv_api_url}/cashier/p2p` },
                         { key: 1, type: 'strong' },
                     ],
                 },

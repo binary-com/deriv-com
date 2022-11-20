@@ -1,6 +1,6 @@
 import Derived from '../components/-derived'
 import { TQuestionsData } from './_data-types'
-import { deriv_app_url } from 'common/constants'
+import { binary_bot_url, deriv_app_url, oauth_url } from 'common/constants'
 
 const trading: TQuestionsData = {
     section: 'General',
@@ -140,7 +140,7 @@ const trading: TQuestionsData = {
                             type: 'link',
                             to: 'https://smarttrader.deriv.com/en/trading.html',
                         },
-                        { key: 5, type: 'link', to: 'https://bot.deriv.com/' },
+                        { key: 5, type: 'link', to: binary_bot_url },
                     ],
                 },
                 {
@@ -165,7 +165,7 @@ const trading: TQuestionsData = {
                         '_t_Build your trading bot for free on <0>DBot</0> or <1>Binary Bot</1>; no coding is needed. You’ll also find free pre-built strategies on DBot that you can customise to your needs._t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/dbot/' },
-                        { key: 1, type: 'link', to: 'https://bot.deriv.com/' },
+                        { key: 1, type: 'link', to: binary_bot_url },
                     ],
                     has_margin_top: true,
                 },
@@ -197,7 +197,7 @@ const trading: TQuestionsData = {
                         {
                             key: 1,
                             type: 'link',
-                            to: 'https://oauth.deriv.com/oauth2/authorize?app_id=16929',
+                            to: `${oauth_url}/oauth2/authorize?app_id=16929`,
                         },
                     ],
                 },

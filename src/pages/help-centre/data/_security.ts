@@ -1,4 +1,5 @@
 import { TQuestionsData } from './_data-types'
+import { deriv_api_url } from 'common/constants'
 
 const security: TQuestionsData = {
     section: 'General',
@@ -54,7 +55,7 @@ const security: TQuestionsData = {
                         {
                             key: 1,
                             type: 'link',
-                            to: 'https://app.deriv.com/account/two-factor-authentication',
+                            to: `${deriv_api_url}/account/two-factor-authentication`,
                         },
                     ],
                 },

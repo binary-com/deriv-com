@@ -1,5 +1,5 @@
 import { TQuestionsData } from './_data-types'
-import { deriv_app_url } from 'common/constants'
+import { binary_bot_url, deriv_app_url } from 'common/constants'
 
 const dmt5: TQuestionsData = {
     section: 'Platforms',
@@ -39,7 +39,7 @@ const dmt5: TQuestionsData = {
                             to: 'https://smarttrader.deriv.com/en/trading.html',
                         },
                         { key: 2, type: 'link', to: '/dbot/' },
-                        { key: 3, type: 'link', to: 'https://bot.deriv.com/' },
+                        { key: 3, type: 'link', to: binary_bot_url },
                     ],
                 },
                 {
@@ -154,7 +154,7 @@ const dmt5: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https://app.deriv.com/mt5',
+                                        to: `${deriv_app_url}/mt5`,
                                     },
                                 ],
                             },
@@ -211,9 +211,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         "_t_You can log in to your Deriv MT5 account via the MT5 desktop app, web terminal, or mobile app. You'll need the login ID and server name from <0>your Deriv MT5 dashboard</0>. Please remember to use your Deriv MT5 password to log in to Deriv MT5._t_",
-                    translation_components: [
-                        { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },
-                    ],
+                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
                 },
             ],
         },
@@ -227,7 +225,7 @@ const dmt5: TQuestionsData = {
                     translation_text:
                         '_t_You can set the investor password on your <0>Deriv MT5 dashboard</0>. Click <1>Password</1> on your Deriv MT5 account, and select <1>Investor password</1> to set a new password._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },
+                        { key: 0, type: 'link', to: `${deriv_app_url}/mt5` },
                         { key: 0, type: 'strong' },
                     ],
                 },
@@ -243,7 +241,7 @@ const dmt5: TQuestionsData = {
                     translation_text:
                         '_t_You can find your Deriv MT5 server name on your <0>Deriv MT5 dashboard</0>. Look for <1>server</1> in between the broker name and login ID._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },
+                        { key: 0, type: 'link', to: `${deriv_app_url}/mt5` },
                         { key: 1, type: 'strong' },
                     ],
                 },
@@ -296,9 +294,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         "_t_You can't reactivate your Deriv MT5 account. Instead, you can create a new one on your Deriv <0>MT5 dashboard</0>._t_",
-                    translation_components: [
-                        { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },
-                    ],
+                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
                 },
             ],
         },
@@ -311,9 +307,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         "_t_No, you can't. There's a fixed default amount for each asset. The leverage applied to your account can be found on your <0>Deriv MT5 dashboard</0>._t_",
-                    translation_components: [
-                        { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },
-                    ],
+                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
                 },
             ],
         },

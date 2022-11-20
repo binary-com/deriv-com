@@ -1,5 +1,5 @@
 import { TQuestionsData } from './_data-types'
-import { deriv_app_url } from 'common/constants'
+import { deriv_app_url, oauth_url } from 'common/constants'
 
 const account: TQuestionsData = {
     section: 'General',
@@ -200,7 +200,7 @@ const account: TQuestionsData = {
                                     {
                                         key: 1,
                                         type: 'link',
-                                        to: 'https://oauth.deriv.com/oauth2/authorize?app_id=16929',
+                                        to: `${oauth_url}/oauth2/authorize?app_id=16929`,
                                     },
                                 ],
                             },
@@ -415,7 +415,7 @@ const account: TQuestionsData = {
                         {
                             key: 1,
                             type: 'link',
-                            to: 'https://oauth.deriv.com/oauth2/authorize?app_id=16929',
+                            to: `${oauth_url}/oauth2/authorize?app_id=16929`,
                         },
                     ],
                 },
@@ -452,7 +452,7 @@ const account: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https://oauth.deriv.com/oauth2/authorize?app_id=16929',
+                                        to: `${oauth_url}/oauth2/authorize?app_id=16929`,
                                     },
                                 ],
                             },

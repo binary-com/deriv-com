@@ -1,5 +1,5 @@
 import { TQuestionsData } from './_data-types'
-import { deriv_app_url } from 'common/constants'
+import { binary_url, deriv_app_url } from 'common/constants'
 
 const deposits_and_withdrawals: TQuestionsData = {
     section: 'General',
@@ -16,7 +16,7 @@ const deposits_and_withdrawals: TQuestionsData = {
                         '_t_You can use debit and credit cards, e-wallets, cryptocurrency wallets, and payment agents for deposits and withdrawals (see our <0>payment methods page</0> for a complete list). Once you log in to your Deriv account, you’ll be able to see payment methods available in your country on the <1>Cashier page</1>._t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/payment-methods/' },
-                        { key: 1, type: 'link', to: 'https://app.deriv.com/cashier/' },
+                        { key: 1, type: 'link', to: `${deriv_app_url}/cashier/` },
                     ],
                 },
             ],
@@ -58,7 +58,7 @@ const deposits_and_withdrawals: TQuestionsData = {
                     translation_text:
                         "_t_You can get a new link on the Cashier page. Go to <0>Withdrawal</0> and click Verify my request. We'll email you a new link; please remember to use it within 1 hour._t_",
                     translation_components: [
-                        { key: 0, type: 'link', to: 'https://app.deriv.com/cashier/withdrawal' },
+                        { key: 0, type: 'link', to: `${deriv_app_url}/cashier/withdrawal` },
                     ],
                 },
             ],
@@ -118,7 +118,7 @@ const deposits_and_withdrawals: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: 'https://www.binary.com/en/home.html?is_livechat_open=true',
+                            to: `${binary_url}/en/home.html?is_livechat_open=true`,
                         },
                     ],
                     has_margin_top: true,

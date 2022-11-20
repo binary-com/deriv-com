@@ -1,5 +1,5 @@
 import { TQuestionsData } from './_data-types'
-import { deriv_app_url, derivx_app_url } from 'common/constants'
+import { deriv_app_url, derivx_app_url, oauth_url } from 'common/constants'
 
 const derivx: TQuestionsData = {
     section: 'Platforms',
@@ -106,14 +106,14 @@ const derivx: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https://oauth.deriv.com/oauth2/authorize?app_id=16929',
+                                        to: `${oauth_url}/oauth2/authorize?app_id=16929`,
                                     },
                                 ],
                             },
                             {
                                 translation_text: '_t_Go to the <0>Deriv X dashboard</0>._t_',
                                 translation_components: [
-                                    { key: 0, type: 'link', to: 'https://app.deriv.com/derivx' },
+                                    { key: 0, type: 'link', to: `${deriv_app_url}/derivx` },
                                 ],
                             },
                             {
@@ -154,7 +154,7 @@ const derivx: TQuestionsData = {
                             {
                                 translation_text: '_t_Go to your <0>Deriv X dashboard</0>._t_',
                                 translation_components: [
-                                    { key: 0, type: 'link', to: 'https://app.deriv.com/derivx' },
+                                    { key: 0, type: 'link', to: `${deriv_app_url}/derivx` },
                                 ],
                             },
                             {

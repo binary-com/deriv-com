@@ -1,13 +1,8 @@
 import { useContext } from 'react'
+import { TUseBreakpoints } from './use-breakpoints'
 import { DerivStore } from 'store'
 
-export type TVisiblity = {
-    is_xs: boolean
-    is_sm: boolean
-    is_md: boolean
-    is_lg: boolean
-    is_xl: boolean
-}
+export type TVisiblity = TUseBreakpoints
 
 const useVisibility = (): TVisiblity => {
     const { breakpoints } = useContext(DerivStore)

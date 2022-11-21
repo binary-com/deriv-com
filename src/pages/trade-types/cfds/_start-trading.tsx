@@ -9,13 +9,13 @@ import useVisibility from 'components/hooks/use-visibility'
 
 const StartTrading = () => {
     const { is_eu } = useCountryRule()
-    const vis = useVisibility()
-    console.table(vis)
+    const viz = useVisibility()
+    const { is_mobile, is_tablet } = viz
     return (
         <>
             <StartTradingBg>
                 <SmallContainer direction="column" ai="flex-start">
-                    {vis.is_bigger_than_tablet ? (
+                    {is_mobile || is_tablet ? (
                         <Header as="h3" type="section-title" mb="4rem">
                             {localize('Start trading CFDs on Deriv')}
                         </Header>

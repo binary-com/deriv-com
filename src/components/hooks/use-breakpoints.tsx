@@ -1,5 +1,5 @@
 import useMediaQuery from './use-media-query'
-import { breakpoints } from 'themes/them.breakpoints'
+import { breakpoints } from 'themes/theme.breakpoints'
 
 export type TUseBreakpoints = {
     is_mobile: boolean

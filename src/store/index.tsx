@@ -1,9 +1,10 @@
-import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
+import React, { useState, useEffect, createContext, Dispatch, ReactNode, useMemo } from 'react'
 import type { WebsiteStatus, ServerStatusResponse } from '@deriv/api-types'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
 import { isEuCountry, isUK } from 'common/country-base'
+import useBreakpoints, { TUseBreakpoints } from 'components/hooks/use-breakpoints'
 
 type DerivProviderProps = {
     children?: ReactNode
@@ -21,6 +22,7 @@ export type DerivStoreType = {
     deriv_api: DerivApiProps
     show_non_eu_popup: boolean
     setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
+    breakpoints: TUseBreakpoints
 }
 
 export const DerivStore = createContext<DerivStoreType>(null)
@@ -35,6 +37,8 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [is_uk_country, setUkCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [user_country, setUserCountry] = useState(null)
+
+    const breakpoints = useBreakpoints()
 
     useEffect(() => {
         // Fetch website status from the API & save in the cookies
@@ -75,6 +79,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 deriv_api,
                 show_non_eu_popup,
                 setShowNonEuPopup,
+                breakpoints,
             }}
         >
             {children}

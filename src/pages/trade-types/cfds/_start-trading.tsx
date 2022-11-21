@@ -5,27 +5,28 @@ import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import { Visibility } from 'components/containers/visibility'
+import useVisibility from 'components/hooks/use-visibility'
 
 const StartTrading = () => {
     const { is_eu } = useCountryRule()
+    const vis = useVisibility()
+    console.table(vis)
     return (
         <>
             <StartTradingBg>
                 <SmallContainer direction="column" ai="flex-start">
-                    <Visibility device_key="laptopS">
+                    {vis.is_bigger_than_tablet ? (
                         <Header as="h3" type="section-title" mb="4rem">
                             {localize('Start trading CFDs on Deriv')}
                         </Header>
-                    </Visibility>
-                    <Visibility device_key="tabletL">
+                    ) : (
                         <Header as="h3" type="section-title" mb="4rem">
                             <Localize
                                 translate_text="Start trading CFDs on <0/>Deriv<0/>"
                                 components={[<br key={0} />]}
                             />
                         </Header>
-                    </Visibility>
+                    )}
                     <Timeline>
                         <Timeline.Item title={<Localize translate_text="Practise" />}>
                             {is_eu

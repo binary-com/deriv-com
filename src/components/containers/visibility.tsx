@@ -1,8 +1,8 @@
-import React, { ReactNode, useEffect, useMemo, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import device, { TDevices, size, SizeType } from 'themes/device'
+import { size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import useMediaQuery from 'components/hooks/use-media-query'
+import useVisibility, { TVisiblity } from 'components/hooks/use-visibility'
 
 type BreakPointType = number | SizeType
 
@@ -80,31 +80,18 @@ export const Mobile = ({
     )
 }
 
-/**
- * checks if the query is actually one of the items in our devices object
- * @param device_key {string}
- * @returns {string} the value of the devices, or the initial query
- */
-const getDeviceQuery = (device_key: TDevices) => {
-    return device[device_key] ?? device_key
-}
-
 type TVisiblityProps = {
-    device_key?: TDevices
-    media_query?: string
+    config: Partial<TVisiblity>
     children?: ReactNode
 }
 
-// either pass the device_key or the media_key, device_key has higher priority
-export const Visibility = ({ children, device_key, media_query = '' }: TVisiblityProps) => {
-    const query = useMemo(() => {
-        if (device_key) {
-            return getDeviceQuery(device_key)
-        }
-        return media_query
-    }, [device_key, media_query])
+export const Visibility = ({ children, config }: TVisiblityProps) => {
+    const visiblity = useVisibility()
 
-    const matches = useMediaQuery(query)
+    const filterKeys = Object.keys(config)
+    const is_visible = filterKeys.some((key) => {
+        return visiblity[key]
+    })
 
-    return matches ? <>{children}</> : null
+    return is_visible ? <>{children}</> : null
 }

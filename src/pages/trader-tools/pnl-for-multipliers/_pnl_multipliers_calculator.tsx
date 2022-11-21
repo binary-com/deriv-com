@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Field, Formik } from 'formik'
-import { FormikErrors, FormikTouched } from '../common/_formik-types'
 import {
     getPnlMultiplierCommon,
     numberSubmitFormat,
@@ -40,6 +39,16 @@ import {
     TakeProfitAmountUp,
     StopLossAmountDown,
 } from './_example-pnl-multipliers'
+import {
+    AssetPriceField,
+    CommissionField,
+    StakeField,
+    MultiplierField,
+    StopLossAmountField,
+    StakeFieldWithValue,
+    MultiplierFieldWithoutValue,
+    StopLossLevelField,
+} from './_pnl_multipliers_calculator_components'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
@@ -54,340 +63,25 @@ import { Flex } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
-type ErrorHandlersKeyType =
-    | 'commissionErrorHandler'
-    | 'stopLossAmountErrorHandler'
-    | 'assetPriceErrorHandler'
-    | 'multiplierErrorHandler'
-    | 'stopLossLevelErrorHandler'
-    | 'stakeErrorHandler'
-
-type ErrorHandlersCallbackType = (current_input: string) => void
-
-type ErrorHandlersFunctionType = Partial<Record<ErrorHandlersKeyType, ErrorHandlersCallbackType>>
-
-type FormikState<Values> = {
-    values: Values
-    setFieldValue: (field: string, value: string, shouldValidate?: boolean) => void
-    touched: FormikTouched<Values>
-    errors: FormikErrors<Values>
-    handleBlur: {
-        (e: React.FocusEvent<string>): void
-    }
-}
-
-type FieldsType<Values> = FormikState<Values> & ErrorHandlersFunctionType
-
-type CommissionFieldProps = {
-    commission: string
-}
-
-type StopLossAmountFieldProps = {
-    stopLossAmount: string
-}
-
-type AssetPriceFieldProps = {
-    assetPrice: string
-}
-
-type MultiplierFieldProps = {
-    multiplier: string
-}
-
-type StopLossLevelFieldProps = {
-    stopLossLevel: string
-}
-
-type StakeFieldProps = {
-    stake: string
-}
-
-const CommissionField = ({
-    values,
-    setFieldValue,
-    touched,
-    errors,
-    handleBlur,
-    commissionErrorHandler,
-}: FieldsType<CommissionFieldProps>) => (
-    <Field
-        name="commission"
-        value={values.commission}
-        onChange={(value) => {
-            setFieldValue('commission', value)
-        }}
-    >
-        {({ field }) => (
-            <Input
-                {...field}
-                id="commission"
-                type="text"
-                label={localize('Commission')}
-                autoComplete="off"
-                error={touched.commission && errors.commission}
-                onBlur={handleBlur}
-                data-lpignore="true"
-                handleError={commissionErrorHandler}
-                maxLength={getMaxLength(values.commission, 8)}
-                background="white"
-            />
-        )}
-    </Field>
-)
-
-const StopLossAmountField = ({
-    values,
-    setFieldValue,
-    touched,
-    errors,
-    handleBlur,
-    stopLossAmountErrorHandler,
-}: FieldsType<StopLossAmountFieldProps>) => (
-    <Field
-        name="stopLossAmount"
-        value={values.stopLossAmount}
-        onChange={(value) => {
-            setFieldValue('stopLossAmount', value)
-        }}
-    >
-        {({ field }) => (
-            <Input
-                {...field}
-                id="stopLossAmount"
-                type="text"
-                value={values.stopLossAmount}
-                label={localize('Stop loss amount')}
-                autoComplete="off"
-                error={touched.stopLossAmount && errors.stopLossAmount}
-                onBlur={handleBlur}
-                data-lpignore="true"
-                handleError={stopLossAmountErrorHandler}
-                maxLength={getMaxLength(values.stopLossAmount, 15)}
-                background="white"
-            />
-        )}
-    </Field>
-)
-
-const AssetPriceField = ({
-    values,
-    setFieldValue,
-    touched,
-    errors,
-    handleBlur,
-    assetPriceErrorHandler,
-}: FieldsType<AssetPriceFieldProps>) => (
-    <Field
-        name="assetPrice"
-        value={values.assetPrice}
-        onChange={(value) => setFieldValue('assetPrice', value)}
-    >
-        {({ field }) => (
-            <Input
-                {...field}
-                id="assetPrice"
-                type="text"
-                label={localize('Asset price')}
-                autoComplete="off"
-                error={touched.assetPrice && errors.assetPrice}
-                onBlur={handleBlur}
-                data-lpignore="true"
-                handleError={assetPriceErrorHandler}
-                background="white"
-            />
-        )}
-    </Field>
-)
-
-const MultiplierField = ({
-    values,
-    setFieldValue,
-    touched,
-    errors,
-    handleBlur,
-    multiplierErrorHandler,
-}: FieldsType<MultiplierFieldProps>) => (
-    <Field
-        name="multiplier"
-        value={values.multiplier}
-        onChange={(value) => {
-            setFieldValue('multiplier', value)
-        }}
-    >
-        {({ field }) => (
-            <Input
-                {...field}
-                id="multiplier"
-                type="text"
-                value={values.multiplier}
-                label={localize('Multiplier')}
-                autoComplete="off"
-                error={touched.multiplier && errors.multiplier}
-                onBlur={handleBlur}
-                data-lpignore="true"
-                handleError={multiplierErrorHandler}
-                maxLength={getMaxLength(values.multiplier, 4)}
-                background="white"
-            />
-        )}
-    </Field>
-)
-
-const MultiplierFieldWithoutValue = ({
-    values,
-    setFieldValue,
-    touched,
-    errors,
-    handleBlur,
-    multiplierErrorHandler,
-}: FieldsType<MultiplierFieldProps>) => (
-    <Field
-        name="multiplier"
-        value={values.multiplier}
-        onChange={(value) => {
-            setFieldValue('multiplier', value)
-        }}
-    >
-        {({ field }) => (
-            <Input
-                {...field}
-                id="multiplier"
-                type="text"
-                label={localize('Multiplier')}
-                autoComplete="off"
-                error={touched.multiplier && errors.multiplier}
-                onBlur={handleBlur}
-                data-lpignore="true"
-                handleError={multiplierErrorHandler}
-                maxLength={getMaxLength(values.multiplier, 4)}
-                background="white"
-            />
-        )}
-    </Field>
-)
-
-const StopLossLevelField = ({
-    values,
-    setFieldValue,
-    touched,
-    errors,
-    handleBlur,
-    stopLossLevelErrorHandler,
-}: FieldsType<StopLossLevelFieldProps>) => (
-    <Field
-        name="stopLossLevel"
-        value={values.stopLossLevel}
-        onChange={(value) => {
-            setFieldValue('stopLossLevel', value)
-        }}
-    >
-        {({ field }) => (
-            <Input
-                {...field}
-                id="stopLossLevel"
-                type="text"
-                value={values.stopLossLevel}
-                label={localize('Stop loss level')}
-                autoComplete="off"
-                error={touched.stopLossLevel && errors.stopLossLevel}
-                onBlur={handleBlur}
-                data-lpignore="true"
-                handleError={stopLossLevelErrorHandler}
-                maxLength={getMaxLength(values.stopLossLevel, 15)}
-                background="white"
-            />
-        )}
-    </Field>
-)
-
-const StakeField = ({
-    values,
-    setFieldValue,
-    touched,
-    errors,
-    handleBlur,
-    stakeErrorHandler,
-}: FieldsType<StakeFieldProps>) => (
-    <Field
-        name="stake"
-        value={values.stake}
-        onChange={set_field_value_stake_change_handler(setFieldValue)}
-    >
-        {({ field }) => (
-            <Input
-                {...field}
-                id="stake"
-                type="text"
-                label={localize('Stake')}
-                autoComplete="off"
-                error={touched.stake && errors.stake}
-                onBlur={handleBlur}
-                data-lpignore="true"
-                handleError={stakeErrorHandler}
-                maxLength={getMaxLength(values.stake, 15)}
-                background="white"
-            />
-        )}
-    </Field>
-)
-
-const StakeFieldWithValue = ({
-    values,
-    setFieldValue,
-    touched,
-    errors,
-    handleBlur,
-    stakeErrorHandler,
-}: FieldsType<StakeFieldProps>) => (
-    <Field
-        name="stake"
-        value={values.stake}
-        onChange={(value) => {
-            setFieldValue('stake', value)
-        }}
-    >
-        {({ field }) => (
-            <Input
-                {...field}
-                id="stake"
-                type="text"
-                value={values.stake}
-                label={localize('Stake')}
-                autoComplete="off"
-                error={touched.stake && errors.stake}
-                onBlur={handleBlur}
-                data-lpignore="true"
-                handleError={stakeErrorHandler}
-                maxLength={getMaxLength(values.stake, 15)}
-                background="white"
-            />
-        )}
-    </Field>
-)
-
-const direction_down_click_handler = (onSubTabClick, setFieldValue) => () => {
-    onSubTabClick('Down')
-    setFieldValue('direction', 'Down')
-}
-
-const take_profit_amount_click_handler = (setFieldValue) => (value) => {
-    setFieldValue('takeProfitAmount', value)
-}
-
-const set_field_value_stake_change_handler = (setFieldValue) => (value) => {
-    setFieldValue('stake', value)
-}
-
-const take_profit_level_change_handler = (setFieldValue) => (value) => {
-    setFieldValue('takeProfitLevel', value)
-}
-
 const PnlMultipliersCalculator = () => {
     const [tab, setTab] = useState('Level')
     const [sub_tab, setSubTab] = useState('Up')
 
     const onTabClick = (t) => setTab(t)
     const onSubTabClick = (t) => setSubTab(t)
+
+    const direction_down_click_handler = (onSubTabClick, setFieldValue) => () => {
+        onSubTabClick('Down')
+        setFieldValue('direction', 'Down')
+    }
+
+    const take_profit_amount_click_handler = (setFieldValue) => (value) => {
+        setFieldValue('takeProfitAmount', value)
+    }
+
+    const take_profit_level_change_handler = (setFieldValue) => (value) => {
+        setFieldValue('takeProfitLevel', value)
+    }
 
     const mainAssetPriceErrorHandler =
         (setFieldValue, setFieldError, setFieldTouched) => (current_input) => {

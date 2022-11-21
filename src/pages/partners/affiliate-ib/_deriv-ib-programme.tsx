@@ -167,6 +167,17 @@ const DerivIBProgramme = () => {
                         <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
                         <DERIVIBDMT5Cards data={ib_dmt5_financial} />
                         <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
+                        <Header as="h2" mb="2rem" type="page-title" mt="4rem" align="center">
+                            {localize('Deriv X')}
+                        </Header>
+                        <StyledHeaderCommission
+                            align="center"
+                            as="h4"
+                            type="main-paragraph"
+                            mb="1.6rem"
+                        >
+                            {localize('Here is your commission plan:')}
+                        </StyledHeaderCommission>
                         {is_row && <DERIVIBDMT5Cards data={ib_derivx} />}
                     </StyledCardWrapper>
                     <DecideSection align="center">

@@ -7,9 +7,10 @@ import PreviewImage from 'images/common/conference/preview.png'
 import device from 'themes/device'
 
 const PreviewWrapper = styled.div`
-    padding: 80px 120px;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 80px 120px;
 
     @media ${device.laptopM} {
         padding: 40px 80px;
@@ -23,22 +24,20 @@ const StyledImage = styled.img`
     max-width: 800px;
     max-height: 540px;
     width: 100%;
-    padding: 40px 0 8px;
+    border-radius: 8px;
 `
 
 const Preview = () => {
     return (
         <PreviewWrapper>
-            <PreviewHeader as="h4" type="subtitle-1">
+            <PreviewHeader as="h4" type="subtitle-1" pb="40px">
                 O objetivo deste evento é reunir nossos parceiros de alto desempenho e criar um
                 espaço de colaboração.
             </PreviewHeader>
-            <Flex fd="column" ai="center">
-                <StyledImage src={PreviewImage} alt="preview image" />
-                <PreviewHeader as="div" type="subtitle-2">
-                    Aprenda insights de seus produtos Deriv favoritos.
-                </PreviewHeader>
-            </Flex>
+            <StyledImage src={PreviewImage} alt="preview image" />
+            <PreviewHeader as="div" type="subtitle-2" pt="8px">
+                Aprenda insights de seus produtos Deriv favoritos.
+            </PreviewHeader>
         </PreviewWrapper>
     )
 }

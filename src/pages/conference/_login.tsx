@@ -3,12 +3,17 @@ import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
+import device from 'themes/device'
 
 const LoginWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 80px 120px;
+
+    @media ${device.laptopM} {
+        padding: 40px 80px;
+    }
 `
 const LoginHeader = styled(Header)`
     text-align: center;

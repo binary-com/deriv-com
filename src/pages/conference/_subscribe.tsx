@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
+import device from 'themes/device'
 
 const LoginHeader = styled(Header)`
     text-align: center;
@@ -15,6 +16,10 @@ const NoticableLoginWrapper = styled.div`
     align-items: center;
     background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
     padding: 80px 120px;
+
+    @media ${device.laptop} {
+        padding: 60px;
+    }
 `
 
 export const NoticableLogin = () => {

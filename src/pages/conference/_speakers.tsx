@@ -10,12 +10,17 @@ import Claudia from 'images/common/conference/Claudia.png'
 import Raul from 'images/common/conference/Raul.png'
 import Sasky from 'images/common/conference/Sasky.png'
 import Ana from 'images/common/conference/Ana.png'
+import device from 'themes/device'
 
 const SpeakersWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 80px 120px;
+
+    @media ${device.tabletL} {
+        padding: 40px 80px 0;
+    }
 `
 const SpeakersTable = styled.div`
     display: flex;

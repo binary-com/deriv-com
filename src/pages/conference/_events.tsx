@@ -6,11 +6,18 @@ import { Header } from 'components/elements'
 import Dia1 from 'images/common/conference/dia1.png'
 import Dia2 from 'images/common/conference/dia2.png'
 import Dia3 from 'images/common/conference/dia3.png'
+import device from 'themes/device'
 
 const EventsWrapper = styled.div`
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 0 120px 80px 120px;
+
+    @media ${device.tabletL} {
+        align-items: center;
+        padding: 0 0 40px;
+    }
 `
 const Card = styled(Flex)`
     flex-direction: column;
@@ -18,6 +25,7 @@ const Card = styled(Flex)`
     align-items: center;
     max-width: 384px;
     height: 434px;
+    margin: 0 12px;
 `
 const EventsHeader = styled(Header)`
     text-align: center;

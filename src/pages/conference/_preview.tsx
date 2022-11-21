@@ -4,11 +4,16 @@ import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import PreviewImage from 'images/common/conference/preview.png'
+import device from 'themes/device'
 
 const PreviewWrapper = styled.div`
     padding: 80px 120px;
     flex-direction: column;
     align-items: center;
+
+    @media ${device.laptopM} {
+        padding: 40px 80px;
+    }
 `
 const PreviewHeader = styled(Header)`
     text-align: center;
@@ -17,6 +22,7 @@ const PreviewHeader = styled(Header)`
 const StyledImage = styled.img`
     max-width: 800px;
     max-height: 540px;
+    width: 100%;
     padding: 40px 0 8px;
 `
 

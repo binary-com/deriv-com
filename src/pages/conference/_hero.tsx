@@ -5,19 +5,27 @@ import { Header } from 'components/elements'
 import HeroImage from 'images/common/conference/hero.png'
 import Calendar from 'images/svg/conference/calendar.svg'
 import Pin from 'images/svg/conference/pin.svg'
+import device from 'themes/device'
 
 const HeroWrapper = styled.div`
     background-image: url(${HeroImage});
     background-repeat: no-repeat;
     background-size: 100% 100%;
     min-height: 72rem;
-    padding: 0 120px;
+    padding: 190px 0 0 120px;
+
+    @media ${device.laptop} {
+        padding: 120px 0 0 80px;
+    }
+    @media ${device.tabletS} {
+        padding: 60px 0 0 30px;
+        min-height: 60rem;
+    }
 `
 const Newsbreak = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 190px 0 348px 120px;
 `
 const StyledHeroHeader = styled(Header)`
     padding: 20px 0 20px 12px;

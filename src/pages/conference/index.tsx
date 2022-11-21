@@ -10,7 +10,7 @@ import { WithIntl } from 'components/localization'
 
 const Conferencies = () => {
     return (
-        <Layout type="conference" margin_top={7.2}>
+        <Layout type="conference" margin_top="0px">
             <SEO
                 title="Conferencies | Deriv.com"
                 description="Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade."

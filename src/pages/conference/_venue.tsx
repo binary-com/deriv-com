@@ -49,7 +49,7 @@ const Placement = styled.img`
     max-width: 1156px;
     max-height: 700px;
     width: 100%;
-    padding-top: 32px;
+    box-shadow: rgb(14 14 14 / 4%) 0 16px 16px 16px;
 
     @media ${device.laptop} {
         max-width: unset;
@@ -57,7 +57,6 @@ const Placement = styled.img`
 `
 const PlacementHeader = styled(Header)`
     text-align: center;
-    padding-bottom: 8px;
 `
 
 const Venue = () => {
@@ -71,10 +70,10 @@ const Venue = () => {
                 <Experience src={ExperienceImage} alt="expirience image" />
             </Announce>
             <Place>
-                <PlacementHeader as="div" type="heading-3">
+                <PlacementHeader as="div" type="heading-3" pb="8px">
                     Endereço
                 </PlacementHeader>
-                <PlacementHeader as="div" type="subtitle-2" weight="normal">
+                <PlacementHeader as="div" type="subtitle-2" weight="normal" pb="32px">
                     Paseo La Galeria Centro de Eventos Asuncion Paraguay
                 </PlacementHeader>
                 <Placement src={MapImage} alt="venue map" />

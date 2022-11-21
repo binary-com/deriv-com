@@ -4,23 +4,37 @@ import { NavLink, StyledLink } from '../../styles/nav-styles'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import LogoPartner from 'images/svg/layout/logo-conference.svg'
 import { LocalizedLink } from 'components/localization'
+import device from 'themes/device'
+import { Header } from 'components/elements'
 
 const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 16px;
+    width: 100%;
+    z-index: 100;
+    background-color: var(--color-black);
+
+    @media ${device.tabletS} {
+        justify-content: flex-start;
+    }
 `
 const LeftSide = styled.div`
-    width: 100%;
-    padding: 22px 0 22px 120px;
+    display: flex;
+    align-items: center;
+    padding: 22px 22px 22px 120px;
     font-size: 16px;
     color: var(--color-white);
+
+    @media ${device.tabletL} {
+        padding: 0 22px;
+    }
 `
 export const StyledLogoLink = styled(LocalizedLink)`
     width: 28px;
     height: 28px;
-    padding-right: 20px;
+    margin-right: 20px;
 `
 const NavigationBar = styled.ul`
     display: flex;
@@ -32,9 +46,10 @@ const NavigationBar = styled.ul`
 
     @media (max-width: 1300px) {
         font-size: 12px;
+        margin-left: 0;
+        padding: 22px 20px;
     }
 `
-
 type NavLinkCardTypes = {
     to: string
     title: ReactElement
@@ -45,7 +60,7 @@ type NavLinkCardTypes = {
     rel?: string
 }
 
-const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
+const NavLinkCard = ({ title, active, ...props }: NavLinkCardTypes) => {
     const current_page = useActiveLinkState('conference')
     return (
         <NavLink>
@@ -53,7 +68,7 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
                 active={current_page === active}
                 activeClassName="active"
                 aria-label={title}
-                {...rest}
+                {...props}
             >
                 {title}
             </StyledLink>
@@ -68,7 +83,9 @@ const NavConferenceDesktop = () => {
                 <StyledLogoLink to="/conference/" aria-label="Conference">
                     <img src={LogoPartner} alt="deriv logo" />
                 </StyledLogoLink>
-                Conferencia de Alidos da Deriv 2022
+                <Header as="header" type="paragraph-1" color="white">
+                    Conferencia de Alidos da Deriv 2022
+                </Header>
             </LeftSide>
 
             <NavigationBar>

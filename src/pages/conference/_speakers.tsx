@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import Alcino from 'images/common/conference/Alcino.png'
 import Ricardo from 'images/common/conference/Ricardo.png'

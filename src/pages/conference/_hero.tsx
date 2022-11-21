@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import HeroImage from 'images/common/conference/hero.png'
 import Calendar from 'images/svg/conference/calendar.svg'

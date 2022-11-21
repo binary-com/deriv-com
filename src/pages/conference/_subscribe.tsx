@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
 import device from 'themes/device'

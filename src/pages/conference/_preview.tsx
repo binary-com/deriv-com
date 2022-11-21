@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
-import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import PreviewImage from 'images/common/conference/preview.png'
 import device from 'themes/device'

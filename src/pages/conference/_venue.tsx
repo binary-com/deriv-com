@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import ExperienceImage from 'images/common/conference/venue.png'
 import MapImage from 'images/common/conference/map.png'
@@ -60,7 +59,10 @@ const PlacementHeader = styled(Header)`
     text-align: center;
 `
 
-const Venue = () => {
+const Venue = (map_link: string) => {
+    const google_map_link =
+        map_link ||
+        'https://www.google.com/maps/place/Paraguay/@-32.0487267,-69.8405863,5z/data=!4m13!1m7!3m6!1s0x945c083490f13d63:0xb3faff611d582ef3!2sParaguay!3b1!8m2!3d-23.442503!4d-58.443832!3m4!1s0x945c083490f13d63:0xb3faff611d582ef3!8m2!3d-23.442503!4d-58.443832'
     return (
         <>
             <Announce>
@@ -77,7 +79,7 @@ const Venue = () => {
                 <PlacementHeader as="div" type="subtitle-2" weight="normal" pb="32px">
                     Paseo La Galeria Centro de Eventos Asuncion Paraguay
                 </PlacementHeader>
-                <Link to="">
+                <Link to={google_map_link}>
                     <Placement src={MapImage} alt="venue map" />
                 </Link>
             </Place>

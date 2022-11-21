@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import Dia1 from 'images/common/conference/dia1.png'

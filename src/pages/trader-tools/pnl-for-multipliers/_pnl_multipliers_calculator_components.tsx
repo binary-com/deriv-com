@@ -5,7 +5,7 @@ import { getMaxLength } from '../common/_utility'
 import Input from 'components/form/input'
 import { localize } from 'components/localization'
 
-type ErrorHandlersKeyType =
+type TErrorHandlersKey =
     | 'commissionErrorHandler'
     | 'stopLossAmountErrorHandler'
     | 'assetPriceErrorHandler'
@@ -13,9 +13,9 @@ type ErrorHandlersKeyType =
     | 'stopLossLevelErrorHandler'
     | 'stakeErrorHandler'
 
-type ErrorHandlersCallbackType = (current_input: string) => void
+type TErrorHandlersCallback = (current_input: string) => void
 
-type ErrorHandlersFunctionType = Partial<Record<ErrorHandlersKeyType, ErrorHandlersCallbackType>>
+type TErrorHandlersFunction = Partial<Record<TErrorHandlersKey, TErrorHandlersCallback>>
 
 type FormikState<Values> = {
     values: Values
@@ -27,7 +27,7 @@ type FormikState<Values> = {
     }
 }
 
-type FieldsType<Values> = FormikState<Values> & ErrorHandlersFunctionType
+type TFields<Values> = FormikState<Values> & TErrorHandlersFunction
 
 type CommissionFieldProps = {
     commission: string
@@ -60,7 +60,7 @@ export const CommissionField = ({
     errors,
     handleBlur,
     commissionErrorHandler,
-}: FieldsType<CommissionFieldProps>) => (
+}: TFields<CommissionFieldProps>) => (
     <Field
         name="commission"
         value={values.commission}
@@ -93,7 +93,7 @@ export const StopLossAmountField = ({
     errors,
     handleBlur,
     stopLossAmountErrorHandler,
-}: FieldsType<StopLossAmountFieldProps>) => (
+}: TFields<StopLossAmountFieldProps>) => (
     <Field
         name="stopLossAmount"
         value={values.stopLossAmount}
@@ -127,7 +127,7 @@ export const AssetPriceField = ({
     errors,
     handleBlur,
     assetPriceErrorHandler,
-}: FieldsType<AssetPriceFieldProps>) => (
+}: TFields<AssetPriceFieldProps>) => (
     <Field
         name="assetPrice"
         value={values.assetPrice}
@@ -157,7 +157,7 @@ export const MultiplierField = ({
     errors,
     handleBlur,
     multiplierErrorHandler,
-}: FieldsType<MultiplierFieldProps>) => (
+}: TFields<MultiplierFieldProps>) => (
     <Field
         name="multiplier"
         value={values.multiplier}
@@ -191,7 +191,7 @@ export const MultiplierFieldWithoutValue = ({
     errors,
     handleBlur,
     multiplierErrorHandler,
-}: FieldsType<MultiplierFieldProps>) => (
+}: TFields<MultiplierFieldProps>) => (
     <Field
         name="multiplier"
         value={values.multiplier}
@@ -224,7 +224,7 @@ export const StopLossLevelField = ({
     errors,
     handleBlur,
     stopLossLevelErrorHandler,
-}: FieldsType<StopLossLevelFieldProps>) => (
+}: TFields<StopLossLevelFieldProps>) => (
     <Field
         name="stopLossLevel"
         value={values.stopLossLevel}
@@ -258,7 +258,7 @@ export const StakeField = ({
     errors,
     handleBlur,
     stakeErrorHandler,
-}: FieldsType<StakeFieldProps>) => {
+}: TFields<StakeFieldProps>) => {
     const set_field_value_stake_change_handler = (setFieldValue) => (value) => {
         setFieldValue('stake', value)
     }
@@ -295,7 +295,7 @@ export const StakeFieldWithValue = ({
     errors,
     handleBlur,
     stakeErrorHandler,
-}: FieldsType<StakeFieldProps>) => (
+}: TFields<StakeFieldProps>) => (
     <Field
         name="stake"
         value={values.stake}

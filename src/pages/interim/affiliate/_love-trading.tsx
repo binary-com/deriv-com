@@ -35,7 +35,7 @@ const content = {
         header: <Localize translate_text="New affiliate login URL" />,
         custom_content: (
             <Flex width="auto" fd="column" ai="flex-start" max_width="38.4rem" ml="0">
-                <Header as="h3" type="section-title" color="white" m="0.8rem 0" align="left">
+                <Header as="h3" type="section-title" color="white" m="0.8rem 0" align="start">
                     <Localize translate_text="New affiliate login URL" />
                 </Header>
                 <Text color="white" size="var(--text-size-m)">

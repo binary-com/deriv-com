@@ -4,6 +4,7 @@ import { useLivechat } from 'components/hooks/use-livechat'
 import LiveChatIC from 'images/svg/layout/livechat.svg'
 import LiveChatHover from 'images/svg/layout/livechat-hover.svg'
 import device from 'themes/device'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type LiveChatProps = {
@@ -12,12 +13,20 @@ type LiveChatProps = {
 
 type StyledLiveChatTypes = LiveChatProps & {
     is_eu: boolean
+    is_rtl: boolean
 }
 
 const StyledLiveChat = styled.div<StyledLiveChatTypes>`
     position: fixed;
     bottom: ${(props) => (props.is_eu ? '9rem' : '1.6rem')};
-    right: 1.6rem;
+    ${({ is_rtl }) =>
+        is_rtl
+            ? css`
+                  inset-inline-start: 1.6rem;
+              `
+            : css`
+                  inset-inline-end: 1.6rem;
+              `}
     background-color: var(--color-white);
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     -webkit-tap-highlight-color: transparent;
@@ -58,6 +67,7 @@ const LiveChat = ({ is_banner_shown }: LiveChatProps) => {
     const [is_livechat_hover, setLivechatHover] = useState(false)
     const [is_livechat_interactive, LC_API] = useLivechat()
     const { is_eu } = useCountryRule()
+    const is_rtl = useIsRtl()
 
     return (
         <>
@@ -66,6 +76,7 @@ const LiveChat = ({ is_banner_shown }: LiveChatProps) => {
                     className="gtm-deriv-livechat"
                     is_banner_shown={is_banner_shown}
                     is_eu={is_eu}
+                    is_rtl={is_rtl}
                     onClick={() => {
                         LC_API.open_chat_window()
                     }}

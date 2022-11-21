@@ -40,7 +40,7 @@ const WhatIsBeSquare = () => {
                 <ContentWrapper>
                     <Title
                         as="h2"
-                        text_align={'left'}
+                        text_align={'start'}
                         max_width={['450px']}
                         margin={['0', '0 auto']}
                     >

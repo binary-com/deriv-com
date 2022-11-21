@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
@@ -76,7 +77,9 @@ const Venue = () => {
                 <PlacementHeader as="div" type="subtitle-2" weight="normal" pb="32px">
                     Paseo La Galeria Centro de Eventos Asuncion Paraguay
                 </PlacementHeader>
-                <Placement src={MapImage} alt="venue map" />
+                <Link to="">
+                    <Placement src={MapImage} alt="venue map" />
+                </Link>
             </Place>
         </>
     )

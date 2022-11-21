@@ -11,9 +11,15 @@ import TelegranDerivChatImg from 'images/common/help-centre/help-center-telegram
 
 const ImageWrapper = styled.section`
     margin-top: 16px;
+
+    & > img {
+        width: 36.4rem;
+    }
+
+    width: 36.4 rem;
     @media ${device.mobileL} {
         & > img {
-            width: 110% !important;
+            width: 45.4rem;
         }
     }
 `
@@ -53,14 +59,41 @@ const DocumentsDeclined = ({ text }: ArticleProps) => (
         </Text>
     </ArticleWrapper>
 )
+const DisableTwoFactorAuthentication = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="Please <0>contact us via live chat</0> immediately, and we'll help to disable 2FA on your account. When you have a new phone, please <1>re-enable 2FA</1>."
+                components={[
+                    <ExternalLink
+                        to={'/contact_us/?is_livechat_open=true'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                    <ExternalLink
+                        to={'https://app.deriv.com/account/two-factor-authentication'}
+                        target="_blank"
+                        external
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={1}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
 const IdentifyImpersonatorsTelegram = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <ImageWrapper>
             <img
                 src={TelegranDerivGroupImg}
-                alt={localize('Telegream deriv group')}
-                style={{ width: '36.4rem' }}
+                alt={localize('Telegram Deriv group')}
                 loading="lazy"
             />
         </ImageWrapper>
@@ -118,12 +151,7 @@ const IdentifyImpersonatorsTelegram = ({ text }: ArticleProps) => (
             )}
         </StyledText>
         <ImageWrapper>
-            <img
-                src={TelegranDerivChatImg}
-                alt={localize('Telegream deriv chat')}
-                style={{ width: '26.9rem' }}
-                loading="lazy"
-            />
+            <img src={TelegranDerivChatImg} alt={localize('Telegram Deriv chat')} loading="lazy" />
         </ImageWrapper>
         <Header color="grey" weight="normal">
             {localize('Examples of messages from impersonators')}
@@ -158,35 +186,56 @@ const IdentifyImpersonatorsTelegram = ({ text }: ArticleProps) => (
         </StyledText>
     </ArticleWrapper>
 )
-const DisableTwoFactorAuthentication = ({ text }: ArticleProps) => (
+const IdentifyImpersonatorsClientSupport = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            <Localize
-                translate_text="Please <0>contact us via live chat</0> immediately, and we'll help to disable 2FA on your account. When you have a new phone, please <1>re-enable 2FA</1>."
-                components={[
-                    <ExternalLink
-                        to={'/contact_us/?is_livechat_open=true'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                    <ExternalLink
-                        to={'https://app.deriv.com/account/two-factor-authentication'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={1}
-                    />,
-                ]}
-            />
+            <Localize translate_text="Here are some ways to identify email from impersonators:" />
         </Text>
+        <Ul>
+            <li>
+                <StyledText>
+                    {localize(
+                        'The email message is poorly written, with incorrect grammar, many typos, and informal tone.',
+                    )}
+                </StyledText>
+            </li>
+            <li>
+                <StyledText>
+                    {localize(
+                        'The impersonator asks you to send confidential information over an insecure platform, for example via SMS, WhatsApp, email, etc.',
+                    )}
+                </StyledText>
+            </li>
+            <li>
+                <StyledText>
+                    {localize(
+                        'The impersonator asks you to fill up a form on an insecure website without an HTTPS (secured) connection.',
+                    )}
+                </StyledText>
+            </li>
+            <li>
+                <StyledText>
+                    {localize(
+                        'The impersonator asks you to download insecure mobile apps in the form of APK files that aren’t approved by Android or Apple. Besides that, they ask you to download file attachments or remote access software (such as Teamviewer) to remotely control your device.',
+                    )}
+                </StyledText>
+            </li>
+            <StyledText>
+                {localize(
+                    'For example, an impersonator may take control and install ransomware on your device and then demand a ransom. If the ransom isn’t paid, you may lose access to your device permanently.',
+                )}
+            </StyledText>
+            <li>
+                <StyledText>
+                    {localize(
+                        "Impersonators typically use free email addresses such as @yahoo.com, @gmail.com, or @protonmail.com. Always read the sender's full email address to know who sent the email. Note: Emails from Deriv will always come from @deriv.com.",
+                    )}
+                </StyledText>
+            </li>
+        </Ul>
     </ArticleWrapper>
 )
-
 const SecurityArticle = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
@@ -225,7 +274,14 @@ const SecurityArticle = () => {
                     )}
                     label="identify-impersonators-telegram"
                     is_mounted={is_mounted}
-                ></IdentifyImpersonatorsTelegram>
+                />
+                <IdentifyImpersonatorsClientSupport
+                    text={localize(
+                        'How to identify emails from impersonators of Deriv client support?',
+                    )}
+                    label="identify-impersonators-client-support"
+                    is_mounted={is_mounted}
+                />
             </Article>
         </div>
     )

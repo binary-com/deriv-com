@@ -355,6 +355,22 @@ export const articles: ArcticlesType[] = [
                 sub_category: <Localize translate_text="Verification" />,
                 label: 'disable-two-factor-authentication',
             },
+            {
+                title: (
+                    <Localize translate_text="How to identify impersonators of Deriv client support on Telegram?" />
+                ),
+                category: 'Security',
+                sub_category: <Localize translate_text="Verification" />,
+                label: 'identify-impersonators-telegram',
+            },
+            {
+                title: (
+                    <Localize translate_text="How to identify emails from impersonators of Deriv client support?" />
+                ),
+                category: 'Security',
+                sub_category: <Localize translate_text="Verification" />,
+                label: 'identify-impersonators-client-support',
+            },
         ],
     },
 

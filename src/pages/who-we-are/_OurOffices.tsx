@@ -43,6 +43,7 @@ const StyledHeader = styled(Header)`
 const NumberSection = styled(CssGrid)`
     margin-top: 40px;
     max-width: 788px;
+    direction: ltr;
 
     @media ${device.tablet} {
         grid-column-gap: 3rem;
@@ -79,6 +80,7 @@ const MapImage = styled(BackgroundImage)`
     height: 414px;
     background-color: transparent;
     background-size: cover;
+    direction: ltr;
 
     @media ${device.tabletL} {
         width: 328px;

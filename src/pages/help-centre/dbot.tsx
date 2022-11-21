@@ -44,12 +44,12 @@ const Th = styled.th`
 const Thead = styled.thead`
     font-size: var(--text-size-s);
     font-weight: bold;
-    text-align: left;
+    text-align: start;
     border: 1px solid var(--color-grey-7);
 `
 
 const Td = styled.td`
-    text-align: left;
+    text-align: start;
     width: 100%;
     max-width: 48.6rem;
     display: inline-block;

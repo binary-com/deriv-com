@@ -42,7 +42,7 @@ const StyledHeader = styled(Header)`
     margin-bottom: 4rem;
     @media ${device.tabletS} {
         font-size: 40px;
-        text-align: left;
+        text-align: start;
     }
 `
 
@@ -87,6 +87,7 @@ const SectionContainerWrapper = styled(SectionContainer)`
 
 const StyledContainer = styled(Container)`
     width: 100%;
+    direction: ltr;
     @media ${device.tabletL} {
         flex-wrap: wrap;
         margin: 20px 0;

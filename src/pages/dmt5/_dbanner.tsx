@@ -6,6 +6,7 @@ import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 
@@ -71,8 +72,7 @@ const ImageWrapper = styled(Flex)`
         max-width: 250px;
         right: 0;
         height: unset;
-        left: 50%;
-        transform: translate(-50%, 0);
+        left: 25%;
     }
 `
 
@@ -112,7 +112,32 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
+const BackgroundPattern = styled.img<{ is_rtl: boolean }>`
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: ${({ is_rtl }) => {
+        return is_rtl ? 'scaleX(-1)' : null
+    }};
 
+    @media ${device.laptopM} {
+        width: 60rem;
+        height: initial;
+    }
+    @media ${device.tabletL} {
+        width: 54rem;
+    }
+    @media ${device.tablet} {
+        width: 44rem;
+    }
+    @media ${device.tabletS} {
+        width: 400px;
+    }
+    @media ${device.mobileL} {
+        width: unset;
+        max-width: unset;
+    }
+`
 const DBanner = ({
     background_pattern = '',
     data = '',
@@ -122,32 +147,10 @@ const DBanner = ({
     is_mt5 = false,
 }: DBannerProps) => {
     const handleSignup = useHandleSignup(is_ppc)
+    const is_rtl = useIsRtl()
     const [is_logged_in] = useAuthCheck()
     const platform_name = is_mt5 ? 'Deriv MT5' : 'Deriv X'
 
-    const BackgroundPattern = styled.img`
-        position: absolute;
-        top: 0;
-        right: 0;
-
-        @media ${device.laptopM} {
-            width: 60rem;
-            height: initial;
-        }
-        @media ${device.tabletL} {
-            width: 54rem;
-        }
-        @media ${device.tablet} {
-            width: 44rem;
-        }
-        @media ${device.tabletS} {
-            width: 400px;
-        }
-        @media ${device.mobileL} {
-            width: unset;
-            max-width: unset;
-        }
-    `
     return (
         <Flex position="relative">
             <ImageWrapper ai="center">
@@ -181,7 +184,11 @@ const DBanner = ({
                         </StyledLinkButton>
                     )}
                 </TextWrapper>
-                <BackgroundPattern src={background_pattern} alt="background pattern" />
+                <BackgroundPattern
+                    is_rtl={is_rtl}
+                    src={background_pattern}
+                    alt="background pattern"
+                />
             </Wrapper>
         </Flex>
     )

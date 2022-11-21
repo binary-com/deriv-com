@@ -1,7 +1,7 @@
 import React from 'react'
 import { Localize } from 'components/localization'
 
-export const events_data = [
+const events_data = [
     {
         id: 'day_01',
         title: <Localize translate_text="Dia 1 - Introdução e palestras" />,
@@ -391,3 +391,5 @@ export const events_data = [
         ],
     },
 ]
+
+export default events_data

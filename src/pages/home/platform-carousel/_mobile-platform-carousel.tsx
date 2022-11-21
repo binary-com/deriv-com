@@ -16,6 +16,7 @@ import { dmt5_android_url, dmt5_app_gallery, deriv_mt5_app_url } from 'common/co
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const query = graphql`
     {
@@ -46,11 +47,6 @@ const DownloadLink = styled(StyledLink)`
 `
 
 const settings = {
-    options: {
-        loop: false,
-        align: 'center',
-        containScroll: 'trimSnaps',
-    },
     container_style: {
         width: '100%',
         margin: '0 auto',
@@ -58,7 +54,7 @@ const settings = {
     slide_style: {
         width: '100vw',
         height: 'auto',
-        paddingRight: '1.6rem',
+        paddingInlineEnd: '1.6rem',
         position: 'relative',
     },
     navigation_style: {
@@ -138,9 +134,17 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
     const images = useStaticQuery(image_query)
     const data = useStaticQuery(query)
 
+    const lang_direction = useLangDirection()
+
     return (
         <Carousel
             {...settings}
+            options={{
+                loop: false,
+                align: 'center',
+                containScroll: 'trimSnaps',
+                direction: lang_direction,
+            }}
             plugins={[Autoplay({ delay: PLATFORMS_CAROUSEL_DELAY })]}
             is_reinit_enabled={true}
         >

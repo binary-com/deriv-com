@@ -105,7 +105,7 @@ const FirstSection = styled(SectionContainer)`
             font-size: 16px;
         }
         @media ${device.mobileL} {
-            text-align: left;
+            text-align: start;
         }
     }
 `
@@ -213,7 +213,7 @@ const WorkingQueryImage = styled(QueryImage)`
 `
 
 type LocationLayoutProps = {
-    display_name: string
+    display_name?: string
     display_title_name?: string
     location: LocationsType
     images: LocationsType

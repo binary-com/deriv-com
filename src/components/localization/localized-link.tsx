@@ -1,4 +1,4 @@
-import React, { CSSProperties, Ref, useContext, useEffect, useState } from 'react'
+import React, { CSSProperties, Ref, useContext } from 'react'
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
@@ -13,8 +13,8 @@ import {
     getThaiExcludedLocale,
     replaceLocale,
 } from 'common/utility'
-import { DerivStore } from 'store'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type InternalLinkProps = {
     aria_label?: string
@@ -141,7 +141,15 @@ export const LocalizedLink = React.forwardRef(
         const [is_mounted] = usePageLoaded()
 
         if (external) {
-            return <ExternalLink mounted={is_mounted} locale={locale} ref={ref} {...props} />
+            return (
+                <ExternalLink
+                    mounted={is_mounted}
+                    // HINT: In our project we don't have Arabic translations yet, so we have to use the default locale (en) instead
+                    locale={locale === 'ar' ? 'en' : locale}
+                    ref={ref}
+                    {...props}
+                />
+            )
         }
 
         return <InternalLink mounted={is_mounted} locale={locale} ref={ref} {...props} />
@@ -231,12 +239,12 @@ const ExternalLink = ({
     type,
     ...props
 }: ExternalLinkProps) => {
-    const { is_eu_country } = useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
     const url = replaceLocale(getURLFormat(type, locale, to, affiliate_lang))
     const show_modal =
-        is_eu_country &&
+        is_eu &&
         !is_mail_link &&
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&

@@ -190,7 +190,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                 <Header
                                                     as="h3"
                                                     type="paragraph-2"
-                                                    align="left"
+                                                    align="start"
                                                     color="grey-5"
                                                     p="8px"
                                                     mb="8px"

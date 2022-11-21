@@ -8,12 +8,16 @@ import { localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 
 type DBannerProps = {
     background_pattern?: string
     data?: IGatsbyImageData
     image_alt?: string
     title?: string | JSX.Element
+    is_rtl: boolean
 }
 const Wrapper = styled.div`
     position: relative;
@@ -35,6 +39,9 @@ const BackgroundWrapper = styled(Flex)<DBannerProps>`
     width: 25%;
     background-image: url(${(props) => props.background_pattern});
     clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+    transform: ${({ is_rtl }) => {
+        return is_rtl ? 'scaleX(-1)' : null
+    }};
 
     @media (max-width: 800px) {
         clip-path: polygon(0 0, 100% 0%, 305% 163%, 0% 60%);
@@ -123,6 +130,8 @@ const StyledHeader = styled(Header)`
 const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) => {
     const handleSignup = useHandleSignup()
     const { is_eu, is_row } = useCountryRule()
+    const is_rtl = useIsRtl()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <Wrapper>
@@ -137,6 +146,7 @@ const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) =
                 </ImageWrapper>
             </ImageContainer>
             <BackgroundWrapper
+                is_rtl={is_rtl}
                 background_pattern={background_pattern}
                 direction="column"
                 ai="center"
@@ -145,10 +155,27 @@ const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) =
                 <StyledHeader as="h4" align="center" color="white" size="5.6rem" mb="3.2rem">
                     {title}
                 </StyledHeader>
+
                 <DemoButton>
-                    <Button onClick={handleSignup} id="dm-dbanner-signup" type="submit" secondary>
-                        {localize('Create free demo account')}
-                    </Button>
+                    {is_logged_in ? (
+                        <Button
+                            onClick={handleGetTrading}
+                            id="dm-dbanner-signup"
+                            type="submit"
+                            secondary
+                        >
+                            {localize('Get Trading')}
+                        </Button>
+                    ) : (
+                        <Button
+                            onClick={handleSignup}
+                            id="dm-dbanner-signup"
+                            type="submit"
+                            secondary
+                        >
+                            {localize('Create free demo account')}
+                        </Button>
+                    )}
                 </DemoButton>
             </TextWrapper>
         </Wrapper>

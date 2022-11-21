@@ -92,6 +92,7 @@ const DMT5 = () => {
                 title={<Localize translate_text="Get into the DMT5 experience" />}
                 data={data}
                 is_ppc={true}
+                is_mt5
             />
         </Layout>
     )

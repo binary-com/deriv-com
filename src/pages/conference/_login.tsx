@@ -19,6 +19,9 @@ const LoginHeader = styled(Header)`
     text-align: center;
     padding-bottom: 32px;
 `
+const StyledButton = styled(Button)`
+    font-size: 1.6rem;
+`
 
 const Login = () => {
     return (
@@ -26,11 +29,11 @@ const Login = () => {
             <LoginHeader as="h3" type="subtitle-1">
                 Três dias de conteúdo, networking e novidades.
             </LoginHeader>
-            <Button secondary>Cadstre-se aqui</Button>
+            <StyledButton secondary>Cadstre-se aqui</StyledButton>
             <LoginHeader as="div" weight="normal" type="subtitle-1" pt="32px">
                 ou, se ja tiver seu acesso ao evento
             </LoginHeader>
-            <Button primary>Faça login</Button>
+            <StyledButton primary>Faça login</StyledButton>
         </LoginWrapper>
     )
 }

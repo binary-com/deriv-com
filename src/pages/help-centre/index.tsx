@@ -221,7 +221,7 @@ const HelpCentre = () => {
             </Helmet>
             <SearchSection show={data.toggle_search} has_transition={data.search_has_transition}>
                 <Backdrop>
-                    <Container align="left" justify="flex-start" direction="column">
+                    <Container align="start" justify="flex-start" direction="column">
                         <StyledContainer align="normal" direction="column">
                             <ResponsiveHeader as="h1" type="display-title" mb="4rem">
                                 {localize('How can we help?')}
@@ -259,7 +259,7 @@ const HelpCentre = () => {
                     </Container>
                 </Backdrop>
             </SearchSection>
-            <Container align="left" justify="flex-start" direction="column">
+            <Container align="start" justify="flex-start" direction="column">
                 <ArticleSectionComponent
                     section_name="General"
                     articles={general_articles}

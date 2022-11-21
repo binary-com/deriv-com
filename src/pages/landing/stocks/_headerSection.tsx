@@ -230,7 +230,7 @@ const SectionTextWrapper = styled(Flex)`
 
 const SectionStyledHeader = styled(Header)`
     font-size: 64px;
-    text-align: left;
+    text-align: start;
     line-height: 1.25;
     margin-bottom: 16px;
     @media ${device.tabletL} {
@@ -243,7 +243,7 @@ const SectionStyledHeader = styled(Header)`
 const SectionStyledHeaderSmall = styled(Header)`
     font-size: 24px;
     max-width: 100%;
-    text-align: left;
+    text-align: start;
     line-height: 1.5;
     margin-bottom: 24px;
     @media ${device.tabletL} {

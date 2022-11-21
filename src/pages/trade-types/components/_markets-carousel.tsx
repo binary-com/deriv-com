@@ -5,6 +5,7 @@ import { SmallContainer } from './_style'
 import { Mobile } from 'components/containers'
 import { Carousel } from 'components/elements'
 import device from 'themes/device'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const Background = styled.div`
     width: 100%;
@@ -62,10 +63,13 @@ type MarketsCarouselProps = {
 }
 
 const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
+    const lang_direction = useLangDirection()
+
     const carousel_props = {
         options: {
             align: 'start',
             containScroll: 'trimSnaps',
+            direction: lang_direction,
         },
         container_style: {
             width: '90%',

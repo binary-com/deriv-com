@@ -7,6 +7,8 @@ require('dotenv').config({
 
 const allDomainUrl = isBrowser() && window.location.hostname
 
+console.log('allDomainUrl',allDomainUrl)
+
 const site_url = 'https://deriv.com'
 
 module.exports = {

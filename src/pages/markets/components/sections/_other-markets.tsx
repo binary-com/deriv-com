@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
-import { Carousel, Header, Text } from 'components/elements'
+import { Carousel, Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
@@ -12,6 +12,7 @@ import StockIndices from 'images/svg/markets/stock-new.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type MarketType = {
     icon: () => ReactElement
@@ -88,12 +89,12 @@ const markets_type: MarketsType = {
 
 const LearnMore = styled(LocalizedLink)<LearnMoreProps>`
     opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
-    width: 142px;
+    width: 150px;
     height: 40px;
     border-radius: 100px;
     background-color: var(--color-white);
     position: absolute;
-    bottom: -33px;
+    bottom: -20px;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -151,34 +152,11 @@ const StyledFlex = styled(Flex)`
     }
     ${LearnMore} {
         img {
-            transform: rotate(0);
             width: 16px;
             height: 16px;
         }
     }
 `
-const settings = {
-    options: {
-        draggable: true,
-        containScroll: 'trimSnaps',
-        slidesToScroll: 1,
-        align: 1,
-    },
-    container_style: {
-        maxWidth: '100%',
-        margin: '0 auto',
-        overflow: 'hidden',
-    },
-    slide_style: {
-        width: '282px',
-        height: '380px',
-        marginRight: '24px',
-        paddingRight: '50px',
-        paddingLeft: '25px',
-        position: 'relative',
-    },
-    last_slide_no_spacing: false,
-}
 
 const Card = ({ market }: CardProps) => {
     const [button_visibility, setButtonVisibility] = React.useState('false')
@@ -208,7 +186,7 @@ const Card = ({ market }: CardProps) => {
             </Text>
             <LearnMore to={markets_type[market].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
-                <img src={Arrow} alt="Arrow" />
+                <ImageWithDireciton src={Arrow} alt="Arrow" />
             </LearnMore>
         </StyledFlex>
     )
@@ -216,6 +194,7 @@ const Card = ({ market }: CardProps) => {
 
 const MobileCard = ({ market }: CardProps) => {
     const Icon = markets_type[market].icon
+
     return (
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
             <Flex width="100%" jc="space-between" mb="2.4rem" ai="center">
@@ -227,7 +206,7 @@ const MobileCard = ({ market }: CardProps) => {
             <Text size="14px">{markets_type[market].content}</Text>
             <LearnMore to={markets_type[market].to} visibility="true">
                 <Text>{localize('Learn more')}</Text>
-                <img src={Arrow} alt="Arrow" />
+                <ImageWithDireciton src={Arrow} alt="Arrow" />
             </LearnMore>
         </MobileCardWrapper>
     )
@@ -284,11 +263,38 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         (market) => market !== except,
     )
 
+    const lang_direction = useLangDirection()
+
+    const settings = {
+        options: {
+            draggable: true,
+            containScroll: 'trimSnaps',
+            slidesToScroll: 1,
+            align: 1,
+            direction: lang_direction,
+        },
+        container_style: {
+            maxInlineSize: '100%',
+            marginBlock: '0',
+            marginInline: 'auto',
+            overflow: 'hidden',
+        },
+        slide_style: {
+            inlineSize: '282px',
+            blockSize: '380px',
+            marginInlineEnd: '24px',
+            paddingInlineEnd: '50px',
+            paddingInlineStart: '25px',
+            position: 'relative',
+        },
+        last_slide_no_spacing: false,
+    }
+
     return (
         <StyledSectionContainer>
             <Desktop>
                 <MarketsWrapper tablet_jc="center">
-                    <StyledHeader as="h3" type="section-title" align="left">
+                    <StyledHeader as="h3" type="section-title" align="start">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
                     <Carousel has_autoplay autoplay_interval={4000} {...settings}>

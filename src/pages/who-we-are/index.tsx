@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import axios from 'axios';
-import { useFetching } from "../../components/hooks/use-fetching";
+import axios from 'axios'
+import { useFetching } from '../../components/hooks/use-fetching'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
 import ImageMarquee from './carousel/_ImageMarquee'
@@ -39,27 +39,29 @@ const EndSeparator = styled.div`
 `
 
 const Loader = styled.div`
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 5px dashed darkgrey;
-  animation: rotate 1.5s infinite linear;
-  margin: 10px auto 0;
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg) scale(0.8);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px dashed darkgrey;
+    animation: rotate 1.5s infinite linear;
+    margin: 10px auto 0;
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg) scale(0.8);
+        }
+        to {
+            transform: rotate(360deg) scale(1.4);
+        }
     }
-    to {
-      transform: rotate(360deg) scale(1.4);
-    }
-  }
 `
 
 const AboutUs = () => {
     const [content, setContent] = useState({})
 
-    const [fetchPosts, isDataLoading, postError] = useFetching(async () => {
-        const response = await axios.get('https://deriv-com-content.herokuapp.com/api/menus/?nested&populate=*')
+    const [fetchPosts, isDataLoading] = useFetching(async () => {
+        const response = await axios.get(
+            'https://deriv-com-content.herokuapp.com/api/menus/?nested&populate=*',
+        )
         setContent(response.data.data[1])
     })
 
@@ -75,9 +77,8 @@ const AboutUs = () => {
                     'Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade.',
                 )}
             />
-            <Hero/>
-            {!isDataLoading
-                ?
+            <Hero />
+            {!isDataLoading ? (
                 <>
                     <MakeTrading query={content?.items?.[0].children[0]} />
                     <StartSeparator />
@@ -90,9 +91,9 @@ const AboutUs = () => {
                     <OurOffices quer={content?.items?.[0].children[4]} />
                     <AboutUsBanner />
                 </>
-                :
-                <Loader/>
-            }
+            ) : (
+                <Loader />
+            )}
         </Layout>
     )
 }

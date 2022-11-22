@@ -61,7 +61,8 @@ const FAQ = () => {
         padding: '1.6rem 2.4rem',
         border: 'none',
     }
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu_country, is_show_branding } = React.useContext(DerivStore)
+    console.log(is_show_branding)
     return (
         <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">
@@ -136,7 +137,6 @@ const FAQ = () => {
                             >
                                 <NewProducts />
                             </AccordionItem>
-
                             <AccordionItem
                                 is_showed={!is_eu_country}
                                 header={
@@ -149,18 +149,19 @@ const FAQ = () => {
                             >
                                 <WhatToExpect />
                             </AccordionItem>
-                            <AccordionItem
-                                header={
-                                    <Localize translate_text="Is Deriv.com regulated/registered/licensed?" />
-                                }
-                                parent_style={parent_style}
-                                style={item_style}
-                                header_style={header_style}
-                                plus
-                            >
-                                <IsDerivRegulated />
-                            </AccordionItem>
-
+                            {is_show_branding && (
+                                <AccordionItem
+                                    header={
+                                        <Localize translate_text="Is Deriv.com regulated/registered/licensed?" />
+                                    }
+                                    parent_style={parent_style}
+                                    style={item_style}
+                                    header_style={header_style}
+                                    plus
+                                >
+                                    <IsDerivRegulated />
+                                </AccordionItem>
+                            )}
                             <AccordionItem
                                 header={
                                     <Localize translate_text="Are you going to close down Binary.com?" />

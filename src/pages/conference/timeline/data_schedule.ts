@@ -1,7 +1,7 @@
 const events_data = [
     {
         id: 'day_01',
-        title: 'Dia 1 - Introdução e palestras',
+        title: 'Dia 1',
         date: '30 de Novembro',
         period: 'Cadastros 9:30 - 10:00',
         data: [

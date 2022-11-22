@@ -142,7 +142,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
                 <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
             </Mobile>
             <Container direction="column">
-                <TitleHeader align="center" as="h3" type="section-title">
+                <TitleHeader align="center" as="h2" type="section-title">
                     {header}
                 </TitleHeader>
             </Container>
@@ -157,7 +157,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
                             }
                         >
                             <Flex ai="center" height="fit-content">
-                                <StyledHeader as="h4" type="sub-section-title">
+                                <StyledHeader as="h3" type="sub-section-title">
                                     {item.header}
                                 </StyledHeader>
                                 {item.icon}

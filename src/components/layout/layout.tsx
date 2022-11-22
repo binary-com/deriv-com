@@ -2,7 +2,6 @@ import React, { useState, ReactNode, Ref } from 'react'
 import Loadable from '@loadable/component'
 import styled from 'styled-components'
 import { closestMatch, distance } from 'closest-match'
-import useGTMData from '../hooks/use-gtm-data'
 import { LocationProvider } from './location-context'
 import NavAcademy from './nav/nav-academy'
 import NavStatic from './nav/nav-static'
@@ -19,12 +18,10 @@ import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
-import { useCountryRule } from 'components/hooks/use-country-rule'
-import CookieBanner from 'components/custom/cookie-banner'
-import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect, isEuDomain } from 'common/utility'
+import { handleRedirect, isEuDomain } from 'common/utility'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import { DerivStore, useDerivWS } from 'store'
+import { CookieStorage } from 'common/storage'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const LoadableFooter = Loadable(() => import('./footer'))
@@ -53,11 +50,6 @@ export type ModalPayloadType = {
     aria_label: string
 }
 
-const has_dataLayer = isBrowser() && window.dataLayer
-
-const TRACKING_STATUS_KEY = 'tracking_status'
-const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
-
 const Main = styled.main<MainType>`
     margin-top: ${(props) => (props.margin_top && `${props.margin_top}rem`) || '7rem'};
     background: var(--color-white);
@@ -76,37 +68,13 @@ const Layout = ({
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const { show_non_eu_popup, setShowNonEuPopup, academy_data } = React.useContext(DerivStore)
-    const { is_loading, is_uk_eu } = useCountryRule()
-    const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
-    const [gtm_data, setGTMData] = useGTMData()
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
     const { send } = useDerivWS()
     const { has_platform } = usePlatformQueryParam()
 
     const is_static = type === 'static'
-
-    // Allow tracking cookie banner setup
-    React.useEffect(() => {
-        if (!is_loading) {
-            const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
-            const is_tracking_accepted = tracking_status === 'accepted'
-            const allow_tracking = (!is_uk_eu || is_tracking_accepted) && !gtm_data && has_dataLayer
-
-            if (is_uk_eu && !tracking_status) setShowCookieBanner(true)
-
-            if (allow_tracking) {
-                window.onload = () => {
-                    window.setTimeout(() => {
-                        if (is_tracking_accepted) {
-                            setGTMData({ event: 'allow_tracking' })
-                        }
-                    }, 2000)
-                }
-            }
-        }
-    }, [is_uk_eu])
 
     React.useEffect(() => {
         if (!is_redirection_applied) {
@@ -139,19 +107,6 @@ const Layout = ({
             }
         }
     }, [])
-
-    const onAccept = () => {
-        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
-
-        if (!gtm_data && has_dataLayer) setGTMData({ event: 'allow_tracking' })
-
-        setShowCookieBanner(false)
-    }
-
-    const onDecline = () => {
-        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'declined')
-        setShowCookieBanner(false)
-    }
 
     // Handle navigation types
     let Navigation
@@ -225,45 +180,35 @@ const Layout = ({
         )
     }
     return (
-        <>
-            <LocationProvider
-                has_mounted={is_mounted}
-                show_cookie_banner={show_cookie_banner}
-                toggleModal={toggleModal}
-                setModalPayload={setModalPayload}
-            >
-                {Navigation}
-                <Main margin_top={margin_top} is_static={is_static}>
-                    {children}
-                </Main>
-                {show_cookie_banner && (
-                    <CookieBanner
-                        onAccept={onAccept}
-                        onDecline={onDecline}
-                        is_open={show_cookie_banner}
-                    />
-                )}
-                {FooterNav}
-                <EURedirect
-                    toggle={toggleModal}
-                    is_open={show_modal}
-                    closeModal={closeModal}
-                    to={modal_payload.to}
-                    target={modal_payload.target}
-                    rel={modal_payload.rel}
-                    ref={modal_payload.ref}
-                    aria_label={modal_payload.aria_label}
+        <LocationProvider
+            has_mounted={is_mounted}
+            toggleModal={toggleModal}
+            setModalPayload={setModalPayload}
+        >
+            {Navigation}
+            <Main margin_top={margin_top} is_static={is_static}>
+                {children}
+            </Main>
+            {FooterNav}
+            <EURedirect
+                toggle={toggleModal}
+                is_open={show_modal}
+                closeModal={closeModal}
+                to={modal_payload.to}
+                target={modal_payload.target}
+                rel={modal_payload.rel}
+                ref={modal_payload.ref}
+                aria_label={modal_payload.aria_label}
+            />
+            <UKAccountClosureModal />
+            {show_non_eu_popup && (
+                <NonEuRedirectPopUp
+                    is_open={show_non_eu_popup}
+                    setShowNonEuPopup={setShowNonEuPopup}
                 />
-                <UKAccountClosureModal />
-                {show_non_eu_popup && (
-                    <NonEuRedirectPopUp
-                        is_open={show_non_eu_popup}
-                        setShowNonEuPopup={setShowNonEuPopup}
-                    />
-                )}
-            </LocationProvider>
+            )}
             <LayoutOverlay is_ppc={is_ppc} />
-        </>
+        </LocationProvider>
     )
 }
 

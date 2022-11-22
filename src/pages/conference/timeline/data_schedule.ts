@@ -1,5 +1,3 @@
-import React from 'react'
-
 const events_data = [
     {
         id: 'day_01',

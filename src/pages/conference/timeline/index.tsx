@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import HeroBanner from './images/calendar.svg'
+import HeroBanner from './images/hero_banner_new.png'
 import ScheduleConference from './_schedule'
 import events_data from './data_schedule'
 import { Header } from 'components/elements'
@@ -26,16 +26,6 @@ const HeroWrapper = styled.div`
         padding: 60px 0 0 30px;
         min-height: 60rem;
     }
-`
-
-const CalendarHeader = styled.div`
-    display: flex;
-    justify-content: center;
-    margin: 74px;
-`
-
-const StyledHeroHeader = styled(Header)`
-    padding: 20px 0 20px 12px;
 `
 
 const Tab = styled.div`
@@ -88,13 +78,7 @@ const TimeLine = () => {
 
     return (
         <Layout type="conference" margin_top="0px">
-            <HeroWrapper>
-                <CalendarHeader>
-                    <StyledHeroHeader type="heading-1" weight="700" height="60px" align="center">
-                        Cronograma de Palestras
-                    </StyledHeroHeader>
-                </CalendarHeader>
-            </HeroWrapper>
+            <HeroWrapper />
             <Tab>
                 <TabItem active={isDay1} onClick={() => onTabClick('dia1')}>
                     <Header type="subtitle-1" align="center">

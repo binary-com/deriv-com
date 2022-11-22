@@ -60,6 +60,10 @@ const TitleWrapper = styled.div`
 
 const StyledCardWrapper = styled(CardWrapper)`
     flex-wrap: wrap;
+
+    @media ${device.tabletL} {
+        align-items: start;
+    }
 `
 
 const StyledSection = styled(SectionContainer)`
@@ -109,9 +113,17 @@ const StyledHeaderCommission = styled(StyledHeader)`
     @media ${device.laptopM} {
         text-align: center;
     }
-    @media ${device.mobileM} {
-        text-align: center;
+    @media ${device.tabletL} {
+        text-align: start;
         width: 38rem;
+    }
+`
+const StyledHeaderDerivx = styled(Header)`
+    text-align: start;
+    margin-left: 40.8rem;
+
+    @media ${device.tabletL} {
+        margin-left: 0;
     }
 `
 
@@ -170,14 +182,9 @@ const DerivIBProgramme = () => {
                         <Header as="h2" mb="2rem" type="page-title" mt="4rem" align="center">
                             {localize('Deriv X')}
                         </Header>
-                        <StyledHeaderCommission
-                            align="center"
-                            as="h4"
-                            type="main-paragraph"
-                            mb="1.6rem"
-                        >
+                        <StyledHeaderDerivx as="h4" type="main-paragraph" mb="1.6rem">
                             {localize('Here is your commission plan:')}
-                        </StyledHeaderCommission>
+                        </StyledHeaderDerivx>
                         {is_row && <DERIVIBDMT5Cards data={ib_derivx} />}
                     </StyledCardWrapper>
                     <DecideSection align="center">

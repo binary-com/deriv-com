@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ArrowRight from './images/downwards_right.svg'
 import ArrowLeft from './images/downwards_left.svg'
 import { Header } from 'components/elements'
+import device from 'themes/device'
 
 type ScheduleProps = {
     time?: ReactNode
@@ -54,6 +55,10 @@ const WrapperContainer = styled.div`
 const ImageContainer = styled.div`
     display: flex;
     justify-content: center;
+
+    @media ${device.tablet} {
+        margin-left: 40px;
+    }
 `
 
 const TimeWrapper = styled.div`
@@ -63,6 +68,10 @@ const TimeWrapper = styled.div`
 
     h2:last-child {
         margin-bottom: 0;
+    }
+
+    @media ${device.tablet} {
+        margin-left: 40px;
     }
 `
 

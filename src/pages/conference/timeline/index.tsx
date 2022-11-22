@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import HeroBanner from './images/hero_banner_new.png'
 import ScheduleConference from './_schedule'
-import events_data from './data_schedule'
+import events_data from './_data-schedule'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import device from 'themes/device'
 
 type TabProps = {
     active?: boolean
@@ -15,17 +14,8 @@ type TabProps = {
 const HeroWrapper = styled.div`
     background-image: url(${HeroBanner});
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     min-height: 72rem;
-    padding: 190px 0 0 120px;
-
-    @media ${device.laptop} {
-        padding: 120px 0 0 80px;
-    }
-    @media ${device.tabletS} {
-        padding: 60px 0 0 30px;
-        min-height: 60rem;
-    }
 `
 
 const Tab = styled.div`

@@ -5,17 +5,16 @@ import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import useVisibility from 'components/hooks/use-visibility'
+import useScreenSize from 'components/hooks/use-screen-size'
 
 const StartTrading = () => {
     const { is_eu } = useCountryRule()
-    const viz = useVisibility()
-    const { is_mobile, is_tablet } = viz
+    const { is_mobile_or_tablet } = useScreenSize()
     return (
         <>
             <StartTradingBg>
                 <SmallContainer direction="column" ai="flex-start">
-                    {is_mobile || is_tablet ? (
+                    {is_mobile_or_tablet ? (
                         <Header as="h3" type="section-title" mb="4rem">
                             {localize('Start trading CFDs on Deriv')}
                         </Header>

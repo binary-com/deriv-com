@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import useVisibility, { TVisiblity } from 'components/hooks/use-visibility'
+import useScreenSize from 'components/hooks/use-screen-size'
 
 type BreakPointType = number | SizeType
 
@@ -81,12 +81,12 @@ export const Mobile = ({
 }
 
 type TVisiblityProps = {
-    config: Partial<TVisiblity>
+    config: Partial<ReturnType<typeof useScreenSize>>
     children?: ReactNode
 }
 
 export const Visibility = ({ children, config }: TVisiblityProps) => {
-    const visiblity = useVisibility()
+    const visiblity = useScreenSize()
 
     const filterKeys = Object.keys(config)
     const is_visible = filterKeys.some((key) => {

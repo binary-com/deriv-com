@@ -1,10 +1,10 @@
-import React, { useState, useEffect, createContext, Dispatch, ReactNode, useMemo } from 'react'
+import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
 import type { WebsiteStatus, ServerStatusResponse } from '@deriv/api-types'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
 import { isEuCountry, isUK } from 'common/country-base'
-import useBreakpoints, { TUseBreakpoints } from 'components/hooks/use-breakpoints'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 type DerivProviderProps = {
     children?: ReactNode
@@ -22,7 +22,7 @@ export type DerivStoreType = {
     deriv_api: DerivApiProps
     show_non_eu_popup: boolean
     setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
-    breakpoints: TUseBreakpoints
+    breakpoints: ReturnType<typeof useBreakpoints>
 }
 
 export const DerivStore = createContext<DerivStoreType>(null)

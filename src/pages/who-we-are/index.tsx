@@ -39,14 +39,12 @@ const EndSeparator = styled.div`
 `
 
 const Loader = styled.div`
-  width: 150px;
-  height: 150px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  border: 5px dashed red;
+  border: 5px dashed darkgrey;
   animation: rotate 1.5s infinite linear;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
+  margin: 10px auto 0;
   @keyframes rotate {
     from {
       transform: rotate(0deg) scale(0.8);
@@ -62,7 +60,6 @@ const AboutUs = () => {
 
     const [fetchPosts, isDataLoading, postError] = useFetching(async () => {
         const response = await axios.get('https://deriv-com-content.herokuapp.com/api/menus/?nested&populate=*')
-        console.log('data', response.data.data[1])
         setContent(response.data.data[1])
     })
 

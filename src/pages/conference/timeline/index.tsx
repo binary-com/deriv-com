@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import HeroBanner from './images/hero_banner.svg'
+import HeroBanner from './images/calendar.svg'
 import ScheduleConference from './_schedule'
-import { events_data } from './data_schedule'
+import events_data from './data_schedule'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
 import Layout from 'components/layout/layout'
+import device from 'themes/device'
 
 type TabProps = {
     active?: boolean
@@ -14,9 +14,28 @@ type TabProps = {
 
 const HeroWrapper = styled.div`
     background-image: url(${HeroBanner});
-    background-size: 100%;
-    min-height: 70rem;
     background-repeat: no-repeat;
+    background-size: 100%;
+    min-height: 72rem;
+    padding: 190px 0 0 120px;
+
+    @media ${device.laptop} {
+        padding: 120px 0 0 80px;
+    }
+    @media ${device.tabletS} {
+        padding: 60px 0 0 30px;
+        min-height: 60rem;
+    }
+`
+
+const CalendarHeader = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 74px;
+`
+
+const StyledHeroHeader = styled(Header)`
+    padding: 20px 0 20px 12px;
 `
 
 const Tab = styled.div`
@@ -68,22 +87,28 @@ const TimeLine = () => {
     }
 
     return (
-        <Layout type="conference" margin_top={7.2}>
-            <HeroWrapper />
+        <Layout type="conference" margin_top="0px">
+            <HeroWrapper>
+                <CalendarHeader>
+                    <StyledHeroHeader type="heading-1" weight="700" height="60px" align="center">
+                        Cronograma de Palestras
+                    </StyledHeroHeader>
+                </CalendarHeader>
+            </HeroWrapper>
             <Tab>
                 <TabItem active={isDay1} onClick={() => onTabClick('dia1')}>
                     <Header type="subtitle-1" align="center">
-                        {localize('Dia 1')}
+                        Dia 1
                     </Header>
                 </TabItem>
                 <TabItem active={isDay2} onClick={() => onTabClick('dia2')}>
                     <Header type="subtitle-1" align="center">
-                        {localize('Dia 2')}
+                        Dia 2
                     </Header>
                 </TabItem>
                 <TabItem active={isDay3} onClick={() => onTabClick('dia3')}>
                     <Header type="subtitle-1" align="center">
-                        {localize('Dia 3')}
+                        Dia 3
                     </Header>
                 </TabItem>
             </Tab>

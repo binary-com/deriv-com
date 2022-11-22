@@ -8,7 +8,10 @@ import GlobalAffiliate from 'images/svg/partners/global-affiliate-support.svg'
 import Advertise from 'images/svg/partners/advertise.svg'
 import HighValue from 'images/svg/partners/high-value-partnership.svg'
 
-const StyledContainer = styled(Container)`
+type StyledContainerProps = {
+    mw?: string
+}
+const StyledContainer = styled(Container)<StyledContainerProps>`
     align-items: flex-start;
     max-width: 1200px;
 

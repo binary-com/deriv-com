@@ -7,6 +7,9 @@ import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 
+type RedButtonProps = {
+    id?: string
+}
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-black-3);
 
@@ -38,7 +41,7 @@ const LightButton = styled(LinkButton)`
         width: 100%;
     }
 `
-const RedButton = styled(LinkButton)`
+const RedButton = styled(LinkButton)<RedButtonProps>`
     border-radius: 4px;
     padding-top: 0.5rem;
     height: 32px;

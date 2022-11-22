@@ -183,7 +183,7 @@ const DerivIBProgramme = () => {
                             {localize('Deriv X')}
                         </Header>
                         <StyledHeaderDerivx as="h4" type="main-paragraph" mb="1.6rem">
-                            {localize('Here is your commission plan:')}
+                            {localize("Here's your commission plan:")}
                         </StyledHeaderDerivx>
                         {is_row && <DERIVIBDMT5Cards data={ib_derivx} />}
                     </StyledCardWrapper>

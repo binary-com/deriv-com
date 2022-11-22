@@ -163,7 +163,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
 
     useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
 
-    const accordian_array = [
+    const accordion_array = [
         {
             id: 'trade_types_01',
             title: 'Trade',
@@ -683,7 +683,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
         <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} is_rtl={is_rtl} ref={canvas}>
             <OffCanvasMenuContainer>
                 <Accordion>
-                    {accordian_array.map((item) => {
+                    {accordion_array.map((item) => {
                         return (
                             <AccordionItem
                                 header={<Localize translate_text={item.title} />}

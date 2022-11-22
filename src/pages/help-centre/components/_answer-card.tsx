@@ -40,43 +40,42 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
             <Header size="2.4rem" mb="2.4rem">
                 <Localize translate_text={question} />
             </Header>
-            {renderProp && renderProp()}
-            {answer &&
-                answer.map(
-                    ({
-                        translation_text,
-                        eu_translation_text,
-                        translation_components,
-                        has_margin_top,
-                        margin_top,
-                        list,
-                        img,
-                    }) => {
-                        const text =
-                            is_eu_country && eu_translation_text
-                                ? eu_translation_text
-                                : translation_text
-                        const component =
-                            translation_components && TranslationComponents(translation_components)
+            {renderProp?.()}
+            {answer?.map(
+                ({
+                    translation_text,
+                    eu_translation_text,
+                    translation_components,
+                    has_margin_top,
+                    margin_top,
+                    list,
+                    img,
+                }) => {
+                    const text =
+                        is_eu_country && eu_translation_text
+                            ? eu_translation_text
+                            : translation_text
+                    const component =
+                        translation_components && TranslationComponents(translation_components)
 
-                        return (
-                            <>
-                                <Header
-                                    key={translation_text}
-                                    size="16px"
-                                    weight="normal"
-                                    mt={has_margin_top ? '1.7rem' : margin_top}
-                                >
-                                    {translation_text && (
-                                        <Localize translate_text={text} components={component} />
-                                    )}
-                                </Header>
-                                {img && <ImageCard {...img} />}
-                                {list && <List {...list} />}
-                            </>
-                        )
-                    },
-                )}
+                    return (
+                        <>
+                            <Header
+                                key={translation_text}
+                                size="16px"
+                                weight="normal"
+                                mt={has_margin_top ? '1.7rem' : margin_top}
+                            >
+                                {translation_text && (
+                                    <Localize translate_text={text} components={component} />
+                                )}
+                            </Header>
+                            {img && <ImageCard {...img} />}
+                            {list && <List {...list} />}
+                        </>
+                    )
+                },
+            )}
         </Wrapper>
     )
 }

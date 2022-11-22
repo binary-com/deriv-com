@@ -1,4 +1,4 @@
-import Derived from '../components/-derived'
+import Derived from '../components/_derived'
 import { TQuestionsData } from './_data-types'
 import { binary_bot_url, deriv_app_url, oauth_url } from 'common/constants'
 

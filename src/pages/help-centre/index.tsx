@@ -3,7 +3,8 @@ import QuestionsSection from './components/_questions-section'
 import SearchSection from './components/_search-section'
 import FaqSchema from './components/_faq-schema'
 import { DidntFindYourAnswerBanner, Community } from './components/_lazy-load'
-import { PLATFORMS, GENERAL, getQuestionsBySection } from './components/_utility'
+import { getQuestionsBySection } from './components/_utility'
+import { PLATFORMS, GENERAL } from './components/_constants'
 import { SEO, Desktop, Container } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -15,19 +16,22 @@ const HelpCentre = () => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_Help centre | Frequently asked questions | Deriv_t_')}
+                title={localize('Help centre | Frequently asked questions | Deriv')}
                 description={localize(
-                    '_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_',
+                    'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
                 )}
             />
             <FaqSchema />
             <SearchSection />
 
             <Container align="start" justify="flex-start" direction="column">
-                <QuestionsSection data={getQuestionsBySection(GENERAL)} section_name={GENERAL} />
+                <QuestionsSection
+                    data={getQuestionsBySection(GENERAL)}
+                    section_name={`_t_${GENERAL}_t_`}
+                />
                 <QuestionsSection
                     data={getQuestionsBySection(PLATFORMS)}
-                    section_name={PLATFORMS}
+                    section_name={`_t_${PLATFORMS}_t_`}
                 />
             </Container>
 

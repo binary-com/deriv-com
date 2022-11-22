@@ -6,10 +6,11 @@ import QuestionsCategory from './_questions-category'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 type TQuestionsSection = {
     data: TQuestionsData[]
-    section_name: string
+    section_name: TString
 }
 
 const Section = styled.section`
@@ -61,7 +62,7 @@ const QuestionsSection = ({ data, section_name }: TQuestionsSection) => {
     return (
         <Section>
             <SectionName>
-                <Localize translate_text={`_t_${section_name}_t_`} />
+                <Localize translate_text={section_name} />
             </SectionName>
             <HorizontalLine />
             <Div>

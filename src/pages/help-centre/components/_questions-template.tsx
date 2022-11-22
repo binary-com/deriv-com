@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { TQuestionsData } from '../data/_data-types'
 import { useFilteredQuestions } from '../data/_hooks'
@@ -32,9 +32,9 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
         <Layout>
             <SEO
                 title={localize(
-                    `_t_Help centre | Frequently asked questions | ${untranslate_category} | Deriv_t_`,
+                    `Help centre | Frequently asked questions | ${untranslate_category} | Deriv`,
                 )}
-                description={localize(`_t_Frequently asked questions - ${untranslate_category}_t_`)}
+                description={localize(`Frequently asked questions - ${untranslate_category}`)}
             />
             <Container align="start" justify="flex-start" direction="column">
                 <StyledLink
@@ -47,7 +47,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
                     arrow_margin="1rem"
                     margin="4rem 0 0"
                 >
-                    <Localize translate_text="_t_Back_t_" />
+                    <Localize translate_text="Back" />
                 </StyledLink>
 
                 <SideTab data={filtered_questions} tab_header={category}>
@@ -63,7 +63,6 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
                 </SideTab>
             </Container>
 
-            {/* contacts */}
             <ContactContainer>
                 <Community />
                 <DidntFindYourAnswerBanner />
@@ -72,4 +71,4 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     )
 }
 
-export default memo(QuestionsTemplate)
+export default QuestionsTemplate

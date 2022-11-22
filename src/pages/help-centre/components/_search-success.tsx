@@ -36,7 +36,7 @@ const Link = styled(LocalizedLink)`
 const SearchSuccess = ({ suggested_topics }: TSearchSuccess) => (
     <>
         <Header as="h3" type="heading-3" color="black">
-            <Localize translate_text="_t_Topic suggestions_t_" />
+            <Localize translate_text="Topic suggestions" />
         </Header>
 
         <Ul>

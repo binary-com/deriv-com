@@ -3,7 +3,7 @@ import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { useFilteredCategory, useFilteredQuestions } from '../data/_hooks'
 import SearchResult from './_search-result'
-import { all_questions } from './_utility'
+import { all_questions } from './_constants'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
@@ -117,7 +117,7 @@ const SearchSection = () => {
             <Container align="start" justify="flex-start" direction="column">
                 <Wrapper>
                     <ResponsiveHeader as="h1" type="heading-1" mb="4rem">
-                        <Localize translate_text="_t_How can we help?_t_" />
+                        <Localize translate_text="How can we help?" />
                     </ResponsiveHeader>
 
                     <SearchForm onSubmit={handleSubmit}>
@@ -126,7 +126,7 @@ const SearchSection = () => {
                             autoFocus
                             value={search_value}
                             onChange={handleSearchOnChange}
-                            placeholder={localize('_t_Try “Trade”_t_')}
+                            placeholder={localize('Try “Trade”')}
                             data-lpignore="true"
                             autoComplete="off"
                         />

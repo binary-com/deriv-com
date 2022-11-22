@@ -75,13 +75,13 @@ const DidntFindYourAnswerBanner = () => {
             <StyledContainer>
                 <Icon src={ContactUsIcon} alt="message-square" />
                 <Text size="var(--text-size-l)" color="white" m="0 2.4rem">
-                    <Localize translate_text="_t_Didn’t find your answer? We can help._t_" />
+                    <Localize translate_text="Didn’t find your answer? We can help." />
                 </Text>
 
                 {is_livechat_interactive && (
                     <Flex>
                         <Button secondary onClick={() => LC_API.open_chat_window()}>
-                            <Localize translate_text="_t_Chat_t_" />
+                            <Localize translate_text="Chat" />
                         </Button>
 
                         {(is_south_africa || is_nigeria) && (
@@ -92,7 +92,7 @@ const DidntFindYourAnswerBanner = () => {
                                     height="16"
                                     width="16"
                                 />
-                                <Localize translate_text="_t_WhatsApp_t_" />
+                                <Localize translate_text="WhatsApp" />
                             </WhatsAppButton>
                         )}
                     </Flex>

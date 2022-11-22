@@ -49,13 +49,13 @@ const SearchError = ({ search_value }: TSearchError) => (
     <>
         <Error as="h5" type="paragraph-1" color="black" size="var(--text-size-sm)">
             <Localize
-                translate_text="_t_Sorry, we couldn’t find any results matching '{{search_value}}'._t_"
+                translate_text="Sorry, we couldn’t find any results matching '{{search_value}}'."
                 values={{ search_value }}
             />
         </Error>
 
         <Tips color="green" weight="normal">
-            <Localize translate_text="_t_Search tips:_t_" />
+            <Localize translate_text="Search tips:" />
         </Tips>
         <Ul>
             {data.map((error) => (

@@ -54,13 +54,13 @@ const table_data = [
 const ControlLosses = () => (
     <>
         <Header size="16px" weight="normal">
-            <Localize translate_text="_t_There are many ways you can control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:_t_" />
+            <Localize translate_text="There are many ways you can control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:" />
         </Header>
 
         <ImageCard src={LossesImage} alt="Control loss" width="39.6rem" />
 
         <Header size="16px" weight="normal" mt="2.3rem" mb="2.4rem">
-            <Localize translate_text="_t_1. Create the following variables:_t_" />
+            <Localize translate_text="1. Create the following variables:" />
         </Header>
 
         <Table>
@@ -82,7 +82,7 @@ const ControlLosses = () => (
 
         <Header size="16px" weight="normal" mt="2.3rem">
             <Localize
-                translate_text="_t_2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to 'false' to prevent the bot from running another cycle._t_"
+                translate_text="2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to 'false' to prevent the bot from running another cycle."
                 components={[<strong key={0} />]}
             />
         </Header>
@@ -91,7 +91,7 @@ const ControlLosses = () => (
 
         <Header size="16px" weight="normal" mt="2.3rem">
             <Localize
-                translate_text="_t_3. Update <0>currentPL</0> with the profit from the last purchased contract. If the last contract was lost, the value of <0>currentPL</0> will be negative._t_"
+                translate_text="3. Update <0>currentPL</0> with the profit from the last purchased contract. If the last contract was lost, the value of <0>currentPL</0> will be negative."
                 components={[<strong key={0} />]}
             />
         </Header>

@@ -20,7 +20,7 @@ const Image = styled.img`
 
 const RemoveBlocks = () => (
     <Header size="16px" weight="normal" mt="1.7rem">
-        <Localize translate_text="_t_Just click on the block you want to remove and press 'Delete' on your keyboard. You can also drag the block to the recycle bin icon at the lower right corner of the workspace._t_" />
+        <Localize translate_text="Just click on the block you want to remove and press 'Delete' on your keyboard. You can also drag the block to the recycle bin icon at the lower right corner of the workspace." />
         <Wrapper>
             <Image src={DeleteImage} alt="Remove block" loading="lazy" />
         </Wrapper>

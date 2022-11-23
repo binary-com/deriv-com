@@ -7,7 +7,7 @@ export const mediaqueries = Object.keys(size)
         return size[b] - size[a]
     })
     .reduce((accumulator, label) => {
-        accumulator[label] = (...args) => css`
+        accumulator[label] = (...args: [TemplateStringsArray]) => css`
             @media (max-width: ${size[label]}px) {
                 ${css(...args)};
             }

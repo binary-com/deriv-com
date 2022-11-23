@@ -3,8 +3,7 @@ import styled, { css } from 'styled-components'
 import { Text, Header } from './typography'
 import device, { size } from 'themes/device'
 import { getWindowWidth } from 'common/utility'
-import { Box } from 'components/containers'
-import { Desktop } from 'components/containers/show'
+import { Box, Desktop } from 'components/containers'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 
 type TabsStyledProps = {
@@ -170,10 +169,15 @@ const SideTab = ({
     const [is_menu, setMenu] = useState(false)
 
     const Tabs = (props) => {
-        return children.map((child, idx) => {
+        return React.Children.map(children, (child) => {
             const { label, text, onClick } = child.props
+
+            if (!React.isValidElement(child)) {
+                return <></>
+            }
+
             return (
-                <div key={idx}>
+                <div>
                     <Tab
                         font_size={font_size}
                         mobile={props.is_mobile}

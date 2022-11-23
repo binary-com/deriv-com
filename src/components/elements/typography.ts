@@ -90,7 +90,7 @@ export const BaseLink = css`
 `
 
 export const BaseElement = css<BaseElementProps>`
-    text-align: ${(props) => props.align || 'left'};
+    text-align: ${(props) => props.align || 'start'};
     padding: ${(props) => props.padding || ''};
     color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-black-3)')};
     line-height: ${(props) => props.lh || '1.5'};

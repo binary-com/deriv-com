@@ -16,6 +16,8 @@ import { affiliate_signin_url, affiliate_signup_url } from 'common/constants'
 import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean
@@ -77,14 +79,14 @@ const StyledNavRight = styled(NavRight)`
                 if (ref_base && props.mounted) {
                     ref_base.style.opacity = 1
                 }
-                return '50px'
+                return '0'
             } else {
                 if (ref_base && props.mounted) {
                     ref_base.style.opacity = 0
                     const calculation = ref_base.offsetWidth + 50
-                    return `${calculation}px`
+                    return props.is_rtl ? `${-calculation}px` : `${calculation}px`
                 }
-                return '225px'
+                return props.is_rtl ? '-225px' : '225px'
             }
         }}
     );
@@ -130,16 +132,16 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const { is_row } = useCountryRule()
     const button_ref = useRef<HTMLButtonElement | null>(null)
     const [show_button, showButton, hideButton] = useMoveButton()
-    const [mounted, setMounted] = useState(false)
+    const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
 
+    const is_rtl = useIsRtl()
     const buttonHandleScroll = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
     }
 
     useEffect(() => {
-        setMounted(true)
         if (!hide_login_signup) {
             document.addEventListener('scroll', buttonHandleScroll, { passive: true })
             return () => document.removeEventListener('scroll', buttonHandleScroll)
@@ -185,8 +187,9 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                     <StyledNavRight
                         move={show_button}
                         button_ref={button_ref}
-                        mounted={mounted}
+                        mounted={is_mounted}
                         has_scrolled={has_scrolled}
+                        is_rtl={is_rtl}
                     >
                         <LinkButton
                             to={affiliate_signin_url}

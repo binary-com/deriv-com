@@ -4,7 +4,7 @@ import device from 'themes/device'
 import { getBaseRef } from 'common/utility'
 import { Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
-import { SharedLinkStyle } from 'components/localization/localized-link'
+import { SharedLinkStyle, SharedLinkStyleMarket } from 'components/localization/localized-link'
 
 type NavRightProps = {
     button_ref: HTMLButtonElement
@@ -12,6 +12,7 @@ type NavRightProps = {
     move?: boolean
     has_scrolled: boolean
     hide_signup_login: boolean
+    is_rtl?: boolean
 }
 
 type WrapperProps = {
@@ -58,25 +59,37 @@ export const DesktopWrapper = styled.div<DesktopWrapperProps>`
         display: none;
     }
 `
+export const MarketWrapper = styled.div<DesktopWrapperProps>`
+    display: block;
+    @media ${device.tabletL} {
+        justify-content: start;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
 
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+`
 export const MobileWrapper = styled.div<DesktopWrapperProps>`
     display: none;
     @media ${({ media }) => media || device.tabletL} {
         display: block;
+        background: var(--color-black);
     }
 `
 
 export const NavRight = styled.div<NavRightProps>`
     display: inline-flex;
     align-items: center;
-    text-align: right;
+    text-align: end;
     justify-content: center;
     padding: 0;
     opacity: ${({ mounted }) => (mounted ? '1' : '0')};
     transition: ${({ move, has_scrolled }) =>
         move ? 'all 0.25s' : has_scrolled ? 'all 0.25s' : 'none'};
     transform: translateX(
-        ${({ button_ref, hide_signup_login, move, mounted }) => {
+        ${({ button_ref, hide_signup_login, move, mounted, is_rtl }) => {
             const ref_base = getBaseRef(button_ref)
 
             if (hide_signup_login) {
@@ -90,7 +103,7 @@ export const NavRight = styled.div<NavRightProps>`
                 if (ref_base && mounted) {
                     ref_base.style.opacity = 0
                     const calculation = ref_base.offsetWidth + 2
-                    return `${calculation}px`
+                    return is_rtl ? `${-calculation}px` : `${calculation}px`
                 }
                 return '300px'
             }
@@ -166,6 +179,9 @@ export const NavLink = styled.li<NavLinkProps>`
     @media ${device.laptopM} {
         margin-right: 1rem;
     }
+    @media ${device.tabletL} {
+        margin-right: 4rem;
+    }
 
     ${({ margin }) => margin && 'margin: 0 4rem;'}
 
@@ -209,13 +225,16 @@ export const Line = styled.div`
 export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
-
+export const StyledLinkMarket = styled(LocalizedLink)`
+    ${SharedLinkStyleMarket}
+`
 export const PartnerNavigationBarWrapper = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: -1;
+
     @media ${device.tabletL} {
         height: auto;
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, LocalizedLinkText } from 'components/elements'
+import { Header, ImageWithDireciton, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // icons
@@ -116,7 +116,7 @@ const Rewards = () => {
                         {card_content.map((item, idx) => {
                             return (
                                 <Card key={idx}>
-                                    <img src={item.icon} />
+                                    <img src={item.icon} alt={item.header} />
                                     <Header
                                         as="h3"
                                         mt="8px"
@@ -181,7 +181,7 @@ const Rewards = () => {
                             />,
                         ]}
                     />
-                    <img src={Arrow} alt="arrow" width="16" height="16" />
+                    <ImageWithDireciton src={Arrow} alt="arrow" width="16" height="16" />
                 </Flex>
             </Container>
         </StyledSectionContainer>

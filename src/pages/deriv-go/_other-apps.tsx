@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ContentType } from './index'
 import { Container, Flex, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 // svg
@@ -78,14 +78,12 @@ const other_apps: ContentType[] = [
     {
         id: 0,
         icon: DMT5,
-        title: <Localize translate_text="DMT5" />,
-        content: (
-            <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one CFD trading app." />
-        ),
+        title: <Localize translate_text="Deriv MT5" />,
+        content: <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading app." />,
         url: (
             <LearnMore to="/dmt5/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="" />
+                <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
     },
@@ -99,7 +97,7 @@ const other_apps: ContentType[] = [
         url: (
             <LearnMore to="/derivx/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="" />
+                <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
     },
@@ -127,7 +125,7 @@ const OtherApps = () => {
                             return (
                                 <Card key={item.id}>
                                     <div>
-                                        <img src={item.icon} alt="" />
+                                        <img src={item.icon} alt="icon" />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
                                         {item.title}

@@ -72,7 +72,7 @@ const StepCommon = css<StepCommonType>`
     cursor: pointer;
     padding-left: 1.8rem;
     @media ${device.tabletL} {
-        text-align: left;
+        text-align: start;
         border: none;
         margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
@@ -119,7 +119,7 @@ const DtraderTabs = () => {
                         as="h4"
                         type="sub-section-title"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         no_margin
                         image_name="step_1"
                         current_step={current_step}
@@ -133,7 +133,7 @@ const DtraderTabs = () => {
                         as="h4"
                         type="sub-section-title"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         image_name="step_2"
                         current_step={current_step}
                         onClick={() => clickHandler('step_2')}
@@ -146,7 +146,7 @@ const DtraderTabs = () => {
                         as="h4"
                         type="sub-section-title"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         image_name="step_3"
                         current_step={current_step}
                         onClick={() => clickHandler('step_3')}
@@ -159,7 +159,7 @@ const DtraderTabs = () => {
                         as="h4"
                         type="sub-section-title"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         image_name="step_4"
                         current_step={current_step}
                         onClick={() => clickHandler('step_4')}
@@ -172,7 +172,7 @@ const DtraderTabs = () => {
                         as="h4"
                         type="sub-section-title"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         image_name="step_5"
                         current_step={current_step}
                         onClick={() => clickHandler('step_5')}

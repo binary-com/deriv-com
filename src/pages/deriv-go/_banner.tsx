@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
 import { Button } from 'components/form'
 import DerivGoBg from 'images/common/deriv-go/hero-bg.png'
+import DerivGoBgRTL from 'images/common/deriv-go/hero-bg_rtl.png'
 import { mobileOSDetect } from 'common/os-detect'
 import DerivGoMobileBg from 'images/common/deriv-go/hero-mobile-bg.png'
 import {
@@ -15,6 +16,7 @@ import {
     deriv_go_ios_url,
 } from 'common/constants'
 import { isBrowser } from 'common/utility'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const query = graphql`
     query {
@@ -42,8 +44,16 @@ const query = graphql`
     }
 `
 
-const MainWrapper = styled(Flex)`
-    background: url(${DerivGoBg}) right bottom 30%;
+const MainWrapper = styled(Flex)<{ is_rtl: boolean }>`
+    ${({ is_rtl }) =>
+        is_rtl
+            ? css`
+                  background: url(${DerivGoBgRTL}) right bottom 30%;
+              `
+            : css`
+                  background: url(${DerivGoBg}) right bottom 30%;
+              `}
+
     background-size: cover;
     height: 79rem;
     @media ${device.laptopM} {
@@ -154,6 +164,7 @@ const HeroContent = styled(Flex)`
 const Banner = () => {
     const data = useStaticQuery(query)
     const [is_mobile, setMobile] = useState(false)
+    const is_rtl = useIsRtl()
 
     useEffect(() => {
         const handleResizeWindow = () =>
@@ -179,7 +190,7 @@ const Banner = () => {
         window.open(link, '_blank')
     }
     return (
-        <MainWrapper>
+        <MainWrapper is_rtl={is_rtl}>
             <Container laptop_direction="column">
                 <Flex
                     jc="center"

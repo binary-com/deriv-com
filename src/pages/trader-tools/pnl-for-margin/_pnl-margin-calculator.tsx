@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useState, useRef } from 'react'
 import { Field, Formik } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import {
     getContractSize,
     getCurrency,
@@ -43,66 +42,22 @@ import {
     StyledSection,
     SwapTabSelector,
 } from '../common/_style'
+import { StopLoss, PipValue, TakeProfitLevel, ProfitPipValue } from './_example-pnl-margin'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
     Header,
+    ImageWithDireciton,
     LocalizedLinkText,
-    QueryImage,
     Text,
 } from 'components/elements'
-import { Flex, Desktop, Mobile } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers/visibility'
+import { Flex } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const PnlMarginCalculator = () => {
-    const query = graphql`
-        query {
-            stop_loss_level_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_level_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_pip_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-pip-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_pip_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-pip-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_level_formula: file(
-                relativePath: { eq: "trade-tools/take-profit-level-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_level_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-level-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_pip_formula: file(
-                relativePath: { eq: "trade-tools/take-profit-pip-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_pip_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-pip-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-
-    const data = useStaticQuery(query)
     const formik_ref = useRef(null)
     const form = formik_ref.current
 
@@ -153,7 +108,7 @@ const PnlMarginCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -927,16 +882,10 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Desktop breakpoint={'tablet'}>
-                                        <QueryImage
-                                            data={data.stop_loss_level_formula}
-                                            alt={localize('stop loss level formula')}
-                                        />
+                                        <StopLoss />
                                     </Desktop>
                                     <Mobile>
-                                        <QueryImage
-                                            data={data.stop_loss_level_formula_mobile}
-                                            alt={localize('stop loss level formula')}
-                                        />
+                                        <StopLoss />
                                     </Mobile>
                                     <FormulaText>
                                         <StyledOl>
@@ -955,16 +904,10 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Desktop breakpoint={'tablet'}>
-                                        <QueryImage
-                                            data={data.stop_loss_pip_formula}
-                                            alt={localize('stop loss pip formula')}
-                                        />
+                                        <PipValue />
                                     </Desktop>
                                     <Mobile>
-                                        <QueryImage
-                                            data={data.stop_loss_pip_formula_mobile}
-                                            alt={localize('stop loss pip formula')}
-                                        />
+                                        <PipValue />
                                     </Mobile>
                                     <FormulaText>
                                         <StyledOl>
@@ -1062,17 +1005,12 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Desktop breakpoint={'tablet'}>
-                                        <QueryImage
-                                            data={data.take_profit_level_formula}
-                                            alt={localize('take profit level formula')}
-                                        />
+                                        <TakeProfitLevel />
                                     </Desktop>
                                     <Mobile>
-                                        <QueryImage
-                                            data={data.take_profit_level_formula_mobile}
-                                            alt={localize('take profit level formula')}
-                                        />
+                                        <TakeProfitLevel />
                                     </Mobile>
+
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1090,16 +1028,10 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Desktop breakpoint={'tablet'}>
-                                        <QueryImage
-                                            data={data.take_profit_pip_formula}
-                                            alt={localize('take profit pip formula')}
-                                        />
+                                        <ProfitPipValue />
                                     </Desktop>
                                     <Mobile>
-                                        <QueryImage
-                                            data={data.take_profit_pip_formula_mobile}
-                                            alt={localize('take profit pip formula')}
-                                        />
+                                        <ProfitPipValue />
                                     </Mobile>
                                     <FormulaText>
                                         <StyledOl>

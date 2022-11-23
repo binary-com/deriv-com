@@ -5,6 +5,7 @@ import HeroImage from 'images/common/conference/hero.png'
 import Calendar from 'images/svg/conference/calendar.svg'
 import Pin from 'images/svg/conference/pin.svg'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 const HeroWrapper = styled.div`
     background-image: url(${HeroImage});
@@ -40,18 +41,18 @@ const Hero = () => {
         <HeroWrapper>
             <Newsbreak>
                 <StyledHeroHeader as="h1" type="heading-2" height="60px">
-                    Conferência de Afiliados Deriv do Brazil
+                    {localize('Deriv do Brasil Affiliate Conference')}
                 </StyledHeroHeader>
                 <HeaderWrapper>
                     <img src={Calendar} alt="calendar icon" width={28} height={28} />
                     <StyledHeroHeader as="h2" type="heading-3" weight="normal">
-                        30 de Novembro a 2 de Dezembro 2022
+                        {localize('November 30th to December 2nd 2022')}
                     </StyledHeroHeader>
                 </HeaderWrapper>
                 <HeaderWrapper>
                     <img src={Pin} alt="pin icon" width={24} height={32} />
                     <StyledHeroHeader as="div" type="heading-3" weight="normal">
-                        em Assunção, Paraguai.
+                        {localize('in Asunción, Paraguay.')}
                     </StyledHeroHeader>
                 </HeaderWrapper>
             </Newsbreak>

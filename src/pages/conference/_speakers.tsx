@@ -10,6 +10,7 @@ import Raul from 'images/common/conference/Raul.png'
 import Sasky from 'images/common/conference/Sasky.png'
 import Ana from 'images/common/conference/Ana.png'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 const SpeakersWrapper = styled.div`
     display: flex;
@@ -53,20 +54,20 @@ const SpeakerInfo = styled(Header)`
 
 const Speakers = () => {
     const speakers_info = [
-        { name: 'Alcino', role: 'Gerente LATAM Deriv', photo: Alcino },
-        { name: 'Ricardo', role: 'Líder da equipe America Central Deriv', photo: Ricardo },
-        { name: 'Sebastian', role: 'Conferência de Afiliados da Deriv 2022', photo: Sebastian },
-        { name: 'Sasky', role: 'Líder da equipe Brasil Deriv', photo: Sasky },
-        { name: 'Claudia', role: 'Gestora de afiliados Deriv', photo: Claudia },
-        { name: 'Raul', role: 'Gestora de afficaclos Deriv', photo: Raul },
-        { name: 'Alejandro', role: 'Suporte ao cliente Deriv', photo: Alejandro },
-        { name: 'Ana', role: 'Gestora de afiliados Deriv', photo: Ana },
+        { name: 'Alcino', role: 'LATAM Deriv Manager', photo: Alcino },
+        { name: 'Ricardo', role: 'Central America Deriv team leader', photo: Ricardo },
+        { name: 'Sebastian', role: 'Colombia Deriv team leader', photo: Sebastian },
+        { name: 'Sasky', role: 'Brazil Deriv team leader', photo: Sasky },
+        { name: 'Claudia', role: 'Deriv Affiliate Manager', photo: Claudia },
+        { name: 'Raul', role: 'GDeriv Affiliate Manager', photo: Raul },
+        { name: 'Alejandro', role: 'Deriv customer support', photo: Alejandro },
+        { name: 'Ana', role: 'Deriv Affiliate Manager', photo: Ana },
     ]
 
     return (
         <SpeakersWrapper>
             <SpeakerInfo as="h5" type="heading-2">
-                Palestrantes
+                {localize('Speakers')}
             </SpeakerInfo>
             <SpeakersTable>
                 {speakers_info.map((speaker) => {
@@ -74,7 +75,7 @@ const Speakers = () => {
                         <IndividualSpeaker key={speaker.name}>
                             <Photo src={speaker.photo} alt={speaker.name} />
                             <SpeakerInfo as="div" type="subtitle-1" pt="24px">
-                                {speaker.name}
+                                {localize(speaker.name)}
                             </SpeakerInfo>
                             <SpeakerInfo
                                 as="div"
@@ -83,7 +84,7 @@ const Speakers = () => {
                                 pt="8px"
                                 mb="16px"
                             >
-                                {speaker.role}
+                                {localize(speaker.role)}
                             </SpeakerInfo>
                         </IndividualSpeaker>
                     )

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Header } from 'components/elements'
 import PreviewImage from 'images/common/conference/preview.png'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 const PreviewWrapper = styled.div`
     display: flex;
@@ -29,12 +30,13 @@ const Preview = () => {
     return (
         <PreviewWrapper>
             <PreviewHeader as="h4" type="subtitle-1" pb="40px">
-                O objetivo deste evento é reunir nossos parceiros de alto desempenho e criar um
-                espaço de colaboração.
+                {localize(
+                    'The purpose of this event is to bring our high-performing partners together and create a space for collaboration.',
+                )}
             </PreviewHeader>
             <StyledImage src={PreviewImage} alt="preview image" />
             <PreviewHeader as="div" type="subtitle-2" pt="8px">
-                Aprenda insights de seus produtos Deriv favoritos.
+                {localize('Learn insights from your favorite Deriv products.')}
             </PreviewHeader>
         </PreviewWrapper>
     )

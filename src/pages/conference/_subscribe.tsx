@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 const LoginHeader = styled(Header)`
     text-align: center;
@@ -25,9 +26,9 @@ export const NoticableLogin = () => {
     return (
         <NoticableLoginWrapper>
             <LoginHeader as="div" type="heading-3">
-                Deixe-nos saber se você vai estar presente!
+                {localize('Let us know if you will be attending!')}
             </LoginHeader>
-            <Button secondary>Cadastre-se aqui</Button>
+            <Button secondary>{localize('Register here')}</Button>
         </NoticableLoginWrapper>
     )
 }

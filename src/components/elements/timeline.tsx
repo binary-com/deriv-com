@@ -74,12 +74,14 @@ type TimelineTickProps = {
     pl?: string
     is_border?: boolean
     color?: string
+    children?: ReactNode[]
+}
+
+type ItemProps = {
     children?: ReactNode
 }
 
 type TimelineProps = Pick<TimelineTickProps, 'pb' | 'pl' | 'children'>
-
-type ItemProps = Pick<TimelineTickProps, 'children'>
 
 const Timeline = ({ pb, pl, children, ...props }: TimelineProps) => {
     return (

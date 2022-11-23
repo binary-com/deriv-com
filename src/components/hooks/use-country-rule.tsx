@@ -11,7 +11,7 @@ import { DerivStore } from 'store'
 
 export const useCountryRule = () => {
     const [region, setRegion] = useState({
-        is_loading: false,
+        is_loading: true,
         is_eu_location: isEuDomain(),
         is_eu: isEuDomain(),
         is_non_eu: !isEuDomain(),

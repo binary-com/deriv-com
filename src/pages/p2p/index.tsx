@@ -91,7 +91,13 @@ const DP2PHome = () => {
             </Layout>
         )
     }
-    return <PageNotFound />
+    return (
+        <PageNotFound
+            pageContext={{
+                locale: '',
+            }}
+        />
+    )
 }
 
 export default WithIntl()(DP2PHome)

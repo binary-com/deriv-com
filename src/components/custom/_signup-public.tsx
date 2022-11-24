@@ -452,7 +452,6 @@ const SignupPublic = ({
                                 width="225px"
                             />
                             <LinkFlex
-                                ai="center"
                                 external
                                 href={deriv_app_url}
                                 target="_blank"

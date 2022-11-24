@@ -10,13 +10,14 @@ import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type DHeroProps = {
     background_alt?: string
     background_image_name?: string
     background_svg?: string
     content?: string | JSX.Element
-    go_to_live_demo?: boolean
+    is_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean | string
     hide_signup_login?: boolean
@@ -143,12 +144,15 @@ const DemoButton = styled(Button)`
     }
 `
 
-const BackgroundSVG = styled.img`
+const BackgroundSVG = styled.img<{ is_rtl: boolean }>`
     position: absolute;
     top: 0;
     right: 0;
     height: 100%;
-    width: 600px;
+    width: 630px;
+    transform: ${({ is_rtl }) => {
+        return is_rtl ? 'scaleX(-1)' : null
+    }};
 
     @media (max-width: 1680px) {
         width: 40%;
@@ -170,7 +174,21 @@ const BackgroundSVG = styled.img`
         height: 250px;
     }
 `
-
+const GoToLiveDemo = styled(LinkButton)`
+    color: var(--color-white);
+    border-color: var(--color-black-5);
+    padding: 14px 16px;
+    width: auto;
+    @media ${device.mobileL} {
+        max-width: 100%;
+        white-space: nowrap;
+        margin-left: 0;
+        width: 100%;
+    }
+    @media (max-width: 360px) {
+        white-space: nowrap;
+    }
+`
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
@@ -233,18 +251,19 @@ const DHero = ({
     content,
     image_name,
     join_us_for_free,
-    go_to_live_demo,
+    is_live_demo,
     Logo,
 }: DHeroProps) => {
     const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
     const { is_eu } = useCountryRule()
+    const is_rtl = useIsRtl()
     const [is_logged_in] = useAuthCheck()
 
     return (
         <Wrapper>
-            <BackgroundSVG src={background_svg} alt="background svg" />
+            <BackgroundSVG is_rtl={is_rtl} src={background_svg} alt="background svg" />
 
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" weight="normal">
@@ -267,6 +286,17 @@ const DHero = ({
                                 <Localize translate_text="Create free demo account" />
                             </DemoButton>
                         ))}
+                    {is_live_demo && (
+                        <GoToLiveDemo
+                            tertiary
+                            external
+                            type={getLinkType()}
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                        >
+                            <Localize translate_text="Go to live demo" />
+                        </GoToLiveDemo>
+                    )}
                 </LinkWrapper>
             </InformationWrapper>
 

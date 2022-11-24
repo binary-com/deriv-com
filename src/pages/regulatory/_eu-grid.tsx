@@ -12,6 +12,7 @@ type GridItemProps = {
 
 const Country = styled.div`
     margin-bottom: 2.4rem;
+    text-align: start;
     display: grid;
     grid-template-columns: 1.9rem 1fr;
     grid-column-gap: 0.8rem;

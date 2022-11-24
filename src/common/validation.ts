@@ -7,7 +7,13 @@ const validation_regex = {
     number: /^\d+$/,
 }
 
-const validation = {
+type TValidationHandler = (input: string, message?: string) => string | null
+type TValidationMethods = 'email' | 'name' | 'required' | 'url' | 'number' | 'alphabetic'
+type TValidationType = {
+    [key in TValidationMethods]: TValidationHandler
+}
+
+const validation: TValidationType = {
     // Validation will return a string for error message
     email: (input, message) => {
         if (!validation_regex.email.test(input)) {

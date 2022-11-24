@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Formik, Field } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import {
     getSwapChargeSynthetic,
@@ -42,14 +41,15 @@ import {
     SwapFormWrapper,
     SwapTabSelector,
 } from '../common/_style'
+import { SwapSyntheticExample, SwapFinancialExample } from './_example-calc'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
     Dropdown,
     Header,
+    ImageWithDireciton,
     LocalizedLinkText,
-    QueryImage,
     Text,
 } from 'components/elements'
 import { Flex, Desktop, Mobile } from 'components/containers'
@@ -185,30 +185,6 @@ const StyledInputGroup = styled(InputGroup)`
 `
 
 const SwapCalculator = () => {
-    const query = graphql`
-        query {
-            swap_synthetic_formula: file(
-                relativePath: { eq: "trade-tools/swap-synthetic-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            swap_forex_formula: file(relativePath: { eq: "trade-tools/swap-forex-formula.png" }) {
-                ...fadeIn
-            }
-            swap_synthetic_formula_mobile: file(
-                relativePath: { eq: "trade-tools/swap-synthetic-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            swap_forex_formula_mobile: file(
-                relativePath: { eq: "trade-tools/swap-forex-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-    const data = useStaticQuery(query)
-
     const [tab, setTab] = useState('Synthetic')
     const [activeSymbols, setActiveSymbols] = useState([])
     const [disableDropdown, setDisableDropdown] = useState(true)
@@ -256,7 +232,7 @@ const SwapCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -487,16 +463,10 @@ const SwapCalculator = () => {
                                         </Text>
 
                                         <Desktop>
-                                            <QueryImage
-                                                data={data.swap_synthetic_formula}
-                                                alt={localize('swap synthetic formula')}
-                                            />
+                                            <SwapSyntheticExample />
                                         </Desktop>
                                         <Mobile>
-                                            <QueryImage
-                                                data={data.swap_synthetic_formula_mobile}
-                                                alt={localize('swap synthetic formula mobile')}
-                                            />
+                                            <SwapSyntheticExample />
                                         </Mobile>
                                         <FormulaText>
                                             <StyledOl>
@@ -738,16 +708,10 @@ const SwapCalculator = () => {
                                         </Text>
 
                                         <Desktop>
-                                            <QueryImage
-                                                data={data.swap_forex_formula}
-                                                alt={localize('Swap forex formula')}
-                                            />
+                                            <SwapFinancialExample />
                                         </Desktop>
                                         <Mobile>
-                                            <QueryImage
-                                                data={data.swap_forex_formula_mobile}
-                                                alt={localize('Swap forex formula mobile')}
-                                            />
+                                            <SwapFinancialExample />
                                         </Mobile>
                                         <FormulaText>
                                             <StyledOl>

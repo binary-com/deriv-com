@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import ExpandList from './_expanded-list'
+import Loadable from '@loadable/component'
 import payment_data from './_payment-data'
 import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
@@ -12,6 +12,8 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+
+const ExpandList = Loadable(() => import('./_expanded-list'))
 
 type StyledTableType = {
     has_note: boolean
@@ -81,12 +83,12 @@ const StyledTable = styled.table<StyledTableType>`
 const Thead = styled.thead`
     font-size: var(--text-size-s);
     font-weight: bold;
-    text-align: left;
+    text-align: start;
     border-bottom: 2px solid var(--color-grey-2);
 `
 
 const Tbody = styled.tbody`
-    text-align: left;
+    text-align: start;
 `
 
 const Tr = styled.tr`
@@ -221,7 +223,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                 if (pd.is_fiat_onramp && is_eu) {
                     return []
                 } else if (pd.is_dp2p && !is_p2p_allowed_country) {
-                    return []
+                    return null
                 } else
                     return (
                         <AccordionItem
@@ -353,7 +355,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
 const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
-        <Layout>
+        <Layout type="payment-methods">
             <SEO
                 title={localize('Payment Methods | Deposits and withdrawals | Deriv')}
                 description={localize(
@@ -392,7 +394,7 @@ const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
                     <AccordionContainer>
                         <DisplayAccordion locale={locale} />
                     </AccordionContainer>
-                    <Header mt="1.6rem" type="paragraph-2" align="left" weight="normal">
+                    <Header mt="1.6rem" type="paragraph-2" align="start" weight="normal">
                         <Localize
                             translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
                             components={[<strong key={0} />]}

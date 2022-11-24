@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     WhyTrader,
@@ -21,6 +21,7 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { MetaAttributesType } from 'types/page.types'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const meta_attributes: MetaAttributesType = {
     og_title: localize('DMT5 | MetaTrader 5 | Deriv'),
@@ -35,6 +36,9 @@ const query = graphql`
             ...fadeIn
         }
         dmt5_desktop_banner: file(relativePath: { eq: "dmt5/bg_desktop_banner_dmt5.png" }) {
+            ...fadeIn
+        }
+        dmt5_desktop_banner_rtl: file(relativePath: { eq: "dmt5/bg_desktop_banner_dmt5_rtl.png" }) {
             ...fadeIn
         }
         dmt5_mobile_banner: file(relativePath: { eq: "dmt5/bg_banner_dmt5_mobile.png" }) {
@@ -53,8 +57,16 @@ const DMT5 = () => {
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
-    })
-    const background = is_mobile ? data['dmt5_mobile_banner'] : data['dmt5_desktop_banner']
+    }, [])
+
+    const is_rtl = useIsRtl()
+    const background = useMemo(() => {
+        if (is_mobile) {
+            return data['dmt5_mobile_banner']
+        } else {
+            return is_rtl ? data['dmt5_desktop_banner_rtl'] : data['dmt5_desktop_banner']
+        }
+    }, [data, is_mobile, is_rtl])
 
     return (
         <Layout>
@@ -111,6 +123,7 @@ const DMT5 = () => {
                 title={<Localize translate_text="Get into the Deriv MT5 experience" />}
                 data={data}
                 image_alt="DMT5 trading platform"
+                is_mt5
             />
         </Layout>
     )

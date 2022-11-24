@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import {
     getPipValue,
     resetValidationPip,
@@ -39,13 +38,14 @@ import {
     FormulaText,
     StyledOl,
 } from '../common/_style'
+import { PipSyntheticExample, PipForexExample } from './_example-pip'
 import {
     Accordion,
     AccordionItem,
     Header,
     LocalizedLinkText,
-    QueryImage,
     Text,
+    ImageWithDireciton,
 } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
@@ -53,30 +53,6 @@ import { Flex, Desktop, Mobile } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 
 const PipCalculator = () => {
-    const query = graphql`
-        query {
-            pip_value_formula: file(relativePath: { eq: "trade-tools/pip-value-formula.png" }) {
-                ...fadeIn
-            }
-            pip_value_forex_formula: file(
-                relativePath: { eq: "trade-tools/pip-value-forex-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            pip_value_formula_mobile: file(
-                relativePath: { eq: "trade-tools/pip-value-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            pip_value_forex_formula_mobile: file(
-                relativePath: { eq: "trade-tools/pip-value-forex-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-    const data = useStaticQuery(query)
-
     const [tab, setTab] = useState('Synthetic')
 
     const onTabClick = (t) => {
@@ -90,7 +66,7 @@ const PipCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -340,22 +316,11 @@ const PipCalculator = () => {
                                 </Text>
 
                                 <Desktop>
-                                    <QueryImage
-                                        data={data.pip_value_formula}
-                                        alt={localize('Margin formula')}
-                                    />
-                                    <QueryImage data={data.pip_info} alt={localize('Pip Info')} />
+                                    <PipSyntheticExample />
                                 </Desktop>
 
                                 <Mobile>
-                                    <QueryImage
-                                        data={data.pip_value_formula_mobile}
-                                        alt={localize('Margin formula mobile')}
-                                    />
-                                    <QueryImage
-                                        data={data.pip_info_mobile}
-                                        alt={localize('Pip Info')}
-                                    />
+                                    <PipSyntheticExample />
                                 </Mobile>
                                 <FormulaText>
                                     <StyledOl>
@@ -393,17 +358,11 @@ const PipCalculator = () => {
                                 </Text>
 
                                 <Desktop>
-                                    <QueryImage
-                                        data={data.pip_value_forex_formula}
-                                        alt={localize('Pip Forex formula')}
-                                    />
+                                    <PipForexExample />
                                 </Desktop>
 
                                 <Mobile>
-                                    <QueryImage
-                                        data={data.pip_value_forex_formula_mobile}
-                                        alt={localize('Pip Forex formula')}
-                                    />
+                                    <PipForexExample />
                                 </Mobile>
 
                                 <FormulaText>

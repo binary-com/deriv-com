@@ -4,25 +4,26 @@ import ArrowRight from './images/downwards_right.svg'
 import ArrowLeft from './images/downwards_left.svg'
 import { Header } from 'components/elements'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 type ScheduleProps = {
-    time?: ReactNode
+    time?: string | number
     id?: string
-    name?: ReactNode
-    topic?: ReactNode
+    name?: string
+    topic?: string
 }
 
 type DataProps = {
     timings: ScheduleProps[]
-    free_time: ReactNode
+    free_time: string | number
     speakers: ScheduleProps[]
 }
 
 type ScheduleConferenceProps = {
     id?: string
-    title?: ReactNode
-    date?: ReactNode
-    period?: ReactNode
+    title?: string
+    date?: string
+    period?: string
     data?: DataProps[]
 }
 
@@ -49,13 +50,10 @@ const WrapperContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    max-width: 700px;
+    max-width: 995px;
 `
 
 const ImageContainer = styled.div`
-    display: flex;
-    justify-content: center;
-
     @media ${device.tablet} {
         margin-left: 40px;
     }
@@ -87,18 +85,18 @@ const ContentWrapper = styled.div`
 
 const ScheduleConference = ({ item }: ConferenceProps) => {
     const { id, date, data, period, title } = item
-
+    console.log(title)
     return (
         <>
             <HeaderTitle key={id}>
                 <Header weight="400" type="subtitle-1" align="center" pt="16px">
-                    {title}
+                    {localize(title)}
                 </Header>
                 <Header weight="400" type="subtitle-1" align="center" pt="16px">
-                    {date}
+                    {localize(date)}
                 </Header>
                 <Header weight="400" type="subtitle-1" align="center" pt="16px">
-                    {period}
+                    {localize(period)}
                 </Header>
             </HeaderTitle>
 
@@ -112,6 +110,7 @@ const ScheduleConference = ({ item }: ConferenceProps) => {
                                         {item.timings.map((item) => {
                                             return (
                                                 <Header
+                                                    as="div"
                                                     type="heading-3"
                                                     align="center"
                                                     weight="700"
@@ -135,20 +134,22 @@ const ScheduleConference = ({ item }: ConferenceProps) => {
                                             return (
                                                 <>
                                                     <Header
+                                                        as="div"
                                                         align="left"
                                                         type="subtitle-1"
                                                         weight="700"
                                                         width="230px"
                                                     >
-                                                        {item.name}
+                                                        {localize(item.topic)}
                                                     </Header>
                                                     <Header
+                                                        as="div"
                                                         align="left"
                                                         type="subtitle-1"
                                                         weight="400"
                                                         mb="32px"
                                                     >
-                                                        {item.topic}
+                                                        {localize(item.name)}
                                                     </Header>
                                                 </>
                                             )

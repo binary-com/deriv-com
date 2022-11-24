@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import HeroBanner from './images/hero_banner_new.png'
+import HeroBanner from './images/calendar.png'
 import ScheduleConference from './_schedule'
 import events_data from './_data-schedule'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-
-type TabProps = {
-    active?: boolean
-    mobile_padding?: string
-}
+import device from 'themes/device'
+import { localize } from 'components/localization'
 
 const HeroWrapper = styled.div`
     background-image: url(${HeroBanner});
     background-repeat: no-repeat;
     background-size: 100% 100%;
     min-height: 72rem;
+
+    @media ${device.tabletS} {
+        min-height: 60rem;
+    }
 `
 
 const Tab = styled.div`
@@ -44,7 +45,7 @@ const notSelected = css`
     }
 `
 
-const TabItem = styled.div<TabProps>`
+const TabItem = styled.div<{ active?: boolean }>`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -57,32 +58,32 @@ const TabItem = styled.div<TabProps>`
 `
 
 const TimeLine = () => {
-    const [tab, setTab] = useState('dia1')
-    const isDay1 = tab === 'dia1'
-    const isDay2 = tab === 'dia2'
-    const isDay3 = tab === 'dia3'
-
-    const onTabClick = (chosenTab: string) => {
-        setTab(chosenTab)
-    }
+    const [tab, setTab] = useState('day1')
+    const isDay1 = tab === 'day1'
+    const isDay2 = tab === 'day2'
+    const isDay3 = tab === 'day3'
 
     return (
         <Layout type="conference" margin_top="0px">
-            <HeroWrapper />
+            <HeroWrapper>
+                <Header as="h1" type="heading-1" align="center" pt="280px">
+                    {localize('Schedule')}
+                </Header>
+            </HeroWrapper>
             <Tab>
-                <TabItem active={isDay1} onClick={() => onTabClick('dia1')}>
+                <TabItem active={isDay1} onClick={() => setTab('day1')}>
                     <Header type="subtitle-1" align="center">
-                        Dia 1
+                        {localize('Day 1')}
                     </Header>
                 </TabItem>
-                <TabItem active={isDay2} onClick={() => onTabClick('dia2')}>
+                <TabItem active={isDay2} onClick={() => setTab('day2')}>
                     <Header type="subtitle-1" align="center">
-                        Dia 2
+                        {localize('Day 2')}
                     </Header>
                 </TabItem>
-                <TabItem active={isDay3} onClick={() => onTabClick('dia3')}>
+                <TabItem active={isDay3} onClick={() => setTab('day3')}>
                     <Header type="subtitle-1" align="center">
-                        Dia 3
+                        {localize('Day 3')}
                     </Header>
                 </TabItem>
             </Tab>
@@ -90,7 +91,7 @@ const TimeLine = () => {
             <div>
                 {events_data.map((item, index) => {
                     return (
-                        tab === `dia${index + 1}` && (
+                        tab === `day${index + 1}` && (
                             <ScheduleConference key={item.id} item={item} />
                         )
                     )

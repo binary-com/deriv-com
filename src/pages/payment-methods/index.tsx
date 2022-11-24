@@ -8,7 +8,7 @@ import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -137,7 +137,7 @@ type PaymentType = {
     deposit_time?: ReactElement
     withdrawal_time?: ReactElement
     description?: ReactElement
-    name?: string
+    name?: ReactElement
     reference?: string
     locales?: string[]
     url?: string
@@ -406,4 +406,4 @@ const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
     )
 }
 
-export default WithIntl()(PaymentMethods)
+export default PaymentMethods

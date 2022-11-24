@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import DERIVIBDMT5Cards from './_dmt5-cards'
 import { CardWrapper } from './_partner-card'
-import { SectionContainer, Container, Flex } from 'components/containers'
+import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements/typography'
+import { LiveChatLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 type AssetsType = {
@@ -93,17 +93,6 @@ const StyledHeader = styled(Header)`
         font-size: 16px;
     }
 `
-const LinkButtonContactUsWrapper = styled(Flex)`
-    margin-top: 8px;
-`
-const LinkButtonContactUs = styled(LinkButton)`
-    @media ${device.mobileL} {
-        display: block;
-        margin: auto;
-        height: 40px;
-        width: 100%;
-    }
-`
 
 const StyledHeaderCommission = styled(StyledHeader)`
     @media ${device.laptopM} {
@@ -182,16 +171,7 @@ const DerivIBProgramme = () => {
                         >
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
-                        <LinkButtonContactUsWrapper>
-                            <LinkButtonContactUs
-                                external
-                                secondary
-                                to="mailto:partners@deriv.com"
-                                is_mail_link
-                            >
-                                {localize('Contact us')}
-                            </LinkButtonContactUs>
-                        </LinkButtonContactUsWrapper>
+    <LiveChatLinkText text="_t_Contact us via live chat_t_" weight="bold" />
                     </DecideSection>
                 </IBSectionContainer>
             </Container>

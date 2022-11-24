@@ -10,7 +10,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 const ImagePlaceHolder = styled.div`
     width: 690px;
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         width: 100%;
         height: 360px;
     }

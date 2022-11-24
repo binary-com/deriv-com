@@ -1,5 +1,5 @@
 const language_config = require(`./i18n-config.js`)
-const isBrowser = typeof window !== "undefined"
+const isBrowser = typeof window !== 'undefined'
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
@@ -28,6 +28,19 @@ module.exports = {
     ],
     plugins: [
         'gatsby-plugin-react-helmet',
+        {
+            resolve: `gatsby-plugin-page-creator`,
+            options: {
+                path: `${__dirname}/src/conference/pages`,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-page-creator`,
+            options: {
+                path: `${__dirname}/src/pages`,
+                ignore: ['**/*.tsx'],
+            },
+        },
         {
             resolve: `gatsby-plugin-react-helmet-canonical-urls`,
             options: {
@@ -248,7 +261,6 @@ module.exports = {
                         sizes: `512x512`,
                         type: `image/png`,
                     },
-
                 ],
                 gcm_sender_id: '370236002280',
                 gcm_user_visible_only: true,

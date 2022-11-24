@@ -65,7 +65,7 @@ const StyledLiveChat = styled.div<StyledLiveChatTypes>`
 
 const LiveChat = ({ is_banner_shown }: LiveChatProps) => {
     const [is_livechat_hover, setLivechatHover] = useState(false)
-    const [is_livechat_interactive, LC_API] = useLivechat()
+    const [is_livechat_interactive] = useLivechat()
     const { is_eu_country } = React.useContext(DerivStore)
     const is_rtl = useIsRtl()
 
@@ -78,7 +78,7 @@ const LiveChat = ({ is_banner_shown }: LiveChatProps) => {
                     is_eu_country={is_eu_country}
                     is_rtl={is_rtl}
                     onClick={() => {
-                        LC_API.open_chat_window()
+                        window.LC_API.open_chat_window()
                     }}
                     onMouseEnter={() => setLivechatHover(true)}
                     onMouseLeave={() => setLivechatHover(false)}

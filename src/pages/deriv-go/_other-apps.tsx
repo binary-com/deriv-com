@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ContentType } from './index'
 import { Container, Flex, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 // svg
@@ -83,7 +83,7 @@ const other_apps: ContentType[] = [
         url: (
             <LearnMore to="/dmt5/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="arrow" />
+                <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
     },
@@ -97,7 +97,7 @@ const other_apps: ContentType[] = [
         url: (
             <LearnMore to="/derivx/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="arrow" />
+                <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
     },

@@ -93,6 +93,8 @@ const CookieBanner = () => {
     const cookie = useCookieBanner()
     const [is_visible, setIsVisible] = React.useState(false)
 
+    // Todo: Should simplify this useEffect and get rid of the duplicated state and find another solution
+    // for removing the element from the DOM after the animation completes.
     React.useEffect(() => {
         if (is_visible !== cookie.should_show) {
             if (cookie.should_show) {

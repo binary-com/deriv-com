@@ -13,5 +13,5 @@ export const useFilteredQuestions = (data: TQuestions[]) => {
 export const useFilteredCategory = (data: TQuestionsData[]) => {
     const { is_eu_country } = useContext(DerivStore)
 
-    return data.filter(({ hide_for_eu }) => is_eu_country && !hide_for_eu)
+    return data.filter((item) => (is_eu_country ? !item.hide_for_eu : item))
 }

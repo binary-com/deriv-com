@@ -12,6 +12,8 @@ import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param
 
 const HelpCentre = () => {
     const { is_deriv_go } = usePlatformQueryParam()
+    const general_questions = getQuestionsBySection(GENERAL)
+    const platforms_questions = getQuestionsBySection(PLATFORMS)
 
     return (
         <Layout>
@@ -25,14 +27,8 @@ const HelpCentre = () => {
             <SearchSection />
 
             <Container align="start" justify="flex-start" direction="column">
-                <QuestionsSection
-                    data={getQuestionsBySection(GENERAL)}
-                    section_name={`_t_${GENERAL}_t_`}
-                />
-                <QuestionsSection
-                    data={getQuestionsBySection(PLATFORMS)}
-                    section_name={`_t_${PLATFORMS}_t_`}
-                />
+                <QuestionsSection data={general_questions} section_name={`_t_${GENERAL}_t_`} />
+                <QuestionsSection data={platforms_questions} section_name={`_t_${PLATFORMS}_t_`} />
             </Container>
 
             <Desktop breakpoint="tabletL">

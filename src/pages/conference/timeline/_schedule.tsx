@@ -1,10 +1,9 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import ArrowRight from './images/downwards_right.svg'
 import ArrowLeft from './images/downwards_left.svg'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import { localize } from 'components/localization'
 
 type ScheduleProps = {
     time?: string | number
@@ -85,18 +84,18 @@ const ContentWrapper = styled.div`
 
 const ScheduleConference = ({ item }: ConferenceProps) => {
     const { id, date, data, period, title } = item
-    console.log(title)
+
     return (
         <>
             <HeaderTitle key={id}>
                 <Header weight="400" type="subtitle-1" align="center" pt="16px">
-                    {localize(title)}
+                    {title}
                 </Header>
                 <Header weight="400" type="subtitle-1" align="center" pt="16px">
-                    {localize(date)}
+                    {date}
                 </Header>
                 <Header weight="400" type="subtitle-1" align="center" pt="16px">
-                    {localize(period)}
+                    {period}
                 </Header>
             </HeaderTitle>
 
@@ -140,7 +139,7 @@ const ScheduleConference = ({ item }: ConferenceProps) => {
                                                         weight="700"
                                                         width="230px"
                                                     >
-                                                        {localize(item.topic)}
+                                                        {item.topic}
                                                     </Header>
                                                     <Header
                                                         as="div"
@@ -149,7 +148,7 @@ const ScheduleConference = ({ item }: ConferenceProps) => {
                                                         weight="400"
                                                         mb="32px"
                                                     >
-                                                        {localize(item.name)}
+                                                        {item.name}
                                                     </Header>
                                                 </>
                                             )

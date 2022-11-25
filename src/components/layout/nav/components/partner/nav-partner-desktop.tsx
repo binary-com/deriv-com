@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import {
     NavRight,
@@ -21,6 +21,13 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean
+}
+
+type StyledNavRightProps = {
+    is_rtl: boolean
+    mounted: boolean
+    move: boolean
+    // button_ref: any
 }
 
 const StyledWrapper = styled(Wrapper)<NavPartnerDesktopProps>`
@@ -70,23 +77,24 @@ const LinkSignupButton = styled(LinkButton)`
     margin-left: 1.6rem;
     margin-right: 10px;
 `
-const StyledNavRight = styled(NavRight)`
+
+const StyledNavRight = styled(NavRight)<StyledNavRightProps>`
     margin-left: auto;
     transform: translateX(
-        ${(props) => {
-            const ref_base = getBaseRef(props.button_ref)
-            if (props.move) {
-                if (ref_base && props.mounted) {
+        ${({ is_rtl, mounted, move, button_ref }) => {
+            const ref_base = getBaseRef(button_ref)
+            if (move) {
+                if (ref_base && mounted) {
                     ref_base.style.opacity = 1
                 }
                 return '0'
             } else {
-                if (ref_base && props.mounted) {
+                if (ref_base && mounted) {
                     ref_base.style.opacity = 0
                     const calculation = ref_base.offsetWidth + 50
-                    return props.is_rtl ? `${-calculation}px` : `${calculation}px`
+                    return is_rtl ? `${-calculation}px` : `${calculation}px`
                 }
-                return props.is_rtl ? '-225px' : '225px'
+                return is_rtl ? '-225px' : '225px'
             }
         }}
     );
@@ -104,11 +112,11 @@ const StyledNavRight = styled(NavRight)`
 
 type NavLinkCardTypes = {
     to: string
-    title: ReactElement
+    title: string
     active?: string
     type?: string
     target?: string
-    external?: string
+    external?: boolean
     rel?: string
 }
 

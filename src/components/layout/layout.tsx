@@ -37,7 +37,7 @@ const LiveChat = Loadable(() => import('./livechat'))
 const WhatsApp = Loadable(() => import('./whatsapp'))
 
 type CFDWarningProps = {
-    is_ppc: boolean
+    is_ppc?: boolean
 }
 
 type LayoutProps = {

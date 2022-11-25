@@ -19,12 +19,12 @@ import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import useAuthCheck from 'components/hooks/use-auth-check'
 
 type NavMobileProps = {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
     hide_language_switcher?: boolean
-    is_logged_in: boolean
     hide_signup_login?: boolean
 }
 
@@ -47,7 +47,6 @@ const StyledButton = styled(Button)`
 `
 
 const NavMobile = ({
-    is_logged_in,
     is_ppc,
     is_ppc_redirect,
     hide_language_switcher,
@@ -56,6 +55,7 @@ const NavMobile = ({
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
     const handleLogin = useHandleLogin()
     const { is_loading } = useCountryRule()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <MobileWrapper>
@@ -80,21 +80,29 @@ const NavMobile = ({
 
                 <LeftSection>
                     {!hide_language_switcher && <LanguageSwitcher has_short_name is_high_nav />}
-                    {!hide_signup_login &&
-                        (is_logged_in ? (
-                            <StyledButton onClick={handleGetTrading} primary>
-                                {localize('Get Trading')}
-                            </StyledButton>
-                        ) : (
-                            <StyledButton
-                                id="dm-mobile-nav-login-button"
-                                onClick={handleLogin}
-                                primary
-                                disabled={is_loading}
-                            >
-                                {localize('Log in')}
-                            </StyledButton>
-                        ))}
+                    {!hide_signup_login && (
+                        <>
+                            {is_logged_in ? (
+                                <StyledButton
+                                    disabled={is_loading}
+                                    onClick={handleGetTrading}
+                                    id="dm-hero-signup"
+                                    primary
+                                >
+                                    {localize('Get Trading')}
+                                </StyledButton>
+                            ) : (
+                                <StyledButton
+                                    disabled={is_loading}
+                                    id="dm-nav-login-button"
+                                    onClick={handleLogin}
+                                    primary
+                                >
+                                    {localize('Log in')}
+                                </StyledButton>
+                            )}
+                        </>
+                    )}
                 </LeftSection>
 
                 <OffCanvasMenu

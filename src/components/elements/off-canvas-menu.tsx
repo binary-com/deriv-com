@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { withLangDirection } from 'themes/function'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { Flex } from 'components/containers'
+import { Flex, Branding } from 'components/containers'
 import { DerivStore } from 'store'
 import { LocalizedLink, Localize } from 'components/localization'
 import {
@@ -515,27 +515,29 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         </div>
                         <span>{<Localize translate_text="Help centre" />}</span>
                     </StyledLink>
-                    <StyledLink
-                        to=""
-                        type="community"
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={handleArrowClick}
-                    >
-                        <div>
-                            <img src={Community} alt="Community" width="24" height="24" />
-                        </div>
-                        <Span>{<Localize translate_text="Community" />}</Span>
-                        <SpanSvg>
-                            <ImageWithDireciton
-                                src={Diagonal}
-                                alt="Diagonal"
-                                width="16"
-                                height="16"
-                            />
-                        </SpanSvg>
-                    </StyledLink>
+                    <Branding>
+                        <StyledLink
+                            to=""
+                            type="community"
+                            external
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={Community} alt="Community" width="24" height="24" />
+                            </div>
+                            <Span>{<Localize translate_text="Community" />}</Span>
+                            <SpanSvg>
+                                <ImageWithDireciton
+                                    src={Diagonal}
+                                    alt="Diagonal"
+                                    width="16"
+                                    height="16"
+                                />
+                            </SpanSvg>
+                        </StyledLink>
+                    </Branding>
                     <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
                         <div>
                             <img src={Trade} alt="trader-tools" width="24" height="24" />
@@ -559,26 +561,28 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         </div>
                         <span>{<Localize translate_text="Deriv MT5 Signals" />}</span>
                     </StyledLink>
-                    <StyledLink
-                        to={deriv_status_page_url}
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={handleArrowClick}
-                    >
-                        <div>
-                            <img src={Status} alt="Status" width="24" height="24" />
-                        </div>
-                        <Span>{<Localize translate_text="Status page" />}</Span>
-                        <SpanSvg>
-                            <ImageWithDireciton
-                                src={Diagonal}
-                                alt="Diagonal"
-                                width="16"
-                                height="16"
-                            />
-                        </SpanSvg>
-                    </StyledLink>
+                    <Branding>
+                        <StyledLink
+                            to={deriv_status_page_url}
+                            external
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={Status} alt="Status" width="24" height="24" />
+                            </div>
+                            <Span>{<Localize translate_text="Status page" />}</Span>
+                            <SpanSvg>
+                                <ImageWithDireciton
+                                    src={Diagonal}
+                                    alt="Diagonal"
+                                    width="16"
+                                    height="16"
+                                />
+                            </SpanSvg>
+                        </StyledLink>
+                    </Branding>
                     <StyledLink to="/academy/" onClick={handleArrowClick}>
                         <div>
                             <img src={Blog} alt="academy" width="24" height="24" />
@@ -676,7 +680,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
             ),
         },
     ].filter((item) => {
-        return !is_show_branding ? item.title !== 'About us' : item
+        const remove_branding = item.title !== 'About us' && item.title !== 'Legal'
+        return !is_show_branding ? remove_branding : item
     })
 
     return (

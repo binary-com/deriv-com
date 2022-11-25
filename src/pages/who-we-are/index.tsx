@@ -19,29 +19,29 @@ import { localize, WithIntl } from 'components/localization'
 
 const query = graphql`
     query MyQuery {
-      allStrapiMenusMenu(filter: {title: {eq: "Who we are"}}) {
-        edges {
-          node {
-            items {
-              header
-              subheader
-              link_name
-              link_url
-              first_descr
-              second_descr
-              third_descr
-              first_descr_part_one
-              first_descr_part_two
-              second_descr_part_one
-              second_descr_part_two
-              third_descr_part_one
-              third_descr_part_two
-              fourth_descr_part_one
-              fourth_descr_part_two
-            }  
-          }
+        allStrapiMenusMenu(filter: { title: { eq: "Who we are" } }) {
+            edges {
+                node {
+                    items {
+                        header
+                        subheader
+                        link_name
+                        link_url
+                        first_descr
+                        second_descr
+                        third_descr
+                        first_descr_part_one
+                        first_descr_part_two
+                        second_descr_part_one
+                        second_descr_part_two
+                        third_descr_part_one
+                        third_descr_part_two
+                        fourth_descr_part_one
+                        fourth_descr_part_two
+                    }
+                }
+            }
         }
-      }
     }
 `
 
@@ -68,6 +68,7 @@ const EndSeparator = styled.div`
 const AboutUs = () => {
     const query1 = useStaticQuery(query)
     const data = query1.allStrapiMenusMenu.edges[0].node
+
     return (
         <Layout type="transparent" margin_top="0">
             <SEO

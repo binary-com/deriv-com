@@ -190,7 +190,7 @@ const Availability = () => {
                                             onClick={handleLogin}
                                             color="red"
                                             key={0}
-                                        ></StyledLinkText>,
+                                        />,
                                         <LocalizedLinkText
                                             id="dm-p2p-signup-link"
                                             to="/signup/"

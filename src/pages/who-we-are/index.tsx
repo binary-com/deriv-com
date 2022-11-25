@@ -22,6 +22,7 @@ const query = graphql`
       allStrapiMenusMenu(filter: {title: {eq: "Who we are"}}) {
         edges {
           node {
+            items {
               header
               subheader
               link_name
@@ -37,6 +38,7 @@ const query = graphql`
               third_descr_part_two
               fourth_descr_part_one
               fourth_descr_part_two
+            }  
           }
         }
       }
@@ -65,6 +67,7 @@ const EndSeparator = styled.div`
 
 const AboutUs = () => {
     const query1 = useStaticQuery(query)
+    const data = query1.allStrapiMenusMenu.edges[0].node
     return (
         <Layout type="transparent" margin_top="0">
             <SEO

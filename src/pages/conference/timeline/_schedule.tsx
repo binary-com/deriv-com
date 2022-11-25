@@ -88,13 +88,13 @@ const ScheduleConference = ({ item }: ConferenceProps) => {
     return (
         <>
             <HeaderTitle key={id}>
-                <Header weight="400" type="subtitle-1" align="center" pt="16px">
+                <Header as="div" weight="400" type="subtitle-1" align="center" pt="16px">
                     {title}
                 </Header>
-                <Header weight="400" type="subtitle-1" align="center" pt="16px">
+                <Header as="div" weight="400" type="subtitle-1" align="center" pt="16px">
                     {date}
                 </Header>
-                <Header weight="400" type="subtitle-1" align="center" pt="16px">
+                <Header as="div" weight="400" type="subtitle-1" align="center" pt="16px">
                     {period}
                 </Header>
             </HeaderTitle>
@@ -136,7 +136,7 @@ const ScheduleConference = ({ item }: ConferenceProps) => {
                                                         as="div"
                                                         align="left"
                                                         type="subtitle-1"
-                                                        weight="700"
+                                                        weight="bold"
                                                         width="230px"
                                                     >
                                                         {item.topic}

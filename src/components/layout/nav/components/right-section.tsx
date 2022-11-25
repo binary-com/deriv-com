@@ -8,6 +8,7 @@ import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type RightSectionProps = {
@@ -50,6 +51,7 @@ const RightSection = ({
     const handleLogin = useHandleLogin()
     const handleSignup = useHandleSignup(is_ppc_redirect)
     const [is_logged_in] = useAuthCheck()
+    const is_rtl = useIsRtl()
 
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
@@ -74,6 +76,7 @@ const RightSection = ({
     return (
         <NavRight
             move={show_button}
+            is_rtl={is_rtl}
             hide_signup_login={hide_signup_login}
             button_ref={button_ref}
             mounted={is_mounted}

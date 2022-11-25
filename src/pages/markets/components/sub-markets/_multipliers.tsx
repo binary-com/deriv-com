@@ -27,7 +27,7 @@ const Multipliers = ({ market_content }: MultipliersProps) => {
                             'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.',
                         )}
                     </StyledText>
-                    <AvailablePlatforms dtrader />
+                    {is_eu ? <AvailablePlatforms dtrader /> : <AvailablePlatforms dtrader dbot />}
                 </Descriptions>
                 <StyledText font_size={'16px'} weight="bold" mt="2.4rem">
                     {localize('Instruments available for multipliers trading')}

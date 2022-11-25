@@ -1,7 +1,6 @@
-import React from 'react'
+import React, {ReactElement} from 'react'
 import styled from 'styled-components'
-import { our_principles } from './_data'
-import { localize } from 'components/localization'
+import {Localize, localize} from 'components/localization'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Divider } from 'components/elements'
 import device from 'themes/device'
@@ -77,11 +76,39 @@ const ColoredBox = styled(Box)`
     }
 `
 
-const OurPrinciples = () => {
+type PrincipleType = {
+    title: ReactElement
+    text: ReactElement
+    color: string
+}
+
+const OurPrinciples = ({query}: any) => {
+    const our_principles: PrincipleType[] = [
+        {
+            title: <Localize translate_text={String(query.first_descr_part_one)} />,
+            text: <Localize translate_text={String(query.first_descr_part_two)} />,
+            color: 'rgba(133, 189, 177, 0.25)',
+        },
+        {
+            title: <Localize translate_text={String(query.second_descr_part_one)} />,
+            text: <Localize translate_text={String(query.second_descr_part_two)} />,
+            color: 'rgba(255, 195, 89, 0.25)',
+        },
+        {
+            title: <Localize translate_text={String(query.third_descr_part_one)} />,
+            text: <Localize translate_text={String(query.third_descr_part_two)} />,
+            color: 'rgba(150, 133, 189, 0.25)',
+        },
+        {
+            title: <Localize translate_text={String(query.fourth_descr_part_one)} />,
+            text: <Localize translate_text={String(query.fourth_descr_part_two)} />,
+            color: 'rgba(119, 160, 198, 0.25)',
+        },
+    ]
     return (
         <StyledSection>
             <Header as="h2" align="center" type="heading-2" mb="40px" laptop={{ mb: '24px' }}>
-                {localize('Our principles are the framework for our decisions')}
+                {localize(String(query.header))}
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
                 {our_principles.map(({ color, title, text }, idx) => (
@@ -118,8 +145,8 @@ const OurPrinciples = () => {
                     color="grey-8"
                 />
             </StyledFlex>
-            <StyledLinkButton to="/our-principles/" secondary>
-                {localize('Learn more about our principles')}
+            <StyledLinkButton to={query.link_url} secondary>
+                {localize(String(query.link_name))}
             </StyledLinkButton>
         </StyledSection>
     )

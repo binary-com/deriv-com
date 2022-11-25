@@ -334,5 +334,27 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
             },
         },
+        {
+            resolve: 'gatsby-source-strapi',
+            options: {
+                apiURL: process.env.STRAPI_API_URL,
+                accessToken: process.env.STRAPI_TOKEN,
+                collectionTypes: ['menus.menu', 'menus.menu-item'],
+            },
+        },
+        {
+            resolve: 'gatsby-source-strapi-graphql',
+            options: {
+                apiURL: process.env.STRAPI_API_URL,
+                collectionTypes: ['menus.menu', 'menus.menu-item'],
+                token: process.env.STRAPI_TOKEN,
+                loginData: {
+                    identifier: 'eduardhrachou@mail.ru',
+                    password: 'NikitaNikita',
+                },
+
+                cache: false,
+            },
+        },
     ],
 }

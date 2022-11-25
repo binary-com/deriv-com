@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
 import ImageMarquee from './carousel/_ImageMarquee'
@@ -15,6 +16,32 @@ import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+
+const query = graphql`
+    query MyQuery {
+      allStrapiMenusMenu(filter: {title: {eq: "Who we are"}}) {
+        edges {
+          node {
+              header
+              subheader
+              link_name
+              link_url
+              first_descr
+              second_descr
+              third_descr
+              first_descr_part_one
+              first_descr_part_two
+              second_descr_part_one
+              second_descr_part_two
+              third_descr_part_one
+              third_descr_part_two
+              fourth_descr_part_one
+              fourth_descr_part_two
+          }
+        }
+      }
+    }
+`
 
 const StartSeparator = styled.div`
     width: 0;
@@ -37,6 +64,7 @@ const EndSeparator = styled.div`
 `
 
 const AboutUs = () => {
+    const query1 = useStaticQuery(query)
     return (
         <Layout type="transparent" margin_top="0">
             <SEO
@@ -46,15 +74,15 @@ const AboutUs = () => {
                 )}
             />
             <Hero />
-            <MakeTrading />
+            <MakeTrading query={data.items[6]} />
             <StartSeparator />
-            <OurValues />
+            <OurValues query={data.items[5]} />
             <EndSeparator />
-            <OurPrinciples />
+            <OurPrinciples query={data.items[3]} />
             <OurLeadership />
-            <DerivNumbers />
+            <DerivNumbers query={data.items[1]} />
             <ImageMarquee />
-            <OurOffices />
+            <OurOffices query1={data.items[4]} />
             <AboutUsBanner />
         </Layout>
     )

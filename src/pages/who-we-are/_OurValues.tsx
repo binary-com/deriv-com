@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {ReactElement} from 'react'
 import styled from 'styled-components'
-import { our_values } from './_data'
-import { localize } from 'components/localization'
+import {Localize, localize} from 'components/localization'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
+import Shield from 'images/svg/who-we-are/shield.svg'
+import Star from 'images/svg/who-we-are/star.svg'
+import People from 'images/svg/who-we-are/people.svg'
+import Hands from 'images/svg/who-we-are/hands.svg'
 
 const OurValuesSection = styled(SectionContainer)`
     display: flex;
@@ -55,11 +58,39 @@ const Card = styled(Flex)`
     }
 `
 
-const OurValues = () => {
+type ValueType = {
+    title: ReactElement
+    text: ReactElement
+    icon: string
+}
+
+const OurValues = ({query}: any) => {
+    const our_values: ValueType[] = [
+        {
+            title: <Localize translate_text={String(query.first_descr_part_one)} />,
+            text: <Localize translate_text={String(query.first_descr_part_two)} />,
+            icon: Shield,
+        },
+        {
+            title: <Localize translate_text={String(query.second_descr_part_one)} />,
+            text: <Localize translate_text={String(query.second_descr_part_two)} />,
+            icon: People,
+        },
+        {
+            title: <Localize translate_text={String(query.third_descr_part_one)} />,
+            text: <Localize translate_text={String(query.third_descr_part_two)} />,
+            icon: Star,
+        },
+        {
+            title: <Localize translate_text={String(query.fourth_descr_part_one)} />,
+            text: <Localize translate_text={String(query.fourth_descr_part_one)} />,
+            icon: Hands,
+        },
+    ]
     return (
         <OurValuesSection>
             <StyledHeader as="h2" align="start" type="page-title" width="338px">
-                {localize('Our values are the fabric of our culture')}
+                {localize(String(query.header))}
             </StyledHeader>
             <StyledFlex width="820px" wrap="wrap">
                 {our_values.map(({ title, icon, text }, index) => (

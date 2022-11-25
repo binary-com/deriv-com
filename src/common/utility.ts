@@ -15,38 +15,6 @@ import {
 import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
 
-type TEuCountries =
-    | 'it'
-    | 'de'
-    | 'fr'
-    | 'lu'
-    | 'gr'
-    | 'mf'
-    | 'es'
-    | 'sk'
-    | 'lt'
-    | 'nl'
-    | 'at'
-    | 'bg'
-    | 'si'
-    | 'cy'
-    | 'be'
-    | 'ro'
-    | 'hr'
-    | 'pt'
-    | 'pl'
-    | 'lv'
-    | 'ee'
-    | 'cz'
-    | 'fi'
-    | 'hu'
-    | 'dk'
-    | 'se'
-    | 'ie'
-    | 'im'
-    | 'gb'
-    | 'mt'
-
 export const trimSpaces = (value: string): string => value?.trim()
 
 export const isBrowser = () => typeof window !== 'undefined'
@@ -459,7 +427,7 @@ const redirect = (subdomain: string) => {
     window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
-export const handleDerivRedirect = (country: TEuCountries, subdomain: string) => {
+export const handleDerivRedirect = (country: string, subdomain: string) => {
     if (eu_subdomain_countries.includes(country)) {
         redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
     }
@@ -473,10 +441,7 @@ export const isEuDomain = () =>
 export const isUkDomain = () =>
     !!uk_domains.some((uk_sub_domain) => uk_sub_domain.test(getSubdomain()))
 
-export const handleRedirect = (
-    residence: TEuCountries,
-    current_client_country: TEuCountries,
-): boolean => {
+export const handleRedirect = (residence: string, current_client_country: string): boolean => {
     const country = residence ? residence : current_client_country
 
     if (isLocalhost() || isTestlink()) {

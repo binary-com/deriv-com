@@ -1,33 +1,30 @@
-import React, { ReactNode, Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, PropsWithChildren } from 'react'
 import type { ModalPayloadType } from './layout'
 
 type LocationProviderProps = {
-    children: ReactNode
     has_mounted?: boolean
-    setModalPayload?: Dispatch<SetStateAction<ModalPayloadType>>
     show_cookie_banner?: boolean
+    setModalPayload?: Dispatch<SetStateAction<ModalPayloadType>>
     toggleModal?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-export const LocationContext = React.createContext(true)
+export const LocationContext = React.createContext<LocationProviderProps>(null)
 
 export const LocationProvider = ({
+    children,
     has_mounted = false,
     show_cookie_banner = false,
-    children,
     setModalPayload,
     toggleModal,
-}: LocationProviderProps) => {
-    return (
-        <LocationContext.Provider
-            value={{
-                has_mounted,
-                show_cookie_banner,
-                setModalPayload,
-                toggleModal,
-            }}
-        >
-            {children}
-        </LocationContext.Provider>
-    )
-}
+}: PropsWithChildren<LocationProviderProps>) => (
+    <LocationContext.Provider
+        value={{
+            has_mounted,
+            show_cookie_banner,
+            setModalPayload,
+            toggleModal,
+        }}
+    >
+        {children}
+    </LocationContext.Provider>
+)

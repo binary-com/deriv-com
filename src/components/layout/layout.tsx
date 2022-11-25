@@ -220,7 +220,10 @@ const Layout = ({
             const current_page = window.location.pathname.split('/')[4]
             if (!slugs.includes(current_page)) {
                 const closest_slug = closestMatch(current_page, slugs)
-                const character_distance = distance(current_page, closest_slug)
+                const character_distance = distance(
+                    current_page,
+                    typeof closest_slug === 'string' ? closest_slug : '',
+                )
                 if (character_distance < 10) {
                     window.location.pathname = `academy/blog/posts/${closest_slug}`
                 }

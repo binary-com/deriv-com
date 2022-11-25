@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography'
 import device, { size } from 'themes/device'
@@ -168,36 +168,38 @@ const SideTab = ({
     const [active_tab, setActiveTab] = useTabStateQuery(getTabs(children))
     const [is_menu, setMenu] = useState(false)
 
-    const Tabs = () => {
-        return React.Children.map(children, (child) => {
-            const { label, text, onClick } = child.props
+    const Tabs = () => (
+        <>
+            {React.Children.map(children, (child) => {
+                const { label, text, onClick } = child.props
 
-            if (!React.isValidElement(child)) {
-                return <></>
-            }
+                if (!React.isValidElement(child)) {
+                    return <></>
+                }
 
-            return (
-                <div>
-                    <Tab
-                        font_size={font_size}
-                        text={text}
-                        line_height={line_height}
-                        opacity={opacity}
-                        onClick={(e) => {
-                            if (onClick) {
-                                onClick(e)
-                            }
+                return (
+                    <div>
+                        <Tab
+                            font_size={font_size}
+                            text={text}
+                            line_height={line_height}
+                            opacity={opacity}
+                            onClick={(e) => {
+                                if (onClick) {
+                                    onClick(e)
+                                }
 
-                            setActiveTab(e)
-                            setMenu(!is_menu)
-                        }}
-                        active_tab={active_tab}
-                        label={label}
-                    />
-                </div>
-            )
-        })
-    }
+                                setActiveTab(e)
+                                setMenu(!is_menu)
+                            }}
+                            active_tab={active_tab}
+                            label={label}
+                        />
+                    </div>
+                )
+            })}
+        </>
+    )
 
     return (
         <StyledSideTab>
@@ -208,7 +210,7 @@ const SideTab = ({
                             {tab_header}
                         </Header>
                     )}
-                    {Tabs()}
+                    <Tabs />
                 </Desktop>
             </TabList>
             <TabContent>
@@ -219,4 +221,4 @@ const SideTab = ({
     )
 }
 
-export default SideTab
+export default memo(SideTab)

@@ -10,7 +10,7 @@ type LiveChatLinkTextProps = {
 }
 
 const LiveChatLinkText = ({ text, weight }: LiveChatLinkTextProps) => {
-    const [is_livechat_interactive, LC_API] = useLivechat()
+    const [is_livechat_interactive] = useLivechat()
 
     return (
         <LinkText
@@ -18,7 +18,7 @@ const LiveChatLinkText = ({ text, weight }: LiveChatLinkTextProps) => {
             mt="1rem"
             weight={weight}
             onClick={() => {
-                is_livechat_interactive && LC_API.open_chat_window()
+                is_livechat_interactive && window.LC_API.open_chat_window()
             }}
         >
             <Localize translate_text={text} />

@@ -349,8 +349,8 @@ module.exports = {
                 collectionTypes: ['menus.menu', 'menus.menu-item'],
                 token: process.env.STRAPI_TOKEN,
                 loginData: {
-                    identifier: 'eduardhrachou@mail.ru',
-                    password: 'NikitaNikita',
+                    identifier: process.env.LOGIN_F,
+                    password: process.env.PASS_F,
                 },
 
                 cache: false,

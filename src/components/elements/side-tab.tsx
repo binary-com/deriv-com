@@ -168,7 +168,7 @@ const SideTab = ({
     const [active_tab, setActiveTab] = useTabStateQuery(getTabs(children))
     const [is_menu, setMenu] = useState(false)
 
-    const Tabs = (props) => {
+    const Tabs = () => {
         return React.Children.map(children, (child) => {
             const { label, text, onClick } = child.props
 
@@ -180,7 +180,6 @@ const SideTab = ({
                 <div>
                     <Tab
                         font_size={font_size}
-                        mobile={props.is_mobile}
                         text={text}
                         line_height={line_height}
                         opacity={opacity}
@@ -209,7 +208,7 @@ const SideTab = ({
                             {tab_header}
                         </Header>
                     )}
-                    <Tabs />
+                    {Tabs()}
                 </Desktop>
             </TabList>
             <TabContent>

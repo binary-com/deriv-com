@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import type { FlattenSimpleInterpolation } from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
@@ -124,7 +125,11 @@ export const StyledChevron = styled(Chevron)`
     }
 `
 
-type NavigationContainerType = { navigation_css?: string; bottom_offset?: string }
+type NavigationContainerType = {
+    navigation_css?: FlattenSimpleInterpolation
+    bottom_offset?: string
+    height?: string
+}
 
 export const NavigationContainer = styled(Flex)<NavigationContainerType>`
     ${({ navigation_css, bottom_offset, height }) => {

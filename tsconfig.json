@@ -4,6 +4,7 @@
     "compilerOptions": {
         "baseUrl": "src",
         "jsx": "preserve",
+        "lib": ["DOM", "DOM.Iterable", "ES6"],
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
@@ -12,5 +13,5 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "downlevelIteration": true
-    },
+    }
 }

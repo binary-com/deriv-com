@@ -88,9 +88,9 @@ type ChevronStyleType = {
 }
 type NavigationStyleType = {
     nav_color?: string
-    bottom_offset?: number | string
+    bottom_offset?: string
     chevron_right?: CSSProperties
-    height?: number
+    height?: string
 }
 
 type CarouselProps = {

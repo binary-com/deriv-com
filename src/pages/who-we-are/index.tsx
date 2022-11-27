@@ -39,15 +39,22 @@ const EndSeparator = styled.div`
 `
 const AboutUs = () => {
     const target1 = '#simti'
-    const target2 = '#simti2'
     const options = {
         root: null,
         rootMargin: '0px',
         threshold: 0.7,
     }
 
-    const lazy_components2: ReactNode = (
+    const lazy_components: ReactNode = (
         <>
+            <OurValues
+                fallback={
+                    <div>
+                        <img src={PLATFORM_DUMMY} style={{ width: '95%' }} alt="our-values" />
+                    </div>
+                }
+            />
+            <EndSeparator />
             <OurPrinciples
                 fallback={
                     <div>
@@ -69,7 +76,7 @@ const AboutUs = () => {
                     </div>
                 }
             />
-            {/* <ImageMarquee /> */}
+            <ImageMarquee />
             <OurOffices
                 fallback={
                     <div>
@@ -87,24 +94,7 @@ const AboutUs = () => {
         </>
     )
 
-    const lazyTemplate2 = useHandleLazyLoad(lazy_components2, target2, options)
-
-    const lazy_components: ReactNode = (
-        <>
-            <OurValues
-                id="simti2"
-                fallback={
-                    <div>
-                        <img src={TRADE_DUMMY} style={{ width: '95%' }} alt="our-values" />
-                    </div>
-                }
-            />
-
-            {document.querySelector('#simti2') && lazyTemplate2}
-        </>
-    )
-
-    const our_values = useHandleLazyLoad(lazy_components, target1, options)
+    const lazyTemplate = useHandleLazyLoad(lazy_components, target1, options)
 
     return (
         <Layout type="transparent" margin_top="0">
@@ -117,8 +107,7 @@ const AboutUs = () => {
             <Hero />
             <MakeTrading />
             <StartSeparator id="simti" />
-            {our_values}
-            <EndSeparator />
+            {lazyTemplate}
         </Layout>
     )
 }

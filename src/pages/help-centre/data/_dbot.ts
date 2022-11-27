@@ -30,6 +30,7 @@ import RunBotImage from 'images/common/help-centre/dbot-run-bot.png'
 const dbot: TQuestionsData = {
     section: 'Platforms',
     category: '_t_DBot_t_',
+    hide_for_eu: true,
     questions: [
         {
             question: '_t_What is DBot?_t_',

@@ -19,7 +19,7 @@ const StyledItemWrapper = styled(Flex)<StyledProps>`
 `
 const StyledIconWrapper = styled.div`
     width: 100%;
-    max-width: 128px;
+    max-width: 80px;
     margin-left: 16px;
 `
 const StyledChevron = styled.img<StyledProps>`

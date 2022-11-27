@@ -12,7 +12,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 import { whatsapp_url } from 'common/constants'
 
 const Section = styled.section`
-    background-color: var(--color-black-3);
+    background-color: var(--color-black);
 `
 const StyledContainer = styled(Container)`
     padding: 3.5rem 0;
@@ -22,6 +22,10 @@ const StyledContainer = styled(Container)`
         ${Button} {
             font-size: 14px;
             padding: 10px 16px;
+
+            @media (max-width: 645px) {
+                width: 90vw;
+            }
         }
     }
 

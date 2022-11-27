@@ -15,7 +15,7 @@ const LoveTrading = () => {
                         <Localize translate_text="Got more questions?" />
                     </Header>
                     <Text>
-       <LiveChatLinkText text="_t_Contact us via live chat_t_" />
+                        <LiveChatLinkText text="_t_Contact us via live chat_t_" />
                     </Text>
                 </>
             ),

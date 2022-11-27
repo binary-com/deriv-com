@@ -79,7 +79,7 @@ const Description = styled.div<ExpandListType>`
         props.is_expanded &&
         css`
             max-height: 40rem;
-            padding: 2.4rem 3.2rem;
+            padding: 24px 14px;
             border-bottom: 1px solid var(--color-grey-8);
         `}
 `

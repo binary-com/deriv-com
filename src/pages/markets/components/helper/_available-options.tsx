@@ -12,11 +12,11 @@ type AvailableOptionsProps = {
     title?: ReactElement
 }
 
-const StyledFlex = styled(Flex)`
+const StyledFlex = styled(Flex)<{ mobile_pt: string }>`
     flex-direction: column;
 
     @media ${device.tabletL} {
-        padding-top: ${(props: { mobile_pt: string }) => (props.mobile_pt ? props.mobile_pt : '')};
+        padding-top: ${({ mobile_pt }) => (mobile_pt ? mobile_pt : '')};
     }
 `
 

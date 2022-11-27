@@ -258,9 +258,9 @@ export const Title = styled(Text)`
     }
 `
 type StyledBoxProps = {
-    text: ReactElement
+    text: string
     icon: ReactElement
 }
 export const StyledBox = styled(Box)<StyledBoxProps>`
-    content: ${(props: { text: any }) => (props.text ? props.text : '')};
+    content: ${({ text }) => (text ? text : '')};
 `

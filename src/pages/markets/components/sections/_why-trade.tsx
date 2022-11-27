@@ -5,8 +5,8 @@ import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
 type WhyTradeProps = {
-    children: ReactElement[]
-    header: ReactElement
+    children?: ReactElement[]
+    header?: ReactElement
     description?: ReactElement
 }
 

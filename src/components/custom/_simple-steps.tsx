@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Button } from 'components/form'
@@ -11,7 +11,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 
 type SimpleStepsProps = {
-    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactNode }[]
+    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactElement }[]
     header?: string
     sign_up?: boolean
 }

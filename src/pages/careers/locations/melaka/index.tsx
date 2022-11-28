@@ -9,14 +9,7 @@ import { localize, WithIntl } from 'components/localization'
 const query = graphql`
     query {
         melaka: file(relativePath: { eq: "careers/melaka.jpg" }) {
-            childImageSharp {
-                gatsbyImageData(
-                    formats: [AUTO, WEBP]
-                    layout: CONSTRAINED
-                    quality: 100
-                    placeholder: NONE
-                )
-            }
+            ...backgroundImage
         }
         living_in_melaka: file(relativePath: { eq: "careers/living_in_melaka.png" }) {
             ...fadeIn

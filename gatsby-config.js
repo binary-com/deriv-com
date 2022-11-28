@@ -6,6 +6,7 @@ require('dotenv').config({
 })
 
 const site_url = 'https://deriv.com'
+const strapi_url = 'https://deriv-com-content.herokuapp.com'
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -345,7 +346,7 @@ module.exports = {
         {
             resolve: 'gatsby-source-strapi-graphql',
             options: {
-                apiURL: process.env.STRAPI_API_URL,
+                apiURL: strapi_url,
                 collectionTypes: ['menus.menu', 'menus.menu-item'],
                 token: process.env.STRAPI_TOKEN,
                 loginData: {

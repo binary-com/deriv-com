@@ -9,7 +9,7 @@ import MarketNews from './components/_market-news'
 import { AcademyIndexFragment } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
+import { localize } from 'components/localization'
 import { Carousel } from 'components/elements'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -73,7 +73,7 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
         },
         navigation_style: {
             nav_color: 'white',
-            height: '0',
+            height: 0,
         },
         navigation_css: css`
             position: relative;
@@ -169,7 +169,7 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
                     ai="flex-start"
                     jc="space-between"
                     mb="80px"
-                    tabletL={{ marginBottom: '40px' }}
+                    tabletL={{ mb: '40px' }}
                 >
                     <Subscribe />
                 </Flex>
@@ -178,4 +178,4 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
     )
 }
 
-export default WithIntl()(DerivBlog)
+export default DerivBlog

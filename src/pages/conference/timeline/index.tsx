@@ -35,7 +35,7 @@ const selected = css`
     }
 `
 
-const notSelected = css`
+const unselected = css`
     border: 1px solid var(--color-grey-8);
     border-radius: 0 4px;
 
@@ -54,7 +54,7 @@ const TabItem = styled.div<{ active?: boolean }>`
     height: 84px;
     background: var(--color-white);
     cursor: pointer;
-    ${(props) => (props.active ? selected : notSelected)}
+    ${(props) => (props.active ? selected : unselected)}
 `
 
 const TimeLine = () => {

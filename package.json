@@ -122,11 +122,11 @@
     "scripts": {
         "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json",
         "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
-        "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
+        "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o -p 9000",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
         "eslint": "DEBUG=eslint:cli-engine eslint {'src/**/*.{js,jsx,ts,tsx}','./*.js'} --fix",
-        "start": "npm run develop -p 8001",
+        "start": "npm run develop",
         "start-80": "sudo gatsby develop -p 80",
         "serve": "gatsby serve",
         "test": "npm run eslint && npm run stylelint",

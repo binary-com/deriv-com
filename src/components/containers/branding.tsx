@@ -7,7 +7,7 @@ type BrandingProps = {
 
 const Branding = ({ children }: BrandingProps) => {
     const { is_show_branding } = React.useContext(DerivStore)
-    return is_show_branding && <>{children}</>
+    return is_show_branding ? <>{children}</> : null
 }
 
 export default Branding

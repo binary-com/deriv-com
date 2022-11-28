@@ -643,7 +643,7 @@ const IBAccountManagement = () => {
             </Header>
             <TextSecondary>
                 {is_row && (
-                    <Localize translate_text="Your IB commissions earned from Deriv X are credited directly into your Deriv" />
+                    <Localize translate_text="Your IB commissions earned from Deriv X are credited directly into your Deriv account daily." />
                 )}
             </TextSecondary>
         </ItemContainer>

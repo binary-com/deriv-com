@@ -23,7 +23,12 @@ type BannerProps = {
     detailsPreviewObj?: SideBannerProps
 }
 
-const ParentWrapper = styled(Flex)`
+type ParentWrapperProps = {
+    max_w?: string
+    max_w_tablet?: string
+}
+
+const ParentWrapper = styled(Flex)<ParentWrapperProps>`
     max-width: ${(props) => (props.max_w ? props.max_w : '792px')};
     margin: 0 auto;
 

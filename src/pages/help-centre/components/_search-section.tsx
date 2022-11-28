@@ -141,8 +141,7 @@ const SearchSection = () => {
 
                     {has_search_value && (
                         <SearchResult
-                            has_result={has_search_value && has_searched_question}
-                            has_no_result={has_search_value && !has_searched_question}
+                            has_searched_question={has_search_value && has_searched_question}
                             search_value={search_value}
                             suggested_topics={searched_question}
                         />

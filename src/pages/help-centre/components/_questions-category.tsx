@@ -12,7 +12,7 @@ type TQuestionsCategory = {
     data: TQuestionsData
 }
 
-const Div = styled.div`
+const Wrapper = styled.div`
     width: 35rem;
     margin-right: 2.4rem;
     line-height: 1.5;
@@ -30,7 +30,7 @@ const Div = styled.div`
         padding-top: 3.55rem;
     }
 `
-const Ul = styled.ul`
+const StyledList = styled.ul`
     list-style: none;
 `
 const Link = styled(LocalizedLink)`
@@ -65,12 +65,12 @@ const QuestionsCategory = ({ data }: TQuestionsCategory) => {
     const handleShowMoreClick = () => setShowMore(!show_more)
 
     return (
-        <Div>
+        <Wrapper>
             <Header type="subtitle-1" mt="4.2rem" mb="1.8rem">
                 <Localize translate_text={category} />
             </Header>
 
-            <Ul>
+            <StyledList>
                 {questions_to_show.map(({ question, label }) => {
                     const to = convertToHash(getUntranslatedCategory(category), label, platform)
                     return (
@@ -79,14 +79,14 @@ const QuestionsCategory = ({ data }: TQuestionsCategory) => {
                         </Link>
                     )
                 })}
-            </Ul>
+            </StyledList>
 
             {can_expand && (
                 <ShowMore onClick={handleShowMoreClick}>
                     <Localize translate_text={show_more_text} />
                 </ShowMore>
             )}
-        </Div>
+        </Wrapper>
     )
 }
 

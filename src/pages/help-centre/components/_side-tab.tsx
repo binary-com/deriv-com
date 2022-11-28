@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { JSXElementConstructor, ReactElement, useState } from 'react'
 import styled from 'styled-components'
 import { TQuestions } from '../data/_data-types'
 import { Header } from 'components/elements'
@@ -9,11 +9,13 @@ import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
 
-export type TChildren = {
-    props: {
-        label: string
-    }
-}[]
+interface ChildProps {
+    label: string
+}
+
+class ChildComponent extends React.Component<ChildProps> {}
+
+export type TChildren = Array<ReactElement<ChildProps, JSXElementConstructor<ChildComponent>>>
 
 type SideTabType = {
     tab_header: TString
@@ -37,7 +39,7 @@ const Ol = styled.ol`
     list-style: none;
 `
 
-const Li = styled.li`
+const ListItem = styled.li`
     max-width: 38rem;
     cursor: pointer;
     font-size: var(--text-size-s);
@@ -86,9 +88,9 @@ const SideTab = ({ children, tab_header, data }: SideTabType) => {
                         }
 
                         return (
-                            <Li key={label} className={className} onClick={handleClick}>
+                            <ListItem key={label} className={className} onClick={handleClick}>
                                 <Localize translate_text={question} />
-                            </Li>
+                            </ListItem>
                         )
                     })}
                 </Ol>
@@ -96,7 +98,7 @@ const SideTab = ({ children, tab_header, data }: SideTabType) => {
 
             {show_content && (
                 <TabContent>
-                    {children.map((child) =>
+                    {React.Children.map(children, (child) =>
                         child.props.label === active_tab ? child : undefined,
                     )}
                 </TabContent>

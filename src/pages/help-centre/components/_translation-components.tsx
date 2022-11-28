@@ -19,23 +19,23 @@ const Link = styled(LocalizedLink)`
     }
 `
 
-const TranslationComponents = (components: TTranslationComponents) =>
-    components.map(({ type, to, key }) => {
-        const component = {
-            link: (
-                <Link
-                    key={key}
-                    to={to}
-                    target="_blank"
-                    external
-                    weight="bold"
-                    rel="noopener noreferrer"
-                />
-            ),
-            strong: <strong key={key} />,
-        }
+const getComponent = (key: number, to: string, type: 'link' | 'strong') => {
+    return {
+        link: (
+            <Link
+                key={key}
+                to={to}
+                target="_blank"
+                external
+                weight="bold"
+                rel="noopener noreferrer"
+            />
+        ),
+        strong: <strong key={key} />,
+    }[type]
+}
 
-        return component[type]
-    })
+const TranslationComponents = (components: TTranslationComponents) =>
+    components.map(({ type, to, key }) => getComponent(key, to, type))
 
 export default TranslationComponents

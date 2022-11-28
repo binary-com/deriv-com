@@ -47,7 +47,7 @@ const HorizontalLine = styled.hr`
     padding: 0;
 `
 
-const Div = styled.div`
+const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
 
@@ -65,11 +65,11 @@ const QuestionsSection = ({ data, section_name }: TQuestionsSection) => {
                 <Localize translate_text={section_name} />
             </SectionName>
             <HorizontalLine />
-            <Div>
+            <Wrapper>
                 {filtered_data.map((item) => (
                     <QuestionsCategory key={item.category} data={item} />
                 ))}
-            </Div>
+            </Wrapper>
         </Section>
     )
 }

@@ -9,13 +9,13 @@ type TSearchSuccess = {
     suggested_topics: TQuestions[]
 }
 
-const Ul = styled.ul`
+const StyledList = styled.ul`
     list-style: none;
     max-width: 100rem;
     padding-right: 2.4rem;
     padding-bottom: 4.2rem;
 `
-const Li = styled.li`
+const ListItem = styled.li`
     margin-top: 5rem;
 
     :first-child {
@@ -39,15 +39,15 @@ const SearchSuccess = ({ suggested_topics }: TSearchSuccess) => (
             <Localize translate_text="Topic suggestions" />
         </Header>
 
-        <Ul>
+        <StyledList>
             {suggested_topics.slice(0, 3).map(({ category, question, label }) => (
-                <Li key={label}>
+                <ListItem key={label}>
                     <Link to={convertToHash(category, label)}>
                         <Localize translate_text={question} />
                     </Link>
-                </Li>
+                </ListItem>
             ))}
-        </Ul>
+        </StyledList>
     </>
 )
 

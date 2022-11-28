@@ -27,7 +27,7 @@ const Tips = styled(Header)`
         font-size: 20px;
     }
 `
-const Ul = styled.ul`
+const StyledList = styled.ul`
     list-style: unset;
     font-size: 16px;
     margin-left: 2rem;
@@ -57,13 +57,13 @@ const SearchError = ({ search_value }: TSearchError) => (
         <Tips color="green" weight="normal">
             <Localize translate_text="Search tips:" />
         </Tips>
-        <Ul>
+        <StyledList>
             {data.map((error) => (
                 <li key={error}>
                     <Localize translate_text={error} />
                 </li>
             ))}
-        </Ul>
+        </StyledList>
     </>
 )
 

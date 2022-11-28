@@ -5,8 +5,7 @@ import SearchError from './_search-error'
 import SearchSuccess from './_search-success'
 
 type TSearchResult = {
-    has_result: boolean
-    has_no_result: boolean
+    has_searched_question: boolean
     suggested_topics: TQuestions[]
     search_value: string
 }
@@ -16,16 +15,14 @@ const ResultWrapper = styled.div`
     padding-bottom: 0.4rem;
 `
 
-const SearchResult = ({
-    has_result,
-    has_no_result,
-    suggested_topics,
-    search_value,
-}: TSearchResult) => {
+const SearchResult = ({ has_searched_question, suggested_topics, search_value }: TSearchResult) => {
     return (
         <ResultWrapper>
-            {has_result && <SearchSuccess suggested_topics={suggested_topics} />}
-            {has_no_result && <SearchError search_value={search_value} />}
+            {has_searched_question ? (
+                <SearchSuccess suggested_topics={suggested_topics} />
+            ) : (
+                <SearchError search_value={search_value} />
+            )}
         </ResultWrapper>
     )
 }

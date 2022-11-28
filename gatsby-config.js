@@ -7,6 +7,9 @@ require('dotenv').config({
 
 const site_url = 'https://deriv.com'
 const strapi_url = 'https://deriv-com-content.herokuapp.com'
+const strapi_token = '125e32bb5f87962220d4575920d64caa12cb26a8e0e11efe5dd7da782e69ce3388458bcd7a477e19330f9d88ea85a2ace987e58c2b0398afaa1d35b19e47b217a92315a67628222482df8e02bf0a937f8cf54945a1ef0b43f9767fccc5933382790b898989d5339e808696078007da269a868c52e6ac20f400f036655395ebfe'
+const strapi_login = 'eduardhrachou'
+const strapi_pass = 'NikitaNikita'
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -339,7 +342,7 @@ module.exports = {
             resolve: 'gatsby-source-strapi',
             options: {
                 apiURL: `${strapi_url}`,
-                accessToken: process.env.STRAPI_TOKEN,
+                accessToken: `${strapi_token}`,
                 collectionTypes: ['menus.menu', 'menus.menu-item'],
             },
         },
@@ -348,10 +351,10 @@ module.exports = {
             options: {
                 apiURL: `${strapi_url}`,
                 collectionTypes: ['menus.menu', 'menus.menu-item'],
-                token: process.env.STRAPI_TOKEN,
+                token: `${strapi_token}`,
                 loginData: {
-                    identifier: process.env.LOGIN_F,
-                    password: process.env.PASS_F,
+                    identifier: `${strapi_login}`,
+                    password: `${strapi_pass}`,
                 },
 
                 cache: false,

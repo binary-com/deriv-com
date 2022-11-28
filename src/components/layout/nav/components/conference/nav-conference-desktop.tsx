@@ -90,9 +90,14 @@ const NavConferenceDesktop = () => {
 
             <NavigationBar>
                 <NavLinkCard
+                    active="access"
+                    to="https://deriv.zoom.us/webinar/register/WN_xurZU0MfQu2CHzgvBWfpDg"
+                    title={localize('Access')}
+                />
+                <NavLinkCard
                     active="schedule"
-                    to="/conference/schedule/"
-                    title={localize('Schedule')}
+                    to="/conference/timeline/"
+                    title={localize('Timeline')}
                 />
             </NavigationBar>
         </StyledWrapper>

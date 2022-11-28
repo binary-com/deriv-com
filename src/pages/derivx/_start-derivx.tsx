@@ -283,9 +283,11 @@ const StartDerivX = () => {
                         return (
                             <SideTab.Panel
                                 key={index}
-                                label=""
-                                description={currentTab.description}
-                                mobile_item_width="35rem"
+                                props={{
+                                    label: '',
+                                    description: currentTab.description,
+                                    mobile_item_width: '35rem',
+                                }}
                             >
                                 <ImageWrapper>
                                     <QueryImage

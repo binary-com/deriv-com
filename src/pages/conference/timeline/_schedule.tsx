@@ -44,6 +44,14 @@ const HeaderTitle = styled.div`
     padding-bottom: 80px;
 `
 
+const StyledHeader = styled.div`
+    font-weight: normal;
+    text-align: center;
+    padding-top: 16px;
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+`
+
 const WrapperContainer = styled.div`
     display: flex;
     flex-direction: row;
@@ -88,15 +96,11 @@ const ScheduleConference = ({ item }: ConferenceProps) => {
     return (
         <>
             <HeaderTitle key={id}>
-                <Header as="div" weight="400" type="subtitle-1" align="center" pt="16px">
-                    {title}
-                </Header>
-                <Header as="div" weight="400" type="subtitle-1" align="center" pt="16px">
+                <StyledHeader>{title}</StyledHeader>
+                <Header as="div" weight="700" type="heading-3" align="center" pt="16px">
                     {date}
                 </Header>
-                <Header as="div" weight="400" type="subtitle-1" align="center" pt="16px">
-                    {period}
-                </Header>
+                <StyledHeader>{period}</StyledHeader>
             </HeaderTitle>
 
             <Container key={id}>

@@ -6,6 +6,7 @@ import device from 'themes/device'
 type ScrollbarProps = {
     scroll: boolean
 }
+
 export const Background = styled.div`
     background: var(--color-grey-8);
     width: 100%;
@@ -16,10 +17,10 @@ export const Background = styled.div`
         background-image: linear-gradient(var(--color-grey-8) 84%, var(--color-white) 20%);
     }
 `
-export const HeroContainer = styled(Container)`
+export const HeroContainer = styled(Container)<{ padding?: string }>`
     height: auto;
     min-height: 525px;
-    padding: ${(props) => (props.padding ? props.padding : '76px 0 40px')};
+    padding: ${({ padding }) => (padding ? padding : '76px 0 40px')};
     align-items: flex-start;
 
     @media (max-width: 1300px) {
@@ -37,7 +38,7 @@ export const HeroContainer = styled(Container)`
         flex-direction: column;
     }
 `
-export const StickyBreadCrumbsWrapper = styled(Flex)`
+export const StickyBreadCrumbsWrapper = styled(Flex)<{ scroll?: boolean }>`
     background: ${(props) => (props.scroll ? 'var(--color-white)' : 'var(--color-grey-8)')};
     position: ${(props) => (props.scroll ? 'fixed' : 'unset')};
     top: ${(props) => (props.scroll ? '70px' : 'unset')};

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 const LoginWrapper = styled.div`
     display: flex;
@@ -26,13 +27,13 @@ const Login = () => {
     return (
         <LoginWrapper>
             <LoginHeader as="h3" type="subtitle-1">
-                Três dias de conteúdo, networking e novidades.
+                {localize('Three days of content, networking and news.')}
             </LoginHeader>
-            <StyledButton secondary>Cadstre-se aqui</StyledButton>
+            <StyledButton secondary>{localize('Register here')}</StyledButton>
             <LoginHeader as="div" weight="normal" type="subtitle-1" pt="32px">
-                ou, se ja tiver seu acesso ao evento
+                {localize('or, if you already have access to the event')}
             </LoginHeader>
-            <StyledButton primary>Faça login</StyledButton>
+            <StyledButton primary>{localize('Sign in')}</StyledButton>
         </LoginWrapper>
     )
 }

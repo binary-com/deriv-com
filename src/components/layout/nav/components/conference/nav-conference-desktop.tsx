@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { NavLink, StyledLink } from '../../styles/nav-styles'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import LogoPartner from 'images/svg/layout/logo-conference.svg'
-import { LocalizedLink } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 
@@ -84,16 +84,16 @@ const NavConferenceDesktop = () => {
                     <img src={LogoPartner} alt="deriv logo" />
                 </StyledLogoLink>
                 <Header as="header" type="paragraph-1" color="white">
-                    Conferencia de Alidos da Deriv 2022
+                    {localize('Deriv Affiliate Conference 2022')}
                 </Header>
             </LeftSide>
 
             <NavigationBar>
-                <NavLinkCard active="venue" to="/conference/venue/" title={'The Venue'} />
-
-                <NavLinkCard active="spealers" to="/conference/speakers/" title={'Speakers'} />
-
-                <NavLinkCard active="schedule" to="/conference/schedule/" title={'The Schedule'} />
+                <NavLinkCard
+                    active="schedule"
+                    to="/conference/schedule/"
+                    title={localize('Schedule')}
+                />
             </NavigationBar>
         </StyledWrapper>
     )

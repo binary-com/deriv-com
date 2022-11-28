@@ -6,6 +6,7 @@ import Dia1 from 'images/common/conference/dia1.png'
 import Dia2 from 'images/common/conference/dia2.png'
 import Dia3 from 'images/common/conference/dia3.png'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 const EventsWrapper = styled.div`
     display: flex;
@@ -42,22 +43,22 @@ type TEvents = {
 const Events = () => {
     const events: TEvents[] = [
         {
-            day: 'Dia 1',
+            day: 'Day 1',
             icon: Dia1,
-            title: '30 de Novembro - Virtual e presencial',
-            subtitle: 'Introdução e palestras',
+            title: 'November 30 - Virtual and in person',
+            subtitle: 'Introduction and lectures',
         },
         {
-            day: 'Dia 2',
+            day: 'Day 2',
             icon: Dia2,
-            title: '1 de Dezembro - Virtual e presencial',
-            subtitle: 'Palestras',
+            title: 'December 1 - Virtual and in person',
+            subtitle: 'Speeches',
         },
         {
-            day: 'Dia 3',
+            day: 'Day 3',
             icon: Dia3,
-            title: '2 de Dezembro - Somente presencial',
-            subtitle: 'Workshops e reuniões individuais',
+            title: 'December 2 - In person only',
+            subtitle: 'Workshops and individual meetings',
         },
     ]
 
@@ -67,14 +68,14 @@ const Events = () => {
                 return (
                     <Card key={event.day}>
                         <EventsHeader as="div" type="heading-3" pb="32px">
-                            {event.day}
+                            {localize(event.day)}
                         </EventsHeader>
                         <img src={event.icon} alt="day" width={384} height={256} />
                         <EventsHeader as="div" weight="normal" type="subtitle-2" pt="24px" pb="8px">
-                            {event.title}
+                            {localize(event.title)}
                         </EventsHeader>
                         <EventsHeader as="div" weight="normal" type="subtitle-1">
-                            {event.subtitle}
+                            {localize(event.subtitle)}
                         </EventsHeader>
                     </Card>
                 )

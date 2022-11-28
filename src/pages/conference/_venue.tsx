@@ -5,6 +5,7 @@ import { Header } from 'components/elements'
 import ExperienceImage from 'images/common/conference/venue.png'
 import MapImage from 'images/common/conference/map.png'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 const Announce = styled.div`
     display: flex;
@@ -67,17 +68,18 @@ const Venue = (map_link: string) => {
         <>
             <Announce>
                 <ExperienceHeader as="h6" type="subtitle-2" weight="normal">
-                    Embora o objetivo seja que nossos parceiros participem online, você também pode
-                    vir e ter a experiência completa.
+                    {localize(
+                        'While the goal is for our partners to participate online, you can also come and get the full experience.',
+                    )}
                 </ExperienceHeader>
                 <Experience src={ExperienceImage} alt="expirience image" />
             </Announce>
             <Place>
                 <PlacementHeader as="div" type="heading-3" pb="8px">
-                    Endereço
+                    {localize('Address')}
                 </PlacementHeader>
                 <PlacementHeader as="div" type="subtitle-2" weight="normal" pb="32px">
-                    Paseo La Galeria Centro de Eventos Asuncion Paraguay
+                    {localize('Paseo La Galeria Event Center Asuncion Paraguay')}
                 </PlacementHeader>
                 <Link to={google_map_link}>
                     <Placement src={MapImage} alt="venue map" />

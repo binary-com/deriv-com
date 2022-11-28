@@ -202,7 +202,7 @@ export const asuncion: LocationsType = {
     map_text:
         'The office culture in Deriv (Asunción) is lively and inspires collaboration. The team is young, and they move fast while delivering responsibilities with a focus on impact. The team work together closely and enjoy fun team bonding sessions. If you are on the lookout for a dynamic work environment that fuels career growth, join our team in Asunción.',
     address: address_asuncion,
-    google_map_link: 'https://goo.gl/maps/N8nc9pJL6Y88abdQ8',
+    google_map_link: 'https://goo.gl/maps/r8TAJx9L1HfC1mPi9',
     has_iframe: true,
 }
 
@@ -300,13 +300,13 @@ export const cyprus: LocationsType = {
         'Girl having a call online',
         "Deriv's office location in Limassol,Cyprus",
     ],
-    map: 'ChIJcwIu_VQz5xQR_cm_eAWo2XY',
+    map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
     badge: 'cyprus_great_place_to_work_badge',
     badge_alt: 'Cyprus Great Place to Work 2022 Certification Badge',
     map_text:
         'We give our people the freedom to solve problems and work together to get things done without hierarchy. The workplace encourages open communication, transparency, and a free flow of ideas. If you take pride in your work and are interested in working with the best global talent,  join our team in Limassol.',
     address: address_cyprus,
-    google_map_link: 'https://goo.gl/maps/j7fs9r73dfwQtHgj8',
+    google_map_link: 'https://goo.gl/maps/BdBfWNVhyLGZ2KfG7',
     has_iframe: true,
 }
 
@@ -371,14 +371,14 @@ export const minsk: LocationsType = {
         'Team meetings',
         'Girl having a chat ',
     ],
-    map: 'ChIJF9lVNV_P20YRukiwrfpLP4E',
+    map: ' ChIJF9lVNV_P20YRukiwrfpLP4E',
     badge: 'minsk_great_place_to_work_badge',
     badge_alt: 'Minsk Great Place to Work 2022 Certification Badge',
     map_text:
         'The work culture at Deriv (Minsk) is lively and energetic. You will get exposure to global projects and work with highly skilled professionals from across the world. If working for a diverse and thriving team excites you, join our team in Minsk.',
     address: address_belarus,
     map_img: 'minsk_map',
-    google_map_link: 'https://goo.gl/maps/WJsR7a8vJfRifKzPA',
+    google_map_link: 'https://goo.gl/maps/AGhpss2Mdf81Qe5Y7',
     has_iframe: true,
 }
 
@@ -399,12 +399,12 @@ export const paris: LocationsType = {
         "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
-    map: 'ChIJGfkBiTBu5kcRK2m0KBW8x0Q',
+    map: 'ChIJHzsdKOdv5kcRCRcM_lUIW14',
     map_text:
         'Deriv (France) is the heart of our research and development. We have an elite think tank in this centre that helps create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
     address: address_france,
     map_img: 'paris_map',
-    google_map_link: 'https://goo.gl/maps/5xvdS7tvZM7kKkDK8',
+    google_map_link: 'https://goo.gl/maps/9gWxUqM3goau5eRCA',
     has_iframe: true,
     has_map: true,
 }

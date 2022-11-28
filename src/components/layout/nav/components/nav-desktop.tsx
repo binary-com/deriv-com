@@ -74,9 +74,7 @@ const NavDesktop = ({
         { active: 'markets', title: <Localize translate_text="Markets" /> },
         { active: 'about', title: <Localize translate_text="About us" /> },
         { active: 'resources', title: <Localize translate_text="Resources" /> },
-    ].filter((item) => {
-        return !is_show_branding ? item.active !== 'about' : item
-    })
+    ].filter((item) => (!is_show_branding ? item.active !== 'about' : item))
 
     const navigation_bar_ref = useRef(null)
     const current_page = useActiveLinkState('main')

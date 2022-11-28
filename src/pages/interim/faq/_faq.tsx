@@ -62,7 +62,7 @@ const FAQ = () => {
         border: 'none',
     }
     const { is_eu_country, is_show_branding } = React.useContext(DerivStore)
-    console.log(is_show_branding)
+
     return (
         <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">

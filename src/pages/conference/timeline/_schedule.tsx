@@ -109,10 +109,8 @@ const ScheduleConference = ({ item }: ConferenceProps) => {
                                         {item.timings.map((item) => {
                                             return (
                                                 <Header
-                                                    as="div"
                                                     type="heading-3"
                                                     align="center"
-                                                    weight="700"
                                                     mb="60px"
                                                     key={id}
                                                 >
@@ -133,16 +131,13 @@ const ScheduleConference = ({ item }: ConferenceProps) => {
                                             return (
                                                 <>
                                                     <Header
-                                                        as="div"
                                                         align="left"
                                                         type="subtitle-1"
-                                                        weight="bold"
                                                         width="230px"
                                                     >
                                                         {item.topic}
                                                     </Header>
                                                     <Header
-                                                        as="div"
                                                         align="left"
                                                         type="subtitle-1"
                                                         weight="400"

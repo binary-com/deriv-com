@@ -338,7 +338,7 @@ module.exports = {
         {
             resolve: 'gatsby-source-strapi',
             options: {
-                apiURL: strapi_url,
+                apiURL: `${strapi_url}`,
                 accessToken: process.env.STRAPI_TOKEN,
                 collectionTypes: ['menus.menu', 'menus.menu-item'],
             },
@@ -346,7 +346,7 @@ module.exports = {
         {
             resolve: 'gatsby-source-strapi-graphql',
             options: {
-                apiURL: strapi_url,
+                apiURL: `${strapi_url}`,
                 collectionTypes: ['menus.menu', 'menus.menu-item'],
                 token: process.env.STRAPI_TOKEN,
                 loginData: {

@@ -371,14 +371,14 @@ export const minsk: LocationsType = {
         'Team meetings',
         'Girl having a chat ',
     ],
-    map: ' ChIJF9lVNV_P20YRukiwrfpLP4E',
+    map: 'ChIJF9lVNV_P20YRukiwrfpLP4E',
     badge: 'minsk_great_place_to_work_badge',
     badge_alt: 'Minsk Great Place to Work 2022 Certification Badge',
     map_text:
         'The work culture at Deriv (Minsk) is lively and energetic. You will get exposure to global projects and work with highly skilled professionals from across the world. If working for a diverse and thriving team excites you, join our team in Minsk.',
     address: address_belarus,
     map_img: 'minsk_map',
-    google_map_link: 'https://goo.gl/maps/AGhpss2Mdf81Qe5Y7',
+    google_map_link: 'https://goo.gl/maps/7wUCJ6zy7P8CsmkD7',
     has_iframe: true,
 }
 
@@ -597,12 +597,12 @@ export const singapore: LocationsType = {
 
     grid_images: ['singapore_grid', 'guernsey_grid_2', 'singapore_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['Working with Deriv’s Singapore team'],
-    map: 'ChIJqZat5gsZ2jERAuS99CP0atQ',
+    map: 'ChIJtcz6IO4Z2jERVa-frIastZU',
     map_text:
         'Our Singapore office will be home to a team of bright trading minds who will make Deriv everyone’s first choice for trading CFDs. Start a thriving career at Deriv in Singapore to influence the trading experience of over two million clients around the globe.',
     map_img: 'singapore_map',
     address: address_singapore,
-    google_map_link: 'https://goo.gl/maps/RAMcoQRgpY3ykb299',
+    google_map_link: 'https://goo.gl/maps/tZXz1xh4tYZicmLV7',
     has_iframe: true,
     has_map: true,
 }

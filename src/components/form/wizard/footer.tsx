@@ -39,7 +39,7 @@ const Footer = ({ step, setStep, max_step, setEnableNext, disabled }: FooterProp
             if (button_type === ButtonType.Next) {
                 step < max_step && setStep(step + 1)
             }
-            setEnableNext(false)
+            setEnableNext(true)
         },
         [max_step, setEnableNext, setStep, step],
     )

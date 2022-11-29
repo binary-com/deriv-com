@@ -96,6 +96,11 @@ module.exports = {
         short_name: 'KO',
         affiliate_lang: 16,
     },
+    si: {
+        path: 'si',
+        display_name: 'සිංහල',
+        short_name: 'SI',
+    },
     ach: {
         path: 'ach',
         display_name: 'Crowdin',

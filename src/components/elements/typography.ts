@@ -5,9 +5,10 @@ import { Margins, MarginsType, Paddings, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
 type LinkTextProps = {
+    href?: string
+    external?: boolean
+    target?: '_blank' | '_parent' | '_self' | '_top'
     rel?: string
-    target?: string
-    href: string
 }
 
 type Types =

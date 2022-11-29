@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
@@ -15,7 +14,7 @@ export type CommoditiesContent = {
     text: ReactElement
     alt: string
 }
-export const simple_step_content_commodities: SimpleStepsContent[] = [
+export const simple_step_content_commodities = [
     {
         header: <Localize translate_text="Practise" />,
         text: (

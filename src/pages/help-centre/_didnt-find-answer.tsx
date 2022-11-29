@@ -71,7 +71,6 @@ const WhatsAppIcon = styled.img`
 
 export const DidntFindYourAnswerBanner = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
-    const { is_south_africa, is_nigeria } = useCountryRule()
     return (
         <DFYAWrapper>
             <DFYASection>
@@ -89,17 +88,15 @@ export const DidntFindYourAnswerBanner = () => {
                         >
                             {localize('Chat')}
                         </Button>
-                        {(is_south_africa || is_nigeria) && (
-                            <WhatsAppButton onClick={() => window.open(whatsapp_url, '_blank')}>
-                                <WhatsAppIcon
-                                    src={WhatsAppSVG}
-                                    alt={localize('whatsappicon')}
-                                    height="16"
-                                    width="16"
-                                />
-                                {localize('WhatsApp')}
-                            </WhatsAppButton>
-                        )}
+                        <WhatsAppButton onClick={() => window.open(whatsapp_url, '_blank')}>
+                            <WhatsAppIcon
+                                src={WhatsAppSVG}
+                                alt={localize('whatsappicon')}
+                                height="16"
+                                width="16"
+                            />
+                            {localize('WhatsApp')}
+                        </WhatsAppButton>
                     </Flex>
                 )}
             </DFYASection>

@@ -922,7 +922,7 @@ export const Offices = () => {
                                 <img src={Cayman} alt="Cayman Islands - George Town" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                {localize('Cayman')}
+                                {localize('Cayman Islands')}
                             </Header>
                         </OfficeHeader>
                     </Flex>

@@ -111,6 +111,7 @@ const TextWrapper = styled(Header)`
 
 type TabPanelProps = {
     children?: ReactElement
+    label?: string
 }
 const TabPanel = ({ children }: TabPanelProps) => (
     <TabContent role="tabpanel">{children}</TabContent>

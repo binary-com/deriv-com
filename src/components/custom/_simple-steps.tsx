@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Button } from 'components/form'
@@ -8,9 +8,10 @@ import device from 'themes/device'
 import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import useAuthCheck from 'components/hooks/use-auth-check'
 
 type SimpleStepsProps = {
-    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactNode }[]
+    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactElement }[]
     header?: string
     sign_up?: boolean
 }
@@ -132,6 +133,7 @@ const StyledLinkButton = styled(Button)`
 
 const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
     const handleSignup = useHandleSignup()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <StyledSection>
@@ -167,7 +169,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
                     )
                 })}
             </StyledFlex>
-            {sign_up && (
+            {sign_up && !is_logged_in && (
                 <LinkButtonWrapper>
                     <StyledLinkButton id="dm-steps-signup" secondary onClick={handleSignup}>
                         {localize('Sign up now')}

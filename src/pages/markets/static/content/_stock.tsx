@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import ExtendedTime from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
 import MinimalCapital from 'images/svg/stock-indices/stocks-extended-time.svg'
@@ -15,7 +14,7 @@ type Stock = {
     alt: string
 }
 
-export const simple_step_content_stock: SimpleStepsContent[] = [
+export const simple_step_content_stock = [
     {
         header: <Localize translate_text="Practise" />,
         text: (

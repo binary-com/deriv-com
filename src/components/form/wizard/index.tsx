@@ -8,7 +8,7 @@ import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 
 type WizardProps = {
     children: React.ReactElement[]
-    show: boolean
+    show?: boolean
     steps_names: string[]
     title: string
     enable_next_button: boolean
@@ -57,7 +57,7 @@ const Wrapper = styled.div`
     overflow-x: auto;
 `
 
-const Wizard = ({ children, show, steps_names, title, enable_next_button }: WizardProps) => {
+const Wizard = ({ children, show = true, steps_names, title, enable_next_button }: WizardProps) => {
     const [show_wizard, setShowWizard] = useState(false)
     const [step, setStep] = useState(1)
     const max_step = children.length

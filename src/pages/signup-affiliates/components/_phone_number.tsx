@@ -1,18 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import validation from '../validations/_account-details'
 import OtpVerification from 'images/svg/signup-affiliates/code.svg'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Input, Button } from 'components/form'
 
-const PhoneNumber = () => {
-    const [phone, setPhone] = useState('')
+type PhoneNumberProps = {
+    onValidate: (e) => void
+    affiliate_phone_number: string
+    updatedData: (e) => void
+}
+
+const PhoneNumber = ({ onValidate, affiliate_phone_number, updatedData }: PhoneNumberProps) => {
+    const [phone, setPhone] = useState(affiliate_phone_number)
+    const [phone_error_msg, setPhoneErrorMsg] = useState('')
     const [phonecode, setPhoneCode] = useState('44')
+
+    useEffect(() => {
+        updatedData(phone)
+    }, [phone])
 
     const handlePhoneNumber = (e) => {
         const { value } = e.target
         setPhone(value)
+        setPhoneErrorMsg(validation.phone(value))
     }
+
     const ImageContainer = styled.div`
         display: flex;
         justify-content: center;
@@ -49,9 +63,7 @@ const PhoneNumber = () => {
         line-height: 20px;
         color: var(--color-grey-5);
     `
-    const CodeText = styled(Header)`
-        padding-right: 95px;
-    `
+
     const OtpCard = styled.input`
         height: 40px;
         width: 40px;
@@ -63,17 +75,22 @@ const PhoneNumber = () => {
     `
 
     const OtpContainer = styled.form`
-        display: flex;
+        display: none;
         flex-direction: row;
         justify-content: center;
         padding-top: 15px;
     `
+    const validate = !(!phone || phone_error_msg)
+
+    useEffect(() => {
+        onValidate(validate)
+    }, [onValidate, validate])
 
     const OtpNumbers: number[] = [4, 3, 1, 2]
     return (
         <>
             <Header as="h2" align="center" type="paragraph-1" pb="24px" weight="normal">
-                {localize('We will send you a one-time verification code')}
+                {localize('Please enter a valid phone number')}
             </Header>
             <ImageContainer>
                 <img src={OtpVerification} width={240} height={192} />
@@ -88,7 +105,9 @@ const PhoneNumber = () => {
                     required
                     id="phone"
                     value={phone}
+                    name="phone"
                     onChange={handlePhoneNumber}
+                    error={phone_error_msg}
                     height="40px"
                     autoFocus={true}
                     autoComplete="off"
@@ -99,9 +118,6 @@ const PhoneNumber = () => {
                     {localize('Send code')}
                 </ButtonCode>
             </CodeContainer>
-            <CodeText align="center" color="grey" type="paragraph-2" weight="400">
-                {localize('Didn’t receive your code? Try again in 59 seconds')}
-            </CodeText>
 
             <OtpContainer>
                 {OtpNumbers.map((index) => {

@@ -16,6 +16,9 @@ jobs:
               with:
                   node-version: '16.x'
             - run: npm i -g @crowdin/cli
+            - name: Fetch Crowdin Master Translation ⬇️ 
+              run: 
+                  crowdin download -b  master -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b master -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Push New Strings & Translations ⬆️
               run:  
                   crowdin upload sources -b ${{ github.ref_name }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.ref_name }} -T ${{ secrets.CROWDIN_API_KEY }}

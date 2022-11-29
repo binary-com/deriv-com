@@ -192,7 +192,7 @@ const Layout = ({
                 }
             }
         }
-    }, [is_uk_eu])
+    }, [gtm_data, is_loading, is_uk_eu, setGTMData])
 
     React.useEffect(() => {
         if (!is_redirection_applied) {

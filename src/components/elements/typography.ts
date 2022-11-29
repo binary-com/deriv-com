@@ -4,7 +4,7 @@ import { generateResponsiveStyles, ResponseDeviceProps } from '../containers/box
 import { Margins, MarginsType, Paddings, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
-type TLinkText = {
+type LinkTextProps = {
     href?: string
     external?: boolean
     target?: '_blank' | '_parent' | '_self' | '_top'
@@ -224,7 +224,7 @@ export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     ${responsiveStyles}
 `
 
-export const LinkText = styled(Text).attrs({ as: 'a' })<TLinkText>`
+export const LinkText = styled(Text).attrs({ as: 'a' })<LinkTextProps>`
     ${BaseLink}
 `
 

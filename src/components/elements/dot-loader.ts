@@ -26,7 +26,7 @@ const dots = keyframes`
 `
 const InitialLoader = styled.span`
     text-align: center;
-    margin-top: -160px;
+    margin: 0 49%;
 
     ::after {
         color: grey;

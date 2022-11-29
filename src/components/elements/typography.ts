@@ -89,7 +89,7 @@ export const BaseLink = css`
 `
 
 export const BaseElement = css<BaseElementProps>`
-    text-align: ${(props) => props.align || 'left'};
+    text-align: ${(props) => props.align || 'start'};
     padding: ${(props) => props.padding || ''};
     color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-black-3)')};
     line-height: ${(props) => props.lh || '1.5'};
@@ -103,9 +103,7 @@ export const BaseElement = css<BaseElementProps>`
     }
 `
 
-//////////////////////////////////////////////////////////////////////////////
-/////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
-//////////////////////////////////////////////////////////////////////////////
+/** @deprecated Use `Header` component instead. */
 
 export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
     ${BaseElement}
@@ -119,10 +117,6 @@ export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
 
     ${responsiveStyles}
 `
-//////////////////////////////////////////////////////////////////////////////
-/////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
-//////////////////////////////////////////////////////////////////////////////
-
 type HeaderProps = {
     as?: string
     children?: React.ReactNode

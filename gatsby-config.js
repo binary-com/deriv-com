@@ -1,9 +1,14 @@
 const language_config = require(`./i18n-config.js`)
+const isBrowser = typeof window !== 'undefined'
+
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
-const site_url = 'https://deriv.com'
+const origin = isBrowser && window.location.origin
+const href = isBrowser && window.location.href
+const site_url =
+    origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -19,7 +24,6 @@ module.exports = {
         siteUrl: site_url,
     },
     partytownProxiedURLs: [
-        `https://www.googletagmanager.com/gtm.js?id=GTM-NF7884S`,
         `https://assets.customer.io/assets/track-eu.js`,
         `https://assets.customer.io/assets/track.js`,
         `https://static.deriv.com/scripts/cookie.js`,
@@ -100,7 +104,7 @@ module.exports = {
                     }
                 }
                 `,
-                resolveSiteUrl: () => site_url,
+                resolveSiteUrl: () => (isBrowser && window.location.hostname) || site_url,
                 resolvePages: ({ allSitePage: { nodes: allPages } }) => {
                     return allPages.map((page) => {
                         return { ...page }
@@ -154,13 +158,96 @@ module.exports = {
                 icon: './favicons/favicon-512x512.png',
                 icons: [
                     {
+                        src: `favicons/favicon-48x48.png`,
+                        sizes: `48x48`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `favicons/favicon-72x72.png`,
+                        sizes: `72x72`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `favicons/favicon-96x96.png`,
+                        sizes: `96x96`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `favicons/favicon-144x144.png`,
+                        sizes: `144x144`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
                         src: `favicons/favicon-192x192.png`,
                         sizes: `192x192`,
                         type: `image/png`,
                         purpose: 'any maskable',
                     },
                     {
+                        src: `favicons/favicon-256x256.png`,
+                        sizes: `256x256`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `favicons/favicon-384x384.png`,
+                        sizes: `384x384`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
                         src: `favicons/favicon-512x512.png`,
+                        sizes: `512x512`,
+                        type: `image/png`,
+                    },
+                    {
+                        src: `icons/icon-48x48.png`,
+                        sizes: `48x48`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `icons/icon-72x72.png`,
+                        sizes: `72x72`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `icons/icon-96x96.png`,
+                        sizes: `96x96`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `icons/icon-144x144.png`,
+                        sizes: `144x144`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `icons/icon-192x192.png`,
+                        sizes: `192x192`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `icons/icon-256x256.png`,
+                        sizes: `256x256`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `icons/icon-384x384.png`,
+                        sizes: `384x384`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `icons/icon-512x512.png`,
                         sizes: `512x512`,
                         type: `image/png`,
                     },
@@ -221,7 +308,6 @@ module.exports = {
             options: {
                 id: 'GTM-NF7884S',
                 includeInDevelopment: false,
-                strategy: 'off-main-thread',
             },
         },
         {

@@ -2,14 +2,14 @@ import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { Flex, SectionContainer } from 'components/containers'
+import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { LocalizedLink, Localize } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
-import { Desktop, Mobile } from 'components/containers/visibility'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;
@@ -89,11 +89,11 @@ const market_data = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Synthetic indices" />,
+        header: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
+            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
-        img_name: 'market_synthetic_indices',
+        img_name: 'market_derived',
         to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
@@ -119,16 +119,6 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Basket indices" />,
-        description: (
-            <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
-        ),
-        img_name: 'market_basket_indices',
-        to: '/markets/basket-indices/',
-        gradient_start: '#555110',
-        gradient_end: '#151404',
-    },
-    {
         header: <Localize translate_text="Commodities" />,
         description: (
             <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
@@ -151,11 +141,11 @@ const market_data_eu = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Synthetic indices" />,
+        header: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
+            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
-        img_name: 'market_synthetic_indices',
+        img_name: 'market_derived',
         to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
@@ -245,6 +235,9 @@ const query = graphql`
         market_commodities: file(relativePath: { eq: "home/market_commodities.png" }) {
             ...fadeIn
         }
+        market_derived: file(relativePath: { eq: "home/market_derived.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -288,7 +281,12 @@ const CarouselItem = ({
                     </Header>
                     <Desktop>
                         <>
-                            <StyledDescription lh="24px" type="paragraph-1" $hovered={is_hovered}>
+                            <StyledDescription
+                                lh="24px"
+                                color="white"
+                                type="paragraph-1"
+                                $hovered={is_hovered}
+                            >
                                 {description}
                             </StyledDescription>
                             <CarouselItemImageDesktop
@@ -315,6 +313,8 @@ const MarketsFold = () => {
     const is_not_big_screen = size.width < 1980 && size.width >= 768
     const is_mobile = size.width < 768
 
+    const lang_direction = useLangDirection()
+
     const getMaxWidth = () => {
         if (is_mobile) return '100%'
         if (is_not_big_screen) return '1210px'
@@ -335,19 +335,23 @@ const MarketsFold = () => {
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
             align: is_mobile ? 0.04 : 'center',
+            direction: lang_direction,
         },
         container_style: {
-            maxWidth: '100%',
-            margin: '0 auto',
+            maxInlineSize: '100%',
+            marginBlockStart: '0',
+            marginBlockEnd: '0',
+            marginInlineStart: 'auto',
+            marginInlineEnd: 'auto',
         },
         embla_style: {
-            minHeight: is_mobile ? '364px' : 'auto',
-            maxWidth: getMaxWidth(),
+            minBlockSize: is_mobile ? '364px' : 'auto',
+            maxInlineSize: getMaxWidth(),
         },
         slide_style: {
-            width: is_not_big_screen ? '282px' : '400px',
-            height: 'auto',
-            marginRight: is_mobile ? '16px' : '24px',
+            inlineSize: is_not_big_screen ? '282px' : '400px',
+            blockSize: 'auto',
+            marginInlineEnd: is_mobile ? '16px' : '24px',
             position: 'relative',
         },
         navigation_style: {
@@ -357,7 +361,7 @@ const MarketsFold = () => {
     }
 
     return (
-        <FoldWrapper>
+        <FoldWrapper id="market-fold">
             <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
                     <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>

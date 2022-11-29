@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { ArcticlesType } from './_help-articles'
-import { DerivStore } from 'store'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { Text } from 'components/elements'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type StyledProps = {
     wrap?: string
@@ -79,7 +79,7 @@ const ArticleSectionComponent = ({
     data,
     toggleArticle,
 }: ArticleSectionComponentProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     const { platform } = usePlatformQueryParam()
 
     return (
@@ -89,9 +89,10 @@ const ArticleSectionComponent = ({
             <RowDiv>
                 {articles.map((item, idx) => {
                     if (
-                        is_eu_country &&
+                        is_eu &&
                         (item.category.props.translate_text === 'Deriv X' ||
-                            item.category.props.translate_text === 'Deriv P2P')
+                            item.category.props.translate_text === 'Deriv P2P' ||
+                            item.category.props.translate_text === 'DBot')
                     ) {
                         return <React.Fragment key={idx}></React.Fragment>
                     }
@@ -103,7 +104,7 @@ const ArticleSectionComponent = ({
                             item={item}
                             all_categories={data.all_categories}
                             toggleArticle={toggleArticle}
-                            is_eu_country={is_eu_country}
+                            is_eu={is_eu}
                             param={platform}
                         />
                     )

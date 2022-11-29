@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import { getLanguage, isChoosenLanguage } from '../../common/utility'
+import { getLanguage } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
 import Login from 'common/login'
@@ -150,7 +150,7 @@ const Signup = (props: SignupProps) => {
             const success_default_link = `signup-success?email=${email}`
             const link_with_language = `${getLanguage()}/${success_default_link}`
             const success_link = `/${
-                isChoosenLanguage().english ? success_default_link : link_with_language
+                getLanguage() === 'en' ? success_default_link : link_with_language
             }`
             navigate(success_link, { replace: true })
         }

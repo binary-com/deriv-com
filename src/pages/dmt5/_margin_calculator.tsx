@@ -8,6 +8,7 @@ import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type CalculatorProps = {
     children?: React.ReactNode
@@ -47,20 +48,22 @@ const CardContainer = styled(Flex)`
 `
 
 const ImageWrapper = styled.div`
+    display: flex;
     width: 392px;
     height: 386px;
     object-fit: contain;
     margin-bottom: 2.4rem;
 
     @media ${device.tabletL} {
-        max-width: 232px;
-        width: 100%;
-        margin-bottom: 24px;
-        height: unset;
+        align-items: center;
+        justify-content: center;
+        width: 232px;
+        height: 229px;
 
         div {
             max-width: 232px;
             width: 100%;
+            height: auto;
         }
     }
 `
@@ -68,7 +71,7 @@ const ImageWrapper = styled.div`
 const MainHeader = styled(Header)`
     margin: 0 0 12px;
     @media ${device.tabletL} {
-        font-size: 32px;
+        font-size: 28px;
         margin-bottom: 24px;
         padding: 0 16px;
         text-align: center;
@@ -113,7 +116,7 @@ const StyledCardContainer = styled(Flex)`
     align-items: center;
     @media ${device.tabletL} {
         height: auto;
-        min-height: 518px;
+        min-height: 480px;
         justify-content: flex-start;
     }
 `
@@ -225,7 +228,12 @@ const calculators: CalculatorProps[] = [
 ]
 
 const MarginCalculator = () => {
+    const lang_direction = useLangDirection()
+
     const settings = {
+        options: {
+            direction: lang_direction,
+        },
         container_style: {
             maxWidth: '100%',
             margin: '0',
@@ -243,12 +251,12 @@ const MarginCalculator = () => {
         },
     }
 
-    const { is_eu, is_non_eu } = useCountryRule()
+    const { is_uk_eu } = useCountryRule()
     return (
         <SectionContainer>
             <StyledFlexContainer>
                 <StyledFlex
-                    ai="flex-end"
+                    ai="center"
                     jc="flex-start"
                     tablet_jc="center"
                     fd="column"
@@ -256,14 +264,14 @@ const MarginCalculator = () => {
                     has_color={true}
                 >
                     <StyledBox max_width="100%">
-                        <MainHeader as="h2" type="page-title" lh="1.25" align="left">
+                        <MainHeader as="h2" type="page-title" lh="1.25" align="start">
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>
-                            {is_eu && (
+                            {is_uk_eu && (
                                 <>
                                     <Localize
-                                        translate_text="Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
+                                        translate_text="Explore <0>CFDs</0> on Deriv MT5 and enjoy low spreads to increase your returns when the market moves in your favour."
                                         components={[
                                             <LinkText
                                                 color="red"
@@ -276,7 +284,7 @@ const MarginCalculator = () => {
                                     />
                                 </>
                             )}
-                            {is_non_eu && (
+                            {!is_uk_eu && (
                                 <>
                                     <Localize
                                         translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."

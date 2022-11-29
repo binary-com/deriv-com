@@ -86,7 +86,7 @@ const HowOptionsWorks = () => {
                         <HowItWorksItem>
                             <OptionItems>
                                 <div>
-                                    <img src={DefinePosition} alt="" />
+                                    <img src={DefinePosition} alt="Define Position" />
                                 </div>
                                 <StyledText weight="bold">
                                     {localize('Define your position')}
@@ -101,7 +101,7 @@ const HowOptionsWorks = () => {
                         <HowItWorksItem>
                             <OptionItems>
                                 <div>
-                                    <img src={GetQuote} alt="" />
+                                    <img src={GetQuote} alt="Get quote" />
                                 </div>
                                 <StyledText weight="bold">{localize('Get quote')}</StyledText>
                             </OptionItems>
@@ -114,7 +114,7 @@ const HowOptionsWorks = () => {
                         <HowItWorksItem>
                             <OptionItems>
                                 <div>
-                                    <img src={PurchaseContract} alt="" />
+                                    <img src={PurchaseContract} alt="Purchase Contract" />
                                 </div>
                                 <StyledText weight="bold">
                                     {localize('Purchase your contract')}
@@ -138,7 +138,7 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="1. Market" />}
                         description={
-                            <Localize translate_text="Choose from the four markets offered on Deriv – forex, stocks & indices, commodities, synthetic indices." />
+                            <Localize translate_text="Choose from forex, stocks & indices, commodities, derived." />
                         }
                     >
                         <QueryImage

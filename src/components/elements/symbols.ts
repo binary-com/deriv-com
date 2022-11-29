@@ -14,6 +14,8 @@ import AUDJPY from 'images/svg/symbols/aud-jpy.svg'
 import AUDNZD from 'images/svg/symbols/aud-nzd.svg'
 import AUDSGD from 'images/svg/symbols/aud-sgd.svg'
 import AUDUSD from 'images/svg/symbols/aud-usd.svg'
+import AUDUSD10 from 'images/svg/symbols/aud-usd-10.svg'
+import AUDUSD100 from 'images/svg/symbols/aud-usd-100.svg'
 import AUS200 from 'images/svg/symbols/aus-200.svg'
 import AVALANCHE from 'images/svg/symbols/avalanche.svg'
 import BA from 'images/svg/symbols/ba.svg'
@@ -83,6 +85,8 @@ import EURSGD from 'images/svg/symbols/eur-sgd.svg'
 import EURSEK from 'images/svg/symbols/eur-sek.svg'
 import EURTRY from 'images/svg/symbols/eur-try.svg'
 import EURUSD from 'images/svg/symbols/eur-usd.svg'
+import EURUSD10 from 'images/svg/symbols/eur-usd-10.svg'
+import EURUSD100 from 'images/svg/symbols/eur-usd-100.svg'
 import EURZAR from 'images/svg/symbols/eur-zar.svg'
 import FB from 'images/svg/symbols/fb.svg'
 import FILECOIN from 'images/svg/symbols/filecoin.svg'
@@ -100,6 +104,8 @@ import GBPSGD from 'images/svg/symbols/gbp-sgd.svg'
 import GBPSEK from 'images/svg/symbols/gbp-sek.svg'
 import GBPTRY from 'images/svg/symbols/gbp-try.svg'
 import GBPUSD from 'images/svg/symbols/gbp-usd.svg'
+import GBPUSD10 from 'images/svg/symbols/gbp-usd-10.svg'
+import GBPUSD100 from 'images/svg/symbols/gbp-usd-100.svg'
 import GM from 'images/svg/symbols/gm.svg'
 import GOLDBASKET from 'images/svg/symbols/gold-basket.svg'
 import GOLDEUR from 'images/svg/symbols/gold-eur.svg'
@@ -194,6 +200,8 @@ import PLATINUMUSD from 'images/svg/symbols/platinum-usd.svg'
 import PYPL from 'images/svg/symbols/pypl.svg'
 import RANGEBREAK100 from 'images/svg/symbols/rb-100.svg'
 import RANGEBREAK200 from 'images/svg/symbols/rb-200.svg'
+import RANGEBREAK100New from 'images/svg/symbols/rb-100-new.svg'
+import RANGEBREAK200New from 'images/svg/symbols/rb-200-new.svg'
 import SGDJPY from 'images/svg/symbols/sgd-jpy.svg'
 import SILVERUSD from 'images/svg/symbols/silver-usd.svg'
 import SOLUSD from 'images/svg/symbols/sol-usd.svg'
@@ -214,10 +222,14 @@ import US500 from 'images/svg/symbols/us-500.svg'
 import USDBASKET from 'images/svg/symbols/usd-basket.svg'
 import USDCAD from 'images/svg/symbols/usd-cad.svg'
 import USDCHF from 'images/svg/symbols/usd-chf.svg'
+import USDCHF10 from 'images/svg/symbols/usd-chf-10.svg'
+import USDCHF100 from 'images/svg/symbols/usd-chf-100.svg'
 import USDCNH from 'images/svg/symbols/usd-cnh.svg'
 import USDHKD from 'images/svg/symbols/usd-hkd.svg'
 import USDILS from 'images/svg/symbols/usd-ils.svg'
 import USDJPY from 'images/svg/symbols/usd-jpy.svg'
+import USDJPY10 from 'images/svg/symbols/usd-jpy-10.svg'
+import USDJPY100 from 'images/svg/symbols/usd-jpy-100.svg'
 import USDMXN from 'images/svg/symbols/usd-mxn.svg'
 import USDNOK from 'images/svg/symbols/usd-nok.svg'
 import USDBRENT from 'images/svg/symbols/usd-brent.svg'
@@ -339,6 +351,8 @@ import VBOOMIC300 from 'images/svg/symbols/volatility-boom-300-new.svg'
 import VCRASHIC300 from 'images/svg/symbols/volatility-crash-300-new.svg'
 import VINDEXIC200 from 'images/svg/symbols/volatility-index-ic-200.svg'
 import VINDEXIC300 from 'images/svg/symbols/volatility-index-ic-300.svg'
+import VINDEX2001S from 'images/svg/symbols/volatility_200_1s.svg'
+import VINDEX3001S from 'images/svg/symbols/volatility_300_1s.svg'
 import ZECUSD from 'images/svg/symbols/zec-usd.svg'
 
 export {
@@ -358,6 +372,8 @@ export {
     AUDNZD,
     AUDSGD,
     AUDUSD,
+    AUDUSD10,
+    AUDUSD100,
     AUS200,
     AVALANCHE,
     BA,
@@ -428,6 +444,8 @@ export {
     EURSEK,
     EURTRY,
     EURUSD,
+    EURUSD10,
+    EURUSD100,
     EURZAR,
     FB,
     FDX,
@@ -445,6 +463,8 @@ export {
     GBPSEK,
     GBPTRY,
     GBPUSD,
+    GBPUSD10,
+    GBPUSD100,
     GM,
     GOLDBASKET,
     GOLDEUR,
@@ -539,6 +559,8 @@ export {
     PLATINUMUSD,
     PYPL,
     RANGEBREAK100,
+    RANGEBREAK100New,
+    RANGEBREAK200New,
     RANGEBREAK200,
     SGDJPY,
     SILVERUSD,
@@ -561,9 +583,13 @@ export {
     USDBASKET,
     USDCAD,
     USDCHF,
+    USDCHF10,
+    USDCHF100,
     USDHKD,
     USDILS,
     USDJPY,
+    USDJPY10,
+    USDJPY100,
     USDMXN,
     USDNOK,
     USDPLN,
@@ -682,6 +708,8 @@ export {
     VCRASHIC300,
     VINDEXIC200,
     VINDEXIC300,
+    VINDEX2001S,
+    VINDEX3001S,
     USDCNH,
     USDBRENT,
 }

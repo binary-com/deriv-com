@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import application_process from '../../static/content/_application-process'
 import {
     ContentContainer,
@@ -10,7 +11,11 @@ import {
 } from '../../static/style/_application-process'
 import { TextWrapper, Title } from '../../static/style/_common'
 import { Line01, Line02 } from '../../static/images/_application-process'
-import { Show } from 'components/containers'
+import { Mobile } from 'components/containers'
+
+const StyledMobile = styled(Mobile)`
+    margin: 16px auto;
+`
 
 const ApplicationProcess = () => (
     <ContentContainer>
@@ -24,15 +29,15 @@ const ApplicationProcess = () => (
                         max_width={['240px', '280px']}
                         font_size={['24px', '16px']}
                         line_height={['36px', '24px']}
-                        text_align={['left', 'center']}
+                        text_align={['start', 'center']}
                     >
                         {card.text}
                     </TextWrapper>
                     {index + 1 !== application_process.content.length && (
                         <Line02Wrapper>
-                            <Show.Mobile min_width="tabletL" style={{ margin: '16px auto' }}>
+                            <StyledMobile breakpoint={'tabletL'}>
                                 <img src={Line02} alt="Dotted line" />
-                            </Show.Mobile>
+                            </StyledMobile>
                         </Line02Wrapper>
                     )}
                 </ItemContainer>

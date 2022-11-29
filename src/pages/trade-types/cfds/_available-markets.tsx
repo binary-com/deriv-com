@@ -9,9 +9,8 @@ import { localize, Localize } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
-import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import Derived from 'images/svg/trade-types/derived.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
-import BasketIndices from 'images/svg/trade-types/basket-indices.svg'
 import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
 
 const MobileCardHeader = styled(Flex)`
@@ -54,12 +53,12 @@ const available_markets = [
         learn_more_path: '/markets/forex/',
     },
     {
-        name: 'Synthetic Indices',
-        img_src: SyntheticIndices,
-        img_alt: 'synthetic indices',
-        text: <Localize translate_text="Synthetic indices" />,
+        name: 'Derived',
+        img_src: Derived,
+        img_alt: 'derived',
+        text: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks." />
+            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
         learn_more_path: '/markets/synthetic/',
     },
@@ -82,16 +81,6 @@ const available_markets = [
             <Localize translate_text="Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements." />
         ),
         learn_more_path: '/markets/cryptocurrencies/',
-    },
-    {
-        name: 'Basket Indices',
-        img_src: BasketIndices,
-        img_alt: 'basket indices',
-        text: <Localize translate_text="Basket indices" />,
-        description: (
-            <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
-        ),
-        learn_more_path: '/markets/basket-indices/',
     },
     {
         name: 'Commodities',

@@ -79,7 +79,7 @@ const VulnerabilitiesTypes = () => {
             />
             <Hero />
 
-            <StyledContainer direction="column" align="left">
+            <StyledContainer direction="column" align="start">
                 <Header type="heading-2" align="center">
                     {localize('Types of vulnerabilities')}
                 </Header>
@@ -139,11 +139,7 @@ const VulnerabilitiesTypes = () => {
 
                                 <StyledUl>
                                     {item.examples.map((example_item, example_idx) => {
-                                        return (
-                                            <StyledLi key={example_idx}>
-                                                {localize(example_item)}
-                                            </StyledLi>
-                                        )
+                                        return <StyledLi key={example_idx}>{example_item}</StyledLi>
                                     })}
                                 </StyledUl>
                             </React.Fragment>

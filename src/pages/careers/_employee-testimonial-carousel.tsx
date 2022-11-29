@@ -9,6 +9,7 @@ import AhmadImage from 'images/common/careers/ahmad.jpg'
 import AdityaImage from 'images/common/careers/aditya.jpg'
 import GaryImage from 'images/common/careers/gary.jpg'
 import MeiThengImage from 'images/common/careers/mei_theng.jpg'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -51,7 +52,7 @@ const EmployeeCard = styled.article`
 `
 
 const QuoteText = styled(Text)`
-    text-align: left;
+    text-align: start;
     padding-bottom: 2.4rem;
     z-index: 10;
     position: relative;
@@ -135,8 +136,8 @@ const mei_theng = {
     index: 4,
 }
 const gary = {
-    name: 'Gary Ross Vytialingam, Chief Risk Officer',
-    img_alt: 'Gary Ross Vytialingam Chief Risk Officer at Deriv',
+    name: 'Gary Ross Vytialingam, Chief Audit Executive',
+    img_alt: 'Gary Ross Vytialingam Chief Audit Executive at Deriv',
     img_path: GaryImage,
     quote: `We encourage knowledge sharing at all levels, so I learn from the people I work with every day. Our company is enriched by the diversity of talented individuals from over 55 countries. It’s inspiring to be a leader of these motivated team players at Deriv.`,
     index: 5,
@@ -145,9 +146,11 @@ const gary = {
 const employee_testimonials = [ahmad, aditya, mei_theng, gary]
 
 const EmployeeTestimonialCarousel = () => {
+    const lang_direction = useLangDirection()
     const settings = {
         options: {
             loop: true,
+            direction: lang_direction,
         },
         container_style: {
             maxWidth: '1200px',

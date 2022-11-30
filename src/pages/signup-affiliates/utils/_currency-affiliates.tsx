@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import USD from 'images/svg/signup-affiliates/usd.svg'
 import AUD from 'images/svg/signup-affiliates/aud.svg'
@@ -69,6 +69,7 @@ const Currency = ({ selectedCurrency, current_select }: CurrencyProps) => {
         <Flex jc="space-evenly" mt="30px" mb="32px">
             {currency_list.map((currency) => {
                 const selected = current_select === currency.value
+
                 return (
                     <Item
                         fd="column"

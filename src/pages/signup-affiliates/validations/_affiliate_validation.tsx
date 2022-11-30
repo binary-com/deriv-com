@@ -26,7 +26,7 @@ const nameValidation = (input, field_name, min_digit, max_digit) => {
         !validation_is_lack_number(input, min_digit)
     ) {
         return localize(`You should enter ${min_digit}-${max_digit} characters.`)
-    } else if (!affiliate_validation_regex.alphabet.test(input)) {
+    } else if (affiliate_validation_regex.alphabet.test(input)) {
         return localize('Only alphabet is allowed')
     }
     return null
@@ -98,7 +98,7 @@ const registrationNumberValidation = (input, field_name, min_digit, max_digit) =
         !validation_is_lack_number(input, min_digit)
     ) {
         return localize(`You should enter ${min_digit}-${max_digit} characters.`)
-    } else if (!affiliate_validation_regex.postal_code.test(input)) {
+    } else if (affiliate_validation_regex.postal_code.test(input)) {
         return localize(`Please enter a valid company registration number.`)
     }
 }

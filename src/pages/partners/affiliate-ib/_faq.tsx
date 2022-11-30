@@ -170,7 +170,7 @@ const Faq = () => {
                                 parent_style={parent_style}
                                 header_style={header_style}
                                 style={item_style}
-                                classname={item.class_name}
+                                class_name={item.class_name}
                                 plus
                             >
                                 {item.component}
@@ -198,7 +198,7 @@ const Faq = () => {
                                 parent_style={parent_style}
                                 header_style={header_style}
                                 style={item_style}
-                                classname={item.class_name}
+                                class_name={item.class_name}
                                 plus
                             >
                                 {item.component}

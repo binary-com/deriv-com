@@ -18,7 +18,7 @@ type TProps = {
     description?: React.ReactElement
     item_width?: string
     mobile_item_width?: string
-    classname?: string
+    class_name?: string
 }
 type TabProps = {
     children?: React.ReactNode

@@ -219,7 +219,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                             style={styles}
                             parent_style={parent_style}
                             header={pd.name}
-                            classname={pd.class_name}
+                            class_name={pd.class_name}
                         >
                             <DesktopWrapper>
                                 <DisplayAccordianItem pd={pd} locale={locale} />

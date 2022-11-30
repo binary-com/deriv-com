@@ -232,7 +232,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                         parent_style={parent_style}
                                         style={item_style}
                                         header_style={header_style}
-                                        classname={value.class_name}
+                                        class_name={value.class_name}
                                         plus
                                     >
                                         <TableWrapper grid_col_number={2} is_balance={true}>

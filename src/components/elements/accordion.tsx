@@ -109,7 +109,7 @@ type ChildType = {
         plus?: boolean
         arrow_thin?: boolean
         is_showed?: boolean
-        classname?: string
+        class_name?: string
     }
 }
 
@@ -175,7 +175,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpa
                             role="button"
                             aria-expanded={is_expanded}
                             style={child?.props.header_style}
-                            className={child?.props.classname}
+                            className={child?.props.class_name}
                         >
                             <Text weight="bold">{child?.props.header}</Text>
                             <div>{child?.props.plus ? deployer : current_arrow}</div>
@@ -325,7 +325,7 @@ type AccordionItemProps = {
     text?: string
     plus?: boolean
     is_showed?: boolean
-    classname?: string
+    class_name?: string
 }
 
 const AccordionItem = ({ id, text, children, style }: AccordionItemProps) => {

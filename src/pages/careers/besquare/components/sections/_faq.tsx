@@ -46,7 +46,7 @@ const FAQ = () => {
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
-                                classname={slugify(topic.title)}
+                                class_name={slugify(topic.title)}
                                 plus
                             >
                                 <TextContainer>

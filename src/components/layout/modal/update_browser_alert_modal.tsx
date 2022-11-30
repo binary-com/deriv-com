@@ -11,7 +11,7 @@ const BrowserUpdateAlertModal = () => {
     const cookie_key = 'update_browser_alert_modal_shown'
     const cookie = new CookieStorage(cookie_key)
 
-    useEffect(() => version > 0 && modalRef.current.show(), [version])
+    useEffect(() => modalRef.current.show(), [version])
 
     const handlePositive = () => {
         cookie.set(cookie_key, true)

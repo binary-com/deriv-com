@@ -11,7 +11,7 @@ const BrowserUpdateAlertModal = () => {
     const cookie_key = 'update_browser_alert_modal_shown'
     const cookie = new CookieStorage(cookie_key)
 
-    useEffect(() => version && modalRef.current.show(), [version])
+    useEffect(() => version > 0 && modalRef.current.show(), [version])
 
     const handlePositive = () => {
         cookie.set(cookie_key, true)
@@ -27,6 +27,11 @@ const BrowserUpdateAlertModal = () => {
         >
             <Header type="paragraph-2" weight="regular">
                 <Localize translate_text="Update your browser to get the best Deriv experience" />
+                <div>your browser info:</div>
+                <ul>
+                    <li>name : {name}</li>
+                    <li>version : {version}</li>
+                </ul>
             </Header>
         </Modal>
     )

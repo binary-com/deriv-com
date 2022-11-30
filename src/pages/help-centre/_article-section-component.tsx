@@ -91,7 +91,8 @@ const ArticleSectionComponent = ({
                     if (
                         is_eu &&
                         (item.category.props.translate_text === 'Deriv X' ||
-                            item.category.props.translate_text === 'Deriv P2P')
+                            item.category.props.translate_text === 'Deriv P2P' ||
+                            item.category.props.translate_text === 'DBot')
                     ) {
                         return <React.Fragment key={idx}></React.Fragment>
                     }

@@ -83,12 +83,12 @@ const StyledTable = styled.table<StyledTableType>`
 const Thead = styled.thead`
     font-size: var(--text-size-s);
     font-weight: bold;
-    text-align: left;
+    text-align: start;
     border-bottom: 2px solid var(--color-grey-2);
 `
 
 const Tbody = styled.tbody`
-    text-align: left;
+    text-align: start;
 `
 
 const Tr = styled.tr`
@@ -147,6 +147,8 @@ export type PaymentProps = {
     payment_data?: PaymentType
     locale?: { locale?: LocaleType }
     is_crypto?: boolean
+    is_row?: boolean
+    is_eu?: boolean
     is_fiat_onramp?: boolean
     is_dp2p?: boolean
 }
@@ -154,6 +156,8 @@ export type PaymentDataProps = {
     name?: ReactElement
     note?: ReactElement
     is_crypto?: boolean
+    is_row?: boolean
+    is_eu?: boolean
     is_dp2p?: boolean
     is_fiat_onramp?: boolean
     locale?: LocaleType
@@ -206,6 +210,12 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                           background: 'var(--color-white)',
                           paddingBottom: pd.note ? '5rem' : '2.2rem',
                       }
+                if (pd.is_row && is_eu) {
+                    return []
+                }
+                if (pd.is_eu && !is_eu) {
+                    return []
+                }
 
                 if (pd.is_crypto && is_eu) {
                     return []
@@ -213,7 +223,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                 if (pd.is_fiat_onramp && is_eu) {
                     return []
                 } else if (pd.is_dp2p && !is_p2p_allowed_country) {
-                    return []
+                    return null
                 } else
                     return (
                         <AccordionItem
@@ -384,7 +394,7 @@ const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
                     <AccordionContainer>
                         <DisplayAccordion locale={locale} />
                     </AccordionContainer>
-                    <Header mt="1.6rem" type="paragraph-2" align="left" weight="normal">
+                    <Header mt="1.6rem" type="paragraph-2" align="start" weight="normal">
                         <Localize
                             translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
                             components={[<strong key={0} />]}

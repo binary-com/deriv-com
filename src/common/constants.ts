@@ -153,7 +153,7 @@ export const cms_assets_end_point = `${cms_end_point}/assets/`
 export const loss_percent = 70
 
 export const minimum_required_versions = {
-    Chrome: 105,
+    Chrome: 115,
     Firefox: 116,
     Opera: 107,
     Yandex: 108,

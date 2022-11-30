@@ -177,7 +177,13 @@ const SideTab = ({
                 <TabList role="tablist" is_reverse={is_reverse} id="tablist">
                     {React.Children.map(children, (child: TabProps, index) => {
                         const {
-                            props: { label, description, item_width, mobile_item_width, classname },
+                            props: {
+                                label,
+                                description,
+                                item_width,
+                                mobile_item_width,
+                                class_name,
+                            },
                         } = child
                         return (
                             <>
@@ -186,7 +192,7 @@ const SideTab = ({
                                     selected={selected_tab === index}
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => selectTab(index)}
-                                    className={classname}
+                                    className={class_name}
                                 >
                                     <Text weight="bold">{label}</Text>
                                     <StyledText

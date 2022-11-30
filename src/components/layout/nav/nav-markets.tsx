@@ -12,7 +12,7 @@ const NavMarkets = () => {
             <PartnerWrapper>
                 <NavDesktop />
                 <NavMobile />
-                <PartnerNavigationBarWrapper>
+                <PartnerNavigationBarWrapper id="available-card">
                     <NavMarketDesktop />
                 </PartnerNavigationBarWrapper>
             </PartnerWrapper>

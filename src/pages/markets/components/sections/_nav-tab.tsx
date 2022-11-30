@@ -144,7 +144,7 @@ const NavTab = ({ route_from }: NavTabProps) => {
     const ref = useRef(null)
 
     return (
-        <TabsContainer id="markets-list">
+        <TabsContainer>
             <TabList ref={ref}>
                 {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item) => {
                     return (

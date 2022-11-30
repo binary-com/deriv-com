@@ -282,7 +282,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
     )
 
     return (
-        <StyledSectionContainer>
+        <StyledSectionContainer id="markets-list">
             <Desktop max_width="mobileL">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">

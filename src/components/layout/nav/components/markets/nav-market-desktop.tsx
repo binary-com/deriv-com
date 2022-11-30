@@ -38,7 +38,7 @@ type NavLinkCardTypes = {
 const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
     const current_page = useActiveLinkState('markets')
     return (
-        <NavLink>
+        <NavLink className={active}>
             <StyledLinkMarket
                 active={current_page === active}
                 activeClassName="active"

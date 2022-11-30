@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { Link, navigate } from 'gatsby'
+import { navigate } from 'gatsby'
 import { Button } from 'components/form'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -9,6 +9,7 @@ import device from 'themes/device'
 import { queryParams } from 'common/utility'
 import { decode, isValid } from 'common/url-base64-functions'
 import { useDerivWS } from 'store'
+import { useClientInformation } from 'components/hooks/use-client-information'
 
 const UnsubscribeWrapper = styled.div`
     display: flex;
@@ -118,11 +119,35 @@ const Spinner = () => (
     </StyledSpinner>
 )
 
+type TSuccessBox = {
+    unsubscribed: boolean
+}
+
+const SuccessBox = (unsubscribed: TSuccessBox) => {
+    return (
+        <>
+            {unsubscribed ? (
+                <SuccessCard>
+                    <img src={CheckIcon} alt="sucess" width={48} height={48} />
+                    {localize("You're already unsubscribed")}
+                </SuccessCard>
+            ) : (
+                <SuccessCard>
+                    <img src={CheckIcon} alt="sucess" width={48} height={48} />
+                    {localize('Unsubscribed successfully')}
+                </SuccessCard>
+            )}
+        </>
+    )
+}
+
 const UnsubscribePage = () => {
     const { send } = useDerivWS()
+    const client_information = useClientInformation()
 
     const [complete_status, setCompleteStatus] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [unsubscribed, setUnsubscribed] = useState(false)
 
     const query = queryParams.get('hash') || ''
     const unsubscribe_hash = isValid(query) && decode(query).split('+')
@@ -133,6 +158,14 @@ const UnsubscribePage = () => {
         window.opener = null
         window.open('about:blank', '_self')
         window.close()
+    }
+    const handleResponse = () => {
+        setLoading(false)
+        setCompleteStatus(true)
+    }
+    const handleReject = () => {
+        handleResponse()
+        setUnsubscribed(true)
     }
 
     const UnsubscribeAPICall = useCallback(() => {
@@ -145,10 +178,11 @@ const UnsubscribePage = () => {
             },
             (response) => {
                 if (!response.error) {
-                    setLoading(false)
-                    setCompleteStatus(true)
-                } else {
+                    handleResponse()
+                } else if (client_information) {
                     navigate('https://app.deriv.com/account/personal-details')
+                } else {
+                    handleReject()
                 }
             },
         )
@@ -164,10 +198,7 @@ const UnsubscribePage = () => {
             {!loading && (
                 <UnsubscribeWrapper>
                     {complete_status ? (
-                        <SuccessCard>
-                            <img src={CheckIcon} alt="sucess" width={48} height={48} />
-                            {localize('Unsubscribed successfully')}
-                        </SuccessCard>
+                        <SuccessBox unsubscribed={unsubscribed} />
                     ) : (
                         <UnsubscribeForm>
                             <Title>

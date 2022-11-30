@@ -296,7 +296,7 @@ const StartDerivX = () => {
                                 label=""
                                 description={currentTab.description}
                                 mobile_item_width="35rem"
-                                classname={currentTab.class_name}
+                                class_name={currentTab.class_name}
                             >
                                 <ImageWrapper>
                                     <QueryImage

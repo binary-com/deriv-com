@@ -151,3 +151,19 @@ export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
 export const loss_percent = 70
+
+export const minimum_required_versions = {
+    Chrome: 105,
+    Firefox: 116,
+    Opera: 107,
+    Yandex: 108,
+    Safari: 109,
+    'Internet Explorer': 110,
+    Edge: 111,
+    Chromium: 112,
+    IE: 113,
+    'Mobile Safari': 114,
+    'Edge Chromium': 115,
+    'MIUI Browser': 116,
+    'Samsung Browser': 117,
+}

@@ -2,18 +2,14 @@ import { useEffect, useState } from 'react'
 import { browserName, browserVersion } from 'react-device-detect'
 
 export const useUserBrowser = () => {
-    const minimum_required_versions = {
-        chrome: '105',
-    }
-
     const [browser, setBrowser] = useState({
-        name: '',
-        version: 0,
+        browser_name: '',
+        browser_version: 0,
     })
     useEffect(() => {
         setBrowser({
-            name: browserName,
-            version: Number(browserVersion),
+            browser_name: browserName,
+            browser_version: Number(browserVersion),
         })
     }, [])
 

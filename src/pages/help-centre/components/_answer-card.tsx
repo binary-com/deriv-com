@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { TAnswer } from '../data/_data-types'
 import ImageCard from './_image-card'
@@ -7,8 +7,8 @@ import List from './_list'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { TString } from 'types/generics'
-import { DerivStore } from 'store'
 
 type AnswerCardType = {
     label: string
@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
 `
 
 const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
-    const { is_eu_country } = useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     return (
         <Wrapper>
@@ -52,9 +52,7 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                     img,
                 }) => {
                     const text =
-                        is_eu_country && eu_translation_text
-                            ? eu_translation_text
-                            : translation_text
+                        is_eu && eu_translation_text ? eu_translation_text : translation_text
                     const component =
                         translation_components && TranslationComponents(translation_components)
 

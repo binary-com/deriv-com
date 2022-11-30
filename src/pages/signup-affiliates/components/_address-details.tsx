@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import validation from '../validations/_account-details'
+import validation from '../validations/_affiliate_validation'
 import { DropdownSearch } from 'components/elements'
 import { Input } from 'components/form'
 import { localize } from 'components/localization'
@@ -57,7 +57,7 @@ type AccountDetailsProps = {
     }
 }
 
-const AccountDetails = ({
+const AddressDetails = ({
     updatedData,
     affiliate_address_data,
     onValidate,
@@ -245,4 +245,4 @@ const AccountDetails = ({
     )
 }
 
-export default AccountDetails
+export default AddressDetails

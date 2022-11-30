@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import AffiliateSignupLayout, { SignUpWrapper } from './components/_layout'
 import AccountType from './components/_account-type'
-import AccountDetails from './components/_account-details'
+import AddressDetails from './components/_address-details'
 import PhoneNumber from './components/_phone_number'
+import PersonalDetails from './components/_personal-details'
 import AccountTerms from './components/_account-terms'
 import { WithIntl, localize } from 'components/localization'
 import { Wizard } from 'components/form'
@@ -28,7 +29,19 @@ const AffiliateSignup = () => {
             postal_code: '',
         },
         phone_number: '',
-        personal_details: null,
+        personal_details: {
+            first_name: '',
+            last_name: '',
+            date_birth: null,
+            website_url: '',
+            social_media_url: '',
+            password: '',
+            company_name: '',
+            company_registration_number: '',
+            certificate: null,
+            citizen: null,
+            currency: '',
+        },
         terms_use: null,
     })
 
@@ -59,6 +72,25 @@ const AffiliateSignup = () => {
                     phone_number: value,
                 })
                 break
+            case 'personal-details':
+                setNextBtnEnabled(false)
+                setAffiliateAccount({
+                    ...affiliate_account,
+                    personal_details: {
+                        first_name: value.first_name,
+                        last_name: value.last_name,
+                        date_birth: value.date_birth,
+                        social_media_url: value.social_media_url,
+                        website_url: value.website_url,
+                        password: value.password,
+                        company_name: value.company_name,
+                        company_registration_number: value.company_registration_number,
+                        certificate: value.certificate,
+                        citizen: value.citizen,
+                        currency: value.currency,
+                    },
+                })
+                break
         }
     }
 
@@ -79,7 +111,7 @@ const AffiliateSignup = () => {
                             setNextBtnEnabled(valid)
                         }}
                     />
-                    <AccountDetails
+                    <AddressDetails
                         affiliate_address_data={affiliate_account.address_details}
                         updatedData={(value) => {
                             updateAffiliateValues(value, 'account-details')
@@ -92,6 +124,16 @@ const AffiliateSignup = () => {
                         affiliate_phone_number={affiliate_account.phone_number}
                         updatedData={(value) => {
                             updateAffiliateValues(value, 'phone-number')
+                        }}
+                        onValidate={(valid) => {
+                            setNextBtnEnabled(valid)
+                        }}
+                    />
+                    <PersonalDetails
+                        affiliate_personal_data={affiliate_account.personal_details}
+                        is_individual={affiliate_account.account_type === 0 ? true : false}
+                        updatedData={(value) => {
+                            updateAffiliateValues(value, 'personal-details')
                         }}
                         onValidate={(valid) => {
                             setNextBtnEnabled(valid)

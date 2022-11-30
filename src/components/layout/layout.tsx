@@ -25,6 +25,7 @@ import { isBrowser, handleRedirect, isEuDomain } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
+import BrowserUpdateAlertModal from 'components/layout/modal/update_browser_alert_modal'
 import device from 'themes/device'
 import { DerivStore, useDerivWS } from 'store'
 import { Container } from 'components/containers'
@@ -345,6 +346,7 @@ const Layout = ({
                 aria_label={modal_payload.aria_label}
             />
             <UKAccountClosureModal />
+            <BrowserUpdateAlertModal />
             {show_non_eu_popup && (
                 <NonEuRedirectPopUp
                     is_open={show_non_eu_popup}

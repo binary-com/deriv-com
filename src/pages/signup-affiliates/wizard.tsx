@@ -27,7 +27,7 @@ const AffiliateSignup = () => {
             street: '',
             postal_code: '',
         },
-        phone_number: null,
+        phone_number: '',
         personal_details: null,
         terms_use: null,
     })
@@ -49,6 +49,14 @@ const AffiliateSignup = () => {
                         street: value.street,
                         postal_code: value.postal_code,
                     },
+                })
+                break
+
+            case 'phone-number':
+                setNextBtnEnabled(false)
+                setAffiliateAccount({
+                    ...affiliate_account,
+                    phone_number: value,
                 })
                 break
         }
@@ -80,7 +88,15 @@ const AffiliateSignup = () => {
                             setNextBtnEnabled(valid)
                         }}
                     />
-                    <PhoneNumber />
+                    <PhoneNumber
+                        affiliate_phone_number={affiliate_account.phone_number}
+                        updatedData={(value) => {
+                            updateAffiliateValues(value, 'phone-number')
+                        }}
+                        onValidate={(valid) => {
+                            setNextBtnEnabled(valid)
+                        }}
+                    />
                     <AccountTerms />
                 </Wizard>
             </SignUpWrapper>

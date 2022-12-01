@@ -368,7 +368,6 @@ const StartTrader = () => {
                                         components={[
                                             <StyledLocalizedLink
                                                 onClick={handleSignup}
-                                                id="dm-dmt5-signup-link"
                                                 to=""
                                                 key={0}
                                             />,

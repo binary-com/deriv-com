@@ -60,7 +60,10 @@ const QuestionsCategory = ({ data }: TQuestionsCategory) => {
     const filtered_data = useFilteredQuestions(questions)
     const can_expand = filtered_data.length > 3
     const questions_to_show = show_more ? filtered_data : filtered_data.splice(0, 3)
-    const show_more_text = show_more ? '_t_View fewer questions_t_' : '_t_View all questions_t_'
+    // TODO we need to talk with translation team to change these texts and remove <0> from the texts
+    const show_more_text = show_more
+        ? '_t_<0>View fewer questions</0>_t_'
+        : '_t_<0>View all questions</0>_t_'
 
     const handleShowMoreClick = () => setShowMore(!show_more)
 

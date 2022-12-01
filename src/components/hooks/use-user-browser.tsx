@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { browserName, browserVersion } from 'react-device-detect'
 
 export const minimum_required_versions = {
-    Chrome: 107,
+    Chrome: 110,
     Firefox: 116,
     Opera: 107,
     Yandex: 108,

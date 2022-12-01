@@ -108,7 +108,7 @@ const OtherApps = () => {
 
     return (
         <div>
-            <StyledSectionContainer tablet={{ padding: '4rem 0' }}>
+            <StyledSectionContainer tablet={{ p: '4rem 0' }}>
                 <Container fd="column">
                     {is_uk_eu ? (
                         <StyledHeader as="h2" type="heading-2" align="center">

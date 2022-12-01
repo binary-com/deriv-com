@@ -49,7 +49,7 @@ const ImgFintech = styled.img`
     height: 38.8px;
 `
 
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Header)<{ maxwidth?: string }>`
     max-width: ${(props) => props.maxwidth || '100%'};
     margin: 0 auto;
 
@@ -187,7 +187,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             <Europe src={EU} alt="Europe map" />
                         </CssGridColumn>
                         <CssGridColumn padding="0.8rem 0 0">
-                            <EUgrid />
+                            <EUgrid pageContext={{ locale: '' }} />
                         </CssGridColumn>
                     </CssGrid>
                 </GridContainer>

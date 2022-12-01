@@ -82,7 +82,7 @@ const GridItem = ({ name, order, url }: GridItemProps) => (
 
 const EUgrid = () => {
     return (
-        <CssGrid columns="repeat(2, 1fr)" columngap="1rem">
+        <CssGrid columns="repeat(2, 1fr)" column_gap="1rem">
             <CssGridColumn>
                 <GridItem
                     name={localize('Austria')}

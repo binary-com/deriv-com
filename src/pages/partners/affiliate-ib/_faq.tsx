@@ -160,7 +160,7 @@ const Faq = () => {
             >
                 {localize('Deriv Affiliate Programme')}
             </FaqSubHeader>
-            <StyledAccordionWrapper id="faq-list">
+            <StyledAccordionWrapper id="faq-list 1">
                 <Accordion has_single_state>
                     {faq_content.deriv_affiliate.map((item) => {
                         return (
@@ -188,7 +188,7 @@ const Faq = () => {
             >
                 {localize('Deriv IB Programme')}
             </FaqSubHeader>
-            <StyledAccordionWrapper>
+            <StyledAccordionWrapper id="faq-list 2">
                 <Accordion has_single_state is_faq>
                     {faq_content.deriv_ib.map((item) => {
                         return (

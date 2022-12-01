@@ -162,7 +162,7 @@ const ArticleComponent = ({
                         category_is_expanded && can_expand && idxb === item.articles.length - 1
 
                     return (
-                        <ListNoBullets key={ar.label} className="view">
+                        <ListNoBullets key={ar.label} className={`view ${idxb}`}>
                             <ShowItem should_show_item={should_show_item}>
                                 <StyledLink
                                     to={convertToHash(

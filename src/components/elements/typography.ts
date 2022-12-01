@@ -127,6 +127,7 @@ export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
 type HeaderProps = {
     as?: string
     children?: React.ReactNode
+    className?: string
 } & ResponseDeviceProps &
     BaseElementProps
 

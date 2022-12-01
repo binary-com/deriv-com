@@ -265,7 +265,7 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/5xvdS7tvZM7kKkDK8"
+                                        to="https://goo.gl/maps/9gWxUqM3goau5eRCA"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -278,7 +278,7 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/5xvdS7tvZM7kKkDK8"
+                                    to="https://goo.gl/maps/9gWxUqM3goau5eRCA"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -354,7 +354,7 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/j7fs9r73dfwQtHgj8"
+                                        to="https://goo.gl/maps/BdBfWNVhyLGZ2KfG7"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -367,7 +367,7 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/j7fs9r73dfwQtHgj8"
+                                    to="https://goo.gl/maps/BdBfWNVhyLGZ2KfG7"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -749,7 +749,7 @@ export const Offices = () => {
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
-                                    to="https://yandex.com/maps/-/CCUeZJdAKA"
+                                    to="https://goo.gl/maps/7wUCJ6zy7P8CsmkD7"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -762,7 +762,7 @@ export const Offices = () => {
                                 </LocalizedLink>
                             </MapContainer>
                             <LocalizedLinkText
-                                to="https://yandex.com/maps/-/CCUeZJdAKA"
+                                to="https://goo.gl/maps/7wUCJ6zy7P8CsmkD7"
                                 external
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -951,8 +951,10 @@ export const Offices = () => {
                                 ml="1.6rem"
                             >
                                 <Desktop>
-                                    Cayman Enterprise City,Strathvale House, 2nd Floor, Church St,
-                                    George Town, Cayman 90 N Islands
+                                    <p>Cayman Enterprise City,</p>
+                                    <p>Strathvale House, 2nd Floor, 90 N </p>
+                                    <p>Church St, George Town, Cayman </p>
+                                    <p>Islands</p>
                                 </Desktop>
                                 <Mobile>
                                     <StyledMobileAddress>

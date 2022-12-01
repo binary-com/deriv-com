@@ -9,9 +9,11 @@ import device from 'themes/device'
 import Platform from 'images/common/interim/check-interim-bg.png'
 import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
 import { DerivStore } from 'store'
+
 type SectionProps = {
     image: string
     mobile_image: string
+    is_eu_country: boolean
 }
 
 const Section = styled(Box)<SectionProps>`
@@ -136,7 +138,7 @@ type RightCTASectionProps = LeftCTASectionProps & {
     button_props?: unknown
 }
 
-const RightCTASection = (params: RightCTASectionProps) => {
+const RightCTASection = <T extends object>(params: RightCTASectionProps) => {
     const { button_props, button_text, button_url, cta_props, header, hide_cta } = params
     return (
         <Flex width="auto" fd="column" ai="center" ml="0" max_width="38.4rem">
@@ -149,7 +151,7 @@ const RightCTASection = (params: RightCTASectionProps) => {
                 to={button_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                {...(button_props || {})}
+                {...((button_props as T) || {})}
             >
                 {button_text}
             </FitButton>

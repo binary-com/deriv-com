@@ -6,7 +6,6 @@ import device from 'themes/device'
 
 type DefaultFooterProps = {
     is_eu?: boolean
-    has_banner_cookie?: boolean
 }
 
 type DisclaimerParagraphProps = {

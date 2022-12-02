@@ -281,6 +281,9 @@ const query = graphql`
         thumbnail_guernsey: file(relativePath: { eq: "careers/thumbnail_guernsey.jpg" }) {
             ...fadeIn
         }
+        thumbnail_roadtown: file(relativePath: { eq: "careers/thumbnail_roadtown.jpg" }) {
+            ...fadeIn
+        }
         thumbnail_vanuatu: file(relativePath: { eq: "careers/thumbnail_vanuatu.png" }) {
             ...fadeIn
         }
@@ -334,6 +337,7 @@ const Locations = () => {
                         'all',
                         'europe',
                         'asia',
+                        'oceania',
                         'middle_east',
                         'eastern_europe',
                         'africa',

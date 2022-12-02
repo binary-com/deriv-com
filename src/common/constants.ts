@@ -35,18 +35,18 @@ const getDomainAppID = () => {
     else if (getDomainUrl() === deriv_be_url) return deriv_be_app_id
     else return deriv_com_app_id
 }
-// '-eu__testlink-' and '-uk__testlink-' regexes are meant to create test links for eu and uk countries.
-// To make them work on your test links you need to include '-eu__testlink-' or '-uk__testlink-' in your branch name.
+// '-eutestlink-' and '-uktestlink-' regexes are meant to create test links for eu and uk countries.
+// To make them work on your test links you need to include '-eutestlink-' or '-uktestlink-' in your branch name.
 export const eu_domains = [
     new RegExp(/^eu$/),
     new RegExp(/^staging-eu$/),
-    new RegExp(/-eu__testlink-/),
+    new RegExp(/-eutestlink-/),
 ]
 export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com']
 export const uk_domains = [
     new RegExp(/^uk$/),
     new RegExp(/^staging-uk$/),
-    new RegExp(/-uk__testlink-/),
+    new RegExp(/-uktestlink-/),
 ]
 
 // URL
@@ -148,6 +148,7 @@ export const live_chat_key = 'live_chat_redirection'
 
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
+export const youtube_url = 'https://www.youtube.com/@deriv'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
 export const loss_percent = 70

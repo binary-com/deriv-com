@@ -123,7 +123,9 @@ export const StyledChevron = styled(Chevron)`
     }
 `
 
-export const NavigationContainer = styled(Flex)`
+type NavigationContainerType = { navigation_css?: string; bottom_offset?: string }
+
+export const NavigationContainer = styled(Flex)<NavigationContainerType>`
     ${({ navigation_css, bottom_offset, height }) => {
         if (navigation_css) return navigation_css
         else

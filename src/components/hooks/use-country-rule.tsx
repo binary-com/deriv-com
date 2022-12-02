@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useContext, useLayoutEffect } from 'react'
 import { eu_countries, latam_countries, african_countries } from 'common/country-base'
 import {
     getClientInformation,
@@ -13,19 +13,17 @@ import { DerivStore } from 'store'
 export const useCountryRule = () => {
     const [region, setRegion] = useState({
         is_loading: true,
-        is_eu_location: false,
-        is_uk_location: false,
-        is_eu: false,
-        is_uk: false,
-        is_non_uk: true,
-        is_non_eu: true,
-        is_uk_eu: false,
+        is_eu_location: isEuDomain(),
+        is_uk_location: isUkDomain(),
+        is_eu: isEuDomain(),
+        is_uk: isUkDomain(),
+        is_non_uk: !isUkDomain(),
+        is_non_eu: !isEuDomain(),
+        is_uk_eu: isUkDomain() || isEuDomain(),
         is_latam: false,
-        is_row: true,
+        is_row: !isEuDomain() && !isUkDomain(),
         is_dev: false,
         is_africa: false,
-        is_south_africa: false,
-        is_nigeria: false,
     })
 
     const { website_status } = useContext(DerivStore)
@@ -34,7 +32,7 @@ export const useCountryRule = () => {
         residence: '',
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const eu_countries_uk_excluded = eu_countries.filter((country: string) => country !== 'gb')
         const is_eu_country = eu_countries_uk_excluded.includes(user_ip_country)
         const is_africa = african_countries.includes(user_ip_country)
@@ -51,8 +49,6 @@ export const useCountryRule = () => {
         const is_uk_eu = !(!is_eu && !is_uk)
         const is_row = !is_uk_eu
         const is_dev = isLocalhost() || isTestlink()
-        const is_south_africa = user_ip_country === 'za'
-        const is_nigeria = user_ip_country === 'ng'
 
         if (website_status) {
             setRegion({
@@ -68,8 +64,6 @@ export const useCountryRule = () => {
                 is_uk_eu,
                 is_row,
                 is_dev,
-                is_nigeria,
-                is_south_africa,
             })
         }
     }, [residence, user_ip_country, website_status])

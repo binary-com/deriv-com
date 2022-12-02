@@ -14,6 +14,7 @@ import {
     StyledDot,
 } from './carousel-style'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 export type ButtonsProps = React.HTMLAttributes<HTMLDivElement> & {
     color?: string
@@ -36,18 +37,22 @@ export const PrevButton = ({
     is_reviews,
     onClick,
     style,
-}: PrevAndNextButtonsProps) => (
-    <StyledButtonWrapper
-        onClick={onClick}
-        disabled={!enabled}
-        left
-        style={style}
-        is_reviews={is_reviews}
-        className="previous-arrow"
-    >
-        {color ? <ChevronLeft color={color} /> : <ChevronLeft />}
-    </StyledButtonWrapper>
-)
+}: PrevAndNextButtonsProps) => {
+    const is_rtl = useIsRtl()
+
+    return (
+        <StyledButtonWrapper
+            onClick={onClick}
+            disabled={!enabled}
+            left
+            style={style}
+            is_reviews={is_reviews}
+            className="previous-arrow"
+        >
+            {is_rtl ? <ChevronRight color={color} /> : <ChevronLeft color={color} />}
+        </StyledButtonWrapper>
+    )
+}
 
 type NavigationButtonProps = Pick<ButtonsProps, 'color' | 'is_enabled' | 'onClick'>
 
@@ -61,17 +66,21 @@ export const NextButton = ({
     is_reviews,
     onClick,
     style,
-}: PrevAndNextButtonsProps) => (
-    <StyledButtonWrapper
-        onClick={onClick}
-        disabled={!enabled}
-        style={style}
-        is_reviews={is_reviews}
-        className="next-arrow"
-    >
-        {color ? <ChevronRight color={color} /> : <ChevronRight />}
-    </StyledButtonWrapper>
-)
+}: PrevAndNextButtonsProps) => {
+    const is_rtl = useIsRtl()
+
+    return (
+        <StyledButtonWrapper
+            onClick={onClick}
+            disabled={!enabled}
+            style={style}
+            is_reviews={is_reviews}
+            className="next-arrow"
+        >
+            {is_rtl ? <ChevronLeft color={color} /> : <ChevronRight color={color} />}
+        </StyledButtonWrapper>
+    )
+}
 
 type ChevronStyleType = {
     chevron_color?: string
@@ -200,13 +209,16 @@ export const Carousel = ({
                 <Embla style={embla_style}>
                     <ViewPort style={view_port} ref={emblaRef}>
                         <EmblaContainer style={vertical_container ? vertical_container : null}>
-                            {children.map((child, idx) => {
+                            {React.Children.map(children, (child, idx) => {
+                                if (!React.isValidElement(child)) {
+                                    return <></>
+                                }
                                 const new_style =
                                     last_slide_no_spacing && idx === children.length - 1
                                         ? { ...slide_style, marginRight: 0, paddingRight: 0 }
                                         : slide_style
                                 return (
-                                    <div key={idx} style={new_style}>
+                                    <div style={new_style}>
                                         <EmblaSlideInner width={slide_inner_width}>
                                             {child}
                                         </EmblaSlideInner>
@@ -241,14 +253,18 @@ export const Carousel = ({
                         >
                             {/* We need the `child` below as an argument for embla-carousel to
                         correctly render the navigation buttons */}
-                            {children?.map((child, idx) => (
-                                <NavigationButton
-                                    key={idx}
-                                    color={nav_color}
-                                    is_enabled={idx === selectedIndex}
-                                    onClick={() => scrollTo(idx)}
-                                />
-                            ))}
+                            {React.Children.map(children, (child, idx) => {
+                                if (!React.isValidElement(child)) {
+                                    return <></>
+                                }
+                                return (
+                                    <NavigationButton
+                                        color={nav_color}
+                                        is_enabled={idx === selectedIndex}
+                                        onClick={() => scrollTo(idx)}
+                                    />
+                                )
+                            })}
                         </NavigationContainer>
                     )}
                 </Embla>

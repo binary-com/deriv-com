@@ -437,7 +437,7 @@ export const metals_options: MarketSymbol[] = [
         text: <Localize translate_text="Platinum/USD" />,
     },
     {
-        src: icons.SILVEREUR,
+        src: icons.SILVERUSD,
         text: <Localize translate_text="Silver/USD" />,
     },
 ]
@@ -1322,40 +1322,19 @@ export const derived_fx: MarketSymbol[] = [
         text: <Localize translate_text="GBP/USD DFX10 Index" />,
     },
     {
-        src: icons.GBPUSD100,
-        text: <Localize translate_text="GBP/USD DFX100 Index" />,
-    },
-    {
         src: icons.EURUSD10,
         text: <Localize translate_text="EUR/USD DFX10 Index" />,
-    },
-    {
-        src: icons.EURUSD100,
-        text: <Localize translate_text="EUR/USD DFX100 Index" />,
     },
     {
         src: icons.AUDUSD10,
         text: <Localize translate_text="AUD/USD DFX10 Index" />,
     },
     {
-        src: icons.AUDUSD100,
-        text: <Localize translate_text="AUD/USD DFX100 Index" />,
-    },
-    {
         src: icons.USDJPY10,
         text: <Localize translate_text="USD/JPY DFX10 Index" />,
     },
     {
-        src: icons.USDJPY100,
-        text: <Localize translate_text="USD/JPY DFX100 Index" />,
-    },
-    {
         src: icons.USDCHF10,
         text: <Localize translate_text="USD/CHF DFX10 Index" />,
-    },
-
-    {
-        src: icons.USDCHF100,
-        text: <Localize translate_text="USD/CHF DFX100 Index" />,
     },
 ]

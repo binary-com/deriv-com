@@ -40,9 +40,7 @@ export const useCookieBanner = () => {
             if (allow_tracking) {
                 window.onload = () => {
                     window.setTimeout(() => {
-                        if (is_tracking_accepted) {
-                            setGTMData({ event: 'allow_tracking' })
-                        }
+                        setGTMData({ event: 'allow_tracking' })
                     }, 2000)
                 }
             }

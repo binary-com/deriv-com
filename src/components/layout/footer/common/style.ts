@@ -238,16 +238,21 @@ export const SocialWrapper = styled.div`
     grid-area: social;
     background: var(--color-grey-25);
     margin: 1.6rem 0;
+    flex-wrap: wrap;
 
     img {
         margin-left: 1.6rem;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.mobileL} {
         display: flex;
         justify-content: center;
         margin: 3rem 0 1rem;
+        padding: 0 18%;
 
+        img {
+            margin-top: 1rem;
+        }
         a:first-child {
             img {
                 margin-left: 0;

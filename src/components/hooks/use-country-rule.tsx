@@ -9,9 +9,10 @@ import {
     isUkDomain,
 } from 'common/utility'
 import { DerivStore } from 'store'
+import { TRegion } from 'types/generics'
 
 export const useCountryRule = () => {
-    const [region, setRegion] = useState({
+    const [region, setRegion] = useState<TRegion>({
         is_loading: true,
         is_eu_location: isEuDomain(),
         is_uk_location: isUkDomain(),

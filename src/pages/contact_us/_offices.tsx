@@ -829,7 +829,7 @@ export const Offices = () => {
                         </BorderBox>
                     </Flex>
 
-                    <Flex fd="column" mt="30px" id="malaysia">
+                    <Flex fd="column" mt="30px" id="latam">
                         <ContinentHeader>{localize('Latin America')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
@@ -844,7 +844,7 @@ export const Offices = () => {
                                 <FullBox id="paraguay">
                                     <MapContainer>
                                         <LocalizedLink
-                                            to="https://goo.gl/maps/taw811vL1Wht9z4YA"
+                                            to="https://goo.gl/maps/ci85LgJcyNj97uDa7"
                                             external
                                             target="_blank"
                                             rel="noopener noreferrer"

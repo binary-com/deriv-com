@@ -41,6 +41,7 @@ type ArticleComponentProps = {
     toggleArticle: (arg: string) => void
     is_eu_country: boolean
     param: string
+    topic_number: number
 }
 
 const ArticleDiv = styled.div`
@@ -139,6 +140,7 @@ const ArticleComponent = ({
     toggleArticle,
     is_eu_country,
     param,
+    topic_number,
 }: ArticleComponentProps) => {
     const eu_articles = item.articles.filter((article) => !article.hide_for_eu)
     const row_articles = item.articles.filter((article) => !article.hide_for_non_eu)
@@ -162,7 +164,7 @@ const ArticleComponent = ({
                         category_is_expanded && can_expand && idxb === item.articles.length - 1
 
                     return (
-                        <ListNoBullets key={ar.label} className={`view ${idxb}`}>
+                        <ListNoBullets key={ar.label}>
                             <ShowItem should_show_item={should_show_item}>
                                 <StyledLink
                                     to={convertToHash(
@@ -177,7 +179,10 @@ const ArticleComponent = ({
 
                             {(should_show_expand || should_show_collapse) && (
                                 <li>
-                                    <StyledView onClick={() => toggleArticle(ar.category)}>
+                                    <StyledView
+                                        onClick={() => toggleArticle(ar.category)}
+                                        className={`view_${topic_number}`}
+                                    >
                                         {should_show_expand ? (
                                             <Localize
                                                 translate_text="<0>View all questions</0>"

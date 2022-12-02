@@ -259,7 +259,7 @@ const HelpCentre = () => {
                     </Container>
                 </Backdrop>
             </SearchSection>
-            <Container align="left" justify="flex-start" direction="column" id="answers-list">
+            <Container align="left" justify="flex-start" direction="column">
                 <ArticleSectionComponent
                     section_name="General"
                     articles={general_articles}

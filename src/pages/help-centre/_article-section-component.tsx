@@ -86,8 +86,8 @@ const ArticleSectionComponent = ({
         <ArticleSection>
             <SectionName>{section_name}</SectionName>
             <HorizontalLine />
-            <RowDiv>
-                {articles.map((item) => {
+            <RowDiv id={section_name.toLowerCase()}>
+                {articles.map((item, index) => {
                     if (
                         is_eu_country &&
                         (item.category.props.translate_text === 'Deriv X' ||
@@ -99,12 +99,14 @@ const ArticleSectionComponent = ({
                     return (
                         <ArticleComponent
                             key={item.section}
+                            section={item.section}
                             category={item.category}
                             item={item}
                             all_categories={data.all_categories}
                             toggleArticle={toggleArticle}
                             is_eu_country={is_eu_country}
                             param={platform}
+                            topic_number={index}
                         />
                     )
                 })}

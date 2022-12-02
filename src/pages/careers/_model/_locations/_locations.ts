@@ -202,7 +202,7 @@ export const asuncion: LocationsType = {
     map_text:
         'The office culture in Deriv (Asunción) is lively and inspires collaboration. The team is young, and they move fast while delivering responsibilities with a focus on impact. The team work together closely and enjoy fun team bonding sessions. If you are on the lookout for a dynamic work environment that fuels career growth, join our team in Asunción.',
     address: address_asuncion,
-    google_map_link: 'https://goo.gl/maps/r8TAJx9L1HfC1mPi9',
+    google_map_link: 'https://goo.gl/maps/uq2GzB97tLumihfN6',
     has_iframe: true,
 }
 

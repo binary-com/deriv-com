@@ -13,8 +13,6 @@ export type TRegion = {
     is_row: boolean
     is_dev: boolean
     is_africa: boolean
-    is_south_africa: boolean
-    is_nigeria: boolean
 }
 
 export type StringObjectType = {

@@ -8,7 +8,6 @@ import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
 import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { whatsapp_url } from 'common/constants'
 
 const Section = styled.section`
@@ -72,8 +71,6 @@ const WhatsAppIcon = styled.img`
 
 const DidntFindYourAnswerBanner = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
-    const { is_south_africa, is_nigeria } = useCountryRule()
-
     return (
         <Section>
             <StyledContainer>
@@ -87,18 +84,15 @@ const DidntFindYourAnswerBanner = () => {
                         <Button secondary onClick={() => LC_API.open_chat_window()}>
                             <Localize translate_text="Chat" />
                         </Button>
-
-                        {(is_south_africa || is_nigeria) && (
-                            <WhatsAppButton onClick={() => window.open(whatsapp_url, '_blank')}>
-                                <WhatsAppIcon
-                                    src={WhatsAppSVG}
-                                    alt="whatsappicon"
-                                    height="16"
-                                    width="16"
-                                />
-                                <Localize translate_text="WhatsApp" />
-                            </WhatsAppButton>
-                        )}
+                        <WhatsAppButton onClick={() => window.open(whatsapp_url, '_blank')}>
+                            <WhatsAppIcon
+                                src={WhatsAppSVG}
+                                alt="whatsappicon"
+                                height="16"
+                                width="16"
+                            />
+                            <Localize translate_text="WhatsApp" />
+                        </WhatsAppButton>
                     </Flex>
                 )}
             </StyledContainer>

@@ -12,8 +12,8 @@ type LocationProviderProps = {
 export const LocationContext = React.createContext(true as LocationProviderProps)
 
 export const LocationProvider = ({
-    has_mounted = false,
     children,
+    has_mounted = false,
     setModalPayload,
     toggleModal,
 }: PropsWithChildren<LocationProviderProps>) => {

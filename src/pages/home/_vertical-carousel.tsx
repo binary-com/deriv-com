@@ -40,13 +40,7 @@ const VerticalCarousel = ({ contents }: VerticalCarouselProps) => {
     return (
         <Carousel has_autoplay autoplay_delay={6000} autoplay_interval={2500} {...settings}>
             {contents.map((content) => (
-                <StyledHeader
-                    as="h3"
-                    type="sub-section-title"
-                    color="white"
-                    index={content.id}
-                    key={content.id}
-                >
+                <StyledHeader as="h3" type="sub-section-title" color="white" key={content.id}>
                     <Localize translate_text={content.text} />
                 </StyledHeader>
             ))}

@@ -6,12 +6,12 @@ import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
 type TradingType = {
-    title?: string | ReactElement
-    subtitle?: string
-    second_title?: string
-    second_subtitle?: string
+    title?: ReactElement | string
+    subtitle?: ReactElement | string
     image_name?: string
     image_alt?: string
+    second_title?: string
+    second_subtitle?: string
 }
 
 type DTradingProps = {

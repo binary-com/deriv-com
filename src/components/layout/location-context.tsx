@@ -1,8 +1,7 @@
-import React, { ReactNode, Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, PropsWithChildren, SetStateAction } from 'react'
 import type { ModalPayloadType } from './layout'
 
 type LocationProviderProps = {
-    children: ReactNode
     has_mounted?: boolean
     setModalPayload?: Dispatch<SetStateAction<ModalPayloadType>>
     toggleModal?: (event: React.MouseEvent<HTMLElement>) => void
@@ -10,14 +9,14 @@ type LocationProviderProps = {
 
 // Todo: Context is initialized with `true` which is not compatible with the actual value of the context,
 // Need to investigate and remove the initial value to correct the type.
-export const LocationContext = React.createContext(true as Omit<LocationProviderProps, 'children'>)
+export const LocationContext = React.createContext(true as LocationProviderProps)
 
 export const LocationProvider = ({
     has_mounted = false,
     children,
     setModalPayload,
     toggleModal,
-}: LocationProviderProps) => {
+}: PropsWithChildren<LocationProviderProps>) => {
     return (
         <LocationContext.Provider
             value={{

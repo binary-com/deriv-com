@@ -135,10 +135,12 @@ const LeftCTASection = (params: LeftCTASectionProps) => {
 }
 
 type RightCTASectionProps = LeftCTASectionProps & {
-    button_props?: unknown
+    button_props?: {
+        type: string
+    }
 }
 
-const RightCTASection = <T extends object>(params: RightCTASectionProps) => {
+const RightCTASection = (params: RightCTASectionProps) => {
     const { button_props, button_text, button_url, cta_props, header, hide_cta } = params
     return (
         <Flex width="auto" fd="column" ai="center" ml="0" max_width="38.4rem">
@@ -151,7 +153,7 @@ const RightCTASection = <T extends object>(params: RightCTASectionProps) => {
                 to={button_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                {...((button_props as T) || {})}
+                {...(button_props || {})}
             >
                 {button_text}
             </FitButton>

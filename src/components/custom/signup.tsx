@@ -17,7 +17,7 @@ import device from 'themes/device'
 import { useDerivWS } from 'store'
 
 type SignupProps = {
-    appearance?: keyof typeof Appearances
+    appearance?: keyof typeof Appearances | string
     autofocus?: boolean
     bgColor?: string
     email?: string
@@ -29,6 +29,15 @@ type SignupProps = {
 type FormProps = {
     bgColor?: string
 }
+
+const EmailLink = styled(StyledLink)`
+    display: table;
+    font-size: 1.4rem;
+    margin-top: 1.8rem;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+`
 
 const Form = styled.form<FormProps>`
     height: 100%;
@@ -44,15 +53,6 @@ const ResponseWrapper = styled.div`
     margin: 0 auto;
     flex-direction: column;
     padding: 2rem 1rem;
-`
-
-const EmailLink = styled(StyledLink)`
-    display: table;
-    font-size: 1.4rem;
-    margin-top: 1.8rem;
-    text-decoration: underline;
-    width: 100%;
-    text-align: center;
 `
 
 const ConfirmationMessage = styled.div`

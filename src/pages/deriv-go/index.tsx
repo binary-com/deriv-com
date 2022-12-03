@@ -96,7 +96,7 @@ const DerivGo = () => {
             </Layout>
         )
     }
-    return <PageNotFound />
+    return <PageNotFound pageContext={{ locale: '' }} />
 }
 
 export default WithIntl()(DerivGo)

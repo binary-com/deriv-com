@@ -4,6 +4,13 @@ import { generateResponsiveStyles, ResponseDeviceProps } from '../containers/box
 import { Margins, MarginsType, Paddings, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
+type LinkTextProps = {
+    href?: string
+    external?: boolean
+    target?: '_blank' | '_parent' | '_self' | '_top'
+    rel?: string
+}
+
 type Types =
     | 'unset'
     | 'main-landing-title'
@@ -120,6 +127,7 @@ export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
 type HeaderProps = {
     as?: string
     children?: React.ReactNode
+    className?: string
 } & ResponseDeviceProps &
     BaseElementProps
 
@@ -217,7 +225,7 @@ export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     ${responsiveStyles}
 `
 
-export const LinkText = styled(Text).attrs({ as: 'a' })`
+export const LinkText = styled(Text).attrs({ as: 'a' })<LinkTextProps>`
     ${BaseLink}
 `
 

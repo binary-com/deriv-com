@@ -18,9 +18,10 @@ export type BasketIndicesContent = {
     src: string
     alt: string
     text: ReactElement
+    icon?: ReactElement
 }
 
-export const simple_step_content_basket: SimpleStepContentElement[] = [
+export const simple_step_content_basket = [
     {
         header: <Localize translate_text="Practise" />,
         text: (

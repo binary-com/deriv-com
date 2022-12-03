@@ -11,6 +11,11 @@ import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
+type CarouselItemContainerProps = {
+    gradient_start?: string
+    gradient_end?: string
+}
+
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;
     padding: 120px 20px;
@@ -30,7 +35,7 @@ const ItemWrapper = styled.div`
     position: relative;
 `
 
-const CarouselItemContainer = styled(Flex)`
+const CarouselItemContainer = styled(Flex)<CarouselItemContainerProps>`
     position: relative;
     border-radius: 8px;
     color: white;

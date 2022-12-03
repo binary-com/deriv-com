@@ -98,8 +98,10 @@ const CountryCardWrapper = styled(StyledCard)`
         max-width: 328px;
         height: 304px;
     }
-
-    @media ${device.laptopS} and ${device.laptop} {
+    @media ${device.laptop} {
+        height: 320px;
+    }
+    @media ${device.laptopS} {
         height: 320px;
     }
 `
@@ -305,7 +307,7 @@ const Locations = () => {
         return continentName.charAt(0).toUpperCase() + continentName.slice(1)
     }
 
-    const formatContinentName = (continent) => {
+    const formatContinentName = (continent: string) => {
         return continent
             .split('_')
             .filter((continentName) => continentName.length > 0)
@@ -344,7 +346,7 @@ const Locations = () => {
                         'latam',
                         'caribbean',
                     ]}
-                    jc_tablet="start"
+                    jc_laptopM="start"
                     jc_mobileL="start"
                     mobile_font_size={16}
                     line_divider_length="unset"
@@ -352,19 +354,12 @@ const Locations = () => {
                 >
                     {continents.map((continent) => {
                         return (
-                            <Tabs.Panel
-                                label={formatContinentName(continent)}
-                                key={continent}
-                                width="79px"
-                                height="56px"
-                                gap="8px"
-                            >
+                            <Tabs.Panel label={formatContinentName(continent)} key={continent}>
                                 <CssGrid
                                     columns="repeat(3, 384px)"
                                     row_gap="40px"
                                     column_gap="24px"
                                     laptop_columns="repeat(3, minmax(280px, 384px))"
-                                    laptop_margin="0 16px"
                                     tablet_columns="repeat(2, 1fr)"
                                     mobile_columns="minmax(300px, 384px)"
                                     mobile_row_gap="37px"

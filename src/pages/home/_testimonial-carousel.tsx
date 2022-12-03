@@ -18,8 +18,8 @@ const FlexiItem = styled(Flex)`
     transition: opacity 0.4s ease-in;
 
     /* 
-     class from a children passed to this component 
-     this class is essential to achieve the transition effect
+    class from a children passed to this component 
+    this class is essential to achieve the transition effect
     */
 
     .flexi-item {
@@ -194,18 +194,14 @@ const TestimonialCarousel = ({
                 ref={container_ref}
                 position="relative"
                 ai="center"
-                tablet={{
-                    direction: 'column',
-                }}
+                tablet={{ fd: 'column' }}
             >
                 <FlexiItem
                     ref={flexible_ref}
                     p="0 50px"
                     height="100%"
                     position="relative"
-                    tablet={{
-                        p: '0px',
-                    }}
+                    tablet={{ p: '0px' }}
                 >
                     {has_active && children_array[active]}
                 </FlexiItem>
@@ -215,9 +211,7 @@ const TestimonialCarousel = ({
                 position="absolute"
                 p="0 50px"
                 height="fit-content"
-                tablet={{
-                    p: '0px',
-                }}
+                tablet={{ p: '0px' }}
             >
                 {has_active && children_array[active]}
             </Molder>

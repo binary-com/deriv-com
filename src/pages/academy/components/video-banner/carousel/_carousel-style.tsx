@@ -17,10 +17,6 @@ type StyledChevronProps = {
     custom?: boolean
 }
 
-type IconWrapperProps = {
-    disabled: boolean
-}
-
 export const Embla = styled.div`
     position: relative;
     overflow: hidden;
@@ -111,7 +107,7 @@ export const StyledChevron = styled((props) => <Chevron {...props} />)<StyledChe
     }
 `
 
-export const NavigationContainer = styled(Flex)`
+export const NavigationContainer = styled(Flex)<{ bottom_offset?: string }>`
     position: relative;
     width: 100%;
     height: 8px;
@@ -153,7 +149,7 @@ export const Divider = styled(Flex)`
 export const NavIconWrapper = styled(Flex)`
     width: auto;
 `
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.div<{ disabled?: boolean }>`
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -181,7 +177,7 @@ export const LastChildWrapper = styled(LocalizedLinkText)`
     text-decoration: none;
     border-radius: 4px;
 `
-export const PlayerIconWrapper = styled(Flex)`
+export const PlayerIconWrapper = styled(Flex)<{ absolute?: boolean }>`
     width: 48px;
     height: 48px;
     border-radius: 50%;

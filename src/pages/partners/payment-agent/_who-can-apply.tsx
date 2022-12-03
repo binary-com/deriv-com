@@ -13,7 +13,7 @@ import {
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { Header, LinkText, Timeline } from 'components/elements'
+import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
 import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
 import Affiliates from 'images/svg/partners/affiliates.svg'
@@ -27,6 +27,12 @@ import { DerivStore } from 'store'
 type ImageWrapperProps = {
     left_margin?: string
 }
+
+type StyledLinkButtonProps = {
+    id?: string
+}
+
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``
 
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {
@@ -174,7 +180,7 @@ const WhoCanApply = () => {
                             <Localize
                                 translate_text="See our <0>terms and conditions</0> for more info."
                                 components={[
-                                    <LinkText
+                                    <LocalizedLinkText
                                         key={0}
                                         color="red"
                                         target="_blank"
@@ -272,7 +278,7 @@ const WhoCanApply = () => {
                 </Flex>
             </StyledSection>
             <ButtonWrapper padding={is_p2p_allowed_country ? '0 0 80px 0' : '0'}>
-                <LinkButton
+                <StyledLinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary
                     external
@@ -280,7 +286,7 @@ const WhoCanApply = () => {
                     is_mail_link
                 >
                     {localize('Send us an email to apply')}
-                </LinkButton>
+                </StyledLinkButton>
             </ButtonWrapper>
         </SectionWrapper>
     )

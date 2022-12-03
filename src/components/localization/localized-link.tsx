@@ -39,11 +39,13 @@ type ExternalLinkProps = InternalLinkProps & {
 type LocalizedLinkProps = ExternalLinkProps & {
     external?: boolean
     weight?: string
+    partiallyActive?: boolean
 }
 
 type SharedLinkStyleProps = {
     active: boolean
-    disabled: boolean
+    disabled?: boolean
+    activeClassName?: string
 }
 
 export const SharedLinkStyle = css<SharedLinkStyleProps>`
@@ -115,7 +117,7 @@ export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
         font-size: 14px;
     }
 `
-const ShareDisabledStyle = css<{ disabled: boolean }>`
+const ShareDisabledStyle = css<{ disabled?: boolean }>`
     ${({ disabled }) =>
         disabled &&
         `
@@ -268,7 +270,7 @@ const ExternalLink = ({
                 ref,
                 aria_label: aria_label,
             })
-            toggleModal()
+            toggleModal(e)
         }
         if (typeof onClick === 'function') {
             onClick(e)

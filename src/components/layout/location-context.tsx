@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, PropsWithChildren } from 'react'
+import React, { Dispatch, PropsWithChildren, SetStateAction } from 'react'
 import type { ModalPayloadType } from './layout'
 
 type LocationProviderProps = {

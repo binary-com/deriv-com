@@ -5,6 +5,8 @@ import { getAppId } from './websocket/config'
 import { redirectToTradingPlatform } from './utility'
 import { brand_name, deriv_app_id, oauth_url } from 'common/constants'
 
+export type TSocialProvider = 'google' | 'facebook' | 'apple'
+
 const Login = (() => {
     const redirectToLogin = () => {
         if (isStorageSupported(sessionStorage)) {
@@ -34,7 +36,6 @@ const Login = (() => {
             : `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
     }
 
-    type TSocialProvider = 'google' | 'facebook' | 'apple'
     const initOneAll = (provider: TSocialProvider): void => {
         const social_login_url = `${loginUrl()}&social_signup=${provider}`
         window.location.href = social_login_url

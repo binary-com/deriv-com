@@ -56,7 +56,7 @@ const Column = styled.div<ColumnProps>`
         flex-direction: column;
     }
 `
-const Content = styled(Flex)<{ margin_left?: string; margin_right?: string }>`
+const Content = styled(Flex)<{ margin_left: string; margin_right: string }>`
     max-width: 39rem;
     margin-right: ${(props) => props.margin_right};
     margin-left: ${(props) => props.margin_left};

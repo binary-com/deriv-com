@@ -63,7 +63,7 @@ const Absolute = styled.div<AbsoluteProps>`
         }
     }};
     left: -7rem;
-    max-height: 90vh;
+    max-height: 70vh;
     overflow: auto;
     background-color: var(--color-white);
     transition: opacity 0.35s ease-in-out;

@@ -104,7 +104,7 @@ export const SectionSubtitle = styled(Header)`
         padding: 0 16px;
     }
 `
-const swap_tab_selector_css = (props) =>
+const swap_tab_selector_css = (props: { active: boolean }) =>
     props.active
         ? css`
               box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
@@ -573,7 +573,7 @@ export const FormulaContainerSwapMobile = styled(Flex)`
     }
 `
 
-export const FormulaHighlight = styled(Flex)`
+export const FormulaHighlight = styled(Flex)<{ gp?: string }>`
     margin-top: ${(props) => (props.mt ? props.mt : '0')};
     height: ${(props) => (props.height ? props.height : '72px')};
     gap: ${(props) => (props.gp ? props.gp : 0)};
@@ -600,7 +600,12 @@ export const FormulaHighlightForPnlMultiplier = styled(Flex)`
     padding-right: ${(props) => (props.pr ? props.pr : '0')};
 `
 
-export const FormulaHighlightMobile = styled(Flex)`
+export const FormulaHighlightMobile = styled(Flex)<{
+    syn_mobile?: boolean
+    fs?: string
+    pd?: string
+    gp?: string
+}>`
     margin-left: 8px;
     margin-right: 8px;
     height: ${(props) => (props.height ? props.height : '68px')};

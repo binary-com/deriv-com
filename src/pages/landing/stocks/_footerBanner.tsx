@@ -177,7 +177,6 @@ const FooterBanner = ({
                         </StyledHeaderSmall>
                         <BtnDiv>
                             <StyledLinkButton
-                                id="dm-footerbanner-signup-1"
                                 type="submit"
                                 secondary
                                 to={is_ppc ? '/landing/signup/' : '/signup/'}

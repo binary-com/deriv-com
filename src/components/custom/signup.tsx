@@ -17,7 +17,7 @@ import device from 'themes/device'
 import { useDerivWS } from 'store'
 
 type SignupProps = {
-    appearance?: keyof typeof Appearances
+    appearance?: keyof typeof Appearances | string
     autofocus?: boolean
     bgColor?: string
     email?: string

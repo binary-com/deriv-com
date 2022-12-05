@@ -152,3 +152,15 @@ export const youtube_url = 'https://www.youtube.com/@deriv'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
 export const loss_percent = 70
+
+export const browsers_minimum_required_version = {
+    Chrome: 72,
+    Chromium: 66,
+    'Mail.RU_Bot': 62,
+    Maxthon: 6,
+    'MIUI Browser': 10,
+    'Mobile Safari': 15,
+    Opera: 58,
+    'Samsung Browser': 10,
+    UCBrowser: 13,
+}

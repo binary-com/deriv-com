@@ -8,7 +8,7 @@ import { CookieStorage } from 'common/storage'
 const BrowserUpdateAlertModal = () => {
     const modalRef = React.useRef<ModalRefType>()
     const { is_outdated } = useUserBrowser()
-    const cookie_key = 'update_browser_alert_modal_shown'
+    const cookie_key = 'browser_update_alert_modal_shown'
     const cookie = new CookieStorage(cookie_key)
 
     useEffect(
@@ -17,7 +17,10 @@ const BrowserUpdateAlertModal = () => {
     )
 
     const handlePositive = () => {
-        cookie.set(cookie_key, true)
+        const expiration_date = Date.now() + 14 * 86400 * 1000
+        cookie.set(cookie_key, true, {
+            expires: new Date(expiration_date),
+        })
         modalRef.current.hide()
     }
 

@@ -1,31 +1,18 @@
 import { useEffect, useState } from 'react'
 import { browserName, browserVersion } from 'react-device-detect'
+import { browsers_minimum_required_version as default_versions } from 'common/constants'
 
-const minimum_required_versions = {
-    Chrome: 110,
-    Firefox: 116,
-    Opera: 107,
-    Yandex: 108,
-    Safari: 109,
-    'Internet Explorer': 110,
-    Edge: 111,
-    Chromium: 112,
-    IE: 113,
-    'Mobile Safari': 114,
-    'Edge Chromium': 115,
-    'MIUI Browser': 116,
-    'Samsung Browser': 117,
-}
-
-export const useUserBrowser = () => {
+export const useUserBrowser = (
+    browsers_minimum_required_version: Record<string, number> = default_versions,
+) => {
     const [browser, setBrowser] = useState({
         browser_name: '',
         browser_version: 0,
     })
 
     const is_outdated =
-        minimum_required_versions[browser.browser_name] &&
-        browser.browser_version < minimum_required_versions[browser.browser_name]
+        browsers_minimum_required_version[browser.browser_name] &&
+        browser.browser_version < browsers_minimum_required_version[browser.browser_name]
 
     useEffect(() => {
         setBrowser({

@@ -29,7 +29,7 @@ const validation: TValidationType = {
             return null
         }
     },
-    required: (input, message?: string) => {
+    required: (input, message) => {
         if (!input) {
             return message ? message : localize('This field is required')
         } else {
@@ -50,7 +50,7 @@ const validation: TValidationType = {
             return null
         }
     },
-    alphabetic: (input, message?: string) => {
+    alphabetic: (input, message) => {
         if (!validation_regex.alphabetic.test(input)) {
             return message ? message : localize('Please enter only alphabetic characters')
         } else {

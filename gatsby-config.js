@@ -6,6 +6,7 @@ require('dotenv').config({
 })
 
 const site_url = 'https://deriv.com'
+// TODO transferring to .env file after adding to Vercel environment variables list
 const strapi_url = 'https://deriv-com-content.herokuapp.com'
 const strapi_token = '125e32bb5f87962220d4575920d64caa12cb26a8e0e11efe5dd7da782e69ce3388458bcd7a477e19330f9d88ea85a2ace987e58c2b0398afaa1d35b19e47b217a92315a67628222482df8e02bf0a937f8cf54945a1ef0b43f9767fccc5933382790b898989d5339e808696078007da269a868c52e6ac20f400f036655395ebfe'
 const strapi_login = 'eduardhrachou'

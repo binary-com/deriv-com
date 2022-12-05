@@ -1,20 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { Button } from 'components/form'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
 import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { whatsapp_url } from 'common/constants'
 
-const DFYAWrapper = styled.section`
+const Section = styled.section`
     background-color: var(--color-black);
 `
-const DFYASection = styled(Container)`
+const StyledContainer = styled(Container)`
     padding: 3.5rem 0;
     @media ${device.tablet} {
         flex-wrap: wrap;
@@ -33,14 +32,16 @@ const DFYASection = styled(Container)`
         width: auto;
     }
 `
-const StyledIcon = styled.img`
+const Icon = styled.img`
     @media ${device.tabletL} {
         width: 48px;
         height: 48px;
         margin-right: 1.6rem;
     }
 `
-const MiddleText = styled(Text)`
+const Text = styled(Header)`
+    font-weight: normal;
+
     @media ${device.tablet} {
         margin: 1.6rem 0;
         text-align: center;
@@ -64,46 +65,38 @@ const WhatsAppButton = styled.button`
         color: var(--color-white);
     }
 `
-
 const WhatsAppIcon = styled.img`
     margin: -3px 8px -3px 0;
 `
 
-export const DidntFindYourAnswerBanner = () => {
+const DidntFindYourAnswerBanner = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
-    const { is_south_africa, is_nigeria } = useCountryRule()
     return (
-        <DFYAWrapper>
-            <DFYASection>
-                <StyledIcon src={ContactUsIcon} alt="contact us icon" />
-                <MiddleText size="var(--text-size-l)" color="white" m="0 2.4rem">
-                    {localize('Didn’t find your answer? We can help.')}
-                </MiddleText>
+        <Section>
+            <StyledContainer>
+                <Icon src={ContactUsIcon} alt="message-square" />
+                <Text size="var(--text-size-l)" color="white" m="0 2.4rem">
+                    <Localize translate_text="Didn’t find your answer? We can help." />
+                </Text>
+
                 {is_livechat_interactive && (
                     <Flex>
-                        <Button
-                            secondary
-                            onClick={() => {
-                                LC_API.open_chat_window()
-                            }}
-                        >
-                            {localize('Chat')}
+                        <Button secondary onClick={() => LC_API.open_chat_window()}>
+                            <Localize translate_text="Chat" />
                         </Button>
-                        {(is_south_africa || is_nigeria) && (
-                            <WhatsAppButton onClick={() => window.open(whatsapp_url, '_blank')}>
-                                <WhatsAppIcon
-                                    src={WhatsAppSVG}
-                                    alt={localize('whatsappicon')}
-                                    height="16"
-                                    width="16"
-                                />
-                                {localize('WhatsApp')}
-                            </WhatsAppButton>
-                        )}
+                        <WhatsAppButton onClick={() => window.open(whatsapp_url, '_blank')}>
+                            <WhatsAppIcon
+                                src={WhatsAppSVG}
+                                alt="whatsappicon"
+                                height="16"
+                                width="16"
+                            />
+                            <Localize translate_text="WhatsApp" />
+                        </WhatsAppButton>
                     </Flex>
                 )}
-            </DFYASection>
-        </DFYAWrapper>
+            </StyledContainer>
+        </Section>
     )
 }
 

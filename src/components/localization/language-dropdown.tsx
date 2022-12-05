@@ -63,7 +63,7 @@ const Absolute = styled.div<AbsoluteProps>`
         }
     }};
     left: -7rem;
-    max-height: 70vh;
+    max-height: 90vh;
     overflow: auto;
     background-color: var(--color-white);
     transition: opacity 0.35s ease-in-out;
@@ -71,6 +71,10 @@ const Absolute = styled.div<AbsoluteProps>`
     border-radius: 8px;
     will-change: opacity;
     display: ${({ is_open }) => !is_open && 'none'};
+
+    @media ${device.tabletL} {
+        max-height: 70vh;
+    }
 
     @media ${device.mobileL} {
         top: ${({ is_high_nav }) => (is_high_nav ? '7rem' : '9rem')};

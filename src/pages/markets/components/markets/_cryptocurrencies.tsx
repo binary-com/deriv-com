@@ -8,12 +8,12 @@ import { crypto_multiplier } from '../../static/content/_multipliers'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import { StyledBox } from '../../static/style/_markets-style'
+import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { Localize } from 'components/localization'
 import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 //Lazy-load
@@ -21,7 +21,7 @@ const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type CryptocurrenciesProps = {
-    simple_step_content: SimpleStepsContent[]
+    simple_step_content: SimpleStepContentElement[]
 }
 
 type CryptoContent = {
@@ -68,7 +68,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
             <>
                 <WhyTrade
                     header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
-                    text={
+                    description={
                         <Localize translate_text="Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies." />
                     }
                 >

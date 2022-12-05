@@ -107,7 +107,7 @@ export const isLoggedIn = () => {
     return !!client_information
 }
 
-export const isIndexEven = (index: number, reverse: boolean) =>
+export const isIndexEven = (index: number, reverse?: boolean) =>
     reverse ? (index + 1) % 2 : index % 2
 
 export const sanitize = (input: string): string => input.replace(/[.*+?^${}()|[\]\\]/g, '')
@@ -281,7 +281,8 @@ export const redirectToTradingPlatform = () =>
 
 // Function to manually add external js files.
 type TSettings = {
-    src: 'https://static.deriv.com/scripts/cookie.js'
+    src?: 'https://static.deriv.com/scripts/cookie.js'
+    text?: string
     async: boolean
     strategy?: 'off-main-thread'
 }

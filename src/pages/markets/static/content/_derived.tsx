@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import RealWorld from 'images/svg/markets/real-world.svg'
 import TightSpreads from 'images/svg/markets/tight-spread-new.svg'
 import TwentyFourHourTrading from 'images/svg/markets/twenty-four-hour-trading.svg'
@@ -16,7 +15,7 @@ export type DerivedContentElement = {
     text: ReactElement
 }
 
-export const simple_step_content_derived: SimpleStepsContent[] = [
+export const simple_step_content_derived = [
     {
         header: <Localize translate_text="Practise" />,
         text: (

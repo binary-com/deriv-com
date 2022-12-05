@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types-another.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
 import MarketandRisk from 'images/svg/markets/market-and-risk-new.svg'
@@ -16,7 +15,7 @@ type Synthetic = {
     alt: string
 }
 
-export const simple_step_content_synthetic: SimpleStepsContent[] = [
+export const simple_step_content_synthetic = [
     {
         header: <Localize translate_text="Practise" />,
         text: (

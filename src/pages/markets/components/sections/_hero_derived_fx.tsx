@@ -7,7 +7,9 @@ import { Button } from 'components/form'
 import BannerBg from 'images/common/markets/hero-derived-fx.png'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import useAuthCheck from 'components/hooks/use-auth-check'
 
 const BackgroundWrapper = styled.div`
     background: url(${BannerBg});
@@ -94,6 +96,7 @@ type MarketProps = {
 }
 export const DerivedFXHero = ({ title, description }: MarketProps) => {
     const handleSignup = useHandleSignup()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <BackgroundWrapper>
@@ -103,20 +106,18 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
                 <StyledHeader as="h1" align="center">
                     <Localize translate_text={title} />
                 </StyledHeader>
-                <MarketSubHeader
-                    as="h4"
-                    type="sub-section-title"
-                    color="white"
-                    lh="2.4"
-                    font_size="var(--text-size-m)"
-                    weight="normal"
-                    align="center"
-                >
+                <MarketSubHeader color="white" weight="normal" align="center">
                     <Localize translate_text={description} />
                 </MarketSubHeader>
-                <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
-                    {localize('Create free demo account')}
-                </StyledButton>
+                {is_logged_in ? (
+                    <StyledButton width="128px" onClick={handleGetTrading} secondary>
+                        {localize('Get Trading')}
+                    </StyledButton>
+                ) : (
+                    <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
+                        {localize('Create free demo account')}
+                    </StyledButton>
+                )}
             </StyledContainer>
         </BackgroundWrapper>
     )

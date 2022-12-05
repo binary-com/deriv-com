@@ -66,10 +66,10 @@ const BeSquareFooter = () => {
                     <TextContainer>
                         <Title as="h3">Next intake: January 2023</Title>
                         <TextWrapper
-                            max_width={['510px', '328px']}
+                            max_width_array={['510px', '328px']}
                             font_size={['20px', '16px']}
                             line_height={['30px', '24px']}
-                            margin={['-24px 49px 0 0']}
+                            margin="-24px 49px 0 0"
                         >
                             <Header weight="normal" color="white" size="2rem">
                                 Submit your application before 31 December 2022
@@ -81,7 +81,7 @@ const BeSquareFooter = () => {
                                     <br key={0} />,
                                     <TextWrapper
                                         key={1}
-                                        max_width={['510px', '328px']}
+                                        max_width_array={['510px', '328px']}
                                         font_size={['16px', '12px']}
                                         display={'inline'}
                                         line_height={['24px', '18px']}
@@ -108,11 +108,11 @@ const BeSquareFooter = () => {
                         </div>
                         <FollowUsContainer>
                             <TextWrapper
-                                max_width={['68px']}
+                                max_width_array={['68px']}
                                 font_size={['16px']}
                                 line_height={['24px']}
-                                grid_area={'follow-us'}
-                                padding={'15px 0 0'}
+                                grid_area="follow-us"
+                                padding="15px 0 0"
                             >
                                 {localize('Follow us')}
                             </TextWrapper>

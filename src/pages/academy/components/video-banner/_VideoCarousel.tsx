@@ -37,7 +37,7 @@ const ItemsMainWrapper = styled(Flex)`
     }
 `
 
-const PlayerIconWrapper = styled(Flex)`
+const PlayerIconWrapper = styled(Flex)<{ absolute?: boolean }>`
     width: 48px;
     height: 48px;
     border-radius: 50%;

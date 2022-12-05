@@ -11,7 +11,7 @@ type NavRightProps = {
     mounted: boolean
     move?: boolean
     has_scrolled: boolean
-    hide_signup_login: boolean
+    hide_signup_login?: boolean
     is_rtl?: boolean
 }
 
@@ -160,7 +160,7 @@ export const LogoLink = styled(LocalizedLink)<LogoLinkProps>`
 `
 
 type NavLinkProps = {
-    isOpen: boolean
+    isOpen?: boolean
     margin?: boolean
 }
 

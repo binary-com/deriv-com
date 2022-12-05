@@ -15,7 +15,7 @@ const IcInfo = styled.img`
     margin-left: 1.5rem;
 `
 
-const Card = styled(Flex)`
+const Card = styled(Flex)<{ padding?: string }>`
     ${CardStyle}
     width: ${(props) => (props.width ? props.width : 'auto')};
     min-width: 38.4rem;

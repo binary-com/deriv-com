@@ -120,9 +120,7 @@ const NavDesktop = ({
                             isOpen={active === active_dropdown}
                             onClick={(e) => handleTabClick(active, e.target)}
                         >
-                            <Tab aria-label={title} active={checkActive(active)}>
-                                {title}
-                            </Tab>
+                            <Tab active={checkActive(active)}>{title}</Tab>
                         </NavLink>
                     ))}
                 </NavigationBar>

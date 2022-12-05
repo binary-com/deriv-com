@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import DERIVIBDMT5Cards from './_dmt5-cards'
 import { CardWrapper } from './_partner-card'
-import { SectionContainer, Container, Flex } from 'components/containers'
+import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements/typography'
+import { LiveChatLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 type AssetsType = {
@@ -48,6 +48,10 @@ type DMT5Type = {
     countDetails: CountDetailsType
 }
 
+type StyledSectionProps = {
+    align?: string
+}
+
 export type DMT5Props = { data: DMT5Type }
 
 const TitleWrapper = styled.div`
@@ -62,7 +66,7 @@ const StyledCardWrapper = styled(CardWrapper)`
     }
 `
 
-const StyledSection = styled(SectionContainer)`
+const StyledSection = styled(SectionContainer)<StyledSectionProps>`
     padding-bottom: 0;
     text-align: ${(props) => props.align || 'left'};
 
@@ -91,17 +95,6 @@ const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
         font-size: 16px;
-    }
-`
-const LinkButtonContactUsWrapper = styled(Flex)`
-    margin-top: 8px;
-`
-const LinkButtonContactUs = styled(LinkButton)`
-    @media ${device.mobileL} {
-        display: block;
-        margin: auto;
-        height: 40px;
-        width: 100%;
     }
 `
 
@@ -145,7 +138,7 @@ const SubtitleHeader = styled(Header)`
 
 const DerivIBProgramme = () => {
     return (
-        <StyledSection shadow id="deriv-ib">
+        <StyledSection id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
                     <StyledTitleHeader as="h2" mb="1.2rem" type="page-title" align="center">
@@ -182,16 +175,7 @@ const DerivIBProgramme = () => {
                         >
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
-                        <LinkButtonContactUsWrapper>
-                            <LinkButtonContactUs
-                                external
-                                secondary
-                                to="mailto:partners@deriv.com"
-                                is_mail_link
-                            >
-                                {localize('Contact us')}
-                            </LinkButtonContactUs>
-                        </LinkButtonContactUsWrapper>
+                        <LiveChatLinkText text="_t_Contact us via live chat_t_" weight="bold" />
                     </DecideSection>
                 </IBSectionContainer>
             </Container>

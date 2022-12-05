@@ -263,24 +263,6 @@ const PersonalDetails = ({
 
     const citizen_list = getCitizenList()
 
-    const validate = !(
-        !first_name ||
-        !last_name ||
-        !date_birth ||
-        !citizen ||
-        !password ||
-        !company_name ||
-        !company_registration_number ||
-        !currency ||
-        first_name_error_msg ||
-        last_name_error_msg ||
-        citizen_error_msg ||
-        password_error_msg ||
-        company_name_error_msg ||
-        company_registration_error_msg ||
-        certificate_error_msg
-    )
-
     useEffect(() => {
         send(citizen_list, (response) => {
             if (!response.error) {
@@ -325,8 +307,45 @@ const PersonalDetails = ({
     ])
 
     useEffect(() => {
-        onValidate(validate)
-    }, [onValidate, validate])
+        const validateAccountType = () => {
+            if (is_individual) {
+                const validate = !(
+                    !first_name ||
+                    !last_name ||
+                    !date_birth ||
+                    !citizen ||
+                    !password ||
+                    !currency ||
+                    first_name_error_msg ||
+                    last_name_error_msg ||
+                    citizen_error_msg ||
+                    password_error_msg
+                )
+                return validate
+            } else {
+                const validate = !(
+                    !first_name ||
+                    !last_name ||
+                    !date_birth ||
+                    !citizen ||
+                    !password ||
+                    !company_name ||
+                    !company_registration_number ||
+                    !currency ||
+                    !certificate ||
+                    first_name_error_msg ||
+                    last_name_error_msg ||
+                    citizen_error_msg ||
+                    password_error_msg ||
+                    company_name_error_msg ||
+                    company_registration_error_msg ||
+                    certificate_error_msg
+                )
+                return validate
+            }
+        }
+        onValidate(validateAccountType())
+    }, [onValidate])
 
     const getFormFields = () => {
         return form_inputs.filter((item) => {

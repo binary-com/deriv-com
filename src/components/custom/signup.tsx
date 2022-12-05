@@ -30,6 +30,15 @@ type FormProps = {
     bgColor?: string
 }
 
+const EmailLink = styled(StyledLink)`
+    display: table;
+    font-size: 1.4rem;
+    margin-top: 1.8rem;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+`
+
 const Form = styled.form<FormProps>`
     height: 100%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
@@ -44,15 +53,6 @@ const ResponseWrapper = styled.div`
     margin: 0 auto;
     flex-direction: column;
     padding: 2rem 1rem;
-`
-
-const EmailLink = styled(StyledLink)`
-    display: table;
-    font-size: 1.4rem;
-    margin-top: 1.8rem;
-    text-decoration: underline;
-    width: 100%;
-    text-align: center;
 `
 
 const ConfirmationMessage = styled.div`

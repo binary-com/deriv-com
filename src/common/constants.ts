@@ -163,4 +163,4 @@ export const browsers_minimum_required_version = {
     Opera: 58,
     'Samsung Browser': 10,
     UCBrowser: 13,
-}
+} as const

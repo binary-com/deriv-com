@@ -3,7 +3,7 @@ import { browserName, browserVersion } from 'react-device-detect'
 import { browsers_minimum_required_version as default_versions } from 'common/constants'
 
 export const useUserBrowser = (
-    browsers_minimum_required_version: Record<string, number> = default_versions,
+    browsers_minimum_required_version: typeof default_versions = default_versions,
 ) => {
     const [browser, setBrowser] = useState({
         browser_name: '',

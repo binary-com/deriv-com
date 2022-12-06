@@ -576,16 +576,21 @@ const CanIChangetheCurrencyofmyDerivMT5Account = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const CanIChangetheServerformyDerivMT5Account = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text mb="1.5rem">
-            {localize(
-                "No, you can't, but you may have multiple Deriv MT5 Synthetic accounts on different servers.",
-            )}
-        </Text>
-    </ArticleWrapper>
-)
+const CanIChangetheServerformyDerivMT5Account = ({ text }: ArticleProps) => {
+    const { is_eu } = useCountryRule()
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text mb="1.5rem">
+                {is_eu ? (
+                    <Localize translate_text="No, you can't." />
+                ) : (
+                    <Localize translate_text="No, you can't, but you may have multiple Deriv MT5 Synthetic accounts on different servers." />
+                )}
+            </Text>
+        </ArticleWrapper>
+    )
+}
 
 const MicroForexPairsonDerivMT5 = ({ text }: ArticleProps) => (
     <ArticleWrapper>
@@ -752,16 +757,22 @@ const DMT5Article = () => {
                     label="Can-I-change-the-server-for-my-Deriv-MT5-account"
                     is_mounted={is_mounted}
                 />
-                <MicroForexPairsonDerivMT5
-                    text={localize('Do you offer micro forex pairs on Deriv MT5?')}
-                    label="offer-micro-forex-pairs-on-Deriv-MT5"
-                    is_mounted={is_mounted}
-                />
-                <MinimumVolumeforMicroForexPairs
-                    text={localize('What is the minimum volume for micro forex pairs?')}
-                    label="What-is-the-minimum-volume-for-micro-forex-pairs"
-                    is_mounted={is_mounted}
-                />
+                {is_eu ? (
+                    <></>
+                ) : (
+                    <>
+                        <MicroForexPairsonDerivMT5
+                            text={localize('Do you offer micro forex pairs on Deriv MT5?')}
+                            label="offer-micro-forex-pairs-on-Deriv-MT5"
+                            is_mounted={is_mounted}
+                        />
+                        <MinimumVolumeforMicroForexPairs
+                            text={localize('What is the minimum volume for micro forex pairs?')}
+                            label="What-is-the-minimum-volume-for-micro-forex-pairs"
+                            is_mounted={is_mounted}
+                        />
+                    </>
+                )}
             </Article>
         </div>
     )

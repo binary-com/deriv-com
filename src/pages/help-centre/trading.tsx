@@ -200,120 +200,156 @@ const DigitalOptions = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const TradingPlatforms = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="We have a diverse suite of 6 trading platforms: <0>Deriv MT5</0>, <1>Deriv X</1>, <2>DTrader</2>, <3>DBot</3>, <4>SmartTrader</4>, and <5>Binary Bot</5>. Each of these platforms is designed to fit any trading style, regardless of your trading experience."
-                components={[
-                    <StyledLink
-                        to={'/dmt5/'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                    <StyledLink
-                        to={'/derivx/'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={1}
-                    />,
-                    <StyledLink
-                        to={'/dtrader/'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={2}
-                    />,
-                    <StyledLink
-                        to={'/dbot/'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={3}
-                    />,
-                    <StyledLink
-                        to={'https://smarttrader.deriv.com/en/trading.html'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={4}
-                    />,
-                    <StyledLink
-                        to={'https://bot.deriv.com/'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={5}
-                    />,
-                ]}
-            />
-        </Text>
-        <StyledText>
-            {localize(
-                'Note: DBot, SmartTrader, and Binary Bot are not available in the EU and UK.',
+const TradingPlatforms = ({ text }: ArticleProps) => {
+    const { is_eu } = useCountryRule()
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            {is_eu ? (
+                <Text>
+                    <Localize
+                        translate_text="We offer two trading platforms in the EU: <0>Deriv MT5</0>, <1>Deriv X</1>. Each of these platforms is designed to fit any trading style, regardless of your trading experience."
+                        components={[
+                            <StyledLink
+                                to={'/dmt5/'}
+                                target="_blank"
+                                external
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                            <StyledLink
+                                to={'/derivx/'}
+                                target="_blank"
+                                external
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={1}
+                            />,
+                        ]}
+                    />
+                </Text>
+            ) : (
+                <>
+                    <Text>
+                        <Localize
+                            translate_text="We have a diverse suite of 6 trading platforms: <0>Deriv MT5</0>, <1>Deriv X</1>, <2>DTrader</2>, <3>DBot</3>, <4>SmartTrader</4>, and <5>Binary Bot</5>. Each of these platforms is designed to fit any trading style, regardless of your trading experience."
+                            components={[
+                                <StyledLink
+                                    to={'/dmt5/'}
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={0}
+                                />,
+                                <StyledLink
+                                    to={'/derivx/'}
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={1}
+                                />,
+                                <StyledLink
+                                    to={'/dtrader/'}
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={2}
+                                />,
+                                <StyledLink
+                                    to={'/dbot/'}
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={3}
+                                />,
+                                <StyledLink
+                                    to={'https://smarttrader.deriv.com/en/trading.html'}
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={4}
+                                />,
+                                <StyledLink
+                                    to={'https://bot.deriv.com/'}
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={5}
+                                />,
+                            ]}
+                        />
+                    </Text>
+                    <StyledText>
+                        {localize(
+                            'Note: DBot, SmartTrader, and Binary Bot are not available in the EU and UK.',
+                        )}
+                    </StyledText>
+                </>
             )}
-        </StyledText>
-    </ArticleWrapper>
-)
+        </ArticleWrapper>
+    )
+}
 
-const AutomateTradingStrategy = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'You can automate your trading strategy using a trading bot. A trading bot is an automated computer program that purchases trade contracts for you while following a specific set of instructions that you provide.',
-            )}
-        </Text>
-        <StyledText>
-            <Localize
-                translate_text="Build your trading bot for free on <0>DBot</0> or <1>Binary Bot</1>; no coding is needed. You’ll also find free pre-built strategies on DBot that you can customise to your needs."
-                components={[
-                    <StyledLink
-                        to={'/dbot/'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                    <StyledLink
-                        to={'https://bot.deriv.com/'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={1}
-                    />,
-                ]}
-            />
-        </StyledText>
-        <StyledText>
-            <Localize
-                translate_text="Read <0>this article</0> to learn more about automated trading on Deriv."
-                components={[
-                    <StyledLink
-                        to={'/academy/blog/posts/automated-trading-what-you-need-to-know/'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </StyledText>
-    </ArticleWrapper>
-)
+const AutomateTradingStrategy = ({ text }: ArticleProps) => {
+    const { is_row } = useCountryRule()
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                {localize(
+                    'You can automate your trading strategy using a trading bot. A trading bot is an automated computer program that purchases trade contracts for you while following a specific set of instructions that you provide.',
+                )}
+            </Text>
+            <StyledText>
+                {is_row && (
+                    <Localize
+                        translate_text="Build your trading bot for free on <0>DBot</0> or <1>Binary Bot</1>; no coding is needed. You’ll also find free pre-built strategies on DBot that you can customise to your needs."
+                        components={[
+                            <StyledLink
+                                to={'/dbot/'}
+                                target="_blank"
+                                external
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                            <StyledLink
+                                to={'https://bot.deriv.com/'}
+                                target="_blank"
+                                external
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={1}
+                            />,
+                        ]}
+                    />
+                )}
+            </StyledText>
+            <StyledText>
+                <Localize
+                    translate_text="Read <0>this article</0> to learn more about automated trading on Deriv."
+                    components={[
+                        <StyledLink
+                            to={'/academy/blog/posts/automated-trading-what-you-need-to-know/'}
+                            target="_blank"
+                            external
+                            weight="bold"
+                            rel="noopener noreferrer"
+                            key={0}
+                        />,
+                    ]}
+                />
+            </StyledText>
+        </ArticleWrapper>
+    )
+}
 
 const TradingLimits = ({ text }: ArticleProps) => (
     <ArticleWrapper>
@@ -353,6 +389,7 @@ const WeekendContracts = ({ text }: ArticleProps) => (
 
 const TradingArticle = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const { is_row } = useCountryRule()
     return (
         <div>
             <Article
@@ -384,11 +421,16 @@ const TradingArticle = () => {
                     label="what-are-cfds"
                     is_mounted={is_mounted}
                 />
-                <DigitalOptions
-                    text={localize('What are digital options?')}
-                    label="what-are-digital-options"
-                    is_mounted={is_mounted}
-                />
+                {is_row ? (
+                    <DigitalOptions
+                        text={localize('What are digital options?')}
+                        label="what-are-digital-options"
+                        is_mounted={is_mounted}
+                    />
+                ) : (
+                    <></>
+                )}
+
                 <TradingPlatforms
                     text={localize('How many trading platforms do you offer?')}
                     label="how-many-trading-platforms"

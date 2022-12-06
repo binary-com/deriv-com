@@ -7,6 +7,7 @@ import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
     list-style: ${(props) => props.listStyle};
@@ -97,118 +98,137 @@ const ChangingPersonalDetails = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ChangeAccountCurrency = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'While the currencies of your virtual and cryptocurrency accounts are fixed, you can change the currency of your fiat account by following the steps below.',
-            )}
-        </Text>
-        <StyledText>
-            {localize(
-                'If you haven’t made a deposit or added a real MT5 account, follow these steps:',
-            )}
-        </StyledText>
-        <StyledList listStyle="decimal" paddingLeft="5rem">
-            <StyledListItem marginTop="1.6rem">
-                <Text>
-                    <Localize
-                        translate_text="Click on your account balance and click <0>Add or manage account.</0>"
-                        components={[<strong key={0} />]}
-                    />
-                </Text>
-            </StyledListItem>
-            <StyledListItem marginTop="0.3rem">
-                <Text>
-                    <Localize
-                        translate_text="Select <0>Fiat currencies,</0> choose the currency you want, and click <0>Change currency.</0>"
-                        components={[<strong key={0} />]}
-                    />
-                </Text>
-            </StyledListItem>
-        </StyledList>
-        <StyledText>
-            <Localize
-                translate_text="Need help? Please <0>contact us via live chat.</0>"
-                components={[
-                    <StyledLink
-                        to={'/contact_us/?is_livechat'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </StyledText>
-        <StyledText>
-            {localize(
-                'If you have made a deposit or have added a real MT5 account, follow these steps:',
-            )}
-        </StyledText>
-        <StyledList listStyle="decimal" paddingLeft="5rem">
-            <StyledListItem marginTop="1.6rem">
-                <Text>{localize('If you have open positions, close them first.')}</Text>
-                <StyledList listStyle="circle" paddingLeft="5rem">
-                    <StyledListItem marginTop="0.3rem">
-                        <Text>
+const ChangeAccountCurrency = ({ text }: ArticleProps) => {
+    const { is_eu } = useCountryRule()
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                {localize(
+                    'While the currencies of your virtual and cryptocurrency accounts are fixed, you can change the currency of your fiat account by following the steps below.',
+                )}
+            </Text>
+            <StyledText>
+                {localize(
+                    'If you haven’t made a deposit or added a real MT5 account, follow these steps:',
+                )}
+            </StyledText>
+            <StyledList listStyle="decimal" paddingLeft="5rem">
+                <StyledListItem marginTop="1.6rem">
+                    <Text>
+                        <Localize
+                            translate_text="Click on your account balance and click <0>Add or manage account.</0>"
+                            components={[<strong key={0} />]}
+                        />
+                    </Text>
+                </StyledListItem>
+                <StyledListItem marginTop="0.3rem">
+                    <Text>
+                        <Localize
+                            translate_text="Select <0>Fiat currencies,</0> choose the currency you want, and click <0>Change currency.</0>"
+                            components={[<strong key={0} />]}
+                        />
+                    </Text>
+                </StyledListItem>
+            </StyledList>
+            <StyledText>
+                <Localize
+                    translate_text="Need help? Please <0>contact us via live chat.</0>"
+                    components={[
+                        <StyledLink
+                            to={'/contact_us/?is_livechat'}
+                            target="_blank"
+                            external
+                            weight="bold"
+                            rel="noopener noreferrer"
+                            key={0}
+                        />,
+                    ]}
+                />
+            </StyledText>
+            <StyledText>
+                {localize(
+                    'If you have made a deposit or have added a real MT5 account, follow these steps:',
+                )}
+            </StyledText>
+            <StyledList listStyle="decimal" paddingLeft="5rem">
+                <StyledListItem marginTop="1.6rem">
+                    <Text>{localize('If you have open positions, close them first.')}</Text>
+                    <StyledList listStyle="circle" paddingLeft="5rem">
+                        <StyledListItem marginTop="0.3rem">
+                            <Text>
+                                <Localize
+                                    translate_text="For your Deriv real account, go to <0>Reports</0> to close or sell your open positions."
+                                    components={[<strong key={0} />]}
+                                />
+                            </Text>
+                        </StyledListItem>
+                        <StyledListItem marginTop="0.3rem">
+                            <Text>
+                                {localize(
+                                    'For your Deriv MT5 and Deriv X real accounts, log in to close any open positions.',
+                                )}
+                            </Text>
+                        </StyledListItem>
+                    </StyledList>
+                </StyledListItem>
+                <StyledListItem marginTop="1.6rem">
+                    <Text>{localize('Then, withdraw your funds.')}</Text>
+                    <StyledList listStyle="circle" paddingLeft="5rem">
+                        <StyledListItem marginTop="0.3rem">
+                            <Text>
+                                <Localize
+                                    translate_text="For your Deriv real account, go to <0>Cashier</0> to withdraw your funds."
+                                    components={[<strong key={0} />]}
+                                />
+                            </Text>
+                        </StyledListItem>
+                        <StyledListItem marginTop="0.3rem">
+                            <Text>
+                                {localize(
+                                    'For your Deriv MT5 and Deriv X real accounts, go to your dashboard to withdraw your funds.',
+                                )}
+                            </Text>
+                        </StyledListItem>
+                    </StyledList>
+                </StyledListItem>
+                <StyledListItem marginTop="1.6rem">
+                    <Text>
+                        {is_eu ? (
                             <Localize
-                                translate_text="For your Deriv real account, go to <0>Reports</0> to close or sell your open positions."
-                                components={[<strong key={0} />]}
+                                translate_text="<0>Contact us via live chat</0> to get help with changing your account currency."
+                                components={[
+                                    <StyledLink
+                                        to={'/contact_us/?is_livechat'}
+                                        target="_blank"
+                                        external
+                                        weight="bold"
+                                        rel="noopener noreferrer"
+                                        key={0}
+                                    />,
+                                ]}
                             />
-                        </Text>
-                    </StyledListItem>
-                    <StyledListItem marginTop="0.3rem">
-                        <Text>
-                            {localize(
-                                'For your Deriv MT5 and Deriv X real accounts, log in to close any open positions.',
-                            )}
-                        </Text>
-                    </StyledListItem>
-                </StyledList>
-            </StyledListItem>
-            <StyledListItem marginTop="1.6rem">
-                <Text>{localize('Then, withdraw your funds.')}</Text>
-                <StyledList listStyle="circle" paddingLeft="5rem">
-                    <StyledListItem marginTop="0.3rem">
-                        <Text>
+                        ) : (
                             <Localize
-                                translate_text="For your Deriv real account, go to <0>Cashier</0> to withdraw your funds."
-                                components={[<strong key={0} />]}
+                                translate_text="<0>Contact us via live chat</0> and we’ll help you change the currency of your account."
+                                components={[
+                                    <StyledLink
+                                        to={'/contact_us/?is_livechat'}
+                                        target="_blank"
+                                        external
+                                        weight="bold"
+                                        rel="noopener noreferrer"
+                                        key={0}
+                                    />,
+                                ]}
                             />
-                        </Text>
-                    </StyledListItem>
-                    <StyledListItem marginTop="0.3rem">
-                        <Text>
-                            {localize(
-                                'For your Deriv MT5 and Deriv X real accounts, go to your dashboard to withdraw your funds.',
-                            )}
-                        </Text>
-                    </StyledListItem>
-                </StyledList>
-            </StyledListItem>
-            <StyledListItem marginTop="1.6rem">
-                <Text>
-                    <Localize
-                        translate_text="<0>Contact us via live chat</0> and we’ll help you change the currency of your account."
-                        components={[
-                            <StyledLink
-                                to={'/contact_us/?is_livechat'}
-                                target="_blank"
-                                external
-                                weight="bold"
-                                rel="noopener noreferrer"
-                                key={0}
-                            />,
-                        ]}
-                    />
-                </Text>
-            </StyledListItem>
-        </StyledList>
-    </ArticleWrapper>
-)
+                        )}
+                    </Text>
+                </StyledListItem>
+            </StyledList>
+        </ArticleWrapper>
+    )
+}
 
 const RecoveringPassword = ({ text }: ArticleProps) => (
     <ArticleWrapper>
@@ -468,26 +488,45 @@ const CreateAnAPIToken = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const OpenMoreThanOneDerivAccount = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="As per <0>our terms</0>, we only allow one account per client, which you can open in the currency of your choice (either fiat or crypto). If you want to trade with other currencies, you can add multiple cryptocurrency accounts to your profile."
-                components={[
-                    <StyledLink
-                        to={'/tnc/general-terms.pdf'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </Text>
-    </ArticleWrapper>
-)
+const OpenMoreThanOneDerivAccount = ({ text }: ArticleProps) => {
+    const { is_eu } = useCountryRule()
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                {is_eu ? (
+                    <Localize
+                        translate_text="As per <0>our terms</0>, we only allow one account per client, which you can open in the currency of your choice."
+                        components={[
+                            <StyledLink
+                                to={'/tnc/general-terms.pdf'}
+                                target="_blank"
+                                external
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                ) : (
+                    <Localize
+                        translate_text="As per <0>our terms</0>, we only allow one account per client, which you can open in the currency of your choice (either fiat or crypto). If you want to trade with other currencies, you can add multiple cryptocurrency accounts to your profile."
+                        components={[
+                            <StyledLink
+                                to={'/tnc/general-terms.pdf'}
+                                target="_blank"
+                                external
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                )}
+            </Text>
+        </ArticleWrapper>
+    )
+}
 
 const SelfExclusionLimitsOnMyAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
@@ -510,49 +549,69 @@ const SelfExclusionLimitsOnMyAccount = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const RemoveSelfExclusionLimits = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="If you're residing in the EU or UK, <0>contact us via live chat</0>, and we'll help you with it."
-                components={[
-                    <StyledLink
-                        to={'/contact_us/?is_livechat_open=true'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </Text>
-        <Text>
-            <Localize
-                translate_text="If you reside in any other country, you can adjust or remove your limits on the <1>Self-exclusion</1> page. If you’re unable to change your limits, <0>let us know via live chat</0>."
-                components={[
-                    <StyledLink
-                        to={'/contact_us/?is_livechat_open=true'}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                    <StyledLink
-                        to={`${deriv_app_url}/account/self-exclusion`}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </Text>
-    </ArticleWrapper>
-)
+const RemoveSelfExclusionLimits = ({ text }: ArticleProps) => {
+    const { is_eu } = useCountryRule()
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                {is_eu ? (
+                    <Localize
+                        translate_text="If you're residing in the EU, <0>contact us via live chat</0>, and we'll help you with it."
+                        components={[
+                            <StyledLink
+                                to={'/contact_us/?is_livechat_open=true'}
+                                target="_blank"
+                                external
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                ) : (
+                    <>
+                        <Localize
+                            translate_text="If you're residing in the EU or UK, <0>contact us via live chat</0>, and we'll help you with it."
+                            components={[
+                                <StyledLink
+                                    to={'/contact_us/?is_livechat_open=true'}
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={0}
+                                />,
+                            ]}
+                        />
+
+                        <Localize
+                            translate_text="If you reside in any other country, you can adjust or remove your limits on the <1>Self-exclusion</1> page. If you’re unable to change your limits, <0>let us know via live chat</0>."
+                            components={[
+                                <StyledLink
+                                    to={'/contact_us/?is_livechat_open=true'}
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={0}
+                                />,
+                                <StyledLink
+                                    to={`${deriv_app_url}/account/self-exclusion`}
+                                    target="_blank"
+                                    external
+                                    weight="bold"
+                                    rel="noopener noreferrer"
+                                    key={0}
+                                />,
+                            ]}
+                        />
+                    </>
+                )}{' '}
+            </Text>
+        </ArticleWrapper>
+    )
+}
 
 const ReactivateMyDerivAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
@@ -692,20 +751,29 @@ const WhyDoINeedToVerifyMyAccount = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const CanITradeWithoutVerifyingMyAccount = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('If you’re in the EU or UK:')}</Text>
-        <Text>{localize('No, you must verify your account before trading.')}</Text>
+const CanITradeWithoutVerifyingMyAccount = ({ text }: ArticleProps) => {
+    const { is_eu } = useCountryRule()
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            {is_eu ? (
+                <Text>{localize('No, you must verify your account before trading.')}</Text>
+            ) : (
+                <>
+                    <Text>{localize('If you’re in the EU or UK:')}</Text>
+                    <Text>{localize('No, you must verify your account before trading.')}</Text>
 
-        <StyledText>{localize('If you’re in any other country:')}</StyledText>
-        <Text>
-            {localize(
-                'Yes, as long as you haven’t opened a Deriv MT5 Financial STP account, you can still trade without verifying your account.',
+                    <StyledText>{localize('If you’re in any other country:')}</StyledText>
+                    <Text>
+                        {localize(
+                            'Yes, as long as you haven’t opened a Deriv MT5 Financial STP account, you can still trade without verifying your account.',
+                        )}
+                    </Text>
+                </>
             )}
-        </Text>
-    </ArticleWrapper>
-)
+        </ArticleWrapper>
+    )
+}
 
 const HowLongDoesVerificationTake = ({ text }: ArticleProps) => (
     <ArticleWrapper>

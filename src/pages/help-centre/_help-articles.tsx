@@ -200,6 +200,7 @@ export const articles: ArcticlesType[] = [
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,
                 label: 'what-are-digital-options',
+                hide_for_eu: true,
             },
             {
                 title: <Localize translate_text="How many trading platforms do you offer?" />,
@@ -284,6 +285,7 @@ export const articles: ArcticlesType[] = [
                 category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Withdrawals" />,
                 label: 'withdraw-deposit-bonus',
+                hide_for_eu: true,
             },
             {
                 title: (
@@ -702,6 +704,7 @@ export const articles: ArcticlesType[] = [
                 category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'offer-micro-forex-pairs-on-Deriv-MT5',
+                hide_for_eu: true,
             },
             {
                 title: (
@@ -710,6 +713,7 @@ export const articles: ArcticlesType[] = [
                 category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'What-is-the-minimum-volume-for-micro-forex-pairs',
+                hide_for_eu: true,
             },
         ],
     },

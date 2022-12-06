@@ -6,6 +6,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { Localize, localize, WithIntl } from 'components/localization'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
     list-style: ${(props) => props.listStyle};
@@ -17,30 +18,53 @@ const StyledListItem = styled.li<{ marginTop: string }>`
     margin-top: ${(props) => props.marginTop};
 `
 
-const PaymentMethods = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="You can use debit and credit cards, e-wallets, cryptocurrency wallets, and payment agents for deposits and withdrawals (see our <0>payment methods page</0> for a complete list). Once you log in to your Deriv account, you’ll be able to see payment methods available in your country on the <1>Cashier page</1>."
-                components={[
-                    <ExternalLink
-                        to="/payment-methods/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                    <ExternalLink
-                        to="https://app.deriv.com/cashier/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={1}
-                    />,
-                ]}
-            />
-        </Text>
-    </ArticleWrapper>
-)
+const PaymentMethods = ({ text }: ArticleProps) => {
+    const { is_eu } = useCountryRule()
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                {is_eu ? (
+                    <Localize
+                        translate_text="You can use debit and credit cards and also e-wallets for deposits and withdrawals (see our <0>payment methods page</0> for a complete list). Once you log in to your Deriv account, you’ll be able to see payment methods available in your country on the <1>Cashier page</1>."
+                        components={[
+                            <ExternalLink
+                                to="/payment-methods/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                            <ExternalLink
+                                to="https://app.deriv.com/cashier/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={1}
+                            />,
+                        ]}
+                    />
+                ) : (
+                    <Localize
+                        translate_text="You can use debit and credit cards, e-wallets, cryptocurrency wallets, and payment agents for deposits and withdrawals (see our <0>payment methods page</0> for a complete list). Once you log in to your Deriv account, you’ll be able to see payment methods available in your country on the <1>Cashier page</1>."
+                        components={[
+                            <ExternalLink
+                                to="/payment-methods/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                            <ExternalLink
+                                to="https://app.deriv.com/cashier/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={1}
+                            />,
+                        ]}
+                    />
+                )}
+            </Text>
+        </ArticleWrapper>
+    )
+}
 
 const WithdrawalProcessingTime = ({ text }: ArticleProps) => (
     <ArticleWrapper>
@@ -61,24 +85,41 @@ const WithdrawalProcessingTime = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const MinimumDepositWithdrawal = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="The minimum deposit and withdrawal amount varies depending on the payment method. The lowest deposit and withdrawal amount is 5 USD/EUR/GBP/AUD via e-wallets. See our <0>Payment methods</0> page for a complete list of payment methods and their minimum deposit and withdrawal amounts."
-                components={[
-                    <ExternalLink
-                        to="/payment-methods/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </Text>
-    </ArticleWrapper>
-)
+const MinimumDepositWithdrawal = ({ text }: ArticleProps) => {
+    const { is_eu } = useCountryRule()
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                {is_eu ? (
+                    <Localize
+                        translate_text="The minimum deposit and withdrawal amount varies depending on the payment method. The lowest deposit and withdrawal amount is 5 USD/EUR/GBP via e-wallets. See our <0>Payment methods</0> page for a complete list of payment methods and their minimum deposit and withdrawal amounts."
+                        components={[
+                            <ExternalLink
+                                to="/payment-methods/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                ) : (
+                    <Localize
+                        translate_text="The minimum deposit and withdrawal amount varies depending on the payment method. The lowest deposit and withdrawal amount is 5 USD/EUR/GBP/AUD via e-wallets. See our <0>Payment methods</0> page for a complete list of payment methods and their minimum deposit and withdrawal amounts."
+                        components={[
+                            <ExternalLink
+                                to="/payment-methods/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                )}
+            </Text>
+        </ArticleWrapper>
+    )
+}
 
 const ExpiredVerificationLink = ({ text }: ArticleProps) => (
     <ArticleWrapper>
@@ -209,45 +250,18 @@ const ConversionRatesDepositsAndWithdrawals = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const HowCanICancelMyWithdrawal = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="You can cancel your withdrawal on the <0>Cashier page</0> by following the steps mentioned in the next paragraph. Please note that you cannot cancel withdrawals if:"
-                components={[
-                    <ExternalLink
-                        to={`${deriv_app_url}/cashier/`}
-                        target="_blank"
-                        external
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </Text>
-        <StyledList listStyle="disc" paddingLeft="5rem">
-            <StyledListItem marginTop="0.3rem">
-                <Text>{localize('you reside in the UK, or')}</Text>
-            </StyledListItem>
-            <StyledListItem marginTop="0.3rem">
-                <Text>
-                    {localize('your withdrawal request has already been authorised and processed')}
-                </Text>
-            </StyledListItem>
-        </StyledList>
-        <StyledText>
-            <Text>{localize('To cancel your withdrawal, follow these steps:')}</Text>
-        </StyledText>
-        <StyledList listStyle="decimal" paddingLeft="5rem">
-            <StyledListItem marginTop="0.3rem">
-                <Text>
+const HowCanICancelMyWithdrawal = ({ text }: ArticleProps) => {
+    const { is_eu } = useCountryRule()
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                {is_eu ? (
                     <Localize
-                        translate_text="Go to <0>Cashier > Withdrawal</0>."
+                        translate_text="You can cancel your withdrawal on the <0>Cashier page</0> by following the steps mentioned in the next paragraph. Please note that you cannot cancel withdrawals if your withdrawal request has already been authorised and processed."
                         components={[
                             <ExternalLink
-                                to={`${deriv_app_url}/cashier/withdrawal`}
+                                to={`${deriv_app_url}/cashier/`}
                                 target="_blank"
                                 external
                                 weight="bold"
@@ -256,32 +270,25 @@ const HowCanICancelMyWithdrawal = ({ text }: ArticleProps) => (
                             />,
                         ]}
                     />
-                </Text>
-            </StyledListItem>
-            <StyledListItem marginTop="0.3rem">
-                <Text>
-                    {localize("We'll send you an email with a verification link. Click that link.")}
-                </Text>
-            </StyledListItem>
-            <StyledListItem marginTop="0.3rem">
-                <Text>
+                ) : (
                     <Localize
-                        translate_text="You’ll be brought back to the Cashier page. Click <0>Review pending</0> and select the transaction that you'd like to cancel."
-                        components={[<strong key={0} />]}
+                        translate_text="You can cancel your withdrawal on the <0>Cashier page</0> by following the steps mentioned in the next paragraph. Please note that you cannot cancel withdrawals if:"
+                        components={[
+                            <ExternalLink
+                                to={`${deriv_app_url}/cashier/`}
+                                target="_blank"
+                                external
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
                     />
-                </Text>
-            </StyledListItem>
-            <StyledListItem marginTop="0.3rem">
-                <Text>
-                    <Localize
-                        translate_text="Click <0>Yes</0> to confirm the cancellation. Your funds will be returned to your Deriv account, and your account balance will be updated accordingly."
-                        components={[<strong key={0} />]}
-                    />
-                </Text>
-            </StyledListItem>
-        </StyledList>
-    </ArticleWrapper>
-)
+                )}
+            </Text>
+        </ArticleWrapper>
+    )
+}
 
 const DepositWithFriendsAndFamilyCard = ({ text }: ArticleProps) => (
     <ArticleWrapper>
@@ -317,6 +324,7 @@ const PaymentMethodsOnTheWithdrawalPage = ({ text }: ArticleProps) => (
 
 const DepositsAndWithdrawalArticle = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const { is_row } = useCountryRule()
 
     return (
         <div>

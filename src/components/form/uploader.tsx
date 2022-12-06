@@ -8,7 +8,6 @@ import {
     RelativeWrapper,
     InputProps,
 } from './input'
-import { ExtraInfo } from 'pages/signup-affiliates/utils/_affiliate-input'
 
 type UploaderProps = { extra_info?: string } & InputProps
 
@@ -36,6 +35,13 @@ const UploadLabel = styled(StyledLabel)`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+`
+
+const ExtraInfo = styled.div<{ p?: string }>`
+    padding: 8px 0 16px 16px;
+    font-size: 12px;
+    color: var(--color-grey-5);
+    min-height: 30px;
 `
 
 const Uploader = ({

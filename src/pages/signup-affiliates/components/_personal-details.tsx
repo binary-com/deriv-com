@@ -50,20 +50,21 @@ const CurrencyWrapper = styled.div`
     span {
         display: flex;
         flex-direction: row;
-    }
-    span::before,
-    span::after {
-        content: '';
-        flex: 1 1;
-        border-bottom: 1px solid;
-        margin: auto;
-        color: var(--color-grey-8);
-    }
-    span::before {
-        margin-right: 8px;
-    }
-    span::after {
-        margin-left: 8px;
+
+        &::before,
+        &::after {
+            content: '';
+            flex: 1 1;
+            border-bottom: 1px solid;
+            margin: auto;
+            color: var(--color-grey-8);
+        }
+        &::before {
+            margin-right: 8px;
+        }
+        &::after {
+            margin-left: 8px;
+        }
     }
 `
 
@@ -129,7 +130,7 @@ const PersonalDetails = ({
             name: 'first_name',
             type: 'text',
             label: localize('First name'),
-            placeholder: 'First name',
+            placeholder: localize('First name'),
             extra_info: ' ',
             error: first_name_error_msg,
             value: first_name,
@@ -142,7 +143,7 @@ const PersonalDetails = ({
             name: 'last_name',
             type: 'text',
             label: localize('Last name'),
-            placeholder: 'First name',
+            placeholder: localize('Last name'),
             extra_info: ' ',
             error: last_name_error_msg,
             value: last_name,
@@ -155,7 +156,7 @@ const PersonalDetails = ({
             name: 'date_birth',
             type: 'date',
             label: localize('Date of Birth'),
-            placeholder: 'Date of Birth',
+            placeholder: localize('Date of Birth'),
             extra_info: ' ',
             value: date_birth,
             required: false,
@@ -166,7 +167,7 @@ const PersonalDetails = ({
             name: 'company_name',
             type: 'text',
             label: localize('Company name'),
-            placeholder: 'Company name',
+            placeholder: localize('Company name'),
             extra_info: ' ',
             error: company_name_error_msg,
             value: company_name,
@@ -179,7 +180,7 @@ const PersonalDetails = ({
             name: 'company_registration_number',
             type: 'number',
             label: localize('Company registration number'),
-            placeholder: 'Company registration number',
+            placeholder: localize('Company registration number'),
             extra_info: ' ',
             error: company_registration_error_msg,
             value: company_registration_number,
@@ -192,7 +193,7 @@ const PersonalDetails = ({
             name: 'certificate_of_incorporation',
             type: 'file',
             label: certificate?.name ? certificate?.name : localize('Certificate of incorporation'),
-            placeholder: 'Certificate of incorporation',
+            placeholder: localize('Certificate of incorporation'),
             extra_info: 'Accepted files: pdf, jpeg, and png. Max file size: 8MB',
             error: certificate_error_msg,
             value: certificate,
@@ -205,7 +206,7 @@ const PersonalDetails = ({
             name: 'citizen',
             type: 'select',
             label: localize('Citizenship'),
-            placeholder: 'Citizenship',
+            placeholder: localize('Citizenship'),
             extra_info: ' ',
             error: citizen_error_msg,
             list: citizenship_list,
@@ -217,7 +218,7 @@ const PersonalDetails = ({
             name: 'website_url',
             type: 'text',
             label: localize('Website URL'),
-            placeholder: 'Website URL',
+            placeholder: localize('Website URL'),
             extra_info: 'Optional',
             error: website_url_error_msg,
             value: website_url,
@@ -230,7 +231,7 @@ const PersonalDetails = ({
             name: 'social_media_url',
             type: 'text',
             label: localize('Social media URL'),
-            placeholder: 'Social media URL',
+            placeholder: localize('Social media URL'),
             extra_info: 'Optional',
             error: social_media_url_error_msg,
             value: social_media_url,
@@ -243,7 +244,7 @@ const PersonalDetails = ({
             name: 'password',
             type: 'password',
             label: localize('Password'),
-            placeholder: 'Password',
+            placeholder: localize('Password'),
             extra_info: ' ',
             error: password_error_msg,
             value: password,
@@ -255,16 +256,8 @@ const PersonalDetails = ({
 
     const { send } = useDerivWS()
 
-    const getCitizenList = () => {
-        return {
-            residence_list: 1,
-        }
-    }
-
-    const citizen_list = getCitizenList()
-
     useEffect(() => {
-        send(citizen_list, (response) => {
+        send({ residence_list: 1 }, (response) => {
             if (!response.error) {
                 const residence_list_response = response.residence_list.map(({ text, value }) => {
                     return {
@@ -306,41 +299,43 @@ const PersonalDetails = ({
         currency,
     ])
 
+    const is_individual_validate =
+        !first_name ||
+        !last_name ||
+        !date_birth ||
+        !citizen ||
+        !password ||
+        !currency ||
+        first_name_error_msg ||
+        last_name_error_msg ||
+        citizen_error_msg ||
+        password_error_msg
+
+    const is_business_validate =
+        !first_name ||
+        !last_name ||
+        !date_birth ||
+        !citizen ||
+        !password ||
+        !company_name ||
+        !company_registration_number ||
+        !currency ||
+        !certificate ||
+        first_name_error_msg ||
+        last_name_error_msg ||
+        citizen_error_msg ||
+        password_error_msg ||
+        company_name_error_msg ||
+        company_registration_error_msg ||
+        certificate_error_msg
+
     useEffect(() => {
         const validateAccountType = () => {
             if (is_individual) {
-                const validate = !(
-                    !first_name ||
-                    !last_name ||
-                    !date_birth ||
-                    !citizen ||
-                    !password ||
-                    !currency ||
-                    first_name_error_msg ||
-                    last_name_error_msg ||
-                    citizen_error_msg ||
-                    password_error_msg
-                )
+                const validate = !is_individual_validate
                 return validate
             } else {
-                const validate = !(
-                    !first_name ||
-                    !last_name ||
-                    !date_birth ||
-                    !citizen ||
-                    !password ||
-                    !company_name ||
-                    !company_registration_number ||
-                    !currency ||
-                    !certificate ||
-                    first_name_error_msg ||
-                    last_name_error_msg ||
-                    citizen_error_msg ||
-                    password_error_msg ||
-                    company_name_error_msg ||
-                    company_registration_error_msg ||
-                    certificate_error_msg
-                )
+                const validate = !is_business_validate
                 return validate
             }
         }

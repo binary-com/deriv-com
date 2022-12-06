@@ -5,10 +5,11 @@ import { Modal, Header } from 'components/elements'
 import { useUserBrowser } from 'components/hooks/use-user-browser'
 import { CookieStorage } from 'common/storage'
 
+const cookie_key = 'browser_update_alert_modal_shown'
+
 const BrowserUpdateAlertModal = () => {
     const modalRef = React.useRef<ModalRefType>()
     const { is_outdated } = useUserBrowser()
-    const cookie_key = 'browser_update_alert_modal_shown'
     const cookie = new CookieStorage(cookie_key)
 
     useEffect(

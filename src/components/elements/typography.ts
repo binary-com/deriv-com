@@ -37,10 +37,10 @@ type BaseElementProps = {
     width?: string
     height?: string
     align?: string
-    padding?: string
+    padding?: string | string[]
     color?: string
     lh?: string
-    max_width?: string
+    max_width?: string | string[]
     min_width?: string
     min_height?: string
     max_height?: string

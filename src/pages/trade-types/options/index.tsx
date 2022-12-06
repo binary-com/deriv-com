@@ -52,7 +52,7 @@ const Options = () => {
                 <MarketsAvailable />
             </Layout>
         ) : (
-            <PageNotFound />
+            <PageNotFound pageContext={{ locale: '' }} />
         )
     }
 

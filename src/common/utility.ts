@@ -107,7 +107,7 @@ export const isLoggedIn = () => {
     return !!client_information
 }
 
-export const isIndexEven = (index: number, reverse: boolean) =>
+export const isIndexEven = (index: number, reverse?: boolean) =>
     reverse ? (index + 1) % 2 : index % 2
 
 export const sanitize = (input: string): string => input.replace(/[.*+?^${}()|[\]\\]/g, '')

@@ -298,7 +298,7 @@ export const PipValue = () => {
                             </PointerContainerMobile>
                         </FormulaValueMobile>
 
-                        <FormulaValuePnlStoplossPip mw="20px">
+                        <FormulaValuePnlStoplossPip>
                             <FormulaGreen>&divide;</FormulaGreen>
                         </FormulaValuePnlStoplossPip>
                         <FormulaValueMobile>
@@ -312,7 +312,7 @@ export const PipValue = () => {
                                 </PointerTextMobile>
                             </PointerContainerMobile>
                         </FormulaValueMobile>
-                        <FormulaValuePnlStoplossPip mw="20px">
+                        <FormulaValuePnlStoplossPip>
                             <FormulaGreen>=</FormulaGreen>
                         </FormulaValuePnlStoplossPip>
 
@@ -339,7 +339,7 @@ export const PipValue = () => {
 export const TakeProfitLevel = () => {
     return (
         <>
-            <Desktop max_width="tablet">
+            <Desktop breakpoint="tablet">
                 <FormulaContainer height="176px">
                     <FormulaHighlight pr="45px" pl="45px">
                         <FormulaValue>
@@ -594,7 +594,7 @@ export const ProfitPipValue = () => {
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
 
-                            <PnlMobileTakeProfitPip mw="15px">
+                            <PnlMobileTakeProfitPip>
                                 <FormulaGreen> - </FormulaGreen>
                             </PnlMobileTakeProfitPip>
 

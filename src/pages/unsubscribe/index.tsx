@@ -10,6 +10,7 @@ import { queryParams } from 'common/utility'
 import { decode, isValid } from 'common/url-base64-functions'
 import { useDerivWS } from 'store'
 import { useClientInformation } from 'components/hooks/use-client-information'
+import { deriv_app_login } from 'common/constants'
 
 const UnsubscribeWrapper = styled.div`
     display: flex;
@@ -155,7 +156,7 @@ const UnsubscribePage = () => {
                     handleResponse()
                 } else if (client_information) {
                     navigate('https://app.deriv.com/account/personal-details')
-                } else navigate(location.origin)
+                } else navigate(deriv_app_login)
             },
         )
     }, [send, binary_user_id, checksum, client_information])

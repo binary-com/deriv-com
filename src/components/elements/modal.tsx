@@ -43,7 +43,8 @@ const HeaderContainer = styled(Flex)`
 `
 
 const ContentContainer = styled.div`
-    overflow: scroll;
+    overflow: auto;
+    max-height: 70vh;
     @media ${device.mobileL} {
         padding-right: 1.9rem;
     }

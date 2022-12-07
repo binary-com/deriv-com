@@ -18,7 +18,7 @@ const BrowserUpdateAlertModal = () => {
     )
 
     const handlePositive = () => {
-        const expiration_date = Date.now() + 14 * 86400 * 1000
+        const expiration_date = Date.now() + 14 * 86400 * 1000 // 2 weeks later (1209600000 ms)
         cookie.set(cookie_key, true, {
             expires: new Date(expiration_date),
         })

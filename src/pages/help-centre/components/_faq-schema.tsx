@@ -1,24 +1,26 @@
+import React from 'react'
+import { Helmet } from 'react-helmet'
 import { localize } from 'components/localization'
 
-type AcceptedAnswerType = {
+type TAcceptedAnswer = {
     '@type': string
     text: string
 }
 
-type MainEntityType = {
+type TMainEntity = {
     '@type': string
     name: string
-    acceptedAnswer: AcceptedAnswerType
-    acceptedAnswerEU?: AcceptedAnswerType
-}
+    acceptedAnswer: TAcceptedAnswer
+    acceptedAnswerEU?: TAcceptedAnswer
+}[]
 
-type FaqSchemaType = {
+type TFaqSchemaData = {
     '@context': string
     '@type': string
-    mainEntity: MainEntityType[]
+    mainEntity: TMainEntity
 }
 
-export const faq_schema: FaqSchemaType = {
+const faq_schema_data: TFaqSchemaData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
@@ -108,3 +110,11 @@ export const faq_schema: FaqSchemaType = {
         },
     ],
 }
+
+const FaqSchema = () => (
+    <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faq_schema_data)}</script>
+    </Helmet>
+)
+
+export default FaqSchema

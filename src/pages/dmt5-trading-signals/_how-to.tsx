@@ -86,7 +86,7 @@ const HowTo = ({ active_tab }: HowToProps) => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Go to your DMT5 terminal')}
+                        {localize('Go to your Deriv MT5 dashboard')}
                     </DMT5Button>
                 )}
             </StyledContainer>

@@ -9,10 +9,11 @@ import {
     isUkDomain,
 } from 'common/utility'
 import { DerivStore } from 'store'
+import { TRegion } from 'types/generics'
 
 export const useCountryRule = () => {
-    const [region, setRegion] = useState({
-        is_loading: false,
+    const [region, setRegion] = useState<TRegion>({
+        is_loading: true,
         is_eu_location: isEuDomain(),
         is_uk_location: isUkDomain(),
         is_eu: isEuDomain(),
@@ -24,8 +25,6 @@ export const useCountryRule = () => {
         is_row: !isEuDomain() && !isUkDomain(),
         is_dev: false,
         is_africa: false,
-        is_south_africa: false,
-        is_nigeria: false,
     })
 
     const { website_status } = useContext(DerivStore)
@@ -51,8 +50,6 @@ export const useCountryRule = () => {
         const is_uk_eu = !(!is_eu && !is_uk)
         const is_row = !is_uk_eu
         const is_dev = isLocalhost() || isTestlink()
-        const is_south_africa = user_ip_country === 'za'
-        const is_nigeria = user_ip_country === 'ng'
 
         if (website_status) {
             setRegion({
@@ -68,8 +65,6 @@ export const useCountryRule = () => {
                 is_uk_eu,
                 is_row,
                 is_dev,
-                is_nigeria,
-                is_south_africa,
             })
         }
     }, [residence, user_ip_country, website_status])

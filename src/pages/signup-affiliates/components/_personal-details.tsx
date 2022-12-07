@@ -21,21 +21,35 @@ export type TCertificate = {
 type PersonalDataProps = {
     first_name: string
     last_name: string
-    date_birth: Date | [Date, Date]
+    date_birth: Date | [Date, Date] | string
     social_media_url: string
     website_url: string
     password: string
     company_name: string
     company_registration_number: string
-    certificate: TCertificate
+    certificate_of_incorporation: TCertificate
     citizen: string
     currency: string
 }
+
 type PersonalDetailsProps = {
     updatedData: (e) => void
     onValidate: (e) => void
     is_individual: boolean
     affiliate_personal_data: PersonalDataProps
+}
+
+type ErrorProps = {
+    first_name: string | JSX.Element
+    last_name: string | JSX.Element
+    company_name: string | JSX.Element
+    company_registration_number: string | JSX.Element
+    certificate_of_incorporation: string | JSX.Element
+    website_url: string | JSX.Element
+    social_media_url: string | JSX.Element
+    password: string | JSX.Element
+    citizen: string | JSX.Element
+    currency: string | JSX.Element
 }
 
 const DropdownSearchWrapper = styled.div`
@@ -100,29 +114,46 @@ const PersonalDetails = ({
     onValidate,
 }: PersonalDetailsProps) => {
     const [citizenship_list, setCitizenShipList] = useState([])
-    const [first_name, setFirstName] = useState(affiliate_personal_data.first_name)
-    const [last_name, setLastName] = useState(affiliate_personal_data.last_name)
-    const [date_birth, setDateBirth] = useState(affiliate_personal_data.date_birth)
-    const [company_name, setCompanyName] = useState(affiliate_personal_data.company_name)
-    const [company_registration_number, setCompanyRegistrationNumber] = useState(
-        affiliate_personal_data.company_registration_number,
-    )
-    const [certificate, setCertificate] = useState(affiliate_personal_data.certificate)
-    const [citizen, setCitizen] = useState(affiliate_personal_data.citizen)
-    const [website_url, setWebsiteUrl] = useState(affiliate_personal_data.website_url)
-    const [social_media_url, setSocialMedia] = useState(affiliate_personal_data.social_media_url)
-    const [password, setPassword] = useState(affiliate_personal_data.password)
-    const [currency, setCurrency] = useState(affiliate_personal_data.currency)
+    const [personal_details, setPersonalDetails] = useState({
+        first_name: affiliate_personal_data.first_name,
+        last_name: affiliate_personal_data.last_name,
+        date_birth: affiliate_personal_data.date_birth,
+        company_name: affiliate_personal_data.company_name,
+        company_registration_number: affiliate_personal_data.company_registration_number,
+        certificate_of_incorporation: affiliate_personal_data.certificate_of_incorporation,
+        citizen: affiliate_personal_data.citizen,
+        website_url: affiliate_personal_data.website_url,
+        social_media_url: affiliate_personal_data.social_media_url,
+        password: affiliate_personal_data.password,
+        currency: affiliate_personal_data.currency,
+    })
 
-    const [first_name_error_msg, setFirstNameErrorMsg] = useState()
-    const [last_name_error_msg, setLastNameErrorMsg] = useState()
-    const [company_name_error_msg, setCompanyNameErrorMsg] = useState()
-    const [company_registration_error_msg, setCompanyRegistrationErrorMsg] = useState()
-    const [certificate_error_msg, setCertificateErrorMsg] = useState()
-    const [citizen_error_msg, setCitizenErrorMsg] = useState()
-    const [website_url_error_msg, setWebsiteUrlErrorMsg] = useState()
-    const [social_media_url_error_msg, setSocialMediaErrorMsg] = useState()
-    const [password_error_msg, setPasswordErrorMsg] = useState()
+    const [error_msgs, setErrorMsgs] = useState<ErrorProps>({
+        first_name: null,
+        last_name: null,
+        company_name: null,
+        company_registration_number: null,
+        certificate_of_incorporation: null,
+        website_url: null,
+        social_media_url: null,
+        password: null,
+        currency: null,
+        citizen: null,
+    })
+
+    const {
+        first_name,
+        last_name,
+        date_birth,
+        company_name,
+        company_registration_number,
+        certificate_of_incorporation,
+        citizen,
+        website_url,
+        social_media_url,
+        password,
+        currency,
+    } = personal_details
 
     const form_inputs = [
         {
@@ -132,11 +163,9 @@ const PersonalDetails = ({
             label: localize('First name'),
             placeholder: localize('First name'),
             extra_info: ' ',
-            error: first_name_error_msg,
+            error: error_msgs.first_name,
             value: first_name,
             required: true,
-            value_set: setFirstName,
-            error_set: setFirstNameErrorMsg,
         },
         {
             id: 'last_name',
@@ -145,11 +174,9 @@ const PersonalDetails = ({
             label: localize('Last name'),
             placeholder: localize('Last name'),
             extra_info: ' ',
-            error: last_name_error_msg,
+            error: error_msgs.last_name,
             value: last_name,
             required: true,
-            value_set: setLastName,
-            error_set: setLastNameErrorMsg,
         },
         {
             id: 'date_birth',
@@ -160,7 +187,6 @@ const PersonalDetails = ({
             extra_info: ' ',
             value: date_birth,
             required: false,
-            value_set: setDateBirth,
         },
         {
             id: 'company_name',
@@ -169,11 +195,9 @@ const PersonalDetails = ({
             label: localize('Company name'),
             placeholder: localize('Company name'),
             extra_info: ' ',
-            error: company_name_error_msg,
+            error: error_msgs.company_name,
             value: company_name,
             required: true,
-            value_set: setCompanyName,
-            error_set: setCompanyNameErrorMsg,
         },
         {
             id: 'company_registration_number',
@@ -182,24 +206,22 @@ const PersonalDetails = ({
             label: localize('Company registration number'),
             placeholder: localize('Company registration number'),
             extra_info: ' ',
-            error: company_registration_error_msg,
+            error: error_msgs.company_registration_number,
             value: company_registration_number,
             required: true,
-            value_set: setCompanyRegistrationNumber,
-            error_set: setCompanyRegistrationErrorMsg,
         },
         {
             id: 'certificate_of_incorporation',
             name: 'certificate_of_incorporation',
             type: 'file',
-            label: certificate?.name ? certificate?.name : localize('Certificate of incorporation'),
+            label: certificate_of_incorporation?.name
+                ? certificate_of_incorporation?.name
+                : localize('Certificate of incorporation'),
             placeholder: localize('Certificate of incorporation'),
             extra_info: 'Accepted files: pdf, jpeg, and png. Max file size: 8MB',
-            error: certificate_error_msg,
-            value: certificate,
+            error: error_msgs.certificate_of_incorporation,
+            value: certificate_of_incorporation,
             required: true,
-            value_set: setCertificate,
-            error_set: setCertificateErrorMsg,
         },
         {
             id: 'citizenship_select',
@@ -208,7 +230,7 @@ const PersonalDetails = ({
             label: localize('Citizenship'),
             placeholder: localize('Citizenship'),
             extra_info: ' ',
-            error: citizen_error_msg,
+            error: error_msgs.citizen,
             list: citizenship_list,
             value: citizen,
             required: true,
@@ -220,11 +242,9 @@ const PersonalDetails = ({
             label: localize('Website URL'),
             placeholder: localize('Website URL'),
             extra_info: 'Optional',
-            error: website_url_error_msg,
+            error: error_msgs.website_url,
             value: website_url,
             required: false,
-            value_set: setWebsiteUrl,
-            error_set: setWebsiteUrlErrorMsg,
         },
         {
             id: 'social_media_url',
@@ -233,11 +253,9 @@ const PersonalDetails = ({
             label: localize('Social media URL'),
             placeholder: localize('Social media URL'),
             extra_info: 'Optional',
-            error: social_media_url_error_msg,
+            error: error_msgs.social_media_url,
             value: social_media_url,
             required: false,
-            value_set: setSocialMedia,
-            error_set: setSocialMediaErrorMsg,
         },
         {
             id: 'dm-password',
@@ -246,11 +264,20 @@ const PersonalDetails = ({
             label: localize('Password'),
             placeholder: localize('Password'),
             extra_info: ' ',
-            error: password_error_msg,
+            error: error_msgs.password,
             value: password,
             required: true,
-            value_set: setPassword,
-            error_set: setPasswordErrorMsg,
+        },
+        {
+            id: 'dm-currency',
+            name: 'currency',
+            type: 'currency',
+            label: localize('currency'),
+            placeholder: localize('currency'),
+            extra_info: ' ',
+            error: error_msgs.currency,
+            value: currency,
+            required: true,
         },
     ]
 
@@ -278,38 +305,17 @@ const PersonalDetails = ({
             date_birth,
             company_name,
             company_registration_number,
-            certificate,
+            certificate_of_incorporation,
             citizen,
             website_url,
             social_media_url,
             password,
             currency,
         })
-    }, [
-        first_name,
-        last_name,
-        date_birth,
-        company_name,
-        company_registration_number,
-        certificate,
-        citizen,
-        website_url,
-        social_media_url,
-        password,
-        currency,
-    ])
+    }, [personal_details])
 
     const is_individual_validate =
-        !first_name ||
-        !last_name ||
-        !date_birth ||
-        !citizen ||
-        !password ||
-        !currency ||
-        first_name_error_msg ||
-        last_name_error_msg ||
-        citizen_error_msg ||
-        password_error_msg
+        !first_name || !last_name || !date_birth || !citizen || !password || !currency
 
     const is_business_validate =
         !first_name ||
@@ -320,26 +326,11 @@ const PersonalDetails = ({
         !company_name ||
         !company_registration_number ||
         !currency ||
-        !certificate ||
-        first_name_error_msg ||
-        last_name_error_msg ||
-        citizen_error_msg ||
-        password_error_msg ||
-        company_name_error_msg ||
-        company_registration_error_msg ||
-        certificate_error_msg
+        !certificate_of_incorporation
 
     useEffect(() => {
-        const validateAccountType = () => {
-            if (is_individual) {
-                const validate = !is_individual_validate
-                return validate
-            } else {
-                const validate = !is_business_validate
-                return validate
-            }
-        }
-        onValidate(validateAccountType())
+        const validateAccountType = is_individual ? !is_individual_validate : !is_business_validate
+        onValidate(validateAccountType)
     }, [onValidate])
 
     const getFormFields = () => {
@@ -356,51 +347,62 @@ const PersonalDetails = ({
             return true
         })
     }
+
     const handleInput = (e) => {
         const { name, value } = e.target
+
         switch (name) {
             case 'first_name': {
-                setFirstName(value)
-                return setFirstNameErrorMsg(validation.first_name(value))
+                setPersonalDetails({ ...personal_details, first_name: value })
+                return setErrorMsgs({ ...error_msgs, first_name: validation.first_name(value) })
             }
             case 'last_name': {
-                setLastName(value)
-                return setLastNameErrorMsg(validation.last_name(value))
+                setPersonalDetails({ ...personal_details, last_name: value })
+                return setErrorMsgs({ ...error_msgs, last_name: validation.last_name(value) })
             }
             case 'date_birth': {
-                setDateBirth(value)
+                setPersonalDetails({ ...personal_details, date_birth: value })
                 break
             }
             case 'company_name': {
-                setCompanyName(value)
-                return setCompanyNameErrorMsg(validation.company_name(value))
+                setPersonalDetails({ ...personal_details, company_name: value })
+                return setErrorMsgs({ ...error_msgs, company_name: validation.company_name(value) })
             }
             case 'company_registration_number': {
-                setCompanyRegistrationNumber(value)
-                return setCompanyRegistrationErrorMsg(validation.company_registration_number(value))
+                setPersonalDetails({ ...personal_details, company_registration_number: value })
+                return setErrorMsgs({
+                    ...error_msgs,
+                    company_registration_number: validation.company_registration_number(value),
+                })
             }
             case 'certificate_of_incorporation': {
-                setCertificate(e.target.files[0])
+                setPersonalDetails({
+                    ...personal_details,
+                    certificate_of_incorporation: e.target.files[0],
+                })
                 break
             }
             case 'citizen': {
-                setCitizen(value)
-                return setCitizenErrorMsg(validation.country(value))
+                setPersonalDetails({ ...personal_details, citizen: value })
+                return setErrorMsgs({ ...error_msgs, citizen: validation.country(value) })
             }
             case 'website_url': {
-                setWebsiteUrl(value)
-                return setWebsiteUrlErrorMsg(validation.website_url(value))
+                setPersonalDetails({ ...personal_details, website_url: value })
+                return setErrorMsgs({ ...error_msgs, website_url: validation.website_url(value) })
             }
             case 'social_media_url': {
-                setSocialMedia(value)
-                return setSocialMediaErrorMsg(validation.social_media_url(value))
+                setPersonalDetails({ ...personal_details, social_media_url: value })
+                return setErrorMsgs({
+                    ...error_msgs,
+                    social_media_url: validation.social_media_url(value),
+                })
             }
             case 'password': {
-                setPassword(value)
-                return setPasswordErrorMsg(validation.password(value))
+                setPersonalDetails({ ...personal_details, password: value })
+                return setErrorMsgs({ ...error_msgs, password: validation.password(value) })
             }
             case 'currency': {
-                setCurrency(value)
+                setPersonalDetails({ ...personal_details, currency: value })
                 break
             }
         }
@@ -419,8 +421,13 @@ const PersonalDetails = ({
                                         label_position={1}
                                         key={item.id}
                                         selected_item={citizen}
-                                        onChange={(value) => setCitizen(value)}
-                                        error={item.error}
+                                        onChange={(value) =>
+                                            setPersonalDetails({
+                                                ...personal_details,
+                                                citizen: value,
+                                            })
+                                        }
+                                        error={error_msgs[item.name]}
                                         default_item={''}
                                         items={item.list}
                                         type={item.type}
@@ -436,13 +443,18 @@ const PersonalDetails = ({
                                 <BirthForm
                                     id={item.id}
                                     key={item.id}
-                                    error={item.error}
+                                    error={error_msgs[item.name]}
                                     value={item.value}
                                     border="solid 1px var(--color-grey-7)"
                                     label_color="grey-5"
                                     label_hover_color="grey-5"
                                     label={localize(item.label)}
-                                    setFieldValue={item.value_set}
+                                    setFieldValue={(value) => {
+                                        setPersonalDetails({
+                                            ...personal_details,
+                                            date_birth: value,
+                                        })
+                                    }}
                                 />
                             )
                         }
@@ -453,7 +465,7 @@ const PersonalDetails = ({
                                     id={item.id}
                                     key={item.id}
                                     type={item.type}
-                                    error={item.error}
+                                    error={error_msgs[item.name]}
                                     name={item.name}
                                     label={item.label}
                                     border="solid 1px var(--color-grey-7)"
@@ -464,9 +476,36 @@ const PersonalDetails = ({
                                     className="custom-file-input"
                                     extra_info={item.extra_info}
                                     handleError={() => {
-                                        item?.value_set(null)
+                                        setPersonalDetails({ ...personal_details, [item.name]: '' })
+                                        setErrorMsgs({ ...error_msgs, [item.name]: null })
                                     }}
                                 />
+                            )
+                        }
+
+                        if (item.name === 'currency') {
+                            return (
+                                <>
+                                    <CurrencyWrapper>
+                                        <Header
+                                            as="span"
+                                            type="paragraph-1"
+                                            align="center"
+                                            weight="normal"
+                                        >
+                                            {localize('Choose your currency')}
+                                        </Header>
+                                    </CurrencyWrapper>
+                                    <Currency
+                                        current_select={currency}
+                                        selectedCurrency={(value) => {
+                                            setPersonalDetails({
+                                                ...personal_details,
+                                                currency: value,
+                                            })
+                                        }}
+                                    />
+                                </>
                             )
                         } else {
                             return (
@@ -477,7 +516,7 @@ const PersonalDetails = ({
                                     type={item.type}
                                     value={item.value}
                                     name={item.name}
-                                    error={item.error}
+                                    error={error_msgs[item.name]}
                                     password_icon={item.type == 'password'}
                                     border="solid 1px var(--color-grey-7)"
                                     label_color="grey-5"
@@ -492,20 +531,12 @@ const PersonalDetails = ({
                                     autoComplete="off"
                                     extra_info={item.extra_info}
                                     handleError={() => {
-                                        item?.value_set('')
-                                        item?.error_set('')
+                                        setErrorMsgs({ ...error_msgs, [item.name]: null })
                                     }}
                                 />
                             )
                         }
                     })}
-
-                    <CurrencyWrapper>
-                        <Header as="span" type="paragraph-1" align="center" weight="normal">
-                            {localize('Choose your currency')}
-                        </Header>
-                    </CurrencyWrapper>
-                    <Currency current_select={currency} selectedCurrency={setCurrency} />
                 </form>
             </InputWrapper>
         </InputGroup>

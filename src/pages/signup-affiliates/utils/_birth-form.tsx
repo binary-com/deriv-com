@@ -5,7 +5,7 @@ import { InputProps, InputWrapper, RelativeWrapper } from 'components/form/input
 
 type BirthFormProps = {
     setFieldValue: SetStateDate
-    value: Date | [Date, Date]
+    value: Date | [Date, Date] | string
 } & InputProps
 
 const BirthForm = ({

@@ -18,7 +18,7 @@ type BirthPickerWrapperProps = {
 type BirthPickerProps = {
     id: string
     error: string
-    value: Date | [Date, Date]
+    value: Date | [Date, Date] | string
     setFieldValue: SetStateDate
     label?: string
     label_color?: string

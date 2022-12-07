@@ -119,35 +119,12 @@ const Spinner = () => (
     </StyledSpinner>
 )
 
-type TSuccessBox = {
-    unsubscribed: boolean
-}
-
-const SuccessBox = (unsubscribed: TSuccessBox) => {
-    return (
-        <>
-            {unsubscribed ? (
-                <SuccessCard>
-                    <img src={CheckIcon} alt="sucess" width={48} height={48} />
-                    {localize("You're already unsubscribed")}
-                </SuccessCard>
-            ) : (
-                <SuccessCard>
-                    <img src={CheckIcon} alt="sucess" width={48} height={48} />
-                    {localize('Unsubscribed successfully')}
-                </SuccessCard>
-            )}
-        </>
-    )
-}
-
 const UnsubscribePage = () => {
     const { send } = useDerivWS()
     const client_information = useClientInformation()
 
     const [complete_status, setCompleteStatus] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [unsubscribed, setUnsubscribed] = useState(false)
 
     const query = queryParams.get('hash') || ''
     const unsubscribe_hash = isValid(query) && decode(query).split('+')
@@ -159,13 +136,10 @@ const UnsubscribePage = () => {
         window.open('about:blank', '_self')
         window.close()
     }
+
     const handleResponse = () => {
         setLoading(false)
         setCompleteStatus(true)
-    }
-    const handleReject = () => {
-        handleResponse()
-        setUnsubscribed(true)
     }
 
     const UnsubscribeAPICall = useCallback(() => {
@@ -181,12 +155,10 @@ const UnsubscribePage = () => {
                     handleResponse()
                 } else if (client_information) {
                     navigate('https://app.deriv.com/account/personal-details')
-                } else {
-                    handleReject()
-                }
+                } else navigate(location.origin)
             },
         )
-    }, [send, binary_user_id, checksum])
+    }, [send, binary_user_id, checksum, client_information])
 
     return (
         <Layout>
@@ -198,7 +170,10 @@ const UnsubscribePage = () => {
             {!loading && (
                 <UnsubscribeWrapper>
                     {complete_status ? (
-                        <SuccessBox unsubscribed={unsubscribed} />
+                        <SuccessCard>
+                            <img src={CheckIcon} alt="sucess" width={48} height={48} />
+                            {localize('Unsubscribed successfully')}
+                        </SuccessCard>
                     ) : (
                         <UnsubscribeForm>
                             <Title>

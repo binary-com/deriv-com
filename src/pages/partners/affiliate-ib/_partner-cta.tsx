@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements/typography'
+import { Header, Text, LinkText } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
+import { useLivechat } from 'components/hooks/use-livechat'
+import { localize, Localize } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 
 const StyledSection = styled(SectionContainer)`
@@ -26,18 +27,6 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const LightButton = styled(LinkButton)`
-    color: var(--color-white);
-    margin-top: 1.6rem;
-    border-radius: 4px;
-    border: solid 1px #6e6e6e;
-    padding-top: 7px;
-    height: 32px;
-    @media ${device.tabletL} {
-        padding-top: 9px;
-        width: 100%;
-    }
-`
 const RedButton = styled(LinkButton)`
     border-radius: 4px;
     padding-top: 0.5rem;
@@ -49,6 +38,8 @@ const RedButton = styled(LinkButton)`
 `
 
 const PartnerCTA = () => {
+    const [is_livechat_interactive, LC_API] = useLivechat()
+
     return (
         <StyledSection padding="4rem 0">
             <Container>
@@ -59,9 +50,17 @@ const PartnerCTA = () => {
                     <Text align="center" color="white" mt="0.8rem">
                         {localize('The Deriv affiliate management team is here to help.')}
                     </Text>
-                    <LightButton external to="mailto:affiliates@deriv.com" tertiary is_mail_link>
-                        {localize('Contact us')}
-                    </LightButton>
+                    <LinkText
+                        color="red"
+                        weight="bold"
+                        mt="1rem"
+                        size="var(--text-size-s)"
+                        onClick={() => {
+                            is_livechat_interactive && LC_API.open_chat_window()
+                        }}
+                    >
+                        <Localize translate_text="Contact us via live chat" />
+                    </LinkText>
                 </Flex>
                 <Flex direction="column" ai="center">
                     <Header as="h4" type="sub-section-title" align="center" color="white">

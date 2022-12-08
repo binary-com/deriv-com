@@ -84,7 +84,7 @@ const Description = styled.div<ExpandListType>`
         `}
 `
 
-const StyledText = styled(Text)`
+const StyledText = styled(Text)<ExpandListType>`
     font-size: ${(props) => (props.is_expanded ? 'var(--text-size-s)' : '0')};
 `
 const StyleCurrencyText = styled(Text)`

@@ -8,7 +8,7 @@ import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -132,12 +132,12 @@ type LocaleType = { language?: string }
 type PaymentType = {
     method?: ReactElement
     currencies?: string | ReactElement
-    min_max_deposit?: ReactElement
-    min_max_withdrawal?: ReactElement
-    deposit_time?: ReactElement
-    withdrawal_time?: ReactElement
-    description?: ReactElement
-    name?: ReactElement
+    min_max_deposit?: string | ReactElement
+    min_max_withdrawal?: string | ReactElement
+    deposit_time?: string | ReactElement
+    withdrawal_time?: string | ReactElement
+    description?: string | ReactElement
+    name?: string | ReactElement
     reference?: string
     locales?: string[]
     url?: string
@@ -195,55 +195,57 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     const parent_style = { marginBottom: is_mobile ? '24px' : '2.4rem' }
 
     return (
-        <Accordion has_single_state>
-            {payment_data.map((pd, idx) => {
+        <>
+            {payment_data.map((pdata, idx) => {
                 const styles = is_mobile
                     ? {
                           padding: '0 16px 0',
                           position: 'relative',
                           background: 'var(--color-white)',
-                          paddingBottom: pd.note ? '5rem' : '2.2rem',
+                          paddingBottom: pdata.note ? '5rem' : '2.2rem',
                       }
                     : {
                           padding: '0 48px 24px',
                           position: 'relative',
                           background: 'var(--color-white)',
-                          paddingBottom: pd.note ? '5rem' : '2.2rem',
+                          paddingBottom: pdata.note ? '5rem' : '2.2rem',
                       }
-                if (pd.is_row && is_eu) {
+                if (pdata.is_row && is_eu) {
                     return []
                 }
-                if (pd.is_eu && !is_eu) {
+                if (pdata.is_eu && !is_eu) {
                     return []
                 }
 
-                if (pd.is_crypto && is_eu) {
+                if (pdata.is_crypto && is_eu) {
                     return []
                 }
-                if (pd.is_fiat_onramp && is_eu) {
+                if (pdata.is_fiat_onramp && is_eu) {
                     return []
-                } else if (pd.is_dp2p && !is_p2p_allowed_country) {
+                } else if (pdata.is_dp2p && !is_p2p_allowed_country) {
                     return null
                 } else
                     return (
-                        <AccordionItem
-                            key={idx}
-                            content_style={content_style}
-                            header_style={header_style}
-                            style={styles}
-                            parent_style={parent_style}
-                            header={pd.name}
-                        >
-                            <DesktopWrapper>
-                                <DisplayAccordianItem pd={pd} locale={locale} />
-                            </DesktopWrapper>
-                            <MobileWrapper>
-                                <MobileAccordianItem pd={pd} locale={locale} />
-                            </MobileWrapper>
-                        </AccordionItem>
+                        <Accordion has_single_state>
+                            <AccordionItem
+                                key={idx}
+                                content_style={content_style}
+                                header_style={header_style}
+                                style={styles}
+                                parent_style={parent_style}
+                                header={pdata.name}
+                            >
+                                <DesktopWrapper>
+                                    <DisplayAccordianItem pd={pdata} locale={locale} />
+                                </DesktopWrapper>
+                                <MobileWrapper>
+                                    <MobileAccordianItem pd={pdata} locale={locale} />
+                                </MobileWrapper>
+                            </AccordionItem>
+                        </Accordion>
                     )
             })}
-        </Accordion>
+        </>
     )
 }
 
@@ -352,7 +354,25 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
     )
 }
 
-const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
+const PaymentMethodSection = ({ locale }: PaymentMethodsProps) => {
+    return (
+        <SectionContentContainer>
+            <Container direction="column">
+                <AccordionContainer>
+                    <DisplayAccordion locale={locale} />
+                </AccordionContainer>
+                <Header mt="1.6rem" type="paragraph-2" align="start" weight="normal">
+                    <Localize
+                        translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
+                        components={[<strong key={0} />]}
+                    />
+                </Header>
+            </Container>
+        </SectionContentContainer>
+    )
+}
+
+const PaymentMethods = () => {
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
         <Layout type="payment-methods">
@@ -389,19 +409,7 @@ const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
                 </TopContainer>
             </SectionTopContainer>
             <Divider height="2px" />
-            <SectionContentContainer>
-                <Container direction="column">
-                    <AccordionContainer>
-                        <DisplayAccordion locale={locale} />
-                    </AccordionContainer>
-                    <Header mt="1.6rem" type="paragraph-2" align="start" weight="normal">
-                        <Localize
-                            translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
-                            components={[<strong key={0} />]}
-                        />
-                    </Header>
-                </Container>
-            </SectionContentContainer>
+            <PaymentMethodSection />
             {is_p2p_allowed_country && (
                 <>
                     <Divider height="2px" />
@@ -416,4 +424,4 @@ const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
     )
 }
 
-export default PaymentMethods
+export default WithIntl()(PaymentMethods)

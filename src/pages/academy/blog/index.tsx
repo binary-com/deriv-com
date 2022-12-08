@@ -8,7 +8,7 @@ import { AllArticlesQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/deriv-blog.png'
 import device from 'themes/device'
 
@@ -102,7 +102,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
     )
 }
 
-export default ArticlesPage
+export default WithIntl()(ArticlesPage)
 
 export const query = graphql`
     query AllArticles {

@@ -187,7 +187,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             <Europe src={EU} alt="Europe map" />
                         </CssGridColumn>
                         <CssGridColumn padding="0.8rem 0 0">
-                            <EUgrid pageContext={{ locale: '' }} />
+                            <EUgrid />
                         </CssGridColumn>
                     </CssGrid>
                 </GridContainer>

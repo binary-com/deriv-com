@@ -1,5 +1,4 @@
 import React from 'react'
-import { LocationContext } from './location-context'
 import { DefaultFooter, FooterGrid } from './footer/common/style'
 import LogoSection from './footer/logo'
 import MainLinksSection from './footer/main-links'
@@ -23,11 +22,10 @@ const Footer = ({
     academy = false,
     no_footer_links = false,
 }: FooterProps) => {
-    const { show_cookie_banner } = React.useContext(LocationContext)
     const { is_eu } = useCountryRule()
 
     return (
-        <DefaultFooter has_banner_cookie={show_cookie_banner} is_eu={is_eu}>
+        <DefaultFooter is_eu={is_eu}>
             <Container>
                 <FooterGrid>
                     <LogoSection type={type} />

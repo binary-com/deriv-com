@@ -39,6 +39,7 @@ type countryType = {
     name: string
     display_name: string
     value: string
+    phone_code: string | number
 }
 
 type AccountDetailsProps = {
@@ -48,6 +49,7 @@ type AccountDetailsProps = {
         state: string
         city: string
         street: string
+        phone_code: string | number
         postal_code: string
         country: {
             name: string
@@ -73,6 +75,7 @@ const AccountDetails = ({
     const [city_error_msg, setCityErrorMsg] = useState('')
     const [street_error_msg, setStreetErrorMsg] = useState('')
     const [postcode_error_msg, setPostCodeErrorMsg] = useState('')
+    const [phone_code, setPhoneCode] = useState(affiliate_address_data.phone_code)
 
     const { send } = useDerivWS()
 
@@ -83,20 +86,25 @@ const AccountDetails = ({
             street,
             city,
             postal_code,
+            phone_code,
         })
-    }, [country, state, street, city, postal_code])
+    }, [country, state, street, city, postal_code, phone_code])
 
     useEffect(() => {
         send(country_list, (response) => {
             if (!response.error) {
-                const residence_list_response = response.residence_list.map(({ text, value }) => {
-                    const country: countryType = {
-                        name: text,
-                        display_name: text,
-                        value: value,
-                    }
-                    return country
-                })
+                const residence_list_response = response.residence_list.map(
+                    ({ text, value, phone_idd }) => {
+                        const country: countryType = {
+                            name: text,
+                            display_name: text,
+                            value: value,
+                            phone_code: phone_idd,
+                        }
+
+                        return country
+                    },
+                )
                 setResidenceList(residence_list_response)
             }
         })
@@ -198,50 +206,55 @@ const AccountDetails = ({
     }
 
     return (
-        <InputGroup>
-            <InputWrapper>
-                {form_inputs.map((item, index) => {
-                    if (item.name === 'country') {
-                        return (
-                            <DropdownSearchWrapper key={item.id}>
-                                <DropdownSearch
+        <>
+            <InputGroup>
+                <InputWrapper>
+                    {form_inputs.map((item, index) => {
+                        if (item.name === 'country') {
+                            return (
+                                <DropdownSearchWrapper key={item.id}>
+                                    <DropdownSearch
+                                        id={item.id}
+                                        label_position={0.8}
+                                        key={index}
+                                        selected_item={country}
+                                        onChange={(country) => {
+                                            setPhoneCode(country.phone_code)
+                                            setCountry(country)
+                                        }}
+                                        error={item.error}
+                                        items={item.list}
+                                        label={localize('Country of residence')}
+                                    />
+                                </DropdownSearchWrapper>
+                            )
+                        } else {
+                            return (
+                                <Input
+                                    width={500}
                                     id={item.id}
-                                    label_position={0.8}
+                                    name={item.name}
                                     key={index}
-                                    selected_item={country}
-                                    onChange={(country) => setCountry(country)}
+                                    type={item.type}
+                                    value={item.value}
                                     error={item.error}
-                                    items={item.list}
-                                    label={localize('Country of residence')}
+                                    border="solid 1px var(--color-grey-7)"
+                                    label_color="grey-5"
+                                    label_hover_color="grey-5"
+                                    background="white"
+                                    label={localize(item.label)}
+                                    placeholder={item.placeholder}
+                                    onChange={handleInput}
+                                    onBlur={handleInput}
+                                    autoComplete="off"
+                                    required={item.required}
                                 />
-                            </DropdownSearchWrapper>
-                        )
-                    } else {
-                        return (
-                            <Input
-                                width={500}
-                                id={item.id}
-                                name={item.name}
-                                key={index}
-                                type={item.type}
-                                value={item.value}
-                                error={item.error}
-                                border="solid 1px var(--color-grey-7)"
-                                label_color="grey-5"
-                                label_hover_color="grey-5"
-                                background="white"
-                                label={localize(item.label)}
-                                placeholder={item.placeholder}
-                                onChange={handleInput}
-                                onBlur={handleInput}
-                                autoComplete="off"
-                                required={item.required}
-                            />
-                        )
-                    }
-                })}
-            </InputWrapper>
-        </InputGroup>
+                            )
+                        }
+                    })}
+                </InputWrapper>
+            </InputGroup>
+        </>
     )
 }
 

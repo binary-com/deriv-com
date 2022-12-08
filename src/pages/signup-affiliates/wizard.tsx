@@ -26,6 +26,7 @@ const AffiliateSignup = () => {
             city: '',
             street: '',
             postal_code: '',
+            phone_code: '',
         },
         phone_number: '',
         personal_details: null,
@@ -48,15 +49,17 @@ const AffiliateSignup = () => {
                         city: value.city,
                         street: value.street,
                         postal_code: value.postal_code,
+                        phone_code: value.phone_code,
                     },
                 })
+
                 break
 
             case 'phone-number':
                 setNextBtnEnabled(false)
                 setAffiliateAccount({
                     ...affiliate_account,
-                    phone_number: value,
+                    phone_number: value.phone,
                 })
                 break
         }
@@ -90,6 +93,7 @@ const AffiliateSignup = () => {
                     />
                     <PhoneNumber
                         affiliate_phone_number={affiliate_account.phone_number}
+                        affiliate_phone_code={affiliate_account.address_details.phone_code}
                         updatedData={(value) => {
                             updateAffiliateValues(value, 'phone-number')
                         }}

@@ -83,7 +83,7 @@ const DerivX = () => {
             )
         }
 
-        return <PageNotFound pageContext={{ locale: '' }} />
+        return <PageNotFound />
     }
 
     return (

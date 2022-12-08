@@ -35,7 +35,7 @@ type OtherMarketsProps = {
     except: string
 }
 type LearnMoreProps = {
-    visibility?: string
+    visibility: string
 }
 const markets_type: MarketsType = {
     forex: {

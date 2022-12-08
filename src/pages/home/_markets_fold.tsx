@@ -12,8 +12,8 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type CarouselItemContainerProps = {
-    gradient_start?: string
-    gradient_end?: string
+    gradient_start: string
+    gradient_end: string
 }
 
 const FoldWrapper = styled(SectionContainer)`

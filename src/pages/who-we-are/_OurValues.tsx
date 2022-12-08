@@ -40,7 +40,7 @@ const StyledFlex = styled(Flex)`
         width: unset;
     }
 `
-const Card = styled(Flex)<{ index?: number }>`
+const Card = styled(Flex)<{ index: number }>`
     max-width: 384px;
     padding: 32px 44px 32px 32px;
     box-shadow: rgba(14, 14, 14, 0.1) 0 4px 8px 0;

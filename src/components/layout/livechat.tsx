@@ -4,7 +4,6 @@ import { useLivechat } from 'components/hooks/use-livechat'
 import LiveChatIC from 'images/svg/layout/livechat.svg'
 import LiveChatHover from 'images/svg/layout/livechat-hover.svg'
 
-
 const LiveChat = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
 

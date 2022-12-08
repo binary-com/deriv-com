@@ -15,13 +15,13 @@ const IcInfo = styled.img`
     margin-left: 1.5rem;
 `
 
-const Card = styled(Flex)<{ padding?: string }>`
+const Card = styled(Flex)`
     ${CardStyle}
-    width: ${(props) => (props.width ? props.width : 'auto')};
+    width: auto;
     min-width: 38.4rem;
-    height: ${(props) => (props.height ? props.height : 'auto')};
+    height: auto;
     border-radius: 0.4rem;
-    padding: ${(props) => (props.padding ? props.padding : '3.2rem')};
+    padding: 3.2rem;
     position: relative;
     display: flex;
     flex-direction: column;

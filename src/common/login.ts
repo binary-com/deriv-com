@@ -36,8 +36,10 @@ const Login = (() => {
             : `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
     }
 
-    const initOneAll = (provider: TSocialProvider): void => {
-        const social_login_url = `${loginUrl()}&social_signup=${provider}`
+    const initOneAll = (provider: TSocialProvider, utm_content?: string): void => {
+        const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
+        const social_login_url = `${loginUrl()}&social_signup=${provider}${utm_content_string}`
+
         window.location.href = social_login_url
     }
 

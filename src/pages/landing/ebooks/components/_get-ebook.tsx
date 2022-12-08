@@ -253,8 +253,8 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
     const handleSocialSignup = (e) => {
         e.preventDefault()
 
-        const data_provider = e.currentTarget.getAttribute('data-provider')
-        Login.initOneAll(`${data_provider}&utm_content=${ebook_utm_code}` as TSocialProvider)
+        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
+        Login.initOneAll(data_provider, ebook_utm_code)
     }
 
     const handleEmailSignup = (e) => {

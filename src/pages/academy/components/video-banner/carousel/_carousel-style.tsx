@@ -107,7 +107,7 @@ export const StyledChevron = styled((props) => <Chevron {...props} />)<StyledChe
     }
 `
 
-export const NavigationContainer = styled(Flex)<{ bottom_offset?: string }>`
+export const NavigationContainer = styled(Flex)<{ bottom_offset: string }>`
     position: relative;
     width: 100%;
     height: 8px;
@@ -149,7 +149,7 @@ export const Divider = styled(Flex)`
 export const NavIconWrapper = styled(Flex)`
     width: auto;
 `
-export const IconWrapper = styled.div<{ disabled?: boolean }>`
+export const IconWrapper = styled.div<{ disabled: boolean }>`
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -177,17 +177,17 @@ export const LastChildWrapper = styled(LocalizedLinkText)`
     text-decoration: none;
     border-radius: 4px;
 `
-export const PlayerIconWrapper = styled(Flex)<{ absolute?: boolean }>`
+export const PlayerIconWrapper = styled(Flex)`
     width: 48px;
     height: 48px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.32);
     align-items: center;
     cursor: pointer;
-    position: ${(props) => (props.absolute ? 'absolute' : 'relative')};
-    top: ${(props) => (props.absolute ? '50%' : 'unset')};
+    position: relative;
+    top: unset;
     left: 50%;
-    transform: ${(props) => (props.absolute ? 'translate(-50%, -50%)' : 'translate(-50%, 0)')};
+    transform: translate(-50%, 0);
 `
 export const PlayerIcon = styled.img`
     width: 16px;

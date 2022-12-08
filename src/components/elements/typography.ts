@@ -232,7 +232,6 @@ export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     ${responsiveStyles}
 `
 
-
 export const LinkText = styled(Text).attrs({ as: 'a' })<LinkTextProps>`
     ${BaseLink}
 `

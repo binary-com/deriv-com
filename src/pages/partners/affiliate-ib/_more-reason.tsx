@@ -9,7 +9,7 @@ import Advertise from 'images/svg/partners/advertise.svg'
 import HighValue from 'images/svg/partners/high-value-partnership.svg'
 
 type StyledContainerProps = {
-    mw?: string
+    mw: string
 }
 const StyledContainer = styled(Container)<StyledContainerProps>`
     align-items: flex-start;

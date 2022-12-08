@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import Hero from './_hero'
 import DeptDescription from './_dept-description'
 import OpenPositions from './_open-positions'
@@ -7,17 +8,26 @@ import StaffReview from './_staff-review'
 import { FirstDataProps } from './_dept-layout.types'
 import Layout from 'components/layout/layout'
 
+const PaddingTop8rem = styled.div`
+    padding-top: 8rem;
+`
+
 const DepartmentPage = (data: FirstDataProps) => {
+    const careerData = data.data
     return (
         <Layout type="careers">
-            <Hero data={data.data.header} />
-            <DeptDescription data={data.data.intro_section} />
-            <OpenPositions data={data.data.open_position} />
+            <Hero data={careerData.header} />
+            <DeptDescription data={careerData.intro_section} />
+            <OpenPositions data={careerData.open_position} />
             <OpenPositionButton
-                link={data.data.link_url}
-                has_position={data.data.open_position != undefined}
+                link={careerData.link_url}
+                has_position={careerData.open_position != undefined}
             />
-            <StaffReview data={data.data.testimony_section} />
+            {careerData?.testimony_section ? (
+                <StaffReview data={careerData.testimony_section} />
+            ) : (
+                <PaddingTop8rem />
+            )}
         </Layout>
     )
 }

@@ -49,9 +49,6 @@ const PhoneNumber = ({ onValidate, affiliate_phone_number, updatedData }: PhoneN
         padding-top: 20px;
     `
 
-    const ButtonCode = styled(Button)`
-        border-radius: 0 4px;
-    `
     const PhoneNumberInput = styled(Input)`
         border-radius: 0;
         width: 240px;
@@ -113,10 +110,6 @@ const PhoneNumber = ({ onValidate, affiliate_phone_number, updatedData }: PhoneN
                     autoComplete="off"
                     focus_border="var(--color-grey-7)"
                 />
-
-                <ButtonCode disabled tertiary="true">
-                    {localize('Send code')}
-                </ButtonCode>
             </CodeContainer>
 
             <OtpContainer>

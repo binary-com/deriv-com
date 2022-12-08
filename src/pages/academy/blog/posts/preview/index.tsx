@@ -136,7 +136,7 @@ const BlogPreview = () => {
                     <SectionContainer padding="0" position="relative">
                         <Background>
                             <StickyBreadCrumbsWrapper scroll={visible}>
-                                <BreadcrumbsWrapper>
+                                <BreadcrumbsWrapper scroll={visible}>
                                     <Flex jc="flex-start" ai="center">
                                         <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
                                             All articles

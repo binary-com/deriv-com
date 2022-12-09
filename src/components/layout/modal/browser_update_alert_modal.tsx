@@ -4,19 +4,7 @@ import { Localize } from 'components/localization'
 import { Modal, Header } from 'components/elements'
 import { useUserBrowser } from 'components/hooks/use-user-browser'
 import { CookieStorage } from 'common/storage'
-
-const cookie_key = 'browser_update_alert_modal_shown'
-const browsers_minimum_required_version = {
-    Chrome: 72,
-    Chromium: 66,
-    'Mail.RU_Bot': 62,
-    Maxthon: 6,
-    'MIUI Browser': 10,
-    'Mobile Safari': 15,
-    Opera: 58,
-    'Samsung Browser': 10,
-    UCBrowser: 13,
-}
+import { cookie_key, browsers_minimum_required_version } from 'common/constants'
 
 const BrowserUpdateAlertModal = () => {
     const modalRef = React.useRef<ModalRefType>()

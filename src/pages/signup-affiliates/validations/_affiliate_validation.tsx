@@ -8,6 +8,7 @@ export const affiliate_validation_regex = {
     city: /[`~!@#%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
     postal_code: /[`~!@#%&*)(_=+[}{\]\\/";:><,|]+/,
     state: /[`~!@#%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
+    url: /[-a-zA-Z0-9@:%_.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_.~#?&//=]*)?/,
 }
 
 const validation_is_exceed_number = (input, max_digit) => {
@@ -88,6 +89,20 @@ const postcodeValidation = (input, field_name, min_digit, max_digit) => {
         return localize(`Postcode is invalid`)
     }
 }
+
+const registrationNumberValidation = (input, field_name, min_digit, max_digit) => {
+    if (!input) {
+        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+    } else if (
+        !validation_is_exceed_number(input, max_digit) ||
+        !validation_is_lack_number(input, min_digit)
+    ) {
+        return localize(`You should enter ${min_digit}-${max_digit} characters.`)
+    } else if (affiliate_validation_regex.postal_code.test(input)) {
+        return localize(`Please enter a valid company registration number.`)
+    }
+}
+
 const stateValidation = (input, field_name, min_digit, max_digit) => {
     if (!input) {
         return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
@@ -112,6 +127,13 @@ const cityValidation = (input, field_name, min_digit, max_digit) => {
         return localize(`Please enter a valid city`)
     }
 }
+
+const urlValidation = (input) => {
+    if (!affiliate_validation_regex.url.test(input)) {
+        return localize(`Please enter a valid url`)
+    }
+}
+
 const validation = {
     first_name: (input) => {
         return nameValidation(input, localize('First Name'), 2, 50)
@@ -153,6 +175,18 @@ const validation = {
         return passwordValidation(input, localize('Password'), 6, 50)
     },
     currency: (input) => (!input ? localize('Currency is required') : null),
+    company_name: (input) => {
+        return textValidation(input, localize('Company name'), 2, 70)
+    },
+    company_registration_number: (input) => {
+        return registrationNumberValidation(input, localize('Company registeration number'), 2, 20)
+    },
+    website_url: (input) => {
+        return urlValidation(input)
+    },
+    social_media_url: (input) => {
+        return urlValidation(input)
+    },
 }
 
 export default validation

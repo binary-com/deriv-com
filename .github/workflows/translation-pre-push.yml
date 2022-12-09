@@ -9,9 +9,9 @@ on:
 jobs:
     check-translation-branch:
         runs-on: ubuntu-latest
-        if:  startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')
+        if: (github.head_ref =~ ^(stp|translation)[a-zA-Z0-9_-]+$)
         steps:
-            - name: Branch Check 🔍
+            - name: Branch Confirmation 👍
               run: echo '${{ github.head_ref }} is valid branch for translation workflow'
               
 

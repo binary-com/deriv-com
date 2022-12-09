@@ -437,6 +437,16 @@ const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 export const isEuDomain = () =>
     !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
 
+export const handleRedirect = (residence: string, current_client_country: string): boolean => {
+    const country = residence ? residence : current_client_country
+
+    if (isLocalhost() || isTestlink()) {
+        return false
+    } else {
+        handleDerivRedirect(country, getSubdomain())
+    }
+}
+
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))

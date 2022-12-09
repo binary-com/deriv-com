@@ -21,7 +21,7 @@ import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleDerivRedirect, isEuDomain } from 'common/utility'
+import { isBrowser, handleRedirect, isEuDomain } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import device from 'themes/device'
@@ -207,7 +207,7 @@ const Layout = ({
                     const client_information_cookie = new CookieStorage('client_information')
                     const residence = client_information_cookie.get('residence')
                     setRedirectionApplied(true)
-                    !isEuDomain() && handleDerivRedirect(residence, current_client_country)
+                    !isEuDomain() && handleRedirect(residence, current_client_country)
                 }
             })
         }

@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         if: (github.head_ref =~ ^(stp|translation)[a-zA-Z0-9_-]+$)
         steps:
-            - name: Branch Confirmation 👍
+            - name: Branch Confirmation 👍👍
               run: echo '${{ github.head_ref }} is valid branch for translation workflow'
               
 

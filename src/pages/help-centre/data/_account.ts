@@ -361,7 +361,7 @@ const account: TQuestionsData = {
                         '_t_As per <0>our terms</0>, we only allow one account per client, which you can open in the currency of your choice (either fiat or crypto). If you want to trade with other currencies, you can add multiple cryptocurrency accounts to your profile._t_',
 
                     eu_translation_text:
-                        '_t_As per <0>our terms</0>,we only allow one account per client, which you can open in the currency of your choice._t_',
+                        '_t_As per <0>our terms</0>, we only allow one account per client, which you can open in the currency of your choice._t_',
 
                     translation_components: [
                         { key: 0, type: 'link', to: '/tnc/general-terms.pdf' },

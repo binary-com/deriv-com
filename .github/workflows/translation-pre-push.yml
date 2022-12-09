@@ -14,8 +14,12 @@ jobs:
             - name: Branch Check 🔍 
               run: |
                 BRANCH='${{ github.head_ref }}'
-                CLEAN_BRANCH="${BRANCH//$/_}"
-                echo '$CLEAN_BRANCH is valid branch for translation workflow'
+                FILTER_1="${BRANCH//$/}"
+                FILTER_2="${FILTER_1//{/}"
+                FILTER_3="${FILTER_2//./}"
+                CLEAN_BRANCH="${FILTER_3/&./}"
+
+                echo '${ CLEAN_BRANCH } is valid branch for translation workflow'
                 echo $CLEAN_BRANCH
 
               

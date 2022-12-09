@@ -13,19 +13,8 @@ jobs:
         steps:
             - name: Branch Check 🔍 
               run: |
-                declare -a arr=("$" "{" "}",".","|","%","@","!","#","^","*","&","(",")")
-
-                for i in "${arr[@]}"
-                do
-                  echo "$i"
-                done
-
                 BRANCH='${{ github.head_ref }}'
-                FILTER_1="${BRANCH//$/}"
-                FILTER_2="${FILTER_1//{/}"
-                FILTER_3="${FILTER_2//./}"
-                FILTER_3="${FILTER_2//./}"
-                CLEAN_BRANCH="${FILTER_3/&./}"
+                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
 
                 echo "$CLEAN_BRANCH is valid branch for translation workflow"
 

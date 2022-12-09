@@ -32,8 +32,8 @@ jobs:
             - name: Download New Translations ⬇️
               if: github.event.workflow_run.head_commit.message == 'auto-pull-translation'
               run: |
-                   BRANCH='${{ github.event.workflow_run.head_branch }}'
-                   CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
+                  BRANCH='${{ github.event.workflow_run.head_branch }}'
+                  CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
 
                   crowdin download -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  $CLEAN_BRANCH -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
                   if git diff --exit-code; then
@@ -52,7 +52,7 @@ jobs:
                    BRANCH='${{ github.event.workflow_run.head_branch }}'
                    CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}" 
 
-                  crowdin upload sources -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}
+                   crowdin upload sources -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:

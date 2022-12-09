@@ -8,7 +8,6 @@ import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
 import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { whatsapp_url } from 'common/constants'
 
 const Section = styled.section`
@@ -16,16 +15,13 @@ const Section = styled.section`
 `
 const StyledContainer = styled(Container)`
     padding: 3.5rem 0;
-    @media ${device.tablet} {
+
+    @media ${device.tabletL} {
         flex-wrap: wrap;
 
         ${Button} {
             font-size: 14px;
             padding: 10px 16px;
-
-            @media (max-width: 645px) {
-                width: 90vw;
-            }
         }
     }
 
@@ -41,9 +37,7 @@ const Icon = styled.img`
     }
 `
 const Text = styled(Header)`
-    font-weight: normal;
-
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         margin: 1.6rem 0;
         text-align: center;
         font-weight: bold;
@@ -72,33 +66,33 @@ const WhatsAppIcon = styled.img`
 
 const DidntFindYourAnswerBanner = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
-    const { is_south_africa, is_nigeria } = useCountryRule()
+
+    const openChatWindow = () => LC_API.open_chat_window()
+    const openWhatsappUrl = () => window.open(whatsapp_url, '_blank')
 
     return (
         <Section>
             <StyledContainer>
-                <Icon src={ContactUsIcon} alt="message-square" />
-                <Text size="var(--text-size-l)" color="white" m="0 2.4rem">
+                <Icon src={ContactUsIcon} alt="contact-us-icon" />
+                <Text size="var(--text-size-l)" color="white" m="0 2.4rem" weight="normal">
                     <Localize translate_text="Didn’t find your answer? We can help." />
                 </Text>
 
                 {is_livechat_interactive && (
                     <Flex>
-                        <Button secondary onClick={() => LC_API.open_chat_window()}>
+                        <Button secondary onClick={openChatWindow}>
                             <Localize translate_text="Chat" />
                         </Button>
 
-                        {(is_south_africa || is_nigeria) && (
-                            <WhatsAppButton onClick={() => window.open(whatsapp_url, '_blank')}>
-                                <WhatsAppIcon
-                                    src={WhatsAppSVG}
-                                    alt="whatsappicon"
-                                    height="16"
-                                    width="16"
-                                />
-                                <Localize translate_text="WhatsApp" />
-                            </WhatsAppButton>
-                        )}
+                        <WhatsAppButton onClick={openWhatsappUrl}>
+                            <WhatsAppIcon
+                                src={WhatsAppSVG}
+                                alt="whatsapp-icon"
+                                height="16"
+                                width="16"
+                            />
+                            <Localize translate_text="WhatsApp" />
+                        </WhatsAppButton>
                     </Flex>
                 )}
             </StyledContainer>

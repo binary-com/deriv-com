@@ -86,7 +86,7 @@ const QuestionsCategory = ({ data }: TQuestionsCategory) => {
 
             {can_expand && (
                 <ShowMore onClick={handleShowMoreClick}>
-                    <Localize translate_text={show_more_text} />
+                    <Localize translate_text={show_more_text} components={[<span key={0} />]} />
                 </ShowMore>
             )}
         </Wrapper>

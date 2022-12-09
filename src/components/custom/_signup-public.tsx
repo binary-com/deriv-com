@@ -444,7 +444,7 @@ const SignupPublic = ({
                                     (is_row && data['deriv_platform']) ||
                                     (is_eu && data['deriv_platform_eu'])
                                 }
-                                alt="DTrader platform black theme"
+                                alt="forex trading on mobile"
                                 width="225px"
                             />
                             <LinkFlex
@@ -481,7 +481,7 @@ const SignupPublic = ({
                                         (is_row && data['deriv_platform']) ||
                                         (is_eu && data['deriv_platform_eu'])
                                     }
-                                    alt="DTrader platform black theme"
+                                    alt="forex trading on mobile"
                                     width="100%"
                                 />
                             </MobilePlatform>

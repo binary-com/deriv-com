@@ -728,16 +728,6 @@ const career_data = {
                     id: '47807000001891432',
                 },
             ],
-            testimony_section: {
-                image: 'pm_review',
-                image_mobile: 'pm_review_mobile',
-                img_alt: 'Islam Eizayyadi - Project management team lead',
-                testimony_headline: [
-                    {
-                        text: `“It's in Deriv's DNA to react quickly and reprioritise based on threats and market trends, so our core responsibility is to adjust plans and communicate priorities across teams. My favourite thing about working at Deriv is that we have access to everyone in the company and can learn from them regardless of their location. There's a significant focus on leadership development too that I also enjoy.”`,
-                    },
-                ],
-            },
         },
     ],
 }

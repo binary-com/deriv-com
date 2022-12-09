@@ -11,10 +11,8 @@ jobs:
         runs-on: ubuntu-latest
         if:  startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')
         steps:
-            - name: Branch Check 🔍 ??
-              env:
-               BRANCH_NAME: '${"${{github.head_ref}}"//$/-}'
+            - name: Branch Check 🔍 
               run: |
-                echo '$BRANCH_NAME is valid branch for translation workflow'
+                echo '${{ github.head_ref }} is valid branch for translation workflow'
 
               

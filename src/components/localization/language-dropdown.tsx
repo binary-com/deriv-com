@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { Text } from 'components/elements'
+import { Text, Header } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 
@@ -193,9 +193,15 @@ const Dropdown = ({
                                     }}
                                     key={option.path}
                                 >
-                                    <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
+                                    <Header
+                                        as="p"
+                                        ml="0.8rem"
+                                        weight="normal"
+                                        type="paragraph-1"
+                                        color={current_option ? 'red' : 'black'}
+                                    >
                                         {option.text}
-                                    </Text>
+                                    </Header>
                                 </Item>
                             )
                         })}

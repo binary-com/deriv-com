@@ -14,5 +14,5 @@ jobs:
             - name: Branch Check 🔍
               run: |
                 BRANCH_NAME="${github.head_ref//$/-}"
-                echo '${{ BRANCH_NAME }} is valid branch for translation workflow'
+                echo '$BRANCH_NAME is valid branch for translation workflow'
               

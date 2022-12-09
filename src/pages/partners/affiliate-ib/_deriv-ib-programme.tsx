@@ -749,7 +749,9 @@ const ib_derivx: DMT5Type = {
                         />
                     ),
                     icon: 'deriv_x_one',
-                    iconAlt: <Localize translate_text="Deriv x calculated first" />,
+                    iconAlt: (
+                        <Localize translate_text="Deriv X commission rate calculation for forex major" />
+                    ),
                 },
                 {
                     details: (
@@ -776,7 +778,9 @@ const ib_derivx: DMT5Type = {
                         />
                     ),
                     icon: 'deriv_x_two',
-                    iconAlt: <Localize translate_text="Deriv x calculated second" />,
+                    iconAlt: (
+                        <Localize translate_text="Deriv X commission rate calculation for cryptocurrency" />
+                    ),
                 },
                 {
                     details: (
@@ -786,7 +790,9 @@ const ib_derivx: DMT5Type = {
                         />
                     ),
                     icon: 'deriv_x_three',
-                    iconAlt: <Localize translate_text="Deriv x calculated third" />,
+                    iconAlt: (
+                        <Localize translate_text="Deriv X commission rate calculation for commodities" />
+                    ),
                 },
                 {
                     second_desc: (
@@ -816,7 +822,9 @@ const ib_derivx: DMT5Type = {
                         />
                     ),
                     icon: 'deriv_x_four',
-                    iconAlt: <Localize translate_text="Deriv x calculated fourth" />,
+                    iconAlt: (
+                        <Localize translate_text="Deriv X commission rate calculation for volatility 50 (1s) index" />
+                    ),
                 },
                 {
                     details: (
@@ -826,7 +834,9 @@ const ib_derivx: DMT5Type = {
                         />
                     ),
                     icon: 'deriv_x_five',
-                    iconAlt: <Localize translate_text="Deriv x calculated fifth" />,
+                    iconAlt: (
+                        <Localize translate_text="Deriv X commission rate calculation for step index" />
+                    ),
                 },
             ],
             notes: [

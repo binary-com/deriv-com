@@ -951,8 +951,10 @@ export const Offices = () => {
                                 ml="1.6rem"
                             >
                                 <Desktop>
-                                    Cayman Enterprise City,Strathvale House, 2nd Floor, Church St,
-                                    George Town, Cayman 90 N Islands
+                                    <p>Cayman Enterprise City,</p>
+                                    <p>Strathvale House, 2nd Floor, 90N</p>
+                                    <p>Church St, George Town, Cayman</p>
+                                    <p>Islands</p>
                                 </Desktop>
                                 <Mobile>
                                     <StyledMobileAddress>

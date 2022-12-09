@@ -19,7 +19,7 @@ jobs:
                 FILTER_3="${FILTER_2//./}"
                 CLEAN_BRANCH="${FILTER_3/&./}"
 
-                echo `$CLEAN_BRANCH is valid branch for translation workflow`
+                echo "$CLEAN_BRANCH is valid branch for translation workflow"
                 echo $CLEAN_BRANCH
 
               

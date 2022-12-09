@@ -35,7 +35,7 @@ jobs:
                    BRANCH='${{ github.event.workflow_run.head_branch }}'
                    CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
 
-                  crowdin download -b  $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  ${{ github.event.workflow_run.head_branch }} -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
+                  crowdin download -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  $CLEAN_BRANCH -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
                   if git diff --exit-code; then
                     echo "No new translation data to commit"
                   else

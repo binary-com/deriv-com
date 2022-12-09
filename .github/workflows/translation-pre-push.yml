@@ -13,6 +13,6 @@ jobs:
         steps:
             - name: Branch Check 🔍 
               run: |
-                echo '${{ github.head_ref }} is valid branch for translation workflow'
+                echo '${{ github.head_ref\\$\- }} is valid branch for translation workflow'
 
               

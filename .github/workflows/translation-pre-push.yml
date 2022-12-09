@@ -9,9 +9,15 @@ on:
 jobs:
     check-translation-branch:
         runs-on: ubuntu-latest
-        if: (github.head_ref =~ ^(stp|translation)[a-zA-Z0-9_-]+$)
+        uses: mad9000/actions-find-and-replace-string@2
+        id: clean_branch
+        with:
+            source: ${{ github.head_ref }} 
+            find: '$'        
+            replace: '' 
+        if:  startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')
         steps:
-            - name: Branch Confirmation 👍👍
-              run: echo '${{ github.head_ref }} is valid branch for translation workflow'
+            - name: Branch Check 🔍
+              run: echo '${{ steps.clean_branch.outputs.value } }} is valid branch for translation workflow'
               
 

@@ -60,7 +60,7 @@ const StyledLinkButton = styled(LinkButton)`
 const StyledDiv = styled.div`
     width: 241px;
 `
-const ColoredBox = styled(Box)<{ bgcolor?: string }>`
+const ColoredBox = styled(Box)<{ bgcolor: string }>`
     align-self: left;
     width: fit-content;
     padding: 8px 16px;

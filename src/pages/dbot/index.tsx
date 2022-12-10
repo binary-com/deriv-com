@@ -170,7 +170,7 @@ const Dbot = () => {
                     />
                 </Layout>
             )}
-            {is_uk_eu && <PageNotFound pageContext={{ locale: '' }} />}
+            {is_uk_eu && <PageNotFound />}
         </>
     )
 }

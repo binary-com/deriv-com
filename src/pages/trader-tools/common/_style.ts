@@ -573,10 +573,10 @@ export const FormulaContainerSwapMobile = styled(Flex)`
     }
 `
 
-export const FormulaHighlight = styled(Flex)<{ gp?: string }>`
+export const FormulaHighlight = styled(Flex)`
     margin-top: ${(props) => (props.mt ? props.mt : '0')};
     height: ${(props) => (props.height ? props.height : '72px')};
-    gap: ${(props) => (props.gp ? props.gp : 0)};
+    gap: 0;
     border-radius: 4px;
     border: 1.5px solid var(--color-blue-5);
     background-color: white;
@@ -600,16 +600,11 @@ export const FormulaHighlightForPnlMultiplier = styled(Flex)`
     padding-right: ${(props) => (props.pr ? props.pr : '0')};
 `
 
-export const FormulaHighlightMobile = styled(Flex)<{
-    syn_mobile?: boolean
-    fs?: string
-    pd?: string
-    gp?: string
-}>`
+export const FormulaHighlightMobile = styled(Flex)<{ fs?: string; syn_mobile?: boolean }>`
     margin-left: 8px;
     margin-right: 8px;
     height: ${(props) => (props.height ? props.height : '68px')};
-    gap: ${(props) => (props.gp ? props.gp : 0)};
+    gap: 0;
     border-radius: 4px;
     border: 1px solid #85acb0;
     background-color: white;
@@ -618,7 +613,7 @@ export const FormulaHighlightMobile = styled(Flex)<{
     font-weight: 600;
     flex-direction: ${(props) => (props.syn_mobile ? 'column' : '')};
     font-size: ${(props) => (props.fs ? props.fs : '16px')};
-    padding: ${(props) => (props.pd ? props.pd : '0')};
+    padding: 0;
     @media ${device.mobileS} {
         font-size: 12px;
     }

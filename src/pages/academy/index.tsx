@@ -9,7 +9,7 @@ import MarketNews from './components/_market-news'
 import { AcademyIndexFragment } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { Carousel } from 'components/elements'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -178,4 +178,4 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
     )
 }
 
-export default DerivBlog
+export default WithIntl()(DerivBlog)

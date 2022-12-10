@@ -203,7 +203,7 @@ const AvailableTradesDesctop = ({
 
     return (
         <StyledSection>
-            <StyledHeader size="var(--text-size-l)" align="center">
+            <StyledHeader as="h2" size="var(--text-size-l)" align="center">
                 {display_title}
             </StyledHeader>
             <StyledContainer direction="column">

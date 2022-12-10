@@ -72,13 +72,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                     <OtherMarkets except="derived" />
                 </>
             )}
-            {is_uk_eu && (
-                <PageNotFound
-                    pageContext={{
-                        locale: '',
-                    }}
-                />
-            )}
+            {is_uk_eu && <PageNotFound />}
         </>
     )
 }

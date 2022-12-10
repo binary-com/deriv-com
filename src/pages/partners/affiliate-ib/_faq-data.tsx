@@ -6,7 +6,7 @@ import { affiliate_signup_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
 
 type StyledLinkProps = {
-    href?: string
+    href: string
 }
 
 const ItemContainer = styled(Header)`
@@ -23,7 +23,6 @@ const TextList = styled(Text)`
 
 const StyledLink = styled(LinkText)<StyledLinkProps>`
     color: var(--color-red);
-    font-weight: normal;
 `
 
 const StyledUl = styled.ul`
@@ -270,7 +269,7 @@ const IBGeneral = () => (
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="You’ll earn a fixed commission based on the volume of individual trades purchased by your referred clients. Please refer to our <0>IB commission plan</0> for more info."
-                components={[<StyledLink key={0} href="#" onClick={scrollToIb} />]}
+                components={[<StyledLink key={0} href="#" weight="normal" onClick={scrollToIb} />]}
             />
         </Header>
         <Header as="p" type="paragraph-1" mt="16px">

@@ -96,7 +96,7 @@ const BtnDiv = styled(Flex)`
     justify-content: start;
 `
 
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(LinkButton)<{ id?: string }>`
     padding: 10px 16px;
     line-height: 20px;
     width: auto;
@@ -177,6 +177,7 @@ const FooterBanner = ({
                         </StyledHeaderSmall>
                         <BtnDiv>
                             <StyledLinkButton
+                                id="dm-footerbanner-signup-1"
                                 type="submit"
                                 secondary
                                 to={is_ppc ? '/landing/signup/' : '/signup/'}

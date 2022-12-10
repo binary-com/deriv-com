@@ -5,7 +5,6 @@ type SectionContainerType = {
     padding?: string
     position?: string
     background?: string
-    bgcolor?: string
 }
 
 const SectionContainer = styled(Box).attrs({

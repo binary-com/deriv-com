@@ -7,8 +7,8 @@ import Layout from 'components/layout/layout'
 import { Header, Tabs } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-const Section = styled(SectionContainer)<{ bgColor?: string }>`
-    background-color: ${(props) => props.bgColor || 'transparent'};
+const Section = styled(SectionContainer)`
+    background-color: transparent;
 `
 
 const TermsAndConditions = () => {

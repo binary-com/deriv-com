@@ -262,7 +262,7 @@ const MarginCalculator = () => {
                     tablet_jc="center"
                     fd="column"
                     wrap="wrap"
-                    has_color={true}
+                    has_color
                 >
                     <StyledBox max_width="100%">
                         <MainHeader as="h2" type="page-title" lh="1.25" align="start">

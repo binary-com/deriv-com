@@ -13,18 +13,18 @@ const PaddingTop8rem = styled.div`
 `
 
 const DepartmentPage = (data: FirstDataProps) => {
-    const careerData = data.data
+    const career_data = data.data
     return (
         <Layout type="careers">
-            <Hero data={careerData.header} />
-            <DeptDescription data={careerData.intro_section} />
-            <OpenPositions data={careerData.open_position} />
+            <Hero data={career_data.header} />
+            <DeptDescription data={career_data.intro_section} />
+            <OpenPositions data={career_data.open_position} />
             <OpenPositionButton
-                link={careerData.link_url}
-                has_position={careerData.open_position != undefined}
+                link={career_data.link_url}
+                has_position={career_data.open_position != undefined}
             />
-            {careerData?.testimony_section ? (
-                <StaffReview data={careerData.testimony_section} />
+            {career_data?.testimony_section ? (
+                <StaffReview data={career_data.testimony_section} />
             ) : (
                 <PaddingTop8rem />
             )}

@@ -5,12 +5,12 @@ import type { ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage, { IBackgroundImageProps } from 'gatsby-background-image'
 
-const StyledBackground = styled(BackgroundImage)<{ $dark: string }>`
+const StyledBackground = styled(BackgroundImage)<{ dark: string }>`
     background-color: black;
 
     &::before,
     &::after {
-        filter: brightness(${({ $dark }) => ($dark ? $dark : '1')});
+        filter: brightness(${({ dark }) => (dark ? dark : '1')});
     }
 `
 
@@ -43,7 +43,7 @@ export const Background = ({
     }
 
     return (
-        <StyledBackground Tag="div" style={style} $dark={dark} {...bg_image} {...props}>
+        <StyledBackground Tag="div" style={style} dark={dark} {...bg_image} {...props}>
             {children}
         </StyledBackground>
     )

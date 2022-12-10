@@ -1,8 +1,26 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import type { FlattenSimpleInterpolation } from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
+
+type StyledButtonWrapperProps = {
+    disabled?: boolean
+    is_reviews?: boolean
+    left?: boolean
+}
+
+type NavigationContainerType = {
+    navigation_css?: FlattenSimpleInterpolation
+    bottom_offset?: string
+    height?: string
+}
+
+type ChevronRightAndLeftProps = {
+    black?: string | boolean
+    red?: string | boolean
+}
 
 export const Embla = styled.div`
     position: relative;
@@ -40,12 +58,6 @@ export const EmblaSlideInner = styled.div<{ width?: string }>`
             `
     }}
 `
-
-type StyledButtonWrapperProps = {
-    disabled?: boolean
-    is_reviews?: boolean
-    left?: boolean
-}
 
 export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
     position: absolute;
@@ -124,8 +136,6 @@ export const StyledChevron = styled(Chevron)`
     }
 `
 
-type NavigationContainerType = { navigation_css?: string; bottom_offset?: string }
-
 export const NavigationContainer = styled(Flex)<NavigationContainerType>`
     ${({ navigation_css, bottom_offset, height }) => {
         if (navigation_css) return navigation_css
@@ -151,10 +161,6 @@ export const StyledDot = styled.div`
     background-color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-grey-21)')};
 `
 
-type ChevronRightAndLeftProps = {
-    black?: string | boolean
-    red?: string | boolean
-}
 export const ChevronRight = styled(StyledChevron)<ChevronRightAndLeftProps>`
     transform: rotate(180deg);
     right: 0;

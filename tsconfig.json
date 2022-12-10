@@ -4,7 +4,7 @@
     "compilerOptions": {
         "baseUrl": "src",
         "jsx": "preserve",
-        "lib": ["ES2021.String"],
+        "lib": ["ES2021.String", "es5", "es6", "dom"],
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,

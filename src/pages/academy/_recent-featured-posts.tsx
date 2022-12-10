@@ -31,7 +31,7 @@ import { StandardImgWrapper } from './common/_styles'
 import { RecentDataType, FeaturedDataType } from './index'
 import { convertDate, getMinRead } from 'common/utility'
 import { QueryImage, Tabs, Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 
 type RecentFeaturedPostsProps = {
     recent_data: RecentDataType
@@ -267,4 +267,4 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
     )
 }
 
-export default RecentFeaturedPosts
+export default WithIntl()(RecentFeaturedPosts)

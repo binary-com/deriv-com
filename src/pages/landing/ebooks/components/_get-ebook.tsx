@@ -150,9 +150,6 @@ const Line = styled.div`
 const StyledText = styled(Text)<{ tabletFontSize?: string }>`
     color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
 
-    @media ${device.tabletL} {
-        width: 13rem;
-    }
     @media (max-width: 340px) {
         width: 17rem;
     }

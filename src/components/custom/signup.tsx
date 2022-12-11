@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import { getLanguage } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
-import Login from 'common/login'
+import Login, { TSocialProvider } from 'common/login'
 import validation from 'common/validation'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
@@ -163,7 +163,7 @@ const Signup = (props: SignupProps) => {
     const handleSocialSignup = (e) => {
         e.preventDefault()
 
-        const data_provider = e.currentTarget.getAttribute('data-provider')
+        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
         Login.initOneAll(data_provider)
     }
 

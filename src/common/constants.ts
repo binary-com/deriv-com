@@ -77,6 +77,18 @@ export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 export const deriv_app_languages = ['id', 'pt', 'es']
+export const smart_trader_languages = [
+    'es',
+    'fr',
+    'id',
+    'it',
+    'pl',
+    'pt',
+    'ru',
+    'vi',
+    'zh_cn',
+    'zh_tw',
+]
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
 export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'
@@ -148,6 +160,7 @@ export const live_chat_key = 'live_chat_redirection'
 
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
+export const youtube_url = 'https://www.youtube.com/@deriv'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
 export const loss_percent = 70

@@ -17,9 +17,8 @@ type NavigationContainerType = {
     height?: string
 }
 
-type ChevronRightAndLeftProps = {
-    black?: string | boolean
-    red?: string | boolean
+type StyledChevronType = {
+    color?: string // 'red' | 'custom' | 'black' | color
 }
 
 export const Embla = styled.div`
@@ -114,11 +113,11 @@ export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
     }
 `
 
-export const StyledChevron = styled(Chevron)`
+export const StyledChevron = styled(Chevron)<StyledChevronType>`
     height: 24px;
     width: 24px;
-    ${(props) => {
-        if (props.color == 'red') {
+    ${({ color }) => {
+        if (color == 'red') {
             return css`
                 width: 16px;
                 height: 16px;
@@ -127,11 +126,11 @@ export const StyledChevron = styled(Chevron)`
     }}
 
     path {
-        ${(props) => {
-            const selected_color = `fill: var(--color-${props.color});`
+        ${({ color }) => {
+            const selected_color = `fill: var(--color-${color});`
             const default_color = 'fill: var(--color-white);'
 
-            return props.color == 'custom' ? default_color : selected_color
+            return color == 'custom' ? default_color : selected_color
         }}
     }
 `
@@ -161,10 +160,10 @@ export const StyledDot = styled.div`
     background-color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-grey-21)')};
 `
 
-export const ChevronRight = styled(StyledChevron)<ChevronRightAndLeftProps>`
+export const ChevronRight = styled(StyledChevron)`
     transform: rotate(180deg);
     right: 0;
 `
-export const ChevronLeft = styled(StyledChevron)<ChevronRightAndLeftProps>`
+export const ChevronLeft = styled(StyledChevron)`
     left: 0;
 `

@@ -107,7 +107,7 @@ const Content = styled.div`
 
 const TextWrapper = styled(Header)<TextWrapperProps>`
     text-align: center;
-    font-weight: ${(props) => (props.selected ? 'bold' : 'normal')};
+    font-weight: ${({ selected }) => (selected ? 'bold' : 'normal')};
 
     @media ${device.tabletS} {
         font-size: ${({ mobile_font_size }) => mobile_font_size && `${mobile_font_size}px`};

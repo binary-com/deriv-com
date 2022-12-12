@@ -179,9 +179,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                 >
                     <Wrapper>
                         <InformationWrapper height="unset" direction="column">
-                            <StyledHeader as="h3" weight={500}>
-                                {title}
-                            </StyledHeader>
+                            <StyledHeader as="h3">{title}</StyledHeader>
 
                             <TryButton
                                 secondary
@@ -204,9 +202,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                 >
                     <Wrapper>
                         <InformationWrapper height="unset" direction="column">
-                            <StyledHeader as="h3" weight={500}>
-                                {title}
-                            </StyledHeader>
+                            <StyledHeader as="h3">{title}</StyledHeader>
                             <Mobile>
                                 <ButtonDerivP2P secondary onClick={handleExternalLink}>
                                     {localize('Try Deriv P2P now')}

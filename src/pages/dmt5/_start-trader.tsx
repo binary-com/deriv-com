@@ -200,7 +200,7 @@ const StyledText = styled(Text)`
         font-size: 16px;
     }
 `
-const StyledLocalizedLink = styled(LocalizedLink)`
+const StyledLocalizedLink = styled(LocalizedLink)<{ id?: string }>`
     text-decoration: none;
     color: var(--color-red);
 
@@ -367,8 +367,8 @@ const StartTrader = () => {
                                         translate_text="Sign up for a free <0>Deriv demo account</0>"
                                         components={[
                                             <StyledLocalizedLink
-                                                onClick={handleSignup}
                                                 id="dm-dmt5-signup-link"
+                                                onClick={handleSignup}
                                                 to=""
                                                 key={0}
                                             />,

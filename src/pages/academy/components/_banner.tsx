@@ -24,8 +24,8 @@ type BannerProps = {
 }
 
 type ParentWrapperProps = {
-    max_w?: string
-    max_w_tablet?: string
+    max_w: string
+    max_w_tablet: string
 }
 
 const ParentWrapper = styled(Flex)<ParentWrapperProps>`

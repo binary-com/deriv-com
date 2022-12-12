@@ -72,7 +72,7 @@ const Line = styled.div`
 `
 const StyledText = styled(Text)<StyledTextProps>`
     @media ${device.tabletL} {
-        width: ${({ notedBox }) => notedBox && '13rem'};
+        width: ${({ notedBox }) => (notedBox ? '13rem' : 'unset')};
     }
     @media (max-width: 340px) {
         width: 17rem;

@@ -458,7 +458,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
     )
 }
 
-export default VideoTemplate
+export default WithIntl()(VideoTemplate)
 
 // Query our videos by slug
 export const query = graphql`

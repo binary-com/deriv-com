@@ -72,6 +72,7 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroP
                 </Header>
                 <Flex jc="left" height="unset">
                     <LinkButton
+                        id="hero-article"
                         to={href}
                         width="auto"
                         hero

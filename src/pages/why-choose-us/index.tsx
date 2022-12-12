@@ -22,7 +22,7 @@ const Section = styled(SectionContainer)`
     background-color: ${(props) => props.bgcolor || 'transparent'};
 `
 const StyledHeader = styled(Header)`
-    max-width: ${(props) => props.max_width || '100%'};
+    max-width: 100%;
     margin: 0 auto;
 `
 const Column = styled.article`

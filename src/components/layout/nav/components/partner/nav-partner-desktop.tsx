@@ -27,7 +27,6 @@ type StyledNavRightProps = {
     is_rtl: boolean
     mounted: boolean
     move: boolean
-    // button_ref: any
 }
 
 const StyledWrapper = styled(Wrapper)<NavPartnerDesktopProps>`

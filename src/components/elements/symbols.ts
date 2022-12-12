@@ -262,7 +262,7 @@ import STOCKSEUROPE50 from 'images/svg/symbols/markets-stocks-and-indices/europe
 import STOCKSFRANCE40 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/france-40.svg'
 import STOCKSGERMANY30 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/germany-30.svg'
 import STOCKSGERMANY40 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/germany-40.svg'
-import STOCKSNETHERLAND25 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/netherland-25.svg'
+import STOCKSNETHERLANDS25 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/netherlands-25.svg'
 import STOCKSSPAIN35 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/spain-35.svg'
 import STOCKSUK100 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/uk-100.svg'
 import STOCKSSWISS20 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/swiss-20.svg'
@@ -621,7 +621,7 @@ export {
     STOCKSFRANCE40,
     STOCKSGERMANY30,
     STOCKSGERMANY40,
-    STOCKSNETHERLAND25,
+    STOCKSNETHERLANDS25,
     STOCKSSPAIN35,
     STOCKSUK100,
     STOCKSADIDASSALOMON,

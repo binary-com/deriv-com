@@ -35,7 +35,7 @@ type OtherMarketsProps = {
     except: string
 }
 type LearnMoreProps = {
-    visibility?: string
+    visibility: string
 }
 const markets_type: MarketsType = {
     forex: {
@@ -304,8 +304,8 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     </Carousel>
                 </MarketsWrapper>
             </Desktop>
-            <Mobile>
-                <StyledHeader as="h3" type="section-title" align="left">
+            <Mobile breakpoint="mobileL">
+                <StyledHeader as="h2" type="section-title" align="start">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
                 <MobileCardContainer direction="column">

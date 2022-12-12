@@ -70,7 +70,7 @@ const leftStyle = css`
     left: -1.2rem;
 `
 
-const StyledTipsCard = styled(Flex)<{ right?: boolean }>`
+const StyledTipsCard = styled(Flex)<{ right: boolean }>`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     padding: 2.4rem;
     position: relative;

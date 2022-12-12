@@ -47,6 +47,7 @@ const AboutUs = () => {
 
     const lazy_components: ReactNode = (
         <>
+            {/* test */}
             <OurValues
                 fallback={
                     <div>

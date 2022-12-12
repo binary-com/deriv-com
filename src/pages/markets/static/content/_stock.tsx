@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react'
-import { Localize } from 'components/localization'
+import React from 'react'
+import { localize, Localize } from 'components/localization'
 import ExtendedTime from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
 import MinimalCapital from 'images/svg/stock-indices/stocks-extended-time.svg'
@@ -10,7 +10,7 @@ import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 
 type Stock = {
     src: string
-    text: ReactElement
+    text: string
     alt: string
 }
 
@@ -41,27 +41,27 @@ export const simple_step_content_stock = [
 const stocks: Stock[] = [
     {
         src: ExtendedTime,
-        text: <Localize translate_text="Minimal capital requirements, limited risk" />,
+        text: localize('Minimal capital requirements, limited risk'),
         alt: 'minimal capital requirements',
     },
     {
         src: MinimalCapital,
-        text: <Localize translate_text="Extended trading time, up to 18 hours a day" />,
+        text: localize('Extended trading time, up to 18 hours a day'),
         alt: 'extended trading time',
     },
     {
         src: WithdrawIcon,
-        text: <Localize translate_text="Fast and secure deposit and withdrawal options" />,
+        text: localize('Fast and secure deposit and withdrawal options'),
         alt: 'withdrawal',
     },
     {
         src: ResponsiveWebsite,
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        text: localize('Responsive, easy-to-use platforms'),
         alt: 'responsive, easy-to-use platforms',
     },
     {
         src: FriendlySupport,
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        text: localize('Smart and friendly support, 7 days a week'),
         alt: 'smart and friendly support',
     },
 ]

@@ -7,7 +7,7 @@ import { LocalizedLink } from 'components/localization'
 import { SharedLinkStyle, SharedLinkStyleMarket } from 'components/localization/localized-link'
 
 type NavRightProps = {
-    button_ref: HTMLButtonElement
+    button_ref: React.MutableRefObject<HTMLButtonElement>
     mounted: boolean
     move?: boolean
     has_scrolled: boolean

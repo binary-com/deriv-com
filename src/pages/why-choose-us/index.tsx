@@ -19,7 +19,7 @@ const ResponsiveLinkButton = styled(Button)`
 `
 
 const Section = styled(SectionContainer)`
-    background-color: ${(props) => props.bgcolor || 'transparent'};
+    background-color: 'transparent';
 `
 const StyledHeader = styled(Header)`
     max-width: 100%;

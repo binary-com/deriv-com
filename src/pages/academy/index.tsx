@@ -10,7 +10,7 @@ import { AcademyIndexFragment } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import { Carousel } from 'components/elements'
+import { Carousel, CarouselProps } from 'components/elements'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
@@ -57,7 +57,7 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
         og_description: 'Your one-stop online trading learning hub.',
     }
 
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             loop: true,
         },
@@ -73,7 +73,7 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
         },
         navigation_style: {
             nav_color: 'white',
-            height: 0,
+            height: '0',
         },
         navigation_css: css`
             position: relative;

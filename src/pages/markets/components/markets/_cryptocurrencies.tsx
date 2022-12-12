@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import Loadable from '@loadable/component'
 import { navigate } from 'gatsby'
 import { WhyTrade } from '../sections/_why-trade'
@@ -9,7 +9,7 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
-import { Localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
@@ -26,7 +26,7 @@ type CryptocurrenciesProps = {
 
 type CryptoContent = {
     src: string
-    text: ReactElement
+    text: string
     alt: string
 }
 
@@ -35,26 +35,22 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
     const crypto_content: CryptoContent[] = [
         {
             src: Leverage,
-            text: is_uk_eu ? (
-                <Localize translate_text="1:2 leverage" />
-            ) : (
-                <Localize translate_text="1:100 leverage" />
-            ),
+            text: is_uk_eu ? localize('1:2 leverage') : localize('1:100 leverage'),
             alt: 'leverage',
         },
         {
             src: TightSpread,
-            text: <Localize translate_text="Tight spreads" />,
+            text: localize('Tight spreads'),
             alt: 'tight spreads',
         },
         {
             src: CryptoPairs,
-            text: <Localize translate_text="25+ crypto pairs" />,
+            text: localize('25+ crypto pairs'),
             alt: '25+ crypto pairs',
         },
         {
             src: ZeroCommission,
-            text: <Localize translate_text="Zero commission" />,
+            text: localize('Zero commission'),
             alt: 'zero commission',
         },
     ]

@@ -20,14 +20,14 @@ type TabListType = {
 
 type TabPanelProps = ChildProps & {
     className?: string
-    children?: ReactNode[]
+    children?: ReactNode[] | ReactNode
 }
 
 type TabsProps = {
     className?: string
-    has_notice: boolean
-    is_reverse: boolean
-    max_width: SizeType
+    has_notice?: boolean
+    is_reverse?: boolean
+    max_width?: SizeType
     tab_break?: string
     children?: ReactElement | ReactElement[]
 }
@@ -156,7 +156,7 @@ const Tabs = <T extends object>({
     max_width,
     has_notice,
     notice_content,
-}: TabsProps & { notice_content: T }) => {
+}: TabsProps & { notice_content?: T }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)

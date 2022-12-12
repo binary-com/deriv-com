@@ -1,7 +1,14 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Carousel, Header, QueryImage, Text, ImageWithDireciton } from 'components/elements'
+import {
+    Carousel,
+    Header,
+    QueryImage,
+    Text,
+    ImageWithDireciton,
+    CarouselProps,
+} from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Flex, SectionContainer } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -299,7 +306,7 @@ const TradeTypes = (): React.ReactNode => {
 
     const lang_direction = useLangDirection()
 
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             loop: false,
             align: 'start',

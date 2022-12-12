@@ -4,7 +4,7 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { LocalizedLink, Localize } from 'components/localization'
-import { Carousel, Header, QueryImage, Text } from 'components/elements'
+import { Carousel, CarouselProps, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
@@ -334,7 +334,7 @@ const MarketsFold = () => {
         }
     }
 
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             loop: true,
             containScroll: 'trimSnaps',

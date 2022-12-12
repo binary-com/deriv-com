@@ -214,7 +214,7 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (deriv_other_products.includes(type)) {
         if (type === 'binary_bot') return `${localized_link_url[type]}/${to ? to : ''}?l=${locale}`
         else if (type === 'smart_trader')
-            return getSmartTraderLocalizedURL(localized_link_url[type], locale, to)
+            return getSmartTraderLocalizedURL(localized_link_url[type], locale)
 
         return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
     } else if (deriv_social_platforms.includes(type)) {

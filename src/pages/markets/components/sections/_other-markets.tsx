@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
-import { Carousel, Header, ImageWithDireciton, Text } from 'components/elements'
+import { Carousel, CarouselProps, Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
@@ -265,7 +265,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
 
     const lang_direction = useLangDirection()
 
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             draggable: true,
             containScroll: 'trimSnaps',

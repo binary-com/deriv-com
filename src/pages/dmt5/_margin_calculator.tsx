@@ -3,7 +3,7 @@ import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Box, Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
-import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
+import { Carousel, CarouselProps, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
@@ -231,7 +231,7 @@ const calculators: CalculatorProps[] = [
 const MarginCalculator = () => {
     const lang_direction = useLangDirection()
 
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             direction: lang_direction,
         },

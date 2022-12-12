@@ -30,6 +30,7 @@ const BrowserUpdateAlertModal = () => {
             positive={<Localize translate_text="OK" />}
             onPositive={handlePositive}
             is_dismissible={false}
+            maxWidth="38rem"
         >
             <Header type="paragraph-2" weight="regular">
                 <Localize translate_text="Update your browser to get the best Deriv experience" />

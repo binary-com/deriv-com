@@ -4,8 +4,7 @@
     "compilerOptions": {
         "baseUrl": "src",
         "jsx": "preserve",
-        "target": "ES6",
-        "lib": ["DOM", "DOM.Iterable", "ES6", "ES2021.String"],
+        "lib": ["ES2021.String", "DOM", "DOM.Iterable"],
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,

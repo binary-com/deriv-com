@@ -64,33 +64,33 @@ type ValueType = {
     icon: string
 }
 
-const OurValues = ({query}: any) => {
+const OurValues = ({strapiData}: any) => {
     const our_values: ValueType[] = [
         {
-            title: <Localize translate_text={String(query.first_descr_part_one)} />,
-            text: <Localize translate_text={String(query.first_descr_part_two)} />,
+            title: <Localize translate_text={String(strapiData.first_descr_part_one)} />,
+            text: <Localize translate_text={String(strapiData.first_descr_part_two)} />,
             icon: Shield,
         },
         {
-            title: <Localize translate_text={String(query.second_descr_part_one)} />,
-            text: <Localize translate_text={String(query.second_descr_part_two)} />,
+            title: <Localize translate_text={String(strapiData.second_descr_part_one)} />,
+            text: <Localize translate_text={String(strapiData.second_descr_part_two)} />,
             icon: People,
         },
         {
-            title: <Localize translate_text={String(query.third_descr_part_one)} />,
-            text: <Localize translate_text={String(query.third_descr_part_two)} />,
+            title: <Localize translate_text={String(strapiData.third_descr_part_one)} />,
+            text: <Localize translate_text={String(strapiData.third_descr_part_two)} />,
             icon: Star,
         },
         {
-            title: <Localize translate_text={String(query.fourth_descr_part_one)} />,
-            text: <Localize translate_text={String(query.fourth_descr_part_one)} />,
+            title: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
+            text: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
             icon: Hands,
         },
     ]
     return (
         <OurValuesSection>
             <StyledHeader as="h2" align="start" type="page-title" width="338px">
-                {localize(String(query.header))}
+                {localize(String(strapiData.header))}
             </StyledHeader>
             <StyledFlex width="820px" wrap="wrap">
                 {our_values.map(({ title, icon, text }, index) => (

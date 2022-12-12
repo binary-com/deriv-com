@@ -103,30 +103,30 @@ type DerivNumbersType = {
     title: ReactElement
 }
 
-const OurOffices = ({query1}: any) => {
+const OurOffices = ({strapiData}: any) => {
     const data = useStaticQuery(query)
     const our_offices_count: DerivNumbersType[] = [
         {
-            count: <Localize translate_text={String(query1.first_descr_part_one)} />,
-            title: <Localize translate_text={String(query1.first_descr_part_two)} />,
+            count: <Localize translate_text={String(strapiData.first_descr_part_one)} />,
+            title: <Localize translate_text={String(strapiData.first_descr_part_two)} />,
         },
         {
-            count: <Localize translate_text={String(query1.second_descr_part_one)} />,
-            title: <Localize translate_text={String(query1.second_descr_part_two)} />,
+            count: <Localize translate_text={String(strapiData.second_descr_part_one)} />,
+            title: <Localize translate_text={String(strapiData.second_descr_part_two)} />,
         },
         {
-            count: <Localize translate_text={String(query1.third_descr_part_one)} />,
-            title: <Localize translate_text={String(query1.third_descr_part_two)} />,
+            count: <Localize translate_text={String(strapiData.third_descr_part_one)} />,
+            title: <Localize translate_text={String(strapiData.third_descr_part_two)} />,
         },
         {
-            count: <Localize translate_text={String(query1.fourth_descr_part_one)} />,
-            title: <Localize translate_text={String(query1.fourth_descr_part_two)} />,
+            count: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
+            title: <Localize translate_text={String(strapiData.fourth_descr_part_two)} />,
         },
     ]
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {localize(String(query1.header))}
+                {localize(String(strapiData.header))}
             </StyledHeader>
 
             <Flex>

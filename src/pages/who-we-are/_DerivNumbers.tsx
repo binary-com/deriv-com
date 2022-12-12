@@ -106,24 +106,24 @@ type DerivNumbersType = {
     title: ReactElement
 }
 
-const DerivNumbers = ({query}: any) => {
+const DerivNumbers = ({strapiData}: any) => {
     const deriv_numbers: DerivNumbersType[][] = [
         [
             {
-                count: <Localize translate_text={String(query.first_descr_part_one)} />,
-                title: <Localize translate_text={String(query.first_descr_part_two)} />,
+                count: <Localize translate_text={String(strapiData.first_descr_part_one)} />,
+                title: <Localize translate_text={String(strapiData.first_descr_part_two)} />,
             },
             {
-                count: <Localize translate_text={String(query.second_descr_part_one)} />,
-                title: <Localize translate_text={String(query.second_descr_part_two)} />,
+                count: <Localize translate_text={String(strapiData.second_descr_part_one)} />,
+                title: <Localize translate_text={String(strapiData.second_descr_part_two)} />,
             },
             {
-                count: <Localize translate_text={String(query.third_descr_part_one)} />,
-                title: <Localize translate_text={String(query.third_descr_part_one)} />,
+                count: <Localize translate_text={String(strapiData.third_descr_part_one)} />,
+                title: <Localize translate_text={String(strapiData.third_descr_part_one)} />,
             },
             {
-                count: <Localize translate_text={String(query.fourth_descr_part_one)} />,
-                title: <Localize translate_text={String(query.fourth_descr_part_one)} />,
+                count: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
+                title: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
             },
         ],
     ]
@@ -132,10 +132,10 @@ const DerivNumbers = ({query}: any) => {
             <StyledFlex>
                 <TitleSection fd="column">
                     <TitleHeader as="h6" color="black-2" align="start" type="unset">
-                        {localize(String(query.header))}
+                        {localize(String(strapiData.header))}
                     </TitleHeader>
                     <StyledHeader as="h6" size="24px" align="start" weight="400" type="unset">
-                        {localize(String(query.subheader))}
+                        {localize(String(strapiData.subheader))}
                     </StyledHeader>
                 </TitleSection>
                 <NumberSection

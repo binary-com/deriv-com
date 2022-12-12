@@ -66,8 +66,8 @@ const EndSeparator = styled.div`
 `
 
 const AboutUs = () => {
-    const query1 = useStaticQuery(query)
-    const data = query1.allStrapiMenusMenu.edges[0].node
+    const strapiQuery = useStaticQuery(query)
+    const data = strapiQuery.allStrapiMenusMenu.edges[0].node
 
     return (
         <Layout type="transparent" margin_top="0">
@@ -78,15 +78,15 @@ const AboutUs = () => {
                 )}
             />
             <Hero />
-            <MakeTrading query={data.items[6]} />
+            <MakeTrading strapiData={data.items[6]} />
             <StartSeparator />
-            <OurValues query={data.items[5]} />
+            <OurValues strapiData={data.items[5]} />
             <EndSeparator />
-            <OurPrinciples query={data.items[3]} />
+            <OurPrinciples strapiData={data.items[3]} />
             <OurLeadership />
-            <DerivNumbers query={data.items[1]} />
+            <DerivNumbers strapiData={data.items[1]} />
             <ImageMarquee />
-            <OurOffices query1={data.items[4]} />
+            <OurOffices strapiData={data.items[4]} />
             <AboutUsBanner />
         </Layout>
     )

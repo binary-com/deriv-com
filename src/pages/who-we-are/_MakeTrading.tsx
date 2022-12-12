@@ -38,21 +38,21 @@ type FirstSectionTextsType = {
     text: ReactElement
 }
 
-const MakeTrading = ({query}: any) => {
+const MakeTrading = ({strapiData}: any) => {
     const first_section_texts: FirstSectionTextsType[] = [
         {
             text: (
-                <Localize translate_text={String(query.first_descr)} />
+                <Localize translate_text={String(strapiData.first_descr)} />
             ),
         },
         {
             text: (
-                <Localize translate_text={String(query.second_descr)} />
+                <Localize translate_text={String(strapiData.second_descr)} />
             ),
         },
         {
             text: (
-                <Localize translate_text={String(query.third_descr)} />
+                <Localize translate_text={String(strapiData.third_descr)} />
             ),
         },
     ]
@@ -64,7 +64,7 @@ const MakeTrading = ({query}: any) => {
                 </StyledFirstSectionText>
             ))}
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {localize(String(query.header))}
+                {localize(String(strapiData.header))}
             </StyledHeader>
         </FirstSectionContainer>
     )

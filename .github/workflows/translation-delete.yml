@@ -5,7 +5,10 @@ on:
     workflows: ["Pre-delete Translation"]
     types:
       - completed
-      
+
+env: 
+ BRANCH: github.event.workflow_run.head_branch
+ CLEAN_BRANCH: "${BRANCH//[^[:alnum:]-_]/}"       
 jobs:
     delete-translation:
         if: |

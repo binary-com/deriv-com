@@ -769,16 +769,6 @@ const career_data = {
                     location: 'Limassol, Cyprus',
                     id: '47807000001891732',
                 },
-                {
-                    title: 'Senior Data Engineer',
-                    location: 'Birkirkara, Malta',
-                    id: '47807000001891690',
-                },
-                {
-                    title: 'Senior Data Engineer',
-                    location: 'Paris, France',
-                    id: '47807000012999845',
-                },
             ],
             testimony_section: {
                 image: 'business_intelligence_review',

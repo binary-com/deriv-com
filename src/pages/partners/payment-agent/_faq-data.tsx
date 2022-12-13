@@ -2,6 +2,7 @@ import React from 'react'
 import { LocalizedLinkText } from '../affiliate-ib/_faq-data'
 import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import { useLivechat } from 'components/hooks/use-livechat'
 import { DerivStore } from 'store'
 
 const General = () => {
@@ -90,45 +91,47 @@ const General = () => {
     )
 }
 
-const AccountManagement = () => (
-    <>
-        <Header as="p" mt="24px" type="paragraph-1">
-            {localize('How can I add, remove or change my accepted payment methods?')}
-        </Header>
-        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            <Localize
-                translate_text="To change your payment method, please contact us via <0>live chat</0>."
-                components={[
-                    <LocalizedLinkText
-                        as={'span'}
-                        onClick={() => {
-                            // eslint-disable-next-line no-undef
-                            LC_API.open_chat_window()
-                        }}
-                        key={0}
-                    />,
-                ]}
-            />
-        </Header>
-        <Header as="p" type="paragraph-1" mt="16px">
-            {localize('Can I advertise my services to Deriv clients?')}
-        </Header>
-        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            <Localize
-                translate_text="Yes, provided that you follow all the relevant terms and conditions (see the tab entitled 'For business partners' on our <0>Terms and conditions</0> page)."
-                components={[<LocalizedLinkText to="/terms-and-conditions/#clients" key={0} />]}
-            />
-        </Header>
-        <Header as="p" type="paragraph-1" mt="16px">
-            {localize(
-                'Will I still be able to trade with my account after registering as a payment agent?',
-            )}
-        </Header>
-        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            {localize(
-                'No. You can only use your account as a payment agent to perform clients’ deposits and withdrawal requests. For trading purposes, you will need to open a separate account.',
-            )}
-        </Header>
-    </>
-)
+const AccountManagement = () => {
+    const [_, LC_API] = useLivechat()
+
+    return (
+        <>
+            <Header as="p" mt="24px" type="paragraph-1">
+                {localize('How can I add, remove or change my accepted payment methods?')}
+            </Header>
+            <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                <Localize
+                    translate_text="To change your payment method, please contact us via <0>live chat</0>."
+                    components={[
+                        <LocalizedLinkText
+                            as="span"
+                            onClick={() => LC_API.open_chat_window()}
+                            key={0}
+                        />,
+                    ]}
+                />
+            </Header>
+            <Header as="p" type="paragraph-1" mt="16px">
+                {localize('Can I advertise my services to Deriv clients?')}
+            </Header>
+            <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                <Localize
+                    translate_text="Yes, provided that you follow all the relevant terms and conditions (see the tab entitled 'For business partners' on our <0>Terms and conditions</0> page)."
+                    components={[<LocalizedLinkText to="/terms-and-conditions/#clients" key={0} />]}
+                />
+            </Header>
+            <Header as="p" type="paragraph-1" mt="16px">
+                {localize(
+                    'Will I still be able to trade with my account after registering as a payment agent?',
+                )}
+            </Header>
+            <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                {localize(
+                    'No. You can only use your account as a payment agent to perform clients’ deposits and withdrawal requests. For trading purposes, you will need to open a separate account.',
+                )}
+            </Header>
+        </>
+    )
+}
+
 export { General, AccountManagement }

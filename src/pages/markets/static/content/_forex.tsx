@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react'
-import { Localize } from 'components/localization'
+import React from 'react'
+import { localize, Localize } from 'components/localization'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Deposit from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
@@ -11,7 +11,7 @@ import TradeIcon from 'images/svg/markets/trade-new.svg'
 export type ForexContentElement = {
     src: string
     alt: string
-    text: ReactElement
+    text: string
 }
 
 export const simple_step_content_forex = [
@@ -42,27 +42,27 @@ export const forex_content: ForexContentElement[] = [
     {
         src: Leverage,
         alt: 'leverage',
-        text: <Localize translate_text="High leverage, tight forex spreads" />,
+        text: localize('High leverage, tight forex spreads'),
     },
     {
         src: ResponsiveWebsite,
         alt: 'responsive website',
-        text: <Localize translate_text="Responsive, easy-to-use online trading platforms" />,
+        text: localize('Responsive, easy-to-use online trading platforms'),
     },
     {
         src: AdvancedCharting,
         alt: 'advanced charting widgets',
-        text: <Localize translate_text="Advanced charting widgets" />,
+        text: localize('Advanced charting widgets'),
     },
     {
         src: Deposit,
         alt: 'deposit and withdrawal',
-        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
+        text: localize('Convenient deposit and withdrawal methods'),
     },
     {
         src: FriendlySupport,
         alt: 'friendly support',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        text: localize('Smart and friendly support, 7 days a week'),
     },
 ]
 
@@ -70,26 +70,26 @@ export const forex_content_eu: ForexContentElement[] = [
     {
         src: Leverage,
         alt: 'leverage',
-        text: <Localize translate_text="Tight spreads" />,
+        text: localize('Tight spreads'),
     },
     {
         src: ResponsiveWebsite,
         alt: 'responsive website',
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        text: localize('Responsive, easy-to-use platforms'),
     },
     {
         src: AdvancedCharting,
         alt: 'advanced charting widgets',
-        text: <Localize translate_text="Advanced charting widgets" />,
+        text: localize('Advanced charting widgets'),
     },
     {
         src: Deposit,
         alt: 'deposit and withdrawal',
-        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
+        text: localize('Convenient deposit and withdrawal methods'),
     },
     {
         src: FriendlySupport,
         alt: 'friendly support',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        text: localize('Smart and friendly support, 7 days a week'),
     },
 ]

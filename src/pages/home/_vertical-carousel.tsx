@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TContent } from './_types'
-import { Carousel, Header } from 'components/elements'
+import { Carousel, CarouselProps, Header } from 'components/elements'
 import { Localize } from 'components/localization'
 
 const StyledHeader = styled(Header)`
@@ -13,7 +13,7 @@ type VerticalCarouselProps = {
     contents: TContent[]
 }
 
-const settings = {
+const settings: CarouselProps = {
     options: {
         loop: true,
         axis: 'y',

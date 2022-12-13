@@ -14,7 +14,6 @@ type NavDesktopProps = {
     base?: string
     is_ppc?: boolean
     is_ppc_redirect?: boolean
-    is_logged_in: boolean
     hide_signup_login?: boolean
     hide_language_switcher?: boolean
     hide_get_trading?: boolean
@@ -68,7 +67,6 @@ const NavDesktop = ({
     base,
     is_ppc,
     is_ppc_redirect,
-    is_logged_in,
     hide_signup_login,
     hide_language_switcher,
     hide_get_trading,
@@ -128,7 +126,6 @@ const NavDesktop = ({
                 <RightSection
                     hide_language_switcher={hide_language_switcher}
                     hide_signup_login={hide_signup_login}
-                    is_logged_in={is_logged_in}
                     is_ppc_redirect={is_ppc_redirect}
                 />
             </Wrapper>

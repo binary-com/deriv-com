@@ -17,7 +17,9 @@ interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
     label_focus_color?: string
     labelSize?: string
     labelTop?: string
-    handleError?: (e: unknown) => void
+    handleError?: (
+        current_input?: { focus?: () => void } & React.MutableRefObject<HTMLInputElement>,
+    ) => void
 }
 
 type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps

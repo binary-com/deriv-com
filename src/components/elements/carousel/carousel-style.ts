@@ -13,7 +13,7 @@ type StyledButtonWrapperProps = {
 
 type NavigationContainerType = {
     navigation_css?: FlattenSimpleInterpolation
-    bottom_offset?: string
+    bottom_offset?: string | number
     height?: string
 }
 

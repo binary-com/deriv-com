@@ -9,13 +9,22 @@ on:
 jobs:
     check-translation-branch:
         runs-on: ubuntu-latest
-        if:  startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')
+        if: |
+           ${{ (startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')) &&
+               !contains(github.head_ref, '!') &&
+               !contains(github.head_ref, '@') &&   
+               !contains(github.head_ref, '#') &&   
+               !contains(github.head_ref, '$') &&   
+               !contains(github.head_ref, '%') &&   
+               !contains(github.head_ref, '^') &&   
+               !contains(github.head_ref, '&') &&   
+               !contains(github.head_ref, '*') &&   
+               !contains(github.head_ref, '(') &&   
+               !contains(github.head_ref, ')') 
+            }}
         steps:
             - name: Branch Check 🔍 
               run: |
-                BRANCH='${{ github.head_ref }}'
-                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
-
-                echo "$CLEAN_BRANCH is valid branch for translation workflow"
+                echo "${{ github.head_ref }} is a valid branch for translation workflow"
 
               

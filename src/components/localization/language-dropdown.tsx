@@ -194,10 +194,11 @@ const Dropdown = ({
                                     key={option.path}
                                 >
                                     <Header
+                                        as="p"
                                         ml="0.8rem"
                                         weight="normal"
-                                        type="paragraph-1"
-                                        color={current_option ? 'red' : 'black'}
+                                        data-type="paragraph-1"
+                                        data-color={current_option ? 'red' : 'black'}
                                     >
                                         {option.text}
                                     </Header>

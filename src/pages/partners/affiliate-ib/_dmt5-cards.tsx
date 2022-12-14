@@ -44,6 +44,21 @@ const query = graphql`
         ) {
             ...fadeIn
         }
+        deriv_x_one: file(relativePath: { eq: "affiliate-and-ib/deriv_x_one.png" }) {
+            ...fadeIn
+        }
+        deriv_x_two: file(relativePath: { eq: "affiliate-and-ib/deriv_x_two.png" }) {
+            ...fadeIn
+        }
+        deriv_x_three: file(relativePath: { eq: "affiliate-and-ib/deriv_x_three.png" }) {
+            ...fadeIn
+        }
+        deriv_x_four: file(relativePath: { eq: "affiliate-and-ib/deriv_x_four.png" }) {
+            ...fadeIn
+        }
+        deriv_x_five: file(relativePath: { eq: "affiliate-and-ib/deriv_x_five.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -291,6 +306,23 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                             width="100%"
                                         />
                                     </Flex>
+                                    {valueDetails.second_desc && (
+                                        <Header type="paragraph-2" weight="normal">
+                                            {valueDetails.second_desc}
+                                        </Header>
+                                    )}
+                                    {valueDetails.notes &&
+                                        valueDetails.notes.map((valueNotes) => (
+                                            <>
+                                                <Header type="sub-paragraph" mb="0.8rem">
+                                                    {valueNotes.title}
+                                                </Header>
+
+                                                <Text mb="1.6rem" size="1.4rem">
+                                                    {valueNotes.desc.firstText}
+                                                </Text>
+                                            </>
+                                        ))}
                                 </>
                             ))}
                             {valueCalc.notes.map((valueNotes) => (

@@ -42,27 +42,27 @@ export const simple_step_content_forex: SimpleStepsContent[] = [
 export const forex_content: ForexContentElement[] = [
     {
         src: Leverage,
-        alt: 'leverage',
+        alt: 'High and low',
         text: <Localize translate_text="High leverage, tight forex spreads" />,
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
+        alt: 'Responsive platforms',
         text: <Localize translate_text="Responsive, easy-to-use online trading platforms" />,
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
+        alt: 'Charts',
         text: <Localize translate_text="Advanced charting widgets" />,
     },
     {
         src: Deposit,
-        alt: 'deposit and withdrawal',
+        alt: 'Deposits and withdrawals method',
         text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
     },
     {
         src: FriendlySupport,
-        alt: 'friendly support',
+        alt: 'Friendly support team',
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
     },
 ]
@@ -70,27 +70,27 @@ export const forex_content: ForexContentElement[] = [
 export const forex_content_eu: ForexContentElement[] = [
     {
         src: Leverage,
-        alt: 'leverage',
+        alt: 'High and low',
         text: <Localize translate_text="Tight spreads" />,
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
+        alt: 'Responsive platforms',
         text: <Localize translate_text="Responsive, easy-to-use platforms" />,
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
+        alt: 'Charts',
         text: <Localize translate_text="Advanced charting widgets" />,
     },
     {
         src: Deposit,
-        alt: 'deposit and withdrawal',
+        alt: 'Deposits and withdrawals method',
         text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
     },
     {
         src: FriendlySupport,
-        alt: 'friendly support',
+        alt: 'Friendly support team',
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
     },
 ]

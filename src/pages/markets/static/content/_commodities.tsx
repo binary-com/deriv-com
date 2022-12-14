@@ -42,17 +42,17 @@ const commodities: CommoditiesContent[] = [
     {
         src: VariableSpreads,
         text: <Localize translate_text="Competitive fixed and variable spreads" />,
-        alt: 'variable spreads',
+        alt: 'Fixed and variable',
     },
     {
         src: NoCommission,
         text: <Localize translate_text="No commission on any commodity contract" />,
-        alt: 'no commission',
+        alt: 'No commission',
     },
     {
         src: MetalAndOil,
         text: <Localize translate_text="All four precious metals and crude oil available" />,
-        alt: 'metals and oil',
+        alt: 'Trading platform',
     },
     {
         src: ResponsiveWebsite,
@@ -62,7 +62,7 @@ const commodities: CommoditiesContent[] = [
     {
         src: FriendlySupport,
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
-        alt: 'support',
+        alt: 'Customer help',
     },
 ]
 

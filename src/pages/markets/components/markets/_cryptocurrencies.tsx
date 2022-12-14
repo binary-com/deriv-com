@@ -40,22 +40,22 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
             ) : (
                 <Localize translate_text="1:100 leverage" />
             ),
-            alt: 'leverage',
+            alt: 'Leverage',
         },
         {
             src: TightSpread,
             text: <Localize translate_text="Tight spreads" />,
-            alt: 'tight spreads',
+            alt: 'Spreads',
         },
         {
             src: CryptoPairs,
             text: <Localize translate_text="25+ crypto pairs" />,
-            alt: '25+ crypto pairs',
+            alt: 'Crypto currency pairs',
         },
         {
             src: ZeroCommission,
             text: <Localize translate_text="Zero commission" />,
-            alt: 'zero commission',
+            alt: 'Commission',
         },
     ]
 

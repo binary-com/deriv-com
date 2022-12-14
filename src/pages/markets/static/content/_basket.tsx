@@ -47,27 +47,27 @@ export const simple_step_content_basket: SimpleStepContentElement[] = [
 export const basket_indices_content: BasketIndicesContent[] = [
     {
         src: Stocks,
-        alt: 'currency weighted by 20%',
+        alt: 'Currency weight',
         text: <Localize translate_text="Each currency weighted by 20%" />,
     },
     {
         src: Leverage,
-        alt: 'leverage',
+        alt: 'Narrow spreads',
         text: <Localize translate_text="High leverage, tight spreads" />,
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
+        alt: 'Easy platform',
         text: <Localize translate_text="Responsive, easy-to-use platforms" />,
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
+        alt: 'Graphs and charts',
         text: <Localize translate_text="Advanced charting widgets" />,
     },
     {
         src: WithdrawIcon,
-        alt: 'deposit and withdrawal',
+        alt: 'Convenient deposits and withdrawals',
         text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
     },
 ]
@@ -75,27 +75,27 @@ export const basket_indices_content: BasketIndicesContent[] = [
 export const basket_indices_content_eu: BasketIndicesContent[] = [
     {
         src: Stocks,
-        alt: 'currency weighted by 20%',
+        alt: 'Currency weight',
         text: <Localize translate_text="Each currency weighted by 20%" />,
     },
     {
         src: Leverage,
-        alt: 'leverage',
+        alt: 'Narrow spreads',
         text: <Localize translate_text="Tight spreads" />,
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
+        alt: 'Easy platform',
         text: <Localize translate_text="Responsive, easy-to-use platforms " />,
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
+        alt: 'Graphs and charts',
         text: <Localize translate_text="Advanced charting widgets" />,
     },
     {
         src: WithdrawIcon,
-        alt: 'deposit and withdrawal',
+        alt: 'Convenient deposits and withdrawals',
         text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
     },
 ]

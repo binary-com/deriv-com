@@ -48,7 +48,7 @@ const WhyChooseUs = () => {
                 </Header>
                 <Wrapper>
                     <Card direction="column">
-                        <ImageWrapper src={Hand} alt="" />
+                        <ImageWrapper src={Hand} alt="Partners" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
                             {localize('Partnership with a trusted pioneer')}
                         </Header>
@@ -59,7 +59,7 @@ const WhyChooseUs = () => {
                         </Text>
                     </Card>
                     <Card direction="column">
-                        <ImageWrapper src={Lamp} alt="" />
+                        <ImageWrapper src={Lamp} alt="Expert support" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
                             {localize('Expert support')}
                         </Header>
@@ -70,7 +70,7 @@ const WhyChooseUs = () => {
                         </Text>
                     </Card>
                     <Card direction="column">
-                        <ImageWrapper src={HiddenFee} alt="" />
+                        <ImageWrapper src={HiddenFee} alt="No hidden fees" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
                             {localize('No charges or hidden fees')}
                         </Header>

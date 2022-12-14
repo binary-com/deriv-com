@@ -44,27 +44,27 @@ const synthetic: Synthetic[] = [
     {
         src: SevenTrading,
         text: <Localize translate_text="24/7 trading, including weekends and public holidays" />,
-        alt: '24/7 trading',
+        alt: 'Trading available everyday',
     },
     {
         src: MarketandRisk,
         text: <Localize translate_text="Free from real-world market and liquidity risks" />,
-        alt: 'real-world market and liquidity risk',
+        alt: 'Real world market',
     },
     {
         src: ResponsiveWebsite,
         text: <Localize translate_text="Responsive, easy-to-use platforms" />,
-        alt: 'responsive platforms',
+        alt: 'Easy to use platform',
     },
     {
         src: ExclusiveTradeType,
         text: <Localize translate_text="Exclusive access to innovative trade types" />,
-        alt: 'exclusive access to innovative trade types',
+        alt: 'Exclusive access',
     },
     {
         src: FriendlySupport,
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
-        alt: 'support',
+        alt: 'Chat support',
     },
 ]
 

@@ -43,27 +43,27 @@ const stocks: Stock[] = [
     {
         src: ExtendedTime,
         text: <Localize translate_text="Minimal capital requirements, limited risk" />,
-        alt: 'minimal capital requirements',
+        alt: 'Low capital',
     },
     {
         src: MinimalCapital,
         text: <Localize translate_text="Extended trading time, up to 18 hours a day" />,
-        alt: 'extended trading time',
+        alt: 'Time to trade',
     },
     {
         src: WithdrawIcon,
         text: <Localize translate_text="Fast and secure deposit and withdrawal options" />,
-        alt: 'withdrawal',
+        alt: 'Easy deposits and withdrawals',
     },
     {
         src: ResponsiveWebsite,
         text: <Localize translate_text="Responsive, easy-to-use platforms" />,
-        alt: 'responsive, easy-to-use platforms',
+        alt: 'Simple trading platforms',
     },
     {
         src: FriendlySupport,
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
-        alt: 'smart and friendly support',
+        alt: 'Smart support team',
     },
 ]
 export default stocks

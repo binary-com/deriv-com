@@ -127,7 +127,7 @@ const SuccessBox = (unsubscribed: TSuccessBox) => {
             {unsubscribed ? (
                 <SuccessCard>
                     <img src={RejectIcon} alt="sucess" width={48} height={48} />
-                    {localize("You're not able to unsubscribed")}
+                    {localize("You're not able to unsubscribe")}
                 </SuccessCard>
             ) : (
                 <SuccessCard>

@@ -31,17 +31,17 @@ const ExampleImage = styled(QueryImage)<ExampleImageType>`
 
     @media ${device.laptop} {
         width: 630px;
-        height: 361px;
+        height: 200px;
     }
 
     @media ${device.tabletL} {
-        width: 328px;
-        height: 506px;
+        width: 350px;
+        height: 200px;
     }
 
     @media ${device.mobileM} {
         width: 289px;
-        height: 454px;
+        height: 200px;
     }
 `
 export const StyledLinkButton = styled(LinkButton)`
@@ -83,21 +83,16 @@ const TradingCFDIncreases = () => {
                     )}
                 </Text>
                 <Text as="h5" weight="bold" mb="0.8rem">
-                    {localize('Stop loss with Crash/Boom/Range break indices')}
+                    {localize('Stop loss with Crash/Boom')}
                 </Text>
                 <Text mb="1.6rem">
                     {localize(
-                        'Stop loss works slightly differently in Crash/Boom/Range break indices. This is because sudden fluctuations in market price from one tick to the next can sometimes surpass the stop loss you have set. When the market price exceeds your stop loss amount, your contract will be automatically closed at that point, instead of exactly at the stop loss level.',
+                        'Stop loss works slightly differently in Crash/Boom. This is because sudden fluctuations in market price from one tick to the next can sometimes surpass the stop loss you have set. When the market price exceeds your stop loss amount, your contract will be automatically closed at that point instead of exactly at the stop loss level.',
                     )}
                 </Text>
                 <Text mb="1.6rem">
                     {localize(
-                        'For example, you predict that the market will go up, and buy a contract on Crash 500 index at 8,000 USD.',
-                    )}
-                </Text>
-                <Text mb="1.6rem">
-                    {localize(
-                        'When the market price climbs to 8,700 USD, you decide to set the stop loss level at 8,200 USD. After a few ticks, the price dives to 8,100 USD, surpassing your stop loss level. Your trade will automatically close at 8,100 USD.',
+                        'For example, you predict that the market will go up, and buy a contract on Crash 300 index at 8,000 USD.',
                     )}
                 </Text>
                 <Desktop>
@@ -106,7 +101,7 @@ const TradingCFDIncreases = () => {
                         alt="Example for stop loss with crash/boom indices"
                     />
                 </Desktop>
-                <Mobile width="100%">
+                <Mobile>
                     <ExampleImage
                         data={data['example_mobile']}
                         alt="Example for stop loss with crash/boom indices"

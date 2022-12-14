@@ -5,6 +5,7 @@ import { Header, Text, LinkText, LiveChatLinkText } from 'components/elements'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { affiliate_signup_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const ItemContainer = styled(Header)`
     padding: 0;
@@ -574,6 +575,7 @@ const IBGeneral = () => (
 )
 
 const IBAccountManagement = () => {
+    const { is_row } = useCountryRule()
     const [is_livechat_interactive, LC_API] = useLivechat()
     return (
         <ItemContainer>
@@ -611,8 +613,10 @@ const IBAccountManagement = () => {
                 />
             </Header>
             <TextSecondary>
-                <Localize translate_text="If you’re already registered as a Deriv affiliate, " />
-                <LiveChatLinkText text="_t_contact us via live chat._t_" />
+                <Localize
+                    translate_text="If you’re already registered as a Deriv affiliate, you can email us at <0>affiliates@deriv.com</0> instead."
+                    components={[<StyledLink href="mailto:affiliates@deriv.com" key={0} />]}
+                />
             </TextSecondary>
             <Header
                 as="p"
@@ -637,36 +641,43 @@ const IBAccountManagement = () => {
                     'Your IB commissions are credited directly into your Deriv MT5 account daily. You can transfer the funds to your Deriv account and withdraw them via your preferred payment method.',
                 )}
             </Header>
+            <TextSecondary>
+                {is_row && (
+                    <Localize translate_text="Your IB commissions earned from Deriv X are credited directly into your Deriv account daily." />
+                )}
+            </TextSecondary>
         </ItemContainer>
     )
 }
-const IBReferralTools = () => {
-    return (
-        <ItemContainer>
-            <Header
-                as="p"
-                type="paragraph-1"
-                mt="16px"
-                tabletL={{
-                    type: 'paragraph-2',
-                }}
-            >
-                {localize('Do you offer any referral tools to your IBs?')}
-            </Header>
-            <Header
-                as="p"
-                type="paragraph-1"
-                mt="8px"
-                weight="normal"
-                tabletL={{
-                    type: 'paragraph-2',
-                }}
-            >
-                <Localize translate_text="Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our Deriv MT5 platform." />
-            </Header>
-        </ItemContainer>
-    )
-}
+
+const IBReferralTools = () => (
+    <ItemContainer>
+        <Header
+            as="p"
+            type="paragraph-1"
+            mt="16px"
+            tabletL={{
+                type: 'paragraph-2',
+            }}
+        >
+            {localize('Do you offer any referral tools to your IBs?')}
+        </Header>
+        <Header
+            as="p"
+            type="paragraph-1"
+            mt="8px"
+            weight="normal"
+            tabletL={{
+                type: 'paragraph-2',
+            }}
+        >
+            {localize(
+                'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our Deriv MT5 platform.',
+            )}
+        </Header>
+    </ItemContainer>
+)
+
 export {
     AffiliateGeneral,
     AffiliateAccountManagement,

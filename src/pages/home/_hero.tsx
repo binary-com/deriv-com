@@ -31,7 +31,12 @@ const HeroWrapper = styled.section`
     width: 100%;
     padding: calc(7rem + 80px) 0;
     min-height: 915px;
-    background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%);
+    background: linear-gradient(
+        241.35deg,
+        var(--color-blue-14) 12.86%,
+        var(--color-blue-15) 85.61%,
+        var(--color-blue-15) 85.61%
+    );
     position: relative;
     @media ${device.tabletL} {
         flex-wrap: wrap;

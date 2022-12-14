@@ -142,7 +142,7 @@ const StyledFlex = styled(Flex)`
         text-align: center;
         margin-right: 0;
         max-width: fit-content;
-        box-shadow: inset 0 -2px 0 #e7e7e7;
+        box-shadow: inset 0 -2px 0 var(--color-grey-34);
     }
 `
 const StyledFlexMobile = styled(Flex)`

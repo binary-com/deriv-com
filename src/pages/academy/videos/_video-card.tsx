@@ -70,7 +70,7 @@ const StyledCategories = styled(Header)`
     width: fit-content;
     padding: 2px 8px 0;
     border-radius: 8px;
-    background-color: var(--color-brown);
+    background-color: var(--color-orange-3);
     color: var(--color-orange-2);
     margin: 0 8px 8px 0;
 `

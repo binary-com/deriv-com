@@ -168,7 +168,6 @@ const ContinentHeader = styled(Header)`
     margin-bottom: 38px;
     text-transform: uppercase;
     margin-top: 30px;
-    color: #85acb0;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -250,7 +249,7 @@ export const Offices = () => {
                     <ResHeader as="h2" type="page-title">
                         {localize('Our offices')}
                     </ResHeader>
-                    <ContinentHeader>{localize('Europe')}</ContinentHeader>
+                    <ContinentHeader color="green">{localize('Europe')}</ContinentHeader>
                     <GridLayout>
                         <Flex mt="30px" fd="column" max_width="48.6rem" id="france">
                             <OfficeHeader>
@@ -436,7 +435,7 @@ export const Offices = () => {
                         </Flex>
                     </GridLayout>
                     <Flex fd="column" mt="30px" id="malaysia">
-                        <ContinentHeader>{localize('Asia')}</ContinentHeader>
+                        <ContinentHeader color="green">{localize('Asia')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Malaysia} alt="Malaysia - Petronas Twin Towers" />
@@ -640,7 +639,7 @@ export const Offices = () => {
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
-                    <ContinentHeader>{localize('Middle East')}</ContinentHeader>
+                    <ContinentHeader color="green">{localize('Middle East')}</ContinentHeader>
                     <GridLayout>
                         <Flex mt="30px" fd="column" max_width="48.6rem" id="dubai">
                             <OfficeHeader>
@@ -735,7 +734,9 @@ export const Offices = () => {
                         </Flex>
                     </GridLayout>
                     <Flex mt="30px" fd="column" id="belarus">
-                        <ContinentHeader>{localize('Eastern Europe')}</ContinentHeader>
+                        <ContinentHeader color="green">
+                            {localize('Eastern Europe')}
+                        </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Belarus} alt="Belarus - National Library" />
@@ -782,7 +783,7 @@ export const Offices = () => {
                         </BorderBox>
                     </Flex>
                     <Flex mt="30px" fd="column" id="rwanda">
-                        <ContinentHeader>{localize('Africa')}</ContinentHeader>
+                        <ContinentHeader color="green">{localize('Africa')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Rwanda} alt="Rwanda - Kigali Convention Center" />
@@ -830,7 +831,7 @@ export const Offices = () => {
                     </Flex>
 
                     <Flex fd="column" mt="30px" id="latam">
-                        <ContinentHeader>{localize('Latin America')}</ContinentHeader>
+                        <ContinentHeader color="green">{localize('Latin America')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Paraguay} alt="Paraguay - National Pantheon of Heroes" />
@@ -916,7 +917,7 @@ export const Offices = () => {
                         </FullBorder>
                     </Flex>
                     <Flex mt="30px" fd="column" id="paraguay">
-                        <ContinentHeader>{localize('Caribbean')}</ContinentHeader>
+                        <ContinentHeader color="green">{localize('Caribbean')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Cayman} alt="Cayman Islands - George Town" />
@@ -966,7 +967,7 @@ export const Offices = () => {
                         </BorderBox>
                     </Flex>
                     <Flex mt="30px" fd="column" id="vanuatu">
-                        <ContinentHeader>{localize('Oceania')}</ContinentHeader>
+                        <ContinentHeader color="green">{localize('Oceania')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Vanuatu} alt="Vanuatu - Port Vila" />

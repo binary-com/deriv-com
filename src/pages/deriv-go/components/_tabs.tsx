@@ -92,7 +92,7 @@ const CarouselDot = styled.div<{ selected: boolean }>`
     align-self: center;
     width: 12px;
     border-radius: 50%;
-    border: ${(props) => (props.selected ? 'none' : '1px solid #000000')};
+    border: ${(props) => (props.selected ? 'none' : '1px solid var(--color-black-6)')};
     margin-bottom: 16px;
     background-color: ${(props) =>
         props.selected ? 'rgba(255, 68, 79, 1)' : 'rgba(248, 250, 251, 1)'};

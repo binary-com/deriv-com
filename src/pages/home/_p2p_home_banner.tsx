@@ -42,13 +42,13 @@ const query = graphql`
 `
 const BackgroundWrapper = styled.section`
     width: 100%;
-    background: #e6e9e9;
+    background: var(--color-grey-6);
     position: relative;
     height: 400px;
 
     @media ${device.tabletL} {
         width: 100%;
-        background: #f2f3f4;
+        background: var(--color-grey-8);
         margin-bottom: 40px;
         max-height: fit-content;
     }
@@ -132,7 +132,7 @@ const ContentWrapper = styled(Flex)`
     }
 `
 const StyledHeaders = styled(Header)`
-    color: #333333;
+    color: var(--color-black-3);
     display: flex;
     font-style: normal;
     font-weight: 700;
@@ -176,7 +176,7 @@ const HeroContent = styled(Flex)`
         font-weight: 400;
         font-size: 20px;
         line-height: 30px;
-        color: #333333;
+        color: var(--color-black-3);
     }
 
     @media ${device.laptopL} {
@@ -252,7 +252,7 @@ const LearnMore = styled(LocalizedLink)`
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
-    color: #ff444f;
+    color: var(--color-red);
     text-decoration-color: transparent;
 
     @media ${device.tabletL} {
@@ -274,7 +274,7 @@ const QRCodeP2p = styled(Flex)`
     gap: 8px;
     width: 208px;
     height: 256px;
-    background: #ffffff;
+    background: var(--color-white);
     border-radius: 8px;
     margin-right: 60px;
     margin-top: 61px;
@@ -304,7 +304,7 @@ const StyledLabel = styled(Flex)`
     font-size: 14px;
     line-height: 20px;
     text-align: center;
-    color: #333333;
+    color: var(--color-black-3);
 
     @media ${device.laptopM} {
         min-width: 113px;

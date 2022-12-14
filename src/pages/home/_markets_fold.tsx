@@ -85,8 +85,8 @@ const market_data = [
         ),
         img_name: 'market_forex',
         to: '/markets/forex/',
-        gradient_start: '#661B20',
-        gradient_end: '#190708',
+        gradient_start: 'var(--color-red-6)',
+        gradient_end: 'var(--color-red-7)',
     },
     {
         header: <Localize translate_text="Derived" />,
@@ -95,8 +95,8 @@ const market_data = [
         ),
         img_name: 'market_derived',
         to: '/markets/synthetic/',
-        gradient_start: '#20403A',
-        gradient_end: '#08100E',
+        gradient_start: 'var(--color-green-4)',
+        gradient_end: 'var(--color-green-5)',
     },
     {
         header: <Localize translate_text="Stocks & indices" />,
@@ -105,8 +105,8 @@ const market_data = [
         ),
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
-        gradient_start: '#2A2040',
-        gradient_end: '#0A0810',
+        gradient_start: 'var(--color-blue-16)',
+        gradient_end: 'var(--color-blue-17)',
     },
     {
         header: <Localize translate_text="Cryptocurrencies" />,
@@ -115,8 +115,8 @@ const market_data = [
         ),
         img_name: 'market_crypto',
         to: '/markets/cryptocurrencies/',
-        gradient_start: '#664407',
-        gradient_end: '#191102',
+        gradient_start: 'var(--color-yellow-4)',
+        gradient_end: 'var(--color-yellow-5)',
     },
     {
         header: <Localize translate_text="Commodities" />,
@@ -125,8 +125,8 @@ const market_data = [
         ),
         img_name: 'market_commodities',
         to: '/markets/commodities/',
-        gradient_start: '#183046',
-        gradient_end: '#060C11',
+        gradient_start: 'var(--color-blue-18)',
+        gradient_end: 'var(--color-blue-19)',
     },
 ]
 const market_data_eu = [
@@ -137,8 +137,8 @@ const market_data_eu = [
         ),
         img_name: 'market_forex',
         to: '/markets/forex/',
-        gradient_start: '#661B20',
-        gradient_end: '#190708',
+        gradient_start: 'var(--color-red-6)',
+        gradient_end: 'var(--color-red-7)',
     },
     {
         header: <Localize translate_text="Derived" />,
@@ -147,8 +147,8 @@ const market_data_eu = [
         ),
         img_name: 'market_derived',
         to: '/markets/synthetic/',
-        gradient_start: '#20403A',
-        gradient_end: '#08100E',
+        gradient_start: 'var(--color-green-4)',
+        gradient_end: 'var(--color-green-5)',
     },
     {
         header: <Localize translate_text="Stocks & indices" />,
@@ -157,8 +157,8 @@ const market_data_eu = [
         ),
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
-        gradient_start: '#2A2040',
-        gradient_end: '#0A0810',
+        gradient_start: 'var(--color-blue-16)',
+        gradient_end: 'var(--color-blue-17)',
     },
     {
         header: <Localize translate_text="Cryptocurrencies" />,
@@ -167,8 +167,8 @@ const market_data_eu = [
         ),
         img_name: 'market_crypto',
         to: '/markets/cryptocurrencies/',
-        gradient_start: '#664407',
-        gradient_end: '#191102',
+        gradient_start: 'var(--color-yellow-4)',
+        gradient_end: 'var(--color-yellow-5)',
     },
     {
         header: <Localize translate_text="Commodities" />,
@@ -177,8 +177,8 @@ const market_data_eu = [
         ),
         img_name: 'market_commodities',
         to: '/markets/commodities/',
-        gradient_start: '#183046',
-        gradient_end: '#060C11',
+        gradient_start: 'var(--color-blue-18)',
+        gradient_end: 'var(--color-blue-19)',
     },
 ]
 
@@ -190,8 +190,8 @@ const market_data_uk = [
         ),
         img_name: 'market_forex',
         to: '/markets/forex/',
-        gradient_start: '#661B20',
-        gradient_end: '#190708',
+        gradient_start: 'var(--color-red-6)',
+        gradient_end: 'var(--color-red-7)',
     },
     {
         header: <Localize translate_text="Stocks & indices" />,
@@ -200,8 +200,8 @@ const market_data_uk = [
         ),
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
-        gradient_start: '#2A2040',
-        gradient_end: '#0A0810',
+        gradient_start: 'var(--color-blue-16)',
+        gradient_end: 'var(--color-blue-17)',
     },
     {
         header: <Localize translate_text="Commodities" />,
@@ -210,8 +210,8 @@ const market_data_uk = [
         ),
         img_name: 'market_commodities',
         to: '/markets/commodities/',
-        gradient_start: '#183046',
-        gradient_end: '#060C11',
+        gradient_start: 'var(--color-blue-18)',
+        gradient_end: 'var(--color-blue-19)',
     },
 ]
 

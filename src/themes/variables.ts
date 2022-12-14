@@ -12,12 +12,15 @@ const Variables = css`
         --color-black-7: #0f0d0f;
         --color-black-8: #151717;
         --color-white: #ffffff;
+        --color-white-1: #f9fbff;
         --color-red: #ff444f;
         --color-red-1: #dd573a;
         --color-red-2: #ffe8e9;
         --color-red-3: #d43e47;
         --color-red-4: #ff4449;
         --color-red-5: #ff0024;
+        --color-red-6: #661b20;
+        --color-red-7: #190708;
         --color-grey: #9b9b9b;
         --color-grey-1: #f4f4f4;
         --color-grey-2: #e8e8e8;
@@ -75,16 +78,29 @@ const Variables = css`
         --color-blue-11: #4e2286;
         --color-blue-12: #2a537a;
         --color-blue-13: #c5d6e7;
+        --color-blue-14: #122434;
+        --color-blue-15: #060c11;
+        --color-blue-16: #2a2040;
+        --color-blue-17: #0a0810;
+        --color-blue-18: #0a0810;
+        --color-blue-19: #0a0810;
+        --color-blue-20: #b1c9df;
+        --color-blue-21: #eaf4f5;
+        --color-blue-22: #8aadc5;
+        --color-blue-23: #d3e0e9;
         --color-yellow: #fff2df;
         --color-yellow-2: #4c3c08;
         --color-yellow-3: #ffc71b;
+        --color-yellow-4: #664407;
+        --color-yellow-5: #191102;
         --color-orange: #ff6544;
         --color-orange-2: #ff7457;
         --color-orange-3: #33140e;
         --color-green-1: #bccdce;
         --color-green-2: #e2ebec;
-        --color-brown: #33140e;
         --color-green-3: #26d367;
+        --color-green-4: #20403a;
+        --color-green-5: #08100e;
 
         /* sizes */
         --text-size-xxs: 1.2rem;

@@ -195,7 +195,7 @@ const ButtonDp2p = styled(Button)`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: #ff444f;
+    background: var(--color-red);
     border-radius: 4px;
 `
 const TabItem = styled.div<StartDerivXProps>`

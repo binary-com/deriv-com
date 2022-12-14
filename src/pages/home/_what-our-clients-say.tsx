@@ -9,12 +9,16 @@ import Quote from 'images/svg/testimonials/quote.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledContainer = styled.div`
-    background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
+    background: linear-gradient(76.83deg, var(--color-blue-20) 4.59%, var(--color-blue-21) 66.44%);
     width: 100%;
     height: fit-content;
 
     @media ${device.tabletL} {
-        background: linear-gradient(76.48deg, #8aadc5 3.41%, #d3e0e9 64.21%);
+        background: linear-gradient(
+            76.48deg,
+            var(--color-blue-22) 3.41%,
+            var(--color-blue-23) 64.21%
+        );
     }
 `
 

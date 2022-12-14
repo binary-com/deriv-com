@@ -213,8 +213,8 @@ export const daily_reset_indices: MarketSymbol[] = [
 
 export const europe: MarketSymbol[] = [
     {
-        src: icons.STOCKSNETHERLAND25,
-        text: <Localize translate_text="Netherland 25" />,
+        src: icons.STOCKSNETHERLANDS25,
+        text: <Localize translate_text="Netherlands 25" />,
     },
     {
         src: icons.STOCKSEUROPE50,
@@ -724,8 +724,8 @@ export const stocks_asian_indices: MarketSymbol[] = [
 
 export const stocks_european_indices: MarketSymbol[] = [
     {
-        src: icons.STOCKSNETHERLAND25,
-        text: <Localize translate_text="Netherland 25" />,
+        src: icons.STOCKSNETHERLANDS25,
+        text: <Localize translate_text="Netherlands 25" />,
     },
     {
         src: icons.STOCKSEUROPE50,

@@ -100,6 +100,11 @@ export const BaseElement = css<BaseElementProps>`
     text-align: ${(props) => props.align || 'start'};
     padding: ${(props) => props.padding || ''};
     color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-black-3)')};
+
+    &[data-color='true'] {
+        color: var(--color-red);
+    }
+
     line-height: ${(props) => props.lh || '1.5'};
     max-width: ${(props) => props.max_width || ''};
     min-width: ${(props) => props.min_width || ''};

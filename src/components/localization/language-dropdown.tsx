@@ -198,7 +198,7 @@ const Dropdown = ({
                                         ml="0.8rem"
                                         weight="normal"
                                         data-type="paragraph-1"
-                                        data-color={current_option ? 'red' : 'black'}
+                                        data-color={current_option}
                                     >
                                         {option.text}
                                     </Header>

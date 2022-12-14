@@ -29,16 +29,31 @@ export const DerivStore = createContext<DerivStoreType>(null)
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
     const deriv_api = useDerivApi()
-
     const [show_non_eu_popup, setShowNonEuPopup] = useState(false)
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
-    const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_uk_country, setUkCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [user_country, setUserCountry] = useState(null)
-
     const breakpoints = useBreakpoints()
+
+    const useAvailabileP2pData = () => {
+        let [filtered_academy_video] = useAcademyData()
+        let [filtered_academy_blogs] = useAcademyData()
+
+        filtered_academy_video = filtered_academy_video.videos.filter((item) => {
+            return !is_p2p_allowed_country ? !item.video_title.includes('Deriv P2P') : item
+        })
+
+        filtered_academy_blogs = filtered_academy_blogs.blog.filter((item) => {
+            return !is_p2p_allowed_country ? !item.blog_title.includes('Deriv P2P') : item
+        })
+
+        const academy_data = [{ blog: filtered_academy_blogs, videos: filtered_academy_video }]
+        return academy_data
+    }
+
+    const [academy_data] = useAvailabileP2pData()
 
     useEffect(() => {
         // Fetch website status from the API & save in the cookies

@@ -12,6 +12,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/video-tutorials.png'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const SmallContainer = styled(Container)`
     width: 62%;
@@ -54,6 +55,8 @@ type VideosPageProps = {
 export type VideoDataType = AllVideosQuery['directus']['videos']
 
 const VideosPage = ({ data }: VideosPageProps) => {
+    const { academy_data } = React.useContext(DerivStore)
+    const all_videos = academy_data.videos
     // We need this to redirect users to the new videos page if ever they are accessing the old video link
     React.useEffect(() => {
         const video_title = queryParams.get('t')
@@ -63,7 +66,7 @@ const VideosPage = ({ data }: VideosPageProps) => {
         }
     }, [])
 
-    const video_data = useDataFilter(data.directus.videos)
+    const video_data = useDataFilter(all_videos)
 
     const meta_attributes = {
         og_title: 'Platform tours, webinars, and more.',

@@ -13,6 +13,7 @@ import { localize, WithIntl } from 'components/localization'
 import { Carousel } from 'components/elements'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { DerivStore } from 'store'
 
 export const query = graphql`
     query {
@@ -50,6 +51,7 @@ export type NonFeaturedVideoListDataType = AcademyIndexFragment['directus']['vid
 export type MarketNewsDataType = AcademyIndexFragment['directus']['market_news']
 
 const DerivBlog = ({ data }: DerivBlogProps) => {
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
     const { is_eu, is_uk } = useCountryRule()
 
     const meta_attributes = {
@@ -91,7 +93,9 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
     let recent_data = data.directus.recent
     let featured_data = data.directus.featured
     let homepage_banner_data = data.directus.homepage_banners
-    let non_featured_video_list_data = data.directus.videos
+    let non_featured_video_list_data = data.directus.videos.filter((item) => {
+        return !is_p2p_allowed_country ? !item.video_title.includes('Deriv P2P') : item
+    })
     let featured_video_list_data = data.directus.featured_video
 
     const {

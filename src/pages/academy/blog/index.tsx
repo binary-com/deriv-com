@@ -11,6 +11,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/deriv-blog.png'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const SmallContainer = styled(Container)`
     width: 62%;
@@ -52,7 +53,9 @@ type ArticlesPageProps = {
 export type ArticleDataType = AllArticlesQuery['directus']['blog']
 
 const ArticlesPage = ({ data }: ArticlesPageProps) => {
-    const article_data = useDataFilter(data.directus.blog)
+    const { academy_data } = React.useContext(DerivStore)
+    const all_articles = academy_data.blog
+    const article_data = useDataFilter(all_articles)
 
     const meta_attributes = {
         og_title: 'Trading tips, guides, and more.',

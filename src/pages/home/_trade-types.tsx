@@ -83,7 +83,7 @@ const items_details_cr: TradeTypesProps[] = [
         image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
         desc: (
-            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
+            <Localize translate_text="Multiply potential profit without risking more than your initial stake." />
         ),
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
@@ -93,7 +93,9 @@ const items_details_cr: TradeTypesProps[] = [
         image_url: 'trade_type_digitaloptions',
         image_alt: <Localize translate_text="Options" />,
         header: <Localize translate_text="Options" />,
-        desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
+        desc: (
+            <Localize translate_text="Earn a range of payouts by correctly predicting market movements." />
+        ),
         link: '/trade-types/options/',
         link_text: <Localize translate_text="More on options" />,
         alt: 'options',

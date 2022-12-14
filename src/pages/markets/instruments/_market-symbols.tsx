@@ -973,11 +973,6 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Teva Pharmaceutical Inds" />,
     },
     {
-        src: icons.STOCKSTWITTER,
-        text: <Localize translate_text="Twitter" />,
-    },
-
-    {
         src: icons.STOCKSUBER,
         text: <Localize translate_text="Uber Technologies Inc" />,
     },

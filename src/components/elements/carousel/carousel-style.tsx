@@ -101,8 +101,7 @@ export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
         cursor: pointer;
     }
 `
-
-export const StyledChevron = styled(Chevron)`
+export const StyledChevron = styled(() => <Chevron />)`
     height: 24px;
     width: 24px;
     ${(props) => {

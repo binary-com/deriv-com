@@ -62,7 +62,7 @@ const StyledCardWrapper = styled(CardWrapper)`
     flex-wrap: wrap;
 
     @media ${device.tabletL} {
-        align-items: start;
+        align-items: center;
     }
 `
 
@@ -103,8 +103,7 @@ const StyledHeaderCommission = styled(StyledHeader)`
         text-align: center;
     }
     @media ${device.tabletL} {
-        text-align: start;
-        width: 38rem;
+        text-align: center;
     }
 `
 const StyledHeaderDerivx = styled(Header)`
@@ -113,6 +112,7 @@ const StyledHeaderDerivx = styled(Header)`
 
     @media ${device.tabletL} {
         margin-left: 0;
+        text-align: center;
     }
 `
 

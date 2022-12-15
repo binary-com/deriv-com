@@ -374,10 +374,10 @@ const Subscribe = () => {
                             <AgreementLabel
                                 isChecked={is_checked}
                                 handleChangeCheckbox={handleChange}
-                                color="#C2C2C2"
+                                color="var(--color-grey-19)"
                                 link_text={localize('Send me marketing materials too!')}
                             />
-                            <AdditionalFlex color="#C2C2C2">
+                            <AdditionalFlex color="var(--color-grey-19)">
                                 <Localize
                                     fontSize="var(--text-size-xs)"
                                     translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
@@ -396,12 +396,16 @@ const Subscribe = () => {
                         </>
                     )}
                     {submit_status === 'success' && (
-                        <TextWrapper color={'#01a79f'} font_size={15} margin_top={'10px'}>
+                        <TextWrapper
+                            color="var(--color-green-6)"
+                            font_size={15}
+                            margin_top={'10px'}
+                        >
                             <Localize translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox" />
                         </TextWrapper>
                     )}
                     {submit_status === false && (
-                        <TextWrapper color={'#ff444f'} font_size={15} margin_top={'10px'}>
+                        <TextWrapper color="var(--color-red)" font_size={15} margin_top={'10px'}>
                             <Localize translate_text="If you have AdBlock installed, please disable it in order to subscribe" />
                         </TextWrapper>
                     )}

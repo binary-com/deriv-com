@@ -46,7 +46,7 @@ const Wrapper = styled.div`
     }
 `
 const Container = styled(Flex)`
-    background: #0e0e0e;
+    background: var(--color-black);
     border-radius: 8px;
     overflow: hidden;
     width: 100%;

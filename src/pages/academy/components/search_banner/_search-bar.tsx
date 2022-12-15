@@ -37,7 +37,7 @@ const FlexSearchBar = styled(Flex)<{ is_maximise: boolean }>`
     max-width: 400px;
     width: 100%;
     background-color: rgba(236, 241, 247, 0.5);
-    border: 2px solid #ecf1f7;
+    border: 2px solid var(--color-blue-24);
     border-radius: 20px;
     position: relative;
     overflow: hidden;
@@ -56,7 +56,7 @@ const FlexSearchBar = styled(Flex)<{ is_maximise: boolean }>`
 
             @media ${device.tabletL} {
                 border-radius: 20px;
-                border: 2px solid #ecf1f7;
+                border: 2px solid var(--color-blue-24);
             }
         `}
 

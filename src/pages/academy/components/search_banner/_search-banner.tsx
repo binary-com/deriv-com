@@ -194,7 +194,10 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                     color="grey-5"
                                                     p="8px"
                                                     mb="8px"
-                                                    style={{ borderBottom: '1px solid #D6DADB' }}
+                                                    style={{
+                                                        borderBottom:
+                                                            '1px solid var(--color-grey-7)',
+                                                    }}
                                                 >
                                                     {filter.type.toUpperCase()}
                                                 </Header>

@@ -16,7 +16,7 @@ import { DerivStore } from 'store'
 import device from 'themes/device'
 
 const StyledHeaderWrapper = styled(Flex)`
-    box-shadow: inset 0 -1px 0 #f2f3f4;
+    box-shadow: inset 0 -1px 0 var(--color-grey-8);
 `
 const AllArticleButton = styled(LinkButton)`
     margin-top: 10px;
@@ -46,7 +46,7 @@ const ArticlePaginationWrapper = styled(Flex)`
         li {
             width: 32px;
             height: 32px;
-            border: 1px solid #dfe3e8;
+            border: 1px solid var(--color-blue-25);
             border-radius: 4px;
             margin: 0 4px;
 
@@ -74,7 +74,7 @@ const ArticlePaginationWrapper = styled(Flex)`
         border: 1px solid var(--color-black-3) !important;
     }
     .pagination-disabled {
-        background: #f2f3f4;
+        background: var(--color-grey-8);
         opacity: 0.5;
     }
 `

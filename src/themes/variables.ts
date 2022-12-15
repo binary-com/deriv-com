@@ -88,6 +88,9 @@ const Variables = css`
         --color-blue-21: #eaf4f5;
         --color-blue-22: #8aadc5;
         --color-blue-23: #d3e0e9;
+        --color-blue-24: #ecf1f7;
+        --color-blue-25: #dfe3e8;
+        --color-blue-26: #122734;
         --color-yellow: #fff2df;
         --color-yellow-2: #4c3c08;
         --color-yellow-3: #ffc71b;
@@ -101,6 +104,7 @@ const Variables = css`
         --color-green-3: #26d367;
         --color-green-4: #20403a;
         --color-green-5: #08100e;
+        --color-green-6: #01a79f;
 
         /* sizes */
         --text-size-xxs: 1.2rem;

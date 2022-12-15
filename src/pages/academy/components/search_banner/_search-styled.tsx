@@ -85,7 +85,7 @@ export const SearchSuggestionWrapper = styled(Flex)`
     position: absolute;
     top: 34px;
     padding: 8px 24px 12px;
-    border: 2px solid #ecf1f7;
+    border: 2px solid var(--color-blue-24);
     border-top: unset;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;

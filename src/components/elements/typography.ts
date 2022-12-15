@@ -101,7 +101,7 @@ export const BaseElement = css<BaseElementProps>`
     padding: ${(props) => props.padding || ''};
     color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-black-3)')};
 
-    &[data-color='true'] {
+    &[data-color='red'] {
         color: var(--color-red);
     }
 

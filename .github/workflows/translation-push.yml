@@ -7,7 +7,7 @@ on:
       - completed
       
 env: 
- BRANCH: github.event.workflow_run.head_branch   
+ BRANCH: ${{ github.event.workflow_run.head_branch }}
 jobs:
     push-translation:
         if: |

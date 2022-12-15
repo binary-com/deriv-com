@@ -121,30 +121,12 @@ const Spinner = () => (
 type TSuccessBox = {
     unsubscribed: boolean
 }
-const SuccessBox = (unsubscribed: TSuccessBox) => {
-    return (
-        <>
-            {unsubscribed ? (
-                <SuccessCard>
-                    <img src={RejectIcon} alt="sucess" width={48} height={48} />
-                    {localize("You're not able to unsubscribe")}
-                </SuccessCard>
-            ) : (
-                <SuccessCard>
-                    <img src={CheckIcon} alt="sucess" width={48} height={48} />
-                    {localize('Unsubscribed successfully')}
-                </SuccessCard>
-            )}
-        </>
-    )
-}
 
 const UnsubscribePage = () => {
     const { send } = useDerivWS()
 
     const [complete_status, setCompleteStatus] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [unsubscribed, setUnsubscribed] = useState(false)
 
     const query = queryParams.get('hash') || ''
     const unsubscribe_hash = isValid(query) && decode(query).split('+')
@@ -160,10 +142,6 @@ const UnsubscribePage = () => {
         setLoading(false)
         setCompleteStatus(true)
     }
-    const handleReject = () => {
-        handleResponse()
-        setUnsubscribed(true)
-    }
 
     const UnsubscribeAPICall = useCallback(() => {
         setLoading(true)
@@ -173,12 +151,8 @@ const UnsubscribePage = () => {
                 binary_user_id: binary_user_id,
                 checksum: checksum,
             },
-            (response) => {
-                if (!response.error) {
-                    handleResponse()
-                } else {
-                    handleReject()
-                }
+            () => {
+                handleResponse()
             },
         )
     }, [send, binary_user_id, checksum])
@@ -193,7 +167,10 @@ const UnsubscribePage = () => {
             {!loading && (
                 <UnsubscribeWrapper>
                     {complete_status ? (
-                        <SuccessBox unsubscribed={unsubscribed} />
+                        <SuccessCard>
+                            <img src={CheckIcon} alt="sucess" width={48} height={48} />
+                            {localize('Unsubscribed successfully')}
+                        </SuccessCard>
                     ) : (
                         <UnsubscribeForm>
                             <Title>

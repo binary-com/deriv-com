@@ -6,6 +6,8 @@ on:
     types:
       - completed
       
+env: 
+ BRANCH: github.event.workflow_run.head_branch   
 jobs:
     push-translation:
         if: |
@@ -24,10 +26,9 @@ jobs:
         steps:
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
               run: |
-               BRANCH='${{ github.event.workflow_run.head_branch }}'
                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
 
-               echo 'Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}'
+               echo "Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/$CLEAN_BRANCH'
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
               with:
@@ -43,7 +44,8 @@ jobs:
             - name: Download New Translations ⬇️
               if: github.event.workflow_run.head_commit.message == 'auto-pull-translation'
               run: |
-                  crowdin download -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  ${{ github.event.workflow_run.head_branch }} -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
+                  CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
+                  crowdin download -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  $CLEAN_BRANCH -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
                   if git diff --exit-code; then
                     echo "No new translation data to commit"
                   else
@@ -53,11 +55,12 @@ jobs:
                     git config --global user.email "80095553+DerivFE@users.noreply.github.com"
                     git add -u
                     git commit -m "translation: 📚 sync translations from crowdin feature branch"
-                    git push origin ${{ github.event.workflow_run.head_branch }}
+                    git push origin $CLEAN_BRANCH
                   fi
             - name: Pushing Strings & Translations ⬆️
               run: |
-                   crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
+                   CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
+                   crowdin upload sources -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:

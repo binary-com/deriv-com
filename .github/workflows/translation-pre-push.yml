@@ -7,14 +7,26 @@ on:
         - 'master*'
 env: 
  BRANCH: github.head_ref
- CLEAN_BRANCH: "${BRANCH//[^[:alnum:]-_]/}"         
+ 
 jobs:
     check-translation-branch:
         runs-on: ubuntu-latest
-        if: startsWith($CLEAN_BRANCH, 'translation') || startsWith($CLEAN_BRANCH, 'stp')
+        if: |
+            (startsWith($CLEAN_BRANCH, 'translation') || startsWith($CLEAN_BRANCH, 'stp')) &&
+            !contains(github.head_ref, '!') &&
+            !contains(github.head_ref, '@') &&   
+            !contains(github.head_ref, '#') &&   
+            !contains(github.head_ref, '$') &&   
+            !contains(github.head_ref, '%') &&   
+            !contains(github.head_ref, '^') &&   
+            !contains(github.head_ref, '&') &&   
+            !contains(github.head_ref, '*') &&   
+            !contains(github.head_ref, '(') &&   
+            !contains(github.head_ref, ')') 
         steps:
             - name: Branch Check 🔍 
               run: |
+                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"         
                 echo "$CLEAN_BRANCH is a valid branch for translation workflow"
 
               

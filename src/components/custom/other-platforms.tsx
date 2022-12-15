@@ -322,7 +322,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                                     <img src={Options} alt="Options" width="32" height="32" />
                                 )}
                                 content={
-                                    <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
+                                    <Localize translate_text="Earn a range of payouts without risking more than your initial stake." />
                                 }
                                 title={<Localize translate_text="Options" />}
                                 onClick={onClick}
@@ -335,7 +335,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                                 <img src={Multipliers} alt="Multipliers" width="32" height="32" />
                             )}
                             content={
-                                <Localize translate_text="Combine the upside of CFDs with the simplicity of options." />
+                                <Localize translate_text="Get the upside of CFDs without the downside of losing more than your stake." />
                             }
                             title={<Localize translate_text="Multipliers" />}
                             onClick={onClick}

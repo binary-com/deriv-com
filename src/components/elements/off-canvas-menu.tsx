@@ -202,7 +202,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                                 />
                                             )}
                                             content={
-                                                <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
+                                                <Localize translate_text="Earn a range of payouts without risking more than your initial stake." />
                                             }
                                             title={<Localize translate_text="Options" />}
                                             onClick={handleArrowClick}
@@ -222,7 +222,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                             />
                                         )}
                                         content={
-                                            <Localize translate_text="Combine the upside of CFDs with the simplicity of options." />
+                                            <Localize translate_text="Get the upside of CFDs without the downside of losing more than your stake." />
                                         }
                                         title={<Localize translate_text="Multipliers" />}
                                         onClick={handleArrowClick}

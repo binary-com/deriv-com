@@ -63,6 +63,7 @@ import {
     Dropdown,
     DropdownSearch,
     Header,
+    ImageWithDireciton,
     LocalizedLinkText,
     Text,
 } from 'components/elements'
@@ -119,7 +120,7 @@ const MarginCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"

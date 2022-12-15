@@ -274,7 +274,7 @@ const SideSubscriptionBanner = () => {
 
                         {name_error_msg && (
                             <>
-                                <ErrorMessages lh="1.4" align="left">
+                                <ErrorMessages lh="1.4" align="start">
                                     {name_error_msg}
                                 </ErrorMessages>
 
@@ -302,7 +302,7 @@ const SideSubscriptionBanner = () => {
                         />
                         {email_error_msg && (
                             <>
-                                <ErrorMessages lh="1.4" align="left">
+                                <ErrorMessages lh="1.4" align="start">
                                     {email_error_msg}
                                 </ErrorMessages>
 

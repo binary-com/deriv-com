@@ -54,7 +54,7 @@ const eucontent: ContentType[] = [
     {
         header: <Localize translate_text="CFDs" />,
         text: (
-            <Localize translate_text="Trade CFDs on forex, stocks, stock indices, derived, cryptocurrencies, and commodities." />
+            <Localize translate_text="Trade CFDs on forex, stocks, stock indices, synthetic indices, cryptocurrencies, and commodities with leverage." />
         ),
         icon: <StyledIcon src={CFDsIcon} alt="cfds-icon" />,
         show_eu: true,
@@ -79,7 +79,7 @@ const ClientCard = styled.article`
     max-width: 40rem;
     padding: 3.2rem 2.4rem 4rem;
     position: relative;
-    height: 176px;
+    height: 196px;
 
     :first-child {
         margin: 0;

@@ -1,13 +1,14 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Carousel, Header, QueryImage, Text } from 'components/elements'
+import { Carousel, Header, QueryImage, Text, ImageWithDireciton } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Flex, SectionContainer } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type TradeTypesProps = {
     image_url: string
@@ -67,7 +68,7 @@ const items_details_row: TradeTypesProps[] = [
         image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
         desc: (
-            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
+            <Localize translate_text="Multiply potential profit without risking more than your initial stake." />
         ),
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
@@ -77,7 +78,9 @@ const items_details_row: TradeTypesProps[] = [
         image_url: 'trade_type_digitaloptions',
         image_alt: <Localize translate_text="Options" />,
         header: <Localize translate_text="Options" />,
-        desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
+        desc: (
+            <Localize translate_text="Earn a range of payouts by correctly predicting market movements." />
+        ),
         link: '/trade-types/options/',
         link_text: <Localize translate_text="More on options" />,
         alt: 'options',
@@ -136,8 +139,9 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
         props.$visibility
             ? '0 0 24px rgba(0, 0, 0, 0.08), 0 24px 24px rgba(0, 0, 0, 0.08)'
             : 'inset 0 0 0 1px var(--color-grey-17)'};
-    padding: ${(props) => (props.$visibility ? '24px 12px 50px' : '24px 12px 32px')};
-    height: auto;
+    padding: 24px 12px 0;
+    height: ${(props) => (props.$visibility ? '100%' : '90%')};
+    justify-content: center;
     background: var(--color-white);
     position: relative;
     flex-direction: column;
@@ -145,16 +149,13 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
     border-radius: 8px;
     max-width: 100%;
     transition: all 0.4s ease-out;
-    align-items: flex-start;
+    align-items: center;
 
     @media ${device.tablet} {
         max-width: 328px;
-        padding: 24px 32px 68px;
-        margin-bottom: 36px;
     }
 
     @media ${device.mobileS} {
-        padding: 12px;
         height: 424px;
     }
 `
@@ -182,16 +183,17 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
     }
 `
 
+const MobileContentFlex = styled(Flex)`
+    gap: 40px;
+`
+
 const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     opacity: ${(props) => (props.$visibility ? '1' : '0')};
     width: fit-content;
     padding: 10px 16px;
     border-radius: 100px;
     background-color: var(--color-white);
-    position: absolute;
-    bottom: -8%;
-    left: 50%;
-    transform: translate(-50%, -42%);
+    margin-bottom: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -215,6 +217,10 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     }
 `
 
+const DescriptionContainer = styled(Flex)`
+    flex: 1;
+`
+
 const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
@@ -235,17 +241,20 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
                     onMouseOut={() => setDetailsVisibility(false)}
                 />
             </ImageWrapper>
-            <Header type="subtitle-1" align="center">
-                {items_details.header}
-            </Header>
-            <ContentWrapper $visibility={details_visible && !is_mobile}>
-                <Header type="paragraph-1" weight="normal" align="center">
-                    {items_details.desc}
+
+            <DescriptionContainer ai={'center'} jc={'center'} direction={'column'}>
+                <Header type="subtitle-1" align="center">
+                    {items_details.header}
                 </Header>
-            </ContentWrapper>
+                <ContentWrapper $visibility={details_visible && !is_mobile}>
+                    <Header type="paragraph-1" weight="normal" align="center">
+                        {items_details.desc}
+                    </Header>
+                </ContentWrapper>
+            </DescriptionContainer>
             <LearnMore to={items_details.link} $visibility={details_visible && !is_mobile}>
                 <Text mr="1rem">{items_details.link_text}</Text>
-                <img src={Arrow} alt={items_details.alt} />
+                <ImageWithDireciton src={Arrow} alt={items_details.alt} />
             </LearnMore>
         </ItemsWrapper>
     )
@@ -255,26 +264,33 @@ const TradeTypes = (): React.ReactNode => {
     const { is_row, is_eu } = useCountryRule()
     const items_details_by_region = (is_eu && items_details_eu) || items_details_row
     const [is_not_big_screen] = useBrowserResize(1979)
+
+    const lang_direction = useLangDirection()
+
     const settings = {
         options: {
             loop: false,
             align: 'start',
             containScroll: 'trimSnaps',
+            direction: lang_direction,
         },
         view_port: {
-            height: is_not_big_screen ? '600px' : '660px',
+            blockSize: is_not_big_screen ? '600px' : '660px',
         },
         container_style: {
-            maxWidth: '100%',
-            margin: '0 auto',
-            height: is_not_big_screen ? '600px' : '660px',
+            maxInlineSize: '100%',
+            marginBlockStart: '0',
+            marginBlockEnd: '0',
+            marginInlineStart: 'auto',
+            marginInlineEnd: 'auto',
+            blockSize: is_not_big_screen ? '600px' : '660px',
         },
         slide_style: {
-            width: '384px',
-            height: 'auto',
-            marginRight: '24px',
-            paddingTop: '24px',
-            paddingBottom: '48px',
+            inlineSize: '384px',
+            blockSize: 'auto',
+            marginInlineEnd: '24px',
+            paddingBlockStart: '24px',
+            paddingBlockEnd: '48px',
             position: 'relative',
         },
         last_slide_no_spacing: true,
@@ -302,25 +318,17 @@ const TradeTypes = (): React.ReactNode => {
                 <Flex>
                     <Carousel {...settings}>
                         {items_details_by_region.map((item) => {
-                            return (
-                                <Flex key={item.image_url} ai="flex-start">
-                                    <TradeItems items_details={item} />
-                                </Flex>
-                            )
+                            return <TradeItems key={item.image_url} items_details={item} />
                         })}
                     </Carousel>
                 </Flex>
             </DesktopWrapper>
             <MobileWrapper>
-                <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
+                <MobileContentFlex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
                     {items_details_by_region.map((item) => {
-                        return (
-                            <Flex key={item.link} ai="flex-start">
-                                <TradeItems items_details={item} />
-                            </Flex>
-                        )
+                        return <TradeItems key={item.link} items_details={item} />
                     })}
-                </Flex>
+                </MobileContentFlex>
             </MobileWrapper>
         </StyledSection>
     )

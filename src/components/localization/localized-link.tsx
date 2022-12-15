@@ -1,4 +1,4 @@
-import React, { CSSProperties, Ref, useContext, useEffect, useState } from 'react'
+import React, { CSSProperties, Ref, useContext } from 'react'
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
@@ -10,6 +10,7 @@ import { localized_link_url } from 'common/constants'
 import {
     getLocalizedUrl,
     getDerivAppLocalizedURL,
+    getSmartTraderLocalizedURL,
     getThaiExcludedLocale,
     replaceLocale,
 } from 'common/utility'
@@ -141,7 +142,15 @@ export const LocalizedLink = React.forwardRef(
         const [is_mounted] = usePageLoaded()
 
         if (external) {
-            return <ExternalLink mounted={is_mounted} locale={locale} ref={ref} {...props} />
+            return (
+                <ExternalLink
+                    mounted={is_mounted}
+                    // HINT: In our project we don't have Arabic translations yet, so we have to use the default locale (en) instead
+                    locale={locale === 'ar' ? 'en' : locale}
+                    ref={ref}
+                    {...props}
+                />
+            )
         }
 
         return <InternalLink mounted={is_mounted} locale={locale} ref={ref} {...props} />
@@ -202,6 +211,9 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
         return `${localized_link_url[type]}?lang=${affiliate_lang}`
     } else if (deriv_other_products.includes(type)) {
         if (type === 'binary_bot') return `${localized_link_url[type]}/${to ? to : ''}?l=${locale}`
+        else if (type === 'smart_trader')
+            return getSmartTraderLocalizedURL(localized_link_url[type], locale, to)
+
         return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`

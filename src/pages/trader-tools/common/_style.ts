@@ -544,6 +544,7 @@ export const FormulaContainer = styled(Flex)`
     border-radius: 4px;
     background-color: var(--color-blue-4);
     position: relative;
+    direction: ltr;
 `
 
 export const FormulaContainerMobile = styled(Flex)`

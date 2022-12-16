@@ -69,7 +69,7 @@ const MarketSubHeader = styled(Header)`
 export const Hero = () => {
     useLazyVideo()
 
-    const { is_eu, is_uk, is_row } = useCountryRule()
+    const { is_eu, is_row } = useCountryRule()
 
     return (
         <BackgroundWrapper>
@@ -94,11 +94,6 @@ export const Hero = () => {
                     {is_eu && (
                         <>
                             <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetics, stocks & indices, cryptocurrencies and commodities." />
-                        </>
-                    )}
-                    {is_uk && (
-                        <>
-                            <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, stocks & indices and commodities." />
                         </>
                     )}
                     {is_row && (

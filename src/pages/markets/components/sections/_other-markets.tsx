@@ -240,7 +240,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
-    const { is_uk, is_eu } = useCountryRule()
+    const { is_eu } = useCountryRule()
 
     const markets = ['', 'forex', 'derived', 'stock_indices', 'cryptocurrencies', 'commodities', '']
 
@@ -254,11 +254,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         '',
     ]
 
-    const uk_markets = ['', 'forex', 'derived', 'stock_indices', 'commodities', '']
-
-    const filteredMarkets = (is_eu ? eu_markets : is_uk ? uk_markets : markets).filter(
-        (market) => market !== except,
-    )
+    const filteredMarkets = (is_eu ? eu_markets : markets).filter((market) => market !== except)
 
     const lang_direction = useLangDirection()
 

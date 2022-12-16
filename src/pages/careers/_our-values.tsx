@@ -91,7 +91,7 @@ const OurValues = () => (
                 </FirstColumn>
                 <div>
                     <GridItem direction="column">
-                        <img src={Integrity} alt="" />
+                        <img src={Integrity} alt="Integrity" />
                         <MiddleText as="h4" type="sub-section-title">
                             Integrity
                         </MiddleText>
@@ -104,7 +104,7 @@ const OurValues = () => (
                     </GridItem>
                     <GridItem direction="column" style={{ marginBottom: 0 }}>
                         <Desktop>
-                            <img src={Competence} alt="" />
+                            <img src={Competence} alt="Competence" />
                             <MiddleText as="h4" type="sub-section-title">
                                 Competence
                             </MiddleText>
@@ -114,7 +114,7 @@ const OurValues = () => (
                             </Text>
                         </Desktop>
                         <Mobile>
-                            <img src={Customer} alt="" />
+                            <img src={Customer} alt="Customer focus" />
                             <MiddleText as="h4" type="sub-section-title">
                                 Customer focus
                             </MiddleText>
@@ -129,7 +129,7 @@ const OurValues = () => (
                 <ThirdColumn>
                     <GridItem direction="column">
                         <Desktop>
-                            <img src={Customer} alt="" />
+                            <img src={Customer} alt="Customer focus" />
                             <MiddleText as="h4" type="sub-section-title">
                                 Customer focus
                             </MiddleText>
@@ -140,7 +140,7 @@ const OurValues = () => (
                             </Text>
                         </Desktop>
                         <Mobile>
-                            <img src={Competence} alt="" />
+                            <img src={Competence} alt="Competence" />
                             <MiddleText as="h4" type="sub-section-title">
                                 Competence
                             </MiddleText>
@@ -151,7 +151,7 @@ const OurValues = () => (
                         </Mobile>
                     </GridItem>
                     <GridItem direction="column" style={{ marginBottom: 0 }}>
-                        <img src={Teamwork} alt="" />
+                        <img src={Teamwork} alt="Teamwork" />
                         <MiddleText as="h4" type="sub-section-title">
                             Teamwork
                         </MiddleText>

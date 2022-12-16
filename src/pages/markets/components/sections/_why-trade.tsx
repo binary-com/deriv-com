@@ -2,19 +2,17 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { Button } from 'components/form'
-import { localize } from 'components/localization'
 import device from 'themes/device'
-import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type WhyTradeProps = {
     children: ReactElement[]
     header: ReactElement
     text: ReactElement
+    description?: ReactElement
 }
 
 const Item = styled(Flex)`
-    max-width: 18rem;
+    max-width: 19rem;
     width: 100%;
 
     img {
@@ -23,12 +21,11 @@ const Item = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        max-width: 19rem;
-        margin-top: 24px;
+        max-width: 18rem;
+        gap: 6px;
 
         ${Text} {
-            font-size: 2rem;
-            margin-top: 8px;
+            font-size: 14px;
         }
     }
 `
@@ -42,8 +39,9 @@ const ItemContainer = styled(Box)`
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
-        align-items: center;
-        margin: 0 0 32px 0;
+        margin: 20px 0 32px 0;
+        gap: 22px;
+        max-width: 40.6rem;
     }
     @media (max-width: 336px) {
         justify-content: center;
@@ -51,45 +49,55 @@ const ItemContainer = styled(Box)`
 `
 const StyledHeader = styled(Header)`
     font-size: 48px;
+
     @media ${device.tablet} {
         text-align: center;
-        max-width: unset;
+        max-width: 80vw;
         font-size: 28px;
         line-height: 1.5;
         margin-bottom: 8px;
     }
 `
 const StyledText = styled(Text)`
-    padding: 0 2px;
+    margin-bottom: 80px;
+    text-align: center;
+
     @media ${device.tabletL} {
-        font-size: 1.8rem;
-        padding: 0;
+        width: 88vw;
+        font-size: 16px;
+        margin: 30px 0;
+    }
+    @media ${device.mobileM} {
+        width: 88vw;
+        font-size: 14px;
     }
 `
 const StyledSection = styled(SectionContainer)`
+    padding: 6rem 0;
+
     @media ${device.tabletL} {
-        padding: 40px 16px;
+        padding: 0 16px;
     }
 `
-const StyledButton = styled(Button)`
-    border-radius: 4px;
+const StyledTextContent = styled(Text)`
+    text-align: center;
+    margin-top: 1.6rem;
+    font-size: 16px;
+
     @media ${device.tabletL} {
-        font-size: 1.75rem;
-        padding: 1.25rem 4.75rem;
+        font-size: 14px;
     }
 `
 
-export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
-    const handleSignup = useHandleSignup()
-
+export const WhyTrade = ({ children, header, description }: WhyTradeProps) => {
     return (
-        <StyledSection background="#f9fbff" padding="120px 16px">
+        <StyledSection>
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
+                <StyledText>{description}</StyledText>
                 <div>
-                    <StyledHeader as="h3" type="section-title" align="center" mb="1.2rem" lh="1.25">
+                    <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
                         {header}
                     </StyledHeader>
-                    <StyledText align="center">{text}</StyledText>
                 </div>
                 <ItemContainer max_width="48.6rem" width="100%">
                     {children.map((child, idx) => {
@@ -98,19 +106,12 @@ export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
                             return (
                                 <Item key={idx} ai="center" direction="column">
                                     {icon}
-                                    {
-                                        <Text align="center" mt="1.6rem">
-                                            {text}
-                                        </Text>
-                                    }
+                                    {<StyledTextContent>{text}</StyledTextContent>}
                                 </Item>
                             )
                         }
                     })}
                 </ItemContainer>
-                <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
-                    {localize('Create free demo account')}
-                </StyledButton>
             </Flex>
         </StyledSection>
     )

@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import Shield from 'images/svg/who-we-are/shield.svg'
 import Star from 'images/svg/who-we-are/star.svg'
 import People from 'images/svg/who-we-are/people.svg'
@@ -13,7 +13,7 @@ type FirstSectionTextsType = {
 export const first_section_texts: FirstSectionTextsType[] = [
     {
         text: (
-            <Localize translate_text="Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, indices, cryptocurrencies, commodities, and synthetics to millions of registered users across the globe." />
+            <Localize translate_text="Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, stocks & indices, cryptocurrencies, commodities, and derived to millions of registered users across the globe." />
         ),
     },
     {
@@ -195,6 +195,12 @@ export const desktop_pins: MapPinType[] = [
         link: '/careers/locations/paris',
     },
     {
+        left: '28.3%',
+        top: '50.8%',
+        title: <Localize translate_text="Road Town, British Virgin Islands" />,
+        link: '/careers/locations/roadtown',
+    },
+    {
         left: '49.4%',
         top: '27.9%',
         title: <Localize translate_text="Berlin, Germany" />,
@@ -235,9 +241,15 @@ export const mobile_pins: MapPinType[] = [
     },
     {
         left: '22%',
-        top: '48%',
+        top: '47.7%',
         title: <Localize translate_text="George Town, Cayman Islands" />,
         link: '/careers/locations/georgetown',
+    },
+    {
+        left: '26%',
+        top: '48%',
+        title: <Localize translate_text="Road Town, British Virgin Islands" />,
+        link: '/careers/locations/roadtown',
     },
     {
         left: '48.5%',
@@ -337,13 +349,19 @@ type DerivNumbersType = {
 }
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: <Localize translate_text="950+" />, title: <Localize translate_text="employees" /> },
+    { count: <Localize translate_text="1000+" />, title: <Localize translate_text="employees" /> },
     {
         count: <Localize translate_text="50+" />,
         title: <Localize translate_text="nationalities" />,
     },
-    { count: localize(all_offices.length), title: <Localize translate_text="locations" /> },
-    { count: localize(all_countries.length), title: <Localize translate_text="countries" /> },
+    {
+        count: <Localize translate_text={String(all_offices.length)} />,
+        title: <Localize translate_text="locations" />,
+    },
+    {
+        count: <Localize translate_text={String(all_countries.length)} />,
+        title: <Localize translate_text="countries" />,
+    },
 ]
 
 export const deriv_numbers: DerivNumbersType[][] = [

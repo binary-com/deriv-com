@@ -2,10 +2,13 @@ import React, { ReactNode, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import useScreenSize from 'components/hooks/use-screen-size'
+
+type BreakPointType = number | SizeType
 
 type ResponsiveContainerProps = {
     children: ReactNode
-    breakpoint?: number | SizeType
+    breakpoint?: BreakPointType
     className?: string
 }
 
@@ -27,7 +30,7 @@ const MobileLayer = styled.div<LayerProps>`
     }
 `
 
-const getBreakPoint = (breakpoint: ResponsiveContainerProps['breakpoint']) => {
+const getBreakPoint = (breakpoint: BreakPointType) => {
     if (typeof breakpoint === 'number') {
         return breakpoint
     } else {
@@ -75,4 +78,20 @@ export const Mobile = ({
     ) : (
         <MobileLayer breakpoint={breakpoint_size}>{children}</MobileLayer>
     )
+}
+
+type TVisiblityProps = {
+    config: Partial<ReturnType<typeof useScreenSize>>
+    children?: ReactNode
+}
+
+export const Visibility = ({ children, config }: TVisiblityProps) => {
+    const visiblity = useScreenSize()
+
+    const filterKeys = Object.keys(config)
+    const is_visible = filterKeys.some((key) => {
+        return visiblity[key]
+    })
+
+    return is_visible ? <>{children}</> : null
 }

@@ -5,10 +5,11 @@ import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
-import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking.js'
+import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
 import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
+import './static/css/noto-sans-arabic.css'
 
 const is_browser = typeof window !== 'undefined'
 

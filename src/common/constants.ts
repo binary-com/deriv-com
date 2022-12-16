@@ -35,16 +35,25 @@ const getDomainAppID = () => {
     else if (getDomainUrl() === deriv_be_url) return deriv_be_app_id
     else return deriv_com_app_id
 }
-
-export const eu_domains = ['eu', 'staging-eu']
+// '-eutestlink-' and '-uktestlink-' regexes are meant to create test links for eu and uk countries.
+// To make them work on your test links you need to include '-eutestlink-' or '-uktestlink-' in your branch name.
+export const eu_domains = [
+    new RegExp(/^eu$/),
+    new RegExp(/^staging-eu$/),
+    new RegExp(/-eutestlink-/),
+]
 export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com']
-export const uk_domains = ['uk', 'staging-uk']
+export const uk_domains = [
+    new RegExp(/^uk$/),
+    new RegExp(/^staging-uk$/),
+    new RegExp(/-uktestlink-/),
+]
 
 // URL
 export const domain_full_url = `https://${getDomainUrl()}`
 export const deriv_app_id = getDomainAppID()
 export const deriv_app_url = `https://app.${getDomainUrl()}`
-export const deriv_api_url = `https://api.${getDomainUrl()}`
+export const deriv_api_url = `https://api.${getDomainUrl()}/docs`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
@@ -59,6 +68,7 @@ export const affiliate_signup_url = `https://login.${getDomainUrl()}/signup.php`
 export const affiliate_signin_url = `https://login.${getDomainUrl()}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`
 export const oauth_url = `https://oauth.${getDomainUrl()}`
+export const whatsapp_url = `https://wa.me/35699578341`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 export const besquare_signup_url =
@@ -67,6 +77,18 @@ export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 export const deriv_app_languages = ['id', 'pt', 'es']
+export const smart_trader_languages = [
+    'es',
+    'fr',
+    'id',
+    'it',
+    'pl',
+    'pt',
+    'ru',
+    'vi',
+    'zh_cn',
+    'zh_tw',
+]
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
 export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'
@@ -74,6 +96,12 @@ export const derivx_huawei_url = 'https://appgallery.cloud.huawei.com/ag/n/app/C
 export const deriv_go_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.app'
 export const deriv_go_huaweiappgallery_url = 'https://appgallery.huawei.com/#/app/C103801913'
 export const deriv_go_ios_url = 'https://apps.apple.com/my/app/deriv-go/id1550561298'
+export const dmt5_web_browser_url =
+    'https://trade.mql5.com/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979'
+export const dmt5_windows =
+    'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe?utm_source=www.metatrader5.com&utm_campaign=download'
+export const dmt5_app_gallery_url =
+    'https://download.mql5.com/cdn/mobile/mt5/android/app-gallery?hl=en&utm_source=www.metatrader5.com&utm_campaign=install.metaquotes'
 export const dmt5_ios_url =
     'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
 export const dmt5_android_url =
@@ -104,6 +132,7 @@ export const p2p_huawei_appgallery_url = 'https://appgallery.huawei.com/#/app/C1
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.eu'
+export const zoho_jobs_url = 'https://deriv.zohorecruit.eu/jobs/'
 export const zoho_career_url = 'https://deriv.zohorecruit.eu/jobs/Careers'
 export const live_chat_redirection_link = `?is_livechat_open=true`
 export const localized_link_url = Object.freeze({
@@ -129,21 +158,9 @@ export const default_server_url = 'green.binaryws.com'
 
 export const live_chat_key = 'live_chat_redirection'
 
-export const fb_non_eu_url = 'https://www.facebook.com/derivdotcom'
-export const fb_uk_url = 'https://www.facebook.com/derivUK/'
-export const fb_eu_url = 'https://www.facebook.com/derivEU/'
-export const fb_url_career = 'https://www.facebook.com/derivcareers'
-export const instagram_non_eu_url = 'https://www.instagram.com/deriv_official/'
-export const instagram_uk_url = 'https://www.instagram.com/deriv_uk/'
-export const instagram_eu_url = 'https://www.instagram.com/deriv_eu/'
-export const instagram_url_career = 'https://www.instagram.com/derivcareers/'
-export const linkedin_url = 'https://www.linkedin.com/company/derivdotcom/'
-export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom/life/'
-export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
-export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
-export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
+export const youtube_url = 'https://www.youtube.com/@deriv'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
-export const loss_percent = 69
+export const loss_percent = 70

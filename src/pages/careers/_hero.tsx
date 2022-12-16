@@ -5,7 +5,7 @@ import Container from './_layout-components/_career_container'
 import { Header, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { zoho_url } from 'common/constants'
-import { LocationContext } from 'components/layout/location-context.js'
+import { LocationContext } from 'components/layout/location-context'
 import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
@@ -17,7 +17,7 @@ const StyledHeader = styled(Header)`
     line-height: 100px;
 
     @media ${device.tablet} {
-        text-align: left;
+        text-align: start;
         font-size: 40px;
         line-height: 50px;
     }
@@ -32,7 +32,7 @@ const Subheadline = styled(Header)`
     line-height: 30px;
 
     @media ${device.tablet} {
-        text-align: left;
+        text-align: start;
         font-size: 18px;
         line-height: 26px;
     }
@@ -48,7 +48,7 @@ const JoinHeader = styled(Header)`
     line-height: 30px;
 
     @media ${device.tablet} {
-        text-align: left;
+        text-align: start;
         font-size: 18px;
         line-height: 26px;
     }

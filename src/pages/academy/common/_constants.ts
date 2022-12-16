@@ -20,7 +20,7 @@ export const market_type: TopicType[] = [
                 is_visible_uk: true,
             },
             {
-                title: 'Synthetic indices',
+                title: 'Derived',
                 is_visible_eu: true,
                 is_visible_uk: false,
             },

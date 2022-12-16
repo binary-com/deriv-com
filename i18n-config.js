@@ -105,7 +105,7 @@ module.exports = {
     de: {
         path: 'de',
         display_name: 'Deutsch',
-        short_name: 'CR',
+        short_name: 'DE',
         affiliate_lang: 16,
     },
 }

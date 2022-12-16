@@ -22,7 +22,7 @@ type ForexProps = {
     simple_step_content: SimpleStepsContent[]
 }
 const Forex = ({ simple_step_content }: ForexProps) => {
-    const { is_row, is_uk_eu } = useCountryRule()
+    const { is_row, is_eu } = useCountryRule()
     return (
         <>
             <WhyTrade
@@ -31,7 +31,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
                 }
             >
-                {(is_uk_eu ? forex_content_eu : forex_content).map((content, index) => (
+                {(is_eu ? forex_content_eu : forex_content).map((content, index) => (
                     <StyledBox
                         key={index}
                         text={content.text}
@@ -40,7 +40,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_uk_eu ? forex_cfds_eu : forex_cfds} />}
+                CFDs={<CFDs market_content={is_eu ? forex_cfds_eu : forex_cfds} />}
                 DigitalOptions={
                     is_row && (
                         <DigitalOptions
@@ -50,9 +50,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     )
                 }
                 Multipliers={
-                    <Multipliers
-                        market_content={is_uk_eu ? forex_multiplier_eu : forex_multiplier}
-                    />
+                    <Multipliers market_content={is_eu ? forex_multiplier_eu : forex_multiplier} />
                 }
                 // name="Forex"
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}

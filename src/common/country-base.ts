@@ -27,7 +27,6 @@ export const eu_countries = [
     'se',
     'ie',
     'im',
-    'gb',
     'mt',
 ] as const
 
@@ -135,5 +134,3 @@ export const african_countries = [
 
 export const isEuCountry = (clients_country: typeof eu_countries[number]): boolean =>
     eu_countries.includes(clients_country)
-
-export const isUK = (clients_country) => clients_country === 'gb'

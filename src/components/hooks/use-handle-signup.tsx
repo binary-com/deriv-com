@@ -7,8 +7,12 @@ import { DerivStore } from 'store'
 const useHandleSignup = (_is_ppc = false) => {
     const { is_loading, is_eu_location } = useCountryRule()
     const { setShowNonEuPopup } = React.useContext(DerivStore)
-    const currentLanguage = getLanguage() + '/'
+    let currentLanguage = getLanguage() + '/'
     const signUpPath = withPrefix('/')
+
+    if (getLanguage() === 'en') {
+        currentLanguage = ''
+    }
 
     return () => {
         if (is_loading) {

@@ -47,15 +47,11 @@ const Footer = ({ step, setStep, max_step, setEnableNext, disabled }: FooterProp
     return (
         <StyledFooter>
             {step > 1 && (
-                <Button tertiary="true" onClick={() => buttonHandler(ButtonType.Previous)}>
+                <Button tertiary onClick={() => buttonHandler(ButtonType.Previous)}>
                     {localize('Previous')}
                 </Button>
             )}
-            <Button
-                secondary="true"
-                disabled={disabled}
-                onClick={() => buttonHandler(ButtonType.Next)}
-            >
+            <Button secondary disabled={disabled} onClick={() => buttonHandler(ButtonType.Next)}>
                 {max_step === step ? localize('Submit') : localize('Next')}
             </Button>
         </StyledFooter>

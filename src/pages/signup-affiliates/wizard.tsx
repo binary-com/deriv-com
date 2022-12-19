@@ -29,7 +29,6 @@ const AffiliateSignup = () => {
             postal_code: '',
         },
         phone_number: '',
-        personal_details: null,
         terms_use: {
             non_pep_declaration: false,
             tnc_accepted: false,
@@ -50,7 +49,6 @@ const AffiliateSignup = () => {
             citizen: null,
             currency: '',
         },
-        terms_use: null,
     })
 
     const updateAffiliateValues = (value, type) => {

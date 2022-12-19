@@ -4,7 +4,7 @@ import AgreementLabel from 'components/custom/_agreement-label'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 
-type ConsentProps = {
+type TAffiliateTerms = {
     non_pep_declaration: boolean
     tnc_accepted: boolean
     is_brokers_checked: boolean
@@ -13,9 +13,9 @@ type ConsentProps = {
 }
 
 type AccountTermsProps = {
-    updatedData: (e) => void
-    onValidate: (e) => void
-    affiliate_terms_data: ConsentProps
+    updatedData: (configs: TAffiliateTerms) => void
+    onValidate: (validatex: boolean) => void
+    affiliate_terms_data: TAffiliateTerms
 }
 
 const AccountTerms = ({ affiliate_terms_data, updatedData, onValidate }: AccountTermsProps) => {

@@ -86,6 +86,50 @@ const Variables = css`
         --color-brown: #33140e;
         --color-green-3: #26d367;
 
+        /* New color code convention for rebranding */
+
+        /* neutrals (black and white) */
+        --clr-ntrl-light: #ffffff;
+        --clr-neutral-dark: #0e0e0e;
+
+        /* base color (reds) */
+        --clr-base: #ff444f;
+        --clr-base-lt: #ffe8e9;
+        --clr-base-dark: #ff0024;
+
+        /* primary colors (blues) */
+        --clr-primary: #4c76be;
+        --clr-primary-lt: #0e0e0e;
+        --clr-primary-ltr: #f9fbff;
+        --clr-primary-dark: #0e0e0e;
+
+        /* secondary colors (grey) */
+        --clr-secondary: #f9fafc;
+        --clr-secondary-lt: #f5f7fa;
+        --clr-secondary-ltr: ##eaeced;
+        --clr-secondary-dark: #8593a414;
+
+        /* tertiary color (green) */
+        --clr-tertiary: #85acb0;
+        --clr-tertiary-lt: #f1f6f7;
+        --clr-tertiary-dark: #e2ebec;
+
+        /* messages */
+        --success: #28a745;
+        --info: #17a2b8;
+        --warning: #ffc107;
+        --danger: #dc3545;
+
+        /* New font size convention for rebranding */
+        --fs-h1: 8rem;
+        --fs-h2: 6.4rem;
+        --fs-h3: 4.8rem;
+        --fs-h4: 3.2rem;
+        --fs-h5: 2.4rem;
+        --fs-h6: 1.6rem;
+        --fs-h7: 1.4rem;
+        --fs-h8: 1.2rem;
+
         /* sizes */
         --text-size-xxs: 1.2rem;
         --text-size-xs: 1.4rem;

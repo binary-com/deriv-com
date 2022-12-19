@@ -50,7 +50,7 @@ export type NonFeaturedVideoListDataType = AcademyIndexFragment['directus']['vid
 export type MarketNewsDataType = AcademyIndexFragment['directus']['market_news']
 
 const DerivBlog = ({ data }: DerivBlogProps) => {
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu } = useCountryRule()
 
     const meta_attributes = {
         og_title: 'Blogs, video tutorials, and more | Deriv Academy',
@@ -101,12 +101,6 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
         homepage_banners_eu,
         videos_eu,
         featured_video_eu,
-        market_news_uk,
-        recent_uk,
-        featured_uk,
-        homepage_banners_uk,
-        videos_uk,
-        featured_video_uk,
     } = data.directus
 
     if (is_eu) {
@@ -116,13 +110,6 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
         homepage_banner_data = homepage_banners_eu
         non_featured_video_list_data = videos_eu
         featured_video_list_data = featured_video_eu
-    } else if (is_uk) {
-        market_news_data = market_news_uk
-        recent_data = recent_uk
-        featured_data = featured_uk
-        homepage_banner_data = homepage_banners_uk
-        non_featured_video_list_data = videos_uk
-        featured_video_list_data = featured_video_uk
     }
 
     //arranges homepage banners in ascendingly on order value

@@ -254,7 +254,6 @@ const filtered_testimonial = (unavailable_testimonial) =>
     })
 
 const unavailable_testimonial_eu = ['p2p', 'deriv go']
-const unavailable_testimonial_uk = ['p2p', 'synthetic', 'deriv go']
 
 type ClientSideProps = {
     quote: ReactElement
@@ -275,7 +274,7 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 )
 
 const WhatOurClientsSay = () => {
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu } = useCountryRule()
     const ref = useRef()
 
     useEffect(() => {
@@ -350,7 +349,6 @@ const WhatOurClientsSay = () => {
                             <Carousel>
                                 {(
                                     (is_eu && filtered_testimonial(unavailable_testimonial_eu)) ||
-                                    (is_uk && filtered_testimonial(unavailable_testimonial_uk)) ||
                                     testimonial_slides
                                 ).map(({ id, name, quote }) => (
                                     <ClientSlide key={id} quote={quote} name={name} />

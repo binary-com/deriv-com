@@ -111,7 +111,7 @@ const trading: TradingType[] = [
 ]
 
 const Dbot = () => {
-    const { is_uk_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = useCountryRule()
     const [is_mobile, setIsMobile] = useState(
         isBrowser() ? window.screen.width <= size.mobileL : false,
     )
@@ -170,7 +170,7 @@ const Dbot = () => {
                     />
                 </Layout>
             )}
-            {is_uk_eu && <PageNotFound />}
+            {is_eu && <PageNotFound />}
         </>
     )
 }

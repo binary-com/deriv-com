@@ -19,7 +19,6 @@ import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { handleRedirect, isEuDomain } from 'common/utility'
-import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import { DerivStore, useDerivWS } from 'store'
 import { CookieStorage } from 'common/storage'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -201,7 +200,6 @@ const Layout = ({
                 ref={modal_payload.ref}
                 aria_label={modal_payload.aria_label}
             />
-            <UKAccountClosureModal />
             {show_non_eu_popup && (
                 <NonEuRedirectPopUp
                     is_open={show_non_eu_popup}

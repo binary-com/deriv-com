@@ -252,7 +252,7 @@ const MarginCalculator = () => {
         },
     }
 
-    const { is_uk_eu } = useCountryRule()
+    const { is_eu } = useCountryRule()
     return (
         <SectionContainer>
             <StyledFlexContainer>
@@ -269,7 +269,7 @@ const MarginCalculator = () => {
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>
-                            {is_uk_eu && (
+                            {is_eu && (
                                 <>
                                     <Localize
                                         translate_text="Explore <0>CFDs</0> on Deriv MT5 and enjoy low spreads to increase your returns when the market moves in your favour."
@@ -285,7 +285,7 @@ const MarginCalculator = () => {
                                     />
                                 </>
                             )}
-                            {!is_uk_eu && (
+                            {!is_eu && (
                                 <>
                                     <Localize
                                         translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."

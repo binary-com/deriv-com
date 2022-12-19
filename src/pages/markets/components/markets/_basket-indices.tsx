@@ -24,8 +24,7 @@ type BasketIndicesProps = {
     simple_step_content: SimpleStepContentElement[]
 }
 const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
-    const { is_eu } = useCountryRule()
-    const { is_uk_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = useCountryRule()
     return (
         <>
             {is_row && (
@@ -72,7 +71,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                     <OtherMarkets except="derived" />
                 </>
             )}
-            {is_uk_eu && <PageNotFound />}
+            {is_eu && <PageNotFound />}
         </>
     )
 }

@@ -74,7 +74,7 @@ const HeroHeader = ({ text }: { text: TString }) => {
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const { is_uk, is_loading, is_eu, is_row } = useCountryRule()
+    const { is_loading, is_eu, is_row } = useCountryRule()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
 
@@ -127,16 +127,11 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 {is_eu && (
                                     <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
                                 )}
-                                {is_uk && (
-                                    <Localize translate_text="Trade forex, stocks & indices, and commodities." />
-                                )}
                                 {is_row && (
                                     <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
                                 )}
                             </Header>
-                            <VerticalCarousel
-                                contents={is_ppc && is_uk ? contents_ppc : contents}
-                            />
+                            <VerticalCarousel contents={is_ppc ? contents_ppc : contents} />
                             <Box tabletL={{ mt: '-8px' }}>
                                 {is_logged_in ? (
                                     <HeroButton

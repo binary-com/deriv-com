@@ -31,11 +31,11 @@ type CryptoContent = {
 }
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
-    const { is_uk_eu, is_uk, is_non_uk } = useCountryRule()
+    const { is_eu } = useCountryRule()
     const crypto_content: CryptoContent[] = [
         {
             src: Leverage,
-            text: is_uk_eu ? (
+            text: is_eu ? (
                 <Localize translate_text="1:2 leverage" />
             ) : (
                 <Localize translate_text="1:100 leverage" />
@@ -59,46 +59,38 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
         },
     ]
 
-    if (is_uk) {
-        navigate('/404/')
-    }
-
     return (
-        is_non_uk && (
-            <>
-                <WhyTrade
-                    header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
-                    text={
-                        <Localize translate_text="Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies." />
-                    }
-                >
-                    {crypto_content.map((content, index) => (
-                        <StyledBox
-                            key={index}
-                            text={content.text}
-                            icon={<img src={content.src} alt="" />}
-                        ></StyledBox>
-                    ))}
-                </WhyTrade>
-                <AvailableTrades
-                    CFDs={<CFDs market_content={crypto_cfds} />}
-                    Multipliers={
-                        <Multipliers market_content={crypto_multiplier} is_crypto={true} />
-                    }
-                    display_title={
-                        <Localize translate_text="Cryptocurrency trades available on Deriv" />
-                    }
-                />
-                <SimpleSteps
-                    header={
-                        <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />
-                    }
-                    content={simple_step_content}
-                    sign_up
-                />
-                <OtherMarkets except="cryptocurrencies" />
-            </>
-        )
+        <>
+            <WhyTrade
+                header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
+                text={
+                    <Localize translate_text="Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies." />
+                }
+            >
+                {crypto_content.map((content, index) => (
+                    <StyledBox
+                        key={index}
+                        text={content.text}
+                        icon={<img src={content.src} alt="" />}
+                    ></StyledBox>
+                ))}
+            </WhyTrade>
+            <AvailableTrades
+                CFDs={<CFDs market_content={crypto_cfds} />}
+                Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
+                display_title={
+                    <Localize translate_text="Cryptocurrency trades available on Deriv" />
+                }
+            />
+            <SimpleSteps
+                header={
+                    <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />
+                }
+                content={simple_step_content}
+                sign_up
+            />
+            <OtherMarkets except="cryptocurrencies" />
+        </>
     )
 }
 

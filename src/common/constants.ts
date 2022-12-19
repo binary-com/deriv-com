@@ -35,19 +35,14 @@ const getDomainAppID = () => {
     else if (getDomainUrl() === deriv_be_url) return deriv_be_app_id
     else return deriv_com_app_id
 }
-// '-eutestlink-' and '-uktestlink-' regexes are meant to create test links for eu and uk countries.
-// To make them work on your test links you need to include '-eutestlink-' or '-uktestlink-' in your branch name.
+// '-eutestlink-' regex is meant to create test link for eu countries.
+// To make them work on your test links you need to include '-eutestlink-' in your branch name.
 export const eu_domains = [
     new RegExp(/^eu$/),
     new RegExp(/^staging-eu$/),
     new RegExp(/-eutestlink-/),
 ]
 export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com']
-export const uk_domains = [
-    new RegExp(/^uk$/),
-    new RegExp(/^staging-uk$/),
-    new RegExp(/-uktestlink-/),
-]
 
 // URL
 export const domain_full_url = `https://${getDomainUrl()}`
@@ -77,6 +72,18 @@ export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 export const deriv_app_languages = ['id', 'pt', 'es']
+export const smart_trader_languages = [
+    'es',
+    'fr',
+    'id',
+    'it',
+    'pl',
+    'pt',
+    'ru',
+    'vi',
+    'zh_cn',
+    'zh_tw',
+]
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
 export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'

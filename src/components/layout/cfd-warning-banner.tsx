@@ -64,9 +64,9 @@ const CFDText = styled(Text)`
 `
 
 const CFDWarningBanner = ({ is_ppc }: TProps) => {
-    const { is_uk_eu } = useCountryRule()
+    const { is_eu } = useCountryRule()
 
-    if (is_ppc || is_uk_eu) {
+    if (is_ppc || is_eu) {
         return (
             <CFDWrapper>
                 <CFDContainer>

@@ -11,7 +11,7 @@ type MainLinksSectionProps = {
 }
 
 const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinksSectionProps) => {
-    const { is_non_uk, is_row } = useCountryRule()
+    const { is_row } = useCountryRule()
     return (
         <LinksWrapper>
             <Desktop>
@@ -91,26 +91,21 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                         <LinkWrapper>
                             <Link to="/markets/forex/">{<Localize translate_text="Forex" />}</Link>
                         </LinkWrapper>
-                        {is_non_uk && (
-                            <LinkWrapper>
-                                <Link to="/markets/synthetic/">
-                                    {<Localize translate_text="Derived" />}
-                                </Link>
-                            </LinkWrapper>
-                        )}
+                        <LinkWrapper>
+                            <Link to="/markets/synthetic/">
+                                {<Localize translate_text="Derived" />}
+                            </Link>
+                        </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/markets/stock/">
                                 {<Localize translate_text="Stocks & indices" />}
                             </Link>
                         </LinkWrapper>
-                        {is_non_uk && (
-                            <LinkWrapper>
-                                <Link to="/markets/cryptocurrencies/">
-                                    {<Localize translate_text="Cryptocurrencies" />}
-                                </Link>
-                            </LinkWrapper>
-                        )}
-
+                        <LinkWrapper>
+                            <Link to="/markets/cryptocurrencies/">
+                                {<Localize translate_text="Cryptocurrencies" />}
+                            </Link>
+                        </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/markets/commodities/">
                                 {<Localize translate_text="Commodities" />}

@@ -121,6 +121,16 @@ const query = graphql`
         pm_review_mobile: file(relativePath: { eq: "careers-2/pm-review-mobile.png" }) {
             ...fadeIn
         }
+        business_intelligence_review: file(
+            relativePath: { eq: "careers-2/business-intelligence-review.png" }
+        ) {
+            ...fadeIn
+        }
+        business_intelligence_review_mobile: file(
+            relativePath: { eq: "careers-2/business-intelligence-review-mobile.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

@@ -15,7 +15,7 @@ const deposits_and_withdrawals: TQuestionsData = {
                     translation_text:
                         '_t_You can use debit and credit cards, e-wallets, cryptocurrency wallets, and payment agents for deposits and withdrawals (see our <0>payment methods page</0> for a complete list). Once you log in to your Deriv account, you’ll be able to see payment methods available in your country on the <1>Cashier page</1>._t_',
                     eu_translation_text:
-                        '_t_You can use debit and credit cards and also e-wallets for deposits and withdrawals (see our <0>payment methods page</0> for a complete list). _t_',
+                        '_t_You can use debit and credit cards and also e-wallets for deposits and withdrawals (see our <0>payment methods page</0> for a complete list). Once you log in to your Deriv account, you’ll be able to see payment methods available in your country on the <1>Cashier page</1>. _t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/payment-methods/' },
                         { key: 1, type: 'link', to: `${deriv_app_url}/cashier/` },
@@ -172,25 +172,11 @@ const deposits_and_withdrawals: TQuestionsData = {
             category: 'Deposits and withdrawals',
             sub_category: '_t_Withdrawals_t_',
             label: 'How-can-I-cancel-my-withdrawal',
-            hide_for_non_eu: true,
             answer: [
                 {
-                    translation_text:
+                    eu_translation_text:
                         '_t_You can cancel your withdrawal on the <0>Cashier page</0> by following the steps mentioned in the next paragraph. Please note that you cannot cancel withdrawals if your withdrawal request has already been authorised and processed._t_',
-                    translation_components: [
-                        { key: 0, type: 'link', to: `${deriv_app_url}/cashier/` },
-                    ],
-                },
-            ],
-        },
-        {
-            question: '_t_How can I cancel my withdrawal?_t_',
-            category: 'Deposits and withdrawals',
-            sub_category: '_t_Withdrawals_t_',
-            label: 'How-can-I-cancel-my-withdrawal',
-            hide_for_eu: true,
-            answer: [
-                {
+
                     translation_text:
                         '_t_You can cancel your withdrawal on the <0>Cashier page</0> by following the steps mentioned in the next paragraph. Please note that you cannot cancel withdrawals if:_t_',
                     translation_components: [

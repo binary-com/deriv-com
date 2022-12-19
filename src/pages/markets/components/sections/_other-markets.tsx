@@ -240,7 +240,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
-    const { is_uk, is_eu } = useCountryRule()
+    const { is_eu } = useCountryRule()
 
     const markets = ['', 'forex', 'derived', 'stock_indices', 'cryptocurrencies', 'commodities', '']
 
@@ -254,11 +254,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         '',
     ]
 
-    const uk_markets = ['', 'forex', 'derived', 'stock_indices', 'commodities', '']
-
-    const filteredMarkets = (is_eu ? eu_markets : is_uk ? uk_markets : markets).filter(
-        (market) => market !== except,
-    )
+    const filteredMarkets = (is_eu ? eu_markets : markets).filter((market) => market !== except)
 
     const lang_direction = useLangDirection()
 
@@ -291,7 +287,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         <StyledSectionContainer>
             <Desktop max_width="mobileL">
                 <MarketsWrapper tablet_jc="center">
-                    <StyledHeader as="h3" type="section-title" align="start">
+                    <StyledHeader as="h2" type="section-title" align="start">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
                     <Carousel has_autoplay autoplay_interval={4000} {...settings}>
@@ -302,7 +298,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                 </MarketsWrapper>
             </Desktop>
             <Mobile breakpoint="mobileL">
-                <StyledHeader as="h3" type="section-title" align="start">
+                <StyledHeader as="h2" type="section-title" align="start">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
                 <MobileCardContainer direction="column">

@@ -340,8 +340,8 @@ const Locations = () => {
                         'latam',
                         'caribbean',
                     ]}
-                    jc_laptopM="start"
                     jc_mobileL="start"
+                    jc_laptopM="start"
                     mobile_font_size={16}
                     line_divider_length="unset"
                     starting_index={1}

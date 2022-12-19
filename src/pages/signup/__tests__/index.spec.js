@@ -23,7 +23,6 @@ jest.mock('common/utility', () => ({
     isNullUndefined: jest.fn(() => true),
     isLocalhost: jest.fn(() => true),
     isEuDomain: jest.fn(() => true),
-    isUkDomain: jest.fn(() => true),
 }))
 
 // mock the qraphql query used in seo.js

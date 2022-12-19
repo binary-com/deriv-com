@@ -90,6 +90,11 @@ const query = graphql`
         trading_operations_bg: file(relativePath: { eq: "careers-2/trading-operations-bg.png" }) {
             ...fadeIn
         }
+        business_intelligence_bg: file(
+            relativePath: { eq: "careers-2/business-intelligence-bg.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

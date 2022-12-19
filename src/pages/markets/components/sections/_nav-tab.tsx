@@ -131,22 +131,14 @@ const tab_list_eu: TabList[] = [
     },
 ]
 
-const tab_list_uk = [
-    {
-        title: <Localize translate_text="Derived FX" />,
-        tab_name: 'derived-fx',
-        route_to: '/markets/derived-fx/#synthetic',
-    },
-]
-
 const NavTab = ({ route_from }: NavTabProps) => {
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu } = useCountryRule()
     const ref = useRef(null)
 
     return (
         <TabsContainer>
             <TabList ref={ref}>
-                {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item) => {
+                {(is_eu ? tab_list_eu : tab_list).map((item) => {
                     return (
                         <StyledLink to={item.route_to} key={item.tab_name}>
                             <TabButton selected={route_from == item.tab_name}>

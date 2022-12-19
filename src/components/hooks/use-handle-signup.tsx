@@ -11,7 +11,7 @@ const useHandleSignup = (_is_ppc = false) => {
     const signUpPath = withPrefix('/')
 
     if (getLanguage() === 'en') {
-        currentLanguage = '/'
+        currentLanguage = ''
     }
 
     return () => {

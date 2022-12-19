@@ -56,12 +56,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
 
     return (
         <>
-            <WhyTrade
-                header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
-                description={
-                    <Localize translate_text="Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies." />
-                }
-            >
+            <WhyTrade header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}>
                 {crypto_content.map((content, index) => (
                     <StyledBox
                         key={index}

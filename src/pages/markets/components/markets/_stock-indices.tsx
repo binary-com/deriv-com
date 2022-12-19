@@ -26,12 +26,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
 
     return (
         <div>
-            <WhyTrade
-                header={<Localize translate_text="Why trade stocks & indices on Deriv" />}
-                description={
-                    <Localize translate_text="Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets." />
-                }
-            >
+            <WhyTrade header={<Localize translate_text="Why trade stocks & indices on Deriv" />}>
                 {stock_content.map((content, index) => (
                     <StyledBox
                         key={index}

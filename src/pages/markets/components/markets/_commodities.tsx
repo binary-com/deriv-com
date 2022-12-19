@@ -27,12 +27,7 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
 
     return (
         <>
-            <WhyTrade
-                header={<Localize translate_text="Why trade commodities on Deriv" />}
-                description={
-                    <Localize translate_text="Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted." />
-                }
-            >
+            <WhyTrade header={<Localize translate_text="Why trade commodities on Deriv" />}>
                 {commodities.map((content, index) => (
                     <StyledBox
                         key={index}

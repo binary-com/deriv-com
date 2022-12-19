@@ -131,8 +131,7 @@ const SocialButtonText = styled.div`
 
 const SignupWithContainer = styled.div`
     display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     margin-top: 10px;
 

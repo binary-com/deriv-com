@@ -25,12 +25,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
     const { is_row, is_eu } = useCountryRule()
     return (
         <>
-            <WhyTrade
-                header={<Localize translate_text="Why trade forex on Deriv" />}
-                description={
-                    <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
-                }
-            >
+            <WhyTrade header={<Localize translate_text="Why trade forex on Deriv" />}>
                 {(is_eu ? forex_content_eu : forex_content).map((content, index) => (
                     <StyledBox
                         key={index}

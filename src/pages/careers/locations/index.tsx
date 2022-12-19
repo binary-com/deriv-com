@@ -98,12 +98,6 @@ const CountryCardWrapper = styled(StyledCard)`
         max-width: 328px;
         height: 304px;
     }
-    @media ${device.laptop} {
-        height: 320px;
-    }
-    @media ${device.laptopS} {
-        height: 320px;
-    }
 `
 const StyledText = styled(Text)`
     font-size: 16px;

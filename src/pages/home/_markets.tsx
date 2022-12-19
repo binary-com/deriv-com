@@ -78,7 +78,6 @@ type MarketsProps = {
 }
 
 const Markets = ({ is_ppc }: MarketsProps) => {
-    const { is_non_uk } = useCountryRule()
     return (
         <StyledSection>
             <Container direction="column">
@@ -124,7 +123,7 @@ const Markets = ({ is_ppc }: MarketsProps) => {
                             />
                         </div>
                     </MarketCard>
-                    {!is_ppc && is_non_uk && (
+                    {!is_ppc && (
                         <MarketCard mr="2.4rem">
                             <img
                                 src={SyntheticIndicesIcon}

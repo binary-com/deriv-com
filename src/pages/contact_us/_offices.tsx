@@ -922,7 +922,7 @@ export const Offices = () => {
                                 <img src={Cayman} alt="Cayman Islands - George Town" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                {localize('Cayman')}
+                                {localize('Cayman Islands')}
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -952,8 +952,8 @@ export const Offices = () => {
                             >
                                 <Desktop>
                                     <p>Cayman Enterprise City,</p>
-                                    <p>Strathvale House, 2nd Floor, 90 N </p>
-                                    <p>Church St, George Town, Cayman </p>
+                                    <p>Strathvale House, 2nd Floor, 90N</p>
+                                    <p>Church St, George Town, Cayman</p>
                                     <p>Islands</p>
                                 </Desktop>
                                 <Mobile>

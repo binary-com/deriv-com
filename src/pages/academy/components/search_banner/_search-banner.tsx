@@ -109,7 +109,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         setModal(!is_modal_opened)
     }
 
-    const handleHref = (category) => {
+    const handleHref = (category: string) => {
         if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
             return `/academy/search?type=video&category=${encodeURIComponent(slugify(category))}`
         }
@@ -128,7 +128,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
             <MainWrapper
                 ref={topics_ref}
                 fd="column"
-                background={hidden}
+                has_background={hidden}
                 hide_box_shadow={blog_post_url}
             >
                 <SearchNav

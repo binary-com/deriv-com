@@ -19,6 +19,9 @@ type ContentProps = {
     max_width?: string
     mt_mobile?: string
 }
+type StyledLinkButtonProps = {
+    id?: string
+}
 
 const StyledSection = styled(Container)`
     align-items: flex-start;
@@ -190,7 +193,7 @@ const HowToApplyContent = styled.div`
     }
 `
 
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
     @media ${device.mobileL} {
         display: block;
         margin: auto;

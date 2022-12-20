@@ -9,9 +9,11 @@ import device from 'themes/device'
 import Platform from 'images/common/interim/check-interim-bg.png'
 import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
 import { DerivStore } from 'store'
+
 type SectionProps = {
     image: string
     mobile_image: string
+    is_eu_country: boolean
 }
 
 const Section = styled(Box)<SectionProps>`
@@ -133,7 +135,9 @@ const LeftCTASection = (params: LeftCTASectionProps) => {
 }
 
 type RightCTASectionProps = LeftCTASectionProps & {
-    button_props?: unknown
+    button_props?: {
+        type: string
+    }
 }
 
 const RightCTASection = (params: RightCTASectionProps) => {

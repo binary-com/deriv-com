@@ -4,13 +4,13 @@ import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 
-export type CryptocurrenciesContent = {
-    src: string
-    alt: string
+export type SimpleStepContentElement = {
+    header: ReactElement
     text: ReactElement
+    icon: ReactElement
 }
 
-export const simple_step_content_cryptocurrencies = [
+export const simple_step_content: SimpleStepContentElement[] = [
     {
         header: <Localize translate_text="Practise" />,
         text: (
@@ -21,7 +21,7 @@ export const simple_step_content_cryptocurrencies = [
     {
         header: <Localize translate_text="Trade" />,
         text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
+            <Localize translate_text="Open a real account, make a deposit, and start trading forex and other markets." />
         ),
         icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
     },

@@ -17,7 +17,7 @@ const TradingLimits = Loadable(() => import('./_trading-limits'))
 const NeedHelp = Loadable(() => import('./_need-help'))
 const RoleBanner = Loadable(() => import('./_banner'))
 
-const Hero = styled(Flex)`
+const Hero = styled(Flex)<{ background_image: string }>`
     background-image: url(${(props) => props.background_image});
     background-position: center;
     background-size: cover;

@@ -21,23 +21,23 @@ const overlay_css = css`
     width: 100%;
     height: 100vh;
 `
-export const MainWrapper = styled(Flex)<{ hide_box_shadow?: boolean; background?: boolean }>`
+export const MainWrapper = styled(Flex)<{ hide_box_shadow?: boolean; has_background?: boolean }>`
     background-color: var(--color-white);
-    box-shadow: ${({ hide_box_shadow, background }) =>
-        hide_box_shadow && background
+    box-shadow: ${({ hide_box_shadow, has_background }) =>
+        hide_box_shadow && has_background
             ? 'inset 0 -1px 0 rgba(14, 14, 14, 0.1)'
             : '0 5px 10px rgba(14, 14, 14, 0.1)'};
     position: fixed;
     z-index: 10;
     height: 7.2rem;
-    top: ${({ background }) => (background ? '0' : '72px')};
+    top: ${({ has_background }) => (has_background ? '0' : '72px')};
 
     @media ${device.desktopL} {
-        top: ${({ background }) => (background ? '0' : '87px')};
+        top: ${({ has_background }) => (has_background ? '0' : '87px')};
     }
 
     @media ${device.tabletL} {
-        top: ${({ background }) => (background ? '0' : '7.2rem')};
+        top: ${({ has_background }) => (has_background ? '0' : '7.2rem')};
     }
 `
 export const ParentWrapper = styled(Flex)<{ overlay?: boolean }>`
@@ -55,7 +55,10 @@ export const StyledLink = styled(LocalizedLink)`
         background-color: var(--color-grey-31);
     }
 `
-export const SearchResultRows = styled(Flex)<{ is_active?: boolean }>`
+export const SearchResultRows = styled(Flex)<{
+    is_active?: boolean
+    onMouseDown?: React.MouseEventHandler<HTMLDivElement>
+}>`
     cursor: pointer;
     font-size: 16px;
     margin-top: 4px;

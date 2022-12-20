@@ -484,7 +484,7 @@ const WhatAreOptions = () => {
                     <Text mt="4rem" mb="1.6rem" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <Button onClick={handleSignup} id="dm-multipliers-signup-1" to="" secondary>
+                    <Button onClick={handleSignup} id="dm-multipliers-signup-1" secondary>
                         {localize('Create free demo account')}
                     </Button>
                 </SmallContainer>

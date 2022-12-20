@@ -2,7 +2,7 @@ import React, { useEffect, ReactElement } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
-import device from 'themes/device'
+import device, { SizeType } from 'themes/device'
 
 const TabContent = styled.div`
     flex: 1;
@@ -59,7 +59,7 @@ const animateTab = keyframes`
     100% {opacity:1;}
 
 `
-const TextLabel = styled(Text)`
+const TextLabel = styled(Text)<{ selected: boolean }>`
     color: ${(props) => (props.selected ? 'rgba(51, 51, 51, 1)' : 'rgba(153, 153, 153, 1)')};
     font-size: 32px;
     animation: ${animateTab} 2s;
@@ -68,7 +68,7 @@ const TextLabel = styled(Text)`
         font-size: 24px;
     }
 `
-const TextDesc = styled(Text)`
+const TextDesc = styled(Text)<{ selected: boolean }>`
     display: ${(props) => (!props.selected ? 'none' : '')};
     font-size: 24px;
     animation: ${animateTab} 2s;
@@ -125,12 +125,12 @@ const MobileWrapper = styled(Mobile)`
 `
 
 type TabsProps = {
-    children: ReactElement[]
+    children: ReactElement[] | ReactElement
     label?: ReactElement
     description?: ReactElement
     className?: string
     is_reverse?: boolean
-    max_width?: string
+    max_width?: SizeType
 }
 
 type TabPanelProps = Pick<TabsProps, 'children' | 'className' | 'label' | 'description'>
@@ -170,7 +170,6 @@ const Tabs = ({ children, is_reverse, className, max_width }: TabsProps) => {
                                 <TabButton
                                     className="side-tab__button"
                                     role="tab"
-                                    selected={selected_tab === index}
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => setSelectedTab(index)}
                                 >
@@ -191,7 +190,7 @@ const Tabs = ({ children, is_reverse, className, max_width }: TabsProps) => {
                                 </TabButton>
                                 <MobileWrapper
                                     className="side-tab__mobile"
-                                    min_width={max_width || 'tabletL'}
+                                    breakpoint={max_width || 'tabletL'}
                                 >
                                     <Content>{selected_tab === index ? child : undefined}</Content>
                                 </MobileWrapper>
@@ -200,7 +199,7 @@ const Tabs = ({ children, is_reverse, className, max_width }: TabsProps) => {
                     })}
                 </TabList>
             </TabListWrapper>
-            <DesktopWrapper className="side-tab__desktop" max_width={max_width || 'tabletL'}>
+            <DesktopWrapper className="side-tab__desktop" breakpoint={max_width || 'tabletL'}>
                 <Content>
                     {React.Children.map(children, (el, index) => {
                         return selected_tab === index ? el : undefined

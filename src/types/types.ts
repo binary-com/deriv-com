@@ -19,6 +19,8 @@ import type {
     VerifyEmailResponse,
     AccountStatusRequest,
     AccountStatusResponse,
+    ActiveSymbolsRequest,
+    ActiveSymbolsResponse,
 } from '@deriv/api-types'
 
 export type TSocketEndpoints = {
@@ -61,6 +63,10 @@ export type TSocketEndpoints = {
     get_account_status: {
         request: AccountStatusRequest
         response: AccountStatusResponse
+    }
+    active_symbols: {
+        request: ActiveSymbolsRequest
+        response: ActiveSymbolsResponse
     }
 }
 

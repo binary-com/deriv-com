@@ -1,5 +1,10 @@
 {
-    "include": ["./src/**/*", "./src/custom.d.ts", "types/react-i18next.d.ts"],
+    "include": [
+        "./src/**/*",
+        "./src/custom.d.ts",
+        "types/react-i18next.d.ts",
+        ".src/types/utils.d.ts"
+    ],
     "jsx": "react",
     "compilerOptions": {
         "baseUrl": "src",
@@ -12,5 +17,5 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "downlevelIteration": true
-    },
+    }
 }

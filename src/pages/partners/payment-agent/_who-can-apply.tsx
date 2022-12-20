@@ -202,7 +202,11 @@ const WhoCanApply = () => {
                         <Timeline pb="24px" pl="18px">
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Email} alt="" left_margin="8px" />
+                                    <ImageWrapper
+                                        src={Email}
+                                        alt="Write us an email"
+                                        left_margin="8px"
+                                    />
                                     <Content min_width="240px" max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Drop us an email')}
@@ -245,7 +249,11 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Reply} alt="" left_margin="8px" />
+                                    <ImageWrapper
+                                        src={Reply}
+                                        alt="Receive email response"
+                                        left_margin="8px"
+                                    />
                                     <Content max_width="38.2rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Wait for our reply')}
@@ -260,7 +268,11 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Listed} alt="" left_margin="8px" />
+                                    <ImageWrapper
+                                        src={Listed}
+                                        alt="Get the approval"
+                                        left_margin="8px"
+                                    />
                                     <Content max_width="38.2rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Get listed')}

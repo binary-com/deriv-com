@@ -48,27 +48,27 @@ export const simple_step_content_basket = [
 export const basket_indices_content: BasketIndicesContent[] = [
     {
         src: Stocks,
-        alt: 'currency weighted by 20%',
+        alt: 'Currency weight',
         text: localize('Each currency weighted by 20%'),
     },
     {
         src: Leverage,
-        alt: 'leverage',
+        alt: 'Narrow spreads',
         text: localize('High leverage, tight spreads'),
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
+        alt: 'Easy platform',
         text: localize('Responsive, easy-to-use platforms'),
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
+        alt: 'Graphs and charts',
         text: localize('Advanced charting widgets'),
     },
     {
         src: WithdrawIcon,
-        alt: 'deposit and withdrawal',
+        alt: 'Convenient deposits and withdrawals',
         text: localize('Convenient deposit and withdrawal methods'),
     },
 ]
@@ -76,27 +76,27 @@ export const basket_indices_content: BasketIndicesContent[] = [
 export const basket_indices_content_eu: BasketIndicesContent[] = [
     {
         src: Stocks,
-        alt: 'currency weighted by 20%',
+        alt: 'Currency weight',
         text: localize('Each currency weighted by 20%'),
     },
     {
         src: Leverage,
-        alt: 'leverage',
+        alt: 'Narrow spreads',
         text: localize('Tight spreads'),
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
+        alt: 'Easy platform',
         text: localize('Responsive, easy-to-use platforms '),
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
+        alt: 'Graphs and charts',
         text: localize('Advanced charting widgets'),
     },
     {
         src: WithdrawIcon,
-        alt: 'deposit and withdrawal',
+        alt: 'Convenient deposits and withdrawals',
         text: localize('Convenient deposit and withdrawal methods'),
     },
 ]

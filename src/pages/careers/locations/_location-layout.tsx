@@ -140,7 +140,7 @@ const FirstSection = styled(SectionContainer)`
             font-size: 16px;
         }
         @media ${device.mobileL} {
-            text-align: left;
+            text-align: start;
         }
     }
 `

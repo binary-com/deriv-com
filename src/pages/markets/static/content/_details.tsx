@@ -140,7 +140,7 @@ export const EuropeDetails = (props: TEuropeDetailsProps) => {
         </Text>,
         <Text key={1}>
             <Localize
-                translate_text="<0>Netherland 25</0> follows the stock performance of the 25 most traded companies in the Netherlands."
+                translate_text="<0>Netherlands 25</0> follows the stock performance of the 25 most traded companies in the Netherlands."
                 components={[<strong key={0} />]}
             />
         </Text>,
@@ -329,7 +329,7 @@ export const EuropeanIndicesDetails = () => {
             {is_row && (
                 <Text>
                     <Localize
-                        translate_text="<0>Netherland 25</0> follows the stock performance of the 25 most traded companies in the Netherlands."
+                        translate_text="<0>Netherlands 25</0> follows the stock performance of the 25 most traded companies in the Netherlands."
                         components={[<strong key={0} />]}
                     />
                 </Text>
@@ -392,7 +392,7 @@ export const DerivedCFDsDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="These indices correspond to financial markets with volatilities of 10% and 100%. One tick is generated for every tick of the corresponding forex pair."
+                translate_text="These indices correspond to financial markets with volatilities of 10%. One tick is generated for every tick of the corresponding forex pair."
                 components={[<strong key={0} />]}
             />
         </Text>

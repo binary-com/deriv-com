@@ -4943,24 +4943,6 @@ export type AcademyIndexFragment = {
                 }
             }
         }>
-        homepage_banners_uk: Array<{
-            __typename?: 'DirectusData_homepage_banners'
-            order: string
-            id: string
-            button_text: string
-            link: string
-            heading: string
-            sub_heading: string
-            image: {
-                __typename?: 'DirectusData_directus_files'
-                id: string
-                description: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-        }>
         market_news: Array<{
             __typename?: 'DirectusData_blog'
             id: string
@@ -4982,26 +4964,6 @@ export type AcademyIndexFragment = {
             }
         }>
         market_news_eu: Array<{
-            __typename?: 'DirectusData_blog'
-            id: string
-            blog_title: string
-            slug: string
-            blog_post: string
-            tags: Array<{
-                __typename?: 'DirectusData_blog_tags'
-                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
-            }>
-            main_image: {
-                __typename?: 'DirectusData_directus_files'
-                description: string
-                id: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-        }>
-        market_news_uk: Array<{
             __typename?: 'DirectusData_blog'
             id: string
             blog_title: string
@@ -5065,28 +5027,6 @@ export type AcademyIndexFragment = {
                 tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
             }>
         }>
-        videos_uk: Array<{
-            __typename?: 'DirectusData_videos'
-            video_title: string
-            published_date: any
-            video_description: string
-            video_duration: string
-            featured: boolean
-            video_thumbnail: {
-                __typename?: 'DirectusData_directus_files'
-                id: string
-                title: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-            video_file: { __typename?: 'DirectusData_directus_files'; id: string }
-            tags: Array<{
-                __typename?: 'DirectusData_videos_tags'
-                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
-            }>
-        }>
         featured_video: Array<{
             __typename?: 'DirectusData_videos'
             video_title: string
@@ -5110,28 +5050,6 @@ export type AcademyIndexFragment = {
             }>
         }>
         featured_video_eu: Array<{
-            __typename?: 'DirectusData_videos'
-            video_title: string
-            published_date: any
-            video_description: string
-            video_duration: string
-            featured: boolean
-            video_thumbnail: {
-                __typename?: 'DirectusData_directus_files'
-                id: string
-                title: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-            video_file: { __typename?: 'DirectusData_directus_files'; id: string }
-            tags: Array<{
-                __typename?: 'DirectusData_videos_tags'
-                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
-            }>
-        }>
-        featured_video_uk: Array<{
             __typename?: 'DirectusData_videos'
             video_title: string
             published_date: any
@@ -5201,30 +5119,6 @@ export type AcademyIndexFragment = {
                 tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
             }>
         }>
-        recent_uk: Array<{
-            __typename?: 'DirectusData_blog'
-            id: string
-            slug: string
-            published_date: any
-            featured: boolean
-            blog_title: string
-            blog_description: string
-            blog_post: string
-            main_image: {
-                __typename?: 'DirectusData_directus_files'
-                id: string
-                description: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-            tags: Array<{
-                __typename?: 'DirectusData_blog_tags'
-                id: string
-                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
-            }>
-        }>
         featured: Array<{
             __typename?: 'DirectusData_blog'
             id: string
@@ -5250,30 +5144,6 @@ export type AcademyIndexFragment = {
             }>
         }>
         featured_eu: Array<{
-            __typename?: 'DirectusData_blog'
-            id: string
-            slug: string
-            published_date: any
-            featured: boolean
-            blog_title: string
-            blog_description: string
-            blog_post: string
-            main_image: {
-                __typename?: 'DirectusData_directus_files'
-                id: string
-                description: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-            tags: Array<{
-                __typename?: 'DirectusData_blog_tags'
-                id: string
-                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
-            }>
-        }>
-        featured_uk: Array<{
             __typename?: 'DirectusData_blog'
             id: string
             slug: string
@@ -5459,24 +5329,6 @@ export type Unnamed_1_Query = {
                 }
             }
         }>
-        homepage_banners_uk: Array<{
-            __typename?: 'DirectusData_homepage_banners'
-            order: string
-            id: string
-            button_text: string
-            link: string
-            heading: string
-            sub_heading: string
-            image: {
-                __typename?: 'DirectusData_directus_files'
-                id: string
-                description: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-        }>
         market_news: Array<{
             __typename?: 'DirectusData_blog'
             id: string
@@ -5498,26 +5350,6 @@ export type Unnamed_1_Query = {
             }
         }>
         market_news_eu: Array<{
-            __typename?: 'DirectusData_blog'
-            id: string
-            blog_title: string
-            slug: string
-            blog_post: string
-            tags: Array<{
-                __typename?: 'DirectusData_blog_tags'
-                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
-            }>
-            main_image: {
-                __typename?: 'DirectusData_directus_files'
-                description: string
-                id: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-        }>
-        market_news_uk: Array<{
             __typename?: 'DirectusData_blog'
             id: string
             blog_title: string
@@ -5581,28 +5413,6 @@ export type Unnamed_1_Query = {
                 tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
             }>
         }>
-        videos_uk: Array<{
-            __typename?: 'DirectusData_videos'
-            video_title: string
-            published_date: any
-            video_description: string
-            video_duration: string
-            featured: boolean
-            video_thumbnail: {
-                __typename?: 'DirectusData_directus_files'
-                id: string
-                title: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-            video_file: { __typename?: 'DirectusData_directus_files'; id: string }
-            tags: Array<{
-                __typename?: 'DirectusData_videos_tags'
-                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
-            }>
-        }>
         featured_video: Array<{
             __typename?: 'DirectusData_videos'
             video_title: string
@@ -5626,28 +5436,6 @@ export type Unnamed_1_Query = {
             }>
         }>
         featured_video_eu: Array<{
-            __typename?: 'DirectusData_videos'
-            video_title: string
-            published_date: any
-            video_description: string
-            video_duration: string
-            featured: boolean
-            video_thumbnail: {
-                __typename?: 'DirectusData_directus_files'
-                id: string
-                title: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-            video_file: { __typename?: 'DirectusData_directus_files'; id: string }
-            tags: Array<{
-                __typename?: 'DirectusData_videos_tags'
-                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
-            }>
-        }>
-        featured_video_uk: Array<{
             __typename?: 'DirectusData_videos'
             video_title: string
             published_date: any
@@ -5717,30 +5505,6 @@ export type Unnamed_1_Query = {
                 tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
             }>
         }>
-        recent_uk: Array<{
-            __typename?: 'DirectusData_blog'
-            id: string
-            slug: string
-            published_date: any
-            featured: boolean
-            blog_title: string
-            blog_description: string
-            blog_post: string
-            main_image: {
-                __typename?: 'DirectusData_directus_files'
-                id: string
-                description: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-            tags: Array<{
-                __typename?: 'DirectusData_blog_tags'
-                id: string
-                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
-            }>
-        }>
         featured: Array<{
             __typename?: 'DirectusData_blog'
             id: string
@@ -5766,30 +5530,6 @@ export type Unnamed_1_Query = {
             }>
         }>
         featured_eu: Array<{
-            __typename?: 'DirectusData_blog'
-            id: string
-            slug: string
-            published_date: any
-            featured: boolean
-            blog_title: string
-            blog_description: string
-            blog_post: string
-            main_image: {
-                __typename?: 'DirectusData_directus_files'
-                id: string
-                description: string
-                imageFile: {
-                    __typename?: 'File'
-                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-                }
-            }
-            tags: Array<{
-                __typename?: 'DirectusData_blog_tags'
-                id: string
-                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
-            }>
-        }>
-        featured_uk: Array<{
             __typename?: 'DirectusData_blog'
             id: string
             slug: string

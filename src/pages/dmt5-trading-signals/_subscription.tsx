@@ -93,7 +93,7 @@ const Card = styled(Flex)`
 `
 const StyledCardText = styled(Text)`
     font-size: 1.6rem;
-    text-align: left;
+    text-align: start;
 
     @media ${device.tabletL} {
         font-size: 16px;
@@ -285,7 +285,7 @@ const Subscription = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    {localize('Go to your Deriv MT5 terminal')}
+                    {localize('Go to your Deriv MT5 dashboard')}
                 </DMT5Button>
             </StyledContainer>
         </StyledSectionContainer>

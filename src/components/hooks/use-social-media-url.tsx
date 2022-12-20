@@ -6,19 +6,16 @@ const social_media_urls = {
     twitter: {
         non_eu_url: 'https://twitter.com/derivdotcom/',
         eu_url: 'https://www.twitter.com/deriv_eu/',
-        uk_url: 'https://www.twitter.com/deriv_uk/',
     },
     instagram: {
         url_career: 'https://www.instagram.com/derivcareers/',
         non_eu_url: 'https://www.instagram.com/deriv_official/',
         eu_url: 'https://www.instagram.com/deriv_eu/',
-        uk_url: 'https://www.instagram.com/deriv_uk/',
     },
     facebook: {
         url_career: 'https://www.facebook.com/derivcareers',
         non_eu_url: 'https://www.facebook.com/derivdotcom',
         eu_url: 'https://www.facebook.com/derivEU/',
-        uk_url: 'https://www.facebook.com/derivUK/',
     },
     linkedin: {
         non_eu_url: 'https://www.linkedin.com/company/derivdotcom/',
@@ -48,7 +45,7 @@ export const useSocialMediaUrl = (): TSocialMediaUrl => {
         twitter_url: '',
         linkedin_url: '',
     })
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu } = useCountryRule()
     const language = getLanguage()
     const current_path = getLocationPathname()
     const is_career_page = current_path === '/careers/'
@@ -57,9 +54,7 @@ export const useSocialMediaUrl = (): TSocialMediaUrl => {
         const special_language_url = special_language_urls[language]?.[type]
         const current_url = is_career_page
             ? social_media_urls[type]?.url_career
-            : (is_eu && social_media_urls[type].eu_url) ||
-              (is_uk && social_media_urls[type].uk_url) ||
-              social_media_urls[type].non_eu_url
+            : (is_eu && social_media_urls[type].eu_url) || social_media_urls[type].non_eu_url
         return { [type]: special_language_url || current_url }
     })
 

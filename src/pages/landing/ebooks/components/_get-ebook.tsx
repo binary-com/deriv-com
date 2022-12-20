@@ -112,7 +112,7 @@ const SocialButtonText = styled.div`
 
     span {
         display: block;
-        text-align: left;
+        text-align: start;
         padding-left: 5px;
         font-weight: bold;
     }

@@ -12,6 +12,7 @@ type NumbersContentType = {
 }
 
 const NumberSection = styled(SectionContainer)`
+    direction: ltr;
     display: Flex;
     background-color: var(--color-grey-25);
     padding: 4rem 12rem;
@@ -106,8 +107,8 @@ const numbers_content_eu: NumbersContentType[] = [
 ]
 
 const Numbers = () => {
-    const { is_uk_eu } = useCountryRule()
-    const contents = is_uk_eu ? numbers_content_eu : numbers_content
+    const { is_eu } = useCountryRule()
+    const contents = is_eu ? numbers_content_eu : numbers_content
 
     return (
         <NumberSection>

@@ -1,11 +1,14 @@
 const language_config = require(`./i18n-config.js`)
-const isBrowser = typeof window !== "undefined"
+const isBrowser = typeof window !== 'undefined'
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
-const site_url = 'https://deriv.com'
+const origin = isBrowser && window.location.origin
+const href = isBrowser && window.location.href
+const site_url =
+    origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -26,6 +29,7 @@ module.exports = {
         `https://static.deriv.com/scripts/cookie.js`,
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
+    trailingSlash: "never",
     plugins: [
         'gatsby-plugin-react-helmet',
         {
@@ -248,7 +252,6 @@ module.exports = {
                         sizes: `512x512`,
                         type: `image/png`,
                     },
-
                 ],
                 gcm_sender_id: '370236002280',
                 gcm_user_visible_only: true,

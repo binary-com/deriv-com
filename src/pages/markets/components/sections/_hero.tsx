@@ -38,23 +38,23 @@ const StyledContainer = styled(Container)`
         padding: 12.5rem 0;
 
         h1 {
-            text-align: left;
+            text-align: start;
         }
         h4 {
-            text-align: left;
+            text-align: start;
         }
     }
 `
 const Video = styled.video`
     position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(-50%, -50%) scale(2);
+    right: 30%;
+    transform: scale(2);
     width: 100%;
     height: 100%;
 
     @media ${device.tabletL} {
-        transform: translate(-40%, -50%) scale(1.5);
+        right: 20%;
+        transform: scale(1.5);
     }
 `
 
@@ -69,7 +69,7 @@ const MarketSubHeader = styled(Header)`
 export const Hero = () => {
     useLazyVideo()
 
-    const { is_eu, is_uk, is_row } = useCountryRule()
+    const { is_eu, is_row } = useCountryRule()
 
     return (
         <BackgroundWrapper>
@@ -94,11 +94,6 @@ export const Hero = () => {
                     {is_eu && (
                         <>
                             <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetics, stocks & indices, cryptocurrencies and commodities." />
-                        </>
-                    )}
-                    {is_uk && (
-                        <>
-                            <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, stocks & indices and commodities." />
                         </>
                     )}
                     {is_row && (

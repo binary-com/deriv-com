@@ -770,7 +770,7 @@ export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     )
 }
 
-export const useMoveOffCanvasMenu = (initState = false) => {
+export const useMoveOffCanvasMenu = (initState = false): [boolean, () => void, () => void] => {
     const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(initState)
     const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)
     const closeOffCanvasMenu = () => setOffCanvasMenuPosition(false)

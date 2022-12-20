@@ -16,7 +16,7 @@ const useSubscription = <T extends TSocketSubscribableEndpointNames>(name: T) =>
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onData = (response: any) => {
-        setData(response[name])
+        setData(response[name === 'ticks' ? 'tick' : name])
         setIsLoading(false)
     }
 

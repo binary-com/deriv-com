@@ -1,36 +1,25 @@
 import type {
-    PingRequest,
-    PingResponse,
-    VerifyEmailRequest,
-    VerifyEmailResponse,
+    BalanceRequest,
+    BalanceResponse,
     ExchangeRatesRequest,
     ExchangeRatesResponse,
-    P2POrderInformationRequest,
-    P2POrderInformationResponse,
+    NewVirtualMoneyAccountRequest,
+    NewVirtualMoneyAccountResponse,
+    PingRequest,
+    PingResponse,
     ServerStatusRequest,
     ServerStatusResponse,
     TermsAndConditionsApprovalRequest,
     TermsAndConditionsApprovalResponse,
-    CashierInformationRequest,
-    CashierInformationResponse,
-    CryptocurrencyConfigurationsRequest,
-    CryptocurrencyConfigurationsResponse,
-    PaymentAgentTransferRequest,
-    PaymentAgentTransferResponse,
-    PaymentAgentListRequest,
-    PaymentAgentListResponse,
-    PaymentAgentDetailsRequest,
-    PaymentAgentDetailsResponse,
-    PaymentAgentWithdrawRequest,
-    PaymentAgentWithdrawResponse,
+    TicksStreamRequest,
+    TicksStreamResponse,
     TransferBetweenAccountsRequest,
     TransferBetweenAccountsResponse,
-    BalanceRequest,
-    BalanceResponse,
-    ActiveSymbolsRequest,
-    ActiveSymbolsResponse,
+    VerifyEmailRequest,
+    VerifyEmailResponse,
+    AccountStatusRequest,
+    AccountStatusResponse,
 } from '@deriv/api-types'
-import type { KeysMatching } from './utils'
 
 export type TSocketEndpoints = {
     ping: {
@@ -45,10 +34,6 @@ export type TSocketEndpoints = {
         request: ExchangeRatesRequest
         response: ExchangeRatesResponse
     }
-    p2p_order_info: {
-        request: P2POrderInformationRequest
-        response: P2POrderInformationResponse
-    }
     website_status: {
         request: ServerStatusRequest
         response: ServerStatusResponse
@@ -56,30 +41,6 @@ export type TSocketEndpoints = {
     tnc_approval: {
         request: TermsAndConditionsApprovalRequest
         response: TermsAndConditionsApprovalResponse
-    }
-    cashier: {
-        request: CashierInformationRequest
-        response: CashierInformationResponse
-    }
-    crypto_config: {
-        request: CryptocurrencyConfigurationsRequest
-        response: CryptocurrencyConfigurationsResponse
-    }
-    paymentagent_transfer: {
-        request: PaymentAgentTransferRequest
-        response: PaymentAgentTransferResponse
-    }
-    paymentagent_list: {
-        request: PaymentAgentListRequest
-        response: PaymentAgentListResponse
-    }
-    paymentagent_details: {
-        request: PaymentAgentDetailsRequest
-        response: PaymentAgentDetailsResponse
-    }
-    paymentagent_withdraw: {
-        request: PaymentAgentWithdrawRequest
-        response: PaymentAgentWithdrawResponse
     }
     transfer_between_accounts: {
         request: TransferBetweenAccountsRequest
@@ -89,9 +50,17 @@ export type TSocketEndpoints = {
         request: BalanceRequest
         response: BalanceResponse
     }
-    active_symbols: {
-        request: ActiveSymbolsRequest
-        response: ActiveSymbolsResponse
+    ticks: {
+        request: TicksStreamRequest
+        response: TicksStreamResponse
+    }
+    new_account_virtual: {
+        request: NewVirtualMoneyAccountRequest
+        response: NewVirtualMoneyAccountResponse
+    }
+    get_account_status: {
+        request: AccountStatusRequest
+        response: AccountStatusResponse
     }
 }
 
@@ -103,7 +72,8 @@ export type TSocketSubscribableEndpointNames =
 
 export type TSocketResponse<T extends TSocketEndpointNames> = TSocketEndpoints[T]['response']
 
-export type TSocketResponseData<T extends TSocketEndpointNames> = TSocketResponse<T>[T]
+export type TSocketResponseData<T extends TSocketEndpointNames> =
+    TSocketResponse<T>[T extends 'ticks' ? 'tick' : T]
 
 export type TSocketRequest<T extends TSocketEndpointNames> = TSocketEndpoints[T]['request']
 

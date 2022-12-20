@@ -8,7 +8,7 @@ import { Header, Tabs } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
 const Section = styled(SectionContainer)`
-    background-color: ${(props) => props.bgColor || 'transparent'};
+    background-color: transparent;
 `
 
 const TermsAndConditions = () => {
@@ -43,10 +43,7 @@ const TermsAndConditions = () => {
                     </Flex>
                 </Container>
                 <div>
-                    <Tabs
-                        tab_list={['clients', 'business-partners']}
-                        route_from="terms-and-conditions"
-                    >
+                    <Tabs tab_list={['clients', 'business-partners']}>
                         <Tabs.Panel label={localize('FOR CLIENTS')}>
                             <ClientGrid />
                         </Tabs.Panel>

@@ -51,6 +51,10 @@ type DMT5Type = {
     countDetails: CountDetailsType
 }
 
+type StyledSectionProps = {
+    align?: string
+}
+
 export type DMT5Props = { data: DMT5Type }
 
 const TitleWrapper = styled.div`
@@ -62,11 +66,11 @@ const StyledCardWrapper = styled(CardWrapper)`
     flex-wrap: wrap;
 
     @media ${device.tabletL} {
-        align-items: start;
+        align-items: center;
     }
 `
 
-const StyledSection = styled(SectionContainer)`
+const StyledSection = styled(SectionContainer)<StyledSectionProps>`
     padding-bottom: 0;
     text-align: ${(props) => props.align || 'left'};
 
@@ -103,8 +107,7 @@ const StyledHeaderCommission = styled(StyledHeader)`
         text-align: center;
     }
     @media ${device.tabletL} {
-        text-align: start;
-        width: 38rem;
+        text-align: center;
     }
 `
 const StyledHeaderDerivx = styled(Header)`
@@ -113,6 +116,7 @@ const StyledHeaderDerivx = styled(Header)`
 
     @media ${device.tabletL} {
         margin-left: 0;
+        text-align: center;
     }
 `
 
@@ -138,7 +142,7 @@ const SubtitleHeader = styled(Header)`
 const DerivIBProgramme = () => {
     const { is_row } = useCountryRule()
     return (
-        <StyledSection shadow id="deriv-ib">
+        <StyledSection id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
                     <StyledTitleHeader as="h2" mb="1.2rem" type="page-title" align="center">

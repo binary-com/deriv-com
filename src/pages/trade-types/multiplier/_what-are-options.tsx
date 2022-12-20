@@ -165,7 +165,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_non_uk, is_row, is_uk_eu } = useCountryRule()
+    const { is_eu } = useCountryRule()
     const handleSignup = useHandleSignup()
     const is_rtl = useIsRtl()
 
@@ -183,7 +183,7 @@ const WhatAreOptions = () => {
             </StyledSectionContainerHead>
             <StyledSectionContainer is_rtl={is_rtl} padding="4rem 0 0">
                 <SmallContainer direction="column" ai="flex-start">
-                    {is_uk_eu ? (
+                    {is_eu ? (
                         <Flex fd="column">
                             <Row mb="2rem">
                                 <RowColumn isHeader>
@@ -453,12 +453,12 @@ const WhatAreOptions = () => {
                                 <img src={Seven} alt="Trade 24/7" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {is_uk_eu
+                                {is_eu
                                     ? localize('Trade anytime')
                                     : localize('Trade 24/7, 365 days a year')}
                             </Text>
                             <Text>
-                                {is_uk_eu
+                                {is_eu
                                     ? localize(
                                           'Trade multipliers on synthetic indices 24/7, 365 days a year. Trade multipliers on forex round the clock on weekdays.',
                                       )
@@ -484,7 +484,7 @@ const WhatAreOptions = () => {
                     <Text mt="4rem" mb="1.6rem" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <Button onClick={handleSignup} id="dm-multipliers-signup-1" to="" secondary>
+                    <Button onClick={handleSignup} id="dm-multipliers-signup-1" secondary>
                         {localize('Create free demo account')}
                     </Button>
                 </SmallContainer>

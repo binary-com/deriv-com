@@ -57,6 +57,11 @@ const query = graphql`
         ) {
             ...fadeIn
         }
+        business_intelligence_desc: file(
+            relativePath: { eq: "careers-2/business-intelligence-desc.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

@@ -117,9 +117,6 @@ export const academyQuery = graphql`
                         }
                     }
                 }
-                video_file {
-                    id
-                }
                 tags {
                     tags_id {
                         tag_name
@@ -149,9 +146,6 @@ export const academyQuery = graphql`
                         }
                     }
                 }
-                video_file {
-                    id
-                }
                 tags {
                     tags_id {
                         tag_name
@@ -177,9 +171,6 @@ export const academyQuery = graphql`
                             gatsbyImageData(aspectRatio: 1.6666666667, quality: 60)
                         }
                     }
-                }
-                video_file {
-                    id
                 }
                 tags {
                     tags_id {
@@ -210,9 +201,6 @@ export const academyQuery = graphql`
                             gatsbyImageData(aspectRatio: 1.6666666667, quality: 60)
                         }
                     }
-                }
-                video_file {
-                    id
                 }
                 tags {
                     tags_id {

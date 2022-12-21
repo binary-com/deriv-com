@@ -29,6 +29,13 @@ const AffiliateSignup = () => {
             postal_code: '',
         },
         phone_number: '',
+        terms_use: {
+            non_pep_declaration: false,
+            tnc_accepted: false,
+            is_brokers_checked: false,
+            is_partner_checked: false,
+            is_eu_checked: false,
+        },
         personal_details: {
             first_name: '',
             last_name: '',
@@ -42,7 +49,6 @@ const AffiliateSignup = () => {
             citizen: null,
             currency: '',
         },
-        terms_use: null,
     })
 
     const updateAffiliateValues = (value, type) => {
@@ -70,6 +76,20 @@ const AffiliateSignup = () => {
                 setAffiliateAccount({
                     ...affiliate_account,
                     phone_number: value,
+                })
+                break
+
+            case 'terms-use':
+                setNextBtnEnabled(false)
+                setAffiliateAccount({
+                    ...affiliate_account,
+                    terms_use: {
+                        non_pep_declaration: value.non_pep_declaration,
+                        tnc_accepted: value.tnc_accepted,
+                        is_brokers_checked: value.is_brokers_checked,
+                        is_partner_checked: value.is_partner_checked,
+                        is_eu_checked: value.is_eu_checked,
+                    },
                 })
                 break
             case 'personal-details':
@@ -139,7 +159,15 @@ const AffiliateSignup = () => {
                             setNextBtnEnabled(valid)
                         }}
                     />
-                    <AccountTerms />
+                    <AccountTerms
+                        affiliate_terms_data={affiliate_account.terms_use}
+                        updatedData={(value) => {
+                            updateAffiliateValues(value, 'terms-use')
+                        }}
+                        onValidate={(valid) => {
+                            setNextBtnEnabled(valid)
+                        }}
+                    />
                 </Wizard>
             </SignUpWrapper>
         </AffiliateSignupLayout>

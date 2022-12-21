@@ -28,6 +28,10 @@ type ItemsType = {
     subtitle: React.ReactElement
 }[]
 
+type StyledLinkButtonProps = {
+    id?: string
+}
+
 const meta_attributes: MetaAttributesType = {
     og_title: localize('Affiliate and IB programme | Deriv'),
     og_description: localize(
@@ -46,7 +50,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
     border-radius: 4px;
     @media ${device.tabletS} {
         font-size: 14px;

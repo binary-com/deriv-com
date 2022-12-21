@@ -12,6 +12,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 type SectionProps = {
     image: string
     mobile_image: string
+    is_eu_country: boolean
 }
 
 const Section = styled(Box)<SectionProps>`

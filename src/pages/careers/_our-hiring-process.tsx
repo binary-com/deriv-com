@@ -70,7 +70,7 @@ const leftStyle = css`
     left: -1.2rem;
 `
 
-const StyledTipsCard = styled(Flex)`
+const StyledTipsCard = styled(Flex)<{ right: boolean }>`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     padding: 2.4rem;
     position: relative;
@@ -310,7 +310,7 @@ const OurHiringProcess = () => {
                             style={{ marginTop: '4.7rem' }}
                             right
                         />
-                        <SubResponsiveFlex1 direction="row" justify="unset">
+                        <SubResponsiveFlex1 direction="row" jc="unset">
                             <StyledCareer1 src={Career1} alt="career1" />
                             <Process
                                 title={'Apply'}

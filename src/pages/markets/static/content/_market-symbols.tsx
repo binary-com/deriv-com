@@ -3,8 +3,8 @@ import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
 export type MarketSymbol = {
-    src: string
-    text: ReactElement
+    src?: string
+    text?: ReactElement
     eu?: boolean
 }
 export const americas: MarketSymbol[] = [

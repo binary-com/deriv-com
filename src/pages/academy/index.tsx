@@ -52,6 +52,7 @@ export type MarketNewsDataType = AcademyIndexFragment['directus']['market_news']
 
 const DerivBlog = ({ data }: DerivBlogProps) => {
     const { is_eu } = useCountryRule()
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
 
     const meta_attributes = {
         og_title: 'Blogs, video tutorials, and more | Deriv Academy',
@@ -88,12 +89,13 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
         `,
     }
 
+    const is_deriv_p2p = 'Deriv P2P'
     let market_news_data = data.directus.market_news
     let recent_data = data.directus.recent
     let featured_data = data.directus.featured
     let homepage_banner_data = data.directus.homepage_banners
     let non_featured_video_list_data = data.directus.videos.filter((item) => {
-        return !is_p2p_allowed_country ? !item.video_title.includes('Deriv P2P') : item
+        return !is_p2p_allowed_country ? !item.video_title.includes(is_deriv_p2p) : item
     })
     let featured_video_list_data = data.directus.featured_video
 

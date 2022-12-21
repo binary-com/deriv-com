@@ -36,15 +36,16 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const breakpoints = useBreakpoints()
 
     const useAvailabileP2pData = () => {
+        const is_deriv_p2p = 'Deriv P2P'
         let [filtered_academy_video] = useAcademyData()
         let [filtered_academy_blogs] = useAcademyData()
 
         filtered_academy_video = filtered_academy_video.videos.filter((item) => {
-            return !is_p2p_allowed_country ? !item.video_title.includes('Deriv P2P') : item
+            return !is_p2p_allowed_country ? !item.video_title.includes(is_deriv_p2p) : item
         })
 
         filtered_academy_blogs = filtered_academy_blogs.blog.filter((item) => {
-            return !is_p2p_allowed_country ? !item.blog_title.includes('Deriv P2P') : item
+            return !is_p2p_allowed_country ? !item.blog_title.includes(is_deriv_p2p) : item
         })
 
         const academy_data = [{ blog: filtered_academy_blogs, videos: filtered_academy_video }]

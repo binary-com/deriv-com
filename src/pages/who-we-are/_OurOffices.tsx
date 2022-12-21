@@ -110,15 +110,29 @@ const OurOffices = () => {
             <Flex>
                 <Desktop>
                     <MapImage data={data['earth']}>
-                        {desktop_pins.map((pin, idx) => (
-                            <MapPin key={idx} {...pin} />
+                        {desktop_pins.map(pin => (
+                            <MapPin
+                                key={
+                                    typeof pin.title === 'string'
+                                        ? pin.title
+                                        : pin.title.props.translate_text
+                                }
+                                {...pin}
+                            />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
                     <MapImage data={data['earth_mobile']}>
-                        {mobile_pins.map((pin, idx) => (
-                            <MapPin key={idx} {...pin} />
+                        {mobile_pins.map(pin => (
+                            <MapPin
+                                key={
+                                    typeof pin.title === 'string'
+                                        ? pin.title
+                                        : pin.title.props.translate_text
+                                }
+                                {...pin}
+                            />
                         ))}
                     </MapImage>
                 </Mobile>
@@ -126,7 +140,14 @@ const OurOffices = () => {
 
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
                 {our_offices_count.map(({ count, title }) => (
-                    <StyledFlex fd="column" key={title}>
+                    <StyledFlex
+                        fd="column"
+                        key={
+                            typeof title === 'string'
+                                ? title
+                                : title.props.translate_text
+                        }
+                    >
                         <NumberHeader size="32px">{count}</NumberHeader>
                         <NumberText size="16px" align="center">
                             {title}

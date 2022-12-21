@@ -12,11 +12,12 @@ import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param
 import { DerivStore } from 'store'
 
 const HelpCentre = () => {
+    const is_deriv_p2p = 'Deriv P2P'
     const { is_deriv_go } = usePlatformQueryParam()
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     const general_questions = getQuestionsBySection(GENERAL)
     const platforms_questions = getQuestionsBySection(PLATFORMS).filter((item) => {
-        return !is_p2p_allowed_country ? !item.category.includes('_t_Deriv P2P_t_') : item
+        return !is_p2p_allowed_country ? !item.category.includes(is_deriv_p2p) : item
     })
 
     return (

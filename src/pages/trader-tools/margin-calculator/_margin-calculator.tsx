@@ -87,8 +87,8 @@ const MarginCalculator = () => {
 
     const fetchTickData = useCallback(
         (selectedSymbol, setAssetPrice) => {
-            const selected = data.find((item) => item.symbol === selectedSymbol)
-            setAssetPrice('assetPrice', selected.spot)
+            const selected = data?.find((item) => item.symbol === selectedSymbol)
+            if (selected) setAssetPrice('assetPrice', selected.spot)
         },
         [data],
     )

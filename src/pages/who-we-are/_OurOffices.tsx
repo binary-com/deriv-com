@@ -126,7 +126,14 @@ const OurOffices = () => {
 
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
                 {our_offices_count.map(({ count, title }) => (
-                    <StyledFlex fd="column" key={title}>
+                    <StyledFlex
+                        fd="column"
+                        key={
+                            typeof title === 'string'
+                                ? title
+                                : title.props.translate_text
+                        }
+                    >
                         <NumberHeader size="32px">{count}</NumberHeader>
                         <NumberText size="16px" align="center">
                             {title}

@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useRef } from 'react'
+import { useState, useLayoutEffect, useRef, useCallback } from 'react'
 import DerivWS from 'common/websocket/api'
 
 export type DerivApiProps = {
@@ -17,13 +17,24 @@ export const useDerivApi = () => {
         }
     }, [is_opened])
 
-    const send = async (data: object, callback: (e: object) => void) => {
+    /**
+     * @description If you want to have an stream of data please use this
+     */
+    const send = useCallback(async (data: object, callback?: (e: object) => void) => {
         if (ws) {
             const response = await ws.current.send(data)
-
-            callback(response)
+            callback?.(response)
         }
-    }
+    }, [])
+    /**
+     * @description If you want to hit the websocket once use this one, this one will send the `forget` request on it's own
+     */
+    const sendOnce = useCallback(async (data: object, callback?: (e: object) => void) => {
+        if (ws) {
+            const response = await ws.current.send(data)
+            callback?.(response)
+        }
+    }, [])
 
-    return { send }
+    return { send, sendOnce }
 }

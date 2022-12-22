@@ -10,15 +10,21 @@ type PhoneNumberProps = {
     onValidate: (e) => void
     affiliate_phone_number: string
     updatedData: (e) => void
+    affiliate_phone_code: string | number
 }
 
-const PhoneNumber = ({ onValidate, affiliate_phone_number, updatedData }: PhoneNumberProps) => {
+const PhoneNumber = ({
+    onValidate,
+    affiliate_phone_number,
+    updatedData,
+    affiliate_phone_code,
+}: PhoneNumberProps) => {
     const [phone, setPhone] = useState(affiliate_phone_number)
     const [phone_error_msg, setPhoneErrorMsg] = useState('')
-    const [phonecode, setPhoneCode] = useState('44')
+    const [phone_code, setPhoneCode] = useState(affiliate_phone_code)
 
     useEffect(() => {
-        updatedData(phone)
+        updatedData({ phone })
     }, [phone])
 
     const handlePhoneNumber = (e) => {
@@ -98,7 +104,7 @@ const PhoneNumber = ({ onValidate, affiliate_phone_number, updatedData }: PhoneN
 
             <CodeContainer>
                 <CodeWrapper>
-                    <CountryCode>{phonecode && <span>{`+${phonecode}`}</span>}</CountryCode>
+                    <CountryCode>{phone_code && <span>{`+${phone_code}`}</span>}</CountryCode>
                 </CodeWrapper>
 
                 <PhoneNumberInput

@@ -1,14 +1,51 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import AgreementLabel from 'components/custom/_agreement-label'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 
-const AccountTerms = () => {
-    const [non_pep_declaration, setNonPepDeclaration] = useState(false)
-    const [tnc_accepted, setTncAccepted] = useState(false)
-    const [is_eu_checked, setEuChecked] = useState(false)
-    const [is_partner_checked, setPartnerChecked] = useState(false)
+type TAffiliateTerms = {
+    non_pep_declaration: boolean
+    tnc_accepted: boolean
+    is_brokers_checked: boolean
+    is_eu_checked: boolean
+    is_partner_checked: boolean
+}
+
+type AccountTermsProps = {
+    updatedData: (configs: TAffiliateTerms) => void
+    onValidate: (validatex: boolean) => void
+    affiliate_terms_data: TAffiliateTerms
+}
+
+const AccountTerms = ({ affiliate_terms_data, updatedData, onValidate }: AccountTermsProps) => {
+    const [non_pep_declaration, setNonPepDeclaration] = useState(
+        affiliate_terms_data.non_pep_declaration,
+    )
+    const [tnc_accepted, setTncAccepted] = useState(affiliate_terms_data.tnc_accepted)
+    const [is_brokers_checked, setBrokersChecked] = useState(
+        affiliate_terms_data.is_brokers_checked,
+    )
+    const [is_eu_checked, setEuChecked] = useState(affiliate_terms_data.is_eu_checked)
+    const [is_partner_checked, setPartnerChecked] = useState(
+        affiliate_terms_data.is_partner_checked,
+    )
+
+    useEffect(() => {
+        updatedData({
+            non_pep_declaration,
+            tnc_accepted,
+            is_brokers_checked,
+            is_eu_checked,
+            is_partner_checked,
+        })
+    }, [non_pep_declaration, tnc_accepted, is_brokers_checked, is_eu_checked, is_partner_checked])
+
+    const validate = !(!non_pep_declaration || !tnc_accepted || !is_brokers_checked)
+
+    useEffect(() => {
+        onValidate(validate)
+    }, [onValidate, validate])
 
     const MainWrapper = styled.div`
         margin: 0 80px;
@@ -39,6 +76,10 @@ const AccountTerms = () => {
                 setTncAccepted(event.currentTarget.checked)
                 break
             }
+            case 'is_brokers_checked': {
+                setBrokersChecked(event.currentTarget.checked)
+                break
+            }
             case 'is_partner_checked': {
                 setPartnerChecked(event.currentTarget.checked)
                 break
@@ -56,11 +97,16 @@ const AccountTerms = () => {
             name: 'non_pep_declaration',
         },
         {
+            link_text: localize('I have read and accepted Deriv’s terms and conditions'),
+            is_checked: tnc_accepted,
+            name: 'tnc_accepted',
+        },
+        {
             link_text: localize(
                 'I have read and accepted Deriv’s terms and conditions, general terms of use and affiliates and intoducing brokers’ terms and conditions.',
             ),
-            is_checked: tnc_accepted,
-            name: 'tnc_accepted',
+            is_checked: is_brokers_checked,
+            name: 'is_brokers_checked',
         },
         {
             link_text: localize('Please send me information regarding your partnership program.'),

@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react'
-import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
+import React from 'react'
+import { localize, Localize } from 'components/localization'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
@@ -12,10 +11,11 @@ import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
 
 export type CommoditiesContent = {
     src: string
-    text: ReactElement
+    text: string
     alt: string
 }
-export const simple_step_content_commodities: SimpleStepsContent[] = [
+
+export const simple_step_content_commodities = [
     {
         header: <Localize translate_text="Practise" />,
         text: (
@@ -41,28 +41,28 @@ export const simple_step_content_commodities: SimpleStepsContent[] = [
 const commodities: CommoditiesContent[] = [
     {
         src: VariableSpreads,
-        text: <Localize translate_text="Competitive fixed and variable spreads" />,
-        alt: 'variable spreads',
+        text: localize('Competitive fixed and variable spreads'),
+        alt: 'Fixed and variable',
     },
     {
         src: NoCommission,
-        text: <Localize translate_text="No commission on any commodity contract" />,
-        alt: 'no commission',
+        text: localize('No commission on any commodity contract'),
+        alt: 'No commission',
     },
     {
         src: MetalAndOil,
-        text: <Localize translate_text="All four precious metals and crude oil available" />,
-        alt: 'metals and oil',
+        text: localize('All four precious metals and crude oil available'),
+        alt: 'Trading platform',
     },
     {
         src: ResponsiveWebsite,
-        text: <Localize translate_text="Easy-to-use platforms, superior chart technology" />,
-        alt: 'responsive website',
+        text: localize('Easy-to-use platforms, superior chart technology'),
+        alt: 'Easy platform',
     },
     {
         src: FriendlySupport,
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
-        alt: 'support',
+        text: localize('Smart and friendly support, 7 days a week'),
+        alt: 'Customer help',
     },
 ]
 

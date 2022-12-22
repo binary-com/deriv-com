@@ -27,6 +27,8 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
     })
 
     const [is_loading, setIsLoading] = useState(false)
+    const [trendingMarkets, setTrendingMarkets] = useState([])
+    const [marketData, setMarketData] = useState([])
 
     const table_data = useMemo(() => {
         const data = markets_data.get(market)
@@ -36,7 +38,37 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const { sendOnce } = useDerivApi()
+    const { sendOnce, send } = useDerivApi()
+
+    useEffect(() => {
+        send({ trading_platform_asset_listing: 1, platform: 'mt5' }, (response) => {
+            if (!response.error && response.trading_platform_asset_listing.mt5.assets.length > 0) {
+                const data = response.trading_platform_asset_listing.mt5.assets
+                const trendingMarketsList = data.filter(
+                    (item) =>
+                        item.market_ranking == '1' ||
+                        item.market_ranking == '2' ||
+                        item.market_ranking == '3' ||
+                        item.market_ranking == '4' ||
+                        item.market_ranking == '5' ||
+                        item.market_ranking == '6',
+                )
+                setTrendingMarkets(trendingMarketsList)
+            }
+        })
+    }, [])
+
+    useEffect(() => {
+        const all_markets = {}
+        trendingMarkets.forEach((market) => {
+            if (all_markets[market.market] == undefined) {
+                all_markets[market.market] = [market]
+            } else {
+                all_markets[market.market].push(market)
+            }
+        })
+        setMarketData(all_markets)
+    }, [trendingMarkets])
 
     const requestMarketsData = useCallback(() => {
         setIsLoading(true)

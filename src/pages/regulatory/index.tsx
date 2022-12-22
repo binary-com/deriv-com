@@ -27,6 +27,7 @@ import Deriv from 'images/common/regulatory/deriv.png'
 import TFC from 'images/common/regulatory/tfc.png'
 import SVG from 'images/svg/regulatory/svg.svg'
 import device from 'themes/device'
+import {TString} from "../../types/generics";
 
 type BoxProps = {
     padding?: string
@@ -105,6 +106,8 @@ const ResponsiveHeader = styled(StyledHeader)`
         font-size: 5rem;
     }
 `
+
+const address : TString = `_t_Deriv (SVG) LLC is located in 1st Floor SVG Teachers Credit Union Limited, Uptown Building, Cnr. Middle & James Street, Kingstown, St Vincent and the Grenadines._t_`;
 
 const Regulatory = (locale: RegulatoryProps) => {
     return (
@@ -367,9 +370,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 </StyledHeader>
                             </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
-                                {localize(
-                                    'Deriv (SVG) LLC is located in Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company no. 273 LLC 2020).',
-                                )}
+                                {localize(address)}
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(

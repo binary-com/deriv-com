@@ -12,6 +12,10 @@ jobs:
         if:  startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')
         steps:
             - name: Branch Check 🔍
-              run: echo '${{ github.head_ref }} is valid branch for translation workflow'
+              run: |
+               BRANCH='${{ github.head_ref }}'
+               CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
+               
+               echo "$CLEAN_BRANCH is valid branch for translation workflow"
               
 

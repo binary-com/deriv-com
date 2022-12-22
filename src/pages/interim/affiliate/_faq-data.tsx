@@ -131,7 +131,7 @@ const WhatHappenAffiliate = () => (
 const DifferentiateCommission = () => (
     <MaxWidth>
         <Text mb="2.4rem">{localize('We have separated the reports for your convenience.')}</Text>
-        <Img src={AffiliateReport} alt="affiliate report" />
+        <Img src={AffiliateReport} alt="Detailed activity report of your account and income" />
         <Text mt="0.8rem">
             <Localize translate_text="To get each report, go to your dashboard and select Reports > Filter by brands. Then, choose the platform whose commission you would like to view." />
         </Text>
@@ -175,11 +175,11 @@ const HowToPromote = () => (
         <Text mb="2.4rem">
             <Localize translate_text="To promote Deriv.com, you will need a Deriv.com affiliate link." />
         </Text>
-        <Img src={AffiliateLogin} alt="affiliate login" />
+        <Img src={AffiliateLogin} alt="Log in or signup to join our partner programme" />
         <Text mt="0.8rem" mb="2.4rem">
             <Localize translate_text="To get one, first log in to your Binary.com affiliate dashboard." />
         </Text>
-        <Img src={AffiliateMarketing} alt="affiliate marketing" />
+        <Img src={AffiliateMarketing} alt="Marketing media gallery" />
         <Text mt="0.8rem" mb="2rem">
             <Localize
                 translate_text="Select <0>Marketing > Get media code</0>. Then, copy the <0>Landing page URL</0> provided."

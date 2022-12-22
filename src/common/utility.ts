@@ -6,11 +6,11 @@ import {
     cms_assets_end_point,
     deriv_cookie_domain,
     deriv_app_languages,
+    smart_trader_languages,
     live_chat_redirection_link,
     live_chat_key,
     domains,
     eu_domains,
-    uk_domains,
 } from './constants'
 import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
@@ -75,6 +75,10 @@ export const getDerivAppLocalizedURL = (link: string, locale: string, to = '') =
     const lang = deriv_app_languages.includes(locale) ? locale : 'en'
     return `${link}${to}?lang=${lang.toUpperCase()}`
 }
+export const getSmartTraderLocalizedURL = (link: string, locale: string) => {
+    const lang = smart_trader_languages.includes(locale) ? locale : 'en'
+    return `${link}/${lang}/trading`
+}
 
 export const getThaiExcludedLocale = (locale: string): string => (locale === 'th' ? 'en' : locale)
 
@@ -107,7 +111,7 @@ export const isLoggedIn = () => {
     return !!client_information
 }
 
-export const isIndexEven = (index: number, reverse: boolean) =>
+export const isIndexEven = (index: number, reverse?: boolean) =>
     reverse ? (index + 1) % 2 : index % 2
 
 export const sanitize = (input: string): string => input.replace(/[.*+?^${}()|[\]\\]/g, '')
@@ -281,7 +285,8 @@ export const redirectToTradingPlatform = () =>
 
 // Function to manually add external js files.
 type TSettings = {
-    src: 'https://static.deriv.com/scripts/cookie.js'
+    src?: 'https://static.deriv.com/scripts/cookie.js'
+    text?: string
     async: boolean
     strategy?: 'off-main-thread'
 }
@@ -437,9 +442,6 @@ const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 
 export const isEuDomain = () =>
     !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
-
-export const isUkDomain = () =>
-    !!uk_domains.some((uk_sub_domain) => uk_sub_domain.test(getSubdomain()))
 
 export const handleRedirect = (residence: string, current_client_country: string): boolean => {
     const country = residence ? residence : current_client_country

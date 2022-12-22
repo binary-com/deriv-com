@@ -47,7 +47,11 @@ const PaymentAgent = () => {
                     <Faq />
                 </Layout>
             ) : (
-                <PageNotFound />
+                <PageNotFound
+                    pageContext={{
+                        locale: '',
+                    }}
+                />
             )}
         </>
     )

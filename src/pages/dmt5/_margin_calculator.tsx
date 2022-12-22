@@ -211,7 +211,7 @@ const calculators: CalculatorProps[] = [
         ),
         image_name: 'margin_calculator',
         image_alt_name: localize('DMT5 margin trading calculator'),
-        button_text: <Localize translate_text="Try our margin calculator" />,
+        button_text: localize('Try our margin calculator'),
         link: '/trader-tools/margin-calculator/',
     },
     {
@@ -222,7 +222,7 @@ const calculators: CalculatorProps[] = [
         ),
         image_name: 'swap_calculator',
         image_alt_name: localize('DMT5 swap trading calculator'),
-        button_text: <Localize translate_text="Try our swap calculator" />,
+        button_text: localize('Try our swap calculator'),
         link: '/trader-tools/swap-calculator/',
     },
 ]

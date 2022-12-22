@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import validation from '../validations/_account-details'
+import validation from '../validations/_affiliate_validation'
 import OtpVerification from 'images/svg/signup-affiliates/code.svg'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'

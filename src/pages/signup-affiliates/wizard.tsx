@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import AffiliateSignupLayout, { SignUpWrapper } from './components/_layout'
 import AccountType from './components/_account-type'
-import AccountDetails from './components/_account-details'
+import AddressDetails from './components/_address-details'
 import PhoneNumber from './components/_phone_number'
+import PersonalDetails from './components/_personal-details'
 import AccountTerms from './components/_account-terms'
 import { WithIntl, localize } from 'components/localization'
 import { Wizard } from 'components/form'
@@ -29,8 +30,26 @@ const AffiliateSignup = () => {
             phone_code: '',
         },
         phone_number: '',
-        personal_details: null,
-        terms_use: null,
+        terms_use: {
+            non_pep_declaration: false,
+            tnc_accepted: false,
+            is_brokers_checked: false,
+            is_partner_checked: false,
+            is_eu_checked: false,
+        },
+        personal_details: {
+            first_name: '',
+            last_name: '',
+            date_birth: '',
+            website_url: '',
+            social_media_url: '',
+            password: '',
+            company_name: '',
+            company_registration_number: '',
+            certificate_of_incorporation: null,
+            citizen: null,
+            currency: '',
+        },
     })
 
     const updateAffiliateValues = (value, type) => {
@@ -62,6 +81,39 @@ const AffiliateSignup = () => {
                     phone_number: value.phone,
                 })
                 break
+
+            case 'terms-use':
+                setNextBtnEnabled(false)
+                setAffiliateAccount({
+                    ...affiliate_account,
+                    terms_use: {
+                        non_pep_declaration: value.non_pep_declaration,
+                        tnc_accepted: value.tnc_accepted,
+                        is_brokers_checked: value.is_brokers_checked,
+                        is_partner_checked: value.is_partner_checked,
+                        is_eu_checked: value.is_eu_checked,
+                    },
+                })
+                break
+            case 'personal-details':
+                setNextBtnEnabled(false)
+                setAffiliateAccount({
+                    ...affiliate_account,
+                    personal_details: {
+                        first_name: value.first_name,
+                        last_name: value.last_name,
+                        date_birth: value.date_birth,
+                        social_media_url: value.social_media_url,
+                        website_url: value.website_url,
+                        password: value.password,
+                        company_name: value.company_name,
+                        company_registration_number: value.company_registration_number,
+                        certificate_of_incorporation: value.certificate_of_incorporation,
+                        citizen: value.citizen,
+                        currency: value.currency,
+                    },
+                })
+                break
         }
     }
 
@@ -82,7 +134,7 @@ const AffiliateSignup = () => {
                             setNextBtnEnabled(valid)
                         }}
                     />
-                    <AccountDetails
+                    <AddressDetails
                         affiliate_address_data={affiliate_account.address_details}
                         updatedData={(value) => {
                             updateAffiliateValues(value, 'account-details')
@@ -101,7 +153,25 @@ const AffiliateSignup = () => {
                             setNextBtnEnabled(valid)
                         }}
                     />
-                    <AccountTerms />
+                    <PersonalDetails
+                        affiliate_personal_data={affiliate_account.personal_details}
+                        is_individual={affiliate_account.account_type === 0 ? true : false}
+                        updatedData={(value) => {
+                            updateAffiliateValues(value, 'personal-details')
+                        }}
+                        onValidate={(valid) => {
+                            setNextBtnEnabled(valid)
+                        }}
+                    />
+                    <AccountTerms
+                        affiliate_terms_data={affiliate_account.terms_use}
+                        updatedData={(value) => {
+                            updateAffiliateValues(value, 'terms-use')
+                        }}
+                        onValidate={(valid) => {
+                            setNextBtnEnabled(valid)
+                        }}
+                    />
                 </Wizard>
             </SignUpWrapper>
         </AffiliateSignupLayout>

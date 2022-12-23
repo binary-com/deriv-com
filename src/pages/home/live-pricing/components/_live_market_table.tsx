@@ -39,7 +39,7 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
         setIsLoading(true)
 
         send(
-            { trading_platform_asset_listing: 1, platform: 'mt5' },
+            { trading_platform_asset_listing: 1, platform: 'mt5', type: 'brief' },
             (response: TMarketDataResponse) => {
                 const responseData = [...response.trading_platform_asset_listing.mt5.assets]
                 const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
@@ -61,6 +61,7 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                     markets.set(item.market, currentMarket)
                 })
                 setMarketsData(markets)
+
                 setIsLoading(false)
             },
         )

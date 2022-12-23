@@ -9,7 +9,6 @@ import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-import { TString } from 'types/generics'
 
 type CalculatorProps = {
     children?: React.ReactNode
@@ -19,7 +18,7 @@ type CalculatorProps = {
     text: React.ReactElement
     image_name: string
     image_alt_name: string
-    button_text: TString
+    button_text: string
     link: string
 }
 

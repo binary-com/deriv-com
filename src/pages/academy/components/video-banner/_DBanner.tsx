@@ -103,7 +103,7 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
 
     const {
         published_date,
-        thumbnail_img,
+        thumbnail_img_alt,
         video_title,
         video_description,
         video_thumbnail,
@@ -114,12 +114,12 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
 
     return (
         <>
-            <ParentWrapper direction="column" bg_image={thumbnail_img}>
+            <ParentWrapper direction="column">
                 <BackgroundImageWrapper>
                     <BackgroundImageContainer>
                         <GatsbyImage
                             image={getImage(video_thumbnail.imageFile)}
-                            alt={thumbnail_img}
+                            alt={thumbnail_img_alt}
                         />
                     </BackgroundImageContainer>
                 </BackgroundImageWrapper>

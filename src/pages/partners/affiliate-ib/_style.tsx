@@ -6,6 +6,9 @@ type PointerProps = {
     ml?: string
     is_top?: boolean
 }
+type FormulaTopWrapperProps = {
+    oneLine?: boolean
+}
 
 export const FormulaBottomWrapper = styled(Flex)`
     flex-direction: row;
@@ -69,7 +72,7 @@ export const FormulaResult = styled.div`
         margin-left: 0.8rem;
     }
 `
-export const FormulaTopWrapper = styled(Flex)`
+export const FormulaTopWrapper = styled(Flex)<FormulaTopWrapperProps>`
     flex-direction: row;
     height: auto;
     margin-top: ${(props) => (props.oneLine ? '0' : '50px')};

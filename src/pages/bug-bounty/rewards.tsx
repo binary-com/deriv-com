@@ -61,6 +61,7 @@ const card_content = [
         sub_title_2: localize('Up to $5,000'),
         title_3: localize('Edge business'),
         sub_title_3: localize('Up to $2,500'),
+        alt: 'Critical impact',
     },
     {
         icon: HighIcon,
@@ -71,6 +72,7 @@ const card_content = [
         sub_title_2: localize('Up to $2,500'),
         title_3: localize('Edge business'),
         sub_title_3: localize('Up to $1,000'),
+        alt: 'High impact',
     },
     {
         icon: MediumIcon,
@@ -81,6 +83,7 @@ const card_content = [
         sub_title_2: localize('Up to $250'),
         title_3: localize('Edge business'),
         sub_title_3: localize('Up to $100'),
+        alt: 'Medium impact',
     },
     {
         icon: LowIcon,
@@ -92,6 +95,7 @@ const card_content = [
             />
         ),
         type: 'short',
+        alt: 'Low impact',
     },
 ]
 
@@ -116,7 +120,7 @@ const Rewards = () => {
                         {card_content.map((item, idx) => {
                             return (
                                 <Card key={idx}>
-                                    <img src={item.icon} alt={item.header} />
+                                    <img src={item.icon} alt={item.alt} />
                                     <Header
                                         as="h3"
                                         mt="8px"

@@ -5,6 +5,7 @@ import device from 'themes/device'
 
 type LinkButtonProps = SharedButtonStyleProps & {
     hero?: boolean
+    id?: string
 }
 
 const LinkButton = styled(LocalizedLink)<LinkButtonProps>`

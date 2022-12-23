@@ -238,7 +238,7 @@ const Hero = () => {
         <BackgroundWrapper data={background}>
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">
-                    <StyledHeader as="h1" weight={500}>
+                    <StyledHeader as="h1">
                         {localize('Hassle-free deposits and withdrawals')}
                     </StyledHeader>
                     <Header size="18px" color="white" weight="200" pr="100px">

@@ -21,13 +21,13 @@ const query = graphql`
         hero_platform1: file(relativePath: { eq: "home/hero_platform1.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform1_uk_and_eu: file(relativePath: { eq: "home/hero_platform1_uk_and_eu.png" }) {
+        hero_platform1_eu: file(relativePath: { eq: "home/hero_platform1_eu.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform2: file(relativePath: { eq: "home/hero_platform2.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform2_uk_and_eu: file(relativePath: { eq: "home/hero_platform2_uk_and_eu.png" }) {
+        hero_platform2_eu: file(relativePath: { eq: "home/hero_platform2_eu.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform3: file(relativePath: { eq: "home/hero_platform3.png" }) {
@@ -70,7 +70,7 @@ const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
     const data = useStaticQuery(query)
 
-    const { is_row, is_eu, is_uk, is_loading } = useCountryRule()
+    const { is_row, is_eu, is_loading } = useCountryRule()
 
     const slide_images = useMemo(() => {
         if (is_row)
@@ -83,25 +83,18 @@ const PlatformSlideshow = () => {
 
         if (is_eu)
             return [
-                { key: 'hero1', image: data.hero_platform1_uk_and_eu },
-                { key: 'hero2', image: data.hero_platform2_uk_and_eu },
-            ]
-
-        if (is_uk)
-            return [
-                { key: 'hero1', image: data.hero_platform1_uk_and_eu },
-                { key: 'hero2', image: data.hero_platform2_uk_and_eu },
+                { key: 'hero1', image: data.hero_platform1_eu },
+                { key: 'hero2', image: data.hero_platform2_eu },
             ]
     }, [
         data.hero_platform1,
-        data.hero_platform1_uk_and_eu,
+        data.hero_platform1_eu,
         data.hero_platform2,
-        data.hero_platform2_uk_and_eu,
+        data.hero_platform2_eu,
         data.hero_platform3,
         data.hero_platform4,
         is_eu,
         is_row,
-        is_uk,
     ])
 
     const intervalRef = useRef(null)

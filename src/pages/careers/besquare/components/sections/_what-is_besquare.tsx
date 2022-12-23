@@ -20,8 +20,8 @@ const WhatIsBeSquare = () => {
             margin: ['0 0 24px'],
         },
         icon_wrapper: {
-            width: '16px',
-            height: '16px',
+            img_width: '16px',
+            img_height: '16px',
             margin: ['12px 0 0 16px', '14px 0 0 12px'],
         },
         text_wrapper: {
@@ -34,6 +34,7 @@ const WhatIsBeSquare = () => {
         src: GreenMarkIcon,
         alt: 'Green mark icon',
     }
+
     return (
         <Section>
             <ContentContainer>

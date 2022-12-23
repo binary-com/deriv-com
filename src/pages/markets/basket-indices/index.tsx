@@ -5,7 +5,7 @@ import NavTab from '../components/sections/_nav-tab'
 import { simple_step_content_basket } from '../static/content/_basket'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const BasketPage = () => (

@@ -4,7 +4,7 @@ import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import { simple_step_content_commodities } from '../static/content/_commodities'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const CommoditiesPage = () => (

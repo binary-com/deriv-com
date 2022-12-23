@@ -18,7 +18,7 @@ type CalculatorProps = {
     text: React.ReactElement
     image_name: string
     image_alt_name: string
-    button_text: React.ReactElement
+    button_text: string
     link: string
 }
 
@@ -211,7 +211,7 @@ const calculators: CalculatorProps[] = [
         ),
         image_name: 'margin_calculator',
         image_alt_name: localize('DMT5 margin trading calculator'),
-        button_text: localize('Try our margin calculator'),
+        button_text: '_t_Try our margin calculator_t_',
         link: '/trader-tools/margin-calculator/',
     },
     {
@@ -222,7 +222,7 @@ const calculators: CalculatorProps[] = [
         ),
         image_name: 'swap_calculator',
         image_alt_name: localize('DMT5 swap trading calculator'),
-        button_text: localize('Try our swap calculator'),
+        button_text: '_t_Try our swap calculator_t_',
         link: '/trader-tools/swap-calculator/',
     },
 ]

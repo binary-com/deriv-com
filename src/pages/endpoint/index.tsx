@@ -68,7 +68,7 @@ const StyledButton = styled(Button)`
 const endpointValidation = (values: ValuesType) => {
     const errors: ValuesType = {}
 
-    const server_url = trimSpaces(values ? values.server_url : '')
+    const server_url = trimSpaces(values ? values.server_url.toString() : '')
     const app_id = trimSpaces(values ? values.app_id.toString() : '')
     const clients_country = trimSpaces(values ? values.clients_country.toString() : '')
     const server_url_error =
@@ -128,7 +128,7 @@ const Endpoint = () => {
     }
     const endpointSubmission = (values: ValuesType, actions: ActionsType) => {
         actions.setSubmitting(true)
-        setServerUrl(values.server_url)
+        setServerUrl(values.server_url.toString())
         setAppId(values.app_id)
 
         // handle website status changes

@@ -358,16 +358,12 @@ const SideSubscriptionBanner = () => {
                 </Flex>
 
                 {submit_status === 'success' && (
-                    <TextWrapper
-                        color={'var(--color-green)'}
-                        font_size={'12px'}
-                        margin_top={'10px'}
-                    >
+                    <TextWrapper color="var(--color-green)" size="12px" mt="10px">
                         <Localize translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox" />
                     </TextWrapper>
                 )}
                 {submit_status === false && (
-                    <TextWrapper color={'var(--color-red)'} font_size={'12px'} margin_top={'10px'}>
+                    <TextWrapper color="var(--color-red)" size="12px" mt="10px">
                         <Localize translate_text="If you have AdBlock installed, please disable it in order to subscribe" />
                     </TextWrapper>
                 )}

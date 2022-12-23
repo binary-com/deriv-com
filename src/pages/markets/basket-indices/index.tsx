@@ -3,7 +3,6 @@ import BasketIndices from '../components/markets/_basket-indices'
 import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import NavTab from '../components/sections/_nav-tab'
 import { simple_step_content_basket } from '../static/content/_basket'
-import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
@@ -26,7 +25,6 @@ const BasketPage = () => (
         />
         <NavTab route_from={'basket-indices'} route_offset={650} />
         <BasketIndices simple_step_content={simple_step_content_basket} />
-        <Signup appearance={Appearances.public} />
     </Layout>
 )
 

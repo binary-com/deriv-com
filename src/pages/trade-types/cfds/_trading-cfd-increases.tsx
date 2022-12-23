@@ -135,11 +135,9 @@ const TradingCFDIncreases = () => {
                           )}
                 </Text>
                 <Text mb="1.6rem">
-                    {is_eu
-                        ? ''
-                        : localize(
-                              'When the market price climbs to 8,700 USD, you decide to set the stop loss level at 8,200 USD. After a few ticks, the price dives to 8,100 USD, surpassing your stop loss level. Your trade will automatically close at 8,100 USD.',
-                          )}
+                    {localize(
+                        'When the market price climbs to 8,700 USD, you decide to set the stop loss level at 8,200 USD. After a few ticks, the price dives to 8,100 USD, surpassing your stop loss level. Your trade will automatically close at 8,100 USD.',
+                    )}
                 </Text>
                 <Desktop>
                     {is_eu ? (

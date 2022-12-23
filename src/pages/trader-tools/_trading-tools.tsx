@@ -116,13 +116,7 @@ const query = graphql`
         pnl_margin: file(relativePath: { eq: "trade-tools/landing/pnl-margin.png" }) {
             ...fadeIn
         }
-        pnl_margin_eu: file(relativePath: { eq: "trade-tools/landing/pnl-margin.png" }) {
-            ...fadeIn
-        }
         pnl_multipliers: file(relativePath: { eq: "trade-tools/landing/pnl-multipliers.png" }) {
-            ...fadeIn
-        }
-        pnl_multipliers_eu: file(relativePath: { eq: "trade-tools/landing/pnl-multipliers.png" }) {
             ...fadeIn
         }
         margin_mobile: file(
@@ -148,17 +142,7 @@ const query = graphql`
         pnl_margin_mobile: file(relativePath: { eq: "trade-tools/landing/pnl-margin-mobile.png" }) {
             ...fadeIn
         }
-        pnl_margin_mobile_eu: file(
-            relativePath: { eq: "trade-tools/landing/pnl-margin-mobile.png" }
-        ) {
-            ...fadeIn
-        }
         pnl_multipliers_mobile: file(
-            relativePath: { eq: "trade-tools/landing/pnl-multipliers-mobile.png" }
-        ) {
-            ...fadeIn
-        }
-        pnl_multipliers_mobile_eu: file(
             relativePath: { eq: "trade-tools/landing/pnl-multipliers-mobile.png" }
         ) {
             ...fadeIn

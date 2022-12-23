@@ -3,12 +3,13 @@ import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Box, Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
-import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
+import { Carousel, CarouselProps, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
 type CalculatorProps = {
     children?: React.ReactNode
@@ -18,7 +19,7 @@ type CalculatorProps = {
     text: React.ReactElement
     image_name: string
     image_alt_name: string
-    button_text: string
+    button_text: TString
     link: string
 }
 
@@ -230,7 +231,7 @@ const calculators: CalculatorProps[] = [
 const MarginCalculator = () => {
     const lang_direction = useLangDirection()
 
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             direction: lang_direction,
         },
@@ -261,7 +262,7 @@ const MarginCalculator = () => {
                     tablet_jc="center"
                     fd="column"
                     wrap="wrap"
-                    has_color={true}
+                    has_color
                 >
                     <StyledBox max_width="100%">
                         <MainHeader as="h2" type="page-title" lh="1.25" align="start">

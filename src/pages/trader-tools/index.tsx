@@ -17,6 +17,7 @@ const tools = [
             route: '/trader-tools/margin-calculator/',
         },
         image_name: 'margin',
+        image_name_eu: 'margin_eu',
         image_alt: localize('margin calculator'),
     },
     {
@@ -29,6 +30,7 @@ const tools = [
             route: '/trader-tools/swap-calculator/',
         },
         image_name: 'swap',
+        image_name_eu: 'swap_eu',
         image_alt: localize('swap calculator'),
     },
     {
@@ -41,6 +43,7 @@ const tools = [
             route: '/trader-tools/pip-calculator/',
         },
         image_name: 'pip',
+        image_name_eu: 'pip_eu',
         image_alt: localize('pip calculator'),
     },
     {
@@ -53,6 +56,7 @@ const tools = [
             route: '/trader-tools/pnl-for-margin/',
         },
         image_name: 'pnl_margin',
+        image_name_eu: 'pnl_margin_eu',
         image_alt: localize('PnL margin'),
     },
     {
@@ -65,6 +69,7 @@ const tools = [
             route: '/trader-tools/pnl-for-multipliers/',
         },
         image_name: 'pnl_multipliers',
+        image_name_eu: 'pnl_multipliers_eu',
         image_alt: localize('PnL multipliers'),
     },
 ]

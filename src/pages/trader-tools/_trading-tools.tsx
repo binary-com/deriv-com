@@ -6,6 +6,7 @@ import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/c
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ToolsType = {
     title: JSX.Element
@@ -13,6 +14,7 @@ type ToolsType = {
     link: { text: JSX.Element; route: string }
     image_name: string
     image_alt: string
+    image_name_eu?: string
 }[]
 
 type TradingToolsProps = {
@@ -30,7 +32,7 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 0;
     }
 `
-const ToolWrapper = styled(Flex)<{ flex_direction?: string }>`
+const ToolWrapper = styled(Flex)`
     flex-direction: ${(props) => props.flex_direction};
     align-items: space-between;
 
@@ -56,7 +58,7 @@ const Column = styled.div<ColumnProps>`
         flex-direction: column;
     }
 `
-const Content = styled(Flex)<{ margin_left: string; margin_right: string }>`
+const Content = styled(Flex)`
     max-width: 39rem;
     margin-right: ${(props) => props.margin_right};
     margin-left: ${(props) => props.margin_left};
@@ -96,16 +98,31 @@ const query = graphql`
         margin: file(relativePath: { eq: "trade-tools/landing/margin-calculator.png" }) {
             ...fadeIn
         }
+        margin_eu: file(relativePath: { eq: "trade-tools/landing/margin-eu.png" }) {
+            ...fadeIn
+        }
         swap: file(relativePath: { eq: "trade-tools/landing/swap-calculator.png" }) {
+            ...fadeIn
+        }
+        swap_eu: file(relativePath: { eq: "trade-tools/landing/swap-eu.png" }) {
             ...fadeIn
         }
         pip: file(relativePath: { eq: "trade-tools/landing/pip-calculator.png" }) {
             ...fadeIn
         }
+        pip_eu: file(relativePath: { eq: "trade-tools/landing/pip-eu.png" }) {
+            ...fadeIn
+        }
         pnl_margin: file(relativePath: { eq: "trade-tools/landing/pnl-margin.png" }) {
             ...fadeIn
         }
+        pnl_margin_eu: file(relativePath: { eq: "trade-tools/landing/pnl-margin.png" }) {
+            ...fadeIn
+        }
         pnl_multipliers: file(relativePath: { eq: "trade-tools/landing/pnl-multipliers.png" }) {
+            ...fadeIn
+        }
+        pnl_multipliers_eu: file(relativePath: { eq: "trade-tools/landing/pnl-multipliers.png" }) {
             ...fadeIn
         }
         margin_mobile: file(
@@ -113,16 +130,35 @@ const query = graphql`
         ) {
             ...fadeIn
         }
+        margin_mobile_eu: file(relativePath: { eq: "trade-tools/landing/margin-mobile-eu.png" }) {
+            ...fadeIn
+        }
         swap_mobile: file(relativePath: { eq: "trade-tools/landing/swap-calculator-mobile.png" }) {
+            ...fadeIn
+        }
+        swap_mobile_eu: file(relativePath: { eq: "trade-tools/landing/swap-mobile-eu.png" }) {
             ...fadeIn
         }
         pip_mobile: file(relativePath: { eq: "trade-tools/landing/pip-calculator-mobile.png" }) {
             ...fadeIn
         }
+        pip_mobile_eu: file(relativePath: { eq: "trade-tools/landing/pip-mobile-eu.png" }) {
+            ...fadeIn
+        }
         pnl_margin_mobile: file(relativePath: { eq: "trade-tools/landing/pnl-margin-mobile.png" }) {
             ...fadeIn
         }
+        pnl_margin_mobile_eu: file(
+            relativePath: { eq: "trade-tools/landing/pnl-margin-mobile.png" }
+        ) {
+            ...fadeIn
+        }
         pnl_multipliers_mobile: file(
+            relativePath: { eq: "trade-tools/landing/pnl-multipliers-mobile.png" }
+        ) {
+            ...fadeIn
+        }
+        pnl_multipliers_mobile_eu: file(
             relativePath: { eq: "trade-tools/landing/pnl-multipliers-mobile.png" }
         ) {
             ...fadeIn
@@ -134,19 +170,22 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
     const inner_margin = '24px'
     const outer_margin = '102px'
     const data = useStaticQuery(query)
+    const { is_eu } = useCountryRule()
+
     return (
         <StyledSection background="white">
             <Container fd="column">
                 {tools.map((item, index) => {
                     const is_even = isIndexEven(index)
-
                     return (
                         <React.Fragment key={item.image_alt}>
                             <ToolWrapper flex_direction={is_even ? 'row-reverse' : 'row'}>
                                 <Column>
                                     <Desktop>
                                         <QueryImage
-                                            data={data[item.image_name]}
+                                            data={
+                                                data[is_eu ? item.image_name_eu : item.image_name]
+                                            }
                                             alt={item.image_alt}
                                             height="100%"
                                             loading={index === 0 ? 'eager' : 'lazy'}
@@ -154,7 +193,13 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                                     </Desktop>
                                     <Mobile className="margin-calculator-btn">
                                         <QueryImage
-                                            data={data[item.image_name + '_mobile']}
+                                            data={
+                                                data[
+                                                    is_eu
+                                                        ? item.image_name + '_mobile_eu'
+                                                        : item.image_name + 'mobile'
+                                                ]
+                                            }
                                             alt={item.image_alt}
                                             height="100%"
                                             loading={index === 0 ? 'eager' : 'lazy'}

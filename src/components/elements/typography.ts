@@ -4,6 +4,13 @@ import { generateResponsiveStyles, ResponseDeviceProps } from '../containers/box
 import { Margins, MarginsType, Paddings, PaddingsType } from 'themes/function'
 import device from 'themes/device'
 
+type LinkTextProps = {
+    href?: string
+    external?: boolean
+    target?: '_blank' | '_parent' | '_self' | '_top'
+    rel?: string
+}
+
 type Types =
     | 'unset'
     | 'main-landing-title'
@@ -30,15 +37,15 @@ type BaseElementProps = {
     width?: string
     height?: string
     align?: string
-    padding?: string
+    padding?: string | string[]
     color?: string
     lh?: string
-    max_width?: string
+    max_width?: string | string[]
     min_width?: string
     min_height?: string
     max_height?: string
     mobile_max_width?: string
-    type?: Types
+    type?: string[] | Types
 } & MarginsType &
     PaddingsType
 
@@ -81,6 +88,7 @@ const createElement = React.createElement
 export const BaseLink = css`
     text-decoration: none;
     cursor: pointer;
+    font-weight: normal;
 
     &:hover {
         color: var(--color-red);
@@ -119,7 +127,14 @@ export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
 `
 type HeaderProps = {
     as?: string
+    href?: string
+    external?: boolean
+    start_time?: number
+    current_time?: number
+    end_time?: number
+    onClick?: () => void
     children?: React.ReactNode
+    className?: string
 } & ResponseDeviceProps &
     BaseElementProps &
     React.HTMLProps<HTMLHeadingElement>
@@ -218,7 +233,7 @@ export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     ${responsiveStyles}
 `
 
-export const LinkText = styled(Text).attrs({ as: 'a' })`
+export const LinkText = styled(Text).attrs({ as: 'a' })<LinkTextProps>`
     ${BaseLink}
 `
 

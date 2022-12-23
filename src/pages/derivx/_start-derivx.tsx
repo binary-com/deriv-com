@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, ReactElement, ReactNode } from
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from '../dmt5/components/_side-tab'
-import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
+import { Flex, SectionContainer, Mobile } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'

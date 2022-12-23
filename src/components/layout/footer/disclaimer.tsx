@@ -133,16 +133,16 @@ const DisclaimerSection = ({ is_academy = false }: DisclaimerSectionProps) => {
                     <Mobile>
                         {is_eu && (
                             <>
-                                <DisclaimerParagraph no_margin line_height>
+                                <DisclaimerParagraph no_margin>
                                     <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
                                 </DisclaimerParagraph>
-                                <DisclaimerParagraph line_height>
+                                <DisclaimerParagraph>
                                     <Localize
                                         translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
                                         values={{ loss_percent }}
                                     />
                                 </DisclaimerParagraph>
-                                <DisclaimerParagraph line_height>
+                                <DisclaimerParagraph>
                                     <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                 </DisclaimerParagraph>
                             </>

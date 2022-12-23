@@ -86,6 +86,7 @@ const other_apps: ContentType[] = [
                 <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
+        image_alt: 'DMT5 trading app',
     },
     {
         id: 1,
@@ -100,6 +101,7 @@ const other_apps: ContentType[] = [
                 <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
+        image_alt: 'Deriv X trading app',
     },
 ]
 
@@ -108,7 +110,7 @@ const OtherApps = () => {
 
     return (
         <div>
-            <StyledSectionContainer tablet={{ padding: '4rem 0' }}>
+            <StyledSectionContainer tablet={{ p: '4rem 0' }}>
                 <Container fd="column">
                     {is_eu ? (
                         <StyledHeader as="h2" type="heading-2" align="center">
@@ -125,7 +127,7 @@ const OtherApps = () => {
                             return (
                                 <Card key={item.id}>
                                     <div>
-                                        <img src={item.icon} alt="icon" />
+                                        <img src={item.icon} alt={item.image_alt} />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
                                         {item.title}

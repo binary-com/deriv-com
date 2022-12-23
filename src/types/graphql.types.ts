@@ -1122,8 +1122,6 @@ export type DirectusData_Videos = {
     video_description: Maybe<Scalars['String']>
     /** Add a video duration, e.g. "01:25" */
     video_duration: Scalars['String']
-    video_file: Maybe<DirectusData_Directus_Files>
-    video_id: Maybe<Scalars['ID']>
     /** * Please make sure that the video slug is the same as video title */
     video_slug: Maybe<Scalars['String']>
     video_thumbnail: Maybe<DirectusData_Directus_Files>
@@ -1194,8 +1192,6 @@ export type DirectusData_Videos_Filter = {
     user_updated: InputMaybe<DirectusData_Directus_Users_Filter>
     video_description: InputMaybe<DirectusData_String_Filter_Operators>
     video_duration: InputMaybe<DirectusData_String_Filter_Operators>
-    video_file: InputMaybe<DirectusData_Directus_Files_Filter>
-    video_id: InputMaybe<DirectusData_String_Filter_Operators>
     video_slug: InputMaybe<DirectusData_String_Filter_Operators>
     video_thumbnail: InputMaybe<DirectusData_Directus_Files_Filter>
     video_title: InputMaybe<DirectusData_String_Filter_Operators>

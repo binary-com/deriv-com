@@ -38,13 +38,17 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const { sendOnce, send } = useDerivApi()
+    const { send } = useDerivApi()
 
-    useEffect(() => {
-        send({ trading_platform_asset_listing: 1, platform: 'mt5' }, (response) => {
-            if (!response.error && response.trading_platform_asset_listing.mt5.assets.length > 0) {
-                const data = response.trading_platform_asset_listing.mt5.assets
-                const trendingMarketsList = data.filter(
+    const requestMarketsData = useCallback(() => {
+        setIsLoading(true)
+
+        send(
+            { trading_platform_asset_listing: 1, platform: 'mt5' },
+            (response: TMarketDataResponse) => {
+                const responseData = [...response.trading_platform_asset_listing.mt5.assets]
+                const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
+                const trendingMarketsList = responseData.filter(
                     (item) =>
                         item.market_ranking == '1' ||
                         item.market_ranking == '2' ||
@@ -54,48 +58,19 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                         item.market_ranking == '6',
                 )
                 setTrendingMarkets(trendingMarketsList)
-            }
-        })
-    }, [])
 
-    useEffect(() => {
-        const all_markets = {}
-        trendingMarkets.forEach((market) => {
-            if (all_markets[market.market] == undefined) {
-                all_markets[market.market] = [market]
-            } else {
-                all_markets[market.market].push(market)
-            }
-        })
-        setMarketData(all_markets)
-    }, [trendingMarkets])
-
-    const requestMarketsData = useCallback(() => {
-        setIsLoading(true)
-
-        sendOnce(
-            { active_symbols: 'full', landing_company: 'svg' },
-            (response: TMarketDataResponse) => {
-                const responseMockData = [...response.active_symbols]
-                const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
-
-                responseMockData.forEach((item) => {
+                responseData.forEach((item) => {
                     const currentMarket = [...(markets.get(item.market) ?? [])]
 
                     currentMarket.push(item)
                     markets.set(item.market, currentMarket)
-                    item.spot_percentage_change = Number(
-                        (randomIntFromInterval(-10, 10) / randomIntFromInterval(10, 100)).toFixed(
-                            3,
-                        ),
-                    )
                 })
                 setMarketsData(markets)
+                console.log('markets', markets)
                 setIsLoading(false)
             },
         )
-    }, [sendOnce])
-
+    }, [send])
     const columns = useLiveColumns(requestMarketsData)
 
     const table = useReactTable({

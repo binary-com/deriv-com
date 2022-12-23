@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 `
 
 const Language = ({ hide_component }: LanguageProps) =>
-    !hide_component && <LanguageSwitcher has_short_name is_high_nav />
+    !hide_component && <LanguageSwitcher is_high_nav />
 
 const RightSection = ({
     is_ppc_redirect,

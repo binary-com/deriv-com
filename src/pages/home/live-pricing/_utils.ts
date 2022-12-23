@@ -11,7 +11,7 @@ export const market_buttons: TMarketButtons[] = [
     {
         id: 1,
         button_text: 'Derived',
-        market_name: 'synthetic_index',
+        market_name: 'derived',
     },
     {
         id: 2,

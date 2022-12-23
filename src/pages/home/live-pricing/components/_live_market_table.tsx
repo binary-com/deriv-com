@@ -16,10 +16,6 @@ export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
 }
 
-const randomIntFromInterval = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
 const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
@@ -28,7 +24,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     const [is_loading, setIsLoading] = useState(false)
     const [trendingMarkets, setTrendingMarkets] = useState([])
-    const [marketData, setMarketData] = useState([])
 
     const table_data = useMemo(() => {
         const data = markets_data.get(market)
@@ -66,7 +61,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                     markets.set(item.market, currentMarket)
                 })
                 setMarketsData(markets)
-                console.log('markets', markets)
                 setIsLoading(false)
             },
         )

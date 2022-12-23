@@ -110,7 +110,7 @@ const StyledLinkText = styled(LinkText)`
     font-weight: bold;
 `
 
-const address = `_t_Deriv (SVG) LLC is located in 1st Floor SVG Teachers Credit Union Limited, Uptown Building, Cnr. Middle & James Street, Kingstown, St Vincent and the Grenadines (company no. 273 LLC 2020)._t_`;
+const address = '_t_Deriv (SVG) LLC is located in 1st Floor SVG Teachers Credit Union Limited, Uptown Building, Cnr. Middle & James Street, Kingstown, St Vincent and the Grenadines (company no. 273 LLC 2020)._t_'
 
 const Regulatory = (locale: RegulatoryProps) => {
     return (

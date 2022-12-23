@@ -56,7 +56,7 @@ const tools = [
             route: '/trader-tools/pnl-for-margin/',
         },
         image_name: 'pnl_margin',
-        image_name_eu: 'pnl_margin_eu',
+        image_name_eu: 'pnl_margin',
         image_alt: localize('PnL margin'),
     },
     {
@@ -69,7 +69,7 @@ const tools = [
             route: '/trader-tools/pnl-for-multipliers/',
         },
         image_name: 'pnl_multipliers',
-        image_name_eu: 'pnl_multipliers_eu',
+        image_name_eu: 'pnl_multipliers',
         image_alt: localize('PnL multipliers'),
     },
 ]

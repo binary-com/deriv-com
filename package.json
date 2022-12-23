@@ -14,6 +14,7 @@
         "closest-match": "^1.3.3",
         "commander": "^8.3.0",
         "crc-32": "^1.2.0",
+        "deriv-api-ts": "^1.0.7",
         "embla-carousel-autoplay": "^6.2.0",
         "embla-carousel-react": "^6.0.2",
         "eslint-import-resolver-node": "^0.3.6",

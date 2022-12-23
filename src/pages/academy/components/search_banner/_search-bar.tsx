@@ -33,7 +33,7 @@ type SearchBarProps = {
     setHideMobileTopic?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const FlexSearchBar = styled(Flex)<{ is_maximise: boolean }>`
+const FlexSearchBar = styled(Flex)<{ is_maximise: boolean; result_opened: boolean }>`
     max-width: 400px;
     width: 100%;
     background-color: rgba(236, 241, 247, 0.5);
@@ -329,7 +329,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                             {data_to_render?.slice(0, 6).map((post, idx: number) => {
                                 const icon = post.blog_title ? ArticleIcon : VideoIcon
                                 const icon_alt = post.blog_title ? 'article icon' : 'video icon'
-                                const handleMouseDown = (e: React.KeyboardEvent) => {
+                                const handleMouseDown = (e: React.MouseEvent) => {
                                     e.preventDefault()
                                     navigate(redirect_link_arr[idx])
                                 }

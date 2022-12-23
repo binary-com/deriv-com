@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
+import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { LinkButton, Button } from 'components/form'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
-import { mobileOSDetect } from 'common/os-detect'
-import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
 
 const content = [
     {
@@ -73,17 +71,6 @@ const ClientCard = styled.article`
         max-width: 290px;
     }
 `
-const ButtonDerivP2P = styled(Button)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    padding: 1.5rem 1.6rem;
-    height: 40px;
-    margin: auto;
-    width: 50%;
-    white-space: nowrap;
-`
 
 const StyledLinkButton = styled(LinkButton)`
     padding: 24px;
@@ -111,7 +98,7 @@ const StyledHeader = styled(Header)`
     font-size: 48px;
 
     @media ${device.tablet} {
-        font-size: 40px;
+        font-size: 28px;
         line-height: 50px;
         margin-bottom: 16px;
     }
@@ -127,17 +114,6 @@ const StyledText = styled(Text)`
 `
 
 const Numbers = () => {
-    const handleExternalLink = () => {
-        let link = ''
-        if (mobileOSDetect() === 'Android') {
-            link = p2p_playstore_url
-        }
-        if (mobileOSDetect() === 'iOS') {
-            link = p2p_applestore_url
-        }
-
-        window.open(link, '_blank')
-    }
     return (
         <>
             <Section>
@@ -146,12 +122,7 @@ const Numbers = () => {
                         return (
                             <ClientCard key={idx}>
                                 <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
-                                    <StyledHeader
-                                        mobile_margin="unset"
-                                        mobile_font_size="20px"
-                                        mb="0.8rem"
-                                        as="p"
-                                    >
+                                    <StyledHeader mb="0.8rem" as="p">
                                         {item.header}
                                     </StyledHeader>
                                 </Flex>

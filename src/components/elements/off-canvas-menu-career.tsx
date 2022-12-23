@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { Header } from './typography'
 import { LocalizedLinkText } from 'components/elements'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const OffCanvasMenuCareer = styled.section<OffCanvasMenuWrapperCareerProps>`
     position: fixed;
@@ -37,11 +37,11 @@ type OffCanvasMenuWrapperCareerProps = {
     is_canvas_menu_open?: boolean
     is_ppc?: boolean
     is_ppc_redirect?: boolean
-    is_eu_country?: boolean
+    is_eu?: boolean
 }
 
 export const OffCanvasMenuWrapperCareer = (props: OffCanvasMenuWrapperCareerProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     const canvas = useRef<HTMLDivElement>()
 
     const handleArrowClick = () => {
@@ -65,7 +65,7 @@ export const OffCanvasMenuWrapperCareer = (props: OffCanvasMenuWrapperCareerProp
         <OffCanvasMenuCareer
             is_canvas_menu_open={props.is_canvas_menu_open}
             ref={canvas}
-            is_eu_country={is_eu_country}
+            is_eu={is_eu}
         >
             <OffCanvasMenuContainer>
                 <LocalizedLinkText to="/careers/" onClick={handleArrowClick} p="10px">

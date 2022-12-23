@@ -4,12 +4,17 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { LocalizedLink, Localize } from 'components/localization'
-import { Carousel, Header, QueryImage, Text } from 'components/elements'
+import { Carousel, CarouselProps, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+
+type CarouselItemContainerProps = {
+    gradient_start: string
+    gradient_end: string
+}
 
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;
@@ -30,7 +35,7 @@ const ItemWrapper = styled.div`
     position: relative;
 `
 
-const CarouselItemContainer = styled(Flex)`
+const CarouselItemContainer = styled(Flex)<CarouselItemContainerProps>`
     position: relative;
     border-radius: 8px;
     color: white;
@@ -292,7 +297,7 @@ const MarketsFold = () => {
         if (is_mobile) return true
     }
 
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             loop: true,
             containScroll: 'trimSnaps',

@@ -128,7 +128,7 @@ const HowOptionsWorks = () => {
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <img src={DefinePosition} alt="Define Position" />
+                                <img src={DefinePosition} alt="Define your target" />
                             </div>
                             <StyledText>{localize('Define your position')}</StyledText>
                         </OptionItems>
@@ -142,7 +142,7 @@ const HowOptionsWorks = () => {
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <img src={SetOptionalParameters} alt="Set optional parameters" />
+                                <img src={SetOptionalParameters} alt="Set parameters" />
                             </div>
                             <StyledText>{localize('Set optional parameters')}</StyledText>
                         </OptionItems>
@@ -155,7 +155,7 @@ const HowOptionsWorks = () => {
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <img src={PurchaseContract} alt="Purchase your contract" />
+                                <img src={PurchaseContract} alt="Buy your contract" />
                             </div>
                             <StyledText>{localize('Purchase your contract')}</StyledText>
                         </OptionItems>

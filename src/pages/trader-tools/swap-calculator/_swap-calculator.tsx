@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { ActiveSymbolsResponse } from '@deriv/api-types'
 import { Formik, Field } from 'formik'
 import styled from 'styled-components'
 import {
@@ -197,7 +198,7 @@ const SwapCalculator = () => {
 
     useEffect(() => {
         const { send } = deriv_api
-        send({ active_symbols: 'full' }, (response) => {
+        send({ active_symbols: 'full' }, (response: ActiveSymbolsResponse) => {
             if (!response.error && response.active_symbols.length > 0) {
                 const data = response.active_symbols
                 setActiveSymbols(data)

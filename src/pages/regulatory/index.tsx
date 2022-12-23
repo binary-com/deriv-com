@@ -110,6 +110,8 @@ const StyledLinkText = styled(LinkText)`
     font-weight: bold;
 `
 
+const address = `_t_Deriv (SVG) LLC is located in 1st Floor SVG Teachers Credit Union Limited, Uptown Building, Cnr. Middle & James Street, Kingstown, St Vincent and the Grenadines (company no. 273 LLC 2020)._t_`;
+
 const Regulatory = (locale: RegulatoryProps) => {
     return (
         <Layout>
@@ -365,9 +367,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 </StyledHeader>
                             </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
-                                {localize(
-                                    '_t_Deriv (SVG) LLC is located in 1st Floor SVG Teachers Credit Union Limited, Uptown Building, Cnr. Middle & James Street, Kingstown, St Vincent and the Grenadines (company no. 273 LLC 2020)._t_',
-                                )}
+                                {localize(address)}
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(

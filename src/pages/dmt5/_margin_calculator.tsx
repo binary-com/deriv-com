@@ -151,7 +151,7 @@ const StyledFlexContainer = styled(Flex)`
     }
 `
 
-const StyledFlex = styled(Flex)`
+const StyledFlex = styled(Flex)<{ has_color?: boolean }>`
     width: 50%;
     min-height: 694px;
     margin-right: 2.4rem;

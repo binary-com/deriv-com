@@ -293,10 +293,6 @@ const MarketsFold = () => {
         else return '1600px'
     }
 
-    const getAutoPlay = () => {
-        if (is_mobile) return true
-    }
-
     const settings: CarouselProps = {
         options: {
             loop: true,
@@ -337,7 +333,7 @@ const MarketsFold = () => {
                     </Header>
                 </Flex>
                 <Carousel
-                    has_autoplay={getAutoPlay()}
+                    has_autoplay={true}
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >

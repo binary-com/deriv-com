@@ -20,12 +20,10 @@ type TabProps = {
     parent_tab?: ObjectConstructor | string
     has_download_button?: boolean
     download_links?: { ios: string; android: string }
-    props?: {
-        label?: string
-        description?: React.ReactElement
-        item_width?: string
-        mobile_item_width?: string
-    }
+    label?: string
+    description?: React.ReactElement
+    item_width?: string
+    mobile_item_width?: string
     has_qr_code?: boolean
 }
 
@@ -175,10 +173,7 @@ const SideTab = ({
             <div>
                 <TabList role="tablist" is_reverse={is_reverse}>
                     {React.Children.map(children, (child: TabProps, index) => {
-                        const {
-                            props: { label, description, item_width, mobile_item_width },
-                        } = child
-
+                        const { label, description, item_width, mobile_item_width } = child
                         return (
                             <>
                                 <TabButton

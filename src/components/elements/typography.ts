@@ -136,7 +136,8 @@ type HeaderProps = {
     children?: React.ReactNode
     className?: string
 } & ResponseDeviceProps &
-    BaseElementProps
+    BaseElementProps &
+    React.HTMLProps<HTMLHeadingElement>
 
 export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     createElement(as, props, children),

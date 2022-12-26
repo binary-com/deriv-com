@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Markets, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
+import { WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
 import Hero from '../home/_hero'
 import Trade from '../home/_trade'
 import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
@@ -60,7 +60,7 @@ const Home = () => {
             <Mobile>
                 <TradeTheWayYouLike is_ppc_redirect={true} />
             </Mobile>
-            <Markets is_ppc={true} />
+            {/* <Markets is_ppc={true} /> */}
             <SimpleSteps
                 content={simple_step_content}
                 header={<Localize translate_text="3 simple steps" />}

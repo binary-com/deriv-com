@@ -333,7 +333,7 @@ const MarketsFold = () => {
                     </Header>
                 </Flex>
                 <Carousel
-                    has_autoplay={true}
+                    has_autoplay
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >

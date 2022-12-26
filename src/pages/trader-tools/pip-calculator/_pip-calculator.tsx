@@ -79,7 +79,6 @@ const PipCalculator = () => {
             }
         }
     `
-    const data = useStaticQuery(query)
     const { is_row } = useCountryRule()
     const [tab, setTab] = useState('Synthetic')
     const [activeSymbols, setActiveSymbols] = useState([])

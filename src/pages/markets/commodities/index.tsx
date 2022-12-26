@@ -2,6 +2,7 @@ import React from 'react'
 import Commodities from '../components/markets/_commodities'
 import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import { simple_step_content_commodities } from '../static/content/_commodities'
+import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
@@ -21,6 +22,7 @@ const CommoditiesPage = () => (
             )}
         />
         <Commodities simple_step_content={simple_step_content_commodities} />
+        <Signup appearance={Appearances.public} />
     </Layout>
 )
 

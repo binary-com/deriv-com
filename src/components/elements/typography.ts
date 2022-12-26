@@ -85,10 +85,10 @@ const responsiveStyles = generateResponsiveStyles(baseStyles)
 
 const createElement = React.createElement
 
-export const BaseLink = css`
+export const BaseLink = css<{ weight?: string }>`
     text-decoration: none;
     cursor: pointer;
-    font-weight: normal;
+    font-weight: ${({ weight }) => weight || 'normal'};
 
     &:hover {
         color: var(--color-red);

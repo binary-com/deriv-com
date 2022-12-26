@@ -8,7 +8,6 @@ import derivx from '../data/_deriv-x'
 import dmt5 from '../data/_dmt5'
 import dtrader from '../data/_dtrader'
 import ib_programme from '../data/_ib-programme'
-import multiplier from '../data/_multipliers'
 import security from '../data/_security'
 import trading from '../data/_trading'
 
@@ -25,7 +24,6 @@ export const all_questions = [
     dmt5,
     derivx,
     dtrader,
-    multiplier,
     dbot,
     deriv_p2p,
 ]

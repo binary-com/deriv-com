@@ -4,12 +4,12 @@ import styled from 'styled-components'
 import DesktopImage from 'images/svg/p2p/p2p-desktop.svg'
 import MobileImage from 'images/svg/p2p/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
-import { Header, LocalizedLinkText, SpanLinkText, Text, QueryImage } from 'components/elements'
+import { Header, LocalizedLinkText, Text, QueryImage, LinkText } from 'components/elements'
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
 import { mobileOSDetect } from 'common/os-detect'
-import { p2p_playstore_url, p2p_applestore_url, p2p_huawei_appgallery_url } from 'common/constants'
+import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
 
 const Row = styled.div`
     display: flex;
@@ -58,11 +58,13 @@ const PlatformCard = styled.article`
     }
 `
 const StyledHeader = styled(Header)`
-    @media ${device.tablet} {
+    line-height: 60px;
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-align: center;
+
+    @media ${device.tabletL} {
         line-height: 30px;
-        margin-bottom: 40px;
-    }
-    @media ${device.mobileL} {
         font-size: 28px;
         margin-bottom: 24px;
     }
@@ -85,7 +87,13 @@ const StyledText = styled(Text)`
         margin-bottom: 0;
     }
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
+        font-size: 18px;
+    }
+`
+const StyledLinkText = styled(LinkText)`
+    font-size: 24px;
+    @media ${device.tabletL} {
         font-size: 18px;
     }
 `
@@ -147,13 +155,7 @@ const Availability = () => {
 
     return (
         <Section>
-            <StyledHeader
-                type="page-title"
-                mobile_margin="0 0 24px"
-                align="center"
-                as="h2"
-                mb="4rem"
-            >
+            <StyledHeader>
                 <Desktop>{localize('How to get Deriv P2P')}</Desktop>
                 <Mobile>{localize('How to get Deriv P2P')}</Mobile>
             </StyledHeader>
@@ -168,7 +170,7 @@ const Availability = () => {
                         <img src={DesktopImage} alt="desktop image" />
                     </Row>
                     <Row>
-                        <StyledCardHeader mobile_margin="unset" as="h4">
+                        <StyledCardHeader as="h4">
                             <Localize translate_text="On your computer" />
                         </StyledCardHeader>
                     </Row>
@@ -183,12 +185,10 @@ const Availability = () => {
                                 <Localize
                                     translate_text="<0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
                                     components={[
-                                        <SpanLinkText
+                                        <StyledLinkText
                                             id="dm-p2p-login-link"
-                                            size={24}
                                             onClick={handleLogin}
                                             color="red"
-                                            external
                                             key={0}
                                         />,
                                         <LocalizedLinkText
@@ -236,7 +236,7 @@ const Availability = () => {
                         <img src={MobileImage} alt="mobile image" />
                     </Row>
                     <Row>
-                        <StyledCardHeader mobile_margin="unset" as="h4">
+                        <StyledCardHeader as="h4">
                             <Localize translate_text="On your mobile" />
                         </StyledCardHeader>
                     </Row>
@@ -264,13 +264,11 @@ const Availability = () => {
                                     <Localize
                                         translate_text="<0>Download Deriv P2P.</0>"
                                         components={[
-                                            <SpanLinkText
-                                                external
+                                            <LinkText
                                                 onClick={handleExternalLink}
-                                                target="_blank"
-                                                size={24}
                                                 color="red"
                                                 key={0}
+                                                size="18px"
                                             />,
                                         ]}
                                     />

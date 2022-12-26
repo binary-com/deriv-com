@@ -71,16 +71,19 @@ const Oval = () => {
 
 type TimelineTickProps = {
     pb?: string
+    pl?: string
     is_border?: boolean
     color?: string
     children?: ReactNode[]
 }
 
-type TimelineProps = Pick<TimelineTickProps, 'pb' | 'children'>
+type ItemProps = {
+    children?: ReactNode
+}
 
-type ItemProps = Pick<TimelineTickProps, 'children'>
+type TimelineProps = Pick<TimelineTickProps, 'pb' | 'pl' | 'children'>
 
-const Timeline = ({ pb, children, ...props }: TimelineProps) => {
+const Timeline = ({ pb, pl, children, ...props }: TimelineProps) => {
     return (
         <div {...props}>
             {React.Children.map(children, (child, index) => {

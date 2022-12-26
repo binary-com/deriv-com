@@ -362,7 +362,7 @@ const DownloadApp = () => {
                         ai="flex-start"
                         tabletL={{ max_width: '320px', mt: '40px' }}
                         laptopM={{ mr: '2px', ml: '2px' }}
-                        margin_left="-60px"
+                        ml="-60px"
                     >
                         <StyledInfo src={MoreInfo} alt="more info" />
 

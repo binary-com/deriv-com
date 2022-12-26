@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import Stocks from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
@@ -17,10 +17,11 @@ export type SimpleStepContentElement = {
 export type BasketIndicesContent = {
     src: string
     alt: string
-    text: ReactElement
+    text: string
+    icon?: ReactElement
 }
 
-export const simple_step_content_basket: SimpleStepContentElement[] = [
+export const simple_step_content_basket = [
     {
         header: <Localize translate_text="Practise" />,
         text: (
@@ -47,55 +48,55 @@ export const simple_step_content_basket: SimpleStepContentElement[] = [
 export const basket_indices_content: BasketIndicesContent[] = [
     {
         src: Stocks,
-        alt: 'currency weighted by 20%',
-        text: <Localize translate_text="Each currency weighted by 20%" />,
+        alt: 'Currency weight',
+        text: localize('Each currency weighted by 20%'),
     },
     {
         src: Leverage,
-        alt: 'leverage',
-        text: <Localize translate_text="High leverage, tight spreads" />,
+        alt: 'Narrow spreads',
+        text: localize('High leverage, tight spreads'),
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        alt: 'Easy platform',
+        text: localize('Responsive, easy-to-use platforms'),
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
-        text: <Localize translate_text="Advanced charting widgets" />,
+        alt: 'Graphs and charts',
+        text: localize('Advanced charting widgets'),
     },
     {
         src: WithdrawIcon,
-        alt: 'deposit and withdrawal',
-        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
+        alt: 'Convenient deposits and withdrawals',
+        text: localize('Convenient deposit and withdrawal methods'),
     },
 ]
 
 export const basket_indices_content_eu: BasketIndicesContent[] = [
     {
         src: Stocks,
-        alt: 'currency weighted by 20%',
-        text: <Localize translate_text="Each currency weighted by 20%" />,
+        alt: 'Currency weight',
+        text: localize('Each currency weighted by 20%'),
     },
     {
         src: Leverage,
-        alt: 'leverage',
-        text: <Localize translate_text="Tight spreads" />,
+        alt: 'Narrow spreads',
+        text: localize('Tight spreads'),
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
-        text: <Localize translate_text="Responsive, easy-to-use platforms " />,
+        alt: 'Easy platform',
+        text: localize('Responsive, easy-to-use platforms '),
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
-        text: <Localize translate_text="Advanced charting widgets" />,
+        alt: 'Graphs and charts',
+        text: localize('Advanced charting widgets'),
     },
     {
         src: WithdrawIcon,
-        alt: 'deposit and withdrawal',
-        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
+        alt: 'Convenient deposits and withdrawals',
+        text: localize('Convenient deposit and withdrawal methods'),
     },
 ]

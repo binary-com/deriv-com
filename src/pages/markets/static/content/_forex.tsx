@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react'
-import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
+import React from 'react'
+import { localize, Localize } from 'components/localization'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Deposit from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
@@ -12,10 +11,10 @@ import TradeIcon from 'images/svg/markets/trade-new.svg'
 export type ForexContentElement = {
     src: string
     alt: string
-    text: ReactElement
+    text: string
 }
 
-export const simple_step_content_forex: SimpleStepsContent[] = [
+export const simple_step_content_forex = [
     {
         header: <Localize translate_text="Practise" />,
         text: (
@@ -42,55 +41,55 @@ export const simple_step_content_forex: SimpleStepsContent[] = [
 export const forex_content: ForexContentElement[] = [
     {
         src: Leverage,
-        alt: 'leverage',
-        text: <Localize translate_text="High leverage, tight forex spreads" />,
+        alt: 'High and low',
+        text: localize('High leverage, tight forex spreads'),
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
-        text: <Localize translate_text="Responsive, easy-to-use online trading platforms" />,
+        alt: 'Responsive platforms',
+        text: localize('Responsive, easy-to-use online trading platforms'),
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
-        text: <Localize translate_text="Advanced charting widgets" />,
+        alt: 'Charts',
+        text: localize('Advanced charting widgets'),
     },
     {
         src: Deposit,
-        alt: 'deposit and withdrawal',
-        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
+        alt: 'Deposits and withdrawals method',
+        text: localize('Convenient deposit and withdrawal methods'),
     },
     {
         src: FriendlySupport,
-        alt: 'friendly support',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        alt: 'Friendly support team',
+        text: localize('Smart and friendly support, 7 days a week'),
     },
 ]
 
 export const forex_content_eu: ForexContentElement[] = [
     {
         src: Leverage,
-        alt: 'leverage',
-        text: <Localize translate_text="Tight spreads" />,
+        alt: 'High and low',
+        text: localize('Tight spreads'),
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        alt: 'Responsive platforms',
+        text: localize('Responsive, easy-to-use platforms'),
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
-        text: <Localize translate_text="Advanced charting widgets" />,
+        alt: 'Charts',
+        text: localize('Advanced charting widgets'),
     },
     {
         src: Deposit,
-        alt: 'deposit and withdrawal',
-        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
+        alt: 'Deposits and withdrawals method',
+        text: localize('Convenient deposit and withdrawal methods'),
     },
     {
         src: FriendlySupport,
-        alt: 'friendly support',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        alt: 'Friendly support team',
+        text: localize('Smart and friendly support, 7 days a week'),
     },
 ]

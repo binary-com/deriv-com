@@ -8,6 +8,14 @@ import device from 'themes/device'
 import Quote from 'images/svg/testimonials/quote.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
+declare global {
+    interface Window {
+        Trustpilot: {
+            loadFromElement: (HTMLElement, boolean) => void
+        }
+    }
+}
+
 const StyledContainer = styled.div`
     background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
     width: 100%;
@@ -246,7 +254,6 @@ const filtered_testimonial = (unavailable_testimonial) =>
     })
 
 const unavailable_testimonial_eu = ['p2p', 'deriv go']
-const unavailable_testimonial_uk = ['p2p', 'synthetic', 'deriv go']
 
 type ClientSideProps = {
     quote: ReactElement
@@ -259,7 +266,7 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
             {quote}
         </ClientTestimonial>
         <Flex direction="column" height="fit-content">
-            <ClientName size={'16px'} weight={700}>
+            <ClientName size={'16px'} weight="700">
                 {name}
             </ClientName>
         </Flex>
@@ -267,7 +274,7 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 )
 
 const WhatOurClientsSay = () => {
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu } = useCountryRule()
     const ref = useRef()
 
     useEffect(() => {
@@ -276,7 +283,7 @@ const WhatOurClientsSay = () => {
 
     return (
         <StyledContainer>
-            <ClientContainer padding="5rem 0 0">
+            <ClientContainer p="5rem 0 0">
                 <ClientFlex
                     jc="space-between"
                     ai="center"
@@ -302,7 +309,7 @@ const WhatOurClientsSay = () => {
                             width="240px"
                             height="100px"
                             tabletL={{
-                                heigth: '64px',
+                                height: '64px',
                                 m: '24px 0 0',
                             }}
                         >
@@ -342,7 +349,6 @@ const WhatOurClientsSay = () => {
                             <Carousel>
                                 {(
                                     (is_eu && filtered_testimonial(unavailable_testimonial_eu)) ||
-                                    (is_uk && filtered_testimonial(unavailable_testimonial_uk)) ||
                                     testimonial_slides
                                 ).map(({ id, name, quote }) => (
                                     <ClientSlide key={id} quote={quote} name={name} />

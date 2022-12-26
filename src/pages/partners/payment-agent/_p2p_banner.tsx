@@ -104,6 +104,10 @@ const Subtitle = styled(Header)`
 
 const StyledLinkButton = styled(LinkButton)`
     width: fit-content;
+
+    @media ${device.tabletL} {
+        padding-bottom: 30px;
+    }
 `
 
 const P2PBanner = () => {
@@ -127,9 +131,6 @@ const P2PBanner = () => {
                             to="/p2p/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            tabletL={{
-                                pb: '30px',
-                            }}
                         >
                             Learn more
                         </StyledLinkButton>

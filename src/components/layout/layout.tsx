@@ -19,7 +19,6 @@ import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { handleRedirect, isEuDomain } from 'common/utility'
-import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { DerivStore, useDerivWS } from 'store'
 import { CookieStorage } from 'common/storage'
@@ -101,7 +100,8 @@ const Layout = ({
             const current_page = window.location.pathname.split('/')[4]
             if (!slugs.includes(current_page)) {
                 const closest_slug = closestMatch(current_page, slugs)
-                const character_distance = distance(current_page, closest_slug)
+                const slug = typeof closest_slug === 'string' ? closest_slug : current_page[0]
+                const character_distance = distance(current_page, slug)
                 if (character_distance < 10) {
                     window.location.pathname = `academy/blog/posts/${closest_slug}`
                 }
@@ -201,7 +201,6 @@ const Layout = ({
                 ref={modal_payload.ref}
                 aria_label={modal_payload.aria_label}
             />
-            <UKAccountClosureModal />
             <BrowserUpdateAlertModal />
             {show_non_eu_popup && (
                 <NonEuRedirectPopUp

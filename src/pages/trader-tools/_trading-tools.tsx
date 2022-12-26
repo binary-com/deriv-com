@@ -98,19 +98,10 @@ const query = graphql`
         margin: file(relativePath: { eq: "trade-tools/landing/margin-calculator.png" }) {
             ...fadeIn
         }
-        margin_eu: file(relativePath: { eq: "trade-tools/landing/margin-eu.png" }) {
-            ...fadeIn
-        }
         swap: file(relativePath: { eq: "trade-tools/landing/swap-calculator.png" }) {
             ...fadeIn
         }
-        swap_eu: file(relativePath: { eq: "trade-tools/landing/swap-eu.png" }) {
-            ...fadeIn
-        }
         pip: file(relativePath: { eq: "trade-tools/landing/pip-calculator.png" }) {
-            ...fadeIn
-        }
-        pip_eu: file(relativePath: { eq: "trade-tools/landing/pip-eu.png" }) {
             ...fadeIn
         }
         pnl_margin: file(relativePath: { eq: "trade-tools/landing/pnl-margin.png" }) {
@@ -124,19 +115,10 @@ const query = graphql`
         ) {
             ...fadeIn
         }
-        margin_mobile_eu: file(relativePath: { eq: "trade-tools/landing/margin-mobile-eu.png" }) {
-            ...fadeIn
-        }
         swap_mobile: file(relativePath: { eq: "trade-tools/landing/swap-calculator-mobile.png" }) {
             ...fadeIn
         }
-        swap_mobile_eu: file(relativePath: { eq: "trade-tools/landing/swap-mobile-eu.png" }) {
-            ...fadeIn
-        }
         pip_mobile: file(relativePath: { eq: "trade-tools/landing/pip-calculator-mobile.png" }) {
-            ...fadeIn
-        }
-        pip_mobile_eu: file(relativePath: { eq: "trade-tools/landing/pip-mobile-eu.png" }) {
             ...fadeIn
         }
         pnl_margin_mobile: file(relativePath: { eq: "trade-tools/landing/pnl-margin-mobile.png" }) {

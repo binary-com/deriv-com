@@ -283,7 +283,7 @@ const WhatOurClientsSay = () => {
 
     return (
         <StyledContainer>
-            <ClientContainer p="5rem 0 0">
+            <ClientContainer>
                 <ClientFlex
                     jc="space-between"
                     ai="center"
@@ -308,10 +308,7 @@ const WhatOurClientsSay = () => {
                             m="40px 0 0"
                             width="240px"
                             height="100px"
-                            tabletL={{
-                                height: '64px',
-                                m: '24px 0 0',
-                            }}
+                            tabletL={{ m: '24px 0 0' }}
                         >
                             <div
                                 ref={ref}

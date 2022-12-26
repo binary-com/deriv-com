@@ -1,0 +1,133 @@
+import React, { useState } from 'react'
+import styled, { css } from 'styled-components'
+import LiveMarketTable from './components/_live_market_table'
+import { TAvailableLiveMarkets } from './_types'
+import { market_buttons } from './_utils'
+import { Flex } from 'components/containers'
+import { Header } from 'components/elements'
+import device from 'themes/device'
+import { Button } from 'components/form'
+
+const LivePricingSection = styled.section`
+    background-color: var(--color-white);
+    min-height: 780px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0 80px;
+`
+
+const ContainerWrapper = styled(Flex)`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 60%;
+    @media ${device.tablet} {
+        width: 100vw;
+    }
+`
+
+const Markets = styled.div`
+    position: relative;
+    width: 100%;
+`
+
+const MarketsContainer = styled.div`
+    margin: 0 auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 2rem;
+    scrollbar-width: none; /* Firefox */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    @media ${device.tablet} {
+        justify-content: flex-start;
+    }
+`
+const MarketButton = styled.button<{ selected: boolean }>`
+    min-height: 48px;
+    position: relative;
+    border-bottom: 2px solid red;
+    background: none;
+    border: none;
+    padding: 16px 40px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    white-space: nowrap;
+
+    ${Header} {
+        font-weight: normal;
+        font-size: 2rem;
+        color: var(--color-grey-5);
+    }
+
+    ${({ selected }) =>
+        selected
+            ? css`
+                  border-bottom: 2px solid red;
+                  & ${Header} {
+                      color: var(--color-red);
+                  }
+              `
+            : css`
+                  border-bottom: 2px solid var(--color-grey-8);
+                  & ${Header} {
+                  }
+              `}
+`
+const DisclaimerText = styled(Header)`
+    color: var(--color-grey-5);
+    font-weight: normal;
+    text-align: center;
+    font-size: 1.6rem;
+`
+
+const LivePricing = () => {
+    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('synthetic_index')
+
+    const onMarketButtonClick = (selected) => {
+        setSelectedMarket(selected)
+    }
+
+    return (
+        <LivePricingSection>
+            <Markets>
+                <MarketsContainer>
+                    {market_buttons.map((marketItem) => (
+                        <MarketButton
+                            selected={marketItem.market_name === selected_market}
+                            key={marketItem.id}
+                            onClick={() => {
+                                onMarketButtonClick(marketItem.market_name)
+                            }}
+                        >
+                            <Header type="paragraph-2">{marketItem.button_text}</Header>
+                        </MarketButton>
+                    ))}
+                </MarketsContainer>
+            </Markets>
+            <ContainerWrapper>
+                <Header type="paragraph-1" weight="normal" align="center">
+                    Benefit from round-the-clock trading hours (Monday to Friday), high liquidity,
+                    low barriers to entry, a wide range of offerings, and opportunities to trade on
+                    world events.
+                </Header>
+                <LiveMarketTable market={selected_market} />
+                <DisclaimerText>
+                    Disclaimer: All spreads are indicative. To view real-time spreads, clients
+                    should refer to their client terminal.
+                </DisclaimerText>
+                <Button secondary>Trade now</Button>
+            </ContainerWrapper>
+        </LivePricingSection>
+    )
+}
+
+export default LivePricing

@@ -1,7 +1,7 @@
 export type TMarketData = {
     ask: number
     bid: number
-    day_percentage_change: string
+    day_percentage_change: number
     market: string
     market_ranking: string
     spread: number

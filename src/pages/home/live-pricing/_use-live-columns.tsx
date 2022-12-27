@@ -1,6 +1,6 @@
 import { createColumnHelper } from '@tanstack/react-table'
 import React, { useMemo } from 'react'
-import { TableCell, TableHeaderCell } from './components/_elements'
+import { TableCell, TableHeaderCell, DailyPercentageCell } from './components/_elements'
 import { TMarketData } from './_types'
 
 const liveMarketColumnHelper = createColumnHelper<TMarketData>()
@@ -26,7 +26,7 @@ const useLiveColumns = (marketData: () => void) => {
             }),
             liveMarketColumnHelper.accessor('day_percentage_change', {
                 header: () => <TableHeaderCell text={'Daily % Change'} />,
-                cell: (info) => <TableCell text={info.getValue()} />,
+                cell: (info) => <DailyPercentageCell value={info.getValue()} />,
             }),
         ]
     }, [marketData])

@@ -90,7 +90,7 @@ const DisclaimerText = styled(Header)`
 `
 
 const LivePricing = () => {
-    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('synthetic_index')
+    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
 
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)

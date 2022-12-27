@@ -23,7 +23,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
     })
 
     const [is_loading, setIsLoading] = useState(false)
-    const [trendingMarkets, setTrendingMarkets] = useState([])
 
     const table_data = useMemo(() => {
         const data = markets_data.get(market)
@@ -43,16 +42,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
             (response: TMarketDataResponse) => {
                 const responseData = [...response.trading_platform_asset_listing.mt5.assets]
                 const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
-                const trendingMarketsList = responseData.filter(
-                    (item) =>
-                        item.market_ranking == '1' ||
-                        item.market_ranking == '2' ||
-                        item.market_ranking == '3' ||
-                        item.market_ranking == '4' ||
-                        item.market_ranking == '5' ||
-                        item.market_ranking == '6',
-                )
-                setTrendingMarkets(trendingMarketsList)
 
                 responseData.forEach((item) => {
                     const currentMarket = [...(markets.get(item.market) ?? [])]

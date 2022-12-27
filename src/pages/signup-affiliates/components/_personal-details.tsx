@@ -314,19 +314,26 @@ const PersonalDetails = ({
         })
     }, [personal_details])
 
-    const is_valid_individual =
-        !first_name || !last_name || !date_birth || !citizen || !password || !currency
+    const is_valid_individual = !(
+        first_name &&
+        last_name &&
+        date_birth &&
+        citizen &&
+        password &&
+        currency
+    )
 
-    const is_valid_business =
-        !first_name ||
-        !last_name ||
-        !date_birth ||
-        !citizen ||
-        !password ||
-        !company_name ||
-        !company_registration_number ||
-        !currency ||
-        !certificate_of_incorporation
+    const is_valid_business = !(
+        first_name &&
+        last_name &&
+        date_birth &&
+        citizen &&
+        password &&
+        company_name &&
+        company_registration_number &&
+        currency &&
+        certificate_of_incorporation
+    )
 
     useEffect(() => {
         const is_valid_account = is_individual ? !is_valid_individual : !is_valid_business

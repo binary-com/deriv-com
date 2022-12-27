@@ -142,16 +142,12 @@ const DailyPercentageText = styled(HeaderText)<{ bull?: boolean }>`
               `}
 `
 
-const NumberFormatter = new Intl.NumberFormat('en-US', {
-    signDisplay: 'exceptZero',
-})
-
 export const DailyPercentageCell = ({ value }: TDailyPercentageProps) => {
     return (
-        <Container>
+        <Cell>
             <DailyPercentageText bull={value >= 0} type="paragraph-1" weight="normal" align="start">
-                {NumberFormatter.format(value)}
+                {value}
             </DailyPercentageText>
-        </Container>
+        </Cell>
     )
 }

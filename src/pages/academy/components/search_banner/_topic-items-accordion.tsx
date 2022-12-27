@@ -10,7 +10,7 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 type TopicItemsAccordionProps = {
     items?: TopicType
     setModal?: React.Dispatch<React.SetStateAction<boolean>>
-    handleHref: (category: string) => void
+    handleHref: (category: string) => string
 }
 
 const DetailsWrapper = styled(Flex)<{ is_expanded: boolean }>`
@@ -50,7 +50,7 @@ const TopicItemsAccordion = ({ items, setModal, handleHref }: TopicItemsAccordio
                 }}
                 onClick={toggleExpand}
             >
-                <Flex jc="space-between" align="center" p="8px">
+                <Flex jc="space-between" ai="center" p="8px">
                     <Header as="h3" type="paragraph-2" color="grey-5" width="auto">
                         {items.type.toUpperCase()}
                     </Header>

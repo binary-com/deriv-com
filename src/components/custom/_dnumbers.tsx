@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import { Container } from 'components/containers'
@@ -6,7 +6,7 @@ import { Header, Text } from 'components/elements'
 
 type ItemType = {
     title?: string | ReactNode
-    subtitle?: string | ReactNode
+    subtitle?: string | ReactElement
 }
 
 type DNumbersProps = {

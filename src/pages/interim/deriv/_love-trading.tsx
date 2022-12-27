@@ -16,7 +16,7 @@ const content = {
         button_props: { type: 'smart_trader' },
         cta_props: { is_white: true },
     },
-}
+} as const
 
 const LoveTrading = () => <LoveTradingComponent {...content} />
 

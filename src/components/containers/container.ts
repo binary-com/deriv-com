@@ -14,6 +14,7 @@ type ContainerType = {
     fd?: string
     wrap?: string
     fw?: string
+    scroll?: boolean
     laptop_direction?: string
     tablet_direction?: string
 }

@@ -10,14 +10,14 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
+import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type StockIndicesProps = {
-    simple_step_content: SimpleStepsContent[]
+    simple_step_content: SimpleStepContentElement[]
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {

@@ -33,5 +33,5 @@ export const useDerivApi = () => {
         }
     }, [])
 
-    return { send }
+    return { send, WS: ws.current }
 }

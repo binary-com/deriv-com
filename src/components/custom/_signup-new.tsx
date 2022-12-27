@@ -30,7 +30,6 @@ type SocialButtonProps = {
 }
 
 type StyledTextProps = {
-    notedBox?: boolean
     tabletFontSize?: string
 }
 
@@ -71,9 +70,6 @@ const Line = styled.div`
     background-color: var(--color-grey-7);
 `
 const StyledText = styled(Text)<StyledTextProps>`
-    @media ${device.tabletL} {
-        width: ${({ notedBox }) => (notedBox ? '13rem' : 'unset')};
-    }
     @media (max-width: 340px) {
         width: 17rem;
     }
@@ -250,7 +246,6 @@ const SignupNew = ({
                     <div>
                         <StyledText
                             mb="0.4rem"
-                            notedBox
                             color="grey-16"
                             size="var(--text-size-xs)"
                             tabletFontSize="12px"
@@ -261,7 +256,6 @@ const SignupNew = ({
                             />
                         </StyledText>
                         <StyledText
-                            notedBox
                             size="var(--text-size-xxs)"
                             tabletFontSize="12px"
                             color="grey-16"

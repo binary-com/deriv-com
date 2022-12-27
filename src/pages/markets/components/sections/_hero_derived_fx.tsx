@@ -62,7 +62,6 @@ const MarketSubHeader = styled(Header)`
     width: 58vw;
 
     @media ${device.tabletL} {
-        line-height: 28px;
         width: 86vw;
     }
     @media ${device.mobileM} {

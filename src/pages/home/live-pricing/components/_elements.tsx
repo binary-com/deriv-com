@@ -143,11 +143,17 @@ const DailyPercentageText = styled(HeaderText)<{ bull?: boolean }>`
 `
 
 export const DailyPercentageCell = ({ value }: TDailyPercentageProps) => {
+    const valueInInteger = value.replace(/[% ]/g, '')
     return (
-        <Cell>
-            <DailyPercentageText bull={value >= 0} type="paragraph-1" weight="normal" align="start">
+        <Container>
+            <DailyPercentageText
+                bull={valueInInteger >= 0}
+                type="paragraph-2"
+                weight="normal"
+                align="start"
+            >
                 {value}
             </DailyPercentageText>
-        </Cell>
+        </Container>
     )
 }

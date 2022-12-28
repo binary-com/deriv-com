@@ -68,7 +68,7 @@ const dbot: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        "_t_For more info, <0>check out this blog post</0> on the basics of building a trading bot.'._t_",
+                        '_t_For more info, <0>check out this blog post</0> on the basics of building a trading bot._t_',
                     translation_components: [
                         {
                             key: 0,
@@ -205,7 +205,7 @@ const dbot: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_Just drag the XML file from your computer onto the workspace, and your bot will be loaded accordingly. Alternatively, you can hit <0>Impor</0>t in <0>Bot Builder</0>, and choose to import your bot from your computer or from your Google Drive._t_',
+                        '_t_Just drag the XML file from your computer onto the workspace, and your bot will be loaded accordingly. Alternatively, you can hit <0>Import</0> in <0>Bot Builder</0>, and choose to import your bot from your computer or from your Google Drive._t_',
                     translation_components: [{ key: 0, type: 'strong' }],
                 },
                 {
@@ -220,7 +220,7 @@ const dbot: TQuestionsData = {
                         items: [
                             {
                                 translation_text:
-                                    "_t_After hitting <0>Import</0>, select <0>Local</0> and click <0>Continue</0>.'._t_",
+                                    '_t_After hitting <0>Import</0>, select <0>Local</0> and click <0>Continue</0>._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {

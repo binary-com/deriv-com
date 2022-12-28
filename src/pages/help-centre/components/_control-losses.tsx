@@ -83,7 +83,7 @@ const ControlLosses = () => (
 
         <Header size="16px" weight="normal" mt="2.3rem" mb="2.6rem">
             <Localize
-                translate_text="2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to false' to prevent the bot from running another cycle."
+                translate_text="2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to false to prevent the bot from running another cycle."
                 components={[<strong key={0} />]}
             />
         </Header>

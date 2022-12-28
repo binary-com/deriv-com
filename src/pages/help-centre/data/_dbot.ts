@@ -1,31 +1,10 @@
-import RemoveBlocks from '../components/_remove-blocks'
 import ControlLosses from '../components/_control-losses'
 import { TQuestionsData } from './_data-types'
 // images
-import GetStartedImage from 'images/common/help-centre/dbot-button-get-started.png'
-import SearchBarImage from 'images/common/help-centre/dbot-search-bar.png'
-import CreateVariableImage from 'images/common/help-centre/dbot-create-variable.png'
-import NameVariableImage from 'images/common/help-centre/dbot-name-variable.png'
-import UserDefinedVariableImage from 'images/common/help-centre/dbot-user-defined-variable.png'
-import BotNameImage from 'images/common/help-centre/dbot-botname.png'
-import SaveBotImage from 'images/common/help-centre/dbot-save.png'
-import GoogleDriveImage from 'images/common/help-centre/dbot-google-drive.png'
-import SaveBotOptionImage from 'images/common/help-centre/dbot-save-bot.png'
-import SaveBotDriveImage from 'images/common/help-centre/dbot-savebot-drive.png'
-import ImportantStrategyImage from 'images/common/help-centre/dbot-import-strategy.png'
-import LoadBotImage from 'images/common/help-centre/dbot-load-bot.png'
-import LoadBotGDImage from 'images/common/help-centre/dbot-load-bot-gd.png'
-import ResetImage from 'images/common/help-centre/dbot-reset.png'
+import BlockMenuImage from 'images/common/help-centre/dbot-block-menu.png'
+import BlockMenuSearchBarImage from 'images/common/help-centre/dbot-block-menu-search-bar.png'
 import ClearStatImage from 'images/common/help-centre/dbot-clear-stat.png'
 import AreYouSureImage from 'images/common/help-centre/dbot-are-you-sure.png'
-import SummaryTabImage from 'images/common/help-centre/dbot-summary-tab.png'
-import TransactionsImage from 'images/common/help-centre/dbot-transactions.png'
-import ChartImage from 'images/common/help-centre/dbot-chart.png'
-import QuickStrategyImage from 'images/common/help-centre/dbot-quick-strategy.png'
-import StrategiesImage from 'images/common/help-centre/dbot-strategies.png'
-import AssetTradeTypeImage from 'images/common/help-centre/dbot-asset-trade-type.png'
-import ParametersImage from 'images/common/help-centre/dbot-parameters.png'
-import RunBotImage from 'images/common/help-centre/dbot-run-bot.png'
 
 const dbot: TQuestionsData = {
     section: 'Platforms',
@@ -45,41 +24,58 @@ const dbot: TQuestionsData = {
             ],
         },
         {
-            question: '_t_How do I find the blocks I need?_t_',
+            question: '_t_Where do I find the blocks I need?_t_',
             category: 'DBot',
             sub_category: '_t_Blocks_t_',
             label: 'find-blocks',
             answer: [
                 {
+                    translation_text: '_t_Follow these steps:_t_',
+                },
+                {
                     list: {
-                        list_style: 'none',
+                        list_style: 'decimal',
                         margin_top: '1.7rem',
-                        padding_left: '0',
+                        padding_left: '1.8rem',
                         items: [
                             {
+                                translation_text: '_t_Go to <0>Bot Builder</0>._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
                                 translation_text:
-                                    "_t_1. Click 'Get started' at the top left corner to open the blocks menu._t_",
+                                    "_t_Under the <0>Blocks menu</0>, you'll see a list of categories. Blocks are grouped within these categories. Choose the block you want and drag them to the workspace. _t_",
+                                translation_components: [{ key: 0, type: 'strong' }],
                                 img: {
-                                    src: GetStartedImage,
-                                    alt: 'Get Started',
-                                    width: '14.2rem',
+                                    src: BlockMenuImage,
+                                    alt: 'Search',
+                                    width: '60rem',
+                                    margin: '1rem 0 0 -1.8rem',
                                 },
                             },
                             {
                                 translation_text:
-                                    '_t_2. The blocks are categorised accordingly. Just choose the blocks you want and drag them to the workspace._t_',
-                            },
-                            {
-                                translation_text:
-                                    '_t_3. You can also search for the blocks you want using the search field on the toolbar at the top of the workspace._t_',
+                                    '_t_You can also search for the blocks you want using the search bar above the categories._t_',
                                 img: {
-                                    src: SearchBarImage,
+                                    src: BlockMenuSearchBarImage,
                                     alt: 'Search',
-                                    width: '17.9rem',
+                                    width: '60rem',
+                                    margin: '1rem 0 0 -1.8rem',
                                 },
                             },
                         ],
                     },
+                },
+                {
+                    translation_text:
+                        "_t_For more info, <0>check out this blog post</0> on the basics of building a trading bot.'._t_",
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: '/academy/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
+                        },
+                    ],
                 },
             ],
         },
@@ -88,7 +84,13 @@ const dbot: TQuestionsData = {
             category: 'DBot',
             sub_category: '_t_Blocks_t_',
             label: 'remove-blocks',
-            renderProp: RemoveBlocks,
+            answer: [
+                {
+                    translation_text:
+                        '_t_Click on the block you want to remove and press <0>Delete</0> on your keyboard._t_',
+                    translation_components: [{ key: 0, type: 'strong' }],
+                },
+            ],
         },
         {
             question: '_t_How do I create variables?_t_',
@@ -104,41 +106,17 @@ const dbot: TQuestionsData = {
                         items: [
                             {
                                 translation_text:
-                                    "_t_Click 'Get started' to open the blocks menu._t_",
-                                img: {
-                                    src: GetStartedImage,
-                                    alt: 'Get Started',
-                                    width: '14.2rem',
-                                },
-                            },
-                            {
-                                translation_text: '_t_Go to <0>Utility > Variables</0>._t_',
+                                    '_t_Under the <0>Blocks</0> menu, go to <0>Utility > Variables<0/>._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
-                                translation_text: "_t_Click 'Create variable'._t_",
-                                img: {
-                                    src: CreateVariableImage,
-                                    alt: 'Create variable',
-                                    width: '40.2rem',
-                                },
-                            },
-                            {
-                                translation_text: '_t_Enter a name for the variable._t_',
-                                img: {
-                                    src: NameVariableImage,
-                                    alt: 'Name variable',
-                                    width: '40.8rem',
-                                },
+                                translation_text:
+                                    '_t_Enter a name for your variable, and hit <0>Create</0>. New block containing your new variable will appear below._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
                                 translation_text:
-                                    '_t_The newly created variable is now available to be used in your strategy._t_',
-                                img: {
-                                    src: UserDefinedVariableImage,
-                                    alt: 'User defined variable',
-                                    width: '27.2rem',
-                                },
+                                    '_t_Choose the block you want and drag it to the workspace._t_',
                             },
                         ],
                     },
@@ -146,7 +124,20 @@ const dbot: TQuestionsData = {
             ],
         },
         {
-            question: '_t_What is a quick strategy and how do I use it?_t_',
+            question: '_t_Do you offer pre-built trading bots on DBot?_t_',
+            category: 'DBot',
+            sub_category: '_t_Platforms_t_',
+            label: 'offer-pre-built',
+            answer: [
+                {
+                    translation_text:
+                        "_t_Yes, you can get started with a pre-built bot using the <0>Quick strategy</0> feature. You’ll find some of the most popular trading strategies here: Martingale, D'Alembert, and Oscar's Grind. Just select the strategy, enter your trade parameters, and your bot will be created for you. You can always tweak the parameters later._t_",
+                    translation_components: [{ key: 0, type: 'strong' }],
+                },
+            ],
+        },
+        {
+            question: '_t_What is a quick strategy?_t_',
             category: 'DBot',
             sub_category: '_t_Strategy_t_',
             label: 'quick-strategy',
@@ -158,106 +149,38 @@ const dbot: TQuestionsData = {
                 {
                     translation_text: '_t_<0>Using a quick strategy</0>_t_',
                     translation_components: [{ key: 0, type: 'strong' }],
-                    margin_top: '4rem',
+                    margin_top: '2rem',
                     list: {
                         list_style: 'decimal',
                         first_child_margin_top: '1.7rem',
-                        margin_top: '0',
-                        padding_left: '2rem',
+                        margin_top: '1.6rem',
+                        padding_left: '2.2rem',
                         items: [
                             {
                                 translation_text:
-                                    "_t_Click 'Get started' on the toolbar at the top._t_",
-                                img: {
-                                    src: GetStartedImage,
-                                    alt: 'Get Started',
-                                    width: '14.2rem',
-                                },
-                            },
-                            {
-                                translation_text: "_t_Click 'Quick Strategy_t_",
-                                img: {
-                                    src: QuickStrategyImage,
-                                    alt: 'Quick strategy',
-                                    width: '16.6rem',
-                                },
-                            },
-                            {
-                                translation_text: '_t_Choose the strategy that you want._t_',
-                                img: {
-                                    src: StrategiesImage,
-                                    alt: 'Strategies',
-                                    width: '42.1rem',
-                                },
+                                    '_t_Go to <0>Quick strategy</0> and select the strategy you want._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
                                 translation_text: '_t_Select the asset and trade type._t_',
-                                img: {
-                                    src: AssetTradeTypeImage,
-                                    alt: 'Asset and trade type',
-                                    width: '44rem',
-                                },
                             },
                             {
                                 translation_text:
-                                    "_t_Enter your preferred trade parameters and click 'Create'._t_",
-                                img: {
-                                    src: ParametersImage,
-                                    alt: 'Parameters',
-                                    width: '44rem',
-                                },
+                                    '_t_Set your trade parameters and hit <0>Create</0>._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
                                 translation_text:
-                                    "_t_The strategy is loaded onto the workspace. You may adjust your strategy however you want and when you’re ready to run your bot, click 'Run bot'._t_",
-                                img: {
-                                    src: RunBotImage,
-                                    alt: 'Run bot',
-                                    width: '11.8rem',
-                                },
+                                    '_t_Once the blocks are loaded onto the workspace, tweak the parameters if you want, or hit <0>Run</0> to start trading._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
                                 translation_text:
-                                    '_t_You may save your bot by either downloading it into your computer or by saving it on your Google Drive._t_',
+                                    '_t_Hit <0>Save</0> to download your bot. You can choose to download your bot to your device or your Google Drive._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
                             },
                         ],
                     },
-                },
-            ],
-        },
-        {
-            question: '_t_What is the Martingale strategy?_t_',
-            category: 'DBot',
-            sub_category: '_t_Strategy_t_',
-            label: 'martingale-strategy',
-            answer: [
-                {
-                    translation_text:
-                        '_t_The Martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost._t_',
-                },
-            ],
-        },
-        {
-            question: '_t_What is the D’Alembert strategy?_t_',
-            category: 'DBot',
-            sub_category: '_t_Strategy_t_',
-            label: 'dalembert-strategy',
-            answer: [
-                {
-                    translation_text:
-                        '_t_Named after the popular 18th-century French roulette theorist, Jean le Rond d’Alembert, this strategy encourages traders to increase contract size after a loss and decrease it after a successful trade._t_',
-                },
-            ],
-        },
-        {
-            question: "_t_What is the Oscar's Grind strategy?_t_",
-            category: 'DBot',
-            sub_category: '_t_Strategy_t_',
-            label: 'oscars-grind-strategy',
-            answer: [
-                {
-                    translation_text:
-                        '_t_This is a low-risk positive progression strategy that first appeared in 1965. By using this strategy, you will increase the size of your contract after each successful trade, and decrease the size of your contract after each unsuccessful trade._t_',
                 },
             ],
         },
@@ -269,121 +192,43 @@ const dbot: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        "_t_First, give your strategy a name. Click the 'Bot name' field on the toolbar at the top and enter a name._t_",
-                    img: {
-                        src: BotNameImage,
-                        alt: 'Bot name',
-                        width: '21.1rem',
-                    },
-                },
-                {
-                    translation_text:
-                        "_t_Next, click 'Save' on the toolbar at the top of the workspace. You can choose to save to your computer or to your Google Drive. Your strategy will be saved in the XML format._t_",
-                    img: {
-                        src: SaveBotImage,
-                        alt: 'Save',
-                        width: '40.7rem',
-                    },
-                    margin_top: '2.5rem',
-                },
-                {
-                    translation_text: '_t_<0>Saving to your computer</0>_t_',
+                        '_t_In <0>Bot</0> Builder, hit <0>Save</0> on the toolbar at the top to download your bot. Give your bot a name, and choose to download your bot to your device or Google Drive. Your bot will be downloaded as an XML file._t_',
                     translation_components: [{ key: 0, type: 'strong' }],
-                    margin_top: '2.5rem',
-                    list: {
-                        list_style: 'decimal',
-                        margin_top: '2.4rem',
-                        padding_left: '2rem',
-                        items: [
-                            {
-                                translation_text: "_t_Select 'Local' and click 'Continue'._t_",
-                                img: {
-                                    src: SaveBotOptionImage,
-                                    alt: 'Save bot',
-                                    width: '40rem',
-                                },
-                            },
-                            {
-                                translation_text:
-                                    "_t_The XML file will be saved in the 'Downloads' folder of your internet browser._t_",
-                            },
-                        ],
-                    },
-                },
-                {
-                    translation_text: '_t_<0>Saving to Google Drive</0>_t_',
-                    translation_components: [{ key: 0, type: 'strong' }],
-                    margin_top: '4rem',
-                    list: {
-                        list_style: 'decimal',
-                        margin_top: '2.4rem',
-                        padding_left: '2rem',
-                        items: [
-                            {
-                                translation_text: "_t_Click 'Connect'._t_",
-                                img: {
-                                    src: GoogleDriveImage,
-                                    alt: 'Google Drive',
-                                    width: '12.1rem',
-                                },
-                            },
-                            {
-                                translation_text:
-                                    '_t_Select your Google account and grant the necessary permission for DBot to access your Google Drive._t_',
-                            },
-                            {
-                                translation_text: "_t_Click 'Continue'._t_",
-                                img: {
-                                    src: SaveBotDriveImage,
-                                    alt: 'Save bot Google Drive',
-                                    width: '38.4rem',
-                                },
-                            },
-                            {
-                                translation_text:
-                                    "_t_Choose the folder you want to save your strategy in and click  'Select'._t_",
-                            },
-                        ],
-                    },
                 },
             ],
         },
         {
-            question: '_t_How do I import my strategies into DBot?_t_',
+            question: '_t_How do I import my own trading bot into DBot?_t_',
             category: 'DBot',
             sub_category: '_t_Strategy_t_',
             label: 'import-strategy',
             answer: [
                 {
                     translation_text:
-                        "_t_Just drag the XML file from your computer onto the workspace. Your blocks will be loaded accordingly. Alternatively, you can click 'Import' on the toolbar at the top of the workspace and choose to load your strategy from your computer or from your Google Drive._t_",
-                    img: {
-                        src: ImportantStrategyImage,
-                        alt: 'Import strategy',
-                        width: '40.7rem',
-                    },
+                        '_t_Just drag the XML file from your computer onto the workspace, and your bot will be loaded accordingly. Alternatively, you can hit <0>Impor</0>t in <0>Bot Builder</0>, and choose to import your bot from your computer or from your Google Drive._t_',
+                    translation_components: [{ key: 0, type: 'strong' }],
                 },
                 {
                     translation_text: '_t_<0>Importing from your computer</0>_t_',
                     translation_components: [{ key: 0, type: 'strong' }],
-                    margin_top: '4rem',
+                    margin_top: '1.8rem',
                     list: {
                         list_style: 'decimal',
-                        first_child_margin_top: '2.4rem',
-                        margin_top: '1.7rem',
-                        padding_left: '2rem',
+                        first_child_margin_top: '2rem',
+                        margin_top: '0.7rem',
+                        padding_left: '2.2rem',
                         items: [
                             {
-                                translation_text: "_t_Select 'Local' and click 'Continue'._t_",
-                                img: {
-                                    src: LoadBotImage,
-                                    alt: 'Load bot',
-                                    width: '40.7rem',
-                                },
+                                translation_text:
+                                    "_t_After hitting <0>Import</0>, select <0>Local</0> and click <0>Continue</0>.'._t_",
+                                translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
-                                translation_text:
-                                    "_t_Select your strategy and click 'Open'. Your blocks will be loaded accordingly._t_",
+                                translation_text: '_t_Select your XML file and hit <0>Open</0>._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text: '_t_Your bot will be loaded accordingly._t_',
                             },
                         ],
                     },
@@ -391,25 +236,25 @@ const dbot: TQuestionsData = {
                 {
                     translation_text: '_t_<0>Importing from your Google Drive</0>_t_',
                     translation_components: [{ key: 0, type: 'strong' }],
-                    margin_top: '4rem',
+                    margin_top: '1.8rem',
                     list: {
                         list_style: 'decimal',
-                        first_child_margin_top: '2.4rem',
-                        margin_top: '1.7rem',
-                        padding_left: '2rem',
+                        first_child_margin_top: '2rem',
+                        margin_top: '0.7rem',
+                        padding_left: '2.2rem',
                         items: [
                             {
                                 translation_text:
-                                    "_t_Select 'Google Drive' and click 'Continue'._t_",
-                                img: {
-                                    src: LoadBotGDImage,
-                                    alt: 'Load bot google Drive',
-                                    width: '40.7rem',
-                                },
+                                    '_t_After hitting <0>Import</0>, select <0>Google Drive</0> and click <0>Continue</0>._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
                                 translation_text:
-                                    "_t_Select your strategy and click 'Select'. Your blocks will be loaded accordingly._t_",
+                                    '_t_Select your XML file and hit <0>Select</0>._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text: '_t_Your bot will be loaded accordingly._t_',
                             },
                         ],
                     },
@@ -424,12 +269,8 @@ const dbot: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        "_t_Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost._t_",
-                    img: {
-                        src: ResetImage,
-                        alt: 'Reset',
-                        width: '40.7rem',
-                    },
+                        '_t_In <0>Bot Builder</0>, hit <0>Reset</0> on the toolbar at the top. This will clear the workspace. Please note that any unsaved changes will be lost._t_',
+                    translation_components: [{ key: 0, type: 'strong' }],
                 },
             ],
         },
@@ -447,19 +288,23 @@ const dbot: TQuestionsData = {
                         items: [
                             {
                                 translation_text:
-                                    "_t_In the panel on the right of the workspace, click 'Clear stat'._t_",
+                                    '_t_Hit <0>Reset</0> at the bottom of stats panel._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
                                 img: {
                                     src: ClearStatImage,
                                     alt: 'Clear stat',
-                                    width: '24.8rem',
+                                    width: '60rem',
+                                    margin: '1rem 0 0 -1.8rem',
                                 },
                             },
                             {
-                                translation_text: "_t_Click 'Ok'._t_",
+                                translation_text: '_t_Hit <0>OK</0> to confirm._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
                                 img: {
                                     src: AreYouSureImage,
                                     alt: 'Are you sure?',
-                                    width: '40rem',
+                                    width: '60rem',
+                                    margin: '1rem 0 0 -2rem',
                                 },
                             },
                         ],
@@ -475,46 +320,111 @@ const dbot: TQuestionsData = {
             renderProp: ControlLosses,
         },
         {
-            question: '_t_Where can I see the status of my trades in DBot?_t_',
+            question: '_t_Can I run DBot on multiple tabs in my web browser?_t_',
             category: 'DBot',
             sub_category: '_t_Logs_t_',
-            label: 'status-of-trades',
+            label: 'mutilpile-tab',
             answer: [
                 {
                     translation_text:
-                        "_t_The panel on the right of the workspace gives you information about all your trades in DBot. The 'Summary' tab shows information such as your total stake, total payout, profit/loss, etc._t_",
-                    img: {
-                        src: SummaryTabImage,
-                        alt: 'Summary tab',
-                        width: '33.3rem',
-                    },
-                },
-                {
-                    translation_text:
-                        "_t_The 'Transactions' tab gives you more detailed information on each trade such as duration, barrier, start and end times, etc._t_",
-                    img: {
-                        src: TransactionsImage,
-                        alt: 'Transactions',
-                        width: '33.3rem',
-                    },
-                    has_margin_top: true,
+                        '_t_Yes, you can. However, there are limits on your account, such as maximum number of open positions and maximum aggregate payouts on open positions. So, just keep these limits in mind when opening multiple positions. You can find more info about these limits at <0>Settings > Account limits</0>._t_',
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'deriv_app_link',
+                            to: '/account/account-limits',
+                        },
+                    ],
                 },
             ],
         },
         {
-            question: '_t_How do I view the chart in DBot?_t_',
+            question: '_t_Can I trade cryptocurrencies on DBot?_t_',
             category: 'DBot',
             sub_category: '_t_Chart_t_',
-            label: 'view-chart',
+            label: 'trade-cryptocurrencies',
+            answer: [
+                {
+                    translation_text: "_t_No, we don't offer cryptocurrencies on DBot._t_",
+                },
+            ],
+        },
+        {
+            question: '_t_Do you sell trading bots?_t_',
+            category: 'DBot',
+            sub_category: '_t_Chart_t_',
+            label: 'sell-bots',
             answer: [
                 {
                     translation_text:
-                        "_t_Click 'Chart' at the bottom left corner of the workspace to view the chart._t_",
-                    img: {
-                        src: ChartImage,
-                        alt: 'Chart',
-                        width: '22.5rem',
-                    },
+                        "_t_No, we don't. However, you'll find quick strategies on DBot that'll help you build your own trading bot for free._t_",
+                },
+            ],
+        },
+        {
+            question: '_t_In which countries is DBot available?_t_',
+            category: 'DBot',
+            sub_category: '_t_Chart_t_',
+            label: 'available-countries',
+            answer: [
+                {
+                    translation_text:
+                        '_t_We offer our services in all countries, except for the ones <0>mentioned in our terms and conditions</0>._t_',
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: '/tnc/general-terms.pdf',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            question: '_t_If I close my web browser, will DBot continue to run?_t_',
+            category: 'DBot',
+            sub_category: '_t_Chart_t_',
+            label: 'close-browser',
+            answer: [
+                {
+                    translation_text:
+                        '_t_No, DBot will stop running when your web browser is closed._t_',
+                },
+            ],
+        },
+        {
+            question: '_t_What are the most popular strategies for automated trading?_t_',
+            category: 'DBot',
+            sub_category: '_t_Chart_t_',
+            label: 'popular-strategies',
+            answer: [
+                {
+                    translation_text:
+                        "_t_Three of the most commonly used strategies in automated trading are Martingale, D'Alembert, and Oscar's Grind — you can find them already-made and waiting for you in DBot._t_",
+                },
+            ],
+        },
+        {
+            question: '_t_How do I build a trading bot?_t_',
+            category: 'DBot',
+            sub_category: '_t_Chart_t_',
+            label: 'build-trading-bot',
+            answer: [
+                {
+                    translation_text:
+                        '_t_<0>Watch this video</0> to learn how to build a trading bot on DBot. Also, <1>check out this blog post</1> on building a trading bot._t_',
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: 'https://www.youtube.com/watch?v=QdI5zCkO4Gk&t=203s',
+                        },
+                        {
+                            key: 1,
+                            type: 'link',
+                            to: '/academy/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
+                        },
+                    ],
                 },
             ],
         },

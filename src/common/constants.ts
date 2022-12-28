@@ -71,7 +71,7 @@ export const besquare_signup_url =
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
-export const deriv_app_languages = ['id', 'pt', 'es']
+export const deriv_app_languages = ['id', 'pt', 'es', 'ru', 'fr']
 export const smart_trader_languages = [
     'es',
     'fr',

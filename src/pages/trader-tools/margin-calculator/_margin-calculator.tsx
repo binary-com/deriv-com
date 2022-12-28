@@ -1,5 +1,6 @@
+// TODO: Should do error handling for when the request was not successful and give the user
+// ability to refetch the dropdown list again.
 import React, { useCallback, useEffect, useState } from 'react'
-import { ActiveSymbolsResponse } from '@deriv/api-types'
 import { Formik, Field } from 'formik'
 import {
     getMargin,
@@ -70,48 +71,26 @@ import {
 } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { useDerivApi } from 'components/hooks/use-deriv-api'
+import useWS from 'components/hooks/useWS'
 
 const MarginCalculator = () => {
+    const { data, is_loading, send } = useWS('active_symbols')
     const [tab, setTab] = useState('Synthetic')
-    const [activeSymbols, setActiveSymbols] = useState([])
-    const [disableDropdown, setDisableDropdown] = useState(true)
-    const [symbolSpotPrice, setSymbolSpotPrice] = useState({})
 
     const onTabClick = (t) => {
         setTab(t)
     }
-    const deriv_api = useDerivApi()
 
     useEffect(() => {
-        const { send } = deriv_api
-        send({ active_symbols: 'full' }, (response: ActiveSymbolsResponse) => {
-            if (!response.error && response.active_symbols.length > 0) {
-                const data = response.active_symbols
-                setActiveSymbols(data)
-                setDisableDropdown(false)
-            }
-        })
-    }, [])
+        send({ active_symbols: 'full' })
+    }, [send])
 
-    useEffect(() => {
-        const tempSpotPrice = {}
-
-        if (activeSymbols.length < 1) {
-            return
-        }
-        activeSymbols.forEach((item) => {
-            tempSpotPrice[item.symbol] = item.spot
-        })
-
-        setSymbolSpotPrice(tempSpotPrice)
-    }, [activeSymbols])
     const fetchTickData = useCallback(
         (selectedSymbol, setAssetPrice) => {
-            const price = symbolSpotPrice[selectedSymbol]
-            setAssetPrice('assetPrice', price)
+            const selected = data?.find((item) => item.symbol === selectedSymbol)
+            if (selected) setAssetPrice('assetPrice', selected.spot)
         },
-        [symbolSpotPrice],
+        [data],
     )
 
     return (
@@ -249,7 +228,7 @@ const MarginCalculator = () => {
                                                 }}
                                                 selected_item={values.symbol}
                                                 onBlur={handleBlur}
-                                                disabled={disableDropdown}
+                                                disabled={is_loading}
                                             />
                                             <InputGroup>
                                                 <Field

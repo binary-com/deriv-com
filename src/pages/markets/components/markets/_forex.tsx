@@ -2,6 +2,7 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
+import Spreader from '../helper/spreader'
 import { forex_content, forex_content_eu } from '../../static/content/_forex'
 import { forex_cfds, forex_cfds_eu } from '../../static/content/_cfds'
 import { forex_multiplier, forex_multiplier_eu } from '../../static/content/_multipliers'
@@ -50,6 +51,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 // name="Forex"
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />
+            <Spreader display_title={<Localize translate_text="Forex trading Spread" />} />
             <SimpleSteps
                 header={
                     <Localize translate_text="Start trading forex on Deriv in 3 simple steps" />

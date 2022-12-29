@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import AgreementLabel from 'components/custom/_agreement-label'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
+import { StyledLink } from 'components/elements/link'
 
 type TAffiliateTerms = {
     non_pep_declaration: boolean
@@ -48,7 +49,7 @@ const AccountTerms = ({ affiliate_terms_data, updatedData, onValidate }: Account
     }, [onValidate, validate])
 
     const MainWrapper = styled.div`
-        margin: 0 80px;
+        margin: 0 60px;
         display: flex;
         flex-direction: column;
 
@@ -97,16 +98,18 @@ const AccountTerms = ({ affiliate_terms_data, updatedData, onValidate }: Account
             name: 'non_pep_declaration',
         },
         {
-            link_text: localize('I have read and accepted Deriv’s terms and conditions'),
+            link_text: localize('I have read and accepted <0> Deriv’s terms and conditions </0>'),
             is_checked: tnc_accepted,
             name: 'tnc_accepted',
+            url: '/terms-and-conditions/#clients',
         },
         {
             link_text: localize(
-                'I have read and accepted Deriv’s terms and conditions, general terms of use and affiliates and intoducing brokers’ terms and conditions.',
+                'I have read and accepted <0>Deriv’s general terms of use and affiliates and introducing brokers’ terms and conditions </0>',
             ),
             is_checked: is_brokers_checked,
             name: 'is_brokers_checked',
+            url: '/tnc/business-partners-affiliates-and-introducing-brokers.pdf',
         },
         {
             link_text: localize('Please send me information regarding your partnership program.'),
@@ -129,7 +132,7 @@ const AccountTerms = ({ affiliate_terms_data, updatedData, onValidate }: Account
                     'A politically exposed person (PEP) is someone appointed with a prominent public position. Close associates and family members of a PEP are also considered to be PEPs.',
                 )}
             </Header>
-            {AgreementData.map(({ link_text, is_checked, name }, index) => {
+            {AgreementData.map(({ link_text, is_checked, name, url }, index) => {
                 return (
                     <>
                         <AgreementLabel
@@ -138,7 +141,15 @@ const AccountTerms = ({ affiliate_terms_data, updatedData, onValidate }: Account
                             handleChangeCheckbox={(value) => handleChange(value, name)}
                             link_text={link_text}
                             color="var(--color-black-3)"
-                        />
+                        >
+                            <StyledLink
+                                external
+                                size="1.5rem"
+                                to={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            />
+                        </AgreementLabel>
 
                         {index !== AgreementData.length - 1 && <Line />}
                     </>

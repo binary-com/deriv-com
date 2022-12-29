@@ -226,7 +226,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                     return null
                 } else
                     return (
-                        <Accordion key={idx} has_single_state>
+                        <Accordion key={pdata.name.props.translate_text} has_single_state>
                             <AccordionItem
                                 content_style={content_style}
                                 header_style={header_style}

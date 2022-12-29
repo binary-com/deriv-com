@@ -2,7 +2,7 @@ import React, { ReactElement, useRef, useState } from 'react'
 import styled from 'styled-components'
 import SpreaderData from './spreader-data'
 import { Header } from 'components/elements'
-import { CssGrid , SectionContainer, Flex } from 'components/containers'
+import { CssGrid, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import Pagination from 'components/elements/pagination'
 import { minor_pairs } from 'pages/markets/static/content/_market-symbols'
@@ -95,11 +95,10 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                 <ContentWrapper ref={myRef}>
                     <CssGrid
                         columns="repeat(12, 1fr)"
-                        column_gap="7rem"
                         row_gap="10.4rem"
-                        laptop_columns="repeat(12, 7rem)"
-                        tablet_columns="repeat(12, 7rem)"
-                        mobile_columns="1fr"
+                        laptop_columns="repeat(12, 15rem)"
+                        tablet_columns="repeat(12, 15rem)"
+                        mobile_columns="repeat(12, 15rem)"
                         mobile_row_gap="6rem"
                         margin="1rem 0 0"
                     >

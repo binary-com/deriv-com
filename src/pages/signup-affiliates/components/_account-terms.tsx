@@ -143,7 +143,7 @@ const AccountTerms = ({ affiliate_terms_data, updatedData, onValidate }: Account
                             color="var(--color-black-3)"
                         >
                             <StyledLink
-                                external="true"
+                                external
                                 size="1.5rem"
                                 to={url}
                                 target="_blank"

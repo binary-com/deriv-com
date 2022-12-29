@@ -1,4 +1,3 @@
-// Note: When using layout component for security page, please add type='security' and padding_top='10rem'
 import React from 'react'
 import styled from 'styled-components'
 import MainNav from './components/partner/main-nav'
@@ -9,7 +8,6 @@ import { LinkButton } from 'components/form'
 import { Container } from 'components/containers'
 import device from 'themes/device'
 import LogoBugBounty from 'images/svg/layout/logo-bug-bounty.svg'
-import { CFDWarning } from 'components/layout'
 
 const Wrapper = styled(Container)`
     height: 7.2rem;
@@ -36,28 +34,25 @@ const Logo = styled.img`
 
 const NavSecurity = () => {
     return (
-        <>
-            <PartnerWrapper>
-                <MainNav is_security />
-                <PartnerNavigationBarWrapper>
-                    <Wrapper jc="space-between">
-                        <StyledLogoLink to="/" aria-label="Bug bounty">
-                            <Logo src={LogoBugBounty} alt="logo bug bounty" />
-                        </StyledLogoLink>
+        <PartnerWrapper>
+            <MainNav is_security />
+            <PartnerNavigationBarWrapper>
+                <Wrapper jc="space-between">
+                    <StyledLogoLink to="/" aria-label="Bug bounty">
+                        <Logo src={LogoBugBounty} alt="logo bug bounty" />
+                    </StyledLogoLink>
 
-                        <SubmissionButton
-                            to="https://hackerone.com/binary"
-                            external="true"
-                            target="_blank"
-                            tertiary
-                        >
-                            {localize('Submit a report')}
-                        </SubmissionButton>
-                    </Wrapper>
-                </PartnerNavigationBarWrapper>
-            </PartnerWrapper>
-            <CFDWarning />
-        </>
+                    <SubmissionButton
+                        external
+                        tertiary
+                        to="https://hackerone.com/binary"
+                        target="_blank"
+                    >
+                        {localize('Submit a report')}
+                    </SubmissionButton>
+                </Wrapper>
+            </PartnerNavigationBarWrapper>
+        </PartnerWrapper>
     )
 }
 

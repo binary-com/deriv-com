@@ -8,10 +8,11 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import Platform from 'images/common/interim/check-interim-bg.png'
 import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 type SectionProps = {
     image: string
     mobile_image: string
+    is_eu_country: boolean
 }
 
 const Section = styled(Box)<SectionProps>`
@@ -22,7 +23,7 @@ const Section = styled(Box)<SectionProps>`
     background-position-x: right;
     background-repeat: no-repeat;
     position: relative;
-    margin-bottom: ${(props) => props.is_eu_country && '7.3rem'};
+    margin-bottom: ${(props) => props.is_eu && '7.3rem'};
     @media ${device.tabletL} {
         height: 700px;
         background-image: url(${(props) => props.mobile_image || PlatformMobile});
@@ -133,7 +134,7 @@ const LeftCTASection = (params: LeftCTASectionProps) => {
 }
 
 type RightCTASectionProps = LeftCTASectionProps & {
-    button_props?: unknown
+    button_props?: { type: 'dbot' | 'smart_trader' | 'mt5' }
 }
 
 const RightCTASection = (params: RightCTASectionProps) => {
@@ -144,7 +145,7 @@ const RightCTASection = (params: RightCTASectionProps) => {
                 {header}
             </Header>
             <FitButton
-                external="true"
+                external
                 white
                 to={button_url}
                 target="_blank"
@@ -174,14 +175,9 @@ export const LoveTradingComponent = ({
     right,
 }: LoveTradingComponentProps) => {
     const data = useStaticQuery(query)
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     return (
-        <Section
-            p="3.2rem 0"
-            image={bg_image}
-            mobile_image={bg_image_mobile}
-            is_eu_country={is_eu_country}
-        >
+        <Section p="3.2rem 0" image={bg_image} mobile_image={bg_image_mobile} is_eu={is_eu}>
             <AbsoluteWrapper>
                 <QueryImage data={data[image]} width="54rem" alt="Love trading" />
             </AbsoluteWrapper>

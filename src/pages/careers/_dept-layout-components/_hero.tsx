@@ -19,7 +19,7 @@ const StyledHeader = styled(Header)`
     color: var(--color-white);
 
     @media ${device.tablet} {
-        text-align: left;
+        text-align: start;
     }
 `
 
@@ -28,7 +28,7 @@ const Subheadline = styled(Header)`
     max-width: 99.6rem;
 
     @media ${device.tablet} {
-        text-align: left;
+        text-align: start;
     }
 `
 
@@ -88,6 +88,11 @@ const query = graphql`
             ...fadeIn
         }
         trading_operations_bg: file(relativePath: { eq: "careers-2/trading-operations-bg.png" }) {
+            ...fadeIn
+        }
+        business_intelligence_bg: file(
+            relativePath: { eq: "careers-2/business-intelligence-bg.png" }
+        ) {
             ...fadeIn
         }
     }

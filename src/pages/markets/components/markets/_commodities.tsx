@@ -8,41 +8,35 @@ import { commodities_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
+import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { Localize, localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type CommoditiesProps = {
-    simple_step_content: SimpleStepsContent[]
+    simple_step_content: SimpleStepContentElement[]
 }
 
 const Commodities = ({ simple_step_content }: CommoditiesProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
-
+    const { is_eu } = useCountryRule()
     simple_step_content[1].text = (
         <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
     )
 
     return (
         <>
-            <WhyTrade
-                header={<Localize translate_text="Why trade commodities on Deriv" />}
-                text={
-                    <Localize translate_text="Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted." />
-                }
-            >
+            <WhyTrade header={<Localize translate_text="Why trade commodities on Deriv" />}>
                 {commodities.map((content, index) => (
                     <StyledBox
                         key={index}
                         text={content.text}
-                        icon={<img src={content.src} alt="" />}
+                        icon={<img src={content.src} alt={content.alt} />}
                     />
                 ))}
             </WhyTrade>
-            {is_eu_country ? (
+            {is_eu ? (
                 <AvailableTrades
                     CFDs={<CFDs market_content={commodities_cfds} />}
                     display_title={

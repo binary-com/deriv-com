@@ -6,9 +6,9 @@ import { localize, Localize } from 'components/localization'
 import { Button } from 'components/form'
 // Icon
 import FixedPayout from 'images/svg/trade-types/fixed-payout.svg'
-import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import FavoriteMarket from 'images/svg/trade-types/favoritemarket.svg'
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
-import UserFriendly from 'images/svg/trade-types/user-friendly-platforms.svg'
+import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import FlexibleTrade from 'images/svg/trade-types/flexible-trade-types.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
@@ -30,7 +30,7 @@ const WhatAreOptions = () => {
                     <Header as="h3" type="section-title" mb="0.8rem">
                         {localize('Options available on Deriv')}
                     </Header>
-                    <Text align="left" mb="0.8rem">
+                    <Text align="start" mb="0.8rem">
                         {localize('You can trade the following options on Deriv:')}
                     </Text>
                     <Ul>
@@ -69,7 +69,7 @@ const WhatAreOptions = () => {
                     <Grid>
                         <WhyTradeItem>
                             <div>
-                                <img src={FixedPayout} alt="" />
+                                <img src={FixedPayout} alt="Graph" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Fixed, predictable payout')}
@@ -82,7 +82,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={SyntheticIndices} alt="" />
+                                <img src={FavoriteMarket} alt="Trade on markets" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('All favourite markets and more')}
@@ -95,7 +95,10 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={InstantAccess} alt="" />
+                                <img
+                                    src={InstantAccess}
+                                    alt="Immediate access to trading account"
+                                />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Instant access')}
@@ -104,7 +107,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={UserFriendly} alt="" />
+                                <img src={FriendlySupport} alt="Customer support" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('User-friendly platforms with powerful chart widgets')}
@@ -117,7 +120,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FlexibleTrade} alt="" />
+                                <img src={FlexibleTrade} alt="Currency" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Flexible trade types with minimal capital requirements')}

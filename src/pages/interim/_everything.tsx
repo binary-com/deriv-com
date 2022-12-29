@@ -49,7 +49,7 @@ const Everything = () => {
                 <Ul jc="center" ai="center">
                     <Li>
                         <div>
-                            <img src={EasySignup} alt="" width="64" height="64" />
+                            <img src={EasySignup} alt="easy signup" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -62,7 +62,7 @@ const Everything = () => {
                                         <LocalizedLinkText
                                             id="dm-binary-login-link-2"
                                             key={0}
-                                            external="true"
+                                            external
                                             weight="bold"
                                             to="home"
                                             type="binary"
@@ -76,7 +76,12 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={SyntheticIndices} alt="" width="64" height="64" />
+                            <img
+                                src={SyntheticIndices}
+                                alt="Synthetic Indices"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -91,7 +96,12 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={Enhanced} alt="" width="64" height="64" />
+                            <img
+                                src={Enhanced}
+                                alt="An enhanced experience"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -106,7 +116,12 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={TradingPlatform} alt="" width="64" height="64" />
+                            <img
+                                src={TradingPlatform}
+                                alt="trading platforms"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -114,14 +129,14 @@ const Everything = () => {
                             </Header>
                             <Text>
                                 {localize(
-                                    'Trade the way you like on the Deriv MT5 (DMT5), DTrader, DBot — and the classic SmartTrader.',
+                                    'Trade the way you like on the Deriv MT5, DTrader, DBot — and the classic SmartTrader.',
                                 )}
                             </Text>
                         </ResponsiveBox>
                     </Li>
                     <Li>
                         <div>
-                            <img src={UserFriendly} alt="" width="64" height="64" />
+                            <img src={UserFriendly} alt="User Friendly" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -136,7 +151,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={Support} alt="" width="64" height="64" />
+                            <img src={Support} alt="Support" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">

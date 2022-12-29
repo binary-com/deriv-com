@@ -34,14 +34,17 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 
 Before running or contribute to this project, you need to have the setup of the following packages in your environment
 
--   node >=12.3.0
--   npm >=6.9.0
+-   node >=16.6.0
+-   npm >=8.11.0
 -   git (for `contribution`)
 -   gatsby-cli (npm install -g gatsby-cli) (for using commands that aren't listed in scripts)
 
 Moreover, having these extensions will help you to speed up the development process and adhere to the best practices
 
--   Prettier: setup in your editor https://prettier.io/ (or you can run `npm run format`)
+-   Prettier: setup in your editor https://prettier.io/ (or you can run `npm run format`.
+    Installation guide for
+    VS Code - https://www.codementor.io/@myogeshchavan97/how-to-automatically-format-code-in-visual-studio-code-using-prettier-1nebhfbxak
+    WebStorm - https://www.jetbrains.com/help/webstorm/prettier.html#prettier_before_you_start
 -   Stylelint: setup in your editor https://stylelint.io/ (or you can run `npm run stylelint`)
 -   Eslint: setup in your editor https://eslint.org/ (or you can run `npm run eslint`)
 
@@ -114,7 +117,7 @@ PR will be based on the master branch if the commits are not having text changes
 
 3. Make pull request
 
--   Push your changes to your origin
+-   Push your changes to your origin , add `-u` flag for the first time push
 
     ```sh
     git push -u origin [_your_branch_name]

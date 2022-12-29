@@ -79,9 +79,9 @@ const ArticleCard = ({ items }: ArticleCardProps) => {
                         type="paragraph-2"
                         color="grey-5"
                         weight="normal"
-                        align="right"
+                        align="end"
                         width="auto"
-                        tablet={{ align: 'left', mt: '4px' }}
+                        tablet={{ ai: 'left', mt: '4px' }}
                     >
                         {convertDate(items.published_date)}
                     </Header>

@@ -25,8 +25,8 @@ const WhatLiesAhead = () => {
             has_last_child_props: true,
         },
         icon_wrapper: {
-            width: ['48px', '32px'],
-            height: ['48px', '32px'],
+            img_width: ['48px', '32px'],
+            img_height: ['48px', '32px'],
             grid_area: ['dep-icon'],
         },
         text_wrapper: {
@@ -37,6 +37,7 @@ const WhatLiesAhead = () => {
             grid_area: ['title'],
         },
     }
+
     return (
         <Section>
             <ContentContainer>
@@ -46,7 +47,7 @@ const WhatLiesAhead = () => {
                         max_width={['792px', '328px']}
                         font_size={['24px', '18px']}
                         line_height={['36px', '26px']}
-                        text_align={['center', 'left']}
+                        text_align={['center', 'start']}
                     >
                         {what_lies_ahead.subtitle}
                     </TextWrapper>
@@ -60,7 +61,7 @@ const WhatLiesAhead = () => {
                     max_width={['783px', '328px']}
                     font_size={['16px', '14px']}
                     line_height={['24px', '20px']}
-                    text_align={['center', 'left']}
+                    text_align={['center', 'start']}
                 >
                     {what_lies_ahead.text}
                 </TextWrapper>

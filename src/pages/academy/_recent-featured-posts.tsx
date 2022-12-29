@@ -59,10 +59,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
         <StyledContainer m="20px auto 0" fd="column" ai="center">
             <StyledTabs
                 tab_list={['recent_posts', 'featured_posts']}
-                route_from="recent_featured_posts"
-                type="blog-featured"
                 jc="start"
-                jc_tabletM="center"
                 jc_mobileL="center"
                 mobile_font_size={16}
                 line_divider_length="unset"
@@ -78,16 +75,10 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                                         <BackgroundImageContainer>
                                             <GatsbyImage
                                                 image={getImage(
-                                                    headline_recent.main_image.imageFile,
+                                                    headline_recent.main_image.imageFile
+                                                        .childImageSharp.gatsbyImageData,
                                                 )}
                                                 alt={headline_recent.main_image.description}
-                                                width="100%"
-                                                height="100%"
-                                                layout="fullWidth"
-                                                transformOptions={{
-                                                    fit: 'cover',
-                                                    cropFocus: 'attention',
-                                                }}
                                             />
                                         </BackgroundImageContainer>
                                     </BackgroundImageWrapper>
@@ -142,7 +133,10 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                                                 >
                                                     <QueryImage
                                                         className="standard-query-img"
-                                                        data={article?.main_image?.imageFile}
+                                                        data={
+                                                            article?.main_image?.imageFile
+                                                                .childImageSharp.gatsbyImageData
+                                                        }
                                                         alt={article?.main_image?.description || ''}
                                                     />
                                                 </StandardImgWrapper>
@@ -180,13 +174,6 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                                                         headline_featured.main_image.imageFile,
                                                     )}
                                                     alt={headline_featured.main_image.description}
-                                                    width="100%"
-                                                    height="100%"
-                                                    layout="fullWidth"
-                                                    transformOptions={{
-                                                        fit: 'cover',
-                                                        cropFocus: 'attention',
-                                                    }}
                                                 />
                                             </BackgroundImageContainer>
                                         </BackgroundImageWrapper>
@@ -273,7 +260,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                     </Tabs.Panel>
                 )}
             </StyledTabs>
-            <AllArticleButton tertiary="true" to="/academy/blog/">
+            <AllArticleButton tertiary to="/academy/blog/">
                 {localize('See all articles')}
             </AllArticleButton>
         </StyledContainer>

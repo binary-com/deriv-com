@@ -136,7 +136,6 @@ const LeaderCard = ({ image, name, position, link }: LeaderType) => {
             onMouseLeave={dontShowModal}
             width={is_mobile ? '98px' : '120px'}
             height={is_mobile ? '98px' : '120px'}
-            loading="lazy"
         >
             <QueryImage width="100%" height="100%" data={image} alt="leader" loading="lazy" />
             {is_popup_shown && <Modal name={name} position={position} link={link} />}
@@ -161,7 +160,7 @@ const Leaders = () => {
         },
         {
             name: 'Tom Molesworth',
-            position: <Localize translate_text="Chief Technology Officer" />,
+            position: <Localize translate_text="Chief Information Officer" />,
             link: '',
             image: leaders_data.tom,
         },
@@ -227,7 +226,7 @@ const Leaders = () => {
         },
         {
             name: 'Gary Ross Vytialingam',
-            position: <Localize translate_text="Chief Risk Officer" />,
+            position: <Localize translate_text="Chief Audit Executive" />,
             link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',
             image: leaders_data.gary,
         },

@@ -22,6 +22,7 @@ import Vanuatu from 'images/common/regulatory/vanuatu.png'
 import VanuatuFMA from 'images/common/regulatory/vanuatu-fma.png'
 import FSC from 'images/common/regulatory/bvi.png'
 import Labuan from 'images/common/regulatory/labuan.png'
+import LabuanFintech from 'images/common/regulatory/labuan-fintech.png'
 import Deriv from 'images/common/regulatory/deriv.png'
 import TFC from 'images/common/regulatory/tfc.png'
 import SVG from 'images/svg/regulatory/svg.svg'
@@ -42,7 +43,13 @@ const Img = styled.img`
     height: 8rem;
 `
 
-const StyledHeader = styled(Header)`
+const ImgFintech = styled.img`
+    display: flex;
+    width: 160px;
+    height: 38.8px;
+`
+
+const StyledHeader = styled(Header)<{ maxwidth?: string }>`
     max-width: ${(props) => props.maxwidth || '100%'};
     margin: 0 auto;
 
@@ -99,6 +106,10 @@ const ResponsiveHeader = styled(StyledHeader)`
     }
 `
 
+const StyledLinkText = styled(LinkText)`
+    font-weight: bold;
+`
+
 const Regulatory = (locale: RegulatoryProps) => {
     return (
         <Layout>
@@ -149,9 +160,8 @@ const Regulatory = (locale: RegulatoryProps) => {
                             <Localize
                                 translate_text="Deriv Investments (Europe) Limited – W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta – is licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union."
                                 components={[
-                                    <LinkText
+                                    <StyledLinkText
                                         key={0}
-                                        weight="bold"
                                         target="_blank"
                                         href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
                                         rel="noopener noreferrer"
@@ -191,7 +201,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         <StyledHeader
                             as="h5"
                             type="paragraph-1"
-                            align="center"
+                            align="start"
                             weight="normal"
                             maxwidth="792px"
                         >
@@ -224,6 +234,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 </StyledHeader>
                             </MobileWrapper>
                             <Img src={Labuan} alt="Labuan Financial Services Authority " />
+                            <ImgFintech src={LabuanFintech} alt="Labuan Fintech Association " />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <DesktopWrapper>
@@ -233,13 +244,18 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </DesktopWrapper>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (FX) Ltd – F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia – is licensed by Labuan Financial Services Authority(<0>licence no. MB/18/0024</0>)."
+                                    translate_text="Deriv (FX) Ltd — F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia — is licensed by Labuan Financial Services Authority (<0>licence no. MB/18/0024</0>) and is a member of the <1>Labuan Fintech Association</1>."
                                     components={[
-                                        <LinkText
+                                        <StyledLinkText
                                             key={0}
-                                            weight="bold"
                                             target="_blank"
                                             href="/regulatory/Deriv_(FX)_Ltd.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <StyledLinkText
+                                            key={1}
+                                            target="_blank"
+                                            href="https://www.labuanfintech.org/"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -247,7 +263,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </Text>
                             <Text mt="2rem" max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on forex and cryptocurrencies can have DMT5 Financial STP accounts under Deriv (FX) Ltd.',
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on forex and cryptocurrencies can have Deriv MT5 Financial STP accounts under Deriv (FX) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -273,9 +289,8 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 <Localize
                                     translate_text="Deriv (BVI) Ltd – Kingston Chambers, P.O. Box 173, Road Town, Tortola British Virgin Islands – is licensed by the British Virgin Islands Financial Services Commission <0>licence no. SIBA/L/18/1114</0>)."
                                     components={[
-                                        <LinkText
+                                        <StyledLinkText
                                             key={0}
-                                            weight="bold"
                                             target="_blank"
                                             href="/regulatory/Deriv_(BVI)_Ltd.pdf"
                                             rel="noopener noreferrer"
@@ -285,7 +300,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments, including cryptocurrencies, can have DMT5 Financial STP accounts under Deriv (BVI) Ltd.',
+                                    'Clients in the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments (via Deriv MT5 Financial account or Deriv MT5 Financial STP account) and synthetic indices (via Deriv MT5 Synthetic account) can have MetaTrader 5 accounts under Deriv (BVI) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -311,18 +326,16 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (V) Ltd – 1276, Kumul Highway, Port Vila, Vanuatu – is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
+                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) – 1276, Kumul Highway, Port Vila, Vanuatu – is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
                                     components={[
-                                        <LinkText
+                                        <StyledLinkText
                                             key={0}
-                                            weight="bold"
                                             target="_blank"
                                             href="/regulatory/Deriv_(V)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
-                                        <LinkText
+                                        <StyledLinkText
                                             key={1}
-                                            weight="bold"
                                             target="_blank"
                                             href="/regulatory/Financial_Markets_Association_Cert.pdf"
                                             rel="noopener noreferrer"
@@ -332,7 +345,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments can have DMT5 Financial accounts and Deriv X Financial accounts under Deriv (V) Ltd. This company does not offer CFDs on cryptocurrencies.',
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments, including cryptocurrencies can have Deriv MT5 Financial accounts and Deriv X Financial accounts under Deriv (V) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -415,9 +428,8 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 <Localize
                                     translate_text="We are registered with the Financial Commission, an international independent organisation dedicated to resolving disputes within the financial services industry (<0>view membership</0>)."
                                     components={[
-                                        <LinkText
+                                        <StyledLinkText
                                             key={0}
-                                            weight="bold"
                                             target="_blank"
                                             href="/regulatory/Deriv_Ltd_membership.pdf"
                                             rel="noopener noreferrer"

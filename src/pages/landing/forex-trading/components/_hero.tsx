@@ -7,17 +7,7 @@ import { localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
-
-type HeroComponentProps = {
-    background_data: string
-    content: React.ReactNode
-    title: string
-}
-
-type HeroProps = {
-    content: React.ReactNode
-    title: string
-}
+import { HeroProps } from 'pages/landing/_types'
 
 const BackgroundWrapper = styled(Background)`
     background-size: cover;
@@ -97,7 +87,7 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const HeroComponent = ({ title, content, background_data }: HeroComponentProps) => {
+const HeroComponent = ({ title, content, background_data }: HeroProps) => {
     return (
         <BackgroundWrapper data={background_data}>
             <Wrapper p="0" justify="space-between" height="63rem">
@@ -105,7 +95,7 @@ const HeroComponent = ({ title, content, background_data }: HeroComponentProps) 
                     <StyledHeader mt="6.2rem" type="hero" color="white">
                         {title}
                     </StyledHeader>
-                    <HeroContent m="2rem 0 0" direction="column" justify="flex-start">
+                    <HeroContent m="2rem 0 0" direction="column" jc="flex-start">
                         <Header color="white" type="subtitle-1" weight="normal">
                             {content}
                         </Header>
@@ -115,7 +105,7 @@ const HeroComponent = ({ title, content, background_data }: HeroComponentProps) 
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                         type="submit"
-                        secondary="true"
+                        secondary
                         to={'/signup/'}
                     >
                         {localize('Start trading')}

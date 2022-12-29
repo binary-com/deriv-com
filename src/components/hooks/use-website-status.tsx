@@ -1,68 +1,38 @@
-import { useState, useLayoutEffect } from 'react'
-import { useCookieState } from './use-cookie-state'
-import { BinarySocketBase } from 'common/websocket/socket_base'
-import { getDateFromToday } from 'common/utility'
+import { useState, useEffect } from 'react'
+import { CookieStorage } from 'common/storage'
+import { isNullUndefined, parseJSONString } from 'common/utility'
+
+export const useCookieState = (key: string, options: { expires: Date }) => {
+    const cookie_state = new CookieStorage(key)
+    const [value, setValue] = useState(() => {
+        const sticky_value = cookie_state.get(key)
+        return sticky_value ? parseJSONString(sticky_value) : null
+    })
+
+    useEffect(() => {
+        if (isNullUndefined(value)) {
+            cookie_state.remove()
+        } else {
+            cookie_state.set(key, JSON.stringify(value), options)
+        }
+    }, [key, value])
+
+    return [value, setValue]
+}
+
+const getDateFromToday = (num_of_days: number) => {
+    const today = new Date()
+
+    return new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
+}
 
 const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
 const COOKIE_EXPIRY_DAYS = 7
 
 export const useWebsiteStatus = () => {
-    const [website_status, setWebsiteStatus] = useCookieState(null, WEBSITE_STATUS_COUNTRY_KEY, {
+    const [website_status, setWebsiteStatus] = useCookieState(WEBSITE_STATUS_COUNTRY_KEY, {
         expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
     })
 
-    const [is_loading, setLoading] = useState(true)
-
-    useLayoutEffect(() => {
-        setLoading(true)
-        if (!website_status) {
-            const binary_socket = BinarySocketBase.init()
-            binary_socket.onopen = () => {
-                binary_socket.send(JSON.stringify({ website_status: 1 }))
-            }
-
-            binary_socket.onmessage = (msg) => {
-                const response = JSON.parse(msg.data)
-
-                if (!response.error) {
-                    const { clients_country } = response.website_status
-
-                    setWebsiteStatus({ clients_country })
-                }
-                setLoading(false)
-                binary_socket.close()
-            }
-        } else {
-            setLoading(false)
-        }
-    }, [setWebsiteStatus, website_status])
-
-    return [website_status, setWebsiteStatus, is_loading]
-}
-
-export const useWebsiteStatusApi = () => {
-    // For proper redirection process, this api call will give us the accurate clients's ip address
-    // Due to the flexibility to change client's country code via endpoint, it's messing up the redirection flow
-    // Therefore we need a direct call from the API
-    const [website_status_api, setWebsiteStatusApi] = useState(null)
-
-    useLayoutEffect(() => {
-        const binary_socket = BinarySocketBase.init()
-        binary_socket.onopen = () => {
-            binary_socket.send(JSON.stringify({ website_status: 1 }))
-        }
-
-        binary_socket.onmessage = (msg) => {
-            const response = JSON.parse(msg.data)
-
-            if (!response.error) {
-                const { clients_country } = response.website_status
-
-                setWebsiteStatusApi({ clients_country })
-            }
-            binary_socket.close()
-        }
-    }, [website_status_api])
-
-    return website_status_api
+    return [website_status, setWebsiteStatus]
 }

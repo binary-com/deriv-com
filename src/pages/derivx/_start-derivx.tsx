@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, ReactElement, ReactNode } from
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from '../dmt5/components/_side-tab'
-import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
+import { Flex, SectionContainer, Mobile } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
@@ -305,7 +305,7 @@ const StartDerivX = () => {
                 </SideTab>
             </Flex>
             <Mobile>
-                <ButtonDp2p secondary="true" onClick={handleExternalLink}>
+                <ButtonDp2p secondary onClick={handleExternalLink}>
                     {localize('Download Deriv X app')}
                 </ButtonDp2p>
             </Mobile>

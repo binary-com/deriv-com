@@ -1,7 +1,6 @@
 import React from 'react'
 import Forex from '../components/markets/_forex'
-import { Hero } from '../components/sections/_hero'
-import NavTab from '../components/sections/_nav-tab'
+import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import { simple_step_content_forex } from '../static/content/_forex'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
@@ -9,15 +8,17 @@ import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const ForexPage = () => (
-    <Layout>
+    <Layout type="noNav">
         <SEO
             description={localize(
-                'Trade forex online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms.',
+                "Trade forex on Deriv's intuitive online trading platforms and get access to a wide range of major, minor, and exotic currency pairs.",
             )}
-            title={localize('Forex trading online | Forex trading demo account | Deriv')}
+            title={localize('Forex online trading platforms | Forex trading demo account | Deriv')}
         />
-        <Hero />
-        <NavTab route_from={'forex'} route_offset={0} />
+        <DerivedFXHero
+            title="Forex"
+            description="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events."
+        />
         <Forex simple_step_content={simple_step_content_forex} />
         <Signup appearance={Appearances.public} />
     </Layout>

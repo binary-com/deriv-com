@@ -294,11 +294,11 @@ const SearchPage = () => {
                         Articles
                     </Header>
                     {items_type ? (
-                        <Header as="span" type="paragraph-2" align="right">
+                        <Header as="span" type="paragraph-2" align="end">
                             {getPaginationItemCountText()}
                         </Header>
                     ) : (
-                        <Header as="span" type="paragraph-2" align="right">
+                        <Header as="span" type="paragraph-2" align="end">
                             {getTotalArticleText()}
                         </Header>
                     )}
@@ -315,7 +315,7 @@ const SearchPage = () => {
                 )}
 
                 {full_article_link && !items_type && total_article > 4 && (
-                    <AllArticleButton tertiary="true" to={full_article_link}>
+                    <AllArticleButton tertiary to={full_article_link}>
                         All article results
                     </AllArticleButton>
                 )}
@@ -330,7 +330,7 @@ const SearchPage = () => {
                     <Header as="h3" type="subtitle-2">
                         Videos
                     </Header>
-                    <Header as="span" type="paragraph-2" align="right">
+                    <Header as="span" type="paragraph-2" align="end">
                         <>
                             {total_video > 1 && !items_type
                                 ? `1-2 of ${total_video} results`
@@ -352,7 +352,7 @@ const SearchPage = () => {
                 )}
 
                 {full_video_link && !items_type && total_video > 1 && (
-                    <AllArticleButton tertiary="true" to={full_video_link}>
+                    <AllArticleButton tertiary to={full_video_link}>
                         All video results
                     </AllArticleButton>
                 )}

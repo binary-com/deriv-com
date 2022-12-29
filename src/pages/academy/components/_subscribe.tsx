@@ -291,7 +291,7 @@ const Subscribe = () => {
         <SignupFormWrapper>
             <PaperPlaneImage src={paperPlane} alt="Paper Plane" />
             <StyledFormContent>
-                <Header as="h3" type="heading-3" color="white" align="left">
+                <Header as="h3" type="heading-3" color="white" align="start">
                     {localize('Subscribe to our academy via email')}
                 </Header>
                 <Header
@@ -300,7 +300,7 @@ const Subscribe = () => {
                     type="paragraph-1"
                     mt="8px"
                     max_width="492px"
-                    align="left"
+                    align="start"
                     weight="regular"
                     tabletL={{ max_width: '100%' }}
                 >
@@ -323,14 +323,12 @@ const Subscribe = () => {
                                 input_background="grey-8"
                                 label_focus_color="grey-7"
                                 label_color="black-3"
-                                labelSize="16px"
-                                labelTop="1.2rem"
                                 placeholder={'Your name'}
                                 handleError={clearName}
                                 onChange={handleInputNameChange}
                                 autoComplete="off"
                                 border="unset"
-                                maxLength="70"
+                                maxLength={70}
                                 height="40px"
                                 focus_border="var(--color-grey-7)"
                             />
@@ -345,8 +343,6 @@ const Subscribe = () => {
                                 input_background="grey-8"
                                 label_focus_color="grey-7"
                                 label_color="black-3"
-                                labelSize="16px"
-                                labelTop="1.2rem"
                                 placeholder={'Your email address'}
                                 handleError={clearEmail}
                                 onChange={handleInputChange}
@@ -354,21 +350,21 @@ const Subscribe = () => {
                                 required
                                 border="unset"
                                 height="40px"
-                                maxLength="254"
+                                maxLength={254}
                                 focus_border="var(--color-grey-7)"
                             />
                         </InputWrapper>
                         <EmailButton
                             id="gtm-signup-email"
                             type="submit"
-                            secondary="true"
-                            disabled={
+                            secondary
+                            disabled={Boolean(
                                 is_submitting ||
-                                email_error_msg ||
-                                !email ||
-                                name_error_msg ||
-                                !name
-                            }
+                                    email_error_msg ||
+                                    !email ||
+                                    name_error_msg ||
+                                    !name,
+                            )}
                         >
                             {localize('Subscribe')}
                         </EmailButton>
@@ -383,13 +379,12 @@ const Subscribe = () => {
                             />
                             <AdditionalFlex color="#C2C2C2">
                                 <Localize
-                                    fontSize="var(--text-size-xs)"
                                     translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
                                     components={[
                                         <LocalizedLinkText
                                             key={0}
                                             type="tnc/security-and-privacy.pdf"
-                                            external="true"
+                                            external
                                             rel="noopener noreferrer"
                                             size="14px"
                                             color="red"
@@ -400,12 +395,12 @@ const Subscribe = () => {
                         </>
                     )}
                     {submit_status === 'success' && (
-                        <TextWrapper color={'#01a79f'} font_size={15} margin_top={'10px'}>
+                        <TextWrapper color="#01a79f" size="15px" mt="10px">
                             <Localize translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox" />
                         </TextWrapper>
                     )}
                     {submit_status === false && (
-                        <TextWrapper color={'#ff444f'} font_size={15} margin_top={'10px'}>
+                        <TextWrapper color="#ff444f" size="15px" mt="10px">
                             <Localize translate_text="If you have AdBlock installed, please disable it in order to subscribe" />
                         </TextWrapper>
                     )}

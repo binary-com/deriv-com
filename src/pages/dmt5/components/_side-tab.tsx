@@ -178,6 +178,7 @@ const SideTab = ({
                         const {
                             props: { label, description, item_width, mobile_item_width },
                         } = child
+
                         return (
                             <>
                                 <TabButton
@@ -221,7 +222,7 @@ const SideTab = ({
                     <DownloadFlex mt="1rem" jc="flex-start">
                         <Box mr="1.2rem">
                             <LocalizedLink
-                                external="true"
+                                external
                                 to={download_links.ios}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -231,7 +232,7 @@ const SideTab = ({
                         </Box>
 
                         <LocalizedLink
-                            external="true"
+                            external
                             to={download_links.android}
                             target="_blank"
                             rel="noopener noreferrer"

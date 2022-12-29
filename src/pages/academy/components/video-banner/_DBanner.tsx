@@ -103,7 +103,7 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
 
     const {
         published_date,
-        thumbnail_img,
+        thumbnail_img_alt,
         video_title,
         video_description,
         video_thumbnail,
@@ -114,16 +114,12 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
 
     return (
         <>
-            <ParentWrapper direction="column" bg_image={thumbnail_img}>
+            <ParentWrapper direction="column">
                 <BackgroundImageWrapper>
                     <BackgroundImageContainer>
                         <GatsbyImage
                             image={getImage(video_thumbnail.imageFile)}
-                            alt={thumbnail_img}
-                            width="100%"
-                            height="100%"
-                            layout="fullWidth"
-                            transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
+                            alt={thumbnail_img_alt}
                         />
                     </BackgroundImageContainer>
                 </BackgroundImageWrapper>
@@ -189,7 +185,7 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
                         </Flex>
                     </Flex>
                     <VideoCarousel carousel_items={non_featured_video_list_data} />
-                    <AllVideosButton tertiary_light="true" to="/academy/videos/">
+                    <AllVideosButton tertiary_light to="/academy/videos/">
                         See all videos
                     </AllVideosButton>
                 </Container>

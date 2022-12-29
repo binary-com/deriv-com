@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
-import { Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
@@ -11,6 +10,7 @@ import Security from 'images/svg/terms/security-privacy-tc.svg'
 import Risk from 'images/svg/terms/risk-tc.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import BFX from 'images/svg/terms/bfx-tc.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ColProps = {
     Icon: string
@@ -25,37 +25,38 @@ type Link = {
     title: string
 }
 
-const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => (
-    <GridCol>
-        <IconWrapper>
-            <img src={Icon} />
-        </IconWrapper>
-        <Header as="h4" type="sub-section-title">
-            {title}
-        </Header>
-        <Text lh="1.55">{content}</Text>
-        <Show.NonEU>
-            {non_eu_links?.map((link, index) => (
-                <Cta key={index}>
-                    <img src={PDF} alt="pdf icon black" />
-                    <a href={link.url} target="_blank" rel="noopener noreferrer">
-                        {link.title}
-                    </a>
-                </Cta>
-            ))}
-        </Show.NonEU>
-        <Show.Eu>
-            {eu_links?.map((link, index) => (
-                <Cta key={index}>
-                    <img src={PDF} alt="pdf icon black" />
-                    <a href={link.url} target="_blank" rel="noopener noreferrer">
-                        {link.title}
-                    </a>
-                </Cta>
-            ))}
-        </Show.Eu>
-    </GridCol>
-)
+const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => {
+    const { is_non_eu, is_eu } = useCountryRule()
+    return (
+        <GridCol>
+            <IconWrapper>
+                <img src={Icon} />
+            </IconWrapper>
+            <Header as="h4" type="sub-section-title">
+                {title}
+            </Header>
+            <Text lh="1.55">{content}</Text>
+            {is_non_eu &&
+                non_eu_links?.map((link, index) => (
+                    <Cta key={index}>
+                        <img src={PDF} alt="pdf icon black" />
+                        <a href={link.url} target="_blank" rel="noopener noreferrer">
+                            {link.title}
+                        </a>
+                    </Cta>
+                ))}
+            {is_eu &&
+                eu_links?.map((link, index) => (
+                    <Cta key={index}>
+                        <img src={PDF} alt="pdf icon black" />
+                        <a href={link.url} target="_blank" rel="noopener noreferrer">
+                            {link.title}
+                        </a>
+                    </Cta>
+                ))}
+        </GridCol>
+    )
+}
 
 const IconGrid = () => {
     const columns = [
@@ -65,7 +66,7 @@ const IconGrid = () => {
             content: localize('What you’re agreeing to when you sign up to use Deriv'),
             eu_links: [
                 {
-                    url: '/tnc/general-terms.pdf',
+                    url: '/tnc/eu/general-terms.pdf',
                     title: localize('General terms of use'),
                 },
             ],
@@ -82,7 +83,7 @@ const IconGrid = () => {
             content: localize('Rules for making trades on any Deriv trading platform'),
             eu_links: [
                 {
-                    url: '/tnc/trading-terms.pdf',
+                    url: '/tnc/eu/trading-terms.pdf',
                     title: localize('Trading terms'),
                 },
             ],
@@ -101,7 +102,7 @@ const IconGrid = () => {
             ),
             eu_links: [
                 {
-                    url: '/tnc/funds-and-transfers.pdf',
+                    url: '/tnc/eu/funds-and-transfers.pdf',
                     title: localize('Funds & transfers'),
                 },
             ],
@@ -119,7 +120,7 @@ const IconGrid = () => {
 
             eu_links: [
                 {
-                    url: '/tnc/security-and-privacy.pdf',
+                    url: '/tnc/eu/security-and-privacy.pdf',
                     title: localize('Security & privacy'),
                 },
             ],
@@ -138,7 +139,7 @@ const IconGrid = () => {
             ),
             eu_links: [
                 {
-                    url: '/tnc/risk-disclosure.pdf',
+                    url: '/tnc/risk-disclosure-eu.pdf',
                     title: localize('Risk disclosure'),
                 },
             ],

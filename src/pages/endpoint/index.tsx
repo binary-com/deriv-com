@@ -15,8 +15,8 @@ import { DerivStore } from 'store'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
 
 type ValuesType = {
-    server_url?: string
-    app_id?: string
+    server_url?: string | number
+    app_id?: string | number
     clients_country?: string
 }
 
@@ -68,7 +68,7 @@ const StyledButton = styled(Button)`
 const endpointValidation = (values: ValuesType) => {
     const errors: ValuesType = {}
 
-    const server_url = trimSpaces(values ? values.server_url : '')
+    const server_url = trimSpaces(values ? values.server_url.toString() : '')
     const app_id = trimSpaces(values ? values.app_id.toString() : '')
     const clients_country = trimSpaces(values ? values.clients_country.toString() : '')
     const server_url_error =
@@ -128,7 +128,7 @@ const Endpoint = () => {
     }
     const endpointSubmission = (values: ValuesType, actions: ActionsType) => {
         actions.setSubmitting(true)
-        setServerUrl(values.server_url)
+        setServerUrl(values.server_url.toString())
         setAppId(values.app_id)
 
         // handle website status changes
@@ -237,7 +237,7 @@ const Endpoint = () => {
                                     Reset to original settings
                                 </StyledButton>
                                 <StyledButton
-                                    secondary="true"
+                                    secondary
                                     disabled={isSubmitting || !dirty || !touched || !isValid}
                                     type="submit"
                                 >

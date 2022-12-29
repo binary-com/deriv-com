@@ -31,7 +31,6 @@ import {
     volatility_indices_trade_type_eu,
 } from './_market-symbols'
 import { useCountryRule } from 'components/hooks/use-country-rule'
-import { ROW } from 'components/containers'
 
 export const AmericanIndices = () => <Symbol instruments_type={stocks_american_indices} />
 
@@ -73,8 +72,6 @@ export const CryptocurrenciesTradeType = () => (
 
 export const DailyResetIndices = () => <Symbol instruments_type={daily_reset_indices} />
 
-export const EnergyCFDs = () => <Symbol instruments_type={energy_cfds} />
-
 export const EnergyOptions = () => <Symbol instruments_type={energy_options} />
 
 export const Europe = () => <Symbol instruments_type={europe} />
@@ -87,19 +84,12 @@ export const JumpIndices = () => <Symbol instruments_type={jump_indices} />
 
 export const MajorPairs = () => <Symbol instruments_type={major_pairs} />
 
-export const MetalsCFDs = () => <Symbol instruments_type={metals_cfds} />
-
-export const MetalsOptions = () => (
-    <ROW>
-        <Symbol instruments_type={metals_options} />
-    </ROW>
-)
+export const MetalsOptions = () => {
+    const { is_row } = useCountryRule()
+    return is_row ? <Symbol instruments_type={metals_options} /> : <></>
+}
 
 export const MicroPairs = () => <Symbol instruments_type={micro_pairs} />
-
-export const MinorPairsCFDS = () => <Symbol instruments_type={minor_pairs_cfds} />
-
-export const MinorPairsOptions = () => <Symbol instruments_type={minor_pairs_options} />
 
 export const RangeBreak = () => <Symbol instruments_type={range_break} />
 

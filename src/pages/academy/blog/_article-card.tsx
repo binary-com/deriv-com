@@ -69,7 +69,7 @@ const ArticleCard = ({ item }: ArticleCardProps) => {
                     tabletL_border_radius="unset"
                 >
                     <QueryImage
-                        data={item.main_image.imageFile}
+                        data={item.main_image.imageFile.childImageSharp.gatsbyImageData}
                         alt={item.main_image.description || ''}
                         className="standard-query-img"
                     />

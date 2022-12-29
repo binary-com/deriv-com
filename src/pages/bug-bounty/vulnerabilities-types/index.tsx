@@ -72,14 +72,14 @@ const StyledLi = styled.li`
 
 const VulnerabilitiesTypes = () => {
     return (
-        <Layout type="security" margin_top={10}>
+        <Layout type="security">
             <SEO
                 title={localize('Types of vulnerabilities')}
                 description={localize('Types of vulnerabilities')}
             />
             <Hero />
 
-            <StyledContainer direction="column" align="left">
+            <StyledContainer direction="column" align="start">
                 <Header type="heading-2" align="center">
                     {localize('Types of vulnerabilities')}
                 </Header>
@@ -90,7 +90,7 @@ const VulnerabilitiesTypes = () => {
                                 <Flex mt="40px" ai="center">
                                     <IconWrap src={item.icon} />
                                     <Header as="h2" type="subtitle-1" ml="8px">
-                                        {localize(item.title)}
+                                        {item.title}
                                     </Header>
                                 </Flex>
 
@@ -110,11 +110,7 @@ const VulnerabilitiesTypes = () => {
                                                         key={profit_table_idx}
                                                     >
                                                         <Header type="small" weight="normal">
-                                                            <Localize
-                                                                translate_text={
-                                                                    profit_table_item.title
-                                                                }
-                                                            />
+                                                            {profit_table_item.title}
                                                         </Header>
 
                                                         <Header type="paragraph-2" mt="4px">
@@ -139,11 +135,7 @@ const VulnerabilitiesTypes = () => {
 
                                 <StyledUl>
                                     {item.examples.map((example_item, example_idx) => {
-                                        return (
-                                            <StyledLi key={example_idx}>
-                                                {localize(example_item)}
-                                            </StyledLi>
-                                        )
+                                        return <StyledLi key={example_idx}>{example_item}</StyledLi>
                                     })}
                                 </StyledUl>
                             </React.Fragment>

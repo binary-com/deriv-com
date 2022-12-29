@@ -12,12 +12,9 @@ type HeaderImageProps = {
     imgHeight: number
 }
 
-type HeaderSectionProps = HeaderAndHeroProps & {
-    imgHeight: number
-    imgWidth: number
-}
+type HeaderSectionProps = HeaderAndHeroProps & HeaderImageProps
 
-const MainWrapper = styled(Flex)`
+const MainWrapper = styled(Flex)<{ bgMobile: string }>`
     width: 100%;
     background-image: ${(props) =>
         props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)'};
@@ -26,8 +23,8 @@ const MainWrapper = styled(Flex)`
         height: 720px;
     }
     @media ${device.tablet} {
-        background-image: ${(props) =>
-            props.bgMobile ? props.bgMobile : 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};
+        background-image: ${({ bgMobile }) =>
+            bgMobile ? bgMobile : 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};
     }
 `
 const HeaderBody = styled(Flex)`
@@ -193,7 +190,7 @@ const HeaderSection = ({
                             type="page-title"
                             size="48px"
                             mb="10px"
-                            lh={1.1}
+                            lh="1.1"
                             weight="600"
                             max_width="800px"
                             color="white"
@@ -204,7 +201,7 @@ const HeaderSection = ({
                             as="h3"
                             type="main-paragraph"
                             size="16px"
-                            weight={300}
+                            weight="300"
                             color="white"
                         >
                             {localize('Claim a FREE e-book now!')}
@@ -213,18 +210,18 @@ const HeaderSection = ({
                             as="h4"
                             type="main-paragraph"
                             size="16px"
-                            weight={300}
+                            weight="300"
                             color="white"
                         >
                             {localize('Plus a free demo account to practice.')}
                         </Header>
                         <AuthorText
-                            m={0}
+                            m="0"
                             mt="10px"
                             size="14px"
                             color="white"
                             lh="16px"
-                            weight={200}
+                            weight="200"
                             max_width="586px"
                         >
                             {authorDesc}

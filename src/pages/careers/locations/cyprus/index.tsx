@@ -9,7 +9,7 @@ import { localize, WithIntl } from 'components/localization'
 const query = graphql`
     query {
         cyprus: file(relativePath: { eq: "careers/cyprus.jpg" }) {
-            ...heroImage
+            ...backgroundImage
         }
         living_in_cyprus: file(relativePath: { eq: "careers/living_in_cyprus.png" }) {
             ...fadeIn
@@ -27,6 +27,11 @@ const query = graphql`
             ...fadeIn
         }
         map_cyprus: file(relativePath: { eq: "careers/maps/map-cyprus.png" }) {
+            ...fadeIn
+        }
+        cyprus_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/cyprus_great_place_to_work_badge.png" }
+        ) {
             ...fadeIn
         }
     }

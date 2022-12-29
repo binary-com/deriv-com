@@ -53,7 +53,7 @@ const Content = styled.div<StyledProps>`
 
         @media ${device.tabletL} {
             text-align: center;
-            font-size: 16px;
+            font-size: 18px;
         }
     }
 
@@ -163,7 +163,7 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
 
                 <VideoText>{localize('Find out how Deriv P2P works')}</VideoText>
                 <StyledIFrame
-                    src="https://www.youtube.com/embed/sITTfAZAnwU"
+                    src="https://www.youtube.com/embed/x8v4Hb-Uw2I"
                     title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

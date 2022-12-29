@@ -1,27 +1,25 @@
-import { useState, useEffect, useContext } from 'react'
-import { eu_countries } from 'common/country-base'
+import { useState, useContext, useLayoutEffect } from 'react'
+import { eu_countries, latam_countries, african_countries } from 'common/country-base'
 import {
     getClientInformation,
     getDomain,
     isLocalhost,
     isTestlink,
     isEuDomain,
-    isUkDomain,
 } from 'common/utility'
 import { DerivStore } from 'store'
+import { TRegion } from 'types/generics'
 
 export const useCountryRule = () => {
-    const [region, setRegion] = useState({
+    const [region, setRegion] = useState<TRegion>({
         is_loading: true,
-        is_eu_location: false,
-        is_uk_location: false,
-        is_eu: false,
-        is_uk: false,
-        is_non_uk: true,
-        is_non_eu: true,
-        is_uk_eu: false,
-        is_row: true,
+        is_eu_location: isEuDomain(),
+        is_eu: isEuDomain(),
+        is_non_eu: !isEuDomain(),
+        is_latam: false,
+        is_row: !isEuDomain(),
         is_dev: false,
+        is_africa: false,
     })
 
     const { website_status } = useContext(DerivStore)
@@ -30,32 +28,25 @@ export const useCountryRule = () => {
         residence: '',
     }
 
-    useEffect(() => {
-        const eu_countries_uk_excluded = eu_countries.filter((country: string) => country !== 'gb')
-        const is_eu_country = eu_countries_uk_excluded.includes(user_ip_country)
-        const is_uk_country = user_ip_country === 'gb'
-        const is_eu_residence = eu_countries_uk_excluded.includes(residence)
-        const is_uk_residence = residence === 'gb'
+    useLayoutEffect(() => {
+        const is_eu_country = eu_countries.includes(user_ip_country)
+        const is_africa = african_countries.includes(user_ip_country)
+        const is_eu_residence = eu_countries.includes(residence)
         const is_eu_location = is_eu_residence || (!residence && is_eu_country)
-        const is_uk_location = is_uk_residence || (!residence && is_uk_country)
         const is_eu = is_eu_location || isEuDomain()
-        const is_uk = is_uk_location || isUkDomain()
-        const is_non_uk = !is_uk
         const is_non_eu = !is_eu
-        const is_uk_eu = !(!is_eu && !is_uk)
-        const is_row = !is_uk_eu
+        const is_latam = latam_countries.includes(user_ip_country)
+        const is_row = !is_eu
         const is_dev = isLocalhost() || isTestlink()
 
         if (website_status) {
             setRegion({
                 is_loading: false,
                 is_eu_location,
-                is_uk_location,
+                is_latam,
                 is_eu,
-                is_uk,
-                is_non_uk,
                 is_non_eu,
-                is_uk_eu,
+                is_africa,
                 is_row,
                 is_dev,
             })

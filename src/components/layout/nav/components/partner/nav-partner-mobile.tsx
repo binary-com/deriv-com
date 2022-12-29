@@ -60,16 +60,16 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
                 </LogoLink>
 
                 <Flex ml="auto" ai="center" width="auto">
-                    <LanguageSwitcher has_short_name is_high_nav />
+                    <LanguageSwitcher is_high_nav />
                 </Flex>
 
                 {!hide_login_signup && (
                     <LoginLink
+                        external
+                        primary
                         to={affiliate_signin_url}
                         type="affiliate_sign_in"
-                        external="true"
                         target="_blank"
-                        primary
                     >
                         {localize('Log in')}
                     </LoginLink>

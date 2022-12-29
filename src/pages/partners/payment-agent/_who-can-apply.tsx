@@ -13,7 +13,7 @@ import {
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { Header, LinkText, Timeline } from 'components/elements'
+import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
 import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
 import Affiliates from 'images/svg/partners/affiliates.svg'
@@ -22,15 +22,22 @@ import Email from 'images/svg/partners/pa-email.svg'
 import Reply from 'images/svg/partners/pa-reply.svg'
 import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 type ImageWrapperProps = {
     left_margin?: string
 }
 
+type StyledLinkButtonProps = {
+    id?: string
+}
+
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``
+
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {
         margin-top: 40px;
-        text-align: left;
+        text-align: start;
     }
 `
 const HowToApply = styled(Col)`
@@ -132,6 +139,8 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     )
 }
 const WhoCanApply = () => {
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+
     return (
         <SectionWrapper padding="80px 0">
             <StyledSection>
@@ -154,9 +163,9 @@ const WhoCanApply = () => {
                         <StyledUl>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                    {localize(
-                                        'You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful.',
-                                    )}
+                                    {
+                                        <Localize translate_text="You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful." />
+                                    }
                                 </Header>
                             </Li>
                             <Li>
@@ -171,7 +180,7 @@ const WhoCanApply = () => {
                             <Localize
                                 translate_text="See our <0>terms and conditions</0> for more info."
                                 components={[
-                                    <LinkText
+                                    <LocalizedLinkText
                                         key={0}
                                         color="red"
                                         target="_blank"
@@ -193,7 +202,11 @@ const WhoCanApply = () => {
                         <Timeline pb="24px" pl="18px">
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Email} alt="" left_margin="8px" />
+                                    <ImageWrapper
+                                        src={Email}
+                                        alt="Write us an email"
+                                        left_margin="8px"
+                                    />
                                     <Content min_width="240px" max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Drop us an email')}
@@ -236,7 +249,11 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Reply} alt="" left_margin="8px" />
+                                    <ImageWrapper
+                                        src={Reply}
+                                        alt="Receive email response"
+                                        left_margin="8px"
+                                    />
                                     <Content max_width="38.2rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Wait for our reply')}
@@ -251,14 +268,18 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Listed} alt="" left_margin="8px" />
+                                    <ImageWrapper
+                                        src={Listed}
+                                        alt="Get the approval"
+                                        left_margin="8px"
+                                    />
                                     <Content max_width="38.2rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Get listed')}
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
-                                                'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
+                                                'After final approval from our Compliance team, we’ll publish your details on our payment agent list.',
                                             )}
                                         </Header>
                                     </Content>
@@ -268,16 +289,16 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <ButtonWrapper padding="0 0 80px 0">
-                <LinkButton
+            <ButtonWrapper padding={is_p2p_allowed_country ? '0 0 80px 0' : '0'}>
+                <StyledLinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary
-                    external="true"
+                    external
                     to="mailto:partners@deriv.com"
                     is_mail_link
                 >
                     {localize('Send us an email to apply')}
-                </LinkButton>
+                </StyledLinkButton>
             </ButtonWrapper>
         </SectionWrapper>
     )

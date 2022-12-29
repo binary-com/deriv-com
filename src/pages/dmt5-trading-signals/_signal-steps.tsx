@@ -7,6 +7,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Localize } from 'components/localization'
 import { QueryImage, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const Container = styled.section`
     width: 100%;
@@ -30,6 +31,9 @@ const content = {
         step_one_text: (
             <Localize translate_text="From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers." />
         ),
+        step_one_text_eu: (
+            <Localize translate_text="Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version." />
+        ),
         step_two_header: <Localize translate_text="2. Subscribe to a signal provider" />,
         step_two_text: (
             <Localize translate_text="Select the signal provider you prefer and click the Subscribe button." />
@@ -43,7 +47,7 @@ const content = {
                 components={[
                     <strong key={0} />,
                     <LocalizedLinkText
-                        external="true"
+                        external
                         to="https://www.mql5.com/en/signals"
                         color="red"
                         target="_blank"
@@ -64,9 +68,10 @@ const content = {
                 translate_text="In the <0>MQL5 signals showcase page</0>, click the Create signal button."
                 components={[
                     <LocalizedLinkText
-                        external="true"
+                        external
                         to="https://www.mql5.com/en/signals"
                         color="red"
+                        target="_blank"
                         size={16}
                         key={0}
                     />,
@@ -76,13 +81,12 @@ const content = {
         step_two_header: <Localize translate_text="2. Fill the broker field" />,
         step_two_text: (
             <Localize
-                translate_text="Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>
-(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)"
+                translate_text="Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)"
                 components={[
                     <strong key={0} />,
                     <br key={1} />,
                     <LocalizedLinkText
-                        external="true"
+                        external
                         to="https://app.deriv.com/mt5"
                         color="red"
                         target="_blank"
@@ -102,7 +106,7 @@ const content = {
                 translate_text="<1>Note:</1> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <0>follow the steps on this page</0> to register as a seller."
                 components={[
                     <LocalizedLinkText
-                        external="true"
+                        external
                         to="https://www.metatrader5.com/en/terminal/help/signals/signal_provider"
                         color="red"
                         target="_blank"
@@ -217,11 +221,12 @@ type SignalStepsProps = {
 
 const SignalSteps = ({ active_tab }: SignalStepsProps) => {
     const data = useStaticQuery(query)
-    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const [is_mounted] = usePageLoaded() // needed to fix tab highlighting not being rerendered during first load
     const [signal_subscriber, signal_provider] = [
         active_tab === 'signal-subscriber',
         active_tab === 'signal-provider',
     ]
+    const { is_eu } = useCountryRule()
 
     return (
         <>
@@ -231,13 +236,17 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                         <>
                             <StyledTabs
                                 is_reverse
-                                max_width={'tabletL'}
+                                max_width="tabletL"
                                 has_notice
                                 notice_content={content.subscriber.notice}
                             >
                                 <Tabs.Panel
                                     label={content.subscriber.step_one_header}
-                                    description={content.subscriber.step_one_text}
+                                    description={
+                                        is_eu
+                                            ? content.subscriber.step_one_text_eu
+                                            : content.subscriber.step_one_text
+                                    }
                                 >
                                     <Desktop>
                                         <StyledQueryImage
@@ -297,7 +306,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                         <>
                             <StyledTabs
                                 is_reverse
-                                max_width={'tabletL'}
+                                max_width="tabletL"
                                 has_notice
                                 notice_content={content.provider.notice}
                             >

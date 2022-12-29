@@ -337,7 +337,12 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                         <StyledBreadcrumbsLink to="/academy/videos/" color="grey-5">
                                             All Videos
                                         </StyledBreadcrumbsLink>
-                                        <img src={RightArrow} height="16" width="16" />
+                                        <img
+                                            src={RightArrow}
+                                            alt="right arrow"
+                                            height="16"
+                                            width="16"
+                                        />
                                         <StyledBreadcrumbsTitle>
                                             {video_title}
                                         </StyledBreadcrumbsTitle>
@@ -358,7 +363,12 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                         <StyledBreadcrumbsLink to="/academy/videos/" color="grey-5">
                                             All Videos
                                         </StyledBreadcrumbsLink>
-                                        <img src={RightArrow} height="16" width="16" />
+                                        <img
+                                            src={RightArrow}
+                                            alt="right arrow"
+                                            height="16"
+                                            width="16"
+                                        />
                                         <StyledBreadcrumbsTitle>
                                             {truncateString(video_title, truncateLength)}
                                         </StyledBreadcrumbsTitle>
@@ -381,7 +391,12 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                             <Title>{video_title}</Title>
                                             <VideoDescription>{video_description}</VideoDescription>
                                             <VideoDetails>
-                                                <img src={Eye} height="16" width="16" />
+                                                <img
+                                                    src={Eye}
+                                                    alt="eye icon"
+                                                    height="16"
+                                                    width="16"
+                                                />
                                                 <GreyText>{view_count} views</GreyText>
                                                 <GreyText>•</GreyText>
                                                 <GreyText>{published_date}</GreyText>
@@ -408,6 +423,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                                             video?.video_thumbnail?.imageFile
                                                                 ?.childImageSharp?.gatsbyImageData
                                                         }
+                                                        alt={video?.video_title}
                                                         width="161px"
                                                         height="96px"
                                                     />

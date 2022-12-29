@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react'
-import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
+import React from 'react'
+import { localize, Localize } from 'components/localization'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
@@ -12,51 +11,58 @@ import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
 
 export type CommoditiesContent = {
     src: string
-    text: ReactElement
+    text: string
+    alt: string
 }
-export const simple_step_content_commodities: SimpleStepsContent[] = [
+
+export const simple_step_content_commodities = [
     {
         header: <Localize translate_text="Practise" />,
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <img src={PractiseIcon} alt="" width="32" height="32" />,
+        icon: <img src={PractiseIcon} alt="Practise" width="32" height="32" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
         ),
-        icon: <img src={TradeIcon} alt="" width="32" height="28" />,
+        icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <img src={WithdrawIcon} alt="" width="32" height="32" />,
+        icon: <img src={WithdrawIcon} alt="Withdraw" width="32" height="32" />,
     },
 ]
 const commodities: CommoditiesContent[] = [
     {
         src: VariableSpreads,
-        text: <Localize translate_text="Competitive fixed and variable spreads" />,
+        text: localize('Competitive fixed and variable spreads'),
+        alt: 'Fixed and variable',
     },
     {
         src: NoCommission,
-        text: <Localize translate_text="No commission on any commodity contract" />,
+        text: localize('No commission on any commodity contract'),
+        alt: 'No commission',
     },
     {
         src: MetalAndOil,
-        text: <Localize translate_text="All four precious metals and crude oil available" />,
+        text: localize('All four precious metals and crude oil available'),
+        alt: 'Trading platform',
     },
     {
         src: ResponsiveWebsite,
-        text: <Localize translate_text="Easy-to-use platforms, superior chart technology" />,
+        text: localize('Easy-to-use platforms, superior chart technology'),
+        alt: 'Easy platform',
     },
     {
         src: FriendlySupport,
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        text: localize('Smart and friendly support, 7 days a week'),
+        alt: 'Customer help',
     },
 ]
 

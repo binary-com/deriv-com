@@ -1,10 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type NumbersContentType = {
     title: React.ReactElement
@@ -12,6 +12,7 @@ type NumbersContentType = {
 }
 
 const NumberSection = styled(SectionContainer)`
+    direction: ltr;
     display: Flex;
     background-color: var(--color-grey-25);
     padding: 4rem 12rem;
@@ -90,12 +91,29 @@ const numbers_content: NumbersContentType[] = [
         subtitle: <Localize translate_text="trading" />,
     },
 ]
+const numbers_content_eu: NumbersContentType[] = [
+    {
+        title: <Localize translate_text="475K+" />,
+        subtitle: <Localize translate_text="active traders" />,
+    },
+    {
+        title: <Localize translate_text="150+" />,
+        subtitle: <Localize translate_text="tradable assets" />,
+    },
+    {
+        title: <Localize translate_text="24/7" />,
+        subtitle: <Localize translate_text="trading" />,
+    },
+]
 
 const Numbers = () => {
+    const { is_eu } = useCountryRule()
+    const contents = is_eu ? numbers_content_eu : numbers_content
+
     return (
         <NumberSection>
             <Flex tablet_direction="column" max_width="1200px" jc="space-between">
-                {numbers_content.map((content, index) => (
+                {contents.map((content, index) => (
                     <Number key={index}>
                         <StyledHeader as="p" type="page-title">
                             {content.title}
@@ -107,10 +125,6 @@ const Numbers = () => {
             </Flex>
         </NumberSection>
     )
-}
-
-Numbers.propTypes = {
-    numbers_content: PropTypes.array,
 }
 
 export default Numbers

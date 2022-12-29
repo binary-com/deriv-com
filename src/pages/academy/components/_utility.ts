@@ -4,10 +4,10 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 
 export const url = isBrowser() ? window.location.href : ''
 
-export const addScriptForCIO = (is_eu) => {
+export const addScriptForCIO = (is_eu: boolean) => {
     const site_id = process.env.GATSBY_ENV_CIO_SITE_ID
 
-    let cio_url
+    let cio_url: string
 
     if (is_eu) {
         cio_url = 'https://assets.customer.io/assets/track-eu.js'
@@ -29,23 +29,19 @@ export const addScriptForCIO = (is_eu) => {
             t.src = '${cio_url}' 
             //If your account is in the EU, use:
             s.parentNode.insertBefore(t, s);`,
+        async: false,
+        strategy: 'off-main-thread',
     })
 }
-export const handleTag = (tag_name) => {
-    navigate(`/academy/search?category=${encodeURI(`${tag_name}`)}`)
+export const handleTag = (tag_name: string) => {
+    navigate(`/academy/search?category=${encodeURI(tag_name)}`)
 }
 
 export const useDataFilter = (data) => {
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu } = useCountryRule()
     let filtered_data = data
     if (is_eu) {
-        filtered_data = data.filter(
-            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
-        )
-    } else if (is_uk) {
-        filtered_data = data.filter(
-            (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
-        )
+        filtered_data = data.filter((item) => item.visibility !== 'hide_for_eu')
     }
     return filtered_data
 }

@@ -1,13 +1,11 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import SearchBanner from 'pages/academy/components/_search-banner'
-import { CFDWarning } from 'components/layout/layout'
+import SearchBanner from 'pages/academy/components/search_banner/_search-banner'
 import device from 'themes/device'
 
 type NavTemplateProps = NavProps &
     Wrapper & {
         children: ReactNode
-        is_ppc?: boolean
         show_academy_nav?: boolean
     }
 
@@ -45,7 +43,6 @@ const Nav = styled.nav<NavProps>`
 `
 
 const NavTemplate = ({
-    is_ppc,
     children,
     transparent_background,
     nav_height,
@@ -66,7 +63,6 @@ const NavTemplate = ({
                 </Nav>
             </Wrapper>
             {show_academy_nav && <SearchBanner hidden={hide_nav} />}
-            <CFDWarning is_ppc={is_ppc} />
         </>
     )
 }

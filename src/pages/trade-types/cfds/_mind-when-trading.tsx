@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
 import { StyledLinkButton } from './_trading-cfd-increases'
-import { SectionContainer, Show } from 'components/containers'
+import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -41,7 +41,7 @@ const MindWhenTrading = () => {
                 <Header as="h3" type="section-title" mb="2rem">
                     {localize('Things to keep in mind when trading CFDs')}
                 </Header>
-                <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
+                <Text as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem">
                     {localize('CFDs are traded on margin')}
                 </Text>
                 <Text mb="3.2rem">
@@ -50,7 +50,7 @@ const MindWhenTrading = () => {
                     )}
                 </Text>
             </SmallContainer>
-            <Show.Desktop max_width={'bp680'}>
+            <Desktop breakpoint={'bp680'}>
                 <SmallContainer direction="column" ai="flex-start">
                     <ImageWrapper>
                         <QueryImage
@@ -59,15 +59,15 @@ const MindWhenTrading = () => {
                         />
                     </ImageWrapper>
                 </SmallContainer>
-            </Show.Desktop>
-            <Show.Mobile min_width={'bp680'}>
+            </Desktop>
+            <Mobile breakpoint={'bp680'}>
                 <ImageWrapper>
                     <QueryImage
                         data={data['margin_mobile_relationship_piechart']}
                         alt="Trade types margin market"
                     />
                 </ImageWrapper>
-            </Show.Mobile>
+            </Mobile>
             <SmallContainer direction="column" ai="flex-start">
                 <Text mt="3.2rem">
                     {localize(
@@ -75,7 +75,7 @@ const MindWhenTrading = () => {
                     )}
                 </Text>
 
-                <StyledLinkButton mt="4rem" secondary="true" to="/trader-tools/margin-calculator/">
+                <StyledLinkButton mt="4rem" secondary to="/trader-tools/margin-calculator/">
                     {localize('Margin calculator')}
                 </StyledLinkButton>
             </SmallContainer>

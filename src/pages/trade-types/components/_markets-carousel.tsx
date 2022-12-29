@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SmallContainer } from './_style'
-import { Show } from 'components/containers'
-import { Carousel } from 'components/elements'
+import { Mobile } from 'components/containers'
+import { Carousel, CarouselProps } from 'components/elements'
 import device from 'themes/device'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const Background = styled.div`
     width: 100%;
@@ -62,10 +63,13 @@ type MarketsCarouselProps = {
 }
 
 const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
-    const carousel_props = {
+    const lang_direction = useLangDirection()
+
+    const carousel_props: CarouselProps = {
         options: {
             align: 'start',
             containScroll: 'trimSnaps',
+            direction: lang_direction,
         },
         container_style: {
             width: '90%',
@@ -88,12 +92,12 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
                 <Background />
                 <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
             </Wrapper>
-            <Show.Mobile min_width={'bp680'}>
+            <Mobile breakpoint={'bp680'}>
                 <MobileBackground>
                     <SmallContainer fd="column">{children}</SmallContainer>
                     <GreenBG />
                 </MobileBackground>
-            </Show.Mobile>
+            </Mobile>
         </>
     )
 }

@@ -15,7 +15,7 @@ const PnLMultipliersCalculator = () => {
             <Hero jc="center" ai="center">
                 <Container>
                     <StyledHeader as="h1" type="display-title" color="white" align="center">
-                        {localize('Stop loss and/or take profit calculator for multipliers')}
+                        {localize('Stop loss and take profit calculator for multipliers')}
                     </StyledHeader>
                 </Container>
             </Hero>

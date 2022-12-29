@@ -13,13 +13,14 @@ import {
     Title,
 } from './style/footer'
 import { besquare_signup_url } from 'common/constants'
-import { Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
 import Facebook from 'images/svg/be-square/facebook.svg'
 import Instagram from 'images/svg/be-square/instagram.svg'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
+
 const query = graphql`
     query {
         footer_image: file(relativePath: { eq: "be-square/footer-image.png" }) {
@@ -53,33 +54,34 @@ const BeSquareFooter = () => {
     ]
 
     const data = useStaticQuery(query)
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     return (
         <React.Fragment>
-            <FooterSection color="black" is_eu_country={is_eu_country}>
+            <FooterSection color="black" is_eu={is_eu}>
                 <ContentContainer>
                     <ImageWrapper
                         data={data['footer_image']}
                         alt="Fresh graduates discussing with their laptops"
                     />
                     <TextContainer>
-                        <Title as="h3">Next intake: 13 June 2022</Title>
+                        <Title as="h3">Next intake: 1st February 2023</Title>
                         <TextWrapper
-                            max_width={['510px', '328px']}
+                            max_width_array={['510px', '328px']}
                             font_size={['20px', '16px']}
                             line_height={['30px', '24px']}
-                            margin={['-24px 49px 0 0']}
+                            margin="-24px 49px 0 0"
                         >
-                            <Text color="white" size="2rem">
-                                Submit your application before 1 June 2022
-                            </Text>
+                            <Header weight="normal" color="white" size="2rem">
+                                Submit your application before 20th January 2023
+                            </Header>
+
                             <Localize
                                 translate_text="<1>If you have any questions, email us at </1><2>info@besquare.my</2>"
                                 components={[
                                     <br key={0} />,
                                     <TextWrapper
                                         key={1}
-                                        max_width={['510px', '328px']}
+                                        max_width_array={['510px', '328px']}
                                         font_size={['16px', '12px']}
                                         display={'inline'}
                                         line_height={['24px', '18px']}
@@ -95,7 +97,7 @@ const BeSquareFooter = () => {
                         </TextWrapper>
                         <div>
                             <ButtonWrapper
-                                secondary="true"
+                                secondary
                                 to={besquare_signup_url}
                                 external
                                 target="_blank"
@@ -106,18 +108,18 @@ const BeSquareFooter = () => {
                         </div>
                         <FollowUsContainer>
                             <TextWrapper
-                                max_width={['68px']}
+                                max_width_array={['68px']}
                                 font_size={['16px']}
                                 line_height={['24px']}
-                                grid_area={'follow-us'}
-                                padding={'15px 0 0'}
+                                grid_area="follow-us"
+                                padding="15px 0 0"
                             >
                                 {localize('Follow us')}
                             </TextWrapper>
-                            {social_media_content.map(({ alt, link_to, src }, index) => (
+                            {social_media_content.map(({ alt, link_to, src }) => (
                                 <LocalizedLink
-                                    key={index}
-                                    external="true"
+                                    key={alt}
+                                    external
                                     to={link_to}
                                     target="_blank"
                                     rel="noopener noreferrer"

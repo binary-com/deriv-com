@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { isIndexEven } from 'common/utility'
-import { Container, SectionContainer, Flex, Show } from 'components/containers'
+import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
@@ -30,13 +30,14 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 0;
     }
 `
-const ToolWrapper = styled(Flex)`
+const ToolWrapper = styled(Flex)<{ flex_direction?: string }>`
     flex-direction: ${(props) => props.flex_direction};
     align-items: space-between;
 
-    .fresnel-container {
+    .margin-calculator-btn {
         display: flex;
     }
+
     @media ${device.tabletL} {
         flex-direction: column-reverse;
         max-width: 500px;
@@ -51,11 +52,11 @@ const Column = styled.div<ColumnProps>`
         margin: 24px 0 0;
     }
 
-    .fresnel-container {
+    .margin-calculator-btn {
         flex-direction: column;
     }
 `
-const Content = styled(Flex)`
+const Content = styled(Flex)<{ margin_left: string; margin_right: string }>`
     max-width: 39rem;
     margin-right: ${(props) => props.margin_right};
     margin-left: ${(props) => props.margin_left};
@@ -138,19 +139,20 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
             <Container fd="column">
                 {tools.map((item, index) => {
                     const is_even = isIndexEven(index)
+
                     return (
                         <React.Fragment key={item.image_alt}>
                             <ToolWrapper flex_direction={is_even ? 'row-reverse' : 'row'}>
                                 <Column>
-                                    <Show.Desktop>
+                                    <Desktop>
                                         <QueryImage
                                             data={data[item.image_name]}
                                             alt={item.image_alt}
                                             height="100%"
                                             loading={index === 0 ? 'eager' : 'lazy'}
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile className="margin-calculator-btn">
                                         <QueryImage
                                             data={data[item.image_name + '_mobile']}
                                             alt={item.image_alt}
@@ -160,7 +162,7 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                                         <StyledLinkButton tertiary to={item.link.route}>
                                             {item.link.text}
                                         </StyledLinkButton>
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </Column>
                                 <Content
                                     height="auto"
@@ -172,11 +174,11 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                                         {item.title}
                                     </Header>
                                     <Text>{item.subtitle}</Text>
-                                    <Show.Desktop>
+                                    <Desktop className="margin-calculator-btn">
                                         <StyledLinkButton tertiary to={item.link.route}>
                                             {item.link.text}
                                         </StyledLinkButton>
-                                    </Show.Desktop>
+                                    </Desktop>
                                 </Content>
                             </ToolWrapper>
                             <Divider />

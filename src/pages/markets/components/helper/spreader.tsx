@@ -34,6 +34,7 @@ const ContentWrapper = styled(Flex)`
     flex-direction: column;
     margin: 0 auto;
     width: 85vw;
+    margin-bottom: 2rem;
 `
 const StyledColumnTitle = styled(Header)`
     width: 94px;
@@ -74,18 +75,23 @@ const StyledSection = styled(SectionContainer)`
 `
 
 const Spreader = ({ display_title }: SpreaderProps) => {
+    const [current_page, setCurrentPage] = useState(1)
+    const index_of_last_item = current_page * 10
+    const index_of_first_item = index_of_last_item - 10
+    const paginated_items = minor_pairs.slice(index_of_first_item, index_of_last_item)
+
+    const myRef = useRef(null)
+
+    const paginate = (page_number) => {
+        setCurrentPage(page_number)
+    }
+
     const url_page_number = Number(queryParams.get('page') || 1)
-    const [current_page, setCurrentPage] = useState(url_page_number)
 
     React.useEffect(() => {
         queryParams.set({ page: current_page })
     }, [current_page])
-    const myRef = useRef(null)
 
-    const paginate = (page_number) => {
-        myRef.current.scrollIntoView({ behavior: 'smooth' })
-        setCurrentPage(page_number)
-    }
     return (
         <>
             <StyledHeader as="h2" size="var(--text-size-l)" align="center">
@@ -105,7 +111,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Symbol</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((symbol, index) => (
+                                {paginated_items.map((symbol, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData
                                             key={index}
@@ -120,7 +126,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Path</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((path, index) => (
+                                {paginated_items.map((path, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData key={index} path={path.path} />
                                     </StyledRow>
@@ -130,7 +136,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Raw spread</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((raw_spread, index) => (
+                                {paginated_items.map((raw_spread, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData
                                             key={index}
@@ -143,7 +149,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Markup</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((markup, index) => (
+                                {paginated_items.map((markup, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData key={index} markup={markup.markup} />
                                     </StyledRow>
@@ -153,7 +159,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Full spread</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((full_spread, index) => (
+                                {paginated_items.map((full_spread, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData
                                             key={index}
@@ -166,7 +172,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Standard deviation</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((standard_deviation, index) => (
+                                {paginated_items.map((standard_deviation, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData
                                             key={index}
@@ -181,7 +187,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Minimum spread</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((minimum_spread, index) => (
+                                {paginated_items.map((minimum_spread, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData
                                             key={index}
@@ -194,7 +200,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Maximum spread</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((maximum_spread, index) => (
+                                {paginated_items.map((maximum_spread, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData
                                             key={index}
@@ -207,7 +213,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Swap type</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((swap_type, index) => (
+                                {paginated_items.map((swap_type, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData key={index} swap_type={swap_type.swap_type} />
                                     </StyledRow>
@@ -217,7 +223,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Swaps long</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((swaps_long, index) => (
+                                {paginated_items.map((swaps_long, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData
                                             key={index}
@@ -230,7 +236,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>Swaps short</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((swaps_short, index) => (
+                                {paginated_items.map((swaps_short, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData
                                             key={index}
@@ -243,7 +249,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                         <Column>
                             <StyledColumnTitle>3 day roll over</StyledColumnTitle>
                             <StyledCells>
-                                {minor_pairs.map((three_day, index) => (
+                                {paginated_items.map((three_day, index) => (
                                     <StyledRow key={index}>
                                         <SpreaderData key={index} three_day={three_day.three_day} />
                                     </StyledRow>
@@ -251,13 +257,13 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                             </StyledCells>
                         </Column>
                     </CssGrid>
-                    <Pagination
-                        items_per_page={10}
-                        total_items={minor_pairs.length}
-                        paginate={paginate}
-                        current_page={current_page}
-                    />
                 </ContentWrapper>
+                <Pagination
+                    paginate={paginate}
+                    items_per_page={10}
+                    total_items={minor_pairs.length}
+                    current_page={current_page}
+                />
             </StyledSection>
         </>
     )

@@ -174,6 +174,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="is-close"
                             >
                                 <AreCloseDown />
                             </AccordionItem>

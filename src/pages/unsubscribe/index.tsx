@@ -4,11 +4,11 @@ import { Button } from 'components/form'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import CheckIcon from 'images/common/check_icon.png'
-import RejectIcon from 'images/svg/close.svg'
 import device from 'themes/device'
 import { queryParams } from 'common/utility'
 import { decode, isValid } from 'common/url-base64-functions'
 import { useDerivWS } from 'store'
+import { Header } from 'components/elements'
 
 const UnsubscribeWrapper = styled.div`
     display: flex;
@@ -25,8 +25,7 @@ const UnsubscribeForm = styled.div`
     align-items: center;
     min-width: 588px;
     min-height: 246px;
-    padding: 80px;
-    gap: 40px;
+    padding: 80px 44px;
     background: var(--color-white);
     border-radius: 8px;
     box-shadow: 0 20px 24px -4px rgba(14, 14, 14, 0.08), 0 8px 8px -4px rgba(14, 14, 14, 0.03);
@@ -35,29 +34,32 @@ const UnsubscribeForm = styled.div`
         min-width: unset;
         min-height: unset;
         width: 80%;
-        padding: 40px 80px;
+        padding: 71px 31.5px;
     }
 `
 const ConfirmWrapper = styled.div`
     display: flex;
     flex-direction: row;
-`
-const Title = styled.div`
-    font-size: 20px;
-    line-height: 30px;
-    padding-bottom: 20px;
-    text-align: center;
+    margin-top: 16px;
 
     @media ${device.tablet} {
-        font-size: 24px;
+        margin-top: 24px;
     }
+`
+const Title = styled(Header)`
+    text-align: center;
+    font-weight: normal;
 `
 const ConfirmButton = styled(Button)`
     width: 80px;
     height: 40px;
     font-size: 14px;
     border-radius: 4px;
-    margin: 14px;
+    margin: 0 12px;
+
+    @media ${device.tablet} {
+        margin: 0 8px;
+    }
 `
 const SuccessCard = styled.div`
     display: flex;
@@ -77,7 +79,6 @@ const SuccessCard = styled.div`
         min-width: 265px;
         min-height: 144px;
         padding: 32px;
-        gap: 16px;
     }
 `
 const StyledSpinner = styled.svg`
@@ -117,10 +118,6 @@ const Spinner = () => (
         <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="2" />
     </StyledSpinner>
 )
-
-type TSuccessBox = {
-    unsubscribed: boolean
-}
 
 const UnsubscribePage = () => {
     const { send } = useDerivWS()
@@ -173,7 +170,7 @@ const UnsubscribePage = () => {
                         </SuccessCard>
                     ) : (
                         <UnsubscribeForm>
-                            <Title>
+                            <Title type="subtitle-2">
                                 {localize('Are you sure you want to stop receiving Deriv emails?')}
                             </Title>
                             <ConfirmWrapper>

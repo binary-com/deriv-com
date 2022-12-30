@@ -302,12 +302,13 @@ const PipCalculator = () => {
                             {localize('Example calculation')}
                         </Header>
 
-                        <Accordion has_single_state>
+                        <Accordion id="pip-calculator" has_single_state>
                             <AccordionItem
                                 header={localize('Pip value for synthetic indices')}
                                 header_style={header_style}
                                 style={item_style}
                                 plus
+                                class_name="pip-value"
                             >
                                 <Text mb="16px">
                                     {localize(

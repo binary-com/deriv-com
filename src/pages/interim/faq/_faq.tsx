@@ -76,7 +76,7 @@ const FAQ = () => {
                             )}
                         </Text>
                     </Question>
-                    <Answer>
+                    <Answer id="rebranding">
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={localize('Why are you rebranding?')}
@@ -84,6 +84,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="why-rebranding"
                             >
                                 <WhyRebrand />
                             </AccordionItem>
@@ -93,6 +94,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="what-changes"
                             >
                                 <WhatChanges />
                             </AccordionItem>
@@ -103,6 +105,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="is-company-bought"
                             >
                                 <IsBeingBought />
                             </AccordionItem>
@@ -123,7 +126,7 @@ const FAQ = () => {
                             )}
                         </Text>
                     </Question>
-                    <Answer>
+                    <Answer id="new-offerings">
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={localize(
@@ -133,6 +136,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="result"
                             >
                                 <NewProducts />
                             </AccordionItem>
@@ -146,6 +150,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="what-else"
                             >
                                 <WhatToExpect />
                             </AccordionItem>
@@ -157,6 +162,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="legitimacy"
                             >
                                 <IsDerivRegulated />
                             </AccordionItem>
@@ -186,7 +192,7 @@ const FAQ = () => {
                             <Localize translate_text="We understand that change can be intimidating. That’s why we’ve been working very hard to make sure that your transition from Binary.com to Deriv.com is as seamless as possible." />
                         </Text>
                     </Question>
-                    <Answer>
+                    <Answer id="meaning">
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={
@@ -196,6 +202,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="switch"
                             >
                                 <WhySwitch />
                             </AccordionItem>
@@ -208,6 +215,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="trade-on-binary"
                             >
                                 <CanStillTrade />
                             </AccordionItem>
@@ -219,6 +227,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="get-started"
                             >
                                 <HowToGetStarted />
                             </AccordionItem>

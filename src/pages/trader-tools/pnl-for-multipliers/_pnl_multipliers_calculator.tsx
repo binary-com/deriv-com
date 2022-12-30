@@ -995,12 +995,13 @@ const PnlMultipliersCalculator = () => {
                                 {localize('Example calculation')}
                             </Header>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-multipliers" has_single_state>
                                 <AccordionItem
                                     header={localize('Stop loss level in Up direction')}
                                     header_style={header_style}
                                     style={item_style}
                                     plus
+                                    class_name="take-profit-amount"
                                 >
                                     <Text mb="16px">
                                         {localize(
@@ -1626,12 +1627,13 @@ const PnlMultipliersCalculator = () => {
                                 {localize('Example calculation')}
                             </Header>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-multipliers" has_single_state>
                                 <AccordionItem
                                     header={localize('Take profit amount in Up direction')}
                                     header_style={header_style}
                                     style={item_style}
                                     plus
+                                    class_name="take-profit-amount"
                                 >
                                     <Text mb="16px">
                                         {localize(

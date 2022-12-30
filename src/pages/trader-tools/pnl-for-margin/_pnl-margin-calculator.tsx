@@ -872,7 +872,7 @@ const PnlMarginCalculator = () => {
                                 )}
                             </Text>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-margin" has_single_state>
                                 <AccordionItem
                                     header={localize('Stop loss level')}
                                     header_style={header_style}
@@ -880,6 +880,7 @@ const PnlMarginCalculator = () => {
                                         padding: '0 0 24px 0',
                                     }}
                                     plus
+                                    class_name="take-profit"
                                 >
                                     <Desktop breakpoint={'tablet'}>
                                         <StopLoss />
@@ -995,7 +996,7 @@ const PnlMarginCalculator = () => {
                                 )}
                             </Text>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-margin" has_single_state>
                                 <AccordionItem
                                     header={localize('Take profit level')}
                                     header_style={header_style}
@@ -1003,6 +1004,7 @@ const PnlMarginCalculator = () => {
                                         padding: '0 0 24px 0',
                                     }}
                                     plus
+                                    class_name="take-profit"
                                 >
                                     <Desktop breakpoint={'tablet'}>
                                         <TakeProfitLevel />

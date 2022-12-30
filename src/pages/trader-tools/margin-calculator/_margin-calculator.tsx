@@ -375,12 +375,13 @@ const MarginCalculator = () => {
                         <Header as="h3" type="section-title" mb="0.8rem">
                             {localize('Example calculation')}
                         </Header>
-                        <Accordion has_single_state>
+                        <Accordion id="margin-calculator" has_single_state>
                             <AccordionItem
                                 header={localize('Margin required')}
                                 header_style={header_style}
                                 style={item_style}
                                 plus
+                                class_name="margin-required"
                             >
                                 <Text mb="16px">
                                     {localize(

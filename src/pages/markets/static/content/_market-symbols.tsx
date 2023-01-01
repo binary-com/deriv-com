@@ -3,8 +3,8 @@ import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
 export type MarketSymbol = {
-    src: string
-    text: ReactElement
+    src?: string
+    text?: ReactElement
     eu?: boolean
 }
 export const americas: MarketSymbol[] = [
@@ -966,11 +966,6 @@ export const american_stocks: MarketSymbol[] = [
         src: icons.STOCKSTEVAPHARMACEUTICAL,
         text: <Localize translate_text="Teva Pharmaceutical Inds" />,
     },
-    {
-        src: icons.STOCKSTWITTER,
-        text: <Localize translate_text="Twitter" />,
-    },
-
     {
         src: icons.STOCKSUBER,
         text: <Localize translate_text="Uber Technologies Inc" />,

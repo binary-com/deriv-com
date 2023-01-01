@@ -4,6 +4,15 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
+type TextWrapperProps = {
+    display?: string
+    max_width_array?: string[]
+    font_size: string[]
+    line_height: string[]
+    margin?: string
+    grid_area?: string
+}
+
 export const ButtonWrapper = styled(LinkButton)`
     max-width: 102px;
     white-space: nowrap;
@@ -13,8 +22,8 @@ export const Section = styled(SectionContainer)`
     background-color: ${({ color }) => `var(--color-${color})`};
     padding: 0;
 `
-export const FooterSection = styled(Section)`
-    margin-bottom: ${(props) => props.is_eu && '12.3rem'};
+export const FooterSection = styled(Section)<{ is_eu: boolean }>`
+    margin-bottom: ${({ is_eu }) => is_eu && '12.3rem'};
 `
 
 export const ContentContainer = styled(Container)`
@@ -71,13 +80,12 @@ export const TextContainer = styled.div`
 `
 
 export const Title = styled(Header)`
-    max-width: 563px;
-    width: fit-content;
+    max-width: 572px;
     font-size: 48px;
     font-weight: 700;
     line-height: 60px;
     color: var(--color-white);
-    white-space: nowrap;
+    white-space: wrap;
 
     @media ${device.tablet} {
         max-width: 328px;
@@ -87,9 +95,9 @@ export const Title = styled(Header)`
     }
 `
 
-export const TextWrapper = styled(Text)`
+export const TextWrapper = styled(Text)<TextWrapperProps>`
     display: ${({ display }) => display};
-    max-width: ${({ max_width }) => (max_width ? max_width[0] : 'unset')};
+    max-width: ${({ max_width_array }) => (max_width_array ? max_width_array[0] : 'unset')};
     width: fit-content;
     font-size: ${({ font_size }) => font_size[0] ?? 'unset'};
     font-weight: 400;
@@ -104,7 +112,8 @@ export const TextWrapper = styled(Text)`
     }
 
     @media ${device.mobileL} {
-        max-width: ${({ max_width }) => (max_width ? max_width[1] ?? max_width[0] : 'unset')};
+        max-width: ${({ max_width_array }) =>
+            max_width_array ? max_width_array[1] ?? max_width_array[0] : 'unset'};
         font-size: ${({ font_size }) => font_size[1] ?? font_size[0] ?? 'unset'};
         line-height: ${({ line_height }) => line_height[1] ?? line_height[0] ?? 'unset'};
         padding: ${({ padding }) => (padding ? padding[1] ?? padding[0] : 0)};
@@ -112,7 +121,7 @@ export const TextWrapper = styled(Text)`
     }
 `
 
-export const Link = styled(TextWrapper).attrs({ as: 'a' })`
+export const Link = styled(TextWrapper).attrs({ as: 'a' })<{ href: string }>`
     color: var(--color-red);
     text-decoration: none;
 `

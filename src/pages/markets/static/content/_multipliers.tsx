@@ -37,6 +37,7 @@ export type ForexAndBasketMultiplier = {
         tablet_col: number
         mobile_col: number
     }
+    eu_content?: ReactElement[]
     content: Option[]
     template?: number
 }
@@ -73,6 +74,7 @@ export type CryptoMultiplier = {
         tablet_col: number
         mobile_col: number
     }
+    eu_content?: ReactElement[]
     content: Option[]
 }
 

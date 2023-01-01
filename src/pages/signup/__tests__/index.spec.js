@@ -23,7 +23,6 @@ jest.mock('common/utility', () => ({
     isNullUndefined: jest.fn(() => true),
     isLocalhost: jest.fn(() => true),
     isEuDomain: jest.fn(() => true),
-    isUkDomain: jest.fn(() => true),
 }))
 
 // mock the qraphql query used in seo.js
@@ -42,7 +41,7 @@ useStaticQuery.mockReturnValue({
 describe('NewSignUp', () => {
     it('must contain create demo account Button', () => {
         render(
-            <DerivProvider value={{ is_eu_country: true }}>
+            <DerivProvider value={{ is_eu: true }}>
                 <LocaleContextWrapper pageContext={{ locale: 'en', pathname: '/en/signup' }}>
                     <QueryParamProvider>
                         <NewSignup />,

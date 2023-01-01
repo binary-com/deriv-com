@@ -397,6 +397,8 @@ export type DropdownProps = {
     selected_option?: OptionOrSelectedType
     selected_item?: SelectedType
     disabled?: boolean
+    autocomplete?: string
+    mb?: string
 } & Pick<ItemsType, 'contractSize'>
 
 const Dropdown = ({

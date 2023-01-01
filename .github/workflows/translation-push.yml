@@ -6,17 +6,29 @@ on:
     types:
       - completed
       
+env: 
+ BRANCH: ${{ github.event.workflow_run.head_branch }}
 jobs:
     push-translation:
-        if: startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')
+        if: |
+              (startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')) &&
+               !contains(github.event.workflow_run.head_branch, '!') &&
+               !contains(github.event.workflow_run.head_branch, '@') &&   
+               !contains(github.event.workflow_run.head_branch, '#') &&   
+               !contains(github.event.workflow_run.head_branch, '$') &&   
+               !contains(github.event.workflow_run.head_branch, '%') &&   
+               !contains(github.event.workflow_run.head_branch, '^') &&   
+               !contains(github.event.workflow_run.head_branch, '&') &&   
+               !contains(github.event.workflow_run.head_branch, '*') &&   
+               !contains(github.event.workflow_run.head_branch, '(') &&   
+               !contains(github.event.workflow_run.head_branch, ')') 
         runs-on: ubuntu-latest
         steps:
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
               run: |
-               BRANCH='${{ github.event.workflow_run.head_branch }}'
                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
 
-               echo 'Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/$CLEAN_BRANCH'
+               echo "Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/$CLEAN_BRANCH"
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
               with:
@@ -32,9 +44,7 @@ jobs:
             - name: Download New Translations ⬇️
               if: github.event.workflow_run.head_commit.message == 'auto-pull-translation'
               run: |
-                  BRANCH='${{ github.event.workflow_run.head_branch }}'
                   CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
-
                   crowdin download -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  $CLEAN_BRANCH -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
                   if git diff --exit-code; then
                     echo "No new translation data to commit"
@@ -49,9 +59,7 @@ jobs:
                   fi
             - name: Pushing Strings & Translations ⬆️
               run: |
-                   BRANCH='${{ github.event.workflow_run.head_branch }}'
-                   CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}" 
-
+                   CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
                    crowdin upload sources -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

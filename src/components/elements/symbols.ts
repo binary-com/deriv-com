@@ -321,7 +321,6 @@ import STOCKSSALESFORCE from 'images/svg/symbols/markets-stocks-and-indices/amer
 import STOCKSSONY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-sony.svg'
 import STOCKSTESLA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-tesla-inc.svg'
 import STOCKSTEVAPHARMACEUTICAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-teva-pharmaceutical-inds.svg'
-import STOCKSTWITTER from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-twitter.svg'
 import STOCKSUBER from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-uber-technologies-inc.svg'
 import STOCKSVISA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-visa.svg'
 import STOCKSWALMART from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-wal-mart-stores-inc.svg'
@@ -678,7 +677,6 @@ export {
     STOCKSSONY,
     STOCKSTESLA,
     STOCKSTEVAPHARMACEUTICAL,
-    STOCKSTWITTER,
     STOCKSUBER,
     STOCKSVISA,
     STOCKSWALMART,

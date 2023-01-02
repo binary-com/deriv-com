@@ -14,7 +14,7 @@ import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useDerivWS } from 'store'
+import { useDerivWS } from 'components/hooks/use-deriv-ws'
 
 type SignupProps = {
     appearance?: keyof typeof Appearances | string

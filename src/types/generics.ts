@@ -1,7 +1,7 @@
 /* disable-translation */
 
 export type TRegion = {
-    is_loading: boolean
+    is_region_loading: boolean
     is_eu_location: boolean
     is_eu: boolean
     is_non_eu: boolean

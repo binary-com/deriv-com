@@ -50,7 +50,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                     markets.set(item.market, currentMarket)
                 })
                 setMarketsData(markets)
-
                 setIsLoading(false)
             },
         )
@@ -84,7 +83,7 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
             <Table>
                 <thead>
                     {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow key={headerGroup.id} bg="#f9f9f9">
+                        <TableRow key={headerGroup.id} bg="var(--color-white-1)">
                             {headerGroup.headers.map((header) => (
                                 <th key={header.id}>
                                     {header.isPlaceholder

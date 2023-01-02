@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { Header as HeaderText } from 'components/elements'
 import device from 'themes/device'
@@ -59,6 +59,13 @@ export const TableRow = styled.tr<TableRowProps>`
     align-items: center;
     min-height: 75px;
     padding: 24px;
+
+    @media ${device.tabletL} {
+        th:nth-child(4),
+        td:nth-child(4) {
+            display: none;
+        }
+    }
 `
 
 export const TradingPairsCell = styled.div`
@@ -77,7 +84,7 @@ export const Cell = styled.div`
     display: flex;
     align-items: center;
     gap: 12px;
-    width: 120px;
+    width: 140px;
 
     @media ${device.tabletL} {
         width: auto;
@@ -89,7 +96,7 @@ export const Cell = styled.div`
 `
 
 type TTableHeaderCell = {
-    text: string | number
+    text: ReactElement
     icon_src?: string
     on_icon_click?: () => void
 }
@@ -97,13 +104,18 @@ type TTableHeaderCell = {
 type TTableCell = {
     text: string | number
 }
+const StyledTableHeaderText = styled(HeaderText)`
+    @media ${device.tabletL} {
+        font-size: 12px;
+    }
+`
 
 export const TableHeaderCell = ({ text }: TTableHeaderCell) => {
     return (
         <Cell>
-            <HeaderText type="paragraph-1" width="fit-content" align="start">
+            <StyledTableHeaderText type="paragraph-1" width="fit-content" align="start">
                 {text}
-            </HeaderText>
+            </StyledTableHeaderText>
         </Cell>
     )
 }
@@ -111,6 +123,7 @@ const StyledHeaderText = styled(HeaderText)`
     width: 18.8rem;
     @media ${device.tabletL} {
         width: 6rem;
+        font-size: 12px;
     }
 `
 export const TableCell = ({ text }: TTableCell) => {

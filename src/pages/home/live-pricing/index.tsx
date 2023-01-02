@@ -7,6 +7,7 @@ import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 import { Button } from 'components/form'
+import { Localize } from 'components/localization'
 
 const LivePricingSection = styled.section`
     background-color: var(--color-white);
@@ -91,7 +92,11 @@ const DisclaimerText = styled(Header)`
 
 const LivePricing = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
-
+    const markets = {}
+    for (const { market_description, market_name } of market_buttons) {
+        if (!markets[market_name]) markets[market_name] = []
+        markets[market_name].push({ market_description, market_name })
+    }
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
@@ -101,30 +106,37 @@ const LivePricing = () => {
             <Markets>
                 <MarketsContainer>
                     {market_buttons.map((marketItem) => (
-                        <MarketButton
-                            selected={marketItem.market_name === selected_market}
-                            key={marketItem.id}
-                            onClick={() => {
-                                onMarketButtonClick(marketItem.market_name)
-                            }}
-                        >
-                            <Header type="paragraph-2">{marketItem.button_text}</Header>
-                        </MarketButton>
+                        <>
+                            <MarketButton
+                                selected={marketItem.market_name === selected_market}
+                                key={marketItem.id}
+                                onClick={() => {
+                                    onMarketButtonClick(marketItem.market_name)
+                                }}
+                            >
+                                <Header type="paragraph-2">
+                                    {<Localize translate_text={marketItem.button_text} />}
+                                </Header>
+                            </MarketButton>
+                        </>
                     ))}
                 </MarketsContainer>
             </Markets>
             <ContainerWrapper>
                 <Header type="paragraph-1" weight="normal" align="center">
-                    Benefit from round-the-clock trading hours (Monday to Friday), high liquidity,
+                    <Localize
+                        translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity,
                     low barriers to entry, a wide range of offerings, and opportunities to trade on
-                    world events.
+                    world events."
+                    />
                 </Header>
                 <LiveMarketTable market={selected_market} />
                 <DisclaimerText>
-                    Disclaimer: All spreads are indicative. To view real-time spreads, clients
-                    should refer to their client terminal.
+                    <Localize translate_text="All spreads are indicative. To view real-time spreads, clients should refer to their client terminal." />
                 </DisclaimerText>
-                <Button secondary>Trade now</Button>
+                <Button secondary>
+                    <Localize translate_text="Trade now" />
+                </Button>
             </ContainerWrapper>
         </LivePricingSection>
     )

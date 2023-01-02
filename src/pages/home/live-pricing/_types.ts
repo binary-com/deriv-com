@@ -24,4 +24,5 @@ export type TMarketButtons = {
     id: number
     button_text: string
     market_name: TAvailableLiveMarkets
+    market_description: string
 }

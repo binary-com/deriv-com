@@ -2,21 +2,33 @@ import React from 'react'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import './src/components/localization/config'
 import { MediaContextProvider } from './src/themes/media'
-import { DerivProvider } from './src/store'
+import {
+    AcademyProvider,
+    BreakpointsProvider,
+    PopupProvider,
+    RegionProvider,
+    WebsiteStatusProvider,
+} from './src/store'
 
 export const wrapRootElement = ({ element }) => {
     return (
-        <DerivProvider>
-            <MediaContextProvider>{element}</MediaContextProvider>
-        </DerivProvider>
+        <AcademyProvider>
+            <BreakpointsProvider>
+                <PopupProvider>
+                    <RegionProvider>
+                        <WebsiteStatusProvider>
+                            <MediaContextProvider>{element}</MediaContextProvider>
+                        </WebsiteStatusProvider>
+                    </RegionProvider>
+                </PopupProvider>
+            </BreakpointsProvider>
+        </AcademyProvider>
     )
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext
 
-export const onRenderBody = (
-    { setHeadComponents }
-) => {
+export const onRenderBody = ({ setHeadComponents }) => {
     setHeadComponents([
         <script
             key="partytown-vanilla-config"
@@ -43,4 +55,3 @@ export const onRenderBody = (
         />,
     ])
 }
-

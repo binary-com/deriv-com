@@ -12,8 +12,8 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
 import { unslugify, queryParams } from 'common/utility'
-import { DerivStore } from 'store'
 import device from 'themes/device'
+import { AcademyContext } from 'store/AcademyContext'
 
 const StyledHeaderWrapper = styled(Flex)`
     box-shadow: inset 0 -1px 0 #f2f3f4;
@@ -84,7 +84,7 @@ const StyledTitle = styled.span`
 
 const SearchPage = () => {
     // search result states
-    const { academy_data } = useContext(DerivStore)
+    const { academy_data } = useContext(AcademyContext)
     const [full_article_link, setFullArticleLink] = useState('')
     const [full_video_link, setFullVideoLink] = useState('')
     const [total_article, setTotalArticle] = useState(0)

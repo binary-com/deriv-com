@@ -15,13 +15,13 @@ import SearchIcon from 'images/svg/blog/search_icon.svg'
 import CloseIcon from 'images/svg/blog/close-icon.svg'
 import ArticleIcon from 'images/svg/blog/article-icon.svg'
 import VideoIcon from 'images/svg/blog/video-icon.svg'
-import { DerivStore } from 'store'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { slugify } from 'common/utility'
 import { Header } from 'components/elements'
+import { AcademyContext } from 'store/AcademyContext'
 
 type ElementWithMaximiseProps = {
     is_maximise?: boolean
@@ -133,7 +133,7 @@ const Line = styled.div`
 
 const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     const [is_mobile_separator] = useBrowserResize(992)
-    const { academy_data } = useContext(DerivStore)
+    const { academy_data } = useContext(AcademyContext)
     const [search_input, setSearchInput] = useState('')
     const [search_query, setSearchQuery] = useState('')
 

@@ -1,12 +1,12 @@
 import React from 'react'
 import { useCountryRule } from './use-country-rule'
 import { isEuDomain, redirectToTradingPlatform } from 'common/utility'
-import { DerivStore } from 'store'
 import Login from 'common/login'
+import { PopupContext } from 'store/PopupContext'
 
 const useHandleLogin = () => {
     const { is_loading, is_eu_location } = useCountryRule()
-    const { setShowNonEuPopup } = React.useContext(DerivStore)
+    const { setShowNonEuPopup } = React.useContext(PopupContext)
 
     return () => {
         if (is_loading) {

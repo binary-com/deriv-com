@@ -11,8 +11,8 @@ import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
-import { DerivStore } from 'store'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
+import { WebsiteStatusContext } from 'store/WebsiteStatusContext'
 
 type ValuesType = {
     server_url?: string | number
@@ -99,7 +99,7 @@ const Endpoint = () => {
     const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
     const [reset_loading, setResetLoading] = React.useState(false)
     const { website_status, setWebsiteStatus, website_status_loading } =
-        React.useContext(DerivStore)
+        React.useContext(WebsiteStatusContext)
     const STATUS_TIMEOUT_DELAY = 1500
     const RESET_TIMEOUT_DELAY = 500
 

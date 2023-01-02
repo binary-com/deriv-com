@@ -2,11 +2,11 @@ import React from 'react'
 import { navigate, withPrefix } from 'gatsby'
 import { useCountryRule } from './use-country-rule'
 import { isEuDomain, getLanguage } from 'common/utility'
-import { DerivStore } from 'store'
+import { PopupContext } from 'store/PopupContext'
 
 const useHandleSignup = (_is_ppc = false) => {
     const { is_loading, is_eu_location } = useCountryRule()
-    const { setShowNonEuPopup } = React.useContext(DerivStore)
+    const { setShowNonEuPopup } = React.useContext(PopupContext)
     let current_language = getLanguage() + '/'
     const signUpPath = withPrefix('/')
 

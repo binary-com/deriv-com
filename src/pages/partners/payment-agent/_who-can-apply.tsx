@@ -22,7 +22,7 @@ import Email from 'images/svg/partners/pa-email.svg'
 import Reply from 'images/svg/partners/pa-reply.svg'
 import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
-import { DerivStore } from 'store'
+import { RegionContext } from 'store/RegionContext'
 
 type ImageWrapperProps = {
     left_margin?: string
@@ -139,7 +139,7 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     )
 }
 const WhoCanApply = () => {
-    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+    const { is_p2p_allowed_country } = React.useContext(RegionContext)
 
     return (
         <SectionWrapper padding="80px 0">

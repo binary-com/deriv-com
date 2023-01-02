@@ -14,7 +14,7 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -24,7 +24,7 @@ type BasketIndicesProps = {
     simple_step_content: SimpleStepContentElement[]
 }
 const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
-    const { is_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = React.useContext(RegionContext)
     return (
         <>
             {is_row && (

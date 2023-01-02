@@ -5,7 +5,7 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 const ImagePlaceHolder = styled.div`
     width: 690px;
@@ -70,7 +70,7 @@ const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
     const data = useStaticQuery(query)
 
-    const { is_row, is_eu, is_loading } = useCountryRule()
+    const { is_row, is_eu, is_region_loading } = React.useContext(RegionContext)
 
     const slide_images = useMemo(() => {
         if (is_row)
@@ -115,7 +115,7 @@ const PlatformSlideshow = () => {
         return () => clearInterval(intervalRef.current)
     }, [slide_images])
 
-    if (is_loading) {
+    if (is_region_loading) {
         return <ImagePlaceHolder />
     }
 

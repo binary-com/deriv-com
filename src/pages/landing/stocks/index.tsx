@@ -6,7 +6,7 @@ import Layout from 'components/layout/layout'
 import { Desktop, Mobile, SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { size } from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 import { isBrowser } from 'common/utility'
 import ExtendedTimeSVG from 'images/svg/stock-indices/stocks-extended-time.svg'
 import NoCommisionSVG from 'images/svg/stock-indices/stocks-no-commission.svg'
@@ -140,12 +140,12 @@ const Stocks = () => {
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
-    const { is_row } = useCountryRule()
+    const { is_row } = React.useContext(RegionContext)
 
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
-    })
+    }, [])
 
     const data = useStaticQuery(query)
 

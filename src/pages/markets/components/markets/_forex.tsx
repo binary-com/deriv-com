@@ -11,7 +11,7 @@ import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 import { Localize, localize } from 'components/localization'
 
 //Lazy-load
@@ -22,7 +22,7 @@ type ForexProps = {
     simple_step_content: SimpleStepContentElement[]
 }
 const Forex = ({ simple_step_content }: ForexProps) => {
-    const { is_row, is_eu } = useCountryRule()
+    const { is_row, is_eu } = React.useContext(RegionContext)
     return (
         <>
             <WhyTrade header={<Localize translate_text="Why trade forex on Deriv" />}>

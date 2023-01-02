@@ -12,7 +12,7 @@ import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import { Carousel, CarouselProps } from 'components/elements'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 export const query = graphql`
     query {
@@ -50,7 +50,7 @@ export type NonFeaturedVideoListDataType = AcademyIndexFragment['directus']['vid
 export type MarketNewsDataType = AcademyIndexFragment['directus']['market_news']
 
 const DerivBlog = ({ data }: DerivBlogProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
 
     const meta_attributes = {
         og_title: 'Blogs, video tutorials, and more | Deriv Academy',

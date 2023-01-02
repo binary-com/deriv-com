@@ -14,7 +14,7 @@ import { Text, Header, LinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import TipIcon from 'images/svg/careers/career-tip.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 const StyledSectionContainer = styled(SectionContainer)`
     padding: 8rem 0 5rem 0;
@@ -294,7 +294,7 @@ const StyledLinkText = styled(LinkText)`
 `
 
 const OurHiringProcess = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
     return (
         <StyledSectionContainer>
             <Container direction="column">

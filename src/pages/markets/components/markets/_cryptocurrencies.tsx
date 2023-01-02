@@ -13,7 +13,7 @@ import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -30,7 +30,7 @@ type CryptoContent = {
 }
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
     const crypto_content: CryptoContent[] = [
         {
             src: Leverage,

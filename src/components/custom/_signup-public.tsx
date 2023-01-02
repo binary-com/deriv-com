@@ -7,7 +7,7 @@ import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'componen
 import { localize } from 'components/localization'
 import { Flex, Box, Container, Desktop, Mobile } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 import device from 'themes/device'
 // SVG
 import Apple from 'images/svg/custom/apple-40.svg'
@@ -352,7 +352,7 @@ const SignupPublic = ({
     is_submitting,
 }: SignupPublicProps) => {
     const data = useStaticQuery(query)
-    const { is_row, is_eu } = useCountryRule()
+    const { is_row, is_eu } = React.useContext(RegionContext)
     const [is_checked, setChecked] = useState(false)
     const is_rtl = useIsRtl()
 

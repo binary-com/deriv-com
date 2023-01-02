@@ -10,7 +10,6 @@ import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elem
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { RegionContext } from 'store/RegionContext'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
@@ -169,7 +168,7 @@ export type PaymentMethodsProps = {
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     const { is_p2p_allowed_country } = React.useContext(RegionContext)
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
     const [is_mobile] = useBrowserResize(992)
 
     const content_style = is_mobile

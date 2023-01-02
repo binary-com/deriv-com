@@ -10,7 +10,6 @@ import { LocalizedLinkText, Header } from 'components/elements'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { RegionContext } from 'store/RegionContext'
 
 const SignupFormWrapper = styled(Flex)`
@@ -172,7 +171,7 @@ const Subscribe = () => {
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
     const { user_country } = React.useContext(RegionContext)
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
 
     useEffect(() => {
         if (!window._cio) {

@@ -4,7 +4,7 @@ import { ContentType } from './index'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 // svg
 import Arrow from 'images/svg/deriv-go/arrow.svg'
 import DMT5 from 'images/svg/deriv-go/dmt5.svg'
@@ -106,7 +106,7 @@ const other_apps: ContentType[] = [
 ]
 
 const OtherApps = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
 
     return (
         <div>

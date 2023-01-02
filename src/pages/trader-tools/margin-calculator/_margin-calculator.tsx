@@ -74,7 +74,7 @@ import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import useWS from 'components/hooks/useWS'
 
 const MarginCalculator = () => {
-    const { data, is_loading, send } = useWS('active_symbols')
+    const { data, is_region_loading, send } = useWS('active_symbols')
     const [tab, setTab] = useState('Synthetic')
 
     const onTabClick = (t) => {
@@ -228,7 +228,7 @@ const MarginCalculator = () => {
                                                 }}
                                                 selected_item={values.symbol}
                                                 onBlur={handleBlur}
-                                                disabled={is_loading}
+                                                disabled={is_region_loading}
                                             />
                                             <InputGroup>
                                                 <Field

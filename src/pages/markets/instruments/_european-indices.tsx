@@ -1,13 +1,13 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
 import { stocks_european_indices } from '../static/content/_market-symbols'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 const stocks_european_indices_eu_endpoint = stocks_european_indices.filter((cfds) => {
     return cfds?.eu === true
 })
 const EuropeanIndices = () => {
-    const { is_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = React.useContext(RegionContext)
     return (
         <>
             {is_row && (

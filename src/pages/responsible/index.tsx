@@ -9,7 +9,7 @@ import { localize, WithIntl } from 'components/localization'
 import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 const TradingResponsibly = Loadable(() => import('./_trading-responsibly'))
 const TradingLimits = Loadable(() => import('./_trading-limits'))
@@ -36,7 +36,7 @@ const StyledHeader = styled(Header)`
 `
 
 const ResponsibleTrading = () => {
-    const { is_eu, is_non_eu } = useCountryRule()
+    const { is_eu, is_non_eu } = React.useContext(RegionContext)
     const HeroBackground = is_eu ? EuBackground : NoneEuBackground
 
     return (

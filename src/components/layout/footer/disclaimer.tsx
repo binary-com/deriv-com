@@ -9,14 +9,14 @@ import {
 import { Mobile, Desktop } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { loss_percent } from 'common/constants'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 type DisclaimerSectionProps = {
     is_academy?: boolean
 }
 
 const DisclaimerSection = ({ is_academy = false }: DisclaimerSectionProps) => {
-    const { is_eu, is_non_eu } = useCountryRule()
+    const { is_eu, is_non_eu } = React.useContext(RegionContext)
     return (
         <>
             <DisclaimerWrapper>

@@ -14,7 +14,7 @@ import DTraderBG from 'images/svg/dtrader/dtrader-bg.svg'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import DHero from 'components/custom/_dhero'
 import DNumber from 'components/custom/_dnumbers'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))
@@ -114,7 +114,7 @@ const PlatformContainer = styled.div`
 `
 const Dtrader = () => {
     const [is_mobile, setMobile] = useState(false)
-    const { is_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = React.useContext(RegionContext)
 
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -123,7 +123,8 @@ const Dtrader = () => {
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
-    })
+    }, [])
+
     const data = useStaticQuery(query)
     return (
         <Layout>

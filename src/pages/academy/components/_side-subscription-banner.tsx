@@ -11,7 +11,6 @@ import { Flex } from 'components/containers'
 import device from 'themes/device'
 import EmailSubscriptionSVG from 'images/svg/blog/articles/blog-article-email-subscription.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { RegionContext } from 'store/RegionContext'
 
 const SubscribeBannerWrapper = styled(Flex)`
@@ -129,7 +128,7 @@ const SideSubscriptionBanner = () => {
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
     const { user_country } = React.useContext(RegionContext)
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
 
     useEffect(() => {
         if (!window._cio) {

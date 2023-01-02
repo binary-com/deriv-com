@@ -14,14 +14,14 @@ import { SimpleStepContentElement } from '../../static/content/_simple_step_cont
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 type StockIndicesProps = {
     simple_step_content: SimpleStepContentElement[]
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
 
     return (
         <div>

@@ -7,7 +7,7 @@ import List from './_list'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 import { TString } from 'types/generics'
 
 type AnswerCardType = {
@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
 `
 
 const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
 
     return (
         <Wrapper>

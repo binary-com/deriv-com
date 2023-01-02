@@ -8,11 +8,12 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import Platform from 'images/common/interim/check-interim-bg.png'
 import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
+
 type SectionProps = {
     image: string
     mobile_image: string
-    is_eu_country: boolean
+    is_eu: boolean
 }
 
 const Section = styled(Box)<SectionProps>`
@@ -175,7 +176,7 @@ export const LoveTradingComponent = ({
     right,
 }: LoveTradingComponentProps) => {
     const data = useStaticQuery(query)
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
     return (
         <Section p="3.2rem 0" image={bg_image} mobile_image={bg_image_mobile} is_eu={is_eu}>
             <AbsoluteWrapper>

@@ -8,7 +8,6 @@ import PageNotFound from 'pages/404'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { RegionContext } from 'store/RegionContext'
 
 const YourControl = Loadable(() => import('./_your-control'))
@@ -24,7 +23,7 @@ const meta_attributes = {
 }
 
 const PaymentAgent = () => {
-    const { is_row } = useCountryRule()
+    const { is_row } = React.useContext(RegionContext)
     const { is_p2p_allowed_country } = React.useContext(RegionContext)
     return (
         <>

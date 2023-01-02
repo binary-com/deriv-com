@@ -4,7 +4,7 @@ import { PopupProvider } from './PopupContext'
 import { RegionProvider } from './RegionContext'
 import { WebsiteStatusProvider } from './WebsiteStatusContext'
 
-export default {
+export {
     AcademyProvider,
     BreakpointsProvider,
     PopupProvider,

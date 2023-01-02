@@ -4,7 +4,7 @@ import { Header, Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 type NumbersContentType = {
     title: React.ReactElement
@@ -107,7 +107,7 @@ const numbers_content_eu: NumbersContentType[] = [
 ]
 
 const Numbers = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
     const contents = is_eu ? numbers_content_eu : numbers_content
 
     return (

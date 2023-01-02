@@ -7,7 +7,7 @@ import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
 const StartTrading = Loadable(() => import('./_start-trading'))
@@ -21,12 +21,12 @@ const meta_attributes = {
 }
 
 const Options = () => {
-    const { is_row } = useCountryRule()
+    const { is_row } = React.useContext(RegionContext)
     const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         setLoaded(true)
-    }, [useCountryRule])
+    }, [])
 
     if (is_loaded) {
         return is_row ? (

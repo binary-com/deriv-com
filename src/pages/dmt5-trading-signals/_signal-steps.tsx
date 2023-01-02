@@ -7,7 +7,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Localize } from 'components/localization'
 import { QueryImage, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 const Container = styled.section`
     width: 100%;
@@ -226,7 +226,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
         active_tab === 'signal-subscriber',
         active_tab === 'signal-provider',
     ]
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
 
     return (
         <>

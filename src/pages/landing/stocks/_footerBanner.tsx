@@ -5,7 +5,7 @@ import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 import device from 'themes/device'
 
 const BannerWrapper = styled(Flex)`
@@ -155,7 +155,7 @@ const FooterBanner = ({
     small_title,
     title,
 }: FooterBannerProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
     const stocks_display = is_eu ? 'stocks_banner_eu' : 'stocks_banner'
 
     return (

@@ -8,7 +8,7 @@ import { Carousel, CarouselProps, Header, QueryImage, Text } from 'components/el
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type CarouselItemContainerProps = {
@@ -280,7 +280,7 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
-    const { is_loading, is_eu, is_row } = useCountryRule()
+    const { is_region_loading, is_eu, is_row } = React.useContext(RegionContext)
     const size = useWindowSize()
     const is_not_big_screen = size.width < 1980 && size.width >= 768
     const is_mobile = size.width < 768
@@ -332,12 +332,8 @@ const MarketsFold = () => {
                         <Localize translate_text="Markets" />
                     </Header>
                 </Flex>
-                <Carousel
-                    has_autoplay
-                    autoplay_interval={is_mobile ? 3200 : 4000}
-                    {...settings}
-                >
-                    {!is_loading &&
+                <Carousel has_autoplay autoplay_interval={is_mobile ? 3200 : 4000} {...settings}>
+                    {!is_region_loading &&
                         ((is_eu && market_data_eu) || (is_row && market_data)).map(
                             (market, index) => {
                                 const {

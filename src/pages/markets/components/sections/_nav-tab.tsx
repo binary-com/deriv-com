@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 import device from 'themes/device'
 
 type NavTabProps = {
@@ -132,7 +132,7 @@ const tab_list_eu: TabList[] = [
 ]
 
 const NavTab = ({ route_from }: NavTabProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
     const ref = useRef(null)
 
     return (

@@ -6,11 +6,11 @@ import { simple_step_content_synthetic } from '../static/content/_synthetic'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 import { SEO } from 'components/containers'
 
 const Markets = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
     const description_eu = localize(
         'Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite.',
     )

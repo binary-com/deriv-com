@@ -11,7 +11,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { slugify, isBrowser } from 'common/utility'
 import device from 'themes/device'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 type SearchBannerProps = {
@@ -80,7 +80,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [is_modal_opened, setModal] = useState(false)
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
     const [blog_post_url, setBlogPostURL] = useState(false)
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
 
     // Filter out restricted categories from the combined filter type array based on geolocation
     useEffect(() => {

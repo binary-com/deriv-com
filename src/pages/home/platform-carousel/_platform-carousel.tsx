@@ -3,10 +3,10 @@ import DesktopPlatformCarousel from './_desktop-platform-carousel'
 import MobilePlatformCarousel from './_mobile-platform-carousel'
 import { platform_details_row, platform_details_eu } from './_utils'
 import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 const PlatformCarousel = () => {
-    const { is_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = React.useContext(RegionContext)
     const [carousel_data, setCarouselData] = useState(platform_details_row)
 
     useEffect(() => {

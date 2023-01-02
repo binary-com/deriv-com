@@ -22,7 +22,7 @@ import OuOd from 'images/svg/options/ou-od.svg'
 import HighClose from 'images/svg/options/high-close.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 import HighLow from 'images/svg/options/high-low.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { RegionContext } from 'store/RegionContext'
 
 const MiddleText = styled(Text)`
     margin-bottom: 0.8rem;
@@ -33,7 +33,7 @@ const MiddleText = styled(Text)`
 `
 
 const OptionsToTrade = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = React.useContext(RegionContext)
     return (
         <SectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">

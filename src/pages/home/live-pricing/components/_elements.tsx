@@ -32,9 +32,9 @@ const rotate360 = keyframes`
 export const Spinner = styled.div`
     animation: ${rotate360} 1s linear infinite;
     transform: translateZ(0);
-    border-top: 2px solid grey;
-    border-right: 2px solid grey;
-    border-bottom: 2px solid grey;
+    border-top: 2px solid var(--color-grey-8);
+    border-right: 2px solid var(--color-grey-8);
+    border-bottom: 2px solid var(--color-grey-8);
     border-left: 4px solid black;
     background: transparent;
     width: 24px;
@@ -51,7 +51,7 @@ type TableRowProps = {
     bg?: string
 }
 export const TableRow = styled.tr<TableRowProps>`
-    border-bottom: 2px solid #f2f3f4;
+    border-bottom: 2px solid var(--color-grey-8);
     background: ${(props) => (props.bg ? props.bg : 'none')};
     border-radius: 16px 16px 0 0;
     display: flex;
@@ -148,7 +148,7 @@ const DailyPercentageText = styled(HeaderText)<{ bull?: boolean }>`
     ${({ bull }) =>
         bull
             ? css`
-                  color: #4bb4b3;
+                  color: var(--color-blue-7);
               `
             : css`
                   color: red;

@@ -5,7 +5,7 @@ import { Header } from 'components/elements'
 import { CssGrid, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import Pagination from 'components/elements/pagination'
-import { minor_pairs } from 'pages/markets/static/content/_market-symbols'
+import { minor_pairs , major_pairs } from 'pages/markets/static/content/_market-symbols'
 import { queryParams } from 'common/utility'
 
 type SpreaderProps = {
@@ -76,13 +76,15 @@ const StyledSection = styled(SectionContainer)`
 
 const Spreader = ({ display_title }: SpreaderProps) => {
     const [current_page, setCurrentPage] = useState(1)
+    const forex_pairs = [].concat(minor_pairs, major_pairs)
     const index_of_last_item = current_page * 10
     const index_of_first_item = index_of_last_item - 10
-    const paginated_items = minor_pairs.slice(index_of_first_item, index_of_last_item)
+    const paginated_items = forex_pairs.slice(index_of_first_item, index_of_last_item)
 
     const myRef = useRef(null)
 
     const paginate = (page_number) => {
+        myRef.current.scrollIntoView({ behavior: 'smooth' })
         setCurrentPage(page_number)
     }
 
@@ -261,7 +263,7 @@ const Spreader = ({ display_title }: SpreaderProps) => {
                 <Pagination
                     paginate={paginate}
                     items_per_page={10}
-                    total_items={minor_pairs.length}
+                    total_items={forex_pairs.length}
                     current_page={current_page}
                 />
             </StyledSection>

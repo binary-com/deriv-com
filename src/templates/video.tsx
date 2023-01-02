@@ -22,9 +22,9 @@ import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import Eye from 'images/svg/eye.svg'
 import { useTruncateLength } from 'pages/academy/blog/posts/preview'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { AcademyContext } from 'store/AcademyContext'
 
 type VideosTemplateProps = {
     data: AllVideosQuery
@@ -224,7 +224,7 @@ const AllVideosButton = styled(LinkButton)`
 `
 
 const VideoTemplate = ({ data }: VideosTemplateProps) => {
-    const { academy_data } = useContext(DerivStore)
+    const { academy_data } = useContext(AcademyContext)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded()

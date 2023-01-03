@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import { BackgroundImage, Header } from 'components/elements'
 import { Container } from 'components/containers'
 import device from 'themes/device'
 import { localize } from 'components/localization'
 
 interface HeroComponentProps {
-    background_data: string
+    background_data: ImageDataLike
     background_dark: string
 }
 

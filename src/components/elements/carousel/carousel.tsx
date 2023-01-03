@@ -95,7 +95,7 @@ type NavigationStyleType = {
     height?: string
 }
 
-type CarouselProps = {
+export type CarouselProps = {
     autoplay_delay?: number
     autoplay_interval?: number
     chevron_style?: ChevronStyleType

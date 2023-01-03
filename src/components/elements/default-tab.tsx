@@ -17,6 +17,11 @@ type TabsStyledProps = {
     selected?: boolean
 }
 
+type TextWrapperProps = {
+    selected?: boolean
+    mobile_font_size?: number
+}
+
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
@@ -101,9 +106,9 @@ const Content = styled.div`
     width: 100%;
 `
 
-const TextWrapper = styled(Header)`
+const TextWrapper = styled(Header)<TextWrapperProps>`
     text-align: center;
-    font-weight: ${(props) => (props.selected ? 'bold' : 'normal')};
+    font-weight: ${({ selected }) => (selected ? 'bold' : 'normal')};
 
     @media ${device.tabletS} {
         font-size: ${({ mobile_font_size }) => mobile_font_size && `${mobile_font_size}px`};
@@ -112,6 +117,7 @@ const TextWrapper = styled(Header)`
 
 type TabPanelProps = {
     children?: ReactElement
+    label: string
 }
 const TabPanel = ({ children }: TabPanelProps) => (
     <TabContent role="tabpanel">{children}</TabContent>

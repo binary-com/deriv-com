@@ -466,7 +466,7 @@ export const TakeProfitLevelUp = () => {
 export const TakeProfitAmountUp = () => {
     return (
         <>
-            <Desktop max_width="tablet">
+            <Desktop breakpoint="tablet">
                 <FormulaContainer height="227px" pt="0">
                     <FormulaHighlightForPnlMultiplier height="110px" mt="60px" mb="60px">
                         <FormulaTopWrapperPnl mt="29px">
@@ -597,7 +597,7 @@ export const TakeProfitAmountUp = () => {
                 </FormulaContainer>
             </Desktop>
 
-            <Mobile min_width="tablet">
+            <Mobile breakpoint="tablet">
                 <FormulaContainerMobile height="220px" pt="65px">
                     <FormulaHighlightMobile height="107px" syn_mobile fs="13px">
                         <FormulaTopWrapperMobile ml="-13px" mt="-2px">
@@ -738,7 +738,7 @@ export const TakeProfitAmountUp = () => {
 export const StopLossAmountDown = () => {
     return (
         <>
-            <Desktop max_width="tablet">
+            <Desktop breakpoint="tablet">
                 <FormulaContainer height="227px" pt="0">
                     <FormulaHighlightForPnlMultiplier height="110px" mt="60px" mb="60px">
                         <FormulaTopWrapperPnl mt="29px">
@@ -870,7 +870,7 @@ export const StopLossAmountDown = () => {
                 </FormulaContainer>
             </Desktop>
 
-            <Mobile min_width="tablet">
+            <Mobile breakpoint="tablet">
                 <FormulaContainerMobile height="220px" pt="65px">
                     <FormulaHighlightMobile height="107px" syn_mobile fs="13px">
                         <FormulaTopWrapperMobile ml="-13px" mt="-2px">

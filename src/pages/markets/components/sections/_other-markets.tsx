@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
-import { Carousel, Header, ImageWithDireciton, Text } from 'components/elements'
+import { Carousel, CarouselProps, Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
@@ -33,6 +33,9 @@ type CardProps = {
 }
 type OtherMarketsProps = {
     except: string
+}
+type LearnMoreProps = {
+    visibility: string
 }
 const markets_type: MarketsType = {
     forex: {
@@ -84,7 +87,7 @@ const markets_type: MarketsType = {
     },
 }
 
-const LearnMore = styled(LocalizedLink)`
+const LearnMore = styled(LocalizedLink)<LearnMoreProps>`
     opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
     width: 150px;
     height: 40px;
@@ -240,7 +243,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
-    const { is_uk, is_eu } = useCountryRule()
+    const { is_eu } = useCountryRule()
 
     const markets = ['', 'forex', 'derived', 'stock_indices', 'cryptocurrencies', 'commodities', '']
 
@@ -254,15 +257,11 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         '',
     ]
 
-    const uk_markets = ['', 'forex', 'derived', 'stock_indices', 'commodities', '']
-
-    const filteredMarkets = (is_eu ? eu_markets : is_uk ? uk_markets : markets).filter(
-        (market) => market !== except,
-    )
+    const filteredMarkets = (is_eu ? eu_markets : markets).filter((market) => market !== except)
 
     const lang_direction = useLangDirection()
 
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             draggable: true,
             containScroll: 'trimSnaps',
@@ -289,9 +288,9 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
 
     return (
         <StyledSectionContainer id="markets-list">
-            <Desktop max_width="mobileL">
+            <Desktop>
                 <MarketsWrapper tablet_jc="center">
-                    <StyledHeader as="h3" type="section-title" align="start">
+                    <StyledHeader as="h2" type="section-title" align="start">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
                     <Carousel has_autoplay autoplay_interval={4000} {...settings}>
@@ -302,7 +301,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                 </MarketsWrapper>
             </Desktop>
             <Mobile breakpoint="mobileL">
-                <StyledHeader as="h3" type="section-title" align="start">
+                <StyledHeader as="h2" type="section-title" align="start">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
                 <MobileCardContainer direction="column">

@@ -59,6 +59,7 @@ const CardWrapper = styled(Flex)`
     align-items: flex-end;
     overflow: hidden;
     background-color: #f2f3f4;
+    margin: 0;
 
     div:first-child {
         z-index: 3;
@@ -203,11 +204,11 @@ const AvailableTradesDesctop = ({
 
     return (
         <StyledSection>
-            <StyledHeader size="var(--text-size-l)" align="center">
+            <StyledHeader as="h2" size="var(--text-size-l)" align="center">
                 {display_title}
             </StyledHeader>
             <StyledContainer direction="column">
-                <CardWrapper margin="0" position="relative" id="available-trades">
+                <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
                         <Card
                             name="CFDs"

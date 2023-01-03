@@ -185,6 +185,7 @@ const SideTab = ({
                                 class_name,
                             },
                         } = child
+
                         return (
                             <>
                                 <TabButton

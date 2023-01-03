@@ -59,10 +59,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
         <StyledContainer m="20px auto 0" fd="column" ai="center">
             <StyledTabs
                 tab_list={['recent_posts', 'featured_posts']}
-                route_from="recent_featured_posts"
-                type="blog-featured"
                 jc="start"
-                jc_tabletM="center"
                 jc_mobileL="center"
                 mobile_font_size={16}
                 line_divider_length="unset"

@@ -81,7 +81,7 @@ const ArticleCard = ({ items }: ArticleCardProps) => {
                         weight="normal"
                         align="end"
                         width="auto"
-                        tablet={{ align: 'left', mt: '4px' }}
+                        tablet={{ ai: 'left', mt: '4px' }}
                     >
                         {convertDate(items.published_date)}
                     </Header>

@@ -45,35 +45,14 @@ export default class DerivWS {
     } = {}
     private reqId = 0
     private connected = new CustomPromise<void>()
-    private socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${
-        getLanguage() === 'ach' ? getCrowdin() : getLanguage()?.replace('-', '_')
-    }&brand=${brand_name.toLowerCase()}`
+    private socket_url: string
     connection: WebSocket
 
-    private ping = () => {
-        this.send({ ping: 1 })
-    }
+    constructor(private readonly lang) {
+        this.socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${
+            lang === 'ach' ? getCrowdin() : lang?.replace('-', '_')
+        }&brand=${brand_name.toLowerCase()}`
 
-    private openHandler = () => {
-        if (this.connection.readyState === 1) {
-            setInterval(this.ping, 1000)
-            this.connected.resolve()
-        } else {
-            setTimeout(this.openHandler, 50)
-        }
-    }
-
-    private messageHandler = (msg: { data: string }) => {
-        const response: DerivAPIResponse = JSON.parse(msg.data)
-        const reqId = response.req_id
-
-        if (reqId && reqId in this.pendingRequests) {
-            this.pendingRequests[reqId].resolve(response)
-            delete this.pendingRequests[reqId]
-        }
-    }
-
-    constructor() {
         const connection = new WebSocket(this.socket_url)
         connection.onopen = this.openHandler
         connection.onmessage = this.messageHandler
@@ -84,6 +63,14 @@ export default class DerivWS {
     isConnectionClosed() {
         const closed_state = [2, 3]
         return closed_state.includes(this.connection.readyState)
+    }
+
+    private openHandler = () => {
+        if (this.connection.readyState === 1) {
+            this.connected.resolve()
+        } else {
+            setTimeout(this.openHandler, 50)
+        }
     }
 
     send(request: DerivAPIRequest) {
@@ -102,5 +89,15 @@ export default class DerivWS {
             .catch((e) => pending.reject(e))
 
         return pending.promise
+    }
+
+    private messageHandler = (msg: { data: string }) => {
+        const response: DerivAPIResponse = JSON.parse(msg.data)
+        const reqId = response.req_id
+
+        if (reqId && reqId in this.pendingRequests) {
+            this.pendingRequests[reqId].resolve(response)
+            delete this.pendingRequests[reqId]
+        }
     }
 }

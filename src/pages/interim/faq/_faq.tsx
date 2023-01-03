@@ -15,8 +15,8 @@ import {
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Accordion, AccordionItem, Divider } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { DerivStore } from 'store'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const Question = styled.div`
     max-width: 38.4rem;
@@ -61,7 +61,7 @@ const FAQ = () => {
         padding: '1.6rem 2.4rem',
         border: 'none',
     }
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
     return (
         <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">
@@ -142,7 +142,7 @@ const FAQ = () => {
                             </AccordionItem>
 
                             <AccordionItem
-                                is_showed={!is_eu_country}
+                                is_showed={!is_eu}
                                 header={
                                     <Localize translate_text="What else can we expect from Deriv.com?" />
                                 }

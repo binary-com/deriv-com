@@ -314,23 +314,30 @@ const PersonalDetails = ({
         })
     }, [personal_details])
 
-    const is_individual_validate =
-        !first_name || !last_name || !date_birth || !citizen || !password || !currency
+    const is_valid_individual = !(
+        first_name &&
+        last_name &&
+        date_birth &&
+        citizen &&
+        password &&
+        currency
+    )
 
-    const is_business_validate =
-        !first_name ||
-        !last_name ||
-        !date_birth ||
-        !citizen ||
-        !password ||
-        !company_name ||
-        !company_registration_number ||
-        !currency ||
-        !certificate_of_incorporation
+    const is_valid_business = !(
+        first_name &&
+        last_name &&
+        date_birth &&
+        citizen &&
+        password &&
+        company_name &&
+        company_registration_number &&
+        currency &&
+        certificate_of_incorporation
+    )
 
     useEffect(() => {
-        const validateAccountType = is_individual ? !is_individual_validate : !is_business_validate
-        onValidate(validateAccountType)
+        const is_valid_account = is_individual ? !is_valid_individual : !is_valid_business
+        onValidate(is_valid_account)
     }, [onValidate])
 
     const getFormFields = () => {
@@ -350,61 +357,11 @@ const PersonalDetails = ({
 
     const handleInput = (e) => {
         const { name, value } = e.target
-
-        switch (name) {
-            case 'first_name': {
-                setPersonalDetails({ ...personal_details, first_name: value })
-                return setErrorMsgs({ ...error_msgs, first_name: validation.first_name(value) })
-            }
-            case 'last_name': {
-                setPersonalDetails({ ...personal_details, last_name: value })
-                return setErrorMsgs({ ...error_msgs, last_name: validation.last_name(value) })
-            }
-            case 'date_birth': {
-                setPersonalDetails({ ...personal_details, date_birth: value })
-                break
-            }
-            case 'company_name': {
-                setPersonalDetails({ ...personal_details, company_name: value })
-                return setErrorMsgs({ ...error_msgs, company_name: validation.company_name(value) })
-            }
-            case 'company_registration_number': {
-                setPersonalDetails({ ...personal_details, company_registration_number: value })
-                return setErrorMsgs({
-                    ...error_msgs,
-                    company_registration_number: validation.company_registration_number(value),
-                })
-            }
-            case 'certificate_of_incorporation': {
-                setPersonalDetails({
-                    ...personal_details,
-                    certificate_of_incorporation: e.target.files[0],
-                })
-                break
-            }
-            case 'citizen': {
-                setPersonalDetails({ ...personal_details, citizen: value })
-                return setErrorMsgs({ ...error_msgs, citizen: validation.country(value) })
-            }
-            case 'website_url': {
-                setPersonalDetails({ ...personal_details, website_url: value })
-                return setErrorMsgs({ ...error_msgs, website_url: validation.website_url(value) })
-            }
-            case 'social_media_url': {
-                setPersonalDetails({ ...personal_details, social_media_url: value })
-                return setErrorMsgs({
-                    ...error_msgs,
-                    social_media_url: validation.social_media_url(value),
-                })
-            }
-            case 'password': {
-                setPersonalDetails({ ...personal_details, password: value })
-                return setErrorMsgs({ ...error_msgs, password: validation.password(value) })
-            }
-            case 'currency': {
-                setPersonalDetails({ ...personal_details, currency: value })
-                break
-            }
+        if (name === 'certificate_of_incorporation') {
+            setPersonalDetails({ ...personal_details, [name]: e.target.files[0] })
+        } else {
+            setPersonalDetails({ ...personal_details, [name]: value })
+            setErrorMsgs({ ...error_msgs, [name]: validation[`${name}`](value) })
         }
     }
 

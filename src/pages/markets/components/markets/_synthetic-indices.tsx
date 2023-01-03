@@ -2,6 +2,7 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
+import Spreader from '../helper/spreader'
 import synthetic_content from '../../static/content/_synthetic'
 import { synthetic_cfds, synthetic_cfds_eu } from '../../static/content/_cfds'
 import { synthetic_multiplier, synthetic_multiplier_eu } from '../../static/content/_multipliers'
@@ -60,6 +61,12 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 }
                 display_title={<Localize translate_text="Synthetics trades available on Deriv" />}
             />
+            {is_eu && (
+                <Spreader
+                    display_title={<Localize translate_text="Synthetic Trading Spreads" />}
+                    is_derived
+                />
+            )}
             <SimpleSteps
                 header={
                     <Localize translate_text="Start trading synthetics on Deriv in 3 simple steps" />

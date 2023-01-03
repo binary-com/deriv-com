@@ -52,7 +52,10 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />
             {is_eu && (
-                <Spreader display_title={<Localize translate_text="Forex trading Spread" />} />
+                <Spreader
+                    display_title={<Localize translate_text="Forex trading Spread" />}
+                    is_forex
+                />
             )}
             <SimpleSteps
                 header={

@@ -37,7 +37,9 @@ const SpreaderData = ({
                 {has_icon ? (
                     <SymbolContainer>
                         <img src={src} alt="symbol" />
-                        <Text>{text}</Text>
+                        <Header weight="normal" type="sub-paragraph">
+                            {text}
+                        </Header>
                     </SymbolContainer>
                 ) : (
                     <SymbolContainer>

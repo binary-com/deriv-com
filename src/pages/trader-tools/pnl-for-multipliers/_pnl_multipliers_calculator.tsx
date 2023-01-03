@@ -1001,7 +1001,7 @@ const PnlMultipliersCalculator = () => {
                                     header_style={header_style}
                                     style={item_style}
                                     plus
-                                    class_name="take-profit-amount"
+                                    class_name="take-profit-up"
                                 >
                                     <Text mb="16px">
                                         {localize(
@@ -1037,6 +1037,7 @@ const PnlMultipliersCalculator = () => {
                                     header_style={header_style}
                                     style={item_style}
                                     plus
+                                    class_name="take-profit-down"
                                 >
                                     <Text mb="16px">
                                         {localize(

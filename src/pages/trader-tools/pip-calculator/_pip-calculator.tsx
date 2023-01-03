@@ -353,6 +353,7 @@ const PipCalculator = () => {
                                 header_style={header_style}
                                 style={item_style}
                                 plus
+                                class_name="pip-value-forex"
                             >
                                 <Text mb="16px">
                                     {localize('Let’s say you want to trade 2 lots of EUR/USD.')}

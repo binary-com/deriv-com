@@ -897,6 +897,7 @@ const PnlMarginCalculator = () => {
                                     header={localize('Stop loss pip value')}
                                     header_style={header_style}
                                     plus
+                                    class_name="stop-loss"
                                 >
                                     <Desktop breakpoint={'tablet'}>
                                         <PipValue />

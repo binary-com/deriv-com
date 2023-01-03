@@ -31,15 +31,6 @@ export const useDerivApi = () => {
             callback?.(response)
         }
     }, [])
-    /**
-     * @description If you want to hit the websocket once use this one, this one will send the `forget` request on it's own
-     */
-    const sendOnce = useCallback(async (data: object, callback?: (e: object) => void) => {
-        if (ws) {
-            const response = await ws.current.send(data)
-            callback?.(response)
-        }
-    }, [])
 
     return { send, WS: ws.current }
 }

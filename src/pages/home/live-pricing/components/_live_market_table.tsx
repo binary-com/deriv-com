@@ -9,7 +9,8 @@ import type { SortingState } from '@tanstack/react-table'
 import { TAvailableLiveMarkets, TMarketData, TMarketDataResponse } from '../_types'
 import useLiveColumns from '../_use-live-columns'
 import { TABLE_VISIBLE_ROWS } from '../_utils'
-import Spinner, { TableLoadingContainer, Table, TableContainer, TableRow } from './_elements'
+import { Spinner, TableLoadingContainer, Table, TableContainer, TableRow } from './_elements'
+import useRegion from 'components/hooks/use-region'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
 
 export type TLiveMarketTableProps = {
@@ -21,7 +22,7 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
         return temp
     })
-
+    const { is_eu } = useRegion()
     const [is_loading, setIsLoading] = useState(false)
 
     const table_data = useMemo(() => {
@@ -33,24 +34,29 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
     const [sorting, setSorting] = React.useState<SortingState>([])
 
     const { send } = useDerivApi()
-
+    const region = is_eu ? 'eu' : 'row'
     const requestMarketsData = useCallback(() => {
         setIsLoading(true)
 
         send(
-            { trading_platform_asset_listing: 1, platform: 'mt5', type: 'brief' },
+            { trading_platform_asset_listing: 1, platform: 'mt5', type: 'brief', region: region },
             (response: TMarketDataResponse) => {
-                const responseData = [...response.trading_platform_asset_listing.mt5.assets]
-                const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
+                if (!response.error) {
+                    const responseData = [...response.trading_platform_asset_listing.mt5.assets]
+                    const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
 
-                responseData.forEach((item) => {
-                    const currentMarket = [...(markets.get(item.market) ?? [])]
+                    responseData.forEach((item) => {
+                        const market = item.market
 
-                    currentMarket.push(item)
-                    markets.set(item.market, currentMarket)
-                })
-                setMarketsData(markets)
-                setIsLoading(false)
+                        if (!markets.has(market)) {
+                            markets.set(market, [item])
+                        } else {
+                            markets.get(market).push(item)
+                        }
+                    })
+                    setMarketsData(markets)
+                    setIsLoading(false)
+                }
             },
         )
     }, [send])
@@ -75,11 +81,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     return (
         <TableContainer>
-            {is_loading && (
-                <TableLoadingContainer>
-                    <Spinner />
-                </TableLoadingContainer>
-            )}
             <Table>
                 <thead>
                     {table.getHeaderGroups().map((headerGroup) => (
@@ -98,6 +99,11 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                     ))}
                 </thead>
                 <tbody>
+                    {is_loading && (
+                        <TableLoadingContainer>
+                            <Spinner />
+                        </TableLoadingContainer>
+                    )}
                     {rows.map((row) => (
                         <TableRow key={row.id}>
                             {row.getVisibleCells().map((cell) => (

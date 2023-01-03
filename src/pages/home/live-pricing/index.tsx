@@ -7,6 +7,10 @@ import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 import { Button } from 'components/form'
+import { Localize } from 'components/localization'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import useHandleLogin from 'components/hooks/use-handle-login'
+import { handleRedirectToTradersHub } from 'components/layout/nav/util/nav-methods'
 
 const LivePricingSection = styled.section`
     background-color: var(--color-white);
@@ -52,6 +56,7 @@ const MarketsContainer = styled.div`
     }
 `
 const MarketButton = styled.button<{ selected: boolean }>`
+    margin: 0;
     min-height: 48px;
     position: relative;
     border-bottom: 2px solid red;
@@ -91,40 +96,55 @@ const DisclaimerText = styled(Header)`
 
 const LivePricing = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
-
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
+    const [is_logged_in] = useAuthCheck()
+    const handleLogin = useHandleLogin()
 
     return (
-        <LivePricingSection>
+        <LivePricingSection id="live-pricing">
             <Markets>
                 <MarketsContainer>
                     {market_buttons.map((marketItem) => (
-                        <MarketButton
-                            selected={marketItem.market_name === selected_market}
-                            key={marketItem.id}
-                            onClick={() => {
-                                onMarketButtonClick(marketItem.market_name)
-                            }}
-                        >
-                            <Header type="paragraph-2">{marketItem.button_text}</Header>
-                        </MarketButton>
+                        <>
+                            <MarketButton
+                                selected={marketItem.market_name === selected_market}
+                                key={marketItem.id}
+                                onClick={() => {
+                                    onMarketButtonClick(marketItem.market_name)
+                                }}
+                            >
+                                <Header type="paragraph-2">
+                                    <Localize translate_text={marketItem.button_text} />
+                                </Header>
+                            </MarketButton>
+                        </>
                     ))}
                 </MarketsContainer>
             </Markets>
             <ContainerWrapper>
-                <Header type="paragraph-1" weight="normal" align="center">
-                    Benefit from round-the-clock trading hours (Monday to Friday), high liquidity,
-                    low barriers to entry, a wide range of offerings, and opportunities to trade on
-                    world events.
-                </Header>
+                {market_buttons.map(
+                    (marketItem) =>
+                        marketItem.market_name === selected_market && (
+                            <Header type="paragraph-1" weight="normal" align="center">
+                                <Localize translate_text={marketItem.market_description} />
+                            </Header>
+                        ),
+                )}
                 <LiveMarketTable market={selected_market} />
                 <DisclaimerText>
-                    Disclaimer: All spreads are indicative. To view real-time spreads, clients
-                    should refer to their client terminal.
+                    <Localize translate_text="All spreads are indicative. To view real-time spreads, please refer to your terminal." />
                 </DisclaimerText>
-                <Button secondary>Trade now</Button>
+                {is_logged_in ? (
+                    <Button onClick={handleRedirectToTradersHub} secondary>
+                        <Localize translate_text="Trade now" />
+                    </Button>
+                ) : (
+                    <Button onClick={handleLogin} secondary>
+                        <Localize translate_text="Trade now" />
+                    </Button>
+                )}
             </ContainerWrapper>
         </LivePricingSection>
     )

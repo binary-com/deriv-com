@@ -1,7 +1,7 @@
 export type TMarketData = {
     ask: number
     bid: number
-    day_percentage_change: string
+    day_percentage_change: number
     market: string
     market_ranking: string
     spread: number
@@ -9,8 +9,10 @@ export type TMarketData = {
 }
 
 export type TMarketDataResponse = {
+    trading_platform_asset_listing: any
     active_symbols: TMarketData[]
     req_id: number
+    error: object
 }
 
 export type TAvailableLiveMarkets =
@@ -24,4 +26,5 @@ export type TMarketButtons = {
     id: number
     button_text: string
     market_name: TAvailableLiveMarkets
+    market_description: string
 }

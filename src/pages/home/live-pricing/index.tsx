@@ -97,6 +97,7 @@ const LivePricing = () => {
         if (!markets[market_name]) markets[market_name] = []
         markets[market_name].push({ market_description, market_name })
     }
+    //console.log(markets)
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }

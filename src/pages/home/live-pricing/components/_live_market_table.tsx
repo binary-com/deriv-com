@@ -44,7 +44,7 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                 const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
 
                 responseData.forEach((item) => {
-                    const currentMarket = [...(markets.get(item.market) ?? [])]
+                    const currentMarket = [...markets.get(item.market)]
 
                     currentMarket.push(item)
                     markets.set(item.market, currentMarket)

@@ -293,10 +293,6 @@ const MarketsFold = () => {
         else return '1600px'
     }
 
-    const getAutoPlay = () => {
-        if (is_mobile) return true
-    }
-
     const settings: CarouselProps = {
         options: {
             loop: true,
@@ -336,11 +332,7 @@ const MarketsFold = () => {
                         <Localize translate_text="Markets" />
                     </Header>
                 </Flex>
-                <Carousel
-                    has_autoplay={getAutoPlay()}
-                    autoplay_interval={is_mobile ? 3200 : 4000}
-                    {...settings}
-                >
+                <Carousel has_autoplay autoplay_interval={is_mobile ? 3200 : 4000} {...settings}>
                     {!is_loading &&
                         ((is_eu && market_data_eu) || (is_row && market_data)).map(
                             (market, index) => {

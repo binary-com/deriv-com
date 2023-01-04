@@ -212,7 +212,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit<1>."
+                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit</1>."
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,
@@ -315,7 +315,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>."
+                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit</1>."
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,

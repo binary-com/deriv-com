@@ -92,12 +92,6 @@ const DisclaimerText = styled(Header)`
 
 const LivePricing = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
-    const markets = {}
-    for (const { market_description, market_name } of market_buttons) {
-        if (!markets[market_name]) markets[market_name] = []
-        markets[market_name].push({ market_description, market_name })
-    }
-    //console.log(markets)
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
@@ -124,13 +118,14 @@ const LivePricing = () => {
                 </MarketsContainer>
             </Markets>
             <ContainerWrapper>
-                <Header type="paragraph-1" weight="normal" align="center">
-                    <Localize
-                        translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity,
-                    low barriers to entry, a wide range of offerings, and opportunities to trade on
-                    world events."
-                    />
-                </Header>
+                {market_buttons.map(
+                    (marketItem) =>
+                        marketItem.market_name === selected_market && (
+                            <Header type="paragraph-1" weight="normal" align="center">
+                                <Localize translate_text={marketItem.market_description} />
+                            </Header>
+                        ),
+                )}
                 <LiveMarketTable market={selected_market} />
                 <DisclaimerText>
                     <Localize translate_text="All spreads are indicative. To view real-time spreads, clients should refer to their client terminal." />

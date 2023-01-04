@@ -192,7 +192,7 @@ const dbot: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_In <0>Bot</0> Builder, hit <0>Save</0> on the toolbar at the top to download your bot. Give your bot a name, and choose to download your bot to your device or Google Drive. Your bot will be downloaded as an XML file._t_',
+                        '_t_In <0>Bot Builder</0>, hit <0>Save</0> on the toolbar at the top to download your bot. Give your bot a name, and choose to download your bot to your device or Google Drive. Your bot will be downloaded as an XML file._t_',
                     translation_components: [{ key: 0, type: 'strong' }],
                 },
             ],

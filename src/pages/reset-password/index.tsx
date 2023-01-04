@@ -9,7 +9,7 @@ import { Input, Button } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
-import { useDerivWS } from 'components/hooks/use-deriv-ws'
+import useDerivWS from 'components/hooks/use-deriv-ws'
 
 type EmailType = { email: string }
 

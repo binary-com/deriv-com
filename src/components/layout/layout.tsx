@@ -23,7 +23,7 @@ import { handleRedirect, isEuDomain } from 'common/utility'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { CookieStorage } from 'common/storage'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { useDerivWS } from 'components/hooks/use-deriv-ws'
+import useDerivWS from 'components/hooks/use-deriv-ws'
 import { AcademyContext } from 'store/academy-context'
 
 const LoadableFooter = Loadable(() => import('./footer'))

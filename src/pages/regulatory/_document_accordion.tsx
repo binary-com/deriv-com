@@ -120,7 +120,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
     return (
         <Accordion has_single_state id="kid">
             <AccordionItem
-                header={localize('Financial disclosure report')}
+                header={localize('Financial disclosure reportzzz')}
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}

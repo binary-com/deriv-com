@@ -1,8 +1,8 @@
-import { AcademyProvider } from './AcademyContext'
-import { BreakpointsProvider } from './BreakpointsContext'
-import { PopupProvider } from './PopupContext'
-import { RegionProvider } from './RegionContext'
-import { WebsiteStatusProvider } from './WebsiteStatusContext'
+import { AcademyProvider } from './academy-context'
+import { BreakpointsProvider } from './breakpoints-context'
+import { PopupProvider } from './popup-context'
+import { RegionProvider } from './region-context'
+import { WebsiteStatusProvider } from './website-status-context'
 
 export {
     AcademyProvider,

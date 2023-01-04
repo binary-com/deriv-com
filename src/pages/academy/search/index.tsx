@@ -13,7 +13,7 @@ import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
 import { unslugify, queryParams } from 'common/utility'
 import device from 'themes/device'
-import { AcademyContext } from 'store/AcademyContext'
+import { AcademyContext } from 'store/academy-context'
 
 const StyledHeaderWrapper = styled(Flex)`
     box-shadow: inset 0 -1px 0 #f2f3f4;

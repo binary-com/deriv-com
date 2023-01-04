@@ -24,7 +24,7 @@ import { useTruncateLength } from 'pages/academy/blog/posts/preview'
 import device from 'themes/device'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { AcademyContext } from 'store/AcademyContext'
+import { AcademyContext } from 'store/academy-context'
 
 type VideosTemplateProps = {
     data: AllVideosQuery

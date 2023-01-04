@@ -15,6 +15,7 @@ import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
 import Footer from './footer'
 import LayoutOverlay from './layout-overlay'
+import { PopupContext } from 'store/popup-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
@@ -23,8 +24,7 @@ import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_aler
 import { CookieStorage } from 'common/storage'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { useDerivWS } from 'components/hooks/use-deriv-ws'
-import { AcademyContext } from 'store/AcademyContext'
-import { PopupContext } from 'store/PopupContext'
+import { AcademyContext } from 'store/academy-context'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))

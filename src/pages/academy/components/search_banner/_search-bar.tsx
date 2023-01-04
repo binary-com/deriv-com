@@ -21,7 +21,7 @@ import { Flex } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { slugify } from 'common/utility'
 import { Header } from 'components/elements'
-import { AcademyContext } from 'store/AcademyContext'
+import { AcademyContext } from 'store/academy-context'
 
 type ElementWithMaximiseProps = {
     is_maximise?: boolean

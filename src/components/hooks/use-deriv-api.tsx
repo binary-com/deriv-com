@@ -23,7 +23,8 @@ export const useDerivApi = () => {
     const send = useCallback(async (data: object, callback?: (e: object) => void) => {
         if (ws) {
             const response = await ws.current.send(data)
-            callback?.(response)
+
+            callback(response)
         }
     }, [])
 

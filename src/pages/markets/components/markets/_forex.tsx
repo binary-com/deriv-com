@@ -53,7 +53,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
             />
             {is_eu && (
                 <Spreader
-                    display_title={<Localize translate_text="Forex trading Spread" />}
+                    display_title={<Localize translate_text="_t_Forex trading Spread_t_" />}
                     is_forex
                 />
             )}

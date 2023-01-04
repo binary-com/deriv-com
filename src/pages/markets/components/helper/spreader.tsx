@@ -60,7 +60,7 @@ const StyledColumnTitle = styled(Header)`
 `
 const StyledCells = styled.div`
     margin-top: 1rem;
-    white-space: nowrap;
+    white-space: normal;
 `
 
 const StyledRow = styled.div`

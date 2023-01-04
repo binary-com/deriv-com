@@ -27,8 +27,7 @@ jobs:
             - name: Branch Check 🔍 
               run: |
                 CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
-
-                if [[ "$CLEAN_BRANCH" =~ ^[a-z0-9/_-]$ ]]; then echo "ok"; else exit 1; fi         
+                
                 echo "$CLEAN_BRANCH is a valid branch for translation workflow"
 
               

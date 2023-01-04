@@ -14,19 +14,19 @@ type RegionProviderProps = {
     children?: ReactNode
 }
 
-export type RegionContextType = {
-    is_eu_country: boolean
-    is_p2p_allowed_country: boolean
-    user_country: string
-    is_region_loading: boolean
-    is_eu_location: boolean
-    is_eu: boolean
-    is_non_eu: boolean
-    is_latam: boolean
-    is_row: boolean
-    is_dev: boolean
-    is_africa: boolean
-}
+export type RegionContextType = Record<
+    | 'is_eu_country'
+    | 'is_p2p_allowed_country'
+    | 'is_region_loading'
+    | 'is_eu_location'
+    | 'is_eu'
+    | 'is_non_eu'
+    | 'is_latam'
+    | 'is_row'
+    | 'is_dev'
+    | 'is_africa',
+    boolean
+> & { user_country: string }
 
 export const RegionContext = createContext<RegionContextType>(null)
 

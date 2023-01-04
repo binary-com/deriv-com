@@ -1,7 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 import { isBrowser, addScript } from 'common/utility'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 export const url = isBrowser() ? window.location.href : ''
 

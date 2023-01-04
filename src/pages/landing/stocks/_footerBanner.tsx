@@ -5,7 +5,7 @@ import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import device from 'themes/device'
 
 const BannerWrapper = styled(Flex)`

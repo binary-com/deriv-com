@@ -14,7 +14,7 @@ import { Text, Header, LinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import TipIcon from 'images/svg/careers/career-tip.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const StyledSectionContainer = styled(SectionContainer)`
     padding: 8rem 0 5rem 0;

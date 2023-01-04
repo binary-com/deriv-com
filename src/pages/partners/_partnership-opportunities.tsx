@@ -7,7 +7,7 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-affiliate.svg'
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
 import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type ClientCardProps = { first?: boolean; second?: boolean; third?: boolean }
 

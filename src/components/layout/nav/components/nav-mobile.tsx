@@ -18,7 +18,7 @@ import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import useHandleLogin from 'components/hooks/use-handle-login'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 

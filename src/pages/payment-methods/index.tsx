@@ -10,7 +10,7 @@ import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elem
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
 

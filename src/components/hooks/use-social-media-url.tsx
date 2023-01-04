@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getLanguage, getLocationPathname } from 'common/utility'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const social_media_urls = {
     twitter: {

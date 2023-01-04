@@ -20,7 +20,7 @@ const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms'))
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type ItemType = {
     title: string | ReactElement

@@ -10,7 +10,7 @@ import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useHandleLogin from 'components/hooks/use-handle-login'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type TabProps = {
     active?: boolean

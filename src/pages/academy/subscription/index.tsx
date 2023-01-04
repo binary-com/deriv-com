@@ -7,7 +7,7 @@ import { SectionContainer, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form/'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const Subscription = () => {
     const [email] = useQueryParam('email', StringParam)

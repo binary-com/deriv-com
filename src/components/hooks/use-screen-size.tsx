@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import useBreakpoints from './use-breakpoints'
-import { BreakpointsContext } from 'store/BreakpointsContext'
+import { BreakpointsContext } from 'store/breakpoints-context'
 
 // HINT: We will add more values to the hook in the future,
 // so for the type handling for now I'll just alias the type

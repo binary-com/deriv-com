@@ -14,7 +14,7 @@ import DTraderBG from 'images/svg/dtrader/dtrader-bg.svg'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import DHero from 'components/custom/_dhero'
 import DNumber from 'components/custom/_dnumbers'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))

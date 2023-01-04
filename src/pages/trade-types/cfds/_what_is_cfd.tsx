@@ -3,7 +3,7 @@ import { SmallContainer } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const WhatIsCFD = () => {
     const { is_eu } = React.useContext(RegionContext)

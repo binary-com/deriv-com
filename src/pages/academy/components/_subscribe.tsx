@@ -10,7 +10,7 @@ import { LocalizedLinkText, Header } from 'components/elements'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const SignupFormWrapper = styled(Flex)`
     width: 100%;

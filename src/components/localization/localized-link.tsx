@@ -15,7 +15,7 @@ import {
     replaceLocale,
 } from 'common/utility'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type InternalLinkProps = {
     aria_label?: string

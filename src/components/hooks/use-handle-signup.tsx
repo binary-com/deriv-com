@@ -1,8 +1,8 @@
 import React from 'react'
 import { navigate, withPrefix } from 'gatsby'
 import { isEuDomain, getLanguage } from 'common/utility'
-import { PopupContext } from 'store/PopupContext'
-import { RegionContext } from 'store/RegionContext'
+import { PopupContext } from 'store/popup-context'
+import { RegionContext } from 'store/region-context'
 
 const useHandleSignup = (_is_ppc = false) => {
     const { is_region_loading, is_eu_location } = React.useContext(RegionContext)

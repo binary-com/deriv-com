@@ -8,7 +8,7 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
 import Derived from 'images/svg/trade-types/derived.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;

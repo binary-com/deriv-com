@@ -8,7 +8,7 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import Platform from 'images/common/interim/check-interim-bg.png'
 import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type SectionProps = {
     image: string

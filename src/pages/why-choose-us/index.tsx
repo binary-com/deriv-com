@@ -10,7 +10,7 @@ import { localize, WithIntl } from 'components/localization'
 import { Button } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const ResponsiveLinkButton = styled(Button)`
     @media ${device.mobileL} {

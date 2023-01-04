@@ -9,7 +9,7 @@ import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const SelectedZone = styled(Flex)`
     left: 0;

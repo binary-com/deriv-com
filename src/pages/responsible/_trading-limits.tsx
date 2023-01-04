@@ -5,7 +5,7 @@ import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const ContentWrapper = styled(Flex)`
     justify-content: center;

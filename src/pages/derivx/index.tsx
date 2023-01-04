@@ -15,7 +15,7 @@ import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import BackgroundPatternDerivX from 'images/svg/deriv-x/derivx-footer.svg'
 import BackgroundPatternDerivXMobile from 'images/svg/deriv-x/derivx-footer-mobile.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const query = graphql`
     query {

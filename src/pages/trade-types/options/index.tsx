@@ -7,7 +7,7 @@ import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
 const StartTrading = Loadable(() => import('./_start-trading'))

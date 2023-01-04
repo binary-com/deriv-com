@@ -22,7 +22,7 @@ import OuOd from 'images/svg/options/ou-od.svg'
 import HighClose from 'images/svg/options/high-close.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 import HighLow from 'images/svg/options/high-low.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const MiddleText = styled(Text)`
     margin-bottom: 0.8rem;

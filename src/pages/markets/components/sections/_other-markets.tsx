@@ -10,7 +10,7 @@ import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 

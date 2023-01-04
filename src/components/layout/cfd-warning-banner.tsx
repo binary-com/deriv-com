@@ -5,7 +5,7 @@ import { loss_percent } from 'common/constants'
 import device from 'themes/device'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type TProps = {
     is_ppc: boolean

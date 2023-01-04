@@ -3,7 +3,7 @@ import DesktopPlatformCarousel from './_desktop-platform-carousel'
 import MobilePlatformCarousel from './_mobile-platform-carousel'
 import { platform_details_row, platform_details_eu } from './_utils'
 import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const PlatformCarousel = () => {
     const { is_eu, is_row } = React.useContext(RegionContext)

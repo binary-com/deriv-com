@@ -11,7 +11,7 @@ import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import { Localize, localize } from 'components/localization'
 
 //Lazy-load

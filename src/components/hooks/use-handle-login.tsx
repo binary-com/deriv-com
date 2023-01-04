@@ -1,8 +1,8 @@
 import React from 'react'
 import { isEuDomain, redirectToTradingPlatform } from 'common/utility'
 import Login from 'common/login'
-import { PopupContext } from 'store/PopupContext'
-import { RegionContext } from 'store/RegionContext'
+import { PopupContext } from 'store/popup-context'
+import { RegionContext } from 'store/region-context'
 
 const useHandleLogin = () => {
     const { is_region_loading, is_eu_location } = React.useContext(RegionContext)

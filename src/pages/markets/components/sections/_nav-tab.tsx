@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import device from 'themes/device'
 
 type NavTabProps = {

@@ -7,7 +7,7 @@ import List from './_list'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import { TString } from 'types/generics'
 
 type AnswerCardType = {

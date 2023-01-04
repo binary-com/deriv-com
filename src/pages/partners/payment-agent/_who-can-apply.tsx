@@ -22,7 +22,7 @@ import Email from 'images/svg/partners/pa-email.svg'
 import Reply from 'images/svg/partners/pa-reply.svg'
 import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type ImageWrapperProps = {
     left_margin?: string

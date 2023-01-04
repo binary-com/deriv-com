@@ -1,6 +1,6 @@
 import React from 'react'
 import { TQuestions, TQuestionsData } from './_data-types'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 export const useFilteredQuestions = (data: TQuestions[]) => {
     const { is_eu } = React.useContext(RegionContext)

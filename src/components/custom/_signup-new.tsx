@@ -10,7 +10,7 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type SignupNewProps = {
     autofocus?: boolean

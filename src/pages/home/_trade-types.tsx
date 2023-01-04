@@ -14,7 +14,7 @@ import { Flex, SectionContainer } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type TradeTypesProps = {

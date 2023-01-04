@@ -10,7 +10,7 @@ import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;

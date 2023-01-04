@@ -9,7 +9,7 @@ import { localize, WithIntl } from 'components/localization'
 import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const TradingResponsibly = Loadable(() => import('./_trading-responsibly'))
 const TradingLimits = Loadable(() => import('./_trading-limits'))

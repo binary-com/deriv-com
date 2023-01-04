@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { localize, Localize } from 'components/localization'
 import { Text, LocalizedLinkText } from 'components/elements'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const StyledUl = styled.ul`
     list-style-type: disc;

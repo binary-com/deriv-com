@@ -6,7 +6,7 @@ import { simple_step_content_synthetic } from '../static/content/_synthetic'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import { SEO } from 'components/containers'
 
 const Markets = () => {

@@ -15,7 +15,7 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { affiliate_signin_url, affiliate_signup_url } from 'common/constants'
 import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 

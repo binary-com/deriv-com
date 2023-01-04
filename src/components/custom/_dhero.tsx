@@ -10,7 +10,7 @@ import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type DHeroProps = {
     background_alt?: string

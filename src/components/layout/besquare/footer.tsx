@@ -19,7 +19,7 @@ import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
 import Facebook from 'images/svg/be-square/facebook.svg'
 import Instagram from 'images/svg/be-square/instagram.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const query = graphql`
     query {

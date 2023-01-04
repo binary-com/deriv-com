@@ -10,7 +10,7 @@ import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import SmartTrader from 'images/svg/custom/smarttrader.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type AvailablePlatformsProps = {
     dmt5?: boolean

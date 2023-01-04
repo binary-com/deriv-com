@@ -3,7 +3,7 @@ import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style
 import { Localize } from 'components/localization'
 import { Flex, Desktop } from 'components/containers'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type MainLinksSectionProps = {
     is_ppc?: boolean

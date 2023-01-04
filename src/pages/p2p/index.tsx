@@ -12,7 +12,7 @@ const ExchangeSteps = Loadable(() => import('./components/_exchange-steps'))
 const P2PBanner = Loadable(() => import('./components/_p2pbanner'))
 const Numbers = Loadable(() => import('./components/_numbers'))
 const Availability = Loadable(() => import('./components/_availability'))
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const DP2P_CONTENT = [
     {

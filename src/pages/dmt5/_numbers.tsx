@@ -4,7 +4,7 @@ import { Header, Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type NumbersContentType = {
     title: React.ReactElement

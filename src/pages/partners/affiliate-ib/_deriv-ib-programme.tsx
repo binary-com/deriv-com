@@ -7,7 +7,7 @@ import { Header } from 'components/elements/typography'
 import { LiveChatLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type AssetsType = {
     title: React.ReactElement

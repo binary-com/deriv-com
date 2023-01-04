@@ -8,7 +8,7 @@ import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
 import CFDsIcon from 'images/svg/dmt5/cfds.svg'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type ContentType = {
     header?: React.ReactElement

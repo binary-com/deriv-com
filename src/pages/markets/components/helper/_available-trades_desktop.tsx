@@ -4,7 +4,7 @@ import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type CardProps = {

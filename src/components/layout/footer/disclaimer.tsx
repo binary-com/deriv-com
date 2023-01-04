@@ -9,7 +9,7 @@ import {
 import { Mobile, Desktop } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { loss_percent } from 'common/constants'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type DisclaimerSectionProps = {
     is_academy?: boolean

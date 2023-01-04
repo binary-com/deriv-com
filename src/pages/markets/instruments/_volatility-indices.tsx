@@ -4,7 +4,7 @@ import {
     volatility_indices,
     volatility_indices_trade_type_eu,
 } from '../static/content/_market-symbols'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const VolatilityIndices = () => {
     const { is_eu } = React.useContext(RegionContext)

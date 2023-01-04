@@ -4,7 +4,7 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Header, Text, LinkText, LiveChatLinkText } from 'components/elements'
 import { affiliate_signup_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type StyledLinkProps = {
     href: string

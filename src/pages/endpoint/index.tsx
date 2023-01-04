@@ -12,7 +12,7 @@ import { trimSpaces } from 'common/utility'
 import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
-import { WebsiteStatusContext } from 'store/WebsiteStatusContext'
+import { WebsiteStatusContext } from 'store/website-status-context'
 
 type ValuesType = {
     server_url?: string | number

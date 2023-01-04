@@ -11,7 +11,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { slugify, isBrowser } from 'common/utility'
 import device from 'themes/device'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 type SearchBannerProps = {

@@ -2,7 +2,7 @@ import React from 'react'
 import TranslationComponents from './_translation-components'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const Derived = () => {
     const { is_row, is_eu } = React.useContext(RegionContext)

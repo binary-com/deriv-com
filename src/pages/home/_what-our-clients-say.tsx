@@ -6,7 +6,7 @@ import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import Quote from 'images/svg/testimonials/quote.svg'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 declare global {
     interface Window {

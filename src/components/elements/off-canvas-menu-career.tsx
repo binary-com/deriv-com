@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { Header } from './typography'
 import { LocalizedLinkText } from 'components/elements'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const OffCanvasMenuCareer = styled.section<OffCanvasMenuWrapperCareerProps>`
     position: fixed;

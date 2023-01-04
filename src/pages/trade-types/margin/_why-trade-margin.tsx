@@ -10,7 +10,7 @@ import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { Button } from 'components/form'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const WhyTradeMargin = () => {
     const { is_eu } = React.useContext(RegionContext)

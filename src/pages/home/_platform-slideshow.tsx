@@ -5,7 +5,7 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 const ImagePlaceHolder = styled.div`
     width: 690px;

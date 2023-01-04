@@ -14,7 +14,7 @@ import { SimpleStepContentElement } from '../../static/content/_simple_step_cont
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type StockIndicesProps = {
     simple_step_content: SimpleStepContentElement[]

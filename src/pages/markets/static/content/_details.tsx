@@ -2,7 +2,7 @@ import React from 'react'
 import { CrashText, DetailsContainer } from '../style/_markets-style'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { RegionContext } from 'store/RegionContext'
+import { RegionContext } from 'store/region-context'
 
 type TEuropeDetailsProps = {
     custom_index: number

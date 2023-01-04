@@ -41,9 +41,6 @@ export const Spinner = styled.div`
     height: 24px;
     border-radius: 50%;
 `
-
-export default Spinner
-
 export const Table = styled.table`
     width: 100%;
 `

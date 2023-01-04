@@ -9,7 +9,7 @@ import type { SortingState } from '@tanstack/react-table'
 import { TAvailableLiveMarkets, TMarketData, TMarketDataResponse } from '../_types'
 import useLiveColumns from '../_use-live-columns'
 import { TABLE_VISIBLE_ROWS } from '../_utils'
-import Spinner, { TableLoadingContainer, Table, TableContainer, TableRow } from './_elements'
+import { Spinner, TableLoadingContainer, Table, TableContainer, TableRow } from './_elements'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
 
 export type TLiveMarketTableProps = {

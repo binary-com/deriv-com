@@ -116,7 +116,7 @@ const LivePricing = () => {
                                 }}
                             >
                                 <Header type="paragraph-2">
-                                    {<Localize translate_text={marketItem.button_text} />}
+                                    <Localize translate_text={marketItem.button_text} />
                                 </Header>
                             </MarketButton>
                         </>

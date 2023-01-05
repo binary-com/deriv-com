@@ -206,7 +206,7 @@ const StyledFormWrapper = styled.div`
     padding: 20px 20px 30px;
     margin-left: 30px;
     border-radius: 8px;
-    position: absolute;
+    position: relative;
     bottom: -50px;
     box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
 

@@ -256,31 +256,41 @@ export const TextContainers = styled(({ as = 'h2', children, ...props }: HeaderP
     font-weight: ${(props) => props.weight || 'bold'};
     font-size: ${(props) => {
         if (props.size) return props.size
-        else
-            return (
-                ElementStyleAttributes[props.type] &&
-                ElementStyleAttributes[props.type]['font_size']
-            )
+        else {
+            if (typeof props.type === 'string') {
+                return (
+                    ElementStyleAttributes[props.type] &&
+                    ElementStyleAttributes[props.type]['font_size']
+                )
+            }
+        }
     }};
     line-height: ${(props) => {
-        return (
-            ElementStyleAttributes[props.type] && ElementStyleAttributes[props.type]['line_height']
-        )
+        if (typeof props.type === 'string') {
+            return (
+                ElementStyleAttributes[props.type] &&
+                ElementStyleAttributes[props.type]['line_height']
+            )
+        }
     }};
     width: ${(props) => props.width || '100%'};
 
     @media ${device.tabletL} {
         font-size: ${(props) => {
-            return (
-                ElementStyleAttributes[props.type] &&
-                ElementStyleAttributes[props.type]['font_size_tabletL']
-            )
+            if (typeof props.type === 'string') {
+                return (
+                    ElementStyleAttributes[props.type] &&
+                    ElementStyleAttributes[props.type]['font_size_tabletL']
+                )
+            }
         }};
         line-height: ${(props) => {
-            return (
-                ElementStyleAttributes[props.type] &&
-                ElementStyleAttributes[props.type]['line_height_tabletL']
-            )
+            if (typeof props.type === 'string') {
+                return (
+                    ElementStyleAttributes[props.type] &&
+                    ElementStyleAttributes[props.type]['line_height_tabletL']
+                )
+            }
         }};
     }
 

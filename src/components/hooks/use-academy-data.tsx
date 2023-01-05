@@ -56,10 +56,15 @@ export type VideoThumbnailType = {
 
 // This hook is used to fetch data from Directus during build time
 export const useAcademyData = (): [AcademyDataType] => {
-    let academy_data = useStaticQuery(query)
-    academy_data = academy_data?.directus
+    //let academy_data = useStaticQuery(query)
+    //academy_data = academy_data?.directus
 
-    return [academy_data]
+    return [
+        {
+            blog: [],
+            videos: [],
+        },
+    ]
 }
 
 const query = graphql`

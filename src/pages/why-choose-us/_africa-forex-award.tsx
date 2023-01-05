@@ -7,11 +7,11 @@ import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
     query {
-        africa_award_background: file(relativePath: { eq: "choose-us/africa_award_bg.png" }) {
+        africa_award_background: file(relativePath: { eq: "choose-us/award_bg.png" }) {
             ...fadeIn
         }
         africa_award_background_mobile: file(
-            relativePath: { eq: "choose-us/africa_award_bg_mobile.png" }
+            relativePath: { eq: "choose-us/award_bg_mobile.png" }
         ) {
             ...fadeIn
         }

@@ -235,7 +235,7 @@ const query = graphql`
         dtrader_eu: file(relativePath: { eq: "dtrader/dtrader_trade_eu.png" }) {
             ...fadeIn
         }
-        dbot_mobile: file(relativePath: { eq: "dbot/dbot_trade_mobile.png" }) {
+        dbot_mobile: file(relativePath: { eq: "dbot/dbot_trade.png" }) {
             ...fadeIn
         }
         dmt5_mobile: file(relativePath: { eq: "dmt5/dmt5_trade_mobile.png" }) {

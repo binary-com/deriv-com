@@ -9,7 +9,7 @@ import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
-import { BackgroundImage, Header } from 'components/elements'
+import { BackgroundImage, Header, TextContainers } from 'components/elements'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -57,7 +57,7 @@ const HeroButton = styled(Button)`
         padding: 12px 20px;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(TextContainers)`
     @media ${device.tabletL} {
         margin-right: 8px;
         width: unset;
@@ -66,7 +66,7 @@ const StyledHeader = styled(Header)`
 
 const HeroHeader = ({ text }: { text: TString }) => {
     return (
-        <StyledHeader type="main-landing-title" color="white">
+        <StyledHeader type="main-landing-title" element_color="white">
             <Localize translate_text={text} />
         </StyledHeader>
     )

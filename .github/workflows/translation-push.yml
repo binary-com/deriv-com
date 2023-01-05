@@ -11,17 +11,9 @@ env:
 jobs:
     push-translation:
         if: |
-              (startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')) &&
-               !contains(github.event.workflow_run.head_branch, '!') &&
-               !contains(github.event.workflow_run.head_branch, '@') &&   
-               !contains(github.event.workflow_run.head_branch, '#') &&   
-               !contains(github.event.workflow_run.head_branch, '$') &&   
-               !contains(github.event.workflow_run.head_branch, '%') &&   
-               !contains(github.event.workflow_run.head_branch, '^') &&   
-               !contains(github.event.workflow_run.head_branch, '&') &&   
-               !contains(github.event.workflow_run.head_branch, '*') &&   
-               !contains(github.event.workflow_run.head_branch, '(') &&   
-               !contains(github.event.workflow_run.head_branch, ')') 
+            const invalidChars = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'];
+            (startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')) &&
+            !invalidChars.some(char => github.event.workflow_run.head_branch.includes(char)) 
         runs-on: ubuntu-latest
         steps:
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'

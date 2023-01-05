@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import AgreementLabel from 'components/custom/_agreement-label'
+import AgreementLabel from '../utils/_agreement-label'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
-import { StyledLink } from 'components/elements/link'
 
 type TAffiliateTerms = {
     non_pep_declaration: boolean
@@ -101,7 +100,7 @@ const AccountTerms = ({ affiliate_terms_data, updatedData, onValidate }: Account
             link_text: localize('I have read and accepted <0> Deriv’s terms and conditions </0>'),
             is_checked: tnc_accepted,
             name: 'tnc_accepted',
-            url: '/terms-and-conditions/#clients',
+            is_affiliate: false,
         },
         {
             link_text: localize(
@@ -109,7 +108,7 @@ const AccountTerms = ({ affiliate_terms_data, updatedData, onValidate }: Account
             ),
             is_checked: is_brokers_checked,
             name: 'is_brokers_checked',
-            url: '/tnc/business-partners-affiliates-and-introducing-brokers.pdf',
+            is_affiliate: true,
         },
         {
             link_text: localize('Please send me information regarding your partnership program.'),
@@ -132,24 +131,16 @@ const AccountTerms = ({ affiliate_terms_data, updatedData, onValidate }: Account
                     'A politically exposed person (PEP) is someone appointed with a prominent public position. Close associates and family members of a PEP are also considered to be PEPs.',
                 )}
             </Header>
-            {AgreementData.map(({ link_text, is_checked, name, url }, index) => {
+            {AgreementData.map(({ link_text, is_checked, name, is_affiliate }, index) => {
                 return (
                     <>
                         <AgreementLabel
+                            is_affiliate={is_affiliate}
                             key={index}
                             isChecked={is_checked}
                             handleChangeCheckbox={(value) => handleChange(value, name)}
                             link_text={link_text}
-                            color="var(--color-black-3)"
-                        >
-                            <StyledLink
-                                external
-                                size="1.5rem"
-                                to={url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            />
-                        </AgreementLabel>
+                        />
 
                         {index !== AgreementData.length - 1 && <Line />}
                     </>

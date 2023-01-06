@@ -6,15 +6,16 @@ type BreakpointsProviderProps = {
     children?: ReactNode
 }
 
-type TUseBreakpoints = {
-    is_mobile: boolean
-    is_tablet: boolean
-    is_mobile_or_tablet: boolean
-    is_large_tablet: boolean
-    is_laptop: boolean
-    is_desktop: boolean
-    is_laptop_or_desktop: boolean
-}
+type TUseBreakpoints = Record<
+    | 'is_mobile'
+    | 'is_tablet'
+    | 'is_mobile_or_tablet'
+    | 'is_large_tablet'
+    | 'is_laptop'
+    | 'is_desktop'
+    | 'is_laptop_or_desktop',
+    boolean
+>
 
 export const BreakpointsContext = createContext<TUseBreakpoints>(null)
 

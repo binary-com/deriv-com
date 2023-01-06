@@ -6,7 +6,9 @@ import { RegionProvider } from './region-context'
 import { WebsiteStatusProvider } from './website-status-context'
 import { MediaContextProvider } from 'themes/media'
 
-const GlobalProvider = ({ children }: { children: React.ReactNode }) => (
+type GlobalProviderProps = { children: React.ReactNode }
+
+const GlobalProvider = ({ children }: GlobalProviderProps) => (
     <AcademyProvider>
         <BreakpointsProvider>
             <PopupProvider>

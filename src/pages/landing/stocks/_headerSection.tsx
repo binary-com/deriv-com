@@ -9,7 +9,7 @@ import StocksHeaderBelowSection from 'images/svg/stock-indices/stocksHeaderBelow
 import stocksHeaderBelowSectionM from 'images/svg/stock-indices/stocksHeaderBelowSection-m.svg'
 import device from 'themes/device'
 import { localize } from 'components/localization'
-import { Header, QueryImage } from 'components/elements'
+import { Header, QueryImage, TextContainers } from 'components/elements'
 import { LinkButton } from 'components/form'
 
 const query = graphql`
@@ -117,7 +117,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const StyledHeaderSmall = styled(Header)`
+const StyledHeaderSmall = styled(TextContainers)`
     font-size: 24px;
     max-width: 58rem;
     line-height: 1.5;
@@ -265,7 +265,7 @@ const HeaderSection = () => {
                                 {localize('Stocks, unlocked')}
                             </StyledHeader>
                             <StyledHeaderSmall
-                                color="white"
+                                element_color="white"
                                 type="sub-section-title"
                                 weight="normal"
                             >

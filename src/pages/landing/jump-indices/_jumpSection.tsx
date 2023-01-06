@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, TextContainers } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import JumpSVG from 'images/svg/jump-indices/jump-indices-imagery.svg'
@@ -57,7 +57,7 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
-const StyledHeaderSmall = styled(Header)`
+const StyledHeaderSmall = styled(TextContainers)`
     line-height: 36px;
     @media ${device.tabletL} {
         text-align: center;

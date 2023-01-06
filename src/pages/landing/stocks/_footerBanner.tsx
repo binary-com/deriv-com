@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Container, Flex } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header, QueryImage, TextContainers } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -114,7 +114,7 @@ const StyledHeader = styled(Header)`
         margin-bottom: 8px;
     }
 `
-const StyledHeaderSmall = styled(Header)`
+const StyledHeaderSmall = styled(TextContainers)`
     font-size: 24px;
     line-height: 1.5;
     max-width: 584px;
@@ -167,7 +167,7 @@ const FooterBanner = ({
                             {title}
                         </StyledHeader>
                         <StyledHeaderSmall
-                            color="white"
+                            element_color="white"
                             type="sub-section-title"
                             weight="normal"
                             size="2.4rem"

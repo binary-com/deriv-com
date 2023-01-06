@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, TextContainers } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -55,7 +55,7 @@ const StyledHeader = styled(Header)`
     margin-bottom: 8px;
     text-align: center;
 `
-const StyledHeaderSmall = styled(Header)`
+const StyledHeaderSmall = styled(TextContainers)`
     text-align: center;
     line-height: 36px;
 

@@ -9,9 +9,9 @@ env:
  BRANCH: ${{ github.head_ref }}
 
 jobs:
-    check-translation-branch:
+   check-translation-branch:
         runs-on: ubuntu-latest
-         if:| 
+        if: |
             (startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')) &&
             !contains(github.head_ref, '!') &&
             !contains(github.head_ref, '@') &&   

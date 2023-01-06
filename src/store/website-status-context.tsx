@@ -7,7 +7,7 @@ type WebsiteStatusProviderProps = {
     children?: ReactNode
 }
 
-export type WebsiteStatusContextType = {
+type WebsiteStatusContextType = {
     setWebsiteStatus: Dispatch<WebsiteStatus | void>
     website_status: WebsiteStatus
 }

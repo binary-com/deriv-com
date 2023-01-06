@@ -14,7 +14,7 @@ type RegionProviderProps = {
     children?: ReactNode
 }
 
-export type RegionContextType = Record<
+type RegionContextType = Record<
     | 'is_eu_country'
     | 'is_p2p_allowed_country'
     | 'is_region_loading'

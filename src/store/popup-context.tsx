@@ -4,12 +4,12 @@ type PopupProviderProps = {
     children?: ReactNode
 }
 
-export type PopupContextType = {
+type PopupContextType = {
     show_non_eu_popup: boolean
     setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const PopupContext = createContext<PopupContextType>(null)
+const PopupContext = createContext<PopupContextType>(null)
 
 export const PopupProvider = ({ children }: PopupProviderProps) => {
     const [show_non_eu_popup, setShowNonEuPopup] = useState(false)

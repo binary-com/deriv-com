@@ -2,12 +2,12 @@ import React, { createContext, ReactNode } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 
-export type AcademyDataType = {
+type AcademyDataType = {
     blog: BlogType[]
     videos: VideosType[]
 }
 
-export type BlogType = {
+type BlogType = {
     blog_description: string
     blog_title: string
     featured: boolean
@@ -19,20 +19,20 @@ export type BlogType = {
     tags?: TagsType[]
 }
 
-export type MainImageType = {
+type MainImageType = {
     description?: string
     id: string
     imageFile: ImageDataLike
 }
 
-export type TagsType = {
+type TagsType = {
     id: string
     tags_id: {
         tag_name: string
     }
 }
 
-export type VideosType = {
+type VideosType = {
     featured: boolean
     visibility: string
     published_date: string
@@ -45,11 +45,7 @@ export type VideosType = {
     video_title: string
 }
 
-export type VideoFileType = {
-    id: string
-}
-
-export type VideoThumbnailType = {
+type VideoThumbnailType = {
     id: string
     imageFile: ImageDataLike
     title?: string
@@ -59,7 +55,7 @@ type AcademyProviderProps = {
     children?: ReactNode
 }
 
-export type AcademyContextType = {
+type AcademyContextType = {
     academy_data: AcademyDataType
 }
 

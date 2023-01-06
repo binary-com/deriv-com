@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import payment_data from './_payment-data'
@@ -12,6 +12,7 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import useWS from 'components/hooks/useWS'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
 
@@ -142,6 +143,7 @@ type PaymentType = {
     locales?: string[]
     url?: string
     reference_link?: ReactElement
+    minimum_withdrawal?: number | ReactElement
 }
 export type PaymentProps = {
     payment_data?: PaymentType
@@ -171,6 +173,36 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     const { is_eu } = useCountryRule()
     const [is_mobile] = useBrowserResize(992)
+    const { data, send } = useWS('crypto_config')
+    const [payment_method_data, setPaymentMethodData] = useState(payment_data)
+
+    // Here we send the request to the server on the first render of the page to get the data.
+    useEffect(() => {
+        send({})
+    }, [send])
+
+    useEffect(() => {
+        // First we check if the `data` exists or not, Then we manipulate the local data with the response from the server.
+        if (data) {
+            // Here we map over the local `payment_data` variable to manipulate it with the server response.
+            const updated_payment_data = payment_data.map((pdata) => {
+                if (!pdata.is_crypto) return pdata
+
+                const updated_data = pdata.data.map((value) => ({
+                    ...value,
+                    ...data.currencies_config[value.name],
+                }))
+
+                return {
+                    ...pdata,
+                    data: updated_data,
+                }
+            })
+
+            // Here we update the `payment_method_data` state with the newly updated `payment_data`.
+            setPaymentMethodData(updated_payment_data)
+        }
+    }, [data])
 
     const content_style = is_mobile
         ? {
@@ -196,7 +228,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 
     return (
         <>
-            {payment_data.map((pdata, idx) => {
+            {payment_method_data.map((pdata, idx) => {
                 const styles = is_mobile
                     ? {
                           padding: '0 16px 0',

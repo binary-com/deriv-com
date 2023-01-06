@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, ReactNode } from 'react'
 import { isEuCountry, eu_countries, latam_countries, african_countries } from 'common/country-base'
-import { useWebsiteStatus } from 'components/hooks/use-website-status'
+import useWebsiteStatus from 'components/hooks/use-website-status'
 import {
     getClientInformation,
     getDomain,
@@ -31,7 +31,7 @@ export type RegionContextType = Record<
 export const RegionContext = createContext<RegionContextType>(null)
 
 export const RegionProvider = ({ children }: RegionProviderProps) => {
-    const [website_status] = useWebsiteStatus()
+    const { website_status } = useWebsiteStatus()
 
     const [region, setRegion] = useState<TRegion>({
         is_region_loading: true,

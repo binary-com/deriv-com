@@ -57,6 +57,14 @@ module.exports = {
                 defaultQuality: 50,
             },
         },
+        {
+            resolve: `gatsby-plugin-persist-cache`,
+            options: {
+              enabled: !process.env.DISABLE_PERSISTENT_CACHE,
+              persistentDir: ".persistent-cache",
+              pluginNames: [`gatsby-plugin-sharp`,`gatsby-transformer-sharp`, `@directus/gatsby-source-directus`, `gatsby-plugin-image`],
+            },
+          },
         `gatsby-plugin-image`,
         {
             resolve: 'gatsby-plugin-sitemap',

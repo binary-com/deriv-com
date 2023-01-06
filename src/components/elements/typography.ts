@@ -248,10 +248,7 @@ const ElementStyleAttributes = {
         line_height_tabletL: '12px',
     },
 }
-
-export const TextContainers = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
-    createElement(as, props, children),
-)<HeaderProps>`
+export const TextContainers = styled.h2<HeaderProps>`
     ${TextContainerBaseElement}
     font-weight: ${(props) => props.weight || 'bold'};
     font-size: ${(props) => {

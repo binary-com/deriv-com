@@ -368,7 +368,7 @@ const MarginCalculator = () => {
                                     )}
                                 </Text>
                                 <Desktop>
-                                    <FormulaContainer pt="8px">
+                                    <FormulaContainer height="176px">
                                         <FormulaHighlight pl="87px" pr="87px" jc="space-evenly">
                                             <FormulaValue>
                                                 <Localize translate_text="( 2" />
@@ -387,7 +387,7 @@ const MarginCalculator = () => {
 
                                             <FormulaValue>
                                                 <Localize translate_text="100,000" />
-                                                <PointerContainer width="100px" ml="-25px">
+                                                <PointerContainer top width="100px" ml="-25px">
                                                     <PointerDot />
                                                     <PointerStick height="32px" />
                                                     <PointerText top>
@@ -418,10 +418,10 @@ const MarginCalculator = () => {
 
                                             <FormulaValue>
                                                 <Localize translate_text="100" />
-                                                <PointerContainer ml="-10px">
+                                                <PointerContainer top ml="-10px">
                                                     <PointerDot />
                                                     <PointerStick height="32px" />
-                                                    <PointerText>
+                                                    <PointerText top>
                                                         <Localize translate_text="Leverage" />
                                                     </PointerText>
                                                 </PointerContainer>

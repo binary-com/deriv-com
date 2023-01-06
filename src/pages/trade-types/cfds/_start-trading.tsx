@@ -4,11 +4,11 @@ import { SmallContainer, StartTradingBg } from '../components/_style'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import useScreenSize from 'components/hooks/use-screen-size'
 
 const StartTrading = () => {
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
     const { is_mobile_or_tablet } = useScreenSize()
     return (
         <>

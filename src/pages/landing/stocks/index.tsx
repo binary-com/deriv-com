@@ -6,7 +6,7 @@ import Layout from 'components/layout/layout'
 import { Desktop, Mobile, SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { size } from 'themes/device'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import { isBrowser } from 'common/utility'
 import ExtendedTimeSVG from 'images/svg/stock-indices/stocks-extended-time.svg'
 import NoCommisionSVG from 'images/svg/stock-indices/stocks-no-commission.svg'
@@ -140,7 +140,7 @@ const Stocks = () => {
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
-    const { is_row } = React.useContext(RegionContext)
+    const { is_row } = useRegion()
 
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)

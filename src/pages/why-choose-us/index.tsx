@@ -10,7 +10,7 @@ import { localize, WithIntl } from 'components/localization'
 import { Button } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const ResponsiveLinkButton = styled(Button)`
     @media ${device.mobileL} {
@@ -59,9 +59,9 @@ const ResponsiveHeader = styled(StyledHeader)`
 `
 
 const WhyChooseUs = () => {
-    const { is_latam } = React.useContext(RegionContext)
+    const { is_latam } = useRegion()
     const handleSignup = useHandleSignup()
-    const { is_africa } = React.useContext(RegionContext)
+    const { is_africa } = useRegion()
 
     return (
         <Layout>

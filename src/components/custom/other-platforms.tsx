@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
 import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
@@ -262,7 +262,7 @@ export const OtherPlatform = ({
     is_ppc_redirect,
 }: OtherPlatformProps) => {
     const excludetoLowerCase = exclude.toLowerCase()
-    const { is_row, is_eu } = React.useContext(RegionContext)
+    const { is_row, is_eu } = useRegion()
     const getHeaderText = () => (
         <>
             {is_eu && <Localize translate_text="Check out our other platform" />}
@@ -303,7 +303,7 @@ export const OtherPlatform = ({
 }
 
 export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformProps) => {
-    const { is_row, is_eu } = React.useContext(RegionContext)
+    const { is_row, is_eu } = useRegion()
 
     const getDtraderText = () => (
         <NavCard

@@ -7,7 +7,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Button } from 'components/form'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
@@ -165,7 +165,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
     const is_rtl = useIsRtl()
 

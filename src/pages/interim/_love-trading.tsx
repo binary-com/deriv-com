@@ -8,7 +8,7 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import Platform from 'images/common/interim/check-interim-bg.png'
 import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 type SectionProps = {
     image: string
@@ -176,7 +176,7 @@ export const LoveTradingComponent = ({
     right,
 }: LoveTradingComponentProps) => {
     const data = useStaticQuery(query)
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
     return (
         <Section p="3.2rem 0" image={bg_image} mobile_image={bg_image_mobile} is_eu={is_eu}>
             <AbsoluteWrapper>

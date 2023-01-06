@@ -1,13 +1,13 @@
 import React from 'react'
 import { isBrowser } from 'common/utility'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import { CookieStorage } from 'common/storage'
 import useGTMData from 'components/hooks/use-gtm-data'
 
 export const useCookieBanner = () => {
     const [should_show, setShouldShow] = React.useState(false)
     const [gtm_data, setGTMData] = useGTMData()
-    const { is_region_loading, is_eu } = React.useContext(RegionContext)
+    const { is_region_loading, is_eu } = useRegion()
     const has_dataLayer = isBrowser() && window.dataLayer
     const TRACKING_STATUS_KEY = 'tracking_status'
     const tracking_status_cookie = React.useMemo(

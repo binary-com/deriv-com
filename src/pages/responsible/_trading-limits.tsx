@@ -5,7 +5,7 @@ import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const ContentWrapper = styled(Flex)`
     justify-content: center;
@@ -81,7 +81,7 @@ const StyledSubHeader = styled(Header)`
 `
 
 const TradingLimits = () => {
-    const { is_non_eu, is_eu } = React.useContext(RegionContext)
+    const { is_non_eu, is_eu } = useRegion()
     return (
         <Flex tablet_direction="column">
             <Flex height="auto">

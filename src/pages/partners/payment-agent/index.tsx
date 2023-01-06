@@ -8,7 +8,7 @@ import PageNotFound from 'pages/404'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
@@ -23,8 +23,8 @@ const meta_attributes = {
 }
 
 const PaymentAgent = () => {
-    const { is_row } = React.useContext(RegionContext)
-    const { is_p2p_allowed_country } = React.useContext(RegionContext)
+    const { is_row } = useRegion()
+    const { is_p2p_allowed_country } = useRegion()
     return (
         <>
             <SEO

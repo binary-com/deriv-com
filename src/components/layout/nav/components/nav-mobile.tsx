@@ -18,7 +18,7 @@ import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import useHandleLogin from 'components/hooks/use-handle-login'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
@@ -55,7 +55,7 @@ const NavMobile = ({
 }: NavMobileProps) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
     const handleLogin = useHandleLogin()
-    const { is_region_loading } = React.useContext(RegionContext)
+    const { is_region_loading } = useRegion()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
 

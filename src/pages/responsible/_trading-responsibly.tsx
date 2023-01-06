@@ -9,7 +9,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Divider, CardStyle, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const IcInfo = styled.img`
     margin-left: 1.5rem;
@@ -112,7 +112,7 @@ const StyledHeader = styled(Header)`
 `
 
 const TradingResponsibly = () => {
-    const { is_eu, is_non_eu } = React.useContext(RegionContext)
+    const { is_eu, is_non_eu } = useRegion()
     return (
         <SectionContainer>
             <Flex jc="center" wrap="true">

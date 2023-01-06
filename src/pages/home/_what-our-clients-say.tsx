@@ -6,7 +6,7 @@ import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import Quote from 'images/svg/testimonials/quote.svg'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 declare global {
     interface Window {
@@ -274,7 +274,7 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 )
 
 const WhatOurClientsSay = () => {
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
     const ref = useRef()
 
     useEffect(() => {

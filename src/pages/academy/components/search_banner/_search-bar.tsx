@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
@@ -21,7 +21,7 @@ import { Flex } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { slugify } from 'common/utility'
 import { Header } from 'components/elements'
-import { AcademyContext } from 'store/academy-context'
+import useAcademyData from 'components/hooks/use-academy-data'
 
 type ElementWithMaximiseProps = {
     is_maximise?: boolean
@@ -133,7 +133,7 @@ const Line = styled.div`
 
 const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     const [is_mobile_separator] = useBrowserResize(992)
-    const { academy_data } = useContext(AcademyContext)
+    const { academy_data } = useAcademyData()
     const [search_input, setSearchInput] = useState('')
     const [search_query, setSearchQuery] = useState('')
 

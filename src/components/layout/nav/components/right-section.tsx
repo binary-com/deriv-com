@@ -7,7 +7,7 @@ import { Button } from 'components/form'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
@@ -47,7 +47,7 @@ const RightSection = ({
     const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
     const [show_button, showButton, hideButton] = useMoveButton()
-    const { is_region_loading } = React.useContext(RegionContext)
+    const { is_region_loading } = useRegion()
     const handleLogin = useHandleLogin()
     const handleSignup = useHandleSignup(is_ppc_redirect)
     const [is_logged_in] = useAuthCheck()

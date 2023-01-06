@@ -10,7 +10,7 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 type SignupNewProps = {
     autofocus?: boolean
@@ -227,7 +227,7 @@ const SignupNew = ({
     is_submitting,
 }: SignupNewProps) => {
     const [is_checked, setChecked] = useState(false)
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)

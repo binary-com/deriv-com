@@ -15,7 +15,7 @@ import {
     replaceLocale,
 } from 'common/utility'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 type InternalLinkProps = {
     aria_label?: string
@@ -245,7 +245,7 @@ const ExternalLink = ({
     type,
     ...props
 }: ExternalLinkProps) => {
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
     const url = replaceLocale(getURLFormat(type, locale, to, affiliate_lang))

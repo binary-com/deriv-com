@@ -3,10 +3,10 @@ import { Flex, SectionContainer } from 'components/containers'
 import PlatformCarousel from 'pages/home/platform-carousel/_platform-carousel'
 import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const OurPlatforms = () => {
-    const { is_row } = React.useContext(RegionContext)
+    const { is_row } = useRegion()
 
     return (
         <SectionContainer

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { localize, Localize } from 'components/localization'
 import { Text, LocalizedLinkText } from 'components/elements'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const StyledUl = styled.ul`
     list-style-type: disc;
@@ -95,7 +95,7 @@ const WhatToExpect = () => (
 )
 
 const IsDerivRegulated = () => {
-    const { is_eu, is_non_eu } = React.useContext(RegionContext)
+    const { is_eu, is_non_eu } = useRegion()
     return (
         <MaxWidth>
             <Text>

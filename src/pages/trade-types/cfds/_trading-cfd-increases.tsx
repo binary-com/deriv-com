@@ -5,7 +5,7 @@ import { SmallContainer } from '../components/_style'
 import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -86,7 +86,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 
 const TradingCFDIncreases = () => {
     const data = useStaticQuery(query)
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
     return (
         <StyledSectionContainer background="white" padding="4rem 0 0">
             <SmallContainer direction="column" ai="flex-start">

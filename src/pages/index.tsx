@@ -17,12 +17,12 @@ import { Appearances } from 'components/custom/signup'
 import TRADE_DUMMY from 'images/common/trade-type-dummy.png'
 import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
 import WCS_DUMMY from 'images/common/wcs-dummy.png'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat(true)
-    const { is_p2p_allowed_country } = React.useContext(RegionContext)
+    const { is_p2p_allowed_country } = useRegion()
 
     const target = '#market-fold'
     const options = {

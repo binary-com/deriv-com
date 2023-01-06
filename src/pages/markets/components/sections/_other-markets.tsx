@@ -10,7 +10,7 @@ import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
@@ -243,7 +243,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
 
     const markets = ['', 'forex', 'derived', 'stock_indices', 'cryptocurrencies', 'commodities', '']
 

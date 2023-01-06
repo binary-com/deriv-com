@@ -10,7 +10,7 @@ import Security from 'images/svg/terms/security-privacy-tc.svg'
 import Risk from 'images/svg/terms/risk-tc.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import BFX from 'images/svg/terms/bfx-tc.svg'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 type ColProps = {
     Icon: string
@@ -26,7 +26,7 @@ type Link = {
 }
 
 const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => {
-    const { is_non_eu, is_eu } = React.useContext(RegionContext)
+    const { is_non_eu, is_eu } = useRegion()
     return (
         <GridCol>
             <IconWrapper>

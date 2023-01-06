@@ -8,7 +8,7 @@ import { Carousel, CarouselProps, Header, QueryImage, Text } from 'components/el
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type CarouselItemContainerProps = {
@@ -280,7 +280,7 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
-    const { is_region_loading, is_eu, is_row } = React.useContext(RegionContext)
+    const { is_region_loading, is_eu, is_row } = useRegion()
     const size = useWindowSize()
     const is_not_big_screen = size.width < 1980 && size.width >= 768
     const is_mobile = size.width < 768

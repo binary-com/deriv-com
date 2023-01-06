@@ -4,7 +4,7 @@ import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type CardProps = {
@@ -195,7 +195,7 @@ const AvailableTradesDesctop = ({
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
-    const { is_non_eu } = React.useContext(RegionContext)
+    const { is_non_eu } = useRegion()
     const [active_tab, SetActiveTab] = useState('CFDs')
     const handleTabChange = (new_tab: string) => {
         if (new_tab !== active_tab) return SetActiveTab(new_tab)

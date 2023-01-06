@@ -11,7 +11,7 @@ import { Flex } from 'components/containers'
 import device from 'themes/device'
 import EmailSubscriptionSVG from 'images/svg/blog/articles/blog-article-email-subscription.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const SubscribeBannerWrapper = styled(Flex)`
     max-width: 282px;
@@ -127,8 +127,8 @@ const SideSubscriptionBanner = () => {
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
-    const { user_country } = React.useContext(RegionContext)
-    const { is_eu } = React.useContext(RegionContext)
+    const { user_country } = useRegion()
+    const { is_eu } = useRegion()
 
     useEffect(() => {
         if (!window._cio) {

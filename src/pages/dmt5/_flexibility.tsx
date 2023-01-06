@@ -8,7 +8,7 @@ import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
 import CFDsIcon from 'images/svg/dmt5/cfds.svg'
 import device from 'themes/device'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 type ContentType = {
     header?: React.ReactElement
@@ -123,7 +123,7 @@ const StyledText = styled(Text)`
 `
 
 const Flexibility = () => {
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
 
     const chosen_content = is_eu ? eucontent : content
     const title = is_eu

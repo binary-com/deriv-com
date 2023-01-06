@@ -15,7 +15,7 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { affiliate_signin_url, affiliate_signup_url } from 'common/constants'
 import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
@@ -136,7 +136,7 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
 }
 
 const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
-    const { is_row } = React.useContext(RegionContext)
+    const { is_row } = useRegion()
     const button_ref = useRef<HTMLButtonElement | null>(null)
     const [show_button, showButton, hideButton] = useMoveButton()
     const [is_mounted] = usePageLoaded()

@@ -10,7 +10,7 @@ import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
@@ -74,7 +74,7 @@ const HeroHeader = ({ text }: { text: TString }) => {
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const { is_region_loading, is_eu, is_row } = React.useContext(RegionContext)
+    const { is_region_loading, is_eu, is_row } = useRegion()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
 

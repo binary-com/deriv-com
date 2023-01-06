@@ -7,7 +7,7 @@ import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
 import { SEO } from 'components/containers'
 import Roadmap from 'components/elements/roadmap'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
 
@@ -72,7 +72,7 @@ const derivGoPortalData: DerivGoPortalType = {
 }
 
 const DerivGo = () => {
-    const { is_region_loading, is_row } = React.useContext(RegionContext)
+    const { is_region_loading, is_row } = useRegion()
 
     if (!is_region_loading && is_row) {
         return (

@@ -1,12 +1,11 @@
-import React from 'react'
+import usePopup from './use-popup'
 import { isEuDomain, redirectToTradingPlatform } from 'common/utility'
 import Login from 'common/login'
-import { PopupContext } from 'store/popup-context'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const useHandleLogin = () => {
-    const { is_region_loading, is_eu_location } = React.useContext(RegionContext)
-    const { setShowNonEuPopup } = React.useContext(PopupContext)
+    const { is_region_loading, is_eu_location } = useRegion()
+    const { setShowNonEuPopup } = usePopup()
 
     return () => {
         if (is_region_loading) {

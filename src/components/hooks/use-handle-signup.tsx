@@ -1,12 +1,11 @@
-import React from 'react'
 import { navigate, withPrefix } from 'gatsby'
+import usePopup from './use-popup'
 import { isEuDomain, getLanguage } from 'common/utility'
-import { PopupContext } from 'store/popup-context'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const useHandleSignup = (_is_ppc = false) => {
-    const { is_region_loading, is_eu_location } = React.useContext(RegionContext)
-    const { setShowNonEuPopup } = React.useContext(PopupContext)
+    const { is_region_loading, is_eu_location } = useRegion()
+    const { setShowNonEuPopup } = usePopup()
     let current_language = getLanguage() + '/'
     const signUpPath = withPrefix('/')
 

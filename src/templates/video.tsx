@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { graphql, navigate } from 'gatsby'
 import Vimeo from '@u-wave/react-vimeo'
 import styled from 'styled-components'
@@ -24,7 +24,7 @@ import { useTruncateLength } from 'pages/academy/blog/posts/preview'
 import device from 'themes/device'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { AcademyContext } from 'store/academy-context'
+import useAcademyData from 'components/hooks/use-academy-data'
 
 type VideosTemplateProps = {
     data: AllVideosQuery
@@ -224,7 +224,7 @@ const AllVideosButton = styled(LinkButton)`
 `
 
 const VideoTemplate = ({ data }: VideosTemplateProps) => {
-    const { academy_data } = useContext(AcademyContext)
+    const { academy_data } = useAcademyData()
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded()

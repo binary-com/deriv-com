@@ -20,7 +20,7 @@ const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms'))
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 type ItemType = {
     title: string | ReactElement
@@ -111,7 +111,7 @@ const trading: TradingType[] = [
 ]
 
 const Dbot = () => {
-    const { is_eu, is_row } = React.useContext(RegionContext)
+    const { is_eu, is_row } = useRegion()
     const [is_mobile, setIsMobile] = useState(
         isBrowser() ? window.screen.width <= size.mobileL : false,
     )

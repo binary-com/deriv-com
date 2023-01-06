@@ -10,7 +10,7 @@ import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useHandleLogin from 'components/hooks/use-handle-login'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 type TabProps = {
     active?: boolean
@@ -229,7 +229,7 @@ const StartTrader = () => {
 
     const handleSignup = useHandleSignup()
 
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
 
     const getImage = (is_mob: boolean, options: string[]) => {
         return is_mob ? data[options[0]] : data[options[1]]

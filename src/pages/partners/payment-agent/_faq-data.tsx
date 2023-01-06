@@ -3,10 +3,10 @@ import { LocalizedLinkText } from '../affiliate-ib/_faq-data'
 import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { useLivechat } from 'components/hooks/use-livechat'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const General = () => {
-    const { is_p2p_allowed_country } = React.useContext(RegionContext)
+    const { is_p2p_allowed_country } = useRegion()
     return (
         <>
             <Header as="p" type="paragraph-1" mt="16px">

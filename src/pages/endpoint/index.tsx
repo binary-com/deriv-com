@@ -12,7 +12,7 @@ import { trimSpaces } from 'common/utility'
 import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
-import { WebsiteStatusContext } from 'store/website-status-context'
+import useWebsiteStatus from 'components/hooks/use-website-status'
 
 type ValuesType = {
     server_url?: string | number
@@ -98,8 +98,7 @@ const Endpoint = () => {
     const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
     const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
     const [reset_loading, setResetLoading] = React.useState(false)
-    const { website_status, setWebsiteStatus, website_status_loading } =
-        React.useContext(WebsiteStatusContext)
+    const { website_status, setWebsiteStatus } = useWebsiteStatus()
     const STATUS_TIMEOUT_DELAY = 1500
     const RESET_TIMEOUT_DELAY = 500
 
@@ -215,7 +214,6 @@ const Endpoint = () => {
                                     name="clients_country"
                                     error={errors.clients_country}
                                     value={values.clients_country}
-                                    disabled={website_status_loading}
                                     handleError={() => setFieldValue('clients_country', '')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}

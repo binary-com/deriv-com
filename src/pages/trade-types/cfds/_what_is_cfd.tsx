@@ -3,10 +3,10 @@ import { SmallContainer } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 const WhatIsCFD = () => {
-    const { is_eu } = React.useContext(RegionContext)
+    const { is_eu } = useRegion()
     return (
         <SectionContainer background="white" padding="8rem 0 1.2rem">
             <SmallContainer direction="column" ai="flex-start">

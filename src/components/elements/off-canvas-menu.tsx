@@ -51,7 +51,7 @@ import Story from 'images/svg/menu/story.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 type OffCanvasMenuWrapperProps = {
     closeOffCanvasMenu?: () => void
@@ -150,7 +150,7 @@ const content_style = {
 }
 
 export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
-    const { is_row } = React.useContext(RegionContext)
+    const { is_row } = useRegion()
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -732,7 +732,7 @@ type OffCanvasMenuPartnerProps = {
 
 export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     const canvas = useRef<HTMLDivElement>()
-    const { is_row } = React.useContext(RegionContext)
+    const { is_row } = useRegion()
     const is_rtl = useIsRtl()
 
     const handleArrowClick = () => {

@@ -3,7 +3,7 @@ import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style
 import { Localize } from 'components/localization'
 import { Flex, Desktop } from 'components/containers'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
-import { RegionContext } from 'store/region-context'
+import useRegion from 'components/hooks/use-region'
 
 type MainLinksSectionProps = {
     is_ppc?: boolean
@@ -11,7 +11,7 @@ type MainLinksSectionProps = {
 }
 
 const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinksSectionProps) => {
-    const { is_row } = React.useContext(RegionContext)
+    const { is_row } = useRegion()
     return (
         <LinksWrapper>
             <Desktop>

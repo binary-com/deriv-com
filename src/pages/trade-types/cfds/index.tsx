@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
 import { SEO } from 'components/containers'

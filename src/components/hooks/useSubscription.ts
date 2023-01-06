@@ -7,7 +7,7 @@ import type {
 } from 'types/types'
 
 const useSubscription = <T extends TSocketSubscribableEndpointNames>(name: T) => {
-    const [is_region_loading, setIsLoading] = useState(false)
+    const [is_loading, setIsLoading] = useState(false)
     const [is_subscribed, setSubscribed] = useState(false)
     const [error, setError] = useState<unknown>()
     const [data, setData] = useState<TSocketResponseData<T>>()
@@ -50,7 +50,7 @@ const useSubscription = <T extends TSocketSubscribableEndpointNames>(name: T) =>
         setSubscribed(false)
     }
 
-    return { subscribe, unsubscribe, is_region_loading, is_subscribed, error, data }
+    return { subscribe, unsubscribe, is_loading, is_subscribed, error, data }
 }
 
 export default useSubscription

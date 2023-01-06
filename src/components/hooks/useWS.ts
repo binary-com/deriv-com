@@ -3,7 +3,7 @@ import { useDerivApi } from './use-deriv-api'
 import type { TSocketEndpointNames, TSocketRequestProps, TSocketResponseData } from 'types/types'
 
 const useWS = <T extends TSocketEndpointNames>(name: T) => {
-    const [is_region_loading, setIsLoading] = useState(false)
+    const [is_loading, setIsLoading] = useState(false)
     const [error, setError] = useState<unknown>()
     const [data, setData] = useState<TSocketResponseData<T>>()
     const { WS } = useDerivApi()
@@ -31,7 +31,7 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
         [WS, name],
     )
 
-    return { send, is_region_loading, error, data }
+    return { send, is_loading, error, data }
 }
 
 export default useWS

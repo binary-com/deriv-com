@@ -3,30 +3,22 @@ import styled from 'styled-components'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
 import { Localize } from 'components/localization'
-import { Container, Flex } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
 import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
 import { whatsapp_url } from 'common/constants'
 
-const Section = styled.section`
-    background-color: var(--color-black);
-`
-const StyledContainer = styled(Container)`
+const DidntFindYourAnswerWrapper = styled.div`
+    background: var(--color-black);
+    display: flex;
+    height: 100%;
+    justify-content: center;
     padding: 3.5rem 0;
 
-    @media ${device.tabletL} {
-        flex-wrap: wrap;
-
-        ${Button} {
-            font-size: 14px;
-            padding: 10px 16px;
-        }
-    }
-
-    & > * {
-        width: auto;
+    @media ${device.tablet} {
+        flex-direction: column;
+        align-items: center;
     }
 `
 const Icon = styled.img`
@@ -37,6 +29,8 @@ const Icon = styled.img`
     }
 `
 const Text = styled(Header)`
+    width: unset;
+
     @media ${device.tabletL} {
         margin: 1.6rem 0;
         text-align: center;
@@ -47,12 +41,13 @@ const WhatsAppButton = styled.button`
     background-color: var(--color-green-3);
     border: 2px solid var(--color-green-3);
     color: var(--color-white);
-    font-size: var(--text-size-xs);
+    font-size: 14px;
     border-radius: 4px;
-    height: auto;
+    height: fit-content;
     padding: 10px 16px;
     font-weight: bold;
     margin-left: 16px;
+    width: inherit;
 
     &:hover {
         background-color: var(--color-red);
@@ -60,6 +55,19 @@ const WhatsAppButton = styled.button`
         color: var(--color-white);
     }
 `
+const ChatButton = styled(Button)`
+    @media ${device.tabletL} {
+        width: 100%;
+    }
+`
+const ButtonWrapper = styled.div`
+    @media ${device.tablet} {
+        display: flex;
+        width: 100%;
+        padding: 16px;
+    }
+`
+
 const WhatsAppIcon = styled.img`
     margin: -3px 8px -3px 0;
 `
@@ -71,32 +79,30 @@ const DidntFindYourAnswerBanner = () => {
     const openWhatsappUrl = () => window.open(whatsapp_url, '_blank')
 
     return (
-        <Section>
-            <StyledContainer>
-                <Icon src={ContactUsIcon} alt="contact-us-icon" />
-                <Text size="var(--text-size-l)" color="white" m="0 2.4rem" weight="normal">
-                    <Localize translate_text="Didn’t find your answer? We can help." />
-                </Text>
+        <DidntFindYourAnswerWrapper>
+            <Icon src={ContactUsIcon} alt="contact-us-icon" />
+            <Text size="var(--text-size-l)" color="white" m="0 2.4rem" weight="normal">
+                <Localize translate_text="Didn’t find your answer? We can help." />
+            </Text>
 
-                {is_livechat_interactive && (
-                    <Flex>
-                        <Button secondary onClick={openChatWindow}>
-                            <Localize translate_text="Chat" />
-                        </Button>
+            {is_livechat_interactive && (
+                <ButtonWrapper>
+                    <ChatButton secondary onClick={openChatWindow}>
+                        <Localize translate_text="Chat" />
+                    </ChatButton>
 
-                        <WhatsAppButton onClick={openWhatsappUrl}>
-                            <WhatsAppIcon
-                                src={WhatsAppSVG}
-                                alt="whatsapp-icon"
-                                height="16"
-                                width="16"
-                            />
-                            <Localize translate_text="WhatsApp" />
-                        </WhatsAppButton>
-                    </Flex>
-                )}
-            </StyledContainer>
-        </Section>
+                    <WhatsAppButton onClick={openWhatsappUrl}>
+                        <WhatsAppIcon
+                            src={WhatsAppSVG}
+                            alt="whatsapp-icon"
+                            height="16"
+                            width="16"
+                        />
+                        <Localize translate_text="WhatsApp" />
+                    </WhatsAppButton>
+                </ButtonWrapper>
+            )}
+        </DidntFindYourAnswerWrapper>
     )
 }
 

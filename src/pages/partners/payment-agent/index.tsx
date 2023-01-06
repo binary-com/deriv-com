@@ -23,8 +23,8 @@ const meta_attributes = {
 }
 
 const PaymentAgent = () => {
-    const { is_row } = useRegion()
-    const { is_p2p_allowed_country } = useRegion()
+    const { is_row, is_p2p_allowed_country } = useRegion()
+
     return (
         <>
             <SEO

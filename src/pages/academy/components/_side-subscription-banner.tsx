@@ -127,8 +127,7 @@ const SideSubscriptionBanner = () => {
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
-    const { user_country } = useRegion()
-    const { is_eu } = useRegion()
+    const { user_country, is_eu } = useRegion()
 
     useEffect(() => {
         if (!window._cio) {

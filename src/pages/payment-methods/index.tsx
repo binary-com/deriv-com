@@ -167,8 +167,7 @@ export type PaymentMethodsProps = {
     pd?: PaymentDataProps
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
-    const { is_p2p_allowed_country } = useRegion()
-    const { is_eu } = useRegion()
+    const { is_p2p_allowed_country, is_eu } = useRegion()
     const [is_mobile] = useBrowserResize(992)
 
     const content_style = is_mobile

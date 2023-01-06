@@ -59,9 +59,8 @@ const ResponsiveHeader = styled(StyledHeader)`
 `
 
 const WhyChooseUs = () => {
-    const { is_latam } = useRegion()
+    const { is_latam, is_africa } = useRegion()
     const handleSignup = useHandleSignup()
-    const { is_africa } = useRegion()
 
     return (
         <Layout>

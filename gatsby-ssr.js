@@ -1,29 +1,10 @@
 import React from 'react'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import './src/components/localization/config'
-import { MediaContextProvider } from './src/themes/media'
-import {
-    AcademyProvider,
-    BreakpointsProvider,
-    PopupProvider,
-    RegionProvider,
-    WebsiteStatusProvider,
-} from './src/store'
+import GlobalProvider from './src/store/global-provider'
 
 export const wrapRootElement = ({ element }) => {
-    return (
-        <AcademyProvider>
-            <BreakpointsProvider>
-                <PopupProvider>
-                    <RegionProvider>
-                        <WebsiteStatusProvider>
-                            <MediaContextProvider>{element}</MediaContextProvider>
-                        </WebsiteStatusProvider>
-                    </RegionProvider>
-                </PopupProvider>
-            </BreakpointsProvider>
-        </AcademyProvider>
-    )
+    return <GlobalProvider>{element}</GlobalProvider>
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

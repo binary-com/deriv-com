@@ -3,14 +3,7 @@ import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
-import { MediaContextProvider } from './src/themes/media'
-import {
-    AcademyProvider,
-    BreakpointsProvider,
-    PopupProvider,
-    RegionProvider,
-    WebsiteStatusProvider,
-} from './src/store'
+import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
 import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
@@ -86,19 +79,7 @@ const pushwooshInit = (push_woosh) => {
 }
 
 export const wrapRootElement = ({ element }) => {
-    return (
-        <AcademyProvider>
-            <BreakpointsProvider>
-                <PopupProvider>
-                    <RegionProvider>
-                        <WebsiteStatusProvider>
-                            <MediaContextProvider>{element}</MediaContextProvider>
-                        </WebsiteStatusProvider>
-                    </RegionProvider>
-                </PopupProvider>
-            </BreakpointsProvider>
-        </AcademyProvider>
-    )
+    return <GlobalProvider>{element}</GlobalProvider>
 }
 
 export const onInitialClientRender = () => {

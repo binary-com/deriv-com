@@ -16,8 +16,12 @@ import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
-import TRADE_DUMMY from 'images/common/trade-type-dummy.png'
-import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
+import ABOUT_US_BANNER_DUMMY from 'images/common/about-us-banner-dummy.png'
+import DERIV_NUMBERS_DUMMY from 'images/common/deriv-numbers-dummy.png'
+import LEADERSHIP_DUMMY from 'images/common/our-leadership-dummy.png'
+import OFFICES_DUMMY from 'images/common/our-offices-dummy.png'
+import PRINCIPLES_DUMMY from 'images/common/our-principles-dummy.png'
+import VALUES_DUMMY from 'images/common/our-values-dummy.png'
 
 const StartSeparator = styled.div`
     width: 0;
@@ -37,66 +41,68 @@ const EndSeparator = styled.div`
         border-bottom: 40px solid transparent;
     }
 `
+const target1 = '#start-separator'
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.7,
+}
+
+const lazy_components: ReactNode = (
+    <>
+        <OurValues
+            fallback={
+                <div>
+                    <img src={VALUES_DUMMY} style={{ width: '95%' }} alt="our-values" />
+                </div>
+            }
+        />
+        <EndSeparator />
+        <OurPrinciples
+            fallback={
+                <div>
+                    <img src={PRINCIPLES_DUMMY} style={{ width: '95%' }} alt="our-values" />
+                </div>
+            }
+        />
+        <OurLeadership
+            fallback={
+                <div>
+                    <img src={LEADERSHIP_DUMMY} style={{ width: '95%' }} alt="our-values" />
+                </div>
+            }
+        />
+        <DerivNumbers
+            fallback={
+                <div>
+                    <img src={DERIV_NUMBERS_DUMMY} style={{ width: '95%' }} alt="our-values" />
+                </div>
+            }
+        />
+        <ImageMarquee />
+        <OurOffices
+            fallback={
+                <div>
+                    <img src={OFFICES_DUMMY} style={{ width: '95%' }} alt="our-offices" />
+                </div>
+            }
+        />
+        <AboutUsBanner
+            fallback={
+                <div>
+                    <img
+                        src={ABOUT_US_BANNER_DUMMY}
+                        style={{ width: '95%' }}
+                        alt="about-us-banner"
+                    />
+                </div>
+            }
+        />
+    </>
+)
+
 const AboutUs = () => {
-    const target1 = '#simti'
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.7,
-    }
-
-    const lazy_components: ReactNode = (
-        <>
-            {/* test */}
-            <OurValues
-                fallback={
-                    <div>
-                        <img src={PLATFORM_DUMMY} style={{ width: '95%' }} alt="our-values" />
-                    </div>
-                }
-            />
-            <EndSeparator />
-            <OurPrinciples
-                fallback={
-                    <div>
-                        <img src={PLATFORM_DUMMY} style={{ width: '95%' }} alt="our-values" />
-                    </div>
-                }
-            />
-            <OurLeadership
-                fallback={
-                    <div>
-                        <img src={PLATFORM_DUMMY} style={{ width: '95%' }} alt="our-values" />
-                    </div>
-                }
-            />
-            <DerivNumbers
-                fallback={
-                    <div>
-                        <img src={PLATFORM_DUMMY} style={{ width: '95%' }} alt="our-values" />
-                    </div>
-                }
-            />
-            <ImageMarquee />
-            <OurOffices
-                fallback={
-                    <div>
-                        <img src={PLATFORM_DUMMY} style={{ width: '95%' }} alt="our-offices" />
-                    </div>
-                }
-            />
-            <AboutUsBanner
-                fallback={
-                    <div>
-                        <img src={PLATFORM_DUMMY} style={{ width: '95%' }} alt="about-us-banner" />
-                    </div>
-                }
-            />
-        </>
-    )
-
     const lazyTemplate = useHandleLazyLoad(lazy_components, target1, options)
-
     return (
         <Layout type="transparent" margin_top="0">
             <SEO
@@ -107,7 +113,7 @@ const AboutUs = () => {
             />
             <Hero />
             <MakeTrading />
-            <StartSeparator id="simti" />
+            <StartSeparator id="start-separator" />
             {lazyTemplate}
         </Layout>
     )

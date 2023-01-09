@@ -44,10 +44,13 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                 const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
 
                 responseData.forEach((item) => {
-                    const currentMarket = [...markets.get(item.market)]
+                    const market = item.market;
 
-                    currentMarket.push(item)
-                    markets.set(item.market, currentMarket)
+                    if (!markets.has(market)) {
+                        markets.set(market, [item]);
+                    } else {
+                        markets.get(market).push(item);
+                    }
                 })
                 setMarketsData(markets)
                 setIsLoading(false)

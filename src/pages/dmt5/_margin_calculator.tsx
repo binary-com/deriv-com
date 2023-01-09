@@ -28,15 +28,8 @@ const query = graphql`
         margin_calculator: file(relativePath: { eq: "dmt5/dmt5-margin-calculator.png" }) {
             ...fadeIn
         }
-        margin_calculator_mobile: file(
-            relativePath: { eq: "dmt5/dmt5-margin-calculator-mobile.png" }
-        ) {
-            ...fadeIn
-        }
+
         swap_calculator: file(relativePath: { eq: "dmt5/dmt5-swap-calculator.png" }) {
-            ...fadeIn
-        }
-        swap_calculator_mobile: file(relativePath: { eq: "dmt5/dmt5-swap-calculator-mobile.png" }) {
             ...fadeIn
         }
     }
@@ -179,12 +172,7 @@ const CalculatorCard = ({
             </SubHeader>
             <CardText align="center">{text}</CardText>
             <ImageWrapper>
-                <Desktop>
-                    <QueryImage data={data[image_name]} alt={image_alt_name} />
-                </Desktop>
-                <Mobile>
-                    <QueryImage data={data[image_name + '_mobile']} alt={image_alt_name} />
-                </Mobile>
+                <QueryImage data={data[image_name]} alt={image_alt_name} />
             </ImageWrapper>
             <StyledLinkButton tertiary to={link}>
                 <Localize translate_text={button_text} />

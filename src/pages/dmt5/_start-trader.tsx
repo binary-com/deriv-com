@@ -28,9 +28,6 @@ const query = graphql`
         demo_step1_mobile: file(relativePath: { eq: "dmt5/dmt5-demo-step1-mobile.png" }) {
             ...fadeIn
         }
-        demo_step1_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step1-mobile-eu.png" }) {
-            ...fadeIn
-        }
         demo_step2: file(relativePath: { eq: "dmt5/dmt5-demo-step2.png" }) {
             ...fadeIn
         }
@@ -52,19 +49,7 @@ const query = graphql`
         demo_step3_mobile: file(relativePath: { eq: "dmt5/dmt5-demo-step3-mobile.png" }) {
             ...fadeIn
         }
-        demo_step3_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step3-mobile-eu.png" }) {
-            ...fadeIn
-        }
-        real_step1: file(relativePath: { eq: "dmt5/dmt5-real-step1.png" }) {
-            ...fadeIn
-        }
         real_step1_eu: file(relativePath: { eq: "dmt5/dmt5-real-step1-eu.png" }) {
-            ...fadeIn
-        }
-        real_step1_mobile: file(relativePath: { eq: "dmt5/dmt5-real-step1-mobile.png" }) {
-            ...fadeIn
-        }
-        real_step1_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-real-step1-mobile-eu.png" }) {
             ...fadeIn
         }
         real_step2: file(relativePath: { eq: "dmt5/dmt5-real-step2.png" }) {
@@ -255,7 +240,7 @@ const StartTrader = () => {
 
     const demo_step1_image = is_eu ? (
         <QueryImage
-            data={getImage(is_mobile, ['demo_step1_mobile_eu', 'demo_step1_eu'])}
+            data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1_eu'])}
             alt="Demo DMT5 account- step 1"
         />
     ) : (
@@ -277,7 +262,7 @@ const StartTrader = () => {
     )
     const demo_step3_image = is_eu ? (
         <QueryImage
-            data={getImage(is_mobile, ['demo_step3_mobile_eu', 'demo_step3_eu'])}
+            data={getImage(is_mobile, ['demo_step3_mobile', 'demo_step3_eu'])}
             alt="Demo DMT5 account- step 3"
         />
     ) : (
@@ -288,12 +273,12 @@ const StartTrader = () => {
     )
     const real_step1_image = is_eu ? (
         <QueryImage
-            data={getImage(is_mobile, ['real_step1_mobile_eu', 'real_step1_eu'])}
+            data={getImage(is_mobile, ['demo_step1_mobile', 'real_step1_eu'])}
             alt="Real DMT5 account- step 1"
         />
     ) : (
         <QueryImage
-            data={getImage(is_mobile, ['real_step1_mobile', 'real_step1'])}
+            data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])}
             alt="Real DMT5 account- step 1"
         />
     )

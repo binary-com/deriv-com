@@ -185,16 +185,16 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
         // First we check if the `data` exists or not, Then we manipulate the local data with the response from the server.
         if (data) {
             // Here we map over the local `payment_data` variable to manipulate it with the server response.
-            const updated_payment_data = payment_data.map((pdata) => {
-                if (!pdata.is_crypto) return pdata
+            const updated_payment_data = payment_data.map((paymentData) => {
+                if (!paymentData.is_crypto) return paymentData
 
-                const updated_data = pdata.data.map((value) => ({
+                const updated_data = paymentData.data.map((value) => ({
                     ...value,
                     ...data.currencies_config[value.name],
                 }))
 
                 return {
-                    ...pdata,
+                    ...paymentData,
                     data: updated_data,
                 }
             })

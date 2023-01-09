@@ -97,7 +97,7 @@ const LivePricing = () => {
     }
 
     return (
-        <LivePricingSection>
+        <LivePricingSection id="live-pricing">
             <Markets>
                 <MarketsContainer>
                     {market_buttons.map((marketItem) => (

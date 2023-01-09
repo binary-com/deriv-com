@@ -75,11 +75,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     return (
         <TableContainer>
-            {is_loading && (
-                <TableLoadingContainer>
-                    <Spinner />
-                </TableLoadingContainer>
-            )}
             <Table>
                 <thead>
                     {table.getHeaderGroups().map((headerGroup) => (
@@ -98,6 +93,11 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                     ))}
                 </thead>
                 <tbody>
+                    {is_loading && (
+                        <TableLoadingContainer>
+                            <Spinner />
+                        </TableLoadingContainer>
+                    )}
                     {rows.map((row) => (
                         <TableRow key={row.id}>
                             {row.getVisibleCells().map((cell) => (

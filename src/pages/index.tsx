@@ -6,7 +6,6 @@ import {
     TradeTypes,
     P2PHomeBanner,
 } from './home/_lazy-load'
-import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
 import LivePricing from './home/live-pricing'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
@@ -25,7 +24,7 @@ const Home = () => {
     useOpenLiveChat(true)
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
 
-    const target = '#market-fold'
+    const target = '#live-pricing'
     const options = {
         root: null,
         rootMargin: '0px',
@@ -87,7 +86,6 @@ const Home = () => {
             />
             <Hero />
             <LivePricing />
-            <MarketsFold />
             {lazyTemplate}
         </Layout>
     )

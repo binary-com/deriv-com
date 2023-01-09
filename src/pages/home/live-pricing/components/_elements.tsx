@@ -30,6 +30,7 @@ const rotate360 = keyframes`
 `
 
 export const Spinner = styled.div`
+    margin-bottom: 40px;
     animation: ${rotate360} 1s linear infinite;
     transform: translateZ(0);
     border-top: 2px solid var(--color-grey-8);
@@ -57,10 +58,19 @@ export const TableRow = styled.tr<TableRowProps>`
     min-height: 75px;
     padding: 24px;
 
+    th:nth-child(1),
+    td:nth-child(1) {
+        width: 220px;
+    }
+
     @media ${device.tabletL} {
         th:nth-child(4),
         td:nth-child(4) {
             display: none;
+        }
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 120px;
         }
     }
 `
@@ -82,6 +92,10 @@ export const Cell = styled.div`
     align-items: center;
     gap: 12px;
     width: 140px;
+
+    nth-child(1) {
+        width: 220px;
+    }
 
     @media ${device.tabletL} {
         width: auto;

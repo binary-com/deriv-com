@@ -9,6 +9,10 @@ import {
     minor_pairs,
     major_pairs,
     crash_boom_trade_type_eu,
+    stock_spreader_indices,
+    cryptocurrencies_cfds,
+    commodities_spreader_metal,
+    commodities_spreader_energy,
 } from 'pages/markets/static/content/_market-symbols'
 import { queryParams } from 'common/utility'
 
@@ -25,6 +29,7 @@ const StyledHeader = styled(Header)`
     max-width: 320px;
     font-size: 24px;
     margin: 0 auto;
+    white-space: nowrap;
 `
 
 const Column = styled.div`
@@ -100,6 +105,20 @@ const Spreader = ({
         index_of_first_item,
         index_of_last_item,
     )
+    const paginated_stocks_and_indices_items = stock_spreader_indices.slice(
+        index_of_first_item,
+        index_of_last_item,
+    )
+
+    const paginated_cryptocurrency_items = cryptocurrencies_cfds.slice(
+        index_of_first_item,
+        index_of_last_item,
+    )
+
+    const paginated_commodities_items = commodities_spreader_metal.slice(
+        index_of_first_item,
+        index_of_last_item,
+    )
 
     const myRef = useRef(null)
 
@@ -154,6 +173,39 @@ const Spreader = ({
                                             />
                                         </StyledRow>
                                     ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map((symbol, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                src={symbol.src}
+                                                text={symbol.text}
+                                                has_icon
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((symbol, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                src={symbol.src}
+                                                text={symbol.text}
+                                                has_icon
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((symbol, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                src={symbol.src}
+                                                text={symbol.text}
+                                                has_icon
+                                            />
+                                        </StyledRow>
+                                    ))}
                             </StyledCells>
                         </Column>
                         <Column>
@@ -167,6 +219,24 @@ const Spreader = ({
                                     ))}
                                 {is_derived &&
                                     paginated_derived_items.map((path, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData key={index} path={path.path} />
+                                        </StyledRow>
+                                    ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map((path, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData key={index} path={path.path} />
+                                        </StyledRow>
+                                    ))}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((path, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData key={index} path={path.path} />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((path, index) => (
                                         <StyledRow key={index}>
                                             <SpreaderData key={index} path={path.path} />
                                         </StyledRow>
@@ -194,6 +264,33 @@ const Spreader = ({
                                             />
                                         </StyledRow>
                                     ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map((raw_spread, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                raw_spread={raw_spread.raw_spread}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((raw_spread, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                raw_spread={raw_spread.raw_spread}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((raw_spread, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                raw_spread={raw_spread.raw_spread}
+                                            />
+                                        </StyledRow>
+                                    ))}
                             </StyledCells>
                         </Column>
                         <Column>
@@ -207,6 +304,24 @@ const Spreader = ({
                                     ))}
                                 {is_derived &&
                                     paginated_derived_items.map((markup, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData key={index} markup={markup.markup} />
+                                        </StyledRow>
+                                    ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map((markup, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData key={index} markup={markup.markup} />
+                                        </StyledRow>
+                                    ))}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((markup, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData key={index} markup={markup.markup} />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((markup, index) => (
                                         <StyledRow key={index}>
                                             <SpreaderData key={index} markup={markup.markup} />
                                         </StyledRow>
@@ -227,6 +342,33 @@ const Spreader = ({
                                     ))}
                                 {is_derived &&
                                     paginated_derived_items.map((full_spread, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                full_spread={full_spread.full_spread}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map((full_spread, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                full_spread={full_spread.full_spread}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((full_spread, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                full_spread={full_spread.full_spread}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((full_spread, index) => (
                                         <StyledRow key={index}>
                                             <SpreaderData
                                                 key={index}
@@ -261,6 +403,43 @@ const Spreader = ({
                                             />
                                         </StyledRow>
                                     ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map(
+                                        (standard_deviation, index) => (
+                                            <StyledRow key={index}>
+                                                <SpreaderData
+                                                    key={index}
+                                                    standard_deviation={
+                                                        standard_deviation.standard_deviation
+                                                    }
+                                                />
+                                            </StyledRow>
+                                        ),
+                                    )}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map(
+                                        (standard_deviation, index) => (
+                                            <StyledRow key={index}>
+                                                <SpreaderData
+                                                    key={index}
+                                                    standard_deviation={
+                                                        standard_deviation.standard_deviation
+                                                    }
+                                                />
+                                            </StyledRow>
+                                        ),
+                                    )}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((standard_deviation, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                standard_deviation={
+                                                    standard_deviation.standard_deviation
+                                                }
+                                            />
+                                        </StyledRow>
+                                    ))}
                             </StyledCells>
                         </Column>
                         <Column>
@@ -277,6 +456,35 @@ const Spreader = ({
                                     ))}
                                 {is_derived &&
                                     paginated_derived_items.map((minimum_spread, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                minimum_spread={minimum_spread.minimum_spread}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map(
+                                        (minimum_spread, index) => (
+                                            <StyledRow key={index}>
+                                                <SpreaderData
+                                                    key={index}
+                                                    minimum_spread={minimum_spread.minimum_spread}
+                                                />
+                                            </StyledRow>
+                                        ),
+                                    )}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((minimum_spread, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                minimum_spread={minimum_spread.minimum_spread}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((minimum_spread, index) => (
                                         <StyledRow key={index}>
                                             <SpreaderData
                                                 key={index}
@@ -307,6 +515,35 @@ const Spreader = ({
                                             />
                                         </StyledRow>
                                     ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map(
+                                        (maximum_spread, index) => (
+                                            <StyledRow key={index}>
+                                                <SpreaderData
+                                                    key={index}
+                                                    maximum_spread={maximum_spread.maximum_spread}
+                                                />
+                                            </StyledRow>
+                                        ),
+                                    )}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((maximum_spread, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                maximum_spread={maximum_spread.maximum_spread}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((maximum_spread, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                maximum_spread={maximum_spread.maximum_spread}
+                                            />
+                                        </StyledRow>
+                                    ))}
                             </StyledCells>
                         </Column>
                         <Column>
@@ -323,6 +560,33 @@ const Spreader = ({
                                     ))}
                                 {is_derived &&
                                     paginated_derived_items.map((swap_type, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                swap_type={swap_type.swap_type}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map((swap_type, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                swap_type={swap_type.swap_type}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((swap_type, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                swap_type={swap_type.swap_type}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((swap_type, index) => (
                                         <StyledRow key={index}>
                                             <SpreaderData
                                                 key={index}
@@ -353,6 +617,33 @@ const Spreader = ({
                                             />
                                         </StyledRow>
                                     ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map((swaps_long, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                swaps_long={swaps_long.swaps_long}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((swaps_long, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                swaps_long={swaps_long.swaps_long}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((swaps_long, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                swaps_long={swaps_long.swaps_long}
+                                            />
+                                        </StyledRow>
+                                    ))}
                             </StyledCells>
                         </Column>
                         <Column>
@@ -369,6 +660,33 @@ const Spreader = ({
                                     ))}
                                 {is_derived &&
                                     paginated_derived_items.map((swaps_short, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                swaps_short={swaps_short.swaps_short}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map((swaps_short, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                swaps_short={swaps_short.swaps_short}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((swaps_short, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                swaps_short={swaps_short.swaps_short}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((swaps_short, index) => (
                                         <StyledRow key={index}>
                                             <SpreaderData
                                                 key={index}
@@ -399,6 +717,33 @@ const Spreader = ({
                                             />
                                         </StyledRow>
                                     ))}
+                                {is_stocks_and_indices &&
+                                    paginated_stocks_and_indices_items.map((three_day, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                three_day={three_day.three_day}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_cryptocurrency &&
+                                    paginated_cryptocurrency_items.map((three_day, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                three_day={three_day.three_day}
+                                            />
+                                        </StyledRow>
+                                    ))}
+                                {is_commodities &&
+                                    paginated_commodities_items.map((three_day, index) => (
+                                        <StyledRow key={index}>
+                                            <SpreaderData
+                                                key={index}
+                                                three_day={three_day.three_day}
+                                            />
+                                        </StyledRow>
+                                    ))}
                             </StyledCells>
                         </Column>
                     </CssGrid>
@@ -408,6 +753,22 @@ const Spreader = ({
                         paginate={paginate}
                         items_per_page={10}
                         total_items={forex_pairs.length}
+                        current_page={current_page}
+                    />
+                )}
+                {is_cryptocurrency && (
+                    <Pagination
+                        paginate={paginate}
+                        items_per_page={10}
+                        total_items={cryptocurrencies_cfds.length}
+                        current_page={current_page}
+                    />
+                )}
+                {is_commodities && (
+                    <Pagination
+                        paginate={paginate}
+                        items_per_page={10}
+                        total_items={commodities_spreader_metal.length}
                         current_page={current_page}
                     />
                 )}

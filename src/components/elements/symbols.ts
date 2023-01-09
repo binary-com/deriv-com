@@ -1,3 +1,5 @@
+import XAGEUR from 'images/svg/symbols/xag-eur.svg'
+import TWTIOIL from 'images/svg/symbols/twti-oil.svg'
 import AAL from 'images/svg/symbols/aal.svg'
 import AAPL from 'images/svg/symbols/aapl.svg'
 import ABNB from 'images/svg/symbols/abnb.svg'
@@ -246,8 +248,17 @@ import VOLATILITY200EU from 'images/svg/symbols/volatility-eu-200.svg'
 import WMT from 'images/svg/symbols/wmt.svg'
 import XMRUSD from 'images/svg/symbols/xmr-usd.svg'
 import XLMUSD from 'images/svg/symbols/xlm-usd.svg'
-import XTZ from 'images/svg/symbols/xtz.svg'
 import XTZUSD from 'images/svg/symbols/xtz-usd.svg'
+import XAUEUR from 'images/svg/symbols/xau-eur.svg'
+import XAUUSD from 'images/svg/symbols/xau-usd.svg'
+import XCUUSD from 'images/svg/symbols/xcu-usd.svg'
+import XPBUSD from 'images/svg/symbols/xpb-usd.svg'
+import XPDUSD from 'images/svg/symbols/xpd-usd.svg'
+import XPTUSD from 'images/svg/symbols/xpt-usd.svg'
+import XZNUSD from 'images/svg/symbols/xzn-usd.svg'
+import XAGUSD from 'images/svg/symbols/xag-usd.svg'
+import XALUSD from 'images/svg/symbols/xal-usd.svg'
+import XNIUSD from 'images/svg/symbols/xni-usd.svg'
 import XRPUSD from 'images/svg/symbols/xrp-usd.svg'
 import XRPUSD1 from 'images/svg/symbols/xrp-usd1.svg'
 import SILVEREUR from 'images/svg/symbols/silver-eur.svg'
@@ -336,6 +347,7 @@ import BCHNEW from 'images/svg/symbols/btc_cash_flag-new.svg'
 import DASH from 'images/svg/symbols/dash_flag.svg'
 import EOS from 'images/svg/symbols/eos_flag.svg'
 import ETH from 'images/svg/symbols/eth_flag.svg'
+import XTZ from 'images/svg/symbols/xtz.svg'
 import ETH_CLASSIC from 'images/svg/symbols/ethereum-classic.svg'
 import IOTA from 'images/svg/symbols/iota_flag.svg'
 import LTC from 'images/svg/symbols/ltc_flag.svg'
@@ -530,6 +542,18 @@ export {
     NICKELUSD,
     NKE,
     NVDA,
+    XAUEUR,
+    XAUUSD,
+    XCUUSD,
+    XPBUSD,
+    XPDUSD,
+    XPTUSD,
+    XZNUSD,
+    XAGEUR,
+    XAGUSD,
+    XALUSD,
+    XNIUSD,
+    TWTIOIL,
     NZDCAD,
     NZDCHF,
     NZDJPY,

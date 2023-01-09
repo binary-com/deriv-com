@@ -1,6 +1,7 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
+import Spreader from '../helper/spreader'
 import AvailableTrades from '../helper/_available-trades'
 import stock_content from '../../static/content/_stock'
 import { stock_cfds } from '../../static/content/_cfds'
@@ -9,6 +10,7 @@ import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { localize, Localize } from 'components/localization'
 
 //Lazy-load
@@ -20,6 +22,8 @@ type StockIndicesProps = {
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
+    const { is_eu } = useCountryRule()
+
     simple_step_content[1].text = (
         <Localize translate_text="Open a real account, make a deposit, and start trading stocks, indices and other markets." />
     )
@@ -47,6 +51,14 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                     <Localize translate_text="Stocks & indices trades available on Deriv" />
                 }
             />
+            {is_eu && (
+                <Spreader
+                    display_title={
+                        <Localize translate_text="_t_Stock & Indices Trading Spreads_t_" />
+                    }
+                    is_stocks_and_indices
+                />
+            )}
             <SimpleSteps
                 header={
                     <Localize translate_text="Start trading stocks & indices on Deriv in 3 simple steps" />

@@ -2,6 +2,7 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import AvailableTrades from '../helper/_available-trades'
 import { WhyTrade } from '../sections/_why-trade'
+import Spreader from '../helper/spreader'
 import commodities from '../../static/content/_commodities'
 import { commodities_cfds } from '../../static/content/_cfds'
 import { commodities_options } from '../../static/content/_digital-options'
@@ -55,6 +56,14 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
                     display_title={
                         <Localize translate_text="Commodity trades available on Deriv" />
                     }
+                />
+            )}
+            {is_eu && (
+                <Spreader
+                    display_title={
+                        <Localize translate_text="_t_Cryptocurrencies Trading Spreads_t_" />
+                    }
+                    is_commodities
                 />
             )}
             <SimpleSteps

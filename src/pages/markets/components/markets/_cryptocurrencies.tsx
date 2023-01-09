@@ -3,6 +3,7 @@ import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import { crypto_cfds } from '../../static/content/_cfds'
+import Spreader from '../helper/spreader'
 import { crypto_multiplier } from '../../static/content/_multipliers'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
@@ -72,6 +73,14 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                     <Localize translate_text="Cryptocurrency trades available on Deriv" />
                 }
             />
+            {is_eu && (
+                <Spreader
+                    display_title={
+                        <Localize translate_text="_t_Cryptocurrencies Trading Spreads_t_" />
+                    }
+                    is_cryptocurrency
+                />
+            )}
             <SimpleSteps
                 header={
                     <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />

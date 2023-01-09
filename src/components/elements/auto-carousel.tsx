@@ -13,6 +13,13 @@ type CarouselItemProps = {
     animation_status?: string
 }
 
+type AutoCarouselProps = {
+    carousel_width?: string
+    children?: ReactNode[]
+    items_padding?: number
+    transition_duration?: number
+}
+
 const AutoCarouselSection = styled.section<CarouselItemProps>`
     width: ${(props) => props.width};
     overflow: hidden;
@@ -50,13 +57,6 @@ const ItemsWrapper = styled.div<CarouselItemProps>`
     backface-visibility: hidden;
     cursor: default;
 `
-
-type AutoCarouselProps = {
-    carousel_width?: string
-    children?: ReactNode[]
-    items_padding?: number
-    transition_duration?: number
-}
 
 class AutoCarousel extends React.PureComponent<AutoCarouselProps> {
     my_ref = createRef<HTMLDivElement>()
@@ -134,7 +134,7 @@ class AutoCarousel extends React.PureComponent<AutoCarouselProps> {
                             key={i}
                             should_carousel_move={this.state.should_carousel_move}
                         >
-                            {this.state.items !== []
+                            {this.state.items.length > 0
                                 ? this.state.items.map(({ Component, key }) => {
                                       return (
                                           <ItemContainer

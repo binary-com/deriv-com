@@ -20,6 +20,7 @@ import GetTrading from 'images/svg/layout/get-trading.svg'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type NavMobileProps = {
     is_ppc?: boolean
@@ -56,6 +57,7 @@ const NavMobile = ({
     const handleLogin = useHandleLogin()
     const { is_loading } = useCountryRule()
     const [is_logged_in] = useAuthCheck()
+    const is_rtl = useIsRtl()
 
     return (
         <MobileWrapper>
@@ -79,7 +81,7 @@ const NavMobile = ({
                 </LogoWrapper>
 
                 <LeftSection>
-                    {!hide_language_switcher && <LanguageSwitcher has_short_name is_high_nav />}
+                    {!hide_language_switcher && <LanguageSwitcher is_high_nav />}
                     {!hide_signup_login && (
                         <>
                             {is_logged_in ? (
@@ -109,6 +111,7 @@ const NavMobile = ({
                     is_canvas_menu_open={is_canvas_menu_open}
                     closeOffCanvasMenu={closeOffCanvasMenu}
                     is_ppc={is_ppc}
+                    is_rtl={is_rtl}
                     is_ppc_redirect={is_ppc_redirect}
                 />
             </Wrapper>

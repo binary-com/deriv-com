@@ -11,7 +11,7 @@ import TradeIcon from 'images/svg/markets/trade-new.svg'
 export type ForexContentElement = {
     src: string
     alt: string
-    text: string
+    text: string | React.ReactNode
 }
 
 export const simple_step_content_forex = [
@@ -75,7 +75,7 @@ export const forex_content_eu: ForexContentElement[] = [
     {
         src: ResponsiveWebsite,
         alt: 'Responsive platforms',
-        text: localize('Responsive, easy-to-use platforms'),
+        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
     },
     {
         src: AdvancedCharting,

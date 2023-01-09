@@ -27,6 +27,7 @@ import CaymanFlagIcon from 'images/svg/careers/flag_cayman.svg'
 import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import BVIFlagIcon from 'images/svg/careers/flag_bvi.svg'
+import UKFlagIcon from 'images/svg/careers/flag_uk.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
 import GermanyFlagIcon from 'images/svg/careers/flag_germany.svg'
@@ -642,6 +643,33 @@ export const ciudad: LocationsType = {
     has_iframe: true,
 }
 
+export const reading: LocationsType = {
+    name: 'reading',
+    job_location: 'Reading',
+    continent: 'europe',
+    display_continent: 'Europe',
+    link: '/careers/locations/reading/',
+    display_name: 'Reading',
+    display_thumbnail_name: 'Reading',
+    display_title_name: 'Reading',
+    img_alt: 'Deriv’s Reading office at United Kingdom ',
+    map_office_name: '(United Kingdom)',
+    country: 'UK',
+    flagIcon: UKFlagIcon,
+    thumbnail: 'thumbnail_reading',
+    address: [''],
+    first_p:
+        'Deriv (UK) serves as a software development centre as well as a general service provider for the Deriv Group, tapping into a wealth of regional talent. The tech professionals in our UK team will deliver future-proof online trading solutions in collaboration with their colleagues around the world.',
+    first_img: 'living_in_reading',
+    first_img_alt: 'Working at Deriv (UK) ',
+    grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
+    grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
+    map: '',
+    map_text:
+        "Our UK base will be a new hub for Deriv fintech talent. Taking on exciting projects, this team will play a key role in ideating, designing, and developing Deriv's next-generation trading products, as well as cutting-edge applications and technical systems. If software technology is what you live and breathe, join our UK team.",
+    map_img: 'reading',
+}
+
 export const all_offices: LocationsType[] = [
     paris,
     malta,
@@ -661,6 +689,7 @@ export const all_offices: LocationsType[] = [
     asuncion,
     ciudad,
     georgetown,
+    reading,
     roadtown,
 ]
 export const locations = {
@@ -683,6 +712,7 @@ export const locations = {
     singapore: `${singapore.display_name}, ${singapore.country}`,
     georgetown: `${georgetown.display_name}, ${georgetown.country}`,
     roadtown: `${roadtown.display_name}, ${roadtown.country}`,
+    reading: `${reading.display_name}, ${reading.country}`,
 }
 
 export const allContinents = {

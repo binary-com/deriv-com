@@ -90,10 +90,10 @@ type NavigationStyleType = {
     nav_color?: string
     bottom_offset?: number | string
     chevron_right?: CSSProperties
-    height?: number
+    height?: string
 }
 
-type CarouselProps = {
+export type CarouselProps = {
     autoplay_delay?: number
     autoplay_interval?: number
     chevron_style?: ChevronStyleType

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import Login from 'common/login'
+import Login, { TSocialProvider } from 'common/login'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
@@ -131,8 +131,7 @@ const SocialButtonText = styled.div`
 
 const SignupWithContainer = styled.div`
     display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     margin-top: 10px;
 
@@ -147,17 +146,14 @@ const Line = styled.div`
     background-color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
 `
 
-const StyledText = styled(Text)`
+const StyledText = styled(Text)<{ tabletFontSize?: string }>`
     color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
 
-    @media ${(props) => device.tabletL && props.notedBox} {
-        width: 13rem;
-    }
     @media (max-width: 340px) {
         width: 17rem;
     }
     @media ${device.tabletL} {
-        font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
+        font-size: ${({ tabletFontSize }) => tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
 
@@ -253,8 +249,8 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
     const handleSocialSignup = (e) => {
         e.preventDefault()
 
-        const data_provider = e.currentTarget.getAttribute('data-provider')
-        Login.initOneAll(`${data_provider}&utm_content=${ebook_utm_code}`)
+        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
+        Login.initOneAll(data_provider, ebook_utm_code)
     }
 
     const handleEmailSignup = (e) => {

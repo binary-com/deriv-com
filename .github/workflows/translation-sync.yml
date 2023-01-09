@@ -21,6 +21,6 @@ jobs:
                   crowdin download -b  master -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b master -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Push New Strings & Translations ⬆️
               run:  
-                  crowdin upload sources -b ${{ github.ref_name }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.ref_name }} -T ${{ secrets.CROWDIN_API_KEY }}
+                  crowdin upload sources -b master -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b master -T ${{ secrets.CROWDIN_API_KEY }}
                 
 

@@ -4,6 +4,7 @@ import {
     CardWrapper,
     DropdownWrapper,
     IconWrapper,
+    IconWrapperProps,
     ListContainer,
 } from '../../static/style/_card'
 import { TextWrapper } from '../../static/style/_common'
@@ -23,7 +24,7 @@ type TextWrapperProps = {
 
 type StyleProps = {
     text_wrapper: TextWrapperProps
-    icon_wrapper: React.ReactNode
+    icon_wrapper: IconWrapperProps
     card_wrapper: CardWrapperProps
 }
 

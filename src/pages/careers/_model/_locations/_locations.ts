@@ -202,7 +202,7 @@ export const asuncion: LocationsType = {
     map_text:
         'The office culture in Deriv (Asunción) is lively and inspires collaboration. The team is young, and they move fast while delivering responsibilities with a focus on impact. The team work together closely and enjoy fun team bonding sessions. If you are on the lookout for a dynamic work environment that fuels career growth, join our team in Asunción.',
     address: address_asuncion,
-    google_map_link: 'https://goo.gl/maps/N8nc9pJL6Y88abdQ8',
+    google_map_link: 'https://goo.gl/maps/uq2GzB97tLumihfN6',
     has_iframe: true,
 }
 
@@ -300,13 +300,13 @@ export const cyprus: LocationsType = {
         'Girl having a call online',
         "Deriv's office location in Limassol,Cyprus",
     ],
-    map: 'ChIJcwIu_VQz5xQR_cm_eAWo2XY',
+    map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
     badge: 'cyprus_great_place_to_work_badge',
     badge_alt: 'Cyprus Great Place to Work 2022 Certification Badge',
     map_text:
         'We give our people the freedom to solve problems and work together to get things done without hierarchy. The workplace encourages open communication, transparency, and a free flow of ideas. If you take pride in your work and are interested in working with the best global talent,  join our team in Limassol.',
     address: address_cyprus,
-    google_map_link: 'https://goo.gl/maps/j7fs9r73dfwQtHgj8',
+    google_map_link: 'https://goo.gl/maps/qrHm4Bz5A84kUAzb8',
     has_iframe: true,
 }
 
@@ -342,8 +342,8 @@ export const rwanda: LocationsType = {
     badge: 'rwanda_great_place_to_work_badge',
     badge_alt: 'Rwanda Great Place to Work 2022 Certification Badge',
     map_img: 'rwanda_map',
-    google_map_link: 'https://goo.gl/maps/dy3BPr2y29usir648',
-    has_iframe: false,
+    google_map_link: 'https://goo.gl/maps/wJgnX1W846t5FAbK7',
+    has_iframe: true,
 }
 
 export const minsk: LocationsType = {
@@ -378,7 +378,7 @@ export const minsk: LocationsType = {
         'The work culture at Deriv (Minsk) is lively and energetic. You will get exposure to global projects and work with highly skilled professionals from across the world. If working for a diverse and thriving team excites you, join our team in Minsk.',
     address: address_belarus,
     map_img: 'minsk_map',
-    google_map_link: 'https://goo.gl/maps/WJsR7a8vJfRifKzPA',
+    google_map_link: 'https://goo.gl/maps/7wUCJ6zy7P8CsmkD7',
     has_iframe: true,
 }
 
@@ -399,12 +399,12 @@ export const paris: LocationsType = {
         "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
-    map: 'ChIJGfkBiTBu5kcRK2m0KBW8x0Q',
+    map: 'ChIJHzsdKOdv5kcRCRcM_lUIW14',
     map_text:
         'Deriv (France) is the heart of our research and development. We have an elite think tank in this centre that helps create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
     address: address_france,
     map_img: 'paris_map',
-    google_map_link: 'https://goo.gl/maps/5xvdS7tvZM7kKkDK8',
+    google_map_link: 'https://goo.gl/maps/gXhpCta6AsV7bT7y8',
     has_iframe: true,
     has_map: true,
 }
@@ -485,11 +485,11 @@ export const vanuatu: LocationsType = {
     first_img_alt: 'Deriv’s Vanuatu office at Port Vila',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'vanuatu_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['Working with Deriv’s Vanuatu team'],
-    map: 'ChIJl5Awq85hiW4RvzSGwMVXibE',
+    map: 'ChIJNY-kpulhiW4RqoqGd8cKHz8',
     address: address_vanuatu,
     map_text:
         'The Vanuatu office will bring experts together to provide the best trading solutions and services for our customers. Join our team at Vanuatu for a rewarding career.',
-    google_map_link: 'https://goo.gl/maps/gp9UUrKu95PMCVFK9',
+    google_map_link: 'https://goo.gl/maps/3A4mFkHzTfWQc9Kz9',
     has_iframe: true,
     has_map: true,
 }
@@ -597,12 +597,12 @@ export const singapore: LocationsType = {
 
     grid_images: ['singapore_grid', 'guernsey_grid_2', 'singapore_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['Working with Deriv’s Singapore team'],
-    map: 'ChIJqZat5gsZ2jERAuS99CP0atQ',
+    map: 'ChIJtcz6IO4Z2jERVa-frIastZU',
     map_text:
         'Our Singapore office will be home to a team of bright trading minds who will make Deriv everyone’s first choice for trading CFDs. Start a thriving career at Deriv in Singapore to influence the trading experience of over two million clients around the globe.',
     map_img: 'singapore_map',
     address: address_singapore,
-    google_map_link: 'https://goo.gl/maps/RAMcoQRgpY3ykb299',
+    google_map_link: 'https://goo.gl/maps/mZv5nwRBA2a2p56LA',
     has_iframe: true,
     has_map: true,
 }

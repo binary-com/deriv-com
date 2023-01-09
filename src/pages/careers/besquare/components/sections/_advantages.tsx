@@ -17,8 +17,8 @@ const Advantages = () => {
             border: '1px solid var(--color-grey-2)',
         },
         icon_wrapper: {
-            width: ['64px', '48px'],
-            height: ['64px', '48px'],
+            img_width: ['64px', '48px'],
+            img_height: ['64px', '48px'],
         },
         text_wrapper: {
             max_width: ['320px', '280px'],

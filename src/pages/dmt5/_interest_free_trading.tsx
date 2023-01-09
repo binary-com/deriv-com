@@ -143,8 +143,6 @@ const CheckedText = ({ children }: CheckedTextProps) => (
 )
 
 const InterestFreeTrading = () => {
-    const { is_uk } = useCountryRule()
-
     return (
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">
@@ -158,7 +156,7 @@ const InterestFreeTrading = () => {
                     <CheckedText>Forex</CheckedText>
                     <CheckedText>Derived</CheckedText>
                     <CheckedText>Stocks & indices</CheckedText>
-                    {!is_uk && <CheckedText>Cryptocurrencies</CheckedText>}
+                    <CheckedText>Cryptocurrencies</CheckedText>
                     <CheckedText>Commodities</CheckedText>
                 </TextWrapperFlex>
             </InterestCardFlex>

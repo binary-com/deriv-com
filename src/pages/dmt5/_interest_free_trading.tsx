@@ -7,7 +7,6 @@ import { Localize } from 'components/localization'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type CheckedTextProps = {
     children: string

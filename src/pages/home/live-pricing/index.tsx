@@ -8,6 +8,9 @@ import { Header } from 'components/elements'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Localize } from 'components/localization'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import useHandleLogin from 'components/hooks/use-handle-signup'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 
 const LivePricingSection = styled.section`
     background-color: var(--color-white);
@@ -95,10 +98,8 @@ const LivePricing = () => {
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
-    //temporarily redirecting to app.deriv.com
-    const handleLogin = () => {
-        window.open('https://app.deriv.com/')
-    }
+    const [is_logged_in] = useAuthCheck()
+    const handleLogin = useHandleLogin()
 
     return (
         <LivePricingSection id="live-pricing">
@@ -134,9 +135,15 @@ const LivePricing = () => {
                 <DisclaimerText>
                     <Localize translate_text="All spreads are indicative. To view real-time spreads, clients should refer to their client terminal." />
                 </DisclaimerText>
-                <Button secondary onClick={handleLogin}>
-                    <Localize translate_text="Trade now" />
-                </Button>
+                {is_logged_in ? (
+                    <Button onClick={handleGetTrading} secondary>
+                        <Localize translate_text="Trade now" />
+                    </Button>
+                ) : (
+                    <Button onClick={handleLogin} secondary>
+                        <Localize translate_text="Trade now" />
+                    </Button>
+                )}
             </ContainerWrapper>
         </LivePricingSection>
     )

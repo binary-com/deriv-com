@@ -56,6 +56,7 @@ const MarketsContainer = styled.div`
     }
 `
 const MarketButton = styled.button<{ selected: boolean }>`
+    margin: 0;
     min-height: 48px;
     position: relative;
     border-bottom: 2px solid red;

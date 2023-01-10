@@ -95,6 +95,10 @@ const LivePricing = () => {
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
+    //temporarily redirecting to app.deriv.com
+    const handleLogin = () => {
+        window.open('https://app.deriv.com/')
+    }
 
     return (
         <LivePricingSection id="live-pricing">
@@ -130,7 +134,7 @@ const LivePricing = () => {
                 <DisclaimerText>
                     <Localize translate_text="All spreads are indicative. To view real-time spreads, clients should refer to their client terminal." />
                 </DisclaimerText>
-                <Button secondary>
+                <Button secondary onClick={handleLogin}>
                     <Localize translate_text="Trade now" />
                 </Button>
             </ContainerWrapper>

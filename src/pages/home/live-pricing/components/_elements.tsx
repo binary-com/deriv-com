@@ -60,7 +60,7 @@ export const TableRow = styled.tr<TableRowProps>`
 
     th:nth-child(1),
     td:nth-child(1) {
-        width: 220px;
+        width: 32rem;
     }
 
     @media ${device.tabletL} {
@@ -68,9 +68,17 @@ export const TableRow = styled.tr<TableRowProps>`
         td:nth-child(4) {
             display: none;
         }
+        th:nth-child(2),
+        td:nth-child(2),
+        th:nth-child(3),
+        td:nth-child(3),
+        th:nth-child(5),
+        td:nth-child(5) {
+            width: 5rem;
+        }
         th:nth-child(1),
         td:nth-child(1) {
-            width: 120px;
+            width: 13rem;
         }
     }
 `
@@ -117,7 +125,7 @@ type TTableCell = {
 }
 const StyledTableHeaderText = styled(HeaderText)`
     @media ${device.tabletL} {
-        font-size: 12px;
+        font-size: 9px;
     }
 `
 
@@ -131,10 +139,9 @@ export const TableHeaderCell = ({ text }: TTableHeaderCell) => {
     )
 }
 const StyledHeaderText = styled(HeaderText)`
-    width: 18.8rem;
     @media ${device.tabletL} {
-        width: 6rem;
-        font-size: 12px;
+        width: auto;
+        font-size: 11px;
     }
 `
 export const TableCell = ({ text }: TTableCell) => {

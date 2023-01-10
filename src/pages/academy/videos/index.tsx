@@ -12,6 +12,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/video-tutorials.png'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 const SmallContainer = styled(Container)`
     width: 62%;
@@ -69,13 +70,16 @@ const VideosPage = ({ data }: VideosPageProps) => {
         og_title: 'Platform tours, webinars, and more.',
         og_description: 'Our products and services explained in detail.',
     }
+
+    const title_text: TString = '_t_Latest videos, tutorials, webinars for trading | Deriv_t_'
+    const description: TString =
+        "_t_Learn how to trade using our trading videos and tutorials at Deriv's online trading academy._t_"
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
-                title={localize('Latest videos, tutorials, webinars for trading | Deriv')}
-                description={localize(
-                    "Learn how to trade using our trading videos and tutorials at Deriv's online trading academy.",
-                )}
+                title={localize(title_text)}
+                description={localize(description)}
                 meta_attributes={meta_attributes}
             />
             <Flex pt="40px">

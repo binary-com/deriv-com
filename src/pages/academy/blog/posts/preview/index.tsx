@@ -36,6 +36,7 @@ import { cms_assets_end_point, cms_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { TString } from 'types/generics'
 
 export const useTruncateLength = () => {
     const size = useWindowSize()
@@ -128,6 +129,8 @@ const BlogPreview = () => {
         imgSrcMobile: footer_banner_data?.mobile_banner_image?.id,
     }
 
+    const written_by_text: TString = '_t_Written by_t_'
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO description={post_data?.meta_description} title={post_data?.meta_title} no_index />
@@ -211,7 +214,7 @@ const BlogPreview = () => {
 
                                                 <Box>
                                                     <WrittenbyText color="grey-5" size="12px">
-                                                        {localize('Written by')}
+                                                        {localize(written_by_text)}
                                                     </WrittenbyText>
                                                     <InfoText>{post_data?.author?.name}</InfoText>
                                                 </Box>
@@ -249,7 +252,7 @@ const BlogPreview = () => {
 
                                             <Box>
                                                 <WrittenbyText color="grey-5" size="12px">
-                                                    {localize('Written by')}
+                                                    {localize(written_by_text)}
                                                 </WrittenbyText>
                                                 <InfoText>{post_data?.author?.name}</InfoText>
                                             </Box>

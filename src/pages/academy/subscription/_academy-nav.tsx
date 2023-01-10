@@ -5,6 +5,7 @@ import DerivLogo from 'images/svg/layout/logo-deriv-only.svg'
 import AcademyLogo from 'images/svg/academy/academy-logo.svg'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 const Nav = styled.nav`
     background-color: var(--color-black);
@@ -56,12 +57,14 @@ const Line = styled.div`
 `
 
 const AcademyNav = () => {
+    const academy_text: TString = '_t_Academy_t_'
+
     return (
         <Nav>
             <Flex width="auto">
                 <LocalizedLink
                     to="/academy/"
-                    aria-label={localize('Academy')}
+                    aria-label={localize(academy_text)}
                     style={{
                         textDecoration: 'none',
                         width: '100%',

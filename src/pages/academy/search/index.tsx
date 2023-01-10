@@ -14,6 +14,7 @@ import { LinkButton } from 'components/form'
 import { unslugify, queryParams } from 'common/utility'
 import device from 'themes/device'
 import useAcademyData from 'components/hooks/use-academy-data'
+import { TString } from 'types/generics'
 
 const StyledHeaderWrapper = styled(Flex)`
     box-shadow: inset 0 -1px 0 #f2f3f4;
@@ -365,14 +366,13 @@ const SearchPage = () => {
         return type === 'article' || !type
     }
 
+    const title_text: TString = '_t_Articles, trading guide and resources | Deriv_t_'
+    const description_text: TString =
+        "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_"
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
-            <SEO
-                title={localize('Articles, trading guide and resources | Deriv')}
-                description={localize(
-                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
-                )}
-            />
+            <SEO title={localize(title_text)} description={localize(description_text)} />
             <Flex>
                 <Container fd="column" style={{ maxWidth: '792px' }}>
                     <Flex fd="column">

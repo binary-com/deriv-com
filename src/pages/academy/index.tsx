@@ -13,6 +13,7 @@ import { localize, WithIntl } from 'components/localization'
 import { Carousel, CarouselProps } from 'components/elements'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 
 export const query = graphql`
     query {
@@ -115,13 +116,15 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
     //arranges homepage banners in ascendingly on order value
     homepage_banner_data.sort((a, b) => parseInt(a.order) - parseInt(b.order))
 
+    const title_text: TString = '_t_Articles, trading guide and resources | Deriv_t_'
+    const description_text: TString =
+        "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_"
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
-                title={localize('Articles, trading guide and resources | Deriv')}
-                description={localize(
-                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
-                )}
+                title={localize(title_text)}
+                description={localize(description_text)}
                 meta_attributes={meta_attributes}
             />
             <MainWrapper>

@@ -14,7 +14,7 @@ import { Flex, SectionContainer } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type TradeTypesProps = {
@@ -275,7 +275,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
 }
 
 const TradeTypes = (): React.ReactNode => {
-    const { is_row, is_eu } = useCountryRule()
+    const { is_row, is_eu } = useRegion()
     const items_details_by_region = (is_eu && items_details_eu) || items_details_row
     const [is_not_big_screen] = useBrowserResize(1979)
 

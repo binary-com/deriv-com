@@ -7,7 +7,7 @@ import { Header } from 'components/elements/typography'
 import { LiveChatLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type AssetsType = {
     title: React.ReactElement
@@ -141,7 +141,7 @@ const SubtitleHeader = styled(Header)`
 `
 
 const DerivIBProgramme = () => {
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
     return (
         <StyledSection id="deriv-ib">
             <Container direction="column">

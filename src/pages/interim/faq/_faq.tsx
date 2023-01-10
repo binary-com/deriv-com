@@ -16,7 +16,7 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Accordion, AccordionItem, Divider } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const Question = styled.div`
     max-width: 38.4rem;
@@ -61,7 +61,7 @@ const FAQ = () => {
         padding: '1.6rem 2.4rem',
         border: 'none',
     }
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     return (
         <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">

@@ -4,7 +4,7 @@ import LogoSection from './footer/logo'
 import MainLinksSection from './footer/main-links'
 import DisclaimerSection from './footer/disclaimer'
 import { Container } from 'components/containers'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 
 type FooterProps = {
@@ -22,7 +22,7 @@ const Footer = ({
     academy = false,
     no_footer_links = false,
 }: FooterProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     return (
         <DefaultFooter is_eu={is_eu}>

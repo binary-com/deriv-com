@@ -250,17 +250,22 @@ const SwapCalculator = () => {
                     )}
                 </SectionSubtitle>
 
-                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
+                <Flex
+                    mt="80px"
+                    mb="40px"
+                    tablet={{ mt: '40px', mb: '24px' }}
+                    id="swap-tab-selector"
+                >
                     <SwapTabSelector
                         active={tab === 'Synthetic'}
                         onClick={() => onTabClick('Synthetic')}
                     >
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="synthetic">
                             {localize('Synthetic')}
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="financial">
                             {localize('Financial')}
                         </Text>
                     </SwapTabSelector>

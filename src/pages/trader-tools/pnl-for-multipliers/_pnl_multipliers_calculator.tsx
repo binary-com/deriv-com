@@ -445,14 +445,19 @@ const PnlMultipliersCalculator = () => {
                     )}
                 </SectionSubtitle>
 
-                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
+                <Flex
+                    mt="80px"
+                    mb="40px"
+                    tablet={{ mt: '40px', mb: '24px' }}
+                    id="pnl-multipliers-tab-selector"
+                >
                     <SwapTabSelector active={tab === 'Level'} onClick={() => onTabClick('Level')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="level">
                             {localize('Level')}
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Amount'} onClick={() => onTabClick('Amount')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="amount">
                             {localize('Amount')}
                         </Text>
                     </SwapTabSelector>

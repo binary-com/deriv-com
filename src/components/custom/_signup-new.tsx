@@ -5,12 +5,12 @@ import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 // SVG
 import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type SignupNewProps = {
     autofocus?: boolean
@@ -27,6 +27,10 @@ type SignupNewProps = {
 
 type SocialButtonProps = {
     bgColor?: string
+}
+
+type StyledTextProps = {
+    tabletFontSize?: string
 }
 
 const SignupContent = styled.div`
@@ -65,10 +69,7 @@ const Line = styled.div`
     height: 1px;
     background-color: var(--color-grey-7);
 `
-const StyledText = styled(Text)`
-    @media ${(props) => device.tabletL && props.notedBox} {
-        width: 13rem;
-    }
+const StyledText = styled(Text)<StyledTextProps>`
     @media (max-width: 340px) {
         width: 17rem;
     }
@@ -226,7 +227,7 @@ const SignupNew = ({
     is_submitting,
 }: SignupNewProps) => {
     const [is_checked, setChecked] = useState(false)
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -245,7 +246,6 @@ const SignupNew = ({
                     <div>
                         <StyledText
                             mb="0.4rem"
-                            notedBox
                             color="grey-16"
                             size="var(--text-size-xs)"
                             tabletFontSize="12px"
@@ -256,7 +256,6 @@ const SignupNew = ({
                             />
                         </StyledText>
                         <StyledText
-                            notedBox
                             size="var(--text-size-xxs)"
                             tabletFontSize="12px"
                             color="grey-16"
@@ -309,7 +308,7 @@ const SignupNew = ({
                         <StyledLocalizedLink
                             external
                             key={0}
-                            to={`/tnc${is_eu_country ? '/eu' : ''}/security-and-privacy.pdf`}
+                            to={`/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`}
                             size="1.2rem"
                             color="red"
                             rel="noopener noreferrer"
@@ -361,7 +360,7 @@ const SignupNew = ({
                     <SocialText>Apple</SocialText>
                 </SocialButton>
             </SocialWrapper>
-            <LoginText mt="3.75rem" mb={is_eu_country ? '100px' : '0'}>
+            <LoginText mt="3.75rem" mb={is_eu ? '100px' : '0'}>
                 {localize('Already have an account?')}
                 <StyledLinkText
                     id="dm-new-login-button"

@@ -6,6 +6,15 @@ import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 
+type StepCommonType = {
+    no_margin?: boolean
+}
+
+type StepType = StepCommonType & {
+    current_step: string
+    image_name: string
+}
+
 const query = graphql`
     query {
         step_1: file(relativePath: { eq: "dbot-video/dbot-step1.png" }) {
@@ -63,10 +72,6 @@ const VideoWrapper = styled.div`
     width: 100%;
 `
 
-type StepCommonType = {
-    no_margin: string
-}
-
 const StepCommon = css<StepCommonType>`
     font-weight: 500;
     cursor: pointer;
@@ -77,7 +82,7 @@ const StepCommon = css<StepCommonType>`
         margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
 `
-const Step = styled(Header)`
+const Step = styled(Header)<StepType>`
     ${StepCommon}
     ${(props) =>
         props.current_step === props.image_name
@@ -195,7 +200,7 @@ const DtraderTabs = () => {
             <VideoWrapper>
                 <QueryImage
                     data={data[current_step]}
-                    alt={localize('{{step}} in DBot trading', { step: current_step })}
+                    alt={`${current_step} in DBot trading`}
                     width="100%"
                 />
             </VideoWrapper>

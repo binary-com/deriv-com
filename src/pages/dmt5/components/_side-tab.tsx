@@ -178,6 +178,7 @@ const SideTab = ({
                         const {
                             props: { label, description, item_width, mobile_item_width },
                         } = child
+
                         return (
                             <>
                                 <TabButton

@@ -150,7 +150,7 @@ export const StopLoss = () => {
                                 <Localize translate_text="( 1" />
                                 <PointerContainerMobile>
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="56px" />
+                                    <PointerStickMobile height="70px" />
                                     <PointerTextMobile>
                                         <Localize translate_text="Volume" />
                                     </PointerTextMobile>
@@ -186,7 +186,7 @@ export const StopLoss = () => {
                                 />
                                 <PointerContainerMobile mw="0" ml="-23px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="22px" />
+                                    <PointerStickMobile height="10px" />
                                     <PointerTextMobile ml="-10px">
                                         <Localize translate_text="Stop loss level" />
                                     </PointerTextMobile>
@@ -292,7 +292,7 @@ export const PipValue = () => {
 
                         <FormulaValueMobile>
                             <Localize translate_text="1.17524)|" />
-                            <PointerContainerMobile mw="0" ml="-12px">
+                            <PointerContainerMobile mw="0" ml="-24px">
                                 <PointerDotMobile />
                                 <PointerStickMobile height="32px" />
                                 <PointerTextMobile>
@@ -520,7 +520,7 @@ export const ProfitPipValue = () => {
                     <FormulaHighlight jc="space-evenly" pl="41px" pr="41px">
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="|(221.5961" />
-                            <PointerContainer width="100px" top ml="-60px">
+                            <PointerContainer width="100px" top ml="-5px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
@@ -607,7 +607,7 @@ export const ProfitPipValue = () => {
                                 <Localize translate_text="249.5961)|" />
                                 <PointerContainerMobile ml="25px" height="76px" top mw="0">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="24px" />
+                                    <PointerStickMobile height="50px" />
                                     <PointerTextMobile top ml="-30px">
                                         <Localize translate_text="Asset price" />
                                     </PointerTextMobile>

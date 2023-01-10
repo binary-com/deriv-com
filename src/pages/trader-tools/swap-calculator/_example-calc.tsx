@@ -150,7 +150,7 @@ export const SwapSyntheticExample = () => {
                                 <Localize translate_text="1" />
                                 <PointerContainerMobile mw="0" ml="-32px" height="80px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="50px" />
+                                    <PointerStickMobile height="38px" />
                                     <PointerTextMobile>
                                         <Localize translate_text="Contract size" />
                                         <StyledSpan> 1</StyledSpan>
@@ -166,7 +166,7 @@ export const SwapSyntheticExample = () => {
                                 <Localize translate_text="400,000" />
                                 <PointerContainerMobile top ml="-15px" mw="0" height="70px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="28px" />
+                                    <PointerStickMobile height="50px" />
                                     <PointerTextMobile top>
                                         <Localize translate_text="Asset price" />
                                     </PointerTextMobile>
@@ -181,7 +181,7 @@ export const SwapSyntheticExample = () => {
                                 <Localize translate_text="( -7.5 " />
                                 <PointerContainerMobile top ml="-13px" mw="0" height="70px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="28px" />
+                                    <PointerStickMobile height="24px" />
                                     <PointerTextMobile top>
                                         <Localize translate_text="Swap rate" />
                                         <StyledSpan> 2</StyledSpan>
@@ -217,7 +217,7 @@ export const SwapSyntheticExample = () => {
                                 />
                                 <PointerContainerMobile ml="-20px" mw="0">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="24px" />
+                                    <PointerStickMobile height="32px" />
                                     <PointerTextMobile>
                                         <Localize translate_text="Swap charge" />
                                     </PointerTextMobile>

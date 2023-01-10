@@ -832,6 +832,8 @@ export const PointerHorizontalStickMobile = styled.div<PointerStickType>`
     }
 `
 export const PointerText = styled.div<PointerTextType>`
+    width: 100px;
+    white-space: nowrap;
     margin-top: 0;
     font-size: 16px;
     font-weight: 600;

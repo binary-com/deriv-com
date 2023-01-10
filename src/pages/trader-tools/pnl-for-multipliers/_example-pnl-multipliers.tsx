@@ -508,9 +508,9 @@ export const TakeProfitAmountUp = () => {
                             <FormulaValue>
                                 <Localize translate_text="3376.24 )" />
                                 <PointerContainer ml="-20px" top width="100px">
-                                    <PointerDot ml="-31px" />
-                                    <PointerStick height="6px" ml="-32px" />
-                                    <PointerStickHorizontal w="88px" ml="55px" />
+                                    <PointerDot ml="-37px" />
+                                    <PointerStick height="6px" ml="-38px" />
+                                    <PointerStickHorizontal w="95px" ml="55px" />
                                 </PointerContainer>
                             </FormulaValue>
 
@@ -784,9 +784,9 @@ export const StopLossAmountDown = () => {
                             <FormulaValue>
                                 <Localize translate_text="3376.24 )" />
                                 <PointerContainer ml="-20px" top width="100px">
-                                    <PointerDot ml="-31px" />
-                                    <PointerStick height="6px" ml="-32px" />
-                                    <PointerStickHorizontal w="88px" ml="55px" />
+                                    <PointerDot ml="-37px" />
+                                    <PointerStick height="6px" ml="-38px" />
+                                    <PointerStickHorizontal w="95px" ml="55px" />
                                 </PointerContainer>
                             </FormulaValue>
 

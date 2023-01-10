@@ -24,6 +24,7 @@ import {
     StyledSpan,
     FormulaValuePnlMobile,
     FormulaValuePnlMobileTakeProfit,
+    PointerStickHorizontal,
 } from '../common/_style'
 import { Localize } from 'components/localization'
 import { Desktop, Mobile } from 'components/containers'
@@ -50,10 +51,12 @@ export const StopLoss = () => {
                         <FormulaTopWrapper>
                             <FormulaValueSwapSynthetic>
                                 <Localize translate_text="{ -24" />
-                                <PointerContainer top ml="-49px" width="200px">
-                                    <PointerDot />
-                                    <PointerStick />
-                                    <PointerText top ml="-75px">
+                                <PointerContainer top ml="-95px" width="200px">
+                                    <PointerDot ml="115px" />
+                                    <PointerStick ml="115px" height="10px" />
+                                    <PointerStickHorizontal w="80px" ml="36px" />
+                                    <PointerStick ml="-44px" height="15px" />
+                                    <PointerText>
                                         <Localize translate_text="Stop loss or take profit amount" />
                                     </PointerText>
                                 </PointerContainer>
@@ -205,7 +208,7 @@ export const PipValue = () => {
                     <FormulaHighlight jc="space-evenly" pr="76px" pl="76px">
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="|(1.1750" />
-                            <PointerContainer top ml="-70px" width="200px">
+                            <PointerContainer top ml="-15px" width="200px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
@@ -360,9 +363,9 @@ export const TakeProfitLevel = () => {
                         <FormulaValue>
                             <Localize translate_text="{ 84" />
                             <PointerContainer width="200px" top ml="-80px">
-                                <PointerDot />
-                                <PointerStick height="28px" />
-                                <PointerText top>
+                                <PointerDot ml="100px" />
+                                <PointerStick ml="100px" height="28px" />
+                                <PointerText>
                                     <Localize translate_text="Stop loss or take profit amount" />
                                 </PointerText>
                             </PointerContainer>
@@ -389,10 +392,12 @@ export const TakeProfitLevel = () => {
 
                         <FormulaValue>
                             <Localize translate_text="1 ) }" />
-                            <PointerContainer width="100px" top ml="-38px">
-                                <PointerDot />
-                                <PointerStick height="28px" />
-                                <PointerText top>
+                            <PointerContainer width="100px" top>
+                                <PointerDot ml="-70px" />
+                                <PointerStick ml="-70px" height="10px" />
+                                <PointerStickHorizontal ml="8px" w="78px" />
+                                <PointerStick ml="85px" height="16px" />
+                                <PointerText>
                                     <Localize translate_text="Contract size" />
                                     <StyledSpan> 1</StyledSpan>
                                 </PointerText>

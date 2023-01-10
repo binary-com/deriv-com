@@ -24,7 +24,7 @@ export const PipSyntheticExample = () => {
     return (
         <>
             <Desktop>
-                <FormulaContainer pt="8px">
+                <FormulaContainer height="176px">
                     <FormulaHighlight jc="space-evenly" pl="100px" pr="100px">
                         <FormulaValue>
                             <Localize translate_text="0.01" />
@@ -44,10 +44,10 @@ export const PipSyntheticExample = () => {
 
                         <FormulaValue>
                             <Localize translate_text="1" />
-                            <PointerContainer ml="-7px">
+                            <PointerContainer top ml="-7px">
                                 <PointerDot />
                                 <PointerStick height="28px" />
-                                <PointerText>
+                                <PointerText top>
                                     <Localize translate_text="Volume" />
                                 </PointerText>
                             </PointerContainer>
@@ -78,10 +78,10 @@ export const PipSyntheticExample = () => {
                                 translate_text="<0>0.01</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer ml="-8px" width="100px">
+                            <PointerContainer top ml="-8px" width="100px">
                                 <PointerDot />
                                 <PointerStick />
-                                <PointerText>
+                                <PointerText top>
                                     <Localize translate_text="Pip value" />
                                 </PointerText>
                             </PointerContainer>
@@ -163,7 +163,7 @@ export const PipForexExample = () => {
     return (
         <>
             <Desktop>
-                <FormulaContainer pt="8px">
+                <FormulaContainer height="176px">
                     <FormulaHighlight jc="space-evenly" pl="71px" pr="71px">
                         <FormulaValue>
                             <Localize translate_text="0.00001" />
@@ -183,10 +183,10 @@ export const PipForexExample = () => {
 
                         <FormulaValue>
                             <Localize translate_text="2" />
-                            <PointerContainer ml="0">
+                            <PointerContainer top ml="0">
                                 <PointerDot />
                                 <PointerStick height="28px" />
-                                <PointerText>
+                                <PointerText top>
                                     <Localize translate_text="Volume" />
                                 </PointerText>
                             </PointerContainer>
@@ -217,10 +217,10 @@ export const PipForexExample = () => {
                                 translate_text="<0>2</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer width="100px" ml="-8px">
+                            <PointerContainer top width="100px" ml="-8px">
                                 <PointerDot />
                                 <PointerStick height="28px" />
-                                <PointerText>
+                                <PointerText top>
                                     <Localize translate_text="Pip value" />
                                 </PointerText>
                             </PointerContainer>

@@ -46,6 +46,7 @@ type BaseElementProps = {
     max_height?: string
     mobile_max_width?: string
     type?: string[] | Types
+    element_color?: string
 } & MarginsType &
     PaddingsType
 
@@ -116,6 +117,12 @@ export const BaseElement = css<BaseElementProps>`
     }
 `
 
+export const TextContainerBaseElement = css<BaseElementProps>`
+    ${BaseElement}
+    color: ${(props) =>
+        props.element_color ? `var(--color-${props.element_color})` : 'var(--color-black-3)'};
+`
+
 /** @deprecated Use `Header` component instead. */
 
 export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
@@ -142,6 +149,100 @@ type HeaderProps = {
     className?: string
 } & ResponseDeviceProps &
     BaseElementProps
+
+export const TextContainers = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
+    createElement(as, props, children),
+)<HeaderProps>`
+    ${TextContainerBaseElement}
+    font-weight: ${(props) => props.weight || 'bold'};
+    font-size: ${(props) => {
+        if (props.size) return props.size
+        if (props.type === 'main-landing-title') return '8.0rem'
+        if (props.type === 'display-title') return '6.4rem'
+        if (props.type === 'page-title') return '4.8rem'
+        if (props.type === 'section-title') return '3.2rem'
+        if (props.type === 'sub-section-title') return '2.4rem'
+        if (props.type === 'main-paragraph') return '1.6rem'
+        if (props.type === 'sub-paragraph') return '1.4rem'
+        // The above is deprecated and should not be used for any new designs on Figma
+        if (props.type === 'hero') return '8.0rem'
+        if (props.type === 'heading-1') return '6.4rem'
+        if (props.type === 'heading-2') return '4.8rem'
+        if (props.type === 'heading-3') return '3.2rem'
+        if (props.type === 'subtitle-1') return '2.4rem'
+        if (props.type === 'subtitle-2') return '2.0rem'
+        if (props.type === 'paragraph-1') return '1.6rem'
+        if (props.type === 'paragraph-2') return '1.4rem'
+        if (props.type === 'small') return '1.2rem'
+        if (props.type === 'extra-small') return '1.0rem'
+    }};
+    line-height: ${(props) => {
+        if (props.type === 'main-landing-title') return '8rem'
+        if (props.type === 'display-title') return '8rem'
+        if (props.type === 'page-title') return '6rem'
+        if (props.type === 'section-title') return '4rem'
+        if (props.type === 'sub-section-title') return '3rem'
+        if (props.type === 'main-paragraph') return '2.4rem'
+        if (props.type === 'sub-paragraph') return '2rem'
+        // The above is deprecated and should not be used for any new designs on Figma
+        if (props.type === 'hero') return '10rem'
+        if (props.type === 'heading-1') return '8rem'
+        if (props.type === 'heading-2') return '6rem'
+        if (props.type === 'heading-3') return '4rem'
+        if (props.type === 'subtitle-1') return '3.6rem'
+        if (props.type === 'subtitle-2') return '3rem'
+        if (props.type === 'paragraph-1') return '2.4rem'
+        if (props.type === 'paragraph-2') return '2rem'
+        if (props.type === 'small') return '1.8rem'
+        if (props.type === 'extra-small') return '1.4 rem'
+    }};
+    width: ${(props) => props.width || '100%'};
+
+    @media ${device.tabletL} {
+        font-size: ${(props) => {
+            if (props.type === 'main-landing-title') return '40px'
+            if (props.type === 'display-title') return '40px'
+            if (props.type === 'page-title') return '32px'
+            if (props.type === 'section-title') return '24px'
+            if (props.type === 'sub-section-title') return '20px'
+            if (props.type === 'main-paragraph') return '16px'
+            if (props.type === 'sub-paragraph') return '14px'
+            // The above is deprecated and should not be used for any new designs on Figma
+            if (props.type === 'hero') return '40px'
+            if (props.type === 'heading-1') return '32px'
+            if (props.type === 'heading-2') return '28px'
+            if (props.type === 'heading-3') return '24px'
+            if (props.type === 'subtitle-1') return '18px'
+            if (props.type === 'subtitle-2') return '16px'
+            if (props.type === 'paragraph-1') return '14px'
+            if (props.type === 'paragraph-2') return '12px'
+            if (props.type === 'small') return '10px'
+            if (props.type === 'extra-small') return '8px'
+        }};
+        line-height: ${(props) => {
+            if (props.type === 'main-landing-title') return '50px'
+            if (props.type === 'display-title') return '50px'
+            if (props.type === 'page-title') return '40px'
+            if (props.type === 'section-title') return '30px'
+            if (props.type === 'sub-section-title') return '25px'
+            if (props.type === 'main-paragraph') return '24px'
+            if (props.type === 'sub-paragraph') return '21px'
+            // The above is deprecated and should not be used for any new designs on Figma
+            if (props.type === 'hero') return '50px'
+            if (props.type === 'heading-1') return '40px'
+            if (props.type === 'heading-2') return '34px'
+            if (props.type === 'heading-3') return '30px'
+            if (props.type === 'subtitle-1') return '26px'
+            if (props.type === 'subtitle-2') return '24px'
+            if (props.type === 'paragraph-1') return '20px'
+            if (props.type === 'paragraph-2') return '18px'
+            if (props.type === 'small') return '14px'
+            if (props.type === 'extra-small') return '12px'
+        }};
+    }
+
+    ${responsiveStyles}
+`
 
 export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     createElement(as, props, children),

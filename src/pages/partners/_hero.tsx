@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PartnerVideo from './partner-video.mp4'
 import { localize } from 'components/localization'
 import { Container } from 'components/containers'
-import { Header } from 'components/elements'
+import { TextContainers } from 'components/elements'
 import { useLazyVideo } from 'components/hooks/use-lazy-video'
 
 const StyledHero = styled.div`
@@ -57,12 +57,23 @@ const Hero = () => {
             </StyledVideo>
             <Content>
                 <Container direction="column" height="100%">
-                    <Header as="h1" type="display-title" color="white" align="center">
+                    <TextContainers
+                        as="h1"
+                        type="display-title"
+                        element_color="white"
+                        align="center"
+                    >
                         {localize('Deriv partnership programmes')}
-                    </Header>
-                    <Header as="h3" color="white" align="center" type="section-title" weight="400">
+                    </TextContainers>
+                    <TextContainers
+                        as="h3"
+                        element_color="white"
+                        align="center"
+                        type="section-title"
+                        weight="400"
+                    >
                         {localize('Partner with a trusted online trading provider.')}
-                    </Header>
+                    </TextContainers>
                 </Container>
             </Content>
         </StyledHero>

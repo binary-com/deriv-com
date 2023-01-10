@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { localize } from 'components/localization'
-import { Header, QueryImage } from 'components/elements'
+import { QueryImage, TextContainers } from 'components/elements'
 import device, { size } from 'themes/device'
 import { Button } from 'components/form'
 import BannerBg from 'images/common/deriv-go/banner.png'
@@ -75,12 +75,12 @@ const BannerWrapper = styled(Flex)`
         justify-content: center;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(TextContainers)`
     @media ${device.tabletL} {
         text-align: center;
     }
 `
-const StyledSubTitle = styled(Header)`
+const StyledSubTitle = styled(TextContainers)`
     margin-top: 16px;
     @media ${device.tabletL} {
         margin-top: 8px;
@@ -136,10 +136,10 @@ const FooterBanner = () => {
                     width="424px"
                     tabletL={{ max_width: '100%', mt: '40px' }}
                 >
-                    <StyledHeader as="h3" color="white" type="heading-3">
+                    <StyledHeader as="h3" element_color="white" type="heading-3">
                         {localize('Start trading on the go')}
                     </StyledHeader>
-                    <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
+                    <StyledSubTitle element_color="white" type="subtitle-2" weight="lighter">
                         {localize(
                             'Download the app today and trade multipliers anytime, anywhere you want.',
                         )}
@@ -158,7 +158,11 @@ const FooterBanner = () => {
                                 width="108px"
                                 height="108px"
                             />
-                            <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
+                            <StyledSubTitle
+                                element_color="white"
+                                type="subtitle-2"
+                                weight="lighter"
+                            >
                                 {localize('Scan the QR code to download Deriv GO')}
                             </StyledSubTitle>
                         </Desktop>

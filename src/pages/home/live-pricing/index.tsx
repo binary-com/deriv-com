@@ -9,7 +9,7 @@ import device from 'themes/device'
 import { Button } from 'components/form'
 import { Localize } from 'components/localization'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import useHandleLogin from 'components/hooks/use-handle-signup'
+import useHandleLogin from 'components/hooks/use-handle-login'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 
 const LivePricingSection = styled.section`

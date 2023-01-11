@@ -4,7 +4,7 @@ import { addScriptForCIO } from '../components/_utility'
 import AcademyNav from './_academy-nav'
 import Subscribe from './_subscribe'
 import { SectionContainer, SEO, Flex } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form/'
 import useRegion from 'components/hooks/use-region'
@@ -54,7 +54,7 @@ const Subscription = () => {
                 </Flex>
                 <Flex>
                     <LinkButton secondary to="/academy/">
-                        {localize(academy_link_text)}
+                        <Localize translate_text={academy_link_text} />
                     </LinkButton>
                 </Flex>
             </SectionContainer>

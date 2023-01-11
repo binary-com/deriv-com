@@ -29,7 +29,7 @@ const Subscribe = () => {
         <>
             <Box p="12px 0">
                 <Header align="center" as="h1" type="heading-3" mb="8px">
-                    <Localize trasnlate_text={thanks_for_subscription_text} />
+                    <Localize translate_text={thanks_for_subscription_text} />
                 </Header>
                 <Header align="center" as="p" type="subtitle-2" weight="regular" mb="8px">
                     <Localize translate_text={thanks_for_confirming_text} />

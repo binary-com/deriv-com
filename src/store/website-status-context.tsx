@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, Dispatch, ReactNode } from 'react'
-import type { WebsiteStatus, ServerStatusResponse } from '@deriv/api-types'
+import type { WebsiteStatus } from '@deriv/api-types'
 import { useCookieState } from 'components/hooks/use-cookie-state'
 import useWS from 'components/hooks/useWS'
 

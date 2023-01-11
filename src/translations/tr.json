@@ -2189,7 +2189,7 @@
   "-274881601": "Son sözleşmede kullanılan bahis tutarını hafızaya almak için bu değişkeni kullanın. İstediğiniz miktarı atayabilirsiniz, ancak pozitif bir sayı olmalıdır.",
   "-985220032": "maximumKayıp",
   "-496293327": "Maksimum kayıp limitinizi hafızaya almak için bu değişkeni kullanın. İstediğiniz miktarı atayabilirsiniz, ancak pozitif bir sayı olmalıdır.",
-  "-1117510403": "Kayıp limitinize ulaşıldığında ticareti durdurmak için bu değişkeni kullanın. Başlangıç değerini <0>true</0> olarak ayarlayın.",
+  "-1117510403": "Use this variable to stop trading when your loss limit is reached. Set the initial value to <0>true</0>.",
   "-2125441053": "Sepet endeksleri ile favori varlığınızı her biri %20 ağırlığında beş büyük küresel para birimi sepetine karşı takas edebilirsiniz.",
   "-2062968282": "Cevabınızı bulamadınız mı? Yardım edebiliriz.",
   "-978362988": "Sohbet",

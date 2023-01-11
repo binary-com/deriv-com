@@ -303,7 +303,7 @@ const Subscribe = () => {
             <PaperPlaneImage src={paperPlane} alt="Paper Plane" />
             <StyledFormContent>
                 <Header as="h3" type="heading-3" color="white" align="start">
-                    {localize(subscribe_header_text)}
+                    <Localize translate_text={subscribe_header_text} />
                 </Header>
                 <Header
                     as="p"
@@ -315,7 +315,7 @@ const Subscribe = () => {
                     weight="regular"
                     tabletL={{ max_width: '100%' }}
                 >
-                    {localize(subscribe_sub_header_text)}
+                    <Localize translate_text={subscribe_sub_header_text} />
                 </Header>
                 <InputGroupForm onSubmit={handleEmailSignup} noValidate>
                     <Flex jc="flex-start">
@@ -375,7 +375,7 @@ const Subscribe = () => {
                                     !name,
                             )}
                         >
-                            {localize(subscribe_text)}
+                            <Localize translate_text={subscribe_text} />
                         </EmailButton>
                     </Flex>
                     {submit_status === true && (

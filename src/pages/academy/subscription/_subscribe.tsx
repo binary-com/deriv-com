@@ -5,7 +5,7 @@ import { Header } from 'components/elements'
 import Email1 from 'images/svg/academy/email1.svg'
 import Email2 from 'images/svg/academy/email2.svg'
 import device from 'themes/device'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
 
 const Icon = styled.img`
@@ -29,10 +29,10 @@ const Subscribe = () => {
         <>
             <Box p="12px 0">
                 <Header align="center" as="h1" type="heading-3" mb="8px">
-                    {localize(thanks_for_subscription_text)}
+                    <Localize trasnlate_text={thanks_for_subscription_text} />
                 </Header>
                 <Header align="center" as="p" type="subtitle-2" weight="regular" mb="8px">
-                    {localize(thanks_for_confirming_text)}
+                    <Localize translate_text={thanks_for_confirming_text} />
                 </Header>
             </Box>
             <Flex
@@ -49,13 +49,13 @@ const Subscribe = () => {
                 <Flex m="auto" ai="center" tabletL={{ m: '0 0 24px 0', max_width: '450px' }}>
                     <Icon src={Email1} />
                     <Header as="p" type="paragraph-1" weight="regular" m="0 16px">
-                        {localize(check_junk_folder_text)}
+                        <Localize translate_text={check_junk_folder_text} />
                     </Header>
                 </Flex>
                 <Flex m="auto" ai="center" tabletL={{ m: '0 0 24px 0', max_width: '450px' }}>
                     <Icon src={Email2} />
                     <Header as="p" type="paragraph-1" weight="regular" m="0 16px">
-                        {localize(refresh_inbox_text)}
+                        <Localize translate_text={refresh_inbox_text} />
                     </Header>
                 </Flex>
             </Flex>

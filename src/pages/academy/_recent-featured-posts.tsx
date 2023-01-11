@@ -31,7 +31,7 @@ import { StandardImgWrapper } from './common/_styles'
 import { RecentDataType, FeaturedDataType } from './index'
 import { convertDate, getMinRead } from 'common/utility'
 import { QueryImage, Tabs, Header } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import { TString } from 'types/generics'
 
 type RecentFeaturedPostsProps = {
@@ -266,7 +266,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                 )}
             </StyledTabs>
             <AllArticleButton tertiary to="/academy/blog/">
-                {localize(see_all_articles_text)}
+                <Localize translate_text={see_all_articles_text} />
             </AllArticleButton>
         </StyledContainer>
     )

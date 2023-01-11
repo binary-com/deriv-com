@@ -261,10 +261,10 @@ const SideSubscriptionBanner = () => {
                 <ImageWrapper src={EmailSubscriptionSVG} />
             </Flex>
             <StyledHeader as="h3" type="subtitle-1">
-                {localize(header_text)}
+                <Localize translate_text={header_text} />
             </StyledHeader>
             <StyledSmallHeader as="h3" type="paragraph-2" weight="normal">
-                {localize(small_header_text)}
+                <Localize translate_text={small_header_text} />
             </StyledSmallHeader>
             <EmailForm onSubmit={handleEmailSignup} noValidate>
                 <Flex fd="column">
@@ -336,7 +336,7 @@ const SideSubscriptionBanner = () => {
                                     !name,
                             )}
                         >
-                            {localize(subscribe_text)}
+                            <Localize translate_text={subscribe_text} />
                         </EmailButton>
                         {submit_status === true && (
                             <>

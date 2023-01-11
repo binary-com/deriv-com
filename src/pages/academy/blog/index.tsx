@@ -8,7 +8,7 @@ import { AllArticlesQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/deriv-blog.png'
 import device from 'themes/device'
 import { TString } from 'types/generics'
@@ -84,7 +84,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
                             weight="regular"
                             align="start"
                         >
-                            {localize(blog_text)}
+                            <Localize translate_text={blog_text} />
                         </Header>
                         <Header
                             as="h2"
@@ -93,7 +93,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
                             align="start"
                             tabletL={{ mt: '8px' }}
                         >
-                            {localize(least_articles_text)}
+                            <Localize translate_text={least_articles_text} />
                         </Header>
                     </SmallContainer>
                 </Hero>

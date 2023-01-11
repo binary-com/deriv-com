@@ -26,7 +26,7 @@ import {
 import Banner from '../../../components/_banner'
 import SocialSharing from '../../../components/_social-sharing'
 import SideSubscriptionBanner from '../../../components/_side-subscription-banner'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Desktop, Mobile, Box, Flex, SectionContainer } from 'components/containers'
 import { convertDate, isBrowser, getMinRead, truncateString } from 'common/utility'
@@ -214,7 +214,9 @@ const BlogPreview = () => {
 
                                                 <Box>
                                                     <WrittenbyText color="grey-5" size="12px">
-                                                        {localize(written_by_text)}
+                                                        <Localize
+                                                            translate_text={written_by_text}
+                                                        />
                                                     </WrittenbyText>
                                                     <InfoText>{post_data?.author?.name}</InfoText>
                                                 </Box>
@@ -252,7 +254,7 @@ const BlogPreview = () => {
 
                                             <Box>
                                                 <WrittenbyText color="grey-5" size="12px">
-                                                    {localize(written_by_text)}
+                                                    <Localize translate_text={written_by_text} />
                                                 </WrittenbyText>
                                                 <InfoText>{post_data?.author?.name}</InfoText>
                                             </Box>

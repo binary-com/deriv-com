@@ -9,6 +9,7 @@ import PA from 'images/svg/terms/business-pa-tc.svg'
 import API from 'images/svg/terms/business-api-tc.svg'
 import BugBounty from 'images/svg/terms/bug-bounty.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ColProps = {
     Icon: string
@@ -36,55 +37,66 @@ const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
     </GridCol>
 )
 
-const BusinessGrid = () => (
-    <StyledContainer>
-        <StyledGrid
-            columns="repeat(3, 1fr)"
-            column_gap="15.4rem"
-            row_gap="8rem"
-            tablet_columns="repeat(2, 1fr)"
-            mobile_columns="1fr"
-            mobile_row_gap="10rem"
-        >
-            <Col
-                Icon={General}
-                title={localize('General terms of use')}
-                content={localize(
-                    'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
-                )}
-                url="/tnc/business-partners-general-terms.pdf"
-                link_title={localize('General terms of use')}
-            />
-            <Col
-                Icon={Partners}
-                title={localize('Affiliates & introducing brokers (IBs)')}
-                content={localize('Additional terms for our affiliates and introducing brokers')}
-                url="/tnc/business-partners-affiliates-and-introducing-brokers.pdf"
-                link_title={localize('Affiliates & introducing brokers (IBs)')}
-            />
-            <Col
-                Icon={PA}
-                title={localize('Payment agents')}
-                content={localize('Additional terms for our payment agents')}
-                url="/tnc/business-partners-payment-agents.pdf"
-                link_title={localize('Payment agents')}
-            />
-            <Col
-                Icon={API}
-                title={localize('API users')}
-                content={localize('Additional terms for our API users')}
-                url="/tnc/business-partners-api-user.pdf"
-                link_title={localize('API users')}
-            />
-            <Col
-                Icon={BugBounty}
-                title={localize('Bug Bounty Program')}
-                content={localize('Additional terms for participants in our Bug Bounty Program')}
-                url="/tnc/business-partners-bug-bounty.pdf"
-                link_title={localize('Bug Bounty Program')}
-            />
-        </StyledGrid>
-    </StyledContainer>
-)
+const BusinessGrid = () => {
+    const { is_eu } = useCountryRule()
 
+    return (
+        <StyledContainer>
+            <StyledGrid
+                columns="repeat(3, 1fr)"
+                column_gap="15.4rem"
+                row_gap="8rem"
+                tablet_columns="repeat(2, 1fr)"
+                mobile_columns="1fr"
+                mobile_row_gap="10rem"
+            >
+                <Col
+                    Icon={General}
+                    title={localize('General terms of use')}
+                    content={localize(
+                        'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
+                    )}
+                    url="/tnc/business-partners-general-terms.pdf"
+                    link_title={localize('General terms of use')}
+                />
+                <Col
+                    Icon={Partners}
+                    title={localize('Affiliates & introducing brokers (IBs)')}
+                    content={localize(
+                        'Additional terms for our affiliates and introducing brokers',
+                    )}
+                    url={
+                        is_eu
+                            ? '/tnc/eu/business-partners-affiliates-and-introducing-brokers.pdf'
+                            : '/tnc/business-partners-affiliates-and-introducing-brokers.pdf'
+                    }
+                    link_title={localize('Affiliates & introducing brokers (IBs)')}
+                />
+                <Col
+                    Icon={PA}
+                    title={localize('Payment agents')}
+                    content={localize('Additional terms for our payment agents')}
+                    url="/tnc/business-partners-payment-agents.pdf"
+                    link_title={localize('Payment agents')}
+                />
+                <Col
+                    Icon={API}
+                    title={localize('API users')}
+                    content={localize('Additional terms for our API users')}
+                    url="/tnc/business-partners-api-user.pdf"
+                    link_title={localize('API users')}
+                />
+                <Col
+                    Icon={BugBounty}
+                    title={localize('Bug Bounty Program')}
+                    content={localize(
+                        'Additional terms for participants in our Bug Bounty Program',
+                    )}
+                    url="/tnc/business-partners-bug-bounty.pdf"
+                    link_title={localize('Bug Bounty Program')}
+                />
+            </StyledGrid>
+        </StyledContainer>
+    )
+}
 export default BusinessGrid

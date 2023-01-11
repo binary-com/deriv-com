@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import CfdPattern from 'images/common/trade-types/cfd-pattern.png'
+import CfdPattern from 'images/common/trade-types/pattern-section-small.png'
 import CfdMobilePattern from 'images/common/trade-types/mobile-cfd-pattern.png'
 import PatternsMobile from 'images/common/trade-types/trade-patterns-mobile.png'
 import Patterns from 'images/common/trade-types/trade-patterns.png'

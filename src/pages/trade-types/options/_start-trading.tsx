@@ -6,7 +6,7 @@ import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
-import Pattern from 'images/common/trade-types/pattern-section.png'
+import Pattern from 'images/common/trade-types/pattern-section-small.png'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const PatternContainer = styled(SectionContainer)`

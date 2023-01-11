@@ -7,7 +7,7 @@ import { Carousel, CarouselProps, Header, LinkText, QueryImage, Text } from 'com
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { TString } from 'types/generics'
 
@@ -240,7 +240,7 @@ const MarginCalculator = () => {
         },
     }
 
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     return (
         <SectionContainer>
             <StyledFlexContainer>

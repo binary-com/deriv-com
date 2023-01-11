@@ -9,8 +9,8 @@ import { Header, QueryImage } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import useRegion from 'components/hooks/use-region'
 
 type DHeroProps = {
     background_alt?: string
@@ -257,7 +257,7 @@ const DHero = ({
     const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     const is_rtl = useIsRtl()
     const [is_logged_in] = useAuthCheck()
 

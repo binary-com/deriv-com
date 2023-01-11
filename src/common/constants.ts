@@ -71,7 +71,7 @@ export const besquare_signup_url =
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
-export const deriv_app_languages = ['id', 'pt', 'es']
+export const deriv_app_languages = ['id', 'pt', 'es', 'ru', 'fr']
 export const smart_trader_languages = [
     'es',
     'fr',
@@ -158,7 +158,7 @@ export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
-export const loss_percent = 70
+export const loss_percent = 71
 
 export const cookie_key = 'browser_update_alert_modal_shown'
 export const browsers_minimum_required_version = {

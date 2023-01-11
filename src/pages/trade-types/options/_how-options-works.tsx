@@ -10,7 +10,7 @@ import device from 'themes/device'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import GetQuote from 'images/svg/trade-types/get-quote.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
-import Pattern from 'images/common/trade-types/pattern-section.png'
+import Pattern from 'images/common/trade-types/pattern-section-small.png'
 
 const query = graphql`
     query {

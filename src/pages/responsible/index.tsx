@@ -6,10 +6,9 @@ import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
-import NoneEuBackground from 'images/common/responsible-trading-bg.png'
-import EuBackground from 'images/common/responsible-trading-eu-bg.png'
+import HeroBackground from 'images/common/responsible-trading-bg.png'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const TradingResponsibly = Loadable(() => import('./_trading-responsibly'))
 const TradingLimits = Loadable(() => import('./_trading-limits'))
@@ -36,8 +35,7 @@ const StyledHeader = styled(Header)`
 `
 
 const ResponsibleTrading = () => {
-    const { is_eu, is_non_eu } = useCountryRule()
-    const HeroBackground = is_eu ? EuBackground : NoneEuBackground
+    const { is_eu, is_non_eu } = useRegion()
 
     return (
         <Layout>

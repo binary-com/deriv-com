@@ -11,7 +11,7 @@ import DBotBG from 'images/svg/dbot/dbot-bg.svg'
 import DBotBGMobile from 'images/svg/dbot/dbot-bg-mobile.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
+import BackgroundPatternDBot from 'images/common/bg_banner_trader.png'
 import DHero from 'components/custom/_dhero'
 import DNumber from 'components/custom/_dnumbers'
 import { MetaAttributesType } from 'types/page.types'
@@ -20,7 +20,7 @@ const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms'))
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type ItemType = {
     title: string | ReactElement
@@ -111,7 +111,7 @@ const trading: TradingType[] = [
 ]
 
 const Dbot = () => {
-    const { is_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = useRegion()
     const [is_mobile, setIsMobile] = useState(
         isBrowser() ? window.screen.width <= size.mobileL : false,
     )

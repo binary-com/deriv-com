@@ -1317,12 +1317,12 @@ export const derived_fx: MarketSymbol[] = [
         text: <Localize translate_text="GBP/USD DFX10 Index" />,
     },
     {
-        src: icons.EURUSD10,
-        text: <Localize translate_text="EUR/USD DFX10 Index" />,
-    },
-    {
         src: icons.AUDUSD10,
         text: <Localize translate_text="AUD/USD DFX10 Index" />,
+    },
+    {
+        src: icons.EURUSD10,
+        text: <Localize translate_text="EUR/USD DFX10 Index" />,
     },
     {
         src: icons.USDJPY10,

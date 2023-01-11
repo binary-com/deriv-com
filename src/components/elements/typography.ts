@@ -46,6 +46,7 @@ type BaseElementProps = {
     max_height?: string
     mobile_max_width?: string
     type?: string[] | Types
+    element_color?: string
 } & MarginsType &
     PaddingsType
 
@@ -111,6 +112,12 @@ export const BaseElement = css<BaseElementProps>`
     }
 `
 
+export const TypographyBaseElement = css<BaseElementProps>`
+    ${BaseElement}
+    color: ${(props) =>
+        props.element_color ? `var(--color-${props.element_color})` : 'var(--color-black-3)'};
+`
+
 /** @deprecated Use `Header` component instead. */
 
 export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
@@ -137,6 +144,155 @@ type HeaderProps = {
     className?: string
 } & ResponseDeviceProps &
     BaseElementProps
+const ElementStyleAttributes = {
+    'main-landing-title': {
+        font_size: '8.0rem',
+        line_height: '8rem',
+        font_size_tabletL: '40px',
+        line_height_tabletL: '50px',
+    },
+    'display-title': {
+        font_size: '6.4rem',
+        line_height: '8rem',
+        font_size_tabletL: '40px',
+        line_height_tabletL: '50px',
+    },
+    'page-title': {
+        font_size: '4.8rem',
+        line_height: '6rem',
+        font_size_tabletL: '32px',
+        line_height_tabletL: '40px',
+    },
+    'section-title': {
+        font_size: '3.2rem',
+        line_height: '4rem',
+        font_size_tabletL: '24px',
+        line_height_tabletL: '30px',
+    },
+    'sub-section-title': {
+        font_size: '2.4rem',
+        line_height: '3rem',
+        font_size_tabletL: '20px',
+        line_height_tabletL: '25px',
+    },
+    'main-paragraph': {
+        font_size: '1.6rem',
+        line_height: '2.4rem',
+        font_size_tabletL: '16px',
+        line_height_tabletL: '24px',
+    },
+    'sub-paragraph': {
+        font_size: '1.4rem',
+        line_height: '2rem',
+        font_size_tabletL: '14px',
+        line_height_tabletL: '21px',
+    },
+    hero: {
+        font_size: '8.0rem',
+        line_height: '10rem',
+        font_size_tabletL: '40px',
+        line_height_tabletL: '50px',
+    },
+    'heading-1': {
+        font_size: '6.4rem',
+        line_height: '8rem',
+        font_size_tabletL: '32px',
+        line_height_tabletL: '40px',
+    },
+    'heading-2': {
+        font_size: '4.8rem',
+        line_height: '6rem',
+        font_size_tabletL: '28px',
+        line_height_tabletL: '34px',
+    },
+    'heading-3': {
+        font_size: '3.2rem',
+        line_height: '4rem',
+        font_size_tabletL: '24px',
+        line_height_tabletL: '30px',
+    },
+    'subtitle-1': {
+        font_size: '2.4rem',
+        line_height: '3.6rem',
+        font_size_tabletL: '18x',
+        line_height_tabletL: '26px',
+    },
+    'subtitle-2': {
+        font_size: '2.0rem',
+        line_height: '3rem',
+        font_size_tabletL: '16px',
+        line_height_tabletL: '24px',
+    },
+    'paragraph-1': {
+        font_size: '1.6rem',
+        line_height: '2.4rem',
+        font_size_tabletL: '14px',
+        line_height_tabletL: '20px',
+    },
+    'paragraph-2': {
+        font_size: '1.4rem',
+        line_height: '2rem',
+        font_size_tabletL: '12px',
+        line_height_tabletL: '18px',
+    },
+    small: {
+        font_size: '1.2rem',
+        line_height: '1.8rem',
+        font_size_tabletL: '10px',
+        line_height_tabletL: '14px',
+    },
+    'extra-small': {
+        font_size: '1.0rem',
+        line_height: '1.4rem',
+        font_size_tabletL: '8px',
+        line_height_tabletL: '12px',
+    },
+}
+export const Typography = styled.h2<HeaderProps>`
+    ${TypographyBaseElement}
+    font-weight: ${(props) => props.weight || 'bold'};
+    font-size: ${(props) => {
+        if (props.size) return props.size
+        else {
+            if (typeof props.type === 'string') {
+                return (
+                    ElementStyleAttributes[props.type] &&
+                    ElementStyleAttributes[props.type]['font_size']
+                )
+            }
+        }
+    }};
+    line-height: ${(props) => {
+        if (typeof props.type === 'string') {
+            return (
+                ElementStyleAttributes[props.type] &&
+                ElementStyleAttributes[props.type]['line_height']
+            )
+        }
+    }};
+    width: ${(props) => props.width || '100%'};
+
+    @media ${device.tabletL} {
+        font-size: ${(props) => {
+            if (typeof props.type === 'string') {
+                return (
+                    ElementStyleAttributes[props.type] &&
+                    ElementStyleAttributes[props.type]['font_size_tabletL']
+                )
+            }
+        }};
+        line-height: ${(props) => {
+            if (typeof props.type === 'string') {
+                return (
+                    ElementStyleAttributes[props.type] &&
+                    ElementStyleAttributes[props.type]['line_height_tabletL']
+                )
+            }
+        }};
+    }
+
+    ${responsiveStyles}
+`
 
 export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     createElement(as, props, children),

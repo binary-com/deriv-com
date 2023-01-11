@@ -2184,7 +2184,7 @@
   "-1628704443": "Masz pytanie?",
   "-1394160761": "Jest wiele sposobów kontrolowania strat w DBot. Tu znajdziesz prosty przykład, jak możesz wprowadzić kontrolę straty w Twojej strategii:",
   "-986689483": "1. Utwórz następujące zmienne:",
-  "-1926839667": "2. Użyj bloku logicznego, aby sprawdzić, czy <0>currentPL</0> przekracza <0>maximumLoss</0>. Jeśli tak, ustaw <0>tradeAgain</0> na false, aby zapobiec uruchomieniu przez bota kolejnego cyklu.",
+  "-1926839667": "2. Użyj bloku logicznego, aby sprawdzić, czy <0>obecnePL</0> przekracza <0>maksymalnaStrata</0>. Jeśli tak, ustaw <0>handlujPonownie</0> na false, aby zapobiec uruchomieniu przez bota kolejnego cyklu.",
   "-484325406": "3. Zaktualizuj <0>obecnePL</0> o zysk z ostatniego kontraktu. Jeśli ostatni kontrakt przyniósł stratę, wartość pola <0>obecnePL</0> będzie ujemna.",
   "-274881601": "Ta zmienna służy do przechowywania kwoty stawki użytej w ostatnim kontrakcie. Możesz przypisać dowolną kwotę, ale musi to być liczba dodatnia.",
   "-985220032": "maksymalnaStrata",

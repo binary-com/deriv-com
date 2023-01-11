@@ -14,7 +14,7 @@ const DisclaimerSection = () => {
             <DisclaimerWrapper>
                 <DisclaimerParagraph>
                     <Localize
-                        translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union."
+                        translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority, Triq l-Imdina, Zone 1, Central Business District, Birkirkara CBD 1010, Malta, under the Investments Services Act."
                         components={[
                             <StaticAsset
                                 key={0}
@@ -32,7 +32,7 @@ const DisclaimerSection = () => {
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
                     {localize(
-                        'This website’s services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.',
+                        "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
                     )}
                 </DisclaimerParagraph>
                 <RiskWarning>

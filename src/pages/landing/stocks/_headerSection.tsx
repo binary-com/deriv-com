@@ -9,7 +9,7 @@ import StocksHeaderBelowSection from 'images/svg/stock-indices/stocksHeaderBelow
 import stocksHeaderBelowSectionM from 'images/svg/stock-indices/stocksHeaderBelowSection-m.svg'
 import device from 'themes/device'
 import { localize } from 'components/localization'
-import { Header, QueryImage } from 'components/elements'
+import { Typography, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 
 const query = graphql`
@@ -109,7 +109,7 @@ const StyledLinkButton = styled(LinkButton)`
     line-height: 20px;
 `
 
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Typography)`
     margin-bottom: 16px;
     @media ${device.tabletL} {
         font-size: 40px;
@@ -117,7 +117,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const StyledHeaderSmall = styled(Header)`
+const StyledHeaderSmall = styled(Typography)`
     font-size: 24px;
     max-width: 58rem;
     line-height: 1.5;
@@ -228,7 +228,7 @@ const SectionTextWrapper = styled(Flex)`
     }
 `
 
-const SectionStyledHeader = styled(Header)`
+const SectionStyledHeader = styled(Typography)`
     font-size: 64px;
     text-align: start;
     line-height: 1.25;
@@ -240,7 +240,7 @@ const SectionStyledHeader = styled(Header)`
     }
 `
 
-const SectionStyledHeaderSmall = styled(Header)`
+const SectionStyledHeaderSmall = styled(Typography)`
     font-size: 24px;
     max-width: 100%;
     text-align: start;
@@ -261,11 +261,11 @@ const HeaderSection = () => {
                 <TopHeaderWrapper>
                     <TopHeaderTextDiv>
                         <TopTextWrapper>
-                            <StyledHeader color="white" type="main-landing-title">
+                            <StyledHeader element_color="white" type="main-landing-title">
                                 {localize('Stocks, unlocked')}
                             </StyledHeader>
                             <StyledHeaderSmall
-                                color="white"
+                                element_color="white"
                                 type="sub-section-title"
                                 weight="normal"
                             >

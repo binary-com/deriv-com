@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Typography } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -51,11 +51,11 @@ const EachWrapper = styled(Flex)`
         }
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Typography)`
     margin-bottom: 8px;
     text-align: center;
 `
-const StyledHeaderSmall = styled(Header)`
+const StyledHeaderSmall = styled(Typography)`
     text-align: center;
     line-height: 36px;
 

@@ -9,9 +9,9 @@ import {
     Accordion,
     AccordionItem,
     NavCard,
-    Text,
     Divider,
     ImageWithDireciton,
+    Typography,
 } from 'components/elements'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
@@ -172,9 +172,14 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                     >
                         {!props.is_ppc && (
                             <>
-                                <Text color="grey-5" mb="8px" size="14px">
+                                <Typography
+                                    element_color="grey-5"
+                                    mb="8px"
+                                    size="14px"
+                                    weight="normal"
+                                >
                                     {<Localize translate_text="Trade types" />}
-                                </Text>
+                                </Typography>
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="CFDs"
@@ -239,9 +244,9 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
 
                         <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
 
-                        <Text color="grey-5" mb="8px" size="14px">
+                        <Typography element_color="grey-5" mb="8px" size="14px" weight="normal">
                             {<Localize translate_text="Trading platforms" />}
-                        </Text>
+                        </Typography>
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="DMT5"

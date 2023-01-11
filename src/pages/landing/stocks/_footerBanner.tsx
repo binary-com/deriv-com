@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Container, Flex } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { QueryImage, Typography } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
@@ -106,7 +106,7 @@ const StyledLinkButton = styled(LinkButton)<{ id?: string }>`
         white-space: nowrap;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Typography)`
     font-size: 48px;
     line-height: 1.25;
     @media ${device.tabletL} {
@@ -114,7 +114,7 @@ const StyledHeader = styled(Header)`
         margin-bottom: 8px;
     }
 `
-const StyledHeaderSmall = styled(Header)`
+const StyledHeaderSmall = styled(Typography)`
     font-size: 24px;
     line-height: 1.5;
     max-width: 584px;
@@ -163,11 +163,11 @@ const FooterBanner = ({
             <MainWrapper>
                 <TextWrapper>
                     <TextDiv>
-                        <StyledHeader color="white" type="section-title" mb="8px">
+                        <StyledHeader element_color="white" type="section-title" mb="8px">
                             {title}
                         </StyledHeader>
                         <StyledHeaderSmall
-                            color="white"
+                            element_color="white"
                             type="sub-section-title"
                             weight="normal"
                             size="2.4rem"

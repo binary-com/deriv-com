@@ -9,7 +9,7 @@ import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
-import { BackgroundImage, Header } from 'components/elements'
+import { BackgroundImage, Typography } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -57,7 +57,7 @@ const HeroButton = styled(Button)`
         padding: 12px 20px;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Typography)`
     @media ${device.tabletL} {
         margin-right: 8px;
         width: unset;
@@ -66,7 +66,7 @@ const StyledHeader = styled(Header)`
 
 const HeroHeader = ({ text }: { text: TString }) => {
     return (
-        <StyledHeader type="main-landing-title" color="white">
+        <StyledHeader type="main-landing-title" element_color="white">
             <Localize translate_text={text} />
         </StyledHeader>
     )
@@ -117,10 +117,10 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                     <HeroHeader key={item.id} text={item.text} />
                                 ))}
                             </Flex>
-                            <Header
+                            <Typography
                                 as="h2"
                                 type="sub-section-title"
-                                color="white"
+                                element_color="white"
                                 min_height="auto"
                                 weight="normal"
                             >
@@ -130,7 +130,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 {is_row && (
                                     <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
                                 )}
-                            </Header>
+                            </Typography>
                             <VerticalCarousel contents={is_ppc ? contents_ppc : contents} />
                             <Box tabletL={{ mt: '-8px' }}>
                                 {is_logged_in ? (

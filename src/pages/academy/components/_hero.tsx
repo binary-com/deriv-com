@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
-import { BackgroundImage, Header } from 'components/elements'
+import { BackgroundImage, Typography } from 'components/elements'
 import { LinkButton } from 'components/form'
 
 type HeroProps = {
@@ -64,12 +64,19 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroP
     return (
         <Container>
             <Wrapper>
-                <Header color="white" type="heading-2" weight="700" mb="8px">
+                <Typography element_color="white" type="heading-2" weight="700" mb="8px">
                     {title}
-                </Header>
-                <Header as="p" color="white" weight="400" type="subtitle-2" size="20px" mb="20px">
+                </Typography>
+                <Typography
+                    as="p"
+                    element_color="white"
+                    weight="400"
+                    type="subtitle-2"
+                    size="20px"
+                    mb="20px"
+                >
                     {description}
-                </Header>
+                </Typography>
                 <Flex jc="left" height="unset">
                     <LinkButton
                         id="hero-article"

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Typography } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import JumpSVG from 'images/svg/jump-indices/jump-indices-imagery.svg'
@@ -51,13 +51,13 @@ const RightWrapper = styled(Flex)`
     }
 `
 
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Typography)`
     margin-bottom: 8px;
     @media ${device.tabletL} {
         text-align: center;
     }
 `
-const StyledHeaderSmall = styled(Header)`
+const StyledHeaderSmall = styled(Typography)`
     line-height: 36px;
     @media ${device.tabletL} {
         text-align: center;

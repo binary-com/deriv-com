@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import type { ImageDataLike } from 'gatsby-plugin-image'
-import { BackgroundImage, Header } from 'components/elements'
+import { BackgroundImage, Typography } from 'components/elements'
 import { Container } from 'components/containers'
 import device from 'themes/device'
 import { localize } from 'components/localization'
@@ -21,7 +21,7 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const Subheadline = styled(Header)`
+const Subheadline = styled(Typography)`
     font-weight: normal;
     margin-top: 16px;
 `
@@ -38,11 +38,11 @@ const HeroComponent = ({ background_data, background_dark }: HeroComponentProps)
             dark={background_dark}
         >
             <StyledContainer direction="column">
-                <Header as="h1" color="white" align="center" type="heading-1">
+                <Typography as="h1" element_color="white" align="center" type="heading-1">
                     {localize('Bug bounty program')}
-                </Header>
+                </Typography>
 
-                <Subheadline as="p" color="white" align="center" type="subtitle-1">
+                <Subheadline as="p" element_color="white" align="center" type="subtitle-1">
                     {localize('Security is a collaboration. Report bugs and be rewarded.')}
                 </Subheadline>
             </StyledContainer>

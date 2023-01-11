@@ -16,7 +16,7 @@ import {
 } from './off-canvas-menu'
 import { OffCanvasMenuWrapperCareer } from './off-canvas-menu-career'
 import Tabs from './default-tab'
-import { Text, LinkText, Header, BaseElement, SpanLinkText } from './typography'
+import { Text, LinkText, Header, BaseElement, SpanLinkText, Typography } from './typography'
 import LocalizedLinkText from './localized-link-text'
 import LiveChatLinkText from './livechat-link-text'
 import Timeline from './timeline'
@@ -63,4 +63,5 @@ export {
     VideoPlayer,
     Modal,
     ImageWithDireciton,
+    Typography,
 }

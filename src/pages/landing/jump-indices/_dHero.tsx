@@ -2,7 +2,7 @@ import React, { createRef, useEffect } from 'react'
 import lottie from 'lottie-web'
 import styled from 'styled-components'
 import { Container, Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Typography } from 'components/elements'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -64,7 +64,7 @@ const LeftWrapper = styled(Flex)`
     }
 `
 
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Typography)`
     margin-bottom: 16px;
     line-height: 100px;
     @media ${device.tabletL} {
@@ -72,7 +72,7 @@ const StyledHeader = styled(Header)`
         line-height: 40px;
     }
 `
-const StyledHeaderSmall = styled(Header)`
+const StyledHeaderSmall = styled(Typography)`
     line-height: 36px;
     margin-bottom: 32px;
     @media ${device.tabletL} {
@@ -144,10 +144,14 @@ const DHero = () => {
         <MainWrapper>
             <ParentWrapper>
                 <LeftWrapper>
-                    <StyledHeader type="main-landing-title" color="white">
+                    <StyledHeader type="main-landing-title" element_color="white">
                         {localize('Trade jump indices, the new synthetics with a twist')}
                     </StyledHeader>
-                    <StyledHeaderSmall type="sub-section-title" color="white" weight="normal">
+                    <StyledHeaderSmall
+                        type="sub-section-title"
+                        element_color="white"
+                        weight="normal"
+                    >
                         {localize(
                             'Brand new synthetic indices are now available on DTrader and Deriv MT5',
                         )}

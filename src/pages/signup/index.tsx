@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { useDerivApi } from '../../components/hooks/use-deriv-api'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -61,6 +62,12 @@ const StyledGraph = styled.img`
 const NewSignup = () => {
     const [submit_state, setSubmitState] = useState('')
     const [email, setEmail] = useState('')
+    const { WS } = useDerivApi()
+
+    if (WS?.isConnectionClosed()) {
+        WS.openHandler()
+    }
+    console.log(WS?.isConnectionClosed())
 
     const updateSubmitState = (
         status_arg: React.SetStateAction<string>,

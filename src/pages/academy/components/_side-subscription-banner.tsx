@@ -119,6 +119,18 @@ const StyledLocalizedLink = styled(LocalizedLinkText)`
     }
 `
 
+const header_text: TString = '_t_Subscribe to our academy via email_t_'
+const small_header_text: TString =
+    '_t_Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates._t_'
+const subscribe_text: TString = '_t_Subscribe_t_'
+const send_me_text: TString = '_t_Send me marketing materials too!_t_'
+const we_respect_text: TString =
+    '_t_We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more._t_'
+const thanks_for_subscribing_text: TString =
+    "_t_Thanks for subscribing. We've sent a confirmation email to your inbox_t_"
+const adblock_text: TString =
+    '_t_If you have AdBlock installed, please disable it in order to subscribe_t_'
+
 const SideSubscriptionBanner = () => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
@@ -242,18 +254,6 @@ const SideSubscriptionBanner = () => {
         clearName()
         clearEmail()
     }
-
-    const header_text: TString = '_t_Subscribe to our academy via email_t_'
-    const small_header_text: TString =
-        '_t_Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates._t_'
-    const subscribe_text: TString = '_t_Subscribe_t_'
-    const send_me_text: TString = '_t_Send me marketing materials too!_t_'
-    const we_respect_text: TString =
-        '_t_We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more._t_'
-    const thanks_for_subscribing_text: TString =
-        "_t_Thanks for subscribing. We've sent a confirmation email to your inbox_t_"
-    const adblock_text: TString =
-        '_t_If you have AdBlock installed, please disable it in order to subscribe_t_'
 
     return (
         <SubscribeBannerWrapper fd="column">

@@ -45,6 +45,8 @@ export const useTruncateLength = () => {
     else return 60
 }
 
+const written_by_text: TString = '_t_Written by_t_'
+
 const BlogPreview = () => {
     const [is_mobile] = useBrowserResize(972)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
@@ -128,8 +130,6 @@ const BlogPreview = () => {
         imgSrcDesktop: footer_banner_data?.desktop_banner_image?.id,
         imgSrcMobile: footer_banner_data?.mobile_banner_image?.id,
     }
-
-    const written_by_text: TString = '_t_Written by_t_'
 
     return (
         <Layout type="academy" margin_top={'14.4'}>

@@ -52,6 +52,12 @@ type ArticlesPageProps = {
 
 export type ArticleDataType = AllArticlesQuery['directus']['blog']
 
+const title_text: TString = '_t_Articles, trading guide and resources | Deriv_t_'
+const description_text: TString =
+    "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_"
+const blog_text: TString = '_t_Blog_t_'
+const least_articles_text: TString = '_t_The latest articles and resources_t_'
+
 const ArticlesPage = ({ data }: ArticlesPageProps) => {
     const article_data = useDataFilter(data.directus.blog)
 
@@ -60,12 +66,6 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
         og_description:
             'Educational content at your fingertips – everything you need to know to start trading or upgrade your trading skills.',
     }
-
-    const title_text: TString = '_t_Articles, trading guide and resources | Deriv_t_'
-    const description_text: TString =
-        "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_"
-    const blog_text: TString = '_t_Blog_t_'
-    const least_articles_text: TString = '_t_The latest articles and resources_t_'
 
     return (
         <Layout type="academy" margin_top={'14.4'}>

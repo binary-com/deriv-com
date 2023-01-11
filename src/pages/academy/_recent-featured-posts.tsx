@@ -39,6 +39,10 @@ type RecentFeaturedPostsProps = {
     featured_data: FeaturedDataType
 }
 
+const recent_articles_text: TString = '_t_Recent articles_t_'
+const featured_articles_text: TString = '_t_Featured articles_t_'
+const see_all_articles_text: TString = '_t_See all articles_t_'
+
 const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPostsProps) => {
     let featureds, headline_featured
 
@@ -55,10 +59,6 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
 
     const recents = recent_data.slice(1)
     const headline_recent = recent_data[0]
-
-    const recent_articles_text: TString = '_t_Recent articles_t_'
-    const featured_articles_text: TString = '_t_Featured articles_t_'
-    const see_all_articles_text: TString = '_t_See all articles_t_'
 
     return (
         <StyledContainer m="20px auto 0" fd="column" ai="center">

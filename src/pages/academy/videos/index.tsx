@@ -54,6 +54,10 @@ type VideosPageProps = {
 
 export type VideoDataType = AllVideosQuery['directus']['videos']
 
+const title_text: TString = '_t_Latest videos, tutorials, webinars for trading | Deriv_t_'
+const description: TString =
+    "_t_Learn how to trade using our trading videos and tutorials at Deriv's online trading academy._t_"
+
 const VideosPage = ({ data }: VideosPageProps) => {
     // We need this to redirect users to the new videos page if ever they are accessing the old video link
     React.useEffect(() => {
@@ -70,10 +74,6 @@ const VideosPage = ({ data }: VideosPageProps) => {
         og_title: 'Platform tours, webinars, and more.',
         og_description: 'Our products and services explained in detail.',
     }
-
-    const title_text: TString = '_t_Latest videos, tutorials, webinars for trading | Deriv_t_'
-    const description: TString =
-        "_t_Learn how to trade using our trading videos and tutorials at Deriv's online trading academy._t_"
 
     return (
         <Layout type="academy" margin_top={'14.4'}>

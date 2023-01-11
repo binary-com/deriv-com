@@ -55,10 +55,9 @@ const Line = styled.div`
         margin: 0 8px;
     }
 `
+const academy_text: TString = '_t_Academy_t_'
 
 const AcademyNav = () => {
-    const academy_text: TString = '_t_Academy_t_'
-
     return (
         <Nav>
             <Flex width="auto">

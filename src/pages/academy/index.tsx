@@ -50,6 +50,10 @@ export type NonFeaturedVideoListDataType = AcademyIndexFragment['directus']['vid
 
 export type MarketNewsDataType = AcademyIndexFragment['directus']['market_news']
 
+const title_text: TString = '_t_Articles, trading guide and resources | Deriv_t_'
+const description_text: TString =
+    "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_"
+
 const DerivBlog = ({ data }: DerivBlogProps) => {
     const { is_eu } = useRegion()
 
@@ -115,10 +119,6 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
 
     //arranges homepage banners in ascendingly on order value
     homepage_banner_data.sort((a, b) => parseInt(a.order) - parseInt(b.order))
-
-    const title_text: TString = '_t_Articles, trading guide and resources | Deriv_t_'
-    const description_text: TString =
-        "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_"
 
     return (
         <Layout type="academy" margin_top={'14.4'}>

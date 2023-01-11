@@ -10,6 +10,11 @@ import { LinkButton } from 'components/form/'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 
+const title_text: TString = '_t_Thank you for subscribing_t_'
+const description_text: TString =
+    '_t_Thank you for confirming your email address, you will receive a confirmation email shortly._t_'
+const academy_link_text: TString = '_t_Take me to Academy_t_'
+
 const Subscription = () => {
     const [email] = useQueryParam('email', StringParam)
     const [confirmation_code] = useQueryParam('c', StringParam)
@@ -33,11 +38,6 @@ const Subscription = () => {
             })
         }
     }, [is_script_loaded])
-
-    const title_text: TString = '_t_Thank you for subscribing_t_'
-    const description_text: TString =
-        '_t_Thank you for confirming your email address, you will receive a confirmation email shortly._t_'
-    const academy_link_text: TString = '_t_Take me to Academy_t_'
 
     return (
         <>

@@ -83,6 +83,10 @@ const StyledTitle = styled.span`
     color: var(--color-black-3);
 `
 
+const title_text: TString = '_t_Articles, trading guide and resources | Deriv_t_'
+const description_text: TString =
+    "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_"
+
 const SearchPage = () => {
     // search result states
     const { academy_data } = useAcademyData()
@@ -365,10 +369,6 @@ const SearchPage = () => {
         const type = queryParams.get('type')
         return type === 'article' || !type
     }
-
-    const title_text: TString = '_t_Articles, trading guide and resources | Deriv_t_'
-    const description_text: TString =
-        "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_"
 
     return (
         <Layout type="academy" margin_top={'14.4'}>

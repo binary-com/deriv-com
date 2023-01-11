@@ -17,15 +17,14 @@ const Icon = styled.img`
         height: 48px;
     }
 `
+const thanks_for_subscription_text: TString = '_t_Thanks for subscribing to Deriv Academy_t_'
+const thanks_for_confirming_text: TString =
+    '_t_Thank you for confirming your email address, you will receive a confirmation email shortly._t_'
+const check_junk_folder_text: TString = `_t_If you don't receive an email, please check your junk folder._t_`
+const refresh_inbox_text: TString = `_t_If the email still hasn't arrived after a few minutes, please refresh this
+page, and check your inbox again._t_`
 
 const Subscribe = () => {
-    const thanks_for_subscription_text: TString = '_t_Thanks for subscribing to Deriv Academy_t_'
-    const thanks_for_confirming_text: TString =
-        '_t_Thank you for confirming your email address, you will receive a confirmation email shortly._t_'
-    const check_junk_folder_text: TString = `_t_If you don't receive an email, please check your junk folder._t_`
-    const refresh_inbox_text: TString = `_t_If the email still hasn't arrived after a few minutes, please refresh this
-    page, and check your inbox again._t_`
-
     return (
         <>
             <Box p="12px 0">

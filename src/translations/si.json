@@ -2188,6 +2188,7 @@
   "-484325406": "3. Update <0>currentPL</0> with the profit from the last contract. If the last contract was lost, the value of <0>currentPL</0> will be negative.",
   "-274881601": "Use this variable to store the stake amount used in the last contract. You can assign any amount you want, but it must be a positive number.",
   "-985220032": "මැක්සිම්අලාභය",
+  "-496293327": "ඔබේ උපරිම පාඩු සීමාව ගබඩා කිරීමට මෙම විචල්යය භාවිතා කරන්න. ඔබට අවශ්ය ඕනෑම මුදලක් පැවරිය හැකිය, නමුත් එය ධනාත්මක අංකයක් විය යුතුය.",
   "-1117510403": "Use this variable to stop trading when your loss limit is reached. Set the initial value to <0>true</0>.",
   "-2125441053": "කූඩ දර්ශක සමඟ, ඔබට ඔබේ ප්රියතම වත්කම ප්රධාන ගෝලීය මුදල් පහක කූඩයකට එරෙහිව වෙළඳාම් කළ හැකිය, සෑම එකක්ම බර 20% කි.",
   "-2062968282": "ඔබේ පිළිතුර සොයා ගත්තේ නැද්ද? අපට උදව් කළ හැකිය.",

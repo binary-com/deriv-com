@@ -2188,6 +2188,7 @@
   "-484325406": "3. Aktualisieren Sie <0>currentPL</0> mit dem Gewinn aus dem letzten Kontrakt. Wenn der letzte Kontrakt verloren war, ist der Wert von <0>currentPL</0> negativ.",
   "-274881601": "Verwenden Sie diese Variable, um den im letzten Kontrakt verwendeten Einsatzbetrag zu speichern. Sie können einen beliebigen Betrag zuweisen, aber es muss eine positive Zahl sein.",
   "-985220032": "Maximaler Verlust",
+  "-496293327": "Verwenden Sie diese Variable, um Ihr maximales Verlustlimit zu speichern. Sie können einen beliebigen Betrag zuweisen, aber es muss eine positive Zahl sein.",
   "-1117510403": "Verwenden Sie diese Variable, um den Handel zu beenden, wenn Ihr Verlustlimit erreicht ist. Setzen Sie den Anfangswert auf <0>wahr</0>.",
   "-2125441053": "Mit Korbindizes können Sie Ihren bevorzugten Vermögenswert gegen einen Korb von fünf wichtigen Weltwährungen handeln, die jeweils um 20% gewichtet sind.",
   "-2062968282": "Hast du deine Antwort nicht gefunden? Wir können helfen.",

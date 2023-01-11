@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TContent } from './_types'
-import { Carousel, CarouselProps, Header } from 'components/elements'
+import { Carousel, CarouselProps, Typography } from 'components/elements'
 import { Localize } from 'components/localization'
 
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Typography)`
     height: 36px;
     line-height: 36px;
 `
@@ -40,7 +40,12 @@ const VerticalCarousel = ({ contents }: VerticalCarouselProps) => {
     return (
         <Carousel has_autoplay autoplay_delay={6000} autoplay_interval={2500} {...settings}>
             {contents.map((content) => (
-                <StyledHeader as="h3" type="sub-section-title" color="white" key={content.id}>
+                <StyledHeader
+                    as="h3"
+                    type="sub-section-title"
+                    element_color="white"
+                    key={content.id}
+                >
                     <Localize translate_text={content.text} />
                 </StyledHeader>
             ))}

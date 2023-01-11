@@ -5,7 +5,7 @@ import { loss_percent } from 'common/constants'
 import device from 'themes/device'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type TProps = {
     is_ppc: boolean
@@ -64,7 +64,7 @@ const CFDText = styled(Text)`
 `
 
 const CFDWarningBanner = ({ is_ppc }: TProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     if (is_ppc || is_eu) {
         return (

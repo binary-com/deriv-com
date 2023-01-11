@@ -2,7 +2,7 @@ import React from 'react'
 import { CrashText, DetailsContainer } from '../style/_markets-style'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type TEuropeDetailsProps = {
     custom_index: number
@@ -318,7 +318,7 @@ export const AsianIndicesDetails = () => (
 )
 
 export const EuropeanIndicesDetails = () => {
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
     return (
         <DetailsContainer>
             <Text>

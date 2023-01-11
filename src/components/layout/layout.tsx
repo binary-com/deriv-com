@@ -19,9 +19,12 @@ import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { handleRedirect, isEuDomain } from 'common/utility'
-import { DerivStore, useDerivWS } from 'store'
+import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { CookieStorage } from 'common/storage'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import useDerivWS from 'components/hooks/use-deriv-ws'
+import usePopup from 'components/hooks/use-popup'
+import useAcademyData from 'components/hooks/use-academy-data'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -66,7 +69,8 @@ const Layout = ({
     type = '',
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
-    const { show_non_eu_popup, setShowNonEuPopup, academy_data } = React.useContext(DerivStore)
+    const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
+    const { academy_data } = useAcademyData()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
@@ -200,6 +204,7 @@ const Layout = ({
                 ref={modal_payload.ref}
                 aria_label={modal_payload.aria_label}
             />
+            <BrowserUpdateAlertModal />
             {show_non_eu_popup && (
                 <NonEuRedirectPopUp
                     is_open={show_non_eu_popup}

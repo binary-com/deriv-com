@@ -4,30 +4,23 @@ import { TImage } from '../data/_data-types'
 import device from 'themes/device'
 
 const Wrapper = styled.div`
-    padding: 2.4rem 20.2rem;
     padding-bottom: 0.7rem;
     max-width: 60rem;
-
-    @media ${device.laptopL} {
-        padding: 2.4rem 10rem;
-    }
-
-    @media ${device.mobileL} {
-        padding: 2.4rem 10rem 2.1rem;
-    }
 `
 
-const Image = styled.img<{ width: string }>`
+const Image = styled.img<{ margin: string; width: string }>`
+    ${({ margin }) => (margin ? `margin: ${margin}` : '')};
     width: ${({ width }) => width};
 
     @media ${device.mobileL} {
         width: 110%;
+        padding-right: 1.8rem;
     }
 `
 
-const ImageCard = ({ src, alt, width }: TImage) => (
+const ImageCard = ({ src, alt, margin, width }: TImage) => (
     <Wrapper>
-        <Image src={src} alt={alt} width={width} loading="lazy" />
+        <Image src={src} alt={alt} margin={margin} width={width} loading="lazy" />
     </Wrapper>
 )
 

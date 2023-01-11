@@ -3,10 +3,10 @@ import { SmallContainer } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const WhatIsCFD = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     return (
         <SectionContainer background="white" padding="8rem 0 1.2rem">
             <SmallContainer direction="column" ai="flex-start">

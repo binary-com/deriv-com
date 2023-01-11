@@ -2188,6 +2188,7 @@
   "-484325406": "3. Cập nhật <0>currentPL</0> với lợi nhuận từ hợp đồng trước. Nếu hợp đồng trước bị lỗ, giá trị của <0>currentPL</0> sẽ là âm.",
   "-274881601": "Sử dụng biến này để lưu trữ số tiền cổ phần được sử dụng trong hợp đồng cuối cùng. Bạn có thể gán bất kỳ số tiền nào bạn muốn, nhưng nó phải là một số dương.",
   "-985220032": "maximumLoss",
+  "-496293327": "Sử dụng biến này để lưu trữ giới hạn tổn thất tối đa của bạn. Bạn có thể gán bất kỳ số tiền nào bạn muốn, nhưng nó phải là một số dương.",
   "-1117510403": "Sử dụng biến này để ngừng giao dịch khi đạt đến giới hạn lỗ của bạn. Đặt giá trị ban đầu thành <0>true</0>.",
   "-2125441053": "Với basket indices hàng, bạn có thể giao dịch tài sản yêu thích của mình với một giỏ năm loại tiền tệ chính trên toàn cầu, mỗi loại tiền tệ có trọng số 20%.",
   "-2062968282": "Không tìm thấy câu trả lời? Chúng tôi có thể trợ giúp.",

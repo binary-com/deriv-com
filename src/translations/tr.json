@@ -2188,6 +2188,7 @@
   "-484325406": "3. <0>CurrentPL</0> değerini son sözleşmeden elde edilen karla güncelleyin. Son sözleşme kaybedildiyse, <0>currentPL</0> değeri negatif olacaktır.",
   "-274881601": "Son sözleşmede kullanılan bahis tutarını hafızaya almak için bu değişkeni kullanın. İstediğiniz miktarı atayabilirsiniz, ancak pozitif bir sayı olmalıdır.",
   "-985220032": "maximumKayıp",
+  "-496293327": "Maksimum kayıp limitinizi hafızaya almak için bu değişkeni kullanın. İstediğiniz miktarı atayabilirsiniz, ancak pozitif bir sayı olmalıdır.",
   "-1117510403": "Kayıp limitinize ulaşıldığında ticareti durdurmak için bu değişkeni kullanın. Başlangıç değerini <0>true</0> olarak ayarlayın.",
   "-2125441053": "Sepet endeksleri ile favori varlığınızı her biri %20 ağırlığında beş büyük küresel para birimi sepetine karşı takas edebilirsiniz.",
   "-2062968282": "Cevabınızı bulamadınız mı? Yardım edebiliriz.",

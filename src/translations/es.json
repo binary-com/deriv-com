@@ -2188,6 +2188,7 @@
   "-484325406": "3. Actualice <0>currentPL</0> con el beneficio del último contrato adquirido. Si se perdió el último contrato, el valor de <0>currentPL</0> será negativo.",
   "-274881601": "Utilice esta variable para almacenar el importe de la apuesta utilizado en el último contrato. Puede asignar la cantidad que desee, pero debe ser un número positivo.",
   "-985220032": "pérdidaMáxima",
+  "-496293327": "Utilice esta variable para almacenar su límite máximo de pérdidas. Puede asignar la cantidad que desee, pero debe ser un número positivo.",
   "-1117510403": "Utilice esta variable para dejar de operar cuando se alcance su límite de pérdidas. Defina el valor inicial como <0>verdadero</0>.",
   "-2125441053": "Con la cesta de índices puede negociar su activo favorito frente a una cesta de las cinco principales divisas mundiales, cada una con una ponderación del 20%.",
   "-2062968282": "¿No encontró su respuesta? Podemos ayudarle",

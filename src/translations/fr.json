@@ -2188,6 +2188,7 @@
   "-484325406": "3. Mettez à jour <0>currentPL</0> avec les bénéfices du dernier contrat. Si le dernier contrat a été perdu, la valeur de <0>currentPL</0> sera négative.",
   "-274881601": "Utilisez cette variable pour stocker le montant de la mise utilisée dans le dernier contrat. Vous pouvez attribuer le montant de votre choix, mais il doit s'agir d'un nombre positif.",
   "-985220032": "maximumPerte",
+  "-496293327": "Utilisez cette variable pour enregistrer votre limite de perte maximale. Vous pouvez attribuer le montant de votre choix, mais il doit s'agir d'un nombre positif.",
   "-1117510403": "Utilisez cette variable pour arrêter de trader lorsque votre limite de perte est atteinte. Définissez la valeur initiale sur <0>true</0>.",
   "-2125441053": "Avec les panier d'indices, vous pouvez trader votre actif préféré contre un panier de cinq principales devises mondiales, chacune pondérée de 20%.",
   "-2062968282": "Vous n'avez pas trouvé votre réponse ? Nous pouvons vous aider.",

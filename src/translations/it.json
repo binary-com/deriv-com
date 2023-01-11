@@ -2188,6 +2188,7 @@
   "-484325406": "3. Aggiorna <0>currentPL</0> con i profitti derivanti dall'ultimo contratto. Se l'ultimo contratto è stato perso, il valore <0>currentPL</0> sarà negativo.",
   "-274881601": "Usa questa variabile per memorizzare l'importo della puntata utilizzato nell'ultimo contratto. Puoi assegnare qualsiasi importo, ma deve essere un numero positivo.",
   "-985220032": "perditaMassima",
+  "-496293327": "Usa questa variabile per memorizzare il limite massimo di perdita. Puoi assegnare qualsiasi importo, ma dovrà essere un numero positivo.",
   "-1117510403": "Usa questa variabile per interrompere il trading quando viene raggiunto il limite di perdita. Imposta il valore iniziale su <0>true</0>.",
   "-2125441053": "È possibile fare trading con i panieri di indici negoziando il tuo asset preferito con un paniere di cinque principali valute globali, ciascuna ponderata del 20%.",
   "-2062968282": "Non hai trovato la risposta desiderata? Possiamo aiutarti.",

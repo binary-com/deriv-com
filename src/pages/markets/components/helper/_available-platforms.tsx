@@ -10,7 +10,7 @@ import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import SmartTrader from 'images/svg/custom/smarttrader.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type AvailablePlatformsProps = {
     dmt5?: boolean
@@ -77,7 +77,7 @@ const AvailablePlatforms = ({
     tablet_direction,
     m_top,
 }: AvailablePlatformsProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     return (
         <Flex

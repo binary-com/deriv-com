@@ -10,7 +10,7 @@ import { Button } from 'components/form'
 import { Localize } from 'components/localization'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleLogin from 'components/hooks/use-handle-login'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import { handleRedirectToTradersHub } from 'components/layout/nav/util/nav-methods'
 
 const LivePricingSection = styled.section`
     background-color: var(--color-white);
@@ -137,7 +137,7 @@ const LivePricing = () => {
                     <Localize translate_text="All spreads are indicative. To view real-time spreads, clients should refer to their client terminal." />
                 </DisclaimerText>
                 {is_logged_in ? (
-                    <Button onClick={handleGetTrading} secondary>
+                    <Button onClick={handleRedirectToTradersHub} secondary>
                         <Localize translate_text="Trade now" />
                     </Button>
                 ) : (

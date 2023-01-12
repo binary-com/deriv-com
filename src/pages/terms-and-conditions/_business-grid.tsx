@@ -9,7 +9,7 @@ import PA from 'images/svg/terms/business-pa-tc.svg'
 import API from 'images/svg/terms/business-api-tc.svg'
 import BugBounty from 'images/svg/terms/bug-bounty.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type ColProps = {
     Icon: string
@@ -38,7 +38,7 @@ const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
 )
 
 const BusinessGrid = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     return (
         <StyledContainer>

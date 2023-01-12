@@ -9,9 +9,8 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
-import { DerivStore } from 'store'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
@@ -170,8 +169,7 @@ export type PaymentMethodsProps = {
     pd?: PaymentDataProps
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
-    const { is_p2p_allowed_country } = React.useContext(DerivStore)
-    const { is_eu } = useCountryRule()
+    const { is_p2p_allowed_country, is_eu } = useRegion()
     const [is_mobile] = useBrowserResize(992)
     const { data, send } = useWS('crypto_config')
     const [payment_method_data, setPaymentMethodData] = useState(payment_data)
@@ -405,7 +403,7 @@ const PaymentMethodSection = ({ locale }: PaymentMethodsProps) => {
 }
 
 const PaymentMethods = () => {
-    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+    const { is_p2p_allowed_country } = useRegion()
     return (
         <Layout type="payment-methods">
             <SEO

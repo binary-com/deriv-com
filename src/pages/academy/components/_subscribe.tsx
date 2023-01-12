@@ -10,8 +10,7 @@ import { LocalizedLinkText, Header } from 'components/elements'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device'
-import { DerivStore } from 'store'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
@@ -171,8 +170,7 @@ const Subscribe = () => {
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
-    const { user_country } = React.useContext(DerivStore)
-    const { is_eu } = useCountryRule()
+    const { user_country, is_eu } = useRegion()
 
     useEffect(() => {
         if (!window._cio) {

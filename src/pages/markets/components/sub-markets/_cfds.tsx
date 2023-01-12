@@ -7,7 +7,7 @@ import type { MarketInstrumentsElement } from 'pages/markets/components/sections
 import { SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import { Header } from 'components/elements'
 
 type CFDProps = {
@@ -25,7 +25,7 @@ const StyledHeader = styled(Header)`
 `
 
 const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     return (
         <StyledSection padding="4rem 0 8rem">

@@ -6,11 +6,11 @@ import { simple_step_content_forex } from '../static/content/_forex'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
 
 const DerivedFxPage = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     const description_eu = localize(
         'Trade 24/7 on our proprietary synthetics that simulate real-world market movements. These indices are unaffected by regular<br /> market hours, global events, or market and liquidity risks. Manage your exposure by selecting the volatility level to suit your risk appetite.',
     )

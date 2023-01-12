@@ -2189,7 +2189,7 @@
   "-274881601": "Gunakan variabel ini untuk menyimpan jumlah modal yang digunakan pada kontrak terakhir. Anda dapat menetapkan jumlah yang Anda inginkan, tetapi harus berupa angka positif.",
   "-985220032": "Kerugianmaksimum",
   "-496293327": "Gunakan variabel ini untuk menyimpan batas kerugian maksimum Anda. Anda dapat menetapkan jumlah yang Anda inginkan, tetapi harus berupa angka positif.",
-  "-1117510403": "Gunakan variabel ini untuk berhenti trading pada saat batas kerugian tercapai. Atur nilai awal ke <0>true</0>.",
+  "-1117510403": "Use this variable to stop trading when your loss limit is reached. Set the initial value to <0>true</0>.",
   "-2125441053": "Dengan indeks basket, Anda dapat bertrading aset favorit Anda dengan sekeranjang lima mata uang global utama, masing-masing dengan bobot 20%.",
   "-2062968282": "Tidak menemukan jawaban? Kami dapat membantu.",
   "-978362988": "Obrolan",

@@ -268,6 +268,9 @@ const query = graphql`
         thumbnail_berlin: file(relativePath: { eq: "careers/thumbnail_berlin.jpg" }) {
             ...fadeIn
         }
+        thumbnail_reading: file(relativePath: { eq: "careers/thumbnail_reading.jpg" }) {
+            ...fadeIn
+        }
         thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.png" }) {
             ...fadeIn
         }
@@ -278,9 +281,6 @@ const query = graphql`
             ...fadeIn
         }
         thumbnail_roadtown: file(relativePath: { eq: "careers/thumbnail_roadtown.jpg" }) {
-            ...fadeIn
-        }
-        thumbnail_reading: file(relativePath: { eq: "careers/thumbnail_reading.jpg" }) {
             ...fadeIn
         }
         thumbnail_vanuatu: file(relativePath: { eq: "careers/thumbnail_vanuatu.png" }) {

@@ -114,8 +114,8 @@ export const BaseElement = css<BaseElementProps>`
 
 export const TypographyBaseElement = css<BaseElementProps>`
     ${BaseElement}
-    color: ${(props) =>
-        props.element_color ? `var(--color-${props.element_color})` : 'var(--color-black-3)'};
+    color: ${({ element_color }) =>
+        element_color ? `var(--color-${element_color})` : 'var(--color-black-3)'};
 `
 
 /** @deprecated Use `Header` component instead. */
@@ -250,42 +250,36 @@ const ElementStyleAttributes = {
 }
 export const Typography = styled.h2<HeaderProps>`
     ${TypographyBaseElement}
-    font-weight: ${(props) => props.weight || 'bold'};
-    font-size: ${(props) => {
-        if (props.size) return props.size
+    font-weight: ${({ weight }) => weight || 'bold'};
+    font-size: ${({ size, type }) => {
+        if (size) return size
         else {
-            if (typeof props.type === 'string') {
-                return (
-                    ElementStyleAttributes[props.type] &&
-                    ElementStyleAttributes[props.type]['font_size']
-                )
+            if (typeof type === 'string') {
+                return ElementStyleAttributes[type] && ElementStyleAttributes[type]['font_size']
             }
         }
     }};
-    line-height: ${(props) => {
-        if (typeof props.type === 'string') {
-            return (
-                ElementStyleAttributes[props.type] &&
-                ElementStyleAttributes[props.type]['line_height']
-            )
+    line-height: ${({ type }) => {
+        if (typeof type === 'string') {
+            return ElementStyleAttributes[type] && ElementStyleAttributes[type]['line_height']
         }
     }};
-    width: ${(props) => props.width || '100%'};
+    width: ${({ width }) => width || '100%'};
 
     @media ${device.tabletL} {
-        font-size: ${(props) => {
-            if (typeof props.type === 'string') {
+        font-size: ${({ type }) => {
+            if (typeof type === 'string') {
                 return (
-                    ElementStyleAttributes[props.type] &&
-                    ElementStyleAttributes[props.type]['font_size_tabletL']
+                    ElementStyleAttributes[type] &&
+                    ElementStyleAttributes[type]['font_size_tabletL']
                 )
             }
         }};
-        line-height: ${(props) => {
-            if (typeof props.type === 'string') {
+        line-height: ${({ type }) => {
+            if (typeof type === 'string') {
                 return (
-                    ElementStyleAttributes[props.type] &&
-                    ElementStyleAttributes[props.type]['line_height_tabletL']
+                    ElementStyleAttributes[type] &&
+                    ElementStyleAttributes[type]['line_height_tabletL']
                 )
             }
         }};

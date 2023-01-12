@@ -67,7 +67,6 @@ const NewSignup = () => {
     if (WS?.isConnectionClosed()) {
         WS.openHandler()
     }
-    console.log(WS?.isConnectionClosed())
 
     const updateSubmitState = (
         status_arg: React.SetStateAction<string>,

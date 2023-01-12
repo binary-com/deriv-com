@@ -52,12 +52,16 @@ const Scope = () => (
                     const tick_icon = list_icon === 'tick'
                     return (
                         <Card key={id}>
-                            <Header as="h3" type="subtitle-2" color="black-3">
-                                <Localize translate_text={title} />
-                            </Header>
-                            <Header type="paragraph-1" color="black-3" weight="normal" as="p">
-                                <Localize translate_text={description} />
-                            </Header>
+                            {title && (
+                                <Header as="h3" type="subtitle-2" color="black-3">
+                                    <Localize translate_text={title} />
+                                </Header>
+                            )}
+                            {description && (
+                                <Header type="paragraph-1" color="black-3" weight="normal" as="p">
+                                    <Localize translate_text={description} />
+                                </Header>
+                            )}
                             {check_list.map(({ id, content, description }) => (
                                 <Flex
                                     height="auto"

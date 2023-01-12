@@ -14,9 +14,9 @@ const LinkText = styled(LocalizedLinkText)`
 
 type Tscope_content = {
     id: number
-    title: TString
+    title?: TString
     list_icon: string
-    description: TString
+    description?: TString
     check_list: {
         id: number
         content: {
@@ -35,7 +35,7 @@ export const scope_content: Tscope_content[] = [
         id: 0,
         title: '_t_Important businesses_t_',
         list_icon: 'tick',
-        description: '_t__t_',
+        description: null,
         check_list: [
             { id: 0, content: { text: '_t_Our payment site: cashier.deriv.com_t_' } },
             { id: 1, content: { text: '_t_Our login site: oauth.deriv.com_t_' } },
@@ -65,7 +65,7 @@ export const scope_content: Tscope_content[] = [
         id: 1,
         title: '_t_General businesses_t_',
         list_icon: 'tick',
-        description: '_t__t_',
+        description: null,
         check_list: [
             {
                 id: 0,
@@ -156,7 +156,7 @@ export const scope_content: Tscope_content[] = [
         id: 2,
         title: '_t_Edge businesses_t_',
         list_icon: 'tick',
-        description: '_t__t_',
+        description: null,
         check_list: [
             { id: 0, content: { text: '_t_Our site for static resources: static.deriv.com_t_' } },
             { id: 1, content: { text: '_t_Our tracking site: t.deriv.com_t_' } },
@@ -166,8 +166,8 @@ export const scope_content: Tscope_content[] = [
         ],
     },
     {
-        id: 4,
-        title: '_t__t_',
+        id: 3,
+        title: null,
         list_icon: 'X',
         description: '_t_The following third-party apps are not covered in this program:_t_',
         check_list: [

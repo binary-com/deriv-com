@@ -10,14 +10,14 @@ import type {
 import { SectionContainer } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type MultipliersProps = {
     market_content: ForexAndBasketMultiplier | CryptoMultiplier | SyntheticMultiplier
     is_crypto?: boolean
 }
 const Multipliers = ({ market_content }: MultipliersProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     return (
         <SectionContainer padding="4rem 0 8rem">
             <ContentWrapper>

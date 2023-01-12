@@ -8,7 +8,7 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
 import Derived from 'images/svg/trade-types/derived.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -65,7 +65,7 @@ const eu_available_markets = available_markets.filter(
 )
 
 const MarketsAvailable = () => {
-    const { is_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = useRegion()
     return (
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">

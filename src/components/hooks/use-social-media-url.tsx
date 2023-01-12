@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import { useCountryRule } from './use-country-rule'
+import React, { useEffect, useState } from 'react'
 import { getLanguage, getLocationPathname } from 'common/utility'
+import useRegion from 'components/hooks/use-region'
 
 const social_media_urls = {
     twitter: {
@@ -45,7 +45,7 @@ export const useSocialMediaUrl = (): TSocialMediaUrl => {
         twitter_url: '',
         linkedin_url: '',
     })
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     const language = getLanguage()
     const current_path = getLocationPathname()
     const is_career_page = current_path === '/careers/'

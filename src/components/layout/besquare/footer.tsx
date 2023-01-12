@@ -19,7 +19,7 @@ import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
 import Facebook from 'images/svg/be-square/facebook.svg'
 import Instagram from 'images/svg/be-square/instagram.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const query = graphql`
     query {
@@ -54,7 +54,7 @@ const BeSquareFooter = () => {
     ]
 
     const data = useStaticQuery(query)
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     return (
         <React.Fragment>
             <FooterSection color="black" is_eu={is_eu}>

@@ -10,7 +10,7 @@ import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { Localize, localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
@@ -20,7 +20,7 @@ type CommoditiesProps = {
 }
 
 const Commodities = ({ simple_step_content }: CommoditiesProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     simple_step_content[1].text = (
         <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
     )

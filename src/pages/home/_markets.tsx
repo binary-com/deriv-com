@@ -9,7 +9,6 @@ import CommoditiesIcon from 'images/svg/markets/commodities.svg'
 import ForexIcon from 'images/svg/markets/forex.svg'
 import StockIcon from 'images/svg/markets/stock.svg'
 import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledSection = styled(SectionContainer)`
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);

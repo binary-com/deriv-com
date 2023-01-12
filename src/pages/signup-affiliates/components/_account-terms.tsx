@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import AgreementLabel from '../utils/_agreement-label'
+import AgreementLabel from './_agreement-label'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 

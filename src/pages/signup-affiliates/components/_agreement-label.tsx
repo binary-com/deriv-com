@@ -8,7 +8,7 @@ import device from 'themes/device'
 type AgreementLabelProps = {
     color?: string
     handleChangeCheckbox: (event) => void
-    isChecked?: boolean
+    is_checked?: boolean
     link_text?: string
     is_affiliate?: boolean
     children?: ReactNode
@@ -35,7 +35,7 @@ const CheckboxSpan = styled.span`
 
 const AgreementLabel = ({
     handleChangeCheckbox,
-    isChecked,
+    is_checked,
     color,
     is_affiliate,
     link_text,
@@ -62,7 +62,7 @@ const AgreementLabel = ({
                 className="signup_agree_tnc"
                 secondary
                 onChange={handleChange}
-                checked={isChecked}
+                checked={is_checked}
             />
             <CheckboxSpan color={color}>
                 <Localize

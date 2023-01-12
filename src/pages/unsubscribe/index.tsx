@@ -8,8 +8,8 @@ import CheckIcon from 'images/common/check_icon.png'
 import device from 'themes/device'
 import { queryParams } from 'common/utility'
 import { decode, isValid } from 'common/url-base64-functions'
-import { useDerivWS } from 'store'
 import { Header } from 'components/elements'
+import useDerivWS from 'components/hooks/use-deriv-ws'
 
 const UnsubscribeWrapper = styled.div`
     display: flex;

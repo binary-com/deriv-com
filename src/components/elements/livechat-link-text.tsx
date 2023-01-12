@@ -2,6 +2,7 @@ import React from 'react'
 import { Localize } from 'components/localization'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { LinkText } from 'components/elements'
+import { TString } from 'types/generics'
 
 type LiveChatLinkTextProps = {
     text?: TString

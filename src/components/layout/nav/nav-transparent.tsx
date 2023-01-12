@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import useAuthCheck from '../../hooks/use-auth-check'
 import NavTemplate from './components/nav-template'
 import NavDesktop from './components/nav-desktop'
 import NavMobile from './components/nav-mobile'
@@ -10,7 +9,6 @@ type NavTransparentProps = {
 }
 
 const NavTransparent = ({ is_ppc_redirect, is_ppc }: NavTransparentProps) => {
-    const [is_logged_in] = useAuthCheck()
     const [prev_scroll_position, setPrevScrollPosition] = useState(0)
     const [visible, setVisible] = useState(true)
 
@@ -31,16 +29,8 @@ const NavTransparent = ({ is_ppc_redirect, is_ppc }: NavTransparentProps) => {
 
     return (
         <NavTemplate transparent_background={visible}>
-            <NavDesktop
-                is_logged_in={is_logged_in}
-                is_ppc={is_ppc}
-                is_ppc_redirect={is_ppc_redirect}
-            />
-            <NavMobile
-                is_logged_in={is_logged_in}
-                is_ppc={is_ppc}
-                is_ppc_redirect={is_ppc_redirect}
-            />
+            <NavDesktop is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+            <NavMobile is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
         </NavTemplate>
     )
 }

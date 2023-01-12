@@ -69,7 +69,7 @@ const MainNav = ({ is_security }: MainNavProps) => {
 
                 <Desktop is_security={is_security}>
                     <LanguageWrapper is_security={is_security}>
-                        <LanguageSwitcher has_short_name is_security={is_security} />
+                        <LanguageSwitcher is_security={is_security} />
                     </LanguageWrapper>
                 </Desktop>
             </StyledContainer>

@@ -263,15 +263,14 @@ const PnlMarginCalculator = () => {
                                     current_input.focus()
                                 }
 
-                                const AssetPriceInput = ({ field }: { field: React.ReactNode }) => (
+                                const AssetPriceInput = () => (
                                     <Input
-                                        {...field}
                                         id="assetPrice"
                                         type="text"
                                         value={values.assetPrice}
                                         label={localize('Open price of asset')}
                                         autoComplete="off"
-                                        error={touched.assetPrice && errors.assetPrice}
+                                        error={touched.assetPrice && errors.assetPrice.toString()}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -285,19 +284,17 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const StopLossAmountInput = ({
-                                    field,
-                                }: {
-                                    field: React.ReactNode
-                                }) => (
+                                const StopLossAmountInput = () => (
                                     <Input
-                                        {...field}
                                         id="assetPrice"
                                         type="text"
                                         value={values.stopLossAmount}
                                         label={localize('Stop loss amount')}
                                         autoComplete="off"
-                                        error={touched.stopLossAmount && errors.stopLossAmount}
+                                        error={
+                                            touched.stopLossAmount &&
+                                            errors.stopLossAmount.toString()
+                                        }
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={stopLossErrorHandler}
@@ -306,14 +303,13 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const PointValueInput = ({ field }: { field: React.ReactNode }) => (
+                                const PointValueInput = () => (
                                     <Input
-                                        {...field}
                                         id="pointValue"
                                         type="text"
                                         label={localize('Point value')}
                                         autoComplete="off"
-                                        error={touched.pointValue && errors.pointValue}
+                                        error={touched.pointValue && errors.pointValue.toString()}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -335,18 +331,16 @@ const PnlMarginCalculator = () => {
                                     setFieldValue('stopLossAmount', value)
                                 }
 
-                                const TakeProfitAmountInput = ({
-                                    field,
-                                }: {
-                                    field: React.ReactNode
-                                }) => (
+                                const TakeProfitAmountInput = () => (
                                     <Input
-                                        {...field}
                                         id="takeProfitAmount"
                                         type="text"
                                         label={localize('Take profit amount')}
                                         autoComplete="off"
-                                        error={touched.takeProfitAmount && errors.takeProfitAmount}
+                                        error={
+                                            touched.takeProfitAmount &&
+                                            errors.takeProfitAmount.toString()
+                                        }
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={takeProfitErrorHanlder}

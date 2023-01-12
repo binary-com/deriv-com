@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
 type TLC_API = {
-    open_chat_window: () => void
+    open_chat_window?: () => void
 }
 
 export const useLivechat = (): [boolean, TLC_API] => {

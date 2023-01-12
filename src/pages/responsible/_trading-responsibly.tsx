@@ -9,7 +9,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Divider, CardStyle, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const IcInfo = styled.img`
     margin-left: 1.5rem;
@@ -17,11 +17,11 @@ const IcInfo = styled.img`
 
 const Card = styled(Flex)`
     ${CardStyle}
-    width: ${(props) => (props.width ? props.width : 'auto')};
+    width: auto;
     min-width: 38.4rem;
-    height: ${(props) => (props.height ? props.height : 'auto')};
+    height: auto;
     border-radius: 0.4rem;
-    padding: ${(props) => (props.padding ? props.padding : '3.2rem')};
+    padding: 3.2rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -112,7 +112,7 @@ const StyledHeader = styled(Header)`
 `
 
 const TradingResponsibly = () => {
-    const { is_eu, is_non_eu } = useCountryRule()
+    const { is_eu, is_non_eu } = useRegion()
     return (
         <SectionContainer>
             <Flex jc="center" wrap="true">
@@ -122,7 +122,7 @@ const TradingResponsibly = () => {
                     </StyledHeader>
                     <ContentWrapper jc="center" ai="center" mt="2.4rem">
                         <FlexContent>
-                            <img src={DontBorrow} alt="Dont Borrow" />
+                            <img src={DontBorrow} alt="Understanding risk" />
                             <StyledText>
                                 {localize(
                                     'Understand the risks of online trading. Never trade using borrowed money or money you can’t afford to lose.',
@@ -131,7 +131,7 @@ const TradingResponsibly = () => {
                         </FlexContent>
                         <StyledDivider />
                         <FlexContent>
-                            <img src={FreeDemo} alt="Free Demo" />
+                            <img src={FreeDemo} alt="Learn our products" />
                             <StyledText>
                                 {localize(
                                     'Use our free demo account, and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products.',
@@ -140,7 +140,7 @@ const TradingResponsibly = () => {
                         </FlexContent>
                         <StyledDivider />
                         <FlexContent>
-                            <img src={SetLimitLosses} alt="Set Limit Losses" />
+                            <img src={SetLimitLosses} alt="Set a limit" />
                             <StyledText>
                                 {localize(
                                     'Set a limit for your losses, and stick to it. Put aside some of your winnings to avoid losing all your money.',
@@ -149,7 +149,7 @@ const TradingResponsibly = () => {
                         </FlexContent>
                         <StyledDivider />
                         <FlexContent>
-                            <img src={BadJudgement} alt="Bad Judgement" />
+                            <img src={BadJudgement} alt="Trade wisely" />
                             <StyledText>
                                 {is_eu && (
                                     <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol." />

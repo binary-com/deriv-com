@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
+import { SEO } from 'components/containers'
 import { Button } from 'components/form'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -56,6 +57,7 @@ const ConfirmButton = styled(Button)`
     font-size: 14px;
     border-radius: 4px;
     margin: 0 12px;
+    white-space: nowrap;
 
     @media ${device.tablet} {
         margin: 0 8px;
@@ -156,35 +158,47 @@ const UnsubscribePage = () => {
 
     return (
         <Layout>
-            {loading && (
-                <UnsubscribeWrapper>
-                    <Spinner />
-                </UnsubscribeWrapper>
-            )}
-            {!loading && (
-                <UnsubscribeWrapper>
-                    {complete_status ? (
-                        <SuccessCard>
-                            <img src={CheckIcon} alt="sucess" width={48} height={48} />
-                            {localize('Unsubscribed successfully')}
-                        </SuccessCard>
-                    ) : (
-                        <UnsubscribeForm>
-                            <Title type="subtitle-2">
-                                {localize('Are you sure you want to stop receiving Deriv emails?')}
-                            </Title>
-                            <ConfirmWrapper>
-                                <ConfirmButton onClick={UnsubscribeAPICall} type="submit" secondary>
-                                    {localize('Yes')}
-                                </ConfirmButton>
-                                <ConfirmButton onClick={onClose} type="submit" tertiary>
-                                    {localize('No')}
-                                </ConfirmButton>
-                            </ConfirmWrapper>
-                        </UnsubscribeForm>
-                    )}
-                </UnsubscribeWrapper>
-            )}
+            <SEO
+                title={localize('Unsubscribe | Deriv')}
+                description={localize('Unsubscription from newsletter')}
+            />
+            <>
+                {loading && (
+                    <UnsubscribeWrapper>
+                        <Spinner />
+                    </UnsubscribeWrapper>
+                )}
+                {!loading && (
+                    <UnsubscribeWrapper>
+                        {complete_status ? (
+                            <SuccessCard>
+                                <img src={CheckIcon} alt="sucess" width={48} height={48} />
+                                {localize('Unsubscribed successfully')}
+                            </SuccessCard>
+                        ) : (
+                            <UnsubscribeForm>
+                                <Title type="subtitle-2">
+                                    {localize(
+                                        'Are you sure you want to stop receiving Deriv emails?',
+                                    )}
+                                </Title>
+                                <ConfirmWrapper>
+                                    <ConfirmButton
+                                        onClick={UnsubscribeAPICall}
+                                        type="submit"
+                                        secondary
+                                    >
+                                        {localize('Yes')}
+                                    </ConfirmButton>
+                                    <ConfirmButton onClick={onClose} type="submit" tertiary>
+                                        {localize('No')}
+                                    </ConfirmButton>
+                                </ConfirmWrapper>
+                            </UnsubscribeForm>
+                        )}
+                    </UnsubscribeWrapper>
+                )}
+            </>
         </Layout>
     )
 }

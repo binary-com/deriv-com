@@ -2188,6 +2188,7 @@
   "-484325406": "3. Zaktualizuj <0>obecnePL</0> o zysk z ostatniego kontraktu. Jeśli ostatni kontrakt przyniósł stratę, wartość pola <0>obecnePL</0> będzie ujemna.",
   "-274881601": "Ta zmienna służy do przechowywania kwoty stawki użytej w ostatnim kontrakcie. Możesz przypisać dowolną kwotę, ale musi to być liczba dodatnia.",
   "-985220032": "MaksymalnaStrata",
+  "-496293327": "Ta zmienna służy do przechowywania limitu maksymalnej straty. Możesz przypisać dowolną kwotę, ale musi to być liczba dodatnia.",
   "-1117510403": "Użyj tej zmiennej, aby zatrzymać inwestowanie, gdy zostanie osiągnięty Twój limit strat. Ustaw wartość początkową jako <0>prawda</0>.",
   "-2125441053": "Dzięki indeksom koszykowym możesz handlować swoimi ulubionymi aktywami w koszyku pięciu głównych walut globalnych, z których każda ważona jest o 20%.",
   "-2062968282": "Nie znalazłeś odpowiedzi? Możemy pomóc.",

@@ -52,7 +52,7 @@ const Subtitle = styled(Header)`
     }
 `
 
-type Tcard_content = {
+type TCardContent = {
     id: number
     icon: string
     alt: string
@@ -66,7 +66,7 @@ type Tcard_content = {
     type?: string
 }[]
 
-const card_content: Tcard_content = [
+const card_content: TCardContent = [
     {
         id: 0,
         icon: CriticalIcon,

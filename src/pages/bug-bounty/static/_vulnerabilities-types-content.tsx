@@ -6,7 +6,7 @@ import HighIcon from 'images/svg/bug-bounty/high.svg'
 import CriticalIcon from 'images/svg/bug-bounty/critical.svg'
 import { TString } from 'types/generics'
 
-type Tvulnerability_types_content = {
+type TVulnerabilityTypesContent = {
     id: number
     icon: string
     title: TString
@@ -29,7 +29,7 @@ type Tvulnerability_types_content = {
     profit?: { text: TString; components: React.ReactElement[] }
 }[]
 
-export const vulnerability_types_content: Tvulnerability_types_content = [
+export const vulnerability_types_content: TVulnerabilityTypesContent = [
     {
         id: 0,
         icon: CriticalIcon,

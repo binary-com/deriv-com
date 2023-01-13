@@ -30,12 +30,12 @@ const IconWrap = styled.img`
     margin-top: 0.5rem;
 `
 
-type Tout_of_scope = {
+type TOutOfScope = {
     id: number
     text: TString
 }[]
 
-const out_of_scope_content: Tout_of_scope = [
+const out_of_scope_content: TOutOfScope = [
     { id: 0, text: '_t_Clickjacking on pages with no sensitive actions_t_' },
     {
         id: 1,

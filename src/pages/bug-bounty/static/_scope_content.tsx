@@ -12,7 +12,7 @@ const LinkText = styled(LocalizedLinkText)`
     }
 `
 
-type Tscope_content = {
+type TScopeContent = {
     id: number
     title?: TString
     list_icon: string
@@ -30,7 +30,7 @@ type Tscope_content = {
     }[]
 }
 
-export const scope_content: Tscope_content[] = [
+export const scope_content: TScopeContent[] = [
     {
         id: 0,
         title: '_t_Important businesses_t_',

@@ -563,7 +563,7 @@ export const NavCompany = ({ onClick }: NavCompanyProps) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
             icon={() => <img src={Story} alt="who we are" width="24" height="24" />}
-            title={<Localize translate_text="Who we are" />}
+            title={<Localize translate_text="Who we R" />}
             onClick={onClick}
             to="/who-we-are/"
         />

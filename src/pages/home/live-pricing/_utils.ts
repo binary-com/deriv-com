@@ -1,6 +1,6 @@
 import { TMarketButtons } from './_types'
 
-export const TABLE_VISIBLE_ROWS = 6
+export const TABLE_VISIBLE_ROWS = 5
 
 export const market_buttons: TMarketButtons[] = [
     {

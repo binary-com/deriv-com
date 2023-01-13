@@ -6,7 +6,6 @@ import {
     TradeTypes,
     P2PHomeBanner,
 } from './home/_lazy-load'
-import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
 import LivePricing from './home/live-pricing'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
@@ -87,7 +86,6 @@ const Home = () => {
             />
             <Hero />
             <LivePricing />
-            <MarketsFold />
             {lazyTemplate}
         </Layout>
     )

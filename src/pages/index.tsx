@@ -8,6 +8,7 @@ import {
 } from './home/_lazy-load'
 import Hero from './home/_hero'
 import LivePricing from './home/live-pricing'
+import MarketsFold from './home/_markets_fold'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
@@ -22,9 +23,9 @@ import useRegion from 'components/hooks/use-region'
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat(true)
-    const { is_p2p_allowed_country } = useRegion()
+    const { is_p2p_allowed_country, is_eu } = useRegion()
 
-    const target = '#live-pricing'
+    const target = is_eu ? '#market-fold' : '#live-pricing'
     const options = {
         root: null,
         rootMargin: '0px',
@@ -85,7 +86,9 @@ const Home = () => {
                 has_organization_schema
             />
             <Hero />
-            <LivePricing />
+
+            {is_eu ? <MarketsFold /> : <LivePricing />}
+
             {lazyTemplate}
         </Layout>
     )

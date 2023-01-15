@@ -4,7 +4,7 @@
     "version": "0.1.0",
     "author": "Deriv",
     "dependencies": {
-        "@artsy/fresnel": "^3.2.1",
+        "@artsy/fresnel": "^6.1.0",
         "@deriv/deriv-api": "^1.0.11",
         "@directus/gatsby-source-directus": "^9.4.2",
         "@livechat/customer-sdk": "^3.1.0",
@@ -17,7 +17,7 @@
         "crc-32": "^1.2.0",
         "deriv-api-ts": "^1.0.7",
         "embla-carousel-autoplay": "^6.2.0",
-        "embla-carousel-react": "^6.0.2",
+        "embla-carousel-react": "^7.0.5",
         "eslint-import-resolver-node": "^0.3.6",
         "extend": "^3.0.2",
         "formik": "^2.2.9",
@@ -45,9 +45,9 @@
         "postcss": "^8.4.5",
         "prompt-sync": "^4.2.0",
         "prop-types": "^15.8.1",
-        "react": "^17.0.2",
+        "react": "^18.2.0",
         "react-device-detect": "^2.2.2",
-        "react-dom": "^17.0.2",
+        "react-dom": "^18.2.0",
         "react-helmet": "^6.1.0",
         "react-i18next": "^11.15.3",
         "react-is": "^17.0.2",
@@ -65,19 +65,19 @@
         "@graphql-codegen/cli": "^2.6.2",
         "@graphql-codegen/typescript": "^2.4.5",
         "@graphql-codegen/typescript-operations": "^2.3.2",
-        "@storybook/addon-actions": "^6.4.9",
-        "@storybook/addon-essentials": "^6.4.9",
-        "@storybook/addon-links": "^6.4.9",
-        "@storybook/builder-webpack5": "^6.4.9",
-        "@storybook/manager-webpack5": "^6.4.9",
-        "@storybook/react": "^6.4.9",
+        "@storybook/addon-actions": "^6.5.15",
+        "@storybook/addon-essentials": "^6.5.15",
+        "@storybook/addon-links": "^6.5.15",
+        "@storybook/builder-webpack5": "^6.5.15",
+        "@storybook/manager-webpack5": "^6.5.15",
+        "@storybook/react": "^6.5.15",
         "@testing-library/jest-dom": "^5.16.4",
         "@testing-library/react": "^12.1.2",
         "@types/jest": "^27.4.1",
         "@types/node": "^17.0.8",
         "@types/react": "^17.0.38",
         "@types/react-dom": "^17.0.11",
-        "@types/react-test-renderer": "^17.0.1",
+        "@types/react-test-renderer": "^18.0.0",
         "@types/styled-components": "^5.1.19",
         "@typescript-eslint/eslint-plugin": "^5.9.0",
         "@typescript-eslint/parser": "^5.9.0",
@@ -107,7 +107,7 @@
         "npm-force-resolutions": "0.0.10",
         "prettier": "^2.5.1",
         "query-string": "^7.0.1",
-        "react-test-renderer": "^17.0.2",
+        "react-test-renderer": "^18.2.0",
         "styled-components": "^5.3.3",
         "stylelint": "^14.2.0",
         "stylelint-config-prettier": "^9.0.3",
@@ -165,5 +165,11 @@
     },
     "engines": {
         "npm": ">=8.11.0"
+    },
+    "overrides": {
+        "react-ticker": {
+            "react": "^18.2.0",
+            "react-dom": "^18.2.0"
+        }
     }
 }

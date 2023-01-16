@@ -134,7 +134,7 @@ const LivePricing = () => {
                 )}
                 <LiveMarketTable market={selected_market} />
                 <DisclaimerText>
-                    <Localize translate_text="All spreads are indicative. To view real-time spreads, clients should refer to their client terminal." />
+                    <Localize translate_text="All spreads are indicative. To view real-time spreads, please refer to your terminal." />
                 </DisclaimerText>
                 {is_logged_in ? (
                     <Button onClick={handleRedirectToTradersHub} secondary>

@@ -1,0 +1,6 @@
+backend:
+  name: github
+  repo: NikitK-deriv/deriv-com
+  branch: master
+
+public_folder: /src/pages

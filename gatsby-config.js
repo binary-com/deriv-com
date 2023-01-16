@@ -29,23 +29,24 @@ module.exports = {
         `https://static.deriv.com/scripts/cookie.js`,
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
-    trailingSlash: "never",
+    trailingSlash: 'never',
     plugins: [
         `gatsby-plugin-netlify`,
         {
             resolve: `gatsby-plugin-netlify`,
             options: {
                 headers: {
-                    "/*": [
-                        "Basic-Auth: nikita.kolesnik@deriv.com:5743c52edb06be3ac5962cca420d92a4",
-                    ]
+                    '/*': [
+                        'Basic-Auth: nikita.kolesnik@deriv.com:5743c52edb06be3ac5962cca420d92a4',
+                    ],
                 }, // option to add more headers. `Link` headers are transformed by the below criteria
                 allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
                 mergeSecurityHeaders: true, // boolean to turn off the default security headers
                 mergeCachingHeaders: true, // boolean to turn off the default caching headers
                 transformHeaders: (headers) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
                 generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
-                NETLIFY_SKIP_GATSBY_FUNCTIONS: true
+                NETLIFY_SKIP_GATSBY_FUNCTIONS: true,
+                enableIdentityWidget: false,
             },
         },
         'gatsby-plugin-react-helmet',

@@ -253,10 +253,8 @@ export const Typography = styled.h2<HeaderProps>`
     font-weight: ${({ weight }) => weight || 'bold'};
     font-size: ${({ size, type }) => {
         if (size) return size
-        else {
-            if (typeof type === 'string') {
-                return ElementStyleAttributes[type] && ElementStyleAttributes[type]['font_size']
-            }
+        else if (typeof type === 'string') {
+            return ElementStyleAttributes[type] && ElementStyleAttributes[type]['font_size']
         }
     }};
     line-height: ${({ type }) => {

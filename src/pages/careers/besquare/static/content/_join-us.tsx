@@ -13,8 +13,8 @@ export default {
             src: TechExperienceIcon,
             text: (
                 <>
-                    <strong>Hands-on tech experience</strong> by learning directly from all our
-                    talented IT teams
+                    <strong>Hands-on tech experience</strong> by learning directly from our talented
+                    IT teams
                 </>
             ),
         },

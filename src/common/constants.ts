@@ -28,7 +28,7 @@ export const domains = [
 const getDomainUrl = (): string =>
     isBrowser() && window.location.hostname in domain_url_pair
         ? domain_url_pair[window.location.hostname]
-        : deriv_com_url
+        : 'netlify.app'
 
 const getDomainAppID = () => {
     if (getDomainUrl() === deriv_me_url) return deriv_me_app_id

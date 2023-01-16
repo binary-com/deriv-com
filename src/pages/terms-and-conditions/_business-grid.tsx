@@ -2,6 +2,7 @@ import React from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
+import { getLanguage } from 'common/utility'
 // Icons
 import General from 'images/svg/terms/business-general-tc.svg'
 import Partners from 'images/svg/terms/business-partners-tc.svg'
@@ -15,7 +16,7 @@ type ColProps = {
     content: string
     title: string
     link_title: string
-    url: string
+    url: string | (() => void)
 }
 
 const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
@@ -35,6 +36,30 @@ const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
         </Cta>
     </GridCol>
 )
+
+const handleUrl = () => {
+    if (getLanguage() === 'en') {
+        return '/tnc/business-partners-affiliates-and-introducing-brokers-english.pdf'
+    }
+    if (getLanguage() === 'fr') {
+        return '/tnc/business-partners-affiliates-and-introducing-brokers-french.pdf'
+    }
+    if (getLanguage() === 'id') {
+        return '/tnc/business-partners-affiliates-and-introducing-brokers-indonesian.pdf'
+    }
+    if (getLanguage() === 'pt') {
+        return '/tnc/business-partners-affiliates-and-introducing-brokers-portuguese.pdf'
+    }
+    if (getLanguage() === 'ru') {
+        return '/tnc/business-partners-affiliates-and-introducing-brokers-russian.pdf'
+    }
+    if (getLanguage() === 'es') {
+        return '/tnc/business-partners-affiliates-and-introducing-brokers-spanish.pdf'
+    }
+    if (getLanguage() === 'vi') {
+        return '/tnc/business-partners-affiliates-and-introducing-brokers-vietnamese.pdf'
+    }
+}
 
 const BusinessGrid = () => (
     <StyledContainer>
@@ -66,7 +91,7 @@ const BusinessGrid = () => (
                 Icon={PA}
                 title={localize('Payment agents')}
                 content={localize('Additional terms for our payment agents')}
-                url="/tnc/business-partners-payment-agents.pdf"
+                url={handleUrl}
                 link_title={localize('Payment agents')}
             />
             <Col

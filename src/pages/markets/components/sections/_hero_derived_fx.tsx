@@ -62,7 +62,6 @@ const MarketSubHeader = styled(Header)`
     width: 58vw;
 
     @media ${device.tabletL} {
-        line-height: 28px;
         width: 86vw;
     }
     @media ${device.mobileM} {
@@ -106,15 +105,7 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
                 <StyledHeader as="h1" align="center">
                     <Localize translate_text={title} />
                 </StyledHeader>
-                <MarketSubHeader
-                    as="h4"
-                    type="sub-section-title"
-                    color="white"
-                    lh="2.4"
-                    font_size="var(--text-size-m)"
-                    weight="normal"
-                    align="center"
-                >
+                <MarketSubHeader color="white" weight="normal" align="center">
                     <Localize translate_text={description} />
                 </MarketSubHeader>
                 {is_logged_in ? (

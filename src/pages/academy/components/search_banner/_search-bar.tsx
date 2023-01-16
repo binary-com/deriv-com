@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
@@ -15,13 +15,13 @@ import SearchIcon from 'images/svg/blog/search_icon.svg'
 import CloseIcon from 'images/svg/blog/close-icon.svg'
 import ArticleIcon from 'images/svg/blog/article-icon.svg'
 import VideoIcon from 'images/svg/blog/video-icon.svg'
-import { DerivStore } from 'store'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { slugify } from 'common/utility'
 import { Header } from 'components/elements'
+import useAcademyData from 'components/hooks/use-academy-data'
 
 type ElementWithMaximiseProps = {
     is_maximise?: boolean
@@ -33,7 +33,7 @@ type SearchBarProps = {
     setHideMobileTopic?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const FlexSearchBar = styled(Flex)<{ is_maximise: boolean }>`
+const FlexSearchBar = styled(Flex)<{ is_maximise: boolean; result_opened: boolean }>`
     max-width: 400px;
     width: 100%;
     background-color: rgba(236, 241, 247, 0.5);
@@ -133,7 +133,7 @@ const Line = styled.div`
 
 const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     const [is_mobile_separator] = useBrowserResize(992)
-    const { academy_data } = useContext(DerivStore)
+    const { academy_data } = useAcademyData()
     const [search_input, setSearchInput] = useState('')
     const [search_query, setSearchQuery] = useState('')
 
@@ -329,7 +329,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                             {data_to_render?.slice(0, 6).map((post, idx: number) => {
                                 const icon = post.blog_title ? ArticleIcon : VideoIcon
                                 const icon_alt = post.blog_title ? 'article icon' : 'video icon'
-                                const handleMouseDown = (e: React.KeyboardEvent) => {
+                                const handleMouseDown = (e: React.MouseEvent) => {
                                     e.preventDefault()
                                     navigate(redirect_link_arr[idx])
                                 }

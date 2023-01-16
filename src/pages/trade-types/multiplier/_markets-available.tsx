@@ -8,7 +8,7 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
 import Derived from 'images/svg/trade-types/derived.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -58,18 +58,14 @@ const available_markets = [
     },
 ]
 
-const uk_restricted_markets = ['Synthetic Indices', 'Basket Indices']
 const eu_restricted_markets = ['Basket Indices']
 
-const uk_available_markets = available_markets.filter(
-    (el) => !uk_restricted_markets.includes(el.name),
-)
 const eu_available_markets = available_markets.filter(
     (el) => !eu_restricted_markets.includes(el.name),
 )
 
 const MarketsAvailable = () => {
-    const { is_uk, is_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = useRegion()
     return (
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -112,39 +108,7 @@ const MarketsAvailable = () => {
                         </MarketsCarousel>
                     </>
                 )}
-                {is_uk && (
-                    <>
-                        <MarketsCarousel>
-                            {uk_available_markets.map((market) => {
-                                return (
-                                    <MarketsCarousel.Item key={market.name}>
-                                        <MarketsItem>
-                                            <Card>
-                                                <MobileCardHeader>
-                                                    <img
-                                                        src={market.img_src}
-                                                        alt={market.img_alt}
-                                                        width="64"
-                                                        height="64"
-                                                    />
 
-                                                    <StyledText weight="bold">
-                                                        {market.text}
-                                                    </StyledText>
-                                                </MobileCardHeader>
-                                                <Text>{market.description}</Text>
-                                                <LearnMore
-                                                    text={<Localize translate_text="Learn more" />}
-                                                    to={market.learn_more_path}
-                                                />
-                                            </Card>
-                                        </MarketsItem>
-                                    </MarketsCarousel.Item>
-                                )
-                            })}
-                        </MarketsCarousel>
-                    </>
-                )}
                 {is_eu && (
                     <>
                         <MarketsCarousel>

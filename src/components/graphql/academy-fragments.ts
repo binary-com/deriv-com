@@ -25,35 +25,7 @@ export const academyQuery = graphql`
             homepage_banners_eu: homepage_banners(
                 filter: {
                     status: { _eq: "published" }
-                    _or: [
-                        { visibility: { _eq: "hide_for_uk" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
-                }
-            ) {
-                order
-                id
-                button_text
-                link
-                heading
-                sub_heading
-                image {
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData(quality: 60, width: 1600)
-                        }
-                    }
-                    id
-                    description
-                }
-            }
-            homepage_banners_uk: homepage_banners(
-                filter: {
-                    status: { _eq: "published" }
-                    _or: [
-                        { visibility: { _eq: "hide_for_eu" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
+                    _or: [{ visibility: { _eq: "visible_to_all" } }]
                 }
             ) {
                 order
@@ -105,10 +77,7 @@ export const academyQuery = graphql`
                     tags: { tags_id: { tag_name: { _contains: "Market report" } } }
                     status: { _eq: "published" }
                     test_data: { _eq: false }
-                    _or: [
-                        { visibility: { _eq: "hide_for_uk" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
+                    _or: [{ visibility: { _eq: "visible_to_all" } }]
                 }
                 limit: 6
                 sort: "-published_date"
@@ -132,38 +101,6 @@ export const academyQuery = graphql`
                     id
                 }
             }
-            market_news_uk: blog(
-                filter: {
-                    tags: { tags_id: { tag_name: { _contains: "Market report" } } }
-                    status: { _eq: "published" }
-                    test_data: { _eq: false }
-                    _or: [
-                        { visibility: { _eq: "hide_for_eu" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
-                }
-                limit: 6
-                sort: "-published_date"
-            ) {
-                id
-                blog_title
-                slug
-                tags {
-                    tags_id {
-                        tag_name
-                    }
-                }
-                blog_post
-                main_image {
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData(width: 200)
-                        }
-                    }
-                    description
-                    id
-                }
-            }
             videos(limit: 6, filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 video_title
                 published_date
@@ -180,9 +117,6 @@ export const academyQuery = graphql`
                         }
                     }
                 }
-                video_file {
-                    id
-                }
                 tags {
                     tags_id {
                         tag_name
@@ -193,10 +127,7 @@ export const academyQuery = graphql`
                 limit: 6
                 filter: {
                     status: { _eq: "published" }
-                    _or: [
-                        { visibility: { _eq: "hide_for_uk" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
+                    _or: [{ visibility: { _eq: "visible_to_all" } }]
                 }
                 sort: "-published_date"
             ) {
@@ -214,44 +145,6 @@ export const academyQuery = graphql`
                             gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
-                }
-                video_file {
-                    id
-                }
-                tags {
-                    tags_id {
-                        tag_name
-                    }
-                }
-            }
-            videos_uk: videos(
-                limit: 6
-                filter: {
-                    status: { _eq: "published" }
-                    _or: [
-                        { visibility: { _eq: "hide_for_eu" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
-                }
-                sort: "-published_date"
-            ) {
-                video_title
-                published_date
-                video_description
-                video_duration
-                video_slug
-                featured
-                video_thumbnail {
-                    id
-                    title
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667)
-                        }
-                    }
-                }
-                video_file {
-                    id
                 }
                 tags {
                     tags_id {
@@ -279,9 +172,6 @@ export const academyQuery = graphql`
                         }
                     }
                 }
-                video_file {
-                    id
-                }
                 tags {
                     tags_id {
                         tag_name
@@ -292,10 +182,7 @@ export const academyQuery = graphql`
                 filter: {
                     status: { _eq: "published" }
                     featured: { _eq: true }
-                    _or: [
-                        { visibility: { _eq: "hide_for_uk" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
+                    _or: [{ visibility: { _eq: "visible_to_all" } }]
                 }
                 sort: "-published_date"
                 limit: 1
@@ -314,45 +201,6 @@ export const academyQuery = graphql`
                             gatsbyImageData(aspectRatio: 1.6666666667, quality: 60)
                         }
                     }
-                }
-                video_file {
-                    id
-                }
-                tags {
-                    tags_id {
-                        tag_name
-                    }
-                }
-            }
-            featured_video_uk: videos(
-                filter: {
-                    status: { _eq: "published" }
-                    featured: { _eq: true }
-                    _or: [
-                        { visibility: { _eq: "hide_for_eu" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
-                }
-                sort: "-published_date"
-                limit: 1
-            ) {
-                video_title
-                published_date
-                video_description
-                video_duration
-                video_slug
-                featured
-                video_thumbnail {
-                    id
-                    title
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667, quality: 60)
-                        }
-                    }
-                }
-                video_file {
-                    id
                 }
                 tags {
                     tags_id {
@@ -392,45 +240,7 @@ export const academyQuery = graphql`
                 filter: {
                     status: { _eq: "published" }
                     test_data: { _eq: false }
-                    _or: [
-                        { visibility: { _eq: "hide_for_uk" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
-                }
-                sort: "-published_date"
-                limit: 8
-            ) {
-                id
-                main_image {
-                    id
-                    description
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667)
-                        }
-                    }
-                }
-                slug
-                published_date
-                featured
-                tags {
-                    id
-                    tags_id {
-                        tag_name
-                    }
-                }
-                blog_title
-                blog_description
-                blog_post
-            }
-            recent_uk: blog(
-                filter: {
-                    status: { _eq: "published" }
-                    test_data: { _eq: false }
-                    _or: [
-                        { visibility: { _eq: "hide_for_eu" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
+                    _or: [{ visibility: { _eq: "visible_to_all" } }]
                 }
                 sort: "-published_date"
                 limit: 8
@@ -495,46 +305,7 @@ export const academyQuery = graphql`
                     status: { _eq: "published" }
                     featured: { _eq: true }
                     test_data: { _eq: false }
-                    _or: [
-                        { visibility: { _eq: "hide_for_uk" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
-                }
-                sort: "-published_date"
-                limit: 8
-            ) {
-                id
-                main_image {
-                    id
-                    description
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667)
-                        }
-                    }
-                }
-                slug
-                published_date
-                featured
-                tags {
-                    id
-                    tags_id {
-                        tag_name
-                    }
-                }
-                blog_title
-                blog_description
-                blog_post
-            }
-            featured_uk: blog(
-                filter: {
-                    status: { _eq: "published" }
-                    featured: { _eq: true }
-                    test_data: { _eq: false }
-                    _or: [
-                        { visibility: { _eq: "hide_for_eu" } }
-                        { visibility: { _eq: "visible_to_all" } }
-                    ]
+                    _or: [{ visibility: { _eq: "visible_to_all" } }]
                 }
                 sort: "-published_date"
                 limit: 8

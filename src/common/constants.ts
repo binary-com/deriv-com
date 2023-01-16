@@ -23,12 +23,13 @@ export const domains = [
     staging_deriv_be_url,
     'localhost',
     'deriv-com-git-fork',
+    'deriv-com-content',
 ] //deriv-com-git-fork for vercel server, localhost - for developer mode
 
 const getDomainUrl = (): string =>
     isBrowser() && window.location.hostname in domain_url_pair
         ? domain_url_pair[window.location.hostname]
-        : 'netlify.app'
+        : deriv_com_url
 
 const getDomainAppID = () => {
     if (getDomainUrl() === deriv_me_url) return deriv_me_app_id

@@ -88,47 +88,42 @@ const Variables = css`
 
         /* New color code convention for rebranding */
 
-        /* neutrals (black and white) */
-        --clr-ntrl-light: #ffffff;
-        --clr-neutral-dark: #0e0e0e;
-
-        /* base color (reds) */
+        /* base red */
         --clr-base: #ff444f;
-        --clr-base-lt: #ffe8e9;
-        --clr-base-dark: #ff0024;
 
-        /* primary colors (blues) */
-        --clr-primary: #4c76be;
-        --clr-primary-lt: #0e0e0e;
-        --clr-primary-ltr: #f9fbff;
-        --clr-primary-dark: #0e0e0e;
+        /* primary text */
+        --clr-primary: #414652;
 
-        /* secondary colors (grey) */
-        --clr-secondary: #f9fafc;
-        --clr-secondary-lt: #f5f7fa;
-        --clr-secondary-ltr: ##eaeced;
-        --clr-secondary-dark: #8593a414;
+        /* secondary greys */
+        --clr-secondary: #999999;
+        --clr-secondary-lt: #d6dadb;
+        --clr-secondary-ltr: #e6e9e9;
+        --clr-secondary-ltst: #f2f3f4;
 
-        /* tertiary color (green) */
-        --clr-tertiary: #85acb0;
-        --clr-tertiary-lt: #f1f6f7;
-        --clr-tertiary-dark: #e2ebec;
-
-        /* messages */
-        --success: #28a745;
-        --info: #17a2b8;
-        --warning: #ffc107;
-        --danger: #dc3545;
+        /* neutral black and white */
+        --clr-ntrl-light: #ffffff;
+        --clr-neutral-dark: #333333;
 
         /* New font size convention for rebranding */
-        --fs-h1: 8rem;
-        --fs-h2: 6.4rem;
-        --fs-h3: 4.8rem;
-        --fs-h4: 3.2rem;
-        --fs-h5: 2.4rem;
-        --fs-h6: 1.6rem;
-        --fs-h7: 1.4rem;
-        --fs-h8: 1.2rem;
+        --fs-base-text: 1.6rem;
+        --fs-base-header: 6.4rem;
+
+        /* headers */
+        --fs-h1: 4.8rem;
+        --fs-h2: 3.2rem;
+        --fs-h3: 2.4rem;
+        --fs-h4: 2rem;
+        --fs-h5: 1.8rem;
+        --fs-h6: 1.4rem;
+
+        /* smaller fonts */
+        --fs-milli: 1.2rem;
+        --fs-micro: 1rem;
+        --fs-nano: 8px;
+
+        /* larger fonts */
+        --fs-giga: 8rem;
+        --fs-mega: 7rem;
 
         /* sizes */
         --text-size-xxs: 1.2rem;

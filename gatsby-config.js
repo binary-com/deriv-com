@@ -37,7 +37,7 @@ module.exports = {
             options: {
                 headers: {
                     "/*": [
-                        "Basic-Auth: nikita.kolesnik@deriv.com:6371f76405498057b30145d825a0c5c3 Darerk11:5743c52edb06be3ac5962cca420d92a4",
+                        "Basic-Auth: nikita.kolesnik@deriv.com:5743c52edb06be3ac5962cca420d92a4",
                     ]
                 }, // option to add more headers. `Link` headers are transformed by the below criteria
                 allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria

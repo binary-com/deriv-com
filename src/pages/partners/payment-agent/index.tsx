@@ -8,8 +8,8 @@ import PageNotFound from 'pages/404'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
-import { DerivStore } from 'store'
+import useRegion from 'components/hooks/use-region'
+
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
@@ -23,8 +23,8 @@ const meta_attributes = {
 }
 
 const PaymentAgent = () => {
-    const { is_row } = useCountryRule()
-    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+    const { is_row, is_p2p_allowed_country } = useRegion()
+
     return (
         <>
             <SEO

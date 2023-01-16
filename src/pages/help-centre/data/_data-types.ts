@@ -6,11 +6,12 @@ export type TImage = {
     src: string
     alt: string
     width: string
+    margin?: string
 }
 
 export type TTranslationComponents = {
     key: number
-    type: 'link' | 'strong'
+    type: 'link' | 'deriv_app_link' | 'strong'
     to?: string
 }[]
 

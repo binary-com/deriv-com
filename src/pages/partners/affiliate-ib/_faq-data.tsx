@@ -4,7 +4,7 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Header, Text, LinkText, LiveChatLinkText } from 'components/elements'
 import { affiliate_signup_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type StyledLinkProps = {
     href: string
@@ -291,7 +291,7 @@ const IBGeneral = () => (
 )
 
 const IBAccountManagement = () => {
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
 
     return (
         <ItemContainer>

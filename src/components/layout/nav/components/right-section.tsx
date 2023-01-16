@@ -7,7 +7,7 @@ import { Button } from 'components/form'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
@@ -47,7 +47,7 @@ const RightSection = ({
     const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
     const [show_button, showButton, hideButton] = useMoveButton()
-    const { is_loading } = useCountryRule()
+    const { is_region_loading } = useRegion()
     const handleLogin = useHandleLogin()
     const handleSignup = useHandleSignup(is_ppc_redirect)
     const [is_logged_in] = useAuthCheck()
@@ -87,7 +87,7 @@ const RightSection = ({
             {!hide_signup_login && (
                 <>
                     <StyledButton
-                        disabled={is_loading}
+                        disabled={is_region_loading}
                         id="dm-nav-login-button"
                         onClick={handleLogin}
                         primary
@@ -95,7 +95,7 @@ const RightSection = ({
                         {localize('Log in')}
                     </StyledButton>
                     <SignupButton
-                        disabled={is_loading}
+                        disabled={is_region_loading}
                         onClick={handleSignup}
                         id="dm-nav-signup"
                         ref={button_ref}

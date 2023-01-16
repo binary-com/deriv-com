@@ -1,0 +1,9 @@
+backend:
+  name: deriv-com-content
+  repo: NikitK-deriv/deriv-com
+  branch: master
+
+site_url: https://deriv-com-content.netlify.app/
+
+publish_mode: editorial_workflow
+media_folder: assets/uploads

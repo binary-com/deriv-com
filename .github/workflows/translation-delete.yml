@@ -39,7 +39,7 @@ jobs:
               with:
                   node-version: '16.x'
             - name: Installing Crowdin     
-              run: npm i -g @crowdin/cli
+              run: npm i -g @crowdin/cli@3.7.8
             - name: Delete Branch [${{ github.event.workflow_run.head_branch }}] 🗑️
               run: |
                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"    

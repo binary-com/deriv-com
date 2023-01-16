@@ -2167,6 +2167,7 @@
   "-484325406": "3. Update <0>currentPL</0> with the profit from the last contract. If the last contract was lost, the value of <0>currentPL</0> will be negative.",
   "-274881601": "Use this variable to store the stake amount used in the last contract. You can assign any amount you want, but it must be a positive number.",
   "-985220032": "maximumLoss",
+  "-496293327": "Use this variable to store your maximum loss limit. You can assign any amount you want, but it must be a positive number.",
   "-1117510403": "Use this variable to stop trading when your loss limit is reached. Set the initial value to <0>true</0>.",
   "-2125441053": "With basket indices, you can trade your favourite asset against a basket of five major global currencies, each weighted by 20%.",
   "-2062968282": "Didn’t find your answer? We can help.",

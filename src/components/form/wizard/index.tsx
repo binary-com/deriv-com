@@ -5,6 +5,7 @@ import Header from './header'
 import Stepper from './stepper'
 import device from 'themes/device'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
+import DialogModelBox from 'pages/signup-affiliates/components/_dialog-model'
 
 type WizardProps = {
     children: React.ReactElement[]
@@ -62,6 +63,7 @@ const Wizard = ({ children, show = true, steps_names, title, enable_next_button 
     const [step, setStep] = useState(1)
     const max_step = children.length
     const [enable_next, setEnableNext] = useState(false)
+    const [close_wizard, setCloseWizard] = useState(false)
 
     useEffect(() => {
         setEnableNext(enable_next_button)
@@ -79,10 +81,22 @@ const Wizard = ({ children, show = true, steps_names, title, enable_next_button 
 
     if (!show_wizard) return <></>
 
+    const showDialogBox = () => {
+        setCloseWizard(true)
+    }
+
     return (
         <>
             <Modal>
-                <Header title={title} setShowWizard={setShowWizard} />
+                {close_wizard && (
+                    <DialogModelBox
+                        toggle={() => setCloseWizard(false)}
+                        is_open={close_wizard}
+                        closeModal={() => setCloseWizard(false)}
+                        to="/partners/affiliate-ib"
+                    />
+                )}
+                <Header title={title} setShowWizard={showDialogBox} />
                 <Stepper step={step} step_names={steps_names} />
                 <Wrapper>
                     {React.Children.map(children, (child, idx) => (

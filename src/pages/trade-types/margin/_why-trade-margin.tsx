@@ -9,11 +9,11 @@ import MaximizePotentialProfit from 'images/svg/trade-types/maximize-potential-p
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { Button } from 'components/form'
-import { DerivStore, DerivStoreType } from 'store'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import useRegion from 'components/hooks/use-region'
 
 const WhyTradeMargin = () => {
-    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
+    const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
 
     return (
@@ -30,7 +30,7 @@ const WhyTradeMargin = () => {
                                 {localize('High leverage, low spreads')}
                             </Text>
                             <Text mb="4rem">
-                                {is_eu_country
+                                {is_eu
                                     ? localize(
                                           'Take advantage of high leverage and low spreads on Deriv MT5.',
                                       )

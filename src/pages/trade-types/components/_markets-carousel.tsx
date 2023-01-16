@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SmallContainer } from './_style'
 import { Mobile } from 'components/containers'
-import { Carousel } from 'components/elements'
+import { Carousel, CarouselProps } from 'components/elements'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
@@ -65,7 +65,7 @@ type MarketsCarouselProps = {
 const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
     const lang_direction = useLangDirection()
 
-    const carousel_props = {
+    const carousel_props: CarouselProps = {
         options: {
             align: 'start',
             containScroll: 'trimSnaps',

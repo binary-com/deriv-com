@@ -14,7 +14,7 @@ import { Text, Header, LinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import TipIcon from 'images/svg/careers/career-tip.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const StyledSectionContainer = styled(SectionContainer)`
     padding: 8rem 0 5rem 0;
@@ -70,7 +70,7 @@ const leftStyle = css`
     left: -1.2rem;
 `
 
-const StyledTipsCard = styled(Flex)`
+const StyledTipsCard = styled(Flex)<{ right: boolean }>`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     padding: 2.4rem;
     position: relative;
@@ -294,7 +294,7 @@ const StyledLinkText = styled(LinkText)`
 `
 
 const OurHiringProcess = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     return (
         <StyledSectionContainer>
             <Container direction="column">
@@ -310,7 +310,7 @@ const OurHiringProcess = () => {
                             style={{ marginTop: '4.7rem' }}
                             right
                         />
-                        <SubResponsiveFlex1 direction="row" justify="unset">
+                        <SubResponsiveFlex1 direction="row" jc="unset">
                             <StyledCareer1 src={Career1} alt="career1" />
                             <Process
                                 title={'Apply'}

@@ -10,11 +10,12 @@ import { localized_link_url } from 'common/constants'
 import {
     getLocalizedUrl,
     getDerivAppLocalizedURL,
+    getSmartTraderLocalizedURL,
     getThaiExcludedLocale,
     replaceLocale,
 } from 'common/utility'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type InternalLinkProps = {
     aria_label?: string
@@ -39,11 +40,13 @@ type ExternalLinkProps = InternalLinkProps & {
 type LocalizedLinkProps = ExternalLinkProps & {
     external?: boolean
     weight?: string
+    partiallyActive?: boolean
 }
 
 type SharedLinkStyleProps = {
     active: boolean
-    disabled: boolean
+    disabled?: boolean
+    activeClassName?: string
 }
 
 export const SharedLinkStyle = css<SharedLinkStyleProps>`
@@ -115,7 +118,7 @@ export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
         font-size: 14px;
     }
 `
-const ShareDisabledStyle = css<{ disabled: boolean }>`
+const ShareDisabledStyle = css<{ disabled?: boolean }>`
     ${({ disabled }) =>
         disabled &&
         `
@@ -210,6 +213,9 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
         return `${localized_link_url[type]}?lang=${affiliate_lang}`
     } else if (deriv_other_products.includes(type)) {
         if (type === 'binary_bot') return `${localized_link_url[type]}/${to ? to : ''}?l=${locale}`
+        else if (type === 'smart_trader')
+            return getSmartTraderLocalizedURL(localized_link_url[type], locale)
+
         return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`
@@ -239,7 +245,7 @@ const ExternalLink = ({
     type,
     ...props
 }: ExternalLinkProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
     const url = replaceLocale(getURLFormat(type, locale, to, affiliate_lang))
@@ -268,7 +274,7 @@ const ExternalLink = ({
                 ref,
                 aria_label: aria_label,
             })
-            toggleModal()
+            toggleModal(e)
         }
         if (typeof onClick === 'function') {
             onClick(e)

@@ -728,13 +728,56 @@ const career_data = {
                     id: '47807000001891432',
                 },
             ],
+        },
+    ],
+    business_intelligence: [
+        {
+            header: {
+                background: 'business_intelligence_bg',
+                title: 'Business Intelligence',
+                subtitle:
+                    'Our team leads the organisation in cultivating a data-driven culture as our company moves towards the future. We collect meaningful data and analytics to drive smart marketing decisions, optimise our business, and increase profitability.',
+            },
+            intro_section: {
+                image: 'business_intelligence_desc',
+                img_alt: 'Project management team on online call',
+                paragraph: [
+                    {
+                        text: 'We employ industry-standard practices when designing and improving data solutions for analytics, warehousing, and more. In this fast-paced environment, you’ll be involved in projects that have an impact on the direction and growth of the company. While you’ll have the opportunity to learn from experts, your ideas for improvement are welcomed as we move towards a data-driven company.',
+                    },
+                ],
+            },
+            link_url: 'https://deriv.zohorecruit.eu/jobs/Business-Intelligence',
+            open_position: [
+                {
+                    title: 'Senior Data Analyst',
+                    location: 'Cyberjaya, Malaysia',
+                    id: '47807000001891570',
+                },
+                {
+                    title: 'Senior Data Engineer',
+                    location: 'Cyberjaya, Malaysia',
+                    id: '47807000001891250',
+                },
+                {
+                    title: 'Senior Data Analyst',
+                    location: 'Limassol, Cyprus',
+                    id: '47807000001891704',
+                },
+                {
+                    title: 'Senior Data Engineer',
+                    location: 'Limassol, Cyprus',
+                    id: '47807000001891732',
+                },
+            ],
             testimony_section: {
-                image: 'pm_review',
-                image_mobile: 'pm_review_mobile',
-                img_alt: 'Islam Eizayyadi - Project management team lead',
+                image: 'business_intelligence_review',
+                image_mobile: 'business_intelligence_review_mobile',
+                img_alt:
+                    'Xavier Gorriz Torner - Head of Business Intelligence and Data Engineering',
                 testimony_headline: [
                     {
-                        text: `“It's in Deriv's DNA to react quickly and reprioritise based on threats and market trends, so our core responsibility is to adjust plans and communicate priorities across teams. My favourite thing about working at Deriv is that we have access to everyone in the company and can learn from them regardless of their location. There's a significant focus on leadership development too that I also enjoy.”`,
+                        text: '“Deriv is a fast-growing international company; things move rapidly, so complacency isn’t an option. We face new goals and challenges every day; there’s never a boring day at work. As a group of data enthusiasts, we want to make a difference in the company’s decision-making process. We’re curious and open to new approaches and technologies to reach the best solutions. Luckily, Deriv gives us the freedom and tools to do so.”',
                     },
                 ],
             },

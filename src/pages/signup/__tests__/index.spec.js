@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import { useStaticQuery } from 'gatsby'
 import { QueryParamProvider } from 'use-query-params'
 import { LocaleContextWrapper } from '../../../components/localization/locale-context'
-import { DerivProvider } from '../../../store/index'
+import { RegionProvider } from '../../../store/region-context'
 import NewSignup from '../index.tsx'
 
 // mock all functions that are required in signup page.
@@ -23,7 +23,6 @@ jest.mock('common/utility', () => ({
     isNullUndefined: jest.fn(() => true),
     isLocalhost: jest.fn(() => true),
     isEuDomain: jest.fn(() => true),
-    isUkDomain: jest.fn(() => true),
 }))
 
 // mock the qraphql query used in seo.js
@@ -42,13 +41,13 @@ useStaticQuery.mockReturnValue({
 describe('NewSignUp', () => {
     it('must contain create demo account Button', () => {
         render(
-            <DerivProvider value={{ is_eu_country: true }}>
+            <RegionProvider value={{ is_eu: true }}>
                 <LocaleContextWrapper pageContext={{ locale: 'en', pathname: '/en/signup' }}>
                     <QueryParamProvider>
                         <NewSignup />,
                     </QueryParamProvider>
                 </LocaleContextWrapper>
-            </DerivProvider>,
+            </RegionProvider>,
         )
         const singup_button = screen.getByRole('button', {
             name: /Create demo account/i,

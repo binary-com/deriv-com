@@ -92,7 +92,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const OurPrinciples = (): React.ReactNode => {
+const OurPrinciples = () => {
     return (
         <Layout>
             <SEO title={localize('Our principles | Deriv')} />

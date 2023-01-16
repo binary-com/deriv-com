@@ -10,9 +10,9 @@ import { AcademyIndexFragment } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import { Carousel } from 'components/elements'
+import { Carousel, CarouselProps } from 'components/elements'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 export const query = graphql`
     query {
@@ -50,14 +50,14 @@ export type NonFeaturedVideoListDataType = AcademyIndexFragment['directus']['vid
 export type MarketNewsDataType = AcademyIndexFragment['directus']['market_news']
 
 const DerivBlog = ({ data }: DerivBlogProps) => {
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu } = useRegion()
 
     const meta_attributes = {
         og_title: 'Blogs, video tutorials, and more | Deriv Academy',
         og_description: 'Your one-stop online trading learning hub.',
     }
 
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             loop: true,
         },
@@ -101,12 +101,6 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
         homepage_banners_eu,
         videos_eu,
         featured_video_eu,
-        market_news_uk,
-        recent_uk,
-        featured_uk,
-        homepage_banners_uk,
-        videos_uk,
-        featured_video_uk,
     } = data.directus
 
     if (is_eu) {
@@ -116,13 +110,6 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
         homepage_banner_data = homepage_banners_eu
         non_featured_video_list_data = videos_eu
         featured_video_list_data = featured_video_eu
-    } else if (is_uk) {
-        market_news_data = market_news_uk
-        recent_data = recent_uk
-        featured_data = featured_uk
-        homepage_banner_data = homepage_banners_uk
-        non_featured_video_list_data = videos_uk
-        featured_video_list_data = featured_video_uk
     }
 
     //arranges homepage banners in ascendingly on order value
@@ -169,7 +156,7 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
                     ai="flex-start"
                     jc="space-between"
                     mb="80px"
-                    tabletL={{ marginBottom: '40px' }}
+                    tabletL={{ mb: '40px' }}
                 >
                     <Subscribe />
                 </Flex>

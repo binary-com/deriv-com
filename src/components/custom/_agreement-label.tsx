@@ -69,6 +69,7 @@ const AgreementLabel = ({
                             size="14px"
                             color="red"
                             target="__blank"
+                            type="terms_and_conditions/#clients"
                         />,
                     ]}
                 />

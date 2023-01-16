@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { NavLink, StyledLinkMarket, MarketWrapper, Wrapper } from '../../styles/nav-styles'
 import device from 'themes/device'
@@ -27,11 +27,11 @@ const NavigationBar = styled.ul`
 `
 type NavLinkCardTypes = {
     to: string
-    title: ReactElement
+    title: string
     active?: string
     type?: string
     target?: string
-    external?: string
+    external?: boolean
     rel?: string
 }
 

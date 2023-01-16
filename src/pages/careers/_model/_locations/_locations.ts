@@ -504,7 +504,7 @@ export const georgetown: LocationsType = {
     display_thumbnail_name: 'George Town',
     display_title_name: 'the Cayman Enterprise City',
     img_alt: ' Deriv’s Cayman Islands office at George Town ',
-    map_office_name: 'Group Ltd',
+    map_office_name: 'Group SEZC',
     country: 'Cayman Islands',
     flagIcon: CaymanFlagIcon,
     thumbnail: 'thumbnail_georgetown',

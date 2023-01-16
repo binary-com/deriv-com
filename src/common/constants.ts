@@ -1,6 +1,7 @@
 const isBrowser = () => typeof window !== 'undefined'
 
 export const deriv_com_url = 'deriv.com'
+export const deriv_com_content = 'deriv-com-content.netlify.app'
 export const deriv_me_url = 'deriv.me'
 export const deriv_be_url = 'deriv.be'
 export const staging_deriv_be_url = 'staging.deriv.be'
@@ -11,6 +12,7 @@ export const deriv_be_app_id = 30767
 
 const domain_url_pair = {
     [deriv_com_url]: deriv_com_url,
+    [deriv_com_content]: deriv_com_content,
     [deriv_me_url]: deriv_me_url,
     [deriv_be_url]: deriv_be_url,
     [staging_deriv_be_url]: deriv_be_url,
@@ -18,18 +20,18 @@ const domain_url_pair = {
 
 export const domains = [
     deriv_com_url,
+    deriv_com_content,
     deriv_me_url,
     deriv_be_url,
     staging_deriv_be_url,
     'localhost',
     'deriv-com-git-fork',
-    'deriv-com-content',
 ] //deriv-com-git-fork for vercel server, localhost - for developer mode
 
 const getDomainUrl = (): string =>
     isBrowser() && window.location.hostname in domain_url_pair
         ? domain_url_pair[window.location.hostname]
-        : deriv_com_url
+        : deriv_com_content
 
 const getDomainAppID = () => {
     if (getDomainUrl() === deriv_me_url) return deriv_me_app_id

@@ -12,6 +12,9 @@ import { Button, LinkButton } from 'components/form'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 
+type StyledLinkButtonProps = {
+    id?: string
+}
 const query = graphql`
     query {
         dmt5_synthetic_calculator: file(
@@ -171,7 +174,7 @@ const ButtonWrapper = styled.div`
         justify-content: center;
     }
 `
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
     height: 40px;
 
     @media ${device.tabletL} {

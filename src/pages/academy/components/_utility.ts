@@ -1,6 +1,7 @@
+import React from 'react'
 import { navigate } from 'gatsby'
 import { isBrowser, addScript } from 'common/utility'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 export const url = isBrowser() ? window.location.href : ''
 
@@ -29,6 +30,7 @@ export const addScriptForCIO = (is_eu: boolean) => {
             t.src = '${cio_url}' 
             //If your account is in the EU, use:
             s.parentNode.insertBefore(t, s);`,
+        async: false,
         strategy: 'off-main-thread',
     })
 }
@@ -37,16 +39,10 @@ export const handleTag = (tag_name: string) => {
 }
 
 export const useDataFilter = (data) => {
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu } = useRegion()
     let filtered_data = data
     if (is_eu) {
-        filtered_data = data.filter(
-            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
-        )
-    } else if (is_uk) {
-        filtered_data = data.filter(
-            (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
-        )
+        filtered_data = data.filter((item) => item.visibility !== 'hide_for_eu')
     }
     return filtered_data
 }

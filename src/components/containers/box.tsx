@@ -38,6 +38,7 @@ export type BaseStyleType = {
     pb?: string
     jc?: string
     fd?: string
+    fw?: string
     ai?: string
     min_width?: string
     max_width?: string

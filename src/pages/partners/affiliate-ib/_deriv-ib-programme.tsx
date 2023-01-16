@@ -7,7 +7,7 @@ import { Header } from 'components/elements/typography'
 import { LiveChatLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type AssetsType = {
     title: React.ReactElement
@@ -51,6 +51,10 @@ type DMT5Type = {
     countDetails: CountDetailsType
 }
 
+type StyledSectionProps = {
+    align?: string
+}
+
 export type DMT5Props = { data: DMT5Type }
 
 const TitleWrapper = styled.div`
@@ -66,7 +70,7 @@ const StyledCardWrapper = styled(CardWrapper)`
     }
 `
 
-const StyledSection = styled(SectionContainer)`
+const StyledSection = styled(SectionContainer)<StyledSectionProps>`
     padding-bottom: 0;
     text-align: ${(props) => props.align || 'left'};
 
@@ -136,9 +140,9 @@ const SubtitleHeader = styled(Header)`
 `
 
 const DerivIBProgramme = () => {
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
     return (
-        <StyledSection shadow id="deriv-ib">
+        <StyledSection id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
                     <StyledTitleHeader as="h2" mb="1.2rem" type="page-title" align="center">

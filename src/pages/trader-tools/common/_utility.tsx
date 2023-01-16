@@ -3,18 +3,18 @@ import validation from './_validation'
 type ErrorsType = {
     errors?: null
     symbol?: string
-    volume?: string
+    volume?: string | JSX.Element
     assetPrice?: string
     leverage?: string
-    pointValue?: string
-    takeProfitAmount?: string
-    stopLossAmount?: string
-    commission?: string
-    stake?: string
-    multiplier?: string
-    takeProfitLevel?: string
-    stopLossLevel?: string
-    swapRate?: string
+    pointValue?: string | JSX.Element
+    takeProfitAmount?: string | JSX.Element
+    stopLossAmount?: string | JSX.Element
+    commission?: string | JSX.Element
+    stake?: string | JSX.Element
+    multiplier?: string | JSX.Element
+    takeProfitLevel?: string | JSX.Element
+    stopLossLevel?: string | JSX.Element
+    swapRate?: string | JSX.Element
 }
 
 const STEPINDEX_VALUE = 100

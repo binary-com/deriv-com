@@ -45,7 +45,7 @@ const trade_data: ContentType[] = [
         subtitle: (
             <Localize translate_text="Trade synthetics and cryptocurrencies round the clock and forex during regular market hours." />
         ),
-        image_alt: '24/7 trading',
+        image_alt: 'Trade 24/7 with DerivGO',
     },
     {
         icon: IconUserFriendly,
@@ -53,7 +53,7 @@ const trade_data: ContentType[] = [
         subtitle: (
             <Localize translate_text="Enjoy a smooth trading experience with easy-to-use charts and a pleasant dark theme." />
         ),
-        image_alt: 'user-friendly',
+        image_alt: 'Easy to use trading features',
     },
     {
         icon: IconEasyAccess,
@@ -61,7 +61,7 @@ const trade_data: ContentType[] = [
         subtitle: (
             <Localize translate_text="Get instant access to your trades wherever you are whenever you want." />
         ),
-        image_alt: 'easy access',
+        image_alt: 'Instant and easy access for trading',
     },
 ]
 

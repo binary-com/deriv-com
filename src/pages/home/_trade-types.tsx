@@ -1,13 +1,20 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Carousel, Header, QueryImage, Text, ImageWithDireciton } from 'components/elements'
+import {
+    Carousel,
+    Header,
+    QueryImage,
+    Text,
+    ImageWithDireciton,
+    CarouselProps,
+} from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Flex, SectionContainer } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type TradeTypesProps = {
@@ -32,9 +39,6 @@ const query = graphql`
         trade_type_cfds_eu: file(relativePath: { eq: "home/trade_type_cfds_eu.png" }) {
             ...fadeIn
         }
-        trade_type_cfds_uk: file(relativePath: { eq: "home/trade_type_cfds_uk.png" }) {
-            ...fadeIn
-        }
         trade_type_digitaloptions: file(
             relativePath: { eq: "home/trade_type_digitaloptions.png" }
         ) {
@@ -48,18 +52,13 @@ const query = graphql`
         ) {
             ...fadeIn
         }
-        trade_type_multipliers_uk: file(
-            relativePath: { eq: "home/trade_type_multipliers_uk.png" }
-        ) {
-            ...fadeIn
-        }
         trade_type_spreads: file(relativePath: { eq: "home/trade_type_spreads.png" }) {
             ...fadeIn
         }
     }
 `
 
-const items_details_cr: TradeTypesProps[] = [
+const items_details_row: TradeTypesProps[] = [
     {
         image_url: 'trade_type_cfds',
         image_alt: <Localize translate_text="CFDs" />,
@@ -109,31 +108,6 @@ const items_details_eu: TradeTypesProps[] = [
     },
     {
         image_url: 'trade_type_multipliers_eu',
-        image_alt: <Localize translate_text="Multipliers" />,
-        header: <Localize translate_text="Multipliers" />,
-        desc: (
-            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
-        ),
-        link: '/trade-types/multiplier/',
-        link_text: <Localize translate_text="More on multipliers" />,
-        alt: 'multipliers',
-    },
-]
-
-const items_details_uk: TradeTypesProps[] = [
-    {
-        image_url: 'trade_type_cfds_uk',
-        image_alt: <Localize translate_text="CFDs" />,
-        header: <Localize translate_text="CFDs" />,
-        desc: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
-        ),
-        link: '/trade-types/cfds/',
-        link_text: <Localize translate_text="More on CFDs" />,
-        alt: 'cfd',
-    },
-    {
-        image_url: 'trade_type_multipliers_uk',
         image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
         desc: (
@@ -294,14 +268,13 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
 }
 
 const TradeTypes = (): React.ReactNode => {
-    const { is_row, is_eu, is_uk } = useCountryRule()
-    const items_details_by_region =
-        (is_eu && items_details_eu) || (is_uk && items_details_uk) || items_details_cr
+    const { is_row, is_eu } = useRegion()
+    const items_details_by_region = (is_eu && items_details_eu) || items_details_row
     const [is_not_big_screen] = useBrowserResize(1979)
 
     const lang_direction = useLangDirection()
 
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             loop: false,
             align: 'start',

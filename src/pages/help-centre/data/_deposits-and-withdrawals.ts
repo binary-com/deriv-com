@@ -118,7 +118,7 @@ const deposits_and_withdrawals: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: `${deriv_com_url}/contact_us?is_livechat_open=true`,
+                            to: `/contact_us?is_livechat_open=true`,
                         },
                     ],
                     has_margin_top: true,

@@ -19,7 +19,7 @@ const AffiliateSignup = () => {
     ]
 
     const [next_btn_enabled, setNextBtnEnabled] = useState(false)
-    const [close_wizard, setCloseWizard] = useState(false)
+    const [is_wizard_closed, setCloseWizard] = useState(false)
     const [affiliate_account, setAffiliateAccount] = useState({
         account_type: -1,
         address_details: {
@@ -118,16 +118,12 @@ const AffiliateSignup = () => {
         }
     }
 
-    const showDialogBox = () => {
-        setCloseWizard(true)
-    }
-
     return (
         <AffiliateSignupLayout>
             <SignUpWrapper>
                 <DialogModelBox
                     toggle={() => setCloseWizard(false)}
-                    is_open={close_wizard}
+                    is_open={is_wizard_closed}
                     closeModal={() => setCloseWizard(false)}
                     to="/partners/affiliate-ib"
                 />
@@ -135,7 +131,7 @@ const AffiliateSignup = () => {
                     title={localize('Add an affiliate account')}
                     steps_names={Steps}
                     enable_next_button={next_btn_enabled}
-                    onExit={showDialogBox}
+                    onExit={() => setCloseWizard(true)}
                 >
                     <AccountType
                         cardSelected={affiliate_account.account_type}

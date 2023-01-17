@@ -1,5 +1,5 @@
 import { TQuestionsData } from './_data-types'
-import { binary_url, deriv_app_url } from 'common/constants'
+import { deriv_com_url, deriv_app_url } from 'common/constants'
 
 const deposits_and_withdrawals: TQuestionsData = {
     section: 'General',
@@ -118,7 +118,7 @@ const deposits_and_withdrawals: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: `${binary_url}/en/home.html?is_livechat_open=true`,
+                            to: `${deriv_com_url}/contact_us?is_livechat_open=true`,
                         },
                     ],
                     has_margin_top: true,

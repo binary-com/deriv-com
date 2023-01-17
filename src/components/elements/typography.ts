@@ -121,7 +121,7 @@ export const TypographyBaseElement = css<BaseElementProps>`
         element_color ? `var(--color-${element_color})` : 'var(--color-black-3)'};
 `
 
-/** @deprecated Use `Header` component instead. */
+/** @deprecated Use `Typography` component instead. */
 
 export const Text = styled.p<BaseElementProps & ResponseDeviceProps>`
     ${BaseElement}
@@ -294,7 +294,7 @@ export const Typography = styled.h2<HeaderProps>`
 
     ${responsiveStyles}
 `
-
+/** @deprecated Use `Typography` component instead. */
 export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     createElement(as, props, children),
 )<HeaderProps>`

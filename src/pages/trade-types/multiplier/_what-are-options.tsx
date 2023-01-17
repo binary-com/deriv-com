@@ -7,7 +7,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Button } from 'components/form'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
@@ -165,7 +165,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
     const is_rtl = useIsRtl()
 
@@ -212,7 +212,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit<1>."
+                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit</1>."
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,
@@ -315,7 +315,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>."
+                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit</1>."
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,

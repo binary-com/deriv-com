@@ -1,6 +1,7 @@
+import React from 'react'
 import { navigate } from 'gatsby'
 import { isBrowser, addScript } from 'common/utility'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 export const url = isBrowser() ? window.location.href : ''
 
@@ -38,7 +39,7 @@ export const handleTag = (tag_name: string) => {
 }
 
 export const useDataFilter = (data) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     let filtered_data = data
     if (is_eu) {
         filtered_data = data.filter((item) => item.visibility !== 'hide_for_eu')

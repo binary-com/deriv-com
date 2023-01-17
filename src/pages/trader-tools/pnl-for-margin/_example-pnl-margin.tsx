@@ -390,9 +390,9 @@ export const TakeProfitLevel = () => {
                         <FormulaValue>
                             <Localize translate_text="1 ) }" />
                             <PointerContainer width="100px" top ml="-38px">
-                                <PointerDot />
-                                <PointerStick height="28px" />
-                                <PointerText top>
+                                <PointerDot ml="-40px" />
+                                <PointerStick ml="-40px" height="28px" />
+                                <PointerText ml="40px" top>
                                     <Localize translate_text="Contract size" />
                                     <StyledSpan> 1</StyledSpan>
                                 </PointerText>

@@ -5,7 +5,7 @@ import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const platforms = Object.freeze({
     trader: 'dtrader',
@@ -52,7 +52,7 @@ type TradeProps = {
 }
 
 const Trade = ({ is_ppc_redirect }: TradeProps) => {
-    const { is_non_eu } = useCountryRule()
+    const { is_non_eu } = useRegion()
     const data = useStaticQuery(query)
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)

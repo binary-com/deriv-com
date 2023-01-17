@@ -482,9 +482,9 @@ export const reading: LocationsType = {
     thumbnail: 'thumbnail_reading',
     address: [''],
     first_p:
-        'Deriv (UK) serves as a software development centre as well as a general service provider for the Deriv Group, tapping into a wealth of regional talent. The tech professionals in our UK team will deliver future-proof online trading solutions in collaboration with their colleagues around the world.',
+        'Deriv Technologies Ltd serves as a software development centre as well as a general service provider for the Deriv Group, tapping into a wealth of regional talent. The tech professionals in our UK team will deliver future-proof online trading solutions in collaboration with their colleagues around the world.',
     first_img: 'living_in_reading',
-    first_img_alt: 'Working at Deriv (UK) ',
+    first_img_alt: 'Working at Deriv Technologies Ltd ',
     grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     map: '',

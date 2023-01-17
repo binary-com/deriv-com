@@ -42,7 +42,7 @@ const VerticalCarousel = ({ contents }: VerticalCarouselProps) => {
             {contents.map((content) => (
                 <StyledHeader
                     as="h3"
-                    type="sub-section-title"
+                    element_type="sub-section-title"
                     element_color="white"
                     key={content.id}
                 >

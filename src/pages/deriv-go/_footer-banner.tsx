@@ -136,10 +136,14 @@ const FooterBanner = () => {
                     width="424px"
                     tabletL={{ max_width: '100%', mt: '40px' }}
                 >
-                    <StyledHeader as="h3" element_color="white" type="heading-3">
+                    <StyledHeader as="h3" element_color="white" element_type="heading-3">
                         {localize('Start trading on the go')}
                     </StyledHeader>
-                    <StyledSubTitle element_color="white" type="subtitle-2" weight="lighter">
+                    <StyledSubTitle
+                        element_color="white"
+                        element_type="subtitle-2"
+                        element_weight="lighter"
+                    >
                         {localize(
                             'Download the app today and trade multipliers anytime, anywhere you want.',
                         )}
@@ -160,8 +164,8 @@ const FooterBanner = () => {
                             />
                             <StyledSubTitle
                                 element_color="white"
-                                type="subtitle-2"
-                                weight="lighter"
+                                element_type="subtitle-2"
+                                element_weight="lighter"
                             >
                                 {localize('Scan the QR code to download Deriv GO')}
                             </StyledSubTitle>

@@ -57,15 +57,20 @@ const Hero = () => {
             </StyledVideo>
             <Content>
                 <Container direction="column" height="100%">
-                    <Typography as="h1" type="display-title" element_color="white" align="center">
+                    <Typography
+                        as="h1"
+                        element_type="display-title"
+                        element_color="white"
+                        align="center"
+                    >
                         {localize('Deriv partnership programmes')}
                     </Typography>
                     <Typography
                         as="h3"
                         element_color="white"
                         align="center"
-                        type="section-title"
-                        weight="400"
+                        element_type="section-title"
+                        element_weight="400"
                     >
                         {localize('Partner with a trusted online trading provider.')}
                     </Typography>

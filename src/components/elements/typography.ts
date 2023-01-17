@@ -47,6 +47,9 @@ type BaseElementProps = {
     mobile_max_width?: string
     type?: string[] | Types
     element_color?: string
+    element_size?: string
+    element_type?: string[] | Types
+    element_weight?: string
 } & MarginsType &
     PaddingsType
 
@@ -250,34 +253,40 @@ const ElementStyleAttributes = {
 }
 export const Typography = styled.h2<HeaderProps>`
     ${TypographyBaseElement}
-    font-weight: ${({ weight }) => weight || 'bold'};
-    font-size: ${({ size, type }) => {
-        if (size) return size
-        else if (typeof type === 'string') {
-            return ElementStyleAttributes[type] && ElementStyleAttributes[type]['font_size']
+    font-weight: ${({ element_weight }) => element_weight || 'bold'};
+    font-size: ${({ element_size, element_type }) => {
+        if (element_size) return element_size
+        else if (typeof element_type === 'string') {
+            return (
+                ElementStyleAttributes[element_type] &&
+                ElementStyleAttributes[element_type]['font_size']
+            )
         }
     }};
-    line-height: ${({ type }) => {
-        if (typeof type === 'string') {
-            return ElementStyleAttributes[type] && ElementStyleAttributes[type]['line_height']
+    line-height: ${({ element_type }) => {
+        if (typeof element_type === 'string') {
+            return (
+                ElementStyleAttributes[element_type] &&
+                ElementStyleAttributes[element_type]['line_height']
+            )
         }
     }};
     width: ${({ width }) => width || '100%'};
 
     @media ${device.tabletL} {
-        font-size: ${({ type }) => {
-            if (typeof type === 'string') {
+        font-size: ${({ element_type }) => {
+            if (typeof element_type === 'string') {
                 return (
-                    ElementStyleAttributes[type] &&
-                    ElementStyleAttributes[type]['font_size_tabletL']
+                    ElementStyleAttributes[element_type] &&
+                    ElementStyleAttributes[element_type]['font_size_tabletL']
                 )
             }
         }};
-        line-height: ${({ type }) => {
-            if (typeof type === 'string') {
+        line-height: ${({ element_type }) => {
+            if (typeof element_type === 'string') {
                 return (
-                    ElementStyleAttributes[type] &&
-                    ElementStyleAttributes[type]['line_height_tabletL']
+                    ElementStyleAttributes[element_type] &&
+                    ElementStyleAttributes[element_type]['line_height_tabletL']
                 )
             }
         }};

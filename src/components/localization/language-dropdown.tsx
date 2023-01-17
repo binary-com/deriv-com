@@ -196,7 +196,7 @@ const Dropdown = ({
                                     <Typography
                                         as="p"
                                         ml="0.8rem"
-                                        weight="normal"
+                                        element_weight="normal"
                                         data-type="paragraph-1"
                                         element_color={current_option ? 'red' : 'black'}
                                     >

@@ -261,13 +261,13 @@ const HeaderSection = () => {
                 <TopHeaderWrapper>
                     <TopHeaderTextDiv>
                         <TopTextWrapper>
-                            <StyledHeader element_color="white" type="main-landing-title">
+                            <StyledHeader element_color="white" element_type="main-landing-title">
                                 {localize('Stocks, unlocked')}
                             </StyledHeader>
                             <StyledHeaderSmall
                                 element_color="white"
-                                type="sub-section-title"
-                                weight="normal"
+                                element_type="sub-section-title"
+                                element_weight="normal"
                             >
                                 {localize(
                                     'Trade global stocks and stock indices now on our Deriv MT5 platform',
@@ -331,7 +331,10 @@ const HeaderSection = () => {
                     <SectionStyledHeader type="display-title" mb="24px">
                         {localize('Spot your favourite brand?')}
                     </SectionStyledHeader>
-                    <SectionStyledHeaderSmall type="sub-section-title" weight="normal">
+                    <SectionStyledHeaderSmall
+                        element_type="sub-section-title"
+                        element_weight="normal"
+                    >
                         {localize(
                             'Facebook. Tesla. Zoom. McDonald’s. Trade on the global household names you see every day on our Deriv MT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
                         )}

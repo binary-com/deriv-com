@@ -109,8 +109,8 @@ const Leverages = () => {
                 {content.map((item, index) => (
                     <EachWrapper key={`key-${index}`}>
                         <ImgWrapper src={item.imgsrc} />
-                        <StyledHeader type="section-title">{item.header}</StyledHeader>
-                        <StyledHeaderSmall type="sub-section-title" weight="normal">
+                        <StyledHeader element_type="section-title">{item.header}</StyledHeader>
+                        <StyledHeaderSmall element_type="sub-section-title" element_weight="normal">
                             {item.title}
                         </StyledHeaderSmall>
                     </EachWrapper>

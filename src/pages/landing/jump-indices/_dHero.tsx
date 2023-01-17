@@ -144,13 +144,13 @@ const DHero = () => {
         <MainWrapper>
             <ParentWrapper>
                 <LeftWrapper>
-                    <StyledHeader type="main-landing-title" element_color="white">
+                    <StyledHeader element_type="main-landing-title" element_color="white">
                         {localize('Trade jump indices, the new synthetics with a twist')}
                     </StyledHeader>
                     <StyledHeaderSmall
-                        type="sub-section-title"
+                        element_type="sub-section-title"
                         element_color="white"
-                        weight="normal"
+                        element_weight="normal"
                     >
                         {localize(
                             'Brand new synthetic indices are now available on DTrader and Deriv MT5',

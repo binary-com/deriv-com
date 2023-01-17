@@ -64,15 +64,20 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroP
     return (
         <Container>
             <Wrapper>
-                <Typography element_color="white" type="heading-2" weight="700" mb="8px">
+                <Typography
+                    element_color="white"
+                    element_type="heading-2"
+                    element_weight="700"
+                    mb="8px"
+                >
                     {title}
                 </Typography>
                 <Typography
                     as="p"
                     element_color="white"
-                    weight="400"
-                    type="subtitle-2"
-                    size="20px"
+                    element_weight="400"
+                    element_type="subtitle-2"
+                    element_size="20px"
                     mb="20px"
                 >
                     {description}

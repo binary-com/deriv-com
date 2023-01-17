@@ -87,8 +87,8 @@ const JumpSection = () => {
         <MainWrapper>
             <ParentWrapper>
                 <LeftWrapper>
-                    <StyledHeader type="section-title">{localize('Jumps')}</StyledHeader>
-                    <StyledHeaderSmall type="sub-section-title" weight="normal">
+                    <StyledHeader element_type="section-title">{localize('Jumps')}</StyledHeader>
+                    <StyledHeaderSmall element_type="sub-section-title" element_weight="normal">
                         {localize(
                             'Experience equal probability of an upward or downward price jump every 20 minutes on average.',
                         )}

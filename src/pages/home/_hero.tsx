@@ -66,7 +66,7 @@ const StyledHeader = styled(Typography)`
 
 const HeroHeader = ({ text }: { text: TString }) => {
     return (
-        <StyledHeader type="main-landing-title" element_color="white">
+        <StyledHeader element_type="main-landing-title" element_color="white">
             <Localize translate_text={text} />
         </StyledHeader>
     )
@@ -119,10 +119,10 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             </Flex>
                             <Typography
                                 as="h2"
-                                type="sub-section-title"
+                                element_type="sub-section-title"
                                 element_color="white"
                                 min_height="auto"
-                                weight="normal"
+                                element_weight="normal"
                             >
                                 {is_eu && (
                                     <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />

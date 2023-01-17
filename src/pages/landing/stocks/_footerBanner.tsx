@@ -163,14 +163,14 @@ const FooterBanner = ({
             <MainWrapper>
                 <TextWrapper>
                     <TextDiv>
-                        <StyledHeader element_color="white" type="section-title" mb="8px">
+                        <StyledHeader element_color="white" element_type="section-title" mb="8px">
                             {title}
                         </StyledHeader>
                         <StyledHeaderSmall
                             element_color="white"
-                            type="sub-section-title"
-                            weight="normal"
-                            size="2.4rem"
+                            element_type="sub-section-title"
+                            element_weight="normal"
+                            element_size="2.4rem"
                             mb="24px"
                         >
                             {small_title}

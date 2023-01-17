@@ -38,11 +38,11 @@ const HeroComponent = ({ background_data, background_dark }: HeroComponentProps)
             dark={background_dark}
         >
             <StyledContainer direction="column">
-                <Typography as="h1" element_color="white" align="center" type="heading-1">
+                <Typography as="h1" element_color="white" align="center" element_type="heading-1">
                     {localize('Bug bounty program')}
                 </Typography>
 
-                <Subheadline as="p" element_color="white" align="center" type="subtitle-1">
+                <Subheadline as="p" element_color="white" align="center" element_type="subtitle-1">
                     {localize('Security is a collaboration. Report bugs and be rewarded.')}
                 </Subheadline>
             </StyledContainer>

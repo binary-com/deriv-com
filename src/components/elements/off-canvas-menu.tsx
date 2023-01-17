@@ -175,8 +175,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Typography
                                     element_color="grey-5"
                                     mb="8px"
-                                    size="14px"
-                                    weight="normal"
+                                    element_size="14px"
+                                    element_weight="normal"
                                 >
                                     {<Localize translate_text="Trade types" />}
                                 </Typography>
@@ -244,7 +244,12 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
 
                         <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
 
-                        <Typography element_color="grey-5" mb="8px" size="14px" weight="normal">
+                        <Typography
+                            element_color="grey-5"
+                            mb="8px"
+                            element_size="14px"
+                            element_weight="normal"
+                        >
                             {<Localize translate_text="Trading platforms" />}
                         </Typography>
                         <Flex mb="2rem">

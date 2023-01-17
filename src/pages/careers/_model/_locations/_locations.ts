@@ -476,7 +476,7 @@ export const reading: LocationsType = {
     display_thumbnail_name: 'Reading',
     display_title_name: 'Reading',
     img_alt: 'Deriv’s Reading office at United Kingdom ',
-    map_office_name: '(United Kingdom)',
+    map_office_name: 'Technologies Ltd',
     country: 'UK',
     flagIcon: UKFlagIcon,
     thumbnail: 'thumbnail_reading',
@@ -484,7 +484,7 @@ export const reading: LocationsType = {
     first_p:
         'Deriv Technologies Ltd serves as a software development centre as well as a general service provider for the Deriv Group, tapping into a wealth of regional talent. The tech professionals in our UK team will deliver future-proof online trading solutions in collaboration with their colleagues around the world.',
     first_img: 'living_in_reading',
-    first_img_alt: 'Working at Deriv Technologies Ltd ',
+    first_img_alt: 'Working at Deriv Technologies Ltd',
     grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     map: '',

@@ -36,11 +36,11 @@ const ModalCard = styled.div`
     flex-direction: column;
     border-radius: 6px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    width: 100%;
     max-width: 44rem;
     background: var(--color-white);
     padding: 2.4rem;
-
+    width: 440px;
+    height: 180px;
     @media ${device.mobileL} {
         width: 80%;
     }
@@ -72,18 +72,6 @@ const shared_css = css`
 
 const Proceed = styled.a`
     ${shared_css}
-    border: 2px solid var(--color-red);
-    color: var(--color-white);
-    background: var(--color-red);
-
-    &:hover {
-        background-color: var(--color-red-3);
-        border-color: var(--color-red-3);
-    }
-`
-
-const Cancel = styled.span`
-    ${shared_css}
     border: 2px solid var(--color-grey-5);
     color: var(--color-black);
     background: transparent;
@@ -91,6 +79,18 @@ const Cancel = styled.span`
 
     &:hover {
         background-color: rgba(0, 0, 0, 0.08);
+    }
+`
+
+const Cancel = styled.span`
+    ${shared_css}
+    border: 2px solid var(--color-red);
+    color: var(--color-white);
+    background: var(--color-red);
+
+    &:hover {
+        background-color: var(--color-red-3);
+        border-color: var(--color-red-3);
     }
 `
 
@@ -125,16 +125,16 @@ const DialogModelBox = ({ toggle, is_open, closeModal, to = '' }: DialogModelBox
                         </Header>
                     </div>
                     <Flex jc="flex-end">
-                        <Cancel onClick={closeModal}>
-                            <Header type="paragraph-2" weight="700">
-                                <Localize translate_text="No" />
-                            </Header>
-                        </Cancel>
                         <Proceed href={to} onClick={toggle}>
-                            <Header type="paragraph-2" weight="700" color="white">
+                            <Header type="paragraph-2" weight="700">
                                 <Localize translate_text="Yes" />
                             </Header>
                         </Proceed>
+                        <Cancel onClick={closeModal}>
+                            <Header type="paragraph-2" weight="700" color="white">
+                                <Localize translate_text="No" />
+                            </Header>
+                        </Cancel>
                     </Flex>
                 </ModalCard>
                 <Background onClick={toggle} />

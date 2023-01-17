@@ -1,5 +1,5 @@
 import React from 'react'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
@@ -11,7 +11,7 @@ import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
 
 export type CommoditiesContent = {
     src: string
-    text: string
+    text: React.ReactNode
     alt: string
 }
 
@@ -41,28 +41,28 @@ export const simple_step_content_commodities = [
 const commodities: CommoditiesContent[] = [
     {
         src: VariableSpreads,
-        text: localize('Competitive fixed and variable spreads'),
         alt: 'Fixed and variable',
+        text: <Localize translate_text="Competitive fixed and variable spreads" />,
     },
     {
         src: NoCommission,
-        text: localize('No commission on any commodity contract'),
         alt: 'No commission',
+        text: <Localize translate_text="No commission on any commodity contract" />,
     },
     {
         src: MetalAndOil,
-        text: localize('All four precious metals and crude oil available'),
         alt: 'Trading platform',
+        text: <Localize translate_text="All four precious metals and crude oil available" />,
     },
     {
         src: ResponsiveWebsite,
-        text: localize('Easy-to-use platforms, superior chart technology'),
         alt: 'Easy platform',
+        text: <Localize translate_text="Easy-to-use platforms, superior chart technology" />,
     },
     {
         src: FriendlySupport,
-        text: localize('Smart and friendly support, 7 days a week'),
         alt: 'Customer help',
+        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
     },
 ]
 

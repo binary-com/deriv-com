@@ -84,6 +84,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                 <Container fd="column" ai="flex-start">
                     <Flex
                         m="0 auto"
+                        jc="left"
                         tabletL={{
                             fd: 'column',
                             max_width: '100%',
@@ -153,7 +154,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 )}
                             </Box>
                         </Flex>
-                        <PlatformSlideshow />
+                        {/* <PlatformSlideshow /> */}
                     </Flex>
                 </Container>
             </BackgroundImage>

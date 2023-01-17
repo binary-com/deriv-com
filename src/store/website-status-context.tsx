@@ -26,7 +26,7 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
     const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
     const COOKIE_EXPIRY_DAYS = 7
 
-    const [, setWebsiteStatus] = useCookieState(WEBSITE_STATUS_COUNTRY_KEY, {
+    const [websiteCountryStatus, setWebsiteStatus] = useCookieState(WEBSITE_STATUS_COUNTRY_KEY, {
         expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
     })
 
@@ -37,7 +37,7 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
     useEffect(() => {
         if (data) {
             const { clients_country, p2p_config } = data
-            setWebsiteStatus({ clients_country, p2p_config })
+            setWebsiteStatus((oldVal) => ({ clients_country, p2p_config, ...oldVal }))
         }
     }, [data, setWebsiteStatus])
 
@@ -45,7 +45,7 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
         <WebsiteStatusContext.Provider
             value={{
                 setWebsiteStatus,
-                website_status: data,
+                website_status: websiteCountryStatus,
             }}
         >
             {children}

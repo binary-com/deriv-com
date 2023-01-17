@@ -5,7 +5,6 @@ import Header from './header'
 import Stepper from './stepper'
 import device from 'themes/device'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
-import DialogModelBox from 'pages/signup-affiliates/components/_dialog-model'
 
 type WizardProps = {
     children: React.ReactElement[]
@@ -13,6 +12,7 @@ type WizardProps = {
     steps_names: string[]
     title: string
     enable_next_button: boolean
+    onExit: (e) => void
 }
 
 const Background = styled.div`
@@ -58,12 +58,18 @@ const Wrapper = styled.div`
     overflow-x: auto;
 `
 
-const Wizard = ({ children, show = true, steps_names, title, enable_next_button }: WizardProps) => {
+const Wizard = ({
+    children,
+    show = true,
+    steps_names,
+    title,
+    enable_next_button,
+    onExit,
+}: WizardProps) => {
     const [show_wizard, setShowWizard] = useState(false)
     const [step, setStep] = useState(1)
     const max_step = children.length
     const [enable_next, setEnableNext] = useState(false)
-    const [close_wizard, setCloseWizard] = useState(false)
 
     useEffect(() => {
         setEnableNext(enable_next_button)
@@ -81,22 +87,10 @@ const Wizard = ({ children, show = true, steps_names, title, enable_next_button 
 
     if (!show_wizard) return <></>
 
-    const showDialogBox = () => {
-        setCloseWizard(true)
-    }
-
     return (
         <>
             <Modal>
-                {close_wizard && (
-                    <DialogModelBox
-                        toggle={() => setCloseWizard(false)}
-                        is_open={close_wizard}
-                        closeModal={() => setCloseWizard(false)}
-                        to="/partners/affiliate-ib"
-                    />
-                )}
-                <Header title={title} setShowWizard={showDialogBox} />
+                <Header title={title} setShowWizard={onExit} />
                 <Stepper step={step} step_names={steps_names} />
                 <Wrapper>
                     {React.Children.map(children, (child, idx) => (

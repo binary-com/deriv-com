@@ -5,6 +5,7 @@ import AddressDetails from './components/_address-details'
 import PhoneNumber from './components/_phone_number'
 import PersonalDetails from './components/_personal-details'
 import AccountTerms from './components/_account-terms'
+import DialogModelBox from './components/_dialog-model'
 import { WithIntl, localize } from 'components/localization'
 import { Wizard } from 'components/form'
 
@@ -18,7 +19,7 @@ const AffiliateSignup = () => {
     ]
 
     const [next_btn_enabled, setNextBtnEnabled] = useState(false)
-
+    const [close_wizard, setCloseWizard] = useState(false)
     const [affiliate_account, setAffiliateAccount] = useState({
         account_type: -1,
         address_details: {
@@ -117,13 +118,24 @@ const AffiliateSignup = () => {
         }
     }
 
+    const showDialogBox = () => {
+        setCloseWizard(true)
+    }
+
     return (
         <AffiliateSignupLayout>
             <SignUpWrapper>
+                <DialogModelBox
+                    toggle={() => setCloseWizard(false)}
+                    is_open={close_wizard}
+                    closeModal={() => setCloseWizard(false)}
+                    to="/partners/affiliate-ib"
+                />
                 <Wizard
                     title={localize('Add an affiliate account')}
                     steps_names={Steps}
                     enable_next_button={next_btn_enabled}
+                    onExit={showDialogBox}
                 >
                     <AccountType
                         cardSelected={affiliate_account.account_type}

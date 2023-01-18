@@ -121,7 +121,7 @@ export const TableCell = ({ text }: TTableCell) => {
 }
 
 type TDailyPercentageProps = {
-    value: number
+    value: any
 }
 
 const Container = styled(Cell)`

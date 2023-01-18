@@ -99,7 +99,7 @@ export const Cell = styled.div`
     display: flex;
     align-items: center;
     gap: 12px;
-    width: 140px;
+    width: 138px;
 
     nth-child(1) {
         width: 220px;

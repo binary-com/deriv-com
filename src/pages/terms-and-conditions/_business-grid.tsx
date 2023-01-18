@@ -10,6 +10,7 @@ import PA from 'images/svg/terms/business-pa-tc.svg'
 import API from 'images/svg/terms/business-api-tc.svg'
 import BugBounty from 'images/svg/terms/bug-bounty.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
+import useRegion from 'components/hooks/use-region'
 
 type ColProps = {
     Icon: string
@@ -37,76 +38,138 @@ const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
     </GridCol>
 )
 
-const handleUrl = () => {
+const PaymentAgentsPdf = () => {
     if (getLanguage() === 'fr') {
-        return '/tnc/business-partners-affiliates-and-introducing-brokers-french.pdf'
-    }
-    if (getLanguage() === 'id') {
-        return '/tnc/business-partners-affiliates-and-introducing-brokers-indonesian.pdf'
-    }
-    if (getLanguage() === 'pt') {
-        return '/tnc/business-partners-affiliates-and-introducing-brokers-portuguese.pdf'
-    }
-    if (getLanguage() === 'ru') {
-        return '/tnc/business-partners-affiliates-and-introducing-brokers-russian.pdf'
-    }
-    if (getLanguage() === 'es') {
-        return '/tnc/business-partners-affiliates-and-introducing-brokers-spanish.pdf'
-    }
-    if (getLanguage() === 'vi') {
-        return '/tnc/business-partners-affiliates-and-introducing-brokers-vietnamese.pdf'
-    } else return '/tnc/business-partners-affiliates-and-introducing-brokers-english.pdf'
-}
-
-const BusinessGrid = () => (
-    <StyledContainer>
-        <StyledGrid
-            columns="repeat(3, 1fr)"
-            column_gap="15.4rem"
-            row_gap="8rem"
-            tablet_columns="repeat(2, 1fr)"
-            mobile_columns="1fr"
-            mobile_row_gap="10rem"
-        >
-            <Col
-                Icon={General}
-                title={localize('General terms of use')}
-                content={localize(
-                    'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
-                )}
-                url="/tnc/business-partners-general-terms.pdf"
-                link_title={localize('General terms of use')}
-            />
-            <Col
-                Icon={Partners}
-                title={localize('Affiliates & introducing brokers (IBs)')}
-                content={localize('Additional terms for our affiliates and introducing brokers')}
-                url="/tnc/business-partners-affiliates-and-introducing-brokers.pdf"
-                link_title={localize('Affiliates & introducing brokers (IBs)')}
-            />
+        return (
             <Col
                 Icon={PA}
                 title={localize('Payment agents')}
                 content={localize('Additional terms for our payment agents')}
-                url={handleUrl}
+                url="/tnc/business-partners-affiliates-and-introducing-brokers-french.pdf"
                 link_title={localize('Payment agents')}
             />
-            <Col
-                Icon={API}
-                title={localize('API users')}
-                content={localize('Additional terms for our API users')}
-                url="/tnc/business-partners-api-user.pdf"
-                link_title={localize('API users')}
-            />
-            <Col
-                Icon={BugBounty}
-                title={localize('Bug Bounty Program')}
-                content={localize('Additional terms for participants in our Bug Bounty Program')}
-                url="/tnc/business-partners-bug-bounty.pdf"
-                link_title={localize('Bug Bounty Program')}
-            />
-        </StyledGrid>
-    </StyledContainer>
-)
+        )
+    }
 
+    if (getLanguage() === 'id') {
+        return (
+            <Col
+                Icon={PA}
+                title={localize('Payment agents')}
+                content={localize('Additional terms for our payment agents')}
+                url="/tnc/business-partners-affiliates-and-introducing-brokers-indonesian.pdf"
+                link_title={localize('Payment agents')}
+            />
+        )
+    }
+
+    if (getLanguage() === 'pt') {
+        return (
+            <Col
+                Icon={PA}
+                title={localize('Payment agents')}
+                content={localize('Additional terms for our payment agents')}
+                url="/tnc/business-partners-affiliates-and-introducing-brokers-portuguese.pdf"
+                link_title={localize('Payment agents')}
+            />
+        )
+    }
+
+    if (getLanguage() === 'ru') {
+        return (
+            <Col
+                Icon={PA}
+                title={localize('Payment agents')}
+                content={localize('Additional terms for our payment agents')}
+                url="/tnc/business-partners-affiliates-and-introducing-brokers-russian.pdf"
+                link_title={localize('Payment agents')}
+            />
+        )
+    }
+
+    if (getLanguage() === 'es') {
+        return (
+            <Col
+                Icon={PA}
+                title={localize('Payment agents')}
+                content={localize('Additional terms for our payment agents')}
+                url="/tnc/business-partners-affiliates-and-introducing-brokers-spanish.pdf"
+                link_title={localize('Payment agents')}
+            />
+        )
+    }
+
+    if (getLanguage() === 'vi') {
+        return (
+            <Col
+                Icon={PA}
+                title={localize('Payment agents')}
+                content={localize('Additional terms for our payment agents')}
+                url="/tnc/business-partners-affiliates-and-introducing-brokers-vietnamese.pdf"
+                link_title={localize('Payment agents')}
+            />
+        )
+    } else
+        return (
+            <Col
+                Icon={PA}
+                title={localize('Payment agents')}
+                content={localize('Additional terms for our payment agents')}
+                url="/tnc/business-partners-affiliates-and-introducing-brokers-english.pdf"
+                link_title={localize('Payment agents')}
+            />
+        )
+}
+
+const BusinessGrid = () => {
+    const { is_row } = useRegion()
+    return (
+        <StyledContainer>
+            <StyledGrid
+                columns="repeat(3, 1fr)"
+                column_gap="15.4rem"
+                row_gap="8rem"
+                tablet_columns="repeat(2, 1fr)"
+                mobile_columns="1fr"
+                mobile_row_gap="10rem"
+            >
+                <Col
+                    Icon={General}
+                    title={localize('General terms of use')}
+                    content={localize(
+                        'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
+                    )}
+                    url="/tnc/business-partners-general-terms.pdf"
+                    link_title={localize('General terms of use')}
+                />
+                <Col
+                    Icon={Partners}
+                    title={localize('Affiliates & introducing brokers (IBs)')}
+                    content={localize(
+                        'Additional terms for our affiliates and introducing brokers',
+                    )}
+                    url="/tnc/business-partners-affiliates-and-introducing-brokers.pdf"
+                    link_title={localize('Affiliates & introducing brokers (IBs)')}
+                />
+                {is_row && <PaymentAgentsPdf />}
+                <Col
+                    Icon={API}
+                    title={localize('API users')}
+                    content={localize('Additional terms for our API users')}
+                    url="/tnc/business-partners-api-user.pdf"
+                    link_title={localize('API users')}
+                />
+                <Col
+                    Icon={BugBounty}
+                    title={localize('Bug Bounty Program')}
+                    content={localize(
+                        'Additional terms for participants in our Bug Bounty Program',
+                    )}
+                    url="/tnc/business-partners-bug-bounty.pdf"
+                    link_title={localize('Bug Bounty Program')}
+                />
+            </StyledGrid>
+        </StyledContainer>
+    )
+}
 export default BusinessGrid

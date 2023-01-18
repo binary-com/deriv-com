@@ -178,6 +178,7 @@ export const DailyPercentageCell = ({ value }: TDailyPercentageProps) => {
     return (
         <Container>
             <DailyPercentageText
+                dir="ltr"
                 bull={valueInInteger >= 0}
                 type="paragraph-2"
                 weight="normal"

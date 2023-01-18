@@ -4,6 +4,7 @@ import { Localize } from 'components/localization'
 import StepperView from 'components/custom/_stepper_view'
 import { LocalizedLinkText } from 'components/elements'
 import { TString } from 'types/generics'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const query = graphql`
     query {
@@ -64,6 +65,7 @@ const real_step6_title: TString = '_t_Start trading on the Deriv GO mobile app._
 
 const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false }) => {
     const data = useStaticQuery(query)
+    const { is_mobile } = useBreakpoints()
 
     const demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
@@ -77,7 +79,7 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false }) => {
                                 to="/deriv-go"
                                 color="red"
                                 weight="bold"
-                                size="24px"
+                                size={is_mobile ? '18px' : '24px'}
                             />,
                         ]}
                     />
@@ -101,7 +103,7 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false }) => {
                 alt: <Localize translate_text={real_demo_step4_alt} />,
             },
         ],
-        [data],
+        [data, is_mobile],
     )
 
     const real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
@@ -116,7 +118,7 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false }) => {
                                 to="/deriv-go"
                                 color="red"
                                 weight="bold"
-                                size="24px"
+                                size={is_mobile ? '18px' : '24px'}
                             />,
                         ]}
                     />
@@ -150,7 +152,7 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false }) => {
                 alt: <Localize translate_text={real_demo_step4_alt} />,
             },
         ],
-        [data],
+        [data, is_mobile],
     )
 
     return <StepperView items={is_demo ? demo : real} />

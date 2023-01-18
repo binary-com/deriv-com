@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PageNotFound from '../404'
 import Hero from './_hero'
 import Numbers from './_numbers'
 import WhatIsDerivEZ from './what-derivez-have'
-import WhatIsDeriv from 'pages/derivez/_what-is-derivez'
 import WhyTradeEZ from 'pages/derivez/_why-trade-derivez'
 import StartDerivEZ from 'pages/derivez/_how-to-start-deriv-ez'
 import { SEO } from 'components/containers'
@@ -24,7 +23,6 @@ const DerivEZ = () => {
                 <SEO title={localize(seo_title)} description={localize(seo_description)} />
                 <Hero />
                 <Numbers />
-                <WhatIsDeriv />
                 <WhyTradeEZ />
                 <WhatIsDerivEZ />
                 <StartDerivEZ />

@@ -74,6 +74,19 @@ export const platform_details_row: TPlatformDetails[] = [
         },
     },
     {
+        title: 'Deriv EZ',
+        icon: DerivXIcon,
+        image_key: 'platforms_derivez',
+        description: <Localize translate_text="Our mobile-first CFD trading platform" />,
+        learn_more_link: '/derivez/',
+        download_links: {
+            is_desktop: [
+                { type: 'app_store', url: deriv_go_ios_url },
+                { type: 'google_play', url: deriv_go_playstore_url },
+            ],
+        },
+    },
+    {
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5',

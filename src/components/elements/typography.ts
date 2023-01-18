@@ -50,6 +50,7 @@ type BaseElementProps = {
     element_size?: string
     element_type?: string[] | Types
     element_weight?: string
+    element_width?: string
 } & MarginsType &
     PaddingsType
 
@@ -271,7 +272,7 @@ export const Typography = styled.h2<HeaderProps>`
             )
         }
     }};
-    width: ${({ width }) => width || '100%'};
+    width: ${({ element_width }) => element_width || '100%'};
 
     @media ${device.tabletL} {
         font-size: ${({ element_type }) => {

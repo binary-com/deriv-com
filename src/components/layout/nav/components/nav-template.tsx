@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import SearchBanner from 'pages/academy/components/search_banner/_search-banner'
+import SearchBanner from 'pages/old-academy/components/search_banner/_search-banner'
 import device from 'themes/device'
 
 type NavTemplateProps = NavProps &

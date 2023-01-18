@@ -10,8 +10,8 @@ import {
     Scrollbar,
     ProgressContainer,
     ProgressBar,
-} from '../pages/academy/blog/posts/_style'
-import SocialSharing from '../pages/academy/components/_social-sharing'
+} from '../pages/old-academy/blog/posts/_style'
+import SocialSharing from '../pages/old-academy/components/_social-sharing'
 import { AllVideosQuery } from 'types/graphql.types'
 import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -20,7 +20,7 @@ import { truncateString } from 'common/utility'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import Eye from 'images/svg/eye.svg'
-import { useTruncateLength } from 'pages/academy/blog/posts/preview'
+import { useTruncateLength } from 'pages/old-academy/blog/posts/preview'
 import device from 'themes/device'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'

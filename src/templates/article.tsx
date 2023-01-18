@@ -26,11 +26,11 @@ import {
     Scrollbar,
     ProgressContainer,
     ProgressBar,
-} from '../pages/academy/blog/posts/_style'
-import Banner from '../pages/academy/components/_banner'
-import SideSubscriptionBanner from '../pages/academy/components/_side-subscription-banner'
-import SocialSharing from '../pages/academy/components/_social-sharing'
-import { handleTag } from 'pages/academy/components/_utility'
+} from '../pages/old-academy/blog/posts/_style'
+import Banner from '../pages/old-academy/components/_banner'
+import SideSubscriptionBanner from '../pages/old-academy/components/_side-subscription-banner'
+import SocialSharing from '../pages/old-academy/components/_social-sharing'
+import { handleTag } from 'pages/old-academy/components/_utility'
 import { ArticleQuery } from 'types/graphql.types'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -40,7 +40,7 @@ import { convertDate, getMinRead, truncateString } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { useTruncateLength } from 'pages/academy/blog/posts/preview'
+import { useTruncateLength } from 'pages/old-academy/blog/posts/preview'
 
 type ArticlesTemplateProps = {
     data: ArticleQuery

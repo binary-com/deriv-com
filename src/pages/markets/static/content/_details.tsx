@@ -260,7 +260,7 @@ export const VolatilityIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 200%, and 300%.',
+                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 150%, 200%, 250% and 300%.',
             )}
         </Text>
         <Text>

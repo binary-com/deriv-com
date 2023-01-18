@@ -158,7 +158,7 @@ export const synthetic_multiplier_eu: SyntheticMultiplier = {
     template: 1,
     content: [
         {
-            title: <Localize translate_text="Continuous indices" />,
+            title: <Localize translate_text="Volatility indices" />,
             component: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,
         },

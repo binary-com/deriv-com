@@ -286,7 +286,7 @@ const Subscribe = () => {
     }
 
     return (
-        <SignupFormWrapper>
+        <SignupFormWrapper id="subscribe">
             <PaperPlaneImage src={paperPlane} alt="Paper Plane" />
             <StyledFormContent>
                 <Header as="h3" type="heading-3" color="white" align="start">

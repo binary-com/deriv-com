@@ -99,17 +99,17 @@ const UpDownGrid = () => {
                 </MiddleText>
                 <MiddleText>
                     {localize(
-                        'If you select ‘Higher’, you win the payout if the exit spot is strictly higher than the entry spot.',
+                        'If you select ‘Rise’, you win the payout if the exit spot is strictly higher than the entry spot.',
                     )}
                 </MiddleText>
                 <MiddleText>
                     {localize(
-                        'If you select ‘Lower’, you win the payout if the exit spot is strictly lower than the entry spot.',
+                        'If you select ‘Fall’, you win the payout if the exit spot is strictly lower than the entry spot.',
                     )}
                 </MiddleText>
                 <Text>
                     {localize(
-                        'If you select ‘Allow equals’, you win the payout if the exit spot is higher than or equal to the entry spot for ‘Higher’. Similarly, you win the payout if the exit spot is lower than or equal to the entry spot for ‘Lower’.',
+                        'If you select ‘Allow equals’, you win the payout if the exit spot is higher than or equal to the entry spot for ‘Rise’. Similarly, you win the payout if the exit spot is lower than or equal to the entry spot for ‘Fall’.',
                     )}
                 </Text>
             </Flex>

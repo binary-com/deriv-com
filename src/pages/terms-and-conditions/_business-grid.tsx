@@ -38,9 +38,6 @@ const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
 )
 
 const handleUrl = () => {
-    if (getLanguage() === 'en') {
-        return '/tnc/business-partners-affiliates-and-introducing-brokers-english.pdf'
-    }
     if (getLanguage() === 'fr') {
         return '/tnc/business-partners-affiliates-and-introducing-brokers-french.pdf'
     }
@@ -58,7 +55,7 @@ const handleUrl = () => {
     }
     if (getLanguage() === 'vi') {
         return '/tnc/business-partners-affiliates-and-introducing-brokers-vietnamese.pdf'
-    }
+    } else return '/tnc/business-partners-affiliates-and-introducing-brokers-english.pdf'
 }
 
 const BusinessGrid = () => (

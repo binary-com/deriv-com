@@ -5,7 +5,7 @@ import AddressDetails from './components/_address-details'
 import PhoneNumber from './components/_phone_number'
 import PersonalDetails from './components/_personal-details'
 import AccountTerms from './components/_account-terms'
-import DialogModelBox from './components/_dialog-model'
+import DialogBox from './components/_dialog-box'
 import { WithIntl, localize } from 'components/localization'
 import { Wizard } from 'components/form'
 
@@ -121,7 +121,7 @@ const AffiliateSignup = () => {
     return (
         <AffiliateSignupLayout>
             <SignUpWrapper>
-                <DialogModelBox
+                <DialogBox
                     toggle={() => setShowPopUp(false)}
                     is_open={is_show_popup}
                     closeModal={() => setShowPopUp(false)}

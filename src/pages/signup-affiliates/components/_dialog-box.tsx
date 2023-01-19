@@ -94,7 +94,7 @@ const Cancel = styled.span`
     }
 `
 
-const DialogModelBox = ({ toggle, is_open, closeModal, to = '' }: DialogModelBoxProps) => {
+const DialogBox = ({ toggle, is_open, closeModal, to = '' }: DialogModelBoxProps) => {
     const handleEscape = (e) => {
         if (e.keyCode === 27) {
             closeModal()
@@ -143,4 +143,4 @@ const DialogModelBox = ({ toggle, is_open, closeModal, to = '' }: DialogModelBox
     )
 }
 
-export default DialogModelBox
+export default DialogBox

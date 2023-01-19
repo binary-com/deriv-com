@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { StringParam, useQueryParams } from 'use-query-params'
 import { TextWrapper } from './_common'
 import { addScriptForCIO } from './_utility'
 import paperPlane from 'images/common/blog/paperplanes.png'
@@ -171,6 +172,19 @@ const Subscribe = () => {
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
     const { user_country, is_eu } = useRegion()
+    const [query] = useQueryParams({ scroll: StringParam })
+    const { scroll } = query
+
+    useEffect(() => {
+        if (scroll) {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: document.getElementById(scroll).getBoundingClientRect().top - 200,
+                    behavior: 'smooth',
+                })
+            }, 1000)
+        }
+    }, [scroll])
 
     useEffect(() => {
         if (!window._cio) {

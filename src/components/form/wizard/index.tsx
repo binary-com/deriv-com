@@ -12,7 +12,7 @@ type WizardProps = {
     steps_names: string[]
     title: string
     enable_next_button: boolean
-    onExit?: (e) => void
+    onExit?: () => void
 }
 
 const Background = styled.div`
@@ -90,7 +90,7 @@ const Wizard = ({
     return (
         <>
             <Modal>
-                <Header title={title} setShowWizard={onExit ? onExit : setShowWizard} />
+                <Header title={title} setShowWizard={setShowWizard} onExit={onExit} />
                 <Stepper step={step} step_names={steps_names} />
                 <Wrapper>
                     {React.Children.map(children, (child, idx) => (

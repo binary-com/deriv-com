@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import Stocks from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
@@ -17,7 +17,7 @@ export type SimpleStepContentElement = {
 export type BasketIndicesContent = {
     src: string
     alt: string
-    text: string
+    text: React.ReactNode
     icon?: ReactElement
 }
 
@@ -49,27 +49,27 @@ export const basket_indices_content: BasketIndicesContent[] = [
     {
         src: Stocks,
         alt: 'Currency weight',
-        text: localize('Each currency weighted by 20%'),
+        text: <Localize translate_text="Each currency weighted by 20%" />,
     },
     {
         src: Leverage,
         alt: 'Narrow spreads',
-        text: localize('High leverage, tight spreads'),
+        text: <Localize translate_text="High leverage, tight spreads" />,
     },
     {
         src: ResponsiveWebsite,
         alt: 'Easy platform',
-        text: localize('Responsive, easy-to-use platforms'),
+        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
     },
     {
         src: AdvancedCharting,
         alt: 'Graphs and charts',
-        text: localize('Advanced charting widgets'),
+        text: <Localize translate_text="Advanced charting widgets" />,
     },
     {
         src: WithdrawIcon,
         alt: 'Convenient deposits and withdrawals',
-        text: localize('Convenient deposit and withdrawal methods'),
+        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
     },
 ]
 
@@ -77,26 +77,26 @@ export const basket_indices_content_eu: BasketIndicesContent[] = [
     {
         src: Stocks,
         alt: 'Currency weight',
-        text: localize('Each currency weighted by 20%'),
+        text: <Localize translate_text="Each currency weighted by 20%" />,
     },
     {
         src: Leverage,
         alt: 'Narrow spreads',
-        text: localize('Tight spreads'),
+        text: <Localize translate_text="Tight spreads" />,
     },
     {
         src: ResponsiveWebsite,
         alt: 'Easy platform',
-        text: localize('Responsive, easy-to-use platforms '),
+        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
     },
     {
         src: AdvancedCharting,
         alt: 'Graphs and charts',
-        text: localize('Advanced charting widgets'),
+        text: <Localize translate_text="Advanced charting widgets" />,
     },
     {
         src: WithdrawIcon,
         alt: 'Convenient deposits and withdrawals',
-        text: localize('Convenient deposit and withdrawal methods'),
+        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
     },
 ]

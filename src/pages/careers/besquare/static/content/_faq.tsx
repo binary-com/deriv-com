@@ -8,7 +8,7 @@ export default [
             {
                 title: 'Is the BeSquare graduate programme the same as an internship programme?',
                 subtitle:
-                    'No, it’s not. The BeSquare programme is a 6-month paid graduate programme where you will get essential skills and experience to boost your job application to any company, including Deriv.',
+                    'No, it’s not. The BeSquare programme is a 5-month paid graduate programme where you will get essential skills and experience to boost your job application to any company, including Deriv.',
             },
             {
                 title: 'Am I allowed to accept job offers from other companies during the programme?',
@@ -32,7 +32,7 @@ export default [
             {
                 title: 'How do I qualify for the programme?',
                 subtitle:
-                    'You should have a degree, diploma, or relevant certification in science, technology, engineering, or mathematics (STEM). However, if you are passionate and have proven work records in technology, we will consider your application.',
+                    'You should have a degree, diploma, or relevant certification in information technology, computer science, software engineering, computer engineering, or any related field. However, if you are passionate and have proven work records in technology, we will consider your application.',
             },
         ],
     },

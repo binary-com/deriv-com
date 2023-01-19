@@ -6,9 +6,12 @@ import { getLanguage } from 'common/utility'
 // Icons
 import General from 'images/svg/terms/business-general-tc.svg'
 import Partners from 'images/svg/terms/business-partners-tc.svg'
-import PA from 'images/svg/terms/business-pa-tc.svg'
+import PA from 'images/svg/terms/payment-agents.svg'
 import API from 'images/svg/terms/business-api-tc.svg'
+import APIROW from 'images/svg/terms/api-users-row.svg'
 import BugBounty from 'images/svg/terms/bug-bounty.svg'
+import BugBountyRow from 'images/svg/terms/bug-bounty-row.svg'
+import IG from 'images/svg/terms/important-guidelines.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import useRegion from 'components/hooks/use-region'
 
@@ -38,18 +41,20 @@ const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
     </GridCol>
 )
 
-const PaymentAgentsPdf = () => {
+const PartnersGuidePdf = () => {
     const language = getLanguage()
     const supported_languages = ['fr', 'id', 'pt', 'ru', 'es', 'vt']
     const pdf_lang = supported_languages.includes(language) ? language : 'english'
     const url = `/tnc/business-partners-affiliates-and-introducing-brokers-${pdf_lang}.pdf`
     return (
         <Col
-            Icon={PA}
-            title={localize('Payment agents')}
-            content={localize('Additional terms for our payment agents')}
+            Icon={IG}
+            title={localize('Important Guidelines')}
+            content={localize(
+                'Dos and don’ts for partners when promoting our products and services',
+            )}
             url={url}
-            link_title={localize('Payment agents')}
+            link_title={localize('Partners Guide')}
         />
     )
 }
@@ -84,16 +89,26 @@ const BusinessGrid = () => {
                     url="/tnc/business-partners-affiliates-and-introducing-brokers.pdf"
                     link_title={localize('Affiliates & introducing brokers (IBs)')}
                 />
-                {is_row && <PaymentAgentsPdf />}
+
+                <PartnersGuidePdf />
+                {is_row && (
+                    <Col
+                        Icon={PA}
+                        title={localize('Payment agents')}
+                        content={localize('Additional terms for our payment agents')}
+                        url="/tnc/business-partners-payment-agents.pdf"
+                        link_title={localize('Payment agents')}
+                    />
+                )}
                 <Col
-                    Icon={API}
+                    Icon={is_row ? APIROW : API}
                     title={localize('API users')}
                     content={localize('Additional terms for our API users')}
                     url="/tnc/business-partners-api-user.pdf"
                     link_title={localize('API users')}
                 />
                 <Col
-                    Icon={BugBounty}
+                    Icon={is_row ? BugBountyRow : BugBounty}
                     title={localize('Bug Bounty Program')}
                     content={localize(
                         'Additional terms for participants in our Bug Bounty Program',

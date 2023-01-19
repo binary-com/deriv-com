@@ -39,86 +39,19 @@ const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
 )
 
 const PaymentAgentsPdf = () => {
-    if (getLanguage() === 'fr') {
-        return (
-            <Col
-                Icon={PA}
-                title={localize('Payment agents')}
-                content={localize('Additional terms for our payment agents')}
-                url="/tnc/business-partners-affiliates-and-introducing-brokers-french.pdf"
-                link_title={localize('Payment agents')}
-            />
-        )
-    }
-
-    if (getLanguage() === 'id') {
-        return (
-            <Col
-                Icon={PA}
-                title={localize('Payment agents')}
-                content={localize('Additional terms for our payment agents')}
-                url="/tnc/business-partners-affiliates-and-introducing-brokers-indonesian.pdf"
-                link_title={localize('Payment agents')}
-            />
-        )
-    }
-
-    if (getLanguage() === 'pt') {
-        return (
-            <Col
-                Icon={PA}
-                title={localize('Payment agents')}
-                content={localize('Additional terms for our payment agents')}
-                url="/tnc/business-partners-affiliates-and-introducing-brokers-portuguese.pdf"
-                link_title={localize('Payment agents')}
-            />
-        )
-    }
-
-    if (getLanguage() === 'ru') {
-        return (
-            <Col
-                Icon={PA}
-                title={localize('Payment agents')}
-                content={localize('Additional terms for our payment agents')}
-                url="/tnc/business-partners-affiliates-and-introducing-brokers-russian.pdf"
-                link_title={localize('Payment agents')}
-            />
-        )
-    }
-
-    if (getLanguage() === 'es') {
-        return (
-            <Col
-                Icon={PA}
-                title={localize('Payment agents')}
-                content={localize('Additional terms for our payment agents')}
-                url="/tnc/business-partners-affiliates-and-introducing-brokers-spanish.pdf"
-                link_title={localize('Payment agents')}
-            />
-        )
-    }
-
-    if (getLanguage() === 'vi') {
-        return (
-            <Col
-                Icon={PA}
-                title={localize('Payment agents')}
-                content={localize('Additional terms for our payment agents')}
-                url="/tnc/business-partners-affiliates-and-introducing-brokers-vietnamese.pdf"
-                link_title={localize('Payment agents')}
-            />
-        )
-    } else
-        return (
-            <Col
-                Icon={PA}
-                title={localize('Payment agents')}
-                content={localize('Additional terms for our payment agents')}
-                url="/tnc/business-partners-affiliates-and-introducing-brokers-english.pdf"
-                link_title={localize('Payment agents')}
-            />
-        )
+    const language = getLanguage()
+    const supported_languages = ['fr', 'id', 'pt', 'ru', 'es', 'vt']
+    const pdf_lang = supported_languages.includes(language) ? language : 'english'
+    const url = `/tnc/business-partners-affiliates-and-introducing-brokers-${pdf_lang}.pdf`
+    return (
+        <Col
+            Icon={PA}
+            title={localize('Payment agents')}
+            content={localize('Additional terms for our payment agents')}
+            url={url}
+            link_title={localize('Payment agents')}
+        />
+    )
 }
 
 const BusinessGrid = () => {

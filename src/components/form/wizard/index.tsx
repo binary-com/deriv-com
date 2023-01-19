@@ -12,6 +12,7 @@ type WizardProps = {
     steps_names: string[]
     title: string
     enable_next_button: boolean
+    onExit?: () => void
 }
 
 const Background = styled.div`
@@ -57,7 +58,14 @@ const Wrapper = styled.div`
     overflow-x: auto;
 `
 
-const Wizard = ({ children, show = true, steps_names, title, enable_next_button }: WizardProps) => {
+const Wizard = ({
+    children,
+    show = true,
+    steps_names,
+    title,
+    enable_next_button,
+    onExit,
+}: WizardProps) => {
     const [show_wizard, setShowWizard] = useState(false)
     const [step, setStep] = useState(1)
     const max_step = children.length
@@ -82,7 +90,7 @@ const Wizard = ({ children, show = true, steps_names, title, enable_next_button 
     return (
         <>
             <Modal>
-                <Header title={title} setShowWizard={setShowWizard} />
+                <Header title={title} setShowWizard={setShowWizard} onExit={onExit} />
                 <Stepper step={step} step_names={steps_names} />
                 <Wrapper>
                     {React.Children.map(children, (child, idx) => (

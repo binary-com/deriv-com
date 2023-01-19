@@ -27,14 +27,19 @@ const Title = styled.h2`
 
 type HeaderProps = {
     title: string
-    setShowWizard: React.Dispatch<React.SetStateAction<boolean>>
+    setShowWizard?: React.Dispatch<React.SetStateAction<boolean>>
+    onExit: () => void
 }
 
-const Header = ({ title, setShowWizard }: HeaderProps) => {
+const Header = ({ title, setShowWizard, onExit }: HeaderProps) => {
+    const handleCloseBtn = () => {
+        typeof onExit === 'function' ? onExit() : setShowWizard(false)
+    }
+
     return (
         <StyledHeader>
             <Title>{title}</Title>
-            <CloseButton src={CloseSVG} onClick={() => setShowWizard(false)} />
+            <CloseButton src={CloseSVG} onClick={handleCloseBtn} />
         </StyledHeader>
     )
 }

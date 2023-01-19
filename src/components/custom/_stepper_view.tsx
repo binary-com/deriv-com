@@ -48,7 +48,6 @@ const ImageWrapper = styled.div`
 const UlStyle = styled.ul`
     list-style-type: decimal;
     font-size: var(--text-size-m);
-    color: var(--color-black);
     line-height: 36px;
     display: flex;
     flex-direction: column;
@@ -78,7 +77,13 @@ const StepperView: React.FC<TProps> = ({ items, default_step = 0, onStepChanged 
                     {items.map((item, index) => (
                         <li
                             key={`${item.title}-${index}`}
-                            style={{ fontWeight: selected === index ? 'bold' : 'normal' }}
+                            style={{
+                                fontWeight: selected === index ? 'bold' : 'normal',
+                                color:
+                                    selected === index
+                                        ? 'var(--color-black-3)'
+                                        : 'var(--color-grey-5)',
+                            }}
                             onClick={() => setSelected(index)}
                         >
                             {item.title}

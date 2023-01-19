@@ -21,7 +21,7 @@ type HeroItemsType = {
 }
 
 type DHeroProps = {
-    background_alt?: string | JSX.Element
+    background_alt?: string
     background_image_name?: string
     background_svg?: string
     background_svg2?: string
@@ -37,7 +37,6 @@ type DHeroProps = {
     Logo?: string
     tabletL_height?: string
     title?: string | JSX.Element
-    hide_download_section?: boolean
 }
 
 const Wrapper = styled(Flex)<DHeroProps>`
@@ -125,12 +124,33 @@ const HeroHeader = styled(Header)`
 `
 
 const LottieWrapper = styled.div`
-    max-width: 30%;
-    align-self: center;
+    width: 100%;
+    max-width: 58rem;
+    position: absolute;
+    top: 2.3rem;
+    right: 12rem;
+
+    @media ${device.laptopM} {
+        max-width: 51rem;
+    }
+    @media ${device.tabletL} {
+        max-width: 54rem;
+        right: 3rem;
+    }
+    @media ${device.tablet} {
+        position: relative;
+    }
+    @media ${device.mobileL} {
+        max-width: 425px;
+        top: 0;
+        right: 0;
+        margin-bottom: 25px;
+    }
 `
 
 const InformationWrapper = styled(Flex)`
     width: 100%;
+    max-width: 56.2rem;
     z-index: 1;
 
     @media (max-width: 1376px) {
@@ -178,12 +198,6 @@ const query = graphql`
         deriv_x_mobile: file(relativePath: { eq: "deriv-x/hero-laptop-mobile.png" }) {
             ...bannerImage
         }
-        deriv_ez: file(relativePath: { eq: "deriv-ez/hero-phone.png" }) {
-            ...bannerImage
-        }
-        deriv_ez_mobile: file(relativePath: { eq: "deriv-ez/hero-phone-mobile.png" }) {
-            ...bannerImage
-        }
         qr_code: file(relativePath: { eq: "deriv-x/deriv-x-qr.png" }) {
             ...fadeIn
         }
@@ -213,7 +227,7 @@ const AppButton = styled(LocalizedLink)`
 const ButtonDp2p = styled(Button)`
     padding: 10px 16px;
     height: 40px;
-    width: 25rem;
+    min-width: 25rem;
     white-space: nowrap;
     margin-top: 24px;
     margin-bottom: 40px;
@@ -308,7 +322,6 @@ const DHero = ({
     laptopM_height,
     laptop_height,
     tabletL_height,
-    hide_download_section = false,
 }: DHeroProps) => {
     const data = useStaticQuery(query)
 
@@ -324,10 +337,30 @@ const DHero = ({
 
         window.open(link, '_blank')
     }
+    return (
+        <Wrapper
+            d_height={d_height}
+            laptopM_height={laptopM_height}
+            laptop_height={laptop_height}
+            tabletL_height={tabletL_height}
+        >
+            {!is_mobile && (
+                <>
+                    <BackgroundSVG src={background_svg} alt="background svg" />
+                    <BackgroundSVG2 src={background_svg2} alt="background svg 2" />
+                </>
+            )}
 
-    const DownloadSection = () => {
-        return (
-            <>
+            <InformationWrapper height="unset" direction="column">
+                <StyledHeader as="h4" type="sub-section-title" weight="500">
+                    <DLogo src={Logo} alt="logo" width="32" height="32" />
+                    {title}
+                </StyledHeader>
+                <HeroContent is_ppc={is_ppc}>
+                    <HeroHeader as="h1" type="display-title">
+                        {content}
+                    </HeroHeader>
+                </HeroContent>
                 <Desktop>
                     <HeroContent>
                         <HeroHeader>
@@ -369,37 +402,8 @@ const DHero = ({
                         {localize('Download Deriv X app')}
                     </ButtonDp2p>
                 </Mobile>
-            </>
-        )
-    }
-
-    return (
-        <Wrapper
-            d_height={d_height}
-            laptopM_height={laptopM_height}
-            laptop_height={laptop_height}
-            tabletL_height={tabletL_height}
-        >
-            {!is_mobile && (
-                <>
-                    <BackgroundSVG src={background_svg} alt="background svg" />
-                    <BackgroundSVG2 src={background_svg2} alt="background svg 2" />
-                </>
-            )}
-
-            <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h4" type="sub-section-title" weight="500">
-                    <DLogo src={Logo} alt="logo" width="32" height="32" />
-                    {title}
-                </StyledHeader>
-                <HeroContent is_ppc={is_ppc}>
-                    <HeroHeader as="h1" type="display-title">
-                        {content}
-                    </HeroHeader>
-                </HeroContent>
-                {!hide_download_section && <DownloadSection />}
             </InformationWrapper>
-            <Flex />
+
             <LottieWrapper>
                 <QueryImage
                     data={data[is_mobile ? image_name + '_mobile' : image_name]}

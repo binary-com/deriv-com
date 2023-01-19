@@ -1,50 +1,133 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import DerivEZlogo from 'images/svg/deriv-ez/derivez-logo.svg'
-import { Localize } from 'components/localization'
-import DHero from 'components/custom/_dhero-2'
-import { size } from 'themes/device'
-import DerivEZBG from 'images/svg/deriv-ez/triangle-up.svg'
-import DerivEZBG2 from 'images/svg/deriv-ez/triangle-down.svg'
-import { isBrowser } from 'common/utility'
-import { useIsRtl } from 'components/hooks/use-isrtl'
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import styled from 'styled-components'
+import HeroImageMobile from 'images/common/deriv-ez/background-image-mobile.png'
+import { Header, QueryImage } from 'components/elements'
+import useBreakpoints from 'components/hooks/use-breakpoints'
+import HeroImage from 'images/common/deriv-ez/background-derivez.png'
+import DerivEZLogo from 'images/svg/deriv-ez/derivez-logo.svg'
 import { TString } from 'types/generics'
+import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
 
+const query = graphql`
+    query {
+        deriv_ez: file(relativePath: { eq: "deriv-ez/hero-phone.png" }) {
+            ...bannerImage
+        }
+        deriv_ez_mobile: file(relativePath: { eq: "deriv-ez/hero-phone-mobile.png" }) {
+            ...bannerImage
+        }
+    }
+`
+const Wrapper = styled.div`
+    display: flex;
+    background-image: url(${HeroImage});
+    background-position: right;
+    background-repeat: no-repeat;
+    background-color: var(--color-black);
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 13rem;
+
+    @media ${device.tablet} {
+        background-image: url(${HeroImageMobile});
+        background-position: top;
+        background-size: 100% 60%;
+        flex-direction: column-reverse;
+        padding: 1.2rem;
+        align-items: center;
+    }
+`
+const ContentWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    flex: 2;
+
+    @media ${device.tablet} {
+        margin-top: 30px;
+    }
+`
+const LogoWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+`
+
+const DLogo = styled.img`
+    margin-right: 1.6rem;
+    margin-bottom: 6px;
+`
+const StyledHeader = styled(Header)`
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    font-size: 2.4rem;
+
+    @media ${device.laptopM} {
+        font-size: 24px;
+    }
+    @media ${device.tablet} {
+        font-size: 20px;
+        font-weight: normal;
+    }
+`
+const StyledHeaderTitle = styled.div`
+    color: var(--color-white);
+    display: flex;
+    margin-top: 0;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 80px;
+    max-width: 80%;
+
+    @media ${device.laptopM} {
+        font-size: 32px;
+        line-height: 48px;
+    }
+`
+const ImageWrapper = styled.div`
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    @media ${device.tablet} {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 70%;
+    }
+`
 const hero_logo_title: TString = '_t_Deriv EZ_t_'
 const hero_header: TString = '_t_An intuitive, easy-to-get-started CFDs trading platform_t_'
 const hero_background_alt: TString = '_t_Deriv EZ online trading platform_t_'
 
-const Hero = () => {
-    const [is_mobile, setMobile] = useState(false)
-
-    const handleResizeWindow = useCallback(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-    }, [setMobile])
-
-    useEffect(() => {
-        handleResizeWindow()
-        window.addEventListener('resize', handleResizeWindow)
-
-        return () => {
-            window.removeEventListener('resize', handleResizeWindow)
-        }
-    }, [handleResizeWindow])
-
+const DerivEZHero = () => {
+    const data = useStaticQuery(query)
+    const is_mobile = useBreakpoints()
     return (
-        <DHero
-            title={<Localize translate_text={hero_logo_title} />}
-            content={<Localize translate_text={hero_header} />}
-            Logo={DerivEZlogo}
-            image_name="deriv_ez"
-            is_mobile={is_mobile}
-            background_svg={DerivEZBG2}
-            background_svg2={DerivEZBG}
-            background_alt={<Localize translate_text={hero_background_alt} />}
-            d_height="56.7rem"
-            laptop_height="53.8rem"
-            tabletL_height="50.5rem"
-            hide_download_section
-        />
+        <Wrapper>
+            <ContentWrapper>
+                <LogoWrapper>
+                    <DLogo src={DerivEZLogo} alt="logo" width="32" height="32" />
+                    <StyledHeader as="h4" type="sub-section-title" weight="500">
+                        <Localize translate_text={hero_logo_title} />
+                    </StyledHeader>
+                </LogoWrapper>
+                <StyledHeaderTitle>
+                    <Localize translate_text={hero_header} />
+                </StyledHeaderTitle>
+            </ContentWrapper>
+            <ImageWrapper>
+                <QueryImage
+                    data={data[is_mobile ? 'deriv_ez' + '_mobile' : 'deriv_ez']}
+                    alt={localize(hero_background_alt)}
+                />
+            </ImageWrapper>
+        </Wrapper>
     )
 }
-
-export default Hero
+export default DerivEZHero

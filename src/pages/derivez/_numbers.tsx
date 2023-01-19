@@ -97,11 +97,11 @@ const Numbers = () => {
                 ))}
             </NumberStyledContainer>
             <Container>
-                <Flex width="792px" fd="column" ai="center" jc="center">
+                <Flex width="1200px" fd="column" ai="center" jc="center">
                     <StyledHeader type="page-title" align="center" as="h2">
                         <Localize translate_text={what_is_derivez_title} />
                     </StyledHeader>
-                    <Header size="16px" align="center" mt="16px" weight="normal">
+                    <Header size="24px" align="center" mt="16px" weight="normal">
                         <Localize translate_text={what_is_derivez_subtitle} />
                     </Header>
                 </Flex>

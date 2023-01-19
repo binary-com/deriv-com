@@ -125,7 +125,12 @@
     "license": "Apache License 2.0",
     "scripts": {
         "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json",
-        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
+        "build": "npm run build:gatsby; npm run build:academy",
+        "build:gatsby": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
+        "build:storybook": "build-storybook -c .storybook -o public/storybook",
+        "build:academy": "node scripts/academy-build.js",
+        "codegen": "graphql-codegen --config codegen.yml",
+        "codegen:watch": "graphql-codegen --config codegen.yml --watch",
         "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
@@ -152,11 +157,8 @@
         "pre-commit-lint": "lint-staged",
         "pre-commit-translate": "node scripts/translation-pre-commit.js",
         "type-check": "tsc --noEmit",
-        "storybook": "start-storybook -p 6006",
-        "build:storybook": "build-storybook -c .storybook -o public/storybook",
-        "build:academy": "cpx \"web/academy/**/*\" public/academy",
-        "codegen": "graphql-codegen --config codegen.yml",
-        "codegen:watch": "graphql-codegen --config codegen.yml --watch"
+        "storybook": "start-storybook -p 6006"
+      
     },
     "repository": {
         "type": "git",

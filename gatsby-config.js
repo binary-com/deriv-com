@@ -29,7 +29,7 @@ module.exports = {
         `https://static.deriv.com/scripts/cookie.js`,
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
-    trailingSlash: "never",
+    trailingSlash: 'never',
     plugins: [
         'gatsby-plugin-react-helmet',
         {
@@ -335,6 +335,14 @@ module.exports = {
             options: {
                 analyzerMode: 'disabled',
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+            },
+        },
+        'gatsby-transformer-json',
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `data`,
+                path: `${__dirname}/src/data`,
             },
         },
     ],

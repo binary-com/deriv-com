@@ -308,13 +308,21 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
     // Query our published articles
     const result = await graphql(`
         query MyQuery {
-            directus {
-                blog(filter: { status: { _eq: "published" } }, limit: -1) {
-                    id
-                    slug
-                }
-                videos(filter: { status: { _eq: "published" } }) {
-                    video_slug
+            allDataJson {
+                edges {
+                    node {
+                        data {
+                            directus {
+                                blog {
+                                    id
+                                    slug
+                                }
+                                videos {
+                                    video_slug
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -323,7 +331,8 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
     if (result.errors) {
         reporter.panic(result.errors)
     }
-    const blog = result.data.directus.blog
+
+    const blog = result.data.allDataJson.edges[0].node.data.directus.blog
     blog.forEach((blog_post) => {
         createPage({
             path: `/academy/blog/posts/${blog_post.slug}/`,
@@ -335,7 +344,7 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
             },
         })
     })
-    const videos = result.data.directus.videos
+    const videos = result.data.allDataJson.edges[0].node.data.directus.videos
     videos.forEach((video) => {
         createPage({
             path: `/academy/videos/${video.video_slug}/`,

@@ -1,0 +1,641 @@
+{
+    "data": {
+        "directus": {
+            "blog": [
+                {
+                    "id": "112ff23d-a9fe-40e4-9f46-70acd04ed1e6",
+                    "slug": "the-weekly-market-report-28-02-2022-06-03-2022"
+                },
+                {
+                    "id": "1878bc89-5963-4f8a-b929-c90271f3d765",
+                    "slug": "the-weekly-market-report-27-09-2021-03-10-2021"
+                },
+                {
+                    "id": "1bb61808-4cd0-43b3-805d-ba5ea0482b99",
+                    "slug": "the-weekly-market-report-13-12-2021-19-12-2021"
+                },
+                {
+                    "id": "10c52294-5330-4fcd-883b-f17c24ebb380",
+                    "slug": "trading-with-crypto-top-3-myths"
+                },
+                {
+                    "id": "00d07f6d-9387-4917-8a3f-64ed530ba7da",
+                    "slug": "what-is-forex-live-trading"
+                },
+                {
+                    "id": "0c44d9ab-fc56-466d-b62b-747927440d0d",
+                    "slug": "what-is-cfd-trading"
+                },
+                {
+                    "id": "112074cf-de29-492b-8f48-ad6c94de3086",
+                    "slug": "various-payment-methods-on-deriv"
+                },
+                {
+                    "id": "c1925a11-e999-4750-97af-cc243186ce40",
+                    "slug": "trading-for-beginners-tips-to-be-a-smart-trader"
+                },
+                {
+                    "id": "11cbcc33-54ac-49b5-96ea-92656fbeebdc",
+                    "slug": "weekend-trading-on-deriv"
+                },
+                {
+                    "id": "22b35d34-ddc7-49be-ba40-ba3578695ef0",
+                    "slug": "what-are-commodities"
+                },
+                {
+                    "id": "26ee7199-3493-4064-bda5-e4f4b6e8abcf",
+                    "slug": "year-end-market-holidays-2021-what-to-expect"
+                },
+                {
+                    "id": "272699fd-3a21-4d44-a849-4baf84a7e3b1",
+                    "slug": "the-weekly-market-report-25-10-2021-31-10-2021"
+                },
+                {
+                    "id": "2eb0a88c-71a7-4b5c-a44f-cd0573743423",
+                    "slug": "the-weekly-market-report-21-02-2022-27-02-2022"
+                },
+                {
+                    "id": "3357e50b-b861-4d79-b8c9-1daafd1d28c1",
+                    "slug": "will-the-rise-of-the-brazilian-stock-market-continue"
+                },
+                {
+                    "id": "43c4b89d-1726-4bbd-a30c-e92cbda51957",
+                    "slug": "why-trade-gold"
+                },
+                {
+                    "id": "23045124-8995-4b01-a5a0-3e2f313e4ab6",
+                    "slug": "support-and-resistance-in-chart-patterns"
+                },
+                {
+                    "id": "1d194e63-e40e-440f-85f1-79e9030e2114",
+                    "slug": "cfd-trading-vs-options-trading-on-deriv"
+                },
+                {
+                    "id": "202f38e9-df19-4bea-9c53-ef7a1a47f72e",
+                    "slug": "top-3-advantages-of-cfd-trading"
+                },
+                {
+                    "id": "5bbcd4eb-09e5-4134-b9bf-95e477b9f372",
+                    "slug": "the-weekly-market-report-13-09-2021-19-09-2021"
+                },
+                {
+                    "id": "5f59b615-b1d1-459f-925b-72f6a288196b",
+                    "slug": "the-weekly-market-report-07-02-2022-13-02-2022"
+                },
+                {
+                    "id": "4d871808-e04c-40a9-9c7d-64172259d10f",
+                    "slug": "how-to-avoid-trading-scams"
+                },
+                {
+                    "id": "4961fbc5-6c04-4ccb-8b70-ee291efda284",
+                    "slug": "3-tips-to-boost-your-commodities-trading-skills"
+                },
+                {
+                    "id": "46033c93-03c5-44cf-bb9a-40bcb27097ee",
+                    "slug": "how-to-set-up-optional-parameters-to-enhance-your-dbot-strategy"
+                },
+                {
+                    "id": "58841395-5dd8-409a-a103-177d4e906095",
+                    "slug": "cryptocurrencies-you-can-buy-and-trade-with-on-deriv"
+                },
+                {
+                    "id": "622bf6cd-7c71-40cd-84d6-ea976dc4499d",
+                    "slug": "top-4-trading-styles-choose-the-one-that-suits-you-best"
+                },
+                {
+                    "id": "698dde01-af05-46af-8625-04a3c1c7d0d6",
+                    "slug": "the-weekly-market-report-17-01-2022-23-01-2022"
+                },
+                {
+                    "id": "6e66ea49-4b04-46b6-b509-778997b25033",
+                    "slug": "the-weekly-market-report-06-12-2021-12-12-2021"
+                },
+                {
+                    "id": "719c75e9-eb82-43a9-9ad3-cbe50b4ab66e",
+                    "slug": "what-is-technical-analysis-in-trading"
+                },
+                {
+                    "id": "727634ed-ab65-4096-8bc5-0e51ae4e5bba",
+                    "slug": "the-weekly-market-report-08-11-2021-14-11-2021"
+                },
+                {
+                    "id": "71eb0c26-c21b-45b3-9a95-40c9b3408ce3",
+                    "slug": "useful-tips-on-how-to-trade-online"
+                },
+                {
+                    "id": "63ba7d73-ae14-4873-b443-731f9186ebde",
+                    "slug": "why-beginners-need-to-have-an-online-trading-demo-account"
+                },
+                {
+                    "id": "77d8b8f6-51bf-4610-92b7-036b7bc544ce",
+                    "slug": "what-is-cryptocurrency"
+                },
+                {
+                    "id": "863301dc-f57c-436e-8585-9c8b8ae58b21",
+                    "slug": "the-weekly-market-report-30-08-2021-05-09-2021"
+                },
+                {
+                    "id": "86f60a53-24fc-45ba-b41f-807abce15f8e",
+                    "slug": "the-weekly-market-report-18-10-2021-24-10-2021"
+                },
+                {
+                    "id": "78d94774-a5fb-4ffd-aff9-c9b35f42adf9",
+                    "slug": "an-introduction-to-synthetic-indices-trading"
+                },
+                {
+                    "id": "825c8215-ff41-48f0-a30f-a3f9a046c099",
+                    "slug": "how-to-trade-multipliers-on-dtrader"
+                },
+                {
+                    "id": "845c41a8-08d0-4e2c-be07-352cd6af18be",
+                    "slug": "fundamental-analysis-for-beginners"
+                },
+                {
+                    "id": "7b744899-c52e-48b1-9b50-3b0317bd0da3",
+                    "slug": "what-are-stocks-how-and-where-to-trade-them"
+                },
+                {
+                    "id": "7d9e93d0-5fdf-4c54-9365-2899b8983c90",
+                    "slug": "automated-trading-what-you-need-to-know"
+                },
+                {
+                    "id": "9d7c2ef3-7095-4b81-8d70-1ecb46e58fbe",
+                    "slug": "get-on-the-cryptocurrency-action"
+                },
+                {
+                    "id": "8448e156-d2c2-4c40-a10d-6c71bc7ec5af",
+                    "slug": "deriv-x-a-customisable-cfd-trading-platform"
+                },
+                {
+                    "id": "9ecf800f-3bcd-49f5-9f6a-7f391be5791c",
+                    "slug": "weekly-market-report-24-01-2022-30-01-2022"
+                },
+                {
+                    "id": "a15e9389-c4aa-4b30-8465-913d69c3179d",
+                    "slug": "derivs-2021-in-a-nutshell"
+                },
+                {
+                    "id": "a1eeee27-3cd7-45bd-b241-d87d5465457a",
+                    "slug": "weekly-market-report-04-oct-2021"
+                },
+                {
+                    "id": "bacf1132-5f65-4152-8667-f9ea8ebf89ca",
+                    "slug": "the-weekly-market-report-22-11-2021-28-11-2021"
+                },
+                {
+                    "id": "be84a4b7-ba31-4b13-b0ee-5e9312a35859",
+                    "slug": "the-weekly-market-report-29-11-2021-05-12-2021"
+                },
+                {
+                    "id": "a2088b80-4d5b-4e76-8544-c99c1d78e312",
+                    "slug": "an-easy-guide-on-how-to-buy-crypto-on-deriv"
+                },
+                {
+                    "id": "9e586afd-c277-4d55-81be-bc167bbbca05",
+                    "slug": "beginners-guide-the-dos-and-don-ts-of-cfd-trading"
+                },
+                {
+                    "id": "b0b5402c-1f06-4ef2-b31c-9fcf2f973694",
+                    "slug": "how-to-trade-on-deriv-x"
+                },
+                {
+                    "id": "af52cd19-fe4e-4571-843f-bd76bde6b090",
+                    "slug": "top-5-tips-and-tricks-for-your-dbot-trading-strategy"
+                },
+                {
+                    "id": "c1dbb824-69ba-434c-9a68-ea79b65c2e07",
+                    "slug": "the-weekly-market-report-15-11-2021-21-11-2021"
+                },
+                {
+                    "id": "c3898ac0-2c21-44cb-bdff-88913c4d6d7c",
+                    "slug": "besquare-by-deriv-the-it-graduate-programme-for-malaysians"
+                },
+                {
+                    "id": "cb9147a8-b4c1-473d-8899-18ceccc0fe5c",
+                    "slug": "the-weekly-market-report-27-12-2021-02-01-2022"
+                },
+                {
+                    "id": "d1977a4b-7d81-416f-bcfe-41a4c2b9eb27",
+                    "slug": "the-weekly-market-report-03-01-2022-09-01-2022"
+                },
+                {
+                    "id": "d273dac0-9585-406a-8805-449c1f31199d",
+                    "slug": "the-weekly-market-report-10-01-2022-16-01-2022"
+                },
+                {
+                    "id": "dad9b892-3ecc-48f7-bf5a-37e5449bccd2",
+                    "slug": "weekly-market-report-11-oct-2021"
+                },
+                {
+                    "id": "ccf00e1b-aac9-4c70-b09e-12d833c5209b",
+                    "slug": "what-is-leverage-in-online-trading"
+                },
+                {
+                    "id": "ddefedfb-a4e9-4f56-ae50-15a917d607c3",
+                    "slug": "what-affects-cryptocurrency-prices"
+                },
+                {
+                    "id": "caa82c6b-c3c8-477c-9fae-387468a6619b",
+                    "slug": "stock-market-indices-101"
+                },
+                {
+                    "id": "e406e9ac-607c-462f-afa2-84efc7becfb3",
+                    "slug": "the-weekly-market-report-20-09-2021-26-09-2021"
+                },
+                {
+                    "id": "e63a1134-fbed-4ab1-b9c2-a847250da2a6",
+                    "slug": "the-weekly-market-report-01-11-2021-07-11-2021"
+                },
+                {
+                    "id": "e6d6f1ad-e7ad-4a5e-96e7-627a93cb41b3",
+                    "slug": "the-weekly-market-report-31-01-2022-06-02-2022"
+                },
+                {
+                    "id": "eaafc434-c761-45e4-84f6-e870d68f1b5f",
+                    "slug": "weekly-market-report-06-09-2021-12-09-2021"
+                },
+                {
+                    "id": "f206a82f-ebb2-4896-ba85-70ab5dc3c43a",
+                    "slug": "the-weekly-market-report-14-02-2022-20-02-2022"
+                },
+                {
+                    "id": "f419cefe-7341-4120-8df0-6f6184b14777",
+                    "slug": "the-weekly-market-report-20-12-2021-26-12-2021"
+                },
+                {
+                    "id": "dedc9fb4-6ac9-4243-b524-f9176f26be8b",
+                    "slug": "benefits-of-forex-trading"
+                },
+                {
+                    "id": "e7aee366-c2c2-4204-987f-b72604f3f6e6",
+                    "slug": "deriv-multipliers-how-they-work"
+                },
+                {
+                    "id": "fb38455a-3617-4ab9-844e-bc3a95e77405",
+                    "slug": "forex-trading-on-deriv"
+                },
+                {
+                    "id": "2c649040-59f6-4f5f-bae3-c0c3a5bd3eff",
+                    "slug": "how-to-build-a-basic-trading-bot-with-dbot"
+                },
+                {
+                    "id": "e5615ea7-a1be-4306-9725-cf576846aaf9",
+                    "slug": "cryptocurrency-trading-for-beginners-on-deriv"
+                },
+                {
+                    "id": "f6e5e745-9ee2-4141-8054-587a396be709",
+                    "slug": "non-traditional-banking-the-tesla-of-financial-industry"
+                },
+                {
+                    "id": "0f1a2852-0270-446d-a354-d91a8e0c8fb6",
+                    "slug": "benefits-of-trading-in-the-commodities-market"
+                },
+                {
+                    "id": "d737d55a-b268-4c7a-94c5-7e3b39668967",
+                    "slug": "how-to-set-up-advanced-parameters-for-derivs-trading-bot"
+                },
+                {
+                    "id": "a9feaaca-e32f-4c84-9621-594bfacc0019",
+                    "slug": "risk-management-features-on-deriv-multipliers"
+                },
+                {
+                    "id": "59d3b7a4-40f8-4d68-9ed8-4192e856fbd9",
+                    "slug": "most-common-chart-patterns-in-technical-analysis"
+                },
+                {
+                    "id": "47887c0e-aa48-4452-9c31-a034e5503f13",
+                    "slug": "your-guide-to-deriv-mt5-the-world-famous-cfd-trading-platform"
+                },
+                {
+                    "id": "be169f45-51c0-4a58-9278-413bb3d425d8",
+                    "slug": "the-weekly-market-report-14-03-2022-20-03-2022"
+                },
+                {
+                    "id": "12079a23-975e-4d83-82d4-7638d009570e",
+                    "slug": "factors-affecting-forex-rates"
+                },
+                {
+                    "id": "ba2c0a2e-f3b5-4921-9914-8d7e5fa75696",
+                    "slug": "the-weekly-market-report-21-03-2022-27-03-2022"
+                },
+                {
+                    "id": "aac67e83-b484-4ac1-8af4-28732b66fdb7",
+                    "slug": "the-weekly-market-report-28-03-2022-03-04-2022"
+                },
+                {
+                    "id": "d3cc1c2c-c749-4be0-84e9-9c085b975932",
+                    "slug": "an-introduction-to-dtrader-the-trading-platform"
+                },
+                {
+                    "id": "10749803-a4d8-476b-9da5-b1d02e6175be",
+                    "slug": "the-weekly-market-report-04-04-2022-10-04-2022"
+                },
+                {
+                    "id": "973f141d-0c14-4fb3-9204-61d212a5c294",
+                    "slug": "an-introduction-to-dbot-derivs-trading-bot"
+                },
+                {
+                    "id": "ca691e08-c29c-463a-b9a0-5789642976ab",
+                    "slug": "the-weekly-market-report-11-04-2022-17-04-2022"
+                },
+                {
+                    "id": "08ebb4ff-709d-413b-b513-0b498668625d",
+                    "slug": "the-weekly-market-report-25-04-2022-01-05-2022"
+                },
+                {
+                    "id": "5aacdc62-639c-4bd1-94a1-dc8d7f842c10",
+                    "slug": "the-weekly-market-report-23-05-2022-29-05-2022"
+                },
+                {
+                    "id": "7773404b-4c44-4def-8826-f2a47f3a294b",
+                    "slug": "the-weekly-market-report-18-04-2022-24-04-2022"
+                },
+                {
+                    "id": "8f7f9ea1-cee9-42fb-97d3-241ae1b7badf",
+                    "slug": "the-weekly-market-report-30-05-2022-05-06-2022"
+                },
+                {
+                    "id": "3e6a9fa2-971a-411d-ba58-82e134a1bb74",
+                    "slug": "the-4-most-common-types-of-technical-indicators"
+                },
+                {
+                    "id": "c35e0834-33da-4ab5-a852-64ad19a85d5b",
+                    "slug": "what-is-options-trading"
+                },
+                {
+                    "id": "69bdcc35-c3be-43f8-af8e-bb077c773dfc",
+                    "slug": "how-to-use-technical-analysis-tools-on-derivs-trading-bot"
+                },
+                {
+                    "id": "5fb39b5e-b46c-4539-a53c-01bc167f62dc",
+                    "slug": "why-the-trading-world-loves-the-mt-5-platform"
+                },
+                {
+                    "id": "6e98eca1-754a-4705-8e2e-7a59107c48c0",
+                    "slug": "understanding-cross-currency-pairs"
+                },
+                {
+                    "id": "6de39888-e050-4cf3-aa09-e72e66782154",
+                    "slug": "the-weekly-market-report-09-05-2022-15-05-2022"
+                },
+                {
+                    "id": "704070c9-78f6-420c-b7c2-9d037a0d8537",
+                    "slug": "the-weekly-market-report-02-05-2022-08-05-2022"
+                },
+                {
+                    "id": "4df83cd1-3436-4c35-b901-e306961bbb0a",
+                    "slug": "deriv-s-trading-api-your-solution-to-personalised-trading"
+                },
+                {
+                    "id": "ef8fe3ff-97e8-43f8-a244-bcc1a50f3852",
+                    "slug": "the-weekly-market-report-16-05-2022-22-05-2022"
+                },
+                {
+                    "id": "90e7ee49-e150-4a31-a288-8024206a9205",
+                    "slug": "keep-your-coins-safe-crypto-exchange-vs-crypto-wallet"
+                },
+                {
+                    "id": "05e5e2ec-7c22-4436-848d-23b936531d2f",
+                    "slug": "factors-that-influence-stock-market-prices"
+                },
+                {
+                    "id": "601be41f-f5e7-4567-9323-0a8083863cef",
+                    "slug": "the-weekly-market-report-13-06-2022-19-06-2022"
+                },
+                {
+                    "id": "e066a0e8-fc5a-466a-89b9-a766851c30e2",
+                    "slug": "what-is-the-difference-between-bitcoin-altcoins-and-stablecoins"
+                },
+                {
+                    "id": "52c63874-37f6-420e-9276-d0cf5d8c8230",
+                    "slug": "the-weekly-market-report-06-06-2022-12-06-2022"
+                },
+                {
+                    "id": "61b34dd3-a28d-4c02-897d-133f6b04ab8a",
+                    "slug": "the-weekly-market-report-27-06-2022-03-07-2022"
+                },
+                {
+                    "id": "e08897f0-8a09-4342-8c0d-e737a8b4cd85",
+                    "slug": "the-weekly-market-report-20-06-2022-26-06-2022"
+                },
+                {
+                    "id": "01e6b369-f7a8-4572-a62a-3d9ab3b13827",
+                    "slug": "the-weekly-market-report-07-03-2022-13-03-2022"
+                },
+                {
+                    "id": "bdcc4d43-d0b2-41d0-a8ee-3a15350988ce",
+                    "slug": "market-news-11-07-2022-17-07-2022"
+                },
+                {
+                    "id": "e42fc445-605d-4dff-b1cf-01f62f42e9a6",
+                    "slug": "market-news-04-07-2022-10-07-2022"
+                },
+                {
+                    "id": "797f04ba-abc2-46c7-96a9-cc59c2b25888",
+                    "slug": "debunking-forex-trading-myths"
+                },
+                {
+                    "id": "beec7c8b-5bbe-42f1-9c84-9e201a6dde85",
+                    "slug": "market-news-25-07-2022-31-07-2022"
+                },
+                {
+                    "id": "4d458984-3f2d-4094-862e-8a508d421e20",
+                    "slug": "market-news-01-08-2022-07-08-2022"
+                },
+                {
+                    "id": "3a36e322-ca17-4b28-8cd2-82f2fc0c8b91",
+                    "slug": "market-news-15-08-2022-21-08-2022"
+                },
+                {
+                    "id": "a41a32b6-6cc6-46d0-85ca-c712915269dc",
+                    "slug": "market-news-22-08-2022-28-08-2022"
+                },
+                {
+                    "id": "02e50edc-abbc-411e-9a16-76f644e9d038",
+                    "slug": "market-news-08-08-2022-14-08-2022"
+                },
+                {
+                    "id": "d17eb690-d068-49c2-aaaa-f0194baa6d27",
+                    "slug": "market-news-18-07-2022-24-07-2022"
+                },
+                {
+                    "id": "5175f450-bad9-4b67-b4aa-b3d568c08460",
+                    "slug": "how-to-protect-your-online-trading-account"
+                },
+                {
+                    "id": "9f8cfaca-42f8-4f74-835a-b3869ea4f574",
+                    "slug": "market-news-29-08-2022-04-09-2022"
+                },
+                {
+                    "id": "71b0d98f-7088-4dd2-a2e3-29ab191b1b31",
+                    "slug": "avoid-common-trading-mistakes-with-these-4-steps"
+                },
+                {
+                    "id": "01d7530e-950c-4532-a4cb-f7a57ed3786a",
+                    "slug": "market-news-12-09-2022-18-09-2022"
+                },
+                {
+                    "id": "9e7b7708-cfc9-49c1-b02f-c919b54df0b9",
+                    "slug": "market-news-14-11-2022-20-11-2022"
+                },
+                {
+                    "id": "5ed3d1d2-9255-4a93-9edc-e29dd067c8f0",
+                    "slug": "market-news-05-09-2022-11-09-2022"
+                },
+                {
+                    "id": "96695d64-dd87-4902-82b1-fad9306e4982",
+                    "slug": "market-news-19-09-2022-25-09-2022"
+                },
+                {
+                    "id": "31cb4000-cf2a-427f-8e36-5ac126432c78",
+                    "slug": "market-news-28-11-2022-04-12-2022"
+                },
+                {
+                    "id": "995f3010-eade-4d15-b3d3-c5cb84fae854",
+                    "slug": "how-to-read-stock-market-indices"
+                },
+                {
+                    "id": "b88ada65-daf2-4f08-9672-6100aaf9e03b",
+                    "slug": "trading-psychology-why-managing-your-emotions-while-trading-is-crucial"
+                },
+                {
+                    "id": "60ded806-d2f1-47c6-a2a5-d5f28711bdf3",
+                    "slug": "an-introduction-to-commodity-currency-pairs"
+                },
+                {
+                    "id": "d4544149-f0ee-4509-b069-2f635109283d",
+                    "slug": "market-news-26-09-2022-02-10-2022"
+                },
+                {
+                    "id": "0868ac01-552d-4ca3-ade7-289ea2a535a7",
+                    "slug": "market-news-17-10-2022-23-10-2022"
+                },
+                {
+                    "id": "78e33deb-a1c8-41ef-a8f7-927b51b0cf09",
+                    "slug": "market-news-10-10-2022-16-10-2022"
+                },
+                {
+                    "id": "0f4abf03-c3f9-4463-9e1b-47025d3656ca",
+                    "slug": "market-news-03-10-2022-09-10-2022"
+                },
+                {
+                    "id": "a91db76b-a622-417b-a676-c2deaffd9248",
+                    "slug": "market-news-07-11-2022-13-11-2022"
+                },
+                {
+                    "id": "7229e577-d97a-48ca-a37a-26717ceec04a",
+                    "slug": "market-news-31-10-2022-06-11-2022"
+                },
+                {
+                    "id": "2484bc27-c4e7-41b4-a92f-35bf0a1f5cff",
+                    "slug": "market-news-24-10-2022-30-10-2022"
+                },
+                {
+                    "id": "93145e2c-5b2b-4ab2-8940-0cc95e542678",
+                    "slug": "market-news-21-11-2022-27-11-2022"
+                },
+                {
+                    "id": "7ce3ee63-1f9f-4fd3-b395-5e265f122a53",
+                    "slug": "market-news-19-12-2022-25-12-2022"
+                },
+                {
+                    "id": "5dff7825-2292-4d06-b099-4abb9020ca87",
+                    "slug": "market-news-05-12-2022-11-12-2022"
+                },
+                {
+                    "id": "95de7a98-a227-476a-a14c-1771ee0093b9",
+                    "slug": "market-news-12-12-2022-18-12-2022"
+                },
+                {
+                    "id": "ea599345-442f-4821-9077-3bfa1c1b80cd",
+                    "slug": "year-end-market-holidays-2022-what-to-expect"
+                },
+                {
+                    "id": "7463b046-dad3-41b7-aa5d-54a4deb86ed4",
+                    "slug": "market-news-16-01-2023-22-01-2023"
+                },
+                {
+                    "id": "d2144596-cc6f-4a49-9c0e-5d996705a89c",
+                    "slug": "market-news-02-01-2023-08-01-2023"
+                },
+                {
+                    "id": "bd4fb9cf-61f8-4a5f-843c-8b6da3c91d09",
+                    "slug": "market-news-26-12-2022-01-01-2023"
+                },
+                {
+                    "id": "e871ea47-f95b-456c-afd9-ae3dec4efa73",
+                    "slug": "market-news-09-01-2023-15-01-2023"
+                }
+            ],
+            "videos": [
+                {
+                    "video_slug": "how-to-trade-cryptocurrencies-on-deriv-x"
+                },
+                {
+                    "video_slug": "how-to-trade-synthetics-on-deriv-x"
+                },
+                {
+                    "video_slug": "how-to-get-started-on-deriv-x"
+                },
+                {
+                    "video_slug": "how-to-make-a-withdrawal-via-skrill"
+                },
+                {
+                    "video_slug": "introducing-deriv-x-the-highly-customisable-cfd-trading-platform"
+                },
+                {
+                    "video_slug": "how-to-use-the-deriv-p2p-app"
+                },
+                {
+                    "video_slug": "how-to-trade-forex-on-deriv-x"
+                },
+                {
+                    "video_slug": "what-is-forex-trading"
+                },
+                {
+                    "video_slug": "how-to-use-take-profit-and-stop-loss-on-crash-boom-indices"
+                },
+                {
+                    "video_slug": "what-is-leverage"
+                },
+                {
+                    "video_slug": "how-to-trade-commodities-on-deriv-x"
+                },
+                {
+                    "video_slug": "what-is-margin"
+                },
+                {
+                    "video_slug": "what-are-forex-spreads"
+                },
+                {
+                    "video_slug": "how-to-make-a-deposit-via-skrill"
+                },
+                {
+                    "video_slug": "what-is-cryptocurrency"
+                },
+                {
+                    "video_slug": "what-is-cfd-trading"
+                },
+                {
+                    "video_slug": "how-to-deposit-and-withdraw-on-deriv-x"
+                },
+                {
+                    "video_slug": "how-to-place-a-deriv-multipliers-trade"
+                },
+                {
+                    "video_slug": "introducing-deriv-p2p"
+                },
+                {
+                    "video_slug": "what-is-blockchain"
+                },
+                {
+                    "video_slug": "what-is-mining"
+                },
+                {
+                    "video_slug": "what-are-commodities"
+                }
+            ]
+        }
+    },
+    "extensions": {}
+}

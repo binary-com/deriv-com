@@ -42,11 +42,6 @@ const BeSquareFooter = () => {
             link_to: 'https://www.facebook.com/BeSquareByDeriv',
         },
         {
-            src: Instagram,
-            alt: 'Instagram',
-            link_to: 'https://www.instagram.com/besquarebyderiv',
-        },
-        {
             src: Twitter,
             alt: 'Twitter',
             link_to: 'https://twitter.com/besquarebyderiv',
@@ -64,7 +59,7 @@ const BeSquareFooter = () => {
                         alt="Fresh graduates discussing with their laptops"
                     />
                     <TextContainer>
-                        <Title as="h3">Next intake: 1st February 2023</Title>
+                        <Title as="h3">Next intake: 6 March 2023</Title>
                         <TextWrapper
                             max_width_array={['510px', '328px']}
                             font_size={['20px', '16px']}
@@ -72,7 +67,7 @@ const BeSquareFooter = () => {
                             margin="-24px 49px 0 0"
                         >
                             <Header weight="normal" color="white" size="2rem">
-                                Submit your application before 20th January 2023
+                                Submit your application before 24 February 2023
                             </Header>
 
                             <Localize

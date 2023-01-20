@@ -51,7 +51,7 @@ const PartnersGuidePdf = () => {
             Icon={IG}
             title={localize('Important Guidelines')}
             content={localize(
-                'Dos and don’ts for partners when promoting our products and services',
+                `Do's and don’ts for partners when promoting our products and services`,
             )}
             url={url}
             link_title={localize('Partners Guide')}

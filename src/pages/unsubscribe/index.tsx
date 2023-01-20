@@ -159,8 +159,8 @@ const UnsubscribePage = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Unsubscribe | Deriv')}
-                description={localize('Unsubscription from newsletter')}
+                title={localize('Unsubscribe | Emails | Deriv')}
+                description={localize('Unsubscribe from Deriv emails.')}
             />
             <>
                 {loading && (

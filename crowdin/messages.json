@@ -2540,6 +2540,8 @@
   "-190375337": "<0>Japan 225</0> tracks the stock performance of 225 large, publicly owned companies in Japan.",
   "-396476940": "These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 150%, 200%, 250%, and 300%.",
   "-75787346": "<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>.",
+  "-2037873072": "These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%.",
+  "-257478628": "<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>.",
   "-690460725": "These indices replicate markets with <0>bullish and bearish trends</0> with constant volatility. The Bull Market and Bear Market indices start at 00:00 GMT each day, replicating bullish and bearish markets respectively.",
   "-2075222222": "<0>Netherlands 25</0> follows the stock performance of the 25 most traded companies in the Netherlands.",
   "-931072662": "<0>Europe 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU.",

@@ -154,7 +154,7 @@ export const DerivedMarketsList = styled(CssGrid)<MarketsListProps>`
         grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
         padding: 16px 8px;
-        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '8px 0')};
+        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '8px 16px')};
     }
 `
 

@@ -86,6 +86,28 @@ export const ContinuousIndicesDetails = () => (
     </DetailsContainer>
 )
 
+export const ContinuousIndicesOptionsDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%.',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
 export const CrashBoomDetails = () => (
     <DetailsContainer>
         <CrashText>

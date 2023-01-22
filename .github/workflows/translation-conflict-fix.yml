@@ -22,7 +22,7 @@ jobs:
         cp -r src/translations/*.json backup/translations
 
     - name: Translated JSON file are updated from master
-      if: steps.current_branch.outputs.stdout != 'master' && startsWith(steps.current_branch.outputs.stdout, 'translation')
+      if: equals(steps.current_branch.outputs.stdout, 'rebranding') || startsWith(steps.current_branch.outputs.stdout, 'translation')
       run: |
         rm -rf src/translations/*.json
         git pull origin ${{ steps.current_branch.outputs.stdout }}

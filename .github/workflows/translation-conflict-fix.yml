@@ -1,0 +1,33 @@
+name: Translation Conflict Fix
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  update_json:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Get current branch
+      run: git rev-parse --abbrev-ref HEAD
+      id: current_branch
+
+    - name: Backup JSON files
+      run: |
+        mkdir -p backup/translations
+        cp -r src/translations/*.json backup/translations
+
+    - name: Translated JSON file are updated from master
+      if: steps.current_branch.outputs.stdout != 'master' && startsWith(steps.current_branch.outputs.stdout, 'translation')
+      run: |
+        rm -rf src/translations/*.json
+        git pull origin ${{ steps.current_branch.outputs.stdout }}
+      id: update_json
+
+    - name: Delete Backup
+      if: success()
+      run: rm -rf backup

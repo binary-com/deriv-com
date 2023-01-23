@@ -3,7 +3,7 @@ import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
 import { Flex } from 'components/containers'
 
-type RebrandingHeaderProps = {
+type CommonHeaderSectionProps = {
     title?: TString
     subtitle?: TString
     padding?: string
@@ -23,7 +23,7 @@ type RebrandingHeaderProps = {
     align_subtitle?: string
 }
 
-const RebrandingHeader = ({
+const CommonHeaderSection = ({
     title,
     subtitle,
     padding,
@@ -38,7 +38,7 @@ const RebrandingHeader = ({
     height,
     align_title,
     align_subtitle,
-}: RebrandingHeaderProps) => {
+}: CommonHeaderSectionProps) => {
     return (
         <div
             style={{
@@ -79,4 +79,4 @@ const RebrandingHeader = ({
     )
 }
 
-export default RebrandingHeader
+export default CommonHeaderSection

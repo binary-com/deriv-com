@@ -3,7 +3,7 @@
     font-style: normal;
     font-display: swap;
 	src:url('../fonts/Ubuntu-Regular.ttf') format('truetype');
-	font-weight: 100 700;
+	font-weight: 400;
 }
 
 @font-face {

@@ -366,7 +366,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 {localize(
-                                    'Deriv (SVG) LLC is located in First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P. O., St. Vincent and the Grenadines (company no. 273 LLC 2020).',
+                                    'Deriv (SVG) LLC is located in Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company no. 273 LLC 2020).',
                                 )}
                             </Text>
                             <Text max_width="58.8rem">

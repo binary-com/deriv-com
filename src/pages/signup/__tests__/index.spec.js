@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import { useStaticQuery } from 'gatsby'
 import { QueryParamProvider } from 'use-query-params'
 import { LocaleContextWrapper } from '../../../components/localization/locale-context'
-import { RegionProvider } from '../../../store/region-context'
+import { DerivProvider } from '../../../store/index'
 import NewSignup from '../index.tsx'
 
 // mock all functions that are required in signup page.
@@ -41,13 +41,13 @@ useStaticQuery.mockReturnValue({
 describe('NewSignUp', () => {
     it('must contain create demo account Button', () => {
         render(
-            <RegionProvider value={{ is_eu: true }}>
+            <DerivProvider value={{ is_eu: true }}>
                 <LocaleContextWrapper pageContext={{ locale: 'en', pathname: '/en/signup' }}>
                     <QueryParamProvider>
                         <NewSignup />,
                     </QueryParamProvider>
                 </LocaleContextWrapper>
-            </RegionProvider>,
+            </DerivProvider>,
         )
         const singup_button = screen.getByRole('button', {
             name: /Create demo account/i,

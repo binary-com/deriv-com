@@ -267,7 +267,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
 
                             <WorkingInformation p="3.2rem 6rem" direction="column">
                                 <StyledDiv>
-                                    <Header as="h3" type="subtitle-1" color="black-6">
+                                    <Header as="h3" type="subtitle-2" color="black-6">
                                         {`Working at Deriv ${map_office_name}`}
                                     </Header>
                                     <CardText color="black-6">{location.map_text}</CardText>

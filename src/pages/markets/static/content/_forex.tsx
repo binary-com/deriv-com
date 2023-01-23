@@ -1,6 +1,6 @@
 import React from 'react'
 import { Localize } from 'components/localization'
-import AdvancedCharting from 'images/svg/markets/forex/charting-widget.svg'
+import AdvancedCharting from 'images/svg/markets/forex/charting.svg'
 import Deposit from 'images/svg/markets/forex/deposit.svg'
 import FriendlySupport from 'images/svg/markets/forex/smart.svg'
 import Leverage from 'images/svg/markets/forex/spread.svg'

@@ -14,6 +14,7 @@ import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
+import RebrandingHeader from 'components/elements/rebranding-header'
 
 const query = graphql`
     query {

@@ -86,6 +86,45 @@ const Variables = css`
         --color-brown: #33140e;
         --color-green-3: #26d367;
 
+        /* New color code convention for rebranding */
+
+        /* base red */
+        --clr-base: #ff444f;
+
+        /* primary text */
+        --clr-primary: #414652;
+
+        /* secondary greys */
+        --clr-secondary: #999999;
+        --clr-secondary-lt: #d6dadb;
+        --clr-secondary-ltr: #e6e9e9;
+        --clr-secondary-ltst: #f2f3f4;
+
+        /* neutral black and white */
+        --clr-ntrl-light: #ffffff;
+        --clr-neutral-dark: #333333;
+
+        /* New font size convention for rebranding */
+        --fs-base-text: 1.6rem;
+        --fs-base-header: 6.4rem;
+
+        /* headers */
+        --fs-h1: 4.8rem;
+        --fs-h2: 3.2rem;
+        --fs-h3: 2.4rem;
+        --fs-h4: 2rem;
+        --fs-h5: 1.8rem;
+        --fs-h6: 1.4rem;
+
+        /* smaller fonts */
+        --fs-milli: 1.2rem;
+        --fs-micro: 1rem;
+        --fs-nano: 8px;
+
+        /* larger fonts */
+        --fs-giga: 8rem;
+        --fs-mega: 7rem;
+
         /* sizes */
         --text-size-xxs: 1.2rem;
         --text-size-xs: 1.4rem;

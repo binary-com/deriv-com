@@ -1,10 +1,10 @@
 import React from 'react'
 import { Localize } from 'components/localization'
-import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
-import Deposit from 'images/svg/markets/deposit-and-withdrawal-new.svg'
-import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
-import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
-import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
+import AdvancedCharting from 'images/svg/markets/forex/charting-widget.svg'
+import Deposit from 'images/svg/markets/forex/deposit.svg'
+import FriendlySupport from 'images/svg/markets/forex/smart.svg'
+import Leverage from 'images/svg/markets/forex/spread.svg'
+import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 
@@ -42,7 +42,7 @@ export const forex_content: ForexContentElement[] = [
     {
         src: Leverage,
         alt: 'High and low',
-        text: <Localize translate_text="High leverage, tight forex spreads" />,
+        text: <Localize translate_text="Tight spreads" />,
     },
     {
         src: ResponsiveWebsite,

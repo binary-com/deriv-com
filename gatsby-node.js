@@ -12,9 +12,25 @@ exports.onCreatePage = ({ page, actions }) => {
     deletePage(page)
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
+    const is_careers = /careers/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
+
+    if (is_careers) {
+        createRedirect({
+            fromPath: `/careers/people-management`,
+            toPath: `/careers/human-resources`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/careers/people-management/`,
+            toPath: `/careers/human-resources/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
 
     if (is_responsible_trading) {
         createRedirect({

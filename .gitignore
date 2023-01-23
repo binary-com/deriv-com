@@ -85,3 +85,6 @@ static/CNAME
 
 #Webpack
 webpack-bundle-report
+/test-results/
+/playwright-report/
+/playwright/.cache/

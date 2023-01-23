@@ -1,7 +1,6 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import PageNotFound from '../../../404'
-import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import { basket_indices_content, basket_indices_content_eu } from '../../static/content/_basket'
 import type { BasketIndicesContent } from '../../static/content/_basket'
@@ -13,8 +12,10 @@ import { basket_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
+import { TradeDetails } from '../sections/_trade-details'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -29,22 +30,11 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
         <>
             {is_row && (
                 <>
-                    <WhyTrade
+                    <TradeDetails
                         description={
                             <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
                         }
-                        header={<Localize translate_text="Why trade basket indices on Deriv" />}
-                    >
-                        {(!is_eu ? basket_indices_content : basket_indices_content_eu).map(
-                            (content: BasketIndicesContent, index) => (
-                                <StyledBox
-                                    key={index}
-                                    text={content.text}
-                                    icon={<img src={content.src} alt={content.alt} />}
-                                />
-                            ),
-                        )}
-                    </WhyTrade>
+                    />
                     <AvailableTrades
                         CFDs={
                             <CFDs market_content={basket_cfds} market_tab_name={'basket-indices'} />
@@ -61,6 +51,19 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                             <Localize translate_text="Basket indices trades  available on Deriv" />
                         }
                     />
+                    <FullWidthMultiColumn
+                        header={<Localize translate_text="Why trade basket indices on Deriv" />}
+                    >
+                        {(!is_eu ? basket_indices_content : basket_indices_content_eu).map(
+                            (content: BasketIndicesContent, index) => (
+                                <StyledBox
+                                    key={index}
+                                    text={content.text}
+                                    icon={<img src={content.src} alt={content.alt} />}
+                                />
+                            ),
+                        )}
+                    </FullWidthMultiColumn>
                     <SimpleSteps
                         header={
                             <Localize translate_text="Start trading basket indices on Deriv in 3 simple steps" />

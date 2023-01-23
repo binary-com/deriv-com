@@ -4,10 +4,9 @@ import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
-type WhyTradeProps = {
+type FullWidthMultiColumnProps = {
     children?: ReactElement[]
     header?: ReactElement
-    description?: ReactElement
 }
 
 const Item = styled(Flex)`
@@ -33,28 +32,28 @@ const ItemContainer = styled(Box)`
     display: flex;
     margin: 40px 0 32px;
     flex-direction: row;
-    justify-content: space-between;
     max-width: 140.4rem;
 
     @media ${device.tabletL} {
-        flex-wrap: wrap;
-        margin: 20px 0 32px 0;
-        gap: 22px;
-        max-width: 40.6rem;
-    }
-    @media (max-width: 336px) {
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
+        gap: 40px;
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: 48px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    color: white;
 
     @media ${device.tablet} {
         text-align: center;
         max-width: 80vw;
-        font-size: 28px;
-        line-height: 1.5;
         margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
     }
 `
 const StyledText = styled(Text)`
@@ -71,28 +70,30 @@ const StyledText = styled(Text)`
         font-size: 14px;
     }
 `
-const StyledSection = styled(SectionContainer)`
-    padding: 6rem 0;
-
-    @media ${device.tabletL} {
-        padding: 0 16px;
-    }
-`
 const StyledTextContent = styled(Text)`
     text-align: center;
     margin-top: 1.6rem;
+    color: white;
+    font-weight: 400;
     font-size: 16px;
+    line-height: 24px;
 
     @media ${device.tabletL} {
         font-size: 14px;
     }
 `
 
-export const WhyTrade = ({ children, header, description }: WhyTradeProps) => {
+const StyledSectionContainer = styled(SectionContainer)`
+    padding: 55px 0;
+    margin: auto;
+    background: #414652;
+    color: white;
+`
+
+export const FullWidthMultiColumn = ({ children, header }: FullWidthMultiColumnProps) => {
     return (
-        <StyledSection>
+        <StyledSectionContainer>
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
-                <StyledText>{description}</StyledText>
                 <div>
                     <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
                         {header}
@@ -112,6 +113,6 @@ export const WhyTrade = ({ children, header, description }: WhyTradeProps) => {
                     })}
                 </ItemContainer>
             </Flex>
-        </StyledSection>
+        </StyledSectionContainer>
     )
 }

@@ -11,6 +11,7 @@ export const StyledGrid = styled(CssGrid)`
 
 export const StyledContainer = styled(GridContainer)`
     margin-top: 8rem;
+    text-align: start;
 
     @media ${device.tabletS} {
         margin-top: 4rem;

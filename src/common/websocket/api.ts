@@ -45,12 +45,14 @@ export default class DerivWS {
     } = {}
     private reqId = 0
     private connected = new CustomPromise<void>()
-    private socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${
-        getLanguage() === 'ach' ? getCrowdin() : getLanguage()?.replace('-', '_')
-    }&brand=${brand_name.toLowerCase()}`
+    private socket_url: string
     connection: WebSocket
 
-    constructor() {
+    constructor(private readonly lang) {
+        this.socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${
+            lang === 'ach' ? getCrowdin() : lang?.replace('-', '_')
+        }&brand=${brand_name.toLowerCase()}`
+
         const connection = new WebSocket(this.socket_url)
         connection.onopen = this.openHandler
         connection.onmessage = this.messageHandler

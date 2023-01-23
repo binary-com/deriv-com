@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { matchSorter } from 'match-sorter'
 import ReactPaginate from 'react-paginate'
@@ -12,8 +12,8 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
 import { unslugify, queryParams } from 'common/utility'
-import { DerivStore } from 'store'
 import device from 'themes/device'
+import useAcademyData from 'components/hooks/use-academy-data'
 
 const StyledHeaderWrapper = styled(Flex)`
     box-shadow: inset 0 -1px 0 #f2f3f4;
@@ -84,7 +84,7 @@ const StyledTitle = styled.span`
 
 const SearchPage = () => {
     // search result states
-    const { academy_data } = useContext(DerivStore)
+    const { academy_data } = useAcademyData()
     const [full_article_link, setFullArticleLink] = useState('')
     const [full_video_link, setFullVideoLink] = useState('')
     const [total_article, setTotalArticle] = useState(0)
@@ -294,11 +294,11 @@ const SearchPage = () => {
                         Articles
                     </Header>
                     {items_type ? (
-                        <Header as="span" type="paragraph-2" align="right">
+                        <Header as="span" type="paragraph-2" align="end">
                             {getPaginationItemCountText()}
                         </Header>
                     ) : (
-                        <Header as="span" type="paragraph-2" align="right">
+                        <Header as="span" type="paragraph-2" align="end">
                             {getTotalArticleText()}
                         </Header>
                     )}
@@ -330,7 +330,7 @@ const SearchPage = () => {
                     <Header as="h3" type="subtitle-2">
                         Videos
                     </Header>
-                    <Header as="span" type="paragraph-2" align="right">
+                    <Header as="span" type="paragraph-2" align="end">
                         <>
                             {total_video > 1 && !items_type
                                 ? `1-2 of ${total_video} results`

@@ -8,7 +8,10 @@ import GlobalAffiliate from 'images/svg/partners/global-affiliate-support.svg'
 import Advertise from 'images/svg/partners/advertise.svg'
 import HighValue from 'images/svg/partners/high-value-partnership.svg'
 
-const StyledContainer = styled(Container)`
+type StyledContainerProps = {
+    mw: string
+}
+const StyledContainer = styled(Container)<StyledContainerProps>`
     align-items: flex-start;
     max-width: 1200px;
 
@@ -83,7 +86,7 @@ const MoreReason = () => {
                 </ReasonHeader>
                 <StyledFlex jc="center">
                     <Reason>
-                        <img src={HighValue} alt="" />
+                        <img src={HighValue} alt="Partnership" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('High-value partnership')}
                         </Header>
@@ -94,7 +97,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={Advertise} alt="" />
+                        <img src={Advertise} alt="Speaker" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Proven creative materials')}
                         </Header>
@@ -105,7 +108,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={GlobalAffiliate} alt="" />
+                        <img src={GlobalAffiliate} alt="Support team" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Global affiliate support')}
                         </Header>

@@ -1,11 +1,20 @@
 import React, { ReactNode } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
-const Checkmark = styled.span`
+const Checkmark = styled.span<{ is_rtl: boolean }>`
     display: inline-block;
     width: 22px;
     height: 22px;
-    transform: rotate(45deg);
+    ${({ is_rtl }) => {
+        return is_rtl
+            ? css`
+                  transform: rotate(45deg) scaleX(-1);
+              `
+            : css`
+                  transform: rotate(45deg) scaleX(1);
+              `
+    }}
 
     &::before {
         content: '';
@@ -51,54 +60,72 @@ const FlexWrapper = styled.div<TimelineTickProps>`
     padding-bottom: ${(props) => (props.pb ? props.pb : '4rem')};
 `
 const Oval = () => {
+    const is_rtl = useIsRtl()
+
     return (
         <OvalWrapper>
-            <Checkmark />
+            <Checkmark is_rtl={is_rtl} />
         </OvalWrapper>
     )
 }
 
 type TimelineTickProps = {
     pb?: string
+    pl?: string
     is_border?: boolean
     color?: string
     children?: ReactNode[]
 }
 
-type TimelineProps = Pick<TimelineTickProps, 'pb' | 'children'>
+type ItemProps = {
+    children?: ReactNode
+}
 
-type ItemProps = Pick<TimelineTickProps, 'children'>
+type TimelineProps = Pick<TimelineTickProps, 'pb' | 'pl' | 'children'>
 
-const Timeline = ({ pb, children, ...props }: TimelineProps) => {
+const Timeline = ({ pb, pl, children, ...props }: TimelineProps) => {
     return (
         <div {...props}>
-            {children.map((child, idx) => (
-                <FlexWrapper key={idx} is_border={children.length !== idx + 1} pb={pb}>
-                    <Oval></Oval>
-                    <ContentWrapper>
-                        <div>{child}</div>
-                    </ContentWrapper>
-                </FlexWrapper>
-            ))}
+            {React.Children.map(children, (child, index) => {
+                if (!React.isValidElement(child)) {
+                    return <></>
+                }
+
+                return (
+                    <FlexWrapper is_border={children.length !== index + 1} pb={pb}>
+                        <Oval></Oval>
+                        <ContentWrapper>
+                            <div>{child}</div>
+                        </ContentWrapper>
+                    </FlexWrapper>
+                )
+            })}
         </div>
     )
 }
 
 export const TimelineTick = ({ pb, color, children, ...props }: TimelineTickProps) => {
+    const is_rtl = useIsRtl()
+
     return (
         <div {...props}>
-            {children.map((child, idx) => (
-                <React.Fragment key={idx}>
-                    {child && (
-                        <FlexWrapper is_border={false} pb={pb}>
-                            <OvalWrapper color="transparent">
-                                <Checkmark color={color}></Checkmark>
-                            </OvalWrapper>
-                            <ContentWrapper>{child}</ContentWrapper>
-                        </FlexWrapper>
-                    )}
-                </React.Fragment>
-            ))}
+            {React.Children.map(children, (child) => {
+                if (!React.isValidElement(child)) {
+                    return <></>
+                }
+                return (
+                    <React.Fragment>
+                        {child && (
+                            <FlexWrapper is_border={false} pb={pb}>
+                                <OvalWrapper color="transparent">
+                                    <Checkmark color={color} is_rtl={is_rtl}></Checkmark>
+                                </OvalWrapper>
+                                <ContentWrapper>{child}</ContentWrapper>
+                            </FlexWrapper>
+                        )}
+                    </React.Fragment>
+                )
+            })}
         </div>
     )
 }

@@ -1,19 +1,26 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, LinkText, QueryImage, Text } from 'components/elements'
+import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
 import { localize } from 'components/localization'
-import { Flex, Show, Box, Container } from 'components/containers'
+import { Flex, Box, Container, Desktop, Mobile } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 // SVG
 import Apple from 'images/svg/custom/apple-40.svg'
 import Facebook from 'images/svg/custom/facebook-40.svg'
 import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+
+type SocialButtonContent = {
+    provider: string
+    id: string
+    img: string
+}
 
 type SignupPublicProps = {
     autofocus?: boolean
@@ -35,12 +42,9 @@ const query = graphql`
         deriv_platform_eu: file(relativePath: { eq: "sign-up/banner-phone-eu.png" }) {
             ...fadeIn
         }
-        deriv_platform_uk: file(relativePath: { eq: "sign-up/banner-phone-uk.png" }) {
-            ...fadeIn
-        }
     }
 `
-const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
+const StyledSectionContainer = styled(Box)`
     width: 100%;
     padding: 80px 0;
     position: static;
@@ -48,6 +52,7 @@ const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
 
     @media ${device.tabletL} {
         padding: 0 0 40px;
+        margin-top: 40px;
     }
 `
 const Wrapper = styled.div`
@@ -165,7 +170,7 @@ const SocialWrapper = styled(Flex)`
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
-        justify-content: left;
+        justify-content: flex-start;
     }
 
     @media ${device.tabletL} {
@@ -182,7 +187,7 @@ const SocialButton = styled(Button)`
         justify-content: center;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Header)<{ position?: string }>`
     width: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
     @media ${device.tablet} {
@@ -201,7 +206,10 @@ const StyledFormWrapper = styled.div`
     padding: 20px 20px 30px;
     margin-left: 30px;
     border-radius: 8px;
+    top: 1rem;
+    display: inline-block;
     position: absolute;
+    height: fit-content;
     bottom: -50px;
     box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
 
@@ -299,17 +307,43 @@ const DerivExperience = styled(LinkText)`
         color: var(--color-white);
     }
 `
-const MobilePlatform = styled.div`
+const MobilePlatform = styled.div<{ is_rtl: boolean }>`
     width: 100%;
     max-width: 35.7rem;
     z-index: 10;
 
     @media screen and (max-width: 991px) {
         img {
-            left: 20px !important;
+            ${({ is_rtl }) =>
+                is_rtl
+                    ? css`
+                          left: 0px !important;
+                      `
+                    : css`
+                          left: 20px !important;
+                      `}
         }
     }
 `
+
+const social_button_content: SocialButtonContent[] = [
+    {
+        provider: 'google',
+        id: 'gtm-signup-google',
+        img: Google,
+    },
+    {
+        provider: 'facebook',
+        id: 'gtm-signup-facebook',
+        img: Facebook,
+    },
+    {
+        provider: 'apple',
+        id: 'gtm-signup-apple',
+        img: Apple,
+    },
+]
+
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -321,14 +355,16 @@ const SignupPublic = ({
     is_submitting,
 }: SignupPublicProps) => {
     const data = useStaticQuery(query)
-    const { is_row, is_eu, is_uk } = useCountryRule()
+    const { is_row, is_eu } = useRegion()
     const [is_checked, setChecked] = useState(false)
+    const is_rtl = useIsRtl()
+
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
     return (
         <StyledSectionContainer>
-            <Show.Desktop>
+            <Desktop>
                 <Container>
                     <Wrapper>
                         <SignupFormWrapper>
@@ -389,36 +425,19 @@ const SignupPublic = ({
                                 />
                                 <SocialWrapper jc="unset" ai="center">
                                     <SignInText>{localize('Or sign up with')}</SignInText>
-                                    <SocialButton
-                                        onClick={handleSocialSignup}
-                                        provider="google"
-                                        data-provider="google"
-                                        id="gtm-signup-google"
-                                        type="button"
-                                        social
-                                    >
-                                        <img src={Google} alt="google" width="40" height="40" />
-                                    </SocialButton>
-                                    <SocialButton
-                                        onClick={handleSocialSignup}
-                                        provider="facebook"
-                                        data-provider="facebook"
-                                        id="gtm-signup-facebook"
-                                        type="button"
-                                        social
-                                    >
-                                        <img src={Facebook} alt="facebook" width="40" height="40" />
-                                    </SocialButton>
-                                    <SocialButton
-                                        onClick={handleSocialSignup}
-                                        provider="apple"
-                                        data-provider="apple"
-                                        id="gtm-signup-apple"
-                                        type="button"
-                                        social
-                                    >
-                                        <img src={Apple} alt="apple" width="40" height="40" />
-                                    </SocialButton>
+                                    {social_button_content.map(({ provider, id, img }) => (
+                                        <SocialButton
+                                            key={provider}
+                                            onClick={handleSocialSignup}
+                                            provider={provider}
+                                            data-provider={provider}
+                                            id={id}
+                                            type="button"
+                                            social
+                                        >
+                                            <img src={img} alt={provider} width="40" height="40" />
+                                        </SocialButton>
+                                    ))}
                                 </SocialWrapper>
                             </StyledFormWrapper>
                         </SignupFormWrapper>
@@ -426,14 +445,12 @@ const SignupPublic = ({
                             <QueryImage
                                 data={
                                     (is_row && data['deriv_platform']) ||
-                                    (is_eu && data['deriv_platform_eu']) ||
-                                    (is_uk && data['deriv_platform_uk'])
+                                    (is_eu && data['deriv_platform_eu'])
                                 }
-                                alt="DTrader platform black theme"
+                                alt="forex trading on mobile"
                                 width="225px"
                             />
                             <LinkFlex
-                                ai="center"
                                 external
                                 href={deriv_app_url}
                                 target="_blank"
@@ -442,7 +459,7 @@ const SignupPublic = ({
                                 <StyledHeader
                                     size="4rem"
                                     width="330px"
-                                    align="left"
+                                    align="start"
                                     color="grey-8"
                                     mr="1.2rem"
                                     ml="-4rem"
@@ -450,24 +467,23 @@ const SignupPublic = ({
                                 >
                                     {localize('Get a taste of the Deriv experience')}
                                 </StyledHeader>
-                                <img src={Arrow} alt="arrow desktop" />
+                                <ImageWithDireciton src={Arrow} alt="arrow desktop" />
                             </LinkFlex>
                         </BackgroundWrapper>
                     </Wrapper>
                 </Container>
-            </Show.Desktop>
-            <Show.Mobile>
+            </Desktop>
+            <Mobile>
                 <Container>
                     <MobileWrapper>
                         <MobileBackground>
-                            <MobilePlatform>
+                            <MobilePlatform is_rtl={is_rtl}>
                                 <QueryImage
                                     data={
                                         (is_row && data['deriv_platform']) ||
-                                        (is_eu && data['deriv_platform_eu']) ||
-                                        (is_uk && data['deriv_platform_uk'])
+                                        (is_eu && data['deriv_platform_eu'])
                                     }
-                                    alt="DTrader platform black theme"
+                                    alt="forex trading on mobile"
                                     width="100%"
                                 />
                             </MobilePlatform>
@@ -480,7 +496,12 @@ const SignupPublic = ({
                                 <Header size="4rem">
                                     {localize('Get a taste of the Deriv experience')}
                                 </Header>
-                                <img src={Arrow} alt="arrow mobile" width="32" height="33" />
+                                <ImageWithDireciton
+                                    src={Arrow}
+                                    alt="arrow mobile"
+                                    width="32"
+                                    height="33"
+                                />
                             </DerivExperience>
                         </MobileBackground>
                         <MobileSignupFormWrapper>
@@ -542,48 +563,31 @@ const SignupPublic = ({
                                         {localize('Or sign in with')}
                                     </MobileSignInText>
                                     <Flex>
-                                        <SocialButton
-                                            onClick={handleSocialSignup}
-                                            provider="google"
-                                            data-provider="google"
-                                            id="gtm-signup-google"
-                                            type="button"
-                                            social
-                                        >
-                                            <img src={Google} alt="google" width="40" height="40" />
-                                        </SocialButton>
-                                        <SocialButton
-                                            onClick={handleSocialSignup}
-                                            provider="facebook"
-                                            data-provider="facebook"
-                                            id="gtm-signup-facebook"
-                                            type="button"
-                                            social
-                                        >
-                                            <img
-                                                src={Facebook}
-                                                alt="facebook"
-                                                width="40"
-                                                height="40"
-                                            />
-                                        </SocialButton>
-                                        <SocialButton
-                                            onClick={handleSocialSignup}
-                                            provider="apple"
-                                            data-provider="apple"
-                                            id="gtm-signup-apple"
-                                            type="button"
-                                            social
-                                        >
-                                            <img src={Apple} alt="apple" width="40" height="40" />
-                                        </SocialButton>
+                                        {social_button_content.map(({ provider, id, img }) => (
+                                            <SocialButton
+                                                key={provider}
+                                                onClick={handleSocialSignup}
+                                                provider={provider}
+                                                data-provider={provider}
+                                                id={id}
+                                                type="button"
+                                                social
+                                            >
+                                                <img
+                                                    src={img}
+                                                    alt={provider}
+                                                    width="40"
+                                                    height="40"
+                                                />
+                                            </SocialButton>
+                                        ))}
                                     </Flex>
                                 </MobileSocialWrapper>
                             </div>
                         </MobileSignupFormWrapper>
                     </MobileWrapper>
                 </Container>
-            </Show.Mobile>
+            </Mobile>
         </StyledSectionContainer>
     )
 }

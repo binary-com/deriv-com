@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
@@ -6,12 +6,12 @@ import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
 type TradingType = {
-    title?: string
-    subtitle?: string
-    second_title?: string
-    second_subtitle?: string
+    title?: ReactElement | string
+    subtitle?: ReactElement | string
     image_name?: string
     image_alt?: string
+    second_title?: string
+    second_subtitle?: string
 }
 
 type DTradingProps = {
@@ -165,7 +165,14 @@ const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
                 {trading.map((item, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
-                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
+                        <Row
+                            flex_direction={!is_even ? 'row' : 'row-reverse'}
+                            key={
+                                typeof item.title === 'string'
+                                    ? item.title
+                                    : item.title.props.translate_text
+                            }
+                        >
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
                                 <StyledHeader type="page-title" as="h2">
                                     {item.title}

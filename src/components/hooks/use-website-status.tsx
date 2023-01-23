@@ -1,13 +1,14 @@
-import { useCookieState } from './use-cookie-state'
-import { getDateFromToday } from 'common/utility'
+import { useContext } from 'react'
+import { WebsiteStatusContext } from 'store/website-status-context'
 
-const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
-const COOKIE_EXPIRY_DAYS = 7
+const useWebsiteStatus = () => {
+    const website_status = useContext(WebsiteStatusContext)
 
-export const useWebsiteStatus = () => {
-    const [website_status, setWebsiteStatus] = useCookieState(null, WEBSITE_STATUS_COUNTRY_KEY, {
-        expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
-    })
+    if (!website_status) {
+        throw new Error('useWebsiteStatus must be used within WebsiteStatusContext')
+    }
 
-    return [website_status, setWebsiteStatus]
+    return website_status
 }
+
+export default useWebsiteStatus

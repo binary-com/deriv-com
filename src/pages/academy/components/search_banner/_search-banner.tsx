@@ -11,7 +11,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { slugify, isBrowser } from 'common/utility'
 import device from 'themes/device'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 type SearchBannerProps = {
@@ -80,18 +80,17 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [is_modal_opened, setModal] = useState(false)
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
     const [blog_post_url, setBlogPostURL] = useState(false)
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu } = useRegion()
 
     // Filter out restricted categories from the combined filter type array based on geolocation
     useEffect(() => {
         combined_filter_type.forEach((type) => {
             type.items = type.items.filter((obj) => {
                 if (is_eu) return obj.is_visible_eu
-                if (is_uk) return obj.is_visible_uk
                 return obj
             })
         })
-    }, [is_uk, is_eu])
+    }, [is_eu])
 
     useEffect(() => {
         const currentLocation = window.location.pathname.split('/').slice(0, 4).join('/') + '/'
@@ -110,7 +109,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         setModal(!is_modal_opened)
     }
 
-    const handleHref = (category) => {
+    const handleHref = (category: string) => {
         if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
             return `/academy/search?type=video&category=${encodeURIComponent(slugify(category))}`
         }
@@ -129,7 +128,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
             <MainWrapper
                 ref={topics_ref}
                 fd="column"
-                background={hidden}
+                has_background={hidden}
                 hide_box_shadow={blog_post_url}
             >
                 <SearchNav
@@ -190,7 +189,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                 <Header
                                                     as="h3"
                                                     type="paragraph-2"
-                                                    align="left"
+                                                    align="start"
                                                     color="grey-5"
                                                     p="8px"
                                                     mb="8px"

@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import { getLanguage, isChoosenLanguage } from '../../common/utility'
+import { getLanguage } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
-import Login from 'common/login'
+import Login, { TSocialProvider } from 'common/login'
 import validation from 'common/validation'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
@@ -14,10 +14,10 @@ import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useDerivWS } from 'store'
+import useDerivWS from 'components/hooks/use-deriv-ws'
 
 type SignupProps = {
-    appearance?: keyof typeof Appearances
+    appearance?: keyof typeof Appearances | string
     autofocus?: boolean
     bgColor?: string
     email?: string
@@ -29,6 +29,15 @@ type SignupProps = {
 type FormProps = {
     bgColor?: string
 }
+
+const EmailLink = styled(StyledLink)`
+    display: table;
+    font-size: 1.4rem;
+    margin-top: 1.8rem;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+`
 
 const Form = styled.form<FormProps>`
     height: 100%;
@@ -44,15 +53,6 @@ const ResponseWrapper = styled.div`
     margin: 0 auto;
     flex-direction: column;
     padding: 2rem 1rem;
-`
-
-const EmailLink = styled(StyledLink)`
-    display: table;
-    font-size: 1.4rem;
-    margin-top: 1.8rem;
-    text-decoration: underline;
-    width: 100%;
-    text-align: center;
 `
 
 const ConfirmationMessage = styled.div`
@@ -150,7 +150,7 @@ const Signup = (props: SignupProps) => {
             const success_default_link = `signup-success?email=${email}`
             const link_with_language = `${getLanguage()}/${success_default_link}`
             const success_link = `/${
-                isChoosenLanguage().english ? success_default_link : link_with_language
+                getLanguage() === 'en' ? success_default_link : link_with_language
             }`
             navigate(success_link, { replace: true })
         }
@@ -163,7 +163,7 @@ const Signup = (props: SignupProps) => {
     const handleSocialSignup = (e) => {
         e.preventDefault()
 
-        const data_provider = e.currentTarget.getAttribute('data-provider')
+        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
         Login.initOneAll(data_provider)
     }
 

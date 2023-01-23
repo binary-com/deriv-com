@@ -9,11 +9,11 @@ import MaximizePotentialProfit from 'images/svg/trade-types/maximize-potential-p
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { Button } from 'components/form'
-import { DerivStore, DerivStoreType } from 'store'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import useRegion from 'components/hooks/use-region'
 
 const WhyTradeMargin = () => {
-    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
+    const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
 
     return (
@@ -25,22 +25,22 @@ const WhyTradeMargin = () => {
                     </Header>
                     <Grid>
                         <WhyTradeItem>
-                            <img src={HighLeverge} alt="" />
+                            <img src={HighLeverge} alt="High leverage, low spreads" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('High leverage, low spreads')}
                             </Text>
                             <Text mb="4rem">
-                                {is_eu_country
+                                {is_eu
                                     ? localize(
-                                          'Take advantage of high leverage and low spreads on Deriv MT5 (DMT5).',
+                                          'Take advantage of high leverage and low spreads on Deriv MT5.',
                                       )
                                     : localize(
-                                          'Take advantage of high leverage and low spreads on Deriv MT5 (DMT5) and Deriv X.',
+                                          'Take advantage of high leverage and low spreads on Deriv MT5 and Deriv X.',
                                       )}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
-                            <img src={SyntheticIndices} alt="" />
+                            <img src={SyntheticIndices} alt="Synthetic Indices" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('All favourite markets available')}
                             </Text>
@@ -51,7 +51,7 @@ const WhyTradeMargin = () => {
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
-                            <img src={MaximizePotentialProfit} alt="" />
+                            <img src={MaximizePotentialProfit} alt="Maximize Potential Profit" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Go long and short')}
                             </Text>
@@ -62,7 +62,7 @@ const WhyTradeMargin = () => {
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
-                            <img src={FriendlySupport} alt="" />
+                            <img src={FriendlySupport} alt="Friendly Support" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Expert and friendly support')}
                             </Text>
@@ -71,7 +71,7 @@ const WhyTradeMargin = () => {
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
-                            <img src={InstantAccess} alt="" />
+                            <img src={InstantAccess} alt="Instant access" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Instant access')}
                             </Text>
@@ -80,7 +80,7 @@ const WhyTradeMargin = () => {
                             </Text>
                         </WhyTradeItem>
                     </Grid>
-                    <Text align="left" width="100%" weight="bold">
+                    <Text align="start" width="100%" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
                     <Button onClick={handleSignup} id="dm-cfd-signup" mt="1.6rem" secondary>

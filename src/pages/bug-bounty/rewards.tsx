@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, LocalizedLinkText } from 'components/elements'
+import { Header, ImageWithDireciton, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // icons
@@ -61,6 +61,7 @@ const card_content = [
         sub_title_2: localize('Up to $5,000'),
         title_3: localize('Edge business'),
         sub_title_3: localize('Up to $2,500'),
+        alt: 'Critical impact',
     },
     {
         icon: HighIcon,
@@ -71,6 +72,7 @@ const card_content = [
         sub_title_2: localize('Up to $2,500'),
         title_3: localize('Edge business'),
         sub_title_3: localize('Up to $1,000'),
+        alt: 'High impact',
     },
     {
         icon: MediumIcon,
@@ -81,6 +83,7 @@ const card_content = [
         sub_title_2: localize('Up to $250'),
         title_3: localize('Edge business'),
         sub_title_3: localize('Up to $100'),
+        alt: 'Medium impact',
     },
     {
         icon: LowIcon,
@@ -92,6 +95,7 @@ const card_content = [
             />
         ),
         type: 'short',
+        alt: 'Low impact',
     },
 ]
 
@@ -116,7 +120,7 @@ const Rewards = () => {
                         {card_content.map((item, idx) => {
                             return (
                                 <Card key={idx}>
-                                    <img src={item.icon} />
+                                    <img src={item.icon} alt={item.alt} />
                                     <Header
                                         as="h3"
                                         mt="8px"
@@ -181,7 +185,7 @@ const Rewards = () => {
                             />,
                         ]}
                     />
-                    <img src={Arrow} alt="arrow" width="16" height="16" />
+                    <ImageWithDireciton src={Arrow} alt="arrow" width="16" height="16" />
                 </Flex>
             </Container>
         </StyledSectionContainer>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import CareerContainer from '../_layout-components/_career_container'
 import { LocationsType } from '../_model/_locations/_locations.types'
 import { Iframe, Pin } from './_location-layout'
@@ -41,7 +42,7 @@ const SecondStyledHeader = styled(Header)`
 
 type HeroProps = {
     display_name: string
-    img_data: string
+    img_data: ImageDataLike
     img_alt: string
     job_location?: string
 }
@@ -57,7 +58,9 @@ const Hero = ({ display_name, img_data, img_alt, job_location }: HeroProps) => {
                     to={zoho_jobs_url + job_location}
                     rel="noopener noreferrer"
                 >
-                    View open positions in {display_name === 'Vanuatu' ? 'Port Vila' : display_name}
+                    {`View open positions in ${
+                        display_name === 'Vanuatu' ? 'Port Vila' : display_name
+                    }`}
                 </LinkButton>
             </StyledContainer>
         </StyledBackground>
@@ -105,7 +108,7 @@ const FirstSection = styled(SectionContainer)`
             font-size: 16px;
         }
         @media ${device.mobileL} {
-            text-align: left;
+            text-align: start;
         }
     }
 `
@@ -213,10 +216,10 @@ const WorkingQueryImage = styled(QueryImage)`
 `
 
 type LocationLayoutProps = {
-    display_name: string
+    display_name?: string
     display_title_name?: string
     location: LocationsType
-    images: LocationsType
+    images: ImageDataLike
 }
 
 export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => {
@@ -264,7 +267,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
 
                             <WorkingInformation p="3.2rem 6rem" direction="column">
                                 <StyledDiv>
-                                    <Header as="h3" type="subtitle-1" color="black-6">
+                                    <Header as="h3" type="subtitle-2" color="black-6">
                                         {`Working at Deriv ${map_office_name}`}
                                     </Header>
                                     <CardText color="black-6">{location.map_text}</CardText>
@@ -287,7 +290,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                         <WorkingFlex jc="cover">
                             <WorkingQueryImage
                                 data={images[location.grid_images[2]]}
-                                alt={location.grid_img_alt}
+                                alt={location.grid_img_alt[2]}
                                 width="100%"
                                 height="100%"
                             />

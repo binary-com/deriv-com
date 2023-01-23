@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Formik, Field } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import {
     getSwapChargeSynthetic,
@@ -42,20 +41,21 @@ import {
     SwapFormWrapper,
     SwapTabSelector,
 } from '../common/_style'
+import { SwapSyntheticExample, SwapFinancialExample } from './_example-calc'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
     Dropdown,
     Header,
+    ImageWithDireciton,
     LocalizedLinkText,
-    QueryImage,
     Text,
 } from 'components/elements'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { useDerivApi } from 'components/hooks/use-deriv-api'
+import useWS from 'components/hooks/useWS'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]
@@ -185,68 +185,23 @@ const StyledInputGroup = styled(InputGroup)`
 `
 
 const SwapCalculator = () => {
-    const query = graphql`
-        query {
-            swap_synthetic_formula: file(
-                relativePath: { eq: "trade-tools/swap-synthetic-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            swap_forex_formula: file(relativePath: { eq: "trade-tools/swap-forex-formula.png" }) {
-                ...fadeIn
-            }
-            swap_synthetic_formula_mobile: file(
-                relativePath: { eq: "trade-tools/swap-synthetic-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            swap_forex_formula_mobile: file(
-                relativePath: { eq: "trade-tools/swap-forex-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-    const data = useStaticQuery(query)
-
     const [tab, setTab] = useState('Synthetic')
-    const [activeSymbols, setActiveSymbols] = useState([])
-    const [disableDropdown, setDisableDropdown] = useState(true)
-    const [symbolSpotPrice, setSymbolSpotPrice] = useState({})
+    const { data, is_loading, send } = useWS('active_symbols')
 
     const onTabClick = (t) => {
         setTab(t)
     }
-    const deriv_api = useDerivApi()
 
     useEffect(() => {
-        const { send } = deriv_api
-        send({ active_symbols: 'full' }, (response) => {
-            if (!response.error && response.active_symbols.length > 0) {
-                const data = response.active_symbols
-                setActiveSymbols(data)
-                setDisableDropdown(false)
-            }
-        })
-    }, [])
-
-    useEffect(() => {
-        const tempSpotPrice = {}
-        if (activeSymbols.length < 1) {
-            return
-        }
-        activeSymbols.forEach((item) => {
-            tempSpotPrice[item.symbol] = item.spot
-        })
-        setSymbolSpotPrice(tempSpotPrice)
-    }, [activeSymbols])
+        send({ active_symbols: 'full' })
+    }, [send])
 
     const fetchTickData = useCallback(
         (selectedSymbol, setAssetPrice) => {
-            const price = symbolSpotPrice[selectedSymbol]
-            setAssetPrice('assetPrice', price)
+            const selected = data?.find((item) => item.symbol === selectedSymbol)
+            if (selected) setAssetPrice('assetPrice', selected.spot)
         },
-        [symbolSpotPrice],
+        [data],
     )
 
     return (
@@ -256,7 +211,7 @@ const SwapCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -269,7 +224,7 @@ const SwapCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5 (DMT5).',
+                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5.',
                     )}
                 </SectionSubtitle>
 
@@ -368,7 +323,7 @@ const SwapCalculator = () => {
                                                     contractSize={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
-                                                    disabled={disableDropdown}
+                                                    disabled={is_loading}
                                                 />
 
                                                 <InputGroup>
@@ -486,18 +441,12 @@ const SwapCalculator = () => {
                                             )}
                                         </Text>
 
-                                        <Show.Desktop>
-                                            <QueryImage
-                                                data={data.swap_synthetic_formula}
-                                                alt={localize('swap synthetic formula')}
-                                            />
-                                        </Show.Desktop>
-                                        <Show.Mobile>
-                                            <QueryImage
-                                                data={data.swap_synthetic_formula_mobile}
-                                                alt={localize('swap synthetic formula mobile')}
-                                            />
-                                        </Show.Mobile>
+                                        <Desktop>
+                                            <SwapSyntheticExample />
+                                        </Desktop>
+                                        <Mobile>
+                                            <SwapSyntheticExample />
+                                        </Mobile>
                                         <FormulaText>
                                             <StyledOl>
                                                 <li>
@@ -737,18 +686,12 @@ const SwapCalculator = () => {
                                             )}
                                         </Text>
 
-                                        <Show.Desktop>
-                                            <QueryImage
-                                                data={data.swap_forex_formula}
-                                                alt={localize('Swap forex formula')}
-                                            />
-                                        </Show.Desktop>
-                                        <Show.Mobile>
-                                            <QueryImage
-                                                data={data.swap_forex_formula_mobile}
-                                                alt={localize('Swap forex formula mobile')}
-                                            />
-                                        </Show.Mobile>
+                                        <Desktop>
+                                            <SwapFinancialExample />
+                                        </Desktop>
+                                        <Mobile>
+                                            <SwapFinancialExample />
+                                        </Mobile>
                                         <FormulaText>
                                             <StyledOl>
                                                 <li>

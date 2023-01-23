@@ -1,6 +1,7 @@
+// TODO: Should do error handling for when the request was not successful and give the user
+// ability to refetch the dropdown list again.
 import React, { useCallback, useEffect, useState } from 'react'
 import { Formik, Field } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import {
     getMargin,
     numberSubmitFormat,
@@ -38,80 +39,58 @@ import {
     StyledLinkButton,
     StyledOl,
     StyledSection,
+    FormulaContainer,
+    FormulaHighlight,
+    FormulaValue,
+    StyledSpan,
+    FormulaValueSwapSyntheticMobile,
+    FormulaGreen,
+    PointerContainer,
+    PointerDot,
+    PointerStick,
+    PointerText,
+    FormulaContainerMobile,
+    FormulaHighlightMobile,
+    FormulaValueMobile,
+    PointerContainerMobile,
+    PointerStickMobile,
+    PointerDotMobile,
+    PointerTextMobile,
 } from '../common/_style'
 import { localize, Localize } from 'components/localization'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import {
     Accordion,
     AccordionItem,
     Dropdown,
     DropdownSearch,
     Header,
+    ImageWithDireciton,
     LocalizedLinkText,
-    QueryImage,
     Text,
 } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { useDerivApi } from 'components/hooks/use-deriv-api'
+import useWS from 'components/hooks/useWS'
 
 const MarginCalculator = () => {
-    const query = graphql`
-        query {
-            margin_formula: file(relativePath: { eq: "trade-tools/margin-formula.png" }) {
-                ...fadeIn
-            }
-            margin_info: file(relativePath: { eq: "trade-tools/margin-info.png" }) {
-                ...fadeIn
-            }
-            margin_formula_mobile: file(
-                relativePath: { eq: "trade-tools/margin-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-    const data = useStaticQuery(query)
-
+    const { data, is_loading, send } = useWS('active_symbols')
     const [tab, setTab] = useState('Synthetic')
-    const [activeSymbols, setActiveSymbols] = useState([])
-    const [disableDropdown, setDisableDropdown] = useState(true)
-    const [symbolSpotPrice, setSymbolSpotPrice] = useState({})
 
     const onTabClick = (t) => {
         setTab(t)
     }
-    const deriv_api = useDerivApi()
 
     useEffect(() => {
-        const { send } = deriv_api
-        send({ active_symbols: 'full' }, (response) => {
-            if (!response.error && response.active_symbols.length > 0) {
-                const data = response.active_symbols
-                setActiveSymbols(data)
-                setDisableDropdown(false)
-            }
-        })
-    }, [])
+        send({ active_symbols: 'full' })
+    }, [send])
 
-    useEffect(() => {
-        const tempSpotPrice = {}
-
-        if (activeSymbols.length < 1) {
-            return
-        }
-        activeSymbols.forEach((item) => {
-            tempSpotPrice[item.symbol] = item.spot
-        })
-
-        setSymbolSpotPrice(tempSpotPrice)
-    }, [activeSymbols])
     const fetchTickData = useCallback(
         (selectedSymbol, setAssetPrice) => {
-            const price = symbolSpotPrice[selectedSymbol]
-            setAssetPrice('assetPrice', price)
+            const selected = data?.find((item) => item.symbol === selectedSymbol)
+            if (selected) setAssetPrice('assetPrice', selected.spot)
         },
-        [symbolSpotPrice],
+        [data],
     )
 
     return (
@@ -121,7 +100,7 @@ const MarginCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -134,7 +113,7 @@ const MarginCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5 (DMT5).',
+                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5.',
                     )}
                 </SectionSubtitle>
                 <ContentContainer mt="8rem" mb="4rem">
@@ -249,7 +228,7 @@ const MarginCalculator = () => {
                                                 }}
                                                 selected_item={values.symbol}
                                                 onBlur={handleBlur}
-                                                disabled={disableDropdown}
+                                                disabled={is_loading}
                                             />
                                             <InputGroup>
                                                 <Field
@@ -357,7 +336,7 @@ const MarginCalculator = () => {
                             {localize('How to calculate margin')}
                         </Header>
                         <Text>
-                            <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
+                            <Localize translate_text="The margin required for a contract on Deriv MT5 is calculated based on the formula:" />
                         </Text>
                         <Text mb="1.6rem">
                             <Localize
@@ -388,18 +367,166 @@ const MarginCalculator = () => {
                                         'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
                                     )}
                                 </Text>
-                                <Show.Desktop>
-                                    <QueryImage
-                                        data={data.margin_formula}
-                                        alt={localize('Margin formula')}
-                                    />
-                                </Show.Desktop>
-                                <Show.Mobile>
-                                    <QueryImage
-                                        data={data.margin_formula_mobile}
-                                        alt={localize('Margin formula mobile')}
-                                    />
-                                </Show.Mobile>
+                                <Desktop>
+                                    <FormulaContainer pt="50px" height="170px">
+                                        <FormulaHighlight pl="87px" pr="87px" jc="space-evenly">
+                                            <FormulaValue>
+                                                <Localize translate_text="( 2" />
+                                                <PointerContainer>
+                                                    <PointerDot />
+                                                    <PointerStick height="32px" />
+                                                    <PointerText>
+                                                        <Localize translate_text="Volume" />
+                                                    </PointerText>
+                                                </PointerContainer>
+                                            </FormulaValue>
+
+                                            <FormulaValue>
+                                                <FormulaGreen> x </FormulaGreen>
+                                            </FormulaValue>
+
+                                            <FormulaValue>
+                                                <Localize translate_text="100,000" />
+                                                <PointerContainer width="100px" ml="-25px" top>
+                                                    <PointerDot />
+                                                    <PointerStick height="32px" />
+                                                    <PointerText top>
+                                                        <Localize translate_text="Contract size" />
+                                                        <StyledSpan> 1</StyledSpan>
+                                                    </PointerText>
+                                                </PointerContainer>
+                                            </FormulaValue>
+
+                                            <FormulaValue>
+                                                <FormulaGreen>x</FormulaGreen>
+                                            </FormulaValue>
+
+                                            <FormulaValue>
+                                                <Localize translate_text="1.10 )" />
+                                                <PointerContainer width="100px" ml="-20px">
+                                                    <PointerDot />
+                                                    <PointerStick height="32px" />
+                                                    <PointerText>
+                                                        <Localize translate_text="Asset price" />
+                                                    </PointerText>
+                                                </PointerContainer>
+                                            </FormulaValue>
+
+                                            <FormulaValue>
+                                                <FormulaGreen>&divide; </FormulaGreen>
+                                            </FormulaValue>
+
+                                            <FormulaValue>
+                                                <Localize translate_text="100" />
+                                                <PointerContainer ml="-10px" top>
+                                                    <PointerDot />
+                                                    <PointerStick height="32px" />
+                                                    <PointerText>
+                                                        <Localize translate_text="Leverage" />
+                                                    </PointerText>
+                                                </PointerContainer>
+                                            </FormulaValue>
+
+                                            <FormulaValue>
+                                                <FormulaGreen>=</FormulaGreen>
+                                            </FormulaValue>
+
+                                            <FormulaValue>
+                                                <Localize
+                                                    translate_text="<0>2,200</0>"
+                                                    components={[<FormulaGreen key={0} />]}
+                                                />
+                                                <PointerContainer ml="-30px" width="100px">
+                                                    <PointerDot />
+                                                    <PointerStick height="32px" />
+                                                    <PointerText>
+                                                        <Localize translate_text="Margin required" />
+                                                    </PointerText>
+                                                </PointerContainer>
+                                            </FormulaValue>
+                                        </FormulaHighlight>
+                                    </FormulaContainer>
+                                </Desktop>
+                                <Mobile>
+                                    <FormulaContainerMobile>
+                                        <FormulaHighlightMobile jc="space-evenly">
+                                            <FormulaValueMobile>
+                                                <Localize translate_text="( 2" />
+                                                <PointerContainerMobile>
+                                                    <PointerDotMobile />
+                                                    <PointerStickMobile />
+                                                    <PointerTextMobile>
+                                                        <Localize translate_text="Volume" />
+                                                    </PointerTextMobile>
+                                                </PointerContainerMobile>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueSwapSyntheticMobile>
+                                                <FormulaGreen> x </FormulaGreen>
+                                            </FormulaValueSwapSyntheticMobile>
+
+                                            <FormulaValueMobile>
+                                                <Localize translate_text="100,000" />
+                                                <PointerContainerMobile top ml="-20px" mw="0">
+                                                    <PointerDotMobile />
+                                                    <PointerStickMobile />
+                                                    <PointerTextMobile top>
+                                                        <Localize translate_text="Contract size" />
+                                                        <StyledSpan> 1</StyledSpan>
+                                                    </PointerTextMobile>
+                                                </PointerContainerMobile>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueSwapSyntheticMobile>
+                                                <FormulaGreen>x</FormulaGreen>
+                                            </FormulaValueSwapSyntheticMobile>
+
+                                            <FormulaValueMobile>
+                                                <Localize translate_text="1.10 )" />
+                                                <PointerContainerMobile ml="-20px" mw="0">
+                                                    <PointerDotMobile />
+                                                    <PointerStickMobile />
+                                                    <PointerTextMobile>
+                                                        <Localize translate_text="Asset price" />
+                                                    </PointerTextMobile>
+                                                </PointerContainerMobile>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueMobile>
+                                                <FormulaGreen>&divide; </FormulaGreen>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueMobile>
+                                                <Localize translate_text="100" />
+                                                <PointerContainerMobile top ml="4px">
+                                                    <PointerDotMobile />
+                                                    <PointerStickMobile />
+                                                    <PointerTextMobile top>
+                                                        <Localize translate_text="Leverage" />
+                                                    </PointerTextMobile>
+                                                </PointerContainerMobile>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueSwapSyntheticMobile>
+                                                <FormulaGreen>=</FormulaGreen>
+                                            </FormulaValueSwapSyntheticMobile>
+
+                                            <FormulaValueMobile>
+                                                <Localize
+                                                    translate_text="<0>2,200</0>"
+                                                    components={[<FormulaGreen key={0} />]}
+                                                />
+                                                <PointerContainerMobile mw="0" ml="-20px">
+                                                    <PointerDotMobile />
+                                                    <PointerStickMobile />
+                                                    <PointerTextMobile ml="-25px">
+                                                        <Localize translate_text="Margin required" />
+                                                    </PointerTextMobile>
+                                                </PointerContainerMobile>
+                                            </FormulaValueMobile>
+                                        </FormulaHighlightMobile>
+                                    </FormulaContainerMobile>
+                                </Mobile>
                                 <FormulaText>
                                     <StyledOl>
                                         <li>

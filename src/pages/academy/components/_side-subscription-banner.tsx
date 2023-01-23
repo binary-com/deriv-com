@@ -9,10 +9,9 @@ import { Button } from 'components/form'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 import EmailSubscriptionSVG from 'images/svg/blog/articles/blog-article-email-subscription.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const SubscribeBannerWrapper = styled(Flex)`
     max-width: 282px;
@@ -128,8 +127,7 @@ const SideSubscriptionBanner = () => {
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
-    const { user_country } = React.useContext(DerivStore)
-    const { is_eu } = useCountryRule()
+    const { user_country, is_eu } = useRegion()
 
     useEffect(() => {
         if (!window._cio) {
@@ -274,7 +272,7 @@ const SideSubscriptionBanner = () => {
 
                         {name_error_msg && (
                             <>
-                                <ErrorMessages lh="1.4" align="left">
+                                <ErrorMessages lh="1.4" align="start">
                                     {name_error_msg}
                                 </ErrorMessages>
 
@@ -302,7 +300,7 @@ const SideSubscriptionBanner = () => {
                         />
                         {email_error_msg && (
                             <>
-                                <ErrorMessages lh="1.4" align="left">
+                                <ErrorMessages lh="1.4" align="start">
                                     {email_error_msg}
                                 </ErrorMessages>
 
@@ -358,16 +356,12 @@ const SideSubscriptionBanner = () => {
                 </Flex>
 
                 {submit_status === 'success' && (
-                    <TextWrapper
-                        color={'var(--color-green)'}
-                        font_size={'12px'}
-                        margin_top={'10px'}
-                    >
+                    <TextWrapper color="var(--color-green)" size="12px" mt="10px">
                         <Localize translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox" />
                     </TextWrapper>
                 )}
                 {submit_status === false && (
-                    <TextWrapper color={'var(--color-red)'} font_size={'12px'} margin_top={'10px'}>
+                    <TextWrapper color="var(--color-red)" size="12px" mt="10px">
                         <Localize translate_text="If you have AdBlock installed, please disable it in order to subscribe" />
                     </TextWrapper>
                 )}

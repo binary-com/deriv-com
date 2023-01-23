@@ -30,7 +30,7 @@ const WhatAreOptions = () => {
                     <Header as="h3" type="section-title" mb="0.8rem">
                         {localize('Options available on Deriv')}
                     </Header>
-                    <Text align="left" mb="0.8rem">
+                    <Text align="start" mb="0.8rem">
                         {localize('You can trade the following options on Deriv:')}
                     </Text>
                     <Ul>
@@ -69,7 +69,7 @@ const WhatAreOptions = () => {
                     <Grid>
                         <WhyTradeItem>
                             <div>
-                                <img src={FixedPayout} alt="" />
+                                <img src={FixedPayout} alt="Graph" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Fixed, predictable payout')}
@@ -82,7 +82,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FavoriteMarket} alt="" />
+                                <img src={FavoriteMarket} alt="Trade on markets" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('All favourite markets and more')}
@@ -95,7 +95,10 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={InstantAccess} alt="" />
+                                <img
+                                    src={InstantAccess}
+                                    alt="Immediate access to trading account"
+                                />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Instant access')}
@@ -104,7 +107,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FriendlySupport} alt="" />
+                                <img src={FriendlySupport} alt="Customer support" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('User-friendly platforms with powerful chart widgets')}
@@ -117,7 +120,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FlexibleTrade} alt="" />
+                                <img src={FlexibleTrade} alt="Currency" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Flexible trade types with minimal capital requirements')}

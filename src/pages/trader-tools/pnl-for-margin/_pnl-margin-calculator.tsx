@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useState, useRef } from 'react'
 import { Field, Formik } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import {
     getContractSize,
     getCurrency,
@@ -43,67 +42,22 @@ import {
     StyledSection,
     SwapTabSelector,
 } from '../common/_style'
-import { Desktop, Mobile } from 'components/containers/visibility'
+import { StopLoss, PipValue, TakeProfitLevel, ProfitPipValue } from './_example-pnl-margin'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
     Header,
+    ImageWithDireciton,
     LocalizedLinkText,
-    QueryImage,
     Text,
 } from 'components/elements'
+import { Desktop, Mobile } from 'components/containers/visibility'
 import { Flex } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const PnlMarginCalculator = () => {
-    const query = graphql`
-        query {
-            stop_loss_level_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_level_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_pip_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-pip-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_pip_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-pip-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_level_formula: file(
-                relativePath: { eq: "trade-tools/take-profit-level-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_level_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-level-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_pip_formula: file(
-                relativePath: { eq: "trade-tools/take-profit-pip-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_pip_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-pip-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-
-    const data = useStaticQuery(query)
     const formik_ref = useRef(null)
     const form = formik_ref.current
 
@@ -154,7 +108,7 @@ const PnlMarginCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -309,15 +263,14 @@ const PnlMarginCalculator = () => {
                                     current_input.focus()
                                 }
 
-                                const AssetPriceInput = ({ field }: { field: React.ReactNode }) => (
+                                const AssetPriceInput = () => (
                                     <Input
-                                        {...field}
                                         id="assetPrice"
                                         type="text"
                                         value={values.assetPrice}
                                         label={localize('Open price of asset')}
                                         autoComplete="off"
-                                        error={touched.assetPrice && errors.assetPrice}
+                                        error={touched.assetPrice && errors.assetPrice.toString()}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -331,19 +284,17 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const StopLossAmountInput = ({
-                                    field,
-                                }: {
-                                    field: React.ReactNode
-                                }) => (
+                                const StopLossAmountInput = () => (
                                     <Input
-                                        {...field}
                                         id="assetPrice"
                                         type="text"
                                         value={values.stopLossAmount}
                                         label={localize('Stop loss amount')}
                                         autoComplete="off"
-                                        error={touched.stopLossAmount && errors.stopLossAmount}
+                                        error={
+                                            touched.stopLossAmount &&
+                                            errors.stopLossAmount.toString()
+                                        }
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={stopLossErrorHandler}
@@ -352,14 +303,13 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const PointValueInput = ({ field }: { field: React.ReactNode }) => (
+                                const PointValueInput = () => (
                                     <Input
-                                        {...field}
                                         id="pointValue"
                                         type="text"
                                         label={localize('Point value')}
                                         autoComplete="off"
-                                        error={touched.pointValue && errors.pointValue}
+                                        error={touched.pointValue && errors.pointValue.toString()}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -381,18 +331,16 @@ const PnlMarginCalculator = () => {
                                     setFieldValue('stopLossAmount', value)
                                 }
 
-                                const TakeProfitAmountInput = ({
-                                    field,
-                                }: {
-                                    field: React.ReactNode
-                                }) => (
+                                const TakeProfitAmountInput = () => (
                                     <Input
-                                        {...field}
                                         id="takeProfitAmount"
                                         type="text"
                                         label={localize('Take profit amount')}
                                         autoComplete="off"
-                                        error={touched.takeProfitAmount && errors.takeProfitAmount}
+                                        error={
+                                            touched.takeProfitAmount &&
+                                            errors.takeProfitAmount.toString()
+                                        }
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={takeProfitErrorHanlder}
@@ -877,7 +825,7 @@ const PnlMarginCalculator = () => {
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 (DMT5) is calculated based on the formula:',
+                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
@@ -928,16 +876,10 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Desktop breakpoint={'tablet'}>
-                                        <QueryImage
-                                            data={data.stop_loss_level_formula}
-                                            alt={localize('stop loss level formula')}
-                                        />
+                                        <StopLoss />
                                     </Desktop>
                                     <Mobile>
-                                        <QueryImage
-                                            data={data.stop_loss_level_formula_mobile}
-                                            alt={localize('stop loss level formula')}
-                                        />
+                                        <StopLoss />
                                     </Mobile>
                                     <FormulaText>
                                         <StyledOl>
@@ -956,16 +898,10 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Desktop breakpoint={'tablet'}>
-                                        <QueryImage
-                                            data={data.stop_loss_pip_formula}
-                                            alt={localize('stop loss pip formula')}
-                                        />
+                                        <PipValue />
                                     </Desktop>
                                     <Mobile>
-                                        <QueryImage
-                                            data={data.stop_loss_pip_formula_mobile}
-                                            alt={localize('stop loss pip formula')}
-                                        />
+                                        <PipValue />
                                     </Mobile>
                                     <FormulaText>
                                         <StyledOl>
@@ -1012,7 +948,7 @@ const PnlMarginCalculator = () => {
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level and pip value when selling a contract on Deriv MT5 (DMT5) is calculated based on the formula:',
+                                    'The stop loss and/or take profit level and pip value when selling a contract on Deriv MT5 is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
@@ -1063,17 +999,12 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Desktop breakpoint={'tablet'}>
-                                        <QueryImage
-                                            data={data.take_profit_level_formula}
-                                            alt={localize('take profit level formula')}
-                                        />
+                                        <TakeProfitLevel />
                                     </Desktop>
                                     <Mobile>
-                                        <QueryImage
-                                            data={data.take_profit_level_formula_mobile}
-                                            alt={localize('take profit level formula')}
-                                        />
+                                        <TakeProfitLevel />
                                     </Mobile>
+
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1091,16 +1022,10 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Desktop breakpoint={'tablet'}>
-                                        <QueryImage
-                                            data={data.take_profit_pip_formula}
-                                            alt={localize('take profit pip formula')}
-                                        />
+                                        <ProfitPipValue />
                                     </Desktop>
                                     <Mobile>
-                                        <QueryImage
-                                            data={data.take_profit_pip_formula_mobile}
-                                            alt={localize('take profit pip formula')}
-                                        />
+                                        <ProfitPipValue />
                                     </Mobile>
                                     <FormulaText>
                                         <StyledOl>

@@ -5,7 +5,7 @@ import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const ContentWrapper = styled(Flex)`
     justify-content: center;
@@ -81,7 +81,7 @@ const StyledSubHeader = styled(Header)`
 `
 
 const TradingLimits = () => {
-    const { is_non_eu, is_eu } = useCountryRule()
+    const { is_non_eu, is_eu } = useRegion()
     return (
         <Flex tablet_direction="column">
             <Flex height="auto">
@@ -243,24 +243,6 @@ const TradingLimits = () => {
                                     />
                                 </Text>
                             )}
-                        </div>
-                        <div>
-                            {/* <Show.Eu>
-                            </NonEU>
-                            {/* <EU>
-                                <Text mt="1.4rem">
-                                    <Localize
-                                        translate_text="You may <0>contact us</0> to set or adjust your self-exclusion or trading limits."
-                                        components={[
-                                            <LocalizedLinkText
-                                                to="/contact_us/"
-                                                color="red"
-                                                key={0}
-                                            />,
-                                        ]}
-                                    />
-                                </Text>
-                            </EU> */}
                         </div>
                     </StyledContainer>
                 </ContentWrapperRight>

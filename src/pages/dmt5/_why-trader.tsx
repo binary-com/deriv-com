@@ -8,13 +8,13 @@ import { localize, Localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type CardContentType = {
     header: React.ReactElement
     text: React.ReactElement
     image: string
     key: number
+    image_alt: string
 }
 
 const card_content: CardContentType[] = [
@@ -25,6 +25,7 @@ const card_content: CardContentType[] = [
         ),
         image: DemoSignUP,
         key: 0,
+        image_alt: 'quick demo account sign-up',
     },
     {
         header: <Localize translate_text="Multiple assets on a single platform" />,
@@ -33,6 +34,7 @@ const card_content: CardContentType[] = [
         ),
         image: MultipleAssets,
         key: 1,
+        image_alt: 'synthetic indices',
     },
     {
         header: <Localize translate_text="24/7 trading" />,
@@ -41,6 +43,7 @@ const card_content: CardContentType[] = [
         ),
         image: TwentyFourSeven,
         key: 2,
+        image_alt: '24/7 trading',
     },
     {
         header: <Localize translate_text="Licensed and regulated" />,
@@ -49,6 +52,7 @@ const card_content: CardContentType[] = [
         ),
         image: LicensedAndRegulated,
         key: 3,
+        image_alt: 'licensed and regulated',
     },
 ]
 
@@ -129,8 +133,6 @@ const StyledText = styled(Text)`
     }
 `
 const WhyTrader = () => {
-    const { is_eu, is_uk } = useCountryRule()
-
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
@@ -151,13 +153,7 @@ const WhyTrader = () => {
                             >
                                 {card.header}
                             </StyledCardHeader>
-                            {card.key == 1 && is_uk ? (
-                                <StyledText>
-                                    <Localize translate_text="Trade forex, stocks, stock indices, and commodities in one place." />
-                                </StyledText>
-                            ) : (
-                                <StyledText>{card.text}</StyledText>
-                            )}
+                            <StyledText>{card.text}</StyledText>
                         </Card>
                     )
                 })}

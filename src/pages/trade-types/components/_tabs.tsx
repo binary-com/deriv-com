@@ -1,22 +1,41 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactNode, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
-import device from 'themes/device'
+import device, { SizeType } from 'themes/device'
 import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
+
+type ChildProps = {
+    label?: JSX.Element
+    description?: JSX.Element
+}
+
+type TabButtonType = {
+    selected: boolean
+}
+
+type TabListType = {
+    is_reverse: boolean
+}
+
+type TabPanelProps = ChildProps & {
+    className?: string
+    children?: ReactNode[] | ReactNode
+}
+
+type TabsProps = {
+    className?: string
+    has_notice?: boolean
+    is_reverse?: boolean
+    max_width?: SizeType
+    tab_break?: string
+    children?: ReactElement | ReactElement[]
+}
 
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
 `
-// const Mobile = styled(Show.Mobile)`
-
-// `
-
-type TabButtonType = {
-    selected: boolean
-}
 
 const TabButton = styled.div<TabButtonType>`
     position: relative;
@@ -41,9 +60,6 @@ const TabButton = styled.div<TabButtonType>`
         margin-bottom: 0;
     }
 `
-type TabListType = {
-    is_reverse: boolean
-}
 
 const right = css`
     margin-right: 2.4rem;
@@ -73,12 +89,12 @@ const Content = styled.div`
     width: 100%;
 `
 
-const Desktop = styled(Show.Desktop)`
+const DesktopWrapper = styled(Desktop)`
     flex: 1;
     width: 100%;
 `
 
-const Mobile = styled(Show.Mobile)`
+const MobileWrapper = styled(Mobile)`
     @media ${device.tabletS} {
         margin-top: 1.6rem;
         margin-bottom: 2.3rem;
@@ -127,20 +143,20 @@ const StyledText = styled(Text)`
     }
 `
 
-const TabPanel = ({ children, className }) => (
+const TabPanel = ({ children, className }: TabPanelProps) => (
     <TabContent className={className} role="tabpanel" tabIndex={0}>
         {children}
     </TabContent>
 )
 
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    description: PropTypes.node,
-    label: PropTypes.node,
-}
-
-const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_content }) => {
+const Tabs = <T extends object>({
+    children,
+    is_reverse,
+    className,
+    max_width,
+    has_notice,
+    notice_content,
+}: TabsProps & { notice_content?: T }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)
@@ -170,12 +186,12 @@ const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_c
                                         {description}
                                     </Text>
                                 </TabButton>
-                                <Mobile
+                                <MobileWrapper
                                     className="side-tab__mobile"
-                                    min_width={max_width || 'tabletS'}
+                                    breakpoint={max_width || 'tabletS'}
                                 >
                                     <Content>{selected_tab === index ? child : undefined}</Content>
-                                </Mobile>
+                                </MobileWrapper>
                             </>
                         )
                     })}
@@ -187,27 +203,17 @@ const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_c
                     </NoticeWrapper>
                 )}
             </TabListWrapper>
-            <Desktop className="side-tab__desktop" max_width={max_width || 'tabletS'}>
+            <DesktopWrapper className="side-tab__desktop" breakpoint={max_width || 'tabletS'}>
                 <Content>
                     {React.Children.map(children, (el, index) => {
                         return selected_tab === index ? el : undefined
                     })}
                 </Content>
-            </Desktop>
+            </DesktopWrapper>
         </Flex>
     )
 }
 
 Tabs.Panel = TabPanel
-
-Tabs.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    has_notice: PropTypes.bool,
-    is_reverse: PropTypes.bool,
-    max_width: PropTypes.string,
-    notice_content: PropTypes.object,
-    tab_break: PropTypes.string,
-}
 
 export default Tabs

@@ -20,7 +20,7 @@ const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms'))
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type ItemType = {
     title: string | ReactElement
@@ -111,7 +111,7 @@ const trading: TradingType[] = [
 ]
 
 const Dbot = () => {
-    const { is_uk_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = useRegion()
     const [is_mobile, setIsMobile] = useState(
         isBrowser() ? window.screen.width <= size.mobileL : false,
     )
@@ -141,7 +141,7 @@ const Dbot = () => {
                         title={localize('DBot')}
                         content={localize('Automate your trading ideas without writing code')}
                         join_us_for_free
-                        go_to_live_demo
+                        is_live_demo
                         Logo={dbot_logo}
                         background_svg={is_mobile ? DBotBGMobile : DBotBG}
                         image_name="dbot"
@@ -170,7 +170,7 @@ const Dbot = () => {
                     />
                 </Layout>
             )}
-            {is_uk_eu && <PageNotFound />}
+            {is_eu && <PageNotFound />}
         </>
     )
 }

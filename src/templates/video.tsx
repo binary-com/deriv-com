@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { graphql, navigate } from 'gatsby'
 import Vimeo from '@u-wave/react-vimeo'
 import styled from 'styled-components'
@@ -22,9 +22,9 @@ import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import Eye from 'images/svg/eye.svg'
 import { useTruncateLength } from 'pages/academy/blog/posts/preview'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
+import useAcademyData from 'components/hooks/use-academy-data'
 
 type VideosTemplateProps = {
     data: AllVideosQuery
@@ -224,7 +224,7 @@ const AllVideosButton = styled(LinkButton)`
 `
 
 const VideoTemplate = ({ data }: VideosTemplateProps) => {
-    const { academy_data } = useContext(DerivStore)
+    const { academy_data } = useAcademyData()
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded()
@@ -337,7 +337,12 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                         <StyledBreadcrumbsLink to="/academy/videos/" color="grey-5">
                                             All Videos
                                         </StyledBreadcrumbsLink>
-                                        <img src={RightArrow} height="16" width="16" />
+                                        <img
+                                            src={RightArrow}
+                                            alt="right arrow"
+                                            height="16"
+                                            width="16"
+                                        />
                                         <StyledBreadcrumbsTitle>
                                             {video_title}
                                         </StyledBreadcrumbsTitle>
@@ -358,7 +363,12 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                         <StyledBreadcrumbsLink to="/academy/videos/" color="grey-5">
                                             All Videos
                                         </StyledBreadcrumbsLink>
-                                        <img src={RightArrow} height="16" width="16" />
+                                        <img
+                                            src={RightArrow}
+                                            alt="right arrow"
+                                            height="16"
+                                            width="16"
+                                        />
                                         <StyledBreadcrumbsTitle>
                                             {truncateString(video_title, truncateLength)}
                                         </StyledBreadcrumbsTitle>
@@ -381,7 +391,12 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                             <Title>{video_title}</Title>
                                             <VideoDescription>{video_description}</VideoDescription>
                                             <VideoDetails>
-                                                <img src={Eye} height="16" width="16" />
+                                                <img
+                                                    src={Eye}
+                                                    alt="eye icon"
+                                                    height="16"
+                                                    width="16"
+                                                />
                                                 <GreyText>{view_count} views</GreyText>
                                                 <GreyText>•</GreyText>
                                                 <GreyText>{published_date}</GreyText>

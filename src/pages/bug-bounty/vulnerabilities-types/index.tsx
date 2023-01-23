@@ -79,7 +79,7 @@ const VulnerabilitiesTypes = () => {
             />
             <Hero />
 
-            <StyledContainer direction="column" align="left">
+            <StyledContainer direction="column" align="start">
                 <Header type="heading-2" align="center">
                     {localize('Types of vulnerabilities')}
                 </Header>
@@ -110,11 +110,7 @@ const VulnerabilitiesTypes = () => {
                                                         key={profit_table_idx}
                                                     >
                                                         <Header type="small" weight="normal">
-                                                            <Localize
-                                                                translate_text={
-                                                                    profit_table_item.title
-                                                                }
-                                                            />
+                                                            {profit_table_item.title}
                                                         </Header>
 
                                                         <Header type="paragraph-2" mt="4px">

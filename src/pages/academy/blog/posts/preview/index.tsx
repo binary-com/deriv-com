@@ -35,6 +35,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { cms_assets_end_point, cms_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useWindowSize } from 'components/hooks/use-window-size'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 export const useTruncateLength = () => {
     const size = useWindowSize()
@@ -47,18 +48,17 @@ const BlogPreview = () => {
     const [is_mobile] = useBrowserResize(972)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
-    const [isMounted, setMounted] = useState(false)
+    const [is_mounted] = usePageLoaded()
     const [data, setData] = useState(null)
     const [id, setId] = useState(null)
     const end_point_url = `${cms_end_point}/items/blog/`
 
     useEffect(() => {
-        setMounted(true)
-        if (isMounted) {
+        if (is_mounted) {
             window.scrollTo(0, 0)
             handleScroll()
         }
-    }, [isMounted])
+    }, [is_mounted])
 
     const truncateLength = useTruncateLength()
 
@@ -136,7 +136,7 @@ const BlogPreview = () => {
                     <SectionContainer padding="0" position="relative">
                         <Background>
                             <StickyBreadCrumbsWrapper scroll={visible}>
-                                <BreadcrumbsWrapper scroll={visible}>
+                                <BreadcrumbsWrapper>
                                     <Flex jc="flex-start" ai="center">
                                         <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
                                             All articles

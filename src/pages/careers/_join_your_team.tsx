@@ -71,6 +71,9 @@ const query = graphql`
         tradingOperations: file(relativePath: { eq: "careers/Trading-Operations.png" }) {
             ...fadeIn
         }
+        businessIntelligence: file(relativePath: { eq: "careers/Business-Intelligence.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -194,6 +197,14 @@ const JoinYourTeam = () => {
             display_team_name: 'Project Management',
             tagline:
                 'We take care of collaboration details to ensure that projects are completed in a timely, efficient manner.',
+        },
+        {
+            img_data: data.businessIntelligence,
+            to: '/careers/business-intelligence/',
+            img_alt: 'Business Intelligence jobs at Deriv',
+            display_team_name: 'Business Intelligence',
+            tagline:
+                'We provide data and valuable insights that help shape smart business decisions.',
         },
     ]
 

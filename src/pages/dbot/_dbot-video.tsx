@@ -6,6 +6,15 @@ import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 
+type StepCommonType = {
+    no_margin?: boolean
+}
+
+type StepType = StepCommonType & {
+    current_step: string
+    image_name: string
+}
+
 const query = graphql`
     query {
         step_1: file(relativePath: { eq: "dbot-video/dbot-step1.png" }) {
@@ -63,21 +72,17 @@ const VideoWrapper = styled.div`
     width: 100%;
 `
 
-type StepCommonType = {
-    no_margin: string
-}
-
 const StepCommon = css<StepCommonType>`
     font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;
     @media ${device.tabletL} {
-        text-align: left;
+        text-align: start;
         border: none;
         margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
 `
-const Step = styled(Header)`
+const Step = styled(Header)<StepType>`
     ${StepCommon}
     ${(props) =>
         props.current_step === props.image_name
@@ -119,7 +124,7 @@ const DtraderTabs = () => {
                         as="h4"
                         type="sub-section-title"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         no_margin
                         image_name="step_1"
                         current_step={current_step}
@@ -133,7 +138,7 @@ const DtraderTabs = () => {
                         as="h4"
                         type="sub-section-title"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         image_name="step_2"
                         current_step={current_step}
                         onClick={() => clickHandler('step_2')}
@@ -146,7 +151,7 @@ const DtraderTabs = () => {
                         as="h4"
                         type="sub-section-title"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         image_name="step_3"
                         current_step={current_step}
                         onClick={() => clickHandler('step_3')}
@@ -159,7 +164,7 @@ const DtraderTabs = () => {
                         as="h4"
                         type="sub-section-title"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         image_name="step_4"
                         current_step={current_step}
                         onClick={() => clickHandler('step_4')}
@@ -172,7 +177,7 @@ const DtraderTabs = () => {
                         as="h4"
                         type="sub-section-title"
                         lh="1.5"
-                        align="left"
+                        align="start"
                         image_name="step_5"
                         current_step={current_step}
                         onClick={() => clickHandler('step_5')}
@@ -195,7 +200,7 @@ const DtraderTabs = () => {
             <VideoWrapper>
                 <QueryImage
                     data={data[current_step]}
-                    alt={localize('{{step}} in DBot trading', { step: current_step })}
+                    alt={`${current_step} in DBot trading`}
                     width="100%"
                 />
             </VideoWrapper>

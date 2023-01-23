@@ -1,10 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { Header, Text, LinkText } from 'components/elements'
+import { Header, Text, LinkText, LiveChatLinkText } from 'components/elements'
 import { affiliate_signup_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
+import useRegion from 'components/hooks/use-region'
+
+type StyledLinkProps = {
+    href: string
+}
 
 const ItemContainer = styled(Header)`
     padding: 0;
@@ -18,9 +22,8 @@ const TextList = styled(Text)`
     margin-bottom: 0.8rem;
 `
 
-const StyledLink = styled(LinkText)`
+const StyledLink = styled(LinkText)<StyledLinkProps>`
     color: var(--color-red);
-    font-weight: normal;
 `
 
 const StyledUl = styled.ul`
@@ -43,25 +46,10 @@ const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
 
 const AffiliateGeneral = () => (
     <ItemContainer>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('What is the Deriv Affiliate Programme?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize(
                 'The Deriv Affiliate Programme is an exciting partnership programme where you benefit from bringing in new clients to trade on our DTrader and DBot platforms.',
             )}
@@ -76,14 +64,7 @@ const AffiliateGeneral = () => (
                 'We offer a complete trading experience tailored to the needs of an exceptionally wide range of traders. New traders can learn about trading and practise trading risk-free with a demo account. Seasoned traders can take advantage of the wide range of markets, trade conditions, and analysis tools we offer.',
             )}
         </TextSecondary>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('Who can apply as a Deriv affiliate?')}
         </Header>
         <StyledUl>
@@ -115,92 +96,32 @@ const AffiliateGeneral = () => (
                 )}
             </Text>
         </StyledUl>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('Why should I become a Deriv affiliate?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize(
                 'Deriv is a customer-centric online trading experience. Backed by over 20 years of experience and award-winning innovation, we’ve reimagined the online trading experience from the ground up so that anyone can easily start trading.',
             )}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('Are there any fees I need to pay to join your affiliate programme?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize('Not at all. Joining our affiliate programme is completely free.')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('What does ‘referred client’ mean?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize(
                 'A referred client is someone who has clicked on your unique affiliate link, signed up with Deriv, and deposited money into their Deriv account. They must be aged 18 years or above and have not previously been a Deriv or Binary.com client.',
             )}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('Who can sign up as a Deriv client?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="Anyone aged 18 years or above who isn’t a resident of a restricted country can become a Deriv client.  You can find the list of restricted countries in our <0>terms and conditions</0>."
                 components={[<LocalizedLinkText to="/terms-and-conditions/#clients" key={0} />]}
@@ -210,25 +131,10 @@ const AffiliateGeneral = () => (
 )
 const AffiliateAccountManagement = () => (
     <ItemContainer>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('How can I sign up as a Deriv affiliate?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="All you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
                 components={[
@@ -243,135 +149,52 @@ const AffiliateAccountManagement = () => (
                 ]}
             />
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('I forgot my password. What should I do?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="Don’t worry, you can easily <0>reset your password</0>."
                 components={[<LocalizedLinkText to="/reset-password/" key={0} />]}
             />
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('How can I change my payment method?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="Log in to your Deriv affiliate account and go to <0>Finances</0> > <0>Payment instructions</0>."
                 components={[<strong key={0} />]}
             />
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('How and when will I receive my Deriv affiliate commissions?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize(
                 'We’ll deposit your commissions directly into your account as soon as practicable after the 15th of every month.',
             )}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('How can I check how much commission I have earned?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="Log in to your Deriv affiliate account and go to <0>Reports</0> > <0>Detailed activity report</0>."
                 components={[<strong key={0} />]}
             />
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('What kind of reports can I generate from my affiliate account?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize(
                 'You can generate all kinds of helpful reports to track and optimise your campaigns, such as the',
             )}
         </Header>
         <StyledUl>
             <li>
-                <Header
-                    as="p"
-                    type="paragraph-1"
-                    mt="8px"
-                    weight="normal"
-                    tabletL={{
-                        type: 'paragraph-2',
-                    }}
-                >
+                <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                     <Localize
                         translate_text="<0>Hits & Impression</0> report: Displays your hit and click-through rates"
                         components={[<strong key={0} />]}
@@ -380,15 +203,7 @@ const AffiliateAccountManagement = () => (
             </li>
 
             <li>
-                <Header
-                    as="p"
-                    type="paragraph-1"
-                    mt="8px"
-                    weight="normal"
-                    tabletL={{
-                        type: 'paragraph-2',
-                    }}
-                >
+                <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                     <Localize
                         translate_text="<0>Countries</0> report: Displays a list of countries where your clicks are coming from"
                         components={[<strong key={0} />]}
@@ -397,15 +212,7 @@ const AffiliateAccountManagement = () => (
             </li>
 
             <li>
-                <Header
-                    as="p"
-                    type="paragraph-1"
-                    mt="8px"
-                    weight="normal"
-                    tabletL={{
-                        type: 'paragraph-2',
-                    }}
-                >
+                <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                     <Localize
                         translate_text="<0>My Players</0> report: Displays a list of clients with their IDs and signup date"
                         components={[<strong key={0} />]}
@@ -413,27 +220,12 @@ const AffiliateAccountManagement = () => (
                 </Header>
             </li>
         </StyledUl>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize(
                 'Can I offer prospective clients an incentive to sign up to Deriv using my unique affiliate link?',
             )}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize(
                 'Feel free to discuss any incentive plan you have with your account manager. Please remember that we don’t allow unauthorised incentives, gifts, and payments to encourage client signups. If there are any violations, we may withhold commissions.',
             )}
@@ -443,29 +235,12 @@ const AffiliateAccountManagement = () => (
 
 const AffiliateReferralTools = () => (
     <ItemContainer>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('What kind of referral tools do you offer?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
-            <Localize
-                translate_text="We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, please contact your account manager at <0>affiliates@deriv.com</0>."
-                components={[<StyledLink href="mailto:affiliates@deriv.com" key={0} />]}
-            />
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+            <Localize translate_text="We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, " />
+            <LiveChatLinkText text="_t_contact us via live chat._t_" />
         </Header>
     </ItemContainer>
 )
@@ -481,188 +256,92 @@ const scrollToIb = (e) => {
 
 const IBGeneral = () => (
     <ItemContainer>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('What is the Deriv IB Programme?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize(
                 'The Deriv IB Programme is a partnership where you benefit from referring new clients to trade on our Deriv MT5 platform.',
             )}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('How much can I earn from referring new clients to your Deriv MT5 platform?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="You’ll earn a fixed commission based on the volume of individual trades purchased by your referred clients. Please refer to our <0>IB commission plan</0> for more info."
-                components={[<StyledLink key={0} href="#" onClick={scrollToIb} />]}
+                components={[<StyledLink key={0} href="#" weight="normal" onClick={scrollToIb} />]}
             />
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('How much do I need to pay to join your IB programme?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize('The Deriv IB Programme is completely free.')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize(
                 'Are there any minimum client or volume conditions that I need to meet before I can withdraw my commissions?',
             )}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize('There is absolutely no requirement to withdraw your IB commissions.')}
         </Header>
     </ItemContainer>
 )
 
-const IBAccountManagement = () => (
-    <ItemContainer>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
-            {localize('How can I sign up as a Deriv IB?')}
-        </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
-            <Localize
-                translate_text="If you’re interested in becoming an IB, all you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
-                components={[
-                    <LocalizedLinkText
-                        to={affiliate_signup_url}
-                        external
-                        type="affiliate_sign_up"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </Header>
-        <TextSecondary>
-            <Localize
-                translate_text="If you’re already registered as a Deriv affiliate, you can email us at <0>affiliates@deriv.com</0> instead."
-                components={[<StyledLink href="mailto:affiliates@deriv.com" key={0} />]}
-            />
-        </TextSecondary>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
-            {localize('How and when will I receive my Deriv IB commissions?')}
-        </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
-            {localize(
-                'Your IB commissions are credited directly into your Deriv MT5 account daily. You can transfer the funds to your Deriv account and withdraw them via your preferred payment method.',
-            )}
-        </Header>
-    </ItemContainer>
-)
+const IBAccountManagement = () => {
+    const { is_row } = useRegion()
+
+    return (
+        <ItemContainer>
+            <Header as="p" type="paragraph-1" mt="16px">
+                {localize('How can I sign up as a Deriv IB?')}
+            </Header>
+            <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                <Localize
+                    translate_text="All you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
+                    components={[
+                        <LocalizedLinkText
+                            to={affiliate_signup_url}
+                            external
+                            type="affiliate_sign_up"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={0}
+                        />,
+                    ]}
+                />
+            </Header>
+            <TextSecondary>
+                <Localize
+                    translate_text="If you’re already registered as a Deriv affiliate, you can email us at <0>affiliates@deriv.com</0> instead."
+                    components={[<StyledLink href="mailto:affiliates@deriv.com" key={0} />]}
+                />
+            </TextSecondary>
+            <Header as="p" type="paragraph-1" mt="16px">
+                {localize('How and when will I receive my Deriv IB commissions?')}
+            </Header>
+            <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                {localize(
+                    'Your IB commissions are credited directly into your Deriv MT5 account daily. You can transfer the funds to your Deriv account and withdraw them via your preferred payment method.',
+                )}
+            </Header>
+            <TextSecondary>
+                {is_row && (
+                    <Localize translate_text="Your IB commissions earned from Deriv X are credited directly into your Deriv account daily." />
+                )}
+            </TextSecondary>
+        </ItemContainer>
+    )
+}
 
 const IBReferralTools = () => (
     <ItemContainer>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="16px">
             {localize('Do you offer any referral tools to your IBs?')}
         </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
+        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             {localize(
                 'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our Deriv MT5 platform.',
             )}

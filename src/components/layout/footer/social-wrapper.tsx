@@ -1,12 +1,13 @@
 import React from 'react'
 import { SocialWrapper } from './common/style'
 import { LocalizedLink } from 'components/localization'
-import { reddit_url, telegram_url } from 'common/constants'
+import { reddit_url, telegram_url, youtube_url } from 'common/constants'
 import { useSocialMediaUrl } from 'components/hooks/use-social-media-url'
 //Logo
 import Reddit from 'images/svg/layout/footer-reddit.svg'
 import Telegram from 'images/svg/layout/footer-telegram.svg'
 import Twitter from 'images/svg/layout/footer-twitter.svg'
+import Youtube from 'images/svg/layout/footer-youtube.svg'
 import Instagram from 'images/svg/layout/footer-instagram.svg'
 import Facebook from 'images/svg/layout/footer-facebook.svg'
 import Linkedin from 'images/svg/layout/footer-linkedin.svg'
@@ -60,10 +61,15 @@ const SocialWrapperComponent = ({ is_career_page = false }: SocialWrapperCompone
         image: Telegram,
         image_alt: `telegram ${alt_string}`,
     }
+    const youtube = {
+        link: youtube_url,
+        image: Youtube,
+        image_alt: `youtube ${alt_string}`,
+    }
 
     if (!is_career_page) {
-        accounts.splice(0, 0, reddit, telegram)
-        accounts.splice(3, 0, twitter)
+        accounts.splice(0, 0, youtube, reddit, telegram)
+        accounts.splice(4, 0, twitter)
     }
 
     return <SocialMediaComponent social_accounts={accounts} />
@@ -71,17 +77,19 @@ const SocialWrapperComponent = ({ is_career_page = false }: SocialWrapperCompone
 
 const SocialMediaComponent = ({ social_accounts = [] }: SocialMediaComponentProps) => (
     <SocialWrapper>
-        {social_accounts.map((account, index) => (
-            <LocalizedLink
-                key={index}
-                external
-                to={account.link}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={account.image} alt={account.image_alt} width="41" height="41" />
-            </LocalizedLink>
-        ))}
+        {social_accounts.map((account) => {
+            return (
+                <LocalizedLink
+                    key={account.image_alt}
+                    external
+                    to={account.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src={account.image} alt={account.image_alt} width="41" height="41" />
+                </LocalizedLink>
+            )
+        })}
     </SocialWrapper>
 )
 

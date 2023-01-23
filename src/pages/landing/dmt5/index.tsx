@@ -14,7 +14,6 @@ import DMT5BG from 'images/svg/dmt5/dmt5-bg.svg'
 import DMT5BG2 from 'images/svg/dmt5/dmt5-bg2.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import { ContentType } from 'pages/landing/_types'
 
 const query = graphql`
     query {
@@ -23,20 +22,6 @@ const query = graphql`
         }
     }
 `
-const numbers_content: ContentType[] = [
-    {
-        title: <Localize translate_text="20+" />,
-        subtitle: <Localize translate_text="years of experience" />,
-    },
-    {
-        title: <Localize translate_text="100+" />,
-        subtitle: <Localize translate_text="tradable assets" />,
-    },
-    {
-        title: <Localize translate_text="330K+" />,
-        subtitle: <Localize translate_text="clients on DMT5" />,
-    },
-]
 
 const DMT5 = () => {
     const [is_mobile, setMobile] = useState(false)
@@ -77,7 +62,7 @@ const DMT5 = () => {
                 laptop_height="62rem"
                 tabletL_height="66rem"
             />
-            <Numbers numbers_content={numbers_content} />
+            <Numbers />
             <WhatIsTrader />
             <WhyTrader />
             <StartTrader />
@@ -92,6 +77,7 @@ const DMT5 = () => {
                 title={<Localize translate_text="Get into the DMT5 experience" />}
                 data={data}
                 is_ppc={true}
+                is_mt5
             />
         </Layout>
     )

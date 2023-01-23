@@ -11,12 +11,12 @@ import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
-import { DerivStore } from 'store'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
+import useWebsiteStatus from 'components/hooks/use-website-status'
 
 type ValuesType = {
-    server_url?: string
-    app_id?: string
+    server_url?: string | number
+    app_id?: string | number
     clients_country?: string
 }
 
@@ -68,7 +68,7 @@ const StyledButton = styled(Button)`
 const endpointValidation = (values: ValuesType) => {
     const errors: ValuesType = {}
 
-    const server_url = trimSpaces(values ? values.server_url : '')
+    const server_url = trimSpaces(values ? values.server_url.toString() : '')
     const app_id = trimSpaces(values ? values.app_id.toString() : '')
     const clients_country = trimSpaces(values ? values.clients_country.toString() : '')
     const server_url_error =
@@ -98,8 +98,7 @@ const Endpoint = () => {
     const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
     const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
     const [reset_loading, setResetLoading] = React.useState(false)
-    const { website_status, setWebsiteStatus, website_status_loading } =
-        React.useContext(DerivStore)
+    const { website_status, setWebsiteStatus } = useWebsiteStatus()
     const STATUS_TIMEOUT_DELAY = 1500
     const RESET_TIMEOUT_DELAY = 500
 
@@ -128,7 +127,7 @@ const Endpoint = () => {
     }
     const endpointSubmission = (values: ValuesType, actions: ActionsType) => {
         actions.setSubmitting(true)
-        setServerUrl(values.server_url)
+        setServerUrl(values.server_url.toString())
         setAppId(values.app_id)
 
         // handle website status changes
@@ -215,7 +214,6 @@ const Endpoint = () => {
                                     name="clients_country"
                                     error={errors.clients_country}
                                     value={values.clients_country}
-                                    disabled={website_status_loading}
                                     handleError={() => setFieldValue('clients_country', '')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}

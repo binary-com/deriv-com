@@ -2,14 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
-import { SectionContainer, Show } from 'components/containers'
+import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
+import useRegion from 'components/hooks/use-region'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const query = graphql`
     query {
+        example_eu: file(relativePath: { eq: "trade-types/cfd-example-crash-boom-eu.png" }) {
+            ...fadeIn
+        }
+        example_mobile_eu: file(
+            relativePath: { eq: "trade-types/cfd-example-crash-boom-mobile-eu.png" }
+        ) {
+            ...fadeIn
+        }
         example: file(relativePath: { eq: "trade-types/cfd-example-crash-boom.png" }) {
             ...fadeIn
         }
@@ -22,6 +31,7 @@ const query = graphql`
 `
 type ExampleImageType = {
     center?: string
+    eu?: boolean
 }
 
 const ExampleImage = styled(QueryImage)<ExampleImageType>`
@@ -35,13 +45,31 @@ const ExampleImage = styled(QueryImage)<ExampleImageType>`
     }
 
     @media ${device.tabletL} {
-        width: 328px;
+        width: ${(props) => (props.eu ? '350px' : '328px')};
         height: 506px;
     }
 
     @media ${device.mobileM} {
         width: 289px;
         height: 454px;
+    }
+`
+
+const ExampleImageEu = styled(QueryImage)<ExampleImageType>`
+    margin: ${(props) => (props.center ? '0 auto' : 'unset')};
+    width: 792px;
+    height: 453px;
+    @media ${device.laptop} {
+        width: 630px;
+        height: 200px;
+    }
+    @media ${device.tabletL} {
+        width: 350px;
+        height: 200px;
+    }
+    @media ${device.mobileM} {
+        width: 289px;
+        height: 200px;
     }
 `
 export const StyledLinkButton = styled(LinkButton)`
@@ -58,6 +86,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 
 const TradingCFDIncreases = () => {
     const data = useStaticQuery(query)
+    const { is_eu } = useRegion()
     return (
         <StyledSectionContainer background="white" padding="4rem 0 0">
             <SmallContainer direction="column" ai="flex-start">
@@ -83,35 +112,59 @@ const TradingCFDIncreases = () => {
                     )}
                 </Text>
                 <Text as="h5" weight="bold" mb="0.8rem">
-                    {localize('Stop loss with Crash/Boom/Range break indices')}
+                    {is_eu
+                        ? localize('Stop loss with Crash/Boom')
+                        : localize('Stop loss with Crash/Boom/Range break indices')}
                 </Text>
                 <Text mb="1.6rem">
-                    {localize(
-                        'Stop loss works slightly differently in Crash/Boom/Range break indices. This is because sudden fluctuations in market price from one tick to the next can sometimes surpass the stop loss you have set. When the market price exceeds your stop loss amount, your contract will be automatically closed at that point, instead of exactly at the stop loss level.',
-                    )}
+                    {is_eu
+                        ? localize(
+                              'Stop loss works slightly differently in Crash/Boom. This is because sudden fluctuations in market price from one tick to the next can sometimes surpass the stop loss you have set. When the market price exceeds your stop loss amount, your contract will be automatically closed at that point instead of exactly at the stop loss level.',
+                          )
+                        : localize(
+                              'Stop loss works slightly differently in Crash/Boom/Range break indices. This is because sudden fluctuations in market price from one tick to the next can sometimes surpass the stop loss you have set. When the market price exceeds your stop loss amount, your contract will be automatically closed at that point, instead of exactly at the stop loss level.',
+                          )}
                 </Text>
                 <Text mb="1.6rem">
-                    {localize(
-                        'For example, you predict that the market will go up, and buy a contract on Crash 500 index at 8,000 USD.',
-                    )}
+                    {is_eu
+                        ? localize(
+                              'For example, you predict that the market will go up, and buy a contract on Crash 300 index at 8,000 USD.',
+                          )
+                        : localize(
+                              'For example, you predict that the market will go up, and buy a contract on Crash 500 index at 8,000 USD.',
+                          )}
                 </Text>
                 <Text mb="1.6rem">
                     {localize(
                         'When the market price climbs to 8,700 USD, you decide to set the stop loss level at 8,200 USD. After a few ticks, the price dives to 8,100 USD, surpassing your stop loss level. Your trade will automatically close at 8,100 USD.',
                     )}
                 </Text>
-                <Show.Desktop>
-                    <ExampleImage
-                        data={data['example']}
-                        alt="Example for stop loss with crash/boom indices"
-                    />
-                </Show.Desktop>
-                <Show.Mobile width="100%">
-                    <ExampleImage
-                        data={data['example_mobile']}
-                        alt="Example for stop loss with crash/boom indices"
-                    />
-                </Show.Mobile>
+                <Desktop>
+                    {is_eu ? (
+                        <ExampleImageEu
+                            data={data['example_eu']}
+                            alt="Example for stop loss with crash/boom indices"
+                        />
+                    ) : (
+                        <ExampleImage
+                            data={data['example']}
+                            alt="Example for stop loss with crash/boom indices"
+                        />
+                    )}
+                </Desktop>
+                <Mobile>
+                    {is_eu ? (
+                        <ExampleImageEu
+                            data={data['example_mobile_eu']}
+                            alt="Example for stop loss with crash/boom indices"
+                        />
+                    ) : (
+                        <ExampleImage
+                            data={data['example_mobile']}
+                            alt="Example for stop loss with crash/boom indices"
+                        />
+                    )}
+                </Mobile>
 
                 <Header mt="3.2rem" as="h5" type="main-paragraph" mb="0.8rem">
                     {localize('Stop out')}

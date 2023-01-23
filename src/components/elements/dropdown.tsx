@@ -355,12 +355,12 @@ export const BottomLabel = ({
 }: Pick<DropdownProps, 'error' | 'contractSize'>) => {
     return (
         <StyledDiv>
-            <ErrorMessages lh="1.4" align="left">
+            <ErrorMessages lh="1.4" align="start">
                 {error}
             </ErrorMessages>
 
             {contractSize && (
-                <ContractSizeWrapper lh="1.4" align="left">
+                <ContractSizeWrapper lh="1.4" align="start">
                     Contract size : {contractSize}
                 </ContractSizeWrapper>
             )}
@@ -397,6 +397,8 @@ export type DropdownProps = {
     selected_option?: OptionOrSelectedType
     selected_item?: SelectedType
     disabled?: boolean
+    autocomplete?: string
+    mb?: string
 } & Pick<ItemsType, 'contractSize'>
 
 const Dropdown = ({

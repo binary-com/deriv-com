@@ -10,7 +10,7 @@ import Security from 'images/svg/terms/security-privacy-tc.svg'
 import Risk from 'images/svg/terms/risk-tc.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import BFX from 'images/svg/terms/bfx-tc.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type ColProps = {
     Icon: string
@@ -26,7 +26,7 @@ type Link = {
 }
 
 const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => {
-    const { is_non_eu, is_eu } = useCountryRule()
+    const { is_non_eu, is_eu } = useRegion()
     return (
         <GridCol>
             <IconWrapper>
@@ -83,7 +83,7 @@ const IconGrid = () => {
             content: localize('Rules for making trades on any Deriv trading platform'),
             eu_links: [
                 {
-                    url: '/tnc/trading-terms.pdf',
+                    url: '/tnc/eu/trading-terms.pdf',
                     title: localize('Trading terms'),
                 },
             ],
@@ -120,7 +120,7 @@ const IconGrid = () => {
 
             eu_links: [
                 {
-                    url: '/tnc/security-and-privacy.pdf',
+                    url: '/tnc/eu/security-and-privacy.pdf',
                     title: localize('Security & privacy'),
                 },
             ],

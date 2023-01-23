@@ -1,8 +1,8 @@
 import React, { useEffect, ReactElement } from 'react'
 import styled, { css, keyframes } from 'styled-components'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
-import device from 'themes/device'
+import device, { SizeType } from 'themes/device'
 
 const TabContent = styled.div`
     flex: 1;
@@ -59,7 +59,7 @@ const animateTab = keyframes`
     100% {opacity:1;}
 
 `
-const TextLabel = styled(Text)`
+const TextLabel = styled(Text)<{ selected: boolean }>`
     color: ${(props) => (props.selected ? 'rgba(51, 51, 51, 1)' : 'rgba(153, 153, 153, 1)')};
     font-size: 32px;
     animation: ${animateTab} 2s;
@@ -68,7 +68,7 @@ const TextLabel = styled(Text)`
         font-size: 24px;
     }
 `
-const TextDesc = styled(Text)`
+const TextDesc = styled(Text)<{ selected: boolean }>`
     display: ${(props) => (!props.selected ? 'none' : '')};
     font-size: 24px;
     animation: ${animateTab} 2s;
@@ -105,11 +105,11 @@ const CarouselContainer = styled.div`
     align-self: center;
     margin-right: 36px;
 `
-const Desktop = styled(Show.Desktop)`
+const DesktopWrapper = styled(Desktop)`
     flex: 1;
     width: 100%;
 `
-const Mobile = styled(Show.Mobile)`
+const MobileWrapper = styled(Mobile)`
     @media ${device.tabletL} {
         margin-top: 0.8rem;
         margin-bottom: 0;
@@ -125,12 +125,12 @@ const Mobile = styled(Show.Mobile)`
 `
 
 type TabsProps = {
-    children: ReactElement[]
+    children: ReactElement[] | ReactElement
     label?: ReactElement
     description?: ReactElement
     className?: string
     is_reverse?: boolean
-    max_width?: string
+    max_width?: SizeType
 }
 
 type TabPanelProps = Pick<TabsProps, 'children' | 'className' | 'label' | 'description'>
@@ -170,7 +170,6 @@ const Tabs = ({ children, is_reverse, className, max_width }: TabsProps) => {
                                 <TabButton
                                     className="side-tab__button"
                                     role="tab"
-                                    selected={selected_tab === index}
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => setSelectedTab(index)}
                                 >
@@ -189,24 +188,24 @@ const Tabs = ({ children, is_reverse, className, max_width }: TabsProps) => {
                                         {description}
                                     </TextDesc>
                                 </TabButton>
-                                <Mobile
+                                <MobileWrapper
                                     className="side-tab__mobile"
-                                    min_width={max_width || 'tabletL'}
+                                    breakpoint={max_width || 'tabletL'}
                                 >
                                     <Content>{selected_tab === index ? child : undefined}</Content>
-                                </Mobile>
+                                </MobileWrapper>
                             </>
                         )
                     })}
                 </TabList>
             </TabListWrapper>
-            <Desktop className="side-tab__desktop" max_width={max_width || 'tabletL'}>
+            <DesktopWrapper className="side-tab__desktop" breakpoint={max_width || 'tabletL'}>
                 <Content>
                     {React.Children.map(children, (el, index) => {
                         return selected_tab === index ? el : undefined
                     })}
                 </Content>
-            </Desktop>
+            </DesktopWrapper>
             <CarouselContainer>
                 {React.Children.map(children, (child, index) => (
                     <CarouselDot selected={selected_tab === index} />

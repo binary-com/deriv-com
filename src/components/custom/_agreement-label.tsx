@@ -4,6 +4,7 @@ import { Checkbox, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type AgreementLabelProps = {
     color?: string
@@ -32,11 +33,14 @@ const AgreementLabel = ({
         handleChangeCheckbox(event)
     }
 
+    const is_rtl = useIsRtl()
+
     return is_mounted ? (
         <label
             style={{
                 fontWeight: 'normal',
-                lineHeight: '1px',
+                // HINT: This component should be improved, there are alignment issues with RTL and LTR
+                lineHeight: is_rtl ? '18px' : '1px',
                 marginTop: '5px',
                 marginBottom: '0',
             }}
@@ -65,6 +69,7 @@ const AgreementLabel = ({
                             size="14px"
                             color="red"
                             target="__blank"
+                            type="terms_and_conditions/#clients"
                         />,
                     ]}
                 />

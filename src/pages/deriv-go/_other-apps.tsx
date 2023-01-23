@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { ContentType } from './index'
 import { Container, Flex, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 // svg
 import Arrow from 'images/svg/deriv-go/arrow.svg'
 import DMT5 from 'images/svg/deriv-go/dmt5.svg'
@@ -78,16 +78,15 @@ const other_apps: ContentType[] = [
     {
         id: 0,
         icon: DMT5,
-        title: <Localize translate_text="DMT5" />,
-        content: (
-            <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one CFD trading app." />
-        ),
+        title: <Localize translate_text="Deriv MT5" />,
+        content: <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading app." />,
         url: (
             <LearnMore to="/dmt5/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="" />
+                <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
+        image_alt: 'DMT5 trading app',
     },
     {
         id: 1,
@@ -99,20 +98,21 @@ const other_apps: ContentType[] = [
         url: (
             <LearnMore to="/derivx/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="" />
+                <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
+        image_alt: 'Deriv X trading app',
     },
 ]
 
 const OtherApps = () => {
-    const { is_uk_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     return (
         <div>
-            <StyledSectionContainer tablet={{ padding: '4rem 0' }}>
+            <StyledSectionContainer tablet={{ p: '4rem 0' }}>
                 <Container fd="column">
-                    {is_uk_eu ? (
+                    {is_eu ? (
                         <StyledHeader as="h2" type="heading-2" align="center">
                             {localize('Check out our other app')}
                         </StyledHeader>
@@ -123,11 +123,11 @@ const OtherApps = () => {
                     )}
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">
                         {other_apps.map((item, index) => {
-                            if (is_uk_eu && index == 1) return
+                            if (is_eu && index == 1) return
                             return (
                                 <Card key={item.id}>
                                     <div>
-                                        <img src={item.icon} alt="" />
+                                        <img src={item.icon} alt={item.image_alt} />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
                                         {item.title}

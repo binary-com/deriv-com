@@ -9,7 +9,6 @@ import CommoditiesIcon from 'images/svg/markets/commodities.svg'
 import ForexIcon from 'images/svg/markets/forex.svg'
 import StockIcon from 'images/svg/markets/stock.svg'
 import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledSection = styled(SectionContainer)`
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
@@ -78,7 +77,6 @@ type MarketsProps = {
 }
 
 const Markets = ({ is_ppc }: MarketsProps) => {
-    const { is_non_uk } = useCountryRule()
     return (
         <StyledSection>
             <Container direction="column">
@@ -87,7 +85,7 @@ const Markets = ({ is_ppc }: MarketsProps) => {
                 </Header>
                 <MarketWrapper wrap="wrap">
                     <MarketCard mr="2.4rem" mb="4rem">
-                        <img src={ForexIcon} alt="" width="64" height="64" />
+                        <img src={ForexIcon} alt="Forex" width="64" height="64" />
                         <div>
                             <Header as="h4" type="sub-section-title">
                                 {localize('Forex')}
@@ -106,7 +104,7 @@ const Markets = ({ is_ppc }: MarketsProps) => {
                         </div>
                     </MarketCard>
                     <MarketCard mb="4rem">
-                        <img src={StockIcon} alt="" width="64" height="64" />
+                        <img src={StockIcon} alt="Stocks & indices" width="64" height="64" />
                         <div>
                             <Header as="h4" type="sub-section-title">
                                 {localize('Stocks & indices')}
@@ -124,9 +122,14 @@ const Markets = ({ is_ppc }: MarketsProps) => {
                             />
                         </div>
                     </MarketCard>
-                    {!is_ppc && is_non_uk && (
+                    {!is_ppc && (
                         <MarketCard mr="2.4rem">
-                            <img src={SyntheticIndicesIcon} alt="" width="64" height="64" />
+                            <img
+                                src={SyntheticIndicesIcon}
+                                alt="Synthetic indices"
+                                width="64"
+                                height="64"
+                            />
                             <div>
                                 <Header as="h4" type="sub-section-title">
                                     {localize('Synthetic indices')}
@@ -146,7 +149,7 @@ const Markets = ({ is_ppc }: MarketsProps) => {
                         </MarketCard>
                     )}
                     <MarketCard>
-                        <img src={CommoditiesIcon} alt="" width="64" height="64" />
+                        <img src={CommoditiesIcon} alt="Commodities" width="64" height="64" />
                         <div>
                             <Header as="h4" type="sub-section-title">
                                 {localize('Commodities')}

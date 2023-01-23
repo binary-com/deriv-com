@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
 import device from 'themes/device'
@@ -7,7 +7,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Button } from 'components/form'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
@@ -16,6 +16,7 @@ import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -32,8 +33,17 @@ const StyledHeaderContent = styled(Header)`
     }
 `
 
-const StyledSectionContainer = styled(SectionContainer)`
+const StyledSectionContainer = styled(SectionContainer)<{ is_rtl: boolean }>`
     background: linear-gradient(to right, white 50%, var(--color-grey-31) 50%);
+    ${({ is_rtl }) => {
+        return is_rtl
+            ? css`
+                  background: linear-gradient(to left, white 50%, var(--color-grey-31) 50%);
+              `
+            : css`
+                  background: linear-gradient(to right, white 50%, var(--color-grey-31) 50%);
+              `
+    }}
     background-position: 0 150px;
     @media ${device.tablet} {
         background: white;
@@ -66,7 +76,7 @@ const RowColumn = styled.div<{ isHeader?: boolean }>`
     &:last-child {
         margin-right: 0;
         margin-left: 40px;
-        text-align: right;
+        text-align: end;
     }
 
     @media ${device.tabletL} {
@@ -155,8 +165,9 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_non_uk, is_row, is_uk_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
+    const is_rtl = useIsRtl()
 
     return (
         <>
@@ -170,9 +181,9 @@ const WhatAreOptions = () => {
                     </Text>
                 </SmallContainer>
             </StyledSectionContainerHead>
-            <StyledSectionContainer padding="4rem 0 0">
+            <StyledSectionContainer is_rtl={is_rtl} padding="4rem 0 0">
                 <SmallContainer direction="column" ai="flex-start">
-                    {is_uk_eu ? (
+                    {is_eu ? (
                         <Flex fd="column">
                             <Row mb="2rem">
                                 <RowColumn isHeader>
@@ -195,13 +206,13 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_no_multi_win_eu']}
-                                            alt="Profit with x500 multiplier"
+                                            alt="Profit without multipliers"
                                         />
                                     </ImgWrapper>
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit<1>."
+                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit</1>."
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,
@@ -214,7 +225,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_with_multi_win_eu']}
-                                            alt="Profit without Deriv's multiplier"
+                                            alt="Profit with x500 multipliers"
                                         />
                                     </ImgWrapper>
 
@@ -298,13 +309,13 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_no_multi_win']}
-                                            alt="Profit with x500 multiplier"
+                                            alt="Profit without multipliers"
                                         />
                                     </ImgWrapper>
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>."
+                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit</1>."
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,
@@ -317,7 +328,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_with_multi_win']}
-                                            alt="Profit without Deriv's multiplier"
+                                            alt="Profit with x500 multipliers"
                                         />
                                     </ImgWrapper>
 
@@ -389,7 +400,7 @@ const WhatAreOptions = () => {
                     <Grid>
                         <WhyTradeItem>
                             <div>
-                                <img src={MinimalRisk} alt="" />
+                                <img src={MinimalRisk} alt="Risk manegement" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Better risk management')}
@@ -402,7 +413,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FullControl} alt="" />
+                                <img src={FullControl} alt="Market risk" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Increased market exposure')}
@@ -415,7 +426,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={ResponsivePlatform} alt="" />
+                                <img src={ResponsivePlatform} alt="Secured platform" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Secure, responsive platform')}
@@ -428,7 +439,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FriendlySupport} alt="" />
+                                <img src={FriendlySupport} alt="Chat support" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Expert and friendly support')}
@@ -439,15 +450,15 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={Seven} alt="" />
+                                <img src={Seven} alt="Trade 24/7" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {is_uk_eu
+                                {is_eu
                                     ? localize('Trade anytime')
                                     : localize('Trade 24/7, 365 days a year')}
                             </Text>
                             <Text>
-                                {is_uk_eu
+                                {is_eu
                                     ? localize(
                                           'Trade multipliers on synthetic indices 24/7, 365 days a year. Trade multipliers on forex round the clock on weekdays.',
                                       )
@@ -458,7 +469,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={CrashBoom} alt="" />
+                                <img src={CrashBoom} alt="Spikes and dips" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Crash/Boom indices')}
@@ -473,7 +484,7 @@ const WhatAreOptions = () => {
                     <Text mt="4rem" mb="1.6rem" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <Button onClick={handleSignup} id="dm-multipliers-signup-1" to="" secondary>
+                    <Button onClick={handleSignup} id="dm-multipliers-signup-1" secondary>
                         {localize('Create free demo account')}
                     </Button>
                 </SmallContainer>

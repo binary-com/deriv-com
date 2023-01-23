@@ -10,8 +10,7 @@ import { LocalizedLinkText, Header } from 'components/elements'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device'
-import { DerivStore } from 'store'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
@@ -171,8 +170,7 @@ const Subscribe = () => {
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
-    const { user_country } = React.useContext(DerivStore)
-    const { is_eu } = useCountryRule()
+    const { user_country, is_eu } = useRegion()
 
     useEffect(() => {
         if (!window._cio) {
@@ -291,7 +289,7 @@ const Subscribe = () => {
         <SignupFormWrapper>
             <PaperPlaneImage src={paperPlane} alt="Paper Plane" />
             <StyledFormContent>
-                <Header as="h3" type="heading-3" color="white" align="left">
+                <Header as="h3" type="heading-3" color="white" align="start">
                     {localize('Subscribe to our academy via email')}
                 </Header>
                 <Header
@@ -300,7 +298,7 @@ const Subscribe = () => {
                     type="paragraph-1"
                     mt="8px"
                     max_width="492px"
-                    align="left"
+                    align="start"
                     weight="regular"
                     tabletL={{ max_width: '100%' }}
                 >
@@ -379,7 +377,6 @@ const Subscribe = () => {
                             />
                             <AdditionalFlex color="#C2C2C2">
                                 <Localize
-                                    fontSize="var(--text-size-xs)"
                                     translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
                                     components={[
                                         <LocalizedLinkText
@@ -396,12 +393,12 @@ const Subscribe = () => {
                         </>
                     )}
                     {submit_status === 'success' && (
-                        <TextWrapper color={'#01a79f'} font_size={15} margin_top={'10px'}>
+                        <TextWrapper color="#01a79f" size="15px" mt="10px">
                             <Localize translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox" />
                         </TextWrapper>
                     )}
                     {submit_status === false && (
-                        <TextWrapper color={'#ff444f'} font_size={15} margin_top={'10px'}>
+                        <TextWrapper color="#ff444f" size="15px" mt="10px">
                             <Localize translate_text="If you have AdBlock installed, please disable it in order to subscribe" />
                         </TextWrapper>
                     )}

@@ -70,7 +70,8 @@ const DP2P_CONTENT: ContentType[] = [
 ]
 
 const ForexTrading = () => {
-    const [is_mounted] = usePageLoaded(false) // needed to fix the second Hero-component during page's loading
+    const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loading
+
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO

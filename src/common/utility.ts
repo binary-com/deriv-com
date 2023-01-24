@@ -451,8 +451,6 @@ export const handleRedirect = (residence: string, current_client_country: string
         if (eu_subdomain_countries.includes(country)) {
             const subdomain = getSubdomain()
             redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
-        } else {
-            redirectDomain()
         }
     }
 }

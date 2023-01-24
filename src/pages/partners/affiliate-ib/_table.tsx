@@ -84,7 +84,7 @@ const TRAPREVERSE = styled.div<TableProps>`
     justify-content: center;
 
     :nth-child(odd) {
-        height: 100%;
+        height: 37px;
     }
 `
 

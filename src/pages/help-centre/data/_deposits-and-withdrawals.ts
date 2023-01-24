@@ -172,6 +172,7 @@ const deposits_and_withdrawals: TQuestionsData = {
             category: 'Deposits and withdrawals',
             sub_category: '_t_Withdrawals_t_',
             label: 'How-can-I-cancel-my-withdrawal',
+            hide_for_eu: true,
             answer: [
                 {
                     eu_translation_text:
@@ -193,6 +194,57 @@ const deposits_and_withdrawals: TQuestionsData = {
                             },
                         ],
                     },
+                },
+                {
+                    translation_text: '_t_To cancel your withdrawal, follow these steps:_t_',
+                    has_margin_top: true,
+                    list: {
+                        list_style: 'decimal',
+                        margin_top: '0.3rem',
+                        items: [
+                            {
+                                translation_text: '_t_Go to <0>Cashier > Withdrawal</0>._t_',
+                                translation_components: [
+                                    {
+                                        key: 0,
+                                        type: 'link',
+                                        to: `${deriv_app_url}/cashier/withdrawal`,
+                                    },
+                                ],
+                            },
+                            {
+                                translation_text:
+                                    "_t_We'll send you an email with a verification link. Click that link._t_",
+                            },
+                            {
+                                translation_text:
+                                    "_t_You’ll be brought back to the Cashier page. Click <0>Review pending</0> and select the transaction that you'd like to cancel._t_",
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Click <0>Yes</0> to confirm the cancellation. Your funds will be returned to your Deriv account, and your account balance will be updated accordingly._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                        ],
+                    },
+                },
+            ],
+        },
+        {
+            question: '_t_How can I cancel my withdrawal?_t_',
+            category: 'Deposits and withdrawals',
+            sub_category: '_t_Withdrawals_t_',
+            label: 'How-can-I-cancel-my-withdrawal',
+            hide_for_non_eu: true,
+            answer: [
+                {
+                    eu_translation_text:
+                        '_t_You can cancel your withdrawal on the <0>Cashier page</0> by following the steps mentioned in the next paragraph. Please note that you cannot cancel withdrawals if your withdrawal request has already been authorised and processed._t_',
+
+                    translation_components: [
+                        { key: 0, type: 'link', to: `${deriv_app_url}/cashier/` },
+                    ],
                 },
                 {
                     translation_text: '_t_To cancel your withdrawal, follow these steps:_t_',

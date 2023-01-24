@@ -39,11 +39,11 @@ export default class OnboardingFlow {
             await this.page.locator('.cookie-banner > button[type=submit]', { hasText: /Accept/ }).click();
     }
     async signUp() {
-        await this.page.goto(process.env.APP_URL!);
-        await this.page.waitForSelector('#dt_signup_button');
+        await this.page.goto("http://localhost:8000");
+        await this.page.waitForSelector('#dm-hero-signup');
         const [newPage] = await Promise.all([
             this.page.context().waitForEvent('page'), // get `context` by destructuring with `page` in the test params; 'page' is a built-in event, and **you must wait for this like this,**, or `newPage` will just be the response object, rather than an actual Playwright page object.
-            await this.page.click('#dt_signup_button'),
+            await this.page.click('#dm-hero-signup'),
         ]);
         this.signupPage = newPage;
         await this.page.waitForTimeout(10000);

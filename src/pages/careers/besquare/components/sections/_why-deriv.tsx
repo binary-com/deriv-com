@@ -42,9 +42,9 @@ const WhyDeriv = () => {
                         finance to meet the needs of a global client base for over 20 years. Our
                         products include derivative trading platforms and synthetic markets,
                         delivered to our clients via trading apps and websites. Our teams consist of
-                        talented professionals based in 7 countries: Malaysia (Cyberjaya, Labuan,
-                        Melaka, and Ipoh), Malta, the United Arab Emirates, Paraguay, Rwanda,
-                        Cyprus, and Belarus.
+                        talented professionals based in 16 countries worldwide, including Malaysia,
+                        Singapore, France, the United Kingdom, Germany, Malta, Cyprus, the United
+                        Arab Emirates, Paraguay, and Rwanda.
                     </TextWrapper>
                 </div>
                 <TextWrapper

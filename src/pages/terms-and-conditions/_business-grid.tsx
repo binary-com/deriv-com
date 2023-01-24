@@ -43,7 +43,7 @@ const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
 
 const PartnersGuidePdf = () => {
     const language = getLanguage()
-    const supported_languages = ['fr', 'id', 'pt', 'ru', 'es', 'vt']
+    const supported_languages = ['fr', 'id', 'pt', 'ru', 'es', 'vi']
     const pdf_lang = supported_languages.includes(language) ? language : 'english'
     const url = `/tnc/business-partners-affiliates-and-introducing-brokers-${pdf_lang}.pdf`
     return (

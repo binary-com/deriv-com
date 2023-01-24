@@ -1,10 +1,16 @@
 import { TMarketButtons } from './_types'
+import Forex from 'images/svg/home/forex-live-table.svg'
+import Derived from 'images/svg/home/derived-live-table.svg'
+import Stocks from 'images/svg/home/stocks-live-table.svg'
+import Crypto from 'images/svg/home/crypto-live-table.svg'
+import Commodities from 'images/svg/home/commodites-live-table.svg'
 
 export const TABLE_VISIBLE_ROWS = 5
 
 export const market_buttons: TMarketButtons[] = [
     {
         id: 0,
+        src: Forex,
         button_text: '_t_Forex_t_',
         market_name: 'forex',
         market_description:
@@ -12,6 +18,7 @@ export const market_buttons: TMarketButtons[] = [
     },
     {
         id: 1,
+        src: Derived,
         button_text: '_t_Derived_t_',
         market_name: 'derived',
         market_description:
@@ -19,6 +26,7 @@ export const market_buttons: TMarketButtons[] = [
     },
     {
         id: 2,
+        src: Stocks,
         button_text: '_t_Stock & Indices_t_',
         market_name: 'indices',
         market_description:
@@ -26,6 +34,7 @@ export const market_buttons: TMarketButtons[] = [
     },
     {
         id: 3,
+        src: Crypto,
         button_text: '_t_Cryptocurrencies_t_',
         market_name: 'cryptocurrency',
         market_description:
@@ -33,6 +42,7 @@ export const market_buttons: TMarketButtons[] = [
     },
     {
         id: 4,
+        src: Commodities,
         button_text: '_t_Commodities_t_',
         market_name: 'commodities',
         market_description:

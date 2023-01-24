@@ -4,7 +4,7 @@ import LiveMarketTable from './components/_live_market_table'
 import { TAvailableLiveMarkets } from './_types'
 import { market_buttons } from './_utils'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Localize } from 'components/localization'
@@ -87,6 +87,15 @@ const MarketButton = styled.button<{ selected: boolean }>`
                   }
               `}
 `
+const StyledIcon = styled.img`
+    margin-bottom: 10px;
+`
+const StyledFlex = styled(Flex)`
+    gap: 20px;
+`
+const StyledButton = styled(Button)`
+    border-radius: 16px;
+`
 const DisclaimerText = styled(Header)`
     color: var(--color-grey-5);
     font-weight: normal;
@@ -115,6 +124,7 @@ const LivePricing = () => {
                                     onMarketButtonClick(marketItem.market_name)
                                 }}
                             >
+                                <StyledIcon src={marketItem.src} alt={marketItem.button_text} />
                                 <Header type="paragraph-2">
                                     <Localize translate_text={marketItem.button_text} />
                                 </Header>
@@ -133,18 +143,33 @@ const LivePricing = () => {
                         ),
                 )}
                 <LiveMarketTable market={selected_market} />
+                {market_buttons.map(
+                    (marketItem) =>
+                        marketItem.market_name === selected_market && (
+                            <LocalizedLinkText>
+                                See all {marketItem.market_name} market
+                            </LocalizedLinkText>
+                        ),
+                )}
+
                 <DisclaimerText>
                     <Localize translate_text="All spreads are indicative. To view real-time spreads, please refer to your terminal." />
                 </DisclaimerText>
-                {is_logged_in ? (
-                    <Button onClick={handleRedirectToTradersHub} secondary>
-                        <Localize translate_text="Trade now" />
-                    </Button>
-                ) : (
-                    <Button onClick={handleLogin} secondary>
-                        <Localize translate_text="Trade now" />
-                    </Button>
-                )}
+
+                <StyledFlex>
+                    <StyledButton primary>
+                        <Localize translate_text="See trading specifications" />
+                    </StyledButton>
+                    {is_logged_in ? (
+                        <StyledButton onClick={handleRedirectToTradersHub} secondary>
+                            <Localize translate_text="Trade now" />
+                        </StyledButton>
+                    ) : (
+                        <StyledButton onClick={handleLogin} secondary>
+                            <Localize translate_text="Trade now" />
+                        </StyledButton>
+                    )}
+                </StyledFlex>
             </ContainerWrapper>
         </LivePricingSection>
     )

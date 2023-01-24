@@ -227,7 +227,7 @@ const AppButton = styled(LocalizedLink)`
 const ButtonDp2p = styled(Button)`
     padding: 10px 16px;
     height: 40px;
-    width: 25rem;
+    min-width: 25rem;
     white-space: nowrap;
     margin-top: 24px;
     margin-bottom: 40px;

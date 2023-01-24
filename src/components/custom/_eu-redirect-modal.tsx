@@ -136,7 +136,7 @@ const EURedirect = ({
                     <Flex jc="flex-end">
                         <Cancel onClick={() => closeModal()}>
                             <Text size="var(--text-size-xs)" weight="bold">
-                                <Localize translate_text="Cancel" />
+                                <Localize translate_text="Cancelssss" />
                             </Text>
                         </Cancel>
                         <Proceed

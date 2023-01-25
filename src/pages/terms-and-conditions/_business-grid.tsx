@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { getLanguage } from 'common/utility'
 // Icons
 import General from 'images/svg/terms/business-general-tc.svg'
@@ -17,7 +17,7 @@ import useRegion from 'components/hooks/use-region'
 
 type ColProps = {
     Icon: string
-    content: string
+    content: string | JSX.Element
     title: string
     link_title: string
     url: string | (() => void)
@@ -50,9 +50,9 @@ const PartnersGuidePdf = () => {
         <Col
             Icon={IG}
             title={localize('Important Guidelines')}
-            content={localize(
-                `_t_Do's and don’ts for partners when promoting our products and services_t_`,
-            )}
+            content={
+                <Localize translate_text="_t_Do's and don’ts for partners when promoting our products and services_t_" />
+            }
             url={url}
             link_title={localize('Partners Guide')}
         />

@@ -1,9 +1,9 @@
 import { THeaders } from '../_types'
 
-const forex_specification: THeaders[] = [
+const stocks_specification: THeaders[] = [
     {
-        instrument: 'AUDJPY',
-        contract_size: 100000,
+        instrument: 'AAPL',
+        contract_size: 1,
         base_currency: 'AUD',
         minimum_size: 0.01,
         minimum_spread: 0.013,
@@ -15,9 +15,9 @@ const forex_specification: THeaders[] = [
         trading_hours: 'Sun 22:05 - Friday 21:55 GMT Daily Break: 22:00-22:05',
     },
     {
-        instrument: 'EURCAD',
-        contract_size: 100000,
-        base_currency: 'AUD',
+        instrument: 'BMW',
+        contract_size: 1,
+        base_currency: 'EUR',
         minimum_size: 0.01,
         minimum_spread: 0.013,
         target_spread: 0.02,
@@ -28,5 +28,4 @@ const forex_specification: THeaders[] = [
         trading_hours: 'Sun 22:05 - Friday 21:55 GMT Daily Break: 22:00-22:05',
     },
 ]
-
-export default forex_specification
+export default stocks_specification

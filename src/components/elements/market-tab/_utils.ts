@@ -5,8 +5,6 @@ import Stocks from 'images/svg/home/stocks-live-table.svg'
 import Crypto from 'images/svg/home/crypto-live-table.svg'
 import Commodities from 'images/svg/home/commodites-live-table.svg'
 
-export const TABLE_VISIBLE_ROWS = 5
-
 export const market_buttons: TMarketButtons[] = [
     {
         id: 0,

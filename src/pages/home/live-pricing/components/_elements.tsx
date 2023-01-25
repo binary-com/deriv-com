@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { Header as HeaderText } from 'components/elements'
 import device from 'themes/device'
+import { Flex } from 'components/containers'
 
 export const TableContainer = styled.div`
     width: 100%;
@@ -113,7 +114,32 @@ export const Cell = styled.div`
         cursor: pointer;
     }
 `
-
+export const StyledContainer = styled(Flex)`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    width: 60%;
+    @media ${device.tablet} {
+        width: 100vw;
+    }
+`
+export const ContainerWrapper = styled(Flex)`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 60%;
+    @media ${device.tablet} {
+        width: 100vw;
+    }
+`
 type TTableHeaderCell = {
     text: ReactElement
     icon_src?: string

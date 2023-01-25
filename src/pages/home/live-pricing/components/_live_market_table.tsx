@@ -8,15 +8,24 @@ import {
 import type { SortingState } from '@tanstack/react-table'
 import { TAvailableLiveMarkets, TMarketData, TMarketDataResponse } from '../_types'
 import useLiveColumns from '../_use-live-columns'
-import { TABLE_VISIBLE_ROWS } from '../_utils'
-import { Spinner, TableLoadingContainer, Table, TableContainer, TableRow } from './_elements'
+import {
+    Spinner,
+    TableLoadingContainer,
+    Table,
+    TableContainer,
+    TableRow,
+    StyledContainer,
+    ContainerWrapper,
+} from './_elements'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
+import { LocalizedLinkText } from 'components/elements'
 
 export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
 }
 
 const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
+    const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
         return temp
@@ -77,42 +86,52 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
 
     return (
-        <TableContainer>
-            <Table>
-                <thead>
-                    {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow key={headerGroup.id} bg="var(--color-white-1)">
-                            {headerGroup.headers.map((header) => (
-                                <th key={header.id}>
-                                    {header.isPlaceholder
-                                        ? null
-                                        : flexRender(
-                                              header.column.columnDef.header,
-                                              header.getContext(),
-                                          )}
-                                </th>
+        <>
+            <ContainerWrapper>
+                <TableContainer>
+                    <Table>
+                        <thead>
+                            {table.getHeaderGroups().map((headerGroup) => (
+                                <TableRow key={headerGroup.id} bg="var(--color-white-1)">
+                                    {headerGroup.headers.map((header) => (
+                                        <th key={header.id}>
+                                            {header.isPlaceholder
+                                                ? null
+                                                : flexRender(
+                                                      header.column.columnDef.header,
+                                                      header.getContext(),
+                                                  )}
+                                        </th>
+                                    ))}
+                                </TableRow>
                             ))}
-                        </TableRow>
-                    ))}
-                </thead>
-                <tbody>
-                    {is_loading && (
-                        <TableLoadingContainer>
-                            <Spinner />
-                        </TableLoadingContainer>
-                    )}
-                    {rows.map((row) => (
-                        <TableRow key={row.id}>
-                            {row.getVisibleCells().map((cell) => (
-                                <td key={cell.id}>
-                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                </td>
+                        </thead>
+                        <tbody>
+                            {is_loading && (
+                                <TableLoadingContainer>
+                                    <Spinner />
+                                </TableLoadingContainer>
+                            )}
+                            {rows.map((row) => (
+                                <TableRow key={row.id}>
+                                    {row.getVisibleCells().map((cell) => (
+                                        <td key={cell.id}>
+                                            {flexRender(
+                                                cell.column.columnDef.cell,
+                                                cell.getContext(),
+                                            )}
+                                        </td>
+                                    ))}
+                                </TableRow>
                             ))}
-                        </TableRow>
-                    ))}
-                </tbody>
-            </Table>
-        </TableContainer>
+                        </tbody>
+                    </Table>
+                </TableContainer>
+            </ContainerWrapper>
+            <StyledContainer>
+                <LocalizedLinkText>See all {market} market</LocalizedLinkText>
+            </StyledContainer>
+        </>
     )
 }
 

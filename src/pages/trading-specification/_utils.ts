@@ -1,4 +1,7 @@
 import { TMarketButtons } from './_types'
+
+export const TABLE_VISIBLE_ROWS = 20
+
 export const market_buttons: TMarketButtons[] = [
     {
         id: 0,

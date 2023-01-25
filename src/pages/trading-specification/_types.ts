@@ -1,5 +1,3 @@
-import { ReactElement } from 'react'
-
 export type TAvailableLiveMarkets =
     | 'forex'
     | 'derived'
@@ -14,7 +12,7 @@ export type TMarketButtons = {
     market_description: string
 }
 export type THeaders = {
-    instrument: ReactElement
+    instrument: string
     contract_size: number
     base_currency: string
     minimum_size: number
@@ -26,6 +24,7 @@ export type THeaders = {
     swap_short: number
     trading_hours: string
 }
+
 export type TSpecData = {
     section: string
     hide_for_eu?: boolean

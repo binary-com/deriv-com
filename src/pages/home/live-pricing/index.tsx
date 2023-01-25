@@ -102,7 +102,9 @@ const DisclaimerText = styled(Header)`
     text-align: center;
     font-size: 1.6rem;
 `
-
+const handleTradingSpec = () => {
+    window.open('/trading-specification')
+}
 const LivePricing = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
     const onMarketButtonClick = (selected) => {
@@ -157,7 +159,7 @@ const LivePricing = () => {
                 </DisclaimerText>
 
                 <StyledFlex>
-                    <StyledButton primary>
+                    <StyledButton onClick={handleTradingSpec} primary>
                         <Localize translate_text="See trading specifications" />
                     </StyledButton>
                     {is_logged_in ? (

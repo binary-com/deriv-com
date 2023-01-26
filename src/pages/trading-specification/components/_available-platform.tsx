@@ -92,7 +92,7 @@ const AvailablePlatform = () => {
                 </PlatformsContainer>
             </StyledFlex>
             <StyledFlex>
-                <SearchForm>
+                {/*<SearchForm>
                     <StyledSearchIcon src={SearchIcon} alt="search-icon" />
                     <SearchInput
                         autoFocus
@@ -100,7 +100,7 @@ const AvailablePlatform = () => {
                         data-lpignore="true"
                         autoComplete="off"
                     />
-                </SearchForm>
+                </SearchForm>*/}
             </StyledFlex>
         </>
     )

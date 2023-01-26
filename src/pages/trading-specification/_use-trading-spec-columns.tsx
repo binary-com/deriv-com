@@ -9,6 +9,10 @@ const liveMarketColumnHelper = createColumnHelper<THeaders>()
 const useLiveColumns = () => {
     const columns = useMemo(() => {
         return [
+            liveMarketColumnHelper.accessor('index', {
+                header: () => <TableHeaderCell text={<Localize translate_text="Index" />} />,
+                cell: (info) => <TableCell text={info.getValue()} />,
+            }),
             liveMarketColumnHelper.accessor('instrument', {
                 header: () => (
                     <TableHeaderCell text={<Localize translate_text="Instrument name" />} />

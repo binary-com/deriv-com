@@ -1,14 +1,16 @@
 import React, { ReactElement } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Header as HeaderText } from 'components/elements'
 import device from 'themes/device'
+import { Button } from 'components/form'
+import { Flex } from 'components/containers'
 
 export const TableContainer = styled.div`
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    padding: 0 60px;
 `
 export const Table = styled.table`
     width: 100%;
@@ -87,3 +89,26 @@ export const TableCell = ({ text }: TTableCell) => {
         </Cell>
     )
 }
+export const StyledButton = styled(Button)`
+    border: none;
+    background: transparent;
+`
+export const StyledButtonPage = styled(Button)<{ selected: boolean }>`
+    border-radius: 4px;
+    background: transparent;
+    color: #414652;
+    font-weight: 400;
+    ${({ selected }) =>
+        selected
+            ? css`
+                  border: 1px solid #d6dadb;
+              `
+            : css`
+                  border: none;
+              `}
+`
+export const StyledPaginationContainer = styled(Flex)`
+    padding: 60px 20px;
+    gap: 10px;
+    justify-content: end;
+`

@@ -113,6 +113,13 @@ const Layout = ({
         }
     }, [])
 
+    React.useEffect(() => {
+        if (window.location.pathname.includes('/academy')) {
+            const removed_academy_from_path = window.location.pathname.replace('/academy/', '')
+            window.location.replace(`https://academy.deriv.com/${removed_academy_from_path}`)
+        }
+    }, [])
+
     // Handle navigation types
     let Navigation
     let FooterNav = <></>

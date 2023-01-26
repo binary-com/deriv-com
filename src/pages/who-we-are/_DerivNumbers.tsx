@@ -119,11 +119,11 @@ const DerivNumbers = ({strapiData}: any) => {
             },
             {
                 count: <Localize translate_text={String(strapiData.third_descr_part_one)} />,
-                title: <Localize translate_text={String(strapiData.third_descr_part_one)} />,
+                title: <Localize translate_text={String(strapiData.third_descr_part_two)} />,
             },
             {
                 count: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
-                title: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
+                title: <Localize translate_text={String(strapiData.fourth_descr_part_two)} />,
             },
         ],
     ]

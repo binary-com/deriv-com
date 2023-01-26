@@ -83,7 +83,7 @@ const OurValues = ({strapiData}: any) => {
         },
         {
             title: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
-            text: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
+            text: <Localize translate_text={String(strapiData.fourth_descr_part_two)} />,
             icon: Hands,
         },
     ]

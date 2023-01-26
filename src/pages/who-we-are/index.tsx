@@ -77,16 +77,16 @@ const AboutUs = () => {
                     'Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade.',
                 )}
             />
-            <Hero strapiData={data.items[1]}/>
-            <MakeTrading strapiData={data.items[6]} />
+            <Hero strapiData={data.items[6]}/>
+            <MakeTrading strapiData={data.items[1]} />
             <StartSeparator />
-            <OurValues strapiData={data.items[5]} />
+            <OurValues strapiData={data.items[2]} />
             <EndSeparator />
-            <OurPrinciples strapiData={data.items[3]} />
+            <OurPrinciples strapiData={data.items[4]} />
             <OurLeadership />
-            <DerivNumbers strapiData={data.items[1]} />
+            <DerivNumbers strapiData={data.items[3]} />
             <ImageMarquee />
-            <OurOffices strapiData={data.items[4]} />
+            <OurOffices strapiData={data.items[5]} />
             <AboutUsBanner />
         </Layout>
     )

@@ -1,5 +1,13 @@
 name: Pre-delete Translation
 
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  pull-requests: write
+  statuses: write
+  
 on:
   pull_request:
     types: [closed]

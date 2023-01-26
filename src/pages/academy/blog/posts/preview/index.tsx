@@ -26,7 +26,7 @@ import {
 import Banner from '../../../components/_banner'
 import SocialSharing from '../../../components/_social-sharing'
 import SideSubscriptionBanner from '../../../components/_side-subscription-banner'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Desktop, Mobile, Box, Flex, SectionContainer } from 'components/containers'
 import { convertDate, isBrowser, getMinRead, truncateString } from 'common/utility'
@@ -36,6 +36,7 @@ import { cms_assets_end_point, cms_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { TString } from 'types/generics'
 
 export const useTruncateLength = () => {
     const size = useWindowSize()
@@ -43,6 +44,8 @@ export const useTruncateLength = () => {
     else if (size.width < 475) return 30
     else return 60
 }
+
+const written_by_text: TString = '_t_Written by_t_'
 
 const BlogPreview = () => {
     const [is_mobile] = useBrowserResize(972)
@@ -211,7 +214,9 @@ const BlogPreview = () => {
 
                                                 <Box>
                                                     <WrittenbyText color="grey-5" size="12px">
-                                                        {localize('Written by')}
+                                                        <Localize
+                                                            translate_text={written_by_text}
+                                                        />
                                                     </WrittenbyText>
                                                     <InfoText>{post_data?.author?.name}</InfoText>
                                                 </Box>
@@ -249,7 +254,7 @@ const BlogPreview = () => {
 
                                             <Box>
                                                 <WrittenbyText color="grey-5" size="12px">
-                                                    {localize('Written by')}
+                                                    <Localize translate_text={written_by_text} />
                                                 </WrittenbyText>
                                                 <InfoText>{post_data?.author?.name}</InfoText>
                                             </Box>

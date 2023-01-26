@@ -31,12 +31,17 @@ import { StandardImgWrapper } from './common/_styles'
 import { RecentDataType, FeaturedDataType } from './index'
 import { convertDate, getMinRead } from 'common/utility'
 import { QueryImage, Tabs, Header } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
+import { TString } from 'types/generics'
 
 type RecentFeaturedPostsProps = {
     recent_data: RecentDataType
     featured_data: FeaturedDataType
 }
+
+const recent_articles_text: TString = '_t_Recent articles_t_'
+const featured_articles_text: TString = '_t_Featured articles_t_'
+const see_all_articles_text: TString = '_t_See all articles_t_'
 
 const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPostsProps) => {
     let featureds, headline_featured
@@ -66,7 +71,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                 mobile_tab_button_underline_length="100%"
                 has_no_query
             >
-                <Tabs.Panel label={localize('Recent articles')}>
+                <Tabs.Panel label={localize(recent_articles_text)}>
                     <ArticleContentWrapper>
                         <LeftContent>
                             <RedirectLink to={`/academy/blog/posts/${headline_recent.slug}/`}>
@@ -162,7 +167,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                     </ArticleContentWrapper>
                 </Tabs.Panel>
                 {featured_data && (
-                    <Tabs.Panel label={localize('Featured articles')}>
+                    <Tabs.Panel label={localize(featured_articles_text)}>
                         <ArticleContentWrapper>
                             <LeftContent>
                                 <RedirectLink to={`/academy/blog/posts/${headline_featured.slug}/`}>
@@ -261,7 +266,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                 )}
             </StyledTabs>
             <AllArticleButton tertiary to="/academy/blog/">
-                {localize('See all articles')}
+                <Localize translate_text={see_all_articles_text} />
             </AllArticleButton>
         </StyledContainer>
     )

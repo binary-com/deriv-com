@@ -13,6 +13,7 @@ import { localize, WithIntl } from 'components/localization'
 import { Carousel, CarouselProps } from 'components/elements'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 
 export const query = graphql`
     query {
@@ -48,6 +49,10 @@ export type FeaturedVideoListDataType = AcademyIndexFragment['directus']['featur
 export type NonFeaturedVideoListDataType = AcademyIndexFragment['directus']['videos']
 
 export type MarketNewsDataType = AcademyIndexFragment['directus']['market_news']
+
+const title_text: TString = '_t_Articles, trading guide and resources | Deriv_t_'
+const description_text: TString =
+    "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_"
 
 const DerivBlog = ({ data }: DerivBlogProps) => {
     const { is_eu } = useRegion()
@@ -118,10 +123,8 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
-                title={localize('Articles, trading guide and resources | Deriv')}
-                description={localize(
-                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
-                )}
+                title={localize(title_text)}
+                description={localize(description_text)}
                 meta_attributes={meta_attributes}
             />
             <MainWrapper>

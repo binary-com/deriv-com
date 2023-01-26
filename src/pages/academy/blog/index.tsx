@@ -8,9 +8,10 @@ import { AllArticlesQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/deriv-blog.png'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 const SmallContainer = styled(Container)`
     width: 62%;
@@ -51,6 +52,12 @@ type ArticlesPageProps = {
 
 export type ArticleDataType = AllArticlesQuery['directus']['blog']
 
+const title_text: TString = '_t_Articles, trading guide and resources | Deriv_t_'
+const description_text: TString =
+    "_t_If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online._t_"
+const blog_text: TString = '_t_Blog_t_'
+const least_articles_text: TString = '_t_The latest articles and resources_t_'
+
 const ArticlesPage = ({ data }: ArticlesPageProps) => {
     const article_data = useDataFilter(data.directus.blog)
 
@@ -59,13 +66,12 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
         og_description:
             'Educational content at your fingertips – everything you need to know to start trading or upgrade your trading skills.',
     }
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
-                title={localize('Articles, trading guide and resources | Deriv')}
-                description={localize(
-                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
-                )}
+                title={localize(title_text)}
+                description={localize(description_text)}
                 meta_attributes={meta_attributes}
             />
             <Flex pt="40px">
@@ -78,7 +84,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
                             weight="regular"
                             align="start"
                         >
-                            {localize('Blog')}
+                            <Localize translate_text={blog_text} />
                         </Header>
                         <Header
                             as="h2"
@@ -87,7 +93,7 @@ const ArticlesPage = ({ data }: ArticlesPageProps) => {
                             align="start"
                             tabletL={{ mt: '8px' }}
                         >
-                            {localize('The latest articles and resources')}
+                            <Localize translate_text={least_articles_text} />
                         </Header>
                     </SmallContainer>
                 </Hero>

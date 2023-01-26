@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { LocalizedLink, localize } from 'components/localization'
+import { LocalizedLink } from 'components/localization'
 import DerivLogo from 'images/svg/layout/logo-deriv-only.svg'
 import AcademyLogo from 'images/svg/academy/academy-logo.svg'
 import { Flex } from 'components/containers'
@@ -61,7 +61,7 @@ const AcademyNav = () => {
             <Flex width="auto">
                 <LocalizedLink
                     to="/academy/"
-                    aria-label={localize('Academy')}
+                    aria-label="Academy"
                     style={{
                         textDecoration: 'none',
                         width: '100%',

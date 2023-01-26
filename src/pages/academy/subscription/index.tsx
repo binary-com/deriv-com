@@ -4,10 +4,16 @@ import { addScriptForCIO } from '../components/_utility'
 import AcademyNav from './_academy-nav'
 import Subscribe from './_subscribe'
 import { SectionContainer, SEO, Flex } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form/'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
+
+const title_text: TString = '_t_Thank you for subscribing_t_'
+const description_text: TString =
+    '_t_Thank you for confirming your email address, you will receive a confirmation email shortly._t_'
+const academy_link_text: TString = '_t_Take me to Academy_t_'
 
 const Subscription = () => {
     const [email] = useQueryParam('email', StringParam)
@@ -35,13 +41,7 @@ const Subscription = () => {
 
     return (
         <>
-            <SEO
-                title={localize('Thank you for subscribing')}
-                description={localize(
-                    'Thank you for confirming your email address, you will receive a confirmation email shortly.',
-                )}
-                no_index
-            />
+            <SEO title={localize(title_text)} description={localize(description_text)} no_index />
             <SectionContainer min_height="100vh">
                 <AcademyNav />
                 <Flex
@@ -54,7 +54,7 @@ const Subscription = () => {
                 </Flex>
                 <Flex>
                     <LinkButton secondary to="/academy/">
-                        {localize('Take me to Academy')}
+                        <Localize translate_text={academy_link_text} />
                     </LinkButton>
                 </Flex>
             </SectionContainer>

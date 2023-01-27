@@ -10,6 +10,12 @@ const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
+//TODO: transferring to .env file after adding to Vercel environment variables list
+const strapi_url = 'https://deriv-com-content.herokuapp.com'
+const strapi_token = 'a81e63d6cbf0c1afbdfb7c0d774f495fc7ca5bd6d94dbdecffe93e9652a69bc03c82fca31c20d50b42a86f0a09acc29a8d75eca44507a0563f45e0317211cb106d150c5959934917da70273006367d01c615858e7da85d088c91f7bce0a6ab6bc6a20c96df46c0ea1858ba565872111a9a955e2600ccabd2212245ec677aa47d'
+const strapi_login = 'Nikita'
+const strapi_pass = 'NikitaNikita'
+
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
@@ -334,6 +340,28 @@ module.exports = {
             options: {
                 analyzerMode: 'disabled',
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+            },
+        },
+        {
+            resolve: 'gatsby-source-strapi',
+            options: {
+                apiURL: `${strapi_url}`,
+                accessToken: `${strapi_token}`,
+                collectionTypes: ['menus.menu', 'menus.menu-item'],
+            },
+        },
+        {
+            resolve: 'gatsby-source-strapi-graphql',
+            options: {
+                apiURL: `${strapi_url}`,
+                collectionTypes: ['menus.menu', 'menus.menu-item'],
+                token: `${strapi_token}`,
+                loginData: {
+                    identifier: `${strapi_login}`,
+                    password: `${strapi_pass}`,
+                },
+
+                cache: false,
             },
         },
     ],

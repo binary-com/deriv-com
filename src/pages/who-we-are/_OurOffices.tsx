@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {ReactElement} from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { desktop_pins, mobile_pins, our_offices_count } from './_data'
+import { desktop_pins, mobile_pins } from './_data'
 import MapPin from './components/map-pin'
-import { localize } from 'components/localization'
+import {Localize, localize} from 'components/localization'
 import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
@@ -98,13 +98,36 @@ const StyledFlex = styled(Flex)`
     height: unset;
 `
 
-const OurOffices = () => {
+type DerivNumbersType = {
+    count: ReactElement
+    title: ReactElement
+}
+
+const OurOffices = ({strapiData}: any) => {
     const data = useStaticQuery(query)
+    const our_offices_count: DerivNumbersType[] = [
+        {
+            count: <Localize translate_text={String(strapiData.first_descr_part_one)} />,
+            title: <Localize translate_text={String(strapiData.first_descr_part_two)} />,
+        },
+        {
+            count: <Localize translate_text={String(strapiData.second_descr_part_one)} />,
+            title: <Localize translate_text={String(strapiData.second_descr_part_two)} />,
+        },
+        {
+            count: <Localize translate_text={String(strapiData.third_descr_part_one)} />,
+            title: <Localize translate_text={String(strapiData.third_descr_part_two)} />,
+        },
+        {
+            count: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
+            title: <Localize translate_text={String(strapiData.fourth_descr_part_two)} />,
+        },
+    ]
 
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {localize('Our locations')}
+                {localize(String(strapiData.header))}
             </StyledHeader>
 
             <Flex>

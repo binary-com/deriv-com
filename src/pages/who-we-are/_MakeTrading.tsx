@@ -1,7 +1,6 @@
-import React from 'react'
+import React, {ReactElement} from 'react'
 import styled from 'styled-components'
-import { first_section_texts } from './_data'
-import { localize } from 'components/localization'
+import {Localize, localize} from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -35,7 +34,29 @@ const StyledFirstSectionText = styled(Header)`
     }
 `
 
-const MakeTrading = () => {
+type FirstSectionTextsType = {
+    text: ReactElement
+}
+
+const MakeTrading = ({strapiData}: any) => {
+    const first_section_texts: FirstSectionTextsType[] = [
+        {
+            text: (
+                <Localize translate_text={String(strapiData.first_descr)} />
+            ),
+        },
+        {
+            text: (
+                <Localize translate_text={String(strapiData.second_descr)} />
+            ),
+        },
+        {
+            text: (
+                <Localize translate_text={String(strapiData.third_descr)} />
+            ),
+        },
+    ]
+
     return (
         <FirstSectionContainer padding="120px 0 80px" background="var(--color-white)">
             {first_section_texts.map(({ text }, index) => (
@@ -44,7 +65,7 @@ const MakeTrading = () => {
                 </StyledFirstSectionText>
             ))}
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {localize('Make trading accessible to anyone, anywhere')}
+                {localize(String(strapiData.header))}
             </StyledHeader>
         </FirstSectionContainer>
     )

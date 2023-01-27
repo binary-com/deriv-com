@@ -1,7 +1,6 @@
-import React from 'react'
+import React, {ReactElement} from 'react'
 import styled from 'styled-components'
-import { our_principles } from './_data'
-import { localize } from 'components/localization'
+import {Localize, localize} from 'components/localization'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Divider } from 'components/elements'
 import device from 'themes/device'
@@ -77,11 +76,40 @@ const ColoredBox = styled(Box)<{ bgcolor: string }>`
     }
 `
 
-const OurPrinciples = () => {
+type PrincipleType = {
+    title: ReactElement
+    text: ReactElement
+    color: string
+}
+
+const OurPrinciples = ({strapiData}: any) => {
+    const our_principles: PrincipleType[] = [
+        {
+            title: <Localize translate_text={String(strapiData.first_descr_part_one)} />,
+            text: <Localize translate_text={String(strapiData.first_descr_part_two)} />,
+            color: 'rgba(133, 189, 177, 0.25)',
+        },
+        {
+            title: <Localize translate_text={String(strapiData.second_descr_part_one)} />,
+            text: <Localize translate_text={String(strapiData.second_descr_part_two)} />,
+            color: 'rgba(255, 195, 89, 0.25)',
+        },
+        {
+            title: <Localize translate_text={String(strapiData.third_descr_part_one)} />,
+            text: <Localize translate_text={String(strapiData.third_descr_part_two)} />,
+            color: 'rgba(150, 133, 189, 0.25)',
+        },
+        {
+            title: <Localize translate_text={String(strapiData.fourth_descr_part_one)} />,
+            text: <Localize translate_text={String(strapiData.fourth_descr_part_two)} />,
+            color: 'rgba(119, 160, 198, 0.25)',
+        },
+    ]
+
     return (
         <StyledSection>
             <Header as="h2" align="center" type="heading-2" mb="40px" laptop={{ mb: '24px' }}>
-                {localize('Our principles are the framework for our decisions')}
+                {localize(String(strapiData.header))}
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
                 {our_principles.map(({ color, title, text }, idx) => (
@@ -106,8 +134,8 @@ const OurPrinciples = () => {
                 ))}
                 <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
             </StyledFlex>
-            <StyledLinkButton to="/our-principles/" secondary>
-                {localize('Learn more about our principles')}
+            <StyledLinkButton to={strapiData.link_url} secondary>
+                {localize(String(strapiData.link_name))}
             </StyledLinkButton>
         </StyledSection>
     )

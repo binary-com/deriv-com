@@ -87,9 +87,9 @@ const StyledQueryImage = styled(QueryImage)`
 const StyledMobileQueryImage = styled(QueryImage)`
     max-width: 445px;
 `
-const Hero = () => {
+const Hero = ({strapiData}: any) => {
     const data = useStaticQuery(query)
-    const title = localize('Who we are')
+    const title = localize(String(strapiData.header))
 
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>

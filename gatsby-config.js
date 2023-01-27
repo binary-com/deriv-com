@@ -10,7 +10,6 @@ const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
-//TODO: transferring to .env file after adding to Vercel environment variables list
 const strapi_url = 'https://deriv-com-content.herokuapp.com'
 const strapi_token = 'a81e63d6cbf0c1afbdfb7c0d774f495fc7ca5bd6d94dbdecffe93e9652a69bc03c82fca31c20d50b42a86f0a09acc29a8d75eca44507a0563f45e0317211cb106d150c5959934917da70273006367d01c615858e7da85d088c91f7bce0a6ab6bc6a20c96df46c0ea1858ba565872111a9a955e2600ccabd2212245ec677aa47d'
 const strapi_login = 'Nikita'

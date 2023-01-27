@@ -1,7 +1,7 @@
 import React, {ReactElement} from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { desktop_pins, mobile_pins, our_offices_count } from './_data'
+import { desktop_pins, mobile_pins } from './_data'
 import MapPin from './components/map-pin'
 import {Localize, localize} from 'components/localization'
 import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'

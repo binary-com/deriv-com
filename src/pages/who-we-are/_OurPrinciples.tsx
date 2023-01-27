@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react'
 import styled from 'styled-components'
-import { our_principles } from './_data'
 import {Localize, localize} from 'components/localization'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Divider } from 'components/elements'

@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { Header } from '../typography'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 
@@ -32,6 +33,48 @@ export const ContainerWrapper = styled(Flex)`
         width: 100vw;
     }
 `
-export const StyledIcon = styled.img`
+export const MarketButton = styled.button<{ selected: boolean }>`
+    margin: 0;
+    min-height: 48px;
+    position: relative;
+    border-bottom: 2px solid red;
+    background: none;
+    border: none;
+    padding: 16px 40px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    white-space: nowrap;
+
+    ${Header} {
+        font-weight: normal;
+        font-size: 2rem;
+        color: var(--color-grey-5);
+    }
+
+    ${({ selected }) =>
+        selected
+            ? css`
+                  border-bottom: 2px solid red;
+                  & ${Header} {
+                      color: var(--color-red);
+                  }
+              `
+            : css`
+                  border-bottom: 2px solid var(--color-grey-8);
+                  & ${Header} {
+                  }
+              `}
+`
+export const SVGWrapper = styled.svg<{ selected: boolean }>`
+    width: ${(props) => props.width};
+    height: ${(props) => props.height};
     margin-bottom: 10px;
+    ${({ selected }) =>
+        selected
+            ? css`
+                  stroke: #ff444f;
+              `
+            : css`
+                  stroke: #414652;
+              `}
 `

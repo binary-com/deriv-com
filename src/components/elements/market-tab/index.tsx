@@ -1,45 +1,11 @@
 import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
 import { market_buttons } from './_utils'
 import { TAvailableLiveMarkets } from './_types'
-import { ContainerWrapper, MarketsContainer, StyledIcon } from './_styles'
+import { ContainerWrapper, MarketButton, MarketsContainer, SVGWrapper } from './_styles'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import LiveMarketTable from 'pages/home/live-pricing/components/_live_market_table'
 import TradingSpecificationTable from 'pages/trading-specification/components/_trading_spec_table'
-
-const MarketButton = styled.button<{ selected: boolean }>`
-    margin: 0;
-    min-height: 48px;
-    position: relative;
-    border-bottom: 2px solid red;
-    background: none;
-    border: none;
-    padding: 16px 40px;
-    cursor: pointer;
-    transition: all 0.1s ease-in;
-    white-space: nowrap;
-
-    ${Header} {
-        font-weight: normal;
-        font-size: 2rem;
-        color: var(--color-grey-5);
-    }
-
-    ${({ selected }) =>
-        selected
-            ? css`
-                  border-bottom: 2px solid red;
-                  & ${Header} {
-                      color: var(--color-red);
-                  }
-              `
-            : css`
-                  border-bottom: 2px solid var(--color-grey-8);
-                  & ${Header} {
-                  }
-              `}
-`
 
 type MarketTabProps = {
     is_home: boolean
@@ -50,6 +16,7 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
+
     return (
         <>
             <MarketsContainer>
@@ -62,7 +29,13 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
                                 onMarketButtonClick(marketItem.market_name)
                             }}
                         >
-                            <StyledIcon src={marketItem.src} alt={marketItem.button_text} />
+                            <SVGWrapper
+                                selected={marketItem.market_name === selected_market}
+                                width={24}
+                                height={24}
+                            >
+                                <use href={`${marketItem.src}#${marketItem.market_name}`} />
+                            </SVGWrapper>
                             <Header type="paragraph-2">
                                 <Localize translate_text={marketItem.button_text} />
                             </Header>

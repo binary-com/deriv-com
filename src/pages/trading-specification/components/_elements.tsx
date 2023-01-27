@@ -4,6 +4,8 @@ import { Header as HeaderText } from 'components/elements'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Flex } from 'components/containers'
+import audjpy from 'images/svg/symbols/aud-jpy.svg'
+import eurcad from 'images/svg/symbols/eur-cad.svg'
 
 export const TableContainer = styled.div`
     display: flex;
@@ -53,11 +55,11 @@ export const Cell = styled.div`
 type TTableHeaderCell = {
     text: ReactElement
     icon_src?: string
-    on_icon_click?: () => void
 }
 
 type TTableCell = {
     text: string | number
+    icon_src?: string
 }
 const StyledTableHeaderText = styled(HeaderText)`
     @media ${device.tabletL} {
@@ -80,9 +82,12 @@ const StyledHeaderText = styled(HeaderText)`
         font-size: 11px;
     }
 `
-export const TableCell = ({ text }: TTableCell) => {
+const images = { AUDJPY: audjpy, EURCAD: eurcad }
+export const TableCell = ({ text, icon_src }: TTableCell) => {
+    console.log(text)
     return (
         <Cell>
+            {icon_src === text && <img src={images[text]} width="24px" height="24px" />}
             <StyledHeaderText type="small" weight="normal" align="start">
                 {text}
             </StyledHeaderText>

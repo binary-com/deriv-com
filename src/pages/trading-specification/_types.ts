@@ -6,9 +6,10 @@ export type TAvailableLiveMarkets =
     | 'commodities'
 
 export type THeaders = {
-    index: number
+    is_row?: boolean
+    symbol: string
     instrument: string
-    contract_size: number
+    contract_size: string | number
     base_currency: string
     minimum_size: number
     minimum_spread: number
@@ -18,4 +19,9 @@ export type THeaders = {
     swap_long: number
     swap_short: number
     trading_hours: string
+}
+
+export type TSpecification = {
+    market: string
+    data: THeaders[]
 }

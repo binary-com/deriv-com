@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     flexRender,
     getCoreRowModel,
     getSortedRowModel,
     useReactTable,
     getPaginationRowModel,
-    getFilteredRowModel,
 } from '@tanstack/react-table'
 import type { SortingState } from '@tanstack/react-table'
 import styled from 'styled-components'
@@ -16,6 +15,7 @@ import crypto_specification from '../data/_crypto_specification'
 import derived_specification from '../data/_derived_specification'
 import stocks_specification from '../data/_stocks_specification'
 import commodities_specification from '../data/_commodities_specification'
+import { market_specification } from './_constants'
 import {
     Table,
     TableContainer,
@@ -70,8 +70,15 @@ const SearchInput = styled.input`
 const TABLE_VISIBLE_ROWS = 20
 
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
-    // console.log(market)
-    const [markets_data, setMarketsData] = useState(() => [...forex_specification])
+    const [markets_data, setMarketsData] = useState(commodities_specification.data)
+
+    //useEffect(() => {
+    //    market_specification.map((specification) => {
+    //        if (specification.market === market) {
+    //            setMarketsData(specification.data)
+    //        }
+    //    })
+    //}, [market])
     const [globalFilter, setGlobalFilter] = useState('')
 
     const [sorting, setSorting] = React.useState<SortingState>([])

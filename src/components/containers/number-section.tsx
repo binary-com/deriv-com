@@ -12,19 +12,12 @@ type NumberSectionProps = {
     third_subtitle?: TString
     fourth_title?: TString
     fourth_subtitle?: TString
-    fifth_title?: TString
-    fifth_subtitle?: TString
-    sixth_title?: TString
-    sixth_subtitle?: TString
     flex?: 'columns' | 'rows'
     rows?: number
     columns?: number
     gap?: string
 }
 
-interface Props {
-    items: NumberSectionProps[]
-}
 const NumberSection = ({
     first_title,
     first_subtitle,
@@ -34,10 +27,6 @@ const NumberSection = ({
     third_subtitle,
     fourth_title,
     fourth_subtitle,
-    fifth_title,
-    fifth_subtitle,
-    sixth_title,
-    sixth_subtitle,
     flex,
     rows,
     columns,
@@ -60,14 +49,6 @@ const NumberSection = ({
         {
             title: fourth_title,
             subtitle: fourth_subtitle,
-        },
-        {
-            title: fifth_title,
-            subtitle: fifth_subtitle,
-        },
-        {
-            title: sixth_title,
-            subtitle: sixth_subtitle,
         },
     ]
     const styles = {

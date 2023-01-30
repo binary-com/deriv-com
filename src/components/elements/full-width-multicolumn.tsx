@@ -7,6 +7,7 @@ import device from 'themes/device'
 type FullWidthMultiColumnProps = {
     children?: ReactElement[]
     header?: ReactElement
+    multiple_row?: boolean
 }
 
 const Item = styled(Flex)`
@@ -33,6 +34,8 @@ const ItemContainer = styled(Box)`
     margin: 40px 0 32px;
     flex-direction: row;
     max-width: 140.4rem;
+    justify-content: center;
+    gap: 50px;
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -56,20 +59,6 @@ const StyledHeader = styled(Header)`
         line-height: 30px;
     }
 `
-const StyledText = styled(Text)`
-    margin-bottom: 80px;
-    text-align: center;
-
-    @media ${device.tabletL} {
-        width: 88vw;
-        font-size: 16px;
-        margin: 30px 0;
-    }
-    @media ${device.mobileM} {
-        width: 88vw;
-        font-size: 14px;
-    }
-`
 const StyledTextContent = styled(Text)`
     text-align: center;
     margin-top: 1.6rem;
@@ -90,7 +79,14 @@ const StyledSectionContainer = styled(SectionContainer)`
     color: white;
 `
 
-export const FullWidthMultiColumn = ({ children, header }: FullWidthMultiColumnProps) => {
+export const FullWidthMultiColumn = ({
+    children,
+    header,
+    multiple_row,
+}: FullWidthMultiColumnProps) => {
+    const first_three_items = children.slice(0, 3)
+    const last_two = children.slice(3)
+
     return (
         <StyledSectionContainer>
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
@@ -99,19 +95,52 @@ export const FullWidthMultiColumn = ({ children, header }: FullWidthMultiColumnP
                         {header}
                     </StyledHeader>
                 </div>
-                <ItemContainer max_width="48.6rem" width="100%">
-                    {children.map((child, idx) => {
-                        {
-                            const { text, icon } = child.props
-                            return (
-                                <Item key={idx} ai="center" direction="column">
-                                    {icon}
-                                    {<StyledTextContent>{text}</StyledTextContent>}
-                                </Item>
-                            )
-                        }
-                    })}
-                </ItemContainer>
+                {multiple_row ? (
+                    <div>
+                        <ItemContainer max_width="48.6rem" width="100%">
+                            {first_three_items.map((child, idx) => {
+                                {
+                                    const { text, icon, item_title } = child.props
+                                    return (
+                                        <Item key={idx} ai="center" direction="column">
+                                            {icon}
+                                            {<StyledTextContent>{item_title}</StyledTextContent>}
+                                            {<StyledTextContent>{text}</StyledTextContent>}
+                                        </Item>
+                                    )
+                                }
+                            })}
+                        </ItemContainer>
+                        <ItemContainer max_width="48.6rem" width="100%">
+                            {last_two.map((child, idx) => {
+                                {
+                                    const { text, icon, item_title } = child.props
+                                    return (
+                                        <Item key={idx} ai="center" direction="column">
+                                            {icon}
+                                            {<StyledTextContent>{item_title}</StyledTextContent>}
+                                            {<StyledTextContent>{text}</StyledTextContent>}
+                                        </Item>
+                                    )
+                                }
+                            })}
+                        </ItemContainer>
+                    </div>
+                ) : (
+                    <ItemContainer max_width="48.6rem" width="100%">
+                        {children.map((child, idx) => {
+                            {
+                                const { text, icon } = child.props
+                                return (
+                                    <Item key={idx} ai="center" direction="column">
+                                        {icon}
+                                        {<StyledTextContent>{text}</StyledTextContent>}
+                                    </Item>
+                                )
+                            }
+                        })}
+                    </ItemContainer>
+                )}
             </Flex>
         </StyledSectionContainer>
     )

@@ -99,6 +99,7 @@ const affiliate_programme: TQuestionsData = {
             question: '_t_Who can apply as an affiliate?_t_',
             category: 'Affiliate programme',
             sub_category: '_t_Partners_t_',
+            hide_for_non_eu: true,
             label: 'who-can-apply',
             answer: [
                 {
@@ -135,6 +136,59 @@ const affiliate_programme: TQuestionsData = {
                             {
                                 translation_text:
                                     '_t_<0>A blogger/vlogger</0><br/>Promote our products and services and earn commission when you convert your audience into traders._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                        ],
+                    },
+                },
+            ],
+        },
+        {
+            question: '_t_Who can apply as an affiliate?_t_',
+            category: 'Affiliate programme',
+            sub_category: '_t_Partners_t_',
+            hide_for_eu: true,
+            label: 'who-can-apply',
+            answer: [
+                {
+                    translation_text: '_t_We encourage you to become our affiliate if you are:_t_',
+                    list: {
+                        list_style: 'disc',
+                        margin_top: '1rem',
+                        items: [
+                            {
+                                translation_text:
+                                    '_t_<0>A webmaster</0><br/>Do you have a trading-related website? Join our network of affiliates and turn your traffic into revenue by promoting our products and services._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>A signal provider</0><br/>Do you provide trading data for others to follow? Grow your community of traders and earn commission when they sign up and trade on our platforms._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>A trading mentor</0><br/>Do you mentor other traders? Help them become better traders and earn commission when they sign up and trade on our platforms._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>A software developer</0><br/>Build your own trading platform using our API and earn commission when your clients sign up and trade._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>A social media admin</0><br/>Promote our products and services on your social media pages, and earn commission when you convert your audience into traders._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_<0>A blogger/vlogger</0><br/>Promote our products and services and earn commission when you convert your audience into traders._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    "_t_<0>Community managers</0><br/>Manage an active online community that's passionate about online trading, investing, or personal finance._t_",
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                         ],
@@ -326,6 +380,20 @@ const affiliate_programme: TQuestionsData = {
                 {
                     translation_text:
                         "_t_You'll have access to reports that show your hits, impressions, click-through rates, clients' trading activity, and more._t_",
+                },
+            ],
+        },
+        {
+            question: '_t_How to change affiliate links_t_',
+            category: 'Affiliate programme',
+            sub_category: '_t_Partners_t_',
+            label: 'how-to-change-affiliate-links',
+            answer: [
+                {
+                    translation_text: '_t_Contact us via <0>live chat</0>_t_',
+                    translation_components: [
+                        { key: 0, type: 'link', to: 'https://deriv.com/?is_livechat_open=true)' },
+                    ],
                 },
             ],
         },

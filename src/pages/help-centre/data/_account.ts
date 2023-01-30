@@ -126,6 +126,7 @@ const account: TQuestionsData = {
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'change-my-email-address',
+            hide_for_non_eu: true,
             answer: [
                 {
                     translation_text:
@@ -133,6 +134,60 @@ const account: TQuestionsData = {
                     translation_components: [
                         { key: 0, type: 'link', to: '/contact_us/?is_livechat' },
                     ],
+                },
+            ],
+        },
+        {
+            question: '_t_Can I change my email address?_t_',
+            category: 'account',
+            sub_category: '_t_Managing your account_t_',
+            label: 'change-my-email-address',
+            hide_for_eu: true,
+            answer: [
+                {
+                    translation_text:
+                        '_t_Yes, you can change your email address with us. Also, you can make the changes on your own if you still have access to your current email address._t_',
+                },
+                {
+                    translation_text: '_t_Kindly follow the steps:_t_',
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_1. Please log in to your account and go to the “Manage account settings”._t_',
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_2. On the left side pane, under the “Security & Safety” category, choose the “Email and passwords” or you may click <0> here </0>_t_',
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: 'https://app.deriv.com/account/passwords?_ga=2.213552532.144519041.1664156028-1088792513.1649824728',
+                        },
+                    ],
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_3. Once you click “Change email”, a verification link is sent to your current email address._t_',
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_4. Upon verifying the link in the email, the system will direct you to a pop-up for you to insert the new email address._t_',
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_5. Then, you may follow the instructions to change the email address.._t_',
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_Do not worry, if you encounter any issue along the process, please reach out to our support through Live Chat for further assistance._t_',
+                    has_margin_top: true,
                 },
             ],
         },
@@ -226,6 +281,7 @@ const account: TQuestionsData = {
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'close-your-account',
+            hide_for_non_eu: true,
             answer: [
                 {
                     translation_text: '_t_Click <0>here</0> to close your account._t_',
@@ -236,6 +292,42 @@ const account: TQuestionsData = {
                             to: `${deriv_app_url}/account/deactivate-account`,
                         },
                     ],
+                },
+            ],
+        },
+        {
+            question: '_t_How can I close my account?_t_',
+            category: 'account',
+            sub_category: '_t_Managing your account_t_',
+            label: 'close-your-account',
+            hide_for_eu: true,
+            answer: [
+                {
+                    translation_text:
+                        '_t_Before closing your account, please ensure to close all your open positions and withdraw all the funds in your account._t_',
+                },
+                {
+                    translation_text: '_t_Then, <0> click here </0> to close your account._t_',
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: `https://app.deriv.com/account/deactivate-account`,
+                        },
+                    ],
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_If you have questions or need help, please contact us via <0> live chat </0>._t_',
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: `https://deriv.com/?is_livechat_open=true`,
+                        },
+                    ],
+                    has_margin_top: true,
                 },
             ],
         },
@@ -516,6 +608,28 @@ const account: TQuestionsData = {
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'Why-do-I-need-to-verify-my-account',
+            hide_for_eu: true,
+            answer: [
+                {
+                    translation_text:
+                        "_t_Our regulators require us to verify your account in accordance with anti-money laundering (AML) and Know Your Customer (KYC) laws. If we have prompted you to upload your documents to verify your account, it means that you'll only be able to continue using our services after your account is verified._t_",
+                },
+                {
+                    translation_text:
+                        '_t_For further information, you may check our <0>Terms and conditions</0>._t_',
+                    translation_components: [
+                        { key: 0, type: 'link', to: `https://deriv.com/tnc/general-terms.pdf` },
+                    ],
+                    has_margin_top: true,
+                },
+            ],
+        },
+        {
+            question: '_t_Why do I need to verify my account?_t_',
+            category: 'account',
+            sub_category: '_t_Managing your account_t_',
+            label: 'Why-do-I-need-to-verify-my-account',
+            hide_for_non_eu: true,
             answer: [
                 {
                     translation_text:
@@ -528,6 +642,7 @@ const account: TQuestionsData = {
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'Can-I-trade-without-verifying-my-account',
+            hide_for_non_eu: true,
             answer: [
                 { translation_text: '_t_If you’re in the EU or UK:_t_' },
                 { translation_text: '_t_No, you must verify your account before trading._t_' },
@@ -538,6 +653,25 @@ const account: TQuestionsData = {
                 {
                     translation_text:
                         '_t_Yes, as long as you haven’t opened a Deriv MT5 Financial STP account, you can still trade without verifying your account._t_',
+                },
+            ],
+        },
+        {
+            question: '_t_Can I trade without verifying my account?_t_',
+            category: 'account',
+            sub_category: '_t_Managing your account_t_',
+            label: 'Can-I-trade-without-verifying-my-account',
+            hide_for_eu: true,
+            answer: [
+                { translation_text: '_t_If you have an EU account:_t_' },
+                { translation_text: '_t_No, you must verify your account before trading._t_' },
+                {
+                    translation_text: '_t_If you have a non-EU account:_t_',
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_Yes, as long as you haven’t being prompt to verify your account with us._t_',
                 },
             ],
         },
@@ -587,6 +721,26 @@ const account: TQuestionsData = {
                             key: 0,
                             type: 'link',
                             to: '/contact_us/?is_livechat_open=true',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            question: '_t_Is there any system/website maintenance going on?_t_',
+            category: 'account',
+            sub_category: '_t_Managing your account_t_',
+            label: 'is-there-any-system-website-maintenance-going-on',
+            hide_for_eu: true,
+            answer: [
+                {
+                    translation_text:
+                        '_t_Check our <0>Status page</0> to see if there is any system or website maintenance going on._t_',
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: 'https://deriv.statuspage.io/',
                         },
                     ],
                 },

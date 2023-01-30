@@ -421,7 +421,7 @@ const account: TQuestionsData = {
                         { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
                         { key: 1, type: 'link', to: `${deriv_app_url}/account/self-exclusion` },
                     ],
-                    eu_translation_text: '_t_ _t_',
+                    eu_translation_text: '',
                 },
             ],
         },

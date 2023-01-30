@@ -20,6 +20,7 @@ import { Text, LinkText, Header, BaseElement, SpanLinkText } from './typography'
 import LocalizedLinkText from './localized-link-text'
 import LiveChatLinkText from './livechat-link-text'
 import Timeline from './timeline'
+import StepperView from './stepper-view'
 import { Ul, Li } from './lists'
 import { Carousel, CarouselProps } from './carousel'
 import VideoPlayer from './video-player'
@@ -59,6 +60,7 @@ export {
     Tabs,
     Text,
     Timeline,
+    StepperView,
     Ul,
     VideoPlayer,
     Modal,

@@ -22,10 +22,10 @@ const Footer = ({
     academy = false,
     no_footer_links = false,
 }: FooterProps) => {
-    const { is_eu } = useRegion()
+    const { is_eu, is_africa } = useRegion()
 
     return (
-        <DefaultFooter is_eu={is_eu}>
+        <DefaultFooter is_margin={is_eu || is_africa}>
             <Container>
                 <FooterGrid>
                     <LogoSection type={type} />

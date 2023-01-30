@@ -58,7 +58,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_eu_residence = eu_countries.includes(residence)
         const is_eu_location = is_eu_residence || (!residence && is_eu_country_ip)
         const is_eu = is_eu_location || isEuDomain()
-        const is_non_eu = !is_eu
+        const is_non_eu = !is_eu && !is_africa
         const is_latam = latam_countries.includes(user_ip_country)
         const is_row = !is_eu
         const is_dev = isLocalhost() || isTestlink()

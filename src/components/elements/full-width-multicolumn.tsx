@@ -17,8 +17,8 @@ const Item = styled(Flex)`
     width: 100%;
 
     img {
-        width: 48px;
-        height: 48px;
+        width: 34px;
+        margin-bottom: 10px;
     }
 
     @media ${device.tabletL} {

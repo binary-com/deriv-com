@@ -1,10 +1,9 @@
 import React from 'react'
 import { Localize } from 'components/localization'
-import ExtendedTime from 'images/svg/stock-indices/stocks-minimum-capital.svg'
-import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
-import MinimalCapital from 'images/svg/stock-indices/stocks-extended-time.svg'
-import ResponsiveWebsite from 'images/svg/markets/responsive-another.svg'
-import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
+import FriendlySupport from 'images/svg/markets/forex/smart.svg'
+import Leverage from 'images/svg/markets/forex/spread.svg'
+import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
+import Deposit from 'images/svg/markets/forex/deposit.svg'
 
 type cfd_content = {
     src: string
@@ -15,7 +14,7 @@ type cfd_content = {
 
 export const cfd_content: cfd_content[] = [
     {
-        src: ExtendedTime,
+        src: Deposit,
         alt: 'High leverage, tight spreads',
         item_title: <Localize translate_text="High leverage, tight spreads" />,
         text: (
@@ -23,7 +22,7 @@ export const cfd_content: cfd_content[] = [
         ),
     },
     {
-        src: MinimalCapital,
+        src: Leverage,
         alt: 'All your favourite markets',
         item_title: <Localize translate_text="All your favourite markets" />,
         text: (
@@ -31,7 +30,7 @@ export const cfd_content: cfd_content[] = [
         ),
     },
     {
-        src: WithdrawIcon,
+        src: Deposit,
         alt: 'Easy deposits and withdrawals',
         item_title: <Localize translate_text="Go long or short" />,
         text: (

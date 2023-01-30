@@ -39,15 +39,14 @@ const CFD = () => {
                 button_title={<Localize translate_text="Don't have a Deriv account yet?" />}
                 button_text="Create free demo account"
             >
-                {cfd_content &&
-                    cfd_content.map((content, index) => (
-                        <StyledBox
-                            item_title={content.item_title}
-                            key={index}
-                            text={content.text}
-                            icon={<img src={content.src} alt={content.alt} />}
-                        />
-                    ))}
+                {cfd_content.map((content, index) => (
+                    <StyledBox
+                        item_title={content.item_title}
+                        key={index}
+                        text={content.text}
+                        icon={<img src={content.src} alt={content.alt} />}
+                    />
+                ))}
             </FullWidthMultiColumn>
             <StartTrading />
             <AvailableMarkets />

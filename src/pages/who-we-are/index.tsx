@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
-import ImageMarquee from './carousel/_ImageMarquee'
 import {
     OurValues,
     OurPrinciples,
@@ -10,18 +9,14 @@ import {
     AboutUsBanner,
     DerivNumbers,
     OurOffices,
+    ImageMarquee,
 } from './_lazy-load'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+import SkeletonLoader from 'components/custom/SkeletonLoader'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
-import ABOUT_US_BANNER_DUMMY from 'images/common/about-us-banner-dummy.png'
-import DERIV_NUMBERS_DUMMY from 'images/common/deriv-numbers-dummy.png'
-import LEADERSHIP_DUMMY from 'images/common/our-leadership-dummy.png'
-import OFFICES_DUMMY from 'images/common/our-offices-dummy.png'
-import PRINCIPLES_DUMMY from 'images/common/our-principles-dummy.png'
-import VALUES_DUMMY from 'images/common/our-values-dummy.png'
 
 const StartSeparator = styled.div`
     width: 0;
@@ -50,54 +45,14 @@ const options = {
 
 const lazy_components: ReactNode = (
     <>
-        <OurValues
-            fallback={
-                <div>
-                    <img src={VALUES_DUMMY} style={{ width: '95%' }} alt="our-values" />
-                </div>
-            }
-        />
+        <OurValues fallback={<SkeletonLoader />} />
         <EndSeparator />
-        <OurPrinciples
-            fallback={
-                <div>
-                    <img src={PRINCIPLES_DUMMY} style={{ width: '95%' }} alt="our-values" />
-                </div>
-            }
-        />
-        <OurLeadership
-            fallback={
-                <div>
-                    <img src={LEADERSHIP_DUMMY} style={{ width: '95%' }} alt="our-values" />
-                </div>
-            }
-        />
-        <DerivNumbers
-            fallback={
-                <div>
-                    <img src={DERIV_NUMBERS_DUMMY} style={{ width: '95%' }} alt="our-values" />
-                </div>
-            }
-        />
-        <ImageMarquee />
-        <OurOffices
-            fallback={
-                <div>
-                    <img src={OFFICES_DUMMY} style={{ width: '95%' }} alt="our-offices" />
-                </div>
-            }
-        />
-        <AboutUsBanner
-            fallback={
-                <div>
-                    <img
-                        src={ABOUT_US_BANNER_DUMMY}
-                        style={{ width: '95%' }}
-                        alt="about-us-banner"
-                    />
-                </div>
-            }
-        />
+        <OurPrinciples fallback={<SkeletonLoader />} />
+        <OurLeadership fallback={<SkeletonLoader />} />
+        <DerivNumbers fallback={<SkeletonLoader />} />
+        <ImageMarquee fallback={<SkeletonLoader />} />
+        <OurOffices fallback={<SkeletonLoader />} />
+        <AboutUsBanner fallback={<SkeletonLoader />} />
     </>
 )
 

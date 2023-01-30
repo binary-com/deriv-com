@@ -7,6 +7,8 @@ import device from 'themes/device'
 type FullWidthMultiColumnProps = {
     children?: ReactElement[]
     header?: ReactElement
+    button_title?: ReactElement
+    button_text?: string
     multiple_row?: boolean
 }
 
@@ -54,7 +56,6 @@ const StyledHeader = styled(Header)`
         text-align: center;
         max-width: 80vw;
         margin-bottom: 8px;
-        font-weight: 700;
         font-size: 24px;
         line-height: 30px;
     }
@@ -70,7 +71,7 @@ const StyledTitle = styled(Header)`
         max-width: 80vw;
         margin-bottom: 8px;
         font-weight: 700;
-        font-size: 24px;
+        font-size: 14px;
         line-height: 30px;
     }
 `
@@ -98,6 +99,8 @@ export const FullWidthMultiColumn = ({
     children,
     header,
     multiple_row,
+    button_title,
+    button_text,
 }: FullWidthMultiColumnProps) => {
     const first_three_items = children.slice(0, 3)
     const last_two = children.slice(3)
@@ -123,6 +126,8 @@ export const FullWidthMultiColumn = ({
                         })}
                     </ItemContainer>
                 ))}
+                {button_title && <StyledTextContent>{button_title}</StyledTextContent>}
+                {button_text && <StyledTextContent>{button_text}</StyledTextContent>}
             </Flex>
         </StyledSectionContainer>
     )

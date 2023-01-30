@@ -35,7 +35,9 @@ const CFD = () => {
             <TradingCFDIncreases />
             <FullWidthMultiColumn
                 multiple_row={true}
-                header={<Localize translate_text="Why trade forex on Deriv" />}
+                header={<Localize translate_text="Why trade on CFDs on Deriv" />}
+                button_title={<Localize translate_text="Don't have a Deriv account yet?" />}
+                button_text="Create free demo account"
             >
                 {cfd_content &&
                     cfd_content.map((content, index) => (

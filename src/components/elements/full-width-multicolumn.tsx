@@ -59,6 +59,21 @@ const StyledHeader = styled(Header)`
         line-height: 30px;
     }
 `
+const StyledTitle = styled(Header)`
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: white;
+    text-align: center;
+
+    @media ${device.tablet} {
+        max-width: 80vw;
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+    }
+`
 const StyledTextContent = styled(Text)`
     text-align: center;
     margin-top: 1.6rem;
@@ -86,61 +101,28 @@ export const FullWidthMultiColumn = ({
 }: FullWidthMultiColumnProps) => {
     const first_three_items = children.slice(0, 3)
     const last_two = children.slice(3)
+    const items = multiple_row ? [first_three_items, last_two] : [children]
 
     return (
         <StyledSectionContainer>
-            <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
-                <div>
-                    <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
-                        {header}
-                    </StyledHeader>
-                </div>
-                {multiple_row ? (
-                    <div>
-                        <ItemContainer max_width="48.6rem" width="100%">
-                            {first_three_items.map((child, idx) => {
-                                {
-                                    const { text, icon, item_title } = child.props
-                                    return (
-                                        <Item key={idx} ai="center" direction="column">
-                                            {icon}
-                                            {<StyledTextContent>{item_title}</StyledTextContent>}
-                                            {<StyledTextContent>{text}</StyledTextContent>}
-                                        </Item>
-                                    )
-                                }
-                            })}
-                        </ItemContainer>
-                        <ItemContainer max_width="48.6rem" width="100%">
-                            {last_two.map((child, idx) => {
-                                {
-                                    const { text, icon, item_title } = child.props
-                                    return (
-                                        <Item key={idx} ai="center" direction="column">
-                                            {icon}
-                                            {<StyledTextContent>{item_title}</StyledTextContent>}
-                                            {<StyledTextContent>{text}</StyledTextContent>}
-                                        </Item>
-                                    )
-                                }
-                            })}
-                        </ItemContainer>
-                    </div>
-                ) : (
-                    <ItemContainer max_width="48.6rem" width="100%">
-                        {children.map((child, idx) => {
-                            {
-                                const { text, icon } = child.props
-                                return (
-                                    <Item key={idx} ai="center" direction="column">
-                                        {icon}
-                                        {<StyledTextContent>{text}</StyledTextContent>}
-                                    </Item>
-                                )
-                            }
+            <Flex direction="column" max-width="99.6rem" m="0 auto" jc="space-between" ai="center">
+                <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
+                    {header}
+                </StyledHeader>
+                {items.map((group, i) => (
+                    <ItemContainer max-width="48.6rem" width="100%" key={i}>
+                        {group.map((child, idx) => {
+                            const { text, icon, item_title } = child.props
+                            return (
+                                <Item key={idx} ai="center" direction="column">
+                                    {icon}
+                                    {item_title && <StyledTitle as="h3">{item_title}</StyledTitle>}
+                                    {text && <StyledTextContent>{text}</StyledTextContent>}
+                                </Item>
+                            )
                         })}
                     </ItemContainer>
-                )}
+                ))}
             </Flex>
         </StyledSectionContainer>
     )

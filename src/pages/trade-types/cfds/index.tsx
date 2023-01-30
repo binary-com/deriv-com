@@ -9,7 +9,6 @@ import { Localize, localize, WithIntl } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { cfd_content } from 'pages/trade-types/cfds/static/content/_cfd'
 import { StyledBox } from 'pages/markets/static/style/_markets-style'
-const WhyTradeCFD = Loadable(() => import('./_why-trade-cfd'))
 const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const ThingsToKeep = Loadable(() => import('./_mind-when-trading'))
@@ -31,6 +30,9 @@ const CFD = () => {
                     </Header>
                 </SmallContainer>
             </Hero>
+            <WhatIsCFD />
+            <ThingsToKeep />
+            <TradingCFDIncreases />
             <FullWidthMultiColumn
                 multiple_row={true}
                 header={<Localize translate_text="Why trade forex on Deriv" />}
@@ -45,10 +47,6 @@ const CFD = () => {
                         />
                     ))}
             </FullWidthMultiColumn>
-            <WhatIsCFD />
-            <ThingsToKeep />
-            <TradingCFDIncreases />
-            <WhyTradeCFD />
             <StartTrading />
             <AvailableMarkets />
         </Layout>

@@ -12,20 +12,24 @@ type TProps = {
     hero?: boolean
 }
 
-const Label = styled.span<Omit<TProps, 'label' | 'onClick'>>`
+type TLabelProps = Omit<TProps, 'label' | 'onClick'>
+
+type TContainerProps = Omit<TProps, 'label'>
+
+const Label = styled.span<TLabelProps>`
     font-family: Ubuntu, sans-serif;
     font-weight: 700;
     line-height: ${({ hero }) => (hero ? '20px' : '14px')};
     font-size: ${({ hero }) => (hero ? '20px' : '14px')};
     color: var(--color-white);
-    ${({ tertiary, outline }) => (tertiary && outline ? 'color: var(--clr-primary)' : '')};
+    ${({ tertiary, outline }) => (tertiary && outline ? 'color: var(--color-black-3)' : '')};
     ${({ secondary }) => (secondary ? 'color: var(--color-red)' : '')};
     ${({ primary }) => (primary ? 'color: var(--color-white)' : '')};
     ${({ secondary, outline }) => (secondary && outline ? 'color: var(--color-white)' : '')};
     ${({ primary, outline }) => (primary && outline ? 'color: var(--color-red)' : '')};
 `
 
-const Container = styled.div<Omit<TProps, 'label'>>`
+const Container = styled.div<TContainerProps>`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -47,20 +51,24 @@ const Container = styled.div<Omit<TProps, 'label'>>`
         secondary && outline ? 'border: 1.5px solid var(--color-white)' : ''};
     ${({ primary, outline }) => (primary && outline ? 'border: 1.5px solid var(--color-red)' : '')};
 
-    /* TODO: (mitra) to add on hover changes for secondary and tertiary buttons once given by design */
     &:hover {
         cursor: pointer;
         ${({ primary, outline }) =>
             primary && outline ? 'background-color: var(--color-red)' : ''};
         ${({ primary, outline }) =>
             primary && !outline ? 'background-color: var(--color-red-6)' : ''};
+        ${({ tertiary, outline }) =>
+            tertiary && outline ? 'background-color: var(--color-grey-43)' : ''};
+        ${({ secondary, outline }) =>
+            secondary && !outline ? 'background-color: var(--color-red)' : ''};
     }
     &:hover ${Label} {
         ${({ primary, outline }) => (primary && outline ? 'color: var(--color-white)' : '')};
+        ${({ secondary, outline }) => (secondary && !outline ? 'color: var(--color-white)' : '')};
     }
 `
 
-const Button: React.FC<React.PropsWithChildren<TProps>> = ({
+const Button: React.FC<TProps> = ({
     label,
     onClick,
     primary = false,

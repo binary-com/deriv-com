@@ -10,9 +10,9 @@ import { deriv_app_url } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 // SVG
-import Apple from 'images/svg/custom/apple-40.svg'
-import Facebook from 'images/svg/custom/facebook-40.svg'
-import Google from 'images/svg/custom/google-40.svg'
+import Apple from 'images/svg/custom/apple.svg'
+import Facebook from 'images/svg/custom/facebook-blue.svg'
+import Google from 'images/svg/custom/google.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
@@ -20,6 +20,7 @@ type SocialButtonContent = {
     provider: string
     id: string
     img: string
+    text: string
 }
 
 type SignupPublicProps = {
@@ -32,6 +33,9 @@ type SignupPublicProps = {
     handleSocialSignup?: (event) => void
     handleValidation?: (event) => void
     is_submitting?: boolean
+}
+type SocialButtonProps = {
+    bgColor?: string
 }
 
 const query = graphql`
@@ -57,7 +61,7 @@ const StyledSectionContainer = styled(Box)`
 `
 const Wrapper = styled.div`
     border-radius: 8px;
-    background: linear-gradient(241.92deg, #d74b56 12.96%, #d1632f 86.33%);
+    background: #ff444f;
     background-repeat: round;
     position: relative;
     display: flex;
@@ -135,6 +139,7 @@ const InputWrapper = styled.div`
     line-height: 10px;
     font-weight: normal;
     margin-right: 1rem;
+    border-radius: 15px;
     @media ${device.mobileL} {
         width: unset;
         max-width: 191px;
@@ -149,10 +154,10 @@ const InputGroup = styled.div`
 `
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     margin-left: 1rem;
-    min-width: 125px;
+    min-width: 80px;
     height: 40px;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 16px;
     font-weight: normal;
     @media ${device.tabletL} {
         padding: 10px 16px;
@@ -167,6 +172,7 @@ const SocialWrapper = styled(Flex)`
     width: 100%;
     margin-top: 4rem;
     flex-wrap: wrap;
+    gap: 6px;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
@@ -177,14 +183,44 @@ const MobileSocialWrapper = styled(SocialWrapper)`
         flex-direction: column;
     }
 `
-const SocialButton = styled(Button)`
-    display: flex;
-    padding: 0;
-    margin: 0 1rem;
-    border: none;
+const SocialButton = styled(Button)<SocialButtonProps>`
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    background-color: ${(props) => props.bgColor || 'var(--color-white)'};
+    border: solid 1px var(--color-grey-21);
+    width: 12.5rem;
+    height: 3.8rem;
+    padding: 0.5rem 0;
+
+    &:hover {
+        background: ${(props) => {
+            if (props.provider === 'facebook') return 'var(--color-grey-4)'
+        }};
+    }
 
     @media ${device.tabletL} {
-        justify-content: center;
+        width: 100%;
+        height: 6rem;
+        margin-top: 1rem;
+        margin-right: 1.2rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+`
+const SocialText = styled(Text)`
+    margin-right: 1.4rem;
+    margin-left: 0.7rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--color-grey-16);
+
+    @media ${device.tabletL} {
+        margin-left: 2.7rem;
+        font-size: 14px;
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`
@@ -248,7 +284,6 @@ const SignInText = styled(Text)`
         margin-right: 0;
     }
 `
-
 const MobileSignInText = styled(SignInText)`
     @media ${device.tabletL} {
         width: unset;
@@ -322,25 +357,26 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
         }
     }
 `
-
 const social_button_content: SocialButtonContent[] = [
     {
         provider: 'google',
         id: 'gtm-signup-google',
         img: Google,
+        text: 'Google',
     },
     {
         provider: 'facebook',
         id: 'gtm-signup-facebook',
         img: Facebook,
+        text: 'Facebook',
     },
     {
         provider: 'apple',
         id: 'gtm-signup-apple',
         img: Apple,
+        text: 'Apple',
     },
 ]
-
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -367,7 +403,7 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
@@ -422,7 +458,7 @@ const SignupPublic = ({
                                 />
                                 <SocialWrapper jc="unset" ai="center">
                                     <SignInText>{localize('Or sign up with')}</SignInText>
-                                    {social_button_content.map(({ provider, id, img }) => (
+                                    {social_button_content.map(({ provider, id, img, text }) => (
                                         <SocialButton
                                             key={provider}
                                             onClick={handleSocialSignup}
@@ -432,7 +468,8 @@ const SignupPublic = ({
                                             type="button"
                                             social
                                         >
-                                            <img src={img} alt={provider} width="40" height="40" />
+                                            <img src={img} alt={provider} width="24" height="24" />
+                                            <SocialText>{text}</SocialText>
                                         </SocialButton>
                                     ))}
                                 </SocialWrapper>
@@ -504,7 +541,7 @@ const SignupPublic = ({
                         <MobileSignupFormWrapper>
                             <div>
                                 <StyledHeader type="section-title">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
@@ -573,8 +610,8 @@ const SignupPublic = ({
                                                 <img
                                                     src={img}
                                                     alt={provider}
-                                                    width="40"
-                                                    height="40"
+                                                    width="24"
+                                                    height="24"
                                                 />
                                             </SocialButton>
                                         ))}

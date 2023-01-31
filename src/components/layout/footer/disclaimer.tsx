@@ -16,11 +16,11 @@ type DisclaimerSectionProps = {
 }
 
 const DisclaimerSection = ({ is_academy = false }: DisclaimerSectionProps) => {
-    const { is_eu, is_non_eu, is_africa } = useRegion()
+    const { is_eu, is_non_eu, is_cpa_plan } = useRegion()
     return (
         <>
             <DisclaimerWrapper>
-                {(is_non_eu || is_africa) && (
+                {(is_non_eu || is_cpa_plan) && (
                     <>
                         <DisclaimerParagraph>
                             <Localize
@@ -116,7 +116,7 @@ const DisclaimerSection = ({ is_academy = false }: DisclaimerSectionProps) => {
                 )}
                 <RiskWarning>
                     <Desktop>
-                        {is_non_eu && (
+                        {is_non_eu && !is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
@@ -136,7 +136,7 @@ const DisclaimerSection = ({ is_academy = false }: DisclaimerSectionProps) => {
                                 </DisclaimerParagraph>
                             </>
                         )}
-                        {is_africa && (
+                        {is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
@@ -180,7 +180,7 @@ const DisclaimerSection = ({ is_academy = false }: DisclaimerSectionProps) => {
                         )}
                     </Desktop>
                     <Mobile>
-                        {is_non_eu && (
+                        {is_non_eu && !is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
@@ -200,7 +200,7 @@ const DisclaimerSection = ({ is_academy = false }: DisclaimerSectionProps) => {
                                 </DisclaimerParagraph>
                             </>
                         )}
-                        {is_africa && (
+                        {is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />

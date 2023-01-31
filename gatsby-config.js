@@ -29,7 +29,6 @@ module.exports = {
         `https://static.deriv.com/scripts/cookie.js`,
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
-    trailingSlash: "never",
     plugins: [
         'gatsby-plugin-react-helmet',
         {

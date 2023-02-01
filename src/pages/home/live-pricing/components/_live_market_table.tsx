@@ -36,9 +36,9 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     const requestMarketsData = useCallback(() => {
         setIsLoading(true)
-
+        // Todo: Fro region: 'row' should be dynamic. Delete this todo once fixed
         send(
-            { trading_platform_asset_listing: 1, platform: 'mt5', type: 'brief' },
+            { trading_platform_asset_listing: 1, platform: 'mt5', type: 'brief', region: 'row' },
             (response: TMarketDataResponse) => {
                 const responseData = [...response.trading_platform_asset_listing.mt5.assets]
                 const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()

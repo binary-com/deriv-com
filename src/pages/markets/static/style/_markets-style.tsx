@@ -258,7 +258,8 @@ export const Title = styled(Text)`
     }
 `
 type StyledBoxProps = {
-    text: string
+    text: React.ReactNode
+    item_title?: React.ReactNode
     icon: ReactElement
 }
 export const StyledBox = styled(Box)<StyledBoxProps>`

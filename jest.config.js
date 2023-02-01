@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const { defaults } = require('jest-config')
 module.exports = {
     // A set of global variables that need to be available in all test environments
@@ -42,7 +43,7 @@ module.exports = {
         '^images/(.*)$': '<rootDir>/src/images/$1',
         '^lotties/(.*)$': '<rootDir>/src/lotties/$1',
         '^pages/(.*)$': '<rootDir>/src/pages/$1',
-        '^store': '<rootDir>/src/store/index.tsx',
+        '^store': '<rootDir>/src/store/$1',
         '^templates': '<rootDir>/src/templates/$1',
         '^themes/(.*)$': '<rootDir>/src/themes/$1',
         '^translations/(.*)$': '<rootDir>/src/translations/$1',

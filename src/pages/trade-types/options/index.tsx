@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
-import styled from 'styled-components'
 import { Hero } from '../components/_style'
 import PageNotFound from '../../404'
 import WhatAreTheOptions from './_what-are-options'
@@ -13,7 +12,6 @@ import { StepperView } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
-const StartTrading = Loadable(() => import('./_start-trading'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
 
 const meta_attributes = {

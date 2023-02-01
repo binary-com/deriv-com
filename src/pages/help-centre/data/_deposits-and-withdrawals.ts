@@ -1,5 +1,5 @@
 import { TQuestionsData } from './_data-types'
-import { binary_url, deriv_app_url } from 'common/constants'
+import { deriv_com_url, deriv_app_url } from 'common/constants'
 
 const deposits_and_withdrawals: TQuestionsData = {
     section: 'General',
@@ -122,7 +122,7 @@ const deposits_and_withdrawals: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: `${binary_url}/en/home.html?is_livechat_open=true`,
+                            to: `/contact_us?is_livechat_open=true`,
                         },
                     ],
                     has_margin_top: true,
@@ -175,9 +175,6 @@ const deposits_and_withdrawals: TQuestionsData = {
             hide_for_eu: true,
             answer: [
                 {
-                    eu_translation_text:
-                        '_t_You can cancel your withdrawal on the <0>Cashier page</0> by following the steps mentioned in the next paragraph. Please note that you cannot cancel withdrawals if your withdrawal request has already been authorised and processed._t_',
-
                     translation_text:
                         '_t_You can cancel your withdrawal on the <0>Cashier page</0> by following the steps mentioned in the next paragraph. Please note that you cannot cancel withdrawals if:_t_',
                     translation_components: [
@@ -239,7 +236,7 @@ const deposits_and_withdrawals: TQuestionsData = {
             hide_for_non_eu: true,
             answer: [
                 {
-                    eu_translation_text:
+                    translation_text:
                         '_t_You can cancel your withdrawal on the <0>Cashier page</0> by following the steps mentioned in the next paragraph. Please note that you cannot cancel withdrawals if your withdrawal request has already been authorised and processed._t_',
 
                     translation_components: [

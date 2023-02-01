@@ -1,10 +1,9 @@
 import React from 'react'
 import { TString } from 'types/generics'
-import { Localize } from 'components/localization'
 import { Flex } from 'components/containers'
 
 type CommonHeaderSectionProps = {
-    title?: TString
+    title?: any
     subtitle?: TString
     padding?: string
     bgcolor?: string
@@ -62,7 +61,7 @@ const CommonHeaderSection = ({
                         lineHeight: line_height,
                     }}
                 >
-                    <Localize translate_text={title} />
+                    {title}
                 </h1>
                 <p
                     style={{
@@ -75,7 +74,7 @@ const CommonHeaderSection = ({
                         lineHeight: line_height,
                     }}
                 >
-                    <Localize translate_text={subtitle} />
+                    {subtitle}
                 </p>
             </Flex>
         </div>

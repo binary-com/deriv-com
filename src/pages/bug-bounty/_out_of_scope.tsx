@@ -33,9 +33,9 @@ const IconWrap = styled.img`
 type TOutOfScope = {
     id: number
     text: TString
-}[]
+}
 
-const out_of_scope_content: TOutOfScope = [
+const out_of_scope_content: TOutOfScope[] = [
     { id: 0, text: '_t_Clickjacking on pages with no sensitive actions_t_' },
     {
         id: 1,

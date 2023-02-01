@@ -159,7 +159,7 @@ const account: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_2. On the left side pane, under the “Security & Safety” category, choose the “Email and passwords” or you may click <0> here </0>_t_',
+                        '_t_2. On the left side panel, under the “Security & Safety” category, choose the “Email and passwords” or you may click <0> here </0>_t_',
                     translation_components: [
                         {
                             key: 0,
@@ -181,7 +181,7 @@ const account: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_5. Then, you may follow the instructions to change the email address.._t_',
+                        '_t_5. Then, you may follow the instructions to change the email address._t_',
                     has_margin_top: true,
                 },
                 {

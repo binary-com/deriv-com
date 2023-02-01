@@ -468,7 +468,7 @@ const deposits_and_withdrawals: TQuestionsData = {
             ],
         },
         {
-            question: "_t_Can I transfer the fund in my account to another person's account?_t_",
+            question: "_t_Can I transfer the funds in my account to another person's account?_t_",
             category: 'Deposits and withdrawals',
             sub_category: '_t_Withdrawals_t_',
             hide_for_eu: true,

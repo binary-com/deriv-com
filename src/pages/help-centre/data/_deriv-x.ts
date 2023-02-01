@@ -51,7 +51,7 @@ const derivx: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_he maximum and minimum amount to trade  depend on the margin required to open a position on Deriv X for each asset. When creating a new order, you’ll see the required margin for the lot size of your choice._t_',
+                        '_t_The maximum and minimum amount to trade depends on the margin required to open a position on Deriv X for each asset. When creating a new order, you’ll see the required margin for the lot size of your choice._t_',
                 },
             ],
         },

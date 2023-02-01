@@ -335,9 +335,7 @@ const SideSubscriptionBanner = () => {
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize
-                                        translate_text={
-                                            '_t_We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more._t_'
-                                        }
+                                        translate_text="_t_We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more._t_"
                                         components={[
                                             <StyledLocalizedLink
                                                 key={0}

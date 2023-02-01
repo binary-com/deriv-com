@@ -1,6 +1,7 @@
 import React from 'react'
 import { TString } from 'types/generics'
 import { Flex } from 'components/containers'
+import { Localize } from 'components/localization'
 
 type CommonHeaderSectionProps = {
     title?: any

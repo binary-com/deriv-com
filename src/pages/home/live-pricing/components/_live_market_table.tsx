@@ -18,6 +18,7 @@ import {
     ContainerWrapper,
 } from './_elements'
 import { useDerivApi } from 'components/hooks/use-deriv-api'
+import useRegion from 'components/hooks/use-region'
 import { LocalizedLinkText } from 'components/elements'
 
 export type TLiveMarketTableProps = {
@@ -25,6 +26,7 @@ export type TLiveMarketTableProps = {
 }
 
 const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
+    const { is_eu } = useRegion()
     const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
@@ -43,11 +45,13 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     const { send } = useDerivApi()
 
+    const region = is_eu ? 'eu' : 'row'
+
     const requestMarketsData = useCallback(() => {
         setIsLoading(true)
 
         send(
-            { trading_platform_asset_listing: 1, platform: 'mt5', type: 'brief' },
+            { trading_platform_asset_listing: 1, platform: 'mt5', type: 'brief', region: region },
             (response: TMarketDataResponse) => {
                 const responseData = [...response.trading_platform_asset_listing.mt5.assets]
                 const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()

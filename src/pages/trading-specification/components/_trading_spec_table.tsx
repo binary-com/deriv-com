@@ -11,13 +11,9 @@ import styled from 'styled-components'
 import { TAvailableLiveMarkets } from '../_types'
 import useLiveColumns from '../_use-trading-spec-columns'
 import forex_specification from '../data/_forex_specification'
-import crypto_specification from '../data/_crypto_specification'
-import derived_specification from '../data/_derived_specification'
-import stocks_specification from '../data/_stocks_specification'
-import commodities_specification from '../data/_commodities_specification'
 import { market_specification } from './_constants'
 import {
-    Table,
+    TableData,
     TableContainer,
     TableRow,
     StyledButton,
@@ -25,17 +21,22 @@ import {
     StyledPaginationContainer,
 } from './_elements'
 import AvailablePlatform from './_available-platform'
+import PopUpMenu from './_popup_menu'
 import RightChevron from 'images/svg/trading-specification/right-chevron.svg'
 import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
 import SearchIcon from 'images/svg/help/search.svg'
 import { Flex } from 'components/containers'
+import { Button } from 'components/form'
 
 export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
+    isShowPopUp: boolean
 }
 const StyledFlex = styled(Flex)`
     padding: 20px 60px;
     justify-content: start;
+    flex-direction: column;
+    gap: 20px;
 `
 const SearchForm = styled.form`
     position: relative;
@@ -70,16 +71,19 @@ const SearchInput = styled.input`
 const TABLE_VISIBLE_ROWS = 20
 
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
-    const [markets_data, setMarketsData] = useState(commodities_specification.data)
+    const [markets_data, setMarketsData] = useState(forex_specification.data)
 
-    //useEffect(() => {
-    //    market_specification.map((specification) => {
-    //        if (specification.market === market) {
-    //            setMarketsData(specification.data)
-    //        }
-    //    })
-    //}, [market])
+    useEffect(() => {
+        market_specification.map((specification) => {
+            if (specification.market === market) {
+                setMarketsData(specification.data)
+            }
+        })
+    }, [market])
+    const [search, setSearch] = useState('')
     const [globalFilter, setGlobalFilter] = useState('')
+
+    const [showPopUp, setShowPopUp] = useState(false)
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
@@ -104,6 +108,17 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const handleChange = (e) => {
         e.preventDefault()
         setGlobalFilter(e.target.value)
+        setSearch(e.target.value)
+        let updatedRowData = []
+
+        if (search != '' && search != null) {
+            updatedRowData = markets_data.filter((user) =>
+                user.instrument.toLowerCase().match(new RegExp(search?.toLowerCase(), 'g')),
+            )
+        } else {
+            updatedRowData = markets_data // this is whole main response.
+        }
+        setMarketsData(updatedRowData)
     }
 
     return (
@@ -119,9 +134,21 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                         onChange={handleChange}
                     />
                 </SearchForm>
+                <Button flat onClick={() => setShowPopUp(true)}>
+                    *Click here to see {market} info
+                </Button>
             </StyledFlex>
+            {showPopUp && (
+                <PopUpMenu
+                    market={market}
+                    toggle={() => setShowPopUp(false)}
+                    is_open={showPopUp}
+                    closeModal={() => setShowPopUp(false)}
+                />
+            )}
+
             <TableContainer>
-                <Table>
+                <TableData>
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id} bg="var(--color-white-1)">
@@ -149,7 +176,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                             </TableRow>
                         ))}
                     </tbody>
-                </Table>
+                </TableData>
             </TableContainer>
             <StyledPaginationContainer>
                 <StyledButton

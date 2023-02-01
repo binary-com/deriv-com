@@ -1,7 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table'
 import React, { useMemo } from 'react'
 import { THeaders } from './_types'
-import { TableCell, TableHeaderCell } from './components/_elements'
+import { TableCell, TableHeaderCell, TableCellIcon } from './components/_elements'
 import { Localize } from 'components/localization'
 
 const liveMarketColumnHelper = createColumnHelper<THeaders>()
@@ -9,11 +9,13 @@ const liveMarketColumnHelper = createColumnHelper<THeaders>()
 const useLiveColumns = () => {
     const columns = useMemo(() => {
         return [
+            liveMarketColumnHelper.accessor('symbol', {
+                header: () => <TableHeaderCell text={<Localize translate_text="Instrument" />} />,
+                cell: (info) => <TableCellIcon icon_src={info.getValue()} />,
+            }),
             liveMarketColumnHelper.accessor('instrument', {
-                header: () => (
-                    <TableHeaderCell text={<Localize translate_text="Instrument name" />} />
-                ),
-                cell: (info) => <TableCell text={info.getValue()} icon_src={info.getValue()} />,
+                header: () => <TableHeaderCell />,
+                cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('contract_size', {
                 header: () => (
@@ -57,12 +59,6 @@ const useLiveColumns = () => {
             }),
             liveMarketColumnHelper.accessor('swap_long', {
                 header: () => <TableHeaderCell text={<Localize translate_text="Swap long" />} />,
-                cell: (info) => <TableCell text={info.getValue()} />,
-            }),
-            liveMarketColumnHelper.accessor('minimum_spread', {
-                header: () => (
-                    <TableHeaderCell text={<Localize translate_text="Minimum Spread" />} />
-                ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('swap_short', {

@@ -2,11 +2,33 @@ import { TSpecification } from '../_types'
 
 const commodities_specification: TSpecification = {
     market: 'commodities',
+    dl_data: [
+        {
+            from: 0.01,
+            to: 1,
+            leverage: '1,000',
+        },
+        {
+            from: 1,
+            to: 5,
+            leverage: 500,
+        },
+        {
+            from: 5,
+            to: 10,
+            leverage: 500,
+        },
+        {
+            from: 10,
+            to: 15,
+            leverage: 50,
+        },
+    ],
     data: [
         {
             is_row: true,
-            symbol: 'XAGEUR',
-            instrument: 'XAGEUR',
+            symbol: 'SILVEREUR',
+            instrument: 'Silver/EUR',
             contract_size: '5000 oz',
             base_currency: 'XAG',
             minimum_size: 0.01,
@@ -20,8 +42,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'XAGUSD',
-            instrument: 'XAGUSD',
+            symbol: 'SILVERUSD',
+            instrument: 'Silver/USD',
             contract_size: '5000 oz',
             base_currency: 'XAG',
             minimum_size: 0.01,
@@ -35,8 +57,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'XALUSD',
-            instrument: 'XALUSD',
+            symbol: 'ALUMINIUMUSD',
+            instrument: 'Aluminium/USD',
             contract_size: '100 ton',
             base_currency: 'XAL',
             minimum_size: 0.01,
@@ -50,8 +72,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'XAUEUR',
-            instrument: 'XAUEUR',
+            symbol: 'GOLDEUR',
+            instrument: 'Gold/EUR',
             contract_size: '100 oz',
             base_currency: 'XAU',
             minimum_size: 0.01,
@@ -65,8 +87,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'XAUUSD',
-            instrument: 'XAUUSD',
+            symbol: 'GOLDUSD',
+            instrument: 'Gold/USD',
             contract_size: '100 oz',
             base_currency: 'XAU',
             minimum_size: 0.01,
@@ -80,8 +102,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'XCUUSD',
-            instrument: 'XCUUSD',
+            symbol: 'COPPERUSD',
+            instrument: 'Copper/USD',
             contract_size: '100 ton',
             base_currency: 'XCU',
             minimum_size: 0.01,
@@ -95,8 +117,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'XNIUSD',
-            instrument: 'XNIUSD',
+            symbol: 'NICKELUSD',
+            instrument: 'Nickel/USD',
             contract_size: '100 ton',
             base_currency: 'XNI',
             minimum_size: 0.01,
@@ -110,8 +132,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'XPBUSD',
-            instrument: 'XPBUSD',
+            symbol: 'LEADUSD',
+            instrument: 'Lead/USD',
             contract_size: '100 ton',
             base_currency: 'XPB',
             minimum_size: 0.01,
@@ -125,8 +147,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'XPDUSD',
-            instrument: 'XPDUSD',
+            symbol: 'PALLADIUMUSD',
+            instrument: 'Palladium/USD',
             contract_size: '100 oz',
             base_currency: 'XPD',
             minimum_size: 0.01,
@@ -140,8 +162,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'XPTUSD',
-            instrument: 'XPTUSD',
+            symbol: 'PLATINUMUSD',
+            instrument: 'Platinum/USD',
             contract_size: '100 oz',
             base_currency: 'XPT',
             minimum_size: 0.01,
@@ -155,8 +177,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'XZNUSD',
-            instrument: 'XZNUSD',
+            symbol: 'ZINCUSD',
+            instrument: 'Zinc/USD',
             contract_size: '100 ton',
             base_currency: 'XZN',
             minimum_size: 0.01,
@@ -170,8 +192,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'CL_BRENT',
-            instrument: 'CL_BRENT',
+            symbol: 'POUNDBRENT',
+            instrument: 'Brent crude oil',
             contract_size: '1 barrel',
             base_currency: 'USD',
             minimum_size: 1,
@@ -185,8 +207,8 @@ const commodities_specification: TSpecification = {
         },
         {
             is_row: true,
-            symbol: 'WTI_OIL',
-            instrument: 'WTI_OIL',
+            symbol: 'USDBRENT',
+            instrument: 'West Texas Intermediate',
             contract_size: '1 barrel',
             base_currency: 'USD',
             minimum_size: 1,

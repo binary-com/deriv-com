@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import useRegion from 'components/hooks/use-region'
-import SearchIcon from 'images/svg/help/search.svg'
 import { Flex } from 'components/containers'
 import DerivMT5 from 'images/svg/trading-specification/deriv-mt5.svg'
 import DerivX from 'images/svg/trading-specification/deriv-x.svg'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 

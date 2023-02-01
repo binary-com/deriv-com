@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import CommonHeaderSection from 'components/elements/common-header-section'

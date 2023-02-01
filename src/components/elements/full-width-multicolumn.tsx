@@ -1,8 +1,10 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
+import CommonHeaderSection from './common-header-section'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 type FullWidthMultiColumnProps = {
     children?: ReactElement[]

@@ -36,7 +36,6 @@ import { cms_assets_end_point, cms_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { TString } from 'types/generics'
 
 export const useTruncateLength = () => {
     const size = useWindowSize()
@@ -44,8 +43,6 @@ export const useTruncateLength = () => {
     else if (size.width < 475) return 30
     else return 60
 }
-
-const written_by_text: TString = '_t_Written by_t_'
 
 const BlogPreview = () => {
     const [is_mobile] = useBrowserResize(972)
@@ -214,9 +211,7 @@ const BlogPreview = () => {
 
                                                 <Box>
                                                     <WrittenbyText color="grey-5" size="12px">
-                                                        <Localize
-                                                            translate_text={written_by_text}
-                                                        />
+                                                        <Localize translate_text="_t_Written by_t_" />
                                                     </WrittenbyText>
                                                     <InfoText>{post_data?.author?.name}</InfoText>
                                                 </Box>
@@ -254,7 +249,7 @@ const BlogPreview = () => {
 
                                             <Box>
                                                 <WrittenbyText color="grey-5" size="12px">
-                                                    <Localize translate_text={written_by_text} />
+                                                    <Localize translate_text="_t_Written by_t_" />
                                                 </WrittenbyText>
                                                 <InfoText>{post_data?.author?.name}</InfoText>
                                             </Box>

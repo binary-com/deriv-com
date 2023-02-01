@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import CfdPattern from 'images/common/trade-types/cfd-pattern.png'
 import CfdMobilePattern from 'images/common/trade-types/mobile-cfd-pattern.png'
-import PatternsMobile from 'images/common/trade-types/trade-patterns-mobile.png'
+import PatternsMobile from 'images/common/trade-types/trade-patterns.png'
 import Patterns from 'images/common/trade-types/trade-patterns.png'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'

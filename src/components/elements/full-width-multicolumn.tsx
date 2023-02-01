@@ -2,18 +2,20 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import Button from 'components/custom/_button'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type FullWidthMultiColumnProps = {
     children?: ReactElement[]
     header?: ReactElement
     button_title?: ReactElement
-    button_text?: string
+    button_text?: TString | ReactElement
     multiple_row?: boolean
 }
 
 const Item = styled(Flex)`
-    max-width: 23rem;
+    max-width: 24rem;
     width: 100%;
 
     img {
@@ -82,6 +84,7 @@ const StyledTextContent = styled(Text)`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    margin-bottom: 1.6rem;
 
     @media ${device.tabletL} {
         font-size: 14px;
@@ -127,7 +130,7 @@ export const FullWidthMultiColumn = ({
                     </ItemContainer>
                 ))}
                 {button_title && <StyledTextContent>{button_title}</StyledTextContent>}
-                {button_text && <StyledTextContent>{button_text}</StyledTextContent>}
+                {button_text && <Button label={button_text} primary />}
             </Flex>
         </StyledSectionContainer>
     )

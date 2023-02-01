@@ -1,20 +1,62 @@
 import React from 'react'
 import { SmallContainer, Grid, Ul, WhyTradeItem } from '../components/_style'
+import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import Favourite from 'images/svg/trade-types/favourite.svg'
+import Instant from 'images/svg/trade-types/instant.svg'
+import UserFriendly from 'images/svg/trade-types/user-friendly.svg'
+import Flexible from 'images/svg/trade-types/flexible.svg'
 import { localize, Localize } from 'components/localization'
-import { Button } from 'components/form'
+import { StyledBox } from 'pages/markets/static/style/_markets-style'
 // Icon
-import FixedPayout from 'images/svg/trade-types/fixed-payout.svg'
-import FavoriteMarket from 'images/svg/trade-types/favoritemarket.svg'
-import InstantAccess from 'images/svg/trade-types/instant-access.svg'
-import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
-import FlexibleTrade from 'images/svg/trade-types/flexible-trade-types.svg'
-import useHandleSignup from 'components/hooks/use-handle-signup'
 
+export type OptionsContentElement = {
+    src: string
+    alt: string
+    item_title: React.ReactNode
+    text: React.ReactNode
+}
+
+const digital_options: OptionsContentElement[] = [
+    {
+        src: Favourite,
+        alt: 'favourite markets icon',
+        item_title: <Localize translate_text="All favourite markets and more" />,
+        text: (
+            <Localize translate_text="Trade on all popular markets plus our proprietary synthetics that are available 24/7." />
+        ),
+    },
+    {
+        src: Instant,
+        alt: 'instant access icon',
+        item_title: <Localize translate_text="Instant access" />,
+        text: (
+            <Localize translate_text="Open an account now and gain access to the world of trading. No need to wait — you can begin trading in minutes." />
+        ),
+    },
+    {
+        src: UserFriendly,
+        alt: 'user friendly icon',
+        item_title: (
+            <Localize translate_text="User-friendly platforms with powerful chart widgets" />
+        ),
+        text: (
+            <Localize translate_text="Trade on secure, intuitive, and easy to use platforms with powerful chart technology." />
+        ),
+    },
+    {
+        src: Flexible,
+        alt: 'flexible icon',
+        item_title: (
+            <Localize translate_text="Flexible trade types with minimal capital requirements" />
+        ),
+        text: (
+            <Localize translate_text="Deposit as little as 5 USD to start trading and customise your trades to suit your strategy." />
+        ),
+    },
+]
 const WhatAreOptions = () => {
-    const handleSignup = useHandleSignup()
-
     return (
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
@@ -61,85 +103,20 @@ const WhatAreOptions = () => {
                     </Ul>
                 </SmallContainer>
             </SectionContainer>
-            <SectionContainer background="grey-23" padding="4rem 0">
-                <SmallContainer direction="column" jc="flex-start" ai="flex-start">
-                    <Header as="h3" type="section-title" mb="4rem">
-                        {localize('Why trade options on Deriv')}
-                    </Header>
-                    <Grid>
-                        <WhyTradeItem>
-                            <div>
-                                <img src={FixedPayout} alt="Graph" />
-                            </div>
-                            <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Fixed, predictable payout')}
-                            </Text>
-                            <Text>
-                                {localize(
-                                    'Know your potential profit or loss even before purchasing a contract.',
-                                )}
-                            </Text>
-                        </WhyTradeItem>
-                        <WhyTradeItem>
-                            <div>
-                                <img src={FavoriteMarket} alt="Trade on markets" />
-                            </div>
-                            <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('All favourite markets and more')}
-                            </Text>
-                            <Text>
-                                {localize(
-                                    'Trade on all popular markets plus our proprietary synthetic indices that are available 24/7.',
-                                )}
-                            </Text>
-                        </WhyTradeItem>
-                        <WhyTradeItem>
-                            <div>
-                                <img
-                                    src={InstantAccess}
-                                    alt="Immediate access to trading account"
-                                />
-                            </div>
-                            <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Instant access')}
-                            </Text>
-                            <Text>{localize('Open an account and start trading in minutes.')}</Text>
-                        </WhyTradeItem>
-                        <WhyTradeItem>
-                            <div>
-                                <img src={FriendlySupport} alt="Customer support" />
-                            </div>
-                            <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('User-friendly platforms with powerful chart widgets')}
-                            </Text>
-                            <Text>
-                                {localize(
-                                    'Trade on secure, intuitive, and easy to use platforms with powerful chart technology.',
-                                )}
-                            </Text>
-                        </WhyTradeItem>
-                        <WhyTradeItem>
-                            <div>
-                                <img src={FlexibleTrade} alt="Currency" />
-                            </div>
-                            <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Flexible trade types with minimal capital requirements')}
-                            </Text>
-                            <Text>
-                                {localize(
-                                    'Deposit as little as 5 USD to start trading and customise your trades to suit your strategy.',
-                                )}
-                            </Text>
-                        </WhyTradeItem>
-                    </Grid>
-                    <Text mt="4rem" mb="1.6rem" weight="bold">
-                        {localize("Don't have a Deriv.com account yet?")}
-                    </Text>
-                    <Button onClick={handleSignup} id="dm-options-signup-1" secondary>
-                        {localize('Create free demo account')}
-                    </Button>
-                </SmallContainer>
-            </SectionContainer>
+            <FullWidthMultiColumn
+                header={<Localize translate_text="Why trade options on Deriv" />}
+                button_title={<Localize translate_text="Don't have a Deriv.com account yet?" />}
+                button_text={<Localize translate_text="_t_Create free demo account_t_" />}
+            >
+                {digital_options.map((content, index) => (
+                    <StyledBox
+                        key={index}
+                        item_title={content.item_title}
+                        text={content.text}
+                        icon={<img src={content.src} alt="" />}
+                    ></StyledBox>
+                ))}
+            </FullWidthMultiColumn>
         </>
     )
 }

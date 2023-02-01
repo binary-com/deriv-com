@@ -1,12 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { TString } from 'types/generics'
 import { Header, QueryImage } from 'components/elements'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { TString } from 'types/generics'
+
+type TContactWays = {
+    name: string
+    header: TString
+    text: TString
+    image: string
+    img_alt: string
+    button: JSX.Element
+}[]
 
 const query = graphql`
     query {
@@ -28,19 +37,11 @@ const StyledLinkButton = styled(LinkButton)`
     }
 `
 
-const header_text: TString = '_t_Ask everyone_t_'
-const answers_text: TString = '_t_Our Deriv support community can help you find answers._t_'
-const ask_the_community_text: TString = '_t_Ask the community_t_'
-const help_text: TString = '_t_We’re here to help_t_'
-const frequently_asked_questions_text: TString =
-    '_t_See frequently asked questions on popular topics to get quick answers._t_'
-const visit_text: TString = '_t_Visit our Help centre_t_'
-
-const contactways = [
+const contactways: TContactWays = [
     {
         name: 'community',
-        header: <Localize translate_text={header_text} />,
-        text: <Localize translate_text={answers_text} />,
+        header: '_t_Ask everyone_t_',
+        text: '_t_Our Deriv support community can help you find answers._t_',
         image: 'community',
         img_alt: "Deriv's support community",
         button: (
@@ -52,19 +53,19 @@ const contactways = [
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Localize translate_text={ask_the_community_text} />
+                <Localize translate_text="_t_Ask the community_t_" />
             </StyledLinkButton>
         ),
     },
     {
         name: 'help',
-        header: <Localize translate_text={help_text} />,
-        text: <Localize translate_text={frequently_asked_questions_text} />,
+        header: '_t_We’re here to help_t_',
+        text: '_t_See frequently asked questions on popular topics to get quick answers._t_',
         image: 'help',
         img_alt: "Deriv's help centre",
         button: (
             <StyledLinkButton secondary to="/help-centre/">
-                <Localize translate_text={visit_text} />
+                <Localize translate_text="_t_Visit our Help centre_t_" />
             </StyledLinkButton>
         ),
     },
@@ -136,7 +137,7 @@ const ContactWays = () => {
                                 </ImgWrapper>
 
                                 <Header mt="2.4rem" as="h3" type="section-title" align="center">
-                                    {item.header}
+                                    <Localize translate_text={item.header} />
                                 </Header>
                                 <Header
                                     as="h4"
@@ -146,7 +147,7 @@ const ContactWays = () => {
                                     mt="0.8rem"
                                     align="center"
                                 >
-                                    {item.text}
+                                    <Localize translate_text={item.text} />
                                 </Header>
                                 {item.button}
                             </ContactWrapper>

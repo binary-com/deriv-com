@@ -59,13 +59,12 @@ const out_of_scope_content: TOutOfScope = [
     },
 ]
 
-const header_text: TString = '_t_Out of scope vulnerabilities_t_'
 // Todo(mitra): can be merged with `scope` component into a generic component
 const OutOfScope = () => (
     <SectionContainer background="grey-30">
         <Container direction="column">
             <Header tabletL={{ pb: '24px' }} as="h2" type="heading-2" align="center">
-                <Localize translate_text={header_text} />
+                <Localize translate_text="_t_Out of scope vulnerabilities_t_" />
             </Header>
             <FlexContainer tabletL={{ mt: '0', fd: 'column' }} mt="4rem">
                 {out_of_scope_content.map(({ id, text }) => (

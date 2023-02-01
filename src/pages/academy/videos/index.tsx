@@ -12,7 +12,6 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/video-tutorials.png'
 import device from 'themes/device'
-import { TString } from 'types/generics'
 
 const SmallContainer = styled(Container)`
     width: 62%;
@@ -54,10 +53,6 @@ type VideosPageProps = {
 
 export type VideoDataType = AllVideosQuery['directus']['videos']
 
-const title_text: TString = '_t_Latest videos, tutorials, webinars for trading | Deriv_t_'
-const description: TString =
-    "_t_Learn how to trade using our trading videos and tutorials at Deriv's online trading academy._t_"
-
 const VideosPage = ({ data }: VideosPageProps) => {
     // We need this to redirect users to the new videos page if ever they are accessing the old video link
     React.useEffect(() => {
@@ -78,8 +73,10 @@ const VideosPage = ({ data }: VideosPageProps) => {
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
-                title={localize(title_text)}
-                description={localize(description)}
+                title={localize('_t_Latest videos, tutorials, webinars for trading | Deriv_t_')}
+                description={localize(
+                    "_t_Learn how to trade using our trading videos and tutorials at Deriv's online trading academy._t_",
+                )}
                 meta_attributes={meta_attributes}
             />
             <Flex pt="40px">

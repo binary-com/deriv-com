@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TString } from 'types/generics'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text, LinkText } from 'components/elements'
 import { Localize } from 'components/localization'
@@ -59,10 +58,6 @@ const TextWrapper = styled(Text)`
     white-space: nowrap;
     text-align: left;
 `
-const header_text: TString = '_t_Business Partnership_t_'
-const questions_text: TString =
-    '_t_Questions about becoming our affiliates or other business collaboration opportunities? _t_'
-const contact_us_text: TString = '_t_Contact us via live chat_t_'
 
 export const Affiliates = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
@@ -72,11 +67,11 @@ export const Affiliates = () => {
             <CardContainer>
                 <Item>
                     <Header as="h3" type="section-title">
-                        <Localize translate_text={header_text} />
+                        <Localize translate_text="_t_Business Partnership_t_" />
                     </Header>
                     <TextWrapper>
                         <Text m="0.8rem 0">
-                            <Localize translate_text={questions_text} />
+                            <Localize translate_text="_t_Questions about becoming our affiliates or other business collaboration opportunities? _t_" />
                         </Text>
                         <LinkText
                             color="red"
@@ -85,7 +80,7 @@ export const Affiliates = () => {
                                 is_livechat_interactive && LC_API.open_chat_window()
                             }}
                         >
-                            <Localize translate_text={contact_us_text} />
+                            <Localize translate_text="_t_Contact us via live chat_t_" />
                         </LinkText>
                     </TextWrapper>
                 </Item>

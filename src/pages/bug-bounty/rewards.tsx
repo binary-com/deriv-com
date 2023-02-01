@@ -120,19 +120,14 @@ const StyledSectionContainer = styled(SectionContainer)`
     box-shadow: inset 0 -1px 0 var(--color-grey-8);
 `
 
-const rewards_text: TString = '_t_Rewards_t_'
-const bug_reports_text: TString =
-    '_t_Your bug reports are reviewed and rewarded based on impact and severity._t_'
-const see_list_text: TString = '_t_<0>See a list of the vulnerability examples</0>_t_'
-
 const Rewards = () => (
     <StyledSectionContainer>
         <Container fd="column">
             <Header as="h2" type="heading-2" align="center" mb="8px">
-                <Localize translate_text={rewards_text} />
+                <Localize translate_text="_t_Rewards_t_" />
             </Header>
             <Header as="p" type="paragraph-1" align="center" weight="400">
-                <Localize translate_text={bug_reports_text} />
+                <Localize translate_text="_t_Your bug reports are reviewed and rewarded based on impact and severity._t_" />
             </Header>
             <CardWrapper>
                 <Flex laptopM={{ width: 'auto !important' }}>
@@ -190,7 +185,7 @@ const Rewards = () => (
 
             <Flex ai="center" mt="16px">
                 <Localize
-                    translate_text={see_list_text}
+                    translate_text="_t_<0>See a list of the vulnerability examples</0>_t_"
                     components={[
                         <LocalizedLinkText
                             mr="8px"

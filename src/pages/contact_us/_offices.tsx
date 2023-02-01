@@ -5,7 +5,6 @@ import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements
 import { SectionContainer, Container, Flex, Box, Desktop, Mobile } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import { TString } from 'types/generics'
 import France from 'images/svg/contact/france.svg'
 import Malta from 'images/svg/contact/malta.svg'
 import Guernsey from 'images/svg/contact/guernsey.svg'
@@ -240,28 +239,6 @@ const StyledMobileAddress = styled.div`
         font-size: 14px;
     }
 `
-const our_offices_text: TString = '_t_Our offices_t_'
-const europe_text: TString = '_t_Europe_t_'
-const france_text: TString = '_t_France_t_'
-const malta_text: TString = '_t_Malta_t_'
-const cyprus_text: TString = '_t_Cyprus_t_'
-const guernsey_text: TString = '_t_Guernsey_t_'
-const asia_text: TString = '_t_Asia_t_'
-const malaysia_text: TString = '_t_Malaysia_t_'
-const singapore_text: TString = '_t_Singapore_t_'
-const middle_east_text: TString = '_t_Middle East_t_'
-const dubai_text: TString = '_t_Dubai_t_'
-const jordan_text: TString = '_t_Jordan_t_'
-const eastern_europe_text: TString = '_t_Eastern Europe_t_'
-const belarus_text: TString = '_t_Belarus_t_'
-const africa_text: TString = '_t_Africa_t_'
-const rwanda_text: TString = '_t_Rwanda_t_'
-const latin_america_text: TString = '_t_Latin America_t_'
-const paraguay_text: TString = '_t_Paraguay_t_'
-const caribbean_text: TString = '_t_Caribbean_t_'
-const cayman_islands_text: TString = '_t_Cayman Islands_t_'
-const oceania_text: TString = '_t_Oceania_t_'
-const vanuatu_text: TString = '_t_Vanuatu_t_'
 
 export const Offices = () => {
     const data = useStaticQuery(query)
@@ -271,10 +248,10 @@ export const Offices = () => {
             <Container>
                 <Content>
                     <ResHeader as="h2" type="page-title">
-                        <Localize translate_text={our_offices_text} />
+                        <Localize translate_text="_t_Our offices_t_" />
                     </ResHeader>
                     <ContinentHeader>
-                        <Localize translate_text={europe_text} />
+                        <Localize translate_text="_t_Europe_t_" />
                     </ContinentHeader>
                     <GridLayout>
                         <Flex mt="30px" fd="column" max_width="48.6rem" id="france">
@@ -283,7 +260,7 @@ export const Offices = () => {
                                     <img src={France} alt="France - Eiffel Tower" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                    <Localize translate_text={france_text} />
+                                    <Localize translate_text="_t_France_t_" />
                                 </Header>
                             </OfficeHeader>
 
@@ -327,7 +304,7 @@ export const Offices = () => {
                                     <img src={Malta} alt="Malta - Valleta" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                    <Localize translate_text={malta_text} />
+                                    <Localize translate_text="_t_Malta_t_" />
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
@@ -373,7 +350,7 @@ export const Offices = () => {
                                     <img src={Cyprus} alt="Cyprus - Limassol" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                    <Localize translate_text={cyprus_text} />
+                                    <Localize translate_text="_t_Cyprus_t_" />
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
@@ -420,7 +397,7 @@ export const Offices = () => {
                                     <img src={Guernsey} alt="Guernsey - Sark Lighthouse" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                    <Localize translate_text={guernsey_text} />
+                                    <Localize translate_text="_t_Guernsey_t_" />
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
@@ -462,14 +439,14 @@ export const Offices = () => {
                     </GridLayout>
                     <Flex fd="column" mt="30px" id="malaysia">
                         <ContinentHeader>
-                            <Localize translate_text={asia_text} />
+                            <Localize translate_text="_t_Asia_t_" />
                         </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Malaysia} alt="Malaysia - Petronas Twin Towers" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                <Localize translate_text={malaysia_text} />
+                                <Localize translate_text="_t_Malaysia_t_" />
                             </Header>
                         </OfficeHeader>
                         <FullBorder>
@@ -630,7 +607,7 @@ export const Offices = () => {
                                 <img src={Singapore} alt="Singapore - Merlion Park" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                <Localize translate_text={singapore_text} />
+                                <Localize translate_text="_t_Singapore_t_" />
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -668,7 +645,7 @@ export const Offices = () => {
                         </BorderBox>
                     </Flex>
                     <ContinentHeader>
-                        <Localize translate_text={middle_east_text} />
+                        <Localize translate_text="_t_Middle East_t_" />
                     </ContinentHeader>
                     <GridLayout>
                         <Flex mt="30px" fd="column" max_width="48.6rem" id="dubai">
@@ -677,7 +654,7 @@ export const Offices = () => {
                                     <img src={Dubai} alt="Dubai - Burj Al Arab" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                    <Localize translate_text={dubai_text} />
+                                    <Localize translate_text="_t_Dubai_t_" />
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
@@ -721,7 +698,7 @@ export const Offices = () => {
                                     <img src={Jordan} alt="Jordan - Petra Gate" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                    <Localize translate_text={jordan_text} />
+                                    <Localize translate_text="_t_Jordan_t_" />
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
@@ -765,14 +742,14 @@ export const Offices = () => {
                     </GridLayout>
                     <Flex mt="30px" fd="column" id="belarus">
                         <ContinentHeader>
-                            <Localize translate_text={eastern_europe_text} />
+                            <Localize translate_text="_t_Eastern Europe_t_" />
                         </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Belarus} alt="Belarus - National Library" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                <Localize translate_text={belarus_text} />
+                                <Localize translate_text="_t_Belarus_t_" />
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -814,14 +791,14 @@ export const Offices = () => {
                     </Flex>
                     <Flex mt="30px" fd="column" id="rwanda">
                         <ContinentHeader>
-                            <Localize translate_text={africa_text} />
+                            <Localize translate_text="_t_Africa_t_" />
                         </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Rwanda} alt="Rwanda - Kigali Convention Center" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                <Localize translate_text={rwanda_text} />
+                                <Localize translate_text="_t_Rwanda_t_" />
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -864,14 +841,14 @@ export const Offices = () => {
 
                     <Flex fd="column" mt="30px" id="latam">
                         <ContinentHeader>
-                            <Localize translate_text={latin_america_text} />
+                            <Localize translate_text="_t_Latin America_t_" />
                         </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Paraguay} alt="Paraguay - National Pantheon of Heroes" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                <Localize translate_text={paraguay_text} />
+                                <Localize translate_text="_t_Paraguay_t_" />
                             </Header>
                         </OfficeHeader>
                         <FullBorder>
@@ -952,14 +929,14 @@ export const Offices = () => {
                     </Flex>
                     <Flex mt="30px" fd="column" id="paraguay">
                         <ContinentHeader>
-                            <Localize translate_text={caribbean_text} />
+                            <Localize translate_text="_t_Caribbean_t_" />
                         </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Cayman} alt="Cayman Islands - George Town" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                <Localize translate_text={cayman_islands_text} />
+                                <Localize translate_text="_t_Cayman Islands_t_" />
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -1004,14 +981,14 @@ export const Offices = () => {
                     </Flex>
                     <Flex mt="30px" fd="column" id="vanuatu">
                         <ContinentHeader>
-                            <Localize translate_text={oceania_text} />
+                            <Localize translate_text="_t_Oceania_t_" />
                         </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Vanuatu} alt="Vanuatu - Port Vila" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                <Localize translate_text={vanuatu_text} />
+                                <Localize translate_text="_t_Vanuatu_t_" />
                             </Header>
                         </OfficeHeader>
                     </Flex>

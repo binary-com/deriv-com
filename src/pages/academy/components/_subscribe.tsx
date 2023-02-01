@@ -11,7 +11,6 @@ import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
-import { TString } from 'types/generics'
 
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
@@ -162,18 +161,6 @@ const AdditionalFlex = styled.div`
     }
 `
 
-const subscribe_header_text: TString = '_t_Subscribe to our academy via email_t_'
-const subscribe_sub_header_text: TString =
-    '_t_Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates._t_'
-const subscribe_text: TString = '_t_Subscribe_t_'
-const send_materials_text: TString = '_t_Send me marketing materials too!_t_'
-const respect_privacy_text: TString =
-    '_t_We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more._t_'
-const thanks_for_subscription_text: TString =
-    "_t_Thanks for subscribing. We've sent a confirmation email to your inbox_t_"
-const adblock_text: TString =
-    '_t_If you have AdBlock installed, please disable it in order to subscribe_t_'
-
 const Subscribe = () => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
@@ -303,7 +290,7 @@ const Subscribe = () => {
             <PaperPlaneImage src={paperPlane} alt="Paper Plane" />
             <StyledFormContent>
                 <Header as="h3" type="heading-3" color="white" align="start">
-                    <Localize translate_text={subscribe_header_text} />
+                    <Localize translate_text="_t_Subscribe to our academy via email_t_" />
                 </Header>
                 <Header
                     as="p"
@@ -315,7 +302,7 @@ const Subscribe = () => {
                     weight="regular"
                     tabletL={{ max_width: '100%' }}
                 >
-                    <Localize translate_text={subscribe_sub_header_text} />
+                    <Localize translate_text="_t_Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates._t_" />
                 </Header>
                 <InputGroupForm onSubmit={handleEmailSignup} noValidate>
                     <Flex jc="flex-start">
@@ -375,7 +362,7 @@ const Subscribe = () => {
                                     !name,
                             )}
                         >
-                            <Localize translate_text={subscribe_text} />
+                            <Localize translate_text="_t_Subscribe_t_" />
                         </EmailButton>
                     </Flex>
                     {submit_status === true && (
@@ -384,11 +371,11 @@ const Subscribe = () => {
                                 isChecked={is_checked}
                                 handleChangeCheckbox={handleChange}
                                 color="#C2C2C2"
-                                link_text={localize(send_materials_text)}
+                                link_text={localize('_t_Send me marketing materials too!_t_')}
                             />
                             <AdditionalFlex color="#C2C2C2">
                                 <Localize
-                                    translate_text={respect_privacy_text}
+                                    translate_text="_t_We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more._t_"
                                     components={[
                                         <LocalizedLinkText
                                             key={0}
@@ -405,12 +392,12 @@ const Subscribe = () => {
                     )}
                     {submit_status === 'success' && (
                         <TextWrapper color="#01a79f" size="15px" mt="10px">
-                            <Localize translate_text={thanks_for_subscription_text} />
+                            <Localize translate_text="_t_Thanks for subscribing. We've sent a confirmation email to your inbox_t_" />
                         </TextWrapper>
                     )}
                     {submit_status === false && (
                         <TextWrapper color="#ff444f" size="15px" mt="10px">
-                            <Localize translate_text={adblock_text} />
+                            <Localize translate_text="_t_If you have AdBlock installed, please disable it in order to subscribe_t_" />
                         </TextWrapper>
                     )}
                 </InputGroupForm>

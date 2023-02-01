@@ -6,7 +6,6 @@ import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, QueryImage } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
-import { TString } from 'types/generics'
 
 const Wrapper = styled(Flex)`
     background-image: linear-gradient(216deg, #122734 20.14%, #060c11 86.24%, #060c11 86.24%);
@@ -88,10 +87,6 @@ const query = graphql`
     }
 `
 
-const send_reports_text: TString = '_t_Send your reports to our <0>Bug Bounty Platform</0>_t_'
-const terms_and_conditions_text: TString =
-    '_t_Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program._t_'
-
 const SubmitABugReport = () => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
@@ -104,7 +99,7 @@ const SubmitABugReport = () => {
                     <TextWrap>
                         <Header type="heading-2" color="white" as="p" weight="700">
                             <Localize
-                                translate_text={send_reports_text}
+                                translate_text="_t_Send your reports to our <0>Bug Bounty Platform</0>_t_"
                                 components={[
                                     <LinkText
                                         key={0}
@@ -134,7 +129,7 @@ const SubmitABugReport = () => {
                     weight="normal"
                 >
                     <Localize
-                        translate_text={terms_and_conditions_text}
+                        translate_text="_t_Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program._t_"
                         components={[
                             <StyledLocalizedLinkText
                                 key={0}

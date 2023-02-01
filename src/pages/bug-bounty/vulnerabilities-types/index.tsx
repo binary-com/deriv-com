@@ -7,7 +7,6 @@ import Layout from 'components/layout/layout'
 import { Container, Flex, SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import { TString } from 'types/generics'
 
 interface CardItemProps {
     second_item?: boolean
@@ -71,17 +70,17 @@ const StyledLi = styled.li`
     }
 `
 
-const title_text: TString = '_t_Types of vulnerabilities_t_'
-const description_text: TString = '_t_Types of vulnerabilities_t_'
-
 const VulnerabilitiesTypes = () => (
     <Layout type="security">
-        <SEO title={localize(title_text)} description={localize(description_text)} />
+        <SEO
+            title={localize('_t_Types of vulnerabilities_t_')}
+            description={localize('_t_Types of vulnerabilities_t_')}
+        />
         <Hero />
 
         <StyledContainer direction="column" align="start">
             <Header type="heading-2" align="center">
-                <Localize translate_text={description_text} />
+                <Localize translate_text="_t_Types of vulnerabilities_t_" />
             </Header>
             <div>
                 {vulnerability_types_content.map(

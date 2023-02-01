@@ -5,7 +5,6 @@ import { Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device'
-import { TString } from 'types/generics'
 
 const query = graphql`
     {
@@ -60,12 +59,6 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const header_text: TString = '_t_About Deriv_t_'
-const online_services_text: TString =
-    '_t_We provide online trading services to over 2 million clients via desktop and mobile applications across multiple platforms._t_'
-const security_text: TString =
-    '_t_Security is important to us. We continuously improve our products and services by collaborating with independent security researchers worldwide._t_'
-
 const AboutDeriv = () => {
     const data = useStaticQuery(query)
 
@@ -74,7 +67,7 @@ const AboutDeriv = () => {
             <WrapContainer p="8rem 0" tablet={{ p: '40px 0' }}>
                 <WrapText direction="column" max_width="38.4rem" tablet={{ max_width: '100%' }}>
                     <StyledHeader mb="0.8rem" as="h2" type="heading-2">
-                        <Localize translate_text={header_text} />
+                        <Localize translate_text="_t_About Deriv_t_" />
                     </StyledHeader>
                     <Header
                         type="paragraph-1"
@@ -83,10 +76,10 @@ const AboutDeriv = () => {
                         mb="16px"
                         laptopM={{ mb: '14px' }}
                     >
-                        <Localize translate_text={online_services_text} />
+                        <Localize translate_text="_t_We provide online trading services to over 2 million clients via desktop and mobile applications across multiple platforms._t_" />
                     </Header>
                     <Header type="paragraph-1" weight="normal" as="p">
-                        <Localize translate_text={security_text} />
+                        <Localize translate_text="_t_Security is important to us. We continuously improve our products and services by collaborating with independent security researchers worldwide._t_" />
                     </Header>
                 </WrapText>
                 <ImageWrapper>

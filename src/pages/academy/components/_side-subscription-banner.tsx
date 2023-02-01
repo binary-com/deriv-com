@@ -12,7 +12,6 @@ import device from 'themes/device'
 import EmailSubscriptionSVG from 'images/svg/blog/articles/blog-article-email-subscription.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
 import useRegion from 'components/hooks/use-region'
-import { TString } from 'types/generics'
 
 const SubscribeBannerWrapper = styled(Flex)`
     max-width: 282px;
@@ -118,18 +117,6 @@ const StyledLocalizedLink = styled(LocalizedLinkText)`
         font-size: 12px;
     }
 `
-
-const header_text: TString = '_t_Subscribe to our academy via email_t_'
-const small_header_text: TString =
-    '_t_Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates._t_'
-const subscribe_text: TString = '_t_Subscribe_t_'
-const send_me_text: TString = '_t_Send me marketing materials too!_t_'
-const we_respect_text: TString =
-    '_t_We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more._t_'
-const thanks_for_subscribing_text: TString =
-    "_t_Thanks for subscribing. We've sent a confirmation email to your inbox_t_"
-const adblock_text: TString =
-    '_t_If you have AdBlock installed, please disable it in order to subscribe_t_'
 
 const SideSubscriptionBanner = () => {
     const [is_checked, setChecked] = React.useState(false)
@@ -261,10 +248,10 @@ const SideSubscriptionBanner = () => {
                 <ImageWrapper src={EmailSubscriptionSVG} />
             </Flex>
             <StyledHeader as="h3" type="subtitle-1">
-                <Localize translate_text={header_text} />
+                <Localize translate_text="_t_Subscribe to our academy via email_t_" />
             </StyledHeader>
             <StyledSmallHeader as="h3" type="paragraph-2" weight="normal">
-                <Localize translate_text={small_header_text} />
+                <Localize translate_text="_t_Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates._t_" />
             </StyledSmallHeader>
             <EmailForm onSubmit={handleEmailSignup} noValidate>
                 <Flex fd="column">
@@ -336,7 +323,7 @@ const SideSubscriptionBanner = () => {
                                     !name,
                             )}
                         >
-                            <Localize translate_text={subscribe_text} />
+                            <Localize translate_text="_t_Subscribe_t_" />
                         </EmailButton>
                         {submit_status === true && (
                             <>
@@ -344,11 +331,13 @@ const SideSubscriptionBanner = () => {
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                     color="#C2C2C2"
-                                    link_text={localize(send_me_text)}
+                                    link_text={localize('_t_Send me marketing materials too!_t_')}
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize
-                                        translate_text={we_respect_text}
+                                        translate_text={
+                                            '_t_We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more._t_'
+                                        }
                                         components={[
                                             <StyledLocalizedLink
                                                 key={0}
@@ -368,12 +357,12 @@ const SideSubscriptionBanner = () => {
 
                 {submit_status === 'success' && (
                     <TextWrapper color="var(--color-green)" size="12px" mt="10px">
-                        <Localize translate_text={thanks_for_subscribing_text} />
+                        <Localize translate_text="_t_Thanks for subscribing. We've sent a confirmation email to your inbox_t_" />
                     </TextWrapper>
                 )}
                 {submit_status === false && (
                     <TextWrapper color="var(--color-red)" size="12px" mt="10px">
-                        <Localize translate_text={adblock_text} />
+                        <Localize translate_text="_t_If you have AdBlock installed, please disable it in order to subscribe_t_" />
                     </TextWrapper>
                 )}
             </EmailForm>

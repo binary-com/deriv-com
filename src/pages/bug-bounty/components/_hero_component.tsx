@@ -5,7 +5,6 @@ import { BackgroundImage, Header } from 'components/elements'
 import { Container } from 'components/containers'
 import device from 'themes/device'
 import { Localize } from 'components/localization'
-import { TString } from 'types/generics'
 
 interface HeroComponentProps {
     background_data: ImageDataLike
@@ -27,9 +26,6 @@ const Subheadline = styled(Header)`
     margin-top: 16px;
 `
 
-const header_text: TString = '_t_Bug bounty program_t_'
-const subheadline_text: TString = '_t_Security is a collaboration. Report bugs and be rewarded._t_'
-
 const HeroComponent = ({ background_data, background_dark }: HeroComponentProps) => {
     return (
         <BackgroundImage
@@ -43,10 +39,10 @@ const HeroComponent = ({ background_data, background_dark }: HeroComponentProps)
         >
             <StyledContainer direction="column">
                 <Header as="h1" color="white" align="center" type="heading-1">
-                    <Localize translate_text={header_text} />
+                    <Localize translate_text="_t_Bug bounty program_t_" />
                 </Header>
                 <Subheadline as="p" color="white" align="center" type="subtitle-1">
-                    <Localize translate_text={subheadline_text} />
+                    <Localize translate_text="_t_Security is a collaboration. Report bugs and be rewarded._t_" />
                 </Subheadline>
             </StyledContainer>
         </BackgroundImage>

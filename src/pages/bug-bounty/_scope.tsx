@@ -8,7 +8,6 @@ import device from 'themes/device'
 // icons
 import TickIcon from 'images/svg/bug-bounty/tick.svg'
 import XIcon from 'images/svg/bug-bounty/x_icon.svg'
-import { TString } from 'types/generics'
 
 const Card = styled.div`
     background-color: var(--color-white);
@@ -34,18 +33,14 @@ const IconWrap = styled.img`
     margin-top: 0.5rem;
 `
 
-const header_text: TString = '_t_Scope_t_'
-const paragraph_text: TString =
-    '_t_Only Deriv assets are covered in this program. If you discover bugs on third-party apps, please report them to the respective owners. You may submit bug reports related to the following aspects of our business:_t_'
-
 const Scope = () => (
     <SectionContainer background="grey-30">
         <Container direction="column">
             <Header as="h2" type="heading-2" align="center" mb="0.8rem">
-                <Localize translate_text={header_text} />
+                <Localize translate_text="_t_Scope_t_" />
             </Header>
             <Header weight="normal" type="paragraph-1" max_width="79.2rem" align="center">
-                <Localize translate_text={paragraph_text} />
+                <Localize translate_text="_t_Only Deriv assets are covered in this program. If you discover bugs on third-party apps, please report them to the respective owners. You may submit bug reports related to the following aspects of our business:_t_" />
             </Header>
             <Flex tabletL={{ mt: '0', fd: 'column' }} mt="4rem">
                 {scope_content.map(({ id, title, list_icon, description, check_list }) => {

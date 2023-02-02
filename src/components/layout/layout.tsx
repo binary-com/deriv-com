@@ -18,7 +18,7 @@ import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
-import { handleRedirect, isEuDomain } from 'common/utility'
+import { handleRedirect, handleRowRedirect, isEuDomain } from 'common/utility'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { CookieStorage } from 'common/storage'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -91,6 +91,7 @@ const Layout = ({
                     const client_information_cookie = new CookieStorage('client_information')
                     const residence = client_information_cookie.get('residence')
                     setRedirectionApplied(true)
+                    isEuDomain() && handleRowRedirect(residence, current_client_country)
                     !isEuDomain() && handleRedirect(residence, current_client_country)
                 }
             })

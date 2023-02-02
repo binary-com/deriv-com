@@ -6,6 +6,7 @@ import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 
+// TO-DO (REBRANDING) Replace this component with NumberSection.
 type NumbersContentType = {
     title: React.ReactElement
     subtitle: React.ReactElement

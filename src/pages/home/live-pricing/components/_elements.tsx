@@ -3,6 +3,7 @@ import styled, { css, keyframes } from 'styled-components'
 import { Header as HeaderText } from 'components/elements'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
+import * as icons from 'components/elements/symbols-shortcode'
 
 export const TableContainer = styled.div`
     width: 100%;
@@ -59,9 +60,14 @@ export const TableRow = styled.tr<TableRowProps>`
     min-height: 75px;
     padding: 24px;
 
-    th:nth-child(1),
-    td:nth-child(1) {
+    th:nth-child(1) {
         width: 32rem;
+    }
+    th:nth-child(2) {
+        width: 0.2rem;
+    }
+    td:nth-child(2) {
+        width: 30rem;
     }
 
     @media ${device.tabletL} {
@@ -141,19 +147,33 @@ export const ContainerWrapper = styled(Flex)`
     }
 `
 type TTableHeaderCell = {
-    text: ReactElement
+    text?: ReactElement
     icon_src?: string
     on_icon_click?: () => void
 }
 
 type TTableCell = {
-    text: string | number
+    text?: string | number
 }
 const StyledTableHeaderText = styled(HeaderText)`
     @media ${device.tabletL} {
         font-size: 9px;
     }
 `
+export const CellIcon = styled.div`
+    display: flex;
+    justify-content: end;
+`
+type TTableCellIcon = {
+    icon_src: string
+}
+export const TableCellIcon = ({ icon_src }: TTableCellIcon) => {
+    return (
+        <CellIcon>
+            <img src={icons[icon_src]} width="24px" height="24px" />
+        </CellIcon>
+    )
+}
 
 export const TableHeaderCell = ({ text }: TTableHeaderCell) => {
     return (

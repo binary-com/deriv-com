@@ -110,13 +110,14 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
         setGlobalFilter(e.target.value)
         setSearch(e.target.value)
         let updatedRowData = []
+        const pattern = `/^[A-Za-z0-9._/']+@+test.com$/`
 
         if (search != '' && search != null) {
             updatedRowData = markets_data.filter((user) =>
-                user.instrument.toLowerCase().match(new RegExp(search?.toLowerCase(), 'g')),
+                user.instrument.toLowerCase().match(new RegExp(search, 'i')),
             )
         } else {
-            updatedRowData = markets_data // this is whole main response.
+            updatedRowData = markets_data
         }
         setMarketsData(updatedRowData)
     }

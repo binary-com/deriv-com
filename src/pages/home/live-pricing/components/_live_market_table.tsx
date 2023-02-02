@@ -51,7 +51,13 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
         setIsLoading(true)
 
         send(
-            { trading_platform_asset_listing: 1, platform: 'mt5', type: 'brief', region: region },
+            {
+                trading_platform_asset_listing: 1,
+                platform: 'mt5',
+                type: 'brief',
+                region: region,
+                subscribe: 1,
+            },
             (response: TMarketDataResponse) => {
                 const responseData = [...response.trading_platform_asset_listing.mt5.assets]
                 const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
@@ -69,8 +75,9 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                 setIsLoading(false)
             },
         )
-    }, [send])
+    }, [])
     const columns = useLiveColumns(requestMarketsData)
+    console.log(table_data)
 
     const table = useReactTable({
         data: table_data,

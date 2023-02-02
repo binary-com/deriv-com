@@ -6,6 +6,7 @@ export type TMarketData = {
     market_ranking: string
     spread: number
     symbol: string
+    shortcode: string
 }
 
 export type TMarketDataResponse = {

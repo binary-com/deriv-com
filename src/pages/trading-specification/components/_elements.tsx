@@ -208,6 +208,7 @@ export const BackButton = styled(Button)`
     margin-right: 0.8rem;
 `
 export const StyledHeading = styled(Flex)``
+
 export const CloseIconButton = styled.img`
     width: 16px;
 `

@@ -25,7 +25,7 @@ const StyledButton = styled(Button)`
 `
 const DisclaimerText = styled(Header)`
     color: var(--color-grey-5);
-    font-weight: normal;
+    font-weight: 400;
     text-align: center;
     font-size: 1.6rem;
 `

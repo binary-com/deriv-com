@@ -1,0 +1,152 @@
+name: Release Academy Content
+
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  pull-requests: write
+  statuses: write
+  
+on:
+   repository_dispatch:
+     types: [publish_academy]
+env:
+    GATSBY_CPU_COUNT: 2
+    GATSBY_ENV: production
+
+jobs:
+    lint:
+        timeout-minutes: 10
+        runs-on: ubuntu-latest
+        environment: production
+
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 16
+            - name: Cache dependencies
+              id: cache
+              uses: actions/cache@v2
+              env:
+                  cache-name: cache-node-modules
+              with:
+                  path: ./node_modules
+                  key: modules-${{ hashFiles('package-lock.json') }}
+            - name: Install Node.js dependencies
+              run: |
+                  npm ci
+                  npm test
+
+    release-production:
+        needs: lint
+        timeout-minutes: 30
+        runs-on: ubuntu-latest
+        environment: production
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+              
+            - name: fetch git tags
+              id: get_tag_name
+              run: |
+                   git fetch --prune --unshallow --tags
+                   GIT_TAG_NAME=`git tag --format='%(creatordate:short)%09%(refname:strip=2)' --sort=creatordate | grep production | awk '{ print $2; }' | tail -1`
+                   
+                   echo "git tag is ${GIT_TAG_NAME}"
+                   echo ::set-output name=VERSION::${GIT_TAG_NAME}
+                   
+            - name: Clone latest production tag
+              uses: actions/checkout@v2.3.1
+              with:
+                ref: ${{ steps.get_tag_name.outputs.VERSION }}
+
+            - name: Setup Node
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: '16.x'
+
+            - name: Set version env variable
+              run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+            - name: Cache Gatsby
+              id: gatsby-cache-build
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      public
+                      .cache
+                  key: ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}-${{ github.run_id }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}
+
+            - run: npm ci
+            - run: npm run format
+            - run: npm run test
+            - run: npm run build
+
+            - name: Remove Storybook
+              uses: JesseTG/rm@v1.0.2
+              with:
+                  path: public/storybook
+
+            - uses: olegtarasov/get-tag@v2.1
+              id: tagName
+              # For using same tag for staging and production we need to uncomment these two below lines:
+              # with:
+              #   tagRegex: "production(.*)"
+              
+            - name: Building docker image 🐳
+              run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:${{ steps.get_tag_name.outputs.VERSION }} .
+
+            - name: Pushing Image to docker hub 🐳
+              run: |
+                  echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest
+                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:${{ steps.get_tag_name.outputs.VERSION }}
+                  
+            - name: git tag used for deployment
+              run: |
+                   echo "git tag used for deployment is: ${{ steps.get_tag_name.outputs.VERSION }} "
+            - name: Deploy 🚀
+              run: |
+                  export NAMESPACE="deriv-com-production"
+                  export SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}
+                  export DOCKERHUB_ORGANISATION=${{ secrets.DOCKERHUB_ORGANISATION }}
+                  export KUBE_SERVER=${{ secrets.KUBE_SERVER }}
+                  export CA=${{ secrets.CA }}
+                  git clone https://github.com/binary-com/devops-ci-scripts
+                  cd devops-ci-scripts/k8s-build_tools
+                  echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
+                  ./release.sh deriv-com ${{ steps.get_tag_name.outputs.VERSION }}
+
+            - name: Deploy to Cloudflare ☁️
+              uses: cloudflare/wrangler-action@2.0.0
+              with:
+                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                command: pages publish public --project-name=deriv-com-pages --branch=main
+
+            - name: Cloudflare production link ✨
+              run: echo "New website - http://cf-pages-deriv-com.deriv.com"
+
+            - name: Slack Notification 📣
+              uses: 8398a7/action-slack@v3
+              with:
+                  status: ${{ job.status }}
+                  fields: workflow,repo
+                  if_mention: failure,cancelled
+                  custom_payload: |
+                      {
+                        attachments: [{
+                          color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                          text: `Release for *Deriv.com* with version *${{ steps.get_tag_name.outputs.VERSION }}*`
+                        }]
+                      }
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+              if: always()

@@ -12,7 +12,11 @@ import { loss_percent } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 
 const DisclaimerSection = () => {
+<<<<<<< HEAD
     const { is_eu, is_non_eu, is_cpa_plan } = useRegion()
+=======
+    const { is_eu, is_non_eu } = useRegion()
+>>>>>>> fb2b2716eb (Habib/update master rebranding (#4128))
     return (
         <>
             <DisclaimerWrapper>
@@ -105,6 +109,19 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                     </>
                 )}
+<<<<<<< HEAD
+=======
+                <DisclaimerParagraph>
+                    {localize(
+                        'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
+                    )}
+                </DisclaimerParagraph>
+                <DisclaimerParagraph>
+                    {localize(
+                        "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
+                    )}
+                </DisclaimerParagraph>
+>>>>>>> fb2b2716eb (Habib/update master rebranding (#4128))
                 <RiskWarning>
                     <Desktop>
                         {is_non_eu && !is_cpa_plan && (

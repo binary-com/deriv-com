@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { TString } from 'types/generics'
 import { Flex } from 'components/containers'
 
@@ -23,6 +24,32 @@ type CommonHeaderSectionProps = {
     align_subtitle?: string
 }
 
+const StyledCommonHeaderSection = styled.div<CommonHeaderSectionProps>`
+    background-color: ${(props) => props.bgcolor};
+    color: ${(props) => props.color};
+    width: ${(props) => props.width};
+    height: ${(props) => props.height};
+    padding: ${(props) => props.padding};
+`
+
+const StyledTitle = styled.h1<CommonHeaderSectionProps>`
+    color: ${(props) => props.title_text_color};
+    font-size: ${(props) => props.title_font_size};
+    font-family: Ubuntu, sans-serif;
+    font-weight: 'bold';
+    text-align: ${(props) => props.align_title};
+    line-height: ${(props) => props.line_height};
+`
+
+const StyledSubtitle = styled.p<CommonHeaderSectionProps>`
+    color: ${(props) => props.subtitle_text_color};
+    font-size: ${(props) => props.subtitle_font_size};
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 'normal';
+    margin: ${(props) => props.margin};
+    text-align: ${(props) => props.align_subtitle};
+    line-height: ${(props) => props.line_height};
+`
 const CommonHeaderSection = ({
     title,
     subtitle,
@@ -41,44 +68,33 @@ const CommonHeaderSection = ({
     align_subtitle,
 }: CommonHeaderSectionProps) => {
     return (
-        <div
-            style={{
-                backgroundColor: bgcolor,
-                color: color,
-                padding: padding,
-                width: width,
-                height: height,
-            }}
+        <StyledCommonHeaderSection
+            bgcolor={bgcolor}
+            color={color}
+            padding={padding}
+            width={width}
+            height={height}
         >
             <Flex direction="column">
-                <h1
-                    style={{
-                        color: title_text_color,
-                        fontSize: title_font_size,
-                        fontFamily: 'Ubuntu',
-                        fontWeight: 'bold',
-                        textAlign: align_title,
-                        lineHeight: line_height,
-                    }}
+                <StyledTitle
+                    title_text_color={title_text_color}
+                    title_font_size={title_font_size}
+                    align_title={align_title}
+                    line_height={line_height}
                 >
                     {title}
-                </h1>
-                <p
-                    style={{
-                        color: subtitle_text_color,
-                        fontSize: subtitle_font_size,
-                        fontFamily: 'IBM Plex Sans',
-                        fontWeight: 'normal',
-                        margin: margin,
-                        textAlign: align_subtitle,
-                        lineHeight: line_height,
-                    }}
+                </StyledTitle>
+                <StyledSubtitle
+                    subtitle_text_color={subtitle_text_color}
+                    subtitle_font_size={subtitle_font_size}
+                    margin={margin}
+                    align_subtitle={align_subtitle}
+                    line_height={line_height}
                 >
                     {subtitle}
-                </p>
+                </StyledSubtitle>
             </Flex>
-        </div>
+        </StyledCommonHeaderSection>
     )
 }
-
 export default CommonHeaderSection

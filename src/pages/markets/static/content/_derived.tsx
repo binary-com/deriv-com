@@ -1,5 +1,5 @@
 import React from 'react'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import RealWorld from 'images/svg/markets/real-world.svg'
 import TightSpreads from 'images/svg/markets/tight-spread-new.svg'
 import TwentyFourHourTrading from 'images/svg/markets/twenty-four-hour-trading.svg'
@@ -12,7 +12,7 @@ import TradeIcon from 'images/svg/markets/trade-new.svg'
 export type DerivedContentElement = {
     src: string
     alt: string
-    text: string
+    text: React.ReactNode
 }
 
 export const simple_step_content_derived = [
@@ -43,27 +43,31 @@ export const derived_content: DerivedContentElement[] = [
     {
         src: RealWorld,
         alt: 'realworld market values',
-        text: localize('Market-based values with limited influence from real-world events'),
+        text: (
+            <Localize translate_text="Market-based values with limited influence from real-world events" />
+        ),
     },
     {
         src: TightSpreads,
         alt: 'tighter spreads',
-        text: localize('Competitively tighter spreads'),
+        text: <Localize translate_text="Competitively tighter spreads" />,
     },
     {
         src: ResponsiveWebsite,
         alt: 'responsive platform',
-        text: localize('Responsive, easy-to-use platforms'),
+        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
     },
     {
         src: TwentyFourHourTrading,
         alt: 'twenty four hour trading',
-        text: localize('24-hour trading (Monday-Friday), based on forex market hours'),
+        text: (
+            <Localize translate_text="24-hour trading (Monday-Friday), based on forex market hours" />
+        ),
     },
     {
         src: FriendlySupport,
         alt: 'friendly support',
-        text: localize('Smart and friendly support, 7 days a week'),
+        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
     },
 ]
 
@@ -71,26 +75,30 @@ export const derived_content_eu: DerivedContentElement[] = [
     {
         src: RealWorld,
         alt: 'realworld market values',
-        text: localize('Market-based values with limited influence from real-world events'),
+        text: (
+            <Localize translate_text="Market-based values with limited influence from real-world events" />
+        ),
     },
     {
         src: TightSpreads,
         alt: 'tighter spreads',
-        text: localize('Competitively tighter spreads'),
+        text: <Localize translate_text="Competitively tighter spreads" />,
     },
     {
         src: ResponsiveWebsite,
         alt: 'responsive platform',
-        text: localize('Responsive, easy-to-use platforms'),
+        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
     },
     {
         src: TwentyFourHourTrading,
         alt: 'twenty four hour trading',
-        text: localize('24-hour trading (Monday-Friday), based on forex market hours'),
+        text: (
+            <Localize translate_text="24-hour trading (Monday-Friday), based on forex market hours" />
+        ),
     },
     {
         src: FriendlySupport,
         alt: 'friendly support',
-        text: localize('Smart and friendly support, 7 days a week'),
+        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
     },
 ]

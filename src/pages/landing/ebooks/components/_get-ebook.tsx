@@ -14,7 +14,7 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
-import { useDerivWS } from 'store'
+import useDerivWS from 'components/hooks/use-deriv-ws'
 
 type GetEbookProps = {
     color?: string
@@ -345,7 +345,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                                     to="/tnc/security-and-privacy.pdf"
                                     size="1.2rem"
                                     color="red"
-                                    external
                                     rel="noopener noreferrer"
                                     target="_blank"
                                 />,

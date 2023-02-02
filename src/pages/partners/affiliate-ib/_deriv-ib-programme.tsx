@@ -7,7 +7,7 @@ import { Header } from 'components/elements/typography'
 import { LiveChatLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type AssetsType = {
     title: React.ReactElement
@@ -140,7 +140,7 @@ const SubtitleHeader = styled(Header)`
 `
 
 const DerivIBProgramme = () => {
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
     return (
         <StyledSection id="deriv-ib">
             <Container direction="column">
@@ -260,8 +260,10 @@ const ib_dmt5_synthetic: DMT5Type = {
                         <Localize key={8} translate_text="Volatility 75 (1s) Index" />,
                         <Localize key={9} translate_text="Volatility 100 Index" />,
                         <Localize key={10} translate_text="Volatility 100 (1s) Index" />,
-                        <Localize key={11} translate_text="Volatility 200 (1s) Index" />,
-                        <Localize key={12} translate_text="Volatility 300 (1s) Index" />,
+                        <Localize key={11} translate_text="Volatility 150 (1s) Index" />,
+                        <Localize key={12} translate_text="Volatility 200 (1s) Index" />,
+                        <Localize key={13} translate_text="Volatility 250 (1s) Index" />,
+                        <Localize key={14} translate_text="Volatility 300 (1s) Index" />,
                     ],
                 },
                 {
@@ -277,8 +279,10 @@ const ib_dmt5_synthetic: DMT5Type = {
                         <Localize key={8} translate_text="5" />,
                         <Localize key={9} translate_text="7.5" />,
                         <Localize key={10} translate_text="7.5" />,
-                        <Localize key={11} translate_text="10" />,
-                        <Localize key={12} translate_text="15" />,
+                        <Localize key={11} translate_text="7.5" />,
+                        <Localize key={12} translate_text="10" />,
+                        <Localize key={12} translate_text="12.5" />,
+                        <Localize key={14} translate_text="15" />,
                     ],
                 },
             ],
@@ -543,7 +547,7 @@ const ib_derivx: DMT5Type = {
                     ],
                 },
                 {
-                    title: <Localize key={0} translate_text="Commission per lot" />,
+                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
                     list: [
                         <Localize key={1} translate_text="USD 2" />,
                         <Localize key={1} translate_text="USD 2" />,
@@ -657,8 +661,10 @@ const ib_derivx: DMT5Type = {
                         <Localize key={8} translate_text="Volatility 75 (1s) Index" />,
                         <Localize key={9} translate_text="Volatility 100 Index" />,
                         <Localize key={10} translate_text="Volatility 100 (1s) Index" />,
-                        <Localize key={11} translate_text="Volatility 200 (1s) Index" />,
-                        <Localize key={12} translate_text="Volatility 300 (1s) Index" />,
+                        <Localize key={11} translate_text="Volatility 150 (1s) Index" />,
+                        <Localize key={12} translate_text="Volatility 200 (1s) Index" />,
+                        <Localize key={13} translate_text="Volatility 250 (1s) Index" />,
+                        <Localize key={14} translate_text="Volatility 300 (1s) Index" />,
                     ],
                 },
                 {
@@ -674,8 +680,10 @@ const ib_derivx: DMT5Type = {
                         <Localize key={8} translate_text="5" />,
                         <Localize key={9} translate_text="7.5" />,
                         <Localize key={10} translate_text="7.5" />,
-                        <Localize key={11} translate_text="10" />,
-                        <Localize key={12} translate_text="15" />,
+                        <Localize key={11} translate_text="7.5" />,
+                        <Localize key={12} translate_text="10" />,
+                        <Localize key={13} translate_text="10" />,
+                        <Localize key={14} translate_text="15" />,
                     ],
                 },
             ],

@@ -1,5 +1,13 @@
 name: Pre-push Translation
 
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  pull-requests: write
+  statuses: write
+  
 on:
   pull_request:
     types: [opened, reopened, synchronize]
@@ -26,7 +34,8 @@ jobs:
         steps:
             - name: Branch Check 🔍 
               run: |
-                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"         
+                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
+                
                 echo "$CLEAN_BRANCH is a valid branch for translation workflow"
 
               

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { smarttrader_url } from 'common/constants'
 import { Flex } from 'components/containers'
+import { TString } from 'types/generics'
 import { Text, Header } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
@@ -10,10 +11,12 @@ import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import SmartTrader from 'images/svg/custom/smarttrader.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import DerivGo from 'images/svg/custom/deriv-go.svg'
+import useRegion from 'components/hooks/use-region'
 
 type AvailablePlatformsProps = {
     dmt5?: boolean
+    deriv_go?: boolean
     dtrader?: boolean
     dbot?: boolean
     smarttrader?: boolean
@@ -66,9 +69,10 @@ const StyledFlex = styled(Flex)`
         font-size: 14px;
     }
 `
-
+const deriv_go_text: TString = '_t_Deriv Go_t_'
 const AvailablePlatforms = ({
     dmt5,
+    deriv_go,
     dtrader,
     dbot,
     smarttrader,
@@ -77,7 +81,7 @@ const AvailablePlatforms = ({
     tablet_direction,
     m_top,
 }: AvailablePlatformsProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     return (
         <Flex
@@ -132,6 +136,14 @@ const AvailablePlatforms = ({
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivX} alt="Deriv X" width="32" height="32" />
                             <Text ml="0.4rem">{localize('Deriv X')}</Text>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {deriv_go && (
+                    <LocalizedLink to="/deriv-go/">
+                        <StyledFlex direction="row" ai="center">
+                            <img src={DerivGo} alt="Deriv go" width="32" height="32" />
+                            <Text ml="0.4rem">{localize(deriv_go_text)}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

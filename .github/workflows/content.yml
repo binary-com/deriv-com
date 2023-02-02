@@ -1,21 +1,19 @@
 name: Release Academy Content
 
 permissions:
-  actions: write
-  checks: write
-  contents: write
-  deployments: write
-  pull-requests: write
-  statuses: write
-  
+    actions: write
+    checks: write
+    contents: write
+    deployments: write
+    pull-requests: write
+    statuses: write
+
 on:
-   repository_dispatch:
-     types: [publish_academy]
+    repository_dispatch:
+        types: [publish_academy]
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: production
-    DIRECTUS_AUTH_TOKEN: ${{ secrets.DIRECTUS_AUTH_TOKEN }}
-    GATSBY_ENV_CIO_SITE_ID: ${{ secrets.GATSBY_ENV_CIO_SITE_ID }}
 
 jobs:
     lint:
@@ -52,20 +50,20 @@ jobs:
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
-              
+
             - name: fetch git tags
               id: get_tag_name
               run: |
-                   git fetch --prune --unshallow --tags
-                   GIT_TAG_NAME=`git tag --format='%(creatordate:short)%09%(refname:strip=2)' --sort=creatordate | grep production | awk '{ print $2; }' | tail -1`
-                   
-                   echo "git tag is ${GIT_TAG_NAME}"
-                   echo ::set-output name=VERSION::${GIT_TAG_NAME}
-                   
+                  git fetch --prune --unshallow --tags
+                  GIT_TAG_NAME=`git tag --format='%(creatordate:short)%09%(refname:strip=2)' --sort=creatordate | grep production | awk '{ print $2; }' | tail -1`
+
+                  echo "git tag is ${GIT_TAG_NAME}"
+                  echo ::set-output name=VERSION::${GIT_TAG_NAME}
+
             - name: Clone latest production tag
               uses: actions/checkout@v2.3.1
               with:
-                ref: ${{ steps.get_tag_name.outputs.VERSION }}
+                  ref: ${{ steps.get_tag_name.outputs.VERSION }}
 
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
@@ -101,7 +99,7 @@ jobs:
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
               #   tagRegex: "production(.*)"
-              
+
             - name: Building docker image 🐳
               run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:${{ steps.get_tag_name.outputs.VERSION }} .
 
@@ -110,10 +108,10 @@ jobs:
                   echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
                   docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest
                   docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:${{ steps.get_tag_name.outputs.VERSION }}
-                  
+
             - name: git tag used for deployment
               run: |
-                   echo "git tag used for deployment is: ${{ steps.get_tag_name.outputs.VERSION }} "
+                  echo "git tag used for deployment is: ${{ steps.get_tag_name.outputs.VERSION }} "
             - name: Deploy 🚀
               run: |
                   export NAMESPACE="deriv-com-production"
@@ -129,9 +127,9 @@ jobs:
             - name: Deploy to Cloudflare ☁️
               uses: cloudflare/wrangler-action@2.0.0
               with:
-                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                command: pages publish public --project-name=deriv-com-pages --branch=main
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: pages publish public --project-name=deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"

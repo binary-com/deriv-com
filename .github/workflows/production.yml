@@ -10,8 +10,6 @@ on:
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: production
-    DIRECTUS_AUTH_TOKEN: ${{ secrets.DIRECTUS_AUTH_TOKEN }}
-    GATSBY_ENV_CIO_SITE_ID: ${{ secrets.GATSBY_ENV_CIO_SITE_ID }}
 
 jobs:
     lint:
@@ -97,9 +95,9 @@ jobs:
             - name: Deploy to Cloudflare ☁️
               uses: cloudflare/wrangler-action@2.0.0
               with:
-                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                command: pages publish public --project-name=deriv-com-pages --branch=main
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: pages publish public --project-name=deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"

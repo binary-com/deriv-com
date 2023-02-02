@@ -1,13 +1,13 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
+import { cfd_content } from '../content/static/_cfd'
 import WhatIsCFD from './_what_is_cfd'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
-import { cfd_content } from 'pages/trade-types/cfds/static/content/_cfd'
 import { StyledBox } from 'pages/markets/static/style/_markets-style'
 const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))

@@ -32,7 +32,7 @@ const Footer = ({
                     {!no_footer_links && (
                         <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
                     )}
-                    <DisclaimerSection is_academy={academy} />
+                    <DisclaimerSection />
                 </FooterGrid>
             </Container>
         </DefaultFooter>

@@ -122,12 +122,6 @@ export const Link = styled(StyledLink)`
     font-size: var(--text-size-xs);
     line-height: 1.5;
 `
-export const AcademyWrapper = styled.div`
-    color: var(--color-red-1);
-    font-size: var(--text-size-xs);
-    line-height: 1.5;
-    margin-top: 10px;
-`
 
 export const LinkWrapper = styled.div`
     margin-top: 1.6rem;

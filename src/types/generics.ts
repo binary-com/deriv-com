@@ -5,6 +5,7 @@ export type TRegion = {
     is_eu_location: boolean
     is_eu: boolean
     is_non_eu: boolean
+    is_cpa_plan: boolean
     is_latam: boolean
     is_row: boolean
     is_dev: boolean

@@ -16,7 +16,7 @@ const DisclaimerSection = () => {
     return (
         <>
             <DisclaimerWrapper>
-                {is_non_eu && (
+                {(is_non_eu || is_cpa_plan) && (
                     <>
                         <DisclaimerParagraph>
                             <Localize

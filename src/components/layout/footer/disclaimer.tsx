@@ -11,11 +11,7 @@ import { Localize, localize } from 'components/localization'
 import { loss_percent } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 
-type DisclaimerSectionProps = {
-    is_academy?: boolean
-}
-
-const DisclaimerSection = ({ is_academy = false }: DisclaimerSectionProps) => {
+const DisclaimerSection = () => {
     const { is_eu, is_non_eu } = useRegion()
     return (
         <>
@@ -89,13 +85,6 @@ const DisclaimerSection = ({ is_academy = false }: DisclaimerSectionProps) => {
                         "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
                     )}
                 </DisclaimerParagraph>
-                {is_academy && (
-                    <DisclaimerParagraph>
-                        {localize(
-                            'The information contained in this academy is for educational purposes only and is not intended as financial or investment advice.',
-                        )}
-                    </DisclaimerParagraph>
-                )}
                 <RiskWarning>
                     <Desktop>
                         {is_non_eu && (

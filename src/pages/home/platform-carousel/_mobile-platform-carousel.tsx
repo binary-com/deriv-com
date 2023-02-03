@@ -28,11 +28,6 @@ const query = graphql`
         dmt5_mobile_web_browser: file(relativePath: { eq: "home/dmt5_mobile_web_browser.png" }) {
             ...fadeIn
         }
-    }
-`
-
-const image_query = graphql`
-    query {
         platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
             ...fadeIn
         }
@@ -166,7 +161,6 @@ type MobilePlatformCarouselProps = {
 }
 
 const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) => {
-    const images = useStaticQuery(image_query)
     const data = useStaticQuery(query)
 
     const lang_direction = useLangDirection()
@@ -189,7 +183,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                         <CarouselItemWrapper key={image_key}>
                             <Flex tabletL={{ mb: '56px' }}>
                                 <MobileImage
-                                    data={images[image_key]}
+                                    data={data[image_key]}
                                     alt={image_key}
                                     height={'55vw'}
                                 />

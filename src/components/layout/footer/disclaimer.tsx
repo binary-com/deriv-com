@@ -52,7 +52,7 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) is at Kingston Chambers, P.O Box 173, Road Town, Tortola, British Virgin Islands."
+                                translate_text="Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) is at Kingston Chambers, P.P Box 173, Road Town, Tortola, British Virgin Islands."
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -65,7 +65,7 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Deriv (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission (<0>licence</0>). The registered office of Deriv (V) Ltd is at 1276 Kumul Highway, Port Vila, Vanuatu."
+                                translate_text="Deriv (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission (<0>licence</0>). The registered office of Deriv (V) Ltd is at 1276 Kumul Highway, Port Vila, Vanuatu, Deriv (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines."
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -75,11 +75,6 @@ const DisclaimerSection = () => {
                                     />,
                                 ]}
                             />
-                        </DisclaimerParagraph>
-                        <DisclaimerParagraph>
-                            {localize(
-                                'Deriv (SVG) LLC has a registered office at Hinds Buildings, Kingstown, St. Vincent and the Grenadines.',
-                            )}
                         </DisclaimerParagraph>
                     </>
                 )}
@@ -139,6 +134,12 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
+                                        translate_text="<0>EU statutory disclaimer</0>: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </DisclaimerParagraph>
+                                <DisclaimerParagraph>
+                                    <Localize
                                         translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
                                         components={[
                                             <BoldLink
@@ -156,6 +157,12 @@ const DisclaimerSection = () => {
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
+                                </DisclaimerParagraph>
+                                <DisclaimerParagraph>
+                                    <Localize
+                                        translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                                        values={{ loss_percent }}
+                                    />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
@@ -191,6 +198,12 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
+                                        translate_text="<0>EU statutory disclaimer</0>: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </DisclaimerParagraph>
+                                <DisclaimerParagraph>
+                                    <Localize
                                         translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
                                         components={[
                                             <BoldLink
@@ -210,7 +223,28 @@ const DisclaimerSection = () => {
                                     <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
+                                    <Localize
+                                        translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                                        values={{ loss_percent }}
+                                    />
+                                </DisclaimerParagraph>
+                                <DisclaimerParagraph>
                                     <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                </DisclaimerParagraph>
+                            </>
+                        )}
+                        {is_non_eu && (
+                            <>
+                                <DisclaimerParagraph no_margin>
+                                    <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                </DisclaimerParagraph>
+                                <DisclaimerParagraph>
+                                    <Localize
+                                        translate_text="Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading</0>."
+                                        components={[
+                                            <BoldLink key={0} target="_blank" to="/responsible/" />,
+                                        ]}
+                                    />
                                 </DisclaimerParagraph>
                             </>
                         )}

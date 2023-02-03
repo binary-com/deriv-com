@@ -1,7 +1,7 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
-import { cfd_content } from '../content/_cfd'
+import { cfd_content } from '../content/static/_cfd'
 import WhatIsCFD from './_what_is_cfd'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'

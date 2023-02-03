@@ -37,7 +37,7 @@ const CFD = () => {
                 multiple_row={true}
                 header={<Localize translate_text="Why trade on CFDs on Deriv" />}
                 button_title={<Localize translate_text="Don't have a Deriv account yet?" />}
-                button_text="Create free demo account"
+                button_text="_t_Create free demo account_t_"
             >
                 {cfd_content.map((content, index) => (
                     <StyledBox

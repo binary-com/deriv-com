@@ -80,7 +80,7 @@ const MarketsAvailable = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Trade digital options, lookbacks, and Call/Put Spreads 24/7 on our synthetic indices that are free from real-world disruptions.',
+                                        'Trade digital options, lookbacks, and Call/Put Spreads 24/7 on our synthetics that are free from real-world disruptions.',
                                     )}
                                 </Text>
                                 <LearnMore

@@ -72,7 +72,7 @@ const NumberSection = ({
                         title_font_size="48px"
                         subtitle_font_size="20px"
                         bgcolor="white"
-                        margin="1.5rem 0 0 0"
+                        margin_subtitle="1.5rem 0 0 0"
                     />
                 </div>
             ))}

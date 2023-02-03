@@ -45,7 +45,7 @@ const ContentWrapperStyle = styled.div`
     flex-direction: column;
     display: flex;
 `
-const SomethingStyle = styled.div`
+const HeroImageWrapper = styled.div`
     width: 60%;
 
     @media ${device.tablet} {
@@ -80,13 +80,13 @@ const Hero = () => {
                     />
                 </Content>
             </ContentWrapperStyle>
-            <SomethingStyle>
+            <HeroImageWrapper>
                 <Shape angle={is_mobile ? 101 : 193}>
                     <ImageWrapper>
                         <ImageStyle src={DerivGoMobile} />
                     </ImageWrapper>
                 </Shape>
-            </SomethingStyle>
+            </HeroImageWrapper>
         </BackgroundStyle>
     )
 }

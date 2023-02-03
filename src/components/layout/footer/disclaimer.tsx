@@ -20,7 +20,7 @@ const DisclaimerSection = () => {
                     <>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority, Triq l-Imdina, Zone 1, Central Business District, Birkirkara CBD 1010, Malta, under the Investments Services Act."
+                                translate_text="Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority, Triq L-Imdina, Zone 1, Central Business District, Birkirkara CBD 1010, Malta, under the Investment Services Act (<0>licence</0>). The registered office of Deriv Investments (Europe) Limited is at W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR9033, Malta."
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -33,7 +33,7 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Outside the EU, financial products are offered by the following companies: Deriv (FX) Ltd, F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, licensed by Labuan Financial Services Authority (<0>licence no. MB/18/0024</0>); Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, licensed by the British Virgin Islands Financial Services Commission (<1>licence no. SIBA/L/18/1114</1>); Deriv (V) Ltd (<2>view licence</2>), 1276, Kumul Highway, Port Vila, Vanuatu, licensed and regulated by the Vanuatu Financial Services Commission; and Deriv (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines."
+                                translate_text="Deriv (FX) Ltd is licensed by Labuan Financial Services Authority (<0>licence</0>). The registered office of Deriv (FX) Ltd is at F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia."
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -41,6 +41,19 @@ const DisclaimerSection = () => {
                                         href="/regulatory/Deriv_(FX)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
+                                    <StaticAsset
+                                        key={0}
+                                        target="_blank"
+                                        href="/regulatory/Deriv_(BVI)_Ltd.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
+                        </DisclaimerParagraph>
+                        <DisclaimerParagraph>
+                            <Localize
+                                translate_text="Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) is at Kingston Chambers, P.P Box 173, Road Town, Tortola, British Virgin Islands."
+                                components={[
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
@@ -80,20 +93,6 @@ const DisclaimerSection = () => {
                                 ]}
                             />
                         </DisclaimerParagraph>
-                    </>
-                )}
-                <DisclaimerParagraph>
-                    {localize(
-                        'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
-                    )}
-                </DisclaimerParagraph>
-                <DisclaimerParagraph>
-                    {localize(
-                        "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
-                    )}
-                </DisclaimerParagraph>
-                {is_eu && (
-                    <>
                         <DisclaimerParagraph>
                             {localize(
                                 'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',

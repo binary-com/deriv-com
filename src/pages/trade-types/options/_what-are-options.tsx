@@ -1,6 +1,6 @@
 import React from 'react'
 import { SmallContainer, Grid, Ul, WhyTradeItem } from '../components/_style'
-import { digital_options } from '../content/_option'
+import { digital_options } from '../content/static/_option'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'

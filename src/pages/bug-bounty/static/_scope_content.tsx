@@ -162,7 +162,7 @@ export const scope_content: TScopeContent[] = [
             { id: 1, content: { text: '_t_Our tracking site: t.deriv.com_t_' } },
             { id: 2, content: { text: '_t_Our FIX feed server for Deriv X: fix.deriv.com_t_' } },
             { id: 3, content: { text: '_t_Our internal apps: *.deriv.cloud_t_' } },
-            { id: 4, content: { text: '_t_Our weblog address: https://deriv.com/academy/_t_' } },
+            { id: 4, content: { text: '_t_Our weblog address: https://academy.deriv.com/_t_' } },
         ],
     },
     {

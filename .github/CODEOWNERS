@@ -57,7 +57,7 @@
 # (in case no pattern matches a path in a PR - this should be treated as a bug and result in adding the path to CODEOWNERS)
 # ==============================================================
 
-*                                                               @habib-deriv @prince-deriv @michio-rework
+*                                                               @habib-deriv @prince-deriv @mohsen-deriv @mohammad-hashemi-deriv
 
 
 

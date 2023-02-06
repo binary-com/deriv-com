@@ -11,11 +11,11 @@ import {
     OurOffices,
     ImageMarquee,
 } from './_lazy-load'
+import { DotLoader } from 'components/elements'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import SkeletonLoader from 'components/custom/SkeletonLoader'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 
 const StartSeparator = styled.div`
@@ -45,14 +45,14 @@ const options = {
 
 const lazy_components: ReactNode = (
     <>
-        <OurValues fallback={<SkeletonLoader />} />
+        <OurValues fallback={<DotLoader />} />
         <EndSeparator />
-        <OurPrinciples fallback={<SkeletonLoader />} />
-        <OurLeadership fallback={<SkeletonLoader />} />
-        <DerivNumbers fallback={<SkeletonLoader />} />
-        <ImageMarquee fallback={<SkeletonLoader />} />
-        <OurOffices fallback={<SkeletonLoader />} />
-        <AboutUsBanner fallback={<SkeletonLoader />} />
+        <OurPrinciples />
+        <OurLeadership />
+        <DerivNumbers />
+        <ImageMarquee />
+        <OurOffices />
+        <AboutUsBanner />
     </>
 )
 

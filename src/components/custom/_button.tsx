@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
 
 type TProps = {
@@ -93,7 +94,7 @@ const Button: React.FC<TProps> = ({
                 outline={outline}
                 hero={hero}
             >
-                {label}
+                <Localize translate_text={label} />
             </Label>
         </Container>
     )

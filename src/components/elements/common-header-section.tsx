@@ -1,11 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 import { TString } from 'types/generics'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 
 type CommonHeaderSectionProps = {
-    title?: TString
+    title?: any
     subtitle?: TString
     padding?: string
     bgcolor?: string
@@ -26,41 +25,15 @@ type CommonHeaderSectionProps = {
     align_subtitle?: string
 }
 
-const StyledCommonHeaderSection = styled.div<CommonHeaderSectionProps>`
-    background-color: ${(props) => props.bgcolor};
-    color: ${(props) => props.color};
-    width: ${(props) => props.width};
-    height: ${(props) => props.height};
-    padding: ${(props) => props.padding};
-`
-
-const StyledTitle = styled.h1<CommonHeaderSectionProps>`
-    color: ${(props) => props.title_text_color};
-    font-size: ${(props) => props.title_font_size};
-    font-family: Ubuntu, sans-serif;
-    font-weight: 'bold';
-    margin: ${(props) => props.margin_title};
-    text-align: ${(props) => props.align_title};
-    line-height: ${(props) => props.line_height};
-`
-
-const StyledSubtitle = styled.p<CommonHeaderSectionProps>`
-    color: ${(props) => props.subtitle_text_color};
-    font-size: ${(props) => props.subtitle_font_size};
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 'normal';
-    margin: ${(props) => props.margin_subtitle};
-    text-align: ${(props) => props.align_subtitle};
-    line-height: ${(props) => props.line_height};
-`
 const CommonHeaderSection = ({
     title,
     subtitle,
     padding,
-    margin_title,
     margin_subtitle,
+    margin_title,
     bgcolor,
     color,
+    font_weight,
     line_height,
     title_text_color,
     subtitle_text_color,
@@ -72,38 +45,49 @@ const CommonHeaderSection = ({
     align_subtitle,
 }: CommonHeaderSectionProps) => {
     return (
-        <StyledCommonHeaderSection
-            bgcolor={bgcolor}
-            color={color}
-            padding={padding}
-            width={width}
-            height={height}
+        <div
+            style={{
+                backgroundColor: bgcolor,
+                color: color,
+                padding: padding,
+                width: width,
+                height: height,
+            }}
         >
             <Flex direction="column">
                 {title && (
-                    <StyledTitle
-                        title_text_color={title_text_color}
-                        title_font_size={title_font_size}
-                        align_title={align_title}
-                        margin_title={margin_title}
-                        line_height={line_height}
+                    <h1
+                        style={{
+                            color: title_text_color,
+                            fontSize: title_font_size,
+                            fontFamily: 'Ubuntu',
+                            fontWeight: 'bold',
+                            margin: margin_title,
+                            textAlign: align_title as any,
+                            lineHeight: line_height,
+                        }}
                     >
                         <Localize translate_text={title} />
-                    </StyledTitle>
+                    </h1>
                 )}
                 {subtitle && (
-                    <StyledSubtitle
-                        subtitle_text_color={subtitle_text_color}
-                        subtitle_font_size={subtitle_font_size}
-                        margin_subtitle={margin_subtitle}
-                        align_subtitle={align_subtitle}
-                        line_height={line_height}
+                    <p
+                        style={{
+                            color: subtitle_text_color,
+                            fontSize: subtitle_font_size,
+                            fontFamily: 'IBM Plex Sans',
+                            fontWeight: font_weight,
+                            margin: margin_subtitle,
+                            textAlign: align_subtitle as any,
+                            lineHeight: line_height,
+                        }}
                     >
                         <Localize translate_text={subtitle} />
-                    </StyledSubtitle>
+                    </p>
                 )}
             </Flex>
-        </StyledCommonHeaderSection>
+        </div>
     )
 }
+
 export default CommonHeaderSection

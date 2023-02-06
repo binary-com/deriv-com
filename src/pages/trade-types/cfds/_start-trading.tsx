@@ -1,12 +1,14 @@
 import React from 'react'
 import { SmallContainer } from '../components/_style'
 import CommonHeaderSection from 'components/elements/common-header-section'
-import { localize } from 'components/localization'
-import { StepperView , Header } from 'components/elements'
+import Button from 'components/custom/_button'
+import { StepperView, Header } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const StartTrading = () => {
     const { is_eu } = useRegion()
+    const handleSignup = useHandleSignup()
     return (
         <>
             <SmallContainer direction="column" ai="flex-start">
@@ -31,6 +33,7 @@ const StartTrading = () => {
                     third_step_title="_t_Withdraw_t_"
                     third_step_subtitle="_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_"
                 />
+                <Button onClick={handleSignup} label="Create free demo account" primary />
             </SmallContainer>
         </>
     )

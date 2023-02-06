@@ -11,6 +11,7 @@ const Variables = css`
         --color-black-6: #000000;
         --color-black-7: #0f0d0f;
         --color-black-8: #151717;
+        --color-black-9: #414652;
         --color-white: #ffffff;
         --color-white-1: #f9f9f9;
         --color-red: #ff444f;

@@ -14,8 +14,6 @@ on:
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: production
-    DIRECTUS_AUTH_TOKEN: ${{ secrets.DIRECTUS_AUTH_TOKEN }}
-    GATSBY_ENV_CIO_SITE_ID: ${{ secrets.GATSBY_ENV_CIO_SITE_ID }}
 
 jobs:
     lint:

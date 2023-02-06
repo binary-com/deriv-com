@@ -122,14 +122,14 @@ const HowOptionsWorks = () => {
                             </OptionItems>
                             <Text>
                                 {localize(
-                                    'Purchase the contract if you are satisfied with the quote or re-define your position.',
+                                    'Purchase the contract if you are satisfied with the quote, or re-define your position.',
                                 )}
                             </Text>
                         </HowItWorksItem>
                     </OptionGrid>
                 </StyledContainer>
                 <Header as="h3" type="section-title" mt="4rem">
-                    {localize('How to buy your first options contract on DTrader')}
+                    {localize('How to buy your first options contract on Deriv Trader')}
                 </Header>
                 <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
                     {localize('Define your position')}
@@ -138,7 +138,7 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="1. Market" />}
                         description={
-                            <Localize translate_text="Choose from forex, stocks & indices, commodities, derived." />
+                            <Localize translate_text="Choose from forex, stocks & indices, commodities, and derived." />
                         }
                     >
                         <QueryImage
@@ -149,7 +149,7 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="2. Trade type" />}
                         description={
-                            <Localize translate_text="Select your desired trade type – Up and Down, High and Lows, Digits, etc." />
+                            <Localize translate_text="Select your desired trade type — Up and Down, High and Lows, Digits, etc." />
                         }
                     >
                         <QueryImage data={data['option_trade_type']} alt="Select trade type" />

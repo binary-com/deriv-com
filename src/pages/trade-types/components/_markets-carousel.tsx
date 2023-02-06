@@ -9,7 +9,7 @@ import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const Background = styled.div`
     width: 100%;
-    background: var(--color-green-2);
+    background: var(--color-red);
     border-radius: 16px;
     height: 15.4rem;
     position: absolute;
@@ -39,7 +39,7 @@ const GreenBG = styled.div`
     top: 0;
     right: 0;
     height: 100%;
-    background: var(--color-green-2);
+    background: var(--color-red);
     border-radius: 16px;
     width: 30%;
 

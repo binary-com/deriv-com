@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef } from 'react'
+import React, { ReactElement, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
@@ -120,6 +120,7 @@ const tab_list_options: TabList[] = [
 
 const OptionsNavTab = ({ route_from }: OptionsNavTabProps) => {
     const ref = useRef(null)
+    const [active_tab, SetActiveTab] = useState('Options')
 
     return (
         <TabsContainer>

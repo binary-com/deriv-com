@@ -1,49 +1,55 @@
 import React from 'react'
 import { Localize } from 'components/localization'
-import ExtendedTime from 'images/svg/stock-indices/stocks-minimum-capital.svg'
-import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
-import MinimalCapital from 'images/svg/stock-indices/stocks-extended-time.svg'
-import ResponsiveWebsite from 'images/svg/markets/responsive-another.svg'
-import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
+import StraightForward from 'images/svg/options/straightforward.svg'
+import Significant from 'images/svg/options/significant.svg'
+import LowCapital from 'images/svg/options/low_capital.svg'
+import RiskManagement from 'images/svg/options/risk_management.svg'
+import TradeSmartly from 'images/svg/options/trade_smartly.svg'
 
-type Accumulator = {
+type AccumulatorContentProps = {
     src: string
-    text: React.ReactNode
-    heading: React.ReactNode
     alt: string
+    item_title: React.ReactNode
+    text: React.ReactNode
 }
 
-const Accumulator: Accumulator[] = [
+const accumulator_content: AccumulatorContentProps[] = [
     {
-        src: ExtendedTime,
-        alt: 'Low capital',
-        heading: <Localize translate_text="Minimal capital requirements, limited risk" />,
-        text: <Localize translate_text="Minimal capital requirements, limited risk" />,
+        src: StraightForward,
+        alt: 'Low',
+        item_title: <Localize translate_text="Straightforward trading" />,
+        text: (
+            <Localize translate_text="Define your stake amount, choose your accumulator value, and start trading." />
+        ),
     },
     {
-        src: MinimalCapital,
-        alt: 'Time to trade',
-        heading: <Localize translate_text="Minimal capital requirements, limited risk" />,
-        text: <Localize translate_text="Extended trading time, up to 18 hours a day" />,
+        src: Significant,
+        alt: 'Low',
+        item_title: <Localize translate_text="Low capital requirement" />,
+        text: <Localize translate_text="You can open a position for as low as 1 USD." />,
     },
     {
-        src: WithdrawIcon,
-        alt: 'Easy deposits and withdrawals',
-        heading: <Localize translate_text="Minimal capital requirements, limited risk" />,
-        text: <Localize translate_text="Fast and secure deposit and withdrawal options" />,
+        src: LowCapital,
+        alt: 'Low',
+        item_title: <Localize translate_text="Low capital requirement" />,
+        text: <Localize translate_text="You can open a position for as low as 1 USD." />,
     },
     {
-        src: ResponsiveWebsite,
-        alt: 'Simple trading platforms',
-        heading: <Localize translate_text="Minimal capital requirements, limited risk" />,
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        src: RiskManagement,
+        alt: 'Low',
+        item_title: <Localize translate_text="Risk management" />,
+        text: (
+            <Localize translate_text="You can set a take profit/payout level. When this level is reached, your contract will be automatically closed." />
+        ),
     },
     {
-        src: FriendlySupport,
-        alt: 'Smart support team',
-        heading: <Localize translate_text="Minimal capital requirements, limited risk" />,
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        src: TradeSmartly,
+        alt: 'Low',
+        item_title: <Localize translate_text="Trade smartly" />,
+        text: (
+            <Localize translate_text="Tick counters are available between consecutive barrier crosses to help you make smart trading decisions." />
+        ),
     },
 ]
 
-export default Accumulator
+export default accumulator_content

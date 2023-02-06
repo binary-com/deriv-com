@@ -10,6 +10,12 @@ const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
+const strapi_url = 'https://deriv-com-content.herokuapp.com'
+const strapi_token =
+    '4067b01f7e4ed61d8d90ca21aa354b981b34542dc37bef2962ad1add037dcd9e97d2f1045d73b6508b597d10b34e489fbcb4bd32e8970455133e4e23979aecf474f0c66e4263de6b7331720e755a971a61c1bc0ac1393ba44c92768ada5a94a89b6cfe41ac525057924cb08e22c4f865ae887cc67c15b6a0572349b742a4be2e'
+const strapi_login = 'Nikita'
+const strapi_pass = 'NikitaNikita'
+
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
@@ -324,5 +330,51 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
             },
         },
+        {
+            resolve: 'gatsby-source-strapi',
+            options: {
+                apiURL: `${strapi_url}`,
+                token: `${strapi_token}`,
+                // collectionTypes: ['menus.menu', 'menus.menu-item'],
+                singleTypes: ['who-we-are-page'],
+                locale: ['en', 'es'],
+                cache: false,
+            },
+        },
+
+        // {
+        //     resolve: 'gatsby-source-strapi-schema',
+        //     options: {
+        //         apiURL: `${strapi_url}`,
+        //         singleTypes: [
+        //             {
+        //                 name: 'who-we-are-page.who-we-are-page',
+        //                 api: { qs: { _locale: 'en' } },
+        //             },
+        //             {
+        //                 name: 'who-we-are-page.who-we-are-page',
+        //                 api: { qs: { _locale: 'es' } },
+        //             },
+        //         ],
+        //     },
+        // },
+        // {
+        //     resolve: 'gatsby-source-strapi-graphql',
+        //     options: {
+        //         apiURL: `${strapi_url}`,
+        //         collectionTypes: [],
+        //         singleTypes: ['who-we-are-page'],
+        //         // Only include specific locales.
+        //         locale: ['en', 'es'], // defaults to 'all'
+        //         // Include drafts in build.
+        //         preview: true, // defaults to false
+        //         // Use application token.
+        //         token: `${strapi_token}`,
+        //         // Add additional headers.
+        //         headers: {},
+        //         // Enable/disable cache.
+        //         cache: false,
+        //     },
+        // },
     ],
 }

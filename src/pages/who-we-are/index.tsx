@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+// import { graphql, useStaticQuery } from 'gatsby'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
 import ImageMarquee from './carousel/_ImageMarquee'
@@ -15,6 +16,117 @@ import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+
+// const query = graphql`
+//     query hye_query {
+//         whoWeArePage(locale: "all") {
+//             data {
+//                 attributes {
+//                     hero {
+//                         header
+//                         sub_header
+//                         first_paragraph
+//                         second_paragraph
+//                         third_paragraph
+//                         hero_image {
+//                             data {
+//                                 attributes {
+//                                     url
+//                                 }
+//                             }
+//                         }
+//                     }
+//                     our_values {
+//                         header
+//                         values {
+//                             header
+//                             sub_header
+//                             image {
+//                                 data {
+//                                     attributes {
+//                                         url
+//                                     }
+//                                 }
+//                             }
+//                         }
+//                     }
+//                     our_principles {
+//                         header
+//                         our_principles {
+//                             header
+//                             sub_header
+//                         }
+//                         button {
+//                             link_name
+//                             link_url
+//                         }
+//                     }
+//                     our_lidership {
+//                         Managers {
+//                             name
+//                             role
+//                             link_url
+//                             photo {
+//                                 data {
+//                                     attributes {
+//                                         url
+//                                     }
+//                                 }
+//                             }
+//                         }
+//                     }
+//                     deriv_in_numbers {
+//                         header
+//                         sub_header
+//                         numbers {
+//                             description
+//                             number
+//                         }
+//                     }
+//                     slider {
+//                         slider_media {
+//                             data {
+//                                 attributes {
+//                                     url
+//                                 }
+//                             }
+//                         }
+//                     }
+//                     our_locations {
+//                         header
+//                         world_map {
+//                             data {
+//                                 attributes {
+//                                     url
+//                                 }
+//                             }
+//                         }
+//                         location {
+//                             country_city
+//                         }
+//                         numbers {
+//                             description
+//                             number
+//                         }
+//                     }
+//                     banner {
+//                         banner {
+//                             header
+//                             sub_header
+//                             image {
+//                                 data {
+//                                     attributes {
+//                                         url
+//                                     }
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// `
 
 const StartSeparator = styled.div`
     width: 0;
@@ -37,6 +149,8 @@ const EndSeparator = styled.div`
 `
 
 const AboutUs = () => {
+    // useStaticQuery(query)
+    // console.log(query)
     return (
         <Layout type="transparent" margin_top="0">
             <SEO

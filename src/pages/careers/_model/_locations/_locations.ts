@@ -16,6 +16,7 @@ import {
     address_jordan,
     address_singapore,
     address_vanuatu,
+    address_reading,
 } from './_contact-details'
 import { LocationsType } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
@@ -480,7 +481,7 @@ export const reading: LocationsType = {
     country: 'UK',
     flagIcon: UKFlagIcon,
     thumbnail: 'thumbnail_reading',
-    address: [''],
+    address: address_reading,
     first_p:
         'Deriv Technologies Ltd serves as a software development centre as well as a general service provider for the Deriv Group, tapping into a wealth of regional talent. The tech professionals in our UK team deliver future-proof online trading solutions in collaboration with their colleagues around the world.',
     first_img: 'living_in_reading',
@@ -491,6 +492,7 @@ export const reading: LocationsType = {
     map_text:
         "Our UK base is a hub for Deriv fintech talent. Taking on exciting projects, this team play a key role in ideating, designing, and developing Deriv's next-generation trading products, as well as cutting-edge applications and technical systems. If software technology is what you live and breathe, join our UK team.",
     map_img: 'reading',
+    need_address_block: true,
 }
 
 export const vanuatu: LocationsType = {

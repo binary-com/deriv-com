@@ -1,12 +1,13 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import CommonHeaderSection from './common-header-section'
+import { LinkButton } from 'components/form'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import Button from 'components/custom/_button'
 import device from 'themes/device'
 import { TString } from 'types/generics'
-import { localize } from 'components/localization'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type FullWidthMultiColumnProps = {
     children?: ReactElement[]
@@ -14,6 +15,7 @@ type FullWidthMultiColumnProps = {
     button_title?: ReactElement
     button_text?: TString | ReactElement
     multiple_row?: boolean
+    button_redirection?: string
 }
 
 const Item = styled(Flex)`
@@ -106,7 +108,10 @@ export const FullWidthMultiColumn = ({
     multiple_row,
     button_title,
     button_text,
+    button_redirection,
 }: FullWidthMultiColumnProps) => {
+    const handleSignup = useHandleSignup()
+
     const first_three_items = children.slice(0, 3)
     const last_two = children.slice(3)
     const items = multiple_row ? [first_three_items, last_two] : [children]
@@ -132,7 +137,7 @@ export const FullWidthMultiColumn = ({
                     </ItemContainer>
                 ))}
                 {button_title && <StyledTextContent>{button_title}</StyledTextContent>}
-                {button_text && <Button label={button_text} primary />}
+                {button_text && <Button onClick={handleSignup} label={button_text} primary />}
             </Flex>
         </StyledSectionContainer>
     )

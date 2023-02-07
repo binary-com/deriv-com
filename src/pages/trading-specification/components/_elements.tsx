@@ -5,6 +5,7 @@ import device from 'themes/device'
 import { Button } from 'components/form'
 import { Flex } from 'components/containers'
 import * as icons from 'components/elements/symbols'
+import dl from 'images/svg/trading-specification/dl.svg'
 
 export const TableContainer = styled.div`
     display: flex;
@@ -68,6 +69,7 @@ type TTableHeaderCell = {
 type TTableCell = {
     text: string | number
     icon_src?: string
+    dl_icon?: string
 }
 const StyledTableHeaderText = styled(HeaderText)`
     @media ${device.tabletL} {
@@ -90,18 +92,21 @@ const StyledHeaderText = styled(HeaderText)`
         font-size: 11px;
     }
 `
-export const TableCell = ({ text }: TTableCell) => {
+export const TableCell = ({ text, dl_icon }: TTableCell) => {
     return (
         <Cell>
             <StyledHeaderText type="small" weight="normal" align="start">
                 {text}
             </StyledHeaderText>
+            {dl_icon && <img src={dl_icon} width="24px" height="24px" />}
         </Cell>
     )
 }
+export const TableButton = styled(Button)``
 type TTableCellIcon = {
     icon_src: string
 }
+
 export const TableCellIcon = ({ icon_src }: TTableCellIcon) => {
     return (
         <CellIcon>
@@ -128,7 +133,7 @@ export const StyledButtonPage = styled(Button)<{ selected: boolean }>`
               `}
 `
 export const StyledPaginationContainer = styled(Flex)`
-    padding: 60px 20px;
+    padding: 60px;
     gap: 10px;
     justify-content: end;
 `

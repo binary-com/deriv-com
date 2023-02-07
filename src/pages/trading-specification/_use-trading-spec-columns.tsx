@@ -3,6 +3,7 @@ import React, { useMemo } from 'react'
 import { THeaders } from './_types'
 import { TableCell, TableHeaderCell, TableCellIcon } from './components/_elements'
 import { Localize } from 'components/localization'
+import dl from 'images/svg/trading-specification/dl.svg'
 
 const liveMarketColumnHelper = createColumnHelper<THeaders>()
 
@@ -15,7 +16,7 @@ const useLiveColumns = () => {
             }),
             liveMarketColumnHelper.accessor('instrument', {
                 header: () => <TableHeaderCell />,
-                cell: (info) => <TableCell text={info.getValue()} />,
+                cell: (info) => <TableCell text={info.getValue()} dl_icon={dl} />,
             }),
             liveMarketColumnHelper.accessor('contract_size', {
                 header: () => (

@@ -147,6 +147,8 @@ import GBPUSDDFX10 from 'images/svg/symbols/gbp-usd-10.svg'
 import AUDUSDDFX10 from 'images/svg/symbols/aud-usd-10.svg'
 import USDCHFDFX10 from 'images/svg/symbols/usd-chf-10.svg'
 import EURUSDDFX10 from 'images/svg/symbols/eur-usd-10.svg'
+import BOOM300 from 'images/svg/symbols/boom-eu-boom-300.svg'
+import CRASH300 from 'images/svg/symbols/crash-eu-crash-300.svg'
 //forex
 import frxAUDJPY from 'images/svg/symbols/aud-jpy.svg'
 import frxAUDUSD from 'images/svg/symbols/aud-usd.svg'
@@ -316,6 +318,8 @@ export {
     Vol_1HZ300V,
     BOOM1000,
     BOOM500,
+    BOOM300,
+    CRASH300,
     CRASH1000,
     CRASH500,
     JD10,

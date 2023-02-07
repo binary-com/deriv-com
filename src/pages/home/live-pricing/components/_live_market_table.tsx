@@ -23,9 +23,11 @@ import { LocalizedLinkText } from 'components/elements'
 
 export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
+    to: string
+    display_name: string
 }
 
-const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
+const LiveMarketTable = ({ market, to, display_name }: TLiveMarketTableProps) => {
     const { is_eu } = useRegion()
     const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
@@ -77,7 +79,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
         )
     }, [])
     const columns = useLiveColumns(requestMarketsData)
-    console.log(table_data)
 
     const table = useReactTable({
         data: table_data,
@@ -140,7 +141,9 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                 </TableContainer>
             </ContainerWrapper>
             <StyledContainer>
-                <LocalizedLinkText>See all {market} market</LocalizedLinkText>
+                <LocalizedLinkText to={to}>
+                    See all {display_name.toLocaleLowerCase()} market {'>'}
+                </LocalizedLinkText>
             </StyledContainer>
         </>
     )

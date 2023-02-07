@@ -13,6 +13,8 @@ type MarketTabProps = {
 
 const MarketTab = ({ is_home }: MarketTabProps) => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
+    const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex')
+    const [displayName, setDisplayName] = useState('forex')
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
@@ -27,6 +29,8 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
                             key={marketItem.id}
                             onClick={() => {
                                 onMarketButtonClick(marketItem.market_name)
+                                setLinkToMarketPage(marketItem.to)
+                                setDisplayName(marketItem.button_text)
                             }}
                         >
                             <SVGWrapper
@@ -55,7 +59,11 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
             </ContainerWrapper>
             {is_home ? (
                 <>
-                    <LiveMarketTable market={selected_market} />
+                    <LiveMarketTable
+                        market={selected_market}
+                        to={linkToMarketPage}
+                        display_name={displayName}
+                    />
                 </>
             ) : (
                 <TradingSpecificationTable market={selected_market} />

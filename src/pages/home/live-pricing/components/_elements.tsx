@@ -71,21 +71,15 @@ export const TableRow = styled.tr<TableRowProps>`
     }
 
     @media ${device.tabletL} {
-        th:nth-child(4),
-        td:nth-child(4) {
+        th:nth-child(1) {
+            width: 12rem;
+        }
+        td:nth-child(2) {
+            width: 10rem;
+        }
+        th:nth-child(6),
+        td:nth-child(6) {
             display: none;
-        }
-        th:nth-child(2),
-        td:nth-child(2),
-        th:nth-child(3),
-        td:nth-child(3),
-        th:nth-child(5),
-        td:nth-child(5) {
-            width: 5rem;
-        }
-        th:nth-child(1),
-        td:nth-child(1) {
-            width: 13rem;
         }
     }
 `
@@ -157,7 +151,7 @@ type TTableCell = {
 }
 const StyledTableHeaderText = styled(HeaderText)`
     @media ${device.tabletL} {
-        font-size: 9px;
+        font-size: 10px;
     }
 `
 export const CellIcon = styled.div`
@@ -187,7 +181,7 @@ export const TableHeaderCell = ({ text }: TTableHeaderCell) => {
 const StyledHeaderText = styled(HeaderText)`
     @media ${device.tabletL} {
         width: auto;
-        font-size: 11px;
+        font-size: 10px;
     }
 `
 export const TableCell = ({ text }: TTableCell) => {
@@ -217,6 +211,9 @@ const DailyPercentageText = styled(HeaderText)<{ bull?: boolean }>`
             : css`
                   color: red;
               `}
+    @media ${device.tabletL} {
+        font-size: 10px;
+    }
 `
 
 export const DailyPercentageCell = ({ value }: TDailyPercentageProps) => {

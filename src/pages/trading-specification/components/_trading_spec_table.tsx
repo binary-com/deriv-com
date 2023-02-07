@@ -27,6 +27,8 @@ import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
 import SearchIcon from 'images/svg/help/search.svg'
 import { Flex } from 'components/containers'
 import { Button } from 'components/form'
+import { Localize } from 'components/localization'
+import { Header } from 'components/elements'
 
 export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
@@ -68,6 +70,12 @@ const SearchInput = styled.input`
         color: var(--color-grey-17);
     }
 `
+const DisclaimerText = styled(Header)`
+    color: var(--color-grey-5);
+    font-weight: 400;
+    text-align: center;
+    font-size: 1.6rem;
+`
 const TABLE_VISIBLE_ROWS = 20
 
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
@@ -105,14 +113,16 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
 
-    const handleChange = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        setGlobalFilter(e.target.value)
-        setSearch(e.target.value)
-        let updatedRowData = []
-        const pattern = `/^[A-Za-z0-9._/']+@+test.com$/`
+    }
 
-        if (search != '' && search != null) {
+    const handleChange = (e) => {
+        setSearch(e.target.value)
+        // console.log('search', search)
+        let updatedRowData = []
+
+        if (search != '' || search != null) {
             updatedRowData = markets_data.filter((user) =>
                 user.instrument.toLowerCase().match(new RegExp(search, 'i')),
             )
@@ -126,18 +136,15 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
         <>
             <AvailablePlatform />
             <StyledFlex>
-                <SearchForm>
+                <SearchForm onSubmit={handleSubmit}>
                     <StyledSearchIcon src={SearchIcon} alt="search-icon" />
                     <SearchInput
                         placeholder="Find Instrument"
                         autoComplete="off"
-                        value={globalFilter ?? ''}
+                        value={search ?? ''}
                         onChange={handleChange}
                     />
                 </SearchForm>
-                <Button flat onClick={() => setShowPopUp(true)}>
-                    *Click here to see {market} info
-                </Button>
             </StyledFlex>
             {showPopUp && (
                 <PopUpMenu
@@ -180,25 +187,39 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                 </TableData>
             </TableContainer>
             <StyledPaginationContainer>
-                <StyledButton
-                    onClick={() => table.previousPage()}
-                    disabled={!table.getCanPreviousPage()}
-                >
-                    <StyledChevron src={LeftChevron} />
-                </StyledButton>
-                {table.getPageOptions().map((page) => (
-                    <StyledButtonPage
-                        selected={page === table.getState().pagination.pageIndex}
-                        key={page}
-                        onClick={() => table.setPageIndex(page)}
+                <Flex jc="start">
+                    <Button flat onClick={() => setShowPopUp(true)}>
+                        *Click here to see {market} info
+                    </Button>
+                </Flex>
+
+                <Flex jc="end">
+                    <StyledButton
+                        onClick={() => table.previousPage()}
+                        disabled={!table.getCanPreviousPage()}
                     >
-                        {page + 1}
-                    </StyledButtonPage>
-                ))}
-                <StyledButton onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
-                    <StyledChevron src={RightChevron} />
-                </StyledButton>
+                        <StyledChevron src={LeftChevron} />
+                    </StyledButton>
+                    {table.getPageOptions().map((page) => (
+                        <StyledButtonPage
+                            selected={page === table.getState().pagination.pageIndex}
+                            key={page}
+                            onClick={() => table.setPageIndex(page)}
+                        >
+                            {page + 1}
+                        </StyledButtonPage>
+                    ))}
+                    <StyledButton
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage()}
+                    >
+                        <StyledChevron src={RightChevron} />
+                    </StyledButton>
+                </Flex>
             </StyledPaginationContainer>
+            <DisclaimerText>
+                <Localize translate_text="The above information is updated monthly and, therefore, may not reflect current trading conditions." />
+            </DisclaimerText>
         </>
     )
 }

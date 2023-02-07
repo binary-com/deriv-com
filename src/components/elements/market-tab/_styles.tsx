@@ -64,6 +64,9 @@ export const MarketButton = styled.button<{ selected: boolean }>`
                   & ${Header} {
                   }
               `}
+    @media ${device.tablet} {
+        padding: 16px 20px;
+    }
 `
 export const SVGWrapper = styled.svg<{ selected: boolean }>`
     width: ${(props) => props.width};

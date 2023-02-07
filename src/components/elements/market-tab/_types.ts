@@ -11,4 +11,5 @@ export type TMarketButtons = {
     button_text: string
     market_name: TAvailableLiveMarkets
     market_description: string
+    to: string
 }

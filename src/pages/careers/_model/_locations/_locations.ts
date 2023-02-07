@@ -16,6 +16,7 @@ import {
     address_jordan,
     address_singapore,
     address_vanuatu,
+    address_reading,
 } from './_contact-details'
 import { LocationsType } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
@@ -463,7 +464,7 @@ export const berlin: LocationsType = {
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'berlin grid 3', 'guernsey grid 4'],
     map: '',
     map_text:
-        'Our Berlin office is a new European base for Deriv fintech talent. The experts at this office tackle exciting projects to create Deriv’s next-gen products. Join our Germany team if you’re in search of a worthy challenge in your career.',
+        'Our Berlin office is another strong base for Deriv fintech talent in Europe. The experts at this office tackle exciting projects to create Deriv’s next-gen products. Join our Germany team if you’re in search of a worthy challenge in your career.',
 }
 
 export const reading: LocationsType = {
@@ -480,17 +481,18 @@ export const reading: LocationsType = {
     country: 'UK',
     flagIcon: UKFlagIcon,
     thumbnail: 'thumbnail_reading',
-    address: [''],
+    address: address_reading,
     first_p:
-        'Deriv Technologies Ltd serves as a software development centre as well as a general service provider for the Deriv Group, tapping into a wealth of regional talent. The tech professionals in our UK team will deliver future-proof online trading solutions in collaboration with their colleagues around the world.',
+        'Deriv Technologies Ltd serves as a software development centre as well as a general service provider for the Deriv Group, tapping into a wealth of regional talent. The tech professionals in our UK team deliver future-proof online trading solutions in collaboration with their colleagues around the world.',
     first_img: 'living_in_reading',
     first_img_alt: 'Working at Deriv Technologies Ltd',
     grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     map: '',
     map_text:
-        "Our UK base will be a new hub for Deriv fintech talent. Taking on exciting projects, this team will play a key role in ideating, designing, and developing Deriv's next-generation trading products, as well as cutting-edge applications and technical systems. If software technology is what you live and breathe, join our UK team.",
+        "Our UK base is a hub for Deriv fintech talent. Taking on exciting projects, this team play a key role in ideating, designing, and developing Deriv's next-generation trading products, as well as cutting-edge applications and technical systems. If software technology is what you live and breathe, join our UK team.",
     map_img: 'reading',
+    need_address_block: true,
 }
 
 export const vanuatu: LocationsType = {
@@ -537,7 +539,7 @@ export const georgetown: LocationsType = {
     flagIcon: CaymanFlagIcon,
     thumbnail: 'thumbnail_georgetown',
     first_p:
-        ' Deriv Group SEZC’s new base will be in the Cayman Commodities and Derivatives City of the Cayman Enterprise City. This office will serve as a centre for compliance, corporate governance, and operational risk management for the Deriv Group. It will also assist with trading support for the North American time zone.',
+        ' Deriv Group SEZC is in the Cayman Commodities and Derivatives City of the Cayman Enterprise City. This office serves as a centre for compliance, corporate governance, and operational risk management for the Deriv Group. It also assists with trading support for the North American time zone.',
     first_img: 'living_in_georgetown',
     first_img_alt: 'Deriv’s office in the Cayman Islands',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
@@ -565,7 +567,7 @@ export const roadtown: LocationsType = {
     flagIcon: BVIFlagIcon,
     thumbnail: 'thumbnail_roadtown',
     first_p:
-        'Experts in regulatory and legislative requirements will work together at Deriv (BVI) to provide compliance guidance in our British Virgin Islands licensed operations. Their expertise in corporate law, anti-money laundering, and other legislation will enable them to anticipate and mitigate regulatory risks. ',
+        'Experts in regulatory and legislative requirements work together at Deriv (BVI) to provide compliance guidance in our British Virgin Islands licensed operations. Their expertise in corporate law, anti-money laundering, and other legislation enables them to anticipate and mitigate regulatory risks. ',
     first_img: 'living_in_roadtown',
     first_img_alt: 'Road Town, British Virgin Islands',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'bvi_grid_3', 'guernsey_grid_4'],

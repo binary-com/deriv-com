@@ -151,7 +151,7 @@ const content_style = {
 }
 
 const derived_text_eu: TString =
-    '_t_Enjoy trading asset prices derived<br/> from simulated markets._t_'
+    '_t_Enjoy trading asset prices derived from<br/> simulated markets._t_'
 const derived_text_row: TString =
     '_t_Enjoy trading asset prices derived<br/> from real-world or simulated markets._t_'
 

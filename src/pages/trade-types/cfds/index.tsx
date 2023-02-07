@@ -12,7 +12,7 @@ const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const ThingsToKeep = Loadable(() => import('./_mind-when-trading'))
 const AvailableMarkets = Loadable(() => import('./_available-markets'))
-const target = '#gatsby-focus-wrapper'
+const target = 'div'
 const options = {
     root: null,
     rootMargin: '0px',

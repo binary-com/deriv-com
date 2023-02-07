@@ -29,7 +29,6 @@ module.exports = {
         `https://static.deriv.com/scripts/cookie.js`,
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
-    trailingSlash: "never",
     plugins: [
         'gatsby-plugin-react-helmet',
         {
@@ -315,18 +314,6 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
-            },
-        },
-        {
-            resolve: '@directus/gatsby-source-directus',
-            options: {
-                url: 'https://deriv-academy.directus.app',
-                auth: {
-                    token: process.env.DIRECTUS_AUTH_TOKEN,
-                },
-                dev: {
-                    refresh: '5s',
-                },
             },
         },
         'gatsby-plugin-use-query-params',

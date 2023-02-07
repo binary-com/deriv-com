@@ -62,7 +62,6 @@ const AgreementLabel = ({
                     translate_text={link_text}
                     components={[
                         <LocalizedLinkText
-                            external
                             key={0}
                             to="/terms-and-conditions/#clients"
                             rel="noopener noreferrer"

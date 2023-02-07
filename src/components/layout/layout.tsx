@@ -3,7 +3,6 @@ import Loadable from '@loadable/component'
 import styled from 'styled-components'
 import { closestMatch, distance } from 'closest-match'
 import { LocationProvider } from './location-context'
-import NavAcademy from './nav/nav-academy'
 import NavStatic from './nav/nav-static'
 import Nav from './nav/nav'
 import NavTransparent from './nav/nav-transparent'
@@ -24,7 +23,6 @@ import { CookieStorage } from 'common/storage'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import useDerivWS from 'components/hooks/use-deriv-ws'
 import usePopup from 'components/hooks/use-popup'
-import useAcademyData from 'components/hooks/use-academy-data'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -70,7 +68,6 @@ const Layout = ({
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
-    const { academy_data } = useAcademyData()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
@@ -98,29 +95,10 @@ const Layout = ({
         }
     }, [is_redirection_applied])
 
-    React.useEffect(() => {
-        if (window.location.pathname.includes('academy/blog/posts/')) {
-            const slugs = academy_data.blog.map((item) => item.slug)
-            const current_page = window.location.pathname.split('/')[4]
-            if (!slugs.includes(current_page)) {
-                const closest_slug = closestMatch(current_page, slugs)
-                const slug = typeof closest_slug === 'string' ? closest_slug : current_page[0]
-                const character_distance = distance(current_page, slug)
-                if (character_distance < 10) {
-                    window.location.pathname = `academy/blog/posts/${closest_slug}`
-                }
-            }
-        }
-    }, [])
-
     // Handle navigation types
     let Navigation
     let FooterNav = <></>
     switch (type) {
-        case 'academy':
-            Navigation = <NavAcademy />
-            FooterNav = <LoadableFooter academy={true} />
-            break
         case 'noNav':
             Navigation = <></>
             FooterNav = <Footer />

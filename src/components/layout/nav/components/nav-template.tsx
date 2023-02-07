@@ -1,12 +1,10 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import SearchBanner from 'pages/academy/components/search_banner/_search-banner'
 import device from 'themes/device'
 
 type NavTemplateProps = NavProps &
     Wrapper & {
         children: ReactNode
-        show_academy_nav?: boolean
     }
 
 type NavProps = {
@@ -47,7 +45,6 @@ const NavTemplate = ({
     transparent_background,
     nav_height,
     static_position,
-    show_academy_nav,
     hide_nav,
     nav_height_mobile,
 }: NavTemplateProps) => {
@@ -62,7 +59,6 @@ const NavTemplate = ({
                     {children}
                 </Nav>
             </Wrapper>
-            {show_academy_nav && <SearchBanner hidden={hide_nav} />}
         </>
     )
 }

@@ -267,7 +267,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
 
                             <WorkingInformation p="3.2rem 6rem" direction="column">
                                 <StyledDiv>
-                                    <Header as="h3" type="subtitle-1" color="black-6">
+                                    <Header as="h3" type="subtitle-2" color="black-6">
                                         {`Working at Deriv ${map_office_name}`}
                                     </Header>
                                     <CardText color="black-6">{location.map_text}</CardText>
@@ -301,6 +301,14 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                                         {`Working at Deriv ${map_office_name}`}
                                     </Header>
                                     <CardText color="black-6">{location.map_text}</CardText>
+                                    {location.need_address_block && (
+                                        <Flex jc="unset" mt="37px">
+                                            <Pin src={MapPin} alt="map pin" />
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
+                                        </Flex>
+                                    )}
                                 </StyledDiv>
                             </WorkingInformation>
                         </WorkingFlex>

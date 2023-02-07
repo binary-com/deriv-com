@@ -11,19 +11,21 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 
 type DHeroProps = {
     background_alt?: string
     background_image_name?: string
     background_svg?: string
-    content?: string | JSX.Element
+    content?: TString
+    content_components?: React.ReactElement[]
     is_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean | string
     hide_signup_login?: boolean
     join_us_for_free?: boolean
     Logo?: string
-    title?: string | JSX.Element
+    title?: TString
 }
 
 const Wrapper = styled.div`
@@ -249,6 +251,7 @@ const DHero = ({
     background_alt,
     background_svg,
     content,
+    content_components,
     image_name,
     join_us_for_free,
     is_live_demo,
@@ -268,22 +271,22 @@ const DHero = ({
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" weight="normal">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
-                    {title}
+                    <Localize translate_text={title} />
                 </StyledHeader>
                 <HeroContent>
                     <Header as="h1" type="display-title" color="white" mt="1.5rem">
-                        {content}
+                        <Localize translate_text={content} components={content_components} />
                     </Header>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free &&
                         (is_logged_in ? (
                             <DemoButton width="128px" onClick={handleGetTrading} secondary>
-                                <Localize translate_text="Get Trading" />
+                                <Localize translate_text="_t_Get Trading_t_" />
                             </DemoButton>
                         ) : (
                             <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
-                                <Localize translate_text="Create free demo account" />
+                                <Localize translate_text="_t_Create free demo account_t_" />
                             </DemoButton>
                         ))}
                     {is_live_demo && (
@@ -294,7 +297,7 @@ const DHero = ({
                             target="_blank"
                             rel="noopener noreferrer nofollow"
                         >
-                            <Localize translate_text="Go to live demo" />
+                            <Localize translate_text="_t_Go to live demo_t_" />
                         </GoToLiveDemo>
                     )}
                 </LinkWrapper>

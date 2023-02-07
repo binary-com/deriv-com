@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
 import { SectionContainer, Desktop, Mobile } from 'components/containers'
+import Button from 'components/custom/_button'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import useRegion from 'components/hooks/use-region'
@@ -52,6 +53,14 @@ const ExampleImage = styled(QueryImage)<ExampleImageType>`
     @media ${device.mobileM} {
         width: 289px;
         height: 454px;
+    }
+`
+const StyledButton = styled(LinkButton)`
+    margin-top: 2.4rem;
+    margin-bottom: 2rem;
+    @media ${device.tabletL} {
+        margin-top: 0.8rem;
+        margin-bottom: 1.6rem;
     }
 `
 
@@ -208,9 +217,9 @@ const TradingCFDIncreases = () => {
                     )}
                 </Text>
 
-                <StyledLinkButton mb="4rem" secondary to="/trader-tools/swap-calculator/">
-                    {localize('Swap calculator')}
-                </StyledLinkButton>
+                <StyledButton to="/trader-tools/swap-calculator/">
+                    <Button label="Swap Calculator" primary />
+                </StyledButton>
             </SmallContainer>
         </StyledSectionContainer>
     )

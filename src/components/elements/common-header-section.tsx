@@ -4,7 +4,7 @@ import { TString } from 'types/generics'
 import { Flex } from 'components/containers'
 
 type CommonHeaderSectionProps = {
-    title?: any
+    title?: TString
     subtitle?: TString
     padding?: string
     bgcolor?: string
@@ -86,7 +86,7 @@ const CommonHeaderSection = ({
                     margin_title={margin_title}
                     line_height={line_height}
                 >
-                    {title}
+                    _t_${title}_t_
                 </StyledTitle>
                 <StyledSubtitle
                     subtitle_text_color={subtitle_text_color}
@@ -95,7 +95,7 @@ const CommonHeaderSection = ({
                     align_subtitle={align_subtitle}
                     line_height={line_height}
                 >
-                    {subtitle}
+                    _t_${title}_t_
                 </StyledSubtitle>
             </Flex>
         </StyledCommonHeaderSection>

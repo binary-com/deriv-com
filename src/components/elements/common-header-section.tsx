@@ -80,24 +80,28 @@ const CommonHeaderSection = ({
             height={height}
         >
             <Flex direction="column">
-                <StyledTitle
-                    title_text_color={title_text_color}
-                    title_font_size={title_font_size}
-                    align_title={align_title}
-                    margin_title={margin_title}
-                    line_height={line_height}
-                >
-                    <Localize translate_text={title} />
-                </StyledTitle>
-                <StyledSubtitle
-                    subtitle_text_color={subtitle_text_color}
-                    subtitle_font_size={subtitle_font_size}
-                    margin_subtitle={margin_subtitle}
-                    align_subtitle={align_subtitle}
-                    line_height={line_height}
-                >
-                    <Localize translate_text={subtitle} />
-                </StyledSubtitle>
+                {title && (
+                    <StyledTitle
+                        title_text_color={title_text_color}
+                        title_font_size={title_font_size}
+                        align_title={align_title}
+                        margin_title={margin_title}
+                        line_height={line_height}
+                    >
+                        <Localize translate_text={title} />
+                    </StyledTitle>
+                )}
+                {subtitle && (
+                    <StyledSubtitle
+                        subtitle_text_color={subtitle_text_color}
+                        subtitle_font_size={subtitle_font_size}
+                        margin_subtitle={margin_subtitle}
+                        align_subtitle={align_subtitle}
+                        line_height={line_height}
+                    >
+                        <Localize translate_text={subtitle} />
+                    </StyledSubtitle>
+                )}
             </Flex>
         </StyledCommonHeaderSection>
     )

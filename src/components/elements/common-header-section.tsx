@@ -15,7 +15,8 @@ type CommonHeaderSectionProps = {
     text_color?: string
     font_weight?: string
     font_style?: string
-    margin?: string
+    margin_title?: string
+    margin_subtitle?: string
     title_text_color?: string
     subtitle_text_color?: string
     width?: string
@@ -37,6 +38,7 @@ const StyledTitle = styled.h1<CommonHeaderSectionProps>`
     font-size: ${(props) => props.title_font_size};
     font-family: Ubuntu, sans-serif;
     font-weight: 'bold';
+    margin: ${(props) => props.margin_title};
     text-align: ${(props) => props.align_title};
     line-height: ${(props) => props.line_height};
 `
@@ -46,7 +48,7 @@ const StyledSubtitle = styled.p<CommonHeaderSectionProps>`
     font-size: ${(props) => props.subtitle_font_size};
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 'normal';
-    margin: ${(props) => props.margin};
+    margin: ${(props) => props.margin_subtitle};
     text-align: ${(props) => props.align_subtitle};
     line-height: ${(props) => props.line_height};
 `
@@ -54,7 +56,8 @@ const CommonHeaderSection = ({
     title,
     subtitle,
     padding,
-    margin,
+    margin_title,
+    margin_subtitle,
     bgcolor,
     color,
     line_height,
@@ -80,6 +83,7 @@ const CommonHeaderSection = ({
                     title_text_color={title_text_color}
                     title_font_size={title_font_size}
                     align_title={align_title}
+                    margin_title={margin_title}
                     line_height={line_height}
                 >
                     {title}
@@ -87,7 +91,7 @@ const CommonHeaderSection = ({
                 <StyledSubtitle
                     subtitle_text_color={subtitle_text_color}
                     subtitle_font_size={subtitle_font_size}
-                    margin={margin}
+                    margin_subtitle={margin_subtitle}
                     align_subtitle={align_subtitle}
                     line_height={line_height}
                 >

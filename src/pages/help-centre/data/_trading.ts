@@ -23,7 +23,7 @@ const trading: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/what-is-forex-live-trading/',
+                            to: 'https://academy.deriv.com/blog/posts/what-is-forex-live-trading/',
                         },
                     ],
                     has_margin_top: true,
@@ -47,7 +47,7 @@ const trading: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/what-are-commodities/',
+                            to: 'https://academy.deriv.com/blog/posts/what-are-commodities/',
                         },
                     ],
                     has_margin_top: true,
@@ -71,7 +71,7 @@ const trading: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/what-are-stocks-how-and-where-to-trade-them/',
+                            to: 'https://academy.deriv.com/blog/posts/what-are-stocks-how-and-where-to-trade-them/',
                         },
                     ],
                     has_margin_top: true,
@@ -102,7 +102,7 @@ const trading: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/what-is-cfd-trading/',
+                            to: 'https://academy.deriv.com/blog/posts/what-is-cfd-trading/',
                         },
                     ],
                     has_margin_top: true,
@@ -176,7 +176,7 @@ const trading: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/automated-trading-what-you-need-to-know/',
+                            to: 'https://academy.deriv.com/blog/posts/automated-trading-what-you-need-to-know/',
                         },
                     ],
                     has_margin_top: true,

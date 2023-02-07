@@ -213,7 +213,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                 </SmallContainer>
             </SectionContainer>
             <SectionContainer padding="0 0 4rem">
-                <SmallContainer fd="column">
+                <SmallContainer fd="column" id="regulatory-list">
                     <DocumentAccordion locale={locale} />
                 </SmallContainer>
             </SectionContainer>

@@ -147,6 +147,7 @@ const payment_data = [
                 locales: ['vi'],
             },
         ],
+        class_name: 'online-banking',
     },
     {
         name: <Localize translate_text="Online banking" />,
@@ -301,6 +302,7 @@ const payment_data = [
                 ),
             },
         ],
+        class_name: 'cards',
     },
     {
         name: <Localize translate_text="Credit/debit cards" />,
@@ -646,6 +648,7 @@ const payment_data = [
                 url: 'https://postepay.poste.it/',
             },
         ],
+        class_name: 'e-wallets',
     },
     {
         name: <Localize translate_text="Cryptocurrencies" />,
@@ -718,6 +721,7 @@ const payment_data = [
                 name: 'UST',
             },
         ],
+        class_name: 'cryptocurrencies',
     },
     {
         name: <Localize translate_text="Fiat onramp - Buy crypto on popular exchanges." />,
@@ -758,6 +762,7 @@ const payment_data = [
                 name: 'Xanpool',
             },
         ],
+        class_name: 'fiat-onramp',
     },
     {
         is_dp2p: true,
@@ -781,6 +786,7 @@ const payment_data = [
                 name: 'DP2P',
             },
         ],
+        class_name: 'deriv-p2p',
     },
 ]
 

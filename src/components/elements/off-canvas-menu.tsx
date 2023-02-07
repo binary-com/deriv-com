@@ -153,7 +153,7 @@ const content_style = {
 const derived_text_eu: TString =
     '_t_Enjoy trading asset prices derived from<br/> simulated markets._t_'
 const derived_text_row: TString =
-    '_t_Enjoy trading asset prices derived<br/> from real-world or simulated markets._t_'
+    '_t_Enjoy trading asset prices derived from real-world<br/> or simulated markets._t_'
 
 export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
     const { is_row } = useRegion()

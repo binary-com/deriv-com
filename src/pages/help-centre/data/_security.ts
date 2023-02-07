@@ -96,7 +96,7 @@ const security: TQuestionsData = {
                         items: [
                             {
                                 translation_text:
-                                    '_t_Impersonators ask for your login details or other sensitive information via Telegram or email._t_',
+                                    '_t_Impersonators ask for your login details or other sensitive information via Telegram._t_',
                             },
                             {
                                 translation_text:

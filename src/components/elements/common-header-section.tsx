@@ -86,7 +86,7 @@ const CommonHeaderSection = ({
                     margin_title={margin_title}
                     line_height={line_height}
                 >
-                    _t_${title}_t_
+                    {title}
                 </StyledTitle>
                 <StyledSubtitle
                     subtitle_text_color={subtitle_text_color}
@@ -95,7 +95,7 @@ const CommonHeaderSection = ({
                     align_subtitle={align_subtitle}
                     line_height={line_height}
                 >
-                    _t_${title}_t_
+                    {subtitle}
                 </StyledSubtitle>
             </Flex>
         </StyledCommonHeaderSection>

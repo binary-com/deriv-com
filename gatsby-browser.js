@@ -128,7 +128,7 @@ export const onClientEntry = () => {
     }
 
     addScript({
-        src: 'https://cdn.jsdelivr.net/gh/mohammad-hashemi-deriv/deriv-static-content@utm-affiliate-priority-2/public/scripts/cookie.js',
+        src: 'https://cdn.jsdelivr.net/gh/mohammad-hashemi-deriv/deriv-static-content@utm-affiliate-priority-3/public/scripts/cookie.js',
         async: true,
         strategy: 'off-main-thread',
     })

@@ -1,12 +1,10 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import CommonHeaderSection from './common-header-section'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import Button from 'components/custom/_button'
 import device from 'themes/device'
 import { TString } from 'types/generics'
-import { localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type FullWidthMultiColumnProps = {
@@ -108,10 +106,10 @@ export const FullWidthMultiColumn = ({
     button_title,
     button_text,
 }: FullWidthMultiColumnProps) => {
+    const handleSignup = useHandleSignup()
     const first_three_items = children.slice(0, 3)
     const last_two = children.slice(3)
     const items = multiple_row ? [first_three_items, last_two] : [children]
-    const handleSignup = useHandleSignup()
     return (
         <StyledSectionContainer>
             <Flex direction="column" max-width="99.6rem" m="0 auto" jc="space-between" ai="center">

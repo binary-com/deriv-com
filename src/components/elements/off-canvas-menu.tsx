@@ -631,7 +631,13 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 />
                             </SpanSvg>
                         </StyledLink>
-                        <StyledLink to="/academy/" onClick={handleArrowClick}>
+                        <StyledLink
+                            to=""
+                            external
+                            type="academy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <div>
                                 <img src={Blog} alt="academy" width="24" height="24" />
                             </div>

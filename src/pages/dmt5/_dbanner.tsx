@@ -158,7 +158,7 @@ const DBanner = ({
             </ImageWrapper>
             <Wrapper>
                 <TextWrapper>
-                    <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="52rem">
+                    <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="53rem">
                         {title}
                     </StyledHeader>
                     {is_logged_in ? (

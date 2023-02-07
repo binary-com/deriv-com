@@ -661,8 +661,11 @@ export const NavResources = ({ onClick }: NavResourcesProps) => (
         <CardLink
             icon={() => <img src={Blog} alt="academy" width="24" height="24" />}
             title={<Localize translate_text="Academy" />}
-            onClick={onClick}
-            to="/academy/"
+            to=""
+            type="academy"
+            external={true}
+            target="_blank"
+            rel="noopener noreferrer"
         />
     </Flex>
 )

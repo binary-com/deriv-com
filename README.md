@@ -78,11 +78,6 @@ Moreover, having these extensions will help you to speed up the development proc
 
     Then check your **lastpass** you'll see a shared item named **Deriv-com Env Variables** copy the variables, they look like this:
 
-    ```sh
-    DIRECTUS_AUTH_TOKEN=********************************
-    GATSBY_DIRECTUS_AUTH_TOKEN=********************************
-    ```
-
     And paste them into the files.
 
 6.  **To start developing:**

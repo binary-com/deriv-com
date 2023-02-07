@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
-import { StyledLinkButton } from './_trading-cfd-increases'
+import { LinkButton } from 'components/form'
+import Button from 'components/custom/_button'
 import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
@@ -32,6 +33,14 @@ const StyledSectionContainer = styled(SectionContainer)`
     }
 `
 
+const StyledButton = styled(LinkButton)`
+    margin-top: 2.4rem;
+    margin-bottom: 2rem;
+    @media ${device.tabletL} {
+        margin-top: 0.8rem;
+        margin-bottom: 1.6rem;
+    }
+`
 const MindWhenTrading = () => {
     const data = useStaticQuery(query)
 
@@ -74,10 +83,9 @@ const MindWhenTrading = () => {
                         'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.',
                     )}
                 </Text>
-
-                <StyledLinkButton mt="4rem" secondary to="/trader-tools/margin-calculator/">
-                    {localize('Margin calculator')}
-                </StyledLinkButton>
+                <StyledButton to="/trader-tools/margin-calculator/">
+                    <Button label="Margin Calculator" primary />
+                </StyledButton>
             </SmallContainer>
         </StyledSectionContainer>
     )

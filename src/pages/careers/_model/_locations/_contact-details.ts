@@ -32,7 +32,9 @@ const address_france = ["17 Rue d'Antin, 75002 Paris"]
 
 const address_guernsey = ['Suite 5, One Cornet Street, St Peter Port, Guernsey GY1 1 BZ']
 
-const address_reading = ['Suite 1, Ground Floor, Block D, Apex, Forbury Road, Reading RG1 1AX']
+const address_reading = [
+    'Block C, Ground floor, Suite 1, Apex Reading, Forbury Road, Reading RG1 1AX',
+]
 
 const address_labuan = [
     'F16, 1st Floor, Paragon Labuan,',

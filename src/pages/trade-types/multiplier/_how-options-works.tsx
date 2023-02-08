@@ -167,7 +167,7 @@ const HowOptionsWorks = () => {
                     </HowItWorksItem>
                 </OptionGrid>
                 <StyledFirstMultiplierHeader as="h3" size="3.2rem" mt="4rem">
-                    {localize('How to buy your first multipliers contract on DTrader')}
+                    {localize('How to buy your first multipliers contract on Deriv Trader')}
                 </StyledFirstMultiplierHeader>
                 <Header as="h4" size="2.4rem" mb="2.4rem" mt="3.2rem">
                     {localize('Define your position')}
@@ -221,7 +221,7 @@ const HowOptionsWorks = () => {
                         label={<Localize translate_text="4. Multiplier value" />}
                         description={
                             is_eu ? (
-                                <Localize translate_text="Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 5. Your loss will never be more than your stake." />
+                                <Localize translate_text="Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 30. Your loss will never be more than your stake." />
                             ) : (
                                 <Localize translate_text="Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount." />
                             )
@@ -263,7 +263,11 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="7. Deal cancellation" />}
                         description={
-                            <Localize translate_text="This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service." />
+                            is_eu ? (
+                                <Localize translate_text="This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service. Deal cancellation isn't available for Crash and Boom indices or cryptocurrency pairs." />
+                            ) : (
+                                <Localize translate_text="This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service." />
+                            )
                         }
                     >
                         <QueryImage

@@ -1,7 +1,5 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import CommonHeaderSection from './common-header-section'
-import { LinkButton } from 'components/form'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import Button from 'components/custom/_button'
@@ -15,7 +13,6 @@ type FullWidthMultiColumnProps = {
     button_title?: ReactElement
     button_text?: TString | ReactElement
     multiple_row?: boolean
-    button_redirection?: string
 }
 
 const Item = styled(Flex)`
@@ -108,14 +105,11 @@ export const FullWidthMultiColumn = ({
     multiple_row,
     button_title,
     button_text,
-    button_redirection,
 }: FullWidthMultiColumnProps) => {
     const handleSignup = useHandleSignup()
-
     const first_three_items = children.slice(0, 3)
     const last_two = children.slice(3)
     const items = multiple_row ? [first_three_items, last_two] : [children]
-
     return (
         <StyledSectionContainer>
             <Flex direction="column" max-width="99.6rem" m="0 auto" jc="space-between" ai="center">

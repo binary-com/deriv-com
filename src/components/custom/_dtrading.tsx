@@ -34,7 +34,6 @@ type RowProps = {
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
-    border-top: solid 1px var(--color-grey-2);
     @media ${device.tabletL} {
         padding: 1.74rem 0 4rem 0;
         border-top: unset;

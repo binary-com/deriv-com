@@ -6,6 +6,7 @@ type TProps = {
     angle?: number
     src?: string
     children?: ReactNode
+    width?: string
 }
 
 const ContainerStyle = styled.div`
@@ -24,17 +25,17 @@ const ShapeStyle = styled.div<Pick<TProps, 'angle'>>`
     transform-origin: center;
     transform: rotate(${({ angle }) => angle}deg);
 `
-const BackgroundStyle = styled.div<Pick<TProps, 'color'>>`
+const BackgroundStyle = styled.div<Pick<TProps, 'color' | 'width'>>`
     background-color: ${({ color }) => color};
-    width: 50%;
+    width: ${({ width }) => width};
     height: 100%;
 `
 
-const Shape: React.FC<TProps> = ({ color = '#FF444F', angle = 0, children }) => {
+const Shape: React.FC<TProps> = ({ color = '#FF444F', angle = 0, width = '50%', children }) => {
     return (
         <ContainerStyle>
             <ShapeStyle angle={angle}>
-                <BackgroundStyle color={color}></BackgroundStyle>
+                <BackgroundStyle width={width} color={color}></BackgroundStyle>
             </ShapeStyle>
             {children}
         </ContainerStyle>

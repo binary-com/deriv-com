@@ -5,6 +5,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import device from 'themes/device'
+import CommonHeaderSection from 'components/elements/common-header-section'
 import Icon24_7 from 'images/svg/deriv-x/24-7.svg'
 import IconMultipleMarketing from 'images/svg/deriv-x/multiple-marketing.svg'
 import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
@@ -22,16 +23,6 @@ type CardType = {
     subtitle?: JSX.Element
     image_alt: string
 }
-
-const StyledHeader = styled(Header)`
-    @media ${device.mobileL} {
-        font-size: 24px;
-        padding: 0 35px;
-    }
-    @media ${device.mobileM} {
-        padding: 0 20px;
-    }
-`
 
 const Card = styled(Flex)`
     flex-direction: column;
@@ -121,9 +112,11 @@ const WhyTradeDerivX = () => {
         <div>
             <SectionContainer>
                 <Container fd="column">
-                    <StyledHeader type="page-title" align="center" as="h2">
-                        {localize('Why trade with Deriv X')}
-                    </StyledHeader>
+                    <CommonHeaderSection
+                        title="_t_Why trade with Deriv X_t_"
+                        title_font_size="48px"
+                        margin_title="0 0 40px 0"
+                    />
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">
                         {card_data.map((card, index) => {
                             return (

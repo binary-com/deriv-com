@@ -4,15 +4,11 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { Button } from 'components/form'
+import Button from 'components/custom/_button'
 import { mobileOSDetect } from 'common/os-detect'
 import device from 'themes/device'
-import {
-    derivx_android_url,
-    derivx_ios_url,
-    derivx_huawei_url,
-    derivx_app_url,
-} from 'common/constants'
+import { derivx_android_url, derivx_ios_url } from 'common/constants'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type HeroItemsType = {
     url: string
@@ -42,7 +38,6 @@ type DHeroProps = {
 const Wrapper = styled(Flex)<DHeroProps>`
     position: relative;
     justify-content: flex-start;
-    background-color: var(--color-black);
     height: unset;
     min-height: ${(props) => props.d_height};
     padding: 2rem 12rem;
@@ -75,10 +70,11 @@ const HeroContent = styled(Flex)<DHeroProps>`
 
     /* TODO: remove these selectors and have conditional logics all in HeroHeader instead */
     ${Header} {
-        color: var(--color-white);
+        color: var(--color-black-9);
         display: flex;
         margin-top: 10px;
         line-height: 1.25;
+        margin-bottom: 5rem;
     }
 
     @media ${device.mobileM} {
@@ -88,7 +84,7 @@ const HeroContent = styled(Flex)<DHeroProps>`
     }
 `
 const StyledHeader = styled(Header)`
-    color: var(--color-white);
+    color: var(--color-black-9);
     display: flex;
     align-items: center;
     margin-top: 0;
@@ -109,7 +105,7 @@ const HeroHeader = styled(Header)`
         font-weight: 200;
         width: 230px;
         padding-left: 15px;
-        color: var(--color-white);
+        color: var(--color-black-9);
         display: flex;
         align-items: center;
         max-width: 100%;
@@ -125,10 +121,10 @@ const HeroHeader = styled(Header)`
 
 const LottieWrapper = styled.div`
     width: 100%;
-    max-width: 58rem;
+    max-width: 65rem;
     position: absolute;
     top: 2.3rem;
-    right: 12rem;
+    right: 0;
 
     @media ${device.laptopM} {
         max-width: 51rem;
@@ -192,10 +188,10 @@ const query = graphql`
         huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
             ...fadeIn
         }
-        deriv_x: file(relativePath: { eq: "deriv-x/hero-laptop.png" }) {
+        deriv_x: file(relativePath: { eq: "deriv-x/hero-screens.png" }) {
             ...bannerImage
         }
-        deriv_x_mobile: file(relativePath: { eq: "deriv-x/hero-laptop-mobile.png" }) {
+        deriv_x_mobile: file(relativePath: { eq: "deriv-x/hero-screens-mobile.png" }) {
             ...bannerImage
         }
         qr_code: file(relativePath: { eq: "deriv-x/deriv-x-qr.png" }) {
@@ -205,41 +201,6 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
-const AppButton = styled(LocalizedLink)`
-    margin-right: 8px;
-    padding: 0;
-    border: none;
-
-    img {
-        border-radius: 7px;
-    }
-    @media ${device.tabletL} {
-        margin-bottom: 8px;
-        width: 156px;
-        height: 46px;
-    }
-    @media ${device.mobileL} {
-        width: 150px;
-        height: 40px;
-    }
-`
-const ButtonDp2p = styled(Button)`
-    padding: 10px 16px;
-    height: 40px;
-    min-width: 25rem;
-    white-space: nowrap;
-    margin-top: 24px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background: #ff444f;
-    border-radius: 4px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 `
 
 const DLogo = styled.img`
@@ -251,68 +212,10 @@ const DLogo = styled.img`
         margin-right: 1rem;
     }
 `
-const HeroBackground = css`
-    @media ${device.laptopM} {
-        width: 48%;
-        max-width: 492px;
-        height: initial;
-    }
-    @media ${device.laptop} {
-        width: 50%;
-    }
-    @media ${device.tabletL} {
-        width: 45%;
-        max-width: 350px;
-    }
-    @media ${device.tablet} {
-        width: 70%;
-    }
-    @media ${device.tabletS} {
-        width: 80%;
-        max-width: 337px;
-    }
-    @media ${device.mobileL} {
-        max-width: 250px;
-        min-height: 244px;
-    }
-    @media ${device.mobileM} {
-        max-width: 205px;
-        min-height: 0;
-    }
-`
-const BackgroundSVG = styled.img`
-    ${HeroBackground}
-    position: absolute;
-    bottom: 0;
-    right: 0;
-
-    @media ${device.tablet} {
-        top: 170px;
-    }
-`
-const BackgroundSVG2 = styled.img`
-    ${HeroBackground}
-    position: absolute;
-    top: 0;
-    right: 214px;
-
-    @media ${device.tabletL} {
-        right: 120px;
-    }
-`
-
-const HeroItems: HeroItemsType[] = [
-    { url: derivx_ios_url, image: 'app_store', alt: 'app store logo' },
-    { url: derivx_android_url, image: 'google_play', alt: 'google play logo' },
-    { url: derivx_huawei_url, image: 'huawei_app', alt: 'huawei app gallery' },
-    { url: derivx_app_url, image: 'web_browser', alt: 'web browser logo' },
-]
 
 const DHero = ({
     title,
     background_alt,
-    background_svg,
-    background_svg2,
     content,
     image_name,
     is_mobile,
@@ -324,6 +227,7 @@ const DHero = ({
     tabletL_height,
 }: DHeroProps) => {
     const data = useStaticQuery(query)
+    const handleSignup = useHandleSignup()
 
     const handleExternalLink = () => {
         let link = ''
@@ -344,13 +248,6 @@ const DHero = ({
             laptop_height={laptop_height}
             tabletL_height={tabletL_height}
         >
-            {!is_mobile && (
-                <>
-                    <BackgroundSVG src={background_svg} alt="background svg" />
-                    <BackgroundSVG2 src={background_svg2} alt="background svg 2" />
-                </>
-            )}
-
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" type="sub-section-title" weight="500">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
@@ -360,48 +257,10 @@ const DHero = ({
                     <HeroHeader as="h1" type="display-title">
                         {content}
                     </HeroHeader>
+                    <Button onClick={handleSignup} label="_t_Create free demo account_t_" primary />
                 </HeroContent>
-                <Desktop>
-                    <HeroContent>
-                        <HeroHeader>
-                            <QueryImage
-                                data={data['qr_code']}
-                                alt={'play store'}
-                                width="108px"
-                                height="108px"
-                            />
-                            <Header as="h2" width="50%">
-                                {<Localize translate_text="Scan the QR code to download Deriv X" />}
-                            </Header>
-                        </HeroHeader>
-                    </HeroContent>
-
-                    <Flex
-                        fd="row"
-                        mt="40px"
-                        jc="start"
-                        height="unset"
-                        tablet_fw="wrap"
-                        laptopM={{ m: '7px 8px 48px' }}
-                    >
-                        {HeroItems.map(({ url, image, alt }) => (
-                            <AppButton
-                                key={alt}
-                                external
-                                to={url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <QueryImage data={data[image]} alt={alt} />
-                            </AppButton>
-                        ))}
-                    </Flex>
-                </Desktop>
-                <Mobile>
-                    <ButtonDp2p secondary onClick={handleExternalLink}>
-                        {localize('Download Deriv X app')}
-                    </ButtonDp2p>
-                </Mobile>
+                <Desktop></Desktop>
+                <Mobile></Mobile>
             </InformationWrapper>
 
             <LottieWrapper>

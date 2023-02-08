@@ -13,11 +13,9 @@ type SellingPointsType = {
 const HeadingText = styled(Text)`
     font-weight: bold;
     font-size: 48px;
-    border-right: 1px solid var(--color-grey-21);
     padding-right: 24px;
 
     @media ${device.tablet} {
-        border-right: unset;
         padding-right: unset;
         text-align: center;
         font-size: 24px;
@@ -25,8 +23,8 @@ const HeadingText = styled(Text)`
 `
 
 const SubText = styled(Text)`
-    padding-left: 24px;
     margin: auto 0;
+
     @media ${device.tablet} {
         padding-left: unset;
         text-align: center;
@@ -34,6 +32,9 @@ const SubText = styled(Text)`
 `
 
 const StyledFlex = styled(Flex)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     @media ${device.tablet} {
         margin-bottom: 16px;
 
@@ -53,18 +54,18 @@ const selling_points: SellingPointsType[] = [
         subtitle: <Localize translate_text="tradable assets" />,
     },
     {
-        title: '24/7',
-        subtitle: <Localize translate_text="trading" />,
-    },
-    {
         title: <Localize translate_text="Zero" />,
         subtitle: <Localize translate_text="commission" />,
+    },
+    {
+        title: '24/7',
+        subtitle: <Localize translate_text="trading" />,
     },
 ]
 
 const SellingPoints = () => {
     return (
-        <StyledSectionContainer padding="40px 0" background="grey-25">
+        <StyledSectionContainer padding="40px 0">
             <Container>
                 <Flex tablet_direction="column">
                     {selling_points.map((selling_point, index) => {

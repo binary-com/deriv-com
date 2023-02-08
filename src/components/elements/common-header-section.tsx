@@ -48,7 +48,7 @@ const StyledSubtitle = styled.p<CommonHeaderSectionProps>`
     color: ${(props) => props.subtitle_text_color};
     font-size: ${(props) => props.subtitle_font_size};
     font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 'normal';
+    font-weight: normal;
     margin: ${(props) => props.margin_subtitle};
     text-align: ${(props) => props.align_subtitle};
     line-height: ${(props) => props.line_height};

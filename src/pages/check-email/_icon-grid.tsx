@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import { Text } from 'components/elements'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 // Icons
 import Spam from 'images/svg/check-email/spam.svg'
 import Typo from 'images/svg/check-email/typo.svg'

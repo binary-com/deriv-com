@@ -128,7 +128,7 @@ const OurOffices = () => {
                 {our_offices_count.map(({ count, title }) => (
                     <StyledFlex fd="column" key={title}>
                         <NumberHeader size="32px">
-                            <Localize translate_text={count} />
+                            {typeof count == 'string' ? count : <Localize translate_text={count} />}
                         </NumberHeader>
                         <NumberText size="16px" align="center">
                             <Localize translate_text={title} />

@@ -5,8 +5,8 @@ import Hands from 'images/svg/who-we-are/hands.svg'
 import { all_offices, all_countries } from 'pages/careers/_model/_locations/_locations'
 import { TString } from 'types/generics'
 
-const number_of_offices = `_t_${all_offices.length}_t_`
-const number_of_countries = `_t_${all_countries.length}_t_`
+const number_of_offices = all_offices.length.toString()
+const number_of_countries = all_countries.length.toString()
 
 type FirstSectionTextsType = {
     text: TString
@@ -32,7 +32,7 @@ export type MapPinType = {
 }
 
 type DerivNumbersType = {
-    count: TString
+    count: TString | string
     title: TString
 }
 

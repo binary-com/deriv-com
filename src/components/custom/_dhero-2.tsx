@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
@@ -13,6 +13,7 @@ import {
     derivx_huawei_url,
     derivx_app_url,
 } from 'common/constants'
+import { TString } from 'types/generics'
 
 type HeroItemsType = {
     url: string
@@ -25,7 +26,7 @@ type DHeroProps = {
     background_image_name?: string
     background_svg?: string
     background_svg2?: string
-    content?: string | JSX.Element
+    content?: TString
     d_height?: string
     is_live_demo?: boolean
     image_name?: string
@@ -36,7 +37,7 @@ type DHeroProps = {
     laptopM_height?: string
     Logo?: string
     tabletL_height?: string
-    title?: string | JSX.Element
+    title?: TString
 }
 
 const Wrapper = styled(Flex)<DHeroProps>`
@@ -102,7 +103,6 @@ const StyledHeader = styled(Header)`
         font-weight: normal;
     }
 `
-
 const HeroHeader = styled(Header)`
     ${Header} {
         font-size: 20px;
@@ -122,7 +122,6 @@ const HeroHeader = styled(Header)`
         line-height: 50px;
     }
 `
-
 const LottieWrapper = styled.div`
     width: 100%;
     max-width: 58rem;
@@ -147,7 +146,6 @@ const LottieWrapper = styled.div`
         margin-bottom: 25px;
     }
 `
-
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 56.2rem;
@@ -241,7 +239,6 @@ const ButtonDp2p = styled(Button)`
     order: 1;
     flex-grow: 0;
 `
-
 const DLogo = styled.img`
     width: 32px !important;
     height: 32px !important;
@@ -337,6 +334,7 @@ const DHero = ({
 
         window.open(link, '_blank')
     }
+
     return (
         <Wrapper
             d_height={d_height}
@@ -354,11 +352,11 @@ const DHero = ({
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" type="sub-section-title" weight="500">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
-                    {title}
+                    <Localize translate_text={title} />
                 </StyledHeader>
                 <HeroContent is_ppc={is_ppc}>
                     <HeroHeader as="h1" type="display-title">
-                        {content}
+                        <Localize translate_text={content} />
                     </HeroHeader>
                 </HeroContent>
                 <Desktop>
@@ -371,7 +369,7 @@ const DHero = ({
                                 height="108px"
                             />
                             <Header as="h2" width="50%">
-                                {<Localize translate_text="Scan the QR code to download Deriv X" />}
+                                <Localize translate_text="_t_Scan the QR code to download Deriv X_t_" />
                             </Header>
                         </HeroHeader>
                     </HeroContent>
@@ -399,7 +397,7 @@ const DHero = ({
                 </Desktop>
                 <Mobile>
                     <ButtonDp2p secondary onClick={handleExternalLink}>
-                        {localize('Download Deriv X app')}
+                        <Localize translate_text="_t_Download Deriv X app_t_" />
                     </ButtonDp2p>
                 </Mobile>
             </InformationWrapper>

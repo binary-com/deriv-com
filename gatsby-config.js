@@ -12,7 +12,7 @@ const site_url =
 
 const strapi_url = 'https://deriv-com-content.herokuapp.com'
 const strapi_token =
-    '4067b01f7e4ed61d8d90ca21aa354b981b34542dc37bef2962ad1add037dcd9e97d2f1045d73b6508b597d10b34e489fbcb4bd32e8970455133e4e23979aecf474f0c66e4263de6b7331720e755a971a61c1bc0ac1393ba44c92768ada5a94a89b6cfe41ac525057924cb08e22c4f865ae887cc67c15b6a0572349b742a4be2e'
+    '6d129d1099ecd337db5b2440eb3c89ceb56474bce549b27645f169c254d2e3a87aa4df8a0e852b11b57da1bcc2dfa1f3756a1871ff8d1c209460637819780a5f6fe3f739959fb4c073529d5195687e8f5f90cbae24fa98fd18fbfafa15ebf54e47fbf3d95aa79a4271f9e5ced07c22a63e1bf5cd7037c4d7aab2f5675a615df6'
 const strapi_login = 'Nikita'
 const strapi_pass = 'NikitaNikita'
 
@@ -330,51 +330,38 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
             },
         },
+
         {
             resolve: 'gatsby-source-strapi',
             options: {
                 apiURL: `${strapi_url}`,
-                token: `${strapi_token}`,
-                // collectionTypes: ['menus.menu', 'menus.menu-item'],
-                singleTypes: ['who-we-are-page'],
-                locale: ['en', 'es'],
+                accessToken: `${strapi_token}`,
+                collectionTypes: [
+                    {
+                        singularName: 'who-we-are-page',
+                        pluginOptions: {
+                            i18n: {
+                                locale: 'all',
+                            },
+                        },
+                        queryParams: {
+                            populate: {
+                                hero: { populate: { hero_image: true, bg_image: true } },
+                                our_values: { populate: { values: { populate: { image: true } } } },
+                                our_principles: {
+                                    populate: { our_principles: true, button: true },
+                                },
+                                our_lidership: { populate: { photo: true } },
+                                deriv_in_numbers: { populate: { numbers: true } },
+                                slider: { populate: { slider_media: true } },
+                                our_locations: { populate: { world_map: true, location: true } },
+                                banner: { populate: { image: true } },
+                            },
+                        },
+                    },
+                ],
                 cache: false,
             },
         },
-
-        // {
-        //     resolve: 'gatsby-source-strapi-schema',
-        //     options: {
-        //         apiURL: `${strapi_url}`,
-        //         singleTypes: [
-        //             {
-        //                 name: 'who-we-are-page.who-we-are-page',
-        //                 api: { qs: { _locale: 'en' } },
-        //             },
-        //             {
-        //                 name: 'who-we-are-page.who-we-are-page',
-        //                 api: { qs: { _locale: 'es' } },
-        //             },
-        //         ],
-        //     },
-        // },
-        // {
-        //     resolve: 'gatsby-source-strapi-graphql',
-        //     options: {
-        //         apiURL: `${strapi_url}`,
-        //         collectionTypes: [],
-        //         singleTypes: ['who-we-are-page'],
-        //         // Only include specific locales.
-        //         locale: ['en', 'es'], // defaults to 'all'
-        //         // Include drafts in build.
-        //         preview: true, // defaults to false
-        //         // Use application token.
-        //         token: `${strapi_token}`,
-        //         // Add additional headers.
-        //         headers: {},
-        //         // Enable/disable cache.
-        //         cache: false,
-        //     },
-        // },
     ],
 }

@@ -88,6 +88,31 @@ const StyledMobileQueryImage = styled(QueryImage)`
     max-width: 445px;
 `
 const Hero = () => {
+    // const strapi_query = graphql`
+    //     query Hero {
+    //         whoWeArePage(locale: "en") {
+    //             data {
+    //                 attributes {
+    //                     hero {
+    //                         header
+    //                         sub_header
+    //                         first_paragraph
+    //                         second_paragraph
+    //                         third_paragraph
+    //                         hero_image {
+    //                             data {
+    //                                 attributes {
+    //                                     url
+    //                                 }
+    //                             }
+    //                         }
+    //                     }
+    // }
+    // }
+    // }
+    // }
+
+    // const strapi_data = useStaticQuery(strapi_query)
     const data = useStaticQuery(query)
     const title = localize('Who we are')
 

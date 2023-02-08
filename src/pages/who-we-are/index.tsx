@@ -18,7 +18,7 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 
 // const query = graphql`
-//     query hye_query {
+//     query Hero {
 //         whoWeArePage(locale: "all") {
 //             data {
 //                 attributes {

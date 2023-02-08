@@ -56,11 +56,11 @@ import { Desktop, Mobile } from 'components/containers/visibility'
 import { Flex } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+type TfieldProps = { field: any }
 
 const PnlMarginCalculator = () => {
     const formik_ref = useRef(null)
     const form = formik_ref.current
-
     const [tab, setTab] = useState('Buy')
     const [sub_tab, setSubTab] = useState('Synthetic')
     // These additional states have been created to track the first output (levels)
@@ -263,14 +263,15 @@ const PnlMarginCalculator = () => {
                                     current_input.focus()
                                 }
 
-                                const AssetPriceInput = () => (
+                                const AssetPriceInput = ({ field }: TfieldProps) => (
                                     <Input
+                                        {...field}
                                         id="assetPrice"
                                         type="text"
                                         value={values.assetPrice}
                                         label={localize('Open price of asset')}
                                         autoComplete="off"
-                                        error={touched.assetPrice && errors.assetPrice.toString()}
+                                        error={touched.assetPrice && errors.assetPrice}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -284,17 +285,15 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const StopLossAmountInput = () => (
+                                const StopLossAmountInput = ({ field }: TfieldProps) => (
                                     <Input
+                                        {...field}
                                         id="assetPrice"
                                         type="text"
                                         value={values.stopLossAmount}
                                         label={localize('Stop loss amount')}
                                         autoComplete="off"
-                                        error={
-                                            touched.stopLossAmount &&
-                                            errors.stopLossAmount.toString()
-                                        }
+                                        error={touched.stopLossAmount && errors.stopLossAmount}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={stopLossErrorHandler}
@@ -303,13 +302,14 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const PointValueInput = () => (
+                                const PointValueInput = ({ field }: TfieldProps) => (
                                     <Input
+                                        {...field}
                                         id="pointValue"
                                         type="text"
                                         label={localize('Point value')}
                                         autoComplete="off"
-                                        error={touched.pointValue && errors.pointValue.toString()}
+                                        error={touched.pointValue && errors.pointValue}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -331,16 +331,14 @@ const PnlMarginCalculator = () => {
                                     setFieldValue('stopLossAmount', value)
                                 }
 
-                                const TakeProfitAmountInput = () => (
+                                const TakeProfitAmountInput = ({ field }: TfieldProps) => (
                                     <Input
+                                        {...field}
                                         id="takeProfitAmount"
                                         type="text"
                                         label={localize('Take profit amount')}
                                         autoComplete="off"
-                                        error={
-                                            touched.takeProfitAmount &&
-                                            errors.takeProfitAmount.toString()
-                                        }
+                                        error={touched.takeProfitAmount && errors.takeProfitAmount}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={takeProfitErrorHanlder}

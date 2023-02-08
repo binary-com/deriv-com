@@ -332,11 +332,11 @@ export const our_offices_count: DerivNumbersType[] = [
     { count: '_t_1000+_t_', title: '_t_employees_t_' },
     { count: '_t_50+_t_', title: '_t_nationalities_t_' },
     {
-        count: number_of_offices,
+        count: String(all_offices.length),
         title: '_t_locations_t_',
     },
     {
-        count: number_of_countries,
+        count: String(all_countries.length),
         title: '_t_countries_t_',
     },
 ]

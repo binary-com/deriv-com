@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
+import DtraderEasySteps from './_steps_section'
 import { OtherPlatform } from 'components/custom/other-platforms'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -15,6 +16,7 @@ import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import DHero from 'components/custom/_dhero'
 import DNumber from 'components/custom/_dnumbers'
 import useRegion from 'components/hooks/use-region'
+import StepperView from 'components/custom/_stepper_view'
 const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))
@@ -153,6 +155,7 @@ const Dtrader = () => {
             />
             {is_row && <DNumber items={items} justify="space-around" />}
             {is_eu && <DNumber items={itemsEU} justify="space-around" />}
+            <DtraderEasySteps />
             <DHowItWorks
                 Video={DtraderVideo}
                 title={<Localize translate_text="Make a trade in 3 easy steps" />}

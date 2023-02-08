@@ -45,7 +45,7 @@ const PartnersGuidePdf = () => {
     const language = getLanguage()
     const supported_languages = ['fr', 'id', 'pt', 'ru', 'es', 'vi']
     const pdf_lang = supported_languages.includes(language) ? language : 'english'
-    const url = `/tnc/business-partners-affiliates-and-introducing-brokers-${pdf_lang}.pdf`
+    const url = `/tnc/business-partners-guide-${pdf_lang}.pdf`
     return (
         <Col
             Icon={IG}

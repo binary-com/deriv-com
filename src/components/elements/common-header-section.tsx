@@ -1,10 +1,10 @@
 import React from 'react'
 import { TString } from 'types/generics'
-import { Localize } from 'components/localization'
 import { Flex } from 'components/containers'
+import { Localize } from 'components/localization'
 
 type CommonHeaderSectionProps = {
-    title?: TString
+    title?: any
     subtitle?: TString
     padding?: string
     bgcolor?: string
@@ -15,7 +15,8 @@ type CommonHeaderSectionProps = {
     text_color?: string
     font_weight?: string
     font_style?: string
-    margin?: string
+    margin_title?: string
+    margin_subtitle?: string
     title_text_color?: string
     subtitle_text_color?: string
     width?: string
@@ -28,9 +29,11 @@ const CommonHeaderSection = ({
     title,
     subtitle,
     padding,
-    margin,
+    margin_subtitle,
+    margin_title,
     bgcolor,
     color,
+    font_weight,
     line_height,
     title_text_color,
     subtitle_text_color,
@@ -52,31 +55,36 @@ const CommonHeaderSection = ({
             }}
         >
             <Flex direction="column">
-                <h1
-                    style={{
-                        color: title_text_color,
-                        fontSize: title_font_size,
-                        fontFamily: 'Ubuntu',
-                        fontWeight: 'bold',
-                        textAlign: align_title,
-                        lineHeight: line_height,
-                    }}
-                >
-                    <Localize translate_text={title} />
-                </h1>
-                <p
-                    style={{
-                        color: subtitle_text_color,
-                        fontSize: subtitle_font_size,
-                        fontFamily: 'IBM Plex Sans',
-                        fontWeight: 'normal',
-                        margin: margin,
-                        textAlign: align_subtitle,
-                        lineHeight: line_height,
-                    }}
-                >
-                    <Localize translate_text={subtitle} />
-                </p>
+                {title && (
+                    <h1
+                        style={{
+                            color: title_text_color,
+                            fontSize: title_font_size,
+                            fontFamily: 'Ubuntu',
+                            fontWeight: 'bold',
+                            margin: margin_title,
+                            textAlign: align_title as any,
+                            lineHeight: line_height,
+                        }}
+                    >
+                        <Localize translate_text={title} />
+                    </h1>
+                )}
+                {subtitle && (
+                    <p
+                        style={{
+                            color: subtitle_text_color,
+                            fontSize: subtitle_font_size,
+                            fontFamily: 'IBM Plex Sans',
+                            fontWeight: font_weight,
+                            margin: margin_subtitle,
+                            textAlign: align_subtitle as any,
+                            lineHeight: line_height,
+                        }}
+                    >
+                        <Localize translate_text={subtitle} />
+                    </p>
+                )}
             </Flex>
         </div>
     )

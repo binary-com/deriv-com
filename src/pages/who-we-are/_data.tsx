@@ -5,6 +5,9 @@ import Hands from 'images/svg/who-we-are/hands.svg'
 import { all_offices, all_countries } from 'pages/careers/_model/_locations/_locations'
 import { TString } from 'types/generics'
 
+const number_of_offices = all_offices.length
+const number_of_countries = all_countries.length
+
 type FirstSectionTextsType = {
     text: TString
 }
@@ -329,11 +332,11 @@ export const our_offices_count: DerivNumbersType[] = [
     { count: '_t_1000+_t_', title: '_t_employees_t_' },
     { count: '_t_50+_t_', title: '_t_nationalities_t_' },
     {
-        count: `_t_${all_offices.length}_t_`,
+        count: `_t_${number_of_offices}_t_`,
         title: '_t_locations_t_',
     },
     {
-        count: `_t_${all_countries.length}_t_`,
+        count: `_t_${number_of_countries}_t_`,
         title: '_t_countries_t_',
     },
 ]

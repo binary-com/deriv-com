@@ -60,7 +60,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-persist-cache`,
             options: {
-              enabled: !process.env.DISABLE_PERSISTENT_CACHE,
+              enabled: true,
               persistentDir: ".persistent-cache",
               pluginNames: [`gatsby-plugin-sharp`,`gatsby-transformer-sharp`, `@directus/gatsby-source-directus`, `gatsby-plugin-image`],
             },

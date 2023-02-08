@@ -1,20 +1,20 @@
-import React, { MouseEventHandler, ReactElement, useState } from 'react'
+import React, { MouseEventHandler, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import Modal from './modal'
-import { Localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { QueryImage, ImageWrapper } from 'components/elements'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { TString } from 'types/generics'
 
 type MouseEvent = MouseEventHandler<HTMLDivElement> &
     ((event: MouseEventHandler<HTMLDivElement>) => void)
 
 type LeaderType = {
     name: string
-    position: ReactElement
+    position: TString
     link: string
     image: ImageDataLike
 }
@@ -148,91 +148,91 @@ const Leaders = () => {
     const leaders: LeaderType[] = [
         {
             name: 'Jean-Yves Sireau',
-            position: <Localize translate_text="Chief Executive Officer" />,
+            position: '_t_Chief Executive Officer_t_',
             link: 'https://www.linkedin.com/in/jeanyvessireau/',
             image: leaders_data.jy,
         },
         {
             name: 'Rakshit Choudhary ',
-            position: <Localize translate_text="Chief Operating Officer" />,
+            position: '_t_Chief Operating Officer_t_',
             link: 'https://www.linkedin.com/in/rakshit-choudhary-9a67b61b0/',
             image: leaders_data.rakshit,
         },
         {
             name: 'Tom Molesworth',
-            position: <Localize translate_text="Chief Information Officer" />,
+            position: '_t_Chief Information Officer_t_',
             link: '',
             image: leaders_data.tom,
         },
         {
             name: 'Joanna Frendo',
-            position: <Localize translate_text="Chief Compliance Officer" />,
+            position: '_t_Chief Compliance Officer_t_',
             link: 'https://www.linkedin.com/in/joanna-frendo-4449975/',
             image: leaders_data.joanna,
         },
         {
             name: 'Louise Wolf',
-            position: <Localize translate_text="Chief Financial Officer" />,
+            position: '_t_Chief Financial Officer_t_',
             link: 'https://www.linkedin.com/in/louise-wolf-7b98b460/',
             image: leaders_data.louise,
         },
         {
             name: 'Shyamala Siva',
-            position: <Localize translate_text="Chief Administrative Officer" />,
+            position: '_t_Chief Administrative Officer_t_',
             link: 'https://www.linkedin.com/in/shyamala-siva-90043b208/',
             image: leaders_data.shyamala,
         },
         {
             name: 'Seema Hallon',
-            position: <Localize translate_text="Head of People Management" />,
+            position: '_t_Head of People Management_t_',
             link: 'https://www.linkedin.com/in/seema-hallon-6919073/',
             image: leaders_data.seema,
         },
         {
             name: 'Derek Swift',
-            position: <Localize translate_text="Head of Marketing & Global Partnerships" />,
+            position: '_t_Head of Marketing & Global Partnerships_t_',
             link: 'https://www.linkedin.com/in/derek-swift-5787208/',
             image: leaders_data.derek,
         },
         {
             name: 'Waqas Awan',
-            position: <Localize translate_text="Vice President of Product" />,
+            position: '_t_Vice President of Product_t_',
             link: 'https://www.linkedin.com/in/waqasawan/',
             image: leaders_data.waqas,
         },
         {
             name: 'Raunak Kathuria',
-            position: <Localize translate_text="Vice President of Engineering" />,
+            position: '_t_Vice President of Engineering_t_',
             link: 'https://www.linkedin.com/in/raunakkathuria/',
             image: leaders_data.raunak,
         },
         {
             name: 'Edwin Raspe',
-            position: <Localize translate_text="Vice President of IT Operations" />,
+            position: '_t_Vice President of IT Operations_t_',
             link: 'https://my.linkedin.com/in/edwin-raspe-210a722/',
             image: leaders_data.edwin,
         },
         {
             name: 'Kaveh Mousavi Zamani',
-            position: <Localize translate_text="Vice President of Engineering" />,
+            position: '_t_Vice President of Engineering_t_',
             link: 'https://de.linkedin.com/in/kavehmz/',
             image: leaders_data.kaveh,
         },
         {
             name: 'Jeyavarthini Vairakanan',
-            position: <Localize translate_text="Vice President of Customer Support" />,
+            position: '_t_Vice President of Customer Support_t_',
             link: 'https://www.linkedin.com/in/jeyavarthini-vairakanan-812b7a121/',
             image: leaders_data.jeya,
         },
         {
             name: 'Gary Ross Vytialingam',
-            position: <Localize translate_text="Chief Audit Executive" />,
+            position: '_t_Chief Audit Executive_t_',
             link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',
             image: leaders_data.gary,
         },
         {
             name: 'Jennice Lourdsamy',
-            position: <Localize translate_text="Head of Accounts" />,
+            position: '_t_Head of Accounts_t_',
             link: 'https://www.linkedin.com/in/jennice-lourdsamy-352b897/',
             image: leaders_data.jennice,
         },

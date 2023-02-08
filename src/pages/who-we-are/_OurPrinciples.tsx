@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { our_principles } from './_data'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Divider } from 'components/elements'
 import device from 'themes/device'
@@ -81,7 +81,7 @@ const OurPrinciples = () => {
     return (
         <StyledSection>
             <Header as="h2" align="center" type="heading-2" mb="40px" laptop={{ mb: '24px' }}>
-                {localize('Our principles are the framework for our decisions')}
+                <Localize translate_text="_t_Our principles are the framework for our decisions_t_" />
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
                 {our_principles.map(({ color, title, text }, idx) => (
@@ -96,10 +96,12 @@ const OurPrinciples = () => {
                             tablet_ai="left"
                         >
                             <StyledDiv>
-                                <ColoredBox bgcolor={color}>{title}</ColoredBox>
+                                <ColoredBox bgcolor={color}>
+                                    <Localize translate_text={title} />
+                                </ColoredBox>
                             </StyledDiv>
                             <StyledText as="p" type="sub-paragraph" weight="400">
-                                {text}
+                                <Localize translate_text={text} />
                             </StyledText>
                         </InsideFlex>
                     </div>
@@ -107,7 +109,7 @@ const OurPrinciples = () => {
                 <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
             </StyledFlex>
             <StyledLinkButton to="/our-principles/" secondary>
-                {localize('Learn more about our principles')}
+                <Localize translate_text="_t_Learn more about our principles_t_" />
             </StyledLinkButton>
         </StyledSection>
     )

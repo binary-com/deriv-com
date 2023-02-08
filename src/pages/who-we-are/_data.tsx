@@ -5,8 +5,8 @@ import Hands from 'images/svg/who-we-are/hands.svg'
 import { all_offices, all_countries } from 'pages/careers/_model/_locations/_locations'
 import { TString } from 'types/generics'
 
-const number_of_offices = all_offices.length
-const number_of_countries = all_countries.length
+const number_of_offices = String(all_offices.length)
+const number_of_countries = String(all_countries.length)
 
 type FirstSectionTextsType = {
     text: TString

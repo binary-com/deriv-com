@@ -52,9 +52,9 @@ const WhatLiesAhead = () => {
                         {what_lies_ahead.subtitle}
                     </TextWrapper>
                 </TitleWrapper>
-                <CardContainer>
-                    {what_lies_ahead.content.map((card, index) => (
-                        <Card style={style} key={index} card_content={card} has_list={true} />
+                <CardContainer id="roles">
+                    {what_lies_ahead.content.map((card) => (
+                        <Card style={style} key={card.text} card_content={card} has_list />
                     ))}
                 </CardContainer>
                 <TextWrapper

@@ -18,6 +18,7 @@ import useRegion from 'components/hooks/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type TradeTypesProps = {
+    class_name: string
     image_url: string
     image_alt: ReactElement
     header: ReactElement
@@ -60,6 +61,7 @@ const query = graphql`
 
 const items_details_row: TradeTypesProps[] = [
     {
+        class_name: 'cfds',
         image_url: 'trade_type_cfds',
         image_alt: <Localize translate_text="CFDs" />,
         header: <Localize translate_text="CFDs" />,
@@ -71,6 +73,7 @@ const items_details_row: TradeTypesProps[] = [
         alt: 'cfd',
     },
     {
+        class_name: 'multipliers',
         image_url: 'trade_type_multipliers',
         image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
@@ -82,6 +85,7 @@ const items_details_row: TradeTypesProps[] = [
         alt: 'multipliers',
     },
     {
+        class_name: 'options',
         image_url: 'trade_type_digitaloptions',
         image_alt: <Localize translate_text="Options" />,
         header: <Localize translate_text="Options" />,
@@ -96,6 +100,7 @@ const items_details_row: TradeTypesProps[] = [
 
 const items_details_eu: TradeTypesProps[] = [
     {
+        class_name: 'cfds',
         image_url: 'trade_type_cfds_eu',
         image_alt: <Localize translate_text="CFDs" />,
         header: <Localize translate_text="CFDs" />,
@@ -107,6 +112,7 @@ const items_details_eu: TradeTypesProps[] = [
         alt: 'cfd',
     },
     {
+        class_name: 'multipliers',
         image_url: 'trade_type_multipliers_eu',
         image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
@@ -238,6 +244,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
             onMouseOver={() => setDetailsVisibility(true)}
             onMouseOut={() => setDetailsVisibility(false)}
             $visibility={details_visible && !is_mobile}
+            className={items_details.class_name}
         >
             <ImageWrapper mb="24px">
                 <QueryImage
@@ -322,7 +329,7 @@ const TradeTypes = (): React.ReactNode => {
             </Header>
 
             <DesktopWrapper>
-                <Flex>
+                <Flex id="trade-types">
                     <Carousel {...settings}>
                         {items_details_by_region.map((item) => {
                             return <TradeItems key={item.image_url} items_details={item} />

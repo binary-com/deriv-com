@@ -17,12 +17,12 @@ declare global {
 }
 
 const StyledContainer = styled.div`
-    background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
+    background: rgba(250, 250, 250, 0.8);
     width: 100%;
     height: fit-content;
 
     @media ${device.tabletL} {
-        background: linear-gradient(76.48deg, #8aadc5 3.41%, #d3e0e9 64.21%);
+        background: rgba(250, 250, 250, 0.8);
     }
 `
 
@@ -37,7 +37,7 @@ const ClientContainer = styled(Container)`
 const ClientFlex = styled(Flex)`
     max-width: 1440px;
     min-height: 100px;
-    padding: 80px 48px 65px 120px;
+    padding: 200px 48px 180px 120px;
 
     @media ${device.laptopM} {
         padding: 80px 48px;

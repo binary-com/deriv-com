@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
+import derivP2PLogo from 'images/common/home/deriv_p2p_logo.svg'
+import derivP2PMobileLogo from 'images/common/home/deriv_p2p_mobile_logo.svg'
 import { QueryImage, ImageWrapper, Header } from 'components/elements'
 import { Desktop, Mobile, Flex } from 'components/containers'
 import { LocalizedLink, Localize } from 'components/localization'
@@ -17,10 +19,10 @@ const query = graphql`
         p2p_home_banner_rtl: file(relativePath: { eq: "home/p2p_home_banner_rtl.png" }) {
             ...fadeIn
         }
-        deriv_p2p_logo: file(relativePath: { eq: "home/deriv_p2p_logo.png" }) {
+        deriv_p2p_logo: file(relativePath: { eq: "home/deriv_p2p_logo.svg" }) {
             ...fadeIn
         }
-        deriv_p2p_mobile_logo: file(relativePath: { eq: "home/deriv_p2p_mobile_logo.png" }) {
+        deriv_p2p_mobile_logo: file(relativePath: { eq: "home/deriv_p2p_mobile_logo.svg" }) {
             ...fadeIn
         }
         p2p_qr_code: file(relativePath: { eq: "home/p2p_qr_code.png" }) {
@@ -129,6 +131,7 @@ const ContentWrapper = styled(Flex)`
         height: fit-content;
         margin-top: 0;
         padding-left: 16px;
+        padding-bottom: 47px;
     }
 `
 const StyledHeaders = styled(Header)`
@@ -209,12 +212,12 @@ const HeroContent = styled(Flex)`
 const P2pLogoContainer = styled(Flex)`
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     padding: 0;
     gap: 4.8px;
     width: 186.67px;
-    height: 24px;
+    height: 65px;
 
     @media ${device.tabletL} {
         display: inline-block;
@@ -405,10 +408,10 @@ const P2PHomeBanner = () => {
                     <ContentWrapper>
                         <P2pLogoContainer>
                             <Desktop>
-                                <QueryImage data={data['deriv_p2p_logo']} alt="p2p logo" />
+                                <img src={derivP2PLogo} alt="p2p logo" />
                             </Desktop>
                             <Mobile max-width="tabletL">
-                                <QueryImage data={data['deriv_p2p_mobile_logo']} alt="p2p logo" />
+                                <img src={derivP2PMobileLogo} alt="p2p logo" />
                             </Mobile>
                         </P2pLogoContainer>
                         <StyledHeaders as="h1" weight="500">
@@ -426,86 +429,6 @@ const P2PHomeBanner = () => {
                                 <Localize translate_text="Learn more >" />
                             </LearnMore>
                         </StyledButton>
-                        <Mobile>
-                            <StyledBadge>
-                                <StyledTopBadge>
-                                    <AppStoreTopBadge
-                                        external
-                                        to={p2p_applestore_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['p2p_apple_store']}
-                                            alt="p2p apple store"
-                                        />
-                                    </AppStoreTopBadge>
-                                    <AppStoreTopBadge
-                                        external
-                                        to={p2p_playstore_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['p2p_google_play']}
-                                            alt="p2p google play"
-                                        />
-                                    </AppStoreTopBadge>
-                                </StyledTopBadge>
-                                <StyledBottomBadge>
-                                    <AppStoreBottomBadge
-                                        external
-                                        to={p2p_huawei_appgallery_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['p2p_app_gallery']}
-                                            alt="p2p app gallery"
-                                        />
-                                    </AppStoreBottomBadge>
-                                </StyledBottomBadge>
-                            </StyledBadge>
-                        </Mobile>
-                        <Desktop min-width="mobileL">
-                            <StyledBadge>
-                                <StyledTopBadge>
-                                    <AppStoreTopBadge
-                                        external
-                                        to={p2p_applestore_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['p2p_apple_store']}
-                                            alt="p2p apple store"
-                                        />
-                                    </AppStoreTopBadge>
-                                    <AppStoreTopBadge
-                                        external
-                                        to={p2p_playstore_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['p2p_google_play']}
-                                            alt="p2p google play"
-                                        />
-                                    </AppStoreTopBadge>
-                                    <AppStoreTopBadge
-                                        external
-                                        to={p2p_huawei_appgallery_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['p2p_app_gallery']}
-                                            alt="p2p app gallery"
-                                        />
-                                    </AppStoreTopBadge>
-                                </StyledTopBadge>
-                            </StyledBadge>
-                        </Desktop>
                     </ContentWrapper>
 
                     <Desktop min-width="mobileL">

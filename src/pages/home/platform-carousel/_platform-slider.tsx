@@ -17,6 +17,8 @@ const SelectedZone = styled(Flex)`
     box-shadow: rgba(131, 131, 131, 0.15) 0 16px 20px, rgba(131, 131, 131, 0.15) 0 0 20px;
     top: calc(50% - 152px / 2);
     z-index: 4;
+    border-bottom: 5px #ff444f solid;
+    border-radius: 6px;
 `
 
 type SelectedSlideProps = {
@@ -58,13 +60,13 @@ const Shadow = styled.div<{ location: 'start' | 'end' }>`
                 background: linear-gradient(
                     to top,
                     rgba(249, 251, 255, 0) 0%,
-                    rgba(249, 251, 255, 1) 100%
+                    rgb(255 255 255) 100%
                 );
             `
         } else {
             return css`
                 bottom: -0.5px;
-                background: linear-gradient(rgba(249, 251, 255, 0) 0%, rgba(249, 251, 255, 1) 100%);
+                background: linear-gradient(rgba(249, 251, 255, 0) 0%, rgb(255 255 255) 100%);
             `
         }
     }}
@@ -160,13 +162,7 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
 
     if (platform_details) {
         return (
-            <Box
-                width="fit-content"
-                height="640px"
-                background="rgba(249, 251, 255, 1)"
-                p="0 20px 8px"
-                m="0 auto"
-            >
+            <Box width="fit-content" height="640px" background="inherit" p="0 20px 8px" m="0 auto">
                 <StyledFlex position="relative" m="0 auto" jc="unset">
                     <Shadow location="start" />
                     <Shadow location="end" />

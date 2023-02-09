@@ -29,6 +29,7 @@ import { Flex } from 'components/containers'
 import { Button } from 'components/form'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
+import useRegion from 'components/hooks/use-region'
 
 export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
@@ -79,12 +80,15 @@ const DisclaimerText = styled(Header)`
 const TABLE_VISIBLE_ROWS = 20
 
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
-    const [markets_data, setMarketsData] = useState(forex_specification.data)
+    const { is_eu, is_row } = useRegion()
+    const specification_data = is_eu ? forex_specification.eu_data : forex_specification.data
+    const [markets_data, setMarketsData] = useState(specification_data)
 
     useEffect(() => {
         market_specification.map((specification) => {
             if (specification.market === market) {
-                setMarketsData(specification.data)
+                const specification_data = is_eu ? specification.eu_data : specification.data
+                setMarketsData(specification_data)
             }
         })
     }, [market])
@@ -119,7 +123,6 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
     const handleChange = (e) => {
         setSearch(e.target.value)
-        // console.log('search', search)
         let updatedRowData = []
 
         if (search != '' || search != null) {
@@ -187,11 +190,13 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                 </TableData>
             </TableContainer>
             <StyledPaginationContainer>
-                <Flex jc="start">
-                    <Button flat onClick={() => setShowPopUp(true)}>
-                        *Click here to see {market} info
-                    </Button>
-                </Flex>
+                {market !== 'derived' && is_row && (
+                    <Flex jc="start">
+                        <Button flat onClick={() => setShowPopUp(true)} id="dlPopUp">
+                            *Click here to see {market} info
+                        </Button>
+                    </Flex>
+                )}
 
                 <Flex jc="end">
                     <StyledButton

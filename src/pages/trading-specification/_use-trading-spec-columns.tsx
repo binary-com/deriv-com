@@ -16,7 +16,11 @@ const useLiveColumns = () => {
             }),
             liveMarketColumnHelper.accessor('instrument', {
                 header: () => <TableHeaderCell />,
-                cell: (info) => <TableCell text={info.getValue()} dl_icon={dl} />,
+                cell: (info) => <TableCell text={info.getValue()} />,
+            }),
+            liveMarketColumnHelper.accessor('dl_icon', {
+                header: () => <TableHeaderCell />,
+                cell: (info) => <TableCell dl_icon={info.getValue() ? dl : ''} />,
             }),
             liveMarketColumnHelper.accessor('contract_size', {
                 header: () => (

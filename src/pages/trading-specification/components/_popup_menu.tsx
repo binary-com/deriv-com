@@ -9,26 +9,27 @@ import {
     Tr,
     Th,
     Td,
-    HowItsCalculated,
+    HowItIsCalculated,
     StyledLinkButton,
     BackButton,
     CloseIconButton,
     StyledHeading,
 } from './_elements'
 import { market_specification } from './_constants'
+import HowItsCalculated from './_howItsCalculated'
 import CloseIcon from 'images/svg/trading-specification/close-icon.svg'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
+import { Flex } from 'components/containers'
 
 type TPopUpMenuProps = {
     market: TAvailableLiveMarkets
     toggle: (event: React.MouseEvent<HTMLElement>) => void
-    is_open: boolean
-    closeModal: () => void
 }
 
-const PopUpMenu = ({ market, toggle, is_open, closeModal }: TPopUpMenuProps) => {
+const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
     const [markets_data, setMarketsData] = useState(forex_specification.dl_data)
+    const [dlTitle, setDlTitle] = useState(forex_specification.dl_title)
     const [is_calculated, setCalculated] = React.useState(false)
     const toggleCalculated = () => {
         setCalculated(!is_calculated)
@@ -38,6 +39,7 @@ const PopUpMenu = ({ market, toggle, is_open, closeModal }: TPopUpMenuProps) => 
         market_specification.map((specification) => {
             if (specification.market === market) {
                 setMarketsData(specification.dl_data)
+                setDlTitle(specification.dl_title)
             }
         })
     }, [market])
@@ -46,18 +48,22 @@ const PopUpMenu = ({ market, toggle, is_open, closeModal }: TPopUpMenuProps) => 
         <Card>
             {is_calculated ? (
                 <ModalCard>
-                    <Header type="paragraph-1" weight="700" align="center">
+                    <Header type="subtitle-1" weight="700">
                         <Localize translate_text="How it’s calculated" />
                     </Header>
-                    <BackButton tertiary onClick={toggleCalculated}>
-                        <Localize translate_text="Back" />
-                    </BackButton>
+
+                    <HowItsCalculated market={market} />
+                    <Flex jc="center">
+                        <BackButton tertiary onClick={toggleCalculated}>
+                            <Localize translate_text="Back" />
+                        </BackButton>
+                    </Flex>
                 </ModalCard>
             ) : (
                 <ModalCard>
                     <StyledHeading>
                         <Header type="paragraph-1" weight="700" align="center">
-                            <Localize translate_text="Dynamic tiers FX majors" />
+                            <Localize translate_text={dlTitle} />
                         </Header>
                         <CloseIconButton src={CloseIcon} onClick={toggle} />
                     </StyledHeading>
@@ -75,7 +81,7 @@ const PopUpMenu = ({ market, toggle, is_open, closeModal }: TPopUpMenuProps) => 
                                     <Localize translate_text="To (lots)" />
                                 </Th>
                                 <Th>
-                                    <Localize translate_text="Leverage (lots)" />
+                                    <Localize translate_text="Leverage (1:x)" />
                                 </Th>
                             </Tr>
                             {markets_data.map((data, index) => (
@@ -87,11 +93,11 @@ const PopUpMenu = ({ market, toggle, is_open, closeModal }: TPopUpMenuProps) => 
                             ))}
                         </TableWrapper>
                     </TableContainer>
-                    <HowItsCalculated>
+                    <HowItIsCalculated>
                         <StyledLinkButton flat onClick={toggleCalculated}>
-                            <Localize translate_text="How it's calculated" />
+                            <Localize translate_text="How dynamic leverage is calculated" />
                         </StyledLinkButton>
-                    </HowItsCalculated>
+                    </HowItIsCalculated>
                 </ModalCard>
             )}
         </Card>

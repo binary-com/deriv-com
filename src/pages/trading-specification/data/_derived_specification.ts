@@ -2,23 +2,6 @@ import { TSpecification } from '../_types'
 
 const derived_specification: TSpecification = {
     market: 'derived',
-    dl_data: [
-        {
-            from: 0.1,
-            to: 5,
-            leverage: 300,
-        },
-        {
-            from: 5,
-            to: 50,
-            leverage: 200,
-        },
-        {
-            from: 50,
-            to: 100,
-            leverage: 100,
-        },
-    ],
     data: [
         {
             is_row: true,
@@ -559,6 +542,36 @@ const derived_specification: TSpecification = {
             swap_long: -0.0028,
             swap_short: -0.0028,
             trading_hours: 'Mon 00:00 - Fri 20:55 GMT',
+        },
+    ],
+    eu_data: [
+        {
+            symbol: 'BOOM300EU',
+            instrument: 'Boom 300 Index',
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.1,
+            minimum_spread: 0.197,
+            target_spread: 0.211,
+            max_effective_leverage: 5,
+            margin_requirement: 20.0,
+            swap_long: -0.08,
+            swap_short: -0.08,
+            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+        },
+        {
+            symbol: 'CRASH300EU',
+            instrument: 'Crash 300 Index',
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.1,
+            minimum_spread: 0.308,
+            target_spread: 0.418,
+            max_effective_leverage: 5,
+            margin_requirement: 20.0,
+            swap_long: -0.08,
+            swap_short: -0.08,
+            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
     ],
 }

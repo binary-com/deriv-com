@@ -8,6 +8,7 @@ export type TAvailableLiveMarkets =
 export type THeaders = {
     is_row?: boolean
     is_eu?: boolean
+    dl_icon?: true
     symbol: string
     instrument: string
     contract_size: string | number
@@ -30,5 +31,7 @@ export type TDLHeaders = {
 export type TSpecification = {
     market: string
     data: THeaders[]
-    dl_data: TDLHeaders[]
+    eu_data: THeaders[]
+    dl_data?: TDLHeaders[]
+    dl_title?: string
 }

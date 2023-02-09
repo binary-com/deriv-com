@@ -1,5 +1,4 @@
 import { TQuestionsData } from './_data-types'
-import { deriv_api_url } from 'common/constants'
 import TelegranDerivGroupImg from 'images/common/help-centre/help-center-telegram-one.png'
 import TelegranDerivChatImg from 'images/common/help-centre/help-center-telegram-two.png'
 
@@ -85,7 +84,12 @@ const security: TQuestionsData = {
                 {
                     margin_top: '1.6rem',
                     translation_text:
-                        '_t_An impersonator’s main goal is to steal your sensitive information and funds. Here are some ways to identify impersonators of Deriv client support on Telegram:_t_',
+                        '_t_An impersonator’s main goal is to steal your sensitive information and funds._t_',
+                },
+                {
+                    margin_top: '1.6rem',
+                    translation_text:
+                        '_t_Here are some ways to identify impersonators of Deriv customer support:_t_',
                 },
                 {
                     list: {
@@ -134,11 +138,6 @@ const security: TQuestionsData = {
             sub_category: '_t_Verification_t_',
             label: 'identify-impersonators-telegram',
             answer: [
-                {
-                    margin_top: '1.6rem',
-                    translation_text:
-                        '_t_Here are some ways to identify email from impersonators_t_',
-                },
                 {
                     list: {
                         list_style: 'disc',
@@ -215,7 +214,7 @@ const security: TQuestionsData = {
                 {
                     margin_top: '1.6rem',
                     translation_text:
-                        '_t_Here are some ways to identify email from impersonators:_t_',
+                        '_t_Here are some ways to identify emails from impersonators:_t_',
                 },
                 {
                     list: {
@@ -246,7 +245,7 @@ const security: TQuestionsData = {
                             },
                             {
                                 translation_text:
-                                    "_t_Impersonators typically use free email addresses such as @yahoo.com, @gmail.com, or @protonmail.com. Always read the sender's full email address to know who sent the email. <0>Note:</0> Emails from Deriv will always come from @deriv.com._t_",
+                                    "_t_Impersonators typically use free email domains such as @yahoo.com, @gmail.com, or @protonmail.com. Always read the sender's full email address to know who sent the email. <0>Note:</0> Emails from Deriv will always come from @deriv.com._t_",
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                         ],

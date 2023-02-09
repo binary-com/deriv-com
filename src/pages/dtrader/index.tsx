@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import DtraderEasySteps from './_steps_section'
+import DtraderGetApps from './_get-app-section'
 import { OtherPlatform } from 'components/custom/other-platforms'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -95,7 +96,7 @@ const trading_eu = [
     {
         title: <Localize translate_text="Trade what you want, when you want..." />,
         subtitle: (
-            <Localize translate_text="Forex, cryptocurrencies, and indices – whether it’s the world markets or derived markets that excite you, you’ll find them here." />
+            <Localize translate_text="Forex, cryptocurrencies, and synthetics – whether it’s the world markets or derived markets that excite you, you’ll find them here." />
         ),
 
         image_name: 'trade_what_you_want_eu',
@@ -155,11 +156,13 @@ const Dtrader = () => {
             />
             {is_row && <DNumber items={items} justify="space-around" />}
             {is_eu && <DNumber items={itemsEU} justify="space-around" />}
+
             <DtraderEasySteps />
-            <DHowItWorks
+
+            {/* <DHowItWorks
                 Video={DtraderVideo}
                 title={<Localize translate_text="Make a trade in 3 easy steps" />}
-            />
+            /> */}
             {is_row && <DTrading trading={trading} />}
             {is_eu && <DTrading trading={trading_eu} />}
             <PlatformContainer>
@@ -170,6 +173,7 @@ const Dtrader = () => {
                 title={<Localize translate_text="Get into the DTrader experience" />}
                 data={data}
             />
+            <DtraderGetApps />
         </Layout>
     )
 }

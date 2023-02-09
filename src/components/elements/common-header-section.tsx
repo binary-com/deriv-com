@@ -23,6 +23,10 @@ type CommonHeaderSectionProps = {
     height?: string
     align_title?: string
     align_subtitle?: string
+    font_weight_title?: string
+    font_weight_subtitle?: string
+    font_family_title?: string
+    font_family_subtitle?: string
 }
 
 const CommonHeaderSection = ({
@@ -33,7 +37,10 @@ const CommonHeaderSection = ({
     margin_title,
     bgcolor,
     color,
-    font_weight,
+    font_weight_title,
+    font_weight_subtitle,
+    font_family_title,
+    font_family_subtitle,
     line_height,
     title_text_color,
     subtitle_text_color,
@@ -60,8 +67,8 @@ const CommonHeaderSection = ({
                         style={{
                             color: title_text_color,
                             fontSize: title_font_size,
-                            fontFamily: 'Ubuntu',
-                            fontWeight: 'bold',
+                            fontFamily: font_family_title,
+                            fontWeight: font_weight_title,
                             margin: margin_title,
                             textAlign: align_title as any,
                             lineHeight: line_height,
@@ -75,8 +82,8 @@ const CommonHeaderSection = ({
                         style={{
                             color: subtitle_text_color,
                             fontSize: subtitle_font_size,
-                            fontFamily: 'IBM Plex Sans',
-                            fontWeight: font_weight,
+                            fontFamily: font_family_subtitle,
+                            fontWeight: font_weight_subtitle,
                             margin: margin_subtitle,
                             textAlign: align_subtitle as any,
                             lineHeight: line_height,

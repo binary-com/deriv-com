@@ -3,9 +3,10 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 type TItem = {
-    title: JSX.Element
+    title: string
     image: ImageDataLike
     alt: JSX.Element
 }
@@ -14,6 +15,7 @@ type TProps = {
     items: TItem[]
     default_step?: number
     onStepChanged?: (step: number) => void
+    renderFooter?: () => JSX.Element
 }
 
 const Wrapper = styled.div`
@@ -24,37 +26,50 @@ const Wrapper = styled.div`
     gap: 60px;
 
     @media ${device.tabletL} {
-        flex-direction: column-reverse;
+        flex-direction: column;
         gap: 24px;
         width: min-content;
         padding: 40px 20px;
     }
 `
 const ItemsWrapper = styled.div`
+    max-width: 230px;
+    width: 100%;
     @media ${device.tabletL} {
         width: 320px;
         padding-left: 16px;
     }
 `
 
-const ImageWrapper = styled.div``
+const ImageWrapper = styled.div`
+    flex: 1;
+`
 
 const UlStyle = styled.ul`
-    list-style-type: decimal;
     font-size: var(--text-size-m);
     line-height: 36px;
     display: flex;
     flex-direction: column;
     gap: 24px;
     cursor: pointer;
+
+    li {
+        transition: all 0.2s;
+    }
     @media ${device.mobileL} {
         cursor: none;
         gap: 16px;
         font-size: 18px;
+        align-items: left;
     }
 `
 
-const StepperView: React.FC<TProps> = ({ items, default_step = 0, onStepChanged }) => {
+const StepperView: React.FC<TProps> = ({
+    items,
+    default_step = 0,
+    onStepChanged,
+    renderFooter,
+}) => {
     const [selected, setSelected] = useState<number>(default_step)
 
     useEffect(() => {
@@ -82,10 +97,11 @@ const StepperView: React.FC<TProps> = ({ items, default_step = 0, onStepChanged 
                             }}
                             onClick={() => setSelected(index)}
                         >
-                            {item.title}
+                            {localize(`_t_${index + 1}. ${item.title}_t_`)}
                         </li>
                     ))}
                 </UlStyle>
+                {renderFooter?.()}
             </ItemsWrapper>
         </Wrapper>
     )

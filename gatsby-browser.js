@@ -1,14 +1,60 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { navigate } from 'gatsby';
 import { Pushwoosh } from 'web-push-notifications'
+import { eu_countries } from './src/common/country-base';
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
+import useDerivWS from 'components/hooks/use-deriv-ws';
 import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
+
+const eu_subdomain_countries = eu_countries.filter(country => country !== 'gb');
+
+const domainURL = 'https://domain.com';
+const euDomainURL = 'https://eu.localhost:8000';
+
+const redirectDomain = () => {
+  if (window.location.hostname === 'localhost') {
+    navigate(euDomainURL);
+  } else {
+    navigate(domainURL);
+  }
+};
+
+export const RedirectBasedOnLocation = () => {
+    const [loading, setLoading] = useState(true);
+    const [is_redirection_applied, setRedirectionApplied] = useState(false)
+    const { send } = useDerivWS()
+
+    React.useEffect(() => {
+        if (!is_redirection_applied) {
+            send({ website_status: 1 }, (response) => {
+                if (!response.error) {
+                    const {
+                        website_status: { clients_country },
+                    } = response
+                    console.log(clients_country, 34);
+                    if (!eu_subdomain_countries.includes(clients_country)) {
+                        redirectDomain();
+                    }
+                    setRedirectionApplied(true)
+                    setLoading(false);
+                }
+            })
+        }
+    }, [is_redirection_applied]);
+  
+    if (!loading) {
+      return <div>Loading...</div>;
+    }
+  
+    return null;
+  };
 
 const is_browser = typeof window !== 'undefined'
 
@@ -163,3 +209,7 @@ export const onRouteUpdate = () => {
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext
+
+// export const wrapPageElement = ({ element }) => {
+//     return <RedirectBasedOnLocation>{element}</RedirectBasedOnLocation>;
+// };

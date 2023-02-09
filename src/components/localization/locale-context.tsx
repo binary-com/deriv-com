@@ -3,14 +3,14 @@ import { StyleSheetManager } from 'styled-components'
 import GlobalStyle from 'themes/global-style'
 import { plugin } from 'themes/plugin'
 
-type LocalseContextWrapperProps = {
+type LocaleContextWrapperProps = {
     children: React.ReactNode
     pageContext: { locale: string; pathname: string }
 }
 
 type WrapPagesWithLocaleContextProps = {
     element: React.ReactNode
-    props: LocalseContextWrapperProps
+    props: LocaleContextWrapperProps
 }
 
 export const LocaleContext = React.createContext(null)
@@ -18,7 +18,7 @@ export const LocaleContext = React.createContext(null)
 export const LocaleContextWrapper = ({
     children,
     pageContext: { locale, pathname },
-}: LocalseContextWrapperProps) => {
+}: LocaleContextWrapperProps) => {
     return (
         <LocaleContext.Provider value={{ locale, pathname }}>
             <GlobalStyle />
@@ -27,7 +27,6 @@ export const LocaleContextWrapper = ({
     )
 }
 
-// Language passed here from createPages
 export const WrapPagesWithLocaleContext = ({ element, props }: WrapPagesWithLocaleContextProps) => {
     return <LocaleContextWrapper {...props}>{element}</LocaleContextWrapper>
 }

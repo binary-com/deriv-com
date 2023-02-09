@@ -86,7 +86,11 @@ const BusinessGrid = () => {
                     content={localize(
                         'Additional terms for our affiliates and introducing brokers',
                     )}
-                    url="/tnc/business-partners-affiliates-and-introducing-brokers.pdf"
+                    url={
+                        is_row
+                            ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
+                            : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
+                    }
                     link_title={localize('Affiliates & introducing brokers (IBs)')}
                 />
 

@@ -26,9 +26,9 @@ import RightChevron from 'images/svg/trading-specification/right-chevron.svg'
 import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
 import SearchIcon from 'images/svg/help/search.svg'
 import { Flex } from 'components/containers'
-import { Button } from 'components/form'
 import { Localize } from 'components/localization'
-import { Header } from 'components/elements'
+import { Header, LinkText } from 'components/elements'
+import { sanitize } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
 
 export type TLiveMarketTableProps = {
@@ -45,7 +45,6 @@ const SearchForm = styled.form`
     position: relative;
     align-items: center;
     padding: 6px 8px;
-    gap: 8px;
     width: 464px;
     height: 32px;
     border: 1px solid #d6dadb;
@@ -54,6 +53,7 @@ const SearchForm = styled.form`
 const StyledSearchIcon = styled.img`
     width: 16px;
     height: 16px;
+    position: absolute;
 `
 const StyledChevron = styled.img`
     width: 16px;
@@ -61,11 +61,12 @@ const StyledChevron = styled.img`
     margin: 0;
 `
 const SearchInput = styled.input`
+    width: 100%;
     color: var(--color-black);
     background-color: var(--color-white);
     border: none;
     outline: none;
-    padding: 0 14px;
+    padding: 0 30px;
 
     ::placeholder {
         color: var(--color-grey-17);
@@ -76,21 +77,24 @@ const DisclaimerText = styled(Header)`
     font-weight: 400;
     text-align: center;
     font-size: 1.6rem;
+    padding: 0 3.6rem;
 `
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const { is_eu, is_row } = useRegion()
     const specification_data = is_eu ? forex_specification.eu_data : forex_specification.data
     const [markets_data, setMarketsData] = useState(specification_data)
+    const [filtered_data, setFilteredData] = useState(specification_data)
 
     useEffect(() => {
         market_specification.map((specification) => {
             if (specification.market === market) {
                 const specification_data = is_eu ? specification.eu_data : specification.data
                 setMarketsData(specification_data)
+                setFilteredData(specification_data)
             }
         })
     }, [market])
-    const [search, setSearch] = useState('')
+    const [search_value, setSearchValue] = useState('')
     const [globalFilter, setGlobalFilter] = useState('')
 
     const [showPopUp, setShowPopUp] = useState(false)
@@ -119,18 +123,22 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     }
 
     const handleChange = (e) => {
-        setSearch(e.target.value)
+        e.preventDefault()
+        setSearchValue(sanitize(e.target.value))
+    }
+    useEffect(() => {
         let updatedRowData = []
 
-        if (search != '' || search != null) {
-            updatedRowData = markets_data.filter((user) =>
-                user.instrument.toLowerCase().match(new RegExp(search, 'i')),
+        if (search_value.length > 1) {
+            updatedRowData = markets_data.filter((market) =>
+                market.instrument.toLowerCase().match(new RegExp(search_value, 'i')),
             )
+            setMarketsData(updatedRowData)
         } else {
-            updatedRowData = markets_data
+            setMarketsData(filtered_data)
         }
-        setMarketsData(updatedRowData)
-    }
+    }, [search_value])
+
     useEffect(() => {
         table.setPageSize(20)
     }, [table])
@@ -142,10 +150,11 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                 <SearchForm onSubmit={handleSubmit}>
                     <StyledSearchIcon src={SearchIcon} alt="search-icon" />
                     <SearchInput
+                        autoFocus
                         placeholder="Find Instrument"
                         autoComplete="off"
-                        value={search ?? ''}
                         onChange={handleChange}
+                        value={search_value}
                     />
                 </SearchForm>
             </StyledFlex>
@@ -191,10 +200,19 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
             </TableContainer>
             <StyledPaginationContainer>
                 {market !== 'derived' && is_row && (
-                    <Flex jc="start">
-                        <Button flat onClick={() => setShowPopUp(true)} id="dlPopUp">
-                            *Click here to see {market} info
-                        </Button>
+                    <Flex jc="start" id="dlPopUp">
+                        <Header type="paragraph-2" weight="400">
+                            <Localize
+                                translate_text="<0>Dynamic leverage </0>(DL) applies to this instrument."
+                                components={[
+                                    <LinkText
+                                        onClick={() => setShowPopUp(true)}
+                                        color="red"
+                                        key={0}
+                                    />,
+                                ]}
+                            />
+                        </Header>
                     </Flex>
                 )}
 
@@ -223,7 +241,11 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                 </Flex>
             </StyledPaginationContainer>
             <DisclaimerText>
-                <Localize translate_text="The above information is updated monthly and, therefore, may not reflect current trading conditions." />
+                {is_eu ? (
+                    <Localize translate_text="The above information is updated monthly and, therefore, may not reflect current trading conditions." />
+                ) : (
+                    <Localize translate_text="The above information is updated monthly and, therefore, may not reflect current trading conditions. Certain offerings and specifications may vary depending on your country of residence, regulated jurisdiction, and individual trading circumstances." />
+                )}
             </DisclaimerText>
         </>
     )

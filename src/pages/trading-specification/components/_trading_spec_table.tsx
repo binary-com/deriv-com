@@ -77,8 +77,6 @@ const DisclaimerText = styled(Header)`
     text-align: center;
     font-size: 1.6rem;
 `
-const TABLE_VISIBLE_ROWS = 20
-
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const { is_eu, is_row } = useRegion()
     const specification_data = is_eu ? forex_specification.eu_data : forex_specification.data
@@ -108,14 +106,13 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
             sorting,
             globalFilter,
         },
+
         getCoreRowModel: getCoreRowModel(),
         getSortedRowModel: getSortedRowModel(),
         onSortingChange: setSorting,
         getPaginationRowModel: getPaginationRowModel(),
         onGlobalFilterChange: setGlobalFilter,
     })
-
-    const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -134,6 +131,9 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
         }
         setMarketsData(updatedRowData)
     }
+    useEffect(() => {
+        table.setPageSize(20)
+    }, [table])
 
     return (
         <>
@@ -177,7 +177,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                         ))}
                     </thead>
                     <tbody>
-                        {rows.map((row) => (
+                        {table.getRowModel().rows.map((row) => (
                             <TableRow key={row.id}>
                                 {row.getVisibleCells().map((cell) => (
                                     <td key={cell.id}>

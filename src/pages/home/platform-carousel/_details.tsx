@@ -5,17 +5,23 @@ import { getOSIcon } from './_utils'
 import type { TPlatformDetails } from './_utils'
 import { Flex } from 'components/containers'
 import { QueryImage, StyledLink } from 'components/elements'
+import { Localize } from 'components/localization'
 
 const StyledFlex = styled(Flex)`
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: baseline;
     max-width: 630px;
     margin-bottom: 20px;
+    font-size: 14px;
+    color: #999999;
 `
 const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
+    font-size: inherit;
+    color: inherit;
+    font-weight: bold;
 `
 
 const image_query = graphql`
@@ -68,6 +74,19 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
     const images = useStaticQuery(image_query)
     const selected_platform = platform_details && platform_details[slide]
 
+    const availableOnText = '_t_Available on_t_'
+    const andText = '_t_and_t_'
+
+    const addCommaAnd = (length, index) => {
+        return length > 1 && length != index + 1 && length - 1 != index + 1 ? (
+            ','
+        ) : length - 1 == index + 1 ? (
+            <Localize translate_text={andText} />
+        ) : (
+            ''
+        )
+    }
+
     return (
         <Flex width="60%" fd="column" ai="center" jc="end" laptopM={{ width: '50%' }}>
             <Flex max_height="550px" mb="24px">
@@ -79,22 +98,26 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
             </Flex>
             <Flex>
                 <StyledFlex>
+                    <Localize translate_text={availableOnText} />
                     {selected_platform?.download_links.is_desktop?.map((link, index) => {
                         return (
-                            <DownloadLink
-                                key={link.type}
-                                external
-                                type={link?.link_type}
-                                to={link?.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img
-                                    src={getOSIcon(link.type)}
-                                    alt="platform icon"
-                                    loading="lazy"
-                                />
-                            </DownloadLink>
+                            <>
+                                <DownloadLink
+                                    key={link.type}
+                                    external
+                                    type={link?.link_type}
+                                    to={link?.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    hoverColor="#99999"
+                                >
+                                    {link.label}
+                                </DownloadLink>
+                                {addCommaAnd(
+                                    selected_platform?.download_links.is_desktop.length,
+                                    index,
+                                )}
+                            </>
                         )
                     })}
                 </StyledFlex>

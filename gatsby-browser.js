@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom';
 import { navigate } from 'gatsby';
 import { Pushwoosh } from 'web-push-notifications'
@@ -17,19 +17,19 @@ import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
 
 const eu_subdomain_countries = eu_countries.filter(country => country !== 'gb');
-
 const test_redirection = true;
-
+const eu_subdomain_checker = window.location.hostname.includes('eu.');
 const deriv_com_url = 'https://deriv.com/'
 const deriv_eu_url = 'https://eu.deriv.com/'
 
 const redirectRowDomain = (country) => {
+    // Todo: Replace any url paths
     if (eu_subdomain_countries.includes(country) === false) {
         if ((isTestlink || isLocalhost || isStaginglink) && test_redirection) {
             navigate(deriv_com_url);
-          } else {
+        } else {
             navigate(deriv_com_url);
-          }
+        }
     }
 };
 
@@ -37,11 +37,43 @@ const redirectEUDomain = (country) => {
     if (eu_subdomain_countries.includes(country) === true) {
         if ((isTestlink || isLocalhost || isStaginglink) && test_redirection) {
             navigate(deriv_eu_url);
-          } else {
-              navigate(deriv_eu_url);
-          }
+        } else {
+            navigate(deriv_eu_url);
+        }
     }
-  };
+};
+
+const RedirectBasedOnLocation = () => {
+    const [is_redirection_applied, setRedirectionApplied] = useState(false)
+    const { send } = useDerivWS()
+
+    React.useEffect(() => {
+        if (!is_redirection_applied) {
+            send({ website_status: 1 }, (response) => {
+                if (!response.error) {
+                    const {
+                        website_status: { clients_country },
+                    } = response
+                    if (eu_subdomain_countries.includes(clients_country) === true
+                        && eu_subdomain_checker) {
+                        setRedirectionApplied(true)
+                        return;
+                    }
+                    if (eu_subdomain_countries.includes(clients_country) === false
+                        && !eu_subdomain_checker) {
+                        setRedirectionApplied(true)
+                        return;
+                    }
+                    setRedirectionApplied(true)
+                    isEuDomain() && redirectRowDomain(clients_country);
+                    !isEuDomain() && redirectEUDomain(clients_country);
+                }
+            })
+        }
+    }, [is_redirection_applied, send]);
+
+    return null;
+};
 
 const is_browser = typeof window !== 'undefined'
 
@@ -104,7 +136,7 @@ const pushwooshInit = (push_woosh) => {
                     }
                 })
                 // eslint-disable-next-line no-empty
-            } catch {}
+            } catch { }
 
             sendTags(api)
         },
@@ -117,6 +149,8 @@ export const wrapRootElement = ({ element }) => {
 
 export const onInitialClientRender = () => {
     if (is_browser) {
+        const root = document.getElementById('___gatsby');
+        ReactDOM.render(<RedirectBasedOnLocation />, root);
         // Check for PerformanceLongTaskTiming compatibility before collecting measurement
         const tti_script = document.createElement('script')
         tti_script.type = 'text/javascript'
@@ -155,37 +189,6 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
-    const RedirectBasedOnLocation = () => {
-        const [is_redirection_applied, setRedirectionApplied] = useState(false)
-        const { send } = useDerivWS()
-    
-        React.useEffect(() => {
-            if (!is_redirection_applied) {
-                send({ website_status: 1 }, (response) => {
-                    if (!response.error) {
-                        const {
-                            website_status: { clients_country },
-                        } = response
-                        if (eu_subdomain_countries.includes(clients_country) === true && window.location.hostname.includes('eu.')) {
-                            setRedirectionApplied(true)
-                            return;
-                        }
-                        if (eu_subdomain_countries.includes(clients_country) === false && !window.location.hostname.includes('eu.')) {
-                            setRedirectionApplied(true)
-                            return;
-                        }
-                        setRedirectionApplied(true)
-                        isEuDomain() && redirectRowDomain(clients_country);
-                        !isEuDomain() && redirectEUDomain(clients_country);
-                    }
-                })
-            }
-        }, [is_redirection_applied, send]);
-        
-        return null;
-    };
-    const root = document.getElementById('___gatsby');
-    ReactDOM.render(<RedirectBasedOnLocation />, root);
 
     const push_woosh = new Pushwoosh()
     if (isLive()) {

@@ -7,19 +7,21 @@ import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
+import { isTestlink } from './src/common/utility'
 import useDerivWS from 'components/hooks/use-deriv-ws';
 import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
+
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
 
 const eu_subdomain_countries = eu_countries.filter(country => country !== 'gb');
 
-const domainURL = 'https://domain.com';
-const euDomainURL = 'https://eu.localhost:8000';
+const domainURL = 'https://deriv-com-git-fork-habib-deriv-habib-redirection-using-gatsby.binary.sx/';
+const euDomainURL = 'https://eu.deriv.com';
 
 const redirectDomain = () => {
-  if (window.location.hostname === 'localhost') {
+  if (isTestlink) {
     navigate(euDomainURL);
   } else {
     navigate(domainURL);
@@ -207,8 +209,8 @@ export const onRouteUpdate = () => {
     }, 1500)
 }
 
-export const wrapPageElement = WrapPagesWithLocaleContext
+//export const wrapPageElement = WrapPagesWithLocaleContext
 
-// export const wrapPageElement = ({ element }) => {
-//     return <RedirectBasedOnLocation>{element}</RedirectBasedOnLocation>;
-// };
+export const wrapPageElement = () => {
+    return <RedirectBasedOnLocation>{WrapPagesWithLocaleContext}</RedirectBasedOnLocation>;
+};

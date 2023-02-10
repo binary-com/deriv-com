@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { navigate } from 'gatsby';
+import React, {useEffect} from 'react'
+import ReactDOM from 'react-dom';
 import { Pushwoosh } from 'web-push-notifications'
 import { eu_countries } from './src/common/country-base';
 import { WrapPagesWithLocaleContext } from './src/components/localization'
@@ -7,55 +7,69 @@ import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
-import { isTestlink } from './src/common/utility'
+import { isTestlink, isLocalhost } from './src/common/utility'
 import useDerivWS from 'components/hooks/use-deriv-ws';
 import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
-import { pushwoosh_app_code } from 'common/constants'
-
+import { pushwoosh_app_code, deriv_com_url } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
 
 const eu_subdomain_countries = eu_countries.filter(country => country !== 'gb');
 
-const domainURL = 'https://deriv-com-git-fork-habib-deriv-habib-redirection-using-gatsby.binary.sx/';
-const euDomainURL = 'https://eu.deriv.com';
-
 const redirectDomain = () => {
-  if (isTestlink) {
-    navigate(euDomainURL);
-  } else {
-    navigate(domainURL);
-  }
-};
+    const hostname = window.location.hostname
+    const subdomain = hostname.split('.')[0]
 
-export const RedirectBasedOnLocation = () => {
-    const [loading, setLoading] = useState(true);
-    const [is_redirection_applied, setRedirectionApplied] = useState(false)
-    const { send } = useDerivWS()
-
-    React.useEffect(() => {
-        if (!is_redirection_applied) {
-            send({ website_status: 1 }, (response) => {
-                if (!response.error) {
-                    const {
-                        website_status: { clients_country },
-                    } = response
-                    if (!eu_subdomain_countries.includes(clients_country)) {
-                        redirectDomain();
-                    }
-                    setRedirectionApplied(true)
-                    setLoading(false);
-                }
-            })
-        }
-    }, [is_redirection_applied]);
-  
-    if (loading) {
-      return <div>Loading...</div>;
+    if (subdomain === 'eu') {
+        window.location.replace(`https://${deriv_com_url}`)
+    } else {
+        window.location.replace(`https://eu.${deriv_com_url}`)
     }
+}
+
+const CheckLocation = () => {
+    const { response } = useDerivWS({ type: 'website_status' });
+  
+    useEffect(() => {
+      if (!response) {
+        return;
+      }
+  
+      const {
+        website_status: { clients_country },
+      } = response;
+  
+      if (isLocalhost() || isTestlink()) {
+        if (eu_subdomain_countries.includes(clients_country) === false) {
+            redirectDomain();
+        }
+      } else {
+        if (eu_subdomain_countries.includes(clients_country) === false) {
+          redirectDomain();
+        }
+      }
+    }, [response]);
   
     return null;
   };
+
+export const onClientEntry = () => {
+    const root = document.getElementById('___gatsby');
+    ReactDOM.render(<CheckLocation />, root);
+
+    const push_woosh = new Pushwoosh()
+    if (isLive()) {
+        pushwooshInit(push_woosh)
+    }
+
+    addScript({
+        src: 'https://static.deriv.com/scripts/cookie.js',
+        async: true,
+        strategy: 'off-main-thread',
+    })
+
+    checkLiveChatRedirection()
+}
 
 const is_browser = typeof window !== 'undefined'
 
@@ -168,21 +182,6 @@ export const onInitialClientRender = () => {
     }
 }
 
-export const onClientEntry = () => {
-    const push_woosh = new Pushwoosh()
-    if (isLive()) {
-        pushwooshInit(push_woosh)
-    }
-
-    addScript({
-        src: 'https://static.deriv.com/scripts/cookie.js',
-        async: true,
-        strategy: 'off-main-thread',
-    })
-
-    checkLiveChatRedirection()
-}
-
 export const onRouteUpdate = () => {
     checkDomain()
 
@@ -209,8 +208,8 @@ export const onRouteUpdate = () => {
     }, 1500)
 }
 
-//export const wrapPageElement = WrapPagesWithLocaleContext
+export const wrapPageElement = WrapPagesWithLocaleContext
 
-export const wrapPageElement = () => {
-    return <RedirectBasedOnLocation>{WrapPagesWithLocaleContext}</RedirectBasedOnLocation>;
-};
+// export const wrapPageElement = () => {
+//     return <RedirectBasedOnLocation>{WrapPagesWithLocaleContext}</RedirectBasedOnLocation>;
+// };

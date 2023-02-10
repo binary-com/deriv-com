@@ -1,6 +1,9 @@
 const isBrowser = () => typeof window !== 'undefined'
 
 export const deriv_com_url = 'deriv.com'
+export const deriv_eu_url = 'eu.deriv.com'
+export const staging_deriv_com_url = 'staging.deriv.com'
+export const staging_deriv_eu_url = 'staging-eu.deriv.com'
 export const deriv_me_url = 'deriv.me'
 export const deriv_be_url = 'deriv.be'
 export const staging_deriv_be_url = 'staging.deriv.be'

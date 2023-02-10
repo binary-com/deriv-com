@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react'
+import React, {useState} from 'react'
 import ReactDOM from 'react-dom';
+import { navigate } from 'gatsby';
 import { Pushwoosh } from 'web-push-notifications'
 import { eu_countries } from './src/common/country-base';
 import { WrapPagesWithLocaleContext } from './src/components/localization'
@@ -7,69 +8,40 @@ import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
-import { isTestlink, isLocalhost } from './src/common/utility'
+import { isTestlink, isLocalhost, isStaginglink, isEuDomain } from './src/common/utility'
 import useDerivWS from 'components/hooks/use-deriv-ws';
 import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
-import { pushwoosh_app_code, deriv_com_url } from 'common/constants'
+import { pushwoosh_app_code } from 'common/constants'
+
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
 
 const eu_subdomain_countries = eu_countries.filter(country => country !== 'gb');
 
-const redirectDomain = () => {
-    const hostname = window.location.hostname
-    const subdomain = hostname.split('.')[0]
+const test_redirection = true;
 
-    if (subdomain === 'eu') {
-        window.location.replace(`https://${deriv_com_url}`)
-    } else {
-        window.location.replace(`https://eu.${deriv_com_url}`)
+const deriv_com_url = 'https://deriv.com/'
+const deriv_eu_url = 'https://eu.deriv.com/'
+
+const redirectRowDomain = (country) => {
+    if (eu_subdomain_countries.includes(country) === false) {
+        if ((isTestlink || isLocalhost || isStaginglink) && test_redirection) {
+            navigate(deriv_com_url);
+          } else {
+            navigate(deriv_com_url);
+          }
     }
-}
+};
 
-const CheckLocation = () => {
-    const { response } = useDerivWS({ type: 'website_status' });
-  
-    useEffect(() => {
-      if (!response) {
-        return;
-      }
-  
-      const {
-        website_status: { clients_country },
-      } = response;
-  
-      if (isLocalhost() || isTestlink()) {
-        if (eu_subdomain_countries.includes(clients_country) === false) {
-            redirectDomain();
-        }
-      } else {
-        if (eu_subdomain_countries.includes(clients_country) === false) {
-          redirectDomain();
-        }
-      }
-    }, [response]);
-  
-    return null;
+const redirectEUDomain = (country) => {
+    if (eu_subdomain_countries.includes(country) === true) {
+        if ((isTestlink || isLocalhost || isStaginglink) && test_redirection) {
+            navigate(deriv_eu_url);
+          } else {
+              navigate(deriv_eu_url);
+          }
+    }
   };
-
-export const onClientEntry = () => {
-    const root = document.getElementById('___gatsby');
-    ReactDOM.render(<CheckLocation />, root);
-
-    const push_woosh = new Pushwoosh()
-    if (isLive()) {
-        pushwooshInit(push_woosh)
-    }
-
-    addScript({
-        src: 'https://static.deriv.com/scripts/cookie.js',
-        async: true,
-        strategy: 'off-main-thread',
-    })
-
-    checkLiveChatRedirection()
-}
 
 const is_browser = typeof window !== 'undefined'
 
@@ -180,6 +152,53 @@ export const onInitialClientRender = () => {
             document.head.appendChild(jipt)
         }
     }
+}
+
+export const onClientEntry = () => {
+    const RedirectBasedOnLocation = () => {
+        const [is_redirection_applied, setRedirectionApplied] = useState(false)
+        const { send } = useDerivWS()
+    
+        React.useEffect(() => {
+            if (!is_redirection_applied) {
+                send({ website_status: 1 }, (response) => {
+                    if (!response.error) {
+                        const {
+                            website_status: { clients_country },
+                        } = response
+                        if (eu_subdomain_countries.includes(clients_country) === true && window.location.hostname.includes('eu.')) {
+                            setRedirectionApplied(true)
+                            return;
+                        }
+                        if (eu_subdomain_countries.includes(clients_country) === false && !window.location.hostname.includes('eu.')) {
+                            setRedirectionApplied(true)
+                            return;
+                        }
+                        setRedirectionApplied(true)
+                        isEuDomain() && redirectRowDomain(clients_country);
+                        !isEuDomain() && redirectEUDomain(clients_country);
+                    }
+                })
+            }
+        }, [is_redirection_applied, send]);
+        
+        return null;
+    };
+    const root = document.getElementById('___gatsby');
+    ReactDOM.render(<RedirectBasedOnLocation />, root);
+
+    const push_woosh = new Pushwoosh()
+    if (isLive()) {
+        pushwooshInit(push_woosh)
+    }
+
+    addScript({
+        src: 'https://static.deriv.com/scripts/cookie.js',
+        async: true,
+        strategy: 'off-main-thread',
+    })
+
+    checkLiveChatRedirection()
 }
 
 export const onRouteUpdate = () => {

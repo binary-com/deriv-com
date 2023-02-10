@@ -446,10 +446,7 @@ export const handleRedirect = (residence: string, current_client_country: string
     const country = residence ? residence : current_client_country
 
     if (isLocalhost() || isTestlink()) {
-        if (eu_subdomain_countries.includes(country)) {
-            const subdomain = getSubdomain()
-            redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
-        }
+        return false
     } else {
         if (eu_subdomain_countries.includes(country)) {
             const subdomain = getSubdomain()
@@ -462,9 +459,7 @@ export const handleRowRedirect = (residence: string, current_client_country: str
     const country = residence ? residence : current_client_country
 
     if (isLocalhost() || isTestlink()) {
-        if (eu_subdomain_countries.includes(country) === false) {
-            redirectDomain()
-        }
+        return false
     } else {
         if (eu_subdomain_countries.includes(country) === false) {
             redirectDomain()

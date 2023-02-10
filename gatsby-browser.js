@@ -38,7 +38,6 @@ export const RedirectBasedOnLocation = () => {
                     const {
                         website_status: { clients_country },
                     } = response
-                    console.log(clients_country, 34);
                     if (!eu_subdomain_countries.includes(clients_country)) {
                         redirectDomain();
                     }
@@ -49,7 +48,7 @@ export const RedirectBasedOnLocation = () => {
         }
     }, [is_redirection_applied]);
   
-    if (!loading) {
+    if (loading) {
       return <div>Loading...</div>;
     }
   

@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom';
-import { navigate } from 'gatsby';
 import { Pushwoosh } from 'web-push-notifications'
 import { eu_countries } from './src/common/country-base';
 import { WrapPagesWithLocaleContext } from './src/components/localization'
@@ -26,9 +25,9 @@ const redirectRowDomain = (country) => {
     // Todo: Replace any url paths
     if (eu_subdomain_countries.includes(country) === false) {
         if ((isTestlink || isLocalhost || isStaginglink) && test_redirection) {
-            navigate(deriv_com_url);
+            window.location.href = deriv_com_url;
         } else {
-            navigate(deriv_com_url);
+            window.location.href = deriv_com_url;
         }
     }
 };
@@ -36,9 +35,9 @@ const redirectRowDomain = (country) => {
 const redirectEUDomain = (country) => {
     if (eu_subdomain_countries.includes(country) === true) {
         if ((isTestlink || isLocalhost || isStaginglink) && test_redirection) {
-            navigate(deriv_eu_url);
+            window.location.href = deriv_eu_url;
         } else {
-            navigate(deriv_eu_url);
+            window.location.href = deriv_eu_url;
         }
     }
 };
@@ -47,7 +46,7 @@ const RedirectBasedOnLocation = () => {
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
     const { send } = useDerivWS()
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (!is_redirection_applied) {
             send({ website_status: 1 }, (response) => {
                 if (!response.error) {
@@ -189,7 +188,7 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     const root = document.getElementById('___gatsby');
     ReactDOM.render(<RedirectBasedOnLocation />, root);
-    
+
     const push_woosh = new Pushwoosh()
     if (isLive()) {
         pushwooshInit(push_woosh)
@@ -231,7 +230,3 @@ export const onRouteUpdate = () => {
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext
-
-// export const wrapPageElement = () => {
-//     return <RedirectBasedOnLocation>{WrapPagesWithLocaleContext}</RedirectBasedOnLocation>;
-// };

@@ -149,8 +149,6 @@ export const wrapRootElement = ({ element }) => {
 
 export const onInitialClientRender = () => {
     if (is_browser) {
-        const root = document.getElementById('___gatsby');
-        ReactDOM.render(<RedirectBasedOnLocation />, root);
         // Check for PerformanceLongTaskTiming compatibility before collecting measurement
         const tti_script = document.createElement('script')
         tti_script.type = 'text/javascript'
@@ -189,7 +187,9 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
-
+    const root = document.getElementById('___gatsby');
+    ReactDOM.render(<RedirectBasedOnLocation />, root);
+    
     const push_woosh = new Pushwoosh()
     if (isLive()) {
         pushwooshInit(push_woosh)

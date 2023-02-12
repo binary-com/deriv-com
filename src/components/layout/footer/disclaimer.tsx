@@ -52,7 +52,7 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) is at Kingston Chambers, P.P Box 173, Road Town, Tortola, British Virgin Islands."
+                                translate_text="Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) is at Kingston Chambers, P.O Box 173, Road Town, Tortola, British Virgin Islands."
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -65,7 +65,7 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Deriv (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission (<0>licence</0>). The registered office of Deriv (V) Ltd is at 1276 Kumul Highway, Port Vila, Vanuatu, Deriv (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines."
+                                translate_text="Deriv (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission (<0>licence</0>). The registered office of Deriv (V) Ltd is at 1276 Kumul Highway, Port Vila, Vanuatu."
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -75,6 +75,11 @@ const DisclaimerSection = () => {
                                     />,
                                 ]}
                             />
+                        </DisclaimerParagraph>
+                        <DisclaimerParagraph>
+                            {localize(
+                                'Deriv (SVG) LLC has a registered office at Hinds Buildings, Kingstown, St. Vincent and the Grenadines.',
+                            )}
                         </DisclaimerParagraph>
                     </>
                 )}

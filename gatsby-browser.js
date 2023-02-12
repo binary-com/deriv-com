@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom';
+import { navigate } from 'gatsby';
 import { Pushwoosh } from 'web-push-notifications'
 import { eu_countries } from './src/common/country-base';
 import { WrapPagesWithLocaleContext } from './src/components/localization'
@@ -21,24 +22,14 @@ const eu_subdomain_checker = window.location.hostname.includes('eu.');
 const deriv_com_url = 'https://deriv.com/'
 const deriv_eu_url = 'https://eu.deriv.com/'
 
-const redirectRowDomain = (country) => {
-    // Todo: Replace any url paths
+const redirectDomain = (country) => {
     if (eu_subdomain_countries.includes(country) === false) {
-        if ((isTestlink || isLocalhost || isStaginglink) && test_redirection) {
-            window.location.href = deriv_com_url;
-        } else {
-            window.location.href = deriv_com_url;
-        }
+        navigate(deriv_com_url);
+    } else {
+        navigate(deriv_eu_url);
     }
-};
-
-const redirectEUDomain = (country) => {
-    if (eu_subdomain_countries.includes(country) === true) {
-        if ((isTestlink || isLocalhost || isStaginglink) && test_redirection) {
-            window.location.href = deriv_eu_url;
-        } else {
-            window.location.href = deriv_eu_url;
-        }
+    if ((isTestlink || isLocalhost || isStaginglink) && test_redirection) {
+        (eu_subdomain_countries.includes(country) === false) ? navigate(deriv_com_url) : navigate(deriv_eu_url);
     }
 };
 
@@ -50,22 +41,23 @@ const RedirectBasedOnLocation = () => {
         if (!is_redirection_applied) {
             send({ website_status: 1 }, (response) => {
                 if (!response.error) {
-                    const {
-                        website_status: { clients_country },
-                    } = response
-                    if (eu_subdomain_countries.includes(clients_country) === true
+                    const clientsCountry = response.website_status && response.website_status.clients_country;
+                    if (!clientsCountry) {
+                        return;
+                    }
+                    if (eu_subdomain_countries.includes(clientsCountry) === true
                         && eu_subdomain_checker) {
                         setRedirectionApplied(true)
                         return;
                     }
-                    if (eu_subdomain_countries.includes(clients_country) === false
+                    if (eu_subdomain_countries.includes(clientsCountry) === false
                         && !eu_subdomain_checker) {
                         setRedirectionApplied(true)
                         return;
                     }
                     setRedirectionApplied(true)
-                    isEuDomain() && redirectRowDomain(clients_country);
-                    !isEuDomain() && redirectEUDomain(clients_country);
+                    const isEu = isEuDomain();
+                    isEu ? redirectDomain(clientsCountry) : redirectDomain(clientsCountry), [isEu, clientsCountry];
                 }
             })
         }

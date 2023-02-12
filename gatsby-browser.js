@@ -56,8 +56,8 @@ const RedirectBasedOnLocation = () => {
                         return;
                     }
                     setRedirectionApplied(true)
-                    const isEu = isEuDomain();
-                    isEu ? redirectDomain(clientsCountry) : redirectDomain(clientsCountry), [isEu, clientsCountry];
+                    isEuDomain() && redirectDomain(clientsCountry);
+                    !isEuDomain() && redirectDomain(clientsCountry);
                 }
             })
         }

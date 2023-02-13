@@ -12,6 +12,7 @@ import {
 import Numbers from './_numbers'
 import WhatIsTrader from './_what-is-trader'
 import DHero from 'components/custom/_dhero-dmt5'
+import { DotLoader } from 'components/elements'
 import BackgroundPatternDMT5 from 'images/svg/dmt5/bg_banner_dmt5.svg'
 import BackgroundPatternDMT5_mobile from 'images/svg/dmt5/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'
@@ -22,6 +23,7 @@ import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { MetaAttributesType } from 'types/page.types'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 
 const meta_attributes: MetaAttributesType = {
     og_title: localize('DMT5 | MetaTrader 5 | Deriv'),
@@ -59,6 +61,32 @@ const DMT5 = () => {
         window.addEventListener('resize', handleResizeWindow)
     }, [])
 
+    const target = '#gatsby-focus-wrapper'
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.7,
+    }
+    const lazy_components = (
+        <>
+            <WhyTrader fallback={<DotLoader />} />
+            <StartTrader />
+            <DownloadApp />
+            <MarginCalculator />
+            <Flexibility />
+            <SwapFreeTrading fallback={<DotLoader />} />
+            <DBanner
+                background_pattern={
+                    is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
+                }
+                title={<Localize translate_text="Get into the Deriv MT5 experience" />}
+                data={data}
+                image_alt="DMT5 trading platform"
+                is_mt5
+            />
+        </>
+    )
+    const lazyTemplate = useHandleLazyLoad(lazy_components, target, options)
     const is_rtl = useIsRtl()
     const background = useMemo(() => {
         if (is_mobile) {
@@ -107,24 +135,9 @@ const DMT5 = () => {
                     background={background}
                 />
             </Mobile>
-
             <Numbers />
             <WhatIsTrader />
-            <WhyTrader />
-            <StartTrader />
-            <DownloadApp />
-            <MarginCalculator />
-            <Flexibility />
-            <SwapFreeTrading />
-            <DBanner
-                background_pattern={
-                    is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
-                }
-                title={<Localize translate_text="Get into the Deriv MT5 experience" />}
-                data={data}
-                image_alt="DMT5 trading platform"
-                is_mt5
-            />
+            {lazyTemplate}
         </Layout>
     )
 }

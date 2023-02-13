@@ -353,10 +353,11 @@ module.exports = {
                                 },
                                 banner: { populate: { image: true } },
                             },
+                            publicationState:
+                                process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
                         },
                     },
                 ],
-                cache: false,
             },
         },
     ],

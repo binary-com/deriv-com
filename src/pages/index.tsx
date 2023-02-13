@@ -22,7 +22,7 @@ import useRegion from 'components/hooks/use-region'
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat(true)
-    const { is_p2p_allowed_country } = useRegion()
+    const { is_p2p_allowed_country, is_eu } = useRegion()
 
     const target = '#live-pricing'
     const options = {

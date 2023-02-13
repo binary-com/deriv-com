@@ -97,10 +97,10 @@ const DerivNumbers = ({ deriv_in_numbers }: any) => {
             <StyledFlex>
                 <TitleSection fd="column">
                     <TitleHeader as="h6" color="black-2" align="start" type="unset">
-                        {deriv_in_numbers.header}
+                        {deriv_in_numbers?.header}
                     </TitleHeader>
                     <StyledHeader as="h6" size="24px" align="start" weight="400" type="unset">
-                        {deriv_in_numbers.sub_header}
+                        {deriv_in_numbers?.sub_header}
                     </StyledHeader>
                 </TitleSection>
                 <NumberSection
@@ -110,7 +110,7 @@ const DerivNumbers = ({ deriv_in_numbers }: any) => {
                     row_gap="4rem"
                     height="unset"
                 >
-                    {deriv_in_numbers.numbers.map(({ number, description }) => {
+                    {deriv_in_numbers?.numbers.map(({ number, description }) => {
                         return (
                             <Flex key={description} fd="column" height="unset">
                                 <NumberHeader size="48px" type="unset">

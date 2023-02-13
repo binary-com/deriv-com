@@ -89,7 +89,7 @@ const Hero = ({ hero }: any) => {
                 <Desktop>
                     <StyledFlex>
                         <StyledImage
-                            src={process.env.STRAPI_URL + hero.hero_image.url}
+                            src={process.env.STRAPI_URL + hero?.hero_image.url}
                             alt="example"
                             loading="eager"
                         />
@@ -100,7 +100,7 @@ const Hero = ({ hero }: any) => {
                         {/*    loading="eager"*/}
                         {/*/>*/}
                         <Flex jc="center" p="0 32px" max_width="1440px">
-                            <DesktopHeader>{hero.header}</DesktopHeader>
+                            <DesktopHeader>{hero?.header}</DesktopHeader>
                         </Flex>
                     </StyledFlex>
                 </Desktop>
@@ -111,7 +111,7 @@ const Hero = ({ hero }: any) => {
                         {/*    alt="example"*/}
                         {/*    width="unset"*/}
                         {/*/>*/}
-                        <MobileHeader>{hero.header}</MobileHeader>
+                        <MobileHeader>{hero?.header}</MobileHeader>
                     </Flex>
                 </Mobile>
             </ContentWrapper>

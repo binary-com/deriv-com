@@ -37,19 +37,19 @@ type FirstSectionTextsType = {
 }
 const MakeTrading = ({ hero }: any) => {
     const first_section_texts: FirstSectionTextsType[] = [
-        { text: hero.first_paragraph },
-        { text: hero.second_paragraph },
-        { text: hero.third_paragraph },
+        { text: hero?.first_paragraph },
+        { text: hero?.second_paragraph },
+        { text: hero?.third_paragraph },
     ]
     return (
         <FirstSectionContainer padding="120px 0 80px" background="var(--color-white)">
-            {first_section_texts.map(({ text }) => (
+            {first_section_texts?.map(({ text }) => (
                 <StyledFirstSectionText as="p" type="unset" key={text} size="24px">
                     {text}
                 </StyledFirstSectionText>
             ))}
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {hero.sub_header}
+                {hero?.sub_header}
             </StyledHeader>
         </FirstSectionContainer>
     )

@@ -118,7 +118,7 @@ const AboutUsBanner = ({ banner }: any) => {
             >
                 <PictureFlex jc="start" ai="start" direction="column">
                     <StyledHeader as="h3" width="100%" type="unset" size="32px" color="white">
-                        {banner.header}
+                        {banner?.header}
                     </StyledHeader>
                     <StyledHeader2
                         width="100%"
@@ -127,10 +127,10 @@ const AboutUsBanner = ({ banner }: any) => {
                         size="16px"
                         weight="400px"
                     >
-                        {banner.sub_header}
+                        {banner?.sub_header}
                     </StyledHeader2>
-                    <StyledLinkButton secondary to={process.env.STRAPI_URL + banner.link_url}>
-                        {banner.link_name}
+                    <StyledLinkButton secondary to={process.env.STRAPI_URL + banner?.link_url}>
+                        {banner?.link_name}
                     </StyledLinkButton>
                 </PictureFlex>
             </StyledFlex>

@@ -86,10 +86,10 @@ const OurPrinciples = ({ our_principles }: any) => {
     return (
         <StyledSection>
             <Header as="h2" align="center" type="heading-2" mb="40px" laptop={{ mb: '24px' }}>
-                {our_principles.header}
+                {our_principles?.header}
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
-                {our_principles.principles.map(({ header, sub_header }, idx) => (
+                {our_principles?.principles.map(({ header, sub_header }, idx) => (
                     <div key={idx}>
                         <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
                         <InsideFlex
@@ -112,7 +112,7 @@ const OurPrinciples = ({ our_principles }: any) => {
                 <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
             </StyledFlex>
             <StyledLinkButton
-                to={process.env.STRAPI_URL + our_principles.button.link_url}
+                to={process.env.STRAPI_URL + our_principles?.button.link_url}
                 secondary
             >
                 {our_principles.button.link_name}

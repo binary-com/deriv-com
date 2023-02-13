@@ -47,7 +47,7 @@ const AboutUs = ({ data }: any) => {
         slider,
         our_locations,
         banner,
-    } = data?.allStrapiWhoWeArePage.nodes[0]
+    } = data?.allStrapiWhoWeArePage.nodes[0] || {}
 
     return (
         <Layout type="transparent" margin_top="0">

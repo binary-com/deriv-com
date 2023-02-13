@@ -102,7 +102,7 @@ const OurLeadership = ({ our_lidership }: any) => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {our_lidership.header}
+                {our_lidership?.header}
             </StyledHeader>
             <StyledCssGrid
                 height="unset"
@@ -117,7 +117,7 @@ const OurLeadership = ({ our_lidership }: any) => {
                 mobile_column_gap="24px"
                 mobile_row_gap="6px"
             >
-                {our_lidership.map(({ name, role, photo, link_url }) => (
+                {our_lidership?.map(({ name, role, photo, link_url }) => (
                     <StyledImageWrapper
                         key={name}
                         onMouseOver={showModal}

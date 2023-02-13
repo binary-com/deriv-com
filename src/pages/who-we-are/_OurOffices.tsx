@@ -92,8 +92,6 @@ const StyledFlex = styled(Flex)`
 `
 
 const OurOffices = ({ our_locations }: any) => {
-    const { locations } = our_locations
-
     // when we're adding new locations we have to add it in strapi and placement of pin in the end of each list
     const desktop_pins: MapPinType[] = [
         {
@@ -254,30 +252,30 @@ const OurOffices = ({ our_locations }: any) => {
 
     const desktop = []
     const mobile = []
-    locations.map((pin, index) => {
-        desktop.push({ ...locations[index], ...desktop_pins[index] })
-        mobile.push({ ...locations[index], ...mobile_pins[index] })
+    our_locations?.locations?.map((pin, index) => {
+        desktop.push({ ...our_locations.locations[index], ...desktop_pins[index] })
+        mobile.push({ ...our_locations.locations[index], ...mobile_pins[index] })
     })
-    console.log(desktop, mobile)
+
     const data = useStaticQuery(query)
 
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {our_locations.header}
+                {our_locations?.header}
             </StyledHeader>
 
             <Flex>
                 <Desktop>
                     <MapImage data={data['earth']}>
-                        {desktop_pins.map((pin, idx) => (
+                        {desktop_pins?.map((pin, idx) => (
                             <MapPin key={idx} {...pin} />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
                     <MapImage data={data['earth_mobile']}>
-                        {mobile_pins.map((pin, idx) => (
+                        {mobile_pins?.map((pin, idx) => (
                             <MapPin key={idx} {...pin} />
                         ))}
                     </MapImage>
@@ -285,7 +283,7 @@ const OurOffices = ({ our_locations }: any) => {
             </Flex>
 
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
-                {our_locations.numbers.map(({ description, number }) => (
+                {our_locations?.numbers.map(({ description, number }) => (
                     <StyledFlex fd="column" key={description}>
                         <NumberHeader size="32px">{number}</NumberHeader>
                         <NumberText size="16px" align="center">

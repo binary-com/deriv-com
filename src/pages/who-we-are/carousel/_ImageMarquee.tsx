@@ -1,34 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import Ticker from 'react-ticker'
-import type { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-
-const queryCarouselData = graphql`
-    query {
-        media1: file(relativePath: { eq: "about-us-carousel/media-1.jpg" }) {
-            ...fadeIn
-        }
-        media2: file(relativePath: { eq: "about-us-carousel/media-2.jpg" }) {
-            ...fadeIn
-        }
-        media3: file(relativePath: { eq: "about-us-carousel/media-3.jpg" }) {
-            ...fadeIn
-        }
-        media4: file(relativePath: { eq: "about-us-carousel/media-4.jpg" }) {
-            ...fadeIn
-        }
-        media5: file(relativePath: { eq: "about-us-carousel/media-5.jpg" }) {
-            ...fadeIn
-        }
-        media6: file(relativePath: { eq: "about-us-carousel/media-6.jpg" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const CarouselSlide = styled.div`
     position: relative;
@@ -112,29 +87,19 @@ const StyledQueryImage = styled(QueryImage)<{ is_rtl: boolean }>`
     }
 `
 
-const ImageMarquee = () => {
-    const carousel_data = useStaticQuery(queryCarouselData)
-    const carousel_images: ImageDataLike[] = [
-        carousel_data.media1,
-        carousel_data.media2,
-        carousel_data.media3,
-        carousel_data.media4,
-        carousel_data.media5,
-        carousel_data.media6,
-    ]
-
+const ImageMarquee = ({ slider }: any) => {
     const is_rtl = useIsRtl()
 
     return (
         <Ticker speed={20}>
             {() => (
                 <div style={{ display: 'flex' }}>
-                    {carousel_images.map((carouselItem, index) => (
+                    {slider.map((carouselItem, index) => (
                         <CarouselSlide key={index}>
                             <StyledImageWrapper>
                                 <StyledQueryImage
                                     is_rtl={is_rtl}
-                                    data={carouselItem}
+                                    data={carouselItem.url}
                                     alt=""
                                     loading="eager"
                                 />

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-// import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
 import ImageMarquee from './carousel/_ImageMarquee'
@@ -16,117 +16,6 @@ import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-
-// const query = graphql`
-//     query Hero {
-//         whoWeArePage(locale: "all") {
-//             data {
-//                 attributes {
-//                     hero {
-//                         header
-//                         sub_header
-//                         first_paragraph
-//                         second_paragraph
-//                         third_paragraph
-//                         hero_image {
-//                             data {
-//                                 attributes {
-//                                     url
-//                                 }
-//                             }
-//                         }
-//                     }
-//                     our_values {
-//                         header
-//                         values {
-//                             header
-//                             sub_header
-//                             image {
-//                                 data {
-//                                     attributes {
-//                                         url
-//                                     }
-//                                 }
-//                             }
-//                         }
-//                     }
-//                     our_principles {
-//                         header
-//                         our_principles {
-//                             header
-//                             sub_header
-//                         }
-//                         button {
-//                             link_name
-//                             link_url
-//                         }
-//                     }
-//                     our_lidership {
-//                         Managers {
-//                             name
-//                             role
-//                             link_url
-//                             photo {
-//                                 data {
-//                                     attributes {
-//                                         url
-//                                     }
-//                                 }
-//                             }
-//                         }
-//                     }
-//                     deriv_in_numbers {
-//                         header
-//                         sub_header
-//                         numbers {
-//                             description
-//                             number
-//                         }
-//                     }
-//                     slider {
-//                         slider_media {
-//                             data {
-//                                 attributes {
-//                                     url
-//                                 }
-//                             }
-//                         }
-//                     }
-//                     our_locations {
-//                         header
-//                         world_map {
-//                             data {
-//                                 attributes {
-//                                     url
-//                                 }
-//                             }
-//                         }
-//                         location {
-//                             country_city
-//                         }
-//                         numbers {
-//                             description
-//                             number
-//                         }
-//                     }
-//                     banner {
-//                         banner {
-//                             header
-//                             sub_header
-//                             image {
-//                                 data {
-//                                     attributes {
-//                                         url
-//                                     }
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// `
 
 const StartSeparator = styled.div`
     width: 0;
@@ -148,9 +37,18 @@ const EndSeparator = styled.div`
     }
 `
 
-const AboutUs = () => {
-    // useStaticQuery(query)
-    // console.log(query)
+const AboutUs = ({ data }: any) => {
+    const {
+        hero,
+        our_values,
+        our_principles,
+        our_lidership,
+        deriv_in_numbers,
+        slider,
+        our_locations,
+        banner,
+    } = data?.allStrapiWhoWeArePage.nodes[0]
+
     return (
         <Layout type="transparent" margin_top="0">
             <SEO
@@ -159,19 +57,100 @@ const AboutUs = () => {
                     'Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade.',
                 )}
             />
-            <Hero />
-            <MakeTrading />
+            <Hero hero={hero} />
+            <MakeTrading hero={hero} />
             <StartSeparator />
-            <OurValues />
+            <OurValues our_values={our_values} />
             <EndSeparator />
-            <OurPrinciples />
-            <OurLeadership />
-            <DerivNumbers />
-            <ImageMarquee />
-            <OurOffices />
-            <AboutUsBanner />
+            <OurPrinciples our_principles={our_principles} />
+            <OurLeadership our_lidership={our_lidership} />
+            <DerivNumbers deriv_in_numbers={deriv_in_numbers} />
+            <ImageMarquee slider={slider} />
+            <OurOffices our_locations={our_locations} />
+            <AboutUsBanner banner={banner} />
         </Layout>
     )
 }
+export const query = graphql`
+    query ($locale: String!) {
+        allStrapiWhoWeArePage(filter: { locale: { eq: $locale } }) {
+            nodes {
+                hero {
+                    header
+                    hero_image {
+                        url
+                    }
+                    sub_header
+                    first_paragraph
+                    second_paragraph
+                    third_paragraph
+                }
+                our_values {
+                    header
+                    values {
+                        header
+                        sub_header
+                        image {
+                            url
+                        }
+                    }
+                }
+                our_principles {
+                    header
+                    principles {
+                        header
+                        sub_header
+                    }
+                    button {
+                        link_name
+                        link_url
+                    }
+                }
+                our_lidership {
+                    name
+                    role
+                    link_url
+                    photo {
+                        url
+                    }
+                }
+                deriv_in_numbers {
+                    header
+                    sub_header
+                    numbers {
+                        description
+                        number
+                    }
+                }
+                slider {
+                    url
+                }
+                our_locations {
+                    header
+                    world_map {
+                        url
+                    }
+                    numbers {
+                        description
+                        number
+                    }
+                    locations {
+                        country_city
+                        link_url
+                    }
+                }
+                banner {
+                    header
+                    sub_header
+                    link_name
+                    link_url
+                    image {
+                        url
+                    }
+                }
+            }
+        }
+    }
+`
 
 export default WithIntl()(AboutUs)

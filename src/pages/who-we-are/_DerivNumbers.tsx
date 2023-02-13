@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { deriv_numbers } from './_data'
-import { localize } from 'components/localization'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
@@ -102,18 +100,16 @@ const NumberText = styled(Text)`
     text-align: start;
 `
 
-const DerivNumbers = () => {
+const DerivNumbers = ({ deriv_in_numbers }: any) => {
     return (
         <StyledSection>
             <StyledFlex>
                 <TitleSection fd="column">
                     <TitleHeader as="h6" color="black-2" align="start" type="unset">
-                        {localize('Deriv in numbers')}
+                        {deriv_in_numbers.header}
                     </TitleHeader>
                     <StyledHeader as="h6" size="24px" align="start" weight="400" type="unset">
-                        {localize(
-                            'We aim to deliver market-leading products that are trusted around the world.',
-                        )}
+                        {deriv_in_numbers.sub_header}
                     </StyledHeader>
                 </TitleSection>
                 <NumberSection
@@ -123,18 +119,18 @@ const DerivNumbers = () => {
                     row_gap="4rem"
                     height="unset"
                 >
-                    {deriv_numbers.map((number) =>
-                        number.map(({ count, title }) => (
-                            <Flex key={title.props.translate_text} fd="column" height="unset">
+                    {deriv_in_numbers.numbers.map(({ number, description }) => {
+                        return (
+                            <Flex key={description} fd="column" height="unset">
                                 <NumberHeader size="48px" type="unset">
-                                    {count}
+                                    {number}
                                 </NumberHeader>
                                 <NumberText size="20px" align="start">
-                                    {title}
+                                    {description}
                                 </NumberText>
                             </Flex>
-                        )),
-                    )}
+                        )
+                    })}
                 </NumberSection>
             </StyledFlex>
         </StyledSection>

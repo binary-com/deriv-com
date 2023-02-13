@@ -13,7 +13,7 @@ import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-
+/* eslint-disable */
 type MarketType = {
     icon: () => ReactElement
     title: ReactElement

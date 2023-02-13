@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { desktop_pins, mobile_pins, our_offices_count } from './_data'
-import MapPin from './components/map-pin'
-import { localize } from 'components/localization'
+import MapPin, { MapPinType } from './components/map-pin'
 import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
@@ -18,7 +16,6 @@ const query = graphql`
         }
     }
 `
-
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
     overflow: hidden;
@@ -31,7 +28,6 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding: 0 16px 40px;
     }
 `
-
 const StyledHeader = styled(Header)`
     line-height: 4rem;
     margin-bottom: 40px;
@@ -64,7 +60,6 @@ const NumberHeader = styled(Text)`
         font-size: 24px;
     }
 `
-
 const NumberText = styled(Text)`
     font-weight: 400;
     text-align: center;
@@ -72,7 +67,6 @@ const NumberText = styled(Text)`
         font-size: 14px;
     }
 `
-
 const MapImage = styled(BackgroundImage)`
     position: relative;
     width: 840px;
@@ -93,18 +87,186 @@ const MapImage = styled(BackgroundImage)`
         overflow: hidden;
     }
 `
-
 const StyledFlex = styled(Flex)`
     height: unset;
 `
 
-const OurOffices = () => {
+const OurOffices = ({ our_locations }: any) => {
+    const { locations } = our_locations
+
+    // when we're adding new locations we have to add it in strapi and placement of pin in the end of each list
+    const desktop_pins: MapPinType[] = [
+        {
+            left: '30%',
+            top: '74%',
+        },
+        {
+            left: '31%',
+            top: '76%',
+        },
+        {
+            left: '23.5%',
+            top: '50%',
+        },
+        {
+            left: '50%',
+            top: '39.5%',
+        },
+        {
+            left: '55%',
+            top: '40%',
+        },
+        {
+            left: '56%',
+            top: '43%',
+        },
+        {
+            left: '54%',
+            top: '61.5%',
+        },
+        {
+            left: '54%',
+            top: '27.5%',
+        },
+        {
+            left: '61.5%',
+            top: '45.9%',
+        },
+        {
+            left: '73.3%',
+            top: '57.5%',
+        },
+        {
+            left: '74.2%',
+            top: '58.5%',
+        },
+        {
+            left: '74.2%',
+            top: '60.6%',
+        },
+        {
+            left: '77.2%',
+            top: '58.7%',
+        },
+        {
+            left: '47.4%',
+            top: '30.9%',
+        },
+        {
+            left: '28.3%',
+            top: '50.8%',
+        },
+        {
+            left: '49.4%',
+            top: '27.9%',
+        },
+        {
+            left: '44.5%',
+            top: '30.9%',
+        },
+        {
+            left: '92.2%',
+            top: '69.7%',
+        },
+        {
+            left: '74.6%',
+            top: '61%',
+        },
+    ]
+    const mobile_pins: MapPinType[] = [
+        {
+            left: '28.5%',
+            top: '71%',
+        },
+        {
+            left: '30%',
+            top: '75%',
+        },
+        {
+            left: '22%',
+            top: '47.7%',
+        },
+        {
+            left: '26%',
+            top: '48%',
+        },
+        {
+            left: '48.5%',
+            top: '35.5%',
+        },
+        {
+            left: '53.5%',
+            top: '36%',
+        },
+        {
+            left: '56.5%',
+            top: '37%',
+        },
+        {
+            left: '52.5%',
+            top: '57.5%',
+        },
+        {
+            left: '52.5%',
+            top: '23.5%',
+        },
+        {
+            left: '60%',
+            top: '41.9%',
+        },
+        {
+            left: '72.3%',
+            top: '51.2%',
+        },
+        {
+            left: '71%',
+            top: '55%',
+        },
+        {
+            left: '73%',
+            top: '56.7%',
+        },
+        {
+            left: '74.5%',
+            top: '57.9%',
+        },
+        {
+            left: '47.9%',
+            top: '24.9%',
+        },
+        {
+            left: '76%',
+            top: '54.7%',
+        },
+        {
+            left: '45.9%',
+            top: '26.9%',
+        },
+        {
+            left: '43%',
+            top: '26.9%',
+        },
+        {
+            left: '92.5%',
+            top: '65.1%',
+        },
+    ]
+
+    const desktop = []
+    const mobile = []
+    locations.map((pin, index) => {
+        desktop.push({ ...locations[index], ...desktop_pins[index] })
+        mobile.push({ ...locations[index], ...mobile_pins[index] })
+    })
+    console.log(desktop, mobile)
     const data = useStaticQuery(query)
+
+    console.log(our_locations)
 
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {localize('Our locations')}
+                {our_locations.header}
             </StyledHeader>
 
             <Flex>
@@ -125,11 +287,11 @@ const OurOffices = () => {
             </Flex>
 
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
-                {our_offices_count.map(({ count, title }) => (
-                    <StyledFlex fd="column" key={title.props.translate_text}>
-                        <NumberHeader size="32px">{count}</NumberHeader>
+                {our_locations.numbers.map(({ description, number }) => (
+                    <StyledFlex fd="column" key={description}>
+                        <NumberHeader size="32px">{number}</NumberHeader>
                         <NumberText size="16px" align="center">
-                            {title}
+                            {description}
                         </NumberText>
                     </StyledFlex>
                 ))}

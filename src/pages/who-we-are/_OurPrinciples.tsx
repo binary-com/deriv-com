@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { our_principles } from './_data'
-import { localize } from 'components/localization'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Divider } from 'components/elements'
 import device from 'themes/device'
@@ -77,14 +75,21 @@ const ColoredBox = styled(Box)<{ bgcolor: string }>`
     }
 `
 
-const OurPrinciples = () => {
+const OurPrinciples = ({ our_principles }: any) => {
+    const colors = [
+        'rgba(133, 189, 177, 0.25)',
+        'rgba(255, 195, 89, 0.25)',
+        'rgba(150, 133, 189, 0.25)',
+        'rgba(119, 160, 198, 0.25)',
+    ]
+
     return (
         <StyledSection>
             <Header as="h2" align="center" type="heading-2" mb="40px" laptop={{ mb: '24px' }}>
-                {localize('Our principles are the framework for our decisions')}
+                {our_principles.header}
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
-                {our_principles.map(({ color, title, text }, idx) => (
+                {our_principles.principles.map(({ header, sub_header }, idx) => (
                     <div key={idx}>
                         <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
                         <InsideFlex
@@ -96,18 +101,18 @@ const OurPrinciples = () => {
                             tablet_ai="left"
                         >
                             <StyledDiv>
-                                <ColoredBox bgcolor={color}>{title}</ColoredBox>
+                                <ColoredBox bgcolor={colors[idx]}>{header}</ColoredBox>
                             </StyledDiv>
                             <StyledText as="p" type="sub-paragraph" weight="400">
-                                {text}
+                                {sub_header}
                             </StyledText>
                         </InsideFlex>
                     </div>
                 ))}
                 <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
             </StyledFlex>
-            <StyledLinkButton to="/our-principles/" secondary>
-                {localize('Learn more about our principles')}
+            <StyledLinkButton to={our_principles.button.link_url} secondary>
+                {our_principles.button.link_name}
             </StyledLinkButton>
         </StyledSection>
     )

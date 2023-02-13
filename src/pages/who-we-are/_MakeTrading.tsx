@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { first_section_texts } from './_data'
-import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -34,17 +32,24 @@ const StyledFirstSectionText = styled(Header)`
         padding: 0 0 24px 0;
     }
 `
-
-const MakeTrading = () => {
+type FirstSectionTextsType = {
+    text: string
+}
+const MakeTrading = ({ hero }: any) => {
+    const first_section_texts: FirstSectionTextsType[] = [
+        { text: hero.first_paragraph },
+        { text: hero.second_paragraph },
+        { text: hero.third_paragraph },
+    ]
     return (
         <FirstSectionContainer padding="120px 0 80px" background="var(--color-white)">
-            {first_section_texts.map(({ text }, index) => (
-                <StyledFirstSectionText as="p" type="unset" key={index} size="24px">
+            {first_section_texts.map(({ text }) => (
+                <StyledFirstSectionText as="p" type="unset" key={text} size="24px">
                     {text}
                 </StyledFirstSectionText>
             ))}
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {localize('Make trading accessible to anyone, anywhere')}
+                {hero.sub_header}
             </StyledHeader>
         </FirstSectionContainer>
     )

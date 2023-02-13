@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { ModalFlex } from './leaders'
+import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
 import Linkedin from 'images/svg/who-we-are/linkedin.svg'
+import device from 'themes/device'
 
 type ModalPropsType = {
     name: string
@@ -22,6 +23,26 @@ const StyledLogo = styled.img<StyledLogoType>`
 
     &:hover {
         filter: ${(props) => (props.link ? 'unset' : 'grayscale(100%)')};
+    }
+`
+const ModalFlex = styled(Flex)`
+    position: absolute;
+    top: 130px;
+    background-color: white;
+    padding: 8px 16px 6px;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 4px 15px;
+    white-space: pre;
+    width: fit-content;
+    @media ${device.tablet} {
+        top: 124px;
+    }
+    @media ${device.tabletS} {
+        top: 108px;
+    }
+    @media ${device.mobileL} {
+        top: 93px;
     }
 `
 

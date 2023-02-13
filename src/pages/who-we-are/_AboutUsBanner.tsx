@@ -4,7 +4,6 @@ import BgMobile from 'images/common/who-we-are/about-us-banner-mobile.jpg'
 import BgMobileRTL from 'images/common/who-we-are/about-us-banner-mobile_rtl.jpg'
 import Bg from 'images/common/who-we-are/about-us-banner.jpg'
 import BgRTL from 'images/common/who-we-are/about-us-banner_rtl.jpg'
-import { localize } from 'components/localization'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
@@ -106,7 +105,7 @@ const StyledLinkButton = styled(LinkButton)`
     }
 `
 
-const AboutUsBanner = () => {
+const AboutUsBanner = ({ banner }: any) => {
     const is_rtl = useIsRtl()
     return (
         <StyledSectionContainer>
@@ -119,7 +118,7 @@ const AboutUsBanner = () => {
             >
                 <PictureFlex jc="start" ai="start" direction="column">
                     <StyledHeader as="h3" width="100%" type="unset" size="32px" color="white">
-                        {localize('We have a huge mission, an incredible team, and rapid growth.')}
+                        {banner.header}
                     </StyledHeader>
                     <StyledHeader2
                         width="100%"
@@ -128,10 +127,10 @@ const AboutUsBanner = () => {
                         size="16px"
                         weight="400px"
                     >
-                        {localize('Join and grow with us.')}
+                        {banner.sub_header}
                     </StyledHeader2>
-                    <StyledLinkButton secondary to="/careers/">
-                        {localize('See our open positions')}
+                    <StyledLinkButton secondary to={banner.link_url}>
+                        {banner.link_name}
                     </StyledLinkButton>
                 </PictureFlex>
             </StyledFlex>

@@ -10,12 +10,6 @@ const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
-const strapi_url = 'https://deriv-com-content.herokuapp.com'
-const strapi_token =
-    '6d129d1099ecd337db5b2440eb3c89ceb56474bce549b27645f169c254d2e3a87aa4df8a0e852b11b57da1bcc2dfa1f3756a1871ff8d1c209460637819780a5f6fe3f739959fb4c073529d5195687e8f5f90cbae24fa98fd18fbfafa15ebf54e47fbf3d95aa79a4271f9e5ced07c22a63e1bf5cd7037c4d7aab2f5675a615df6'
-const strapi_login = 'Nikita'
-const strapi_pass = 'NikitaNikita'
-
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
@@ -334,8 +328,8 @@ module.exports = {
         {
             resolve: 'gatsby-source-strapi',
             options: {
-                apiURL: `${strapi_url}`,
-                accessToken: `${strapi_token}`,
+                apiURL: process.env.STRAPI_URL,
+                accessToken: process.env.STRAPI_TOKEN,
                 collectionTypes: [
                     {
                         singularName: 'who-we-are-page',
@@ -349,12 +343,14 @@ module.exports = {
                                 hero: { populate: { hero_image: true, bg_image: true } },
                                 our_values: { populate: { values: { populate: { image: true } } } },
                                 our_principles: {
-                                    populate: { our_principles: true, button: true },
+                                    populate: { principles: true, button: true },
                                 },
                                 our_lidership: { populate: { photo: true } },
                                 deriv_in_numbers: { populate: { numbers: true } },
-                                slider: { populate: { slider_media: true } },
-                                our_locations: { populate: { world_map: true, location: true } },
+                                slider: true,
+                                our_locations: {
+                                    populate: { world_map: true, locations: true, numbers: true },
+                                },
                                 banner: { populate: { image: true } },
                             },
                         },

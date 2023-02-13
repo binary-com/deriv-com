@@ -40,7 +40,7 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
         send(
             { trading_platform_asset_listing: 1, platform: 'mt5', type: 'brief', region: 'row' },
             (response: TMarketDataResponse) => {
-                const responseData = [...response.trading_platform_asset_listing.mt5.assets]
+                const responseData = [...response?.trading_platform_asset_listing?.mt5?.assets]
                 const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
 
                 responseData.forEach((item) => {

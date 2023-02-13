@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import DtraderEasySteps from './_steps_section'
 import DtraderGetApps from './_get-app-section'
+import OurPlatforms from './_our-platforms'
 import { OtherPlatform } from 'components/custom/other-platforms'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -174,6 +175,7 @@ const Dtrader = () => {
                 data={data}
             />
             <DtraderGetApps />
+            <OurPlatforms />
         </Layout>
     )
 }

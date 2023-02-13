@@ -1,14 +1,15 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import StepperView from 'components/custom/_stepper_view'
-import { size } from 'themes/device'
+import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { Container, SectionContainer } from 'components/containers'
 import Button from 'components/custom/_button'
 import CommonHeaderSection from 'components/elements/common-header-section'
+import { LinkButton } from 'components/form'
 
 const query = graphql`
     query {
@@ -30,6 +31,25 @@ const query = graphql`
         step_3_eu: file(relativePath: { eq: "dtrader/step_image_3_eu.png" }) {
             ...fadeIn
         }
+    }
+`
+const GoToLiveDemo = styled(LinkButton)`
+    border: 2px solid var(--color-red);
+    font-weight: bold;
+    line-height: 1.43;
+    width: fit-content;
+    border-radius: 16px;
+
+    @media ${device.tabletL} {
+        max-width: 100%;
+        font-size: 1.75rem;
+    }
+`
+const GotoLiveWrapper = styled.div`
+    margin-top: 4rem;
+
+    @media ${device.tabletL} {
+        margin: 4rem auto;
     }
 `
 
@@ -89,14 +109,17 @@ const DtraderEasySteps = () => {
                 <StepperView
                     items={stepsData}
                     renderFooter={() => (
-                        <Button
-                            primary
-                            label="_t_Go to live demo_t_"
-                            onClick={() => {
-                                const link = 'https://www.google.com'
-                                window.location = link
-                            }}
-                        />
+                        <GotoLiveWrapper>
+                            <GoToLiveDemo
+                                secondary
+                                external
+                                type="deriv_app"
+                                target="_blank"
+                                rel="noopener noreferrer nofollow"
+                            >
+                                {localize('Go to live demo')}
+                            </GoToLiveDemo>
+                        </GotoLiveWrapper>
                     )}
                 />
             </Container>

@@ -4,9 +4,15 @@ import derivTraderLogo from '../../images/common/dtrader/dtrader.svg'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { Container, SectionContainer } from 'components/containers'
-import Button from 'components/custom/_button'
 import CommonHeaderSection from 'components/elements/common-header-section'
+import Shape from 'components/custom/_hero-shape'
 
+const SectionContainerGetApp = styled.div`
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    background-color: #4c515c;
+`
 const HeadingWrapper = styled.div`
     display: flex;
     gap: 28px;
@@ -15,7 +21,6 @@ const HeadingWrapper = styled.div`
 const ShapeWrapper = styled.div`
     display: flex;
     gap: 28px;
-    flex: 1;
 `
 
 const DtraderGetApp = () => {
@@ -23,8 +28,8 @@ const DtraderGetApp = () => {
     const { is_eu, is_row } = useRegion()
 
     return (
-        <SectionContainer background="#4C515C">
-            <Container justify="center" direction="column" ai="flex-start">
+        <SectionContainerGetApp>
+            <Container justify="center" ai="flex-start">
                 <HeadingWrapper>
                     <img src={derivTraderLogo} alt="dtrader logo" />
                     <CommonHeaderSection
@@ -33,12 +38,13 @@ const DtraderGetApp = () => {
                         align_title="left"
                         width="100%"
                         font_weight_title="300"
-                        font_family_title="Ubantu"
+                        font_family_title="Ubuntu"
+                        color="#fff"
                     />
                 </HeadingWrapper>
-                <ShapeWrapper>wefg</ShapeWrapper>
+                <Shape angle={is_mobile ? 101 : 193}>wefg</Shape>
             </Container>
-        </SectionContainer>
+        </SectionContainerGetApp>
     )
 }
 

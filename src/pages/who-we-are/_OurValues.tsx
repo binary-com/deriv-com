@@ -61,7 +61,7 @@ const OurValues = ({ our_values }: any) => {
             <StyledFlex width="820px" wrap="wrap">
                 {our_values.values.map(({ header, image, sub_header }, index) => (
                     <Card key={index} index={index} direction="column" ai="start" jc="start">
-                        <img src={image.url} alt="icon" />
+                        <img src={process.env.STRAPI_URL + image.url} alt="icon" />
                         <Header as="h4" padding="24px 0 8px" size="32px" align="start" type="unset">
                             {header}
                         </Header>

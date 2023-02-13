@@ -73,12 +73,26 @@ const StyledMobileQueryImage = styled(QueryImage)`
     max-width: 445px;
 `
 
+const StyledImage = styled.img`
+    max-width: 591px;
+    z-index: 2;
+    position: absolute;
+`
+const StyledMobileImage = styled.img`
+    max-width: 445px;
+`
+
 const Hero = ({ hero }: any) => {
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
             <ContentWrapper jc="center">
                 <Desktop>
                     <StyledFlex>
+                        <StyledImage
+                            src={process.env.STRAPI_URL + hero.hero_image.url}
+                            alt="example"
+                            loading="eager"
+                        />
                         {/*<StyledQueryImage*/}
                         {/*    data={hero.hero_image.alternativeText['about_us_logo']}*/}
                         {/*    alt="example"*/}

@@ -16,7 +16,6 @@ const StyledSection = styled(SectionContainer)`
         padding: 30px 16px 40px;
     }
 `
-
 const StyledFlex = styled(Flex)`
     margin: 0 2rem;
     max-width: 1200px;
@@ -27,7 +26,6 @@ const StyledFlex = styled(Flex)`
         align-items: center;
     }
 `
-
 const TitleSection = styled(Flex)`
     max-width: 46rem;
 
@@ -36,19 +34,16 @@ const TitleSection = styled(Flex)`
         max-width: 90rem;
         grid-column-gap: 4rem;
     }
-
     @media ${device.laptop} {
         margin-bottom: 24px;
     }
 `
-
 const NumberSection = styled(CssGrid)`
     max-width: 588px;
 
     @media ${device.tabletL} {
         grid-column-gap: 4rem;
     }
-
     @media ${device.tabletS} {
         grid-template-columns: minmax(auto, 484px);
         grid-row-gap: 24px;
@@ -56,7 +51,6 @@ const NumberSection = styled(CssGrid)`
         justify-content: start;
     }
 `
-
 const TitleHeader = styled(Header)`
     font-size: 48px;
     line-height: 60px;
@@ -74,7 +68,6 @@ const TitleHeader = styled(Header)`
         text-align: start;
     }
 `
-
 const StyledHeader = styled(Header)`
     @media ${device.laptop} {
         text-align: center;
@@ -84,7 +77,6 @@ const StyledHeader = styled(Header)`
         text-align: start;
     }
 `
-
 const NumberHeader = styled(Text)`
     font-weight: bold;
     line-height: 6rem;
@@ -94,7 +86,6 @@ const NumberHeader = styled(Text)`
         margin-bottom: 8px;
     }
 `
-
 const NumberText = styled(Text)`
     font-weight: 400;
     text-align: start;

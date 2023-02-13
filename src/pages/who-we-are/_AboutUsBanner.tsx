@@ -129,7 +129,7 @@ const AboutUsBanner = ({ banner }: any) => {
                     >
                         {banner.sub_header}
                     </StyledHeader2>
-                    <StyledLinkButton secondary to={banner.link_url}>
+                    <StyledLinkButton secondary to={process.env.STRAPI_URL + banner.link_url}>
                         {banner.link_name}
                     </StyledLinkButton>
                 </PictureFlex>

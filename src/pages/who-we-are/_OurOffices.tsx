@@ -261,8 +261,6 @@ const OurOffices = ({ our_locations }: any) => {
     console.log(desktop, mobile)
     const data = useStaticQuery(query)
 
-    console.log(our_locations)
-
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">

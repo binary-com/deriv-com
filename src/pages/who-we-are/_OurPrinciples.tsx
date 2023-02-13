@@ -111,7 +111,10 @@ const OurPrinciples = ({ our_principles }: any) => {
                 ))}
                 <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
             </StyledFlex>
-            <StyledLinkButton to={our_principles.button.link_url} secondary>
+            <StyledLinkButton
+                to={process.env.STRAPI_URL + our_principles.button.link_url}
+                secondary
+            >
                 {our_principles.button.link_name}
             </StyledLinkButton>
         </StyledSection>

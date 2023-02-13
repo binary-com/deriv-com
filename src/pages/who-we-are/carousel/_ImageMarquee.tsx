@@ -87,6 +87,28 @@ const StyledQueryImage = styled(QueryImage)<{ is_rtl: boolean }>`
     }
 `
 
+const StyledImage = styled.img<{ is_rtl: boolean }>`
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    height: 480px;
+    transform: ${({ is_rtl }) => (is_rtl ? 'translate(50%, -50%)' : 'translate(-50%, -50%)')};
+    @media ${device.tablet} {
+        height: 240px;
+    }
+
+    & .gatsby-image-wrapper img {
+        height: 480px;
+
+        @media ${device.tablet} {
+            height: 240px;
+        }
+    }
+`
+
 const ImageMarquee = ({ slider }: any) => {
     const is_rtl = useIsRtl()
 
@@ -97,9 +119,15 @@ const ImageMarquee = ({ slider }: any) => {
                     {slider.map((carouselItem, index) => (
                         <CarouselSlide key={index}>
                             <StyledImageWrapper>
-                                <StyledQueryImage
+                                {/*<StyledQueryImage*/}
+                                {/*    is_rtl={is_rtl}*/}
+                                {/*    data={carouselItem.url}*/}
+                                {/*    alt=""*/}
+                                {/*    loading="eager"*/}
+                                {/*/>*/}
+                                <StyledImage
                                     is_rtl={is_rtl}
-                                    data={carouselItem.url}
+                                    src={process.env.STRAPI_URL + carouselItem.url}
                                     alt=""
                                     loading="eager"
                                 />

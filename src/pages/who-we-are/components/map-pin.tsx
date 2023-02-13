@@ -75,11 +75,11 @@ const MapPin = ({ top, left, country_city, link_url }: MapPinType) => {
             onMouseLeave={onMouseLeave}
             top={top}
             left={left}
-            to={link_url}
+            to={process.env.STRAPI_URL + link_url}
         >
             <Pin />
             {is_pin_show && (
-                <PinContent locale="en" to={link_url} anchor>
+                <PinContent locale="en" to={process.env.STRAPI_URL + link_url} anchor>
                     <Header color="black" mr="8px" weight="normal" type="small">
                         {country_city}
                     </Header>

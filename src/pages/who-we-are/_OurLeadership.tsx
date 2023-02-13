@@ -125,10 +125,10 @@ const OurLeadership = ({ our_lidership }: any) => {
                         width={is_mobile ? '98px' : '120px'}
                         height={is_mobile ? '98px' : '120px'}
                     >
-                        <QueryImage
+                        <img
                             width="100%"
                             height="100%"
-                            data={photo.url}
+                            src={process.env.STRAPI_URL + photo.url}
                             alt="leader"
                             loading="lazy"
                         />

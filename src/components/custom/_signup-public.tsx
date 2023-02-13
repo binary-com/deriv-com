@@ -10,9 +10,9 @@ import { deriv_app_url } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 // SVG
-import Apple from 'images/svg/custom/apple-40.svg'
-import Facebook from 'images/svg/custom/facebook-40.svg'
-import Google from 'images/svg/custom/google-40.svg'
+import Apple from 'images/svg/custom/apple.svg'
+import Facebook from 'images/svg/custom/facebook-blue.svg'
+import Google from 'images/svg/custom/google.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
@@ -20,6 +20,7 @@ type SocialButtonContent = {
     provider: string
     id: string
     img: string
+    text: string
 }
 
 type SignupPublicProps = {
@@ -32,6 +33,9 @@ type SignupPublicProps = {
     handleSocialSignup?: (event) => void
     handleValidation?: (event) => void
     is_submitting?: boolean
+}
+type SocialButtonProps = {
+    bgColor?: string
 }
 
 const query = graphql`
@@ -135,6 +139,7 @@ const InputWrapper = styled.div`
     line-height: 10px;
     font-weight: normal;
     margin-right: 1rem;
+    border-radius: 15px;
     @media ${device.mobileL} {
         width: unset;
         max-width: 191px;
@@ -168,6 +173,7 @@ const SocialWrapper = styled(Flex)`
     width: 100%;
     margin-top: 4rem;
     flex-wrap: wrap;
+    gap: 6px;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
@@ -262,7 +268,6 @@ const SignInText = styled(Text)`
         margin-right: 0;
     }
 `
-
 const MobileSignInText = styled(SignInText)`
     @media ${device.tabletL} {
         width: unset;
@@ -336,7 +341,6 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
         }
     }
 `
-
 const social_button_content: SocialButtonContent[] = [
     {
         provider: 'Apple',
@@ -347,6 +351,7 @@ const social_button_content: SocialButtonContent[] = [
         provider: 'Facebook',
         id: 'gtm-signup-facebook',
         img: Facebook,
+        text: 'Facebook',
     },
     {
         provider: 'Google',
@@ -354,7 +359,6 @@ const social_button_content: SocialButtonContent[] = [
         img: Google,
     },
 ]
-
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -381,7 +385,7 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
@@ -436,7 +440,7 @@ const SignupPublic = ({
                                 />
                                 <SocialWrapper jc="unset" ai="center">
                                     <SignInText>{localize('Or sign up with')}</SignInText>
-                                    {social_button_content.map(({ provider, id, img }) => (
+                                    {social_button_content.map(({ provider, id, img, text }) => (
                                         <SocialButton
                                             key={provider}
                                             onClick={handleSocialSignup}
@@ -525,7 +529,7 @@ const SignupPublic = ({
                         <MobileSignupFormWrapper>
                             <div>
                                 <StyledHeader type="section-title">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">

@@ -169,10 +169,11 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
 
     return (
         <CardContainer
-            is_rtl={is_rtl}
             name={name}
             active_tab={active_tab}
             onClick={() => onTabChange(name)}
+            className={name.toLowerCase()}
+            is_rtl={is_rtl}
         >
             <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'visible' }}>
                 {name === 'CFDs'}
@@ -204,7 +205,7 @@ const AvailableTradesDesctop = ({
                 {display_title}
             </StyledHeader>
             <StyledContainer direction="column">
-                <CardWrapper position="relative">
+                <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
                         <Card
                             name="CFDs"

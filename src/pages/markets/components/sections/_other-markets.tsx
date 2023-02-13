@@ -304,7 +304,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
     }
 
     return (
-        <StyledSectionContainer>
+        <StyledSectionContainer id="markets-list">
             <Desktop>
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h2" type="section-title" align="start">

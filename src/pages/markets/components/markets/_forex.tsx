@@ -14,7 +14,6 @@ import Button from 'components/custom/_button'
 import useRegion from 'components/hooks/use-region'
 import { Localize, localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
-import useHandleSignup from 'components/hooks/use-handle-signup'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))

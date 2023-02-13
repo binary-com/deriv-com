@@ -145,7 +145,6 @@ export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     ${BaseElement}
     word-break: break-word;
     font-weight: ${(props) => props.weight || 'bold'};
-    font-family: 'IBM Plex Sans', sans-serif;
     font-size: ${(props) => {
         if (props.size) return props.size
         if (props.type === 'main-landing-title') return '8.0rem'

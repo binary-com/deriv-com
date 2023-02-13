@@ -40,7 +40,7 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
                             >
                                 <use href={`${marketItem.src}#${marketItem.market_name}`} />
                             </SVGWrapper>
-                            <Header type="paragraph-2">
+                            <Header type="paragraph-2" as="p">
                                 <Localize translate_text={marketItem.button_text} />
                             </Header>
                         </MarketButton>
@@ -52,10 +52,11 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
                     (marketItem) =>
                         marketItem.market_name === selected_market && (
                             <Header
-                                key={marketItem.id}
+                                key={marketItem.market_name}
                                 type="paragraph-1"
                                 weight="normal"
                                 align="center"
+                                as="p"
                             >
                                 <Localize translate_text={marketItem.market_description} />
                             </Header>

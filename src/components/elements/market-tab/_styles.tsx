@@ -31,6 +31,7 @@ export const ContainerWrapper = styled(Flex)`
     width: 60%;
     @media ${device.tablet} {
         width: 100vw;
+        padding: 3rem 4.3rem 0;
     }
 `
 export const MarketButton = styled.button<{ selected: boolean }>`

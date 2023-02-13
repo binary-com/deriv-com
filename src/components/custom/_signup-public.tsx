@@ -199,7 +199,7 @@ const SocialButton = styled(Button)`
 
     @media ${device.tabletL} {
         justify-content: center;
-        width: 13rem;
+        width: 10rem;
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`

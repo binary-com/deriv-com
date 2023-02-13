@@ -11,10 +11,12 @@ import dtrader_logo from 'images/svg/dtrader/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DTraderBGMobile from 'images/svg/dtrader/dtrader-bg-mobile.svg'
 import DTraderBG from 'images/svg/dtrader/dtrader-bg.svg'
+import GrayAngle30 from 'images/common/gray-angle.png'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import DHero from 'components/custom/_dhero'
 import DNumber from 'components/custom/_dnumbers'
 import useRegion from 'components/hooks/use-region'
+import MultiWidthColumn from 'components/elements/multi-width-column'
 const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))
@@ -162,6 +164,15 @@ const Dtrader = () => {
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />
             </PlatformContainer>
+            <MultiWidthColumn
+                firstColumnBackground="#4C515C"
+                secondColumnBackground={GrayAngle30}
+                firstColumnWidth="70%"
+                secondColumnWidth="30%"
+            >
+                <div>Get into the Deriv Trader experience</div>
+                <div></div>
+            </MultiWidthColumn>
             <DBanner
                 background_pattern={BackgroundPatternTrader}
                 title={<Localize translate_text="Get into the DTrader experience" />}

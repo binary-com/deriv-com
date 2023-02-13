@@ -172,7 +172,7 @@ export const TableCellIcon = ({ icon_src }: TTableCellIcon) => {
 export const TableHeaderCell = ({ text }: TTableHeaderCell) => {
     return (
         <Cell>
-            <StyledTableHeaderText type="paragraph-1" width="fit-content" align="start">
+            <StyledTableHeaderText type="paragraph-1" width="fit-content" align="start" as="p">
                 {text}
             </StyledTableHeaderText>
         </Cell>
@@ -187,7 +187,7 @@ const StyledHeaderText = styled(HeaderText)`
 export const TableCell = ({ text }: TTableCell) => {
     return (
         <Cell>
-            <StyledHeaderText type="paragraph-1" weight="normal" align="start">
+            <StyledHeaderText type="paragraph-1" weight="normal" align="start" as="p">
                 {text}
             </StyledHeaderText>
         </Cell>
@@ -226,6 +226,7 @@ export const DailyPercentageCell = ({ value }: TDailyPercentageProps) => {
                 type="paragraph-2"
                 weight="normal"
                 align="start"
+                as="p"
             >
                 {value}
             </DailyPercentageText>

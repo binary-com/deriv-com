@@ -61,20 +61,22 @@ const LiveMarketTable = ({ market, to, display_name }: TLiveMarketTableProps) =>
                 subscribe: 1,
             },
             (response: TMarketDataResponse) => {
-                const responseData = [...response.trading_platform_asset_listing.mt5.assets]
-                const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
+                if (!response.error) {
+                    const responseData = [...response.trading_platform_asset_listing.mt5.assets]
+                    const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
 
-                responseData.forEach((item) => {
-                    const market = item.market
+                    responseData.forEach((item) => {
+                        const market = item.market
 
-                    if (!markets.has(market)) {
-                        markets.set(market, [item])
-                    } else {
-                        markets.get(market).push(item)
-                    }
-                })
-                setMarketsData(markets)
-                setIsLoading(false)
+                        if (!markets.has(market)) {
+                            markets.set(market, [item])
+                        } else {
+                            markets.get(market).push(item)
+                        }
+                    })
+                    setMarketsData(markets)
+                    setIsLoading(false)
+                }
             },
         )
     }, [])

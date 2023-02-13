@@ -30,7 +30,7 @@ const DisclaimerText = styled(Header)`
     font-size: 1.6rem;
 `
 const handleTradingSpec = () => {
-    window.open('/trading-specification')
+    window.location.href = '/trading-specification'
 }
 
 const LivePricing = () => {
@@ -42,7 +42,7 @@ const LivePricing = () => {
             <MarketTab is_home={true} />
 
             <ContainerWrapper>
-                <DisclaimerText>
+                <DisclaimerText as="p">
                     <Localize translate_text="All spreads are indicative. To view real-time spreads, please refer to your terminal." />
                 </DisclaimerText>
 

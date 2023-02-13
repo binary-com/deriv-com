@@ -82,7 +82,6 @@ export const SharedButtonStyle = css<SharedButtonStyleProps>`
             return css<SharedButtonStyleProps>`
                 background: ${({ provider }) => {
                     if (provider === 'google') return 'var(--color-white)'
-                    if (provider === 'facebook') return 'var(--color-blue)'
                 }};
                 border: ${({ provider }) =>
                     provider === 'google' ? '1px solid var(--color-grey-5);' : 'none'};

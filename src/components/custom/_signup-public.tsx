@@ -191,7 +191,7 @@ const SocialButton = styled(Button)`
     font-size: 12px;
     align-items: center;
     justify-content: center;
-    width: 11rem;
+    width: 10.6rem;
     height: 4rem;
     background-color: white;
     border: 1px solid var(--color-grey-7);
@@ -199,7 +199,7 @@ const SocialButton = styled(Button)`
 
     @media ${device.tabletL} {
         justify-content: center;
-        width: 9rem;
+        width: 13rem;
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`

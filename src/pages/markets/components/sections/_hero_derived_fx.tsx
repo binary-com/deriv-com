@@ -1,50 +1,70 @@
 import React from 'react'
 import styled from 'styled-components'
+import BannerBg from 'images/common/markets/hero-forex.png'
 import NavMarkets from 'components/layout/nav/nav-markets'
-import { Container } from 'components/containers'
 import { Header } from 'components/elements'
-import { Button } from 'components/form'
-import BannerBg from 'images/common/markets/hero-derived-fx.png'
-import { Localize, localize } from 'components/localization'
+import Button from 'components/custom/_button'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
+import { Desktop, Mobile } from 'components/containers'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 
 const BackgroundWrapper = styled.div`
-    background: url(${BannerBg});
-    background-repeat: round;
     position: relative;
-    min-height: 38.3rem;
+    background: url(${BannerBg});
+    background-size: 89rem;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 63rem;
+`
+const StyledButton = styled.div`
+    margin-top: 5rem;
+    margin-left: 10vw;
 
-    @media ${device.tabletL} {
-        min-height: 500px;
+    @media (min-width: 2110px) {
+        margin-left: 20vw;
+    }
+
+    @media (min-width: 1201px) and (max-width: 1340px) {
+        margin-left: 5vw;
+    }
+    @media (min-width: 1520px) and (max-width: 2080px) {
+        margin-left: 16vw;
+    }
+    @media ${device.laptopM} {
+        margin-left: 0;
+        margin-top: 0;
     }
 `
-const StyledContainer = styled(Container)`
-    margin-top: 175px;
-    margin-bottom: 120px;
+const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
-    position: relative;
-    top: 7.2rem;
+    margin-left: 10vw;
 
-    h4,
-    h1 {
-        z-index: 10;
+    @media (min-width: 2110px) {
+        margin-left: 20vw;
     }
-    h1 {
-        line-height: 1.25;
+
+    @media (min-width: 1201px) and (max-width: 1340px) {
+        margin-left: 5vw;
     }
-    h4 {
-        line-height: 1.5;
+    @media (min-width: 1520px) and (max-width: 2080px) {
+        margin-left: 16vw;
     }
-    @media ${device.tabletL} {
+
+    @media ${device.laptopM} {
         padding: 4rem 2.3rem;
         top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         gap: 20px;
+        margin-left: 0;
 
         h1 {
             text-align: center;
@@ -57,12 +77,15 @@ const StyledContainer = styled(Container)`
         padding: 4rem 1.3rem;
     }
 `
-const MarketSubHeader = styled(Header)`
+const MarketSubHeader = styled.div`
     font-size: 16px;
-    width: 58vw;
+    width: 25vw;
+    color: var(--color-black-9);
+    text-align: start;
+    line-height: 24px;
 
-    @media ${device.tabletL} {
-        width: 86vw;
+    @media ${device.laptopM} {
+        min-width: 40rem;
     }
     @media ${device.mobileM} {
         font-size: 14px;
@@ -71,24 +94,18 @@ const MarketSubHeader = styled(Header)`
 `
 const StyledHeader = styled(Header)`
     font-size: 48px;
-    color: white;
+    color: var(--color-black-9);
+    width: 28vw;
+    text-align: start;
+    margin-top: 16rem;
 
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         font-size: 32px;
-        text-align: center;
+        align-items: center;
+        margin-top: 0;
     }
 `
-const StyledButton = styled(Button)`
-    border-radius: 4px;
-    margin-top: 20px;
 
-    @media ${device.tabletL} {
-        width: 90vw;
-        font-size: 1.75rem;
-        padding: 1.25rem 4.75rem;
-        margin-top: 16px;
-    }
-`
 type MarketProps = {
     title: string
     description: string
@@ -98,26 +115,53 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
 
     return (
-        <BackgroundWrapper>
+        <>
             <NavMarkets />
-
-            <StyledContainer>
-                <StyledHeader as="h1" align="center">
-                    <Localize translate_text={title} />
-                </StyledHeader>
-                <MarketSubHeader color="white" weight="normal" align="center">
-                    <Localize translate_text={description} />
-                </MarketSubHeader>
-                {is_logged_in ? (
-                    <StyledButton width="128px" onClick={handleGetTrading} secondary>
-                        {localize('Get Trading')}
+            <Desktop breakpoint={'laptopM'}>
+                <BackgroundWrapper>
+                    <StyledContainer>
+                        <StyledHeader as="h1" align="center">
+                            <Localize translate_text={title} />
+                        </StyledHeader>
+                        <MarketSubHeader color="white">
+                            <Localize translate_text={description} />
+                        </MarketSubHeader>
+                    </StyledContainer>
+                    <StyledButton>
+                        {is_logged_in ? (
+                            <Button onClick={handleGetTrading} label="_t_Get trading_t_" primary />
+                        ) : (
+                            <Button
+                                onClick={handleSignup}
+                                label="_t_Create free demo account_t_"
+                                primary
+                            />
+                        )}
                     </StyledButton>
-                ) : (
-                    <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
-                        {localize('Create free demo account')}
+                </BackgroundWrapper>
+            </Desktop>
+            <Mobile breakpoint={'laptopM'}>
+                <BackgroundWrapper />
+                <StyledContainer>
+                    <StyledHeader as="h1" align="center">
+                        <Localize translate_text={title} />
+                    </StyledHeader>
+                    <MarketSubHeader color="white">
+                        <Localize translate_text={description} />
+                    </MarketSubHeader>
+                    <StyledButton>
+                        {is_logged_in ? (
+                            <Button onClick={handleGetTrading} label="_t_Get trading_t_" primary />
+                        ) : (
+                            <Button
+                                onClick={handleSignup}
+                                label="_t_Create free demo account_t_"
+                                primary
+                            />
+                        )}
                     </StyledButton>
-                )}
-            </StyledContainer>
-        </BackgroundWrapper>
+                </StyledContainer>
+            </Mobile>
+        </>
     )
 }

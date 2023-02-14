@@ -229,7 +229,7 @@ export const StyledLinkMarket = styled(LocalizedLink)`
     ${SharedLinkStyleMarket}
 `
 export const PartnerNavigationBarWrapper = styled.nav`
-    background-color: var(--color-black);
+    background-color: white;
     height: 7.2rem;
     width: 100%;
     position: relative;

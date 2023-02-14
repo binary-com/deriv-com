@@ -9,7 +9,7 @@ import Commodities from 'images/svg/markets/commodities-new.svg'
 import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
-import DerivedFX from 'images/svg/custom/derived-fx.svg'
+import DerivedFX from 'images/svg/markets/derived-fx.svg'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
@@ -18,6 +18,7 @@ type MarketType = {
     icon: () => ReactElement
     title: ReactElement
     content: ReactElement
+    content_eu?: ReactElement
     to: string
     id: string
 }
@@ -44,6 +45,9 @@ const markets_type: MarketsType = {
         content: (
             <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
         ),
+        content_eu: (
+            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
+        ),
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
@@ -51,7 +55,10 @@ const markets_type: MarketsType = {
         icon: () => <img src={DerivedFX} alt="Synthetic indices" width="64" height="64" />,
         title: <Localize translate_text="Derived" />,
         content: (
-            <Localize translate_text="Trading derived indices lets you benefit from correctly predicting the price movements of simulated markets and indices derived from real-world markets." />
+            <Localize translate_text="Derived trading gives you a chance to make a profit from correctly predicting the price movement of instruments that mimic characteristics of financial markets or are derived from them." />
+        ),
+        content_eu: (
+            <Localize translate_text="Derived trading gives you a chance to make a profit from correctly predicting the price movement of instruments that mimic characteristics of financial markets." />
         ),
         to: '/markets/derived-fx/',
         id: 'marketderivedothermarkets',
@@ -60,6 +67,9 @@ const markets_type: MarketsType = {
         icon: () => <img src={StockIndices} alt="Stocks & indices" width="64" height="64" />,
         title: <Localize translate_text="Stocks & indices" />,
         content: (
+            <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
+        ),
+        content_eu: (
             <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
         ),
         to: '/markets/stock/',
@@ -72,6 +82,9 @@ const markets_type: MarketsType = {
         content: (
             <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
         ),
+        content_eu: (
+            <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
+        ),
         to: '/markets/commodities/',
         id: 'marketcommoditiesothermarket',
     },
@@ -80,6 +93,9 @@ const markets_type: MarketsType = {
         icon: () => <img src={Cryptocurrencies} alt="Cryptocurrencies" width="64" height="64" />,
         title: <Localize translate_text="Cryptocurrencies" />,
         content: (
+            <Localize translate_text="Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them." />
+        ),
+        content_eu: (
             <Localize translate_text="Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them." />
         ),
         to: '/markets/cryptocurrencies/',
@@ -161,6 +177,7 @@ const StyledFlex = styled(Flex)`
 const Card = ({ market }: CardProps) => {
     const [button_visibility, setButtonVisibility] = React.useState('false')
     const Icon = markets_type[market].icon
+    const { is_eu } = useRegion()
 
     return (
         <StyledFlex
@@ -182,7 +199,7 @@ const Card = ({ market }: CardProps) => {
                 {markets_type[market].title}
             </Text>
             <Text size="16px" mt="0.8rem">
-                {markets_type[market].content}
+                {is_eu ? markets_type[market].content_eu : markets_type[market].content}
             </Text>
             <LearnMore to={markets_type[market].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>

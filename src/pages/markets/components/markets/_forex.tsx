@@ -10,6 +10,7 @@ import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
+import Button from 'components/custom/_button'
 import useRegion from 'components/hooks/use-region'
 import { Localize, localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
@@ -23,6 +24,7 @@ type ForexProps = {
 }
 const Forex = ({ simple_step_content }: ForexProps) => {
     const { is_row, is_eu } = useRegion()
+
     return (
         <>
             <AvailableTrades
@@ -55,8 +57,8 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     <Localize translate_text="Start trading forex on Deriv in 3 simple steps" />
                 }
                 content={simple_step_content}
-                sign_up
             />
+
             <OtherMarkets except="forex" />
         </>
     )

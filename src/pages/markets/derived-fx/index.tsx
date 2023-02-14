@@ -31,7 +31,6 @@ const DerivedFxPage = () => {
             />
             <NavTab route_from={'derived-fx'} route_offset={500} />
             <Derived simple_step_content={simple_step_content_forex} />
-            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
 import { DotLoader, Header } from 'components/elements'
+import { heroSectionId } from 'common/constants'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -12,7 +13,7 @@ const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const ThingsToKeep = Loadable(() => import('./_mind-when-trading'))
 const AvailableMarkets = Loadable(() => import('./_available-markets'))
-const target = '#hero-section'
+const target = heroSectionId
 const options = {
     root: null,
     rootMargin: '0px',

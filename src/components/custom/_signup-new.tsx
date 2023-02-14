@@ -312,6 +312,7 @@ const SignupNew = ({
                             color="red"
                             rel="noopener noreferrer"
                             target="_blank"
+                            external
                         />,
                     ]}
                 />

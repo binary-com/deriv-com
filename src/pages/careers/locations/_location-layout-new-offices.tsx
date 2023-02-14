@@ -301,6 +301,14 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                                         {`Working at Deriv ${map_office_name}`}
                                     </Header>
                                     <CardText color="black-6">{location.map_text}</CardText>
+                                    {location.need_address_block && (
+                                        <Flex jc="unset" mt="37px">
+                                            <Pin src={MapPin} alt="map pin" />
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
+                                        </Flex>
+                                    )}
                                 </StyledDiv>
                             </WorkingInformation>
                         </WorkingFlex>

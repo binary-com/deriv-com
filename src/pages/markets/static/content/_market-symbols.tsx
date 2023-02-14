@@ -59,16 +59,8 @@ export const continuous_indices: MarketSymbol[] = [
         text: <Localize translate_text="Volatility 100 (1s) Index" />,
     },
     {
-        src: icons.VINDEX1501S,
-        text: <Localize translate_text="Volatility 150 (1s) Index" />,
-    },
-    {
         src: icons.VINDEX2001S,
         text: <Localize translate_text="Volatility 200 (1s) Index" />,
-    },
-    {
-        src: icons.VINDEX2501S,
-        text: <Localize translate_text="Volatility 250 (1s) Index" />,
     },
     {
         src: icons.VINDEX3001S,

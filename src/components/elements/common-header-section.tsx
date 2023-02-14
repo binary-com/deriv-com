@@ -26,6 +26,7 @@ type CommonHeaderSectionProps = {
     align_subtitle?: string
 }
 
+
 const StyledCommonHeaderSection = styled.div<CommonHeaderSectionProps>`
     background-color: ${(props) => props.bgcolor};
     color: ${(props) => props.color};

@@ -10,7 +10,6 @@ import {
     PLATFORMS_CAROUSEL_DELAY,
 } from './_utils'
 import type { PlatformDetailsProps } from './_utils'
-import { image_query } from './_details'
 import { LocalizedLink } from 'components/localization'
 import { dmt5_android_url, dmt5_app_gallery, deriv_mt5_app_url } from 'common/constants'
 import device from 'themes/device'
@@ -29,8 +28,39 @@ const query = graphql`
         dmt5_mobile_web_browser: file(relativePath: { eq: "home/dmt5_mobile_web_browser.png" }) {
             ...fadeIn
         }
+        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
+            ...fadeIn
+        }
+        platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {
+            ...fadeIn
+        }
+        platforms_mt5_eu: file(relativePath: { eq: "home/platforms_mt5_eu.png" }) {
+            ...homePageHeroFadeIn
+        }
+        platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
+            ...homePageHeroFadeIn
+        }
+        platforms_dtrader_eu: file(relativePath: { eq: "home/platforms_dtrader_eu.png" }) {
+            ...fadeIn
+        }
+        platforms_derivx: file(relativePath: { eq: "home/platforms_derivx.png" }) {
+            ...fadeIn
+        }
+        platforms_dbot: file(relativePath: { eq: "home/platforms_dbot.png" }) {
+            ...fadeIn
+        }
+        platforms_smarttrader: file(relativePath: { eq: "home/platforms_smarttrader.png" }) {
+            ...fadeIn
+        }
+        platforms_binary_bot: file(relativePath: { eq: "home/platforms_binary_bot.png" }) {
+            ...fadeIn
+        }
+        platforms_api: file(relativePath: { eq: "home/platforms_api.png" }) {
+            ...fadeIn
+        }
     }
 `
+
 const CarouselItemWrapper = styled.div`
     width: 100%;
     padding: 1.8rem 1.8rem 0;
@@ -131,7 +161,6 @@ type MobilePlatformCarouselProps = {
 }
 
 const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) => {
-    const images = useStaticQuery(image_query)
     const data = useStaticQuery(query)
 
     const lang_direction = useLangDirection()
@@ -154,7 +183,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                         <CarouselItemWrapper key={image_key}>
                             <Flex tabletL={{ mb: '56px' }}>
                                 <MobileImage
-                                    data={images[image_key]}
+                                    data={data[image_key]}
                                     alt={image_key}
                                     height={'55vw'}
                                 />

@@ -132,5 +132,8 @@ export const african_countries = [
     'zw',
 ]
 
+// special partnership payments for this countries
+export const cpa_plan_countries = ['za', 'ec', 'bw']
+
 export const isEuCountry = (clients_country: typeof eu_countries[number]): boolean =>
     eu_countries.includes(clients_country)

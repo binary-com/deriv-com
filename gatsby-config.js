@@ -252,8 +252,6 @@ module.exports = {
                         type: `image/png`,
                     },
                 ],
-                gcm_sender_id: '370236002280',
-                gcm_user_visible_only: true,
                 crossOrigin: `use-credentials`,
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
@@ -314,18 +312,6 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
-            },
-        },
-        {
-            resolve: '@directus/gatsby-source-directus',
-            options: {
-                url: 'https://deriv-academy.directus.app',
-                auth: {
-                    token: process.env.DIRECTUS_AUTH_TOKEN,
-                },
-                dev: {
-                    refresh: '5s',
-                },
             },
         },
         'gatsby-plugin-use-query-params',

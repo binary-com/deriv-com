@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
 import ImageMarquee from './carousel/_ImageMarquee'
@@ -42,7 +42,7 @@ const AboutUs = ({ data }: any) => {
         hero,
         our_values,
         our_principles,
-        our_lidership,
+        our_leadership,
         deriv_in_numbers,
         slider,
         our_locations,
@@ -63,7 +63,7 @@ const AboutUs = ({ data }: any) => {
             <OurValues our_values={our_values} />
             <EndSeparator />
             <OurPrinciples our_principles={our_principles} />
-            <OurLeadership our_lidership={our_lidership} />
+            <OurLeadership our_leadership={our_leadership} />
             <DerivNumbers deriv_in_numbers={deriv_in_numbers} />
             <ImageMarquee slider={slider} />
             <OurOffices our_locations={our_locations} />
@@ -106,7 +106,7 @@ export const query = graphql`
                         link_url
                     }
                 }
-                our_lidership {
+                our_leadership {
                     name
                     role
                     link_url

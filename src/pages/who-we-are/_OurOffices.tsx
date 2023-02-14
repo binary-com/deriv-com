@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import MapPin, { MapPinType } from './components/map-pin'
@@ -268,14 +268,14 @@ const OurOffices = ({ our_locations }: any) => {
             <Flex>
                 <Desktop>
                     <MapImage data={data['earth']}>
-                        {desktop_pins?.map((pin, idx) => (
+                        {desktop?.map((pin, idx) => (
                             <MapPin key={idx} {...pin} />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
                     <MapImage data={data['earth_mobile']}>
-                        {mobile_pins?.map((pin, idx) => (
+                        {mobile?.map((pin, idx) => (
                             <MapPin key={idx} {...pin} />
                         ))}
                     </MapImage>

@@ -343,7 +343,7 @@ module.exports = {
                                 our_principles: {
                                     populate: { principles: true, button: true },
                                 },
-                                our_lidership: { populate: { photo: true } },
+                                our_leadership: { populate: { photo: true } },
                                 deriv_in_numbers: { populate: { numbers: true } },
                                 slider: true,
                                 our_locations: {

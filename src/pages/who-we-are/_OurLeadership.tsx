@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Modal from './components/modal'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { SectionContainer, CssGrid, Flex } from 'components/containers'
-import { Header, ImageWrapper, QueryImage } from 'components/elements'
+import { Header, ImageWrapper } from 'components/elements'
 import device from 'themes/device'
 
 const StyledSectionContainer = styled(SectionContainer)`
@@ -92,7 +92,7 @@ const StyledImageWrapper = styled(ImageWrapper)`
 `
 type MouseEvent = MouseEventHandler<HTMLDivElement> &
     ((event: MouseEventHandler<HTMLDivElement>) => void)
-const OurLeadership = ({ our_lidership }: any) => {
+const OurLeadership = ({ our_leadership }: any) => {
     const [is_popup_shown, setIsPopupShown] = useState(false)
     const [is_mobile] = useBrowserResize()
 
@@ -102,7 +102,7 @@ const OurLeadership = ({ our_lidership }: any) => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {our_lidership?.header}
+                {our_leadership?.header}
             </StyledHeader>
             <StyledCssGrid
                 height="unset"
@@ -117,7 +117,7 @@ const OurLeadership = ({ our_lidership }: any) => {
                 mobile_column_gap="24px"
                 mobile_row_gap="6px"
             >
-                {our_lidership?.map(({ name, role, photo, link_url }) => (
+                {our_leadership?.map(({ name, role, photo, link_url }) => (
                     <StyledImageWrapper
                         key={name}
                         onMouseOver={showModal}
@@ -128,7 +128,7 @@ const OurLeadership = ({ our_lidership }: any) => {
                         <img
                             width="100%"
                             height="100%"
-                            src={process.env.STRAPI_URL + photo.url}
+                            src={process.env.STRAPI_URL + photo?.url}
                             alt="leader"
                             loading="lazy"
                         />

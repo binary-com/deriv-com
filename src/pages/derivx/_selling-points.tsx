@@ -59,9 +59,9 @@ const SellingPoints = () => {
         <StyledSectionContainer padding="40px 0" background="grey-25">
             <Container>
                 <Flex tablet_direction="column">
-                    {selling_points.map(({ title, subtitle }, index) => {
+                    {selling_points.map(({ title, subtitle }) => {
                         return (
-                            <StyledFlex tablet_direction="column" key={index}>
+                            <StyledFlex tablet_direction="column" key={title}>
                                 <HeadingText>
                                     {typeof title == 'string' ? (
                                         title

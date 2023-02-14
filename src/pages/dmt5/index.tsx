@@ -48,7 +48,22 @@ const query = graphql`
         }
     }
 `
-
+const target = '#gatsby-focus-wrapper'
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.7,
+}
+const lazy_components = (
+    <>
+        <WhyTrader fallback={<DotLoader />} />
+        <StartTrader />
+        <DownloadApp />
+        <MarginCalculator />
+        <Flexibility />
+        <SwapFreeTrading fallback={<DotLoader />} />
+    </>
+)
 const DMT5 = () => {
     const [is_mobile, setMobile] = useState(false)
     const data = useStaticQuery(query)
@@ -61,31 +76,6 @@ const DMT5 = () => {
         window.addEventListener('resize', handleResizeWindow)
     }, [])
 
-    const target = '#gatsby-focus-wrapper'
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.7,
-    }
-    const lazy_components = (
-        <>
-            <WhyTrader fallback={<DotLoader />} />
-            <StartTrader />
-            <DownloadApp />
-            <MarginCalculator />
-            <Flexibility />
-            <SwapFreeTrading fallback={<DotLoader />} />
-            <DBanner
-                background_pattern={
-                    is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
-                }
-                title={<Localize translate_text="Get into the Deriv MT5 experience" />}
-                data={data}
-                image_alt="DMT5 trading platform"
-                is_mt5
-            />
-        </>
-    )
     const lazyTemplate = useHandleLazyLoad(lazy_components, target, options)
     const is_rtl = useIsRtl()
     const background = useMemo(() => {
@@ -138,6 +128,15 @@ const DMT5 = () => {
             <Numbers />
             <WhatIsTrader />
             {lazyTemplate}
+            <DBanner
+                background_pattern={
+                    is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
+                }
+                title={<Localize translate_text="Get into the Deriv MT5 experience" />}
+                data={data}
+                image_alt="DMT5 trading platform"
+                is_mt5
+            />
         </Layout>
     )
 }

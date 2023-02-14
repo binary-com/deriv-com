@@ -97,7 +97,7 @@ const DerivGoContent = ({ P2P, reverse }: TDerivGoContent) => {
                     return (
                         <Row
                             fd={!is_even ? 'row' : 'row-reverse'}
-                            key={index}
+                            key={title}
                             margin_right={!is_even ? '0' : '12.6rem'}
                         >
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
 import { Header, Text } from 'components/elements'
-import { Localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { getLanguage } from 'common/utility'
 // Icons
 import General from 'images/svg/terms/business-general-tc.svg'
@@ -27,7 +27,7 @@ type ColProps = {
 const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
     <GridCol>
         <IconWrapper>
-            <img src={Icon} alt={title.substring(3, title.length - 3)} />
+            <img src={Icon} alt={localize(title)} />
         </IconWrapper>
         <Header as="h4" type="sub-section-title">
             <Localize translate_text={title} />

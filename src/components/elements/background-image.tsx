@@ -6,7 +6,8 @@ import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage, { IBackgroundImageProps } from 'gatsby-background-image'
 
 const StyledBackground = styled(BackgroundImage)<{ dark: string }>`
-    background-color: black;
+    background-color: #ff4652;
+    opacity: 0.6;
 
     &::before,
     &::after {

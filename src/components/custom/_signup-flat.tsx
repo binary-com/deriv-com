@@ -135,7 +135,7 @@ const SignupFlat = ({
                         weight="bold"
                         color={dark ? 'white' : 'black'}
                     >
-                        {localize('Join over 1 million traders worldwide')}
+                        {localize('Join over 2.5 million traders worldwide')}
                     </StyledHeader>
                     <br />
                     <Text color={dark ? 'white' : 'black'}>

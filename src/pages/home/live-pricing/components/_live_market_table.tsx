@@ -36,24 +36,26 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     const requestMarketsData = useCallback(() => {
         setIsLoading(true)
-        // Todo: Fro region: 'row' should be dynamic. Delete this todo once fixed
+        // Todo: For region: 'row' should be dynamic. Delete this todo once fixed
         send(
             { trading_platform_asset_listing: 1, platform: 'mt5', type: 'brief', region: 'row' },
             (response: TMarketDataResponse) => {
-                const responseData = [...response.trading_platform_asset_listing.mt5.assets]
-                const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
+                if (!response.error) {
+                    const responseData = [...response.trading_platform_asset_listing?.mt5.assets]
+                    const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
 
-                responseData.forEach((item) => {
-                    const market = item.market
+                    responseData.forEach((item) => {
+                        const market = item.market
 
-                    if (!markets.has(market)) {
-                        markets.set(market, [item])
-                    } else {
-                        markets.get(market).push(item)
-                    }
-                })
-                setMarketsData(markets)
-                setIsLoading(false)
+                        if (!markets.has(market)) {
+                            markets.set(market, [item])
+                        } else {
+                            markets.get(market).push(item)
+                        }
+                    })
+                    setMarketsData(markets)
+                    setIsLoading(false)
+                }
             },
         )
     }, [send])

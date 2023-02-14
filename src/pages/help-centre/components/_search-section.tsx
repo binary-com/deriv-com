@@ -117,7 +117,7 @@ const SearchSection = () => {
             <Container align="start" justify="flex-start" direction="column">
                 <Wrapper>
                     <ResponsiveHeader as="h1" type="heading-1" mb="4rem">
-                        <Localize translate_text="How can we help?" />
+                        <Localize translate_text="_t_How can we help?_t_" />
                     </ResponsiveHeader>
 
                     <SearchForm onSubmit={handleSubmit}>
@@ -126,7 +126,7 @@ const SearchSection = () => {
                             autoFocus
                             value={search_value}
                             onChange={handleSearchOnChange}
-                            placeholder={localize('Try “Trade”')}
+                            placeholder={localize('_t_Try “Trade”_t_')}
                             data-lpignore="true"
                             autoComplete="off"
                         />

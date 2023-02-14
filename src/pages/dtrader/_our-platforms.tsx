@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import mt5Icon from '../../images/svg/dtrader/deriv_app_core.svg'
+import mt5Icon from '../../images/svg/dtrader/mt5.svg'
+import dtIcon from '../../images/svg/dtrader/dt-icosn.svg'
+import goIcon from '../../images/svg/dtrader/go-icon.svg'
+import ezIcon from '../../images/svg/dtrader/ez-icon.svg'
+import dxIcon from '../../images/svg/dtrader/dx-icon.svg'
+import dbIcon from '../../images/svg/dtrader/db-icon.svg'
 import GenericCarousel from 'components/custom/carousel/_platforms-carousel'
 
 const OurPlatforms = () => {
@@ -9,18 +14,36 @@ const OurPlatforms = () => {
             icon: mt5Icon,
             heading: 'Deriv MT5',
             paragraph: 'The all-in-one CFD trading platform.',
-            link: '/dbot/',
+            link: '/dmt5/',
         },
         {
-            icon: mt5Icon,
+            icon: goIcon,
             heading: 'Deriv GO',
             paragraph: 'Our best trading experience on your mobile.',
-            link: '/dbot/',
+            link: '/deriv-go/',
         },
         {
-            icon: mt5Icon,
+            icon: dxIcon,
             heading: 'Deriv X',
             paragraph: 'The CFD trading platform to fit your style.',
+            link: '/derivx/',
+        },
+        {
+            icon: dtIcon,
+            heading: 'Deriv Trader',
+            paragraph: 'Our flagship app for trading options and multipliers.',
+            link: '/dtrader/',
+        },
+        {
+            icon: ezIcon,
+            heading: 'Deriv EZ',
+            paragraph: 'Our mobile-first CFD trading platform.',
+            link: '/derivez/',
+        },
+        {
+            icon: dbIcon,
+            heading: 'Deriv Bot',
+            paragraph: 'Automate your trading. No coding required.',
             link: '/dbot/',
         },
     ]

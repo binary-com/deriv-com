@@ -2,11 +2,12 @@ import React, { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
+import derivTraderLogo from '../../images/common/dtrader/dtrader.svg'
 import DtraderEasySteps from './_steps_section'
 import DtraderGetApps from './_get-app-section'
 import OurPlatforms from './_our-platforms'
 import { OtherPlatform } from 'components/custom/other-platforms'
-import { SEO } from 'components/containers'
+import { Container, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
@@ -21,6 +22,7 @@ import DNumber from 'components/custom/_dnumbers'
 import useRegion from 'components/hooks/use-region'
 import StepperView from 'components/custom/_stepper_view'
 import MultiWidthColumn from 'components/elements/multi-width-column'
+import CommonHeaderSection from 'components/elements/common-header-section'
 const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))
@@ -118,6 +120,12 @@ const trading_eu = [
 const PlatformContainer = styled.div`
     padding: 8rem 0;
 `
+const ContentWrapper = styled.div`
+    display: flex;
+    gap: 28px;
+    flex: 1;
+    z-index: 2;
+`
 const Dtrader = () => {
     const [is_mobile, setMobile] = useState(false)
     const { is_eu, is_row } = useRegion()
@@ -177,7 +185,17 @@ const Dtrader = () => {
                 firstColumnWidth="70%"
                 secondColumnWidth="30%"
             >
-                <div>Get into the Deriv Trader experience</div>
+                <ContentWrapper>
+                    <img src={derivTraderLogo} alt="dtrader logo" />
+                    <CommonHeaderSection
+                        title="_t_Get into the Deriv Trader experience_t_"
+                        title_font_size="64px"
+                        align_title="left"
+                        width="100%"
+                        font_family_title="Ubuntu"
+                        color="#fff"
+                    />
+                </ContentWrapper>
                 <div></div>
             </MultiWidthColumn>
             <DBanner

@@ -36,6 +36,17 @@ const MobileCardHeader = styled(Flex)`
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
+    font-family: Ubuntu, sans-serif;
+
+    @media (max-width: 680px) {
+        font-size: 18px;
+        margin-top: 0;
+    }
+`
+const StyledPara = styled(Text)`
+    margin-top: 1.6rem;
+    font-family: Ubuntu, sans-serif;
+    font-size: 16px;
 
     @media (max-width: 680px) {
         font-size: 18px;
@@ -50,6 +61,7 @@ const Card = styled.article`
     height: 100%;
     padding: 24px 24px;
     max-width: 28.2rem;
+    font-family: Ubuntu, sans-serif;
 
     @media (max-width: 680px) {
         padding: 16px 16px 36px;
@@ -110,7 +122,7 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
                                             {localize(item.heading)}
                                         </StyledText>
                                     </MobileCardHeader>
-                                    <Text>{localize(item.paragraph)}</Text>
+                                    <StyledPara>{localize(item.paragraph)}</StyledPara>
                                     <LearnMore
                                         text={<Localize translate_text="Learn more" />}
                                         to={item.link}

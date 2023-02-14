@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Header } from 'components/elements'
-import { SectionContainer } from 'components/containers'
+import { Container, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
 interface Props {
@@ -91,10 +91,13 @@ const MultiWidthColumn: React.FC<Props> = ({
     return (
         <StyledSectionContainer>
             <FirstColumn background={firstColumnBackground} width={firstColumnWidth}>
-                <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
+                <Container justify="center" ai="flex-start">
+                    {/* <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25"> */}
                     {children[0]}
-                </StyledHeader>
+                    {/* </StyledHeader> */}
+                </Container>
             </FirstColumn>
+
             <SecondColumn background={secondColumnBackground} width={secondColumnWidth}>
                 <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
                     {children[1]}

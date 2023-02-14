@@ -156,12 +156,13 @@ const MobileCardWrapper = styled(Flex)`
 const StyledFlex = styled(Flex)`
     min-width: 282px;
     border-radius: 8px;
+    height: 38rem;
     background-color: var(--color-white);
     top: 0;
 
     &:hover {
         box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-        height: 340px;
+        height: 38rem;
         border-radius: 0 0 8px 8px;
     }
     ${LearnMore} {

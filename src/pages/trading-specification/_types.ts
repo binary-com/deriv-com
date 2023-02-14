@@ -6,11 +6,7 @@ export type TAvailableLiveMarkets =
     | 'commodities'
 
 export type THeaders = {
-    is_row?: boolean
-    is_eu?: boolean
-    dl_icon?: true
-    symbol: string
-    instrument: string
+    instrument?: { symbol?: string; dl_icon?: true; instrument?: string }
     contract_size: string | number
     base_currency: string
     minimum_size: number

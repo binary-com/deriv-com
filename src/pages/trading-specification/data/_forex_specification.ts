@@ -27,9 +27,11 @@ const forex_specification: TSpecification = {
     ],
     data: [
         {
-            symbol: 'AUDJPY',
-            dl_icon: true,
-            instrument: 'AUD/JPY',
+            instrument: {
+                symbol: 'AUDJPY',
+                dl_icon: true,
+                instrument: 'AUD/JPY',
+            },
             contract_size: 100000,
             base_currency: 'AUD',
             minimum_size: 0.01,
@@ -42,9 +44,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'AUDUSD',
-            dl_icon: true,
-            instrument: 'AUD/USD',
+            instrument: {
+                symbol: 'AUDUSD',
+                dl_icon: true,
+                instrument: 'AUD/USD',
+            },
             contract_size: 100000,
             base_currency: 'AUD',
             minimum_size: 0.01,
@@ -57,9 +61,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURAUD',
-            dl_icon: true,
-            instrument: 'EUR/AUD',
+            instrument: {
+                symbol: 'EURAUD',
+                dl_icon: true,
+                instrument: 'EUR/AUD',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -72,9 +78,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURCAD',
-            dl_icon: true,
-            instrument: 'EUR/CAD',
+            instrument: {
+                symbol: 'EURCAD',
+                dl_icon: true,
+                instrument: 'EUR/CAD',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -87,9 +95,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURCHF',
-            dl_icon: true,
-            instrument: 'EUR/CHF',
+            instrument: {
+                symbol: 'EURCHF',
+                dl_icon: true,
+                instrument: 'EUR/CHF',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -102,9 +112,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURGBP',
-            dl_icon: true,
-            instrument: 'EUR/GBP',
+            instrument: {
+                symbol: 'EURGBP',
+                dl_icon: true,
+                instrument: 'EUR/GBP',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -117,9 +129,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURJPY',
-            dl_icon: true,
-            instrument: 'EUR/JPY',
+            instrument: {
+                symbol: 'EURJPY',
+                dl_icon: true,
+                instrument: 'EUR/JPY',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -132,9 +146,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURUSD',
-            dl_icon: true,
-            instrument: 'EUR/USD',
+            instrument: {
+                symbol: 'EURUSD',
+                dl_icon: true,
+                instrument: 'EUR/USD',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -147,9 +163,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPAUD',
-            dl_icon: true,
-            instrument: 'GBP/AUD',
+            instrument: {
+                symbol: 'GBPAUD',
+                dl_icon: true,
+                instrument: 'GBP/AUD',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -162,9 +180,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPJPY',
-            dl_icon: true,
-            instrument: 'GBP/JPY',
+            instrument: {
+                symbol: 'GBPJPY',
+                dl_icon: true,
+                instrument: 'GBP/JPY',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -177,9 +197,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPUSD',
-            dl_icon: true,
-            instrument: 'GBP/USD',
+            instrument: {
+                symbol: 'GBPUSD',
+                dl_icon: true,
+                instrument: 'GBP/USD',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -192,9 +214,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDCAD',
-            dl_icon: true,
-            instrument: 'USD/CAD',
+            instrument: {
+                symbol: 'USDCAD',
+                dl_icon: true,
+                instrument: 'USD/CAD',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -207,9 +231,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDCHF',
-            dl_icon: true,
-            instrument: 'USD/CHF',
+            instrument: {
+                symbol: 'USDCHF',
+                dl_icon: true,
+                instrument: 'USD/CHF',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -222,9 +248,11 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDJPY',
-            dl_icon: true,
-            instrument: 'USD/JPY',
+            instrument: {
+                symbol: 'USDJPY',
+                dl_icon: true,
+                instrument: 'USD/JPY',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -237,8 +265,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'AUDCAD',
-            instrument: 'AUD/CAD',
+            instrument: {
+                symbol: 'AUDCAD',
+                instrument: 'AUD/CAD',
+            },
             contract_size: 100000,
             base_currency: 'AUD',
             minimum_size: 0.01,
@@ -251,8 +281,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'AUDCHF',
-            instrument: 'AUD/CHF',
+            instrument: {
+                symbol: 'AUDCHF',
+                instrument: 'AUD/CHF',
+            },
             contract_size: 100000,
             base_currency: 'AUD',
             minimum_size: 0.01,
@@ -265,8 +297,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'AUDNZD',
-            instrument: 'AUD/NZD',
+            instrument: {
+                symbol: 'AUDNZD',
+                instrument: 'AUD/NZD',
+            },
             contract_size: 100000,
             base_currency: 'AUD',
             minimum_size: 0.01,
@@ -279,8 +313,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'CADCHF',
-            instrument: 'CAD/CHF',
+            instrument: {
+                symbol: 'CADCHF',
+                instrument: 'CAD/CHF',
+            },
             contract_size: 100000,
             base_currency: 'CAD',
             minimum_size: 0.01,
@@ -293,8 +329,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'CADJPY',
-            instrument: 'CAD/JPY',
+            instrument: {
+                symbol: 'CADJPY',
+                instrument: 'CAD/JPY',
+            },
             contract_size: 100000,
             base_currency: 'CAD',
             minimum_size: 0.01,
@@ -307,8 +345,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURNOK',
-            instrument: 'EUR/NOK',
+            instrument: {
+                symbol: 'EURNOK',
+                instrument: 'EUR/NOK',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -321,8 +361,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURNZD',
-            instrument: 'EUR/NZD',
+            instrument: {
+                symbol: 'EURNZD',
+                instrument: 'EUR/NZD',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -335,8 +377,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURPLN',
-            instrument: 'EUR/PLN',
+            instrument: {
+                symbol: 'EURPLN',
+                instrument: 'EUR/PLN',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -349,8 +393,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURSEK',
-            instrument: 'EUR/SEK',
+            instrument: {
+                symbol: 'EURSEK',
+                instrument: 'EUR/SEK',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -363,8 +409,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPCAD',
-            instrument: 'GBP/CAD',
+            instrument: {
+                symbol: 'GBPCAD',
+                instrument: 'GBP/CAD',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -377,8 +425,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPCHF',
-            instrument: 'GBP/CHF',
+            instrument: {
+                symbol: 'GBPCHF',
+                instrument: 'GBP/CHF',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -391,8 +441,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPNOK',
-            instrument: 'GBP/NOK',
+            instrument: {
+                symbol: 'GBPNOK',
+                instrument: 'GBP/NOK',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -405,8 +457,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPNZD',
-            instrument: 'GBP/NZD',
+            instrument: {
+                symbol: 'GBPNZD',
+                instrument: 'GBP/NZD',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -419,8 +473,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPSEK',
-            instrument: 'GBP/SEK',
+            instrument: {
+                symbol: 'GBPSEK',
+                instrument: 'GBP/SEK',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -433,8 +489,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'NZDCAD',
-            instrument: 'NZD/CAD',
+            instrument: {
+                symbol: 'NZDCAD',
+                instrument: 'NZD/CAD',
+            },
             contract_size: 100000,
             base_currency: 'NZD',
             minimum_size: 0.01,
@@ -447,8 +505,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'NZDJPY',
-            instrument: 'NZD/JPY',
+            instrument: {
+                symbol: 'NZDJPY',
+                instrument: 'NZD/JPY',
+            },
             contract_size: 100000,
             base_currency: 'NZD',
             minimum_size: 0.01,
@@ -461,8 +521,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'NZDUSD',
-            instrument: 'NZD/USD',
+            instrument: {
+                symbol: 'NZDUSD',
+                instrument: 'NZD/USD',
+            },
             contract_size: 100000,
             base_currency: 'NZD',
             minimum_size: 0.01,
@@ -475,8 +537,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDCNH',
-            instrument: 'USD/CNH',
+            instrument: {
+                symbol: 'USDCNH',
+                instrument: 'USD/CNH',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -489,8 +553,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDMXN',
-            instrument: 'USD/MXN',
+            instrument: {
+                symbol: 'USDMXN',
+                instrument: 'USD/MXN',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -503,8 +569,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDNOK',
-            instrument: 'USD/NOK',
+            instrument: {
+                symbol: 'USDNOK',
+                instrument: 'USD/NOK',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -517,8 +585,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDPLN',
-            instrument: 'USD/PLN',
+            instrument: {
+                symbol: 'USDPLN',
+                instrument: 'USD/PLN',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -531,8 +601,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDSEK',
-            instrument: 'USD/SEK',
+            instrument: {
+                symbol: 'USDSEK',
+                instrument: 'USD/SEK',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -545,8 +617,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDZAR',
-            instrument: 'USD/ZAR',
+            instrument: {
+                symbol: 'USDZAR',
+                instrument: 'USD/ZAR',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -559,8 +633,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'AUDCAD',
-            instrument: 'AUD/CAD micro',
+            instrument: {
+                symbol: 'AUDCAD',
+                instrument: 'AUD/CAD micro',
+            },
             contract_size: 1000,
             base_currency: 'AUD',
             minimum_size: 0.1,
@@ -573,8 +649,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'AUDCHF',
-            instrument: 'AUD/CHF micro',
+            instrument: {
+                symbol: 'AUDCHF',
+                instrument: 'AUD/CHF micro',
+            },
             contract_size: 1000,
             base_currency: 'AUD',
             minimum_size: 0.1,
@@ -587,8 +665,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'AUDJPY',
-            instrument: 'AUD/JPY micro',
+            instrument: {
+                symbol: 'AUDJPY',
+                instrument: 'AUD/JPY micro',
+            },
             contract_size: 1000,
             base_currency: 'AUD',
             minimum_size: 0.1,
@@ -601,8 +681,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'AUDNZD',
-            instrument: 'AUD/NZD micro',
+            instrument: {
+                symbol: 'AUDNZD',
+                instrument: 'AUD/NZD micro',
+            },
             contract_size: 1000,
             base_currency: 'AUD',
             minimum_size: 0.1,
@@ -615,8 +697,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'AUDUSD',
-            instrument: 'AUD/USD micro',
+            instrument: {
+                symbol: 'AUDUSD',
+                instrument: 'AUD/USD micro',
+            },
             contract_size: 1000,
             base_currency: 'AUD',
             minimum_size: 0.1,
@@ -629,8 +713,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURAUD',
-            instrument: 'EUR/AUD micro',
+            instrument: {
+                symbol: 'EURAUD',
+                instrument: 'EUR/AUD micro',
+            },
             contract_size: 1000,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -643,8 +729,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURCAD',
-            instrument: 'EUR/CAD micro',
+            instrument: {
+                symbol: 'EURCAD',
+                instrument: 'EUR/CAD micro',
+            },
             contract_size: 1000,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -657,8 +745,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURCHF',
-            instrument: 'EUR/CHF micro',
+            instrument: {
+                symbol: 'EURCHF',
+                instrument: 'EUR/CHF micro',
+            },
             contract_size: 1000,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -671,8 +761,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURGBP',
-            instrument: 'EUR/GBP micro',
+            instrument: {
+                symbol: 'EURGBP',
+                instrument: 'EUR/GBP micro',
+            },
             contract_size: 1000,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -685,8 +777,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURJPY',
-            instrument: 'EUR/JPY micro',
+            instrument: {
+                symbol: 'EURJPY',
+                instrument: 'EUR/JPY micro',
+            },
             contract_size: 1000,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -699,8 +793,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURNZD',
-            instrument: 'EUR/NZD micro',
+            instrument: {
+                symbol: 'EURNZD',
+                instrument: 'EUR/NZD micro',
+            },
             contract_size: 1000,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -713,8 +809,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'EURUSD',
-            instrument: 'EUR/USD micro',
+            instrument: {
+                symbol: 'EURUSD',
+                instrument: 'EUR/USD micro',
+            },
             contract_size: 1000,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -727,8 +825,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPCHF',
-            instrument: 'GBP/CHF micro',
+            instrument: {
+                symbol: 'GBPCHF',
+                instrument: 'GBP/CHF micro',
+            },
             contract_size: 1000,
             base_currency: 'GBP',
             minimum_size: 0.1,
@@ -741,8 +841,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPJPY',
-            instrument: 'GBP/JPY micro',
+            instrument: {
+                symbol: 'GBPJPY',
+                instrument: 'GBP/JPY micro',
+            },
             contract_size: 1000,
             base_currency: 'GBP',
             minimum_size: 0.1,
@@ -755,8 +857,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'GBPUSD',
-            instrument: 'GBP/USD micro',
+            instrument: {
+                symbol: 'GBPUSD',
+                instrument: 'GBP/USD micro',
+            },
             contract_size: 1000,
             base_currency: 'GBP',
             minimum_size: 0.1,
@@ -769,8 +873,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'NZDUSD',
-            instrument: 'NZD/USD micro',
+            instrument: {
+                symbol: 'NZDUSD',
+                instrument: 'NZD/USD micro',
+            },
             contract_size: 1000,
             base_currency: 'NZD',
             minimum_size: 0.1,
@@ -783,8 +889,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDCAD',
-            instrument: 'USD/CAD micro',
+            instrument: {
+                symbol: 'USDCAD',
+                instrument: 'USD/CAD micro',
+            },
             contract_size: 1000,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -797,8 +905,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDCHF',
-            instrument: 'USD/CHF micro',
+            instrument: {
+                symbol: 'USDCHF',
+                instrument: 'USD/CHF micro',
+            },
             contract_size: 1000,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -811,8 +921,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            symbol: 'USDJPY',
-            instrument: 'USD/JPY micro',
+            instrument: {
+                symbol: 'USDJPY',
+                instrument: 'USD/JPY micro',
+            },
             contract_size: 1000,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -827,8 +939,10 @@ const forex_specification: TSpecification = {
     ],
     eu_data: [
         {
-            symbol: 'AUDCAD',
-            instrument: 'AUD/CAD',
+            instrument: {
+                symbol: 'AUDCAD',
+                instrument: 'AUD/CAD',
+            },
             contract_size: 100000,
             base_currency: 'AUD',
             minimum_size: 0.01,
@@ -841,8 +955,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'AUDCHF',
-            instrument: 'AUD/CHF',
+            instrument: {
+                symbol: 'AUDCHF',
+                instrument: 'AUD/CHF',
+            },
             contract_size: 100000,
             base_currency: 'AUD',
             minimum_size: 0.01,
@@ -855,8 +971,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'AUDJPY',
-            instrument: 'AUD/JPY',
+            instrument: {
+                symbol: 'AUDJPY',
+                instrument: 'AUD/JPY',
+            },
             contract_size: 100000,
             base_currency: 'AUD',
             minimum_size: 0.01,
@@ -869,8 +987,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'AUDNZD',
-            instrument: 'AUD/NZD',
+            instrument: {
+                symbol: 'AUDNZD',
+                instrument: 'AUD/NZD',
+            },
             contract_size: 100000,
             base_currency: 'AUD',
             minimum_size: 0.01,
@@ -883,8 +1003,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'AUDUSD',
-            instrument: 'AUD/USD',
+            instrument: {
+                symbol: 'AUDUSD',
+                instrument: 'AUD/USD',
+            },
             contract_size: 100000,
             base_currency: 'AUD',
             minimum_size: 0.01,
@@ -897,8 +1019,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'CADCHF',
-            instrument: 'CAD/CHF',
+            instrument: {
+                symbol: 'CADCHF',
+                instrument: 'CAD/CHF',
+            },
             contract_size: 100000,
             base_currency: 'CAD',
             minimum_size: 0.01,
@@ -911,8 +1035,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'CADJPY',
-            instrument: 'CAD/JPY',
+            instrument: {
+                symbol: 'CADJPY',
+                instrument: 'CAD/JPY',
+            },
             contract_size: 100000,
             base_currency: 'CAD',
             minimum_size: 0.01,
@@ -925,8 +1051,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'CHFJPY',
-            instrument: 'CHF/JPY',
+            instrument: {
+                symbol: 'CHFJPY',
+                instrument: 'CHF/JPY',
+            },
             contract_size: 100000,
             base_currency: 'CHF',
             minimum_size: 0.01,
@@ -939,8 +1067,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EURAUD',
-            instrument: 'EUR/AUD',
+            instrument: {
+                symbol: 'EURAUD',
+                instrument: 'EUR/AUD',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -953,8 +1083,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EURCAD',
-            instrument: 'EUR/CAD',
+            instrument: {
+                symbol: 'EURCAD',
+                instrument: 'EUR/CAD',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -967,8 +1099,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EURCHF',
-            instrument: 'EUR/CHF',
+            instrument: {
+                symbol: 'EURCHF',
+                instrument: 'EUR/CHF',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -981,8 +1115,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EURGBP',
-            instrument: 'EUR/GBP',
+            instrument: {
+                symbol: 'EURGBP',
+                instrument: 'EUR/GBP',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -995,8 +1131,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EURJPY',
-            instrument: 'EUR/JPY',
+            instrument: {
+                symbol: 'EURJPY',
+                instrument: 'EUR/JPY',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -1009,8 +1147,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EURNOK',
-            instrument: 'EUR/NOK',
+            instrument: {
+                symbol: 'EURNOK',
+                instrument: 'EUR/NOK',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -1023,8 +1163,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EURNZD',
-            instrument: 'EUR/NZD',
+            instrument: {
+                symbol: 'EURNZD',
+                instrument: 'EUR/NZD',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -1037,8 +1179,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EURPLN',
-            instrument: 'EUR/PLN',
+            instrument: {
+                symbol: 'EURPLN',
+                instrument: 'EUR/PLN',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -1051,8 +1195,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EURSEK',
-            instrument: 'EUR/SEK',
+            instrument: {
+                symbol: 'EURSEK',
+                instrument: 'EUR/SEK',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -1065,8 +1211,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EURUSD',
-            instrument: 'EUR/USD',
+            instrument: {
+                symbol: 'EURUSD',
+                instrument: 'EUR/USD',
+            },
             contract_size: 100000,
             base_currency: 'EUR',
             minimum_size: 0.01,
@@ -1079,8 +1227,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'GBPAUD',
-            instrument: 'GBP/AUD',
+            instrument: {
+                symbol: 'GBPAUD',
+                instrument: 'GBP/AUD',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -1093,8 +1243,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'GBPCAD',
-            instrument: 'GBP/CAD',
+            instrument: {
+                symbol: 'GBPCAD',
+                instrument: 'GBP/CAD',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -1107,8 +1259,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'GBPCHF',
-            instrument: 'GBP/CHF',
+            instrument: {
+                symbol: 'GBPCHF',
+                instrument: 'GBP/CHF',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -1121,8 +1275,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'GBPJPY',
-            instrument: 'GBP/JPY',
+            instrument: {
+                symbol: 'GBPJPY',
+                instrument: 'GBP/JPY',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -1135,8 +1291,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'GBPNOK',
-            instrument: 'GBP/NOK',
+            instrument: {
+                symbol: 'GBPNOK',
+                instrument: 'GBP/NOK',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -1149,8 +1307,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'GBPNZD',
-            instrument: 'GBP/NZD',
+            instrument: {
+                symbol: 'GBPNZD',
+                instrument: 'GBP/NZD',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -1163,8 +1323,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'GBPSEK',
-            instrument: 'GBP/SEK',
+            instrument: {
+                symbol: 'GBPSEK',
+                instrument: 'GBP/SEK',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -1177,8 +1339,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'GBPUSD',
-            instrument: 'GBP/USD',
+            instrument: {
+                symbol: 'GBPUSD',
+                instrument: 'GBP/USD',
+            },
             contract_size: 100000,
             base_currency: 'GBP',
             minimum_size: 0.01,
@@ -1191,8 +1355,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'NZDCAD',
-            instrument: 'NZD/CAD',
+            instrument: {
+                symbol: 'NZDCAD',
+                instrument: 'NZD/CAD',
+            },
             contract_size: 100000,
             base_currency: 'NZD',
             minimum_size: 0.01,
@@ -1205,8 +1371,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'NZDJPY',
-            instrument: 'NZD/JPY',
+            instrument: {
+                symbol: 'NZDJPY',
+                instrument: 'NZD/JPY',
+            },
             contract_size: 100000,
             base_currency: 'NZD',
             minimum_size: 0.01,
@@ -1219,8 +1387,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'NZDUSD',
-            instrument: 'NZD/USD',
+            instrument: {
+                symbol: 'NZDUSD',
+                instrument: 'NZD/USD',
+            },
             contract_size: 100000,
             base_currency: 'NZD',
             minimum_size: 0.01,
@@ -1233,8 +1403,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'USDCAD',
-            instrument: 'USD/CAD',
+            instrument: {
+                symbol: 'USDCAD',
+                instrument: 'USD/CAD',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -1247,8 +1419,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'USDCHF',
-            instrument: 'USD/CHF',
+            instrument: {
+                symbol: 'USDCHF',
+                instrument: 'USD/CHF',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -1261,8 +1435,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'USDCNH',
-            instrument: 'USD/CNH',
+            instrument: {
+                symbol: 'USDCNH',
+                instrument: 'USD/CNH',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -1275,8 +1451,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'USDJPY',
-            instrument: 'USD/JPY',
+            instrument: {
+                symbol: 'USDJPY',
+                instrument: 'USD/JPY',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -1289,8 +1467,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'USDMXN',
-            instrument: 'USD/MXN',
+            instrument: {
+                symbol: 'USDMXN',
+                instrument: 'USD/MXN',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -1303,8 +1483,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'USDNOK',
-            instrument: 'USD/NOK',
+            instrument: {
+                symbol: 'USDNOK',
+                instrument: 'USD/NOK',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -1317,8 +1499,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'USDPLN',
-            instrument: 'USD/PLN',
+            instrument: {
+                symbol: 'USDPLN',
+                instrument: 'USD/PLN',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -1331,8 +1515,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'USDSEK',
-            instrument: 'USD/SEK',
+            instrument: {
+                symbol: 'USDSEK',
+                instrument: 'USD/SEK',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -1345,8 +1531,10 @@ const forex_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'USDZAR',
-            instrument: 'USD/ZAR',
+            instrument: {
+                symbol: 'USDZAR',
+                instrument: 'USD/ZAR',
+            },
             contract_size: 100000,
             base_currency: 'USD',
             minimum_size: 0.01,

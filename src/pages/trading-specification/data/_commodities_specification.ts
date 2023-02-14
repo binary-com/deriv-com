@@ -27,9 +27,10 @@ const commodities_specification: TSpecification = {
     ],
     data: [
         {
-            is_row: true,
-            symbol: 'SILVEREUR',
-            instrument: 'Silver/EUR',
+            instrument: {
+                symbol: 'SILVEREUR',
+                instrument: 'Silver/EUR',
+            },
             contract_size: '5000 oz',
             base_currency: 'XAG',
             minimum_size: 0.01,
@@ -42,9 +43,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45 Daily Break: 22:00 - 23:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'SILVERUSD',
-            instrument: 'Silver/USD',
+            instrument: {
+                symbol: 'SILVERUSD',
+                instrument: 'Silver/USD',
+            },
             contract_size: '5000 oz',
             base_currency: 'XAG',
             minimum_size: 0.01,
@@ -57,9 +59,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45 Daily Break: 22:00 - 23:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'ALUMINIUMUSD',
-            instrument: 'Aluminium/USD',
+            instrument: {
+                symbol: 'ALUMINIUMUSD',
+                instrument: 'Aluminium/USD',
+            },
             contract_size: '100 ton',
             base_currency: 'XAL',
             minimum_size: 0.01,
@@ -72,9 +75,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon - Fri 01:05 - 19:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'GOLDEUR',
-            instrument: 'Gold/EUR',
+            instrument: {
+                symbol: 'GOLDEUR',
+                instrument: 'Gold/EUR',
+            },
             contract_size: '100 oz',
             base_currency: 'XAU',
             minimum_size: 0.01,
@@ -87,10 +91,11 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45 Daily Break: 22:00 - 23:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'GOLDUSD',
-            dl_icon: true,
-            instrument: 'Gold/USD',
+            instrument: {
+                symbol: 'GOLDUSD',
+                dl_icon: true,
+                instrument: 'Gold/USD',
+            },
             contract_size: '100 oz',
             base_currency: 'XAU',
             minimum_size: 0.01,
@@ -103,10 +108,11 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45 Daily Break: 22:00 - 23:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'COPPERUSD',
-            dl_icon: true,
-            instrument: 'Copper/USD',
+            instrument: {
+                symbol: 'COPPERUSD',
+                dl_icon: true,
+                instrument: 'Copper/USD',
+            },
             contract_size: '100 ton',
             base_currency: 'XCU',
             minimum_size: 0.01,
@@ -119,9 +125,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon - Fri 01:05 - 19:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'NICKELUSD',
-            instrument: 'Nickel/USD',
+            instrument: {
+                symbol: 'NICKELUSD',
+                instrument: 'Nickel/USD',
+            },
             contract_size: '100 ton',
             base_currency: 'XNI',
             minimum_size: 0.01,
@@ -134,9 +141,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon - Fri 01:05 - 19:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'LEADUSD',
-            instrument: 'Lead/USD',
+            instrument: {
+                symbol: 'LEADUSD',
+                instrument: 'Lead/USD',
+            },
             contract_size: '100 ton',
             base_currency: 'XPB',
             minimum_size: 0.01,
@@ -149,9 +157,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon - Fri 01:05 - 19:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'PALLADIUMUSD',
-            instrument: 'Palladium/USD',
+            instrument: {
+                symbol: 'PALLADIUMUSD',
+                instrument: 'Palladium/USD',
+            },
             contract_size: '100 oz',
             base_currency: 'XPD',
             minimum_size: 0.01,
@@ -164,9 +173,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45 Daily Break: 22:00 - 23:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'PLATINUMUSD',
-            instrument: 'Platinum/USD',
+            instrument: {
+                symbol: 'PLATINUMUSD',
+                instrument: 'Platinum/USD',
+            },
             contract_size: '100 oz',
             base_currency: 'XPT',
             minimum_size: 0.01,
@@ -179,9 +189,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45 Daily Break: 22:00 - 23:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'ZINCUSD',
-            instrument: 'Zinc/USD',
+            instrument: {
+                symbol: 'ZINCUSD',
+                instrument: 'Zinc/USD',
+            },
             contract_size: '100 ton',
             base_currency: 'XZN',
             minimum_size: 0.01,
@@ -194,9 +205,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon - Fri 01:05 - 19:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'POUNDBRENT',
-            instrument: 'Brent crude oil',
+            instrument: {
+                symbol: 'POUNDBRENT',
+                instrument: 'Brent crude oil',
+            },
             contract_size: '1 barrel',
             base_currency: 'USD',
             minimum_size: 1,
@@ -209,9 +221,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon Friday 01:00 - 22:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'USDBRENT',
-            instrument: 'West Texas Intermediate',
+            instrument: {
+                symbol: 'USDBRENT',
+                instrument: 'West Texas Intermediate',
+            },
             contract_size: '1 barrel',
             base_currency: 'USD',
             minimum_size: 1,
@@ -226,8 +239,10 @@ const commodities_specification: TSpecification = {
     ],
     eu_data: [
         {
-            symbol: 'ALUMINIUMUSD',
-            instrument: 'Aluminium/USD',
+            instrument: {
+                symbol: 'ALUMINIUMUSD',
+                instrument: 'Aluminium/USD',
+            },
             contract_size: '100 ton',
             base_currency: 'XAL',
             minimum_size: 0.01,
@@ -240,8 +255,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon - Fri 01:05 - 19:00 GMT',
         },
         {
-            symbol: 'POUNDBRENT',
-            instrument: 'Brent crude oil',
+            instrument: {
+                symbol: 'POUNDBRENT',
+                instrument: 'Brent crude oil',
+            },
             contract_size: '1 barrel',
             base_currency: 'USD',
             minimum_size: 1,
@@ -254,8 +271,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon Friday 01:00 - 22:00 GMT',
         },
         {
-            symbol: 'COPPERUSD',
-            instrument: 'Copper/USD',
+            instrument: {
+                symbol: 'COPPERUSD',
+                instrument: 'Copper/USD',
+            },
             contract_size: '100 ton',
             base_currency: 'XCU',
             minimum_size: 0.01,
@@ -268,8 +287,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon - Fri 01:05 - 19:00 GMT',
         },
         {
-            symbol: 'GOLDEUR',
-            instrument: 'Gold/EUR',
+            instrument: {
+                symbol: 'GOLDEUR',
+                instrument: 'Gold/EUR',
+            },
             contract_size: '100 oz',
             base_currency: 'XAU',
             minimum_size: 0.01,
@@ -282,8 +303,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon - Fri 01:05 - 19:00 GMT',
         },
         {
-            symbol: 'GOLDUSD',
-            instrument: 'Gold/USD',
+            instrument: {
+                symbol: 'GOLDUSD',
+                instrument: 'Gold/USD',
+            },
             contract_size: '100 oz',
             base_currency: 'XAU',
             minimum_size: 0.01,
@@ -296,8 +319,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45\nDaily Break: 22:00 - 23:00 GMT',
         },
         {
-            symbol: 'LEADUSD',
-            instrument: 'Lead/USD',
+            instrument: {
+                symbol: 'LEADUSD',
+                instrument: 'Lead/USD',
+            },
             contract_size: '100 ton',
             base_currency: 'XPB',
             minimum_size: 0.01,
@@ -310,8 +335,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45\nDaily Break: 22:00 - 23:00 GMT',
         },
         {
-            symbol: 'NICKELUSD',
-            instrument: 'Nickel/USD',
+            instrument: {
+                symbol: 'NICKELUSD',
+                instrument: 'Nickel/USD',
+            },
             contract_size: '100 ton',
             base_currency: 'XNI',
             minimum_size: 0.01,
@@ -324,8 +351,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45\nDaily Break: 22:00 - 23:00 GMT',
         },
         {
-            symbol: 'PALLADIUMUSD',
-            instrument: 'Palladium/USD',
+            instrument: {
+                symbol: 'PALLADIUMUSD',
+                instrument: 'Palladium/USD',
+            },
             contract_size: '100 oz',
             base_currency: 'XPD',
             minimum_size: 0.01,
@@ -338,8 +367,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Mon - Fri 01:05 - 19:00 GMT',
         },
         {
-            symbol: 'PLATINUMUSD',
-            instrument: 'Platinum/USD',
+            instrument: {
+                symbol: 'PLATINUMUSD',
+                instrument: 'Platinum/USD',
+            },
             contract_size: '100 oz',
             base_currency: 'XPT',
             minimum_size: 0.01,
@@ -352,8 +383,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45\nDaily Break: 22:00 - 23:00 GMT',
         },
         {
-            symbol: 'SILVEREUR',
-            instrument: 'Silver/EUR',
+            instrument: {
+                symbol: 'SILVEREUR',
+                instrument: 'Silver/EUR',
+            },
             contract_size: '5000 oz',
             base_currency: 'XAG',
             minimum_size: 0.01,
@@ -366,8 +399,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45\nDaily Break: 22:00 - 23:00 GMT',
         },
         {
-            symbol: 'SILVERUSD',
-            instrument: 'Silver/USD',
+            instrument: {
+                symbol: 'SILVERUSD',
+                instrument: 'Silver/USD',
+            },
             contract_size: '5,000 oz',
             base_currency: 'XAG',
             minimum_size: 0.01,
@@ -380,8 +415,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:05 - Fri 21:45 \nDaily Break: 22:00 - 23:00 GMT',
         },
         {
-            symbol: 'USDBRENT',
-            instrument: 'West Texas Intermediate',
+            instrument: {
+                symbol: 'USDBRENT',
+                instrument: 'West Texas Intermediate',
+            },
             contract_size: '1 barrel',
             base_currency: 'USD',
             minimum_size: 1,
@@ -394,8 +431,10 @@ const commodities_specification: TSpecification = {
             trading_hours: 'Sun 23:00 - Fri 22:00\nDaily Break: 22:00 - 23:00 GMT',
         },
         {
-            symbol: 'ZINCUSD',
-            instrument: 'Zinc/USD',
+            instrument: {
+                symbol: 'ZINCUSD',
+                instrument: 'Zinc/USD',
+            },
             contract_size: '100 ton',
             base_currency: 'XZN',
             minimum_size: 0.01,

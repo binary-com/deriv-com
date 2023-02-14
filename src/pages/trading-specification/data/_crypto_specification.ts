@@ -27,9 +27,10 @@ const crypto_specification: TSpecification = {
     ],
     data: [
         {
-            is_row: true,
-            symbol: 'ADAUSD',
-            instrument: 'ADA/USD',
+            instrument: {
+                symbol: 'ADAUSD',
+                instrument: 'ADA/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 100,
@@ -42,9 +43,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'ALGORAND',
-            instrument: 'ALG/USD',
+            instrument: {
+                symbol: 'ALGORAND',
+                instrument: 'ALG/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 500,
@@ -57,9 +59,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'AVALANCHE',
-            instrument: 'AVA/USD',
+            instrument: {
+                symbol: 'AVALANCHE',
+                instrument: 'AVA/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -72,9 +75,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'BAT',
-            instrument: 'BAT/USD',
+            instrument: {
+                symbol: 'BAT',
+                instrument: 'BAT/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 500,
@@ -87,9 +91,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'BCHNEW',
-            instrument: 'BCH/USD',
+            instrument: {
+                symbol: 'BCHNEW',
+                instrument: 'BCH/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -102,9 +107,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'BNBUSD',
-            instrument: 'BNB/USD',
+            instrument: {
+                symbol: 'BNBUSD',
+                instrument: 'BNB/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -117,9 +123,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'BTCETH',
-            instrument: 'BTC/ETH',
+            instrument: {
+                symbol: 'BTCETH',
+                instrument: 'BTC/ETH',
+            },
             contract_size: 1,
             base_currency: 'ETH',
             minimum_size: 0.01,
@@ -132,9 +139,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'BTCLTC',
-            instrument: 'BTC/LTC',
+            instrument: {
+                symbol: 'BTCLTC',
+                instrument: 'BTC/LTC',
+            },
             contract_size: 1,
             base_currency: 'LTC',
             minimum_size: 0.01,
@@ -147,10 +155,11 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'BTCUSD',
-            dl_icon: true,
-            instrument: 'BTC/USD',
+            instrument: {
+                symbol: 'BTCUSD',
+                dl_icon: true,
+                instrument: 'BTC/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -163,10 +172,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'BTCETH',
-            is_eu: true,
-            instrument: 'BTC/XAG',
+            instrument: {
+                symbol: 'BTCETH',
+                instrument: 'BTC/XAG',
+            },
             contract_size: 1,
             base_currency: 'XAG',
             minimum_size: 0.01,
@@ -179,10 +188,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            is_eu: true,
-            symbol: 'BTCETH',
-            instrument: 'BTC/XAU',
+            instrument: {
+                symbol: 'BTCETH',
+                instrument: 'BTC/XAU',
+            },
             contract_size: 1,
             base_currency: 'XAU',
             minimum_size: 0.01,
@@ -195,9 +204,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'DOGUSD',
-            instrument: 'DOG/USD',
+            instrument: {
+                symbol: 'DOGUSD',
+                instrument: 'DOG/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1500,
@@ -210,9 +220,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'DOTUSD',
-            instrument: 'DOT/USD',
+            instrument: {
+                symbol: 'DOTUSD',
+                instrument: 'DOT/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -225,9 +236,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'DSHUSD1',
-            instrument: 'DSH/USD',
+            instrument: {
+                symbol: 'DSHUSD1',
+                instrument: 'DSH/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -240,9 +252,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'EOSUSD1',
-            instrument: 'EOS/USD',
+            instrument: {
+                symbol: 'EOSUSD1',
+                instrument: 'EOS/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 100,
@@ -255,9 +268,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'ETCUSD',
-            instrument: 'ETC/USD',
+            instrument: {
+                symbol: 'ETCUSD',
+                instrument: 'ETC/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -270,10 +284,11 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'ETHUSD',
-            dl_icon: true,
-            instrument: 'ETH/USD',
+            instrument: {
+                symbol: 'ETHUSD',
+                dl_icon: true,
+                instrument: 'ETH/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -286,9 +301,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'FILUSD',
-            instrument: 'FIL/USD',
+            instrument: {
+                symbol: 'FILUSD',
+                instrument: 'FIL/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -301,9 +317,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'IOTUSD',
-            instrument: 'IOT/USD',
+            instrument: {
+                symbol: 'IOTUSD',
+                instrument: 'IOT/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 500,
@@ -316,9 +333,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'LNKUSD',
-            instrument: 'LNK/USD',
+            instrument: {
+                symbol: 'LNKUSD',
+                instrument: 'LNK/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -331,9 +349,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'LTCUSD',
-            instrument: 'LTC/USD',
+            instrument: {
+                symbol: 'LTCUSD',
+                instrument: 'LTC/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -346,9 +365,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'MKRUSD',
-            instrument: 'MKR/USD',
+            instrument: {
+                symbol: 'MKRUSD',
+                instrument: 'MKR/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -361,9 +381,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'MTCUSD',
-            instrument: 'MTC/USD',
+            instrument: {
+                symbol: 'MTCUSD',
+                instrument: 'MTC/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 100,
@@ -376,9 +397,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'NEOUSD',
-            instrument: 'NEO/USD',
+            instrument: {
+                symbol: 'NEOUSD',
+                instrument: 'NEO/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -391,9 +413,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'OMGUSD',
-            instrument: 'OMG/USD',
+            instrument: {
+                symbol: 'OMGUSD',
+                instrument: 'OMG/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 10,
@@ -406,9 +429,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'SOLUSD',
-            instrument: 'SOL/USD',
+            instrument: {
+                symbol: 'SOLUSD',
+                instrument: 'SOL/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -421,9 +445,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'TRXUSD',
-            instrument: 'TRX/USD',
+            instrument: {
+                symbol: 'TRXUSD',
+                instrument: 'TRX/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1500,
@@ -436,9 +461,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'UNIUSD',
-            instrument: 'UNI/USD',
+            instrument: {
+                symbol: 'UNIUSD',
+                instrument: 'UNI/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -451,9 +477,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'XLMUSD',
-            instrument: 'XLM/USD',
+            instrument: {
+                symbol: 'XLMUSD',
+                instrument: 'XLM/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1000,
@@ -466,9 +493,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'XMRUSD',
-            instrument: 'XMR/USD',
+            instrument: {
+                symbol: 'XMRUSD',
+                instrument: 'XMR/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -481,9 +509,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'XRPUSD1',
-            instrument: 'XRP/USD',
+            instrument: {
+                symbol: 'XRPUSD1',
+                instrument: 'XRP/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 500,
@@ -496,9 +525,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'XTZUSD',
-            instrument: 'XTZ/USD',
+            instrument: {
+                symbol: 'XTZUSD',
+                instrument: 'XTZ/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 10,
@@ -511,9 +541,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            is_row: true,
-            symbol: 'ZECUSD',
-            instrument: 'ZEC/USD',
+            instrument: {
+                symbol: 'ZECUSD',
+                instrument: 'ZEC/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -528,8 +559,10 @@ const crypto_specification: TSpecification = {
     ],
     eu_data: [
         {
-            symbol: 'ADAUSD',
-            instrument: 'ADA/USD',
+            instrument: {
+                symbol: 'ADAUSD',
+                instrument: 'ADA/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 100,
@@ -542,8 +575,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'ALGORAND',
-            instrument: 'ALG/USD',
+            instrument: {
+                symbol: 'ALGORAND',
+                instrument: 'ALG/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 500,
@@ -556,8 +591,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'AVALANCHE',
-            instrument: 'AVA/USD',
+            instrument: {
+                symbol: 'AVALANCHE',
+                instrument: 'AVA/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -570,8 +607,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'BAT',
-            instrument: 'BAT/USD',
+            instrument: {
+                symbol: 'BAT',
+                instrument: 'BAT/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 500,
@@ -584,8 +623,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'BCHUSD',
-            instrument: 'BCH/USD',
+            instrument: {
+                symbol: 'BCHUSD',
+                instrument: 'BCH/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -598,8 +639,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'BNBUSD',
-            instrument: 'BNB/USD',
+            instrument: {
+                symbol: 'BNBUSD',
+                instrument: 'BNB/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -612,8 +655,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'BTCETH',
-            instrument: 'BTC/ETH',
+            instrument: {
+                symbol: 'BTCETH',
+                instrument: 'BTC/ETH',
+            },
             contract_size: 1,
             base_currency: 'ETH',
             minimum_size: 0.01,
@@ -626,8 +671,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'BTCLTC',
-            instrument: 'BTC/LTC',
+            instrument: {
+                symbol: 'BTCLTC',
+                instrument: 'BTC/LTC',
+            },
             contract_size: 1,
             base_currency: 'LTC',
             minimum_size: 0.01,
@@ -640,8 +687,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'BTCUSD',
-            instrument: 'BTC/USD',
+            instrument: {
+                symbol: 'BTCUSD',
+                instrument: 'BTC/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -654,8 +703,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'DOGUSD',
-            instrument: 'DOG/USD',
+            instrument: {
+                symbol: 'DOGUSD',
+                instrument: 'DOG/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1500,
@@ -668,8 +719,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'DOTUSD',
-            instrument: 'DOT/USD',
+            instrument: {
+                symbol: 'DOTUSD',
+                instrument: 'DOT/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -682,8 +735,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'DSHUSD',
-            instrument: 'DSH/USD',
+            instrument: {
+                symbol: 'DSHUSD',
+                instrument: 'DSH/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -696,8 +751,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'EOSUSD',
-            instrument: 'EOS/USD',
+            instrument: {
+                symbol: 'EOSUSD',
+                instrument: 'EOS/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 100,
@@ -710,8 +767,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'ETCUSD',
-            instrument: 'ETC/USD',
+            instrument: {
+                symbol: 'ETCUSD',
+                instrument: 'ETC/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -724,8 +783,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'ETHUSD',
-            instrument: 'ETH/USD',
+            instrument: {
+                symbol: 'ETHUSD',
+                instrument: 'ETH/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -738,8 +799,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'FILUSD',
-            instrument: 'FIL/USD',
+            instrument: {
+                symbol: 'FILUSD',
+                instrument: 'FIL/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -752,8 +815,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'IOTUSD',
-            instrument: 'IOT/USD',
+            instrument: {
+                symbol: 'IOTUSD',
+                instrument: 'IOT/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 500,
@@ -766,8 +831,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'LNKUSD',
-            instrument: 'LNK/USD',
+            instrument: {
+                symbol: 'LNKUSD',
+                instrument: 'LNK/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -780,8 +847,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'LTCUSD',
-            instrument: 'LTC/USD',
+            instrument: {
+                symbol: 'LTCUSD',
+                instrument: 'LTC/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -794,8 +863,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'MKRUSD',
-            instrument: 'MKR/USD',
+            instrument: {
+                symbol: 'MKRUSD',
+                instrument: 'MKR/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -808,8 +879,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'MTCUSD',
-            instrument: 'MTC/USD',
+            instrument: {
+                symbol: 'MTCUSD',
+                instrument: 'MTC/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 100,
@@ -822,8 +895,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'NEOUSD',
-            instrument: 'NEO/USD',
+            instrument: {
+                symbol: 'NEOUSD',
+                instrument: 'NEO/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -836,8 +911,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'OMGUSD',
-            instrument: 'OMG/USD',
+            instrument: {
+                symbol: 'OMGUSD',
+                instrument: 'OMG/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 10,
@@ -850,8 +927,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'SOLUSD',
-            instrument: 'SOL/USD',
+            instrument: {
+                symbol: 'SOLUSD',
+                instrument: 'SOL/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -864,8 +943,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'TRXUSD',
-            instrument: 'TRX/USD',
+            instrument: {
+                symbol: 'TRXUSD',
+                instrument: 'TRX/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1500,
@@ -878,8 +959,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'UNIUSD',
-            instrument: 'UNI/USD',
+            instrument: {
+                symbol: 'UNIUSD',
+                instrument: 'UNI/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -892,8 +975,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'XLMUSD',
-            instrument: 'XLM/USD',
+            instrument: {
+                symbol: 'XLMUSD',
+                instrument: 'XLM/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1000,
@@ -906,8 +991,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'XMRUSD',
-            instrument: 'XMR/USD',
+            instrument: {
+                symbol: 'XMRUSD',
+                instrument: 'XMR/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -920,8 +1007,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'XRPUSD',
-            instrument: 'XRP/USD',
+            instrument: {
+                symbol: 'XRPUSD',
+                instrument: 'XRP/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 500,
@@ -934,8 +1023,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'XTZUSD',
-            instrument: 'XTZ/USD',
+            instrument: {
+                symbol: 'XTZUSD',
+                instrument: 'XTZ/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 10,
@@ -948,8 +1039,10 @@ const crypto_specification: TSpecification = {
             trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
-            symbol: 'ZECUSD',
-            instrument: 'ZEC/USD',
+            instrument: {
+                symbol: 'ZECUSD',
+                instrument: 'ZEC/USD',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,

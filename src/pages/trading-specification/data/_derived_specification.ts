@@ -4,9 +4,10 @@ const derived_specification: TSpecification = {
     market: 'derived',
     data: [
         {
-            is_row: true,
-            symbol: 'BOOM1000NEW',
-            instrument: 'Boom 1000 Index',
+            instrument: {
+                symbol: 'BOOM1000NEW',
+                instrument: 'Boom 1000 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.2,
@@ -19,9 +20,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'VBOOMIC300',
-            instrument: 'Boom 300 Index',
+            instrument: {
+                symbol: 'VBOOMIC300',
+                instrument: 'Boom 300 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -34,9 +36,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'BOOM500NEW',
-            instrument: 'Boom 500 Index',
+            instrument: {
+                symbol: 'BOOM500NEW',
+                instrument: 'Boom 500 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.2,
@@ -49,9 +52,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'CRASH1000NEW',
-            instrument: 'Crash 1000 Index',
+            instrument: {
+                symbol: 'CRASH1000NEW',
+                instrument: 'Crash 1000 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.2,
@@ -64,9 +68,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'VCRASHIC300',
-            instrument: 'Crash 300 Index',
+            instrument: {
+                symbol: 'VCRASHIC300',
+                instrument: 'Crash 300 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.05,
@@ -79,9 +84,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'CRASH500NEW',
-            instrument: 'Crash 500 Index',
+            instrument: {
+                symbol: 'CRASH500NEW',
+                instrument: 'Crash 500 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.2,
@@ -94,9 +100,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'JUMP10NEW',
-            instrument: 'Jump 10 Index',
+            instrument: {
+                symbol: 'JUMP10NEW',
+                instrument: 'Jump 10 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -109,9 +116,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'JUMP100NEW',
-            instrument: 'Jump 100 Index',
+            instrument: {
+                symbol: 'JUMP100NEW',
+                instrument: 'Jump 100 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -124,9 +132,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'JUMP25NEW',
-            instrument: 'Jump 25 Index',
+            instrument: {
+                symbol: 'JUMP25NEW',
+                instrument: 'Jump 25 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -139,9 +148,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'JUMP50NEW',
-            instrument: 'Jump 50 Index',
+            instrument: {
+                symbol: 'JUMP50NEW',
+                instrument: 'Jump 50 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -154,9 +164,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'JUMP75NEW',
-            instrument: 'Jump 75 Index',
+            instrument: {
+                symbol: 'JUMP75NEW',
+                instrument: 'Jump 75 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -169,9 +180,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'RANGEBREAK100New',
-            instrument: 'Range Break 100 Index',
+            instrument: {
+                symbol: 'RANGEBREAK100New',
+                instrument: 'Range Break 100 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -184,9 +196,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'RANGEBREAK200New',
-            instrument: 'Range Break 200 Index',
+            instrument: {
+                symbol: 'RANGEBREAK200New',
+                instrument: 'Range Break 200 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -199,9 +212,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'STEPINDICES',
-            instrument: 'Step Index',
+            instrument: {
+                symbol: 'STEPINDICES',
+                instrument: 'Step Index',
+            },
             contract_size: 10,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -214,9 +228,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'INDEX10S1NEW',
-            instrument: 'Volatility 10 (1s) Index',
+            instrument: {
+                symbol: 'INDEX10S1NEW',
+                instrument: 'Volatility 10 (1s) Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.2,
@@ -229,9 +244,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'INDEX10NEW',
-            instrument: 'Volatility 10 Index',
+            instrument: {
+                symbol: 'INDEX10NEW',
+                instrument: 'Volatility 10 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.3,
@@ -244,9 +260,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'INDEX100S1NEW',
-            instrument: 'Volatility 100 (1s) Index',
+            instrument: {
+                symbol: 'INDEX100S1NEW',
+                instrument: 'Volatility 100 (1s) Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -259,9 +276,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'INDEX100NEW',
-            instrument: 'Volatility 100 Index',
+            instrument: {
+                symbol: 'INDEX100NEW',
+                instrument: 'Volatility 100 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.2,
@@ -274,9 +292,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'VINDEX2001S',
-            instrument: 'Volatility 200 (1s) Index',
+            instrument: {
+                symbol: 'VINDEX2001S',
+                instrument: 'Volatility 200 (1s) Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.02,
@@ -289,9 +308,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'INDEX25S1NEW',
-            instrument: 'Volatility 25 (1s) Index',
+            instrument: {
+                symbol: 'INDEX25S1NEW',
+                instrument: 'Volatility 25 (1s) Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.005,
@@ -304,9 +324,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'INDEX25NEW',
-            instrument: 'Volatility 25 Index',
+            instrument: {
+                symbol: 'INDEX25NEW',
+                instrument: 'Volatility 25 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.5,
@@ -319,9 +340,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'VINDEX3001S',
-            instrument: 'Volatility 300 (1s) Index',
+            instrument: {
+                symbol: 'VINDEX3001S',
+                instrument: 'Volatility 300 (1s) Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -334,9 +356,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'INDEX50S1NEW',
-            instrument: 'Volatility 50 (1s) Index',
+            instrument: {
+                symbol: 'INDEX50S1NEW',
+                instrument: 'Volatility 50 (1s) Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.005,
@@ -349,9 +372,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'INDEX50NEW',
-            instrument: 'Volatility 50 Index',
+            instrument: {
+                symbol: 'INDEX50NEW',
+                instrument: 'Volatility 50 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 3,
@@ -364,9 +388,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'INDEX75S1NEW',
-            instrument: 'Volatility 75 (1s) Index',
+            instrument: {
+                symbol: 'INDEX75S1NEW',
+                instrument: 'Volatility 75 (1s) Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.005,
@@ -379,9 +404,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'INDEX75NEW',
-            instrument: 'Volatility 75 Index',
+            instrument: {
+                symbol: 'INDEX75NEW',
+                instrument: 'Volatility 75 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.001,
@@ -394,9 +420,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            is_row: true,
-            symbol: 'AUDUSD10',
-            instrument: 'AUDUSD DFX 10 Index',
+            instrument: {
+                symbol: 'AUDUSD10',
+                instrument: 'AUDUSD DFX 10 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -409,9 +436,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            is_row: true,
-            symbol: 'EURUSD10',
-            instrument: 'EURUSD DFX 10 Index',
+            instrument: {
+                symbol: 'EURUSD10',
+                instrument: 'EURUSD DFX 10 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -424,9 +452,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            is_row: true,
-            symbol: 'GBPUSD10',
-            instrument: 'GBPUSD DFX 10 Index',
+            instrument: {
+                symbol: 'GBPUSD10',
+                instrument: 'GBPUSD DFX 10 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -439,9 +468,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            is_row: true,
-            symbol: 'USDCHF10',
-            instrument: 'USDCHF DFX 10 Index',
+            instrument: {
+                symbol: 'USDCHF10',
+                instrument: 'USDCHF DFX 10 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -454,9 +484,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            is_row: true,
-            symbol: 'USDJPY10',
-            instrument: 'USDJPY DFX 10 Index',
+            instrument: {
+                symbol: 'USDJPY10',
+                instrument: 'USDJPY DFX 10 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -469,9 +500,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
-            is_row: true,
-            symbol: 'AUDBASKET',
-            instrument: 'AUD Basket',
+            instrument: {
+                symbol: 'AUDBASKET',
+                instrument: 'AUD Basket',
+            },
             contract_size: 100,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -484,9 +516,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Fri 20:55 GMT',
         },
         {
-            is_row: true,
-            symbol: 'EURBASKET',
-            instrument: 'EUR Basket',
+            instrument: {
+                symbol: 'EURBASKET',
+                instrument: 'EUR Basket',
+            },
             contract_size: 100,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -499,9 +532,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Fri 20:55 GMT',
         },
         {
-            is_row: true,
-            symbol: 'GBPBASKET',
-            instrument: 'GBP Basket',
+            instrument: {
+                symbol: 'GBPBASKET',
+                instrument: 'GBP Basket',
+            },
             contract_size: 100,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -514,9 +548,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Fri 20:55 GMT',
         },
         {
-            is_row: true,
-            symbol: 'GOLDBASKET',
-            instrument: 'Gold Basket',
+            instrument: {
+                symbol: 'GOLDBASKET',
+                instrument: 'Gold Basket',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -529,9 +564,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Fri 20:55 GMT',
         },
         {
-            is_row: true,
-            symbol: 'USDBASKET',
-            instrument: 'USD Basket',
+            instrument: {
+                symbol: 'USDBASKET',
+                instrument: 'USD Basket',
+            },
             contract_size: 100,
             base_currency: 'USD',
             minimum_size: 0.01,
@@ -546,8 +582,10 @@ const derived_specification: TSpecification = {
     ],
     eu_data: [
         {
-            symbol: 'BOOM300EU',
-            instrument: 'Boom 300 Index',
+            instrument: {
+                symbol: 'BOOM300EU',
+                instrument: 'Boom 300 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -560,8 +598,10 @@ const derived_specification: TSpecification = {
             trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
         },
         {
-            symbol: 'CRASH300EU',
-            instrument: 'Crash 300 Index',
+            instrument: {
+                symbol: 'CRASH300EU',
+                instrument: 'Crash 300 Index',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,

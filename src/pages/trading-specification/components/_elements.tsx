@@ -6,16 +6,33 @@ import { Button } from 'components/form'
 import { Flex } from 'components/containers'
 import * as icons from 'components/elements/symbols'
 import useRegion from 'components/hooks/use-region'
+import dl from 'images/svg/trading-specification/dl.svg'
 
 export const TableContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 0;
+    padding: 0 12rem;
+
+    @media ${device.tabletL} {
+        padding: 0 0 0 3rem;
+    }
 `
 export const TableData = styled.table`
     width: 100%;
+    table > :nth-child(1) > tr:nth-of-type(1) {
+        height: 110px;
+    }
+
+    @media ${device.tabletL} {
+        display: inline-block;
+        overflow: auto;
+    }
+    @media ${device.laptopL} {
+        display: inline-block;
+        overflow: auto;
+    }
 `
 type TableRowProps = {
     bg?: string
@@ -25,22 +42,43 @@ export const TableRow = styled.tr<TableRowProps>`
     background: ${(props) => (props.bg ? props.bg : 'none')};
     border-radius: 16px 16px 0 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    min-height: 75px;
     padding: 24px;
-
+    gap: 43px;
     th {
-        width: auto;
+        width: 7.6rem;
+    }
+    th: nth-child(1) {
+        width: 200px;
+    }
+    th: nth-child(11) {
+        width: 160px;
     }
     td {
-        width: auto;
+        width: 7.6rem;
+    }
+    td: nth-child(1) {
+        width: 205px;
+    }
+    td: nth-child(11) {
+        width: 134px;
     }
 
     @media ${device.tabletL} {
-        th,
+        padding: 10px;
+        height: 80px;
+        gap: 0;
+        justify-content: start;
+
+        th {
+            width: 150px;
+        }
+        td: nth-child(1) {
+            width: 200px;
+        }
+
         td {
-            width: auto;
+            width: 150px;
         }
     }
 `
@@ -54,13 +92,9 @@ export const Cell = styled.div`
         cursor: pointer;
     }
 `
-export const DlCell = styled.div`
-    display: flex;
-    justify-content: start;
-`
 export const CellIcon = styled.div`
     display: flex;
-    justify-content: end;
+    gap: 12px;
 `
 type TTableHeaderCell = {
     text?: ReactElement
@@ -68,27 +102,25 @@ type TTableHeaderCell = {
 
 type TTableCell = {
     text?: string | number
-    icon_src?: string
-    dl_icon?: string
 }
 const StyledTableHeaderText = styled(HeaderText)`
     @media ${device.tabletL} {
-        font-size: 9px;
+        font-size: 10px;
     }
 `
 
 export const TableHeaderCell = ({ text }: TTableHeaderCell) => {
     return (
         <Cell>
-            <StyledTableHeaderText type="small" width="fit-content" align="start">
+            <StyledTableHeaderText type="small" width="fit-content" align="start" as="p">
                 {text}
             </StyledTableHeaderText>
         </Cell>
     )
 }
 const StyledHeaderText = styled(HeaderText)`
+    width: auto;
     @media ${device.tabletL} {
-        width: auto;
         font-size: 11px;
     }
 `
@@ -97,35 +129,39 @@ const handleDlIcon = () => {
         .querySelector('#dlPopUp')
         .scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
 }
-export const TableCell = ({ text, dl_icon }: TTableCell) => {
-    const { is_row } = useRegion()
+export const TableCell = ({ text }: TTableCell) => {
     return (
         <>
             <Cell>
-                <StyledHeaderText type="small" weight="normal" align="start">
+                <StyledHeaderText type="small" weight="normal" align="start" as="p">
                     {text}
                 </StyledHeaderText>
             </Cell>
-            {dl_icon && is_row && (
-                <DlCell>
-                    <img src={dl_icon} width="24px" height="24px" onClick={handleDlIcon} />
-                </DlCell>
-            )}
         </>
     )
 }
-export const TableButton = styled(Button)``
 
-type TTableCellIcon = {
-    icon_src: string
+type TTableCellGroup = {
+    data: any
 }
+export const TableCellGroup = ({ data }: TTableCellGroup) => {
+    const { is_row } = useRegion()
+    const symbol = data.symbol
+    const text = data.instrument
+    const dlIcon = data.dl_icon
 
-export const TableCellIcon = ({ icon_src }: TTableCellIcon) => {
-    return (
-        <CellIcon>
-            <img src={icons[icon_src]} width="24px" height="24px" />
-        </CellIcon>
-    )
+    if (data !== undefined)
+        return (
+            <CellIcon>
+                {symbol && <img src={icons[symbol]} width="24px" height="24px" />}
+                <StyledHeaderText type="small" weight="normal" align="start" as="p">
+                    {text}
+                </StyledHeaderText>
+                {dlIcon && is_row && (
+                    <img src={dl} width="24px" height="24px" onClick={handleDlIcon} />
+                )}
+            </CellIcon>
+        )
 }
 
 export const StyledButton = styled(Button)`
@@ -147,9 +183,15 @@ export const StyledButtonPage = styled(Button)<{ selected: boolean }>`
               `}
 `
 export const StyledPaginationContainer = styled(Flex)`
-    padding: 60px;
+    padding: 6rem 12rem;
     gap: 10px;
     justify-content: end;
+    @media ${device.mobileL} {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        padding: 6rem 3rem;
+    }
 `
 export type CardProps = {
     width?: string

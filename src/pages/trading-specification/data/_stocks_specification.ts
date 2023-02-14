@@ -22,8 +22,10 @@ const stocks_specification: TSpecification = {
     ],
     data: [
         {
-            symbol: 'STOCKSAUS200',
-            instrument: 'Australia 200',
+            instrument: {
+                symbol: 'STOCKSAUS200',
+                instrument: 'Australia 200',
+            },
             contract_size: 1,
             base_currency: 'AUD',
             minimum_size: 0.1,
@@ -37,8 +39,10 @@ const stocks_specification: TSpecification = {
                 'Sun 22:50-24:00 GMT\nMon-Thur 00:00-05:30, 06:10-20:00 22:50-24:00 GMT\nFri 00:00-05:30, 06:10-20:00 GMT',
         },
         {
-            symbol: 'STOCKSNETHERLANDS25',
-            instrument: 'Netherlands 25',
+            instrument: {
+                symbol: 'STOCKSNETHERLANDS25',
+                instrument: 'Netherlands 25',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -51,8 +55,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
-            symbol: 'STOCKSEUROPE50',
-            instrument: 'Europe 50',
+            instrument: {
+                symbol: 'STOCKSEUROPE50',
+                instrument: 'Europe 50',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -65,8 +71,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
-            symbol: 'STOCKSFRANCE40',
-            instrument: 'France 40',
+            instrument: {
+                symbol: 'STOCKSFRANCE40',
+                instrument: 'France 40',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -79,8 +87,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
-            symbol: 'STOCKSGERMANY40',
-            instrument: 'Germany 40',
+            instrument: {
+                symbol: 'STOCKSGERMANY40',
+                instrument: 'Germany 40',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -93,8 +103,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
-            symbol: 'STOCKSJAPAN225',
-            instrument: 'Japan 225',
+            instrument: {
+                symbol: 'STOCKSJAPAN225',
+                instrument: 'Japan 225',
+            },
             contract_size: 1,
             base_currency: 'JPY',
             minimum_size: 10,
@@ -108,8 +120,10 @@ const stocks_specification: TSpecification = {
                 'Sun 23:00-24:00 GMT\nMon-Thur 00:00-22:00, 23:00-24:00 GMT\nFri 00:00-22:00 GMT',
         },
         {
-            symbol: 'STOCKSSPAIN35',
-            instrument: 'Spain 35',
+            instrument: {
+                symbol: 'STOCKSSPAIN35',
+                instrument: 'Spain 35',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -122,8 +136,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 08:00-19:00 GMT',
         },
         {
-            symbol: 'STOCKSUK100',
-            instrument: 'UK 100',
+            instrument: {
+                symbol: 'STOCKSUK100',
+                instrument: 'UK 100',
+            },
             contract_size: 1,
             base_currency: 'GBP',
             minimum_size: 0.1,
@@ -137,9 +153,11 @@ const stocks_specification: TSpecification = {
                 'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:00 GMT',
         },
         {
-            symbol: 'STOCKSUS500',
-            dl_icon: true,
-            instrument: 'US 500',
+            instrument: {
+                symbol: 'STOCKSUS500',
+                dl_icon: true,
+                instrument: 'US 500',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -153,9 +171,11 @@ const stocks_specification: TSpecification = {
                 'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
         },
         {
-            symbol: 'STOCKSUSTECH100',
-            dl_icon: true,
-            instrument: 'US Tech 100',
+            instrument: {
+                symbol: 'STOCKSUSTECH100',
+                dl_icon: true,
+                instrument: 'US Tech 100',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -169,9 +189,11 @@ const stocks_specification: TSpecification = {
                 'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
         },
         {
-            symbol: 'STOCKSWALLSTREET30',
-            dl_icon: true,
-            instrument: 'Wall Street 30',
+            instrument: {
+                symbol: 'STOCKSWALLSTREET30',
+                dl_icon: true,
+                instrument: 'Wall Street 30',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -185,8 +207,10 @@ const stocks_specification: TSpecification = {
                 'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
         },
         {
-            symbol: 'STOCKSAIRLINESGROUP',
-            instrument: 'American Airlines Group Inc',
+            instrument: {
+                symbol: 'STOCKSAIRLINESGROUP',
+                instrument: 'American Airlines Group Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -199,8 +223,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSAPPLE',
-            instrument: 'Apple Inc',
+            instrument: {
+                symbol: 'STOCKSAPPLE',
+                instrument: 'Apple Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -213,8 +239,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSAIRBNB',
-            instrument: 'Airbnb Inc',
+            instrument: {
+                symbol: 'STOCKSAIRBNB',
+                instrument: 'Airbnb Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -227,8 +255,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSADIDASSALOMON',
-            instrument: 'Adidas Salomon',
+            instrument: {
+                symbol: 'STOCKSADIDASSALOMON',
+                instrument: 'Adidas Salomon',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -241,8 +271,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSAMERICANINTERNATIONAL',
-            instrument: 'American International Group',
+            instrument: {
+                symbol: 'STOCKSAMERICANINTERNATIONAL',
+                instrument: 'American International Group',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -255,8 +287,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSAIRBUSSE',
-            instrument: 'Airbus SE',
+            instrument: {
+                symbol: 'STOCKSAIRBUSSE',
+                instrument: 'Airbus SE',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -269,8 +303,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSAIRFRANCE',
-            instrument: 'Air France KLM SA',
+            instrument: {
+                symbol: 'STOCKSAIRFRANCE',
+                instrument: 'Air France KLM SA',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -283,8 +319,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSADVANCEDMICRODEVICES',
-            instrument: 'Advanced Micro Devices Inc',
+            instrument: {
+                symbol: 'STOCKSADVANCEDMICRODEVICES',
+                instrument: 'Advanced Micro Devices Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -297,8 +335,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSAMAZON',
-            instrument: 'Amazon.com Inc',
+            instrument: {
+                symbol: 'STOCKSAMAZON',
+                instrument: 'Amazon.com Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -311,8 +351,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSBOEING',
-            instrument: 'Boeing',
+            instrument: {
+                symbol: 'STOCKSBOEING',
+                instrument: 'Boeing',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -325,8 +367,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSALIBABAGROUP',
-            instrument: 'Alibaba Group Holding Ltd',
+            instrument: {
+                symbol: 'STOCKSALIBABAGROUP',
+                instrument: 'Alibaba Group Holding Ltd',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -339,8 +383,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSBANKOFAMERICA',
-            instrument: 'Bank of America',
+            instrument: {
+                symbol: 'STOCKSBANKOFAMERICA',
+                instrument: 'Bank of America',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -353,8 +399,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSBAYERAG',
-            instrument: 'Bayer AG',
+            instrument: {
+                symbol: 'STOCKSBAYERAG',
+                instrument: 'Bayer AG',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -367,8 +415,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSBIOGEN',
-            instrument: 'Biogen Inc.',
+            instrument: {
+                symbol: 'STOCKSBIOGEN',
+                instrument: 'Biogen Inc.',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -381,8 +431,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSBMW',
-            instrument: 'BMW',
+            instrument: {
+                symbol: 'STOCKSBMW',
+                instrument: 'BMW',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -395,8 +447,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSCITIGROUP',
-            instrument: 'Citigroup',
+            instrument: {
+                symbol: 'STOCKSCITIGROUP',
+                instrument: 'Citigroup',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -409,8 +463,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSCONTINENTAL',
-            instrument: 'Continental AG',
+            instrument: {
+                symbol: 'STOCKSCONTINENTAL',
+                instrument: 'Continental AG',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -423,8 +479,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSSALESFORCE',
-            instrument: 'Salesforce.com Inc',
+            instrument: {
+                symbol: 'STOCKSSALESFORCE',
+                instrument: 'Salesforce.com Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -437,8 +495,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSCISCO',
-            instrument: 'Cisco Systems',
+            instrument: {
+                symbol: 'STOCKSCISCO',
+                instrument: 'Cisco Systems',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -451,8 +511,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSDELTAAIRLINES',
-            instrument: 'Delta Air Lines',
+            instrument: {
+                symbol: 'STOCKSDELTAAIRLINES',
+                instrument: 'Delta Air Lines',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -465,8 +527,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSDEUTSCHEBANK',
-            instrument: 'Deutsche Bank AG',
+            instrument: {
+                symbol: 'STOCKSDEUTSCHEBANK',
+                instrument: 'Deutsche Bank AG',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -479,8 +543,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSWALTDISNEY',
-            instrument: 'Walt Disney Company',
+            instrument: {
+                symbol: 'STOCKSWALTDISNEY',
+                instrument: 'Walt Disney Company',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -493,8 +559,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSEBAY',
-            instrument: 'eBay Inc',
+            instrument: {
+                symbol: 'STOCKSEBAY',
+                instrument: 'eBay Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -507,8 +575,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSFACEBOOK',
-            instrument: 'Meta Platforms Inc',
+            instrument: {
+                symbol: 'STOCKSFACEBOOK',
+                instrument: 'Meta Platforms Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -521,8 +591,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSFEDEX',
-            instrument: 'Fedex',
+            instrument: {
+                symbol: 'STOCKSFEDEX',
+                instrument: 'Fedex',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -535,8 +607,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSFOX',
-            instrument: 'Fox Corporation B',
+            instrument: {
+                symbol: 'STOCKSFOX',
+                instrument: 'Fox Corporation B',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -549,8 +623,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSGENERALMOTORSCOMP',
-            instrument: 'General Motors Company',
+            instrument: {
+                symbol: 'STOCKSGENERALMOTORSCOMP',
+                instrument: 'General Motors Company',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -563,8 +639,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSALPHABET',
-            instrument: 'Alphabet Inc Class C',
+            instrument: {
+                symbol: 'STOCKSALPHABET',
+                instrument: 'Alphabet Inc Class C',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -577,8 +655,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSGOLDMANSACHS',
-            instrument: 'Goldman Sachs Group',
+            instrument: {
+                symbol: 'STOCKSGOLDMANSACHS',
+                instrument: 'Goldman Sachs Group',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -591,8 +671,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSHOME',
-            instrument: 'Home Depot Inc',
+            instrument: {
+                symbol: 'STOCKSHOME',
+                instrument: 'Home Depot Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -605,8 +687,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSHPINC',
-            instrument: 'HP Inc',
+            instrument: {
+                symbol: 'STOCKSHPINC',
+                instrument: 'HP Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -619,8 +703,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSIBM',
-            instrument: 'IBM',
+            instrument: {
+                symbol: 'STOCKSIBM',
+                instrument: 'IBM',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -633,8 +719,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSINTEL',
-            instrument: 'Intel',
+            instrument: {
+                symbol: 'STOCKSINTEL',
+                instrument: 'Intel',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -647,8 +735,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSJOHNSONJOHNSON',
-            instrument: 'Johnson & Johnson',
+            instrument: {
+                symbol: 'STOCKSJOHNSONJOHNSON',
+                instrument: 'Johnson & Johnson',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -661,8 +751,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSJPMORGANCHASE',
-            instrument: 'JP Morgan Chase',
+            instrument: {
+                symbol: 'STOCKSJPMORGANCHASE',
+                instrument: 'JP Morgan Chase',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -675,8 +767,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSCOCACOLA',
-            instrument: 'Coca-Cola',
+            instrument: {
+                symbol: 'STOCKSCOCACOLA',
+                instrument: 'Coca-Cola',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -689,8 +783,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSLUFTHANSA',
-            instrument: 'Lufthansa AG',
+            instrument: {
+                symbol: 'STOCKSLUFTHANSA',
+                instrument: 'Lufthansa AG',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -703,8 +799,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSMASTERCARDINC',
-            instrument: 'Mastercard Inc',
+            instrument: {
+                symbol: 'STOCKSMASTERCARDINC',
+                instrument: 'Mastercard Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -717,8 +815,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSMCDONALDS',
-            instrument: 'McDonalds',
+            instrument: {
+                symbol: 'STOCKSMCDONALDS',
+                instrument: 'McDonalds',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -731,8 +831,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSMODERNA',
-            instrument: 'Moderna Inc.',
+            instrument: {
+                symbol: 'STOCKSMODERNA',
+                instrument: 'Moderna Inc.',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -745,8 +847,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSMICROSOFT',
-            instrument: 'Microsoft Corporation',
+            instrument: {
+                symbol: 'STOCKSMICROSOFT',
+                instrument: 'Microsoft Corporation',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -759,8 +863,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSNETFLIX',
-            instrument: 'Netflix Inc',
+            instrument: {
+                symbol: 'STOCKSNETFLIX',
+                instrument: 'Netflix Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -773,8 +879,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSNIKE',
-            instrument: 'Nike',
+            instrument: {
+                symbol: 'STOCKSNIKE',
+                instrument: 'Nike',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -787,8 +895,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSNVIDIA',
-            instrument: 'NVIDIA Corp',
+            instrument: {
+                symbol: 'STOCKSNVIDIA',
+                instrument: 'NVIDIA Corp',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -801,8 +911,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSPEPSICO',
-            instrument: 'PepsiCo Inc',
+            instrument: {
+                symbol: 'STOCKSPEPSICO',
+                instrument: 'PepsiCo Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -815,8 +927,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSPFIZER',
-            instrument: 'Pfizer',
+            instrument: {
+                symbol: 'STOCKSPFIZER',
+                instrument: 'Pfizer',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -829,8 +943,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSPROCTERGAMBLE',
-            instrument: 'Procter & Gamble',
+            instrument: {
+                symbol: 'STOCKSPROCTERGAMBLE',
+                instrument: 'Procter & Gamble',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -843,8 +959,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSPORSCHE',
-            instrument: 'Porsche Automobil Holding SE',
+            instrument: {
+                symbol: 'STOCKSPORSCHE',
+                instrument: 'Porsche Automobil Holding SE',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -857,8 +975,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSPUMA',
-            instrument: 'Puma SE',
+            instrument: {
+                symbol: 'STOCKSPUMA',
+                instrument: 'Puma SE',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -871,8 +991,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSPAYPAL',
-            instrument: 'Paypal',
+            instrument: {
+                symbol: 'STOCKSPAYPAL',
+                instrument: 'Paypal',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -885,8 +1007,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSSONY',
-            instrument: 'Sony Corporation',
+            instrument: {
+                symbol: 'STOCKSSONY',
+                instrument: 'Sony Corporation',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -899,8 +1023,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSTEVAPHARMACEUTICAL',
-            instrument: 'Teva Pharmaceutical Inds',
+            instrument: {
+                symbol: 'STOCKSTEVAPHARMACEUTICAL',
+                instrument: 'Teva Pharmaceutical Inds',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -913,8 +1039,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSTESLA',
-            instrument: 'Tesla Inc',
+            instrument: {
+                symbol: 'STOCKSTESLA',
+                instrument: 'Tesla Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -927,8 +1055,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSUBER',
-            instrument: 'Uber Technologies Inc',
+            instrument: {
+                symbol: 'STOCKSUBER',
+                instrument: 'Uber Technologies Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -941,8 +1071,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSVISA',
-            instrument: 'Visa',
+            instrument: {
+                symbol: 'STOCKSVISA',
+                instrument: 'Visa',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -955,8 +1087,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSWALMART',
-            instrument: 'Wal-Mart Stores Inc',
+            instrument: {
+                symbol: 'STOCKSWALMART',
+                instrument: 'Wal-Mart Stores Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -969,8 +1103,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSZOOM',
-            instrument: 'Zoom Video Communications Inc',
+            instrument: {
+                symbol: 'STOCKSZOOM',
+                instrument: 'Zoom Video Communications Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -985,8 +1121,10 @@ const stocks_specification: TSpecification = {
     ],
     eu_data: [
         {
-            symbol: 'STOCKSADIDASSALOMON',
-            instrument: 'Adidas Salomon',
+            instrument: {
+                symbol: 'STOCKSADIDASSALOMON',
+                instrument: 'Adidas Salomon',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -999,8 +1137,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSAIRBUSSE',
-            instrument: 'Airbus SE',
+            instrument: {
+                symbol: 'STOCKSAIRBUSSE',
+                instrument: 'Airbus SE',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -1013,8 +1153,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSAIRFRANCE',
-            instrument: 'Air France KLM SA',
+            instrument: {
+                symbol: 'STOCKSAIRFRANCE',
+                instrument: 'Air France KLM SA',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -1027,8 +1169,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'BAY',
-            instrument: 'Bayer AG',
+            instrument: {
+                symbol: 'BAY',
+                instrument: 'Bayer AG',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -1041,8 +1185,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'BMW',
-            instrument: 'BMW',
+            instrument: {
+                symbol: 'BMW',
+                instrument: 'BMW',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -1055,8 +1201,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSCONTINENTAL',
-            instrument: 'Continental AG',
+            instrument: {
+                symbol: 'STOCKSCONTINENTAL',
+                instrument: 'Continental AG',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -1069,8 +1217,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'DBK',
-            instrument: 'Deutsche Bank AG',
+            instrument: {
+                symbol: 'DBK',
+                instrument: 'Deutsche Bank AG',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -1083,8 +1233,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSLUFTHANSA',
-            instrument: 'Lufthansa AG',
+            instrument: {
+                symbol: 'STOCKSLUFTHANSA',
+                instrument: 'Lufthansa AG',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -1097,8 +1249,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSPORSCHE',
-            instrument: 'Porsche Automobil Holding SE',
+            instrument: {
+                symbol: 'STOCKSPORSCHE',
+                instrument: 'Porsche Automobil Holding SE',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -1111,8 +1265,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSPUMA',
-            instrument: 'Puma SE',
+            instrument: {
+                symbol: 'STOCKSPUMA',
+                instrument: 'Puma SE',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
@@ -1125,8 +1281,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
-            symbol: 'STOCKSAUS200',
-            instrument: 'Australia 200',
+            instrument: {
+                symbol: 'STOCKSAUS200',
+                instrument: 'Australia 200',
+            },
             contract_size: 1,
             base_currency: 'AUD',
             minimum_size: 0.1,
@@ -1140,8 +1298,10 @@ const stocks_specification: TSpecification = {
                 'Sun 22:50-24:00 GMT\nMon-Thur 00:00-05:30, 06:10-20:00 22:50-24:00 GMT\nFri 00:00-05:30, 06:10-20:00 GMT',
         },
         {
-            symbol: 'STOCKSEUROPE50',
-            instrument: 'Europe 50',
+            instrument: {
+                symbol: 'STOCKSEUROPE50',
+                instrument: 'Europe 50',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -1154,8 +1314,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
-            symbol: 'STOCKSFRANCE40',
-            instrument: 'France 40',
+            instrument: {
+                symbol: 'STOCKSFRANCE40',
+                instrument: 'France 40',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -1168,8 +1330,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
-            symbol: 'STOCKSGERMANY40',
-            instrument: 'Germany 40',
+            instrument: {
+                symbol: 'STOCKSGERMANY40',
+                instrument: 'Germany 40',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -1182,8 +1346,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
-            symbol: 'STOCKSJAPAN225',
-            instrument: 'Japan 225',
+            instrument: {
+                symbol: 'STOCKSJAPAN225',
+                instrument: 'Japan 225',
+            },
             contract_size: 1,
             base_currency: 'JPY',
             minimum_size: 10,
@@ -1197,8 +1363,10 @@ const stocks_specification: TSpecification = {
                 'Sun 23:00-24:00 GMT\nMon-Thur 00:00-22:00, 23:00-24:00 GMT\nFri 00:00-22:00 GMT',
         },
         {
-            symbol: 'STOCKSSPAIN35',
-            instrument: 'Spain 35',
+            instrument: {
+                symbol: 'STOCKSSPAIN35',
+                instrument: 'Spain 35',
+            },
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
@@ -1211,8 +1379,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 08:00-19:00 GMT',
         },
         {
-            symbol: 'STOCKSUK100',
-            instrument: 'UK 100',
+            instrument: {
+                symbol: 'STOCKSUK100',
+                instrument: 'UK 100',
+            },
             contract_size: 1,
             base_currency: 'GBP',
             minimum_size: 0.1,
@@ -1226,8 +1396,10 @@ const stocks_specification: TSpecification = {
                 'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:00 GMT',
         },
         {
-            symbol: 'STOCKSUS500',
-            instrument: 'US 500',
+            instrument: {
+                symbol: 'STOCKSUS500',
+                instrument: 'US 500',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -1241,8 +1413,10 @@ const stocks_specification: TSpecification = {
                 'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
         },
         {
-            symbol: 'STOCKSUSTECH100',
-            instrument: 'US Tech 100',
+            instrument: {
+                symbol: 'STOCKSUSTECH100',
+                instrument: 'US Tech 100',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -1256,8 +1430,10 @@ const stocks_specification: TSpecification = {
                 'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
         },
         {
-            symbol: 'STOCKSWALLSTREET30',
-            instrument: 'Wall Street 30',
+            instrument: {
+                symbol: 'STOCKSWALLSTREET30',
+                instrument: 'Wall Street 30',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
@@ -1271,8 +1447,10 @@ const stocks_specification: TSpecification = {
                 'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
         },
         {
-            symbol: 'STOCKSAIRLINESGROUP',
-            instrument: 'American Airlines Group Inc',
+            instrument: {
+                symbol: 'STOCKSAIRLINESGROUP',
+                instrument: 'American Airlines Group Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1285,8 +1463,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSAPPLE',
-            instrument: 'Apple Inc',
+            instrument: {
+                symbol: 'STOCKSAPPLE',
+                instrument: 'Apple Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1299,8 +1479,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSAIRBNB',
-            instrument: 'Airbnb Inc',
+            instrument: {
+                symbol: 'STOCKSAIRBNB',
+                instrument: 'Airbnb Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1313,8 +1495,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSAMERICANINTERNATIONAL',
-            instrument: 'American International Group',
+            instrument: {
+                symbol: 'STOCKSAMERICANINTERNATIONAL',
+                instrument: 'American International Group',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1327,8 +1511,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSADVANCEDMICRODEVICES',
-            instrument: 'Advanced Micro Devices Inc',
+            instrument: {
+                symbol: 'STOCKSADVANCEDMICRODEVICES',
+                instrument: 'Advanced Micro Devices Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1341,8 +1527,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSAMAZON',
-            instrument: 'Amazon.com Inc',
+            instrument: {
+                symbol: 'STOCKSAMAZON',
+                instrument: 'Amazon.com Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1355,8 +1543,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSBOEING',
-            instrument: 'Boeing',
+            instrument: {
+                symbol: 'STOCKSBOEING',
+                instrument: 'Boeing',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1369,8 +1559,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSALIBABAGROUP',
-            instrument: 'Alibaba Group Holding Ltd',
+            instrument: {
+                symbol: 'STOCKSALIBABAGROUP',
+                instrument: 'Alibaba Group Holding Ltd',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1383,8 +1575,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSBANKOFAMERICA',
-            instrument: 'Bank of America',
+            instrument: {
+                symbol: 'STOCKSBANKOFAMERICA',
+                instrument: 'Bank of America',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1397,8 +1591,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSBIOGEN',
-            instrument: 'Biogen Inc.',
+            instrument: {
+                symbol: 'STOCKSBIOGEN',
+                instrument: 'Biogen Inc.',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1411,8 +1607,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSCITIGROUP',
-            instrument: 'Citigroup',
+            instrument: {
+                symbol: 'STOCKSCITIGROUP',
+                instrument: 'Citigroup',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1425,8 +1623,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSSALESFORCE',
-            instrument: 'Salesforce.com Inc',
+            instrument: {
+                symbol: 'STOCKSSALESFORCE',
+                instrument: 'Salesforce.com Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1439,8 +1639,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSCISCO',
-            instrument: 'Cisco Systems',
+            instrument: {
+                symbol: 'STOCKSCISCO',
+                instrument: 'Cisco Systems',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1453,8 +1655,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSDELTAAIRLINES',
-            instrument: 'Delta Air Lines',
+            instrument: {
+                symbol: 'STOCKSDELTAAIRLINES',
+                instrument: 'Delta Air Lines',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1467,8 +1671,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSWALTDISNEY',
-            instrument: 'Walt Disney Company',
+            instrument: {
+                symbol: 'STOCKSWALTDISNEY',
+                instrument: 'Walt Disney Company',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1481,8 +1687,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSEBAY',
-            instrument: 'eBay Inc',
+            instrument: {
+                symbol: 'STOCKSEBAY',
+                instrument: 'eBay Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1495,8 +1703,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSFACEBOOK',
-            instrument: 'Meta Platforms Inc',
+            instrument: {
+                symbol: 'STOCKSFACEBOOK',
+                instrument: 'Meta Platforms Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1509,8 +1719,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSFEDEX',
-            instrument: 'Fedex',
+            instrument: {
+                symbol: 'STOCKSFEDEX',
+                instrument: 'Fedex',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1523,8 +1735,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSFOX',
-            instrument: 'Fox Corporation B',
+            instrument: {
+                symbol: 'STOCKSFOX',
+                instrument: 'Fox Corporation B',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1537,8 +1751,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSGENERALMOTORSCOMP',
-            instrument: 'General Motors Company',
+            instrument: {
+                symbol: 'STOCKSGENERALMOTORSCOMP',
+                instrument: 'General Motors Company',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1551,8 +1767,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSALPHABET',
-            instrument: 'Alphabet Inc Class C',
+            instrument: {
+                symbol: 'STOCKSALPHABET',
+                instrument: 'Alphabet Inc Class C',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1565,8 +1783,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSGOLDMANSACHS',
-            instrument: 'Goldman Sachs Group',
+            instrument: {
+                symbol: 'STOCKSGOLDMANSACHS',
+                instrument: 'Goldman Sachs Group',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1579,8 +1799,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSHOME',
-            instrument: 'Home Depot Inc',
+            instrument: {
+                symbol: 'STOCKSHOME',
+                instrument: 'Home Depot Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1593,8 +1815,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSHPINC',
-            instrument: 'HP Inc',
+            instrument: {
+                symbol: 'STOCKSHPINC',
+                instrument: 'HP Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1607,8 +1831,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSIBM',
-            instrument: 'IBM',
+            instrument: {
+                symbol: 'STOCKSIBM',
+                instrument: 'IBM',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1621,8 +1847,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSINTEL',
-            instrument: 'Intel',
+            instrument: {
+                symbol: 'STOCKSINTEL',
+                instrument: 'Intel',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1635,8 +1863,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSJOHNSONJOHNSON',
-            instrument: 'Jonhson & Johnson',
+            instrument: {
+                symbol: 'STOCKSJOHNSONJOHNSON',
+                instrument: 'Jonhson & Johnson',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1649,8 +1879,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSJPMORGANCHASE',
-            instrument: 'JP Morgan Chase',
+            instrument: {
+                symbol: 'STOCKSJPMORGANCHASE',
+                instrument: 'JP Morgan Chase',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1663,8 +1895,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSCOCACOLA',
-            instrument: 'Coca-Cola',
+            instrument: {
+                symbol: 'STOCKSCOCACOLA',
+                instrument: 'Coca-Cola',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1677,8 +1911,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSMASTERCARDINC',
-            instrument: 'Mastercard Inc',
+            instrument: {
+                symbol: 'STOCKSMASTERCARDINC',
+                instrument: 'Mastercard Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1691,8 +1927,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSMCDONALDS',
-            instrument: 'McDonalds',
+            instrument: {
+                symbol: 'STOCKSMCDONALDS',
+                instrument: 'McDonalds',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1705,8 +1943,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSMODERNA',
-            instrument: 'Moderna Inc.',
+            instrument: {
+                symbol: 'STOCKSMODERNA',
+                instrument: 'Moderna Inc.',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1719,8 +1959,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSMICROSOFT',
-            instrument: 'Microsoft Corporation',
+            instrument: {
+                symbol: 'STOCKSMICROSOFT',
+                instrument: 'Microsoft Corporation',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1733,8 +1975,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSNETFLIX',
-            instrument: 'Netflix Inc',
+            instrument: {
+                symbol: 'STOCKSNETFLIX',
+                instrument: 'Netflix Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1747,8 +1991,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSNIKE',
-            instrument: 'Nike',
+            instrument: {
+                symbol: 'STOCKSNIKE',
+                instrument: 'Nike',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1761,8 +2007,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSNVIDIA',
-            instrument: 'NVIDIA Corp',
+            instrument: {
+                symbol: 'STOCKSNVIDIA',
+                instrument: 'NVIDIA Corp',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1775,8 +2023,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSPEPSICO',
-            instrument: 'PepsiCo Inc',
+            instrument: {
+                symbol: 'STOCKSPEPSICO',
+                instrument: 'PepsiCo Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1789,8 +2039,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSPFIZER',
-            instrument: 'Pfizer',
+            instrument: {
+                symbol: 'STOCKSPFIZER',
+                instrument: 'Pfizer',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1803,8 +2055,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSPROCTERGAMBLE',
-            instrument: 'Procter & Gamble',
+            instrument: {
+                symbol: 'STOCKSPROCTERGAMBLE',
+                instrument: 'Procter & Gamble',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1817,8 +2071,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSPAYPAL',
-            instrument: 'Paypal',
+            instrument: {
+                symbol: 'STOCKSPAYPAL',
+                instrument: 'Paypal',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1831,8 +2087,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSSONY',
-            instrument: 'Sony Corporation',
+            instrument: {
+                symbol: 'STOCKSSONY',
+                instrument: 'Sony Corporation',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1845,8 +2103,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSTEVAPHARMACEUTICAL',
-            instrument: 'Teva Pharmaceutical Inds',
+            instrument: {
+                symbol: 'STOCKSTEVAPHARMACEUTICAL',
+                instrument: 'Teva Pharmaceutical Inds',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1859,8 +2119,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSTESLA',
-            instrument: 'Tesla Inc',
+            instrument: {
+                symbol: 'STOCKSTESLA',
+                instrument: 'Tesla Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1873,8 +2135,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSUBER',
-            instrument: 'Uber Technologies Inc',
+            instrument: {
+                symbol: 'STOCKSUBER',
+                instrument: 'Uber Technologies Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1887,8 +2151,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSVISA',
-            instrument: 'Visa',
+            instrument: {
+                symbol: 'STOCKSVISA',
+                instrument: 'Visa',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1901,8 +2167,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSWALMART',
-            instrument: 'Wal-Mart Stores Inc',
+            instrument: {
+                symbol: 'STOCKSWALMART',
+                instrument: 'Wal-Mart Stores Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
@@ -1915,8 +2183,10 @@ const stocks_specification: TSpecification = {
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
-            symbol: 'STOCKSZOOM',
-            instrument: 'Zoom Video Communications Inc',
+            instrument: {
+                symbol: 'STOCKSZOOM',
+                instrument: 'Zoom Video Communications Inc',
+            },
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,

@@ -7,7 +7,7 @@ import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 export type SimpleStepContentElement = {
     header: ReactElement
     text: ReactElement
-    icon: ReactElement
+    icon?: ReactElement
 }
 
 export const simple_step_content: SimpleStepContentElement[] = [

@@ -61,7 +61,7 @@ const StyledSectionContainer = styled(Box)`
 `
 const Wrapper = styled.div`
     border-radius: 8px;
-    background: #ff444f;
+    background: var(--color-red);
     background-repeat: round;
     position: relative;
     display: flex;
@@ -150,11 +150,12 @@ const InputGroup = styled.div`
     flex-direction: row;
     width: 100%;
     margin-top: 2.5rem;
+    margin-left: 1.5rem;
     margin-bottom: 1.5rem;
 `
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     margin-left: 1rem;
-    min-width: 80px;
+    min-width: 81px;
     height: 40px;
     padding: 10px;
     border-radius: 16px;
@@ -183,44 +184,22 @@ const MobileSocialWrapper = styled(SocialWrapper)`
         flex-direction: column;
     }
 `
-const SocialButton = styled(Button)<SocialButtonProps>`
-    display: inline-flex;
-    justify-content: center;
+const SocialButton = styled(Button)`
+    display: flex;
+    padding: 0;
+    margin: 0 1rem;
+    font-size: 12px;
     align-items: center;
-    box-shadow: none;
-    background-color: ${(props) => props.bgColor || 'var(--color-white)'};
-    border: solid 1px var(--color-grey-21);
-    width: 12.5rem;
-    height: 3.8rem;
-    padding: 0.5rem 0;
-
-    &:hover {
-        background: ${(props) => {
-            if (props.provider === 'facebook') return 'var(--color-grey-4)'
-        }};
-    }
+    justify-content: center;
+    width: 10.6rem;
+    height: 4rem;
+    background-color: white;
+    border: 1px solid var(--color-grey-7);
+    border-radius: 100px;
 
     @media ${device.tabletL} {
-        width: 100%;
-        height: 6rem;
-        margin-top: 1rem;
-        margin-right: 1.2rem;
-
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-`
-const SocialText = styled(Text)`
-    margin-right: 1.4rem;
-    margin-left: 0.7rem;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--color-grey-16);
-
-    @media ${device.tabletL} {
-        margin-left: 2.7rem;
-        font-size: 14px;
+        justify-content: center;
+        width: 10rem;
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`
@@ -231,6 +210,7 @@ const StyledHeader = styled(Header)<{ position?: string }>`
     }
     @media (max-width: 991px) {
         margin-top: 3rem;
+        margin-left: 1.5rem;
     }
     @media (max-width: 991px) {
         max-width: 290px;
@@ -268,6 +248,7 @@ const StyledHeaderText = styled(Text)`
         margin-top: 1rem;
         font-size: 2rem;
         margin-bottom: 3rem;
+        margin-left: 1.5rem;
     }
 `
 const SignInText = styled(Text)`
@@ -290,7 +271,7 @@ const SignInText = styled(Text)`
 const MobileSignInText = styled(SignInText)`
     @media ${device.tabletL} {
         width: unset;
-        margin: 0 auto 0.8rem 0.8rem;
+        margin: 0 auto 0.8rem 1.5rem;
     }
 `
 const LinkFlex = styled(LinkText)`
@@ -362,22 +343,20 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
 `
 const social_button_content: SocialButtonContent[] = [
     {
-        provider: 'google',
-        id: 'gtm-signup-google',
-        img: Google,
-        text: 'Google',
+        provider: 'Apple',
+        id: 'gtm-signup-apple',
+        img: Apple,
     },
     {
-        provider: 'facebook',
+        provider: 'Facebook',
         id: 'gtm-signup-facebook',
         img: Facebook,
         text: 'Facebook',
     },
     {
-        provider: 'apple',
-        id: 'gtm-signup-apple',
-        img: Apple,
-        text: 'Apple',
+        provider: 'Google',
+        id: 'gtm-signup-google',
+        img: Google,
     },
 ]
 const SignupPublic = ({
@@ -471,8 +450,14 @@ const SignupPublic = ({
                                             type="button"
                                             social
                                         >
-                                            <img src={img} alt={provider} width="24" height="24" />
-                                            <SocialText>{text}</SocialText>
+                                            <img
+                                                src={img}
+                                                alt={provider}
+                                                width="20"
+                                                height="20"
+                                                style={{ margin: '0 10px 0 0' }}
+                                            />
+                                            {provider}
                                         </SocialButton>
                                     ))}
                                 </SocialWrapper>
@@ -613,8 +598,8 @@ const SignupPublic = ({
                                                 <img
                                                     src={img}
                                                     alt={provider}
-                                                    width="24"
-                                                    height="24"
+                                                    width="20"
+                                                    height="20"
                                                 />
                                             </SocialButton>
                                         ))}

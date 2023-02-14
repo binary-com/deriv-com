@@ -223,7 +223,7 @@ export const ModalCard = styled.div`
     max-width: 44rem;
     background: var(--color-white);
     padding: 2.4rem;
-    width: 450px;
+    width: 376px;
     height: auto;
     gap: 16px;
     justify-content: center;

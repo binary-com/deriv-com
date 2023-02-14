@@ -3,7 +3,6 @@ import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
 import {
-    cms_assets_end_point,
     deriv_cookie_domain,
     deriv_app_languages,
     smart_trader_languages,
@@ -236,9 +235,6 @@ export const convertDate = (date: string) => {
         newdate.toLocaleString('en', { year: 'numeric' })
     )
 }
-
-// CMS Related Utilities
-export const getAssetUrl = (id: string) => `${cms_assets_end_point}${id}`
 
 export const getVideoObject = (video_data) => {
     const {

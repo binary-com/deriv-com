@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { desktop_pins, mobile_pins, our_offices_count } from './_data'
 import MapPin from './components/map-pin'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
@@ -104,7 +104,7 @@ const OurOffices = () => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {localize('Our locations')}
+                <Localize translate_text="_t_Our locations_t_" />
             </StyledHeader>
 
             <Flex>
@@ -126,10 +126,12 @@ const OurOffices = () => {
 
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
                 {our_offices_count.map(({ count, title }) => (
-                    <StyledFlex fd="column" key={title.props.translate_text}>
-                        <NumberHeader size="32px">{count}</NumberHeader>
+                    <StyledFlex fd="column" key={title}>
+                        <NumberHeader size="32px">
+                            {typeof count == 'string' ? count : <Localize translate_text={count} />}
+                        </NumberHeader>
                         <NumberText size="16px" align="center">
-                            {title}
+                            <Localize translate_text={title} />
                         </NumberText>
                     </StyledFlex>
                 ))}

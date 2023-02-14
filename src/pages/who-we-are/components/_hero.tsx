@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
 import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
 
@@ -89,7 +89,7 @@ const StyledMobileQueryImage = styled(QueryImage)`
 `
 const Hero = () => {
     const data = useStaticQuery(query)
-    const title = localize('Who we are')
+    const title = <Localize translate_text="_t_Who we are_t_" />
 
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>

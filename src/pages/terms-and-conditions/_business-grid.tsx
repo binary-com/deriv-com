@@ -48,7 +48,7 @@ const PartnersGuidePdf = () => {
     const language = getLanguage()
     const supported_languages = ['fr', 'id', 'pt', 'ru', 'es', 'vi']
     const pdf_lang = supported_languages.includes(language) ? language : 'english'
-    const url = `/tnc/business-partners-affiliates-and-introducing-brokers-${pdf_lang}.pdf`
+    const url = `/tnc/business-partners-guide-${pdf_lang}.pdf`
     return (
         <Col
             Icon={IG}
@@ -83,7 +83,11 @@ const BusinessGrid = () => {
                     Icon={Partners}
                     title="_t_Affiliates & introducing brokers (IBs)_t_"
                     content="_t_Additional terms for our affiliates and introducing brokers_t_"
-                    url="/tnc/business-partners-affiliates-and-introducing-brokers.pdf"
+                    url={
+                        is_row
+                            ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
+                            : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
+                    }
                     link_title="_t_Affiliates & introducing brokers (IBs)_t_"
                 />
 

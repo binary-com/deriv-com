@@ -28,7 +28,8 @@ const SmallContainer = styled(Container)`
 
 const Hero = styled(Flex)`
     height: 40rem;
-    background: var(--color-black);
+
+    /* background: var(--color-black); */
     background-image: url(${Patterns});
     background-size: cover;
     background-position: center center;

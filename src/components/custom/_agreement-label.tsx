@@ -17,7 +17,7 @@ const CheckboxSpan = styled.span`
     font-size: 14px;
     color: ${(props) => (props.color ? props.color : 'black')};
     @media ${device.tabletL} {
-        font-size: 12px;
+        font-size: 14px;
     }
 `
 const AgreementLabel = ({

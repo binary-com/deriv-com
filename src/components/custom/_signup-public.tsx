@@ -187,7 +187,7 @@ const MobileSocialWrapper = styled(SocialWrapper)`
 const SocialButton = styled(Button)`
     display: flex;
     padding: 0;
-    margin: 0 1rem;
+    margin: 0 0;
     font-size: 12px;
     align-items: center;
     justify-content: center;

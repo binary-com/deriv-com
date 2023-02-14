@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { LocalizedLink } from 'components/localization'
 import { QueryImage } from 'components/elements'
-import GetTrading from 'images/svg/layout/get-trading.svg'
 import device from 'themes/device'
 
 type LogoSectionProps = {
@@ -35,12 +34,6 @@ const LogoLink = styled(LocalizedLink)`
         }
     }
 `
-const Line = styled.div`
-    width: 1px;
-    height: 28px;
-    margin: 0 8px;
-    background-color: var(--color-white);
-`
 
 const query = graphql`
     query {
@@ -50,7 +43,7 @@ const query = graphql`
     }
 `
 
-const LogoSection = ({ is_ppc_redirect, base, hide_get_trading }: LogoSectionProps) => {
+const LogoSection = ({ is_ppc_redirect, base }: LogoSectionProps) => {
     const data = useStaticQuery(query)
     const to = is_ppc_redirect ? '/landing' : base || '/'
 
@@ -61,16 +54,10 @@ const LogoSection = ({ is_ppc_redirect, base, hide_get_trading }: LogoSectionPro
                     data={data['deriv']}
                     alt="deriv logo"
                     max_width="16.4rem"
-                    width="100%"
+                    width="96px"
                     height="auto"
                 />
             </LogoLink>
-            {!hide_get_trading && (
-                <>
-                    <Line />
-                    <img src={GetTrading} alt="get trading" />
-                </>
-            )}
         </Wrapper>
     )
 }

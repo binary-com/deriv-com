@@ -104,27 +104,25 @@ const markets_type: MarketsType = {
 }
 
 const LearnMore = styled(LocalizedLink)<LearnMoreProps>`
-    opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
+    opacity: 1;
     width: 150px;
     height: 40px;
-    border-radius: 100px;
-    background-color: var(--color-white);
     position: absolute;
-    bottom: -20px;
+    bottom: 12px;
     margin-left: auto;
     margin-right: auto;
-    left: 0;
+    left: -13rem;
     right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     transition: opacity 0.1s linear;
-    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
 
     ${Text} {
         font-weight: bold;
         color: var(--color-red);
+        font-size: 1.4rem;
     }
 
     @media ${device.tabletL} {

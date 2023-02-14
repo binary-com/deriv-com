@@ -20,6 +20,7 @@ const CommoditiesPage = () => (
             description={localize(
                 'Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted.',
             )}
+            is_commodities
         />
         <Commodities simple_step_content={simple_step_content_commodities} />
         <Signup appearance={Appearances.public} />

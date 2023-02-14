@@ -20,6 +20,7 @@ const CryptocurrenciesPage = () => (
             description={localize(
                 "Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies.",
             )}
+            is_cryptocurrencies
         />
         <Cryptocurrencies simple_step_content={simple_step_content_cryptocurrencies} />
         <Signup appearance={Appearances.public} />

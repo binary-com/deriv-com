@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
@@ -71,10 +71,10 @@ const DerivGoRoadmap = () => {
             <Container>
                 <Flex width="1202px" fd="column" ai="center" jc="center">
                     <StyledHeader as="h2" type="heading-2" align="center">
-                        <Localize translate_text="What’s next?" />
+                        <Localize translate_text="_t_What’s next?_t_" />
                     </StyledHeader>
                     <StyledText mt="16px" align="center">
-                        <Localize translate_text="Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
+                        <Localize translate_text="_t_Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next._t_" />
                     </StyledText>
                 </Flex>
             </Container>
@@ -92,7 +92,7 @@ const DerivGoRoadmap = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    {localize('Go to portal')}
+                    <Localize translate_text="_t_Go to portal_t_" />
                 </StyledButton>
             </StyledFrame>
         </StyledSectionContainer>

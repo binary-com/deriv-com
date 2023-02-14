@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
 import { Button } from 'components/form'
@@ -137,12 +137,10 @@ const FooterBanner = () => {
                     tabletL={{ max_width: '100%', mt: '40px' }}
                 >
                     <StyledHeader as="h3" color="white" type="heading-3">
-                        {localize('Start trading on the go')}
+                        <Localize translate_text="_t_Start trading on the go_t_" />
                     </StyledHeader>
                     <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
-                        {localize(
-                            'Download the app today and trade multipliers anytime, anywhere you want.',
-                        )}
+                        <Localize translate_text="_t_Download the app today and trade multipliers anytime, anywhere you want._t_" />
                     </StyledSubTitle>
                     <Flex
                         mt="40px"
@@ -159,12 +157,12 @@ const FooterBanner = () => {
                                 height="108px"
                             />
                             <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
-                                {localize('Scan the QR code to download Deriv GO')}
+                                <Localize translate_text="_t_Scan the QR code to download Deriv GO_t_" />
                             </StyledSubTitle>
                         </Desktop>
                         <Mobile>
                             <ButtonDerivGO secondary onClick={handleExternalLink}>
-                                {localize('Download Deriv GO')}
+                                <Localize translate_text="_t_Download Deriv GO_t_" />
                             </ButtonDerivGO>
                         </Mobile>
                     </Flex>

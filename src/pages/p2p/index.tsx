@@ -3,7 +3,7 @@ import Loadable from '@loadable/component'
 import PageNotFound from '../404'
 import Hero from './components/_hero'
 import DP2P from './components/_dp2p'
-import Roadmap from 'components/elements/roadmap'
+import Roadmap, { TPortal } from 'components/elements/roadmap'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { localize, Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -54,10 +54,9 @@ const DP2P_CONTENT = [
     },
 ]
 
-const derivP2PPortalData = {
-    paragraph: (
-        <Localize translate_text="Take a look at Deriv P2P’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
-    ),
+const derivP2PPortalData: TPortal = {
+    paragraph:
+        '_t_Take a look at Deriv P2P’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next._t_',
     frame: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m?hide_header=1',
     link: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m',
 }

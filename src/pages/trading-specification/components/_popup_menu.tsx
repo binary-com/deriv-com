@@ -48,7 +48,7 @@ const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
         <Card>
             {is_calculated ? (
                 <ModalCard>
-                    <Header type="subtitle-1" weight="700">
+                    <Header type="subtitle-1" weight="700" as="p">
                         <Localize translate_text="How it’s calculated" />
                     </Header>
 
@@ -62,13 +62,13 @@ const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
             ) : (
                 <ModalCard>
                     <StyledHeading>
-                        <Header type="paragraph-1" weight="700" align="center">
+                        <Header type="paragraph-1" weight="700" align="center" as="p">
                             <Localize translate_text={dlTitle} />
                         </Header>
                         <CloseIconButton src={CloseIcon} onClick={toggle} />
                     </StyledHeading>
 
-                    <Header type="paragraph-2" align="center" weight="normal">
+                    <Header type="paragraph-2" align="center" weight="normal" as="p">
                         <Localize translate_text="With dynamic leverage, the higher the trading volume, the lower the leverage, to reduce your risk and protect you from adverse market movements. At the same time, the first tiers offer high leverage to allow you more trading opportunities." />
                     </Header>
                     <TableContainer>

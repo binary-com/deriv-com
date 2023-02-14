@@ -30,16 +30,20 @@ import { Localize } from 'components/localization'
 import { Header, LinkText } from 'components/elements'
 import { sanitize } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
+import device from 'themes/device'
 
 export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
-    isShowPopUp: boolean
 }
 const StyledFlex = styled(Flex)`
-    padding: 20px 60px;
+    padding: 4rem 12rem 5rem;
     justify-content: start;
     flex-direction: column;
     gap: 20px;
+
+    @media ${device.tabletL} {
+        padding: 2rem 4rem 5rem;
+    }
 `
 const SearchForm = styled.form`
     position: relative;
@@ -49,6 +53,10 @@ const SearchForm = styled.form`
     height: 32px;
     border: 1px solid #d6dadb;
     border-radius: 12px;
+
+    @media ${device.tabletL} {
+        width: auto;
+    }
 `
 const StyledSearchIcon = styled.img`
     width: 16px;
@@ -72,12 +80,25 @@ const SearchInput = styled.input`
         color: var(--color-grey-17);
     }
 `
+const StyledHeader = styled(Header)`
+    font-size: 14px;
+    font-weight: normal;
+`
+const StyledPopUpContainer = styled(Flex)`
+    justify-content: start;
+    @media ${device.tabletL} {
+        padding: 26px 16px;
+    }
+`
 const DisclaimerText = styled(Header)`
     color: var(--color-grey-5);
     font-weight: 400;
     text-align: center;
-    font-size: 1.6rem;
-    padding: 0 3.6rem;
+    font-size: 16px;
+    padding: 0 36rem;
+    @media ${device.tabletL} {
+        padding: 0 16px;
+    }
 `
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const { is_eu, is_row } = useRegion()
@@ -131,7 +152,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
         if (search_value.length > 1) {
             updatedRowData = markets_data.filter((market) =>
-                market.instrument.toLowerCase().match(new RegExp(search_value, 'i')),
+                market.instrument.instrument.toLowerCase().match(new RegExp(search_value, 'i')),
             )
             setMarketsData(updatedRowData)
         } else {
@@ -140,7 +161,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     }, [search_value])
 
     useEffect(() => {
-        table.setPageSize(20)
+        table.setPageSize(15)
     }, [table])
 
     return (
@@ -158,14 +179,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                     />
                 </SearchForm>
             </StyledFlex>
-            {showPopUp && (
-                <PopUpMenu
-                    market={market}
-                    toggle={() => setShowPopUp(false)}
-                    is_open={showPopUp}
-                    closeModal={() => setShowPopUp(false)}
-                />
-            )}
+            {showPopUp && <PopUpMenu market={market} toggle={() => setShowPopUp(false)} />}
 
             <TableContainer>
                 <TableData>
@@ -200,8 +214,8 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
             </TableContainer>
             <StyledPaginationContainer>
                 {market !== 'derived' && is_row && (
-                    <Flex jc="start" id="dlPopUp">
-                        <Header type="paragraph-2" weight="400">
+                    <StyledPopUpContainer id="dlPopUp">
+                        <StyledHeader as="p">
                             <Localize
                                 translate_text="<0>Dynamic leverage </0>(DL) applies to this instrument."
                                 components={[
@@ -212,11 +226,11 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                                     />,
                                 ]}
                             />
-                        </Header>
-                    </Flex>
+                        </StyledHeader>
+                    </StyledPopUpContainer>
                 )}
 
-                <Flex jc="end">
+                <Flex jc="end" tablet_jc="center">
                     <StyledButton
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
@@ -240,7 +254,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                     </StyledButton>
                 </Flex>
             </StyledPaginationContainer>
-            <DisclaimerText>
+            <DisclaimerText as="p">
                 {is_eu ? (
                     <Localize translate_text="The above information is updated monthly and, therefore, may not reflect current trading conditions." />
                 ) : (

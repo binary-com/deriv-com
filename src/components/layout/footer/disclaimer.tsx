@@ -12,11 +12,11 @@ import { loss_percent } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 
 const DisclaimerSection = () => {
-    const { is_eu, is_non_eu, is_cpa_plan } = useRegion()
+    const { is_eu, is_non_eu, is_cpa_plan_no_bw } = useRegion()
     return (
         <>
             <DisclaimerWrapper>
-                {(is_non_eu || is_cpa_plan) && (
+                {(is_non_eu || is_cpa_plan_no_bw) && (
                     <>
                         <DisclaimerParagraph>
                             <Localize
@@ -112,14 +112,14 @@ const DisclaimerSection = () => {
                 )}
                 <RiskWarning>
                     <Desktop>
-                        {is_non_eu && !is_cpa_plan && (
+                        {is_non_eu && !is_cpa_plan_no_bw && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<0> Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
                                         components={[
                                             <BoldLink
                                                 key={0}
@@ -132,7 +132,7 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                             </>
                         )}
-                        {is_cpa_plan && (
+                        {is_cpa_plan_no_bw && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
@@ -145,7 +145,7 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<0> Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
                                         components={[
                                             <BoldLink
                                                 key={0}
@@ -161,29 +161,33 @@ const DisclaimerSection = () => {
                         {is_eu && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
+                                    <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly." />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                        values={{ loss_percent }}
+                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<0> Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        components={[
+                                            <BoldLink
+                                                key={0}
+                                                target="_blank"
+                                                to="/terms-and-conditions/"
+                                            />,
+                                            <BoldLink key={1} target="_blank" to="/responsible/" />,
+                                        ]}
                                     />
-                                </DisclaimerParagraph>
-                                <DisclaimerParagraph>
-                                    <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                 </DisclaimerParagraph>
                             </>
                         )}
                     </Desktop>
                     <Mobile>
-                        {is_non_eu && !is_cpa_plan && (
+                        {is_non_eu && !is_cpa_plan_no_bw && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<0> Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
                                         components={[
                                             <BoldLink
                                                 key={0}
@@ -196,7 +200,7 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                             </>
                         )}
-                        {is_cpa_plan && (
+                        {is_cpa_plan_no_bw && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
@@ -209,7 +213,7 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<0> Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
                                         components={[
                                             <BoldLink
                                                 key={0}
@@ -225,16 +229,20 @@ const DisclaimerSection = () => {
                         {is_eu && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
+                                    <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly." />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                        values={{ loss_percent }}
+                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<0> Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        components={[
+                                            <BoldLink
+                                                key={0}
+                                                target="_blank"
+                                                to="/terms-and-conditions/"
+                                            />,
+                                            <BoldLink key={1} target="_blank" to="/responsible/" />,
+                                        ]}
                                     />
-                                </DisclaimerParagraph>
-                                <DisclaimerParagraph>
-                                    <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                 </DisclaimerParagraph>
                             </>
                         )}

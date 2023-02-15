@@ -5,6 +5,7 @@ import { Container, Mobile } from 'components/containers'
 import { Carousel, CarouselProps } from 'components/elements'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const SmallContainer = styled(Container)`
     width: 60%;
@@ -40,9 +41,6 @@ const Wrapper = styled(SmallContainer)`
 
     @media (max-width: 770px) {
         width: 81%;
-    }
-    @media (max-width: 680px) {
-        display: none;
     }
 `
 
@@ -82,6 +80,7 @@ type MarketsCarouselProps = {
 
 const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
     const lang_direction = useLangDirection()
+    const { is_mobile } = useBreakpoints()
 
     const carousel_props: CarouselProps = {
         options: {
@@ -95,12 +94,17 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
             margin: '0 auto',
         },
         slide_style: {
-            flex: '0 0 50%',
+            flex: is_mobile ? '0 0 100%' : '0 0 50%',
             position: 'relative',
             margin: '4rem 0',
         },
         chevron_style: {
             chevron_color: 'red',
+        },
+        navigation_style: {
+            nav_color: 'red',
+            height: '10px',
+            bottom_offset: '0',
         },
     }
 
@@ -109,11 +113,11 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
             <Wrapper>
                 <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
             </Wrapper>
-            <Mobile breakpoint={'bp680'}>
+            {/* <Mobile breakpoint={'bp680'}>
                 <MobileBackground>
                     <SmallContainer fd="column">{children}</SmallContainer>
                 </MobileBackground>
-            </Mobile>
+            </Mobile> */}
         </>
     )
 }

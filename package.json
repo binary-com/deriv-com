@@ -9,7 +9,7 @@
         "@livechat/customer-sdk": "^3.1.0",
         "@loadable/component": "^5.15.2",
         "@svgr/webpack": "^6.2.1",
-        "@tanstack/react-table": "^8.7.4",
+        "@tanstack/react-table": "^8.7.9",
         "@u-wave/react-vimeo": "^0.9.8",
         "cli-select": "^1.1.2",
         "closest-match": "^1.3.3",

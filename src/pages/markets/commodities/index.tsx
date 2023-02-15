@@ -16,7 +16,7 @@ const CommoditiesPage = () => {
                 description={localize(
                     'Trade the commodities market and speculate on the price movements of oil and precious metals like gold and silver. Enjoy low spreads and zero commission.',
                 )}
-                title={localize('Commodities market | Commodities trading | Deriv')}
+                title={localize('Commodities trading | Commodities market online trading | Deriv')}
             />
             <DerivedFXHero
                 title={localize('Commodities')}

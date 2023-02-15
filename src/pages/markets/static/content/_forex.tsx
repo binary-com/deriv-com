@@ -5,8 +5,6 @@ import Deposit from 'images/svg/markets/forex/deposit.svg'
 import FriendlySupport from 'images/svg/markets/forex/smart.svg'
 import Leverage from 'images/svg/markets/forex/spread.svg'
 import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
-import PractiseIcon from 'images/svg/markets/aim-new.svg'
-import TradeIcon from 'images/svg/markets/trade-new.svg'
 
 export type ForexContentElement = {
     src: string

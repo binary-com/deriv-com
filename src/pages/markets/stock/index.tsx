@@ -20,6 +20,7 @@ const StocksAndIndicesPage = () => (
             description={localize(
                 'Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets.',
             )}
+            is_stocks_and_indices
         />
         <StockIndices simple_step_content={simple_step_content_stock} />
         <Signup appearance={Appearances.public} />

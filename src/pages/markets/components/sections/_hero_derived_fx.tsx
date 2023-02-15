@@ -102,7 +102,6 @@ const StyledContainer = styled.div`
     @media (min-width: 2110px) {
         margin-left: 20vw;
     }
-
     @media (min-width: 1201px) and (max-width: 1340px) {
         margin-left: 5vw;
     }

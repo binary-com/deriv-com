@@ -409,6 +409,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         "_t_No, you can't, but you may have multiple Deriv MT5 Synthetic accounts on different servers._t_",
+                    eu_translation_text: "_t_No, you can't._t_",
                 },
             ],
         },
@@ -417,6 +418,7 @@ const dmt5: TQuestionsData = {
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
             label: 'offer-micro-forex-pairs-on-Deriv-MT5',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text:
@@ -429,6 +431,7 @@ const dmt5: TQuestionsData = {
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
             label: 'What-is-the-minimum-volume-for-micro-forex-pairs',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text: '_t_The minimum volume for micro forex pairs is 0.1 lot._t_',

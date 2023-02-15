@@ -50,7 +50,7 @@ type SharedLinkStyleProps = {
 }
 
 export const SharedLinkStyle = css<SharedLinkStyleProps>`
-    color: var(--color-white);
+    color: var(--color-black);
     text-decoration: none;
     padding: 0.5rem 1rem;
     transition: text-shadow 0.25s;

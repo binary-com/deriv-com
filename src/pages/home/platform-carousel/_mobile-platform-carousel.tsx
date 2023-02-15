@@ -10,7 +10,7 @@ import {
     PLATFORMS_CAROUSEL_DELAY,
 } from './_utils'
 import type { PlatformDetailsProps } from './_utils'
-import { image_query } from './_details'
+import image_query from './_details'
 import { Localize, LocalizedLink } from 'components/localization'
 import { dmt5_android_url, dmt5_app_gallery, deriv_mt5_app_url } from 'common/constants'
 import device from 'themes/device'

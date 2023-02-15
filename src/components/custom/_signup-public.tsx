@@ -34,7 +34,6 @@ type SignupPublicProps = {
     handleValidation?: (event) => void
     is_submitting?: boolean
 }
-
 type SocialButtonProps = {
     bgColor?: string
 }
@@ -347,7 +346,6 @@ const social_button_content: SocialButtonContent[] = [
         provider: 'Apple',
         id: 'gtm-signup-apple',
         img: Apple,
-        text: 'Apple',
     },
     {
         provider: 'Facebook',
@@ -359,7 +357,6 @@ const social_button_content: SocialButtonContent[] = [
         provider: 'Google',
         id: 'gtm-signup-google',
         img: Google,
-        text: 'Google',
     },
 ]
 const SignupPublic = ({
@@ -388,7 +385,6 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('Join over 2.5 million traders worldwide')}
                                     {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
@@ -533,7 +529,6 @@ const SignupPublic = ({
                         <MobileSignupFormWrapper>
                             <div>
                                 <StyledHeader type="section-title">
-                                    {localize('Join over 2.5 million traders worldwide')}
                                     {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
                                 <br />

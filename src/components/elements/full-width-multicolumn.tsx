@@ -40,7 +40,7 @@ const ItemContainer = styled(Box)`
     flex-direction: row;
     max-width: 140.4rem;
     justify-content: center;
-    gap: 30px;
+    gap: 50px;
 
     @media ${device.tabletL} {
         flex-direction: column;

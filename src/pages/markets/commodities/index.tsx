@@ -36,4 +36,5 @@ const CommoditiesPage = () => {
         </Layout>
     )
 }
+
 export default WithIntl()(CommoditiesPage)

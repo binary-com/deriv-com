@@ -18,7 +18,7 @@ const CryptocurrenciesPage = () => (
         <DerivedFXHero
             title={localize('Cryptocurrencies')}
             description={localize(
-                "Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies.",
+                "Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of the world's most popular cryptocurrencies.",
             )}
             is_cryptocurrencies
         />

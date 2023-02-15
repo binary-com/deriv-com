@@ -1,7 +1,6 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import AvailableTrades from '../helper/_available-trades'
-import { WhyTrade } from '../sections/_trade-details'
 import commodities from '../../static/content/_commodities'
 import { commodities_cfds } from '../../static/content/_cfds'
 import { commodities_options } from '../../static/content/_digital-options'

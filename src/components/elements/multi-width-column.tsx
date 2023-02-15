@@ -12,7 +12,7 @@ interface Props {
 }
 
 const StyledSectionContainer = styled(SectionContainer)`
-    color: white;
+    color: var(--color-white);
     display: flex;
     width: 100%;
     height: 100%;
@@ -70,7 +70,7 @@ const StyledHeader = styled(Header)`
     font-weight: 700;
     font-size: 32px;
     line-height: 40px;
-    color: white;
+    color: var(--color-white);
 
     @media ${device.tablet} {
         text-align: center;

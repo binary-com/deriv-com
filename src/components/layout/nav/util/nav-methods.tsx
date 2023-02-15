@@ -3,11 +3,6 @@ import { useState } from 'react'
 import { getLanguage, getDerivAppLocalizedURL, redirectToTradingPlatform } from 'common/utility'
 import { deriv_app_url } from 'common/constants'
 
-export const handleScroll = (show, hide) => {
-    const show_height = 400
-    window.scrollY > show_height ? show() : hide()
-}
-
 export const useMoveButton = () => {
     const [show_button, setShowButton] = useState(false)
     const showButton = () => setShowButton(!show_button)

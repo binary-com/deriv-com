@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {
     NavRight,
@@ -8,16 +8,13 @@ import {
     DesktopWrapper,
     Wrapper,
 } from '../../styles/nav-styles'
-import { handleScroll, useMoveButton } from '../../util/nav-methods'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { affiliate_signin_url, affiliate_signup_url } from 'common/constants'
-import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean
@@ -25,8 +22,6 @@ type NavPartnerDesktopProps = {
 
 type StyledNavRightProps = {
     is_rtl: boolean
-    mounted: boolean
-    move: boolean
 }
 
 const StyledWrapper = styled(Wrapper)<NavPartnerDesktopProps>`
@@ -79,33 +74,10 @@ const LinkSignupButton = styled(LinkButton)`
 
 const StyledNavRight = styled(NavRight)<StyledNavRightProps>`
     margin-left: auto;
-    transform: translateX(
-        ${({ is_rtl, mounted, move, button_ref }) => {
-            const ref_base = getBaseRef(button_ref)
-            if (move) {
-                if (ref_base && mounted) {
-                    ref_base.style.opacity = 1
-                }
-                return '0'
-            } else {
-                if (ref_base && mounted) {
-                    ref_base.style.opacity = 0
-                    const calculation = ref_base.offsetWidth + 50
-                    return is_rtl ? `${-calculation}px` : `${calculation}px`
-                }
-                return is_rtl ? '-225px' : '225px'
-            }
-        }}
-    );
 
     > a {
         pointer-events: visible;
         cursor: pointer;
-    }
-    > a:last-child {
-        pointer-events: ${({ move }) => (move ? 'visible' : 'none')};
-        cursor: ${({ move }) => (move ? 'pointer' : 'default')};
-        opacity: ${({ move }) => (move ? 1 : 0)};
     }
 `
 
@@ -137,23 +109,7 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
 
 const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const { is_row } = useRegion()
-    const button_ref = useRef<HTMLButtonElement | null>(null)
-    const [show_button, showButton, hideButton] = useMoveButton()
-    const [is_mounted] = usePageLoaded()
-    const [has_scrolled, setHasScrolled] = useState(false)
-
     const is_rtl = useIsRtl()
-    const buttonHandleScroll = () => {
-        setHasScrolled(true)
-        handleScroll(showButton, hideButton)
-    }
-
-    useEffect(() => {
-        if (!hide_login_signup) {
-            document.addEventListener('scroll', buttonHandleScroll, { passive: true })
-            return () => document.removeEventListener('scroll', buttonHandleScroll)
-        }
-    }, [])
 
     return (
         <DesktopWrapper>
@@ -191,13 +147,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                 </NavigationBar>
 
                 {!hide_login_signup && (
-                    <StyledNavRight
-                        move={show_button}
-                        button_ref={button_ref}
-                        mounted={is_mounted}
-                        has_scrolled={has_scrolled}
-                        is_rtl={is_rtl}
-                    >
+                    <StyledNavRight is_rtl={is_rtl}>
                         <LinkButton
                             to={affiliate_signin_url}
                             external
@@ -214,7 +164,6 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                             external
                             type="affiliate_sign_up"
                             target="_blank"
-                            ref={button_ref}
                             secondary
                             style={{ width: '18rem' }}
                         >

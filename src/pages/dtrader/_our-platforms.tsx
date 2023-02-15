@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import mt5Icon from '../../images/svg/dtrader/mt5.svg'
 import dtIcon from '../../images/svg/dtrader/dt-icosn.svg'
 import goIcon from '../../images/svg/dtrader/go-icon.svg'

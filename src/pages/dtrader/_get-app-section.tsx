@@ -1,61 +1,84 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import derivTraderLogo from '../../images/common/dtrader/dtrader.svg'
 import GrayAngle30 from '../../images/common/gray-angle.png'
-import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
-import { Container, SectionContainer } from 'components/containers'
+import GetAppMobileBG from '../../images/common/dtrader/getAppMobileBG.jpg'
 import CommonHeaderSection from 'components/elements/common-header-section'
+import MultiWidthColumn from 'components/elements/multi-width-column'
+import useHandleSignup from 'components/hooks/use-handle-signup'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import Button from 'components/custom/_button'
+import device from 'themes/device'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
-const SectionContainerGetApp = styled.div`
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    background-color: #4c515c;
-    position: relative;
-
-    &::after {
-        content: '';
-        background: url(${GrayAngle30});
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 445px;
-        background-repeat: no-repeat;
-        z-index: ;
-    }
-`
 const ContentWrapper = styled.div`
     display: flex;
     gap: 28px;
     flex: 1;
     z-index: 2;
+    @media ${device.tabletL} {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 `
-const DownloadAppsWrapper = styled.div`
-    display: flex;
-    flex: 1;
+const CreateAccountButton = styled(Button)`
+    @media ${device.tablet} {
+        max-width: 100%;
+        width: 100%;
+    }
+`
+const TextAndButtonWrapper = styled.div`
+    @media ${device.tabletL} {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 `
 const DtraderGetApp = () => {
-    const [is_mobile, setMobile] = useState(false)
-    const { is_eu, is_row } = useRegion()
+    const { is_mobile_or_tablet } = useBreakpoints()
+    const handleSignup = useHandleSignup()
+    const [is_logged_in] = useAuthCheck()
 
     return (
-        <SectionContainerGetApp>
-            <Container justify="center" ai="flex-start">
-                <ContentWrapper>
-                    <img src={derivTraderLogo} alt="dtrader logo" />
+        <MultiWidthColumn
+            firstColumnBackground="#4C515C"
+            secondColumnBackground={GrayAngle30}
+            firstColumnWidth="70%"
+            secondColumnWidth="30%"
+            mobileBackgroundImage={GetAppMobileBG}
+        >
+            <ContentWrapper>
+                <img src={derivTraderLogo} alt="dtrader logo" width="64px" height="64px" />
+                <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get into the Deriv Trader experience_t_"
-                        title_font_size="64px"
-                        align_title="left"
+                        title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
+                        align_title={is_mobile_or_tablet ? 'center' : 'left'}
                         width="100%"
                         font_family_title="Ubuntu"
                         color="#fff"
+                        margin_title="0 0 18px"
                     />
-                </ContentWrapper>
-            </Container>
-        </SectionContainerGetApp>
+                    {is_logged_in ? (
+                        <CreateAccountButton
+                            onClick={handleGetTrading}
+                            label="_t_Get Trading_t_"
+                            primary
+                        />
+                    ) : (
+                        <CreateAccountButton
+                            onClick={handleSignup}
+                            label="_t_Create free demo account_t_"
+                            primary
+                        />
+                    )}
+                </TextAndButtonWrapper>
+            </ContentWrapper>
+            <div></div>
+        </MultiWidthColumn>
     )
 }
 

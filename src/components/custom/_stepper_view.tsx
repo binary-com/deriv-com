@@ -28,15 +28,18 @@ const Wrapper = styled.div`
     @media ${device.tabletL} {
         flex-direction: column;
         gap: 24px;
-        width: min-content;
-        padding: 40px 20px;
+        padding: 40px 20px 0;
+        width: 100%;
+        align-items: flex-start;
     }
 `
 const ItemsWrapper = styled.div`
     max-width: 230px;
     width: 100%;
+
     @media ${device.tabletL} {
-        width: 320px;
+        width: 100%;
+        max-width: 100%;
         padding-left: 16px;
     }
 `
@@ -52,6 +55,7 @@ const UlStyle = styled.ul`
     flex-direction: column;
     gap: 24px;
     cursor: pointer;
+    font-family: Ubuntu, sans-serif;
 
     li {
         transition: all 0.2s;

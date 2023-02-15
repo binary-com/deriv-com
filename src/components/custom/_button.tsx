@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
+import device from 'themes/device'
 
 type TProps = {
     label: TString
@@ -11,6 +12,7 @@ type TProps = {
     tertiary?: boolean
     outline?: boolean
     hero?: boolean
+    mobileFullWidth?: boolean
 }
 
 type TLabelProps = Omit<TProps, 'label' | 'onClick'>
@@ -67,8 +69,10 @@ const Container = styled.div<TContainerProps>`
         ${({ primary, outline }) => (primary && outline ? 'color: var(--color-white)' : '')};
         ${({ secondary, outline }) => (secondary && !outline ? 'color: var(--color-white)' : '')};
     }
+    @media ${device.tablet} {
+        ${({ mobileFullWidth }) => (mobileFullWidth ? 'width: 100%' : '')};
+    }
 `
-
 const Button: React.FC<TProps> = ({
     label,
     onClick,
@@ -77,6 +81,7 @@ const Button: React.FC<TProps> = ({
     tertiary = false,
     outline = false,
     hero = false,
+    mobileFullWidth = false,
 }) => {
     return (
         <Container
@@ -86,6 +91,7 @@ const Button: React.FC<TProps> = ({
             tertiary={tertiary}
             outline={outline}
             hero={hero}
+            mobileFullWidth={mobileFullWidth}
         >
             <Label
                 primary={primary}

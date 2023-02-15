@@ -37,6 +37,9 @@ const Link = styled(LocalizedLink)`
         text-decoration: underline;
     }
 `
+const LinkTitle = styled(Text)`
+    font-family: Ubuntu, sans-serif;
+`
 type LearnMoreProps = {
     text: string | ReactNode
     to: string
@@ -47,9 +50,9 @@ const LearnMore = ({ text, to }: LearnMoreProps) => {
         <Wrapper className="learn-more">
             <Link to={to}>
                 <Item>
-                    <Text mr="0.8rem" weight="bold" color="red">
+                    <LinkTitle mr="0.8rem" weight="bold" color="red">
                         {text}
-                    </Text>
+                    </LinkTitle>
                     <ImageWithDireciton src={Arrow} alt="arrow right" />
                 </Item>
             </Link>

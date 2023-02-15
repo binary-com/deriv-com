@@ -7,9 +7,9 @@ import StepperView from 'components/custom/_stepper_view'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { Container, SectionContainer } from 'components/containers'
-import Button from 'components/custom/_button'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import { LinkButton } from 'components/form'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const query = graphql`
     query {
@@ -50,12 +50,16 @@ const GotoLiveWrapper = styled.div`
 
     @media ${device.tabletL} {
         margin: 4rem auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 `
 
 const DtraderEasySteps = () => {
     const [is_mobile, setMobile] = useState(false)
-    const { is_eu, is_row } = useRegion()
+    const { is_row } = useRegion()
+    const { is_mobile_or_tablet } = useBreakpoints()
 
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -94,8 +98,8 @@ const DtraderEasySteps = () => {
                 <CommonHeaderSection
                     title="_t_How it works_t_"
                     subtitle="_t_Make a trade in 3 easy steps_t_"
-                    title_font_size="24px"
-                    subtitle_font_size="48px"
+                    title_font_size={is_mobile_or_tablet ? '18px' : '24px'}
+                    subtitle_font_size={is_mobile_or_tablet ? '28px' : '48px'}
                     bgcolor="white"
                     margin_subtitle="1.5rem 0 3rem 0"
                     align_title="center"
@@ -103,7 +107,7 @@ const DtraderEasySteps = () => {
                     width="100%"
                     font_weight_title="300"
                     font_weight_subtitle="bold"
-                    font_family_title="IBM Plex Sans ,sans-serif"
+                    font_family_title="Ubuntu"
                     font_family_subtitle="Ubuntu"
                 />
                 <StepperView

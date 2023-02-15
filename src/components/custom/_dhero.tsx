@@ -2,18 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import Shape from './_hero-shape'
 import Button from './_button'
-import DerivGoMobile from 'images/common/dtrader/hero-image.png'
+import DerivTraderRow from 'images/common/dtrader/hero-image.png'
+import DerivTraderEu from 'images/common/dtrader/hero-image-eu.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import DerivTLogo from 'images/svg/dtrader/deriv-trader-banner-logo.svg'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import useRegion from 'components/hooks/use-region'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { LinkButton } from 'components/form'
 import { Localize } from 'components/localization'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import useRegion from 'components/hooks/use-region'
 
 type DHeroProps = {
     background_alt?: string
@@ -128,9 +128,8 @@ const Content = styled.div`
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
+    const { is_eu, is_row } = useRegion()
     const handleSignup = useHandleSignup()
-    const { is_eu } = useRegion()
-    const is_rtl = useIsRtl()
     const [is_logged_in] = useAuthCheck()
     return (
         <BackgroundStyle>
@@ -149,12 +148,14 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                                     onClick={handleGetTrading}
                                     label="_t_Get Trading_t_"
                                     primary
+                                    mobileFullWidth
                                 />
                             ) : (
                                 <CreateAccountButton
                                     onClick={handleSignup}
                                     label="_t_Create free demo account_t_"
                                     primary
+                                    mobileFullWidth
                                 />
                             ))}
                         {is_live_demo && (
@@ -174,7 +175,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
             <HeroImageWrapper>
                 <Shape angle={is_mobile ? 101 : 193}>
                     <ImageWrapper>
-                        <ImageStyle src={DerivGoMobile} />
+                        <ImageStyle src={is_eu ? DerivTraderEu : DerivTraderRow} />
                     </ImageWrapper>
                 </Shape>
             </HeroImageWrapper>

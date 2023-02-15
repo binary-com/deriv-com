@@ -124,7 +124,7 @@ const DisclaimerSection = () => {
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
-                                                to="/terms-and-conditions/"
+                                                to="/terms-and-conditions"
                                             />,
                                             <BoldLink key={1} target="_blank" to="/responsible/" />,
                                         ]}
@@ -150,7 +150,7 @@ const DisclaimerSection = () => {
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
-                                                to="/terms-and-conditions/"
+                                                to="/terms-and-conditions"
                                             />,
                                             <BoldLink key={1} target="_blank" to="/responsible/" />,
                                         ]}
@@ -170,7 +170,7 @@ const DisclaimerSection = () => {
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
-                                                to="/terms-and-conditions/"
+                                                to="/terms-and-conditions"
                                             />,
                                             <BoldLink key={1} target="_blank" to="/responsible/" />,
                                         ]}
@@ -192,7 +192,7 @@ const DisclaimerSection = () => {
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
-                                                to="/terms-and-conditions/"
+                                                to="/terms-and-conditions"
                                             />,
                                             <BoldLink key={1} target="_blank" to="/responsible/" />,
                                         ]}
@@ -218,7 +218,7 @@ const DisclaimerSection = () => {
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
-                                                to="/terms-and-conditions/"
+                                                to="/terms-and-conditions"
                                             />,
                                             <BoldLink key={1} target="_blank" to="/responsible/" />,
                                         ]}
@@ -238,7 +238,7 @@ const DisclaimerSection = () => {
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
-                                                to="/terms-and-conditions/"
+                                                to="/terms-and-conditions"
                                             />,
                                             <BoldLink key={1} target="_blank" to="/responsible/" />,
                                         ]}

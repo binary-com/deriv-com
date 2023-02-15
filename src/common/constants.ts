@@ -148,8 +148,6 @@ export const localized_link_url = Object.freeze({
     domain_full_url: domain_full_url,
     derivlife: deriv_life_url,
     academy: academy_url,
-    'terms_and_conditions/#clients': domain_full_url,
-    'terms_and_conditions/#business-partners': domain_full_url,
 })
 export const default_server_url = 'green.binaryws.com'
 

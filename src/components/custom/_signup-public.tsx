@@ -346,6 +346,7 @@ const social_button_content: SocialButtonContent[] = [
         provider: 'Apple',
         id: 'gtm-signup-apple',
         img: Apple,
+        text: 'Apple',
     },
     {
         provider: 'Facebook',
@@ -357,6 +358,7 @@ const social_button_content: SocialButtonContent[] = [
         provider: 'Google',
         id: 'gtm-signup-google',
         img: Google,
+        text: 'Google',
     },
 ]
 const SignupPublic = ({

@@ -308,14 +308,6 @@ export const EuropeanIndicesDetails = () => {
             <Text>
                 <Localize translate_text="Each of these indices replicates the performance of top publicly traded companies in financial markets in Europe." />
             </Text>
-            {is_row && (
-                <Text>
-                    <Localize
-                        translate_text="<0>Netherlands 25</0> follows the stock performance of the 25 most traded companies in the Netherlands."
-                        components={[<strong key={0} />]}
-                    />
-                </Text>
-            )}
             <Text>
                 <Localize
                     translate_text="<0>Europe 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
@@ -334,15 +326,23 @@ export const EuropeanIndicesDetails = () => {
                     components={[<strong key={0} />]}
                 />
             </Text>
+            {is_row && (
+                <Text>
+                    <Localize
+                        translate_text="<0>Netherlands 25</0> follows the stock performance of the 25 most traded companies in the Netherlands."
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
+            )}
             <Text>
                 <Localize
-                    translate_text="<0>UK 100</0> follows the stock performance of the top 100 listed companies in the UK."
+                    translate_text="<0>Spain 35</0> follows the stock performance of the top 35 companies in Spain."
                     components={[<strong key={0} />]}
                 />
             </Text>
             <Text>
                 <Localize
-                    translate_text="<0>Spain 35</0> follows the stock performance of the top 35 companies in Spain."
+                    translate_text="<0>UK 100</0> follows the stock performance of the top 100 listed companies in the UK."
                     components={[<strong key={0} />]}
                 />
             </Text>
@@ -352,7 +352,7 @@ export const EuropeanIndicesDetails = () => {
 export const CryptocurrenciesDetails = () => (
     <DetailsContainer>
         <Text>
-            <Localize translate_text="Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade." />
+            <Localize translate_text="Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the Deriv Trader dashboard before you place a trade." />
         </Text>
     </DetailsContainer>
 )

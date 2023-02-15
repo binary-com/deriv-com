@@ -10,6 +10,7 @@ import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { localize, Localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
+import useRegion from 'components/hooks/use-region'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -20,7 +21,11 @@ type StockIndicesProps = {
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
-    simple_step_content[1].text = (
+    const { is_eu } = useRegion()
+
+    simple_step_content[1].text = is_eu ? (
+        <Localize translate_text="Open a real account, make a deposit, and start trading stocks, stock indices, and other markets." />
+    ) : (
         <Localize translate_text="Open a real account, make a deposit, and start trading stocks, indices and other markets." />
     )
 

@@ -14,7 +14,7 @@ const CommoditiesPage = () => {
         <Layout type="noNav">
             <SEO
                 description={localize(
-                    'Sign up with Deriv to start trading on commodities and speculate on the price movements of gold, silver, oil, and other assets.',
+                    'Trade the commodities market and speculate on the price movements of oil and precious metals like gold and silver. Enjoy low spreads and zero commission.',
                 )}
                 title={localize('Commodities market | Commodities trading | Deriv')}
             />

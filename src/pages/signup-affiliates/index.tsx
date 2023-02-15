@@ -14,7 +14,7 @@ import validation from 'common/validation'
 import Login from 'common/login'
 import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
 import { queryParams } from 'common/utility'
-import { useDerivWS } from 'store'
+import useDerivWS from 'components/hooks/use-deriv-ws'
 
 const StyledNote = styled.div`
     padding: 8px 0;

@@ -904,7 +904,7 @@ export const american_stocks: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSMCDONALDS,
-        text: <Localize translate_text="McDonalds" />,
+        text: <Localize translate_text="McDonald's" />,
     },
     {
         src: icons.STOCKSMICROSOFT,
@@ -976,7 +976,7 @@ export const american_stocks: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSWALMART,
-        text: <Localize translate_text="Wal-Mart Stores Inc" />,
+        text: <Localize translate_text="Walmart Inc" />,
     },
     {
         src: icons.STOCKSWALTDISNEY,

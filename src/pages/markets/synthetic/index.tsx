@@ -10,12 +10,12 @@ import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
 
 const Markets = () => {
-    const { is_eu } = useRegion()
+    const { is_eu, is_row } = useRegion()
     const description_eu = localize(
         'Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite.',
     )
     const description_row = localize(
-        'Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices.',
+        'Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets.',
     )
     return (
         <Layout type="noNav">
@@ -29,6 +29,8 @@ const Markets = () => {
             <DerivedFXHero
                 title={localize('Derived')}
                 description={is_eu ? description_eu : description_row}
+                is_derived_eu={is_eu ? true : false}
+                is_derived_row={is_row ? true : false}
             />
             <NavTab route_from={'synthetic'} route_offset={50} />
             <SyntheticIndices simple_step_content={simple_step_content_synthetic} />

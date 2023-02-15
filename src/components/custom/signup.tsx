@@ -120,26 +120,10 @@ const Signup = (props: SignupProps) => {
         }
     }
 
-    // this method is used to prevent DOM XSS invulnerability by removing HTML DOM elements in the email input
-    const escapeHtml = (email: string) => {
-        return email.replaceAll(/[&<>'"]/g, (c) => {
-            switch (c) {
-                case '&':
-                    return '&amp;'
-                case '<':
-                    return '&lt;'
-                case '>':
-                    return '&gt;'
-                case '"':
-                    return '&quot;'
-            }
-        })
-    }
-
     const handleEmailSignup = (e) => {
         e.preventDefault()
         setSubmitting(true)
-        const formatted_email = escapeHtml(email.replace(/\s/g, ''))
+        const formatted_email = email.replace(/\s/g, '')
         handleValidation(email)
         const has_error_email = validateEmail(formatted_email)
         if (has_error_email || email_error_msg) {
@@ -189,10 +173,24 @@ const Signup = (props: SignupProps) => {
     }
 
     const renderSwitch = (param) => {
+        // this method is used to prevent DOM XSS invulnerability by removing HTML DOM elements in the email input
+        const escapeHtml = (email: string) => {
+            return email.replaceAll(/[&<>'"]/g, (c) => {
+                switch (c) {
+                    case '&':
+                    case '<':
+                    case '>':
+                    case '"':
+                    case "'":
+                        return ''
+                }
+            })
+        }
+
         const parameters = {
             autofocus: props.autofocus,
             clearEmail: clearEmail,
-            email: email,
+            email: escapeHtml(email),
             email_error_msg: email_error_msg,
             handleInputChange: handleInputChange,
             handleLogin: handleLogin,

@@ -201,7 +201,15 @@ const MobileExpandedList = ({
                                     )}
                                 </StyledItemDiv>
                                 <StyledKeyDiv>
-                                    {Array.isArray(payment_data.min_max_withdrawal) ? (
+                                    {payment_data.minimum_withdrawal ? (
+                                        <ValueText
+                                            is_rtl={is_rtl}
+                                            type="subtitle-2"
+                                            weight="normal"
+                                        >
+                                            {payment_data.minimum_withdrawal}
+                                        </ValueText>
+                                    ) : Array.isArray(payment_data.min_max_withdrawal) ? (
                                         payment_data.min_max_withdrawal.map((md, idx) => (
                                             <ValueText
                                                 is_rtl={is_rtl}

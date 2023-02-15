@@ -1,7 +1,6 @@
 import React, { useState, ReactNode, Ref } from 'react'
 import Loadable from '@loadable/component'
 import styled from 'styled-components'
-import { closestMatch, distance } from 'closest-match'
 import { LocationProvider } from './location-context'
 import NavStatic from './nav/nav-static'
 import Nav from './nav/nav'

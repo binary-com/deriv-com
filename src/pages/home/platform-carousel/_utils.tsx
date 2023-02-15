@@ -9,7 +9,6 @@ import {
     derivx_ios_url,
     dmt5_android_url,
     dmt5_linux_url,
-    dmt5_macos_url,
     smarttrader_url,
     binary_bot_url,
     dmt5_mac_app_url,
@@ -60,7 +59,7 @@ export type TPlatformDetails = {
     learn_more_link: string
     download_links: { is_desktop: TDownloadLinks }
 }
-export const platform_details_cr: TPlatformDetails[] = [
+export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'Deriv GO',
         icon: DerivGOIcon,
@@ -183,36 +182,6 @@ export const platform_details_eu: TPlatformDetails[] = [
         title: 'DTrader',
         icon: DTraderIcon,
         image_key: 'platforms_dtrader_eu',
-        description: <Localize translate_text="Our flagship app for trading multipliers." />,
-        learn_more_link: '/dtrader/',
-        download_links: {
-            is_desktop: [{ type: 'browser', link_type: 'deriv_app' }],
-        },
-    },
-]
-
-export const platform_details_uk: TPlatformDetails[] = [
-    {
-        title: 'Deriv MT5',
-        icon: DMT5Icon,
-        image_key: 'platforms_mt5_uk',
-        description: <Localize translate_text="The all-in-one CFD trading platform." />,
-        learn_more_link: '/dmt5/',
-        download_links: {
-            is_desktop: [
-                { type: 'mac_app_store', url: dmt5_mac_app_url },
-                { type: 'windows', url: dmt5_windows_download_url },
-                { type: 'linux', url: dmt5_linux_url },
-                { type: 'browser', link_type: 'mt5' },
-                { type: 'google_play', url: dmt5_android_url },
-                { type: 'app_gallery', url: dmt5_app_gallery },
-            ],
-        },
-    },
-    {
-        title: 'DTrader',
-        icon: DTraderIcon,
-        image_key: 'platforms_dtrader_uk',
         description: <Localize translate_text="Our flagship app for trading multipliers." />,
         learn_more_link: '/dtrader/',
         download_links: {

@@ -15,8 +15,8 @@ import {
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Accordion, AccordionItem, Divider } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { DerivStore } from 'store'
 import device from 'themes/device'
+import useRegion from 'components/hooks/use-region'
 
 const Question = styled.div`
     max-width: 38.4rem;
@@ -61,7 +61,7 @@ const FAQ = () => {
         padding: '1.6rem 2.4rem',
         border: 'none',
     }
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useRegion()
     return (
         <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">
@@ -76,7 +76,7 @@ const FAQ = () => {
                             )}
                         </Text>
                     </Question>
-                    <Answer>
+                    <Answer id="rebranding">
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={localize('Why are you rebranding?')}
@@ -84,6 +84,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="why-rebranding"
                             >
                                 <WhyRebrand />
                             </AccordionItem>
@@ -93,6 +94,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="what-changes"
                             >
                                 <WhatChanges />
                             </AccordionItem>
@@ -103,6 +105,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="is-company-bought"
                             >
                                 <IsBeingBought />
                             </AccordionItem>
@@ -123,7 +126,7 @@ const FAQ = () => {
                             )}
                         </Text>
                     </Question>
-                    <Answer>
+                    <Answer id="new-offerings">
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={localize(
@@ -133,12 +136,13 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="result"
                             >
                                 <NewProducts />
                             </AccordionItem>
 
                             <AccordionItem
-                                is_showed={!is_eu_country}
+                                is_showed={!is_eu}
                                 header={
                                     <Localize translate_text="What else can we expect from Deriv.com?" />
                                 }
@@ -146,6 +150,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="what-else"
                             >
                                 <WhatToExpect />
                             </AccordionItem>
@@ -157,6 +162,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="legitimacy"
                             >
                                 <IsDerivRegulated />
                             </AccordionItem>
@@ -168,6 +174,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="is-close"
                             >
                                 <AreCloseDown />
                             </AccordionItem>
@@ -186,7 +193,7 @@ const FAQ = () => {
                             <Localize translate_text="We understand that change can be intimidating. That’s why we’ve been working very hard to make sure that your transition from Binary.com to Deriv.com is as seamless as possible." />
                         </Text>
                     </Question>
-                    <Answer>
+                    <Answer id="meaning">
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={
@@ -196,6 +203,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="switch"
                             >
                                 <WhySwitch />
                             </AccordionItem>
@@ -208,6 +216,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="trade-on-binary"
                             >
                                 <CanStillTrade />
                             </AccordionItem>
@@ -219,6 +228,7 @@ const FAQ = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
+                                class_name="get-started"
                             >
                                 <HowToGetStarted />
                             </AccordionItem>

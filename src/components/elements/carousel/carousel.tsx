@@ -14,6 +14,7 @@ import {
     StyledDot,
 } from './carousel-style'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 export type ButtonsProps = React.HTMLAttributes<HTMLDivElement> & {
     color?: string
@@ -36,17 +37,22 @@ export const PrevButton = ({
     is_reviews,
     onClick,
     style,
-}: PrevAndNextButtonsProps) => (
-    <StyledButtonWrapper
-        onClick={onClick}
-        disabled={!enabled}
-        left
-        style={style}
-        is_reviews={is_reviews}
-    >
-        {color ? <ChevronLeft color={color} /> : <ChevronLeft />}
-    </StyledButtonWrapper>
-)
+}: PrevAndNextButtonsProps) => {
+    const is_rtl = useIsRtl()
+
+    return (
+        <StyledButtonWrapper
+            onClick={onClick}
+            disabled={!enabled}
+            left
+            style={style}
+            is_reviews={is_reviews}
+            className="previous-arrow"
+        >
+            {is_rtl ? <ChevronRight color={color} /> : <ChevronLeft color={color} />}
+        </StyledButtonWrapper>
+    )
+}
 
 type NavigationButtonProps = Pick<ButtonsProps, 'color' | 'is_enabled' | 'onClick'>
 
@@ -60,16 +66,21 @@ export const NextButton = ({
     is_reviews,
     onClick,
     style,
-}: PrevAndNextButtonsProps) => (
-    <StyledButtonWrapper
-        onClick={onClick}
-        disabled={!enabled}
-        style={style}
-        is_reviews={is_reviews}
-    >
-        {color ? <ChevronRight color={color} /> : <ChevronRight />}
-    </StyledButtonWrapper>
-)
+}: PrevAndNextButtonsProps) => {
+    const is_rtl = useIsRtl()
+
+    return (
+        <StyledButtonWrapper
+            onClick={onClick}
+            disabled={!enabled}
+            style={style}
+            is_reviews={is_reviews}
+            className="next-arrow"
+        >
+            {is_rtl ? <ChevronLeft color={color} /> : <ChevronRight color={color} />}
+        </StyledButtonWrapper>
+    )
+}
 
 type ChevronStyleType = {
     chevron_color?: string
@@ -81,10 +92,10 @@ type NavigationStyleType = {
     nav_color?: string
     bottom_offset?: number | string
     chevron_right?: CSSProperties
-    height?: number
+    height?: string
 }
 
-type CarouselProps = {
+export type CarouselProps = {
     autoplay_delay?: number
     autoplay_interval?: number
     chevron_style?: ChevronStyleType

@@ -68,12 +68,12 @@ const TitleHeader = styled(Header)`
     }
 
     @media ${device.tabletS} {
-        text-align: left;
+        text-align: start;
     }
 
     @media ${device.mobileL} {
         width: auto;
-        text-align: left;
+        text-align: start;
     }
 `
 
@@ -83,14 +83,14 @@ const StyledHeader = styled(Header)`
     }
 
     @media ${device.tabletS} {
-        text-align: left;
+        text-align: start;
     }
 `
 
 const NumberHeader = styled(Text)`
     font-weight: bold;
     line-height: 6rem;
-    text-align: left;
+    text-align: start;
 
     @media ${device.mobileL} {
         margin-bottom: 8px;
@@ -99,7 +99,7 @@ const NumberHeader = styled(Text)`
 
 const NumberText = styled(Text)`
     font-weight: 400;
-    text-align: left;
+    text-align: start;
 `
 
 const DerivNumbers = () => {
@@ -107,10 +107,10 @@ const DerivNumbers = () => {
         <StyledSection>
             <StyledFlex>
                 <TitleSection fd="column">
-                    <TitleHeader as="h6" color="black-2" align="left" type="unset">
+                    <TitleHeader as="h6" color="black-2" align="start" type="unset">
                         {localize('Deriv in numbers')}
                     </TitleHeader>
-                    <StyledHeader as="h6" size="24px" align="left" weight="400" type="unset">
+                    <StyledHeader as="h6" size="24px" align="start" weight="400" type="unset">
                         {localize(
                             'We aim to deliver market-leading products that are trusted around the world.',
                         )}
@@ -125,11 +125,11 @@ const DerivNumbers = () => {
                 >
                     {deriv_numbers.map((number) =>
                         number.map(({ count, title }) => (
-                            <Flex key={count} fd="column" height="unset">
+                            <Flex key={title.props.translate_text} fd="column" height="unset">
                                 <NumberHeader size="48px" type="unset">
                                     {count}
                                 </NumberHeader>
-                                <NumberText size="20px" align="left">
+                                <NumberText size="20px" align="start">
                                     {title}
                                 </NumberText>
                             </Flex>

@@ -8,7 +8,7 @@ import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
 import CFDsIcon from 'images/svg/dmt5/cfds.svg'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type ContentType = {
     header?: React.ReactElement
@@ -54,7 +54,7 @@ const eucontent: ContentType[] = [
     {
         header: <Localize translate_text="CFDs" />,
         text: (
-            <Localize translate_text="Trade CFDs on forex, stocks, stock indices, derived, cryptocurrencies, and commodities." />
+            <Localize translate_text="Trade CFDs on forex, stocks, stock indices, synthetic indices, cryptocurrencies, and commodities with leverage." />
         ),
         icon: <StyledIcon src={CFDsIcon} alt="cfds-icon" />,
         show_eu: true,
@@ -79,7 +79,7 @@ const ClientCard = styled.article`
     max-width: 40rem;
     padding: 3.2rem 2.4rem 4rem;
     position: relative;
-    height: 176px;
+    height: 196px;
 
     :first-child {
         margin: 0;
@@ -123,7 +123,7 @@ const StyledText = styled(Text)`
 `
 
 const Flexibility = () => {
-    const { is_uk, is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     const chosen_content = is_eu ? eucontent : content
     const title = is_eu
@@ -160,13 +160,7 @@ const Flexibility = () => {
                                     </StyledHeader>
                                     {item.icon}
                                 </Flex>
-                                {is_uk ? (
-                                    <StyledText>
-                                        <Localize translate_text="Trade forex, stocks, stock indices, and commodities on leverage." />
-                                    </StyledText>
-                                ) : (
-                                    <StyledText>{item.text}</StyledText>
-                                )}
+                                <StyledText>{item.text}</StyledText>
                             </ClientCard>
                         )
                     )

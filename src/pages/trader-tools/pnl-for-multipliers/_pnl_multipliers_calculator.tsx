@@ -41,7 +41,14 @@ import {
     StopLossAmountDown,
 } from './_example-pnl-multipliers'
 import { localize, Localize } from 'components/localization'
-import { Accordion, AccordionItem, Header, LocalizedLinkText, Text } from 'components/elements'
+import {
+    Accordion,
+    AccordionItem,
+    Header,
+    LocalizedLinkText,
+    ImageWithDireciton,
+    Text,
+} from 'components/elements'
 import { Desktop, Mobile } from 'components/containers/visibility'
 import { Flex } from 'components/containers'
 import Input from 'components/form/input'
@@ -421,7 +428,7 @@ const PnlMultipliersCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -438,14 +445,19 @@ const PnlMultipliersCalculator = () => {
                     )}
                 </SectionSubtitle>
 
-                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
+                <Flex
+                    mt="80px"
+                    mb="40px"
+                    tablet={{ mt: '40px', mb: '24px' }}
+                    id="pnl-multipliers-tab-selector"
+                >
                     <SwapTabSelector active={tab === 'Level'} onClick={() => onTabClick('Level')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="level">
                             {localize('Level')}
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Amount'} onClick={() => onTabClick('Amount')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="amount">
                             {localize('Amount')}
                         </Text>
                     </SwapTabSelector>
@@ -988,12 +1000,13 @@ const PnlMultipliersCalculator = () => {
                                 {localize('Example calculation')}
                             </Header>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-multipliers" has_single_state>
                                 <AccordionItem
                                     header={localize('Stop loss level in Up direction')}
                                     header_style={header_style}
                                     style={item_style}
                                     plus
+                                    class_name="take-profit-up"
                                 >
                                     <Text mb="16px">
                                         {localize(
@@ -1029,6 +1042,7 @@ const PnlMultipliersCalculator = () => {
                                     header_style={header_style}
                                     style={item_style}
                                     plus
+                                    class_name="take-profit-down"
                                 >
                                     <Text mb="16px">
                                         {localize(
@@ -1619,12 +1633,13 @@ const PnlMultipliersCalculator = () => {
                                 {localize('Example calculation')}
                             </Header>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-multipliers" has_single_state>
                                 <AccordionItem
                                     header={localize('Take profit amount in Up direction')}
                                     header_style={header_style}
                                     style={item_style}
                                     plus
+                                    class_name="take-profit-amount"
                                 >
                                     <Text mb="16px">
                                         {localize(

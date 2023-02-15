@@ -85,7 +85,7 @@ const Hero = ({ display_name, img_data, badge_data, badge_alt, job_location }: H
                     to={zoho_jobs_url + job_location}
                     rel="noopener noreferrer"
                 >
-                    View open positions in {display_name}
+                    {`View open positions in ${display_name}`}
                 </LinkButton>
             </StyledContainer>
         </StyledBackground>
@@ -140,7 +140,7 @@ const FirstSection = styled(SectionContainer)`
             font-size: 16px;
         }
         @media ${device.mobileL} {
-            text-align: left;
+            text-align: start;
         }
     }
 `

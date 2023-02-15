@@ -28,6 +28,10 @@ type ItemsType = {
     subtitle: React.ReactElement
 }[]
 
+type StyledLinkButtonProps = {
+    id?: string
+}
+
 const meta_attributes: MetaAttributesType = {
     og_title: localize('Affiliate and IB programme | Deriv'),
     og_description: localize(
@@ -42,11 +46,11 @@ const StyledHeader = styled(Header)`
     margin-bottom: 4rem;
     @media ${device.tabletS} {
         font-size: 40px;
-        text-align: left;
+        text-align: start;
     }
 `
 
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
     border-radius: 4px;
     @media ${device.tabletS} {
         font-size: 14px;
@@ -87,6 +91,7 @@ const SectionContainerWrapper = styled(SectionContainer)`
 
 const StyledContainer = styled(Container)`
     width: 100%;
+    direction: ltr;
     @media ${device.tabletL} {
         flex-wrap: wrap;
         margin: 20px 0;

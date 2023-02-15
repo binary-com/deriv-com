@@ -4,18 +4,20 @@ import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import useRegion from 'components/hooks/use-region'
 
 type DBannerProps = {
     background_pattern?: string
     data?: IGatsbyImageData
     image_alt?: string
     title?: string | JSX.Element
+    is_rtl: boolean
 }
 const Wrapper = styled.div`
     position: relative;
@@ -37,6 +39,9 @@ const BackgroundWrapper = styled(Flex)<DBannerProps>`
     width: 25%;
     background-image: url(${(props) => props.background_pattern});
     clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+    transform: ${({ is_rtl }) => {
+        return is_rtl ? 'scaleX(-1)' : null
+    }};
 
     @media (max-width: 800px) {
         clip-path: polygon(0 0, 100% 0%, 305% 163%, 0% 60%);
@@ -94,7 +99,7 @@ const ImageWrapper = styled(Flex)`
 
 const TextWrapper = styled.div`
     margin: auto;
-
+    text-align: center;
     @media (max-width: 800px) {
         margin-top: 35px;
         margin-bottom: 40px;
@@ -103,11 +108,11 @@ const TextWrapper = styled.div`
         margin-right: 60px;
     }
 `
-const DemoButton = styled.div`
+const DemoButton = styled(Button)`
     text-align: center;
     height: auto;
 
-    @media (max-width: 800px) {
+    @media ${device.mobileL} {
         margin: unset;
     }
 `
@@ -124,7 +129,8 @@ const StyledHeader = styled(Header)`
 `
 const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) => {
     const handleSignup = useHandleSignup()
-    const { is_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = useRegion()
+    const is_rtl = useIsRtl()
     const [is_logged_in] = useAuthCheck()
 
     return (
@@ -140,6 +146,7 @@ const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) =
                 </ImageWrapper>
             </ImageContainer>
             <BackgroundWrapper
+                is_rtl={is_rtl}
                 background_pattern={background_pattern}
                 direction="column"
                 ai="center"
@@ -149,27 +156,15 @@ const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) =
                     {title}
                 </StyledHeader>
 
-                <DemoButton>
-                    {is_logged_in ? (
-                        <Button
-                            onClick={handleGetTrading}
-                            id="dm-dbanner-signup"
-                            type="submit"
-                            secondary
-                        >
-                            {localize('Get Trading')}
-                        </Button>
-                    ) : (
-                        <Button
-                            onClick={handleSignup}
-                            id="dm-dbanner-signup"
-                            type="submit"
-                            secondary
-                        >
-                            {localize('Create free demo account')}
-                        </Button>
-                    )}
-                </DemoButton>
+                {is_logged_in ? (
+                    <DemoButton onClick={handleGetTrading} secondary>
+                        <Localize translate_text="Get Trading" />
+                    </DemoButton>
+                ) : (
+                    <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
+                        <Localize translate_text="Create free demo account" />
+                    </DemoButton>
+                )}
             </TextWrapper>
         </Wrapper>
     )

@@ -7,7 +7,8 @@ import type { MarketInstrumentsElement } from 'pages/markets/components/sections
 import { SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
+import { Header } from 'components/elements'
 
 type CFDProps = {
     market_content: MarketInstrumentsElement
@@ -19,9 +20,12 @@ const StyledSection = styled(SectionContainer)`
         padding: 24px 0 40px;
     }
 `
+const StyledHeader = styled(Header)`
+    margin-top: 4rem;
+`
 
 const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     return (
         <StyledSection padding="4rem 0 8rem">
@@ -41,16 +45,16 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                             <Localize translate_text="On Deriv, you can trade CFDs with high leverage, enabling you to pay just a fraction of the contract’s value. It will amplify your potential gain and also increase your potential loss." />
                         )}
                     </StyledText>
-                    {(market_tab_name && market_tab_name === 'stock-indices') ||
-                    market_tab_name === 'derived-fx' ? (
+                    {market_tab_name && market_tab_name === 'stock-indices' ? (
                         <AvailablePlatforms dmt5 />
                     ) : (
                         <AvailablePlatforms dmt5 derivx />
                     )}
                 </Descriptions>
-                <StyledText font_size="14px" weight="bold" mt="4rem">
+
+                <StyledHeader as="h3" size="16px">
                     <Localize translate_text="Instruments available for CFD trading" />
-                </StyledText>
+                </StyledHeader>
                 <MarketInstruments market_content={market_content} />
             </ContentWrapper>
         </StyledSection>

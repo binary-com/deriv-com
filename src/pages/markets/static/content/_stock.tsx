@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import ExtendedTime from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
 import MinimalCapital from 'images/svg/stock-indices/stocks-extended-time.svg'
@@ -11,11 +10,11 @@ import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 
 type Stock = {
     src: string
-    text: ReactElement
+    text: React.ReactNode
     alt: string
 }
 
-export const simple_step_content_stock: SimpleStepsContent[] = [
+export const simple_step_content_stock = [
     {
         header: <Localize translate_text="Practise" />,
         text: (
@@ -42,28 +41,28 @@ export const simple_step_content_stock: SimpleStepsContent[] = [
 const stocks: Stock[] = [
     {
         src: ExtendedTime,
+        alt: 'Low capital',
         text: <Localize translate_text="Minimal capital requirements, limited risk" />,
-        alt: 'minimal capital requirements',
     },
     {
         src: MinimalCapital,
+        alt: 'Time to trade',
         text: <Localize translate_text="Extended trading time, up to 18 hours a day" />,
-        alt: 'extended trading time',
     },
     {
         src: WithdrawIcon,
+        alt: 'Easy deposits and withdrawals',
         text: <Localize translate_text="Fast and secure deposit and withdrawal options" />,
-        alt: 'withdrawal',
     },
     {
         src: ResponsiveWebsite,
+        alt: 'Simple trading platforms',
         text: <Localize translate_text="Responsive, easy-to-use platforms" />,
-        alt: 'responsive, easy-to-use platforms',
     },
     {
         src: FriendlySupport,
+        alt: 'Smart support team',
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
-        alt: 'smart and friendly support',
     },
 ]
 export default stocks

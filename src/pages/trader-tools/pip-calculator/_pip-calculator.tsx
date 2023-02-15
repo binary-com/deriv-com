@@ -39,7 +39,14 @@ import {
     StyledOl,
 } from '../common/_style'
 import { PipSyntheticExample, PipForexExample } from './_example-pip'
-import { Accordion, AccordionItem, Header, LocalizedLinkText, Text } from 'components/elements'
+import {
+    Accordion,
+    AccordionItem,
+    Header,
+    LocalizedLinkText,
+    Text,
+    ImageWithDireciton,
+} from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { Flex, Desktop, Mobile } from 'components/containers'
@@ -59,7 +66,7 @@ const PipCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -295,12 +302,13 @@ const PipCalculator = () => {
                             {localize('Example calculation')}
                         </Header>
 
-                        <Accordion has_single_state>
+                        <Accordion id="pip-calculator" has_single_state>
                             <AccordionItem
                                 header={localize('Pip value for synthetic indices')}
                                 header_style={header_style}
                                 style={item_style}
                                 plus
+                                class_name="pip-value"
                             >
                                 <Text mb="16px">
                                     {localize(
@@ -345,6 +353,7 @@ const PipCalculator = () => {
                                 header_style={header_style}
                                 style={item_style}
                                 plus
+                                class_name="pip-value-forex"
                             >
                                 <Text mb="16px">
                                     {localize('Let’s say you want to trade 2 lots of EUR/USD.')}

@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types-another.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
 import MarketandRisk from 'images/svg/markets/market-and-risk-new.svg'
@@ -12,11 +11,11 @@ import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 
 type Synthetic = {
     src: string
-    text: ReactElement
+    text: React.ReactNode
     alt: string
 }
 
-export const simple_step_content_synthetic: SimpleStepsContent[] = [
+export const simple_step_content_synthetic = [
     {
         header: <Localize translate_text="Practise" />,
         text: (
@@ -43,28 +42,28 @@ export const simple_step_content_synthetic: SimpleStepsContent[] = [
 const synthetic: Synthetic[] = [
     {
         src: SevenTrading,
+        alt: 'Trading available everyday',
         text: <Localize translate_text="24/7 trading, including weekends and public holidays" />,
-        alt: '24/7 trading',
     },
     {
         src: MarketandRisk,
+        alt: 'Real world market',
         text: <Localize translate_text="Free from real-world market and liquidity risks" />,
-        alt: 'real-world market and liquidity risk',
     },
     {
         src: ResponsiveWebsite,
+        alt: 'Easy to use platform',
         text: <Localize translate_text="Responsive, easy-to-use platforms" />,
-        alt: 'responsive platforms',
     },
     {
         src: ExclusiveTradeType,
+        alt: 'Exclusive access',
         text: <Localize translate_text="Exclusive access to innovative trade types" />,
-        alt: 'exclusive access to innovative trade types',
     },
     {
         src: FriendlySupport,
+        alt: 'Chat support',
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
-        alt: 'support',
     },
 ]
 

@@ -1,3 +1,5 @@
+// TODO: Should do error handling for when the request was not successful and give the user
+// ability to refetch the dropdown list again.
 import React, { useCallback, useEffect, useState } from 'react'
 import { Formik, Field } from 'formik'
 import {
@@ -63,53 +65,32 @@ import {
     Dropdown,
     DropdownSearch,
     Header,
+    ImageWithDireciton,
     LocalizedLinkText,
     Text,
 } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { useDerivApi } from 'components/hooks/use-deriv-api'
+import useWS from 'components/hooks/useWS'
 
 const MarginCalculator = () => {
+    const { data, is_loading, send } = useWS('active_symbols')
     const [tab, setTab] = useState('Synthetic')
-    const [activeSymbols, setActiveSymbols] = useState([])
-    const [disableDropdown, setDisableDropdown] = useState(true)
-    const [symbolSpotPrice, setSymbolSpotPrice] = useState({})
 
     const onTabClick = (t) => {
         setTab(t)
     }
-    const deriv_api = useDerivApi()
 
     useEffect(() => {
-        const { send } = deriv_api
-        send({ active_symbols: 'full' }, (response) => {
-            if (!response.error && response.active_symbols.length > 0) {
-                const data = response.active_symbols
-                setActiveSymbols(data)
-                setDisableDropdown(false)
-            }
-        })
-    }, [])
+        send({ active_symbols: 'full' })
+    }, [send])
 
-    useEffect(() => {
-        const tempSpotPrice = {}
-
-        if (activeSymbols.length < 1) {
-            return
-        }
-        activeSymbols.forEach((item) => {
-            tempSpotPrice[item.symbol] = item.spot
-        })
-
-        setSymbolSpotPrice(tempSpotPrice)
-    }, [activeSymbols])
     const fetchTickData = useCallback(
         (selectedSymbol, setAssetPrice) => {
-            const price = symbolSpotPrice[selectedSymbol]
-            setAssetPrice('assetPrice', price)
+            const selected = data?.find((item) => item.symbol === selectedSymbol)
+            if (selected) setAssetPrice('assetPrice', selected.spot)
         },
-        [symbolSpotPrice],
+        [data],
     )
 
     return (
@@ -119,7 +100,7 @@ const MarginCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -247,7 +228,7 @@ const MarginCalculator = () => {
                                                 }}
                                                 selected_item={values.symbol}
                                                 onBlur={handleBlur}
-                                                disabled={disableDropdown}
+                                                disabled={is_loading}
                                             />
                                             <InputGroup>
                                                 <Field
@@ -374,12 +355,13 @@ const MarginCalculator = () => {
                         <Header as="h3" type="section-title" mb="0.8rem">
                             {localize('Example calculation')}
                         </Header>
-                        <Accordion has_single_state>
+                        <Accordion id="margin-calculator" has_single_state>
                             <AccordionItem
                                 header={localize('Margin required')}
                                 header_style={header_style}
                                 style={item_style}
                                 plus
+                                class_name="margin-required"
                             >
                                 <Text mb="16px">
                                     {localize(
@@ -387,7 +369,7 @@ const MarginCalculator = () => {
                                     )}
                                 </Text>
                                 <Desktop>
-                                    <FormulaContainer pt="8px">
+                                    <FormulaContainer pt="50px" height="170px">
                                         <FormulaHighlight pl="87px" pr="87px" jc="space-evenly">
                                             <FormulaValue>
                                                 <Localize translate_text="( 2" />
@@ -406,7 +388,7 @@ const MarginCalculator = () => {
 
                                             <FormulaValue>
                                                 <Localize translate_text="100,000" />
-                                                <PointerContainer width="100px" ml="-25px">
+                                                <PointerContainer width="100px" ml="-25px" top>
                                                     <PointerDot />
                                                     <PointerStick height="32px" />
                                                     <PointerText top>
@@ -437,7 +419,7 @@ const MarginCalculator = () => {
 
                                             <FormulaValue>
                                                 <Localize translate_text="100" />
-                                                <PointerContainer ml="-10px">
+                                                <PointerContainer ml="-10px" top>
                                                     <PointerDot />
                                                     <PointerStick height="32px" />
                                                     <PointerText>

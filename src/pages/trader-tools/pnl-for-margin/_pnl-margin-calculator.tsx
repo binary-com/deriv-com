@@ -44,7 +44,14 @@ import {
 } from '../common/_style'
 import { StopLoss, PipValue, TakeProfitLevel, ProfitPipValue } from './_example-pnl-margin'
 import { localize, Localize } from 'components/localization'
-import { Accordion, AccordionItem, Header, LocalizedLinkText, Text } from 'components/elements'
+import {
+    Accordion,
+    AccordionItem,
+    Header,
+    ImageWithDireciton,
+    LocalizedLinkText,
+    Text,
+} from 'components/elements'
 import { Desktop, Mobile } from 'components/containers/visibility'
 import { Flex } from 'components/containers'
 import Input from 'components/form/input'
@@ -101,7 +108,7 @@ const PnlMarginCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -119,13 +126,17 @@ const PnlMarginCalculator = () => {
                 </SectionSubtitle>
 
                 <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
-                    <SwapTabSelector active={tab === 'Buy'} onClick={() => onTabClick('Buy')}>
-                        <Text size="var(--text-size-m)" align="center">
+                    <SwapTabSelector
+                        active={tab === 'Buy'}
+                        onClick={() => onTabClick('Buy')}
+                        id="pnl-margin-tab-selector"
+                    >
+                        <Text size="var(--text-size-m)" align="center" className="buy">
                             {localize('Buy')}
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Sell'} onClick={() => onTabClick('Sell')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="sell">
                             {localize('Sell')}
                         </Text>
                     </SwapTabSelector>
@@ -256,15 +267,14 @@ const PnlMarginCalculator = () => {
                                     current_input.focus()
                                 }
 
-                                const AssetPriceInput = ({ field }: { field: React.ReactNode }) => (
+                                const AssetPriceInput = () => (
                                     <Input
-                                        {...field}
                                         id="assetPrice"
                                         type="text"
                                         value={values.assetPrice}
                                         label={localize('Open price of asset')}
                                         autoComplete="off"
-                                        error={touched.assetPrice && errors.assetPrice}
+                                        error={touched.assetPrice && errors.assetPrice.toString()}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -278,19 +288,17 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const StopLossAmountInput = ({
-                                    field,
-                                }: {
-                                    field: React.ReactNode
-                                }) => (
+                                const StopLossAmountInput = () => (
                                     <Input
-                                        {...field}
                                         id="assetPrice"
                                         type="text"
                                         value={values.stopLossAmount}
                                         label={localize('Stop loss amount')}
                                         autoComplete="off"
-                                        error={touched.stopLossAmount && errors.stopLossAmount}
+                                        error={
+                                            touched.stopLossAmount &&
+                                            errors.stopLossAmount.toString()
+                                        }
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={stopLossErrorHandler}
@@ -299,14 +307,13 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const PointValueInput = ({ field }: { field: React.ReactNode }) => (
+                                const PointValueInput = () => (
                                     <Input
-                                        {...field}
                                         id="pointValue"
                                         type="text"
                                         label={localize('Point value')}
                                         autoComplete="off"
-                                        error={touched.pointValue && errors.pointValue}
+                                        error={touched.pointValue && errors.pointValue.toString()}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -328,18 +335,16 @@ const PnlMarginCalculator = () => {
                                     setFieldValue('stopLossAmount', value)
                                 }
 
-                                const TakeProfitAmountInput = ({
-                                    field,
-                                }: {
-                                    field: React.ReactNode
-                                }) => (
+                                const TakeProfitAmountInput = () => (
                                     <Input
-                                        {...field}
                                         id="takeProfitAmount"
                                         type="text"
                                         label={localize('Take profit amount')}
                                         autoComplete="off"
-                                        error={touched.takeProfitAmount && errors.takeProfitAmount}
+                                        error={
+                                            touched.takeProfitAmount &&
+                                            errors.takeProfitAmount.toString()
+                                        }
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={takeProfitErrorHanlder}
@@ -865,7 +870,7 @@ const PnlMarginCalculator = () => {
                                 )}
                             </Text>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-margin" has_single_state>
                                 <AccordionItem
                                     header={localize('Stop loss level')}
                                     header_style={header_style}
@@ -873,6 +878,7 @@ const PnlMarginCalculator = () => {
                                         padding: '0 0 24px 0',
                                     }}
                                     plus
+                                    class_name="take-profit"
                                 >
                                     <Desktop breakpoint={'tablet'}>
                                         <StopLoss />
@@ -895,6 +901,7 @@ const PnlMarginCalculator = () => {
                                     header={localize('Stop loss pip value')}
                                     header_style={header_style}
                                     plus
+                                    class_name="stop-loss"
                                 >
                                     <Desktop breakpoint={'tablet'}>
                                         <PipValue />
@@ -988,7 +995,7 @@ const PnlMarginCalculator = () => {
                                 )}
                             </Text>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-margin" has_single_state>
                                 <AccordionItem
                                     header={localize('Take profit level')}
                                     header_style={header_style}
@@ -996,6 +1003,7 @@ const PnlMarginCalculator = () => {
                                         padding: '0 0 24px 0',
                                     }}
                                     plus
+                                    class_name="take-profit"
                                 >
                                     <Desktop breakpoint={'tablet'}>
                                         <TakeProfitLevel />

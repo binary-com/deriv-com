@@ -1,25 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import DesktopPlatformCarousel from './_desktop-platform-carousel'
 import MobilePlatformCarousel from './_mobile-platform-carousel'
-import { platform_details_cr, platform_details_eu, platform_details_uk } from './_utils'
+import { platform_details_row, platform_details_eu } from './_utils'
 import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const PlatformCarousel = () => {
-    const { is_eu, is_uk, is_row } = useCountryRule()
-    const [carousel_data, setCarouselData] = useState(platform_details_cr)
+    const { is_eu, is_row } = useRegion()
+    const [carousel_data, setCarouselData] = useState(platform_details_row)
 
     useEffect(() => {
         if (is_eu) {
             setCarouselData(platform_details_eu)
         }
-        if (is_uk) {
-            setCarouselData(platform_details_uk)
-        }
         if (is_row) {
-            setCarouselData(platform_details_cr)
+            setCarouselData(platform_details_row)
         }
-    }, [is_eu, is_row, is_uk])
+    }, [is_eu, is_row])
 
     return (
         <>

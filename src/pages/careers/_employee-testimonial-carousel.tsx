@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Carousel, Header, Text } from 'components/elements'
+import { Carousel, CarouselProps, Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import QuoteMark from 'images/svg/careers/quotemark.svg'
@@ -9,6 +9,7 @@ import AhmadImage from 'images/common/careers/ahmad.jpg'
 import AdityaImage from 'images/common/careers/aditya.jpg'
 import GaryImage from 'images/common/careers/gary.jpg'
 import MeiThengImage from 'images/common/careers/mei_theng.jpg'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -51,7 +52,7 @@ const EmployeeCard = styled.article`
 `
 
 const QuoteText = styled(Text)`
-    text-align: left;
+    text-align: start;
     padding-bottom: 2.4rem;
     z-index: 10;
     position: relative;
@@ -145,9 +146,11 @@ const gary = {
 const employee_testimonials = [ahmad, aditya, mei_theng, gary]
 
 const EmployeeTestimonialCarousel = () => {
-    const settings = {
+    const lang_direction = useLangDirection()
+    const settings: CarouselProps = {
         options: {
             loop: true,
+            direction: lang_direction,
         },
         container_style: {
             maxWidth: '1200px',

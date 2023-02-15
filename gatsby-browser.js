@@ -3,12 +3,12 @@ import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
-import { MediaContextProvider } from './src/themes/media'
-import { DerivProvider } from './src/store'
+import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
 import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
+import './static/css/noto-sans-arabic.css'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -79,11 +79,7 @@ const pushwooshInit = (push_woosh) => {
 }
 
 export const wrapRootElement = ({ element }) => {
-    return (
-        <DerivProvider>
-            <MediaContextProvider>{element}</MediaContextProvider>
-        </DerivProvider>
-    )
+    return <GlobalProvider>{element}</GlobalProvider>
 }
 
 export const onInitialClientRender = () => {
@@ -134,7 +130,7 @@ export const onClientEntry = () => {
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',
         async: true,
-        strategy: "off-main-thread",
+        strategy: 'off-main-thread',
     })
 
     checkLiveChatRedirection()

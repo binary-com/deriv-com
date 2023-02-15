@@ -98,10 +98,6 @@ const CountryCardWrapper = styled(StyledCard)`
         max-width: 328px;
         height: 304px;
     }
-
-    @media ${device.laptopS} and ${device.laptop} {
-        height: 320px;
-    }
 `
 const StyledText = styled(Text)`
     font-size: 16px;
@@ -272,6 +268,9 @@ const query = graphql`
         thumbnail_berlin: file(relativePath: { eq: "careers/thumbnail_berlin.jpg" }) {
             ...fadeIn
         }
+        thumbnail_reading: file(relativePath: { eq: "careers/thumbnail_reading.png" }) {
+            ...fadeIn
+        }
         thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.png" }) {
             ...fadeIn
         }
@@ -305,7 +304,7 @@ const Locations = () => {
         return continentName.charAt(0).toUpperCase() + continentName.slice(1)
     }
 
-    const formatContinentName = (continent) => {
+    const formatContinentName = (continent: string) => {
         return continent
             .split('_')
             .filter((continentName) => continentName.length > 0)
@@ -337,33 +336,27 @@ const Locations = () => {
                         'all',
                         'europe',
                         'asia',
+                        'oceania',
                         'middle_east',
                         'eastern_europe',
                         'africa',
                         'latam',
                         'caribbean',
                     ]}
-                    jc_tablet="start"
                     jc_mobileL="start"
+                    jc_laptopM="start"
                     mobile_font_size={16}
                     line_divider_length="unset"
                     starting_index={1}
                 >
                     {continents.map((continent) => {
                         return (
-                            <Tabs.Panel
-                                label={formatContinentName(continent)}
-                                key={continent}
-                                width="79px"
-                                height="56px"
-                                gap="8px"
-                            >
+                            <Tabs.Panel label={formatContinentName(continent)} key={continent}>
                                 <CssGrid
                                     columns="repeat(3, 384px)"
                                     row_gap="40px"
                                     column_gap="24px"
                                     laptop_columns="repeat(3, minmax(280px, 384px))"
-                                    laptop_margin="0 16px"
                                     tablet_columns="repeat(2, 1fr)"
                                     mobile_columns="minmax(300px, 384px)"
                                     mobile_row_gap="37px"

@@ -13,6 +13,13 @@ const address_cyprus = [
     '181, Leoforos Archiepiskopou Makariou III Avenue 15 Business Centre, 1st Floor, 3030, Limassol Cyprus',
 ]
 
+const address_vanuatu = [
+    'Yumiwork, Lolam building, Kumul Highway, Land # 11/OD22/021, Port Vila, Vanuatu.',
+]
+
+const address_jordan = [
+    'AJIB Building, No 12A & 12B, 3rd Floor, Al Bonouk Street, Al Abdali Boulevard, Amman - Jordan.',
+]
 const address_dubai = ['Office 1902, Jumeirah Business', 'Center 1, JLT Cluster G']
 
 const address_georgetown = [
@@ -25,11 +32,17 @@ const address_france = ["17 Rue d'Antin, 75002 Paris"]
 
 const address_guernsey = ['Suite 5, One Cornet Street, St Peter Port, Guernsey GY1 1 BZ']
 
+const address_reading = [
+    'Block C, Ground floor, Suite 1, Apex Reading, Forbury Road, Reading RG1 1AX',
+]
+
 const address_labuan = [
     'F16, 1st Floor, Paragon Labuan,',
     'Jalan Tun Mustapha, Labuan 87000,',
     'Sabah',
 ]
+
+const address_singapore = ['80 Robinson Road, #11-03, Singapore 068898']
 
 const address_malta = [
     'Level 3, W   Business Centre,',
@@ -53,7 +66,11 @@ export {
     address_ciudad,
     address_melaka,
     address_rwanda,
+    address_singapore,
     address_france,
     address_guernsey,
     address_georgetown,
+    address_jordan,
+    address_vanuatu,
+    address_reading,
 }

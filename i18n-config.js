@@ -85,6 +85,11 @@ module.exports = {
         short_name: 'BN',
         affiliate_lang: 15,
     },
+    ar: {
+        path: 'ar',
+        display_name: 'العربية',
+        short_name: 'AR',
+    },
     ko: {
         path: 'ko',
         display_name: '한국어',
@@ -97,10 +102,10 @@ module.exports = {
         short_name: 'CR',
         affiliate_lang: 13,
     },
-    // TODO: uncomment when supported
-    // de: {
-    //     path: 'de',
-    //     display_name: 'Deutsch',
-    // },
-    // TODO: uncomment when supported
+    de: {
+        path: 'de',
+        display_name: 'Deutsch',
+        short_name: 'DE',
+        affiliate_lang: 16,
+    },
 }

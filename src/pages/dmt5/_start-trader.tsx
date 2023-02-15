@@ -10,7 +10,7 @@ import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useHandleLogin from 'components/hooks/use-handle-login'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type TabProps = {
     active?: boolean
@@ -200,7 +200,7 @@ const StyledText = styled(Text)`
         font-size: 16px;
     }
 `
-const StyledLocalizedLink = styled(LocalizedLink)`
+const StyledLocalizedLink = styled(LocalizedLink)<{ id?: string }>`
     text-decoration: none;
     color: var(--color-red);
 
@@ -229,7 +229,7 @@ const StartTrader = () => {
 
     const handleSignup = useHandleSignup()
 
-    const { is_uk_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     const getImage = (is_mob: boolean, options: string[]) => {
         return is_mob ? data[options[0]] : data[options[1]]
@@ -237,23 +237,23 @@ const StartTrader = () => {
     const isDemo = tab === 'Demo'
     const isReal = tab === 'Real'
 
-    const text_1 = is_uk_eu ? (
+    const text_1 = is_eu ? (
         <Localize translate_text="Add a CFDs demo account." />
     ) : (
         <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
     )
-    const text_2 = is_uk_eu ? (
+    const text_2 = is_eu ? (
         <Localize translate_text="Create a real Deriv Multipliers account" />
     ) : (
         <Localize translate_text="Create a Deriv real money account." />
     )
-    const text_3 = is_uk_eu ? (
+    const text_3 = is_eu ? (
         <Localize translate_text="Create a CFDs real account." />
     ) : (
         <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
     )
 
-    const demo_step1_image = is_uk_eu ? (
+    const demo_step1_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['demo_step1_mobile_eu', 'demo_step1_eu'])}
             alt="Demo DMT5 account- step 1"
@@ -264,7 +264,7 @@ const StartTrader = () => {
             alt="Demo DMT5 account- step 1"
         />
     )
-    const demo_step2_image = is_uk_eu ? (
+    const demo_step2_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['demo_step2_mobile_eu', 'demo_step2_eu'])}
             alt="Demo DMT5 account- step 2"
@@ -275,7 +275,7 @@ const StartTrader = () => {
             alt="Demo DMT5 account- step 2"
         />
     )
-    const demo_step3_image = is_uk_eu ? (
+    const demo_step3_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['demo_step3_mobile_eu', 'demo_step3_eu'])}
             alt="Demo DMT5 account- step 3"
@@ -286,7 +286,7 @@ const StartTrader = () => {
             alt="Demo DMT5 account- step 3"
         />
     )
-    const real_step1_image = is_uk_eu ? (
+    const real_step1_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['real_step1_mobile_eu', 'real_step1_eu'])}
             alt="Real DMT5 account- step 1"
@@ -297,7 +297,7 @@ const StartTrader = () => {
             alt="Real DMT5 account- step 1"
         />
     )
-    const real_step2_image = is_uk_eu ? (
+    const real_step2_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['real_step2_mobile_eu', 'real_step2_eu'])}
             alt="Real DMT5 account- step 2"
@@ -308,7 +308,7 @@ const StartTrader = () => {
             alt="Real DMT5 account- step 2"
         />
     )
-    const real_step3_image = is_uk_eu ? (
+    const real_step3_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['real_step3_mobile_eu', 'real_step3_eu'])}
             alt="Real DMT5 account- step 3"
@@ -319,7 +319,7 @@ const StartTrader = () => {
             alt="Real DMT5 account- step 3"
         />
     )
-    const real_step4_image = is_uk_eu ? (
+    const real_step4_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['real_step4_mobile_eu', 'real_step4_eu'])}
             alt="Real DMT5 account- step 4"
@@ -336,20 +336,22 @@ const StartTrader = () => {
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
                 {localize('How to get started with a Deriv MT5 account')}
             </StyledHeader>
-            <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
+            <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }} id="account-pick">
                 <TabItem
                     mobile_padding="21px 12px"
                     active={isDemo}
                     onClick={() => onTabClick('Demo')}
+                    className="demo-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Demo account')}
                     </StyledText>
                 </TabItem>
                 <TabItem
-                    mobile_padding={is_uk_eu ? '21px 12px' : '10px'}
+                    mobile_padding={is_eu ? '21px 12px' : '10px'}
                     active={isReal}
                     onClick={() => onTabClick('Real')}
+                    className="real-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Real money account')}
@@ -367,8 +369,8 @@ const StartTrader = () => {
                                         translate_text="Sign up for a free <0>Deriv demo account</0>"
                                         components={[
                                             <StyledLocalizedLink
-                                                onClick={handleSignup}
                                                 id="dm-dmt5-signup-link"
+                                                onClick={handleSignup}
                                                 to=""
                                                 key={0}
                                             />,
@@ -377,10 +379,11 @@ const StartTrader = () => {
                                 }
                                 item_width="24rem"
                                 mobile_item_width="36rem"
+                                class_name="sign-in"
                             >
                                 <ImageWrapper>{demo_step1_image}</ImageWrapper>
                             </SideTab.Panel>
-                            <SideTab.Panel description={text_1}>
+                            <SideTab.Panel description={text_1} class_name="add-account">
                                 <ImageWrapper>{demo_step2_image}</ImageWrapper>
                             </SideTab.Panel>
                             <SideTab.Panel
@@ -388,6 +391,7 @@ const StartTrader = () => {
                                     <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
                                 }
                                 item_width="36rem"
+                                class_name="practise-trading"
                             >
                                 <ImageWrapper>{demo_step3_image}</ImageWrapper>
                             </SideTab.Panel>

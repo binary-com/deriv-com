@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import {
     NavRight,
@@ -15,11 +15,18 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { affiliate_signin_url, affiliate_signup_url } from 'common/constants'
 import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean
+}
+
+type StyledNavRightProps = {
+    is_rtl: boolean
+    mounted: boolean
+    move: boolean
 }
 
 const StyledWrapper = styled(Wrapper)<NavPartnerDesktopProps>`
@@ -69,23 +76,24 @@ const LinkSignupButton = styled(LinkButton)`
     margin-left: 1.6rem;
     margin-right: 10px;
 `
-const StyledNavRight = styled(NavRight)`
+
+const StyledNavRight = styled(NavRight)<StyledNavRightProps>`
     margin-left: auto;
     transform: translateX(
-        ${(props) => {
-            const ref_base = getBaseRef(props.button_ref)
-            if (props.move) {
-                if (ref_base && props.mounted) {
+        ${({ is_rtl, mounted, move, button_ref }) => {
+            const ref_base = getBaseRef(button_ref)
+            if (move) {
+                if (ref_base && mounted) {
                     ref_base.style.opacity = 1
                 }
-                return '50px'
+                return '0'
             } else {
-                if (ref_base && props.mounted) {
+                if (ref_base && mounted) {
                     ref_base.style.opacity = 0
                     const calculation = ref_base.offsetWidth + 50
-                    return `${calculation}px`
+                    return is_rtl ? `${-calculation}px` : `${calculation}px`
                 }
-                return '225px'
+                return is_rtl ? '-225px' : '225px'
             }
         }}
     );
@@ -103,11 +111,11 @@ const StyledNavRight = styled(NavRight)`
 
 type NavLinkCardTypes = {
     to: string
-    title: ReactElement
+    title: string
     active?: string
     type?: string
     target?: string
-    external?: string
+    external?: boolean
     rel?: string
 }
 
@@ -128,12 +136,13 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
 }
 
 const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
     const button_ref = useRef<HTMLButtonElement | null>(null)
     const [show_button, showButton, hideButton] = useMoveButton()
     const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
 
+    const is_rtl = useIsRtl()
     const buttonHandleScroll = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
@@ -187,6 +196,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                         button_ref={button_ref}
                         mounted={is_mounted}
                         has_scrolled={has_scrolled}
+                        is_rtl={is_rtl}
                     >
                         <LinkButton
                             to={affiliate_signin_url}

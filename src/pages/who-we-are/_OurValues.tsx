@@ -40,7 +40,7 @@ const StyledFlex = styled(Flex)`
         width: unset;
     }
 `
-const Card = styled(Flex)`
+const Card = styled(Flex)<{ index: number }>`
     max-width: 384px;
     padding: 32px 44px 32px 32px;
     box-shadow: rgba(14, 14, 14, 0.1) 0 4px 8px 0;
@@ -58,14 +58,14 @@ const Card = styled(Flex)`
 const OurValues = () => {
     return (
         <OurValuesSection>
-            <StyledHeader as="h2" align="left" type="page-title" width="338px">
+            <StyledHeader as="h2" align="start" type="page-title" width="338px">
                 {localize('Our values are the fabric of our culture')}
             </StyledHeader>
             <StyledFlex width="820px" wrap="wrap">
                 {our_values.map(({ title, icon, text }, index) => (
                     <Card key={index} index={index} direction="column" ai="start" jc="start">
                         <img src={icon} alt="icon" />
-                        <Header as="h4" padding="24px 0 8px" size="32px" align="left" type="unset">
+                        <Header as="h4" padding="24px 0 8px" size="32px" align="start" type="unset">
                             {title}
                         </Header>
                         <Text size="16px">{text}</Text>

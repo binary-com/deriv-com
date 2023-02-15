@@ -96,7 +96,7 @@ const card_data: CardType[] = [
         subtitle: (
             <Localize translate_text="Deriv X is our second CFD platform, after MT5. It’s packed with features and built to fit your trading style." />
         ),
-        image_alt: 'new and promising',
+        image_alt: 'New CFD trading platform',
     },
     {
         icon: IconMultipleMarketing,
@@ -104,7 +104,7 @@ const card_data: CardType[] = [
         subtitle: (
             <Localize translate_text="Trade various assets in multiple markets simultaneously." />
         ),
-        image_alt: 'multiple markets',
+        image_alt: 'Trade on multiple markets',
     },
     {
         icon: Icon24_7,
@@ -112,7 +112,7 @@ const card_data: CardType[] = [
         subtitle: (
             <Localize translate_text="Trade cryptocurrencies and synthetic indices anytime, even on weekends and holidays." />
         ),
-        image_alt: '24/7 trading',
+        image_alt: 'Trade any time of the day and week',
     },
 ]
 

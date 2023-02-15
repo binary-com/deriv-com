@@ -14,6 +14,10 @@ type AffiliateType = {
     data: React.ReactElement[]
 }[]
 
+type ApplyNowProps = {
+    mt_mobile?: string
+    id?: string
+}
 const StyledSection = styled(SectionContainer)`
     padding-bottom: 0;
     background-color: var(--color-grey-39);
@@ -75,18 +79,18 @@ const StyledText = styled(Text)`
 
 const StyledHeader = styled(Header)`
     @media (max-width: 1524px) {
-        text-align: left;
+        text-align: start;
     }
     @media ${device.laptopM} {
         text-align: center;
     }
     @media ${device.mobileM} {
-        text-align: left;
+        text-align: start;
         width: 38rem;
     }
 `
 
-const ApplyNow = styled(LinkButton)`
+const ApplyNow = styled(LinkButton)<ApplyNowProps>`
     display: block;
     width: 100%;
     border-radius: 4px;

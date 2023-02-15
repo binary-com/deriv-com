@@ -1,10 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { withLangDirection } from 'themes/function'
+import { TString } from 'types/generics'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
-import { DerivStore } from 'store'
 import { LocalizedLink, Localize } from 'components/localization'
-import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
+import {
+    Accordion,
+    AccordionItem,
+    NavCard,
+    Text,
+    Divider,
+    ImageWithDireciton,
+} from 'components/elements'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
@@ -43,9 +52,17 @@ import Story from 'images/svg/menu/story.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
-const OffCanvasMenu = styled.section<OffCanvasMenuWrapperPropps>`
+type OffCanvasMenuWrapperProps = {
+    closeOffCanvasMenu?: () => void
+    is_canvas_menu_open?: boolean
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
+    is_rtl: boolean
+}
+
+const OffCanvasMenu = styled.section<OffCanvasMenuWrapperProps>`
     position: fixed;
     background-color: var(--color-white);
     top: 7.2rem;
@@ -56,8 +73,16 @@ const OffCanvasMenu = styled.section<OffCanvasMenuWrapperPropps>`
     transition: transform 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     left: -254px;
+    ${({ is_canvas_menu_open }) =>
+        withLangDirection({
+            rtl_styles: css`
+                transform: ${is_canvas_menu_open ? 'translateX(-254px)' : null};
+            `,
+            ltr_styles: css`
+                transform: ${is_canvas_menu_open ? 'translateX(254px)' : null};
+            `,
+        })}
     z-index: 4;
-    ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(254px)'};
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
@@ -125,26 +150,25 @@ const content_style = {
     display: 'flex',
 }
 
-type OffCanvasMenuWrapperPropps = {
-    closeOffCanvasMenu?: () => void
-    is_canvas_menu_open?: boolean
-    is_ppc?: boolean
-    is_ppc_redirect?: boolean
-}
+const derived_text_eu: TString =
+    '_t_Enjoy trading asset prices derived from<br/> simulated markets._t_'
+const derived_text_row: TString =
+    '_t_Enjoy trading asset prices derived from real-world<br/> or simulated markets._t_'
 
-export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
-    const { is_uk_country } = React.useContext(DerivStore)
-    const { is_row } = useCountryRule()
+export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
+    const { is_row } = useRegion()
     const canvas = useRef()
 
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()
     }
 
+    const is_rtl = useIsRtl()
+
     useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
 
     return (
-        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
+        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} is_rtl={is_rtl} ref={canvas}>
             <OffCanvasMenuContainer>
                 <Accordion>
                     <AccordionItem
@@ -161,7 +185,12 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                     <NavCard
                                         aria_label="CFDs"
                                         icon={() => (
-                                            <img src={CFD} alt="CFDs" width="32" height="32" />
+                                            <img
+                                                src={CFD}
+                                                alt="CFDs trade type"
+                                                width="32"
+                                                height="32"
+                                            />
                                         )}
                                         content={
                                             <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
@@ -178,13 +207,13 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                             icon={() => (
                                                 <img
                                                     src={Options}
-                                                    alt="Options"
+                                                    alt="Options trade type"
                                                     width="32"
                                                     height="32"
                                                 />
                                             )}
                                             content={
-                                                <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
+                                                <Localize translate_text="Earn a range of payouts without risking more than your initial stake." />
                                             }
                                             title={<Localize translate_text="Options" />}
                                             onClick={handleArrowClick}
@@ -198,13 +227,13 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                         icon={() => (
                                             <img
                                                 src={Multipliers}
-                                                alt="Multipliers"
+                                                alt="Multipliers trade type"
                                                 width="32"
                                                 height="32"
                                             />
                                         )}
                                         content={
-                                            <Localize translate_text="Combine the upside of CFDs with the simplicity of options." />
+                                            <Localize translate_text="Get the upside of CFDs without the downside of losing more than your stake." />
                                         }
                                         title={<Localize translate_text="Multipliers" />}
                                         onClick={handleArrowClick}
@@ -222,7 +251,14 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="DMT5"
-                                icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
+                                icon={() => (
+                                    <img
+                                        src={DMT5}
+                                        alt="Deriv MT5 trading platform"
+                                        width="32"
+                                        height="32"
+                                    />
+                                )}
                                 content={
                                     <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                                 }
@@ -236,7 +272,12 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                 <NavCard
                                     aria_label="Derivx"
                                     icon={() => (
-                                        <img src={DerivX} alt="Derivx" width="32" height="32" />
+                                        <img
+                                            src={DerivX}
+                                            alt="Deriv X trading paltform"
+                                            width="32"
+                                            height="32"
+                                        />
                                     )}
                                     content={
                                         <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
@@ -252,7 +293,12 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                             <NavCard
                                 aria_label="DTrader"
                                 icon={() => (
-                                    <img src={DTrader} alt="DTrader" width="32" height="32" />
+                                    <img
+                                        src={DTrader}
+                                        alt="Dtrader trading platform"
+                                        width="32"
+                                        height="32"
+                                    />
                                 )}
                                 content={
                                     <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
@@ -270,7 +316,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                         icon={() => (
                                             <img
                                                 src={DerivGo}
-                                                alt="Deriv GO"
+                                                alt="Deriv GO mobile trading app"
                                                 width="32"
                                                 height="32"
                                             />
@@ -289,7 +335,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                         icon={() => (
                                             <img
                                                 src={Smarttrader}
-                                                alt="SmartTrader"
+                                                alt="SmartTrader trading platform"
                                                 width="32"
                                                 height="32"
                                             />
@@ -310,7 +356,12 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                     <NavCard
                                         aria_label="DBot"
                                         icon={() => (
-                                            <img src={DBot} alt="DBot" width="32" height="32" />
+                                            <img
+                                                src={DBot}
+                                                alt="Dbot for auto trading"
+                                                width="32"
+                                                height="32"
+                                            />
                                         )}
                                         content={
                                             <Localize translate_text="Automated trading at your fingertips. No coding needed." />
@@ -326,7 +377,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                         icon={() => (
                                             <img
                                                 src={BinaryBot}
-                                                alt="BinaryBot"
+                                                alt="Binary bot for creating trading bot"
                                                 width="32"
                                                 height="32"
                                             />
@@ -374,7 +425,11 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                     />
                                 )}
                                 content={
-                                    <Localize translate_text="Enjoy trading asset prices derived<br/> from real-world or simulated markets." />
+                                    is_row ? (
+                                        <Localize translate_text={derived_text_row} />
+                                    ) : (
+                                        <Localize translate_text={derived_text_eu} />
+                                    )
                                 }
                                 title={<Localize translate_text="Derived" />}
                                 onClick={handleArrowClick}
@@ -400,27 +455,25 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                 to="/markets/stock/"
                             />
                         </Flex>
-                        {!is_uk_country && (
-                            <Flex mb="3.2rem">
-                                <NavCard
-                                    aria_label="Cryptocurrencies"
-                                    icon={() => (
-                                        <img
-                                            src={Cryptocurrencies}
-                                            alt="Cryptocurrencies"
-                                            width="32"
-                                            height="32"
-                                        />
-                                    )}
-                                    content={
-                                        <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
-                                    }
-                                    title={<Localize translate_text="Cryptocurrencies" />}
-                                    onClick={handleArrowClick}
-                                    to="/markets/cryptocurrencies/"
-                                />
-                            </Flex>
-                        )}
+                        <Flex mb="3.2rem">
+                            <NavCard
+                                aria_label="Cryptocurrencies"
+                                icon={() => (
+                                    <img
+                                        src={Cryptocurrencies}
+                                        alt="Cryptocurrencies"
+                                        width="32"
+                                        height="32"
+                                    />
+                                )}
+                                content={
+                                    <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
+                                }
+                                title={<Localize translate_text="Cryptocurrencies" />}
+                                onClick={handleArrowClick}
+                                to="/markets/cryptocurrencies/"
+                            />
+                        </Flex>
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"
@@ -448,7 +501,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                     >
                         <StyledLink to="/who-we-are/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Story} alt="who-we-are" width="24" height="24" />
+                                <img src={Story} alt="who we are" width="24" height="24" />
                             </div>
                             <span>{<Localize translate_text="Who we are" />}</span>
                         </StyledLink>
@@ -460,13 +513,13 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                         </StyledLink>
                         <StyledLink to="/why-choose-us/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Choose} alt="why-choose-us" width="24" height="24" />
+                                <img src={Choose} alt="why choose us" width="24" height="24" />
                             </div>
                             <span>{<Localize translate_text="Why choose us" />}</span>
                         </StyledLink>
                         <StyledLink to="/contact_us/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Contact} alt="contact_us" width="24" height="24" />
+                                <img src={Contact} alt="contact us" width="24" height="24" />
                             </div>
                             <span>{<Localize translate_text="Contact us" />}</span>
                         </StyledLink>
@@ -485,11 +538,16 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                             onClick={handleArrowClick}
                         >
                             <div>
-                                <img src={DerivLife} alt="DerivLife" width="24" height="24" />
+                                <img src={DerivLife} alt="Deriv life" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Deriv life" />}</Span>
                             <SpanSvg>
-                                <img src={Diagonal} alt="Diagonal" width="16" height="16" />
+                                <ImageWithDireciton
+                                    src={Diagonal}
+                                    alt="Diagonal"
+                                    width="16"
+                                    height="16"
+                                />
                             </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
@@ -500,7 +558,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                     >
                         <StyledLink to="/help-centre/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Help} alt="help-centre" width="24" height="24" />
+                                <img src={Help} alt="help centre" width="24" height="24" />
                             </div>
                             <span>{<Localize translate_text="Help centre" />}</span>
                         </StyledLink>
@@ -513,22 +571,27 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                             onClick={handleArrowClick}
                         >
                             <div>
-                                <img src={Community} alt="Community" width="24" height="24" />
+                                <img src={Community} alt="community" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Community" />}</Span>
                             <SpanSvg>
-                                <img src={Diagonal} alt="Diagonal" width="16" height="16" />
+                                <ImageWithDireciton
+                                    src={Diagonal}
+                                    alt="Diagonal"
+                                    width="16"
+                                    height="16"
+                                />
                             </SpanSvg>
                         </StyledLink>
                         <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Trade} alt="trader-tools" width="24" height="24" />
+                                <img src={Trade} alt="trader tools" width="24" height="24" />
                             </div>
                             <span>{<Localize translate_text="Traders’ tools" />}</span>
                         </StyledLink>
                         <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Payment} alt="payment-methods" width="24" height="24" />
+                                <img src={Payment} alt="payment methods" width="24" height="24" />
                             </div>
                             <span>{<Localize translate_text="Payment methods" />}</span>
                         </StyledLink>
@@ -546,7 +609,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                     />
                                 </SvgWrapper>
                             </div>
-                            <span>{<Localize translate_text="Deriv MT5 Signals" />}</span>
+                            <span>{<Localize translate_text="Deriv MT5 signals" />}</span>
                         </StyledLink>
                         <StyledLink
                             to={deriv_status_page_url}
@@ -556,14 +619,25 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                             onClick={handleArrowClick}
                         >
                             <div>
-                                <img src={Status} alt="Status" width="24" height="24" />
+                                <img src={Status} alt="status" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Status page" />}</Span>
                             <SpanSvg>
-                                <img src={Diagonal} alt="Diagonal" width="16" height="16" />
+                                <ImageWithDireciton
+                                    src={Diagonal}
+                                    alt="Diagonal"
+                                    width="16"
+                                    height="16"
+                                />
                             </SpanSvg>
                         </StyledLink>
-                        <StyledLink to="/academy/" onClick={handleArrowClick}>
+                        <StyledLink
+                            to=""
+                            external
+                            type="academy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <div>
                                 <img src={Blog} alt="academy" width="24" height="24" />
                             </div>
@@ -579,7 +653,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                             <div>
                                 <img
                                     src={Regulatory}
-                                    alt="Regulatory information"
+                                    alt="regulatory information"
                                     width="24"
                                     height="24"
                                 />
@@ -590,7 +664,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                             <div>
                                 <img
                                     src={Terms}
-                                    alt="Terms and conditions"
+                                    alt="terms and conditions"
                                     width="24"
                                     height="24"
                                 />
@@ -601,7 +675,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                             <div>
                                 <img
                                     src={SecureTrading}
-                                    alt="Secure and responsible trading"
+                                    alt="secure and responsible trading"
                                     width="24"
                                     height="24"
                                 />
@@ -620,7 +694,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                             <div>
                                 <img
                                     src={AffiliateIb}
-                                    alt="Affiliates and IBs"
+                                    alt="affiliates and IBs"
                                     width="32"
                                     height="32"
                                 />
@@ -632,7 +706,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                                 <div>
                                     <img
                                         src={PaymentAgent}
-                                        alt="Payment agents"
+                                        alt="payment agents"
                                         width="32"
                                         height="32"
                                     />
@@ -655,9 +729,9 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
                         </StyledLink>
                         <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
                             <div>
-                                <img src={BugBounty} alt="Bug bounty" width="32" height="32" />
+                                <img src={BugBounty} alt="bug bounty" width="32" height="32" />
                             </div>
-                            <span>{<Localize translate_text="Bug bounty" />}</span>
+                            <span>{<Localize translate_text="bug bounty" />}</span>
                         </StyledLink>
                     </AccordionItem>
                 </Accordion>
@@ -674,7 +748,8 @@ type OffCanvasMenuPartnerProps = {
 
 export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     const canvas = useRef<HTMLDivElement>()
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
+    const is_rtl = useIsRtl()
 
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()
@@ -694,7 +769,11 @@ export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     }, [])
 
     return (
-        <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
+        <OffCanvasMenuSecondary
+            is_rtl={is_rtl}
+            is_canvas_menu_open={props.is_canvas_menu_open}
+            ref={canvas}
+        >
             <OffCanvasMenuContainer>
                 <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
                     <div>
@@ -705,7 +784,7 @@ export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
                 {is_row && (
                     <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                         <div>
-                            <img src={PaymentAgent} alt="Payment agents" width="32" height="32" />
+                            <img src={PaymentAgent} alt="payment agents" width="32" height="32" />
                         </div>
                         <span>{<Localize translate_text="Payment agents" />}</span>
                     </StyledLink>
@@ -725,7 +804,7 @@ export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
                 </StyledLink>
                 <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
                     <div>
-                        <img src={BugBounty} alt="Bug bounty" width="32" height="32" />
+                        <img src={BugBounty} alt="bug bounty" width="32" height="32" />
                     </div>
                     <span>{<Localize translate_text="Bug bounty" />}</span>
                 </StyledLink>
@@ -734,7 +813,7 @@ export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     )
 }
 
-export const useMoveOffCanvasMenu = (initState = false) => {
+export const useMoveOffCanvasMenu = (initState = false): [boolean, () => void, () => void] => {
     const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(initState)
     const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)
     const closeOffCanvasMenu = () => setOffCanvasMenuPosition(false)

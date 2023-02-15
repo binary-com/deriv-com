@@ -3,7 +3,7 @@ import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style
 import { Localize } from 'components/localization'
 import { Flex, Desktop } from 'components/containers'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type MainLinksSectionProps = {
     is_ppc?: boolean
@@ -11,7 +11,7 @@ type MainLinksSectionProps = {
 }
 
 const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinksSectionProps) => {
-    const { is_non_uk, is_row } = useCountryRule()
+    const { is_row } = useRegion()
     return (
         <LinksWrapper>
             <Desktop>
@@ -91,26 +91,21 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                         <LinkWrapper>
                             <Link to="/markets/forex/">{<Localize translate_text="Forex" />}</Link>
                         </LinkWrapper>
-                        {is_non_uk && (
-                            <LinkWrapper>
-                                <Link to="/markets/synthetic/">
-                                    {<Localize translate_text="Derived" />}
-                                </Link>
-                            </LinkWrapper>
-                        )}
+                        <LinkWrapper>
+                            <Link to="/markets/synthetic/">
+                                {<Localize translate_text="Derived" />}
+                            </Link>
+                        </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/markets/stock/">
                                 {<Localize translate_text="Stocks & indices" />}
                             </Link>
                         </LinkWrapper>
-                        {is_non_uk && (
-                            <LinkWrapper>
-                                <Link to="/markets/cryptocurrencies/">
-                                    {<Localize translate_text="Cryptocurrencies" />}
-                                </Link>
-                            </LinkWrapper>
-                        )}
-
+                        <LinkWrapper>
+                            <Link to="/markets/cryptocurrencies/">
+                                {<Localize translate_text="Cryptocurrencies" />}
+                            </Link>
+                        </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/markets/commodities/">
                                 {<Localize translate_text="Commodities" />}
@@ -261,7 +256,15 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/academy/">{<Localize translate_text="Academy" />}</Link>
+                            <Link
+                                to=""
+                                type="academy"
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {<Localize translate_text="Academy" />}
+                            </Link>
                         </LinkWrapper>
                     </LinksCol>
                 </Flex>

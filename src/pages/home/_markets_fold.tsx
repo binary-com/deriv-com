@@ -4,11 +4,17 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { LocalizedLink, Localize } from 'components/localization'
-import { Carousel, Header, QueryImage, Text } from 'components/elements'
+import { Carousel, CarouselProps, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
+
+type CarouselItemContainerProps = {
+    gradient_start: string
+    gradient_end: string
+}
 
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;
@@ -29,7 +35,7 @@ const ItemWrapper = styled.div`
     position: relative;
 `
 
-const CarouselItemContainer = styled(Flex)`
+const CarouselItemContainer = styled(Flex)<CarouselItemContainerProps>`
     position: relative;
     border-radius: 8px;
     color: white;
@@ -93,7 +99,7 @@ const market_data = [
             <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
         img_name: 'market_derived',
-        to: '/markets/derived-fx/',
+        to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
     },
@@ -145,7 +151,7 @@ const market_data_eu = [
             <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
         img_name: 'market_derived',
-        to: '/markets/derived-fx/',
+        to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
     },
@@ -168,39 +174,6 @@ const market_data_eu = [
         to: '/markets/cryptocurrencies/',
         gradient_start: '#664407',
         gradient_end: '#191102',
-    },
-    {
-        header: <Localize translate_text="Commodities" />,
-        description: (
-            <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
-        ),
-        img_name: 'market_commodities',
-        to: '/markets/commodities/',
-        gradient_start: '#183046',
-        gradient_end: '#060C11',
-    },
-]
-
-const market_data_uk = [
-    {
-        header: <Localize translate_text="Forex" />,
-        description: (
-            <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
-        ),
-        img_name: 'market_forex',
-        to: '/markets/forex/',
-        gradient_start: '#661B20',
-        gradient_end: '#190708',
-    },
-    {
-        header: <Localize translate_text="Stocks & indices" />,
-        description: (
-            <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
-        ),
-        img_name: 'market_stocks_indices',
-        to: '/markets/stock/',
-        gradient_start: '#2A2040',
-        gradient_end: '#0A0810',
     },
     {
         header: <Localize translate_text="Commodities" />,
@@ -307,10 +280,12 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
-    const { is_loading, is_uk, is_non_uk, is_eu, is_row } = useCountryRule()
+    const { is_region_loading, is_eu, is_row } = useRegion()
     const size = useWindowSize()
     const is_not_big_screen = size.width < 1980 && size.width >= 768
     const is_mobile = size.width < 768
+
+    const lang_direction = useLangDirection()
 
     const getMaxWidth = () => {
         if (is_mobile) return '100%'
@@ -318,33 +293,29 @@ const MarketsFold = () => {
         else return '1600px'
     }
 
-    const getAutoPlay = () => {
-        if (is_mobile) return true
-        else {
-            if (is_non_uk) return true
-            return false
-        }
-    }
-
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             loop: true,
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
             align: is_mobile ? 0.04 : 'center',
+            direction: lang_direction,
         },
         container_style: {
-            maxWidth: '100%',
-            margin: '0 auto',
+            maxInlineSize: '100%',
+            marginBlockStart: '0',
+            marginBlockEnd: '0',
+            marginInlineStart: 'auto',
+            marginInlineEnd: 'auto',
         },
         embla_style: {
-            minHeight: is_mobile ? '364px' : 'auto',
-            maxWidth: getMaxWidth(),
+            minBlockSize: is_mobile ? '364px' : 'auto',
+            maxInlineSize: getMaxWidth(),
         },
         slide_style: {
-            width: is_not_big_screen ? '282px' : '400px',
-            height: 'auto',
-            marginRight: is_mobile ? '16px' : '24px',
+            inlineSize: is_not_big_screen ? '282px' : '400px',
+            blockSize: 'auto',
+            marginInlineEnd: is_mobile ? '16px' : '24px',
             position: 'relative',
         },
         navigation_style: {
@@ -361,39 +332,33 @@ const MarketsFold = () => {
                         <Localize translate_text="Markets" />
                     </Header>
                 </Flex>
-                <Carousel
-                    has_autoplay={getAutoPlay()}
-                    autoplay_interval={is_mobile ? 3200 : 4000}
-                    {...settings}
-                >
-                    {!is_loading &&
-                        (
-                            (is_uk && market_data_uk) ||
-                            (is_eu && market_data_eu) ||
-                            (is_row && market_data)
-                        ).map((market, index) => {
-                            const {
-                                header,
-                                description,
-                                img_name,
-                                gradient_start,
-                                gradient_end,
-                                to,
-                            } = market
+                <Carousel has_autoplay autoplay_interval={is_mobile ? 3200 : 4000} {...settings}>
+                    {!is_region_loading &&
+                        ((is_eu && market_data_eu) || (is_row && market_data)).map(
+                            (market, index) => {
+                                const {
+                                    header,
+                                    description,
+                                    img_name,
+                                    gradient_start,
+                                    gradient_end,
+                                    to,
+                                } = market
 
-                            return (
-                                <CarouselItem
-                                    key={index}
-                                    header={header}
-                                    description={description}
-                                    is_mobile={is_mobile}
-                                    image={data[img_name]}
-                                    gradient_start={gradient_start}
-                                    gradient_end={gradient_end}
-                                    url={to}
-                                />
-                            )
-                        })}
+                                return (
+                                    <CarouselItem
+                                        key={index}
+                                        header={header}
+                                        description={description}
+                                        is_mobile={is_mobile}
+                                        image={data[img_name]}
+                                        gradient_start={gradient_start}
+                                        gradient_end={gradient_end}
+                                        url={to}
+                                    />
+                                )
+                            },
+                        )}
                 </Carousel>
             </FoldContainer>
         </FoldWrapper>

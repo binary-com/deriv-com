@@ -3,11 +3,13 @@ import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Box, Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
-import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
+import { Carousel, CarouselProps, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
 type CalculatorProps = {
     children?: React.ReactNode
@@ -17,7 +19,7 @@ type CalculatorProps = {
     text: React.ReactElement
     image_name: string
     image_alt_name: string
-    button_text: React.ReactElement
+    button_text: TString
     link: string
 }
 
@@ -149,11 +151,11 @@ const StyledFlexContainer = styled(Flex)`
     }
 `
 
-const StyledFlex = styled(Flex)`
+const StyledFlex = styled(Flex)<{ has_color?: boolean }>`
     width: 50%;
     min-height: 694px;
     margin-right: 2.4rem;
-    background-color: ${(props) => (props.has_color ? 'var(--color-grey-25)' : 'inherit')};
+    background-color: ${({ has_color }) => (has_color ? 'var(--color-grey-25)' : 'inherit')};
     @media ${device.tabletL} {
         width: 100%;
         min-height: 340px;
@@ -210,7 +212,7 @@ const calculators: CalculatorProps[] = [
         ),
         image_name: 'margin_calculator',
         image_alt_name: localize('DMT5 margin trading calculator'),
-        button_text: <Localize translate_text="Try our margin calculator" />,
+        button_text: '_t_Try our margin calculator_t_',
         link: '/trader-tools/margin-calculator/',
     },
     {
@@ -221,13 +223,18 @@ const calculators: CalculatorProps[] = [
         ),
         image_name: 'swap_calculator',
         image_alt_name: localize('DMT5 swap trading calculator'),
-        button_text: <Localize translate_text="Try our swap calculator" />,
+        button_text: '_t_Try our swap calculator_t_',
         link: '/trader-tools/swap-calculator/',
     },
 ]
 
 const MarginCalculator = () => {
-    const settings = {
+    const lang_direction = useLangDirection()
+
+    const settings: CarouselProps = {
+        options: {
+            direction: lang_direction,
+        },
         container_style: {
             maxWidth: '100%',
             margin: '0',
@@ -245,7 +252,7 @@ const MarginCalculator = () => {
         },
     }
 
-    const { is_uk_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     return (
         <SectionContainer>
             <StyledFlexContainer>
@@ -255,14 +262,14 @@ const MarginCalculator = () => {
                     tablet_jc="center"
                     fd="column"
                     wrap="wrap"
-                    has_color={true}
+                    has_color
                 >
                     <StyledBox max_width="100%">
-                        <MainHeader as="h2" type="page-title" lh="1.25" align="left">
+                        <MainHeader as="h2" type="page-title" lh="1.25" align="start">
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>
-                            {is_uk_eu && (
+                            {is_eu && (
                                 <>
                                     <Localize
                                         translate_text="Explore <0>CFDs</0> on Deriv MT5 and enjoy low spreads to increase your returns when the market moves in your favour."
@@ -278,7 +285,7 @@ const MarginCalculator = () => {
                                     />
                                 </>
                             )}
-                            {!is_uk_eu && (
+                            {!is_eu && (
                                 <>
                                     <Localize
                                         translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
@@ -310,9 +317,9 @@ const MarginCalculator = () => {
                 >
                     <CardContainer>
                         <Carousel {...settings}>
-                            {calculators.map((calculator, idx) => (
+                            {calculators.map((calculator) => (
                                 <CalculatorCard
-                                    key={idx}
+                                    key={calculator.index}
                                     name={calculator.name}
                                     image_name={calculator.image_name}
                                     image_alt_name={calculator.image_alt_name}

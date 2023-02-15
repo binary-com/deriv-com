@@ -1,18 +1,41 @@
 name: Delete Translation
 
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  pull-requests: write
+  statuses: write
+  
 on:
   workflow_run:
     workflows: ["Pre-delete Translation"]
     types:
       - completed
-      
+
+env: 
+ BRANCH: ${{ github.event.workflow_run.head_branch }}
 jobs:
     delete-translation:
-        if: startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')
+        if: |
+              (startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')) &&
+               !contains(github.event.workflow_run.head_branch, '!') &&
+               !contains(github.event.workflow_run.head_branch, '@') &&   
+               !contains(github.event.workflow_run.head_branch, '#') &&   
+               !contains(github.event.workflow_run.head_branch, '$') &&   
+               !contains(github.event.workflow_run.head_branch, '%') &&   
+               !contains(github.event.workflow_run.head_branch, '^') &&   
+               !contains(github.event.workflow_run.head_branch, '&') &&   
+               !contains(github.event.workflow_run.head_branch, '*') &&   
+               !contains(github.event.workflow_run.head_branch, '(') &&   
+               !contains(github.event.workflow_run.head_branch, ')')
         runs-on: ubuntu-latest
         steps:
             - name: 'Branch [${{ github.event.workflow_run.head_branch }}]'
-              run: echo 'Deleting Translation Branch ${{ github.event.workflow_run.head_branch }}'
+              run: |
+                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"    
+                echo "Deleting Translation Branch $CLEAN_BRANCH"
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
               with:
@@ -24,8 +47,10 @@ jobs:
               with:
                   node-version: '16.x'
             - name: Installing Crowdin     
-              run: npm i -g @crowdin/cli
+              run: npm i -g @crowdin/cli@3.7.8
             - name: Delete Branch [${{ github.event.workflow_run.head_branch }}] 🗑️
-              run: crowdin branch delete ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
+              run: |
+               CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"    
+               crowdin branch delete $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}
                 
 

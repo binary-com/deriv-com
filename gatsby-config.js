@@ -353,6 +353,8 @@ module.exports = {
                             },
                             publicationState:
                                 process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
+                            'filters[publishedAt][$null]':
+                                process.env.STRAPI_PREVIEW === 'true' ? 'true' : '',
                         },
                     },
                 ],

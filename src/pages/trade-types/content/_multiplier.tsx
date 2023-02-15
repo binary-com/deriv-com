@@ -52,7 +52,7 @@ export const multipliers_content: multipliers_content[] = [
             <Localize translate_text="Enjoy trading on secure, intuitive platforms built for new and expert traders." />
         ),
         text_eu: (
-            <Localize translate_text="Enjoy trading on secure, intuitive platform built for new and expert traders." />
+            <Localize translate_text="Enjoy trading on secure, intuitive platforms built for new and expert traders." />
         ),
     },
     {

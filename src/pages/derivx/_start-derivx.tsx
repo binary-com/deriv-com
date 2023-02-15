@@ -18,6 +18,7 @@ interface StartDerivXProps {
 }
 
 type RealOrDemoShowType = {
+    class_name: string
     description: ReactElement
     image_data: string
     image_alt: string
@@ -75,6 +76,7 @@ const query = graphql`
 
 const demo: RealOrDemoShowType[] = [
     {
+        class_name: 'sign-in',
         description: (
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
         ),
@@ -82,11 +84,13 @@ const demo: RealOrDemoShowType[] = [
         image_alt: localize('Deriv X demo account signup page'),
     },
     {
+        class_name: 'add-account',
         description: <Localize translate_text="Add a Deriv X demo account." />,
         image_data: 'demo_step2',
         image_alt: localize('Deriv X dashboard showing demo account comparison'),
     },
     {
+        class_name: 'start-trading',
         description: (
             <Localize translate_text="Start trading on the mobile app or through your web browser." />
         ),
@@ -97,6 +101,7 @@ const demo: RealOrDemoShowType[] = [
 
 const real: RealOrDemoShowType[] = [
     {
+        class_name: 'sign-in',
         description: (
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
         ),
@@ -104,16 +109,19 @@ const real: RealOrDemoShowType[] = [
         image_alt: 'real_step1',
     },
     {
+        class_name: 'add-account',
         description: <Localize translate_text="Add a Deriv real account." />,
         image_data: 'real_step2',
         image_alt: 'real_step2',
     },
     {
+        class_name: 'add-derivx-account',
         description: <Localize translate_text="Add a Deriv X real account." />,
         image_data: 'real_step3',
         image_alt: 'real_step3',
     },
     {
+        class_name: 'start-trading',
         description: (
             <Localize translate_text="Start trading on the mobile app or through your web browser." />
         ),
@@ -187,7 +195,7 @@ const realActive = css`
 const ButtonDp2p = styled(Button)`
     padding: 10px 16px;
     height: 40px;
-    width: 25rem;
+    min-width: 25rem;
     white-space: nowrap;
     margin-top: 24px;
     margin-bottom: 40px;
@@ -256,11 +264,12 @@ const StartDerivX = () => {
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
                 {localize('How to get started with a Deriv X account')}
             </StyledHeader>
-            <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
+            <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }} id="account-pick">
                 <TabItem
                     mobile_padding="21px 12px"
                     active={tab === 'demo'}
                     onClick={() => onTabClick('demo')}
+                    className="demo-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Demo account')}
@@ -270,6 +279,7 @@ const StartDerivX = () => {
                     mobile_padding="12px 24px"
                     active={tab === 'real'}
                     onClick={() => onTabClick('real')}
+                    className="real-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Real money account')}
@@ -279,13 +289,14 @@ const StartDerivX = () => {
 
             <Flex max_width="1200px">
                 <SideTab parent_tab={tab} has_qr_code={true}>
-                    {(tab === 'demo' ? demo : real).map((currentTab, index) => {
+                    {(tab === 'demo' ? demo : real).map((currentTab) => {
                         return (
                             <SideTab.Panel
-                                key={index}
+                                key={currentTab.class_name}
                                 label=""
                                 description={currentTab.description}
                                 mobile_item_width="35rem"
+                                class_name={currentTab.class_name}
                             >
                                 <ImageWrapper>
                                     <QueryImage

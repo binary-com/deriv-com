@@ -44,7 +44,7 @@ const table_data = [
     },
     {
         th: '_t_maximumLoss_t_',
-        td: '_t_Use this variable to store your maximum loss limit. You can assign any amount you want, but it must be a positive number.t_',
+        td: '_t_Use this variable to store your maximum loss limit. You can assign any amount you want, but it must be a positive number._t_',
     },
     {
         th: '_t_tradeAgain_t_',

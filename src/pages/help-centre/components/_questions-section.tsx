@@ -65,9 +65,9 @@ const QuestionsSection = ({ data, section_name }: TQuestionsSection) => {
                 <Localize translate_text={section_name} />
             </SectionName>
             <HorizontalLine />
-            <Wrapper>
-                {filtered_data.map((item) => (
-                    <QuestionsCategory key={item.category} data={item} />
+            <Wrapper id={section_name.toLowerCase().replace(/_t_/g, '')}>
+                {filtered_data.map((item, index) => (
+                    <QuestionsCategory key={item.category} data={item} topic_number={index} />
                 ))}
             </Wrapper>
         </Section>

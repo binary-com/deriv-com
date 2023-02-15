@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Localize } from 'components/localization'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
@@ -7,7 +7,7 @@ import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 export type CryptocurrenciesContent = {
     src: string
     alt: string
-    text: ReactElement
+    text: React.ReactNode
 }
 
 export const simple_step_content_cryptocurrencies = [

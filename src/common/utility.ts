@@ -3,7 +3,6 @@ import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
 import {
-    cms_assets_end_point,
     deriv_cookie_domain,
     deriv_app_languages,
     smart_trader_languages,
@@ -237,9 +236,6 @@ export const convertDate = (date: string) => {
     )
 }
 
-// CMS Related Utilities
-export const getAssetUrl = (id: string) => `${cms_assets_end_point}${id}`
-
 export const getVideoObject = (video_data) => {
     const {
         published_date,
@@ -432,10 +428,9 @@ const redirect = (subdomain: string) => {
     window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
-export const handleDerivRedirect = (country: string, subdomain: string) => {
-    if (eu_subdomain_countries.includes(country)) {
-        redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
-    }
+const redirectDomain = () => {
+    const redirection_url = `deriv.com`
+    window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
 const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
@@ -449,7 +444,22 @@ export const handleRedirect = (residence: string, current_client_country: string
     if (isLocalhost() || isTestlink()) {
         return false
     } else {
-        handleDerivRedirect(country, getSubdomain())
+        if (eu_subdomain_countries.includes(country)) {
+            const subdomain = getSubdomain()
+            redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
+        }
+    }
+}
+
+export const handleRowRedirect = (residence: string, current_client_country: string): boolean => {
+    const country = residence ? residence : current_client_country
+
+    if (isLocalhost() || isTestlink()) {
+        return false
+    } else {
+        if (eu_subdomain_countries.includes(country) === false) {
+            redirectDomain()
+        }
     }
 }
 

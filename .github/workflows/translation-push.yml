@@ -19,7 +19,7 @@ env:
 jobs:
     push-translation:
         if: |
-              (startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp') || startsWith(github.event.workflow_run.head_branch, 'rebranding')) &&
+              (startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')) &&
                !contains(github.event.workflow_run.head_branch, '!') &&
                !contains(github.event.workflow_run.head_branch, '@') &&   
                !contains(github.event.workflow_run.head_branch, '#') &&   

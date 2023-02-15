@@ -94,6 +94,7 @@ export const Cell = styled.div`
 `
 export const CellIcon = styled.div`
     display: flex;
+    align-items: center;
     gap: 12px;
 `
 type TTableHeaderCell = {
@@ -203,7 +204,7 @@ export type CardProps = {
 }
 export const Card = styled.div`
     position: fixed;
-    top: 50%;
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -230,6 +231,16 @@ export const ModalCard = styled.div`
     @media ${device.mobileL} {
         width: 80%;
     }
+`
+export const Background = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: var(--color-black);
+    opacity: 0.4;
+    z-index: 10;
 `
 export const TableWrapper = styled.table`
     width: 100%;

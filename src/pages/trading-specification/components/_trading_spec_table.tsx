@@ -179,7 +179,15 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                     />
                 </SearchForm>
             </StyledFlex>
-            {showPopUp && <PopUpMenu market={market} toggle={() => setShowPopUp(false)} />}
+            {showPopUp && (
+                <PopUpMenu
+                    market={market}
+                    toggle={() => {
+                        setShowPopUp(false)
+                        document.body.style.overflow = 'scroll'
+                    }}
+                />
+            )}
 
             <TableContainer>
                 <TableData>
@@ -220,7 +228,11 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                                 translate_text="<0>Dynamic leverage </0>(DL) applies to this instrument."
                                 components={[
                                     <LinkText
-                                        onClick={() => setShowPopUp(true)}
+                                        onClick={() => {
+                                            setShowPopUp(true)
+                                            document.documentElement.scrollTop = 40
+                                            document.body.style.overflow = 'hidden'
+                                        }}
                                         color="red"
                                         key={0}
                                     />,

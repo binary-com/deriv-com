@@ -4,6 +4,7 @@ import forex_specification from '../data/_forex_specification'
 import {
     Card,
     ModalCard,
+    Background,
     TableContainer,
     TableWrapper,
     Tr,
@@ -45,62 +46,65 @@ const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
     }, [market])
 
     return (
-        <Card>
-            {is_calculated ? (
-                <ModalCard>
-                    <Header type="subtitle-1" weight="700" as="p">
-                        <Localize translate_text="How it’s calculated" />
-                    </Header>
-
-                    <HowItsCalculated market={market} />
-                    <Flex jc="center">
-                        <BackButton tertiary onClick={toggleCalculated}>
-                            <Localize translate_text="Back" />
-                        </BackButton>
-                    </Flex>
-                </ModalCard>
-            ) : (
-                <ModalCard>
-                    <StyledHeading>
-                        <Header type="paragraph-1" weight="700" align="center" as="p">
-                            <Localize translate_text={dlTitle} />
+        <>
+            <Card>
+                {is_calculated ? (
+                    <ModalCard>
+                        <Header type="subtitle-1" weight="700" as="p">
+                            <Localize translate_text="How it’s calculated" />
                         </Header>
-                        <CloseIconButton src={CloseIcon} onClick={toggle} />
-                    </StyledHeading>
 
-                    <Header type="paragraph-2" align="center" weight="normal" as="p">
-                        <Localize translate_text="With dynamic leverage, the higher the trading volume, the lower the leverage, to reduce your risk and protect you from adverse market movements. At the same time, the first tiers offer high leverage to allow you more trading opportunities." />
-                    </Header>
-                    <TableContainer>
-                        <TableWrapper>
-                            <Tr>
-                                <Th>
-                                    <Localize translate_text="From (lots)" />
-                                </Th>
-                                <Th>
-                                    <Localize translate_text="To (lots)" />
-                                </Th>
-                                <Th>
-                                    <Localize translate_text="Leverage (1:x)" />
-                                </Th>
-                            </Tr>
-                            {markets_data.map((data, index) => (
-                                <Tr key={index}>
-                                    <Td>{data.from}</Td>
-                                    <Td>{data.to}</Td>
-                                    <Td>{data.leverage}</Td>
+                        <HowItsCalculated market={market} />
+                        <Flex jc="center">
+                            <BackButton tertiary onClick={toggleCalculated}>
+                                <Localize translate_text="Back" />
+                            </BackButton>
+                        </Flex>
+                    </ModalCard>
+                ) : (
+                    <ModalCard>
+                        <StyledHeading>
+                            <Header type="paragraph-1" weight="700" align="center" as="p">
+                                <Localize translate_text={dlTitle} />
+                            </Header>
+                            <CloseIconButton src={CloseIcon} onClick={toggle} />
+                        </StyledHeading>
+
+                        <Header type="paragraph-2" align="center" weight="normal" as="p">
+                            <Localize translate_text="With dynamic leverage, the higher the trading volume, the lower the leverage, to reduce your risk and protect you from adverse market movements. At the same time, the first tiers offer high leverage to allow you more trading opportunities." />
+                        </Header>
+                        <TableContainer>
+                            <TableWrapper>
+                                <Tr>
+                                    <Th>
+                                        <Localize translate_text="From (lots)" />
+                                    </Th>
+                                    <Th>
+                                        <Localize translate_text="To (lots)" />
+                                    </Th>
+                                    <Th>
+                                        <Localize translate_text="Leverage (1:x)" />
+                                    </Th>
                                 </Tr>
-                            ))}
-                        </TableWrapper>
-                    </TableContainer>
-                    <HowItIsCalculated>
-                        <StyledLinkButton flat onClick={toggleCalculated}>
-                            <Localize translate_text="How dynamic leverage is calculated" />
-                        </StyledLinkButton>
-                    </HowItIsCalculated>
-                </ModalCard>
-            )}
-        </Card>
+                                {markets_data.map((data, index) => (
+                                    <Tr key={index}>
+                                        <Td>{data.from}</Td>
+                                        <Td>{data.to}</Td>
+                                        <Td>{data.leverage}</Td>
+                                    </Tr>
+                                ))}
+                            </TableWrapper>
+                        </TableContainer>
+                        <HowItIsCalculated>
+                            <StyledLinkButton flat onClick={toggleCalculated}>
+                                <Localize translate_text="How dynamic leverage is calculated" />
+                            </StyledLinkButton>
+                        </HowItIsCalculated>
+                    </ModalCard>
+                )}
+            </Card>
+            <Background></Background>
+        </>
     )
 }
 

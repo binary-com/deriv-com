@@ -8,7 +8,7 @@ import Uploader from 'components/form/uploader'
 import { localize } from 'components/localization'
 import { DropdownSearch, Header } from 'components/elements'
 import device from 'themes/device'
-import { useDerivWS } from 'store'
+import useDerivWS from 'components/hooks/use-deriv-ws'
 
 export type TCertificate = {
     lastModified: string

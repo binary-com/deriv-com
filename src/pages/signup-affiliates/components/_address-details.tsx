@@ -5,7 +5,7 @@ import { DropdownSearch } from 'components/elements'
 import { Input } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import { useDerivWS } from 'store'
+import useDerivWS from 'components/hooks/use-deriv-ws'
 
 const InputGroup = styled.div`
     display: flex;

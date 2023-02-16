@@ -60,6 +60,7 @@ import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 const PnlMarginCalculator = () => {
     const formik_ref = useRef(null)
     const form = formik_ref.current
+
     const [tab, setTab] = useState('Buy')
     const [sub_tab, setSubTab] = useState('Synthetic')
     // These additional states have been created to track the first output (levels)
@@ -266,19 +267,14 @@ const PnlMarginCalculator = () => {
                                     current_input.focus()
                                 }
 
-                                const AssetPriceInput = <T extends object>({
-                                    field,
-                                }: {
-                                    field: T
-                                }) => (
+                                const AssetPriceInput = () => (
                                     <Input
-                                        {...field}
                                         id="assetPrice"
                                         type="text"
                                         value={values.assetPrice}
                                         label={localize('Open price of asset')}
                                         autoComplete="off"
-                                        error={touched.assetPrice && errors?.assetPrice?.toString()}
+                                        error={touched.assetPrice && errors.assetPrice.toString()}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -292,13 +288,8 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const StopLossAmountInput = <T extends object>({
-                                    field,
-                                }: {
-                                    field: T
-                                }) => (
+                                const StopLossAmountInput = () => (
                                     <Input
-                                        {...field}
                                         id="assetPrice"
                                         type="text"
                                         value={values.stopLossAmount}
@@ -306,7 +297,7 @@ const PnlMarginCalculator = () => {
                                         autoComplete="off"
                                         error={
                                             touched.stopLossAmount &&
-                                            errors?.stopLossAmount?.toString()
+                                            errors.stopLossAmount.toString()
                                         }
                                         onBlur={handleBlur}
                                         data-lpignore="true"
@@ -316,18 +307,13 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const PointValueInput = <T extends object>({
-                                    field,
-                                }: {
-                                    field: T
-                                }) => (
+                                const PointValueInput = () => (
                                     <Input
-                                        {...field}
                                         id="pointValue"
                                         type="text"
                                         label={localize('Point value')}
                                         autoComplete="off"
-                                        error={touched.pointValue && errors?.pointValue?.toString()}
+                                        error={touched.pointValue && errors.pointValue.toString()}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -349,20 +335,15 @@ const PnlMarginCalculator = () => {
                                     setFieldValue('stopLossAmount', value)
                                 }
 
-                                const TakeProfitAmountInput = <T extends object>({
-                                    field,
-                                }: {
-                                    field: T
-                                }) => (
+                                const TakeProfitAmountInput = () => (
                                     <Input
-                                        {...field}
                                         id="takeProfitAmount"
                                         type="text"
                                         label={localize('Take profit amount')}
                                         autoComplete="off"
                                         error={
                                             touched.takeProfitAmount &&
-                                            errors?.takeProfitAmount?.toString()
+                                            errors.takeProfitAmount.toString()
                                         }
                                         onBlur={handleBlur}
                                         data-lpignore="true"

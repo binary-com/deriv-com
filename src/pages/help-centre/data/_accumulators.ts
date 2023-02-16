@@ -1,5 +1,4 @@
 import { TQuestionsData } from './_data-types'
-import { deriv_app_url } from 'common/constants'
 
 const accumulators: TQuestionsData = {
     section: 'General',

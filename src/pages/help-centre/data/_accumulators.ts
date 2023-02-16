@@ -58,16 +58,6 @@ const accumulators: TQuestionsData = {
                     ],
                     has_margin_top: true,
                 },
-                {
-                    translation_text:
-                        '_t_Watch <0>this video</0> or visit the <1>Accumulators page</1> to learn more about trading accumulators._t_',
-                    translation_components: [
-                        { key: 0, type: 'link', to: '' },
-                        { key: 1, type: 'link', to: '/trade-types/accumulators' },
-                    ],
-
-                    has_margin_top: true,
-                },
             ],
         },
         {

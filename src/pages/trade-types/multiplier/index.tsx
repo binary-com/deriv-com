@@ -2,10 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
+import { DotLoader , Header } from 'components/elements'
+import { heroSectionId } from 'common/constants'
 import { SEO } from 'components/containers'
-import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 import device from 'themes/device'
 const HowMultiplierWorks = Loadable(() => import('./_how-options-works'))
 const ThingsInMind = Loadable(() => import('./_things-in-mind'))
@@ -25,8 +27,23 @@ const StyledHeader = styled(Header)`
         font-size: 30px;
     }
 `
-
+const target = heroSectionId
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.7,
+}
+const lazy_components = (
+    <>
+        <WhatAreMultiplier fallback={<DotLoader />} />
+        <HowMultiplierWorks />
+        <ThingsInMind />
+        <StartTrading />
+        <MarketsAvailable fallback={<DotLoader />} />
+    </>
+)
 const Multipliers = () => {
+    const lazyTemplate = useHandleLazyLoad(lazy_components, target, options)
     return (
         <Layout>
             <SEO
@@ -36,18 +53,14 @@ const Multipliers = () => {
                 )}
                 meta_attributes={meta_attributes}
             />
-            <Hero jc="cneter" ai="center">
+            <Hero jc="cneter" ai="center" id="hero-section">
                 <SmallContainer>
                     <StyledHeader as="h1" size="6.4rem" color="white" align="center">
                         {localize('Multipliers')}
                     </StyledHeader>
                 </SmallContainer>
             </Hero>
-            <WhatAreMultiplier />
-            <HowMultiplierWorks />
-            <ThingsInMind />
-            <StartTrading />
-            <MarketsAvailable />
+            {lazyTemplate}
         </Layout>
     )
 }

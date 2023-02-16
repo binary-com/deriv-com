@@ -17,6 +17,7 @@ type AvailableTradesProps = {
     CFDs: ReactElement
     DigitalOptions?: ReactElement
     Multipliers?: ReactElement
+    Accumulators?: ReactElement
     display_title: ReactElement
 }
 
@@ -180,6 +181,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
                 {name === 'CFDs'}
                 {name === 'Options'}
                 {name === 'Multipliers'}
+                {name === 'Accumulators'}
                 <CardHeader as="h4" width="auto">
                     {display_name}
                 </CardHeader>
@@ -188,10 +190,11 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
     )
 }
 
-const AvailableTradesDesctop = ({
+const AvailableTradesDesktop = ({
     CFDs,
     DigitalOptions,
     Multipliers,
+    Accumulators,
     display_title,
 }: AvailableTradesProps) => {
     const { is_non_eu } = useRegion()
@@ -232,15 +235,24 @@ const AvailableTradesDesctop = ({
                             active_tab={active_tab}
                         />
                     )}
+                    {is_non_eu && Accumulators && (
+                        <Card
+                            name="Accumulators"
+                            display_name={<Localize translate_text="Accumulators" />}
+                            onTabChange={() => handleTabChange('Accumulators')}
+                            active_tab={active_tab}
+                        />
+                    )}
                 </CardWrapper>
                 <ContentWrapper>
                     {active_tab === 'CFDs' && CFDs}
                     {active_tab === 'Options' && DigitalOptions}
                     {active_tab === 'Multipliers' && Multipliers}
+                    {active_tab === 'Accumulators' && Accumulators}
                 </ContentWrapper>
             </StyledContainer>
         </StyledSection>
     )
 }
 
-export default AvailableTradesDesctop
+export default AvailableTradesDesktop

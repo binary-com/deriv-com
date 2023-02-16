@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
 
@@ -11,6 +11,8 @@ type TProps = {
     tertiary?: boolean
     outline?: boolean
     hero?: boolean
+    disabled?: boolean
+    id?: string
 }
 
 type TLabelProps = Omit<TProps, 'label' | 'onClick'>
@@ -51,6 +53,13 @@ const Container = styled.div<TContainerProps>`
     ${({ secondary, outline }) =>
         secondary && outline ? 'border: 1.5px solid var(--color-white)' : ''};
     ${({ primary, outline }) => (primary && outline ? 'border: 1.5px solid var(--color-red)' : '')};
+    ${({ disabled }) => {
+        if (disabled)
+            return css`
+                pointer-events: none;
+                opacity: 0.32;
+            `
+    }};
 
     &:hover {
         cursor: pointer;
@@ -77,6 +86,8 @@ const Button: React.FC<TProps> = ({
     tertiary = false,
     outline = false,
     hero = false,
+    disabled = false,
+    id,
 }) => {
     return (
         <Container
@@ -86,6 +97,8 @@ const Button: React.FC<TProps> = ({
             tertiary={tertiary}
             outline={outline}
             hero={hero}
+            disabled={disabled}
+            id={id}
         >
             <Label
                 primary={primary}

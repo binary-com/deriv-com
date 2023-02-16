@@ -16,11 +16,12 @@ const HeroWrapper = styled.section`
     width: 100%;
     min-height: 100%;
     position: relative;
-    margin-top: 76px;
+    margin-top: 72px;
     @media ${device.tabletL} {
         flex-wrap: wrap;
         justify-content: flex-start;
         min-height: 100%;
+        margin-top: 58px;
     }
 `
 

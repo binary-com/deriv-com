@@ -23,7 +23,7 @@ type LogoLinkProps = {
 }
 
 export const HamburgerMenu = styled.img`
-    width: 16px;
+    width: 12px;
     cursor: pointer;
 `
 export const CloseIcon = styled.img`
@@ -70,7 +70,6 @@ export const MobileWrapper = styled.div<DesktopWrapperProps>`
     display: none;
     @media ${({ media }) => media || device.tabletL} {
         display: block;
-        background: var(--color-black);
     }
 `
 
@@ -136,7 +135,7 @@ export const NavLink = styled.li<NavLinkProps>`
     position: relative;
     align-items: center;
     text-align: center;
-    margin-right: 2.4rem;
+    margin-right: 1.4rem;
 
     &:last-child {
         margin-right: 0;

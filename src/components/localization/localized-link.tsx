@@ -126,14 +126,6 @@ const ShareDisabledStyle = css<{ disabled?: boolean }>`
         opacity: 0.32;`}
 `
 
-const StyledAnchor = styled.a`
-    ${ShareDisabledStyle}
-`
-
-const StyledAnchorLink = styled(AnchorLink)`
-    ${ShareDisabledStyle}
-`
-
 const StyledGatsbyLink = styled(GatsbyLink)`
     ${ShareDisabledStyle}
 `

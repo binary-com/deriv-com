@@ -14,6 +14,8 @@ const dtrader: TQuestionsData = {
                 {
                     translation_text:
                         '_t_<0>DTrader</0> is one of our trading platforms. It offers digital options and multipliers on a variety of assets in financial and synthetic markets._t_',
+                    eu_translation_text:
+                        '_t_<0>DTrader</0> is one of our trading platforms. It offers multipliers on a variety of assets in financial and synthetic markets._t_',
                     translation_components: [{ key: 0, type: 'link', to: '/dtrader/' }],
                 },
             ],
@@ -40,7 +42,7 @@ const dtrader: TQuestionsData = {
             answer: [
                 {
                     eu_translation_text:
-                        '_t_You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and derived on DTrader. Some markets may not be available in certain countries._t_',
+                        '_t_You can trade forex, cryptocurrencies, and derived on DTrader. Some markets may not be available in certain countries._t_',
                     translation_text:
                         '_t_You can trade forex, stock indices, commodities, cryptocurrencies, and derived on DTrader. Some markets may not be available in certain countries._t_',
                 },
@@ -51,6 +53,19 @@ const dtrader: TQuestionsData = {
             category: 'DTrader',
             sub_category: '_t_Contracts_t_',
             label: 'contracts-on-dtrader',
+            hide_for_non_eu: true,
+            answer: [
+                {
+                    translation_text: '_t_You can trade multipliers on DTrader._t_',
+                },
+            ],
+        },
+        {
+            question: '_t_What contract types do you offer on DTrader?_t_',
+            category: 'DTrader',
+            sub_category: '_t_Contracts_t_',
+            label: 'contracts-on-dtrader',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text: '_t_These contracts are available on DTrader:_t_',

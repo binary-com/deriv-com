@@ -248,6 +248,7 @@ const deposits_and_withdrawals: TQuestionsData = {
             category: 'Deposits and withdrawals',
             sub_category: '_t_Withdrawals_t_',
             label: 'withdraw-deposit-bonus',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text:
@@ -303,6 +304,7 @@ const deposits_and_withdrawals: TQuestionsData = {
             sub_category: '_t_Withdrawals_t_',
             hide_for_non_eu: true,
             label: 'How-can-I-cancel-my-withdrawal',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text:

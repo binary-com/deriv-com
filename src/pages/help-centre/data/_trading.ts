@@ -23,7 +23,7 @@ const trading: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/what-is-forex-live-trading/',
+                            to: 'https://academy.deriv.com/blog/posts/what-is-forex-live-trading/',
                         },
                     ],
                     has_margin_top: true,
@@ -47,7 +47,7 @@ const trading: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/what-are-commodities/',
+                            to: 'https://academy.deriv.com/blog/posts/what-are-commodities/',
                         },
                     ],
                     has_margin_top: true,
@@ -71,7 +71,7 @@ const trading: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/what-are-stocks-how-and-where-to-trade-them/',
+                            to: 'https://academy.deriv.com/blog/posts/what-are-stocks-how-and-where-to-trade-them/',
                         },
                     ],
                     has_margin_top: true,
@@ -102,7 +102,7 @@ const trading: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/what-is-cfd-trading/',
+                            to: 'https://academy.deriv.com/blog/posts/what-is-cfd-trading/',
                         },
                     ],
                     has_margin_top: true,
@@ -114,6 +114,7 @@ const trading: TQuestionsData = {
             category: 'Trading',
             sub_category: '_t_Markets_t_',
             label: 'what-are-digital-options',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text:
@@ -130,6 +131,8 @@ const trading: TQuestionsData = {
                 {
                     translation_text:
                         '_t_We have a diverse suite of 6 trading platforms: <0>Deriv MT5</0>, <1>Deriv X</1>, <2>DTrader</2>, <3>DBot</3>, <4>SmartTrader</4>, and <5>Binary Bot</5>. Each of these platforms is designed to fit any trading style, regardless of your trading experience._t_',
+                    eu_translation_text:
+                        '_t_We offer two trading platforms in the EU: <0>Deriv MT5</0> and <2>DTrader</2>. Each of these platforms is designed to fit any trading style, regardless of your trading experience._t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/dmt5/' },
                         { key: 1, type: 'link', to: '/derivx/' },
@@ -146,6 +149,7 @@ const trading: TQuestionsData = {
                 {
                     translation_text:
                         '_t_Note: DBot, SmartTrader, and Binary Bot are not available in the EU and UK._t_',
+                    eu_translation_text: '_t_ _t_',
                     has_margin_top: true,
                 },
             ],
@@ -164,6 +168,7 @@ const trading: TQuestionsData = {
                 {
                     translation_text:
                         '_t_Build your trading bot for free on <0>DBot</0> or <1>Binary Bot</1>; no coding is needed. You’ll also find free pre-built strategies on DBot that you can customise to your needs._t_',
+                    eu_translation_text: '_t_ _t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/dbot/' },
                         { key: 1, type: 'link', to: binary_bot_url },
@@ -177,7 +182,7 @@ const trading: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/automated-trading-what-you-need-to-know/',
+                            to: 'https://academy.deriv.com/blog/posts/automated-trading-what-you-need-to-know/',
                         },
                     ],
                     has_margin_top: true,

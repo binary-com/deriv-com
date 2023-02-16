@@ -30,6 +30,23 @@ const account: TQuestionsData = {
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'change-account-currency',
+            hide_for_non_eu: true,
+            answer: [
+                {
+                    translation_text:
+                        '_t_<0>Contact us via live chat</0> to get help with changing your account currency._t_',
+                    translation_components: [
+                        { key: 0, type: 'link', to: '/contact_us/?is_livechat' },
+                    ],
+                },
+            ],
+        },
+        {
+            question: '_t_How can I change the currency of my account?_t_',
+            category: 'account',
+            sub_category: '_t_Managing your account_t_',
+            label: 'change-account-currency',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text:
@@ -434,6 +451,10 @@ const account: TQuestionsData = {
                 {
                     translation_text:
                         '_t_As per <0>our terms</0>, we only allow one account per client, which you can open in the currency of your choice (either fiat or crypto). If you want to trade with other currencies, you can add multiple cryptocurrency accounts to your profile._t_',
+
+                    eu_translation_text:
+                        '_t_As per <0>our terms</0>, we only allow one account per client, which you can open in the currency of your choice._t_',
+
                     translation_components: [
                         { key: 0, type: 'link', to: '/tnc/general-terms.pdf' },
                     ],
@@ -479,6 +500,8 @@ const account: TQuestionsData = {
                 {
                     translation_text:
                         "_t_If you're residing in the EU or UK, <0>contact us via live chat</0>, and we'll help you with it._t_",
+                    eu_translation_text:
+                        "_t_If you're residing in the EU, <0>contact us via live chat</0>, and we'll help you with it._t_",
                     translation_components: [
                         { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
                     ],
@@ -490,6 +513,7 @@ const account: TQuestionsData = {
                         { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
                         { key: 1, type: 'link', to: `${deriv_app_url}/account/self-exclusion` },
                     ],
+                    eu_translation_text: '_t_ _t_',
                 },
             ],
         },
@@ -644,15 +668,23 @@ const account: TQuestionsData = {
             label: 'Can-I-trade-without-verifying-my-account',
             hide_for_non_eu: true,
             answer: [
-                { translation_text: '_t_If you’re in the EU or UK:_t_' },
-                { translation_text: '_t_No, you must verify your account before trading._t_' },
+                {
+                    translation_text: '_t_If you’re in the EU or UK:_t_',
+                    eu_translation_text: '_t_No, you must verify your account before trading._t_',
+                },
+                {
+                    translation_text: '_t_No, you must verify your account before trading._t_',
+                    eu_translation_text: '_t_ _t_',
+                },
                 {
                     translation_text: '_t_If you’re in any other country:_t_',
+                    eu_translation_text: '_t_ _t_',
                     has_margin_top: true,
                 },
                 {
                     translation_text:
                         '_t_Yes, as long as you haven’t opened a Deriv MT5 Financial STP account, you can still trade without verifying your account._t_',
+                    eu_translation_text: '_t_ _t_',
                 },
             ],
         },

@@ -13,7 +13,6 @@ import Numbers from './_numbers'
 import WhatIsTrader from './_what-is-trader'
 import DHero from 'components/custom/_dhero-dmt5'
 import { DotLoader } from 'components/elements'
-import { targetId } from 'common/constants'
 import BackgroundPatternDMT5 from 'images/svg/dmt5/bg_banner_dmt5.svg'
 import BackgroundPatternDMT5_mobile from 'images/svg/dmt5/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'
@@ -49,7 +48,7 @@ const query = graphql`
         }
     }
 `
-const target = targetId
+const target = '#gatsby-focus-wrapper'
 const options = {
     root: null,
     rootMargin: '0px',

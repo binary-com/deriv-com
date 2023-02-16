@@ -1,15 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { handleGetTrading, handleScroll, useMoveButton } from '../util/nav-methods'
+import { handleGetTrading } from '../util/nav-methods'
 import { NavRight } from '../styles/nav-styles'
-import { localize, LanguageSwitcher } from 'components/localization'
-import { Button } from 'components/form'
+import { LanguageSwitcher } from 'components/localization'
+import Button from 'components/custom/_button'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type RightSectionProps = {
     is_ppc_redirect: boolean
@@ -26,7 +25,7 @@ const StyledButton = styled(Button)`
 `
 const SignupButton = styled(Button)`
     margin-left: 1.6rem;
-    opacity: 0;
+    opacity: 1;
 `
 const Wrapper = styled.div`
     display: inline-flex;
@@ -43,68 +42,47 @@ const RightSection = ({
     hide_language_switcher,
     hide_signup_login,
 }: RightSectionProps) => {
-    const button_ref = useRef(null)
-    const [is_mounted] = usePageLoaded()
-    const [has_scrolled, setHasScrolled] = useState(false)
-    const [show_button, showButton, hideButton] = useMoveButton()
     const { is_region_loading } = useRegion()
     const handleLogin = useHandleLogin()
     const handleSignup = useHandleSignup(is_ppc_redirect)
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
 
-    const buttonHandleScroll = useCallback(() => {
-        setHasScrolled(true)
-        handleScroll(showButton, hideButton)
-    }, [])
-
-    useEffect(() => {
-        document.addEventListener('scroll', buttonHandleScroll, { passive: true })
-        return () => document.removeEventListener('scroll', buttonHandleScroll)
-    }, [])
     if (is_logged_in) {
         return (
             <Wrapper>
                 <Language hide_component={hide_language_switcher} />
-                <StyledButton onClick={handleGetTrading} primary>
-                    {localize('Get Trading')}
-                </StyledButton>
+                <StyledButton
+                    onClick={handleGetTrading}
+                    primary
+                    label="_t_Get Trading_t_"
+                ></StyledButton>
             </Wrapper>
         )
     }
 
     return (
-        <NavRight
-            move={show_button}
-            is_rtl={is_rtl}
-            hide_signup_login={hide_signup_login}
-            button_ref={button_ref}
-            mounted={is_mounted}
-            has_scrolled={has_scrolled}
-        >
-            <Language hide_component={hide_language_switcher} />
-
+        <NavRight is_rtl={is_rtl} hide_signup_login={hide_signup_login}>
             {!hide_signup_login && (
                 <>
                     <StyledButton
-                        disabled={is_region_loading}
                         id="dm-nav-login-button"
                         onClick={handleLogin}
-                        primary
-                    >
-                        {localize('Log in')}
-                    </StyledButton>
-                    <SignupButton
+                        label="_t_Log in_t_"
                         disabled={is_region_loading}
-                        onClick={handleSignup}
+                        primary
+                        outline
+                    />
+                    <SignupButton
                         id="dm-nav-signup"
-                        ref={button_ref}
-                        secondary
-                    >
-                        {localize('Create free demo account')}
-                    </SignupButton>
+                        onClick={handleSignup}
+                        primary
+                        label="_t_Create free demo account_t_"
+                        disabled={is_region_loading}
+                    />
                 </>
             )}
+            <Language hide_component={hide_language_switcher} />
         </NavRight>
     )
 }

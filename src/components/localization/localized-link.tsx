@@ -50,7 +50,7 @@ type SharedLinkStyleProps = {
 }
 
 export const SharedLinkStyle = css<SharedLinkStyleProps>`
-    color: var(--color-white);
+    color: var(--color-black);
     text-decoration: none;
     padding: 0.5rem 1rem;
     transition: text-shadow 0.25s;
@@ -87,7 +87,7 @@ export const SharedLinkStyle = css<SharedLinkStyleProps>`
         `}
 `
 export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
-    color: var(--color-white);
+    color: var(--color-black-9);
     text-decoration: none;
     padding: 0.5rem 1rem;
     transition: text-shadow 0.25s;
@@ -103,10 +103,10 @@ export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
         bottom: 0;
     }
     &:hover {
-        color: gray;
+        color: var(--color-red);
     }
     &.active {
-        color: gray;
+        color: var(--color-red);
     }
 
     ${({ active }) =>
@@ -124,14 +124,6 @@ const ShareDisabledStyle = css<{ disabled?: boolean }>`
         `
         pointer-events: none;
         opacity: 0.32;`}
-`
-
-const StyledAnchor = styled.a`
-    ${ShareDisabledStyle}
-`
-
-const StyledAnchorLink = styled(AnchorLink)`
-    ${ShareDisabledStyle}
 `
 
 const StyledGatsbyLink = styled(GatsbyLink)`

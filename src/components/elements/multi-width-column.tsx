@@ -93,16 +93,12 @@ const MultiWidthColumn: React.FC<Props> = ({
         <StyledSectionContainer mobileBG={mobileBackgroundImage}>
             <FirstColumn background={firstColumnBackground} width={firstColumnWidth}>
                 <Container justify="center" ai="flex-start">
-                    {/* <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25"> */}
                     {children[0]}
-                    {/* </StyledHeader> */}
                 </Container>
             </FirstColumn>
 
             <SecondColumn background={secondColumnBackground} width={secondColumnWidth}>
-                {/* <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25"> */}
                 {children[1]}
-                {/* </StyledHeader> */}
             </SecondColumn>
         </StyledSectionContainer>
     )

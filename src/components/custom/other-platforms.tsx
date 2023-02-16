@@ -4,6 +4,7 @@ import { SectionContainer, Flex, FlexGridContainer } from 'components/containers
 import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
@@ -498,7 +499,12 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
     )
 }
 
+const derived_text_eu: TString = '_t_Enjoy trading asset prices derived from simulated markets._t_'
+const derived_text_row: TString =
+    '_t_Enjoy trading asset prices derived from real-world or simulated markets._t_'
+
 export const NavMarket = ({ onClick }: NavMarketProps) => {
+    const { is_eu } = useRegion()
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
             <NavCard
@@ -515,7 +521,11 @@ export const NavMarket = ({ onClick }: NavMarketProps) => {
                 aria_label="Derived"
                 icon={() => <img src={DerivedFX} alt="Synthetic indices" width="32" height="32" />}
                 content={
-                    <Localize translate_text="Enjoy trading asset prices derived from real-world or simulated markets." />
+                    is_eu ? (
+                        <Localize translate_text={derived_text_eu} />
+                    ) : (
+                        <Localize translate_text={derived_text_row} />
+                    )
                 }
                 title={<Localize translate_text="Derived" />}
                 onClick={onClick}

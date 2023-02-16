@@ -1,12 +1,10 @@
 import React from 'react'
 import { Localize } from 'components/localization'
-import ExtendedTime from 'images/svg/stock-indices/stocks-minimum-capital.svg'
-import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
-import MinimalCapital from 'images/svg/stock-indices/stocks-extended-time.svg'
-import ResponsiveWebsite from 'images/svg/markets/responsive-another.svg'
-import PractiseIcon from 'images/svg/markets/aim-new.svg'
-import TradeIcon from 'images/svg/markets/trade-new.svg'
-import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
+import ExtendedTime from 'images/svg/stock-indices/stocks-extented-time.svg'
+import FriendlySupport from 'images/svg/markets/forex/smart.svg'
+import MinimalCapital from 'images/svg/stock-indices/stocks-minimum-capital.svg'
+import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
+import WithdrawIcon from 'images/svg/stock-indices/deposit-and-withdrawal-new.svg'
 
 type Stock = {
     src: string
@@ -20,32 +18,29 @@ export const simple_step_content_stock = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <img src={PractiseIcon} alt="Practise" width="32" height="32" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading stocks & indices and other markets." />
         ),
-        icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <img src={WithdrawIcon} alt="Withdraw" width="32" height="32" />,
     },
 ]
 
 const stocks: Stock[] = [
     {
-        src: ExtendedTime,
+        src: MinimalCapital,
         alt: 'Low capital',
         text: <Localize translate_text="Minimal capital requirements, limited risk" />,
     },
     {
-        src: MinimalCapital,
+        src: ExtendedTime,
         alt: 'Time to trade',
         text: <Localize translate_text="Extended trading time, up to 18 hours a day" />,
     },

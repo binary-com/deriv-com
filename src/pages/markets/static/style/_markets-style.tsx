@@ -66,7 +66,7 @@ export const Col = styled(Flex)<ColProps>`
 export const ContentWrapper = styled(Flex)`
     flex-direction: column;
     margin: 0 auto;
-    max-width: 792px;
+    max-width: 819px;
 `
 
 export const CrashText = styled(Text)`
@@ -130,6 +130,10 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
 
     @media ${device.tabletL} {
         gap: 10px;
+        grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
+    }
+    @media ${device.mobileM} {
+        gap: 5px;
         grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
     }
 `

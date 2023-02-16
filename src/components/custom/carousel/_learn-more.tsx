@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Text, ImageWithDireciton } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
+import device from 'themes/device'
 
 const Wrapper = styled.div`
     position: absolute;
@@ -13,7 +14,7 @@ const Wrapper = styled.div`
     opacity: 0;
     transition: opacity 0.25s;
 
-    @media (max-width: 680px) {
+    @media ${device.tabletL} {
         opacity: 1;
     }
 `

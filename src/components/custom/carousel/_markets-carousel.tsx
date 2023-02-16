@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Container, Mobile } from 'components/containers'
+import { Container } from 'components/containers'
 import { Carousel, CarouselProps } from 'components/elements'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
@@ -12,10 +12,11 @@ const SmallContainer = styled(Container)`
     max-width: 62.5rem;
 
     @media ${device.desktop} {
-        max-width: 800px;
+        max-width: 1200px;
+        width: 100%;
     }
     @media ${device.laptopL} {
-        width: 60%;
+        width: 100%;
     }
     @media ${device.desktopL} {
         max-width: 1000px;
@@ -26,44 +27,14 @@ const SmallContainer = styled(Container)`
         padding-right: 0;
     }
 `
-const Background = styled.div`
-    width: 100%;
-    background: var(--color-red);
-    border-radius: 16px;
-    height: 15.4rem;
-    position: absolute;
-    top: 0;
-`
 
 const Wrapper = styled(SmallContainer)`
-    width: 70%;
     position: relative;
 
     @media (max-width: 770px) {
         width: 81%;
     }
 `
-
-const MobileBackground = styled.div`
-    position: relative;
-    padding-top: 1.6rem;
-    padding-bottom: 0.8rem;
-`
-
-const GreenBG = styled.div`
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    background: var(--color-red);
-    border-radius: 16px;
-    width: 30%;
-
-    @media ${device.mobileL} {
-        width: 184px;
-    }
-`
-
 const Item = ({ children, ...props }) => (
     <div {...props} style={{ height: '100%' }}>
         {children}
@@ -80,7 +51,7 @@ type MarketsCarouselProps = {
 
 const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
     const lang_direction = useLangDirection()
-    const { is_mobile } = useBreakpoints()
+    const { is_mobile_or_tablet } = useBreakpoints()
 
     const carousel_props: CarouselProps = {
         options: {
@@ -94,7 +65,7 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
             margin: '0 auto',
         },
         slide_style: {
-            flex: is_mobile ? '0 0 100%' : '0 0 50%',
+            flex: is_mobile_or_tablet ? '0 0 100%' : '0 0 33.33%',
             position: 'relative',
             margin: '4rem 0',
         },
@@ -106,6 +77,11 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
             height: '10px',
             bottom_offset: '0',
         },
+        navigation_css: [
+            {
+                display: is_mobile_or_tablet ? 'flex' : 'none',
+            },
+        ],
     }
 
     return (
@@ -113,11 +89,6 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
             <Wrapper>
                 <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
             </Wrapper>
-            {/* <Mobile breakpoint={'bp680'}>
-                <MobileBackground>
-                    <SmallContainer fd="column">{children}</SmallContainer>
-                </MobileBackground>
-            </Mobile> */}
         </>
     )
 }

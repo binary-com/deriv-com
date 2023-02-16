@@ -331,28 +331,11 @@ module.exports = {
                 collectionTypes: [
                     {
                         singularName: 'who-we-are-page',
-                        pluginOptions: {
-                            i18n: {
-                                locale: 'all',
-                            },
-                        },
                         queryParams: {
-                            populate: {
-                                hero: { populate: { hero_image: true, bg_image: true } },
-                                our_values: { populate: { values: { populate: { image: true } } } },
-                                our_principles: {
-                                    populate: { principles: true, button: true },
-                                },
-                                our_leadership: { populate: { photo: true } },
-                                deriv_in_numbers: { populate: { numbers: true } },
-                                slider: true,
-                                our_locations: {
-                                    populate: { world_map: true, locations: true, numbers: true },
-                                },
-                                banner: { populate: { image: true } },
-                            },
                             publicationState:
                                 process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
+                            'filters[publishedAt][$null]':
+                                process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
                         },
                     },
                 ],

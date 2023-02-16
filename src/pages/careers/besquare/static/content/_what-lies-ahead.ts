@@ -14,14 +14,14 @@ import {
 export default {
     title: 'What lies ahead',
     subtitle:
-        "Over the course of 6 months, you'll go through 10 modules and face exciting challenges",
+        "Over the course of 5 months, you'll go through 5 modules and face exciting challenges",
     content: [
         {
             src: FrontEnd,
             alt: 'Front-end development Icon',
             text: 'Front-end development',
             content: [
-                'Deploy and collaborate with GitHub — so what makes GitHub so special?',
+                'Deploy and collaborate with GitHub —what makes GitHub so special?',
                 'Design responsive websites using CSS, JavaScript, HTML, and beyond.',
                 'Discover how React helps with building high-quality web apps by learning about its props, components, hooks, routes, and more.',
             ],
@@ -55,18 +55,7 @@ export default {
             content: [
                 'Master the basics of the software development life cycle (SDLC).',
                 'See how the system interacts using APIs and stores data for future usage.',
-                'Discover the principles of blockchain and cryptocurrency. Is crypto the democratisation of finance or the newest fad of FinTech?',
-            ],
-        },
-        {
-            src: PlatformArchitecture,
-            alt: 'Platform architecture Icon',
-            text: 'Platform architecture',
-            content: [
-                'Design and plan systems from high-level system concepts down to low-level details.',
-                'Explore horizontal and vertical scaling — service, database, cache, and code patterns.',
-                'Work with the CAP theorem of distributed systems.',
-                'Study cloud technologies — what’s out there and how to choose the right pieces for the puzzle.',
+                'Discover the principles of blockchain and cryptocurrency. Is crypto the democratisation of finance or the newest fad of fintech?',
             ],
         },
         {
@@ -77,47 +66,6 @@ export default {
                 'Learn how to break a developer’s code: what flaws should you look out for?',
                 'Build robust systems you can be proud of.',
                 'Polish the application by applying all manners of tests to turn it from a proof-of-concept into a quality product.',
-            ],
-        },
-        {
-            src: DevAndOperations,
-            alt: 'Development and operations Icon',
-            text: 'Development and operations',
-            content: [
-                'DevOps, GitOps, CodeOps... NoOps? Explore evolving styles of deployment, maintenance, and monitoring.',
-                'Automate and chill: build a recipe once, replicate to thousands of nodes.',
-                'Discover cloud technologies: AWS, Google, AliCloud,... Who and what is out there?',
-            ],
-        },
-        {
-            src: Cybersecurity,
-            alt: 'Cybersecurity Icon',
-            text: 'Cybersecurity',
-            content: [
-                'Master the concepts of network security and web application security — can we stop the enemy at the gate?',
-                'Understand and apply the fundamentals of digital forensics: how to identify the culprit.',
-            ],
-        },
-        {
-            src: BusinessIntelligence,
-            alt: 'Business Intelligence Icon',
-            text: 'Business intelligence',
-            content: [
-                'Understand business intelligence concepts and their vital importance.',
-                'Learn about data warehousing, data collection and modelling principles.',
-                'Get a good grasp on intelligence metrics (marketing, retention, digital products).',
-                'Understand data governance, data quality, and integrity checks.',
-            ],
-        },
-        {
-            src: QuantAnalysis,
-            alt: 'Quantitative analysis Icon',
-            text: 'Quantitative analysis',
-            content: [
-                'Explore the role of financial markets and its participants in the economic machine.',
-                'Apply the concepts of probability and statistics to solve concrete problems.',
-                'Evaluate option trading strategies for different market conditions.',
-                'Analyse financial time series data to grasp the impact of market microstructure.',
             ],
         },
     ],

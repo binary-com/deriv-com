@@ -1,17 +1,19 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
+import { contents, contents_ppc, header_items } from './_data'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
-import { EU, UK, ROW } from 'components/containers/visibility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { TString } from 'types/generics'
 
 const query = graphql`
     query {
@@ -24,21 +26,6 @@ const query = graphql`
 type HeroProps = {
     is_ppc?: boolean
 }
-
-const contents = [
-    <Localize key={0} translate_text="Tight spreads" />,
-    <Localize key={1} translate_text="Sharp prices" />,
-    <Localize key={2} translate_text="24x7 trading" />,
-    <Localize key={3} translate_text="100+ tradeable assets" />,
-    <Localize key={4} translate_text="20+ years of experience" />,
-]
-
-const contents_ppc = [
-    <Localize key={3} translate_text="Tight spreads" />,
-    <Localize key={2} translate_text="Sharp prices" />,
-    <Localize key={1} translate_text="100+ tradeable assets" />,
-    <Localize key={0} translate_text="20+ years of experience" />,
-]
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -61,9 +48,9 @@ const HeroButton = styled(Button)`
     width: fit-content;
 
     @media ${device.tabletL} {
-        margin: 0 auto;
-        font-size: 20px;
-        line-height: 30px;
+        width: 100%;
+        font-size: 14px;
+        padding: 14px 16px;
     }
     @media ${device.mobileS} {
         font-size: 18px;
@@ -77,10 +64,19 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const HeroHeader = ({ text }: { text: TString }) => {
+    return (
+        <StyledHeader type="main-landing-title" color="white">
+            <Localize translate_text={text} />
+        </StyledHeader>
+    )
+}
+
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const { is_uk, is_loading } = useCountryRule()
+    const { is_region_loading, is_eu, is_row } = useRegion()
     const handleSignup = useHandleSignup()
+    const [is_logged_in] = useAuthCheck()
 
     return (
         <HeroWrapper>
@@ -117,46 +113,44 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                     max_width: '100%',
                                 }}
                             >
-                                <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Simple." />
-                                </StyledHeader>
-                                <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Flexible." />
-                                </StyledHeader>
-                                <StyledHeader type="main-landing-title" color="white">
-                                    <Localize translate_text="Reliable." />
-                                </StyledHeader>
+                                {header_items.map((item) => (
+                                    <HeroHeader key={item.id} text={item.text} />
+                                ))}
                             </Flex>
                             <Header
                                 as="h2"
                                 type="sub-section-title"
                                 color="white"
-                                max_width="430px"
                                 min_height="auto"
                                 weight="normal"
                             >
-                                <EU>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities." />
-                                </EU>
-                                <UK>
-                                    <Localize translate_text="Trade forex, stocks & indices, and commodities." />
-                                </UK>
-                                <ROW>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
-                                </ROW>
+                                {is_eu && (
+                                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
+                                )}
+                                {is_row && (
+                                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
+                                )}
                             </Header>
-                            <VerticalCarousel
-                                contents={is_ppc && is_uk ? contents_ppc : contents}
-                            />
+                            <VerticalCarousel contents={is_ppc ? contents_ppc : contents} />
                             <Box tabletL={{ mt: '-8px' }}>
-                                <HeroButton
-                                    disabled={is_loading}
-                                    onClick={handleSignup}
-                                    id="dm-hero-signup"
-                                    secondary="true"
-                                >
-                                    <Localize translate_text="Create free demo account" />
-                                </HeroButton>
+                                {is_logged_in ? (
+                                    <HeroButton
+                                        onClick={handleGetTrading}
+                                        id="dm-hero-signup"
+                                        secondary
+                                    >
+                                        <Localize translate_text="Get Trading" />
+                                    </HeroButton>
+                                ) : (
+                                    <HeroButton
+                                        disabled={is_region_loading}
+                                        onClick={handleSignup}
+                                        id="dm-hero-signup"
+                                        secondary
+                                    >
+                                        <Localize translate_text="Create free demo account" />
+                                    </HeroButton>
+                                )}
                             </Box>
                         </Flex>
                         <PlatformSlideshow />
@@ -165,10 +159,6 @@ const Hero = ({ is_ppc }: HeroProps) => {
             </BackgroundImage>
         </HeroWrapper>
     )
-}
-
-Hero.propTypes = {
-    is_ppc: PropTypes.bool,
 }
 
 export default Hero

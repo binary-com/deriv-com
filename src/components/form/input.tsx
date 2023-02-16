@@ -6,7 +6,20 @@ import device from 'themes/device'
 import CrossIcon from 'images/svg/help/cross.svg'
 
 interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
-    handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
+    height?: string
+    id?: string
+    label?: string
+    label_color?: string
+    label_hover_color?: string
+    tablet_background?: string
+    inputColor?: string
+    input_background?: string
+    label_focus_color?: string
+    labelSize?: string
+    labelTop?: string
+    handleError?: (
+        current_input?: { focus?: () => void } & React.MutableRefObject<HTMLInputElement>,
+    ) => void
 }
 
 type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps
@@ -182,6 +195,7 @@ const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
+    color: var(--color-red-1);
 `
 
 const StyledLabel = styled.label<StyledLabelProps>`
@@ -248,7 +262,7 @@ const Input = ({
                     </StyledLabel>
                 )}
             </InputWrapper>
-            <ErrorMessages lh="1.4" align="left" color="red-1">
+            <ErrorMessages lh="1.4" align="start">
                 {error}
             </ErrorMessages>
             {error && (

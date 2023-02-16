@@ -8,7 +8,7 @@ import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form'
 
 type StepCommonType = {
-    no_margin: boolean
+    no_margin?: boolean
 }
 
 const Container = styled.section`
@@ -28,6 +28,9 @@ const Container = styled.section`
 const Tab = styled.div`
     width: 100%;
     margin-top: 2.4rem;
+    @media ${device.tablet} {
+        margin-top: 0;
+    }
 `
 const TabsWrapper = styled.div`
     display: flex;
@@ -51,7 +54,7 @@ const StepCommon = css<StepCommonType>`
     cursor: pointer;
     padding-left: 1.8rem;
     @media ${device.tabletL} {
-        text-align: left;
+        text-align: start;
         border: none;
         margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
@@ -202,7 +205,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             type="sub-section-title"
                             lh="1.5"
-                            align="left"
+                            align="start"
                             no_margin
                             start_time={0}
                             end_time={7}
@@ -220,7 +223,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             type="sub-section-title"
                             lh="1.5"
-                            align="left"
+                            align="start"
                             start_time={7}
                             end_time={13}
                             current_time={this.state.current_time}
@@ -237,7 +240,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             type="sub-section-title"
                             lh="1.5"
-                            align="left"
+                            align="start"
                             start_time={13}
                             end_time={30}
                             current_time={this.state.current_time}
@@ -251,8 +254,8 @@ class DtraderTabs extends React.Component {
                     </Tab>
                     <GotoLiveWrapper>
                         <GoToLiveDemo
-                            secondary="true"
-                            external="true"
+                            secondary
+                            external
                             type="deriv_app"
                             target="_blank"
                             rel="noopener noreferrer nofollow"

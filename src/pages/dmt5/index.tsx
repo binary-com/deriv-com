@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     WhyTrader,
@@ -12,6 +12,7 @@ import {
 import Numbers from './_numbers'
 import WhatIsTrader from './_what-is-trader'
 import DHero from 'components/custom/_dhero-dmt5'
+import { DotLoader } from 'components/elements'
 import BackgroundPatternDMT5 from 'images/svg/dmt5/bg_banner_dmt5.svg'
 import BackgroundPatternDMT5_mobile from 'images/svg/dmt5/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'
@@ -21,6 +22,8 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { MetaAttributesType } from 'types/page.types'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 
 const meta_attributes: MetaAttributesType = {
     og_title: localize('DMT5 | MetaTrader 5 | Deriv'),
@@ -37,12 +40,30 @@ const query = graphql`
         dmt5_desktop_banner: file(relativePath: { eq: "dmt5/bg_desktop_banner_dmt5.png" }) {
             ...fadeIn
         }
+        dmt5_desktop_banner_rtl: file(relativePath: { eq: "dmt5/bg_desktop_banner_dmt5_rtl.png" }) {
+            ...fadeIn
+        }
         dmt5_mobile_banner: file(relativePath: { eq: "dmt5/bg_banner_dmt5_mobile.png" }) {
             ...fadeIn
         }
     }
 `
-
+const target = '#gatsby-focus-wrapper'
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.7,
+}
+const lazy_components = (
+    <>
+        <WhyTrader fallback={<DotLoader />} />
+        <StartTrader />
+        <DownloadApp />
+        <MarginCalculator />
+        <Flexibility />
+        <SwapFreeTrading fallback={<DotLoader />} />
+    </>
+)
 const DMT5 = () => {
     const [is_mobile, setMobile] = useState(false)
     const data = useStaticQuery(query)
@@ -53,8 +74,17 @@ const DMT5 = () => {
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
-    })
-    const background = is_mobile ? data['dmt5_mobile_banner'] : data['dmt5_desktop_banner']
+    }, [])
+
+    const lazyTemplate = useHandleLazyLoad(lazy_components, target, options)
+    const is_rtl = useIsRtl()
+    const background = useMemo(() => {
+        if (is_mobile) {
+            return data['dmt5_mobile_banner']
+        } else {
+            return is_rtl ? data['dmt5_desktop_banner_rtl'] : data['dmt5_desktop_banner']
+        }
+    }, [data, is_mobile, is_rtl])
 
     return (
         <Layout>
@@ -67,7 +97,7 @@ const DMT5 = () => {
             />
             <Desktop>
                 <DHero
-                    title={localize('Deriv MT5 (DMT5)')}
+                    title={localize('Deriv MT5')}
                     content={
                         <Localize
                             translate_text="The all-in-one <0/>CFD trading<0/> platform"
@@ -82,7 +112,7 @@ const DMT5 = () => {
             </Desktop>
             <Mobile>
                 <DHero
-                    title={localize('Deriv MT5 (DMT5)')}
+                    title={localize('Deriv MT5')}
                     content={
                         <Localize
                             translate_text="The all-in-one <0/> CFD trading platform <0/>  "
@@ -95,15 +125,9 @@ const DMT5 = () => {
                     background={background}
                 />
             </Mobile>
-
             <Numbers />
             <WhatIsTrader />
-            <WhyTrader />
-            <StartTrader />
-            <DownloadApp />
-            <MarginCalculator />
-            <Flexibility />
-            <SwapFreeTrading />
+            {lazyTemplate}
             <DBanner
                 background_pattern={
                     is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
@@ -111,6 +135,7 @@ const DMT5 = () => {
                 title={<Localize translate_text="Get into the Deriv MT5 experience" />}
                 data={data}
                 image_alt="DMT5 trading platform"
+                is_mt5
             />
         </Layout>
     )

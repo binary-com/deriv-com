@@ -1,9 +1,15 @@
 {
-    "include": ["./src/**/*", "./src/custom.d.ts"],
+    "include": [
+        "./src/**/*",
+        "./src/custom.d.ts",
+        "types/react-i18next.d.ts",
+        "./src/types/utils.d.ts"
+    ],
     "jsx": "react",
     "compilerOptions": {
         "baseUrl": "src",
         "jsx": "preserve",
+        "lib": ["ES2021.String", "DOM", "DOM.Iterable"],
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
@@ -12,5 +18,5 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "downlevelIteration": true
-    },
+    }
 }

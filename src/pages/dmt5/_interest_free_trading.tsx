@@ -1,5 +1,4 @@
 import React from 'react'
-import Proptypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { CardStyle, Header, Text } from 'components/elements'
@@ -8,17 +7,20 @@ import { Localize } from 'components/localization'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+
+type CheckedTextProps = {
+    children: string
+}
 
 const ImageWrapper = styled.div`
     width: 124px;
-    height: 84px;
+    height: 100px;
     object-fit: contain;
     margin-top: 4rem;
     @media ${device.tabletL} {
         margin-top: 60px;
-        height: 55px;
-        width: 80px;
+        height: 100px;
+        width: 132px;
     }
 `
 const ImageTag = styled.img`
@@ -67,7 +69,7 @@ const StyledHeader = styled(Header)`
     margin: 13.4rem 0 1.2rem;
     font-size: 48px;
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 28px;
         margin: 0 0 8px;
     }
 `
@@ -81,19 +83,11 @@ const StyledFlex = styled(Flex)`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    padding: 1rem 1.6rem;
+    padding: 10px 16px;
     font-size: 14px;
     height: auto;
     min-height: 4rem;
-    width: 24rem;
-    margin: 0;
-    @media ${device.tabletL} {
-        margin: auto;
-    }
-
-    @media ${device.mobileL} {
-        width: 100%;
-    }
+    width: 230px;
 
     :active {
         outline: none;
@@ -127,14 +121,15 @@ const StyledText = styled(Text)`
 `
 
 const StyledImg = styled.img`
+    margin-right: 8px;
+
     @media ${device.tabletL} {
         width: 16px;
         height: 16px;
-        margin-right: 8px;
     }
 `
 
-const CheckedText = ({ children }) => (
+const CheckedText = ({ children }: CheckedTextProps) => (
     <>
         <Flex jc="flex-start" ai="center">
             <StyledImg src={Checkmark} alt="Check mark" width="24" height="24" />
@@ -146,13 +141,7 @@ const CheckedText = ({ children }) => (
     </>
 )
 
-CheckedText.propTypes = {
-    children: Proptypes.string,
-}
-
 const InterestFreeTrading = () => {
-    const { is_uk, is_eu, is_row } = useCountryRule()
-
     return (
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">
@@ -164,26 +153,20 @@ const InterestFreeTrading = () => {
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>
-                    {is_uk && <CheckedText>Stocks & indices</CheckedText>}
-                    {(is_eu || is_row) && (
-                        <>
-                            <CheckedText>Synthetic indices</CheckedText>
-                            <CheckedText>Stocks & indices</CheckedText>
-                            <CheckedText>Cryptocurrencies</CheckedText>
-                        </>
-                    )}
-                    {is_row && <CheckedText>Basket indices</CheckedText>}
+                    <CheckedText>Derived</CheckedText>
+                    <CheckedText>Stocks & indices</CheckedText>
+                    <CheckedText>Cryptocurrencies</CheckedText>
                     <CheckedText>Commodities</CheckedText>
                 </TextWrapperFlex>
             </InterestCardFlex>
-            <StyledFlex fd="column" jc="flex-start" ac="center" height="100%" width="51.4rem">
+            <StyledFlex fd="column" jc="flex-start" height="100%" width="51.4rem">
                 <StyledHeader as="h2" lh="1.25">
                     <Localize translate_text="Trade on the world markets without commission" />
                 </StyledHeader>
                 <StyledRightText>
                     <Localize translate_text="Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs." />
                 </StyledRightText>
-                <StyledLinkButton secondary="true" type="mt5" external="true" target="_blank">
+                <StyledLinkButton secondary external type="mt5" target="_blank">
                     <Localize translate_text="Trade without commission" />
                 </StyledLinkButton>
             </StyledFlex>

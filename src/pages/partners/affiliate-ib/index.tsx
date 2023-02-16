@@ -28,6 +28,10 @@ type ItemsType = {
     subtitle: React.ReactElement
 }[]
 
+type StyledLinkButtonProps = {
+    id?: string
+}
+
 const meta_attributes: MetaAttributesType = {
     og_title: localize('Affiliate and IB programme | Deriv'),
     og_description: localize(
@@ -42,11 +46,11 @@ const StyledHeader = styled(Header)`
     margin-bottom: 4rem;
     @media ${device.tabletS} {
         font-size: 40px;
-        text-align: left;
+        text-align: start;
     }
 `
 
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
     border-radius: 4px;
     @media ${device.tabletS} {
         font-size: 14px;
@@ -87,6 +91,7 @@ const SectionContainerWrapper = styled(SectionContainer)`
 
 const StyledContainer = styled(Container)`
     width: 100%;
+    direction: ltr;
     @media ${device.tabletL} {
         flex-wrap: wrap;
         margin: 20px 0;
@@ -118,9 +123,9 @@ const StyledText = styled(Text)`
 `
 
 const items: ItemsType = [
-    { title: '47K+', subtitle: <Localize translate_text="members" /> },
-    { title: '$14M+', subtitle: <Localize translate_text="paid out" /> },
-    { title: '150+', subtitle: <Localize translate_text="countries" /> },
+    { title: '60K+', subtitle: <Localize translate_text="members" /> },
+    { title: '$47M+', subtitle: <Localize translate_text="paid out since inception" /> },
+    { title: '190+', subtitle: <Localize translate_text="countries" /> },
     { title: '1M+', subtitle: <Localize translate_text="clients" /> },
 ]
 
@@ -136,7 +141,7 @@ const why_partner_with_us_items: WhyUsType = [
     {
         title: <Localize translate_text="Zero charges with prompt monthly and daily payouts" />,
         subtitle: (
-            <Localize translate_text="All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your DMT5 account daily." />
+            <Localize translate_text="All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your Deriv MT5 account daily." />
         ),
         image_name: 'daily_ib_commission',
         image_alt: <Localize translate_text="Check your daily IB commission" />,
@@ -172,7 +177,7 @@ const AffiliateIb = () => {
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"
                     to={affiliate_signup_url}
-                    external="true"
+                    external
                     target="_blank"
                     type="affiliate_sign_up"
                     secondary
@@ -184,7 +189,7 @@ const AffiliateIb = () => {
                 <Container direction="column">
                     <SubtitleHeader as="h4" type="sub-section-title" weight="normal" align="center">
                         {localize(
-                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
+                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd — the owner of Binary.com and Deriv.com — has a proven track record of running successful referral programmes with prompt payouts.',
                         )}
                     </SubtitleHeader>
                     <SectionContainerWrapper>

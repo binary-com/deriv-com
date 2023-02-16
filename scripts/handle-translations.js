@@ -114,7 +114,7 @@ const runProcess = (data) => {
             break
         case 'pull-master':
             exec(
-                `crowdin download -b  master && crowdin download -b master -l zh-CN -T ${CROWDIN_API_KEY} `,
+                `crowdin download -b  master -T ${CROWDIN_API_KEY} && crowdin download -b master -l zh-CN -T ${CROWDIN_API_KEY} `,
                 callback,
             )
             break

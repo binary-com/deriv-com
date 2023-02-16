@@ -1,27 +1,15 @@
-import React, { ReactElement, useEffect, useLayoutEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useScreenSize from 'components/hooks/use-screen-size'
+
+type BreakPointType = number | SizeType
 
 type ResponsiveContainerProps = {
-    children: ReactElement
-    breakpoint?: number | SizeType
+    children: ReactNode
+    breakpoint?: BreakPointType
     className?: string
-}
-
-type CountryRuleType =
-    | 'is_eu'
-    | 'is_uk'
-    | 'is_non_uk'
-    | 'is_non_eu'
-    | 'is_uk_eu'
-    | 'is_row'
-    | 'is_dev'
-
-type CountryBasedContentProps = {
-    children: ReactElement
-    country_rule: CountryRuleType
 }
 
 type LayerProps = {
@@ -42,7 +30,7 @@ const MobileLayer = styled.div<LayerProps>`
     }
 `
 
-const getBreakPoint = (breakpoint: ResponsiveContainerProps['breakpoint']) => {
+const getBreakPoint = (breakpoint: BreakPointType) => {
     if (typeof breakpoint === 'number') {
         return breakpoint
     } else {
@@ -92,43 +80,18 @@ export const Mobile = ({
     )
 }
 
-const CountryBasedContent = ({ country_rule, children }: CountryBasedContentProps) => {
-    const rules = useCountryRule()
-    const [is_loaded, setLoaded] = useState(false)
-
-    useLayoutEffect(() => {
-        setLoaded(true)
-    }, [rules])
-
-    const condition = rules[country_rule]
-
-    return is_loaded && condition ? <>{children}</> : <></>
+type TVisiblityProps = {
+    config: Partial<ReturnType<typeof useScreenSize>>
+    children?: ReactNode
 }
 
-export const EU = ({ children }: ResponsiveContainerProps) => (
-    <CountryBasedContent country_rule="is_eu">{children}</CountryBasedContent>
-)
+export const Visibility = ({ children, config }: TVisiblityProps) => {
+    const visiblity = useScreenSize()
 
-export const NonEU = ({ children }: ResponsiveContainerProps) => (
-    <CountryBasedContent country_rule="is_non_eu">{children}</CountryBasedContent>
-)
+    const filterKeys = Object.keys(config)
+    const is_visible = filterKeys.some((key) => {
+        return visiblity[key]
+    })
 
-export const UK = ({ children }: ResponsiveContainerProps) => (
-    <CountryBasedContent country_rule="is_uk">{children}</CountryBasedContent>
-)
-
-export const NonUK = ({ children }: ResponsiveContainerProps) => (
-    <CountryBasedContent country_rule="is_non_uk">{children}</CountryBasedContent>
-)
-
-export const UKEU = ({ children }: ResponsiveContainerProps) => (
-    <CountryBasedContent country_rule="is_uk_eu">{children}</CountryBasedContent>
-)
-
-export const ROW = ({ children }: ResponsiveContainerProps) => (
-    <CountryBasedContent country_rule="is_row">{children}</CountryBasedContent>
-)
-
-export const Dev = ({ children }: ResponsiveContainerProps) => (
-    <CountryBasedContent country_rule="is_dev">{children}</CountryBasedContent>
-)
+    return is_visible ? <>{children}</> : null
+}

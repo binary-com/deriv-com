@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Formik, Field } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import {
     getSwapChargeSynthetic,
@@ -42,19 +41,21 @@ import {
     SwapFormWrapper,
     SwapTabSelector,
 } from '../common/_style'
+import { SwapSyntheticExample, SwapFinancialExample } from './_example-calc'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
     Dropdown,
     Header,
+    ImageWithDireciton,
     LocalizedLinkText,
-    QueryImage,
     Text,
 } from 'components/elements'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import useWS from 'components/hooks/useWS'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]
@@ -122,11 +123,10 @@ const VolumeField = ({
                 error={touched.volume && errors.volume}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={(current_input) => {
+                handleError={() => {
                     setFieldValue('volume', '', false)
                     setFieldError('volume', '')
                     setFieldTouched('volume', false, false)
-                    current_input.focus()
                 }}
                 maxLength={getMaxLength(values.volume, 8)}
                 background="white"
@@ -162,11 +162,10 @@ const SwapRateField = ({
                 error={touched.swapRate && errors.swapRate}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={(current_input) => {
+                handleError={() => {
                     setFieldValue('swapRate', '', false)
                     setFieldError('swapRate', '')
                     setFieldTouched('swapRate', false, false)
-                    current_input.focus()
                 }}
                 maxLength={getMaxLength(values.swapRate, 15)}
                 background="white"
@@ -186,35 +185,24 @@ const StyledInputGroup = styled(InputGroup)`
 `
 
 const SwapCalculator = () => {
-    const query = graphql`
-        query {
-            swap_synthetic_formula: file(
-                relativePath: { eq: "trade-tools/swap-synthetic-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            swap_forex_formula: file(relativePath: { eq: "trade-tools/swap-forex-formula.png" }) {
-                ...fadeIn
-            }
-            swap_synthetic_formula_mobile: file(
-                relativePath: { eq: "trade-tools/swap-synthetic-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            swap_forex_formula_mobile: file(
-                relativePath: { eq: "trade-tools/swap-forex-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-    const data = useStaticQuery(query)
-
     const [tab, setTab] = useState('Synthetic')
+    const { data, is_loading, send } = useWS('active_symbols')
 
     const onTabClick = (t) => {
         setTab(t)
     }
+
+    useEffect(() => {
+        send({ active_symbols: 'full' })
+    }, [send])
+
+    const fetchTickData = useCallback(
+        (selectedSymbol, setAssetPrice) => {
+            const selected = data?.find((item) => item.symbol === selectedSymbol)
+            if (selected) setAssetPrice('assetPrice', selected.spot)
+        },
+        [data],
+    )
 
     return (
         <>
@@ -223,7 +211,7 @@ const SwapCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -236,21 +224,26 @@ const SwapCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5 (DMT5).',
+                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5.',
                     )}
                 </SectionSubtitle>
 
-                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
+                <Flex
+                    mt="80px"
+                    mb="40px"
+                    tablet={{ mt: '40px', mb: '24px' }}
+                    id="swap-tab-selector"
+                >
                     <SwapTabSelector
                         active={tab === 'Synthetic'}
                         onClick={() => onTabClick('Synthetic')}
                     >
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="synthetic">
                             {localize('Synthetic')}
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="financial">
                             {localize('Financial')}
                         </Text>
                     </SwapTabSelector>
@@ -320,12 +313,22 @@ const SwapCalculator = () => {
                                                     default_option={optionItemDefault}
                                                     selected_option={values.symbol}
                                                     id="symbol"
-                                                    onChange={swap_currency_change_handler(
-                                                        setFieldValue,
-                                                    )}
+                                                    onChange={(value) => {
+                                                        setFieldValue(
+                                                            'swapCurrency',
+                                                            getCurrency(value),
+                                                        )
+                                                        setFieldValue(
+                                                            'contractSize',
+                                                            getContractSize(value),
+                                                        )
+                                                        setFieldValue('symbol', value)
+                                                        fetchTickData(value.symbol, setFieldValue)
+                                                    }}
                                                     contractSize={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
+                                                    disabled={is_loading}
                                                 />
 
                                                 <InputGroup>
@@ -362,7 +365,7 @@ const SwapCalculator = () => {
                                                                 }
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
-                                                                handleError={(current_input) => {
+                                                                handleError={() => {
                                                                     setFieldValue(
                                                                         'assetPrice',
                                                                         '',
@@ -374,12 +377,7 @@ const SwapCalculator = () => {
                                                                         false,
                                                                         false,
                                                                     )
-                                                                    current_input.focus()
                                                                 }}
-                                                                maxLength={getMaxLength(
-                                                                    values.assetPrice,
-                                                                    15,
-                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -435,12 +433,13 @@ const SwapCalculator = () => {
                                     {localize('Example calculation')}
                                 </Header>
 
-                                <Accordion has_single_state>
+                                <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
                                         header={localize('Swap charge')}
                                         header_style={header_style}
                                         style={item_style}
                                         plus
+                                        class_name="swap-charge"
                                     >
                                         <Text mb="2rem">
                                             {localize(
@@ -448,18 +447,12 @@ const SwapCalculator = () => {
                                             )}
                                         </Text>
 
-                                        <Show.Desktop>
-                                            <QueryImage
-                                                data={data.swap_synthetic_formula}
-                                                alt={localize('swap synthetic formula')}
-                                            />
-                                        </Show.Desktop>
-                                        <Show.Mobile>
-                                            <QueryImage
-                                                data={data.swap_synthetic_formula_mobile}
-                                                alt={localize('swap synthetic formula mobile')}
-                                            />
-                                        </Show.Mobile>
+                                        <Desktop>
+                                            <SwapSyntheticExample />
+                                        </Desktop>
+                                        <Mobile>
+                                            <SwapSyntheticExample />
+                                        </Mobile>
                                         <FormulaText>
                                             <StyledOl>
                                                 <li>
@@ -487,9 +480,9 @@ const SwapCalculator = () => {
                                 <LinkWrapper height="auto">
                                     {
                                         <StyledLinkButton
-                                            tertiary="true"
+                                            tertiary
+                                            external
                                             type="mt5"
-                                            external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -497,7 +490,7 @@ const SwapCalculator = () => {
                                         </StyledLinkButton>
                                     }
                                     {
-                                        <StyledLinkButton secondary="true" to="/trade-types/cfds/">
+                                        <StyledLinkButton secondary to="/trade-types/cfds/">
                                             {localize('Learn more about swap')}
                                         </StyledLinkButton>
                                     }
@@ -610,7 +603,7 @@ const SwapCalculator = () => {
                                                                 }
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
-                                                                handleError={(current_input) => {
+                                                                handleError={() => {
                                                                     setFieldValue(
                                                                         'pointValue',
                                                                         '',
@@ -622,7 +615,6 @@ const SwapCalculator = () => {
                                                                         false,
                                                                         false,
                                                                     )
-                                                                    current_input.focus()
                                                                 }}
                                                                 maxLength={getMaxLength(
                                                                     values.pointValue,
@@ -687,12 +679,13 @@ const SwapCalculator = () => {
                                     {localize('Example calculation')}
                                 </Header>
 
-                                <Accordion has_single_state>
+                                <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
                                         header={localize('Swap charge')}
                                         header_style={header_style}
                                         style={item_style}
                                         plus
+                                        class_name="swap-charge"
                                     >
                                         <Text mb="2rem">
                                             {localize(
@@ -700,18 +693,12 @@ const SwapCalculator = () => {
                                             )}
                                         </Text>
 
-                                        <Show.Desktop>
-                                            <QueryImage
-                                                data={data.swap_forex_formula}
-                                                alt={localize('Swap forex formula')}
-                                            />
-                                        </Show.Desktop>
-                                        <Show.Mobile>
-                                            <QueryImage
-                                                data={data.swap_forex_formula_mobile}
-                                                alt={localize('Swap forex formula mobile')}
-                                            />
-                                        </Show.Mobile>
+                                        <Desktop>
+                                            <SwapFinancialExample />
+                                        </Desktop>
+                                        <Mobile>
+                                            <SwapFinancialExample />
+                                        </Mobile>
                                         <FormulaText>
                                             <StyledOl>
                                                 <li>
@@ -742,15 +729,15 @@ const SwapCalculator = () => {
                                 </Accordion>
                                 <LinkWrapper height="auto">
                                     <StyledLinkButton
-                                        tertiary="true"
+                                        tertiary
+                                        external
                                         type="mt5"
-                                        external="true"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         {localize('Go to Deriv MT5 dashboard')}
                                     </StyledLinkButton>
-                                    <StyledLinkButton secondary="true" to="/trade-types/cfds/">
+                                    <StyledLinkButton secondary to="/trade-types/cfds/">
                                         {localize('Learn more about swap')}
                                     </StyledLinkButton>
                                 </LinkWrapper>

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import {
     BasketIndicesCfds,
     BasketIndicesCommodities,
@@ -28,7 +28,7 @@ type Option = {
     title: ReactElement
     component: ReactElement
     mobile_title?: ReactElement
-    details?: () => ReactElement
+    details?: ReactNode
 }
 
 export type ForexAndBasketMultiplier = {
@@ -37,6 +37,7 @@ export type ForexAndBasketMultiplier = {
         tablet_col: number
         mobile_col: number
     }
+    eu_content?: ReactElement[]
     content: Option[]
     template?: number
 }
@@ -73,6 +74,7 @@ export type CryptoMultiplier = {
         tablet_col: number
         mobile_col: number
     }
+    eu_content?: ReactElement[]
     content: Option[]
 }
 
@@ -100,12 +102,12 @@ export const basket_multiplier: ForexAndBasketMultiplier = {
         {
             title: <Localize translate_text="Commodities Basket" />,
             component: <BasketIndicesCommodities />,
-            details: BasketCommoditiesDetails,
+            details: <BasketCommoditiesDetails />,
         },
         {
             title: <Localize translate_text="Forex Basket" />,
             component: <BasketIndicesCfds />,
-            details: BasketFXDetails,
+            details: <BasketFXDetails />,
         },
     ],
 }
@@ -120,25 +122,23 @@ export const synthetic_multiplier: SyntheticMultiplier = {
         {
             title: <Localize translate_text="Continuous indices" />,
             component: <ContinuousIndices />,
-            details: ContinuousIndicesDetails,
+            details: <ContinuousIndicesDetails />,
         },
         {
             title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: (
-                <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
-            ),
+            mobile_title: <Localize translate_text="Crash/Boom" />,
             component: <CrashBoomMultipliers />,
-            details: CrashBoomMultipliersDetails,
+            details: <CrashBoomMultipliersDetails />,
         },
         {
             title: <Localize translate_text="Jump indices" />,
             component: <JumpIndices />,
-            details: JumpIndicesDetails,
+            details: <JumpIndicesDetails />,
         },
         {
             title: <Localize translate_text="Step indices" />,
             component: <StepIndices />,
-            details: StepIndicesDetails,
+            details: <StepIndicesDetails />,
         },
     ],
     eu_content: [
@@ -160,15 +160,13 @@ export const synthetic_multiplier_eu: SyntheticMultiplier = {
         {
             title: <Localize translate_text="Continuous indices" />,
             component: <VolatilityIndicesEU />,
-            details: VolatilityIndicesDetailsEU,
+            details: <VolatilityIndicesDetailsEU />,
         },
         {
             title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: (
-                <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
-            ),
+            mobile_title: <Localize translate_text="Crash/Boom" />,
             component: <CrashBoomEU />,
-            details: CrashBoomDetailsEU,
+            details: <CrashBoomDetailsEU />,
         },
     ],
 }
@@ -185,7 +183,7 @@ export const crypto_multiplier: CryptoMultiplier = {
         {
             title: <Localize translate_text="Crypto pairs" />,
             component: <CryptocurrenciesMultipliers />,
-            details: CryptocurrenciesDetails,
+            details: <CryptocurrenciesDetails />,
         },
     ],
 }

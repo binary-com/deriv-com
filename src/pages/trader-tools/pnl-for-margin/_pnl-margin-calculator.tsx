@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useState, useRef } from 'react'
 import { Field, Formik } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import {
     getContractSize,
     getCurrency,
@@ -20,7 +19,6 @@ import {
     CalculateButton,
     CalculatorBody,
     CalculatorDropdown,
-    CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
     ContentContainer,
@@ -44,66 +42,22 @@ import {
     StyledSection,
     SwapTabSelector,
 } from '../common/_style'
+import { StopLoss, PipValue, TakeProfitLevel, ProfitPipValue } from './_example-pnl-margin'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
     Header,
+    ImageWithDireciton,
     LocalizedLinkText,
-    QueryImage,
     Text,
 } from 'components/elements'
-import { Flex, Show } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers/visibility'
+import { Flex } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const PnlMarginCalculator = () => {
-    const query = graphql`
-        query {
-            stop_loss_level_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_level_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_pip_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-pip-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_pip_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-pip-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_level_formula: file(
-                relativePath: { eq: "trade-tools/take-profit-level-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_level_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-level-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_pip_formula: file(
-                relativePath: { eq: "trade-tools/take-profit-pip-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_pip_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-pip-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-
-    const data = useStaticQuery(query)
     const formik_ref = useRef(null)
     const form = formik_ref.current
 
@@ -154,7 +108,7 @@ const PnlMarginCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -172,13 +126,17 @@ const PnlMarginCalculator = () => {
                 </SectionSubtitle>
 
                 <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
-                    <SwapTabSelector active={tab === 'Buy'} onClick={() => onTabClick('Buy')}>
-                        <Text size="var(--text-size-m)" align="center">
+                    <SwapTabSelector
+                        active={tab === 'Buy'}
+                        onClick={() => onTabClick('Buy')}
+                        id="pnl-margin-tab-selector"
+                    >
+                        <Text size="var(--text-size-m)" align="center" className="buy">
                             {localize('Buy')}
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Sell'} onClick={() => onTabClick('Sell')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="sell">
                             {localize('Sell')}
                         </Text>
                     </SwapTabSelector>
@@ -309,7 +267,11 @@ const PnlMarginCalculator = () => {
                                     current_input.focus()
                                 }
 
-                                const AssetPriceInput = ({ field }: { field: React.ReactNode }) => (
+                                const AssetPriceInput = <T extends object>({
+                                    field,
+                                }: {
+                                    field: T
+                                }) => (
                                     <Input
                                         {...field}
                                         id="assetPrice"
@@ -317,7 +279,7 @@ const PnlMarginCalculator = () => {
                                         value={values.assetPrice}
                                         label={localize('Open price of asset')}
                                         autoComplete="off"
-                                        error={touched.assetPrice && errors.assetPrice}
+                                        error={touched.assetPrice && errors?.assetPrice?.toString()}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -331,10 +293,10 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const StopLossAmountInput = ({
+                                const StopLossAmountInput = <T extends object>({
                                     field,
                                 }: {
-                                    field: React.ReactNode
+                                    field: T
                                 }) => (
                                     <Input
                                         {...field}
@@ -343,7 +305,10 @@ const PnlMarginCalculator = () => {
                                         value={values.stopLossAmount}
                                         label={localize('Stop loss amount')}
                                         autoComplete="off"
-                                        error={touched.stopLossAmount && errors.stopLossAmount}
+                                        error={
+                                            touched.stopLossAmount &&
+                                            errors?.stopLossAmount?.toString()
+                                        }
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={stopLossErrorHandler}
@@ -352,14 +317,18 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const PointValueInput = ({ field }: { field: React.ReactNode }) => (
+                                const PointValueInput = <T extends object>({
+                                    field,
+                                }: {
+                                    field: T
+                                }) => (
                                     <Input
                                         {...field}
                                         id="pointValue"
                                         type="text"
                                         label={localize('Point value')}
                                         autoComplete="off"
-                                        error={touched.pointValue && errors.pointValue}
+                                        error={touched.pointValue && errors?.pointValue?.toString()}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={(current_input) => {
@@ -381,10 +350,10 @@ const PnlMarginCalculator = () => {
                                     setFieldValue('stopLossAmount', value)
                                 }
 
-                                const TakeProfitAmountInput = ({
+                                const TakeProfitAmountInput = <T extends object>({
                                     field,
                                 }: {
-                                    field: React.ReactNode
+                                    field: T
                                 }) => (
                                     <Input
                                         {...field}
@@ -392,7 +361,10 @@ const PnlMarginCalculator = () => {
                                         type="text"
                                         label={localize('Take profit amount')}
                                         autoComplete="off"
-                                        error={touched.takeProfitAmount && errors.takeProfitAmount}
+                                        error={
+                                            touched.takeProfitAmount &&
+                                            errors?.takeProfitAmount?.toString()
+                                        }
                                         onBlur={handleBlur}
                                         data-lpignore="true"
                                         handleError={takeProfitErrorHanlder}
@@ -403,8 +375,8 @@ const PnlMarginCalculator = () => {
 
                                 return (
                                     <>
-                                        <Show.Desktop max_width="mobileL">
-                                            <CalculatorForm>
+                                        <Desktop breakpoint={'tablet'}>
+                                            <PnlCalculatorFormMobile>
                                                 <CalculatorHeader>
                                                     <Flex mb="24px">
                                                         <Flex fd="column" mr="24px">
@@ -494,7 +466,12 @@ const PnlMarginCalculator = () => {
                                                         </PnlCalculatorTabItem>
                                                     </Flex>
                                                     <Flex jc="space-between">
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex
+                                                            fd="column"
+                                                            width="100%"
+                                                            ml="3px"
+                                                            mr="2rem"
+                                                        >
                                                             <CalculatorDropdown
                                                                 option_list={values.optionList}
                                                                 label={localize('Symbol')}
@@ -509,7 +486,7 @@ const PnlMarginCalculator = () => {
                                                                 onBlur={handleBlur}
                                                             />
                                                         </Flex>
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex fd="column" width="100%" ml="5px">
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="pointValue"
@@ -528,7 +505,12 @@ const PnlMarginCalculator = () => {
                                                     </Flex>
 
                                                     <Flex jc="space-between" mb="17px">
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex
+                                                            fd="column"
+                                                            width="100%"
+                                                            ml="3px"
+                                                            mr="2rem"
+                                                        >
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="volume"
@@ -584,7 +566,7 @@ const PnlMarginCalculator = () => {
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex fd="column" width="100%" ml="5px">
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="takeProfitAmount"
@@ -600,7 +582,12 @@ const PnlMarginCalculator = () => {
                                                     </Flex>
 
                                                     <Flex jc="space-between">
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex
+                                                            fd="column"
+                                                            width="100%"
+                                                            ml="3px"
+                                                            mr="2rem"
+                                                        >
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="assetPrice"
@@ -616,7 +603,7 @@ const PnlMarginCalculator = () => {
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex fd="column" width="100%" ml="5px">
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="stopLossAmount"
@@ -641,10 +628,10 @@ const PnlMarginCalculator = () => {
                                                         </CalculateButton>
                                                     </Flex>
                                                 </CalculatorBody>
-                                            </CalculatorForm>
-                                        </Show.Desktop>
+                                            </PnlCalculatorFormMobile>
+                                        </Desktop>
 
-                                        <Show.Mobile min_width="mobileL">
+                                        <Mobile>
                                             <PnlCalculatorFormMobile>
                                                 <PnlHeaderOverflow>
                                                     <PnlCalculatorHeaderMobile>
@@ -845,7 +832,7 @@ const PnlMarginCalculator = () => {
                                                     </Flex>
                                                 </CalculatorBody>
                                             </PnlCalculatorFormMobile>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     </>
                                 )
                             }}
@@ -862,7 +849,7 @@ const PnlMarginCalculator = () => {
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 (DMT5) is calculated based on the formula:',
+                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
@@ -903,7 +890,7 @@ const PnlMarginCalculator = () => {
                                 )}
                             </Text>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-margin" has_single_state>
                                 <AccordionItem
                                     header={localize('Stop loss level')}
                                     header_style={header_style}
@@ -911,19 +898,14 @@ const PnlMarginCalculator = () => {
                                         padding: '0 0 24px 0',
                                     }}
                                     plus
+                                    class_name="take-profit"
                                 >
-                                    <Show.Desktop max_width="mobileL">
-                                        <QueryImage
-                                            data={data.stop_loss_level_formula}
-                                            alt={localize('stop loss level formula')}
-                                        />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
-                                        <QueryImage
-                                            data={data.stop_loss_level_formula_mobile}
-                                            alt={localize('stop loss level formula')}
-                                        />
-                                    </Show.Mobile>
+                                    <Desktop breakpoint={'tablet'}>
+                                        <StopLoss />
+                                    </Desktop>
+                                    <Mobile>
+                                        <StopLoss />
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -939,19 +921,14 @@ const PnlMarginCalculator = () => {
                                     header={localize('Stop loss pip value')}
                                     header_style={header_style}
                                     plus
+                                    class_name="stop-loss"
                                 >
-                                    <Show.Desktop max_width="mobileL">
-                                        <QueryImage
-                                            data={data.stop_loss_pip_formula}
-                                            alt={localize('stop loss pip formula')}
-                                        />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
-                                        <QueryImage
-                                            data={data.stop_loss_pip_formula_mobile}
-                                            alt={localize('stop loss pip formula')}
-                                        />
-                                    </Show.Mobile>
+                                    <Desktop breakpoint={'tablet'}>
+                                        <PipValue />
+                                    </Desktop>
+                                    <Mobile>
+                                        <PipValue />
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -976,9 +953,9 @@ const PnlMarginCalculator = () => {
                             <LinkWrapper height="auto">
                                 {
                                     <StyledLinkButton
-                                        secondary="true"
+                                        secondary
+                                        external
                                         type="mt5"
-                                        external="true"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -997,7 +974,7 @@ const PnlMarginCalculator = () => {
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level and pip value when selling a contract on Deriv MT5 (DMT5) is calculated based on the formula:',
+                                    'The stop loss and/or take profit level and pip value when selling a contract on Deriv MT5 is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
@@ -1038,7 +1015,7 @@ const PnlMarginCalculator = () => {
                                 )}
                             </Text>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-margin" has_single_state>
                                 <AccordionItem
                                     header={localize('Take profit level')}
                                     header_style={header_style}
@@ -1046,19 +1023,15 @@ const PnlMarginCalculator = () => {
                                         padding: '0 0 24px 0',
                                     }}
                                     plus
+                                    class_name="take-profit"
                                 >
-                                    <Show.Desktop max_width="mobileL">
-                                        <QueryImage
-                                            data={data.take_profit_level_formula}
-                                            alt={localize('take profit level formula')}
-                                        />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
-                                        <QueryImage
-                                            data={data.take_profit_level_formula_mobile}
-                                            alt={localize('take profit level formula')}
-                                        />
-                                    </Show.Mobile>
+                                    <Desktop breakpoint={'tablet'}>
+                                        <TakeProfitLevel />
+                                    </Desktop>
+                                    <Mobile>
+                                        <TakeProfitLevel />
+                                    </Mobile>
+
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1075,18 +1048,12 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Show.Desktop max_width="mobileL">
-                                        <QueryImage
-                                            data={data.take_profit_pip_formula}
-                                            alt={localize('take profit pip formula')}
-                                        />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
-                                        <QueryImage
-                                            data={data.take_profit_pip_formula_mobile}
-                                            alt={localize('take profit pip formula')}
-                                        />
-                                    </Show.Mobile>
+                                    <Desktop breakpoint={'tablet'}>
+                                        <ProfitPipValue />
+                                    </Desktop>
+                                    <Mobile>
+                                        <ProfitPipValue />
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1111,9 +1078,9 @@ const PnlMarginCalculator = () => {
                             <LinkWrapper height="auto">
                                 {
                                     <StyledLinkButton
-                                        secondary="true"
+                                        secondary
+                                        external
                                         type="mt5"
-                                        external="true"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >

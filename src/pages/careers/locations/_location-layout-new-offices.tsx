@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import CareerContainer from '../_layout-components/_career_container'
 import { LocationsType } from '../_model/_locations/_locations.types'
 import { Iframe, Pin } from './_location-layout'
@@ -7,7 +8,7 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, Header, LinkText, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { map_api_key, zoho_url } from 'common/constants'
+import { map_api_key, zoho_jobs_url } from 'common/constants'
 import MapPin from 'images/svg/careers/map.svg'
 
 const StyledBackground = styled(BackgroundImage)`
@@ -41,11 +42,12 @@ const SecondStyledHeader = styled(Header)`
 
 type HeroProps = {
     display_name: string
-    img_data: string
+    img_data: ImageDataLike
     img_alt: string
+    job_location?: string
 }
 
-const Hero = ({ display_name, img_data, img_alt }: HeroProps) => {
+const Hero = ({ display_name, img_data, img_alt, job_location }: HeroProps) => {
     return (
         <StyledBackground data={img_data} alt={img_alt}>
             <StyledContainer>
@@ -53,12 +55,12 @@ const Hero = ({ display_name, img_data, img_alt }: HeroProps) => {
                 <LinkButton
                     hero
                     has_no_end_slash
-                    to={zoho_url}
-                    target="_blank"
+                    to={zoho_jobs_url + job_location}
                     rel="noopener noreferrer"
-                    external
                 >
-                    View open positions in {display_name === 'Vanuatu' ? 'Port Vila' : display_name}
+                    {`View open positions in ${
+                        display_name === 'Vanuatu' ? 'Port Vila' : display_name
+                    }`}
                 </LinkButton>
             </StyledContainer>
         </StyledBackground>
@@ -106,7 +108,7 @@ const FirstSection = styled(SectionContainer)`
             font-size: 16px;
         }
         @media ${device.mobileL} {
-            text-align: left;
+            text-align: start;
         }
     }
 `
@@ -214,26 +216,23 @@ const WorkingQueryImage = styled(QueryImage)`
 `
 
 type LocationLayoutProps = {
+    display_name?: string
+    display_title_name?: string
     location: LocationsType
-    images: LocationsType
+    images: ImageDataLike
 }
 
 export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => {
-    const { display_name, map_office_name } = location
+    const { display_name, display_title_name, map_office_name, job_location } = location
     if (!display_name) return null
 
     return (
         <>
             <Hero
-                display_name={
-                    display_name === 'Port Vila'
-                        ? 'Vanuatu'
-                        : display_name === 'Amman'
-                        ? ' Jordan'
-                        : display_name
-                }
+                display_name={display_name}
                 img_data={images[location.name]}
                 img_alt={location.img_alt}
+                job_location={job_location}
             />
             <FirstSection>
                 <SecondStyledHeader
@@ -243,7 +242,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                     size="var(--text-size-header-5)"
                     color="black-6"
                 >
-                    Deriv in {display_name === 'Amman' ? ' Jordan' : display_name}
+                    Deriv in {display_title_name}
                 </SecondStyledHeader>
                 <Flex tablet_direction="column">
                     <Text color="black-6">{location.first_p}</Text>
@@ -268,7 +267,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
 
                             <WorkingInformation p="3.2rem 6rem" direction="column">
                                 <StyledDiv>
-                                    <Header as="h3" type="subtitle-1" color="black-6">
+                                    <Header as="h3" type="subtitle-2" color="black-6">
                                         {`Working at Deriv ${map_office_name}`}
                                     </Header>
                                     <CardText color="black-6">{location.map_text}</CardText>
@@ -291,7 +290,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                         <WorkingFlex jc="cover">
                             <WorkingQueryImage
                                 data={images[location.grid_images[2]]}
-                                alt={location.grid_img_alt}
+                                alt={location.grid_img_alt[2]}
                                 width="100%"
                                 height="100%"
                             />
@@ -302,6 +301,14 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                                         {`Working at Deriv ${map_office_name}`}
                                     </Header>
                                     <CardText color="black-6">{location.map_text}</CardText>
+                                    {location.need_address_block && (
+                                        <Flex jc="unset" mt="37px">
+                                            <Pin src={MapPin} alt="map pin" />
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
+                                        </Flex>
+                                    )}
                                 </StyledDiv>
                             </WorkingInformation>
                         </WorkingFlex>

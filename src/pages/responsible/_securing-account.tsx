@@ -63,7 +63,12 @@ const SecureAccount = () => {
                 <Ul jc="center" ai="flex-start">
                     <Li>
                         <div>
-                            <img src={DifferentPassword} alt="" width="64" height="64" />
+                            <img
+                                src={DifferentPassword}
+                                alt="Strong password"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
@@ -75,7 +80,12 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={SecureBrowser} alt="" width="64" height="64" />
+                            <img
+                                src={SecureBrowser}
+                                alt="Secured login details"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
@@ -87,7 +97,12 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={PaymentMethod} alt="" width="64" height="64" />
+                            <img
+                                src={PaymentMethod}
+                                alt="Secured web browser"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
@@ -97,7 +112,7 @@ const SecureAccount = () => {
                                         <LocalizedLinkText
                                             key={0}
                                             type="deriv_app"
-                                            external="true"
+                                            external
                                             rel="noopener noreferrer"
                                             to="/account/two-factor-authentication"
                                             color="red"
@@ -111,7 +126,7 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={InstallAntivirus} alt="" width="64" height="64" />
+                            <img src={InstallAntivirus} alt="Antivirus" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>

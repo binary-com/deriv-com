@@ -1,13 +1,11 @@
 import React, { ReactElement, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, Container, NonEU } from 'components/containers'
+import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-//SVG
-import CFDIcon from 'images/svg/trade-types/cfds-new.svg'
-import MultipliersIcon from 'images/svg/custom/multipliers-nav.svg'
-import OptionsIcon from 'images/svg/custom/options-nav.svg'
+import useRegion from 'components/hooks/use-region'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type CardProps = {
     active_tab: string
@@ -15,12 +13,6 @@ type CardProps = {
     name: string
     onTabChange: (name: string) => void
 }
-
-type TabIconProps = {
-    active_tab: string
-    name: string
-}
-
 type AvailableTradesProps = {
     CFDs: ReactElement
     DigitalOptions?: ReactElement
@@ -31,21 +23,23 @@ type AvailableTradesProps = {
 type CardContainerProps = {
     active_tab: string
     name: string
+    is_rtl: boolean
 }
 
 const StyledSection = styled(SectionContainer)`
-    padding: 120px 0;
+    padding: 0;
     background-color: var(--color-white);
-
+    margin-bottom: 80px;
     @media ${device.tabletL} {
-        padding: 40px 0;
+        padding: 20px 0;
+        margin-bottom: 0;
     }
 `
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        max-width: 280px;
-        font-size: 4rem;
+        max-width: 320px;
+        font-size: 24px;
         margin: 0 auto;
     }
 `
@@ -55,17 +49,17 @@ const StyledContainer = styled(Container)`
 
     @media ${device.tabletL} {
         width: 100%;
-        margin-top: 0;
     }
 `
 
 const CardWrapper = styled(Flex)`
-    max-width: 100.6rem;
+    max-width: 99.6rem;
     justify-content: flex-start;
     z-index: 1;
-    height: 8rem;
     align-items: flex-end;
     overflow: hidden;
+    background-color: #f2f3f4;
+    margin: 0;
 
     div:first-child {
         z-index: 3;
@@ -81,17 +75,14 @@ const CardWrapper = styled(Flex)`
 const CardContainer = styled(Flex)<CardContainerProps>`
     position: relative;
     width: fit-content;
-    min-width: 240px;
+    font-size: 20px;
     height: 68px;
-    padding: 0;
-    margin: 0 -0.6rem;
+    padding: 16px 24px;
+    font-weight: 400;
     cursor: pointer;
     z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
-    padding-right: 5rem;
 
     ${Flex} {
-        padding: 16px 24px;
-
         img {
             width: 32px;
             height: 32px;
@@ -102,12 +93,12 @@ const CardContainer = styled(Flex)<CardContainerProps>`
             color: ${(props) =>
                 props.active_tab === props.name ? 'var(--color-black)' : 'var(--color-black-3)'};
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
+            font-weight: ${(props) => (props.active_tab === props.name ? 'bold' : '400')};
         }
         @media ${device.tabletL} {
             width: 100%;
             height: 100%;
             justify-content: flex-start;
-            padding: 10px 0 0 0;
 
             img {
                 width: 16px;
@@ -126,48 +117,32 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         content: ''; /* To generate the box */
         width: 100%;
         position: absolute;
-        top: -10px;
+        top: 1px;
         right: 0;
         bottom: 0;
-        left: 0;
+        left: 1px;
         z-index: -1;
         border-bottom: none;
         border-radius: 8px 16px 0 0;
         background: var(--color-grey-36);
         transform: perspective(8px) rotateX(0.8deg);
-        transform-origin: bottom left;
+        transform-origin: ${({ is_rtl }) => (is_rtl ? 'bottom right' : 'bottom left')};
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
             if (props.active_tab === props.name)
                 return css`
+                    font-weight: bold;
                     background-color: var(--color-white);
+                    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
                 `
         }}
     }
 
     @media ${device.tabletL} {
-        height: 35px;
+        height: 48px;
         min-width: unset;
-        padding-right: 25px;
-
-        &:last-child {
-            padding-right: 40px;
-        }
+        padding: 8px 16px;
     }
-`
-
-const TabIcon = styled.img<TabIconProps>`
-    min-width: 16px;
-    ${(props) => {
-        if (props.active_tab === props.name)
-            return css`
-                margin-left: 16px;
-
-                @media ${device.mobileL} {
-                    margin-left: 5px;
-                }
-            `
-    }}
 `
 
 const ContentWrapper = styled.div`
@@ -180,29 +155,34 @@ const ContentWrapper = styled.div`
 
     @media ${device.tabletL} {
         padding: 0 2rem;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
     }
 `
 
 const CardHeader = styled(Header)`
+    line-height: 44px;
+
     @media ${device.tabletL} {
         font-size: 1.75rem;
     }
 `
 
 const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
+    const is_rtl = useIsRtl()
+
     return (
-        <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
+        <CardContainer
+            name={name}
+            active_tab={active_tab}
+            onClick={() => onTabChange(name)}
+            className={name.toLowerCase()}
+            is_rtl={is_rtl}
+        >
             <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'hidden' }}>
-                {name === 'CFDs' && (
-                    <TabIcon src={CFDIcon} alt="" name={name} active_tab={active_tab} />
-                )}
-                {name === 'Options' && (
-                    <TabIcon src={OptionsIcon} alt="" name={name} active_tab={active_tab} />
-                )}
-                {name === 'Multipliers' && (
-                    <TabIcon src={MultipliersIcon} alt="" name={name} active_tab={active_tab} />
-                )}
-                <CardHeader as="h4" type="sub-section-title" width="auto">
+                {name === 'CFDs'}
+                {name === 'Options'}
+                {name === 'Multipliers'}
+                <CardHeader as="h4" width="auto">
                     {display_name}
                 </CardHeader>
             </Flex>
@@ -216,6 +196,7 @@ const AvailableTradesDesctop = ({
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
+    const { is_non_eu } = useRegion()
     const [active_tab, SetActiveTab] = useState('CFDs')
     const handleTabChange = (new_tab: string) => {
         if (new_tab !== active_tab) return SetActiveTab(new_tab)
@@ -223,11 +204,11 @@ const AvailableTradesDesctop = ({
 
     return (
         <StyledSection>
-            <StyledHeader size="var(--text-size-l)" align="center">
+            <StyledHeader as="h2" size="var(--text-size-l)" align="center">
                 {display_title}
             </StyledHeader>
             <StyledContainer direction="column">
-                <CardWrapper margin="0" position="relative">
+                <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
                         <Card
                             name="CFDs"
@@ -236,16 +217,14 @@ const AvailableTradesDesctop = ({
                             active_tab={active_tab}
                         />
                     )}
-                    <NonEU>
-                        {DigitalOptions && (
-                            <Card
-                                name="Options"
-                                display_name={<Localize translate_text="Options" />}
-                                onTabChange={() => handleTabChange('Options')}
-                                active_tab={active_tab}
-                            />
-                        )}
-                    </NonEU>
+                    {is_non_eu && DigitalOptions && (
+                        <Card
+                            name="Options"
+                            display_name={<Localize translate_text="Options" />}
+                            onTabChange={() => handleTabChange('Options')}
+                            active_tab={active_tab}
+                        />
+                    )}
 
                     {Multipliers && (
                         <Card

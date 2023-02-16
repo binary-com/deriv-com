@@ -43,6 +43,7 @@ const StyledHeader = styled(Header)`
 const NumberSection = styled(CssGrid)`
     margin-top: 40px;
     max-width: 788px;
+    direction: ltr;
 
     @media ${device.tablet} {
         grid-column-gap: 3rem;
@@ -79,6 +80,7 @@ const MapImage = styled(BackgroundImage)`
     height: 414px;
     background-color: transparent;
     background-size: cover;
+    direction: ltr;
 
     @media ${device.tabletL} {
         width: 328px;
@@ -124,7 +126,7 @@ const OurOffices = () => {
 
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
                 {our_offices_count.map(({ count, title }) => (
-                    <StyledFlex fd="column" key={title}>
+                    <StyledFlex fd="column" key={title.props.translate_text}>
                         <NumberHeader size="32px">{count}</NumberHeader>
                         <NumberText size="16px" align="center">
                             {title}

@@ -56,7 +56,7 @@ const PageNotFound = () => {
                         </Header>
 
                         <ButtonWrapper>
-                            <LinkButton secondary="true" to="/">
+                            <LinkButton secondary to="/">
                                 {localize('Visit our homepage')}
                             </LinkButton>
                         </ButtonWrapper>

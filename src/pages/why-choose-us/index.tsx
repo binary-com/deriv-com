@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import LatamAward from './_latam-forex-award'
 import { IconGrid } from './_icon-grid'
+import AfricaAward from './_africa-forex-award'
 import { SEO, SectionContainer, GridContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Divider, Header, Text } from 'components/elements'
@@ -8,6 +10,7 @@ import { localize, WithIntl } from 'components/localization'
 import { Button } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import useRegion from 'components/hooks/use-region'
 
 const ResponsiveLinkButton = styled(Button)`
     @media ${device.mobileL} {
@@ -16,10 +19,10 @@ const ResponsiveLinkButton = styled(Button)`
 `
 
 const Section = styled(SectionContainer)`
-    background-color: ${(props) => props.bgcolor || 'transparent'};
+    background-color: 'transparent';
 `
 const StyledHeader = styled(Header)`
-    max-width: ${(props) => props.maxwidth || '100%'};
+    max-width: 100%;
     margin: 0 auto;
 `
 const Column = styled.article`
@@ -56,6 +59,7 @@ const ResponsiveHeader = styled(StyledHeader)`
 `
 
 const WhyChooseUs = () => {
+    const { is_latam, is_africa } = useRegion()
     const handleSignup = useHandleSignup()
 
     return (
@@ -89,6 +93,8 @@ const WhyChooseUs = () => {
             <Section>
                 <IconGrid />
             </Section>
+            {is_latam ? <LatamAward /> : <></>}
+            {is_africa ? <AfricaAward /> : <></>}
             <Divider />
             <Section>
                 <GridContainer>
@@ -126,11 +132,7 @@ const WhyChooseUs = () => {
                         </Column>
                     </ColumnContainer>
                     <Flex mt="3.2rem">
-                        <ResponsiveLinkButton
-                            id="dm-about-signup"
-                            secondary="true"
-                            onClick={handleSignup}
-                        >
+                        <ResponsiveLinkButton id="dm-about-signup" secondary onClick={handleSignup}>
                             {localize("Sounds great. Let's get started.")}
                         </ResponsiveLinkButton>
                     </Flex>

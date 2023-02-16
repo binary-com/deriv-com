@@ -6,6 +6,10 @@ import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
+type StyledLinkButtonProps = {
+    id?: string
+}
+
 const MainHeader = styled(Header)`
     max-width: 99.6rem;
 
@@ -17,6 +21,12 @@ const MainHeader = styled(Header)`
 
 const MiddleHeader = styled(Header)`
     max-width: 99.6rem;
+`
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
+    align-items: center;
+    padding: 17px 24px;
+    font-size: 20px;
+    border-radius: 8px;
 `
 
 const PAHero = () => {
@@ -38,21 +48,15 @@ const PAHero = () => {
                     'Expand your client base, gain additional business exposure, and earn more revenue when you sign up as a payment agent on Deriv.',
                 )}
             </MiddleHeader>
-            <LinkButton
+            <StyledLinkButton
                 id="dm-hero-affiliate-email-apply"
                 secondary
-                external="true"
+                external
                 to="mailto:partners@deriv.com"
                 is_mail_link
-                style={{
-                    'align-items': 'center',
-                    padding: '17px 24px',
-                    'font-size': '20px',
-                    'border-radius': '8px',
-                }}
             >
                 {localize('Send us an email to apply')}
-            </LinkButton>
+            </StyledLinkButton>
         </Hero>
     )
 }

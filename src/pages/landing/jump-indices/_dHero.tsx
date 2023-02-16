@@ -149,18 +149,18 @@ const DHero = () => {
                     </StyledHeader>
                     <StyledHeaderSmall type="sub-section-title" color="white" weight="normal">
                         {localize(
-                            'Brand new synthetic indices are now available on DTrader and Deriv MT5 (DMT5)',
+                            'Brand new synthetic indices are now available on DTrader and Deriv MT5',
                         )}
                     </StyledHeaderSmall>
                     <BtnDiv>
                         {is_mounted && (
                             <StyledLinkButton
-                                external="true"
+                                external
                                 type="deriv_app"
                                 to="/mt5"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                secondary="true"
+                                secondary
                                 hero
                             >
                                 {localize('Start trading')}

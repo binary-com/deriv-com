@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import {
     getPipValue,
     resetValidationPip,
@@ -39,44 +38,21 @@ import {
     FormulaText,
     StyledOl,
 } from '../common/_style'
+import { PipSyntheticExample, PipForexExample } from './_example-pip'
 import {
     Accordion,
     AccordionItem,
     Header,
     LocalizedLinkText,
-    QueryImage,
     Text,
+    ImageWithDireciton,
 } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 
 const PipCalculator = () => {
-    const query = graphql`
-        query {
-            pip_value_formula: file(relativePath: { eq: "trade-tools/pip-value-formula.png" }) {
-                ...fadeIn
-            }
-            pip_value_forex_formula: file(
-                relativePath: { eq: "trade-tools/pip-value-forex-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            pip_value_formula_mobile: file(
-                relativePath: { eq: "trade-tools/pip-value-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            pip_value_forex_formula_mobile: file(
-                relativePath: { eq: "trade-tools/pip-value-forex-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-    const data = useStaticQuery(query)
-
     const [tab, setTab] = useState('Synthetic')
 
     const onTabClick = (t) => {
@@ -90,7 +66,7 @@ const PipCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -301,7 +277,7 @@ const PipCalculator = () => {
 
                         <Text>
                             {localize(
-                                'The pip value for a contract on DMT5 is calculated based on this formula:',
+                                'The pip value for a contract on Deriv MT5 is calculated based on this formula:',
                             )}
                         </Text>
                         <Text mb="1.6rem">
@@ -326,12 +302,13 @@ const PipCalculator = () => {
                             {localize('Example calculation')}
                         </Header>
 
-                        <Accordion has_single_state>
+                        <Accordion id="pip-calculator" has_single_state>
                             <AccordionItem
                                 header={localize('Pip value for synthetic indices')}
                                 header_style={header_style}
                                 style={item_style}
                                 plus
+                                class_name="pip-value"
                             >
                                 <Text mb="16px">
                                     {localize(
@@ -339,24 +316,13 @@ const PipCalculator = () => {
                                     )}
                                 </Text>
 
-                                <Show.Desktop>
-                                    <QueryImage
-                                        data={data.pip_value_formula}
-                                        alt={localize('Margin formula')}
-                                    />
-                                    <QueryImage data={data.pip_info} alt={localize('Pip Info')} />
-                                </Show.Desktop>
+                                <Desktop>
+                                    <PipSyntheticExample />
+                                </Desktop>
 
-                                <Show.Mobile>
-                                    <QueryImage
-                                        data={data.pip_value_formula_mobile}
-                                        alt={localize('Margin formula mobile')}
-                                    />
-                                    <QueryImage
-                                        data={data.pip_info_mobile}
-                                        alt={localize('Pip Info')}
-                                    />
-                                </Show.Mobile>
+                                <Mobile>
+                                    <PipSyntheticExample />
+                                </Mobile>
                                 <FormulaText>
                                     <StyledOl>
                                         <li>
@@ -387,24 +353,19 @@ const PipCalculator = () => {
                                 header_style={header_style}
                                 style={item_style}
                                 plus
+                                class_name="pip-value-forex"
                             >
                                 <Text mb="16px">
                                     {localize('Let’s say you want to trade 2 lots of EUR/USD.')}
                                 </Text>
 
-                                <Show.Desktop>
-                                    <QueryImage
-                                        data={data.pip_value_forex_formula}
-                                        alt={localize('Pip Forex formula')}
-                                    />
-                                </Show.Desktop>
+                                <Desktop>
+                                    <PipForexExample />
+                                </Desktop>
 
-                                <Show.Mobile>
-                                    <QueryImage
-                                        data={data.pip_value_forex_formula_mobile}
-                                        alt={localize('Pip Forex formula')}
-                                    />
-                                </Show.Mobile>
+                                <Mobile>
+                                    <PipForexExample />
+                                </Mobile>
 
                                 <FormulaText>
                                     <StyledOl>
@@ -436,9 +397,9 @@ const PipCalculator = () => {
 
                         <LinkWrapper style={{ height: 'fit-content' }}>
                             <StyledLinkButton
-                                secondary="true"
+                                secondary
+                                external
                                 type="mt5"
-                                external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

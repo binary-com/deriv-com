@@ -18,13 +18,13 @@ const CheckEmail = () => {
             />
             <SectionContainer>
                 <GridContainer align="center">
-                    <Text size="var(--text-size-sm)" color="var(--color-black-2)" align="left">
+                    <Text size="var(--text-size-sm)" color="var(--color-black-2)" align="start">
                         {localize(
                             "If you don't see an email from us within a few minutes, a few things could have happened:",
                         )}
                     </Text>
                     <IconGrid />
-                    <LinkButton id="dm-reenter-email-signup" secondary="true" to="/signup/">
+                    <LinkButton id="dm-reenter-email-signup" secondary to="/signup/">
                         {localize('Re-enter your email and try again')}
                     </LinkButton>
                 </GridContainer>

@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 
 type DBannerProps = {
     background_pattern?: string
@@ -14,6 +16,7 @@ type DBannerProps = {
     is_ppc?: boolean
     title?: string
     image_alt?: string
+    is_mt5?: boolean
 }
 
 const Wrapper = styled(Flex)`
@@ -69,8 +72,7 @@ const ImageWrapper = styled(Flex)`
         max-width: 250px;
         right: 0;
         height: unset;
-        left: 50%;
-        transform: translate(-50%, 0);
+        left: 25%;
     }
 `
 
@@ -85,7 +87,7 @@ const TextWrapper = styled.div`
     }
     @media ${device.tabletS} {
         margin: 234px auto 0;
-        max-width: 328px;
+        max-width: 330px;
         text-align: center;
     }
 `
@@ -97,7 +99,7 @@ const StyledLinkButton = styled(Button)`
     display: inline-block;
 
     @media ${device.tabletS} {
-        margin: 0 auto;
+        margin: auto;
     }
 `
 const StyledHeader = styled(Header)`
@@ -110,39 +112,45 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
+const BackgroundPattern = styled.img<{ is_rtl: boolean }>`
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: ${({ is_rtl }) => {
+        return is_rtl ? 'scaleX(-1)' : null
+    }};
 
+    @media ${device.laptopM} {
+        width: 60rem;
+        height: initial;
+    }
+    @media ${device.tabletL} {
+        width: 54rem;
+    }
+    @media ${device.tablet} {
+        width: 44rem;
+    }
+    @media ${device.tabletS} {
+        width: 400px;
+    }
+    @media ${device.mobileL} {
+        width: unset;
+        max-width: unset;
+    }
+`
 const DBanner = ({
     background_pattern = '',
     data = '',
     is_ppc = false,
     title = '',
     image_alt = '',
+    is_mt5 = false,
 }: DBannerProps) => {
     const handleSignup = useHandleSignup(is_ppc)
+    const is_rtl = useIsRtl()
+    const [is_logged_in] = useAuthCheck()
+    const platform_name = is_mt5 ? 'Deriv MT5' : 'Deriv X'
 
-    const BackgroundPattern = styled.img`
-        position: absolute;
-        top: 0;
-        right: 0;
-
-        @media ${device.laptopM} {
-            width: 60rem;
-            height: initial;
-        }
-        @media ${device.tabletL} {
-            width: 54rem;
-        }
-        @media ${device.tablet} {
-            width: 44rem;
-        }
-        @media ${device.tabletS} {
-            width: 400px;
-        }
-        @media ${device.mobileL} {
-            width: unset;
-            max-width: unset;
-        }
-    `
     return (
         <Flex position="relative">
             <ImageWrapper ai="center">
@@ -150,30 +158,40 @@ const DBanner = ({
             </ImageWrapper>
             <Wrapper>
                 <TextWrapper>
-                    <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="52rem">
+                    <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="53rem">
                         {title}
                     </StyledHeader>
-                    <StyledLinkButton
-                        onClick={handleSignup}
-                        id="dm-dbanner-signup-1"
-                        type="submit"
-                        secondary="true"
-                    >
-                        {localize('Create free demo account')}
-                    </StyledLinkButton>
+                    {is_logged_in ? (
+                        <StyledLinkButton
+                            onClick={handleGetTrading}
+                            id="dm-dbanner-signup-1"
+                            type="submit"
+                            secondary
+                        >
+                            <Localize
+                                translate_text="Go to {{platform_name}} dashboard"
+                                values={{ platform_name }}
+                            />
+                        </StyledLinkButton>
+                    ) : (
+                        <StyledLinkButton
+                            onClick={handleSignup}
+                            id="dm-dbanner-signup-1"
+                            type="submit"
+                            secondary
+                        >
+                            {localize('Create free demo account')}
+                        </StyledLinkButton>
+                    )}
                 </TextWrapper>
-                <BackgroundPattern src={background_pattern} alt="background pattern" />
+                <BackgroundPattern
+                    is_rtl={is_rtl}
+                    src={background_pattern}
+                    alt="background pattern"
+                />
             </Wrapper>
         </Flex>
     )
-}
-
-DBanner.propTypes = {
-    background_pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    data: PropTypes.object.isRequired,
-    image_alt: PropTypes.string,
-    is_ppc: PropTypes.bool,
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 export default DBanner

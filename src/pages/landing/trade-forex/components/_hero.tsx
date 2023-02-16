@@ -1,13 +1,13 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { HeroProps } from 'pages/landing/_types'
 
 const BackgroundWrapper = styled(Background)`
     background-size: cover;
@@ -95,17 +95,8 @@ const query = graphql`
         }
     }
 `
-type HeroDataProps = {
-    title: string
-    content: ReactElement
-}
-type HeroComponentProps = {
-    title: string
-    content: ReactElement
-    background_data: ImageDataLike
-}
 
-const HeroComponent = ({ title, content, background_data }: HeroComponentProps) => {
+const HeroComponent = ({ title, content, background_data }: HeroProps) => {
     return (
         <BackgroundWrapper data={background_data}>
             <Wrapper p="0" justify="space-between" height="63rem">
@@ -113,7 +104,7 @@ const HeroComponent = ({ title, content, background_data }: HeroComponentProps) 
                     <StyledHeader mt="4rem" type="hero" color="white">
                         {title}
                     </StyledHeader>
-                    <HeroContent m="2rem 0 0" direction="column" justify="flex-start">
+                    <HeroContent m="2rem 0 0" direction="column" jc="flex-start">
                         <Header as="h2" color="white" type="subtitle-1" weight="normal">
                             {content}
                         </Header>
@@ -123,7 +114,7 @@ const HeroComponent = ({ title, content, background_data }: HeroComponentProps) 
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                         type="submit"
-                        secondary="true"
+                        secondary
                         to={'/signup/'}
                     >
                         {localize('Start trading')}
@@ -134,7 +125,7 @@ const HeroComponent = ({ title, content, background_data }: HeroComponentProps) 
     )
 }
 
-const Hero = ({ title, content }: HeroDataProps) => {
+const Hero = ({ title, content }: HeroProps) => {
     const data = useStaticQuery(query)
 
     return (

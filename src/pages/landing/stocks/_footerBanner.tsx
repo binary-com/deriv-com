@@ -5,6 +5,7 @@ import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 
 const BannerWrapper = styled(Flex)`
@@ -52,7 +53,7 @@ const TextWrapper = styled(Flex)`
 `
 const TextDiv = styled(Flex)`
     position: relative;
-    text-align: left;
+    text-align: start;
     flex-direction: column;
     justify-content: start;
     align-items: center;
@@ -95,7 +96,7 @@ const BtnDiv = styled(Flex)`
     justify-content: start;
 `
 
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(LinkButton)<{ id?: string }>`
     padding: 10px 16px;
     line-height: 20px;
     width: auto;
@@ -144,7 +145,7 @@ type FooterBannerProps = {
     is_ppc: boolean
     title: ReactElement
     small_title: ReactElement
-    data: { stocks_banner: ImageDataLike }
+    data: { stocks_banner; stocks_banner_eu: ImageDataLike }
 }
 
 const FooterBanner = ({
@@ -154,6 +155,9 @@ const FooterBanner = ({
     small_title,
     title,
 }: FooterBannerProps) => {
+    const { is_eu } = useRegion()
+    const stocks_display = is_eu ? 'stocks_banner_eu' : 'stocks_banner'
+
     return (
         <BannerWrapper>
             <MainWrapper>
@@ -175,7 +179,7 @@ const FooterBanner = ({
                             <StyledLinkButton
                                 id="dm-footerbanner-signup-1"
                                 type="submit"
-                                secondary="true"
+                                secondary
                                 to={is_ppc ? '/landing/signup/' : '/signup/'}
                             >
                                 {localize('Create a demo account')}
@@ -187,14 +191,14 @@ const FooterBanner = ({
                     <Flex>
                         <DesktopImageWrapper>
                             <QueryImage
-                                data={data['stocks_banner']}
+                                data={data[stocks_display]}
                                 alt="deriv platform"
                                 width="100%"
                             />
                         </DesktopImageWrapper>
                         <MobileImageWrapper>
                             <QueryImage
-                                data={data['stocks_banner']}
+                                data={data[stocks_display]}
                                 alt="deriv platform"
                                 width="100%"
                             />

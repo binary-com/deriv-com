@@ -213,8 +213,8 @@ export const daily_reset_indices: MarketSymbol[] = [
 
 export const europe: MarketSymbol[] = [
     {
-        src: icons.STOCKSNETHERLAND25,
-        text: <Localize translate_text="Netherland 25" />,
+        src: icons.STOCKSNETHERLANDS25,
+        text: <Localize translate_text="Netherlands 25" />,
     },
     {
         src: icons.STOCKSEUROPE50,
@@ -225,7 +225,7 @@ export const europe: MarketSymbol[] = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY30,
+        src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
     },
     {
@@ -444,11 +444,11 @@ export const metals_options: MarketSymbol[] = [
 
 export const range_break: MarketSymbol[] = [
     {
-        src: icons.RANGEBREAK100,
+        src: icons.RANGEBREAK100New,
         text: <Localize translate_text="Range Break 100 Index" />,
     },
     {
-        src: icons.RANGEBREAK200,
+        src: icons.RANGEBREAK200New,
         text: <Localize translate_text="Range Break 200 Index" />,
     },
 ]
@@ -724,8 +724,8 @@ export const stocks_asian_indices: MarketSymbol[] = [
 
 export const stocks_european_indices: MarketSymbol[] = [
     {
-        src: icons.STOCKSNETHERLAND25,
-        text: <Localize translate_text="Netherland 25" />,
+        src: icons.STOCKSNETHERLANDS25,
+        text: <Localize translate_text="Netherlands 25" />,
     },
     {
         src: icons.STOCKSEUROPE50,
@@ -736,7 +736,7 @@ export const stocks_european_indices: MarketSymbol[] = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY30,
+        src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
     },
     {
@@ -972,11 +972,6 @@ export const american_stocks: MarketSymbol[] = [
         src: icons.STOCKSTEVAPHARMACEUTICAL,
         text: <Localize translate_text="Teva Pharmaceutical Inds" />,
     },
-    {
-        src: icons.STOCKSTWITTER,
-        text: <Localize translate_text="Twitter" />,
-    },
-
     {
         src: icons.STOCKSUBER,
         text: <Localize translate_text="Uber Technologies Inc" />,

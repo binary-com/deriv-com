@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
+import type { EmblaOptionsType } from 'embla-carousel-react'
 import styled, { css } from 'styled-components'
-import { PlatformContent, ImageTag } from './_utils'
+import Autoplay from 'embla-carousel-autoplay'
+import { PlatformContent, ImageTag, PLATFORMS_CAROUSEL_DELAY } from './_utils'
 import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const SelectedZone = styled(Flex)`
     left: 0;
@@ -107,21 +109,52 @@ type PlatformSliderProps = {
     platform_details: TPlatformDetails[]
 }
 
+const carouselOptions: EmblaOptionsType = {
+    startIndex: 0,
+    loop: false,
+    axis: 'y',
+    skipSnaps: false,
+    draggable: false,
+}
+
 const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
-    const { is_row } = useCountryRule()
+    const { is_eu } = useRegion()
+    const auto_play = useMemo(() => {
+        return Autoplay({
+            delay: PLATFORMS_CAROUSEL_DELAY,
+            playOnInit: !is_eu,
+        })
+    }, [is_eu])
 
-    const slide_starting_index = (is_row && 42) || (!is_row && 0)
+    const [viewportRef, embla] = useEmblaCarousel(carouselOptions, [auto_play])
 
-    const [viewportRef, embla] = useEmblaCarousel({
-        startIndex: slide_starting_index,
-        loop: is_row ? true : false,
-        axis: 'y',
-        skipSnaps: false,
-        draggable: false,
-    })
+    useEffect(() => {
+        if (embla) {
+            embla.on('select', () => {
+                onSelectSlide(embla.selectedScrollSnap())
+            })
+        }
+    }, [embla, onSelectSlide])
+
+    // Since the platform_details is changing based on useRegion hook data, we have to reInit the carousel
+    // to make it aware of the change.
+    useEffect(() => {
+        if (embla) {
+            embla.reInit(carouselOptions, [auto_play])
+        }
+    }, [embla, platform_details, auto_play])
+
+    const scrollHandler = useCallback(
+        (index) => {
+            if (embla) {
+                embla.scrollTo(index)
+            }
+        },
+        [embla],
+    )
 
     const clickHandler = (index) => {
-        embla.scrollTo(index)
+        scrollHandler(index)
         onSelectSlide(index)
     }
 

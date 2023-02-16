@@ -2,17 +2,17 @@ import React from 'react'
 import { Localize } from 'components/localization'
 
 type ArticlesByCategoryType = {
-    title?: React.ReactElement
-    category?: string
-    sub_category?: React.ReactElement
-    label?: string
-    title_eu?: React.ReactElement
-    label_eu?: string
+    title: React.ReactNode
+    category: string
+    sub_category: React.ReactNode
+    label: string
+    hide_for_eu?: boolean
+    hide_for_non_eu?: boolean
 }[]
 
 export type ArcticlesType = {
     section: string
-    category: React.ReactElement
+    category: React.ReactNode
     articles: ArticlesByCategoryType
 }
 
@@ -159,12 +159,6 @@ export const articles: ArcticlesType[] = [
                 sub_category: <Localize translate_text="Managing your account" />,
                 label: 'Why-were-my-documents-declined',
             },
-            {
-                title: <Localize translate_text="How can I change the currency of my account?" />,
-                category: 'account',
-                sub_category: <Localize translate_text="Managing your account" />,
-                label: 'change-the-currency-of-my-account',
-            },
         ],
     },
     {
@@ -190,10 +184,10 @@ export const articles: ArcticlesType[] = [
                 label: 'what-are-stock-indices',
             },
             {
-                title: <Localize translate_text="What are synthetic indices?" />,
+                title: <Localize translate_text="What is derived?" />,
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,
-                label: 'what-are-synthetic-indices',
+                label: 'what-is-derived',
             },
             {
                 title: <Localize translate_text="What are contracts for difference (CFDs)?" />,
@@ -206,6 +200,7 @@ export const articles: ArcticlesType[] = [
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,
                 label: 'what-are-digital-options',
+                hide_for_eu: true,
             },
             {
                 title: <Localize translate_text="How many trading platforms do you offer?" />,
@@ -290,6 +285,7 @@ export const articles: ArcticlesType[] = [
                 category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Withdrawals" />,
                 label: 'withdraw-deposit-bonus',
+                hide_for_eu: true,
             },
             {
                 title: (
@@ -524,11 +520,12 @@ export const articles: ArcticlesType[] = [
     },
     {
         section: 'Platforms',
-        category: <Localize translate_text="DMT5" />,
+        category: <Localize translate_text="Deriv MT5" />,
         articles: [
             {
                 title: <Localize translate_text="What is Deriv MetaTrader 5 (Deriv MT5)?" />,
-                category: 'DMT5',
+                category: 'Deriv MT5',
+
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'what-is-dmt5',
             },
@@ -536,25 +533,41 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="What are the main differences between your digital options and CFD platforms?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'differences-of-dtrader-and-dmt5',
+                hide_for_eu: true,
             },
             {
                 title: (
-                    <Localize translate_text="What are the differences between the Deriv MT5 Synthetic, Financial, and Financial STP accounts?" />
+                    <Localize translate_text="What are the main differences between your multipliers and CFD platforms?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'differences-of-multipliers-and-cfd',
+                hide_for_non_eu: true,
+            },
+            {
+                title: (
+                    <Localize translate_text="What are the differences between the Deriv MT5 Derived and Financial accounts?" />
+                ),
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Accounts" />,
                 label: 'differences-of-dmt5-accounts',
-                title_eu: <Localize translate_text="What is the CFDs account?" />,
-                label_eu: 'what-is-cfds-account',
+                hide_for_eu: true,
+            },
+            {
+                title: <Localize translate_text="What is the CFDs account?" />,
+                category: 'Deriv MT5',
+                sub_category: <Localize translate_text="Accounts" />,
+                label: 'what-is-cfds-account',
+                hide_for_non_eu: true,
             },
             {
                 title: (
                     <Localize translate_text="How can I withdraw funds from my Deriv MT5 real money account?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Withdraw" />,
                 label: 'withdraw-funds-from-DMT5',
             },
@@ -562,13 +575,13 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="Why are my Deriv MT5 login details different from my Deriv login details?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Login" />,
                 label: 'login-credentials',
             },
             {
                 title: <Localize translate_text="How can I change my Deriv MT5 password?" />,
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Reset password" />,
                 label: 'reset-dmt5-password',
             },
@@ -576,13 +589,13 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="How can I deposit funds into my Deriv MT5 real money account?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'deposit-to-dmt5',
             },
             {
                 title: <Localize translate_text="How do I log in to my Deriv MT5 account?" />,
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'log-in-to-my-Deriv-MT5-account',
             },
@@ -590,13 +603,13 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="How do I set an investor password for my Deriv MT5 account?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'investor-password-for-my-Deriv-MT5-account',
             },
             {
                 title: <Localize translate_text="What is the name of my Deriv MT5 server?" />,
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'name-of-my-Deriv-MT5-server',
             },
@@ -604,7 +617,7 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="What is the minimum amount to open a position on Deriv MT5?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'minimum-amount-to-open-a-position-on-Deriv-MT5',
             },
@@ -612,19 +625,19 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="Why do my Deriv MT5 positions always start with a loss?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'Deriv-MT5-positions-always-start-with-a-loss',
             },
             {
                 title: <Localize translate_text="Do you offer swap-free Deriv MT5 accounts?" />,
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'swap-free-Deriv-MT5-accounts',
             },
             {
                 title: <Localize translate_text="How can I reactivate my Deriv MT5 account?" />,
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'reactivate-my-Deriv-MT5-account',
             },
@@ -632,25 +645,25 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="Can I change the leverage on my Deriv MT5 account?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'leverage-on-my-Deriv-MT5-account',
             },
             {
                 title: <Localize translate_text="What time is shown in the MT5 terminal?" />,
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'What-time-is-shown-in-the-MT5-terminal',
             },
             {
                 title: <Localize translate_text="How can I download my Deriv MT5 history?" />,
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'download-my-Deriv-MT5-history',
             },
             {
                 title: <Localize translate_text="Can I delete my Deriv MT5 account history?" />,
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'delete-my-Deriv-MT5-account-history',
             },
@@ -658,7 +671,7 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="For how long can I use my Deriv MT5 demo account?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'For-how-long-can-I-use-my-Deriv-MT5-demo-account',
             },
@@ -666,7 +679,7 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="Will my inactive Deriv MT5 account be deactivated even though I still have a balance?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'Will-my-inactive-Deriv-MT5-account-be-deactivated',
             },
@@ -674,7 +687,7 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="Can I change the currency of my Deriv MT5 account?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'Can-I-change-the-currency-of-my-Deriv-MT5-account',
             },
@@ -682,23 +695,25 @@ export const articles: ArcticlesType[] = [
                 title: (
                     <Localize translate_text="Can I change the server for my Deriv MT5 account?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'Can-I-change-the-server-for-my-Deriv-MT5-account',
             },
             {
                 title: <Localize translate_text="Do you offer micro forex pairs on Deriv MT5?" />,
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'offer-micro-forex-pairs-on-Deriv-MT5',
+                hide_for_eu: true,
             },
             {
                 title: (
                     <Localize translate_text="What is the minimum volume for micro forex pairs?" />
                 ),
-                category: 'DMT5',
+                category: 'Deriv MT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'What-is-the-minimum-volume-for-micro-forex-pairs',
+                hide_for_eu: true,
             },
         ],
     },
@@ -736,7 +751,7 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?" />
+                    <Localize translate_text="What are the major differences between DTrader, Deriv MT5 and Deriv X?" />
                 ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,

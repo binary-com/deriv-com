@@ -10,7 +10,7 @@ const tools = [
     {
         title: <Localize translate_text="Margin calculator" />,
         subtitle: (
-            <Localize translate_text="Estimate the margin you need to hold your positions. The result depends on leverage, volume lot, and your DMT5 account balance." />
+            <Localize translate_text="Estimate the margin you need to hold your positions. The result depends on leverage, volume lot, and your Deriv MT5 account balance." />
         ),
         link: {
             text: <Localize translate_text="Try margin calculator" />,
@@ -56,12 +56,12 @@ const tools = [
         image_alt: localize('PnL margin'),
     },
     {
-        title: <Localize translate_text="PnL for multipliers" />,
+        title: <Localize translate_text="Stop loss and take profit for multipliers" />,
         subtitle: (
-            <Localize translate_text="Estimate the stop loss and/or take profit level as well as the stop loss and/or take profit amount for your contract to mitigate your risk in case the market price moves against your prediction." />
+            <Localize translate_text="Estimate the level and amount of the stop loss and take profit for your contract to mitigate your risk in case the market price moves against your prediction." />
         ),
         link: {
-            text: <Localize translate_text="Try PnL for multipliers calculator" />,
+            text: <Localize translate_text="Try multipliers calculator" />,
             route: '/trader-tools/pnl-for-multipliers/',
         },
         image_name: 'pnl_multipliers',

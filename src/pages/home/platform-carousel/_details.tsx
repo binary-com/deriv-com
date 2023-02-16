@@ -6,11 +6,19 @@ import type { TPlatformDetails } from './_utils'
 import { Flex } from 'components/containers'
 import { QueryImage, StyledLink } from 'components/elements'
 
+const StyledFlex = styled(Flex)`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 630px;
+    margin-bottom: 20px;
+`
 const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
 
-export const image_query = graphql`
+const image_query = graphql`
     query {
         platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
             ...fadeIn
@@ -21,16 +29,10 @@ export const image_query = graphql`
         platforms_mt5_eu: file(relativePath: { eq: "home/platforms_mt5_eu.png" }) {
             ...homePageHeroFadeIn
         }
-        platforms_mt5_uk: file(relativePath: { eq: "home/platforms_mt5_uk.png" }) {
-            ...homePageHeroFadeIn
-        }
         platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
             ...homePageHeroFadeIn
         }
         platforms_dtrader_eu: file(relativePath: { eq: "home/platforms_dtrader_eu.png" }) {
-            ...fadeIn
-        }
-        platforms_dtrader_uk: file(relativePath: { eq: "home/platforms_dtrader_uk.png" }) {
             ...fadeIn
         }
         platforms_derivx: file(relativePath: { eq: "home/platforms_derivx.png" }) {
@@ -76,20 +78,26 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
                 />
             </Flex>
             <Flex>
-                {selected_platform?.download_links?.map((link, index) => {
-                    return (
-                        <DownloadLink
-                            key={index}
-                            external="true"
-                            type={link?.link_type}
-                            to={link?.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src={getOSIcon(link.type)} loading="lazy" />
-                        </DownloadLink>
-                    )
-                })}
+                <StyledFlex>
+                    {selected_platform?.download_links.is_desktop?.map((link, index) => {
+                        return (
+                            <DownloadLink
+                                key={link.type}
+                                external
+                                type={link?.link_type}
+                                to={link?.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src={getOSIcon(link.type)}
+                                    alt="platform icon"
+                                    loading="lazy"
+                                />
+                            </DownloadLink>
+                        )
+                    })}
+                </StyledFlex>
             </Flex>
         </Flex>
     )

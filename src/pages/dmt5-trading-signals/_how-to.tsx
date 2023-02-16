@@ -79,14 +79,14 @@ const HowTo = ({ active_tab }: HowToProps) => {
                 <SignalSteps active_tab={active_tab} />
                 {signal_provider && (
                     <DMT5Button
-                        secondary="true"
-                        external="true"
+                        secondary
+                        external
                         type="mt5"
                         to=""
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Go to your DMT5 terminal')}
+                        {localize('Go to your Deriv MT5 dashboard')}
                     </DMT5Button>
                 )}
             </StyledContainer>

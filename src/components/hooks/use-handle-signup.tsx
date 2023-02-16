@@ -1,22 +1,27 @@
-import React from 'react'
-import { navigate } from 'gatsby'
-import { useCountryRule } from './use-country-rule'
-import { isEuDomain } from 'common/utility'
-import { DerivStore } from 'store'
+import { navigate, withPrefix } from 'gatsby'
+import usePopup from './use-popup'
+import { isEuDomain, getLanguage } from 'common/utility'
+import useRegion from 'components/hooks/use-region'
 
 const useHandleSignup = (_is_ppc = false) => {
-    const { is_loading, is_eu_location } = useCountryRule()
-    const { setShowNonEuPopup } = React.useContext(DerivStore)
+    const { is_region_loading, is_eu_location } = useRegion()
+    const { setShowNonEuPopup } = usePopup()
+    let current_language = getLanguage() + '/'
+    const signUpPath = withPrefix('/')
+
+    if (getLanguage() === 'en') {
+        current_language = ''
+    }
 
     return () => {
-        if (is_loading) {
+        if (is_region_loading) {
             return
         } else if (!is_eu_location && isEuDomain()) {
             setShowNonEuPopup(true)
         } else if (_is_ppc) {
-            navigate('/landing/signup/')
+            navigate(`${signUpPath}${current_language}landing/signup/`)
         } else {
-            navigate('/signup')
+            navigate(`${signUpPath}${current_language}signup/`)
         }
     }
 }

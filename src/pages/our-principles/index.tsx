@@ -92,13 +92,13 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const OurPrinciples = (): React.ReactNode => {
+const OurPrinciples = () => {
     return (
         <Layout>
             <SEO title={localize('Our principles | Deriv')} />
             <TitleSection padding="120px 0 24px 10rem">
                 <StyledContainer>
-                    <Header as="h1" type="hero" align="left" mb="24px">
+                    <Header as="h1" type="hero" align="start" mb="24px">
                         {localize('Our principles')}
                     </Header>
                     <StyledMainText>

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize, Localize } from 'components/localization'
-import { Show } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
+import useRegion from 'components/hooks/use-region'
 
 const StyledUl = styled.ul`
     list-style-type: disc;
@@ -94,38 +94,41 @@ const WhatToExpect = () => (
     </MaxWidth>
 )
 
-const IsDerivRegulated = () => (
-    <MaxWidth>
-        <Text>
-            <Show.Eu>
-                <Localize
-                    translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is <0>licensed and regulated</0> in many jurisdictions around the world."
-                    components={[
-                        <StyledLink
-                            to="/regulatory/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            key={0}
-                        />,
-                    ]}
-                />
-            </Show.Eu>
-            <Show.NonEU>
-                <Localize
-                    translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is <0>licensed and regulated</0> in many jurisdictions around the world."
-                    components={[
-                        <StyledLink
-                            to="/regulatory/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            key={0}
-                        />,
-                    ]}
-                />
-            </Show.NonEU>
-        </Text>
-    </MaxWidth>
-)
+const IsDerivRegulated = () => {
+    const { is_eu, is_non_eu } = useRegion()
+    return (
+        <MaxWidth>
+            <Text>
+                {is_eu && (
+                    <Localize
+                        translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is <0>licensed and regulated</0> in many jurisdictions around the world."
+                        components={[
+                            <StyledLink
+                                to="/regulatory/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                )}
+                {is_non_eu && (
+                    <Localize
+                        translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is <0>licensed and regulated</0> in many jurisdictions around the world."
+                        components={[
+                            <StyledLink
+                                to="/regulatory/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                )}
+            </Text>
+        </MaxWidth>
+    )
+}
 
 const AreCloseDown = () => (
     <MaxWidth>

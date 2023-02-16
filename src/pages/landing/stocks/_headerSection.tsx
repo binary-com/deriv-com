@@ -230,7 +230,7 @@ const SectionTextWrapper = styled(Flex)`
 
 const SectionStyledHeader = styled(Header)`
     font-size: 64px;
-    text-align: left;
+    text-align: start;
     line-height: 1.25;
     margin-bottom: 16px;
     @media ${device.tabletL} {
@@ -243,7 +243,7 @@ const SectionStyledHeader = styled(Header)`
 const SectionStyledHeaderSmall = styled(Header)`
     font-size: 24px;
     max-width: 100%;
-    text-align: left;
+    text-align: start;
     line-height: 1.5;
     margin-bottom: 24px;
     @media ${device.tabletL} {
@@ -270,15 +270,11 @@ const HeaderSection = () => {
                                 weight="normal"
                             >
                                 {localize(
-                                    'Trade global stocks and stock indices now on our DMT5 platform',
+                                    'Trade global stocks and stock indices now on our Deriv MT5 platform',
                                 )}
                             </StyledHeaderSmall>
                             <BtnDiv>
-                                <StyledLinkButton
-                                    type="submit"
-                                    secondary="true"
-                                    to={'/landing/signup/'}
-                                >
+                                <StyledLinkButton type="submit" secondary to={'/landing/signup/'}>
                                     {localize('Create a demo account')}
                                 </StyledLinkButton>
                             </BtnDiv>
@@ -337,7 +333,7 @@ const HeaderSection = () => {
                     </SectionStyledHeader>
                     <SectionStyledHeaderSmall type="sub-section-title" weight="normal">
                         {localize(
-                            'Facebook. Tesla. Zoom. Mcdonalds. Trade on the global household names you see every day on our DMT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
+                            'Facebook. Tesla. Zoom. McDonald’s. Trade on the global household names you see every day on our Deriv MT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
                         )}
                     </SectionStyledHeaderSmall>
 

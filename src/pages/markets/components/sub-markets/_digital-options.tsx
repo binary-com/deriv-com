@@ -28,7 +28,7 @@ const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptio
             <ContentWrapper>
                 <Descriptions>
                     <StyledText font_size="16px" align="center">
-                        <Localize translate_text="Options trading allows for fixed payouts from correctly predicting market movements, without needing to buy an underlying asset." />
+                        <Localize translate_text="Options trading allows for a range of payouts from correctly predicting market movements, without needing to buy an underlying asset." />
                     </StyledText>
                     {what_to_show ? (
                         <AvailablePlatforms dmt5 derivx />
@@ -52,14 +52,6 @@ const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptio
                             ))}
                         </OptionsRow>
                     ))}
-                    {/* no content for this component inside data  */}
-                    {/* <Show.Eu>
-                        {options_list.eu_content?.map((text, index) => (
-                            <Text key={index} mt="1.6rem" color="grey-5" size="var(--text-size-xs)">
-                                {text}
-                            </Text>
-                        ))}
-                    </Show.Eu>  */}
                 </Descriptions>
                 <Header as="h3" type="paragraph-1" weight="bold" mt="4.0rem">
                     {localize('Instruments available for options trading')}

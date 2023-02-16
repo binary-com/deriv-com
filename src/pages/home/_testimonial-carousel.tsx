@@ -7,6 +7,7 @@ import ArrowRight from 'images/svg/testimonials/arrow-right.svg'
 import ArrowLeftFade from 'images/svg/testimonials/arrow-left-fade.svg'
 import ArrowRightFade from 'images/svg/testimonials/arrow-right-fade.svg'
 import device from 'themes/device'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const CarouselItem = styled(Flex)`
     overflow: hidden;
@@ -17,8 +18,8 @@ const FlexiItem = styled(Flex)`
     transition: opacity 0.4s ease-in;
 
     /* 
-     class from a children passed to this component 
-     this class is essential to achieve the transition effect
+    class from a children passed to this component 
+    this class is essential to achieve the transition effect
     */
 
     .flexi-item {
@@ -61,10 +62,19 @@ const renderNavigations = (
     active: number,
     setActive: Dispatch<SetStateAction<number>>,
     animate: (action) => void,
+    is_rtl: boolean,
 ) => {
     const is_carousel = count > 1
     const has_prev = active !== 0
     const has_next = active < count - 1
+
+    const NextArrow = is_rtl
+        ? { normal: ArrowLeft, fade: ArrowLeftFade }
+        : { normal: ArrowRight, fade: ArrowRightFade }
+
+    const PrevArrow = is_rtl
+        ? { normal: ArrowRight, fade: ArrowRightFade }
+        : { normal: ArrowLeft, fade: ArrowLeftFade }
 
     const validSlide = (n) => {
         // values that are out of slide range will return it's respective boundaries
@@ -107,12 +117,12 @@ const renderNavigations = (
                 }}
             >
                 <Arrows
-                    src={has_prev ? ArrowLeft : ArrowLeftFade}
+                    src={has_prev ? PrevArrow.normal : PrevArrow.fade}
                     onClick={previous}
                     alt="previous arrow"
                 />
                 <Arrows
-                    src={has_next ? ArrowRight : ArrowRightFade}
+                    src={has_next ? NextArrow.normal : NextArrow.fade}
                     onClick={next}
                     alt="next arrow"
                 />
@@ -140,6 +150,7 @@ const TestimonialCarousel = ({
     const molder_ref = useRef(null)
     const flexible_ref = useRef(null)
     const has_active = active !== null
+    const is_rtl = useIsRtl()
 
     const animate = (action) => {
         container_ref.current.style.opacity = 0
@@ -149,7 +160,7 @@ const TestimonialCarousel = ({
         }, 100)
     }
 
-    const navigations = renderNavigations(children_array.length, active, setActive, animate)
+    const navigations = renderNavigations(children_array.length, active, setActive, animate, is_rtl)
 
     useEffect(() => {
         setActive(default_active)
@@ -183,18 +194,14 @@ const TestimonialCarousel = ({
                 ref={container_ref}
                 position="relative"
                 ai="center"
-                tablet={{
-                    direction: 'column',
-                }}
+                tablet={{ fd: 'column' }}
             >
                 <FlexiItem
                     ref={flexible_ref}
                     p="0 50px"
                     height="100%"
                     position="relative"
-                    tablet={{
-                        p: '0px',
-                    }}
+                    tablet={{ p: '0px' }}
                 >
                     {has_active && children_array[active]}
                 </FlexiItem>
@@ -204,9 +211,7 @@ const TestimonialCarousel = ({
                 position="absolute"
                 p="0 50px"
                 height="fit-content"
-                tablet={{
-                    p: '0px',
-                }}
+                tablet={{ p: '0px' }}
             >
                 {has_active && children_array[active]}
             </Molder>

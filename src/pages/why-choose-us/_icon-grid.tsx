@@ -64,7 +64,7 @@ type ColProps = {
 
 const Col = ({ Icon, content, title }: ColProps) => (
     <GridCol>
-        <img src={Icon} />
+        <img src={Icon} alt={title} />
         <Container>
             <StyledHeader as="h4" type="sub-section-title">
                 {title}
@@ -144,7 +144,7 @@ export const IconGrid = () => (
                                 key={1}
                                 to=""
                                 type="community"
-                                external="true"
+                                external
                                 target="_blank"
                                 rel="noopener noreferrer"
                             />,

@@ -17,6 +17,42 @@ type PnlCalculatorTabItemProps = {
     disabled?: ReactNode
 }
 
+type FormulaValueType = {
+    width?: string
+    mb?: string
+    ml?: string
+    pt?: string
+    pb?: string
+    mw?: string
+}
+
+type PointerContainerType = {
+    width?: string
+    height?: string
+    ml?: string
+    top?: boolean
+    mw?: string
+}
+
+type PointerStickType = {
+    height?: string
+    ml?: string
+    w?: string
+}
+type PointerDotType = {
+    ml?: string
+}
+
+type PointerTextType = {
+    ml?: string
+    top?: boolean
+}
+type FormulaWrapperType = {
+    ml?: string
+    mt?: string
+    cg?: string
+}
+
 export const Hero = styled(Flex)`
     height: 40rem;
     background: var(--color-black);
@@ -68,7 +104,7 @@ export const SectionSubtitle = styled(Header)`
         padding: 0 16px;
     }
 `
-const swap_tab_selector_css = (props) =>
+const swap_tab_selector_css = (props: { active: boolean }) =>
     props.active
         ? css`
               box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
@@ -87,18 +123,24 @@ const swap_tab_selector_css = (props) =>
           `
 
 export const SwapTabSelector = styled(Flex)`
-    padding: 22px 64px;
-    width: auto;
+    margin-left: 15px;
+    border: solid 1px rgba(51, 51, 51, 0.1);
+    padding: 22px 16px;
+    width: 21rem;
     height: 80px;
     border-radius: 4px;
-    border: solid 1px rgba(51, 51, 51, 0.1);
     flex-direction: column;
     cursor: pointer;
+
+    :nth-child(2) {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+
     ${swap_tab_selector_css}
 
     @media ${device.mobileL} {
-        padding: 12px 24px;
-        min-width: 144px;
+        width: 160px;
     }
 `
 
@@ -139,21 +181,24 @@ const CalculatorFormStyles = css`
 
     @media ${device.mobileL} {
         margin-bottom: 20px;
-        width: 328px;
+        width: 320px;
     }
 `
 
 export const CalculatorForm = styled(Form)`
-    ${CalculatorFormStyles}
     width: 54rem;
+    ${CalculatorFormStyles}
 `
 export const PnlCalculatorFormMobile = styled(Form)`
+    width: 43rem;
     ${CalculatorFormStyles}
-    width: 328px;
+
+    @media (min-width: 1200px) {
+        width: 54rem;
+    }
 `
 
 export const PnlHeaderOverflow = styled.div`
-    width: 328px;
     border-radius: 8px 8px 0 0;
     overflow-x: scroll;
 `
@@ -212,7 +257,7 @@ export const PnLCalculatorOutputContainer = styled(Flex)`
     border: 1px solid var(--color-green);
     background-color: var(--color-white);
     max-width: 23rem;
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
         max-width: 37rem;
     }
 `
@@ -333,9 +378,10 @@ const calculator_tab_item_style_css = (props: { active: string }) =>
           `
 
 const CalculatorTabItemStyles = css`
-    height: 72px;
-    width: 23.4rem;
-    border-radius: 1rem;
+    width: 50%;
+    height: 60px;
+    margin-right: 15px;
+    border-radius: 8px;
     padding: 2rem;
     border: solid 1px rgba(51, 51, 51, 0.1);
     display: flex;
@@ -352,14 +398,22 @@ const CalculatorTabItemStyles = css`
 `
 
 export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
-    ${CalculatorTabItemStyles}
-
-    @media ${device.mobileL} {
-        width: 140px;
+    :nth-child(2) {
+        margin-right: 0;
     }
+
+    ${CalculatorTabItemStyles}
 `
 
 export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
+    width: 100%;
+    margin-right: 2.5rem;
+    height: 53px;
+
+    :nth-child(2) {
+        margin-right: 0;
+    }
+
     ${CalculatorTabItemStyles}
 
     @media ${device.mobileL} {
@@ -398,21 +452,31 @@ export const RightContent = styled.div`
 
 export const FormulaText = styled.div`
     background-color: var(--color-grey-25);
-    padding: 1.6rem;
-    font-size: 14px;
-    line-height: 2;
-`
+    padding: 1rem;
+    font-size: 12px;
+    line-height: 30px;
+    width: auto;
 
+    @media ${device.tablet} {
+        width: auto;
+        line-height: 20px;
+    }
+`
+export const StyledSpan = styled.span`
+    color: black;
+    font-size: 13px;
+`
 export const StyledOl = styled.ol`
     list-style-type: none;
     counter-reset: item;
     font-weight: bold;
-    margin-left: 4px;
+    font-size: 10px;
 
     li {
         display: block;
         position: relative;
-        margin-left: 12px;
+        line-height: 14px;
+        margin: 14px;
     }
     li::before {
         position: absolute;
@@ -469,3 +533,410 @@ export const header_style = {
     position: 'relative',
     boxShadow: '0 4px 8px 0 rgba(14, 14, 14, 0.1)',
 }
+export const FormulaContainer = styled(Flex)`
+    width: auto;
+    height: ${(props) => (props.height ? props.height : '132px')};
+    margin: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: ${(props) => (props.pt ? props.pt : '52px')};
+    padding-bottom: ${(props) => (props.pb ? props.pb : '52px')};
+    border-radius: 4px;
+    background-color: var(--color-blue-4);
+    position: relative;
+`
+
+export const FormulaContainerMobile = styled(Flex)`
+    width: auto;
+    height: ${(props) => (props.height ? props.height : '162px')};
+    background-color: var(--color-blue-4);
+    position: relative;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-top: ${(props) => (props.pt ? props.pt : '45px')};
+    @media ${device.mobileS} {
+        height: ${(props) => (props.height ? props.height : '152px')};
+        padding-top: ${(props) => (props.pt ? props.pt : '40px')};
+    }
+`
+export const FormulaContainerSwapMobile = styled(Flex)`
+    width: auto;
+    height: ${(props) => (props.height ? props.height : '192px')};
+    background-color: var(--color-blue-4);
+    position: relative;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-top: ${(props) => (props.mt ? props.mt : '45px')};
+    @media ${device.mobileS} {
+        height: 182px;
+        padding-top: ${(props) => (props.mt ? props.mt : '40px')};
+    }
+`
+
+export const FormulaHighlight = styled(Flex)`
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+    height: ${(props) => (props.height ? props.height : '72px')};
+    gap: 0;
+    border-radius: 4px;
+    border: 1.5px solid var(--color-blue-5);
+    background-color: white;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: ${(props) => (props.jc ? props.jc : 'center')};
+    padding-right: ${(props) => (props.pr ? props.pr : '0')};
+    padding-left: ${(props) => (props.pl ? props.pl : '0')};
+`
+export const FormulaHighlightForPnlMultiplier = styled(Flex)`
+    display: table;
+    text-align: center;
+    border-radius: 4px;
+    border: 1.5px solid var(--color-blue-5);
+    background-color: white;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: ${(props) => (props.jc ? props.jc : 'center')};
+    padding-right: ${(props) => (props.pr ? props.pr : '0')};
+`
+
+export const FormulaHighlightMobile = styled(Flex)<{ fs?: string; syn_mobile?: boolean }>`
+    margin-left: 8px;
+    margin-right: 8px;
+    height: ${(props) => (props.height ? props.height : '68px')};
+    gap: 0;
+    border-radius: 4px;
+    border: 1px solid #85acb0;
+    background-color: white;
+    justify-content: ${(props) => (props.jc ? props.jc : 'center')};
+    align-items: center;
+    font-weight: 600;
+    flex-direction: ${(props) => (props.syn_mobile ? 'column' : '')};
+    font-size: ${(props) => (props.fs ? props.fs : '16px')};
+    padding: 0;
+    @media ${device.mobileS} {
+        font-size: 12px;
+    }
+`
+export const FormulaValue = styled.div<FormulaValueType>`
+    display: inline-block;
+    min-width: ${(props) => (props.width ? props.width : '50px')};
+    text-align: center;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+`
+export const FormulaValueSwapSynthetic = styled.div`
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+`
+export const FormulaValueSwapSyntheticMobile = styled.div`
+    display: inline-block;
+    min-width: ${(props: FormulaValueType) => (props.mw ? props.mw : '0')};
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+`
+export const FormulaValuePnlMultiplierMobile = styled.div`
+    display: inline-block;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+    @media ${device.tabletL} {
+        min-width: 19px;
+    }
+    @media ${device.mobileM} {
+        min-width: 12px;
+    }
+`
+
+export const FormulaValueSwapMobile = styled.div`
+    display: inline-block;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+    @media ${device.tabletL} {
+        min-width: 28px;
+    }
+    @media ${device.mobileM} {
+        min-width: 20px;
+    }
+`
+export const FormulaValuePnlMobile = styled.div`
+    display: inline-block;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+    @media ${device.tabletL} {
+        min-width: 40px;
+    }
+    @media ${device.mobileM} {
+        min-width: 32px;
+    }
+`
+export const FormulaValuePnlMobileTakeProfit = styled.div`
+    display: inline-block;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+    @media ${device.tabletL} {
+        min-width: 25px;
+    }
+    @media ${device.mobileM} {
+        min-width: 15px;
+    }
+`
+export const PnlMobileTakeProfitPip = styled.div`
+    display: inline-block;
+    text-align: center;
+    @media ${device.tabletL} {
+        min-width: 28px;
+    }
+    @media ${device.mobileM} {
+        min-width: 15px;
+    }
+`
+export const FormulaValuePnlStoplossPip = styled.div`
+    display: inline-block;
+    text-align: center;
+    @media ${device.tabletL} {
+        min-width: 30px;
+    }
+    @media ${device.mobileM} {
+        min-width: 22px;
+    }
+`
+export const FormulaValuePnlStoploss = styled.div`
+    display: inline-block;
+    text-align: center;
+    @media ${device.tabletL} {
+        min-width: 30px;
+    }
+    @media ${device.mobileM} {
+        min-width: 22px;
+    }
+`
+
+export const FormulaValueMobile = styled.div`
+    display: inline-block;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+
+    @media ${device.mobileM} {
+        min-width: ${(props: FormulaValueType) => (props.mw ? 'props.mw' : '17px')};
+    }
+`
+export const FormulaValueSwapFinancialMobile = styled.div`
+    display: inline-block;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+
+    @media ${device.tabletL} {
+        min-width: 20px;
+    }
+    @media ${device.mobileM} {
+        min-width: 16px;
+    }
+`
+export const FormulaGreen = styled.span`
+    display: inline-block;
+    color: var(--color-blue-5);
+`
+
+export const PointerContainer = styled.div<PointerContainerType>`
+    display: flex;
+    position: absolute;
+    height: ${(props) => (props.height ? props.height : '80px')};
+    margin-top: ${(props) => (props.top ? '-100px' : '8px')};
+    flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
+    align-items: center;
+    max-width: ${(props) => (props.width ? 'props.width' : '60px')};
+    white-space: normal;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+`
+
+export const PointerContainerMobile = styled.div<PointerContainerType>`
+    display: flex;
+    position: absolute;
+    height: ${(props) => (props.height ? props.height : '80px')};
+    margin-top: ${(props) => (props.top ? '-100px' : '8px')};
+    flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    align-items: center;
+    max-width: ${(props) => (props.mw ? 'props.mw' : '22px')};
+    white-space: normal;
+`
+
+export const PointerDot = styled.div<PointerDotType>`
+    height: 9px;
+    width: 9px;
+    background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    border-radius: 50%;
+    opacity: 0.1;
+`
+
+export const PointerDotMobile = styled.div<PointerDotType>`
+    height: 7px;
+    width: 7px;
+    background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    border-radius: 50%;
+    opacity: 0.1;
+`
+
+export const PointerStick = styled.div<PointerStickType>`
+    position: relative;
+    height: ${(props) => (props.height ? props.height : '25px')};
+    width: 1px;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    background-color: black;
+    opacity: 0.1;
+`
+export const PointerStickHorizontal = styled.div<PointerStickType>`
+    position: relative;
+    height: 0;
+    width: ${(props) => (props.w ? props.w : '59px')};
+    border: 1px solid;
+    background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    opacity: 0.1;
+`
+export const PointerStickHorizontalMobile = styled.div<PointerStickType>`
+    position: relative;
+    height: 0;
+    border: 1px solid;
+    background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    opacity: 0.1;
+    @media ${device.tabletL} {
+        width: 83px;
+    }
+    @media ${device.mobileM} {
+        width: 76px;
+    }
+`
+export const PointerStickMobile = styled.div<PointerStickType>`
+    position: relative;
+    height: ${(props) => (props.height ? props.height : '24px')};
+    width: 1px;
+    background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    opacity: 0.1;
+`
+export const PointerHorizontalStickMobile = styled.div<PointerStickType>`
+    position: relative;
+    height: 0;
+    width: ${(props) => (props.w ? props.w : '59px')};
+    border: 1px solid;
+    background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    opacity: 0.1;
+    @media ${device.mobileS} {
+        width: ${(props) => (props.w ? props.w : '45px')};
+    }
+`
+export const PointerText = styled.div<PointerTextType>`
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-blue-5);
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+`
+
+export const PointerTextMobile = styled.div<PointerTextType>`
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    font-weight: 600;
+    color: var(--color-blue-5);
+    font-size: 14px;
+    @media ${device.mobileS} {
+        font-size: 12px;
+    }
+`
+export const PointerTextMobilePnlMultiplier = styled.div<PointerTextType>`
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    font-weight: 600;
+    color: var(--color-blue-5);
+    font-size: 13px;
+    @media ${device.mobileM} {
+        font-size: 12px;
+    }
+`
+
+export const Sup = styled.span`
+    color: black;
+    font-size: 9px;
+    vertical-align: super;
+`
+
+export const FormulaTopWrapper = styled.div`
+    display: block;
+`
+export const FormulaTopWrapperSwapMobile = styled.div`
+    display: block;
+    padding-top: 12px;
+`
+export const FormulaTopWrapperPnl = styled.div<FormulaWrapperType>`
+    display: block;
+    margin-top: ${(props) => (props.mt ? props.mt : '24px')};
+`
+export const FormulaTopWrapperMobile = styled.div<FormulaWrapperType>`
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: ${(props) => (props.cg ? props.cg : '0')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+`
+export const FormulaTopWrapperPnlMobile = styled.div<FormulaWrapperType>`
+    display: flex;
+    margin-top: 14px;
+`
+export const PnlBottomWrapperMobile = styled.div<FormulaWrapperType>`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -20px;
+    margin-top: -28px;
+`
+export const FormulaTopWrapperPnlMultiplierMobile = styled.div<FormulaWrapperType>`
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: ${(props) => (props.cg ? props.cg : '12px')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+    @media ${device.mobileM} {
+        grid-column-gap: ${(props) => (props.cg ? props.cg : '2px')};
+    }
+`
+export const FormulaBottomWrapperPnlMobile = styled.div<FormulaWrapperType>`
+    display: grid;
+    grid-auto-flow: column;
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    @media ${device.mobileM} {
+        grid-column-gap: ${(props) => (props.cg ? props.cg : '2px')};
+    }
+    @media ${device.tabletL} {
+        margin-left: ${(props) => (props.ml ? props.ml : '113px')};
+    }
+    @media ${device.mobileM} {
+        margin-left: ${(props) => (props.ml ? props.ml : '-97px')};
+    }
+`
+export const FormulaBottomWrapperPnl = styled.div<FormulaWrapperType>`
+    display: block;
+    margin-left: -170px;
+    padding-bottom: 24px;
+    margin-top: 15px;
+`
+export const FormulaBottomWrapper = styled.div<FormulaWrapperType>`
+    display: block;
+`
+export const FormulaBottomWrapperMobile = styled.div<FormulaWrapperType>`
+    display: block;
+    padding-top: 12px;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+`
+export const PnlBottomWrapper = styled.div`
+    display: block;
+    margin-top: 10px;
+`

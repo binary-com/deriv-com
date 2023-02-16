@@ -5,12 +5,12 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const ImagePlaceHolder = styled.div`
     width: 690px;
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         width: 100%;
         height: 360px;
     }
@@ -21,13 +21,13 @@ const query = graphql`
         hero_platform1: file(relativePath: { eq: "home/hero_platform1.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform1_uk_and_eu: file(relativePath: { eq: "home/hero_platform1_uk_and_eu.png" }) {
+        hero_platform1_eu: file(relativePath: { eq: "home/hero_platform1_eu.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform2: file(relativePath: { eq: "home/hero_platform2.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform2_uk_and_eu: file(relativePath: { eq: "home/hero_platform2_uk_and_eu.png" }) {
+        hero_platform2_eu: file(relativePath: { eq: "home/hero_platform2_eu.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform3: file(relativePath: { eq: "home/hero_platform3.png" }) {
@@ -70,7 +70,7 @@ const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
     const data = useStaticQuery(query)
 
-    const { is_row, is_eu, is_uk, is_loading } = useCountryRule()
+    const { is_row, is_eu, is_region_loading } = useRegion()
 
     const slide_images = useMemo(() => {
         if (is_row)
@@ -83,25 +83,18 @@ const PlatformSlideshow = () => {
 
         if (is_eu)
             return [
-                { key: 'hero1', image: data.hero_platform1_uk_and_eu },
-                { key: 'hero2', image: data.hero_platform2_uk_and_eu },
-            ]
-
-        if (is_uk)
-            return [
-                { key: 'hero1', image: data.hero_platform1_uk_and_eu },
-                { key: 'hero2', image: data.hero_platform2_uk_and_eu },
+                { key: 'hero1', image: data.hero_platform1_eu },
+                { key: 'hero2', image: data.hero_platform2_eu },
             ]
     }, [
         data.hero_platform1,
-        data.hero_platform1_uk_and_eu,
+        data.hero_platform1_eu,
         data.hero_platform2,
-        data.hero_platform2_uk_and_eu,
+        data.hero_platform2_eu,
         data.hero_platform3,
         data.hero_platform4,
         is_eu,
         is_row,
-        is_uk,
     ])
 
     const intervalRef = useRef(null)
@@ -122,7 +115,7 @@ const PlatformSlideshow = () => {
         return () => clearInterval(intervalRef.current)
     }, [slide_images])
 
-    if (is_loading) {
+    if (is_region_loading) {
         return <ImagePlaceHolder />
     }
 

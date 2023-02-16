@@ -60,7 +60,7 @@ const StyledLinkButton = styled(LinkButton)`
 const StyledDiv = styled.div`
     width: 241px;
 `
-const ColoredBox = styled(Box)`
+const ColoredBox = styled(Box)<{ bgcolor: string }>`
     align-self: left;
     width: fit-content;
     padding: 8px 16px;
@@ -86,13 +86,7 @@ const OurPrinciples = () => {
             <StyledFlex wrap="wrap" jc="left" ai="center">
                 {our_principles.map(({ color, title, text }, idx) => (
                     <div key={idx}>
-                        <StyledDivider
-                            align="center"
-                            height="2px"
-                            width="100% - 32px"
-                            size="2"
-                            color="grey-8"
-                        />
+                        <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
                         <InsideFlex
                             direction="inline-flex"
                             ai="center"
@@ -110,15 +104,9 @@ const OurPrinciples = () => {
                         </InsideFlex>
                     </div>
                 ))}
-                <StyledDivider
-                    align="center"
-                    height="2px"
-                    width="100% - 32px"
-                    size="2"
-                    color="grey-8"
-                />
+                <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
             </StyledFlex>
-            <StyledLinkButton to="/our-principles/" secondary="true">
+            <StyledLinkButton to="/our-principles/" secondary>
                 {localize('Learn more about our principles')}
             </StyledLinkButton>
         </StyledSection>

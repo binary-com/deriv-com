@@ -9,7 +9,7 @@ import { localize, WithIntl } from 'components/localization'
 const query = graphql`
     query {
         rwanda: file(relativePath: { eq: "careers/rwanda.jpg" }) {
-            ...heroImage
+            ...backgroundImage
         }
         living_in_rwanda: file(relativePath: { eq: "careers/living_in_rwanda.jpg" }) {
             ...fadeIn
@@ -23,10 +23,15 @@ const query = graphql`
         rwanda_grid_3: file(relativePath: { eq: "careers/rwanda_grid_3.jpg" }) {
             ...fadeIn
         }
-        rwanda_grid_4: file(relativePath: { eq: "careers/rwanda_grid_4.jpg" }) {
+        rwanda_grid_4: file(relativePath: { eq: "careers/rwanda_grid_4.png" }) {
             ...fadeIn
         }
         rwanda_map: file(relativePath: { eq: "maps/map-rwanda-career.png" }) {
+            ...fadeIn
+        }
+        rwanda_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/rwanda_great_place_to_work_badge.png" }
+        ) {
             ...fadeIn
         }
     }

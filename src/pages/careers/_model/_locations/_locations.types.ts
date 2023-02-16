@@ -1,7 +1,10 @@
 export type LocationsType = {
     name: string
     link: string
-    display_name: string
+    display_name?: string
+    job_location?: string
+    display_thumbnail_name?: string
+    display_title_name?: string
     img_alt?: string
     map_office_name: string
     country: string
@@ -17,7 +20,7 @@ export type LocationsType = {
     map: string
     map_img?: string
     map_text: string
-    address: string[]
+    address?: string[]
     google_map_link?: string
     has_iframe?: boolean
     // has_map check is for the new offices with ready office addresses
@@ -25,4 +28,5 @@ export type LocationsType = {
     has_map?: boolean
     badge?: string
     badge_alt?: string
+    need_address_block?: boolean
 }

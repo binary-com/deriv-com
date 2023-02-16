@@ -2,11 +2,14 @@ import React from 'react'
 import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Box, Flex, SectionContainer, EU, NonEU, Desktop, Mobile } from 'components/containers'
-import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
+import { Box, Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
+import { Carousel, CarouselProps, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
+import useRegion from 'components/hooks/use-region'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
 type CalculatorProps = {
     children?: React.ReactNode
@@ -16,7 +19,7 @@ type CalculatorProps = {
     text: React.ReactElement
     image_name: string
     image_alt_name: string
-    button_text: React.ReactElement
+    button_text: TString
     link: string
 }
 
@@ -46,20 +49,22 @@ const CardContainer = styled(Flex)`
 `
 
 const ImageWrapper = styled.div`
+    display: flex;
     width: 392px;
     height: 386px;
     object-fit: contain;
     margin-bottom: 2.4rem;
 
     @media ${device.tabletL} {
-        max-width: 232px;
-        width: 100%;
-        margin-bottom: 24px;
-        height: unset;
+        align-items: center;
+        justify-content: center;
+        width: 232px;
+        height: 229px;
 
         div {
             max-width: 232px;
             width: 100%;
+            height: auto;
         }
     }
 `
@@ -67,7 +72,7 @@ const ImageWrapper = styled.div`
 const MainHeader = styled(Header)`
     margin: 0 0 12px;
     @media ${device.tabletL} {
-        font-size: 32px;
+        font-size: 28px;
         margin-bottom: 24px;
         padding: 0 16px;
         text-align: center;
@@ -112,7 +117,7 @@ const StyledCardContainer = styled(Flex)`
     align-items: center;
     @media ${device.tabletL} {
         height: auto;
-        min-height: 518px;
+        min-height: 480px;
         justify-content: flex-start;
     }
 `
@@ -146,11 +151,11 @@ const StyledFlexContainer = styled(Flex)`
     }
 `
 
-const StyledFlex = styled(Flex)`
+const StyledFlex = styled(Flex)<{ has_color?: boolean }>`
     width: 50%;
     min-height: 694px;
     margin-right: 2.4rem;
-    background-color: ${(props) => (props.has_color ? 'var(--color-grey-25)' : 'inherit')};
+    background-color: ${({ has_color }) => (has_color ? 'var(--color-grey-25)' : 'inherit')};
     @media ${device.tabletL} {
         width: 100%;
         min-height: 340px;
@@ -181,7 +186,7 @@ const CalculatorCard = ({
                     <QueryImage data={data[image_name + '_mobile']} alt={image_alt_name} />
                 </Mobile>
             </ImageWrapper>
-            <StyledLinkButton tertiary="true" to={link}>
+            <StyledLinkButton tertiary to={link}>
                 <Localize translate_text={button_text} />
             </StyledLinkButton>
         </StyledCardContainer>
@@ -207,7 +212,7 @@ const calculators: CalculatorProps[] = [
         ),
         image_name: 'margin_calculator',
         image_alt_name: localize('DMT5 margin trading calculator'),
-        button_text: <Localize translate_text="Try our margin calculator" />,
+        button_text: '_t_Try our margin calculator_t_',
         link: '/trader-tools/margin-calculator/',
     },
     {
@@ -218,13 +223,18 @@ const calculators: CalculatorProps[] = [
         ),
         image_name: 'swap_calculator',
         image_alt_name: localize('DMT5 swap trading calculator'),
-        button_text: <Localize translate_text="Try our swap calculator" />,
+        button_text: '_t_Try our swap calculator_t_',
         link: '/trader-tools/swap-calculator/',
     },
 ]
 
 const MarginCalculator = () => {
-    const settings = {
+    const lang_direction = useLangDirection()
+
+    const settings: CarouselProps = {
+        options: {
+            direction: lang_direction,
+        },
         container_style: {
             maxWidth: '100%',
             margin: '0',
@@ -242,50 +252,55 @@ const MarginCalculator = () => {
         },
     }
 
+    const { is_eu } = useRegion()
     return (
         <SectionContainer>
             <StyledFlexContainer>
                 <StyledFlex
-                    ai="flex-end"
+                    ai="center"
                     jc="flex-start"
                     tablet_jc="center"
                     fd="column"
                     wrap="wrap"
-                    has_color={true}
+                    has_color
                 >
                     <StyledBox max_width="100%">
-                        <MainHeader as="h2" type="page-title" lh="1.25" align="left">
+                        <MainHeader as="h2" type="page-title" lh="1.25" align="start">
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>
-                            <EU>
-                                <Localize
-                                    translate_text="Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
-                                    components={[
-                                        <LinkText
-                                            color="red"
-                                            key={0}
-                                            target="_blank"
-                                            href="/trade-types/cfds/"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </EU>
-                            <NonEU>
-                                <Localize
-                                    translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
-                                    components={[
-                                        <LinkText
-                                            color="red"
-                                            key={0}
-                                            target="_blank"
-                                            href="/trade-types/cfds/"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </NonEU>
+                            {is_eu && (
+                                <>
+                                    <Localize
+                                        translate_text="Explore <0>CFDs</0> on Deriv MT5 and enjoy low spreads to increase your returns when the market moves in your favour."
+                                        components={[
+                                            <LinkText
+                                                color="red"
+                                                key={0}
+                                                target="_blank"
+                                                href="/trade-types/cfds/"
+                                                rel="noopener noreferrer"
+                                            />,
+                                        ]}
+                                    />
+                                </>
+                            )}
+                            {!is_eu && (
+                                <>
+                                    <Localize
+                                        translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
+                                        components={[
+                                            <LinkText
+                                                color="red"
+                                                key={0}
+                                                target="_blank"
+                                                href="/trade-types/cfds/"
+                                                rel="noopener noreferrer"
+                                            />,
+                                        ]}
+                                    />
+                                </>
+                            )}
                         </StyledText>
                         <StyledText>
                             <Localize translate_text="With the calculators and numerous analytical tools available on the Deriv MT5 platform, you’ll be able to manage your capital and trading positions better." />
@@ -302,9 +317,9 @@ const MarginCalculator = () => {
                 >
                     <CardContainer>
                         <Carousel {...settings}>
-                            {calculators.map((calculator, idx) => (
+                            {calculators.map((calculator) => (
                                 <CalculatorCard
-                                    key={idx}
+                                    key={calculator.index}
                                     name={calculator.name}
                                     image_name={calculator.image_name}
                                     image_alt_name={calculator.image_alt_name}

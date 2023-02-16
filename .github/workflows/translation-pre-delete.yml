@@ -1,17 +1,41 @@
 name: Pre-delete Translation
 
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  pull-requests: write
+  statuses: write
+  
 on:
   pull_request:
     types: [closed]
     branches:
         - 'master*'
-        
+env: 
+ BRANCH: ${{ github.head_ref }}
+
 jobs:
-    check-translation-branch:
+   check-translation-branch:
         runs-on: ubuntu-latest
-        if:  startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')
+        if: |
+            (startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')) &&
+            !contains(github.head_ref, '!') &&
+            !contains(github.head_ref, '@') &&   
+            !contains(github.head_ref, '#') &&   
+            !contains(github.head_ref, '$') &&   
+            !contains(github.head_ref, '%') &&   
+            !contains(github.head_ref, '^') &&   
+            !contains(github.head_ref, '&') &&   
+            !contains(github.head_ref, '*') &&   
+            !contains(github.head_ref, '(') &&   
+            !contains(github.head_ref, ')') 
         steps:
             - name: Branch Check 🔍
-              run: echo '${{ github.head_ref }} is valid branch for translation workflow'
+              run: |
+               CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
+               
+               echo "$CLEAN_BRANCH is valid branch for translation workflow"
               
 

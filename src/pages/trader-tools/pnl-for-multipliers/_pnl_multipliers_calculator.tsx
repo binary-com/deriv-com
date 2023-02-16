@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Field, Formik } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import { FormikErrors, FormikTouched } from '../common/_formik-types'
 import {
     getPnlMultiplierCommon,
@@ -13,7 +12,7 @@ import {
     BreadCrumbContainer,
     CalculateButton,
     CalculatorBody,
-    CalculatorForm,
+    PnlCalculatorFormMobile,
     CalculatorHeader,
     CalculatorLabel,
     ContentContainer,
@@ -35,16 +34,23 @@ import {
     StyledSection,
     SwapTabSelector,
 } from '../common/_style'
+import {
+    StopLossLevelUp,
+    TakeProfitLevelUp,
+    TakeProfitAmountUp,
+    StopLossAmountDown,
+} from './_example-pnl-multipliers'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
     Header,
     LocalizedLinkText,
-    QueryImage,
+    ImageWithDireciton,
     Text,
 } from 'components/elements'
-import { Flex, Show } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers/visibility'
+import { Flex } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
@@ -377,52 +383,6 @@ const take_profit_level_change_handler = (setFieldValue) => (value) => {
 }
 
 const PnlMultipliersCalculator = () => {
-    const query = graphql`
-        query {
-            stop_loss_level_up_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-up-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_level_up_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-up-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_amount_down_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-amount-down-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_amount_down_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-amount-down-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_level_down_formula: file(
-                relativePath: { eq: "trade-tools/take-profit-level-down-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_level_down_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-level-down-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_amount_up_formula: file(
-                relativePath: { eq: "trade-tools/take-profit-amount-up-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_amount_up_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-amount-up-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-    const data = useStaticQuery(query)
-
     const [tab, setTab] = useState('Level')
     const [sub_tab, setSubTab] = useState('Up')
 
@@ -468,7 +428,7 @@ const PnlMultipliersCalculator = () => {
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
-                    <img
+                    <ImageWithDireciton
                         src={RightArrow}
                         alt={localize('right arrow')}
                         height="16"
@@ -481,18 +441,23 @@ const PnlMultipliersCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our profit and loss calculator for multipliers helps to determine the stop loss and/or take profit level in your trades to minimise losses and maximise gains.',
+                        'Our profit and loss calculator for multipliers helps to determine the stop loss and take profit level in your trades to minimise losses and maximise gains.',
                     )}
                 </SectionSubtitle>
 
-                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
+                <Flex
+                    mt="80px"
+                    mb="40px"
+                    tablet={{ mt: '40px', mb: '24px' }}
+                    id="pnl-multipliers-tab-selector"
+                >
                     <SwapTabSelector active={tab === 'Level'} onClick={() => onTabClick('Level')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="level">
                             {localize('Level')}
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Amount'} onClick={() => onTabClick('Amount')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="amount">
                             {localize('Amount')}
                         </Text>
                     </SwapTabSelector>
@@ -608,8 +573,8 @@ const PnlMultipliersCalculator = () => {
 
                                     return (
                                         <>
-                                            <Show.Desktop max_width="mobileL">
-                                                <CalculatorForm>
+                                            <Desktop breakpoint={'tablet'}>
+                                                <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex>
                                                             <Flex fd="column" mr="24px">
@@ -815,11 +780,11 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
-                                                </CalculatorForm>
-                                            </Show.Desktop>
+                                                </PnlCalculatorFormMobile>
+                                            </Desktop>
 
-                                            <Show.Mobile min_width="mobileL">
-                                                <CalculatorForm>
+                                            <Mobile>
+                                                <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex fd="column">
                                                             <Flex fd="column" mb="16px">
@@ -995,8 +960,8 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
-                                                </CalculatorForm>
-                                            </Show.Mobile>
+                                                </PnlCalculatorFormMobile>
+                                            </Mobile>
                                         </>
                                     )
                                 }}
@@ -1005,29 +970,29 @@ const PnlMultipliersCalculator = () => {
 
                         <RightContent>
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize('How to calculate stop loss and/or take profit level')}
+                                {localize('How to calculate stop loss and take profit level')}
                             </Header>
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level for a contract on DTrader is calculated based on the formula:',
+                                    'The stop loss and take profit level for a contract on DTrader is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level in the Up direction = asset price × {(stop loss OR take profit amount + commission) ÷ (stake × multiplier) + 1}</0>"
+                                    translate_text="<0>Stop loss and take profit level in the Up direction = asset price × {(stop loss OR take profit amount + commission) ÷ (stake × multiplier) + 1}</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="16px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level in the Down direction = asset price × {(-stop loss OR take profit amount - commission) ÷ (stake × multiplier) + 1}</0>"
+                                    translate_text="<0>Stop loss and take profit level in the Down direction = asset price × {(-stop loss OR take profit amount - commission) ÷ (stake × multiplier) + 1}</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="40px">
                                 {localize(
-                                    'This helps you to set the stop loss and/or take profit level when the asset price moves in Up or Down direction.',
+                                    'This helps you to set the stop loss and take profit level when the asset price moves in Up or Down direction.',
                                 )}
                             </Text>
 
@@ -1035,30 +1000,25 @@ const PnlMultipliersCalculator = () => {
                                 {localize('Example calculation')}
                             </Header>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-multipliers" has_single_state>
                                 <AccordionItem
                                     header={localize('Stop loss level in Up direction')}
                                     header_style={header_style}
                                     style={item_style}
                                     plus
+                                    class_name="take-profit-up"
                                 >
                                     <Text mb="16px">
                                         {localize(
                                             'Let’s say you want to calculate the stop loss level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss amount of 7.54 USD in Up direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
-                                        <QueryImage
-                                            data={data.stop_loss_level_up_formula}
-                                            alt={localize('stop loss level up formula')}
-                                        />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
-                                        <QueryImage
-                                            data={data.stop_loss_level_up_formula_mobile}
-                                            alt={localize('stop loss level up formula')}
-                                        />
-                                    </Show.Mobile>
+                                    <Desktop breakpoint={'tablet'}>
+                                        <StopLossLevelUp />
+                                    </Desktop>
+                                    <Mobile>
+                                        <StopLossLevelUp />
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1082,24 +1042,20 @@ const PnlMultipliersCalculator = () => {
                                     header_style={header_style}
                                     style={item_style}
                                     plus
+                                    class_name="take-profit-down"
                                 >
                                     <Text mb="16px">
                                         {localize(
                                             'Let’s say you want to calculate the take profit level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit amount of 7.54 USD in Down direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
-                                        <QueryImage
-                                            data={data.take_profit_level_down_formula}
-                                            alt={localize('take profit level down formula')}
-                                        />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
-                                        <QueryImage
-                                            data={data.take_profit_level_down_formula_mobile}
-                                            alt={localize('take profit level down formula')}
-                                        />
-                                    </Show.Mobile>
+                                    <Desktop breakpoint={'tablet'}>
+                                        <TakeProfitLevelUp />
+                                    </Desktop>
+                                    <Mobile>
+                                        <TakeProfitLevelUp />
+                                    </Mobile>
+
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1121,13 +1077,13 @@ const PnlMultipliersCalculator = () => {
 
                             <LinkWrapper height="auto">
                                 <StyledLinkButton
-                                    secondary="true"
+                                    secondary
+                                    external
                                     type="deriv_app"
-                                    external="true"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Go to Dtrader')}
+                                    {localize('Go to DTrader')}
                                 </StyledLinkButton>
                             </LinkWrapper>
                         </RightContent>
@@ -1246,8 +1202,8 @@ const PnlMultipliersCalculator = () => {
 
                                     return (
                                         <>
-                                            <Show.Desktop max_width="mobileL">
-                                                <CalculatorForm>
+                                            <Desktop breakpoint={'tablet'}>
+                                                <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex>
                                                             <Flex fd="column" mr="24px">
@@ -1455,11 +1411,11 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
-                                                </CalculatorForm>
-                                            </Show.Desktop>
+                                                </PnlCalculatorFormMobile>
+                                            </Desktop>
 
-                                            <Show.Mobile min_width="mobileL">
-                                                <CalculatorForm>
+                                            <Mobile>
+                                                <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex fd="column">
                                                             <Flex fd="column" mb="16px">
@@ -1637,8 +1593,8 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
-                                                </CalculatorForm>
-                                            </Show.Mobile>
+                                                </PnlCalculatorFormMobile>
+                                            </Mobile>
                                         </>
                                     )
                                 }}
@@ -1647,29 +1603,29 @@ const PnlMultipliersCalculator = () => {
 
                         <RightContent>
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize('How to calculate stop loss and/or take profit amount')}
+                                {localize('How to calculate stop loss and take profit amount')}
                             </Header>
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit amount for a contract on DTrader is calculated based on the formula:',
+                                    'The stop loss and take profit amount for a contract on DTrader is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit amount in the Up direction = Max [{stake × ((stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
+                                    translate_text="<0>Stop loss and take profit amount in the Up direction = Max [{stake × ((stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="16px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit amount in the Down direction = Max [{stake × (-(stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
+                                    translate_text="<0>Stop loss and take profit amount in the Down direction = Max [{stake × (-(stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="40px">
                                 {localize(
-                                    'This helps you to set the stop loss and/or take profit level when the asset price moves in Up or Down direction.',
+                                    'This helps you to set the stop loss and take profit level when the asset price moves in Up or Down direction.',
                                 )}
                             </Text>
 
@@ -1677,30 +1633,26 @@ const PnlMultipliersCalculator = () => {
                                 {localize('Example calculation')}
                             </Header>
 
-                            <Accordion has_single_state>
+                            <Accordion id="pnl-for-multipliers" has_single_state>
                                 <AccordionItem
                                     header={localize('Take profit amount in Up direction')}
                                     header_style={header_style}
                                     style={item_style}
                                     plus
+                                    class_name="take-profit-amount"
                                 >
                                     <Text mb="16px">
                                         {localize(
                                             'Let’s say you want to calculate the take profit amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit level of 3400 in Up direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
-                                        <QueryImage
-                                            data={data.take_profit_amount_up_formula}
-                                            alt={localize('take profit amount up formula')}
-                                        />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
-                                        <QueryImage
-                                            data={data.take_profit_amount_up_formula_mobile}
-                                            alt={localize('take profit amount up formula')}
-                                        />
-                                    </Show.Mobile>
+                                    <Desktop breakpoint={'tablet'}>
+                                        <TakeProfitAmountUp />
+                                    </Desktop>
+                                    <Mobile>
+                                        <TakeProfitAmountUp />
+                                    </Mobile>
+
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1730,18 +1682,12 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the stop loss amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss level of 3400 in Down direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
-                                        <QueryImage
-                                            data={data.stop_loss_amount_down_formula}
-                                            alt={localize('stop loss amount down formula')}
-                                        />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
-                                        <QueryImage
-                                            data={data.stop_loss_amount_down_formula_mobile}
-                                            alt={localize('stop loss amount down formula')}
-                                        />
-                                    </Show.Mobile>
+                                    <Desktop breakpoint={'tablet'}>
+                                        <StopLossAmountDown />
+                                    </Desktop>
+                                    <Mobile>
+                                        <StopLossAmountDown />
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1763,13 +1709,13 @@ const PnlMultipliersCalculator = () => {
 
                             <LinkWrapper height="auto">
                                 <StyledLinkButton
-                                    secondary="true"
+                                    secondary
+                                    external
                                     type="deriv_app"
-                                    external="true"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Go to Dtrader')}
+                                    {localize('Go to DTrader')}
                                 </StyledLinkButton>
                             </LinkWrapper>
                         </RightContent>

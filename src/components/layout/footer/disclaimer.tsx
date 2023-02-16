@@ -90,7 +90,7 @@ const DisclaimerSection = () => {
                     <>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act (licence). The registered office of Deriv Investments (Europe) Limited is at W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR9033, Malta. "
+                                translate_text="Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act <0>(licence)</0>. The registered office of Deriv Investments (Europe) Limited is at W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR9033, Malta. "
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -200,14 +200,19 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<0> Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
                                         components={[
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
                                                 to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink key={1} target="_blank" to="/responsible/" />,
+                                            <BoldLink
+                                                key={1}
+                                                target="_blank"
+                                                href="/tnc/risk-disclosure-eu.pdf"
+                                            />,
+                                            <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
                                     />
                                 </DisclaimerParagraph>
@@ -226,14 +231,19 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<0> Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
                                         components={[
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
                                                 to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink key={1} target="_blank" to="/responsible/" />,
+                                            <BoldLink
+                                                key={1}
+                                                target="_blank"
+                                                href="/tnc/risk-disclosure-eu.pdf"
+                                            />,
+                                            <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
                                     />
                                 </DisclaimerParagraph>
@@ -246,14 +256,19 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<0> Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
                                         components={[
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
                                                 to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink key={1} target="_blank" to="/responsible/" />,
+                                            <BoldLink
+                                                key={1}
+                                                target="_blank"
+                                                href="/tnc/risk-disclosure-eu.pdf"
+                                            />,
+                                            <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
                                     />
                                 </DisclaimerParagraph>

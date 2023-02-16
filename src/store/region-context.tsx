@@ -27,7 +27,6 @@ type RegionContextType = Record<
     | 'is_eu_location'
     | 'is_eu'
     | 'is_non_eu'
-    | 'is_cpa_plan_no_bw'
     | 'is_cpa_plan'
     | 'is_latam'
     | 'is_row'
@@ -47,7 +46,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_eu: isEuDomain(),
         is_non_eu: !isEuDomain(),
         is_cpa_plan: false,
-        is_cpa_plan_no_bw: false,
         is_latam: false,
         is_row: !isEuDomain(),
         is_dev: false,
@@ -70,8 +68,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_eu = is_eu_location || isEuDomain()
         const is_non_eu = !is_eu
         const is_cpa_plan = cpa_plan_countries.includes(user_ip_country)
-        const first_two_countries = cpa_plan_countries.slice(0, 2)
-        const is_cpa_plan_no_bw = first_two_countries.includes(user_ip_country)
         const is_latam = latam_countries.includes(user_ip_country)
         const is_row = !is_eu
         const is_dev = isLocalhost() || isTestlink()
@@ -87,7 +83,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_eu,
                 is_non_eu,
                 is_cpa_plan,
-                is_cpa_plan_no_bw,
                 is_africa,
                 is_row,
                 is_dev,
@@ -102,7 +97,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_eu,
         is_non_eu,
         is_cpa_plan,
-        is_cpa_plan_no_bw,
         is_africa,
         is_row,
         is_dev,
@@ -120,7 +114,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_eu,
                 is_non_eu,
                 is_cpa_plan,
-                is_cpa_plan_no_bw,
                 is_africa,
                 is_row,
                 is_dev,

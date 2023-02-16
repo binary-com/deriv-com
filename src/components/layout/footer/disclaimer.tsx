@@ -12,11 +12,11 @@ import { loss_percent } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 
 const DisclaimerSection = () => {
-    const { is_eu, is_non_eu, is_cpa_plan_no_bw } = useRegion()
+    const { is_eu, is_non_eu, is_cpa_plan } = useRegion()
     return (
         <>
             <DisclaimerWrapper>
-                {(is_non_eu || is_cpa_plan_no_bw) && (
+                {(is_non_eu || is_cpa_plan) && (
                     <>
                         <DisclaimerParagraph>
                             <Localize
@@ -110,7 +110,7 @@ const DisclaimerSection = () => {
                 )}
                 <RiskWarning>
                     <Desktop>
-                        {is_non_eu && !is_cpa_plan_no_bw && (
+                        {is_non_eu && !is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
@@ -135,7 +135,7 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                             </>
                         )}
-                        {is_cpa_plan_no_bw && (
+                        {is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
@@ -193,7 +193,7 @@ const DisclaimerSection = () => {
                         )}
                     </Desktop>
                     <Mobile>
-                        {is_non_eu && !is_cpa_plan_no_bw && (
+                        {is_non_eu && !is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
@@ -218,7 +218,7 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                             </>
                         )}
-                        {is_cpa_plan_no_bw && (
+                        {is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />

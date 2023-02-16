@@ -34,7 +34,6 @@ type RowProps = {
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
-    border-top: solid 1px var(--color-grey-2);
     @media ${device.tabletL} {
         padding: 1.74rem 0 4rem 0;
         border-top: unset;
@@ -73,10 +72,15 @@ const StyledHeader = styled(Header)`
     line-height: 1.25;
 
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 28px;
         line-height: 40px;
         margin-top: 2rem;
     }
+`
+const StyledTitle = styled(Header)`
+    font-size: 18px;
+    font-weight: 100;
+    margin: 8px 0 0;
 `
 const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};
@@ -177,13 +181,13 @@ const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
                                 <StyledHeader type="page-title" as="h2">
                                     {item.title}
                                 </StyledHeader>
-                                <Text>{item.subtitle}</Text>
+                                <StyledTitle>{item.subtitle}</StyledTitle>
                                 {two_title && (
                                     <>
                                         <StyledHeader type="page-title" mt="2.4rem">
                                             {item.second_title}
                                         </StyledHeader>
-                                        <Text>{item.second_subtitle}</Text>
+                                        <StyledTitle>{item.second_subtitle}</StyledTitle>
                                     </>
                                 )}
                             </Content>

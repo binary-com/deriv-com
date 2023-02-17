@@ -4,9 +4,11 @@ import AvailableTrades from '../helper/_available-trades'
 import synthetic_content from '../../static/content/_synthetic'
 import { synthetic_cfds, synthetic_cfds_eu } from '../../static/content/_cfds'
 import { synthetic_multiplier, synthetic_multiplier_eu } from '../../static/content/_multipliers'
+import { accumulators } from '../../static/content/_accumulators'
 import { synthetic_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
+import Accumulators from '../sub-markets/_accumulators'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
@@ -50,6 +52,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                         market_content={is_eu ? synthetic_multiplier_eu : synthetic_multiplier}
                     />
                 }
+                Accumulators={<Accumulators market_content={accumulators} />}
                 display_title={<Localize translate_text="Synthetics trades available on Deriv" />}
             />
             <FullWidthMultiColumn

@@ -143,31 +143,73 @@ export const volatility_indices_eu: MarketSymbol[] = [
         text: <Localize translate_text="Volatility 300 (1s) Index" />,
     },
 ]
+export const accumulators_indices: MarketSymbol[] = [
+    {
+        src: icons.INDEX10S1NEW,
+        text: <Localize translate_text="Volatility 10 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX25S1NEW,
+        text: <Localize translate_text="Volatility 25 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX50S1NEW,
+        text: <Localize translate_text="Volatility 50 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX75S1NEW,
+        text: <Localize translate_text="Volatility 75 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX100S1NEW,
+        text: <Localize translate_text="Volatility 100 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX10NEW,
+        text: <Localize translate_text="Volatility 10 Index" />,
+    },
+    {
+        src: icons.INDEX25NEW,
+        text: <Localize translate_text="Volatility 25 Index" />,
+    },
+    {
+        src: icons.INDEX50NEW,
+        text: <Localize translate_text="Volatility 50 Index" />,
+    },
+    {
+        src: icons.INDEX75NEW,
+        text: <Localize translate_text="Volatility 75 Index" />,
+    },
+    {
+        src: icons.INDEX100NEW,
+        text: <Localize translate_text="Volatility 100 Index" />,
+    },
+]
 
 export const crash_boom: MarketSymbol[] = [
     {
-        src: icons.BOOM1000NEW,
-        text: <Localize translate_text="Boom 1000 Index" />,
-    },
-    {
-        src: icons.BOOM500NEW,
-        text: <Localize translate_text="Boom 500 Index" />,
-    },
-    {
-        src: icons.VBOOMIC300,
-        text: <Localize translate_text="Boom 300 Index " />,
-    },
-    {
-        src: icons.CRASH1000NEW,
-        text: <Localize translate_text="Crash 1000 Index" />,
+        src: icons.VCRASHIC300,
+        text: <Localize translate_text="Crash 300 Index" />,
     },
     {
         src: icons.CRASH500NEW,
         text: <Localize translate_text="Crash 500 Index" />,
     },
     {
-        src: icons.VCRASHIC300,
-        text: <Localize translate_text="Crash 300 Index" />,
+        src: icons.CRASH1000NEW,
+        text: <Localize translate_text="Crash 1000 Index" />,
+    },
+    {
+        src: icons.VBOOMIC300,
+        text: <Localize translate_text="Boom 300 Index " />,
+    },
+    {
+        src: icons.BOOM500NEW,
+        text: <Localize translate_text="Boom 500 Index" />,
+    },
+    {
+        src: icons.BOOM1000NEW,
+        text: <Localize translate_text="Boom 1000 Index" />,
     },
 ]
 export const crash_boom_multipliers: MarketSymbol[] = [
@@ -904,7 +946,7 @@ export const american_stocks: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSMCDONALDS,
-        text: <Localize translate_text="McDonalds" />,
+        text: <Localize translate_text="McDonald's" />,
     },
     {
         src: icons.STOCKSMICROSOFT,
@@ -976,7 +1018,7 @@ export const american_stocks: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSWALMART,
-        text: <Localize translate_text="Wal-Mart Stores Inc" />,
+        text: <Localize translate_text="Walmart Inc" />,
     },
     {
         src: icons.STOCKSWALTDISNEY,

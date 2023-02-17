@@ -1,16 +1,11 @@
 // global styles of nav components
 import styled from 'styled-components'
 import device from 'themes/device'
-import { getBaseRef } from 'common/utility'
 import { Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { SharedLinkStyle, SharedLinkStyleMarket } from 'components/localization/localized-link'
 
 type NavRightProps = {
-    button_ref: React.MutableRefObject<HTMLButtonElement>
-    mounted: boolean
-    move?: boolean
-    has_scrolled: boolean
     hide_signup_login?: boolean
     is_rtl?: boolean
 }
@@ -28,7 +23,7 @@ type LogoLinkProps = {
 }
 
 export const HamburgerMenu = styled.img`
-    width: 16px;
+    width: 12px;
     cursor: pointer;
 `
 export const CloseIcon = styled.img`
@@ -75,7 +70,6 @@ export const MobileWrapper = styled.div<DesktopWrapperProps>`
     display: none;
     @media ${({ media }) => media || device.tabletL} {
         display: block;
-        background: var(--color-black);
     }
 `
 
@@ -85,35 +79,6 @@ export const NavRight = styled.div<NavRightProps>`
     text-align: end;
     justify-content: center;
     padding: 0;
-    opacity: ${({ mounted }) => (mounted ? '1' : '0')};
-    transition: ${({ move, has_scrolled }) =>
-        move ? 'all 0.25s' : has_scrolled ? 'all 0.25s' : 'none'};
-    transform: translateX(
-        ${({ button_ref, hide_signup_login, move, mounted, is_rtl }) => {
-            const ref_base = getBaseRef(button_ref)
-
-            if (hide_signup_login) {
-                return 0
-            } else if (move && !hide_signup_login) {
-                if (ref_base && mounted) {
-                    ref_base.style.opacity = 1
-                }
-                return 0
-            } else {
-                if (ref_base && mounted) {
-                    ref_base.style.opacity = 0
-                    const calculation = ref_base.offsetWidth + 2
-                    return is_rtl ? `${-calculation}px` : `${calculation}px`
-                }
-                return '300px'
-            }
-        }}
-    );
-
-    > a {
-        pointer-events: ${({ move }) => (move ? 'visible' : 'none')};
-        cursor: ${({ move }) => (move ? 'pointer' : 'default')};
-    }
 
     @media (max-width: 991px) {
         display: none;
@@ -170,7 +135,7 @@ export const NavLink = styled.li<NavLinkProps>`
     position: relative;
     align-items: center;
     text-align: center;
-    margin-right: 2.4rem;
+    margin-right: 1.4rem;
 
     &:last-child {
         margin-right: 0;

@@ -30,7 +30,7 @@ const MarketsAccordion = ({ renderTitle, children }: MarketsAccordionProps) => {
     return (
         <Wrapper>
             <Title>{renderTitle()}</Title>
-            <Details background="var(--color-grey-23)">{children}</Details>
+            <Details background="var(--color-white)">{children}</Details>
         </Wrapper>
     )
 }

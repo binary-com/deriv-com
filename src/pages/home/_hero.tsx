@@ -15,13 +15,13 @@ type HeroProps = {
 const HeroWrapper = styled.section`
     width: 100%;
     min-height: 100%;
-
-    /* background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%); */
     position: relative;
+    margin-top: 72px;
     @media ${device.tabletL} {
         flex-wrap: wrap;
         justify-content: flex-start;
         min-height: 100%;
+        margin-top: 58px;
     }
 `
 

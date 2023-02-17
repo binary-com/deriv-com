@@ -21,6 +21,8 @@ import type {
     AccountStatusResponse,
     ActiveSymbolsRequest,
     ActiveSymbolsResponse,
+    CryptocurrencyConfigurationsRequest,
+    CryptocurrencyConfigurationsResponse,
 } from '@deriv/api-types'
 
 export type TSocketEndpoints = {
@@ -67,6 +69,10 @@ export type TSocketEndpoints = {
     active_symbols: {
         request: ActiveSymbolsRequest
         response: ActiveSymbolsResponse
+    }
+    crypto_config: {
+        request: CryptocurrencyConfigurationsRequest
+        response: CryptocurrencyConfigurationsResponse
     }
 }
 

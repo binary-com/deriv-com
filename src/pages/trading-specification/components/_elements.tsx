@@ -116,8 +116,8 @@ export const TableHeaderCell = ({ text, infoIcon }: TTableHeaderCell) => {
         <Cell>
             <StyledTableHeaderText type="small" width="fit-content" align="start" as="p">
                 {text}
-                <img src={infoIcon} onClick={handleDlIcon} />
             </StyledTableHeaderText>
+            {/*<img src={infoIcon} onClick={handleDlIcon} />*/}
         </Cell>
     )
 }

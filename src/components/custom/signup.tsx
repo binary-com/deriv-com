@@ -113,8 +113,9 @@ const Signup = (props: SignupProps) => {
 
     const handleInputChange = (e) => {
         const { value } = e.target
-        setEmail(escapeHtml(value))
-        handleValidation(escapeHtml(value))
+        const sanitizedValue = escapeHtml(value)
+        setEmail(sanitizedValue)
+        handleValidation(sanitizedValue)
     }
 
     const getVerifyEmailRequest = (formatted_email) => {

@@ -22,7 +22,7 @@ jobs:
               with:
                   node-version: '16.x'
 
-            - run: npm i -g @crowdin/cli
+            - run: npm i -g @crowdin/cli@3.10.0
             - run: npm ci
 
             - uses: olegtarasov/get-tag@v2.1

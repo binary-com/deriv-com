@@ -99,6 +99,7 @@ export const CellIcon = styled.div`
 `
 type TTableHeaderCell = {
     text?: ReactElement
+    infoIcon?: string
 }
 
 type TTableCell = {
@@ -110,11 +111,12 @@ const StyledTableHeaderText = styled(HeaderText)`
     }
 `
 
-export const TableHeaderCell = ({ text }: TTableHeaderCell) => {
+export const TableHeaderCell = ({ text, infoIcon }: TTableHeaderCell) => {
     return (
         <Cell>
             <StyledTableHeaderText type="small" width="fit-content" align="start" as="p">
                 {text}
+                <img src={infoIcon} onClick={handleDlIcon} />
             </StyledTableHeaderText>
         </Cell>
     )

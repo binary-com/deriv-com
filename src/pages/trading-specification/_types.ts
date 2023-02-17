@@ -1,7 +1,7 @@
 export type TAvailableLiveMarkets =
     | 'forex'
     | 'derived'
-    | 'indices'
+    | 'stocks'
     | 'cryptocurrency'
     | 'commodities'
 

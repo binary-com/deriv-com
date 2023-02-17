@@ -208,11 +208,7 @@ const Signup = (props: SignupProps) => {
                 return <SignupPublic {...parameters} />
             case Appearances.lightFlat:
             case Appearances.darkFlat:
-                return param == Appearances.darkFlat ? (
-                    <SignupFlat dark {...parameters} />
-                ) : (
-                    <SignupFlat {...parameters} />
-                )
+                return <SignupFlat dark={param === Appearances.darkFlat} {...parameters} />
             case Appearances.default:
             default:
                 return <SignupDefault {...parameters} />

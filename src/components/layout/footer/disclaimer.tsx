@@ -124,10 +124,10 @@ const DisclaimerSection = () => {
                                                 target="_blank"
                                                 to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink
+                                            <StaticAsset
                                                 key={1}
                                                 target="_blank"
-                                                href="/tnc/risk-disclosure-eu.pdf"
+                                                href="/tnc/risk-disclosure.pdf"
                                             />,
                                             <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
@@ -155,10 +155,10 @@ const DisclaimerSection = () => {
                                                 target="_blank"
                                                 to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink
+                                            <StaticAsset
                                                 key={1}
                                                 target="_blank"
-                                                href="/tnc/risk-disclosure-eu.pdf"
+                                                href="/tnc/risk-disclosure.pdf"
                                             />,
                                             <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
@@ -180,7 +180,7 @@ const DisclaimerSection = () => {
                                                 target="_blank"
                                                 to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink
+                                            <StaticAsset
                                                 key={1}
                                                 target="_blank"
                                                 href="/tnc/risk-disclosure-eu.pdf"
@@ -207,10 +207,10 @@ const DisclaimerSection = () => {
                                                 target="_blank"
                                                 to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink
+                                            <StaticAsset
                                                 key={1}
                                                 target="_blank"
-                                                href="/tnc/risk-disclosure-eu.pdf"
+                                                href="/tnc/risk-disclosure.pdf"
                                             />,
                                             <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
@@ -238,10 +238,10 @@ const DisclaimerSection = () => {
                                                 target="_blank"
                                                 to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink
+                                            <StaticAsset
                                                 key={1}
                                                 target="_blank"
-                                                href="/tnc/risk-disclosure-eu.pdf"
+                                                href="/tnc/risk-disclosure.pdf"
                                             />,
                                             <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
@@ -263,7 +263,7 @@ const DisclaimerSection = () => {
                                                 target="_blank"
                                                 to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink
+                                            <StaticAsset
                                                 key={1}
                                                 target="_blank"
                                                 href="/tnc/risk-disclosure-eu.pdf"

@@ -129,7 +129,6 @@ const Endpoint = () => {
         actions.setSubmitting(true)
         setServerUrl(values.server_url.toString())
         setAppId(values.app_id)
-
         // handle website status changes
         const new_website_status = { ...website_status, clients_country: values.clients_country }
         setWebsiteStatus(new_website_status)

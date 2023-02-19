@@ -22,6 +22,7 @@ import { CookieStorage } from 'common/storage'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import useDerivWS from 'components/hooks/use-deriv-ws'
 import usePopup from 'components/hooks/use-popup'
+import useWebsiteStatus from 'components/hooks/use-website-status'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -72,6 +73,7 @@ const Layout = ({
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
     const { send } = useDerivWS()
     const { has_platform } = usePlatformQueryParam()
+    const { website_status, setWebsiteStatus } = useWebsiteStatus()
 
     const is_static = type === 'static'
 
@@ -85,6 +87,13 @@ const Layout = ({
 
                     const current_client_country = clients_country || ''
                     const client_information_cookie = new CookieStorage('client_information')
+
+                    const new_website_status = {
+                        ...website_status,
+                        clients_country: current_client_country,
+                    }
+                    setWebsiteStatus(new_website_status)
+
                     const residence = client_information_cookie.get('residence')
                     setRedirectionApplied(true)
                     isEuDomain() && handleRowRedirect(residence, current_client_country)

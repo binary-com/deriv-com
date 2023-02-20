@@ -229,7 +229,10 @@ export const ModalCard = styled.div`
     padding: 2.4rem;
     width: 376px;
     height: auto;
-    gap: 16px;
+    gap: 12px;
+    max-height: 80vh;
+    overflow: auto;
+    padding-top: 50px;
     justify-content: center;
     @media ${device.mobileL} {
         width: 80%;

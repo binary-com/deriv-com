@@ -32,7 +32,8 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
         <Layout>
             <SEO
                 title={localize(
-                    `_t_Help centre | Frequently asked questions | ${untranslate_category} | Deriv_t_`,
+                    `_t_Help centre | Frequently asked questions | {{untranslate_category}} | Deriv_t_`,
+                    { search: untranslate_category },
                 )}
                 description={localize(
                     '_t_Frequently asked questions - {{untranslate_category}}_t_',

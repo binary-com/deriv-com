@@ -54,20 +54,20 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [user_country, setUserCountry] = useState(null)
 
-    const { clients_country } = website_status
+    const client_country = website_status?.clients_country
     const { residence } = getClientInformation(getDomain()) || {
         residence: '',
     }
 
     useEffect(() => {
-        const is_eu_country_ip = eu_countries.includes(clients_country)
-        const is_africa = african_countries.includes(clients_country)
+        const is_eu_country_ip = eu_countries.includes(client_country)
+        const is_africa = african_countries.includes(client_country)
         const is_eu_residence = eu_countries.includes(residence)
         const is_eu_location = is_eu_residence || (!residence && is_eu_country_ip)
         const is_eu = is_eu_location || isEuDomain()
         const is_non_eu = !is_eu
-        const is_cpa_plan = cpa_plan_countries.includes(clients_country)
-        const is_latam = latam_countries.includes(clients_country)
+        const is_cpa_plan = cpa_plan_countries.includes(client_country)
+        const is_latam = latam_countries.includes(client_country)
         const is_row = !is_eu
         const is_dev = isLocalhost() || isTestlink()
         if (website_status) {
@@ -87,7 +87,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_dev,
             })
         }
-    }, [residence, clients_country, website_status])
+    }, [residence, client_country, website_status])
 
     const {
         is_region_loading,

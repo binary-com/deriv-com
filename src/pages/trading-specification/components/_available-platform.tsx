@@ -77,7 +77,7 @@ const AvailablePlatform = () => {
                                         </Header>
                                     </Flex>
                                 </StyledLocalizedLink>
-                                <StyledLocalizedLink to="/dmt5/">
+                                <StyledLocalizedLink to="/derivez/">
                                     <Flex direction="row">
                                         <img src={DerivEZ} alt="Deriv X" width="24" height="24" />
                                         <Header type="paragraph-1" weight="normal" as="p">

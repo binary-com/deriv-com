@@ -110,15 +110,16 @@ const StyledTableHeaderText = styled(HeaderText)`
         font-size: 10px;
     }
 `
-
 export const TableHeaderCell = ({ text, infoIcon }: TTableHeaderCell) => {
     return (
-        <Cell>
-            <StyledTableHeaderText type="small" width="fit-content" align="start" as="p">
-                {text}
-            </StyledTableHeaderText>
-            {/*<img src={infoIcon} onClick={handleDlIcon} />*/}
-        </Cell>
+        <>
+            <img src={infoIcon} />
+            <Cell>
+                <StyledTableHeaderText type="small" width="fit-content" align="start" as="p">
+                    {text}
+                </StyledTableHeaderText>
+            </Cell>
+        </>
     )
 }
 const StyledHeaderText = styled(HeaderText)`

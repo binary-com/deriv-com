@@ -76,7 +76,7 @@ const useLiveColumns = () => {
             liveMarketColumnHelper.accessor('margin_requirement', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Margin requirement" />}
+                        text={<Localize translate_text="Margin requirement (%)" />}
                         infoIcon={info}
                     />
                 ),
@@ -85,7 +85,7 @@ const useLiveColumns = () => {
             liveMarketColumnHelper.accessor('swap_long', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Swap long" />}
+                        text={<Localize translate_text="Swap long (%)" />}
                         infoIcon={info}
                     />
                 ),
@@ -94,7 +94,7 @@ const useLiveColumns = () => {
             liveMarketColumnHelper.accessor('swap_short', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Swap short" />}
+                        text={<Localize translate_text="Swap short (Points)" />}
                         infoIcon={info}
                     />
                 ),

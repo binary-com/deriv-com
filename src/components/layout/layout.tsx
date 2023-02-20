@@ -92,6 +92,7 @@ const Layout = ({
                         ...website_status,
                         clients_country: current_client_country,
                     }
+
                     setWebsiteStatus(new_website_status)
 
                     const residence = client_information_cookie.get('residence')

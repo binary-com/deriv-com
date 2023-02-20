@@ -16,13 +16,10 @@ const MobileCardHeader = styled(Flex)`
     height: auto;
 
     @media (max-width: 680px) {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: center;
-
         > img {
             width: 48px;
             height: 48px;
+            margin-bottom: 2rem;
         }
     }
 `

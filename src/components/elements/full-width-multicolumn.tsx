@@ -25,7 +25,7 @@ const Item = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        max-width: 18rem;
+        max-width: 90%;
         gap: 6px;
 
         ${Text} {

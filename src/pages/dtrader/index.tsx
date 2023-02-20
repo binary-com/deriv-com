@@ -53,7 +53,7 @@ const trading = [
         image_alt: localize('Trade world or synthetic markets'),
     },
     {
-        title: <Localize translate_text="... And how you want" />,
+        title: <Localize translate_text="...And how you want" />,
         subtitle: (
             <Localize translate_text="Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second." />
         ),
@@ -83,7 +83,7 @@ const trading_eu = [
         image_alt: localize('Trade world or synthetic markets'),
     },
     {
-        title: <Localize translate_text="... And how you want" />,
+        title: <Localize translate_text="...And how you want" />,
         subtitle: (
             <Localize translate_text="Choose a multiplier value, fine-tune your trade with multipliers optional features (take profit, stop loss, and deal cancellation), and start trading with a stake as low as $5." />
         ),

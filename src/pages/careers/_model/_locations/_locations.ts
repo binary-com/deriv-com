@@ -579,7 +579,7 @@ export const roadtown: LocationsType = {
 
 export const jordan: LocationsType = {
     name: 'jordan',
-    job_location: 'Jordan',
+    job_location: 'Amman',
     continent: 'middle_east',
     display_continent: 'Middle East',
     link: '/careers/locations/jordan/',

@@ -73,11 +73,11 @@ const Layout = ({
     const { has_platform } = usePlatformQueryParam()
 
     useEffect(() => {
-        const { clients_country: current_client_country } = website_status
+        const current_client_country = website_status?.clients_country ?? ''
         const client_info_cookie = new CookieStorage('client_information')
         const residence = client_info_cookie.get('residence')
-        isEuDomain() && handleRowRedirect(residence, current_client_country || '')
-        !isEuDomain() && handleRedirect(residence, current_client_country || '')
+        isEuDomain() && handleRowRedirect(residence, current_client_country)
+        !isEuDomain() && handleRedirect(residence, current_client_country)
     }, [website_status])
 
     const is_static = type === 'static'

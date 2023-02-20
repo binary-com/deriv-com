@@ -48,7 +48,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         }
                         Multipliers={<Multipliers market_content={basket_multiplier} />}
                         display_title={
-                            <Localize translate_text="Basket indices trades  available on Deriv" />
+                            <Localize translate_text="Baskets trades  available on Deriv" />
                         }
                     />
                     <FullWidthMultiColumn

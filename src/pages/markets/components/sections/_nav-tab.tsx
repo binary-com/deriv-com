@@ -112,7 +112,7 @@ const tab_list: TabList[] = [
         route_to: '/markets/synthetic/#synthetic',
     },
     {
-        title: <Localize translate_text="Basket indices" />,
+        title: <Localize translate_text="Baskets" />,
         tab_name: 'basket-indices',
         route_to: '/markets/basket-indices/#basket-indices',
     },

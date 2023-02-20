@@ -203,8 +203,9 @@ const SocialButton = styled(Button)`
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`
-    width: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
+    width: 408px;
+
     @media ${device.tablet} {
         width: auto;
     }
@@ -222,6 +223,7 @@ const StyledFormWrapper = styled.div`
     padding: 20px 20px 30px;
     margin-left: 30px;
     border-radius: 8px;
+    margin-top: 4.5rem;
     top: 1rem;
     display: inline-block;
     position: absolute;
@@ -482,7 +484,6 @@ const SignupPublic = ({
                             >
                                 <StyledHeader
                                     size="4rem"
-                                    width="330px"
                                     align="start"
                                     color="grey-8"
                                     mr="1.2rem"

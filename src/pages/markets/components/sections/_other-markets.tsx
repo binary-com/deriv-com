@@ -120,7 +120,7 @@ const LearnMore = styled(LocalizedLink)<LearnMoreProps>`
     transition: opacity 0.1s linear;
 
     ${Text} {
-        font-weight: bold;
+        font-weight: normal;
         color: var(--color-red);
         font-size: 1.4rem;
     }
@@ -156,15 +156,10 @@ const MobileCardWrapper = styled(Flex)`
 const StyledFlex = styled(Flex)`
     min-width: 282px;
     border-radius: 8px;
-    height: 38rem;
     background-color: var(--color-white);
     top: 0;
+    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
 
-    &:hover {
-        box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-        height: 38rem;
-        border-radius: 0 0 8px 8px;
-    }
     ${LearnMore} {
         img {
             width: 16px;
@@ -235,7 +230,7 @@ const MarketsWrapper = styled(Flex)`
 
 const StyledHeader = styled(Header)`
     padding-left: 120px;
-    margin-bottom: 4rem;
+    margin-bottom: 2.4rem;
     @media (min-width: 1440px) {
         padding: auto;
         text-align: center;
@@ -255,7 +250,6 @@ const MobileCardContainer = styled(Flex)`
 const StyledSectionContainer = styled(SectionContainer)`
     padding: 100px 0;
     margin: auto;
-    background: #f9fbff;
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {

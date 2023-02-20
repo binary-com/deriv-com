@@ -60,22 +60,24 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
     }
 
     useEffect(() => {
-        const is_eu_country_ip = eu_countries.includes(client_country)
-        const is_africa = african_countries.includes(client_country)
-        const is_eu_residence = eu_countries.includes(residence)
-        const is_eu_location = is_eu_residence || (!residence && is_eu_country_ip)
-        const is_eu = is_eu_location || isEuDomain()
-        const is_non_eu = !is_eu
-        const is_cpa_plan = cpa_plan_countries.includes(client_country)
-        const is_latam = latam_countries.includes(client_country)
-        const is_row = !is_eu
-        const is_dev = isLocalhost() || isTestlink()
         if (website_status) {
+            const is_eu_country_ip = eu_countries.includes(client_country)
+            const is_africa = african_countries.includes(client_country)
+            const is_eu_residence = eu_countries.includes(residence)
+            const is_eu_location = is_eu_residence || (!residence && is_eu_country_ip)
+            const is_eu = is_eu_location || isEuDomain()
+            const is_non_eu = !is_eu
+            const is_cpa_plan = cpa_plan_countries.includes(client_country)
+            const is_latam = latam_countries.includes(client_country)
+            const is_row = !is_eu
+            const is_dev = isLocalhost() || isTestlink()
+
             const { clients_country, p2p_config } = website_status
             setEuCountry(!!isEuCountry(clients_country))
             setP2PAllowedCountry(!!p2p_config)
             setUserCountry(clients_country)
-            setRegion({
+            setRegion((prev) => ({
+                ...prev,
                 is_region_loading: false,
                 is_eu_location,
                 is_latam,
@@ -85,7 +87,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_africa,
                 is_row,
                 is_dev,
-            })
+            }))
         }
     }, [residence, client_country, website_status])
 

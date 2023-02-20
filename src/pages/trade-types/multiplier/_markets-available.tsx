@@ -34,7 +34,6 @@ const StyledText = styled(Text)`
         margin-top: 0;
     }
 `
-
 const available_markets = [
     {
         name: 'Forex',
@@ -44,6 +43,9 @@ const available_markets = [
         description: (
             <Localize translate_text="Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake." />
         ),
+        eu_description: (
+            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
+        ),
         learn_more_path: '/markets/forex/',
     },
     {
@@ -52,7 +54,10 @@ const available_markets = [
         img_alt: 'derived',
         text: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Trading derived indices lets you benefit from correctly predicting the price movements of simulated markets and indices derived from real-world markets." />
+            <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them." />
+        ),
+        eu_description: (
+            <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets." />
         ),
         learn_more_path: '/markets/synthetic/',
     },
@@ -129,7 +134,7 @@ const MarketsAvailable = () => {
                                                         {market.text}
                                                     </StyledText>
                                                 </MobileCardHeader>
-                                                <Text>{market.description}</Text>
+                                                <Text>{market.eu_description}</Text>
                                                 <LearnMore
                                                     text={<Localize translate_text="Learn more" />}
                                                     to={market.learn_more_path}

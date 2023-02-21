@@ -13,9 +13,9 @@ import { Header, Text, Tabs, QueryImage } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
 const meta_attributes = {
-    og_title: localize('Explore our office locations | Deriv'),
+    og_title: localize('_t_Explore our office locations | Deriv_t_'),
     og_description: localize(
-        'Discover career opportunities at Deriv across our office locations around the globe.',
+        '_t_Discover career opportunities at Deriv across our office locations around the globe._t_',
     ),
 }
 
@@ -315,9 +315,9 @@ const Locations = () => {
     return (
         <Layout type="careers" margin_top={7}>
             <SEO
-                title={localize('Explore our office locations | Deriv')}
+                title={localize('_t_Explore our office locations | Deriv_t_')}
                 description={localize(
-                    'Discover career opportunities at Deriv across our office locations around the globe.',
+                    '_t_Discover career opportunities at Deriv across our office locations around the globe._t_',
                 )}
                 meta_attributes={meta_attributes}
             />

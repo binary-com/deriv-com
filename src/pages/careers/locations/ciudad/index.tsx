@@ -24,9 +24,9 @@ const CiudadDelEste = () => {
         <Layout type="careers">
             {
                 <SEO
-                    title={localize('Ciudad del Este – Our office | Deriv')}
+                    title={localize('_t_Ciudad del Este – Our office | Deriv_t_')}
                     description={localize(
-                        'Join great marketing minds at Deriv’s office in Ciudad del Este, Paraguay. Be part of a vibrant team that develops the company’s growth in the region. ',
+                        '_t_Join great marketing minds at Deriv’s office in Ciudad del Este, Paraguay. Be part of a vibrant team that develops the company’s growth in the region._t_ ',
                     )}
                 />
             }

@@ -109,17 +109,17 @@ const tab_list: TabList[] = [
     {
         title: <Localize translate_text="Synthetics" />,
         tab_name: 'synthetic',
-        route_to: '/markets/synthetic/#synthetic',
+        route_to: '/markets/synthetic/',
     },
     {
         title: <Localize translate_text="Basket indices" />,
         tab_name: 'basket-indices',
-        route_to: '/markets/basket-indices/#basket-indices',
+        route_to: '/markets/basket-indices/',
     },
     {
         title: <Localize translate_text="Derived FX" />,
         tab_name: 'derived-fx',
-        route_to: '/markets/derived-fx/#derived-fx',
+        route_to: '/markets/derived-fx/',
     },
 ]
 
@@ -127,7 +127,7 @@ const tab_list_eu: TabList[] = [
     {
         title: <Localize translate_text="Synthetics" />,
         tab_name: 'synthetic',
-        route_to: '/markets/synthetic/#synthetic',
+        route_to: '/markets/synthetic/',
     },
 ]
 

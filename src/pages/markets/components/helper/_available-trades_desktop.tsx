@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
@@ -6,6 +6,7 @@ import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 
 type CardProps = {
     active_tab: string
@@ -197,9 +198,9 @@ const AvailableTradesDesctop = ({
     display_title,
 }: AvailableTradesProps) => {
     const { is_non_eu } = useRegion()
-    const [active_tab, SetActiveTab] = useState('CFDs')
+    const [active_tab, setActiveTab] = useTabStateQuery(['CFDs', 'Options', 'Multipliers'])
     const handleTabChange = (new_tab: string) => {
-        if (new_tab !== active_tab) return SetActiveTab(new_tab)
+        if (new_tab !== active_tab) setActiveTab(new_tab)
     }
 
     return (

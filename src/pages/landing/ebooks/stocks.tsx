@@ -44,7 +44,7 @@ const StocksEbook = () => {
                 ebook_utm_code="stock-ebook"
                 introSub="_t__t_"
                 introMain="_t_Learn to trade Stock derivatives the smart way_t_"
-                authorDesc={`_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author, _t_`}
+                authorDesc="_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author,_t_"
                 authorName="_t_Vince Stanzione._t_"
             />
             <Introduction

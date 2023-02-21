@@ -267,6 +267,8 @@ type StyledBoxProps = {
     item_title_eu?: React.ReactNode
     text_eu?: React.ReactNode
     icon: ReactElement
+    link?: React.ReactNode
+    link_text?: React.ReactNode
 }
 export const StyledBox = styled(Box)<StyledBoxProps>`
     content: ${({ text }) => (text ? text : '')};

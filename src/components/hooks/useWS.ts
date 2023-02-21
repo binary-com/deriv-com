@@ -1,37 +1,35 @@
-import { useState, useCallback } from 'react'
-import { useDerivApi } from './use-deriv-api'
-import type { TSocketEndpointNames, TSocketRequestProps, TSocketResponseData } from 'types/types'
+import { useCallback, useState } from 'react'
+import apiManager from 'features/websocket'
+import { TSocketEndpointNames, TSocketResponseData } from 'features/websocket/types'
 
 const useWS = <T extends TSocketEndpointNames>(name: T) => {
     const [is_loading, setIsLoading] = useState(false)
     const [error, setError] = useState<unknown>()
     const [data, setData] = useState<TSocketResponseData<T>>()
-    const { WS } = useDerivApi()
+
+    const clear = useCallback(() => {
+        console.log('clear all data')
+
+        setError(null)
+        setData(null)
+    }, [])
 
     const send = useCallback(
-        async (
-            ...props: TSocketRequestProps<T> extends never ? [undefined?] : [TSocketRequestProps<T>]
-        ) => {
+        async (data?: Parameters<typeof apiManager.augmentedSend<T>>[1]) => {
             setIsLoading(true)
-
             try {
-                const response = await WS.send({ [name]: 1, ...(props[0] || {}) })
-
-                if (response.error) {
-                    setError(response.error)
-                } else {
-                    setData(response[name])
-                }
+                const response = await apiManager.augmentedSend(name, data)
+                setData(response[name] as TSocketResponseData<T>)
             } catch (e) {
                 setError(e)
             } finally {
                 setIsLoading(false)
             }
         },
-        [WS, name],
+        [name],
     )
 
-    return { send, is_loading, error, data }
+    return { send, is_loading, error, data, clear }
 }
 
 export default useWS

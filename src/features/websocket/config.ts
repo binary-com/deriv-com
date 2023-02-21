@@ -6,13 +6,13 @@
  * git update-index --assume-unchanged src/javascript/config.js
  *
  */
-import { isBrowser } from '../utility'
 import {
     default_server_url,
     deriv_com_app_id,
     deriv_me_app_id,
     deriv_be_app_id,
-} from '../constants'
+} from 'common/constants'
+import { isBrowser } from 'common/utility'
 
 export const domain_config = {
     production: [

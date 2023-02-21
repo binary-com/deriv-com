@@ -14,7 +14,7 @@ import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import useDerivWS from 'components/hooks/use-deriv-ws'
+import apiManager from 'features/websocket'
 
 type SignupProps = {
     appearance?: keyof typeof Appearances | string
@@ -71,7 +71,6 @@ export const Appearances = {
 }
 
 const Signup = (props: SignupProps) => {
-    const { send } = useDerivWS()
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -112,7 +111,6 @@ const Signup = (props: SignupProps) => {
 
         return {
             verify_email: formatted_email,
-            type: 'account_opening',
             url_parameters: {
                 ...(affiliate_token && { affiliate_token: affiliate_token }),
                 ...(cookies_value && { ...cookies_value }),
@@ -131,20 +129,21 @@ const Signup = (props: SignupProps) => {
         }
 
         const verify_email_req = getVerifyEmailRequest(formatted_email)
-
-        send(verify_email_req, (response) => {
-            setSubmitting(false)
-            if (response.error) {
-                setSubmitStatus('error')
-                setSubmitErrorMsg(response.error.message)
-                handleValidation(formatted_email)
-            } else {
-                setSubmitStatus('success')
-                if (props.onSubmit) {
-                    props.onSubmit(submit_status || 'success', email)
+        apiManager
+            .augmentedSend('verify_email', { ...verify_email_req, type: 'account_opening' })
+            .then((response) => {
+                setSubmitting(false)
+                if (response.error) {
+                    setSubmitStatus('error')
+                    setSubmitErrorMsg(response.error.message)
+                    handleValidation(formatted_email)
+                } else {
+                    setSubmitStatus('success')
+                    if (props.onSubmit) {
+                        props.onSubmit(submit_status || 'success', email)
+                    }
                 }
-            }
-        })
+            })
 
         if (props.appearance === 'public') {
             const success_default_link = `signup-success?email=${email}`

@@ -21,9 +21,12 @@ import usePopup from 'components/hooks/use-popup'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import useWebsiteStatus from 'components/hooks/use-website-status'
+import apiManager from 'features/websocket'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
+
+apiManager.init()
 
 type LayoutProps = {
     children: ReactNode

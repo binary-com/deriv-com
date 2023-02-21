@@ -9,7 +9,7 @@ import { Input, Button } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
-import useDerivWS from 'components/hooks/use-deriv-ws'
+import apiManager from 'features/websocket'
 
 type EmailType = { email: string }
 
@@ -50,26 +50,29 @@ const resetValidation = (values: EmailType) => {
 const ResetPassword = () => {
     const initialValues: EmailType = { email: '' }
 
-    const { send } = useDerivWS()
-
     const resetSubmission = (values: EmailType, actions) => {
-        send({ verify_email: trimSpaces(values.email), type: 'reset_password' }, (response) => {
-            actions.setSubmitting(false)
-
-            if (response.error) {
-                actions.setStatus({
-                    error: response.error.message,
-                })
-                return
-            }
-
-            actions.resetForm({ email: '' })
-            actions.setStatus({
-                success: localize(
-                    'Please check your email and click on the link provided to reset your password.',
-                ),
+        apiManager
+            .augmentedSend('verify_email', {
+                verify_email: trimSpaces(values.email),
+                type: 'reset_password',
             })
-        })
+            .then((response) => {
+                actions.setSubmitting(false)
+
+                if (response.error) {
+                    actions.setStatus({
+                        error: response.error.message,
+                    })
+                    return
+                }
+
+                actions.resetForm({ email: '' })
+                actions.setStatus({
+                    success: localize(
+                        'Please check your email and click on the link provided to reset your password.',
+                    ),
+                })
+            })
     }
 
     return (

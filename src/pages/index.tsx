@@ -11,27 +11,35 @@ import Hero from './home/_hero'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import TRADE_DUMMY from 'images/common/trade-type-dummy.png'
 import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
 import WCS_DUMMY from 'images/common/wcs-dummy.png'
 import useRegion from 'components/hooks/use-region'
+import LayoutComponent from 'features/components/layout-component'
+import NavTransparent from 'components/layout/nav/nav-transparent'
+import Footer from 'components/layout/footer'
 
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat(true)
     const { is_p2p_allowed_country } = useRegion()
 
-    const target = '#market-fold'
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.7,
-    }
-    const lazy_components: ReactNode = (
-        <>
+    return (
+        <LayoutComponent>
+            <SEO
+                title={localize(
+                    'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
+                )}
+                description={localize(
+                    'Deriv: an online trading platform available 24/7 with a wide selection of derivatives.',
+                )}
+                has_organization_schema
+            />
+            <NavTransparent is_ppc={false} is_ppc_redirect={false} />
+            <Hero />
+            <MarketsFold />
             <TradeTypes
                 fallback={
                     <div>
@@ -70,24 +78,8 @@ const Home = () => {
                     </div>
                 }
             />
-        </>
-    )
-    const lazyTemplate = useHandleLazyLoad(lazy_components, target, options)
-    return (
-        <Layout type="transparent" margin_top="0">
-            <SEO
-                title={localize(
-                    'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
-                )}
-                description={localize(
-                    'Deriv: an online trading platform available 24/7 with a wide selection of derivatives.',
-                )}
-                has_organization_schema
-            />
-            <Hero />
-            <MarketsFold />
-            {lazyTemplate}
-        </Layout>
+            <Footer />
+        </LayoutComponent>
     )
 }
 

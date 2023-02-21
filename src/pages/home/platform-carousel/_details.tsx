@@ -79,7 +79,7 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
             </Flex>
             <Flex>
                 <StyledFlex>
-                    {selected_platform?.download_links.is_desktop?.map((link, index) => {
+                    {selected_platform?.download_links.is_desktop?.map((link) => {
                         return (
                             <DownloadLink
                                 key={link.type}

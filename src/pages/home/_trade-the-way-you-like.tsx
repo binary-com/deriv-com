@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Header, Text, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { OtherPlatform } from 'components/custom/other-platforms'
 
@@ -32,15 +32,15 @@ const TradeTheWayYouLike = ({ is_ppc_redirect }: TradeTheWayYouLikeProps) => {
     return (
         <StyledSection padding="5rem 2rem">
             <Header as="h3" type="section-title" align="center">
-                {localize('Trade the way you like')}
+                <Localize translate_text="_t_Trade the way you like_t_" />
             </Header>
             <Text size="var(--text-size-sm)" mt="2rem" align="center">
-                {localize('Choose from three powerful platforms — designed with you in mind')}
+                <Localize translate_text="_t_Choose from three powerful platforms — designed with you in mind_t_" />
             </Text>
             <ImageWrapper>
                 <QueryImage
                     data={data['dtrader_artboard']}
-                    alt={localize('Dtrader artboard')}
+                    alt="Dtrader artboard"
                     loading="eager"
                 />
             </ImageWrapper>

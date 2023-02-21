@@ -125,10 +125,10 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 weight="normal"
                             >
                                 {is_eu && (
-                                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
+                                    <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
                                 )}
                                 {is_row && (
-                                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
+                                    <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
                                 )}
                             </Header>
                             <VerticalCarousel contents={is_ppc ? contents_ppc : contents} />
@@ -139,7 +139,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                         id="dm-hero-signup"
                                         secondary
                                     >
-                                        <Localize translate_text="Get Trading" />
+                                        <Localize translate_text="_t_Get Trading_t_" />
                                     </HeroButton>
                                 ) : (
                                     <HeroButton
@@ -148,7 +148,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                         id="dm-hero-signup"
                                         secondary
                                     >
-                                        <Localize translate_text="Create free demo account" />
+                                        <Localize translate_text="_t_Create free demo account_t_" />
                                     </HeroButton>
                                 )}
                             </Box>

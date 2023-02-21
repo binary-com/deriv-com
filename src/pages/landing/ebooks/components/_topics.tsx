@@ -4,12 +4,13 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Header, Li, QueryImage } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import device from 'themes/device'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 type TopicsProps = {
-    title?: string
+    title?: TString
     topicsImage: ImageDataLike
-    topicsList: string[]
+    topicsList: TString[]
 }
 
 const FullWidth = styled.div`
@@ -100,7 +101,11 @@ const Topics = ({ title, topicsImage, topicsList }: TopicsProps) => {
                         color="var(--color-black-3)"
                         mb="20px"
                     >
-                        {title ? localize(title) : localize('Topics covered')}
+                        {title ? (
+                            <Localize translate_text={title} />
+                        ) : (
+                            <Localize translate_text="_t_Topics covered_t_" />
+                        )}
                     </Header>
                     {topicsList?.map((topic, index) => {
                         return (

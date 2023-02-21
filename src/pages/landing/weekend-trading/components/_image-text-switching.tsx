@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import device, { size } from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { ContentType, StyledProps } from 'pages/landing/_types'
@@ -107,7 +107,7 @@ const ImageTextSwitching = ({ P2P, reverse }: ImageTextSwitchingProps) => {
                     mb="1rem"
                     weight="bold"
                 >
-                    {localize('Trade the markets that never sleep')}
+                    <Localize translate_text="_t_Trade the markets that never sleep_t_" />
                 </StyledText>
 
                 {P2P.map((item, index) => {
@@ -116,19 +116,31 @@ const ImageTextSwitching = ({ P2P, reverse }: ImageTextSwitchingProps) => {
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
                                 <StyledHeader type="heading-3" mb="1rem">
-                                    {item.title}
+                                    <Localize translate_text={item.title} />
                                 </StyledHeader>
                                 {is_tabletL ? (
                                     <>
-                                        <Text pb="2rem">{item.subtitle_mobile1}</Text>
-                                        <Text>{item.subtitle_mobile2}</Text>
+                                        <Text pb="2rem">
+                                            <Localize
+                                                translate_text={item.subtitle_mobile1}
+                                                components={item.subtitle_mobile1_components}
+                                            />
+                                        </Text>
+                                        <Text>
+                                            <Localize translate_text={item.subtitle_mobile2} />
+                                        </Text>
                                     </>
                                 ) : (
                                     <>
                                         <Text size="var(--text-size-m)" pb="2rem">
-                                            {item.subtitle1}
+                                            <Localize
+                                                translate_text={item.subtitle1}
+                                                components={item.subtitle1_component}
+                                            />
                                         </Text>
-                                        <Text size="var(--text-size-m)">{item.subtitle2}</Text>
+                                        <Text size="var(--text-size-m)">
+                                            <Localize translate_text={item.subtitle2} />
+                                        </Text>
                                     </>
                                 )}
                             </Content>

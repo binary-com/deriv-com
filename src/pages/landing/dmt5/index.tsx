@@ -37,7 +37,7 @@ const DMT5 = () => {
     })
 
     return (
-        <Layout is_ppc_redirect={true}>
+        <Layout is_ppc_redirect>
             <SEO
                 title={localize('_t_DMT5 | MetaTrader 5 | Deriv_t_')}
                 description={localize(
@@ -55,7 +55,7 @@ const DMT5 = () => {
                 background_svg={DMT5BG}
                 background_svg2={DMT5BG2}
                 background_alt="DMT5"
-                is_ppc={true}
+                is_ppc
                 d_height="60.2rem"
                 laptopM_height="60rem"
                 laptop_height="62rem"

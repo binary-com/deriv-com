@@ -4,6 +4,8 @@ import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Text } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -37,8 +39,8 @@ const TryButton = styled(LinkButton)`
 `
 
 type TitlebtnProps = {
-    btnlabel: string
-    text: string
+    btnlabel: TString
+    text: TString
 }
 
 const Titlebtn = ({ btnlabel, text }: TitlebtnProps) => {
@@ -46,7 +48,7 @@ const Titlebtn = ({ btnlabel, text }: TitlebtnProps) => {
         <StyledSection background="var(--color-grey-30)" padding="7rem 0 3rem" mt="9rem">
             <StyledContainer direction="column">
                 <StyledText mt="16px" pl="2rem" pr="2rem" size="3.2rem" weight="700">
-                    {text}
+                    <Localize translate_text={text} />
                 </StyledText>
                 <TryButton
                     secondary
@@ -54,9 +56,9 @@ const Titlebtn = ({ btnlabel, text }: TitlebtnProps) => {
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     type="submit"
-                    to={'/signup/'}
+                    to="/signup/"
                 >
-                    {btnlabel}
+                    <Localize translate_text={btnlabel} />
                 </TryButton>
             </StyledContainer>
         </StyledSection>

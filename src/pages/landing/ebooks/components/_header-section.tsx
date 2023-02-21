@@ -4,7 +4,7 @@ import GetEbook from './_get-ebook'
 import { HeaderAndHeroProps } from './_types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 
 type HeaderImageProps = {
@@ -183,7 +183,7 @@ const HeaderSection = ({
                             color="white"
                             mb="7px"
                         >
-                            {introSub}
+                            <Localize translate_text={introSub} />
                         </SubTitle>
                         <Header
                             as="h1"
@@ -195,7 +195,7 @@ const HeaderSection = ({
                             max_width="800px"
                             color="white"
                         >
-                            {introMain}
+                            <Localize translate_text={introMain} />
                         </Header>
                         <Header
                             as="h3"
@@ -204,7 +204,7 @@ const HeaderSection = ({
                             weight="300"
                             color="white"
                         >
-                            {localize('Claim a FREE e-book now!')}
+                            <Localize translate_text="_t_Claim a FREE e-book now!_t_" />
                         </Header>
                         <Header
                             as="h4"
@@ -213,7 +213,7 @@ const HeaderSection = ({
                             weight="300"
                             color="white"
                         >
-                            {localize('Plus a free demo account to practice.')}
+                            <Localize translate_text="_t_Plus a free demo account to practice._t_" />
                         </Header>
                         <AuthorText
                             m="0"
@@ -224,9 +224,9 @@ const HeaderSection = ({
                             weight="200"
                             max_width="586px"
                         >
-                            {authorDesc}
+                            <Localize translate_text={authorDesc} />
                             <AuthorNameText size="14px" color="white" weight="bold">
-                                {authorName}
+                                <Localize translate_text={authorName} />
                             </AuthorNameText>
                         </AuthorText>
                         <SignupWrapper>

@@ -1,10 +1,12 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { StyledProps } from 'pages/landing/_types'
+import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-grey-30);
@@ -135,8 +137,8 @@ type ParallelogramProps = {
 }
 
 type TradingType = {
-    title: ReactElement
-    subtitle: ReactElement
+    title: TString
+    subtitle: TString
     image_name: string
     image_alt: string
 }
@@ -151,8 +153,12 @@ const Parallelogram = ({ trading, reverse }: ParallelogramProps) => {
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content>
-                                <StyledHeader type="display-title">{item.title}</StyledHeader>
-                                <Text>{item.subtitle}</Text>
+                                <StyledHeader type="display-title">
+                                    <Localize translate_text={item.title} />
+                                </StyledHeader>
+                                <Text>
+                                    <Localize translate_text={item.subtitle} />
+                                </Text>
                             </Content>
                             {item.image_name && (
                                 <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>

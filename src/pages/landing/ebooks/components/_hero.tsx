@@ -4,7 +4,7 @@ import GetEbook from './_get-ebook'
 import { HeaderAndHeroProps } from './_types'
 import { Flex, Box } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
@@ -77,7 +77,7 @@ const Hero = ({
                             color={color}
                             mb="7px"
                         >
-                            {introSub}
+                            <Localize translate_text={introSub} />
                         </Header>
                         <Header
                             as="h1"
@@ -89,7 +89,7 @@ const Hero = ({
                             max_width="800px"
                             color={color}
                         >
-                            {introMain}
+                            <Localize translate_text={introMain} />
                         </Header>
                         {is_mobile && <HeaderImage data={mainHeaderImage} alt="ebook" />}
                         <Header
@@ -99,7 +99,7 @@ const Hero = ({
                             weight="300"
                             color={color}
                         >
-                            {localize('Claim a FREE e-book now!')}
+                            <Localize translate_text="_t_Claim a FREE e-book now!_t_" />
                         </Header>
                         <Header
                             as="h4"
@@ -108,7 +108,7 @@ const Hero = ({
                             weight="300"
                             color={color}
                         >
-                            {localize('Plus a free demo account to practice.')}
+                            <Localize translate_text="_t_Plus a free demo account to practice._t_" />
                         </Header>
                         <AuthorText
                             m="0"
@@ -119,9 +119,9 @@ const Hero = ({
                             weight="200"
                             max_width="586px"
                         >
-                            {authorDesc}
+                            <Localize translate_text={authorDesc} />
                             <AuthorNameText size="14px" color={color} weight="bold">
-                                {authorName}
+                                <Localize translate_text={authorName} />
                             </AuthorNameText>
                         </AuthorText>
                         <Box m="10px">

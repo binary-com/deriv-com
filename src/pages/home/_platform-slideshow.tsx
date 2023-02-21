@@ -17,7 +17,6 @@ const ImagePlaceHolder = styled.div`
 const ImageWrapper = styled.div<{ $is_hidden: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
-    animation: fade 1s ease-in-out;
 
     @keyframes fade {
         0% {
@@ -44,6 +43,7 @@ const PlatformSlideshow = () => {
                             alt="mobile app deriv go"
                             formats={['avif', 'webp', 'auto']}
                             quality={36}
+                            placeholder="none"
                         />
                     ),
                 },
@@ -55,6 +55,7 @@ const PlatformSlideshow = () => {
                             alt="laptop dtrader"
                             formats={['avif', 'webp', 'auto']}
                             quality={40}
+                            placeholder="none"
                         />
                     ),
                 },
@@ -66,6 +67,7 @@ const PlatformSlideshow = () => {
                             alt="laptop mt5"
                             formats={['avif', 'webp', 'auto']}
                             quality={40}
+                            placeholder="none"
                         />
                     ),
                 },
@@ -77,6 +79,7 @@ const PlatformSlideshow = () => {
                             alt="laptop deriv x"
                             formats={['avif', 'webp', 'auto']}
                             quality={40}
+                            placeholder="none"
                         />
                     ),
                 },

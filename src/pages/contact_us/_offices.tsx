@@ -269,7 +269,7 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/N4vktHikyqQ5M5639"
+                                        to="https://goo.gl/maps/hYvX7SUgPaTcf1uj6"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -282,7 +282,7 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/N4vktHikyqQ5M5639"
+                                    to="https://goo.gl/maps/hYvX7SUgPaTcf1uj6"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"

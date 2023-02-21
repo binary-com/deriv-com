@@ -7,29 +7,19 @@ permissions:
   deployments: write
   pull-requests: write
   statuses: write
-  
+
 on:
   workflow_run:
     workflows: ["Pre-delete Translation"]
     types:
       - completed
 
-env: 
+env:
  BRANCH: ${{ github.event.workflow_run.head_branch }}
 jobs:
     delete-translation:
         if: |
-              (startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')) &&
-               !contains(github.event.workflow_run.head_branch, '!') &&
-               !contains(github.event.workflow_run.head_branch, '@') &&   
-               !contains(github.event.workflow_run.head_branch, '#') &&   
-               !contains(github.event.workflow_run.head_branch, '$') &&   
-               !contains(github.event.workflow_run.head_branch, '%') &&   
-               !contains(github.event.workflow_run.head_branch, '^') &&   
-               !contains(github.event.workflow_run.head_branch, '&') &&   
-               !contains(github.event.workflow_run.head_branch, '*') &&   
-               !contains(github.event.workflow_run.head_branch, '(') &&   
-               !contains(github.event.workflow_run.head_branch, ')')
+          github.vars.is_proceed == 'true'
         runs-on: ubuntu-latest
         steps:
             - name: 'Branch [${{ github.event.workflow_run.head_branch }}]'
@@ -46,7 +36,7 @@ jobs:
               uses: actions/setup-node@v2.1.2
               with:
                   node-version: '16.x'
-            - name: Installing Crowdin     
+            - name: Installing Crowdin
               run: npm i -g @crowdin/cli@3.7.8
             - name: Delete Branch [${{ github.event.workflow_run.head_branch }}] 🗑️
               run: |

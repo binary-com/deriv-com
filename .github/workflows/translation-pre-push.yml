@@ -7,32 +7,22 @@ permissions:
   deployments: write
   pull-requests: write
   statuses: write
-  
+
 on:
   pull_request:
     types: [opened, reopened, synchronize]
     branches:
         - 'master*'
-env: 
+env:
  BRANCH:  ${{ github.head_ref }}
- 
+
 jobs:
     check-translation-branch:
         runs-on: ubuntu-latest
         if: |
-            (startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')) &&
-            !contains(github.head_ref, '!') &&
-            !contains(github.head_ref, '@') &&   
-            !contains(github.head_ref, '#') &&   
-            !contains(github.head_ref, '$') &&   
-            !contains(github.head_ref, '%') &&   
-            !contains(github.head_ref, '^') &&   
-            !contains(github.head_ref, '&') &&   
-            !contains(github.head_ref, '*') &&   
-            !contains(github.head_ref, '(') &&   
-            !contains(github.head_ref, ')') 
+          github.vars.is_proceed == 'true'
         steps:
-            - name: Branch Check 🔍 
+            - name: Branch Check 🔍
               run: |
                 CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
                 

@@ -7,30 +7,20 @@ permissions:
   deployments: write
   pull-requests: write
   statuses: write
-  
+
 on:
   pull_request:
     types: [closed]
     branches:
         - 'master*'
-env: 
+env:
  BRANCH: ${{ github.head_ref }}
 
 jobs:
    check-translation-branch:
         runs-on: ubuntu-latest
-        if: |
-            (startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')) &&
-            !contains(github.head_ref, '!') &&
-            !contains(github.head_ref, '@') &&   
-            !contains(github.head_ref, '#') &&   
-            !contains(github.head_ref, '$') &&   
-            !contains(github.head_ref, '%') &&   
-            !contains(github.head_ref, '^') &&   
-            !contains(github.head_ref, '&') &&   
-            !contains(github.head_ref, '*') &&   
-            !contains(github.head_ref, '(') &&   
-            !contains(github.head_ref, ')') 
+        if: | 
+          github.vars.is_proceed == 'true'
         steps:
             - name: Branch Check 🔍
               run: |

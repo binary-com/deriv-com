@@ -67,10 +67,6 @@ const OptionItems = styled(Flex)`
     margin-bottom: 0.8rem;
 
     @media ${device.mobileL} {
-        & > div > img {
-            width: 20px;
-            height: 20px;
-        }
         ${Text} {
             margin-top: 0;
         }

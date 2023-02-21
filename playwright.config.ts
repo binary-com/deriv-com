@@ -1,20 +1,18 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
+import { config as dotenvConfig } from 'dotenv';
+
+dotenvConfig({ path: `.env.development` })
+
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
   testDir: './end-to-end-tests',
-  testMatch: ["end-to-end-tests/test.spec.ts"],
+  testMatch: ["end-to-end-tests/translation.spec.ts"],
   /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
+  timeout: 60 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -37,14 +35,16 @@ const config: PlaywrightTestConfig = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://deriv.com',
+    baseURL: process.env.APP_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     headless: false,
     launchOptions: {
       // slowMo: 1000
-    }
+    },
+    ignoreHTTPSErrors: true,
+    testIdAttribute: 'data-testid',
   },
 
 

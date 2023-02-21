@@ -107,7 +107,7 @@ const CookieBanner = () => {
 
     if (is_visible)
         return (
-            <Wrapper visible={cookie.should_show}>
+            <Wrapper data-testid="cookie-dialog" visible={cookie.should_show}>
                 <StyledText>
                     <Localize translate_text="Cookies help us to give you a better experience and personalised content on our site. " />
                     <Localize

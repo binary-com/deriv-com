@@ -6,12 +6,14 @@ type AvailableTradesProps = {
     CFDs: ReactElement
     DigitalOptions?: ReactElement
     Multipliers?: ReactElement
+    Accumulators?: ReactElement
     display_title: ReactElement
 }
 
 const AvailableTrades = ({
     CFDs,
     DigitalOptions,
+    Accumulators,
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
@@ -22,6 +24,7 @@ const AvailableTrades = ({
                     CFDs={CFDs}
                     DigitalOptions={DigitalOptions}
                     Multipliers={Multipliers}
+                    Accumulators={Accumulators}
                     display_title={display_title}
                 />
             </Desktop>
@@ -30,6 +33,7 @@ const AvailableTrades = ({
                     CFDs={CFDs}
                     DigitalOptions={DigitalOptions}
                     Multipliers={Multipliers}
+                    Accumulators={Accumulators}
                     display_title={display_title}
                 />
             </Mobile>

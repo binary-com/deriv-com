@@ -25,8 +25,10 @@ const accumulator_content: AccumulatorContentProps[] = [
     {
         src: Significant,
         alt: 'Low',
-        item_title: <Localize translate_text="Low capital requirement" />,
-        text: <Localize translate_text="You can open a position for as low as 1 USD." />,
+        item_title: <Localize translate_text="Significant profit potential" />,
+        text: (
+            <Localize translate_text="Your payout can potentially grow by 1% or 5% on average per tick." />
+        ),
     },
     {
         src: LowCapital,

@@ -389,7 +389,7 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('Join over 2.5 million traders worldwide')}
+                                    {localize('_t_Join over 2.5 million traders worldwide_t_')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
@@ -411,7 +411,7 @@ const SignupPublic = ({
                                             label_color="black-3"
                                             labelSize="16px"
                                             labelTop="1.2rem"
-                                            label={localize('Email')}
+                                            label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -532,7 +532,7 @@ const SignupPublic = ({
                         <MobileSignupFormWrapper>
                             <div>
                                 <StyledHeader type="section-title">
-                                    {localize('Join over 2.5 million traders worldwide')}
+                                    {localize('_t_Join over 2.5 million traders worldwide_t_')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
@@ -552,7 +552,7 @@ const SignupPublic = ({
                                             input_background="grey-8"
                                             label_focus_color="grey-7"
                                             label_color="black-3"
-                                            label={localize('Email')}
+                                            label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}

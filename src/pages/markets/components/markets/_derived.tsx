@@ -28,7 +28,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
                 display_title={<Localize translate_text="Derived FX trades available on Deriv" />}
             />
             <FullWidthMultiColumn
-                header={<Localize translate_text="Why trade Derived FX on Deriv" />}
+                header={<Localize translate_text="Why trade derived FX on Deriv" />}
             >
                 {derived_content.map((content, index) => (
                     <StyledBox

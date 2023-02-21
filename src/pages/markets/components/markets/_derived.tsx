@@ -40,7 +40,7 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
             </FullWidthMultiColumn>
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading Derived FX on Deriv in 3 simple steps" />
+                    <Localize translate_text="Start trading derived FX on Deriv in 3 simple steps" />
                 }
                 content={simple_step_content}
                 sign_up

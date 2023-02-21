@@ -7,9 +7,10 @@ import { Localize } from 'components/localization'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type CheckedTextProps = {
-    children: string
+    content: TString
 }
 
 const ImageWrapper = styled.div`
@@ -129,12 +130,12 @@ const StyledImg = styled.img`
     }
 `
 
-const CheckedText = ({ children }: CheckedTextProps) => (
+const CheckedText = ({ content }: CheckedTextProps) => (
     <>
         <Flex jc="flex-start" ai="center">
             <StyledImg src={Checkmark} alt="Check mark" width="24" height="24" />
             <StyledText size="16px" weight="bold">
-                <Localize translate_text={children} />
+                <Localize translate_text={content} />
             </StyledText>
         </Flex>
         <Separator />
@@ -149,25 +150,25 @@ const InterestFreeTrading = () => {
                     <ImageTag src={ZeroPercent} alt="Zero percent interest" />
                 </ImageWrapper>
                 <InterestText size="32px">
-                    <Localize translate_text="interest" />
+                    <Localize translate_text="_t_interest_t_" />
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
-                    <CheckedText>Forex</CheckedText>
-                    <CheckedText>Derived</CheckedText>
-                    <CheckedText>Stocks & indices</CheckedText>
-                    <CheckedText>Cryptocurrencies</CheckedText>
-                    <CheckedText>Commodities</CheckedText>
+                    <CheckedText content="_t_Forex_t_" />
+                    <CheckedText content="_t_Derived_t_" />
+                    <CheckedText content="_t_Stocks & indices_t_" />
+                    <CheckedText content="_t_Cryptocurrencies_t_" />
+                    <CheckedText content="_t_Commodities_t_" />
                 </TextWrapperFlex>
             </InterestCardFlex>
             <StyledFlex fd="column" jc="flex-start" height="100%" width="51.4rem">
                 <StyledHeader as="h2" lh="1.25">
-                    <Localize translate_text="Trade on the world markets without commission" />
+                    <Localize translate_text="_t_Trade on the world markets without commission_t_" />
                 </StyledHeader>
                 <StyledRightText>
-                    <Localize translate_text="Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs." />
+                    <Localize translate_text="_t_Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs._t_" />
                 </StyledRightText>
                 <StyledLinkButton secondary external type="mt5" target="_blank">
-                    <Localize translate_text="Trade without commission" />
+                    <Localize translate_text="_t_Trade without commission_t_" />
                 </StyledLinkButton>
             </StyledFlex>
         </StyledContainer>

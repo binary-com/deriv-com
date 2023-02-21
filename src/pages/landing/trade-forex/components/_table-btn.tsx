@@ -50,6 +50,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
         },
         content: [
             {
+                id: 'swap-free-pairs',
                 title: <Localize translate_text="Swap-free pairs" />,
                 component: <SwapFreePairs />,
             },

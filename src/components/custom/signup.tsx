@@ -94,7 +94,7 @@ const Signup = (props: SignupProps) => {
 
     // this method is used to prevent DOM XSS invulnerability by removing HTML DOM elements in the email input
     function escapeHtml(str: string) {
-        return str.replaceAll(/[&<>"']/g, c => {
+        return str.replaceAll(/[&<>"']/g, (c) => {
             switch (c) {
                 case '&':
                 case '<':
@@ -208,11 +208,7 @@ const Signup = (props: SignupProps) => {
                 return <SignupPublic {...parameters} />
             case Appearances.lightFlat:
             case Appearances.darkFlat:
-                return param == Appearances.darkFlat ? (
-                    <SignupFlat dark {...parameters} />
-                ) : (
-                    <SignupFlat {...parameters} />
-                )
+                return <SignupFlat dark={param === Appearances.darkFlat} {...parameters} />
             case Appearances.default:
             default:
                 return <SignupDefault {...parameters} />

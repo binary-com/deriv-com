@@ -201,7 +201,6 @@ const PnlMarginCalculator = () => {
                                         getPnlMarginCommon(values, 'getTakeProfitLevelSell'),
                                     )
                                 }
-
                                 setFieldValue(
                                     'takeProfitPips',
                                     getPnlMarginCommon(values, 'getTakeProfitPip'),
@@ -257,90 +256,15 @@ const PnlMarginCalculator = () => {
                                     setFieldValue('takeProfitAmount', '', false)
                                     setFieldError('takeProfitAmount', '')
                                     setFieldTouched('takeProfitAmount', false, false)
-                                    current_input.focus()
+                                    current_input?.current?.focus()
                                 }
 
                                 const stopLossErrorHandler = (current_input) => {
                                     setFieldValue('stopLossAmount', '', false)
                                     setFieldError('stopLossAmount', '')
                                     setFieldTouched('stopLossAmount', false, false)
-                                    current_input.focus()
+                                    current_input?.current?.focus()
                                 }
-
-                                const AssetPriceInput = <T extends object>({
-                                    field,
-                                }: {
-                                    field: T
-                                }) => (
-                                    <Input
-                                        {...field}
-                                        id="assetPrice"
-                                        type="text"
-                                        value={values.assetPrice}
-                                        label={localize('Open price of asset')}
-                                        autoComplete="off"
-                                        error={touched.assetPrice && errors?.assetPrice?.toString()}
-                                        onBlur={handleBlur}
-                                        data-lpignore="true"
-                                        handleError={(current_input) => {
-                                            setFieldValue('assetPrice', '', false)
-                                            setFieldError('assetPrice', '')
-                                            setFieldTouched('assetPrice', false, false)
-                                            current_input.focus()
-                                        }}
-                                        maxLength={getMaxLength(values.assetPrice, 15)}
-                                        background="white"
-                                    />
-                                )
-
-                                const StopLossAmountInput = <T extends object>({
-                                    field,
-                                }: {
-                                    field: T
-                                }) => (
-                                    <Input
-                                        {...field}
-                                        id="assetPrice"
-                                        type="text"
-                                        value={values.stopLossAmount}
-                                        label={localize('Stop loss amount')}
-                                        autoComplete="off"
-                                        error={
-                                            touched.stopLossAmount &&
-                                            errors?.stopLossAmount?.toString()
-                                        }
-                                        onBlur={handleBlur}
-                                        data-lpignore="true"
-                                        handleError={stopLossErrorHandler}
-                                        maxLength={getMaxLength(values.stopLossAmount, 15)}
-                                        background="white"
-                                    />
-                                )
-
-                                const PointValueInput = <T extends object>({
-                                    field,
-                                }: {
-                                    field: T
-                                }) => (
-                                    <Input
-                                        {...field}
-                                        id="pointValue"
-                                        type="text"
-                                        label={localize('Point value')}
-                                        autoComplete="off"
-                                        error={touched.pointValue && errors?.pointValue?.toString()}
-                                        onBlur={handleBlur}
-                                        data-lpignore="true"
-                                        handleError={(current_input) => {
-                                            setFieldValue('pointValue', '', false)
-                                            setFieldError('pointValue', '')
-                                            setFieldTouched('pointValue', false, false)
-                                            current_input.focus()
-                                        }}
-                                        maxLength={getMaxLength(values.pointValue, 8)}
-                                        background="white"
-                                    />
-                                )
 
                                 const takeProfitAmountChangeHandler = (value) => {
                                     setFieldValue('takeProfitAmount', value)
@@ -349,29 +273,6 @@ const PnlMarginCalculator = () => {
                                 const stopLossAmountChangeHandler = (value) => {
                                     setFieldValue('stopLossAmount', value)
                                 }
-
-                                const TakeProfitAmountInput = <T extends object>({
-                                    field,
-                                }: {
-                                    field: T
-                                }) => (
-                                    <Input
-                                        {...field}
-                                        id="takeProfitAmount"
-                                        type="text"
-                                        label={localize('Take profit amount')}
-                                        autoComplete="off"
-                                        error={
-                                            touched.takeProfitAmount &&
-                                            errors?.takeProfitAmount?.toString()
-                                        }
-                                        onBlur={handleBlur}
-                                        data-lpignore="true"
-                                        handleError={takeProfitErrorHanlder}
-                                        maxLength={getMaxLength(values.takeProfitAmount, 15)}
-                                        background="white"
-                                    />
-                                )
 
                                 return (
                                     <>
@@ -498,7 +399,47 @@ const PnlMarginCalculator = () => {
                                                                         )
                                                                     }}
                                                                 >
-                                                                    {PointValueInput}
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="pointValue"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                'Point value',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.pointValue &&
+                                                                                errors?.pointValue
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'pointValue',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'pointValue',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'pointValue',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input?.current?.focus()
+                                                                            }}
+                                                                            maxLength={getMaxLength(
+                                                                                values.pointValue,
+                                                                                8,
+                                                                            )}
+                                                                            background="white"
+                                                                        />
+                                                                    )}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -554,7 +495,7 @@ const PnlMarginCalculator = () => {
                                                                                     false,
                                                                                     false,
                                                                                 )
-                                                                                current_input.focus()
+                                                                                current_input?.current?.focus()
                                                                             }}
                                                                             maxLength={getMaxLength(
                                                                                 values.volume,
@@ -575,7 +516,31 @@ const PnlMarginCalculator = () => {
                                                                         takeProfitAmountChangeHandler
                                                                     }
                                                                 >
-                                                                    {TakeProfitAmountInput}
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="takeProfitAmount"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                'Take profit amount',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.takeProfitAmount &&
+                                                                                errors?.takeProfitAmount
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={
+                                                                                takeProfitErrorHanlder
+                                                                            }
+                                                                            maxLength={getMaxLength(
+                                                                                values.takeProfitAmount,
+                                                                                15,
+                                                                            )}
+                                                                            background="white"
+                                                                        />
+                                                                    )}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -599,7 +564,50 @@ const PnlMarginCalculator = () => {
                                                                         )
                                                                     }}
                                                                 >
-                                                                    {AssetPriceInput}
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="assetPrice"
+                                                                            type="text"
+                                                                            value={
+                                                                                values.assetPrice
+                                                                            }
+                                                                            label={localize(
+                                                                                'Open price of asset',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.assetPrice &&
+                                                                                errors?.assetPrice
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'assetPrice',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'assetPrice',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'assetPrice',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input?.current?.focus()
+                                                                            }}
+                                                                            maxLength={getMaxLength(
+                                                                                values.assetPrice,
+                                                                                15,
+                                                                            )}
+                                                                            background="white"
+                                                                        />
+                                                                    )}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -612,7 +620,34 @@ const PnlMarginCalculator = () => {
                                                                         stopLossAmountChangeHandler
                                                                     }
                                                                 >
-                                                                    {StopLossAmountInput}
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="assetPrice"
+                                                                            type="text"
+                                                                            value={
+                                                                                values.stopLossAmount
+                                                                            }
+                                                                            label={localize(
+                                                                                'Stop loss amount',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.stopLossAmount &&
+                                                                                errors?.stopLossAmount
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={
+                                                                                stopLossErrorHandler
+                                                                            }
+                                                                            maxLength={getMaxLength(
+                                                                                values.stopLossAmount,
+                                                                                15,
+                                                                            )}
+                                                                            background="white"
+                                                                        />
+                                                                    )}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -769,7 +804,7 @@ const PnlMarginCalculator = () => {
                                                                             false,
                                                                             false,
                                                                         )
-                                                                        current_input.focus()
+                                                                        current_input?.current?.focus()
                                                                     }}
                                                                     maxLength={getMaxLength(
                                                                         values.volume,
@@ -788,7 +823,48 @@ const PnlMarginCalculator = () => {
                                                                 setFieldValue('assetPrice', value)
                                                             }}
                                                         >
-                                                            {AssetPriceInput}
+                                                            {({ field }) => (
+                                                                <Input
+                                                                    {...field}
+                                                                    id="assetPrice"
+                                                                    type="text"
+                                                                    value={values.assetPrice}
+                                                                    label={localize(
+                                                                        'Open price of asset',
+                                                                    )}
+                                                                    autoComplete="off"
+                                                                    error={
+                                                                        touched.assetPrice &&
+                                                                        errors?.assetPrice
+                                                                    }
+                                                                    onBlur={handleBlur}
+                                                                    data-lpignore="true"
+                                                                    handleError={(
+                                                                        current_input,
+                                                                    ) => {
+                                                                        setFieldValue(
+                                                                            'assetPrice',
+                                                                            '',
+                                                                            false,
+                                                                        )
+                                                                        setFieldError(
+                                                                            'assetPrice',
+                                                                            '',
+                                                                        )
+                                                                        setFieldTouched(
+                                                                            'assetPrice',
+                                                                            false,
+                                                                            false,
+                                                                        )
+                                                                        current_input?.current?.focus()
+                                                                    }}
+                                                                    maxLength={getMaxLength(
+                                                                        values.assetPrice,
+                                                                        15,
+                                                                    )}
+                                                                    background="white"
+                                                                />
+                                                            )}
                                                         </Field>
                                                     </InputGroup>
                                                     <InputGroup>
@@ -799,7 +875,45 @@ const PnlMarginCalculator = () => {
                                                                 setFieldValue('pointValue', value)
                                                             }}
                                                         >
-                                                            {PointValueInput}
+                                                            {({ field }) => (
+                                                                <Input
+                                                                    {...field}
+                                                                    id="pointValue"
+                                                                    type="text"
+                                                                    label={localize('Point value')}
+                                                                    autoComplete="off"
+                                                                    error={
+                                                                        touched.pointValue &&
+                                                                        errors?.pointValue
+                                                                    }
+                                                                    onBlur={handleBlur}
+                                                                    data-lpignore="true"
+                                                                    handleError={(
+                                                                        current_input,
+                                                                    ) => {
+                                                                        setFieldValue(
+                                                                            'pointValue',
+                                                                            '',
+                                                                            false,
+                                                                        )
+                                                                        setFieldError(
+                                                                            'pointValue',
+                                                                            '',
+                                                                        )
+                                                                        setFieldTouched(
+                                                                            'pointValue',
+                                                                            false,
+                                                                            false,
+                                                                        )
+                                                                        current_input?.current?.focus()
+                                                                    }}
+                                                                    maxLength={getMaxLength(
+                                                                        values.pointValue,
+                                                                        8,
+                                                                    )}
+                                                                    background="white"
+                                                                />
+                                                            )}
                                                         </Field>
                                                     </InputGroup>
                                                     <InputGroup>
@@ -808,7 +922,31 @@ const PnlMarginCalculator = () => {
                                                             value={values.takeProfitAmount}
                                                             onChange={takeProfitAmountChangeHandler}
                                                         >
-                                                            {TakeProfitAmountInput}
+                                                            {({ field }) => (
+                                                                <Input
+                                                                    {...field}
+                                                                    id="takeProfitAmount"
+                                                                    type="text"
+                                                                    label={localize(
+                                                                        'Take profit amount',
+                                                                    )}
+                                                                    autoComplete="off"
+                                                                    error={
+                                                                        touched.takeProfitAmount &&
+                                                                        errors?.takeProfitAmount
+                                                                    }
+                                                                    onBlur={handleBlur}
+                                                                    data-lpignore="true"
+                                                                    handleError={
+                                                                        takeProfitErrorHanlder
+                                                                    }
+                                                                    maxLength={getMaxLength(
+                                                                        values.takeProfitAmount,
+                                                                        15,
+                                                                    )}
+                                                                    background="white"
+                                                                />
+                                                            )}
                                                         </Field>
                                                     </InputGroup>
                                                     <InputGroup>
@@ -817,7 +955,32 @@ const PnlMarginCalculator = () => {
                                                             value={values.stopLossAmount}
                                                             onChange={stopLossAmountChangeHandler}
                                                         >
-                                                            {StopLossAmountInput}
+                                                            {({ field }) => (
+                                                                <Input
+                                                                    {...field}
+                                                                    id="assetPrice"
+                                                                    type="text"
+                                                                    value={values.stopLossAmount}
+                                                                    label={localize(
+                                                                        'Stop loss amount',
+                                                                    )}
+                                                                    autoComplete="off"
+                                                                    error={
+                                                                        touched.stopLossAmount &&
+                                                                        errors?.stopLossAmount
+                                                                    }
+                                                                    onBlur={handleBlur}
+                                                                    data-lpignore="true"
+                                                                    handleError={
+                                                                        stopLossErrorHandler
+                                                                    }
+                                                                    maxLength={getMaxLength(
+                                                                        values.stopLossAmount,
+                                                                        15,
+                                                                    )}
+                                                                    background="white"
+                                                                />
+                                                            )}
                                                         </Field>
                                                     </InputGroup>
 

@@ -352,6 +352,8 @@ import VINDEXIC200 from 'images/svg/symbols/volatility-index-ic-200.svg'
 import VINDEXIC300 from 'images/svg/symbols/volatility-index-ic-300.svg'
 import VINDEX2001S from 'images/svg/symbols/volatility_200_1s.svg'
 import VINDEX3001S from 'images/svg/symbols/volatility_300_1s.svg'
+import VINDEX1501S from 'images/svg/symbols/volatility_150_1s.svg'
+import VINDEX2501S from 'images/svg/symbols/volatility_250_1s.svg'
 import ZECUSD from 'images/svg/symbols/zec-usd.svg'
 
 export {
@@ -435,6 +437,8 @@ export {
     EURILS,
     EURJPY,
     EURLPN,
+    VINDEX1501S,
+    VINDEX2501S,
     EURMXN,
     EURNOK,
     EURNZD,

@@ -201,7 +201,7 @@ const Signup = (props: SignupProps) => {
             is_submitting,
         }
 
-        switch (Appearances.lightFlat) {
+        switch (param) {
             case Appearances.newSignup:
                 return <SignupNew {...parameters} />
             case Appearances.public:

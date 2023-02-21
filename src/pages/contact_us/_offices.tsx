@@ -18,6 +18,7 @@ import Belarus from 'images/svg/contact/belarus.svg'
 import Singapore from 'images/svg/contact/singapore.svg'
 import Jordan from 'images/svg/contact/jordan.svg'
 import Vanuatu from 'images/svg/contact/vanuatu.svg'
+import UK from 'images/svg/contact/uk.svg'
 
 type GridLayoutProps = {
     children?: React.ReactNode | React.ReactChild
@@ -76,6 +77,9 @@ const query = graphql`
             ...fadeIn
         }
         map_belarus_contact: file(relativePath: { eq: "maps/map-belarus-contact.png" }) {
+            ...fadeIn
+        }
+        map_uk: file(relativePath: { eq: "maps/map-uk.png" }) {
             ...fadeIn
         }
     }
@@ -252,6 +256,54 @@ export const Offices = () => {
                     </ResHeader>
                     <ContinentHeader>{localize('Europe')}</ContinentHeader>
                     <GridLayout>
+                        <Flex mt="30px" fd="column" max_width="48.6rem" id="france">
+                            <OfficeHeader>
+                                <div>
+                                    <img src={UK} alt="UK" />
+                                </div>
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                    {localize('United Kingdom')}
+                                </Header>
+                            </OfficeHeader>
+
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to="https://goo.gl/maps/N4vktHikyqQ5M5639"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Deriv's office location map in UK"
+                                            data={data['map_uk']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
+                                    to="https://goo.gl/maps/N4vktHikyqQ5M5639"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
+                                    <Desktop>
+                                        <p>Deriv Technologies Limited </p>
+                                        <p>Suite 1, Ground Floor, Block D </p> <p>Apex</p>
+                                        <p>Forbury Road </p>
+                                        <p> Reading RG1 1AX</p>
+                                    </Desktop>
+                                    <Mobile>
+                                        <StyledMobileAddress>
+                                            Deriv Technologies LimitedSuite 1, Ground Floor, Block D
+                                            Apex Forbury RoadReading RG1 1AX
+                                        </StyledMobileAddress>
+                                    </Mobile>
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
                         <Flex mt="30px" fd="column" max_width="48.6rem" id="france">
                             <OfficeHeader>
                                 <div>

@@ -488,11 +488,12 @@ export const reading: LocationsType = {
     first_img_alt: 'Working at Deriv Technologies Ltd',
     grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
-    map: '',
+    map: 'ChIJxRiI_BebdkgRCs_khvADHis',
     map_text:
         "Our UK base is a hub for Deriv fintech talent. Taking on exciting projects, this team play a key role in ideating, designing, and developing Deriv's next-generation trading products, as well as cutting-edge applications and technical systems. If software technology is what you live and breathe, join our UK team.",
-    map_img: 'reading',
-    need_address_block: true,
+    google_map_link: 'https://goo.gl/maps/N4vktHikyqQ5M5639',
+    has_iframe: true,
+    has_map: true,
 }
 
 export const vanuatu: LocationsType = {

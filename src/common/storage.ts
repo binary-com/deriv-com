@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { deriv_cookie_domain } from 'common/constants'
+import { deriv_cookie_domain, deriv_com_url } from 'common/constants'
 import { getPropertyValue, isEmptyObject, isBrowser } from 'common/utility'
 
 const getObject = function (key) {
@@ -131,7 +131,7 @@ State.set('response', {})
 
 const CookieStorage = function (cookie_name, cookie_domain = '') {
     const hostname = isBrowser() && window.location.hostname
-    const is_deriv_com = String(hostname).includes('deriv.com')
+    const is_deriv_com = String(hostname).includes(deriv_com_url)
     const is_binary_sx = String(hostname).includes('binary.sx')
 
     this.initialized = false

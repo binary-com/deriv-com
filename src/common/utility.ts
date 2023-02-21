@@ -314,14 +314,14 @@ export const replaceLocale = (url: string): string => {
     return checked_locale
 }
 // 3 functions below can be removed after academy migration
-const stripHTML = (str: string): string => str?.replace(/<[^>]*>?/gm, '')
-const calculateReadTime = (text: string) => {
-    const wpm = 275 // adjusted to fit the average reading speed of a person
-    const content_without_HTML = stripHTML(text)
-    const words = content_without_HTML?.trim().split(/\s+/).length
-    return Math.ceil(words / wpm)
-}
-export const getMinRead = (text) => calculateReadTime(text).toString() + ' ' + localize('min read')
+// const stripHTML = (str: string): string => str?.replace(/<[^>]*>?/gm, '')
+// const calculateReadTime = (text: string) => {
+//     const wpm = 275 // adjusted to fit the average reading speed of a person
+//     const content_without_HTML = stripHTML(text)
+//     const words = content_without_HTML?.trim().split(/\s+/).length
+//     return Math.ceil(words / wpm)
+// }
+// export const getMinRead = (text) => calculateReadTime(text).toString() + ' ' + localize('min read')
 
 export const slugify = (text: string): string =>
     text &&

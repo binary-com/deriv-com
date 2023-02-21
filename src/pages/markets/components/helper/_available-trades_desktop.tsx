@@ -198,7 +198,7 @@ const AvailableTradesDesctop = ({
     display_title,
 }: AvailableTradesProps) => {
     const { is_non_eu } = useRegion()
-    const [active_tab, setActiveTab] = useTabStateQuery(['CFDs', 'Options', 'Multipliers'])
+    const [active_tab, setActiveTab] = useTabStateQuery(['cfds', 'options', 'multipliers'])
     const handleTabChange = (new_tab: string) => {
         if (new_tab !== active_tab) setActiveTab(new_tab)
     }
@@ -214,7 +214,7 @@ const AvailableTradesDesctop = ({
                         <Card
                             name="CFDs"
                             display_name={<Localize translate_text="CFDs" />}
-                            onTabChange={() => handleTabChange('CFDs')}
+                            onTabChange={() => handleTabChange('cfds')}
                             active_tab={active_tab}
                         />
                     )}
@@ -222,7 +222,7 @@ const AvailableTradesDesctop = ({
                         <Card
                             name="Options"
                             display_name={<Localize translate_text="Options" />}
-                            onTabChange={() => handleTabChange('Options')}
+                            onTabChange={() => handleTabChange('options')}
                             active_tab={active_tab}
                         />
                     )}
@@ -231,7 +231,7 @@ const AvailableTradesDesctop = ({
                         <Card
                             name="Multipliers"
                             display_name={<Localize translate_text="Multipliers" />}
-                            onTabChange={() => handleTabChange('Multipliers')}
+                            onTabChange={() => handleTabChange('multipliers')}
                             active_tab={active_tab}
                         />
                     )}

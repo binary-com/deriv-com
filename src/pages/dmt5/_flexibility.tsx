@@ -3,16 +3,17 @@ import styled, { css } from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
 import CFDsIcon from 'images/svg/dmt5/cfds.svg'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 
 type ContentType = {
-    header?: React.ReactElement
-    text?: React.ReactElement
+    header?: TString
+    text?: TString
     icon?: React.ReactElement
     show_eu?: boolean
     show_always?: boolean
@@ -35,27 +36,21 @@ const StyledIcon = styled.img`
 
 const content: ContentType[] = [
     {
-        header: <Localize translate_text="Derived" />,
-        text: (
-            <Localize translate_text="Trade CFDs on indices derived from real-world market movements." />
-        ),
+        header: '_t_Derived_t_',
+        text: '_t_Trade CFDs on indices derived from real-world market movements._t_',
         icon: <StyledIcon src={DerivedIcon} alt="derived-icon" />,
     },
     {
-        header: <Localize translate_text="Financial" />,
-        text: (
-            <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, and commodities on high leverage." />
-        ),
+        header: '_t_Financial_t_',
+        text: '_t_Trade forex, stocks & indices, cryptocurrencies, and commodities on high leverage._t_',
         icon: <StyledIcon src={FinancialIcon} alt="financial-icon" />,
     },
 ]
 
 const eucontent: ContentType[] = [
     {
-        header: <Localize translate_text="CFDs" />,
-        text: (
-            <Localize translate_text="Trade CFDs on forex, stocks, stock indices, synthetic indices, cryptocurrencies, and commodities with leverage." />
-        ),
+        header: '_t_CFDs_t_',
+        text: '_t_Trade CFDs on forex, stocks, stock indices, synthetic indices, cryptocurrencies, and commodities with leverage._t_',
         icon: <StyledIcon src={CFDsIcon} alt="cfds-icon" />,
         show_eu: true,
     },
@@ -126,9 +121,9 @@ const Flexibility = () => {
     const { is_eu } = useRegion()
 
     const chosen_content = is_eu ? eucontent : content
-    const title = is_eu
-        ? localize('Flexibility with multiple markets')
-        : localize('Flexibility with two account types')
+    const title: TString = is_eu
+        ? '_t_Flexibility with multiple markets_t_'
+        : '_t_Flexibility with two account types_t_'
 
     return (
         <Section>
@@ -140,15 +135,13 @@ const Flexibility = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {title}
+                <Localize translate_text={title} />
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
-                {chosen_content.map((item, idx) => {
+                {chosen_content.map(({ show_eu, show_always, header, icon, text }) => {
                     return (
-                        ((is_eu && item.show_eu) ||
-                            (!is_eu && !item.show_eu) ||
-                            item.show_always) && (
-                            <ClientCard key={idx}>
+                        ((is_eu && show_eu) || (!is_eu && !show_eu) || show_always) && (
+                            <ClientCard key={header}>
                                 <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
                                     <StyledHeader
                                         mobile_margin="unset"
@@ -156,11 +149,13 @@ const Flexibility = () => {
                                         as="h4"
                                         type="sub-section-title"
                                     >
-                                        {item.header}
+                                        <Localize translate_text={header} />
                                     </StyledHeader>
-                                    {item.icon}
+                                    {icon}
                                 </Flex>
-                                <StyledText>{item.text}</StyledText>
+                                <StyledText>
+                                    <Localize translate_text={text} />
+                                </StyledText>
                             </ClientCard>
                         )
                     )
@@ -173,7 +168,7 @@ const Flexibility = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                {localize('Go to Deriv MT5 dashboard')}
+                <Localize translate_text="_t_Go to Deriv MT5 dashboard_t_" />
             </StyledLinkButton>
         </Section>
     )

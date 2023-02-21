@@ -81,20 +81,26 @@ const CardContainer = styled(Flex)<CardContainerProps>`
     padding: 16px 24px;
     font-weight: 400;
     cursor: pointer;
-    z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
+    z-index: ${(props) =>
+        props.active_tab === props.name.toLocaleLowerCase() ? '4 !important' : ''};
 
     ${Flex} {
         img {
             width: 32px;
             height: 32px;
             margin: 0 8px 0 0;
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
+            opacity: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
         }
         h4 {
             color: ${(props) =>
-                props.active_tab === props.name ? 'var(--color-black)' : 'var(--color-black-3)'};
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
-            font-weight: ${(props) => (props.active_tab === props.name ? 'bold' : '400')};
+                props.active_tab === props.name.toLocaleLowerCase()
+                    ? 'var(--color-black)'
+                    : 'var(--color-black-3)'};
+            opacity: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
+            font-weight: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? 'bold' : '400'};
         }
         @media ${device.tabletL} {
             width: 100%;
@@ -130,7 +136,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         transform-origin: ${({ is_rtl }) => (is_rtl ? 'bottom right' : 'bottom left')};
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
-            if (props.active_tab === props.name)
+            if (props.active_tab === props.name.toLocaleLowerCase())
                 return css`
                     font-weight: bold;
                     background-color: var(--color-white);
@@ -237,9 +243,9 @@ const AvailableTradesDesctop = ({
                     )}
                 </CardWrapper>
                 <ContentWrapper>
-                    {active_tab === 'CFDs' && CFDs}
-                    {active_tab === 'Options' && DigitalOptions}
-                    {active_tab === 'Multipliers' && Multipliers}
+                    {active_tab === 'cfds' && CFDs}
+                    {active_tab === 'options' && DigitalOptions}
+                    {active_tab === 'multipliers' && Multipliers}
                 </ContentWrapper>
             </StyledContainer>
         </StyledSection>

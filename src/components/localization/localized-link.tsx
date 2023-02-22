@@ -112,7 +112,7 @@ export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
     ${({ active }) =>
         active &&
         css`
-            color: gray;
+            color: var(--color-red);
         `}
     @media ${device.laptopL} {
         font-size: 14px;

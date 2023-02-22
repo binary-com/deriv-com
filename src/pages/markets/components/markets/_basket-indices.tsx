@@ -48,11 +48,11 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         }
                         Multipliers={<Multipliers market_content={basket_multiplier} />}
                         display_title={
-                            <Localize translate_text="Basket indices trades  available on Deriv" />
+                            <Localize translate_text="Baskets trades  available on Deriv" />
                         }
                     />
                     <FullWidthMultiColumn
-                        header={<Localize translate_text="Why trade basket indices on Deriv" />}
+                        header={<Localize translate_text="Why trade baskets on Deriv" />}
                     >
                         {(!is_eu ? basket_indices_content : basket_indices_content_eu).map(
                             (content: BasketIndicesContent, index) => (
@@ -66,7 +66,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                     </FullWidthMultiColumn>
                     <SimpleSteps
                         header={
-                            <Localize translate_text="Start trading basket indices on Deriv in 3 simple steps" />
+                            <Localize translate_text="Start trading baskets on Deriv in 3 simple steps" />
                         }
                         content={simple_step_content}
                         sign_up

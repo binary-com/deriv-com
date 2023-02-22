@@ -62,7 +62,6 @@ const StyledText = styled(Header)`
     }
 `
 const StyledFlex = styled(Flex)`
-    background: var(--color-grey-4);
     padding: 0.8rem;
 
     ${Text} {

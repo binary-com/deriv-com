@@ -297,8 +297,8 @@ export const Offices = () => {
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>
-                                            Deriv Technologies LimitedSuite 1, Ground Floor, Block D
-                                            Apex Forbury RoadReading RG1 1AX
+                                            Deriv Technologies LimitedSuite 1, Ground Floor, Block
+                                            D, Apex, Forbury Road, Reading RG1 1AX
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>

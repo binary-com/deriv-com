@@ -56,10 +56,6 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const StyledImage = styled(StaticImage)`
-    position: absolute;
-`
-
 const HeroHeader = ({ text }: { text: TString }) => {
     return (
         <StyledHeader type="main-landing-title" color="white">
@@ -75,14 +71,25 @@ const Hero = ({ is_ppc }: HeroProps) => {
 
     return (
         <HeroWrapper>
-            <StyledImage
-                src="../../images/common/home/hero_bg.png"
-                alt=""
-                loading="eager"
-                formats={['avif', 'webp', 'auto']}
-                quality={20}
-                objectFit="cover"
-            />
+            <Flex
+                height="100vh"
+                position="absolute"
+                ai="center"
+                top="0"
+                tablet={{ ai: 'flex-end', pb: '20rem' }}
+            >
+                <Box>
+                    <StaticImage
+                        src="../../images/common/home/hero_bg.png"
+                        alt="world map"
+                        loading="eager"
+                        formats={['avif', 'webp', 'auto']}
+                        quality={30}
+                        objectFit="contain"
+                        placeholder="none"
+                    />
+                </Box>
+            </Flex>
             <Container fd="column" ai="flex-start">
                 <Flex
                     m="0 auto"
@@ -102,6 +109,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             mr: 'unset',
                             mb: '40px',
                         }}
+                        z_index="2"
                     >
                         <Flex
                             height="unset"

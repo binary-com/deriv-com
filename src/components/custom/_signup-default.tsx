@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Input, Button } from 'components/form'
+import { Input, Button, LinkButton } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -8,6 +8,7 @@ import device from 'themes/device'
 // SVG
 import Facebook from 'images/svg/custom/facebook.svg'
 import Google from 'images/svg/custom/google.svg'
+import Login from 'common/login'
 
 type SignupDefaultProps = {
     autofocus?: boolean
@@ -37,10 +38,11 @@ const EmailButton = styled(Button)`
     margin-bottom: 2rem;
 `
 
-const SocialButton = styled(Button)`
+const SocialButton = styled(LinkButton)`
     box-shadow: none;
     flex: inherit !important;
     width: 48%;
+    color: #000000;
 `
 const SocialWrapper = styled(FlexGridContainer)`
     width: 100%;
@@ -111,9 +113,8 @@ const SignupDefault = ({
             </Text>
             <SocialWrapper justify="space-between" gap="0" grid="2">
                 <SocialButton
-                    onClick={handleSocialSignup}
-                    provider="google"
-                    data-provider="google"
+                    external
+                    to={Login.initOneAll('google')}
                     id="dm-signup-google"
                     type="button"
                     social
@@ -123,9 +124,8 @@ const SignupDefault = ({
                     </span>
                 </SocialButton>
                 <SocialButton
-                    onClick={handleSocialSignup}
-                    provider="facebook"
-                    data-provider="facebook"
+                    external
+                    to={Login.initOneAll('facebook')}
                     id="dm-signup-facebook"
                     type="button"
                     social

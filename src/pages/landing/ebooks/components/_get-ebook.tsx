@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import Login, { TSocialProvider } from 'common/login'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'
-import { Input, Button } from 'components/form'
+import { Input, Button, LinkButton } from 'components/form'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'
@@ -70,7 +70,7 @@ const EmailButton = styled(Button)`
     }
 `
 
-const SocialButton = styled(Button)`
+const SocialButton = styled(LinkButton)`
     width: 12.5rem;
     min-width: 116px;
     line-height: 30px;
@@ -81,6 +81,7 @@ const SocialButton = styled(Button)`
     min-height: 4rem;
     height: 40px;
     font-weight: 500;
+    color: #000000;
 
     &:nth-of-type(1) {
         margin-left: 0;
@@ -246,13 +247,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
         }
     }
 
-    const handleSocialSignup = (e) => {
-        e.preventDefault()
-
-        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
-        Login.initOneAll(data_provider, ebook_utm_code)
-    }
-
     const handleEmailSignup = (e) => {
         e.preventDefault()
         setIsSubmitting(true)
@@ -368,9 +362,10 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                     tabletS={{ fd: 'column' }}
                 >
                     <SocialButton
-                        onClick={handleSocialSignup}
-                        provider="google"
-                        data-provider="google"
+                        external
+                        to={Login.initOneAll('google', ebook_utm_code)}
+                        // provider="google"
+                        // data-provider="google"
                         id="dm-signup-google"
                         type="button"
                     >
@@ -380,9 +375,10 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         </SocialButtonText>
                     </SocialButton>
                     <SocialButton
-                        onClick={handleSocialSignup}
-                        provider="facebook"
-                        data-provider="facebook"
+                        external
+                        // provider="facebook"
+                        to={Login.initOneAll('facebook', ebook_utm_code)}
+                        // data-provider="facebook"
                         id="dm-signup-facebook"
                         type="button"
                     >
@@ -392,9 +388,10 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         </SocialButtonText>
                     </SocialButton>
                     <SocialButton
-                        onClick={handleSocialSignup}
-                        provider="apple"
-                        data-provider="apple"
+                        external
+                        to={Login.initOneAll('apple', ebook_utm_code)}
+                        // provider="apple"
+                        // data-provider="apple"
                         id="dm-signup-apple"
                         type="button"
                     >

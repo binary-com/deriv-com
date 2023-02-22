@@ -8,6 +8,7 @@ import device from 'themes/device'
 // SVG
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
+import Login from 'common/login'
 
 type SignupFlatProps = {
     autofocus?: boolean
@@ -87,7 +88,7 @@ const SocialWrapper = styled.div`
     flex-wrap: nowrap;
     align-items: center;
 `
-const SocialButton = styled(Button)<DarkType>`
+const SocialButton = styled(LinkButton)<DarkType>`
     background-color: ${(props) => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     border: none;
 `
@@ -176,9 +177,8 @@ const SignupFlat = ({
                         </StyledText>
                         <SocialButton
                             dark={dark}
-                            onClick={handleSocialSignup}
-                            provider="google"
-                            data-provider="google"
+                            external
+                            to={Login.initOneAll('google')}
                             id="dm-signup-google"
                             type="button"
                             social
@@ -189,9 +189,8 @@ const SignupFlat = ({
                         </SocialButton>
                         <SocialButton
                             dark={dark}
-                            onClick={handleSocialSignup}
-                            provider="facebook"
-                            data-provider="facebook"
+                            external
+                            to={Login.initOneAll('facebook')}
                             id="dm-signup-facebook"
                             type="button"
                             social

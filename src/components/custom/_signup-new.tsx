@@ -1,7 +1,7 @@
 import React, { useState, CSSProperties } from 'react'
 import styled from 'styled-components'
 import AgreementLabel from './_agreement-label'
-import { Input, Button } from 'components/form'
+import { Input, Button, LinkButton } from 'components/form'
 import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
@@ -11,7 +11,7 @@ import Facebook from 'images/svg/custom/facebook-blue.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
 import useRegion from 'components/hooks/use-region'
-
+import Login from 'common/login'
 type SignupNewProps = {
     autofocus?: boolean
     clearEmail?: () => void
@@ -127,7 +127,7 @@ const SignupWithContainer = styled.div`
     }
 `
 
-const SocialButton = styled(Button)<SocialButtonProps>`
+const SocialButton = styled(LinkButton)<SocialButtonProps>`
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -137,6 +137,7 @@ const SocialButton = styled(Button)<SocialButtonProps>`
     width: 12.5rem;
     height: 3.8rem;
     padding: 0.5rem 0;
+    color: #000000;
 
     &:hover {
         background: ${(props) => {
@@ -327,9 +328,8 @@ const SignupNew = ({
 
             <SocialWrapper gap="0" grid="2">
                 <SocialButton
-                    onClick={handleSocialSignup}
-                    provider="google"
-                    data-provider="google"
+                    external
+                    to={Login.initOneAll('google')}
                     id="dm-signup-google"
                     type="button"
                     social
@@ -338,9 +338,8 @@ const SignupNew = ({
                     <SocialText>Google</SocialText>
                 </SocialButton>
                 <SocialButton
-                    onClick={handleSocialSignup}
-                    provider="facebook"
-                    data-provider="facebook"
+                    external
+                    to={Login.initOneAll('facebook')}
                     id="dm-signup-facebook"
                     type="button"
                     social
@@ -349,9 +348,8 @@ const SignupNew = ({
                     <SocialText>Facebook</SocialText>
                 </SocialButton>
                 <SocialButton
-                    onClick={handleSocialSignup}
-                    provider="apple"
-                    data-provider="apple"
+                    external
+                    to={Login.initOneAll('apple')}
                     id="dm-signup-apple"
                     type="button"
                     social

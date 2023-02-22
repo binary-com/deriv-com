@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
-import { Input, Button } from 'components/form'
+import { Input, Button, LinkButton } from 'components/form'
 import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Box, Container, Desktop, Mobile } from 'components/containers'
@@ -15,6 +15,7 @@ import Facebook from 'images/svg/custom/facebook-40.svg'
 import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import Login, { TSocialProvider } from 'common/login'
 
 type SocialButtonContent = {
     provider: string
@@ -177,11 +178,12 @@ const MobileSocialWrapper = styled(SocialWrapper)`
         flex-direction: column;
     }
 `
-const SocialButton = styled(Button)`
+const SocialButton = styled(LinkButton)`
     display: flex;
     padding: 0;
     margin: 0 1rem;
     border: none;
+    color: #000000;
 
     @media ${device.tabletL} {
         justify-content: center;
@@ -428,9 +430,10 @@ const SignupPublic = ({
                                     {social_button_content.map(({ provider, id, img }) => (
                                         <SocialButton
                                             key={provider}
-                                            onClick={handleSocialSignup}
                                             provider={provider}
                                             data-provider={provider}
+                                            external
+                                            to={Login.initOneAll(provider as TSocialProvider)}
                                             id={id}
                                             type="button"
                                             social
@@ -566,9 +569,10 @@ const SignupPublic = ({
                                         {social_button_content.map(({ provider, id, img }) => (
                                             <SocialButton
                                                 key={provider}
-                                                onClick={handleSocialSignup}
                                                 provider={provider}
                                                 data-provider={provider}
+                                                external
+                                                to={Login.initOneAll(provider as TSocialProvider)}
                                                 id={id}
                                                 type="button"
                                                 social

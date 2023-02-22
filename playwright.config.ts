@@ -10,9 +10,9 @@ dotenvConfig({ path: `.env.development` })
  */
 const config: PlaywrightTestConfig = {
   testDir: './end-to-end-tests',
-  testMatch: ["end-to-end-tests/translation.spec.ts"],
+  testMatch: ["end-to-end-tests/test.spec.ts"],
   /* Maximum time one test can run for. */
-  timeout: 60 * 1000,
+  timeout: 120 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.

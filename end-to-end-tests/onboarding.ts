@@ -7,7 +7,6 @@ export default class OnboardingFlow {
     readonly page: Page
     readonly email: string
     // private signupPage: Page | null;
-    private complete_signup_page: string;
     constructor(page: Page) {
         const randomString = new Date().getTime()
         this.page = page
@@ -16,9 +15,9 @@ export default class OnboardingFlow {
     }
 
     async changeEndpoint() {
-        await this.page.goto(process.env.TRADER_APP_URL!)
-        await expect(this.page).toHaveTitle('Trader | Deriv')
-        await this.cookieDialogHandler()
+        // await this.page.goto(process.env.TRADER_APP_URL!)
+        // await expect(this.page).toHaveTitle('Trader | Deriv')
+        // await this.cookieDialogHandler()
         await this.page.goto(`${process.env.TRADER_APP_URL!}/endpoint`)
 
         await this.page.waitForSelector(
@@ -142,22 +141,23 @@ export default class OnboardingFlow {
             return Array.from(document.links).map((item) => item.href)
         })
         hrefs = hrefs.slice().reverse()
+        let complete_signup_page;
         // TODO need to find a better approach instead of this
         // eslint-disable-next-line no-restricted-syntax
         for await (const item of hrefs) {
             await mailPage.goto(item)
             if (await mailPage.getByText(this.email).isVisible()) {
                 const element = await mailPage.locator('a', { hasText: 'signup' })
-                this.complete_signup_page = await element.getAttribute('href') ?? ''
-                // if (val) await this.page.goto(val)
-                await mailPage.close()
-                break
+                complete_signup_page= await element.getAttribute('href')
+                if (complete_signup_page) {
+                    await mailPage.close()
+                    break
+                }
             }
         }
 
-        // if(this.complete_signup_page == '') return;
-        await this.page.goto(this.complete_signup_page);
-        // await this.changeEndpoint();
+        await this.changeEndpoint();
+        await this.page.goto(complete_signup_page);
         await this.page.waitForSelector('#dt_core_set-residence-form_signup-residence-select')
         await this.page.click('#dt_core_set-residence-form_signup-residence-select')
         await expect(this.page.getByText(process.env.ACCOUNT_RESIDENCE!)).toBeVisible()

@@ -249,7 +249,7 @@ const Input = ({
                     height={height}
                     showLabel={label}
                     {...props}
-                    ref={() => current_input}
+                    ref={current_input}
                 />
                 {label && (
                     <StyledLabel

@@ -255,7 +255,6 @@ const MobileCardContainer = styled(Flex)`
 const StyledSectionContainer = styled(SectionContainer)`
     padding: 100px 0;
     margin: auto;
-    background: #f9fbff;
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {

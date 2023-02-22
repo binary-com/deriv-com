@@ -10,7 +10,6 @@ import Arrow from 'images/svg/deriv-go/arrow.svg'
 import DMT5 from 'images/svg/deriv-go/dmt5.svg'
 import DerivX from 'images/svg/deriv-go/dx.svg'
 import device from 'themes/device'
-import { TString } from 'types/generics'
 
 const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
@@ -130,7 +129,7 @@ const OtherApps = () => {
                                         <img src={icon} alt={image_alt} />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
-                                        <Localize translate_text={title as TString} />
+                                        <Localize translate_text={title} />
                                     </Header>
                                     <StyledText>
                                         <Localize translate_text={content} />

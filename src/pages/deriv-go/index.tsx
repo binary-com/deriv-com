@@ -15,7 +15,8 @@ import { TString } from 'types/generics'
 
 export type ContentType = {
     id?: number
-    title: TString | string
+    title?: TString
+    untranslated_title?: string
     subtitle?: TString
     content?: TString
     url?: ReactElement | ReactElement[]

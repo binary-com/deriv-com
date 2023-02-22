@@ -64,18 +64,22 @@ const items: ContentType[] = [
         title: '_t_Up to x1000_t_',
         subtitle: '_t_potential profit_t_',
     },
-    { id: 1, title: '24/7', subtitle: '_t_trading_t_' },
-    { id: 3, title: 'USD 1', subtitle: '_t_minimum stake_t_' },
+    { id: 1, untranslated_title: '24/7', subtitle: '_t_trading_t_' },
+    { id: 3, untranslated_title: 'USD 1', subtitle: '_t_minimum stake_t_' },
 ]
 
 const WhatIsDerivGo = () => {
     return (
         <StyledSectionContainer>
             <NumberStyledContainer>
-                {items.map(({ id, title, subtitle }) => (
+                {items.map(({ id, title, subtitle, untranslated_title }) => (
                     <NumberWrapper key={id}>
                         <StyledTitle as="h3" type="heading-3" align="center">
-                            {typeof title == 'string' ? title : <Localize translate_text={title} />}
+                            {untranslated_title ? (
+                                untranslated_title
+                            ) : (
+                                <Localize translate_text={title} />
+                            )}
                         </StyledTitle>
                         <StyledSubTitle align="center">
                             <Localize translate_text={subtitle} />

@@ -202,7 +202,7 @@ const SideTab = ({
                                     className={class_name}
                                 >
                                     <Text weight="bold">
-                                        <Localize translate_text={label} />
+                                        {label && <Localize translate_text={label} />}
                                     </Text>
                                     <StyledText
                                         max_width={item_width || '36.4rem'}
@@ -210,10 +210,12 @@ const SideTab = ({
                                         size="var(--text-size-m)"
                                         mt="0.8rem"
                                     >
-                                        <Localize
-                                            translate_text={description}
-                                            components={description_components}
-                                        />
+                                        {description && (
+                                            <Localize
+                                                translate_text={description}
+                                                components={description_components}
+                                            />
+                                        )}
                                     </StyledText>
                                 </TabButton>
                                 <MobileWrapper breakpoint={size.bp769}>

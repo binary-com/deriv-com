@@ -12,8 +12,8 @@ import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 
 type ContentType = {
-    header?: TString
-    text?: TString
+    header: TString
+    text: TString
     icon?: React.ReactElement
     show_eu?: boolean
     show_always?: boolean

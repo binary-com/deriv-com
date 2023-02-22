@@ -1,13 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 import RawBannerData from './_row-banner-data'
 import EuBannerData from './_eu-banner-data'
 import EuMobileBannerData from './_eu-mobile-banner-data'
 import RowMobileBannerData from './_row-mobile-banner-data'
-import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-import { Arrow } from 'components/elements/dropdown'
 
 type THeroProps = {
     is_ppc?: boolean

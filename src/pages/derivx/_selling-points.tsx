@@ -7,7 +7,8 @@ import device from 'themes/device'
 import { TString } from 'types/generics'
 
 type SellingPointsType = {
-    title: string | TString
+    title?: TString
+    untranslated_title?: string
     subtitle: TString
 }
 
@@ -49,8 +50,8 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const selling_points: SellingPointsType[] = [
-    { title: '100+', subtitle: '_t_tradable assets_t_' },
-    { title: '24/7', subtitle: '_t_trading_t_' },
+    { untranslated_title: '100+', subtitle: '_t_tradable assets_t_' },
+    { untranslated_title: '24/7', subtitle: '_t_trading_t_' },
     { title: '_t_Zero_t_', subtitle: '_t_commission_t_' },
 ]
 
@@ -59,12 +60,12 @@ const SellingPoints = () => {
         <StyledSectionContainer padding="40px 0" background="grey-25">
             <Container>
                 <Flex tablet_direction="column">
-                    {selling_points.map(({ title, subtitle }) => {
+                    {selling_points.map(({ title, subtitle, untranslated_title }) => {
                         return (
                             <StyledFlex tablet_direction="column" key={title}>
                                 <HeadingText>
-                                    {typeof title == 'string' ? (
-                                        title
+                                    {untranslated_title ? (
+                                        untranslated_title
                                     ) : (
                                         <Localize translate_text={title} />
                                     )}

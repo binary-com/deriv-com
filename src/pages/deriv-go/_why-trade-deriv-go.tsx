@@ -8,7 +8,6 @@ import { Header, Text } from 'components/elements/typography'
 import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
 import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
-import { TString } from 'types/generics'
 
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
@@ -83,7 +82,7 @@ const WhyTradeDerivGo = () => {
                                         />
                                     </div>
                                     <Header as="h3" type="heading-3" align="center" mt="24px">
-                                        <Localize translate_text={item.title as TString} />
+                                        <Localize translate_text={item.title} />
                                     </Header>
                                     <StyledText align="center" mt="8px">
                                         <Localize translate_text={item.subtitle} />

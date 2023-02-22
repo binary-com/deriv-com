@@ -147,7 +147,7 @@ const DBanner = ({
     background_pattern = '',
     data = '',
     is_ppc = false,
-    title = '_t__t_',
+    title,
     image_alt = '',
     is_mt5 = false,
 }: DBannerProps) => {
@@ -164,7 +164,7 @@ const DBanner = ({
             <Wrapper>
                 <TextWrapper>
                     <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="53rem">
-                        <Localize translate_text={title} />
+                        {title && <Localize translate_text={title} />}
                     </StyledHeader>
                     {is_logged_in ? (
                         <StyledLinkButton

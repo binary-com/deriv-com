@@ -147,6 +147,7 @@ const payment_data = [
                 locales: ['vi'],
             },
         ],
+        class_name: 'online-banking',
     },
     {
         name: <Localize translate_text="Online banking" />,
@@ -159,9 +160,9 @@ const payment_data = [
                 method: <StyledIcon src={Eps} alt="eps" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not available" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not available" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
                     <Localize translate_text="Make deposits and withdrawals through your local bank in real-time." />
                 ),
@@ -171,9 +172,9 @@ const payment_data = [
                 method: <StyledIcon src={GiroPay} alt="giropay" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not available" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not available" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
                     <Localize translate_text="Make safe, instant, and easy transactions via Germany's most popular payment method." />
                 ),
@@ -183,9 +184,9 @@ const payment_data = [
                 method: <StyledIcon src={Nordea} alt="nordea" />,
                 currencies: 'USD',
                 min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not available" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not available" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
                     <Localize translate_text="Make fast deposits with your Nordea bank account and enjoy benefits from its mobile app." />
                 ),
@@ -195,9 +196,9 @@ const payment_data = [
                 method: <StyledIcon src={Przelewy} alt="przelewy" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not available" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not available" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
                     <Localize translate_text="Make easy transactions via any major local banks and their mobile apps through Przelewy24." />
                 ),
@@ -207,9 +208,9 @@ const payment_data = [
                 method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not available" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not available" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
                     <Localize translate_text="Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program." />
                 ),
@@ -301,6 +302,7 @@ const payment_data = [
                 ),
             },
         ],
+        class_name: 'cards',
     },
     {
         name: <Localize translate_text="Credit/debit cards" />,
@@ -337,9 +339,9 @@ const payment_data = [
                 method: <StyledIcon src={MasterCard} alt="Mastercard" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not available" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not available" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
                     <Localize translate_text="Deposit funds using your Mastercard credit or debit card." />
                 ),
@@ -636,9 +638,9 @@ const payment_data = [
                 method: <StyledIcon src={PostePay} alt="postepay" />,
                 currencies: 'USD',
                 min_max_deposit: <Localize translate_text="10 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not available" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not available" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
                     <Localize translate_text="Make instant and safe transactions via Postepay, and enjoy its mobile app's benefits." />
                 ),
@@ -646,6 +648,7 @@ const payment_data = [
                 url: 'https://postepay.poste.it/',
             },
         ],
+        class_name: 'e-wallets',
     },
     {
         name: <Localize translate_text="Cryptocurrencies" />,
@@ -718,6 +721,7 @@ const payment_data = [
                 name: 'UST',
             },
         ],
+        class_name: 'cryptocurrencies',
     },
     {
         name: <Localize translate_text="Fiat onramp - Buy crypto on popular exchanges." />,
@@ -758,6 +762,7 @@ const payment_data = [
                 name: 'Xanpool',
             },
         ],
+        class_name: 'fiat-onramp',
     },
     {
         is_dp2p: true,
@@ -781,6 +786,7 @@ const payment_data = [
                 name: 'DP2P',
             },
         ],
+        class_name: 'deriv-p2p',
     },
 ]
 

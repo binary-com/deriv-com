@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { graphql, StaticQuery, navigate } from 'gatsby'
+import { graphql, useStaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { getLanguage } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
-import { Box } from 'components/containers'
+import { Flex } from 'components/containers'
 import Login, { TSocialProvider } from 'common/login'
 import validation from 'common/validation'
 import SignupDefault from 'components/custom/_signup-default'
@@ -32,7 +32,7 @@ type FormProps = {
 
 const EmailLink = styled(StyledLink)`
     display: table;
-    font-size: 1.4rem;
+    font-size: 14px;
     margin-top: 1.8rem;
     text-decoration: underline;
     width: 100%;
@@ -47,18 +47,20 @@ const Form = styled.form<FormProps>`
         width: 100%;
     }
 `
-const ResponseWrapper = styled.div`
+const ResponseWrapper = styled(Flex)`
     justify-content: center;
-    max-width: 33rem;
+    max-width: 24rem;
     margin: 0 auto;
     flex-direction: column;
     padding: 2rem 1rem;
+    gap: 12px;
 `
 
-const ConfirmationMessage = styled.div`
+const ConfirmationMessage = styled(Header)`
     text-align: center;
     font-size: 16px;
     word-wrap: break-word;
+    line-height: 24px;
 `
 
 export const Appearances = {
@@ -69,9 +71,17 @@ export const Appearances = {
     public: 'public',
     newSignup: 'newSignup',
 }
+const query = graphql`
+    query {
+        view_email: file(relativePath: { eq: "sign-up/response-email.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const Signup = (props: SignupProps) => {
     const { send } = useDerivWS()
+    const data = useStaticQuery(query)
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -203,26 +213,16 @@ const Signup = (props: SignupProps) => {
                 return <SignupDefault {...parameters}></SignupDefault>
         }
     }
+
     return props.submit_state === 'success' ? (
         <ResponseWrapper>
-            <Header as="h3" type="section-title" align="center" weight="normal">
+            <Header as="h3" type="subtitle-1" align="center" weight="normal">
                 {localize('Check your email')}
             </Header>
-            <StaticQuery
-                query={graphql`
-                    query {
-                        view_email: file(relativePath: { eq: "sign-up/view-email.png" }) {
-                            ...fadeIn
-                        }
-                    }
-                `}
-                render={(data) => (
-                    <Box m="3.2rem 0">
-                        <QueryImage data={data.view_email} alt="Email image" />
-                    </Box>
-                )}
-            />
-            <ConfirmationMessage>
+            <Flex jc="center" height="128px">
+                <QueryImage data={data.view_email} alt="Email image" height="128px" width="128px" />
+            </Flex>
+            <ConfirmationMessage weight="normal">
                 <Localize
                     translate_text="We've sent a message to {{email}} with a link to activate your account."
                     values={{ email: props.email }}

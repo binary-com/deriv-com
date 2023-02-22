@@ -192,7 +192,7 @@ const StyledInput = styled.input<StyledInputProps>`
 `
 
 const ErrorMessages = styled(Text)`
-    padding-left: 0.8rem;
+    padding: 6px;
     font-size: 1.2rem;
     min-height: 16px;
     color: var(--color-red-1);

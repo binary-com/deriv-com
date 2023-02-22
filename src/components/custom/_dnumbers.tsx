@@ -7,7 +7,8 @@ import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
 
 export type ItemType = {
-    title?: TString | string
+    title?: TString
+    untranslated_title?: string
     subtitle?: TString
 }
 
@@ -45,10 +46,14 @@ const StyledContainer = styled(Container)`
 const DNumbers = ({ items, justify }: DNumbersProps) => {
     return (
         <StyledContainer justify={justify || 'space-between'}>
-            {items.map(({ subtitle, title }) => (
+            {items.map(({ subtitle, title, untranslated_title }) => (
                 <NumberWrapper key={subtitle}>
                     <Header as="p" type="page-title" align="center">
-                        {typeof title == 'string' ? title : <Localize translate_text={title} />}
+                        {untranslated_title ? (
+                            untranslated_title
+                        ) : (
+                            <Localize translate_text={title} />
+                        )}
                     </Header>
                     <StyledText align="center">
                         <Localize translate_text={subtitle} />

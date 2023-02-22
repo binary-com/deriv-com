@@ -40,12 +40,12 @@ const query = graphql`
 `
 
 const items: ItemType[] = [
-    { title: '3', subtitle: '_t_pre-built strategies included_t_' },
+    { untranslated_title: '3', subtitle: '_t_pre-built strategies included_t_' },
     {
         title: '_t_FREE_t_',
         subtitle: '_t_zero cost to build_t_',
     },
-    { title: '50+', subtitle: '_t_assets to unleash your bot_t_' },
+    { untranslated_title: '50+', subtitle: '_t_assets to unleash your bot_t_' },
 ]
 
 const PlatformContainer = styled.div`

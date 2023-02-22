@@ -41,17 +41,17 @@ const query = graphql`
 `
 
 const items: ItemType[] = [
-    { title: '50+', subtitle: '_t_Tradable assets and growing_t_' },
-    { title: '$0.35', subtitle: '_t_Minimum stake_t_' },
-    { title: '1s - 365d', subtitle: '_t_Flexible trade duration_t_' },
-    { title: '>200%', subtitle: '_t_Potential payout_t_' },
+    { untranslated_title: '50+', subtitle: '_t_Tradable assets and growing_t_' },
+    { untranslated_title: '$0.35', subtitle: '_t_Minimum stake_t_' },
+    { untranslated_title: '1s - 365d', subtitle: '_t_Flexible trade duration_t_' },
+    { untranslated_title: '>200%', subtitle: '_t_Potential payout_t_' },
 ]
 
 const itemsEU: ItemType[] = [
-    { title: '20+', subtitle: '_t_Tradable assets and growing_t_' },
-    { title: '$5.00', subtitle: '_t_Minimum stake_t_' },
-    { title: '1s - 365d', subtitle: '_t_Flexible trade duration_t_' },
-    { title: 'Up to x30', subtitle: '_t_Multiply potential profit_t_' },
+    { untranslated_title: '20+', subtitle: '_t_Tradable assets and growing_t_' },
+    { untranslated_title: '$5.00', subtitle: '_t_Minimum stake_t_' },
+    { untranslated_title: '1s - 365d', subtitle: '_t_Flexible trade duration_t_' },
+    { untranslated_title: 'Up to x30', subtitle: '_t_Multiply potential profit_t_' },
 ]
 
 const trading: TradingType[] = [

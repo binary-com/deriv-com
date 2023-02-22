@@ -4,7 +4,7 @@ type ErrorsType = {
     errors?: null
     symbol?: string
     volume?: string | JSX.Element
-    assetPrice?: string
+    assetPrice?: string | JSX.Element
     leverage?: string
     pointValue?: string | JSX.Element
     takeProfitAmount?: string | JSX.Element

@@ -328,7 +328,7 @@ const WhatAreOptions = () => {
                                 <TextWrapper>
                                     <Text m="1.6rem 0 4rem 0">
                                         <Localize
-                                            translate_text="<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."
+                                            translate_text="<0>With an equivalent $100 position on CFDs</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."
                                             components={[<strong key={0} />, <LossText key={1} />]}
                                         />
                                     </Text>

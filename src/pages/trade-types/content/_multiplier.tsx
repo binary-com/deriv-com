@@ -80,7 +80,9 @@ export const multipliers_content: multipliers_content[] = [
         alt: 'Crash/Boom indices',
         item_title: <Localize translate_text="Crash/Boom indices" />,
         item_title_eu: <Localize translate_text="Crash/Boom indices" />,
-        text: <Localize translate_text="Open an account and start trading in minutes." />,
+        text: (
+            <Localize translate_text="Predict and gain from exciting spikes and dips with our Crash/Boom indices." />
+        ),
         text_eu: (
             <Localize translate_text="Predict and gain from exciting spikes and dips with our Crash/Boom indices." />
         ),

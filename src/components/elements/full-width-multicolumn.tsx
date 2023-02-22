@@ -78,6 +78,20 @@ const StyledTitle = styled(Header)`
         line-height: 30px;
     }
 `
+const StyledButtonContent = styled(Text)`
+    text-align: center;
+    margin-top: 1.6rem;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 1.6rem;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+`
+
 const StyledTextContent = styled(Text)`
     text-align: center;
     margin-top: 1.6rem;
@@ -130,7 +144,7 @@ export const FullWidthMultiColumn = ({
                         })}
                     </ItemContainer>
                 ))}
-                {button_title && <StyledTextContent>{button_title}</StyledTextContent>}
+                {button_title && <StyledButtonContent>{button_title}</StyledButtonContent>}
                 {button_text && <Button onClick={handleSignup} label={button_text} primary />}
             </Flex>
         </StyledSectionContainer>

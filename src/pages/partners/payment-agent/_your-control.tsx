@@ -75,27 +75,27 @@ const cardItems: CardItemType[] = [
     {
         img_src: Comission,
         card_text: (
-            <Localize translate_text="Determine your commission per transaction, subject to our established thresholds." />
+            <Localize translate_text="_t_Determine your commission per transaction, subject to our established thresholds._t_" />
         ),
         alt: 'Commission per transaction',
     },
     {
         img_src: LoudSpeaker,
         card_text: (
-            <Localize translate_text="Promote your services to Deriv clients in your country." />
+            <Localize translate_text="_t_Promote your services to Deriv clients in your country._t_" />
         ),
         alt: 'Spread the word',
     },
     {
         img_src: WithdrawDeposit,
         card_text: (
-            <Localize translate_text="Help Deriv clients to make multiple deposits and withdrawals daily." />
+            <Localize translate_text="_t_Help Deriv clients to make multiple deposits and withdrawals daily._t_" />
         ),
         alt: 'Multiple deposits and withdrawals',
     },
     {
         img_src: CloseAccount,
-        card_text: <Localize translate_text="Close your account at any time you want." />,
+        card_text: <Localize translate_text="_t_Close your account at any time you want._t_" />,
         alt: 'Close your account',
     },
 ]
@@ -104,10 +104,10 @@ const YourControl = () => {
         <YourControlContainer>
             <Container direction="column">
                 <Header as="h3" size="var(--text-size-header-1)" align="center">
-                    {localize('You are in control')}
+                    <Localize translate_text="_t_You are in control_t_" />
                 </Header>
                 <StyledText size="2.4rem" align="center" m="12px 0 40px">
-                    {localize('As a payment agent, you are an independent exchanger. You can:')}
+                    <Localize translate_text="_t_As a payment agent, you are an independent exchanger. You can:_t_" />
                 </StyledText>
                 <CssGrid
                     columns="repeat(2, 38.4rem)"

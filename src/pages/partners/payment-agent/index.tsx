@@ -16,9 +16,9 @@ const Faq = Loadable(() => import('./_faq'))
 const P2PBanner = Loadable(() => import('./_p2p_banner'))
 
 const meta_attributes = {
-    og_title: localize('Payment agents | Partners | Deriv'),
+    og_title: localize('_t_Payment agents | Partners | Deriv_t_'),
     og_description: localize(
-        'Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!',
+        '_t_Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!_t_',
     ),
 }
 
@@ -28,9 +28,9 @@ const PaymentAgent = () => {
     return (
         <>
             <SEO
-                title={localize('Payment agents | Partnership programmes | Deriv')}
+                title={localize('_t_Payment agents | Partnership programmes | Deriv_t_')}
                 description={localize(
-                    'Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue.',
+                    '_t_Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue._t_',
                 )}
                 meta_attributes={meta_attributes}
             />

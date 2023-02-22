@@ -48,10 +48,10 @@ const PartnerCTA = () => {
             <Container>
                 <Flex direction="column" ai="center" jc="space-between">
                     <Header as="h4" type="sub-section-title" align="center" color="white">
-                        {localize('Got more questions?')}
+                        <Localize translate_text="_t_Got more questions?_t_" />
                     </Header>
                     <Text align="center" color="white" mt="0.8rem">
-                        {localize('The Deriv affiliate management team is here to help.')}
+                        <Localize translate_text="_t_The Deriv affiliate management team is here to help._t_" />
                     </Text>
                     <LinkText
                         color="red"
@@ -62,14 +62,12 @@ const PartnerCTA = () => {
                             is_livechat_interactive && LC_API.open_chat_window()
                         }}
                     >
-                        <Localize translate_text="Contact us via live chat" />
+                        <Localize translate_text="_t_Contact us via live chat_t_" />
                     </LinkText>
                 </Flex>
                 <Flex direction="column" ai="center">
                     <Header as="h4" type="sub-section-title" align="center" color="white">
-                        {localize(
-                            'Enjoy generous commissions and all the other benefits of being a Deriv partner',
-                        )}
+                        <Localize translate_text="_t_Enjoy generous commissions and all the other benefits of being a Deriv partner_t_" />
                     </Header>
                     <RedButton
                         id="dm-cta-affiliate-signup"
@@ -80,7 +78,7 @@ const PartnerCTA = () => {
                         type="affiliate_sign_up"
                         secondary
                     >
-                        {localize('Sign up')}
+                        <Localize translate_text="_t_Sign up_t_" />
                     </RedButton>
                 </Flex>
             </Container>

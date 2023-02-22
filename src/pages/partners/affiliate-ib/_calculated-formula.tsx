@@ -21,6 +21,7 @@ import {
     PointerTextMobile,
 } from './_style'
 import { Desktop, Mobile } from 'components/containers'
+import { Localize } from 'components/localization'
 
 const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
     const itemList = data.list
@@ -40,7 +41,9 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                                             <PointerContainer>
                                                 <PointerDot />
                                                 <PointerStick />
-                                                <PointerText>{list.description}</PointerText>
+                                                <PointerText>
+                                                    <Localize translate_text={list.description} />
+                                                </PointerText>
                                             </PointerContainer>
                                         </FormulaValueSwapSynthetic>
                                         {list.next_operator && (
@@ -54,7 +57,9 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                                     <FormulaValueResultSwapSynthetic>
                                         <FormulaResultGreen>=</FormulaResultGreen>
                                         {result.total}
-                                        {result.description}
+                                        {result.description && (
+                                            <Localize translate_text={result.description} />
+                                        )}
                                     </FormulaValueResultSwapSynthetic>
                                 </FormulaResult>
                             </FormulaHighlight>
@@ -85,7 +90,9 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                                                             <PointerDot />
                                                             <PointerStick />
                                                             <PointerText is_top={indexData > 0}>
-                                                                {description}
+                                                                <Localize
+                                                                    translate_text={description}
+                                                                />
                                                             </PointerText>
                                                         </PointerContainer>
                                                     </FormulaValueMobile>
@@ -105,7 +112,10 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                                         <FormulaResult>
                                             <FormulaValueResultSwapSynthetic>
                                                 <FormulaResultGreen>=</FormulaResultGreen>
-                                                {totalResult} {totalResultDesc}
+                                                {totalResult}{' '}
+                                                {totalResultDesc && (
+                                                    <Localize translate_text={totalResultDesc} />
+                                                )}
                                             </FormulaValueResultSwapSynthetic>
                                         </FormulaResult>
                                     </FormulaBottomWrapper>
@@ -127,7 +137,9 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                                                             <PointerDot />
                                                             <PointerStick />
                                                             <PointerTextMobile>
-                                                                {description}
+                                                                <Localize
+                                                                    translate_text={description}
+                                                                />
                                                             </PointerTextMobile>
                                                         </PointerContainerMobile>
                                                     </FormulaValueMobileOneLine>
@@ -151,7 +163,7 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                                                 <PointerDot />
                                                 <PointerStick />
                                                 <PointerTextMobile>
-                                                    {totalResultDesc}
+                                                    <Localize translate_text={totalResultDesc} />
                                                 </PointerTextMobile>
                                             </PointerContainerMobile>
                                         </FormulaResult>

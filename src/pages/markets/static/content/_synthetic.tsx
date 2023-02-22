@@ -52,7 +52,7 @@ const synthetic: Synthetic[] = [
     {
         src: ExclusiveTradeType,
         alt: 'Exclusive access',
-        text: <Localize translate_text="Exclusive access to innovative trade types" />,
+        text: <Localize translate_text="Exclusive access to innovative assets" />,
     },
     {
         src: FriendlySupport,

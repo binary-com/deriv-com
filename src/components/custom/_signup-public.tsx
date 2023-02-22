@@ -203,8 +203,9 @@ const SocialButton = styled(Button)`
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`
-    width: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
+    width: 408px;
+
     @media ${device.tablet} {
         width: auto;
     }
@@ -222,6 +223,7 @@ const StyledFormWrapper = styled.div`
     padding: 20px 20px 30px;
     margin-left: 30px;
     border-radius: 8px;
+    margin-top: 4.5rem;
     top: 1rem;
     display: inline-block;
     position: absolute;
@@ -387,7 +389,7 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('Join over 2.5 million traders worldwide')}
+                                    {localize('_t_Join over 2.5 million traders worldwide_t_')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
@@ -409,7 +411,7 @@ const SignupPublic = ({
                                             label_color="black-3"
                                             labelSize="16px"
                                             labelTop="1.2rem"
-                                            label={localize('Email')}
+                                            label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -482,7 +484,6 @@ const SignupPublic = ({
                             >
                                 <StyledHeader
                                     size="4rem"
-                                    width="330px"
                                     align="start"
                                     color="grey-8"
                                     mr="1.2rem"
@@ -531,7 +532,7 @@ const SignupPublic = ({
                         <MobileSignupFormWrapper>
                             <div>
                                 <StyledHeader type="section-title">
-                                    {localize('Join over 2.5 million traders worldwide')}
+                                    {localize('_t_Join over 2.5 million traders worldwide_t_')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
@@ -551,7 +552,7 @@ const SignupPublic = ({
                                             input_background="grey-8"
                                             label_focus_color="grey-7"
                                             label_color="black-3"
-                                            label={localize('Email')}
+                                            label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}

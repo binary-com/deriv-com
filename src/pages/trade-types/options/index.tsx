@@ -35,7 +35,7 @@ const Options = () => {
                 <SEO
                     title={localize('Options trading | Trade digital options on Deriv')}
                     description={localize(
-                        'Explore what are options on Deriv. Learn how to start trading options with forex, synthetics, stocks & indices, and basket indices.',
+                        'Explore what are options on Deriv. Learn how to start trading options with forex, synthetics, stocks & indices, and baskets.',
                     )}
                     meta_attributes={meta_attributes}
                 />

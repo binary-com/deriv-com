@@ -58,7 +58,6 @@ const UlStyle = styled.ul`
     font-family: Ubuntu, sans-serif;
 
     li {
-        transition: all 0.2s;
         color: var(--color-black-3);
     }
     @media ${device.mobileL} {

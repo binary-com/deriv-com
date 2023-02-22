@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, ReactElement, ReactNode } from 'react'
+import React, { useState, useEffect, useCallback, ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from '../dmt5/components/_side-tab'
@@ -10,6 +10,7 @@ import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { mobileOSDetect } from 'common/os-detect'
 import { derivx_android_url, derivx_ios_url } from 'common/constants'
+import { TString } from 'types/generics'
 
 interface StartDerivXProps {
     children?: ReactNode
@@ -19,7 +20,7 @@ interface StartDerivXProps {
 
 type RealOrDemoShowType = {
     class_name: string
-    description: ReactElement
+    description: TString
     image_data: string
     image_alt: string
 }
@@ -77,23 +78,20 @@ const query = graphql`
 const demo: RealOrDemoShowType[] = [
     {
         class_name: 'sign-in',
-        description: (
-            <Localize translate_text="_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_" />
-        ),
+        description:
+            '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
         image_data: 'demo_step1',
         image_alt: 'Deriv X demo account signup page',
     },
     {
         class_name: 'add-account',
-        description: <Localize translate_text="_t_Add a Deriv X demo account._t_" />,
+        description: '_t_Add a Deriv X demo account._t_',
         image_data: 'demo_step2',
         image_alt: 'Deriv X dashboard showing demo account comparison',
     },
     {
         class_name: 'start-trading',
-        description: (
-            <Localize translate_text="_t_Start trading on the mobile app or through your web browser._t_" />
-        ),
+        description: '_t_Start trading on the mobile app or through your web browser._t_',
         image_data: 'demo_step3',
         image_alt: 'Deriv X trading dashboard',
     },
@@ -102,29 +100,26 @@ const demo: RealOrDemoShowType[] = [
 const real: RealOrDemoShowType[] = [
     {
         class_name: 'sign-in',
-        description: (
-            <Localize translate_text="_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_" />
-        ),
+        description:
+            '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
         image_data: 'real_step1',
         image_alt: 'real_step1',
     },
     {
         class_name: 'add-account',
-        description: <Localize translate_text="_t_Add a Deriv real account._t_" />,
+        description: '_t_Add a Deriv real account._t_',
         image_data: 'real_step2',
         image_alt: 'real_step2',
     },
     {
         class_name: 'add-derivx-account',
-        description: <Localize translate_text="_t_Add a Deriv X real account._t_" />,
+        description: '_t_Add a Deriv X real account._t_',
         image_data: 'real_step3',
         image_alt: 'real_step3',
     },
     {
         class_name: 'start-trading',
-        description: (
-            <Localize translate_text="_t_Start trading on the mobile app or through your web browser._t_" />
-        ),
+        description: '_t_Start trading on the mobile app or through your web browser._t_',
         image_data: 'real_step4',
         image_alt: 'real_step4',
     },
@@ -294,7 +289,6 @@ const StartDerivX = () => {
                         return (
                             <SideTab.Panel
                                 key={currentTab.class_name}
-                                label=""
                                 description={currentTab.description}
                                 mobile_item_width="35rem"
                                 class_name={currentTab.class_name}

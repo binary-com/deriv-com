@@ -12,8 +12,8 @@ import { TString } from 'types/generics'
 
 type CardType = {
     icon?: string
-    title?: TString
-    subtitle?: TString
+    title: TString
+    subtitle: TString
     image_alt: string
 }
 

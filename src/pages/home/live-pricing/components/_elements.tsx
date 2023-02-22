@@ -162,11 +162,24 @@ type TTableCellIcon = {
     icon_src: string
 }
 export const TableCellIcon = ({ icon_src }: TTableCellIcon) => {
-    return (
-        <CellIcon>
-            <img src={icons[icon_src]} width="24px" height="24px" />
-        </CellIcon>
-    )
+    if (icon_src === '1HZ150V')
+        return (
+            <CellIcon>
+                <img src={icons['Vol_1HZ150V']} width="24px" height="24px" />
+            </CellIcon>
+        )
+    if (icon_src === '1HZ250V')
+        return (
+            <CellIcon>
+                <img src={icons['Vol_1HZ250V']} width="24px" height="24px" />
+            </CellIcon>
+        )
+    else
+        return (
+            <CellIcon>
+                <img src={icons[icon_src]} width="24px" height="24px" />
+            </CellIcon>
+        )
 }
 
 export const TableHeaderCell = ({ text }: TTableHeaderCell) => {

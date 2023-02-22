@@ -149,6 +149,8 @@ import USDCHFDFX10 from 'images/svg/symbols/usd-chf-10.svg'
 import EURUSDDFX10 from 'images/svg/symbols/eur-usd-10.svg'
 import BOOM300 from 'images/svg/symbols/boom-eu-boom-300.svg'
 import CRASH300 from 'images/svg/symbols/crash-eu-crash-300.svg'
+import Vol_1HZ150V from 'images/svg/symbols/volatility-150-1s.svg'
+import Vol_1HZ250V from 'images/svg/symbols/volatility-250-1s.svg'
 //forex
 import frxAUDJPY from 'images/svg/symbols/aud-jpy.svg'
 import frxAUDUSD from 'images/svg/symbols/aud-usd.svg'
@@ -316,6 +318,8 @@ export {
     Vol_1HZ100V,
     Vol_1HZ200V,
     Vol_1HZ300V,
+    Vol_1HZ150V,
+    Vol_1HZ250V,
     BOOM1000,
     BOOM500,
     BOOM300,

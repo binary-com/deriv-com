@@ -444,14 +444,14 @@ const deriv_p2p: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_For successful Deriv P2P transactions, follow these guidelines:_t_',
+                        '_t_To make successful Deriv P2P transactions, follow these guidelines:_t_',
                     list: {
                         list_style: 'disc',
                         margin_top: '0.3rem',
                         items: [
                             {
                                 translation_text:
-                                    '_t_If you have active orders, keep the app open (either on your phone or computer) until your orders are completed. Try to complete your orders within 2 hours._t_',
+                                    '_t_If you have active orders, keep the app open (either on your phone or computer) until your orders are completed. Try to complete your orders within 1 hour._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
@@ -482,7 +482,7 @@ const deriv_p2p: TQuestionsData = {
                         items: [
                             {
                                 translation_text:
-                                    '_t_Ensure that you make payment to the correct seller within 2 hours._t_',
+                                    '_t_Ensure that you make payment to the correct seller within 1 hour._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
@@ -517,7 +517,7 @@ const deriv_p2p: TQuestionsData = {
                 {
                     has_margin_top: true,
                     translation_text:
-                        '_t_For more guidelines on using Deriv P2P, see our <0>terms of use</0> (refer to Section 4 ‘Deriv P2P’)._t_',
+                        '_t_For further information, see Section 4 on Deriv P2P in <0>our terms</0>._t_',
                     translation_components: [
                         {
                             key: 0,

@@ -11,6 +11,7 @@ import CommonHeaderSection from 'components/elements/common-header-section'
 import OptionsNavTab from 'pages/markets/components/sections/_options-nav-tab'
 import { localize, WithIntl } from 'components/localization'
 import { StepperView } from 'components/elements'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 import useRegion from 'components/hooks/use-region'
 const HowAccumulatorsWork = Loadable(() => import('./_how-accumulators-works'))
 const AccumulatorsToTrade = Loadable(() => import('./_accumulators-to-trade'))
@@ -29,6 +30,7 @@ const ButtonContainer = styled.div`
 const Accumulators = () => {
     const { is_row } = useRegion()
     const [is_loaded, setLoaded] = useState(false)
+    const handleSignup = useHandleSignup()
 
     useEffect(() => {
         setLoaded(true)
@@ -57,7 +59,7 @@ const Accumulators = () => {
                 <AccumulatorsToTrade />
                 <SmallContainer direction="column" ai="flex-start">
                     <CommonHeaderSection
-                        title="_t_Start trading options on Deriv_t_"
+                        title="_t_Start trading accumulators on Deriv_t_"
                         title_font_size="3.2rem"
                         margin_title="15rem 0 7rem 0"
                     />
@@ -70,7 +72,7 @@ const Accumulators = () => {
                         third_step_subtitle="_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_"
                     />
                     <ButtonContainer>
-                        <Button label="Create free demo account" primary />
+                        <Button label="Create free demo account" onClick={handleSignup} primary />
                     </ButtonContainer>
                 </SmallContainer>
             </Layout>

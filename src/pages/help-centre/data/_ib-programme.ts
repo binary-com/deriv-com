@@ -19,7 +19,7 @@ const ib_programme: TQuestionsData = {
                         {
                             key: 1,
                             type: 'link',
-                            to: 'https://deriv.com/help-centre/ib-programme/#ib-sign-up:~:text=real%20account.%20Then%2C-,contact,-us%20via%20live',
+                            to: '/contact_us/?is_livechat_open=true',
                         },
                     ],
                 },
@@ -40,7 +40,7 @@ const ib_programme: TQuestionsData = {
                         {
                             key: 1,
                             type: 'link',
-                            to: 'https://deriv.com/help-centre/ib-programme/#ib-sign-up:~:text=real%20account.%20Then%2C-,contact,-us%20via%20live',
+                            to: '/contact_us/?is_livechat_open=true',
                         },
                     ],
                 },

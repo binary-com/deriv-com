@@ -19,11 +19,11 @@ const query = graphql`
         }
     }
 `
-type THeroProps = {
+type HeroProps = {
     is_ppc?: boolean
 }
 
-const EuBannerData = ({ is_ppc = false }: THeroProps) => {
+const EuBannerData = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
 
     return (

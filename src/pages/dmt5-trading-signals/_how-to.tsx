@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import SignalSteps from './_signal-steps'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -13,10 +13,10 @@ type HowToProps = {
 
 const content = {
     subscriber: {
-        header: <Localize translate_text="How to subscribe to an MT5 signal" />,
+        header: <Localize translate_text="_t_How to subscribe to an MT5 signal_t_" />,
     },
     provider: {
-        header: <Localize translate_text="How to register as a signals provider" />,
+        header: <Localize translate_text="_t_How to register as a signals provider_t_" />,
     },
 }
 
@@ -86,7 +86,7 @@ const HowTo = ({ active_tab }: HowToProps) => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Go to your Deriv MT5 dashboard')}
+                        <Localize translate_text="_t_Go to your Deriv MT5 dashboard_t_" />
                     </DMT5Button>
                 )}
             </StyledContainer>

@@ -26,24 +26,25 @@ const Container = styled.section`
 `
 const content = {
     subscriber: {
-        header: <Localize translate_text="How to subscribe to an MT5 signal" />,
-        step_one_header: <Localize translate_text="1. Click on the Signals tab" />,
+        header: <Localize translate_text="_t_How to subscribe to an MT5 signal_t_" />,
+        step_one_header: <Localize translate_text="_t_1. Click on the Signals tab_t_" />,
         step_one_text: (
-            <Localize translate_text="From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers." />
+            <Localize translate_text="_t_From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers._t_" />
         ),
         step_one_text_eu: (
-            <Localize translate_text="Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version." />
+            <Localize translate_text="_t_Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version._t_" />
         ),
-        step_two_header: <Localize translate_text="2. Subscribe to a signal provider" />,
+        step_two_header: <Localize translate_text="_t_2. Subscribe to a signal provider_t_" />,
         step_two_text: (
-            <Localize translate_text="Select the signal provider you prefer and click the Subscribe button." />
+            <Localize translate_text="_t_Select the signal provider you prefer and click the Subscribe button._t_" />
         ),
-        step_three_header: <Localize translate_text="3. Configure the parameters" />,
+        step_three_header: <Localize translate_text="_t_3. Configure the parameters_t_" />,
         step_three_text: (
-            <Localize translate_text="Configure your trading and risk management parameters. Then click OK to complete the process." />
+            <Localize translate_text="_t_Configure your trading and risk management parameters. Then click OK to complete the process._t_" />
         ),
         notice: (
             <Localize
+                translate_text="_t_<0>Note:</0> For a wider selection of signal providers for Deriv, go to <1>MQL5 showcase page</1> and search for <0>Deriv</0> under the <0>Broker</0> server field._t_"
                 components={[
                     <strong key={0} />,
                     <LocalizedLinkText
@@ -56,16 +57,15 @@ const content = {
                         key={1}
                     />,
                 ]}
-                translate_text="<0>Note:</0> For a wider selection of signal providers for Deriv, go to <1>MQL5 showcase page</1> and search for <0>Deriv</0> under the <0>Broker</0> server field."
             />
         ),
     },
     provider: {
-        header: <Localize translate_text="How to register as a signals provider" />,
-        step_one_header: <Localize translate_text="1.  Head to MQL5.com" />,
+        header: <Localize translate_text="_t_How to register as a signals provider_t_" />,
+        step_one_header: <Localize translate_text="_t_1.  Head to MQL5.com_t_" />,
         step_one_text: (
             <Localize
-                translate_text="In the <0>MQL5 signals showcase page</0>, click the Create signal button."
+                translate_text="_t_In the <0>MQL5 signals showcase page</0>, click the Create signal button._t_"
                 components={[
                     <LocalizedLinkText
                         external
@@ -78,10 +78,10 @@ const content = {
                 ]}
             />
         ),
-        step_two_header: <Localize translate_text="2. Fill the broker field" />,
+        step_two_header: <Localize translate_text="_t_2. Fill the broker field_t_" />,
         step_two_text: (
             <Localize
-                translate_text="Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)"
+                translate_text="_t_Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)_t_"
                 components={[
                     <strong key={0} />,
                     <br key={1} />,
@@ -97,13 +97,13 @@ const content = {
                 ]}
             />
         ),
-        step_three_header: <Localize translate_text="3. Fill in your details" />,
+        step_three_header: <Localize translate_text="_t_3. Fill in your details_t_" />,
         step_three_text: (
-            <Localize translate_text="Add a description and click Save to complete your registration." />
+            <Localize translate_text="_t_Add a description and click Save to complete your registration._t_" />
         ),
         notice: (
             <Localize
-                translate_text="<1>Note:</1> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <0>follow the steps on this page</0> to register as a seller."
+                translate_text="_t_<1>Note:</1> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <0>follow the steps on this page</0> to register as a seller._t_"
                 components={[
                     <LocalizedLinkText
                         external

@@ -1,24 +1,49 @@
 import React from 'react'
+import styled from 'styled-components'
 import RawBannerData from './_row-banner-data'
 import EuBannerData from './_eu-banner-data'
 import EuMobileBannerData from './_eu-mobile-banner-data'
 import RowMobileBannerData from './_row-mobile-banner-data'
+import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
-type THeroProps = {
+type HeroProps = {
     is_ppc?: boolean
 }
 
-const Hero = ({ is_ppc }: THeroProps) => {
-    const { is_eu, is_row } = useRegion()
+const HeroWrapper = styled.section`
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    margin-top: 72px;
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        min-height: 100%;
+        margin-top: 58px;
+    }
+`
+
+const Hero = ({ is_ppc }: HeroProps) => {
+    const { is_eu } = useRegion()
     const { is_mobile_or_tablet } = useBreakpoints()
 
-    if (is_eu && is_mobile_or_tablet) return <EuMobileBannerData is_ppc={is_ppc} />
-    if (is_eu) return <EuBannerData is_ppc={is_ppc} />
-    if (is_row && is_mobile_or_tablet) return <RowMobileBannerData is_ppc={is_ppc} />
-
-    return <RawBannerData is_ppc={is_ppc} />
+    return (
+        <HeroWrapper>
+            {is_eu ? (
+                is_mobile_or_tablet ? (
+                    <EuMobileBannerData is_ppc={is_ppc} />
+                ) : (
+                    <EuBannerData is_ppc={is_ppc} />
+                )
+            ) : is_mobile_or_tablet ? (
+                <RowMobileBannerData is_ppc={is_ppc} />
+            ) : (
+                <RawBannerData is_ppc={is_ppc} />
+            )}
+        </HeroWrapper>
+    )
 }
 
 export default Hero

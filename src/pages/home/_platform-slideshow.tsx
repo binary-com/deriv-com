@@ -56,7 +56,7 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform2.png"
                             alt="laptop dtrader"
                             formats={['avif', 'webp', 'auto']}
-                            quality={38}
+                            quality={45}
                             placeholder="none"
                         />
                     ),
@@ -80,7 +80,7 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform4.png"
                             alt="laptop deriv x"
                             formats={['avif', 'webp', 'auto']}
-                            quality={38}
+                            quality={45}
                             placeholder="none"
                         />
                     ),
@@ -96,7 +96,7 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform1_eu.png"
                             alt="laptop dtrader eu"
                             formats={['avif', 'webp', 'auto']}
-                            quality={38}
+                            quality={45}
                             loading="eager"
                             placeholder="none"
                         />

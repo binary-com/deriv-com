@@ -311,8 +311,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
-                offset: -200,
-                duration: 2000,
+                offset: -170,
             },
         },
         'gatsby-plugin-use-query-params',

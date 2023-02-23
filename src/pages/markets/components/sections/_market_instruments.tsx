@@ -103,7 +103,7 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                         {content.details}
                     </MarketsAccordion>
                 ) : (
-                    <Row key={content.id} mobile_template={content.mobile_template}>
+                    <Row id={content.id} key={content.id} mobile_template={content.mobile_template}>
                         <Col mobile_template={content.mobile_template}>
                             {is_mobile && content.mobile_title ? (
                                 <Title>{content.mobile_title}</Title>

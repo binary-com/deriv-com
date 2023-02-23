@@ -58,7 +58,7 @@ const UlStyle = styled.ul`
     font-family: Ubuntu, sans-serif;
 
     li {
-        transition: all 0.2s;
+        color: var(--color-black-3);
     }
     @media ${device.mobileL} {
         cursor: none;
@@ -94,10 +94,6 @@ const StepperView: React.FC<TProps> = ({
                             key={`${item.title}-${index}`}
                             style={{
                                 fontWeight: selected === index ? 'bold' : 'normal',
-                                color:
-                                    selected === index
-                                        ? 'var(--color-black-3)'
-                                        : 'var(--color-grey-5)',
                             }}
                             onClick={() => setSelected(index)}
                         >

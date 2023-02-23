@@ -1,6 +1,5 @@
 import React from 'react'
 import mt5Icon from '../../images/svg/dtrader/mt5.svg'
-import dtIcon from '../../images/svg/dtrader/dt-icosn.svg'
 import goIcon from '../../images/svg/dtrader/go-icon.svg'
 import ezIcon from '../../images/svg/dtrader/ez-icon.svg'
 import dxIcon from '../../images/svg/dtrader/dx-icon.svg'
@@ -28,12 +27,6 @@ const OurPlatforms = () => {
             link: '/derivx/',
         },
         {
-            icon: dtIcon,
-            heading: 'Deriv Trader',
-            paragraph: 'Our flagship app for trading options and multipliers.',
-            link: '/dtrader/',
-        },
-        {
             icon: ezIcon,
             heading: 'Deriv EZ',
             paragraph: 'Our mobile-first CFD trading platform.',
@@ -50,7 +43,7 @@ const OurPlatforms = () => {
         <>
             <GenericCarousel
                 renderableData={carouselData}
-                mainHeading="Check out ours other platforms"
+                mainHeading="Check out our other platforms"
             />
         </>
     )

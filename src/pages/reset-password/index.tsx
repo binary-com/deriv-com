@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Formik, Form } from 'formik'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
@@ -56,6 +56,8 @@ const ResetPassword = () => {
         send({ verify_email: trimSpaces(values.email), type: 'reset_password' }, (response) => {
             actions.setSubmitting(false)
 
+            console.log(response)
+
             if (response.error) {
                 actions.setStatus({
                     error: response.error.message,
@@ -66,7 +68,7 @@ const ResetPassword = () => {
             actions.resetForm({ email: '' })
             actions.setStatus({
                 success: localize(
-                    'Please check your email and click on the link provided to reset your password.',
+                    '_t_Please check your email and click on the link provided to reset your password._t_',
                 ),
             })
         })
@@ -75,15 +77,15 @@ const ResetPassword = () => {
     return (
         <Layout type="static" margin_top="0">
             <SEO
-                title={localize('Reset password | Deriv')}
+                title={localize('_t_Reset password | Deriv_t_')}
                 description={localize(
-                    'Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions.',
+                    '_t_Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions._t_',
                 )}
                 no_index
             />
             <StyledContainer justify="center" align="center" direction="column">
                 <Header as="h2" type="page-title" align="center" mt="80px">
-                    {localize('Reset password')}
+                    <Localize translate_text="_t_Reset password_t_" />
                 </Header>
                 <Header
                     as="h4"
@@ -93,7 +95,7 @@ const ResetPassword = () => {
                     mt="0.5rem"
                     mb="3.8rem"
                 >
-                    {localize("We'll email you instructions to reset your password.")}
+                    <Localize translate_text="_t_We'll email you instructions to reset your password._t_" />
                 </Header>
                 <Formik
                     initialValues={initialValues}
@@ -142,7 +144,7 @@ const ResetPassword = () => {
                                     onClick={Login.redirectToLogin}
                                     type="button"
                                 >
-                                    {localize('Return to log in')}
+                                    <Localize translate_text="_t_Return to log in_t_" />
                                 </StyledButton>
                                 <StyledButton
                                     id="dm-pass-reset-button"
@@ -150,7 +152,7 @@ const ResetPassword = () => {
                                     disabled={isSubmitting}
                                     type="submit"
                                 >
-                                    {localize('Reset my password')}
+                                    <Localize translate_text="_t_Reset my password_t_" />
                                 </StyledButton>
                             </ButtonContainer>
                         </Form>

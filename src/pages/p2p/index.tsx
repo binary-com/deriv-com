@@ -5,7 +5,7 @@ import Hero from './components/_hero'
 import DP2P, { P2PType } from './components/_dp2p'
 import Roadmap, { TPortal } from 'components/elements/roadmap'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { WithIntl } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import useRegion from 'components/hooks/use-region'
@@ -59,8 +59,12 @@ const DP2PHome = () => {
         return (
             <Layout>
                 <SEO
-                    title="_t_Deriv P2P – peer-to-peer deposit and withdrawal service_t_"
-                    description="_t_With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app._t_"
+                    title={localize(
+                        '_t_Deriv P2P – peer-to-peer deposit and withdrawal service_t_',
+                    )}
+                    description={localize(
+                        '_t_With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app._t_',
+                    )}
                 />
 
                 {is_mounted && (

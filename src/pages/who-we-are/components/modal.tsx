@@ -33,7 +33,7 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
                 {name}
             </Header>
             <Header as="h4" padding="0" type="sub-paragraph" weight="normal" align="center">
-                <Localize translate_text={position} />
+                {position && <Localize translate_text={position} />}
             </Header>
             {link && (
                 <LocalizedLink external to={link} target="_blank" rel="noopener noreferrer">

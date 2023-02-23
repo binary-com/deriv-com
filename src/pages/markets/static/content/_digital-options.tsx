@@ -358,7 +358,7 @@ export const synthetic_options: Options = {
         has_global_accordion: true,
         content: [
             {
-                id: 'countinious-indices',
+                id: 'continuous-indices',
                 title: <Localize translate_text="Continuous indices" />,
                 component: <ContinuousIndices />,
                 details: <ContinuousIndicesDetails />,
@@ -370,7 +370,7 @@ export const synthetic_options: Options = {
                 details: <JumpIndicesDetails />,
             },
             {
-                id: 'daily-rest-indices',
+                id: 'daily-reset-indices',
                 title: <Localize translate_text="Daily reset indices" />,
                 component: <DailyResetIndices />,
                 details: <DailyResetIndicesDetails />,

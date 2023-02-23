@@ -257,7 +257,7 @@ export const basket_cfds: MarketInstrumentsElement = {
     template: 2,
     content: [
         {
-            id: 'commodities-bakset',
+            id: 'commodities-basket',
             title: <Localize translate_text="Commodities Basket" />,
             component: <BasketIndicesCommodities />,
             details: <BasketCommoditiesDetails />,

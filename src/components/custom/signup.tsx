@@ -93,14 +93,18 @@ const Signup = (props: SignupProps) => {
     }
 
     // this method is used to prevent DOM XSS invulnerability by removing HTML DOM elements in the email input
-    function escapeHtml(str: string) {
-        return str.replaceAll(/[&<>"']/g, (c) => {
+    function escapeHtml(value: string): string {
+        return value.replaceAll(/[&<>"'“”‘’]/g, (c) => {
             switch (c) {
                 case '&':
                 case '<':
                 case '>':
                 case '"':
                 case "'":
+                case '“':
+                case '”':
+                case '‘':
+                case '’':
                     return ''
             }
         })

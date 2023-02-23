@@ -51,7 +51,9 @@ const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
             {pd.note && (
                 <Notes>
                     <Header type="paragraph-1" weight="normal">
-                        <Localize translate_text="_t_Note: _t_" /> {pd.note}
+                        <Localize translate_text="_t_Note:_t_" />
+                        <span>&nbsp;</span>
+                        {pd.note}
                     </Header>
                 </Notes>
             )}

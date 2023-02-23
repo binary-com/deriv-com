@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { PaymentProps } from './index'
+import { PaymentProps } from './_payment-data'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { Flex } from 'components/containers'
@@ -9,6 +9,7 @@ import { Localize } from 'components/localization'
 import { Button } from 'components/form/'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { TString } from 'types/generics'
 
 type StyledProps = {
     expanded?: boolean
@@ -142,7 +143,12 @@ const MobileExpandedList = ({
                         </StyledItemDiv>
                         <StyledKeyDiv>
                             <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
-                                {payment_data.currencies}
+                                {payment_data.currencies.startsWith('_t_') &&
+                                payment_data.currencies.endsWith('_t_') ? (
+                                    <Localize translate_text={payment_data.currencies as TString} />
+                                ) : (
+                                    payment_data.currencies
+                                )}
                             </ValueText>
                         </StyledKeyDiv>
                     </StyledRow>
@@ -170,9 +176,14 @@ const MobileExpandedList = ({
                             )}
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
-                                {payment_data.min_max_deposit}
-                            </ValueText>
+                            {payment_data?.min_max_deposit && (
+                                <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                                    <Localize
+                                        translate_text={payment_data.min_max_deposit}
+                                        components={payment_data.min_max_deposit_components}
+                                    />
+                                </ValueText>
+                            )}
                         </StyledKeyDiv>
                     </StyledRow>
 
@@ -209,25 +220,21 @@ const MobileExpandedList = ({
                                         >
                                             {payment_data.minimum_withdrawal}
                                         </ValueText>
-                                    ) : Array.isArray(payment_data.min_max_withdrawal) ? (
-                                        payment_data.min_max_withdrawal.map((md, idx) => (
+                                    ) : (
+                                        payment_data?.min_max_withdrawal && (
                                             <ValueText
                                                 is_rtl={is_rtl}
                                                 type="subtitle-2"
                                                 weight="normal"
-                                                key={idx}
                                             >
-                                                {md}
+                                                <Localize
+                                                    translate_text={payment_data.min_max_withdrawal}
+                                                    components={
+                                                        payment_data.min_max_withdrawal_components
+                                                    }
+                                                />
                                             </ValueText>
-                                        ))
-                                    ) : (
-                                        <ValueText
-                                            is_rtl={is_rtl}
-                                            type="subtitle-2"
-                                            weight="normal"
-                                        >
-                                            {payment_data.min_max_withdrawal}
-                                        </ValueText>
+                                        )
                                     )}
                                 </StyledKeyDiv>
                             </StyledRow>
@@ -258,7 +265,9 @@ const MobileExpandedList = ({
                         </StyledItemDiv>
                         <StyledKeyDiv>
                             <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
-                                {payment_data.deposit_time}
+                                {payment_data?.deposit_time && (
+                                    <Localize translate_text={payment_data.deposit_time} />
+                                )}
                             </ValueText>
                         </StyledKeyDiv>
                     </StyledRow>
@@ -276,7 +285,9 @@ const MobileExpandedList = ({
                             </StyledItemDiv>
                             <StyledKeyDiv>
                                 <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
-                                    {payment_data.withdrawal_time}
+                                    {payment_data?.withdrawal_time && (
+                                        <Localize translate_text={payment_data.withdrawal_time} />
+                                    )}
                                 </ValueText>
                             </StyledKeyDiv>
                         </StyledRow>
@@ -339,7 +350,7 @@ const MobileExpandedList = ({
                     {payment_data.description && (
                         <Flex p="16px 0" fd="column">
                             <Header as="p" type="paragraph-1" weight="normal">
-                                {payment_data.description}
+                                <Localize translate_text={payment_data.description} />
                             </Header>
                             {payment_data.url && (
                                 <StyledButton

@@ -142,10 +142,13 @@ const Dp2p = () => {
     }
 
     const data = useStaticQuery(query)
-    const dp2p_checklist: {
+
+    type TDP2PCheckist = {
         title: TString
         subtitle: TString
-    }[] = [
+    }
+
+    const dp2p_checklist: TDP2PCheckist[] = [
         {
             title: '_t_Make speedy deposits and withdrawals_t_',
             subtitle: '_t_On DP2P, all exchanges are completed within 2 hours._t_',

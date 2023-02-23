@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
-import payment_data from './_payment-data'
+import payment_data, { PaymentDataProps } from './_payment-data'
 import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
@@ -127,43 +127,6 @@ const MobileWrapper = styled.div`
     }
 `
 
-type LocaleType = { language?: string }
-
-type PaymentType = {
-    method?: ReactElement
-    currencies?: string | ReactElement
-    min_max_deposit?: string | ReactElement
-    min_max_withdrawal?: string | ReactElement
-    deposit_time?: string | ReactElement
-    withdrawal_time?: string | ReactElement
-    description?: string | ReactElement
-    name?: string | ReactElement
-    reference?: string
-    locales?: string[]
-    url?: string
-    reference_link?: ReactElement
-    minimum_withdrawal?: number | ReactElement
-}
-export type PaymentProps = {
-    payment_data?: PaymentType
-    locale?: { locale?: LocaleType }
-    is_crypto?: boolean
-    is_row?: boolean
-    is_eu?: boolean
-    is_fiat_onramp?: boolean
-    is_dp2p?: boolean
-}
-export type PaymentDataProps = {
-    name?: ReactElement
-    note?: ReactElement
-    is_crypto?: boolean
-    is_row?: boolean
-    is_eu?: boolean
-    is_dp2p?: boolean
-    is_fiat_onramp?: boolean
-    locale?: LocaleType
-    data?: Array<PaymentType>
-}
 export type PaymentMethodsProps = {
     locale?: PaymentDataProps
     pd?: PaymentDataProps
@@ -226,56 +189,57 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 
     return (
         <>
-            {payment_method_data.map((pdata) => {
-                const styles = is_mobile
-                    ? {
-                          padding: '0 16px 0',
-                          position: 'relative',
-                          background: 'var(--color-white)',
-                          paddingBottom: pdata.note ? '5rem' : '2.2rem',
-                      }
-                    : {
-                          padding: '0 48px 24px',
-                          position: 'relative',
-                          background: 'var(--color-white)',
-                          paddingBottom: pdata.note ? '5rem' : '2.2rem',
-                      }
-                if (pdata.is_row && is_eu) {
-                    return []
-                }
-                if (pdata.is_eu && !is_eu) {
-                    return []
-                }
+            {payment_method_data &&
+                payment_method_data.map((pdata) => {
+                    const styles = is_mobile
+                        ? {
+                              padding: '0 16px 0',
+                              position: 'relative',
+                              background: 'var(--color-white)',
+                              paddingBottom: pdata.note ? '5rem' : '2.2rem',
+                          }
+                        : {
+                              padding: '0 48px 24px',
+                              position: 'relative',
+                              background: 'var(--color-white)',
+                              paddingBottom: pdata.note ? '5rem' : '2.2rem',
+                          }
+                    if (pdata.is_row && is_eu) {
+                        return []
+                    }
+                    if (pdata.is_eu && !is_eu) {
+                        return []
+                    }
 
-                if (pdata.is_crypto && is_eu) {
-                    return []
-                }
-                if (pdata.is_fiat_onramp && is_eu) {
-                    return []
-                } else if (pdata.is_dp2p && !is_p2p_allowed_country) {
-                    return null
-                } else
-                    return (
-                        <Accordion has_single_state>
-                            <AccordionItem
-                                key={pdata.class_name}
-                                content_style={content_style}
-                                header_style={header_style}
-                                style={styles}
-                                parent_style={parent_style}
-                                header={pdata.name}
-                                class_name={pdata.class_name}
-                            >
-                                <DesktopWrapper>
-                                    <DisplayAccordianItem pd={pdata} locale={locale} />
-                                </DesktopWrapper>
-                                <MobileWrapper>
-                                    <MobileAccordianItem pd={pdata} locale={locale} />
-                                </MobileWrapper>
-                            </AccordionItem>
-                        </Accordion>
-                    )
-            })}
+                    if (pdata.is_crypto && is_eu) {
+                        return []
+                    }
+                    if (pdata.is_fiat_onramp && is_eu) {
+                        return []
+                    } else if (pdata.is_dp2p && !is_p2p_allowed_country) {
+                        return null
+                    } else
+                        return (
+                            <Accordion has_single_state>
+                                <AccordionItem
+                                    key={pdata.class_name}
+                                    content_style={content_style}
+                                    header_style={header_style}
+                                    style={styles}
+                                    parent_style={parent_style}
+                                    header={<Localize translate_text={pdata.name} />}
+                                    class_name={pdata.class_name}
+                                >
+                                    <DesktopWrapper>
+                                        <DisplayAccordianItem pd={pdata} locale={locale} />
+                                    </DesktopWrapper>
+                                    <MobileWrapper>
+                                        <MobileAccordianItem pd={pdata} locale={locale} />
+                                    </MobileWrapper>
+                                </AccordionItem>
+                            </Accordion>
+                        )
+                })}
         </>
     )
 }
@@ -417,7 +381,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                     <Text weight="500" size="var(--text-size-xs)">
                         <Localize translate_text="_t_Note:_t_" />
                         <span>&nbsp;</span>
-                        {pd.note}
+                        <Localize translate_text={pd.note} />
                     </Text>
                 </Notes>
             )}

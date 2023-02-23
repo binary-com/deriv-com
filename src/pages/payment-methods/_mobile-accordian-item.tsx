@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MobileExpandedList from './_mobile-expanded-list'
-import { PaymentDataProps } from './index'
+import { PaymentDataProps } from './_payment-data'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
@@ -53,7 +53,7 @@ const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
                     <Header type="paragraph-1" weight="normal">
                         <Localize translate_text="_t_Note:_t_" />
                         <span>&nbsp;</span>
-                        {pd.note}
+                        <Localize translate_text={pd.note} />
                     </Header>
                 </Notes>
             )}

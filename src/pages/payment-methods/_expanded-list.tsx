@@ -1,12 +1,13 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { PaymentProps } from './index'
+import { PaymentProps } from './_payment-data'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { TString } from 'types/generics'
 
 type ExpandListType = {
     is_expanded?: boolean
@@ -133,17 +134,23 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
             <Tr is_expanded={is_expanded}>
                 <Td>{payment_data.method}</Td>
                 <Td colSpan={is_fiat_onramp && parse_to_integer}>
-                    <StyleCurrencyText>{payment_data.currencies}</StyleCurrencyText>
+                    <StyleCurrencyText>
+                        {payment_data.currencies.startsWith('_t_') &&
+                        payment_data.currencies.endsWith('_t_') ? (
+                            <Localize translate_text={payment_data.currencies as TString} />
+                        ) : (
+                            payment_data.currencies
+                        )}
+                    </StyleCurrencyText>
                 </Td>
                 <Td>
-                    {Array.isArray(payment_data.min_max_deposit) ? (
-                        payment_data.min_max_deposit.map((md, idx) => (
-                            <LtrText is_rtl={is_rtl} key={idx}>
-                                {md}
-                            </LtrText>
-                        ))
-                    ) : (
-                        <LtrText is_rtl={is_rtl}>{payment_data.min_max_deposit}</LtrText>
+                    {payment_data?.min_max_deposit && (
+                        <LtrText is_rtl={is_rtl}>
+                            <Localize
+                                translate_text={payment_data.min_max_deposit}
+                                components={payment_data.min_max_deposit_components}
+                            />
+                        </LtrText>
                     )}
                 </Td>
                 {!is_fiat_onramp && (
@@ -153,14 +160,15 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                                 <LtrText is_rtl={is_rtl}>
                                     {payment_data?.minimum_withdrawal}
                                 </LtrText>
-                            ) : Array.isArray(payment_data.min_max_withdrawal) ? (
-                                payment_data.min_max_withdrawal.map((md, idx) => (
-                                    <LtrText is_rtl={is_rtl} key={idx}>
-                                        {md}
-                                    </LtrText>
-                                ))
                             ) : (
-                                <LtrText is_rtl={is_rtl}>{payment_data.min_max_withdrawal}</LtrText>
+                                payment_data?.min_max_withdrawal && (
+                                    <LtrText is_rtl={is_rtl}>
+                                        <Localize
+                                            translate_text={payment_data.min_max_withdrawal}
+                                            components={payment_data.min_max_withdrawal_components}
+                                        />
+                                    </LtrText>
+                                )
                             )}
                         </>
                     </Td>
@@ -169,12 +177,20 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                     colSpan={is_fiat_onramp && parse_to_integer}
                     is_fiat_onramp={is_fiat_onramp}
                 >
-                    <LtrText is_rtl={is_rtl}>{payment_data.deposit_time}</LtrText>
+                    <LtrText is_rtl={is_rtl}>
+                        {payment_data?.deposit_time && (
+                            <Localize translate_text={payment_data.deposit_time} />
+                        )}
+                    </LtrText>
                 </Deposit>
 
                 {!is_fiat_onramp && (
                     <Withdrawal>
-                        <LtrText is_rtl={is_rtl}>{payment_data.withdrawal_time}</LtrText>
+                        <LtrText is_rtl={is_rtl}>
+                            {payment_data?.withdrawal_time && (
+                                <Localize translate_text={payment_data.withdrawal_time} />
+                            )}
+                        </LtrText>
                     </Withdrawal>
                 )}
 
@@ -210,7 +226,7 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                     <ExpandedContent colSpan={8}>
                         <Description is_expanded={is_expanded}>
                             <StyledText is_expanded={is_expanded}>
-                                {payment_data.description}
+                                <Localize translate_text={payment_data.description} />
                             </StyledText>
                             {payment_data.url && (
                                 <StyledButton

@@ -1,27 +1,27 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { SmallContainer, Grid, HowItWorksItem } from '../components/_style'
+import { SmallContainer } from '../components/_style'
 import SideTab from '../components/_tabs'
 import CommonHeaderSection from 'components/elements/common-header-section'
-import { SectionContainer, Flex, Container } from 'components/containers'
-import { Header, Text, QueryImage } from 'components/elements'
+import { SectionContainer, Container } from 'components/containers'
+import { Header, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device'
-import Pattern from 'images/common/trade-types/pattern-section.png'
 
 const query = graphql`
     query {
         accumulator_market: file(relativePath: { eq: "trade-types/accumulators-market.png" }) {
             ...fadeIn
         }
-        option_trade_type: file(relativePath: { eq: "trade-types/options-trade-type.png" }) {
+        accumulators_trade_type: file(
+            relativePath: { eq: "trade-types/accumulators-trade-type.png" }
+        ) {
             ...fadeIn
         }
-        option_duration: file(relativePath: { eq: "trade-types/options-duration.png" }) {
+        accumulators_duration: file(relativePath: { eq: "trade-types/accumulators-duration.png" }) {
             ...fadeIn
         }
-        option_stake: file(relativePath: { eq: "trade-types/options-stake.png" }) {
+        accumulators_stake: file(relativePath: { eq: "trade-types/accumulators-stake.png" }) {
             ...fadeIn
         }
         accumulators_take_profit: file(
@@ -37,10 +37,6 @@ const query = graphql`
 
 const StyledContainer = styled(Container)`
     width: 100% !important;
-    @media ${device.mobileL} {
-        background: url(${Pattern});
-        background-size: cover;
-    }
 `
 
 const HowAccumulatorsWork = () => {
@@ -126,7 +122,10 @@ const HowAccumulatorsWork = () => {
                             <Localize translate_text="Choose accumulators from the list of trade types" />
                         }
                     >
-                        <QueryImage data={data['option_trade_type']} alt="Select trade type" />
+                        <QueryImage
+                            data={data['accumulators_trade_type']}
+                            alt="Select trade type"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="3. Growth percentage" />}
@@ -134,7 +133,10 @@ const HowAccumulatorsWork = () => {
                             <Localize translate_text="Select the growth rate of your choice. Your potential profit will grow by this percentage at every tick throughout your contract duration." />
                         }
                     >
-                        <QueryImage data={data['option_duration']} alt="Select trade duration" />
+                        <QueryImage
+                            data={data['accumulators_duration']}
+                            alt="Select trade duration"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="4. Stake" />}
@@ -143,7 +145,7 @@ const HowAccumulatorsWork = () => {
                         }
                     >
                         <QueryImage
-                            data={data['option_stake']}
+                            data={data['accumulators_stake']}
                             alt="Add stake amount to receive payout quote"
                         />
                     </SideTab.Panel>

@@ -17,7 +17,7 @@ const ImagePlaceHolder = styled.div`
 const ImageWrapper = styled.div<{ $is_hidden: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
-    animation: fade 0.4s ease-in-out;
+    animation: fade 1s ease-in-out;
 
     @keyframes fade {
         0% {

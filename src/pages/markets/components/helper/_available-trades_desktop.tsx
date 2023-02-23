@@ -1,8 +1,9 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
+import { StringParam, useQueryParam } from 'use-query-params'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
-import { Localize } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -80,20 +81,26 @@ const CardContainer = styled(Flex)<CardContainerProps>`
     padding: 16px 24px;
     font-weight: 400;
     cursor: pointer;
-    z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
+    z-index: ${(props) =>
+        props.active_tab === props.name.toLocaleLowerCase() ? '4 !important' : ''};
 
     ${Flex} {
         img {
             width: 32px;
             height: 32px;
             margin: 0 8px 0 0;
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
+            opacity: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
         }
         h4 {
             color: ${(props) =>
-                props.active_tab === props.name ? 'var(--color-black)' : 'var(--color-black-3)'};
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
-            font-weight: ${(props) => (props.active_tab === props.name ? 'bold' : '400')};
+                props.active_tab === props.name.toLocaleLowerCase()
+                    ? 'var(--color-black)'
+                    : 'var(--color-black-3)'};
+            opacity: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
+            font-weight: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? 'bold' : '400'};
         }
         @media ${device.tabletL} {
             width: 100%;
@@ -129,7 +136,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         transform-origin: ${({ is_rtl }) => (is_rtl ? 'bottom right' : 'bottom left')};
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
-            if (props.active_tab === props.name)
+            if (props.active_tab === props.name.toLocaleLowerCase())
                 return css`
                     font-weight: bold;
                     background-color: var(--color-white);
@@ -167,6 +174,10 @@ const CardHeader = styled(Header)`
     }
 `
 
+const Link = styled(LocalizedLink)`
+    text-decoration: none;
+`
+
 const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
     const is_rtl = useIsRtl()
 
@@ -177,6 +188,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
             onClick={() => onTabChange(name)}
             className={name.toLowerCase()}
             is_rtl={is_rtl}
+            id={active_tab}
         >
             <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'hidden' }}>
                 {name === 'CFDs'}
@@ -197,10 +209,7 @@ const AvailableTradesDesctop = ({
     display_title,
 }: AvailableTradesProps) => {
     const { is_non_eu } = useRegion()
-    const [active_tab, SetActiveTab] = useState('CFDs')
-    const handleTabChange = (new_tab: string) => {
-        if (new_tab !== active_tab) return SetActiveTab(new_tab)
-    }
+    const [tab, setTab] = useQueryParam('tab', StringParam)
 
     return (
         <StyledSection>
@@ -210,35 +219,41 @@ const AvailableTradesDesctop = ({
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
-                        <Card
-                            name="CFDs"
-                            display_name={<Localize translate_text="CFDs" />}
-                            onTabChange={() => handleTabChange('CFDs')}
-                            active_tab={active_tab}
-                        />
+                        <Link to={`?tab=cfds#cfds`}>
+                            <Card
+                                name="CFDs"
+                                display_name={<Localize translate_text="CFDs" />}
+                                onTabChange={() => setTab('cfds')}
+                                active_tab={tab || 'cfds'}
+                            />
+                        </Link>
                     )}
                     {is_non_eu && DigitalOptions && (
-                        <Card
-                            name="Options"
-                            display_name={<Localize translate_text="Options" />}
-                            onTabChange={() => handleTabChange('Options')}
-                            active_tab={active_tab}
-                        />
+                        <Link to={`?tab=options#options`}>
+                            <Card
+                                name="Options"
+                                display_name={<Localize translate_text="Options" />}
+                                onTabChange={() => setTab('options')}
+                                active_tab={tab || 'cfds'}
+                            />
+                        </Link>
                     )}
 
                     {Multipliers && (
-                        <Card
-                            name="Multipliers"
-                            display_name={<Localize translate_text="Multipliers" />}
-                            onTabChange={() => handleTabChange('Multipliers')}
-                            active_tab={active_tab}
-                        />
+                        <Link to={`?tab=multipliers#multipliers`}>
+                            <Card
+                                name="Multipliers"
+                                display_name={<Localize translate_text="Multipliers" />}
+                                onTabChange={() => setTab('multipliers')}
+                                active_tab={tab || 'cfds'}
+                            />
+                        </Link>
                     )}
                 </CardWrapper>
                 <ContentWrapper>
-                    {active_tab === 'CFDs' && CFDs}
-                    {active_tab === 'Options' && DigitalOptions}
-                    {active_tab === 'Multipliers' && Multipliers}
+                    {(tab === 'cfds' || !tab) && CFDs}
+                    {tab === 'options' && DigitalOptions}
+                    {tab === 'multipliers' && Multipliers}
                 </ContentWrapper>
             </StyledContainer>
         </StyledSection>

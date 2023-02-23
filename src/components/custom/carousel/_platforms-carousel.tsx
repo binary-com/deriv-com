@@ -24,10 +24,13 @@ const MobileCardHeader = styled(Flex)`
     height: auto;
 
     @media (max-width: 680px) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+
         > img {
             width: 48px;
             height: 48px;
-            margin: 0 0 16px;
         }
     }
 `
@@ -56,8 +59,8 @@ const Card = styled.article`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
     height: 100%;
-    padding: 24px 24px 0;
-    max-width: 315px;
+    padding: 24px 24px;
+    max-width: 28.2rem;
     font-family: Ubuntu, sans-serif;
 
     @media (max-width: 680px) {
@@ -113,7 +116,7 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
                             <MarketsItem>
                                 <Card>
                                     <MobileCardHeader>
-                                        <img src={item.icon} width="48" height="48" />
+                                        <img src={item.icon} width="64" height="64" />
 
                                         <StyledText weight="bold">
                                             {localize(item.heading)}

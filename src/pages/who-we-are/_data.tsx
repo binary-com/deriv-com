@@ -209,6 +209,12 @@ export const desktop_pins: MapPinType[] = [
         title: '_t_Singapore, Singapore_t_',
         link: '/careers/locations/singapore',
     },
+    {
+        left: '45.9%',
+        top: '28%',
+        title: '_t_Reading, United kingdom_t_',
+        link: '/careers/locations/reading',
+    },
 ]
 
 export const mobile_pins: MapPinType[] = [
@@ -325,6 +331,12 @@ export const mobile_pins: MapPinType[] = [
         top: '65.1%',
         title: '_t_Port Vila, Vanuatu_t_',
         link: '/careers/locations/vanuatu',
+    },
+    {
+        left: '45.9%',
+        top: '20%',
+        title: '_t_Reading, United kingdom_t_',
+        link: '/careers/locations/reading',
     },
 ]
 

@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
+import styled from 'styled-components'
 import { Hero } from '../components/_style'
 import PageNotFound from '../../404'
 import WhatAreTheOptions from './_what-are-options'
 import { SEO, SmallContainer } from 'components/containers'
 import Layout from 'components/layout/layout'
 import CommonHeaderSection from 'components/elements/common-header-section'
+import Button from 'components/custom/_button'
 import OptionsNavTab from 'pages/markets/components/sections/_options-nav-tab'
 import { localize, WithIntl } from 'components/localization'
 import { StepperView } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
@@ -21,7 +24,11 @@ const meta_attributes = {
     ),
 }
 
+const ButtonContainer = styled.div`
+    margin-bottom: 16.4rem;
+`
 const Options = () => {
+    const handleSignup = useHandleSignup()
     const { is_row } = useRegion()
     const [is_loaded, setLoaded] = useState(false)
 
@@ -64,6 +71,9 @@ const Options = () => {
                         third_step_title="_t_Withdraw_t_"
                         third_step_subtitle="_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_"
                     />
+                    <ButtonContainer>
+                        <Button label="Create free demo account" primary onClick={handleSignup} />
+                    </ButtonContainer>
                 </SmallContainer>
                 <MarketsAvailable />
             </Layout>

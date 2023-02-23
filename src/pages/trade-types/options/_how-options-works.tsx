@@ -46,13 +46,8 @@ const OptionItems = styled(Flex)`
     margin-bottom: 0.8rem;
 
     @media ${device.mobileL} {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: center;
-
-        & > div > img {
-            width: 24px;
-            height: 24px;
+        ${Text} {
+            margin-top: 1.5rem;
         }
     }
 `

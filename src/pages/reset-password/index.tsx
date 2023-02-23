@@ -56,8 +56,6 @@ const ResetPassword = () => {
         send({ verify_email: trimSpaces(values.email), type: 'reset_password' }, (response) => {
             actions.setSubmitting(false)
 
-            console.log(response)
-
             if (response.error) {
                 actions.setStatus({
                     error: response.error.message,

@@ -84,7 +84,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                         alt="world map"
                         loading="eager"
                         formats={['avif', 'webp', 'auto']}
-                        quality={30}
+                        quality={26}
                         objectFit="contain"
                         placeholder="none"
                     />

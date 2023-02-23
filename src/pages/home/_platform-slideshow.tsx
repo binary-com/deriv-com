@@ -17,6 +17,7 @@ const ImagePlaceHolder = styled.div`
 const ImageWrapper = styled.div<{ $is_hidden: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
+    animation: fade 0.4s ease-in-out;
 
     @keyframes fade {
         0% {
@@ -43,6 +44,7 @@ const PlatformSlideshow = () => {
                             alt="mobile app deriv go"
                             formats={['avif', 'webp', 'auto']}
                             quality={36}
+                            loading="eager"
                             placeholder="none"
                         />
                     ),
@@ -54,7 +56,7 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform2.png"
                             alt="laptop dtrader"
                             formats={['avif', 'webp', 'auto']}
-                            quality={40}
+                            quality={38}
                             placeholder="none"
                         />
                     ),
@@ -66,7 +68,7 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform3.png"
                             alt="laptop mt5"
                             formats={['avif', 'webp', 'auto']}
-                            quality={40}
+                            quality={38}
                             placeholder="none"
                         />
                     ),
@@ -78,7 +80,7 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform4.png"
                             alt="laptop deriv x"
                             formats={['avif', 'webp', 'auto']}
-                            quality={40}
+                            quality={38}
                             placeholder="none"
                         />
                     ),
@@ -94,7 +96,8 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform1_eu.png"
                             alt="laptop dtrader eu"
                             formats={['avif', 'webp', 'auto']}
-                            quality={40}
+                            quality={38}
+                            loading="eager"
                         />
                     ),
                 },
@@ -105,7 +108,7 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform2_eu.png"
                             alt="laptop mt5 eu"
                             formats={['avif', 'webp', 'auto']}
-                            quality={40}
+                            quality={38}
                         />
                     ),
                 },

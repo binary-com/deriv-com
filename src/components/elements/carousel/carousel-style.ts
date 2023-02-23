@@ -116,7 +116,7 @@ export const StyledChevron = styled(Chevron)<StyledChevronType>`
     height: 24px;
     width: 24px;
     ${({ color }) => {
-        if (color == 'red' || color == 'black-9') {
+        if (color == 'red') {
             return css`
                 width: 16px;
                 height: 16px;

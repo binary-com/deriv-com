@@ -98,6 +98,7 @@ const PlatformSlideshow = () => {
                             formats={['avif', 'webp', 'auto']}
                             quality={38}
                             loading="eager"
+                            placeholder="none"
                         />
                     ),
                 },
@@ -109,6 +110,7 @@ const PlatformSlideshow = () => {
                             alt="laptop mt5 eu"
                             formats={['avif', 'webp', 'auto']}
                             quality={38}
+                            placeholder="none"
                         />
                     ),
                 },

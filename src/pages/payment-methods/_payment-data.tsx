@@ -66,42 +66,42 @@ const StyledRefLink = styled(LocalizedLink)`
 // `
 const payment_data = [
     {
-        name: <Localize translate_text="Online banking" />,
+        name: <Localize translate_text="_t_Online banking_t_" />,
         is_row: true,
         data: [
             {
                 method: <StyledIcon src={InstantBankTransfer} alt="instant bank transfer" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="5 - 50,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 50,000" />,
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 50,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 50,000_t_" />,
+                deposit_time: <Localize translate_text="_t_1 working day_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw easily using secure and fast money transfers." />
+                    <Localize translate_text="_t_Deposit and withdraw easily using secure and fast money transfers._t_" />
                 ),
                 name: 'InstantBankTransfer',
             },
             {
                 method: <StyledIcon src={Paytrust} alt="pay safe card" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 17,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 17,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_1 working day_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam." />
+                    <Localize translate_text="_t_Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam._t_" />
                 ),
                 name: 'paytrust88',
             },
             {
                 method: <StyledIcon src={Help2Pay} alt="help2pay" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="15 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_15 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="A leading payment service in Southeast Asia that’s fast, easy, and secure." />
+                    <Localize translate_text="_t_A leading payment service in Southeast Asia that’s fast, easy, and secure._t_" />
                 ),
                 name: 'Help2Pay',
                 reference: 'help2pay-payment-method.pdf',
@@ -109,12 +109,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw easily in THB, IDR, and VND." />
+                    <Localize translate_text="_t_Deposit and withdraw easily in THB, IDR, and VND._t_" />
                 ),
                 name: 'DragonPhoenix',
                 reference: 'dragonphoenix-payment-method.pdf',
@@ -122,12 +122,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={ZingPay} alt="zingPay" />,
                 currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="10 - 500" />,
-                min_max_withdrawal: <Localize translate_text="10 - 6,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 500_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 6,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Payments simplified. Fast and reliable way to deposit funds in your local currency." />
+                    <Localize translate_text="_t_Payments simplified. Fast and reliable way to deposit funds in your local currency._t_" />
                 ),
                 name: 'ZingPay',
                 reference: 'zingpay-payment-method.pdf',
@@ -135,12 +135,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={NganLuong} alt="NganLuong" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 2,500" />,
-                min_max_withdrawal: <Localize translate_text="10 - 2,500" />,
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="1 - 3 working days" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 2,500_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 2,500_t_" />,
+                deposit_time: <Localize translate_text="_t_1 working day_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 - 3 working days_t_" />,
                 description: (
-                    <Localize translate_text="A leading e-wallet service in Vietnam that’s easy to use, flexible, and safe. Used by thousands of merchants." />
+                    <Localize translate_text="_t_A leading e-wallet service in Vietnam that’s easy to use, flexible, and safe. Used by thousands of merchants._t_" />
                 ),
                 name: 'NganLuong',
                 reference: 'nganluong-payment-method.pdf',
@@ -150,90 +150,90 @@ const payment_data = [
         class_name: 'online-banking',
     },
     {
-        name: <Localize translate_text="Online banking" />,
+        name: <Localize translate_text="_t_Online banking_t_" />,
         is_eu: true,
         note: (
-            <Localize translate_text="Not all payment methods are available in your country. Kindly check your cashier for further information." />
+            <Localize translate_text="_t_Not all payment methods are available in your country. Kindly check your cashier for further information._t_" />
         ),
         data: [
             {
                 method: <StyledIcon src={Eps} alt="eps" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_25 - 100_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Make deposits and withdrawals through your local bank in real-time." />
+                    <Localize translate_text="_t_Make deposits and withdrawals through your local bank in real-time._t_" />
                 ),
                 name: 'Eps',
             },
             {
                 method: <StyledIcon src={GiroPay} alt="giropay" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_25 - 100_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Make safe, instant, and easy transactions via Germany's most popular payment method." />
+                    <Localize translate_text="_t_Make safe, instant, and easy transactions via Germany's most popular payment method._t_" />
                 ),
                 name: 'Eps',
             },
             {
                 method: <StyledIcon src={Nordea} alt="nordea" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_25 - 100_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Make fast deposits with your Nordea bank account and enjoy benefits from its mobile app." />
+                    <Localize translate_text="_t_Make fast deposits with your Nordea bank account and enjoy benefits from its mobile app._t_" />
                 ),
                 name: 'Nordea',
             },
             {
                 method: <StyledIcon src={Przelewy} alt="przelewy" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_25 - 100_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Make easy transactions via any major local banks and their mobile apps through Przelewy24." />
+                    <Localize translate_text="_t_Make easy transactions via any major local banks and their mobile apps through Przelewy24._t_" />
                 ),
                 name: 'Przelewy',
             },
             {
                 method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_25 - 100_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program." />
+                    <Localize translate_text="_t_Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program._t_" />
                 ),
                 name: 'Przelewy',
             },
         ],
     },
     {
-        name: <Localize translate_text="Credit/debit cards" />,
+        name: <Localize translate_text="_t_Credit/debit cards_t_" />,
         note: (
-            <Localize translate_text="Withdrawals may take up to 15 working days to reflect on your card." />
+            <Localize translate_text="_t_Withdrawals may take up to 15 working days to reflect on your card._t_" />
         ),
         is_row: true,
         data: [
             {
                 method: <StyledIcon src={Visa} alt="Visa" />,
                 currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your Visa credit or debit card." />
+                    <Localize translate_text="_t_Deposit and withdraw using your Visa credit or debit card._t_" />
                 ),
                 name: 'visa',
                 reference: 'visa-payment-method.pdf',
@@ -241,12 +241,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={VisaElectron} alt="Visa Electron" />,
                 currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your Visa Electron card." />
+                    <Localize translate_text="_t_Deposit and withdraw using your Visa Electron card._t_" />
                 ),
                 name: 'VisaElectron',
                 // reference: 'visa-payment-method.pdf',
@@ -254,12 +254,14 @@ const payment_data = [
             {
                 method: <StyledIcon src={MasterCard} alt="Mastercard" />,
                 currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day. Only for UK clients" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: (
+                    <Localize translate_text="_t_1 working day. Only for UK clients_t_" />
+                ),
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your Mastercard credit or debit card." />
+                    <Localize translate_text="_t_Deposit and withdraw using your Mastercard credit or debit card._t_" />
                 ),
                 name: 'mastercard',
                 reference: 'mastercard-payment-method.pdf',
@@ -267,12 +269,14 @@ const payment_data = [
             {
                 method: <StyledIcon src={Maestro} alt="Maestro" />,
                 currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day. Only for UK clients" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: (
+                    <Localize translate_text="_t_1 working day. Only for UK clients_t_" />
+                ),
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your Maestro debit card." />
+                    <Localize translate_text="_t_Deposit and withdraw using your Maestro debit card._t_" />
                 ),
                 name: 'maestro',
                 reference: 'maestrocard-payment-method.pdf',
@@ -280,12 +284,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={Diners} alt="Diners" />,
                 currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your Diners credit or debit card." />
+                    <Localize translate_text="_t_Deposit and withdraw using your Diners credit or debit card._t_" />
                 ),
                 name: 'diners',
                 reference: 'diners-club-payment-method.pdf',
@@ -293,87 +297,87 @@ const payment_data = [
             {
                 method: <StyledIcon src={JCB} alt="JCB" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your JCB credit card." />
+                    <Localize translate_text="_t_Deposit and withdraw using your JCB credit card._t_" />
                 ),
             },
         ],
         class_name: 'cards',
     },
     {
-        name: <Localize translate_text="Credit/debit cards" />,
+        name: <Localize translate_text="_t_Credit/debit cards_t_" />,
         note: (
-            <Localize translate_text="Withdrawals may take up to 15 working days to reflect on your card." />
+            <Localize translate_text="_t_Withdrawals may take up to 15 working days to reflect on your card._t_" />
         ),
         is_eu: true,
         data: [
             {
                 method: <StyledIcon src={Visa} alt="Visa" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw funds using your Visa credit or debit card." />
+                    <Localize translate_text="_t_Deposit and withdraw funds using your Visa credit or debit card._t_" />
                 ),
                 name: 'visa',
             },
             {
                 method: <StyledIcon src={VisaElectron} alt="Visa Electron" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw funds using your Visa Electron card." />
+                    <Localize translate_text="_t_Deposit and withdraw funds using your Visa Electron card._t_" />
                 ),
                 name: 'VisaElectron',
             },
             {
                 method: <StyledIcon src={MasterCard} alt="Mastercard" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Deposit funds using your Mastercard credit or debit card." />
+                    <Localize translate_text="_t_Deposit funds using your Mastercard credit or debit card._t_" />
                 ),
                 name: 'mastercard',
             },
             {
                 method: <StyledIcon src={Maestro} alt="Maestro" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw funds using your Maestro debit card." />
+                    <Localize translate_text="_t_Deposit and withdraw funds using your Maestro debit card._t_" />
                 ),
                 name: 'maestro',
             },
         ],
     },
     {
-        name: <Localize translate_text="E-wallets" />,
+        name: <Localize translate_text="_t_E-wallets_t_" />,
         is_row: true,
         data: [
             {
                 method: <StyledIcon src={Fasapay} alt="Fasapay" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="5 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Features fast deposits and withdrawals, low fees, and downloadable transaction history." />
+                    <Localize translate_text="_t_Features fast deposits and withdrawals, low fees, and downloadable transaction history._t_" />
                 ),
                 url: 'https://www.fasapay.com/',
                 name: 'fasapay',
@@ -382,12 +386,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={PerfectMoney} alt="PerfectMoney" />,
                 currencies: 'USD EUR',
-                min_max_deposit: <Localize translate_text="5 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="A cheap and easy method for deposits and withdrawals. Features auto payments, annual interest, and real-time statements." />
+                    <Localize translate_text="_t_A cheap and easy method for deposits and withdrawals. Features auto payments, annual interest, and real-time statements._t_" />
                 ),
                 url: 'https://perfectmoney.is/',
                 name: 'perfect money',
@@ -396,12 +400,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={Skrill} alt="Skrill" />,
                 currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Quick, simple to use, and available anywhere, anytime. Used by millions of clients worldwide." />
+                    <Localize translate_text="_t_Quick, simple to use, and available anywhere, anytime. Used by millions of clients worldwide._t_" />
                 ),
                 url: 'https://www.skrill.com/',
                 name: 'skrill',
@@ -410,12 +414,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={Neteller} alt="Neteller" />,
                 currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Used by over 20 million clients worldwide. Enjoy instant access, free withdrawals, and reward points that you can redeem for cash." />
+                    <Localize translate_text="_t_Used by over 20 million clients worldwide. Enjoy instant access, free withdrawals, and reward points that you can redeem for cash._t_" />
                 ),
                 url: 'https://www.neteller.com/',
                 name: 'neteller',
@@ -424,12 +428,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={Webmoney} alt="Webmoney" />,
                 currencies: 'USD EUR',
-                min_max_deposit: <Localize translate_text="5 - 3,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 5,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 3,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 5,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="A complete payment service with over 30 million clients, 10,000  daily signups, and is supported by more than 100,000 merchants." />
+                    <Localize translate_text="_t_A complete payment service with over 30 million clients, 10,000  daily signups, and is supported by more than 100,000 merchants._t_" />
                 ),
                 url: 'https://www.wmtransfer.com/',
                 name: 'webmoney',
@@ -441,15 +445,15 @@ const payment_data = [
                 currencies: 'USD AUD\nGBP EUR',
                 min_max_deposit: (
                     <Localize
-                        translate_text="5 - 1,000<0></0>5 - 10,000"
+                        translate_text="_t_5 - 1,000<0></0>5 - 10,000_t_"
                         components={[<br key={0} />]}
                     />
                 ),
-                min_max_withdrawal: <Localize translate_text="5 - 750" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 750_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="A convenient payment service that doesn’t need a bank account or credit card. Accepted by thousands of merchants worldwide." />
+                    <Localize translate_text="_t_A convenient payment service that doesn’t need a bank account or credit card. Accepted by thousands of merchants worldwide._t_" />
                 ),
                 url: 'https://www.paysafecard.com/',
                 name: 'paysafe',
@@ -457,12 +461,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={Jeton} alt="Jeton" />,
                 currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="5 - 1,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 1,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 1,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 1,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="A fast and secure money transfer service. Access your money anywhere with the mobile app." />
+                    <Localize translate_text="_t_A fast and secure money transfer service. Access your money anywhere with the mobile app._t_" />
                 ),
                 url: 'https://www.jeton.com/',
                 name: 'jeton',
@@ -472,12 +476,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={Sticpay} alt="Sticpay" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="5 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 1,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 1,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="An easy, cheap, and fast way to transfer money. Supported by banks and merchants worldwide." />
+                    <Localize translate_text="_t_An easy, cheap, and fast way to transfer money. Supported by banks and merchants worldwide._t_" />
                 ),
                 url: 'https://www.sticpay.com/',
                 name: 'sticpay',
@@ -486,12 +490,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={Airtm} alt="Airtm" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="5 - 2,500" />,
-                min_max_withdrawal: <Localize translate_text="5 - 2,500" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 2,500_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 2,500_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Easily convert your currency to USD and transfer money worldwide. Used by more than 500,000 clients in 163 countries." />
+                    <Localize translate_text="_t_Easily convert your currency to USD and transfer money worldwide. Used by more than 500,000 clients in 163 countries._t_" />
                 ),
                 url: 'https://www.airtm.io/#/',
                 name: 'airtm',
@@ -501,24 +505,24 @@ const payment_data = [
             {
                 method: <StyledIcon src={Boleto} alt="Boleto" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 500" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="2 - 3 working days" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 500_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_2 - 3 working days_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Use this popular invoice-based payment method to deposit if you don’t have a bank account or credit card. This option is accessible through Skrill." />
+                    <Localize translate_text="_t_Use this popular invoice-based payment method to deposit if you don’t have a bank account or credit card. This option is accessible through Skrill._t_" />
                 ),
                 name: 'boleto-bancário',
             },
             {
                 method: <StyledIcon src={Paylivre} alt="Paylivre" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="5 - 4,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 - 2 working days" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 4,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 - 2 working days_t_" />,
                 description: (
-                    <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with PayLivre." />
+                    <Localize translate_text="_t_Enjoy fast, smooth, and secure deposits and withdrawals with PayLivre._t_" />
                 ),
                 url: 'https://paylivre.com/',
                 name: 'paylivre',
@@ -527,12 +531,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={OnlineNaira} alt="OnlineNaira" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 1,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 - 2 working days" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 1,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 - 2 working days_t_" />,
                 description: (
-                    <Localize translate_text="Make fast and secure deposits and withdrawals with this mobile-friendly solution for clients in Nigeria." />
+                    <Localize translate_text="_t_Make fast and secure deposits and withdrawals with this mobile-friendly solution for clients in Nigeria._t_" />
                 ),
                 url: 'https://www.onlinenaira.com/',
                 name: 'onlinenaira',
@@ -540,12 +544,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={Trustly} alt="Trustly" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="10 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Will be available soon" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Will be available soon" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 100_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Will be available soon_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Will be available soon_t_" />,
                 description: (
-                    <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with Trustly." />
+                    <Localize translate_text="_t_Enjoy fast, smooth, and secure deposits and withdrawals with Trustly._t_" />
                 ),
                 url: 'https://www.trustly.net/',
                 name: 'trustly',
@@ -553,12 +557,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={Beyonic} alt="Beyonic" />,
                 currencies: 'UGX TZS',
-                min_max_deposit: <Localize translate_text="5 - 1,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 1,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 - 2 working days" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 1,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 1,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 - 2 working days_t_" />,
                 description: (
-                    <Localize translate_text="Make deposits easily using your mobile. For clients in Uganda and Tanzania." />
+                    <Localize translate_text="_t_Make deposits easily using your mobile. For clients in Uganda and Tanzania._t_" />
                 ),
                 url: 'https://beyonic.com/',
                 name: 'beyonic',
@@ -566,57 +570,57 @@ const payment_data = [
             {
                 method: <StyledIcon src={Astropay} alt="Astropay" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="5 - 2,500" />,
-                min_max_withdrawal: <Localize translate_text="5 - 2,500" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 2,500_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_5 - 2,500_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Enjoy fast and secure deposits and withdrawals with Astropay." />
+                    <Localize translate_text="_t_Enjoy fast and secure deposits and withdrawals with Astropay._t_" />
                 ),
                 name: 'astropay',
             },
             {
                 method: <StyledIcon src={OneForYou} alt="OneForYou" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 1,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 1,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Make deposits easily with cash voucher payment solution for South Africa." />
+                    <Localize translate_text="_t_Make deposits easily with cash voucher payment solution for South Africa._t_" />
                 ),
                 name: 'oneforyou',
             },
             {
                 method: <StyledIcon src={Advcash} alt="Advcash" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="5 - 1,000" />,
-                min_max_withdrawal: <Localize translate_text="Will be available soon" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Will be available soon" />,
+                min_max_deposit: <Localize translate_text="_t_5 - 1,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Will be available soon_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Will be available soon_t_" />,
                 description: (
-                    <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with AdvCash." />
+                    <Localize translate_text="_t_Enjoy fast, smooth, and secure deposits and withdrawals with AdvCash._t_" />
                 ),
                 name: 'advcash',
             },
         ],
     },
     {
-        name: <Localize translate_text="E-wallets" />,
+        name: <Localize translate_text="_t_E-wallets_t_" />,
         is_eu: true,
         note: (
-            <Localize translate_text="Not all payment methods are available in your country. Kindly check your cashier for further information." />
+            <Localize translate_text="_t_Not all payment methods are available in your country. Kindly check your cashier for further information._t_" />
         ),
         data: [
             {
                 method: <StyledIcon src={Skrill} alt="Skrill" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Make instant and secure transactions using Skrill and earn rewards through its loyalty programme." />
+                    <Localize translate_text="_t_Make instant and secure transactions using Skrill and earn rewards through its loyalty programme._t_" />
                 ),
                 name: 'skrill',
                 url: 'https://www.skrill.com/',
@@ -624,12 +628,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={Neteller} alt="Neteller" />,
                 currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 10,000_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_10 - 10,000_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_1 working day_t_" />,
                 description: (
-                    <Localize translate_text="Make fast, easy transactions using Neteller and earn rewards through its loyalty programme." />
+                    <Localize translate_text="_t_Make fast, easy transactions using Neteller and earn rewards through its loyalty programme._t_" />
                 ),
                 name: 'neteller',
                 url: 'https://www.neteller.com/',
@@ -637,12 +641,12 @@ const payment_data = [
             {
                 method: <StyledIcon src={PostePay} alt="postepay" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
+                min_max_deposit: <Localize translate_text="_t_10 - 100_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_Not applicable_t_" />,
+                deposit_time: <Localize translate_text="_t_Instant_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Not applicable_t_" />,
                 description: (
-                    <Localize translate_text="Make instant and safe transactions via Postepay, and enjoy its mobile app's benefits." />
+                    <Localize translate_text="_t_Make instant and safe transactions via Postepay, and enjoy its mobile app's benefits._t_" />
                 ),
                 name: 'postepay',
                 url: 'https://postepay.poste.it/',
@@ -651,21 +655,23 @@ const payment_data = [
         class_name: 'e-wallets',
     },
     {
-        name: <Localize translate_text="Cryptocurrencies" />,
+        name: <Localize translate_text="_t_Cryptocurrencies_t_" />,
         is_crypto: true,
         note: (
-            <Localize translate_text="The minimum amount for withdrawal will vary depending on the latest exchange rates. The figures shown here have been rounded." />
+            <Localize translate_text="_t_The minimum amount for withdrawal will vary depending on the latest exchange rates. The figures shown here have been rounded._t_" />
         ),
         data: [
             {
                 method: <StyledIcon src={Bitcoin} alt="Bitcoin" />,
                 currencies: 'BTC',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="0.0022" />,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+                min_max_deposit: <Localize translate_text="_t_No minimum_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_0.0022_t_" />,
+                deposit_time: (
+                    <Localize translate_text="_t_Funds available as soon as confirmed_t_" />
+                ),
+                withdrawal_time: <Localize translate_text="_t_Subject to internal checks_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw in Bitcoin, the world’s first cryptocurrency." />
+                    <Localize translate_text="_t_Deposit and withdraw in Bitcoin, the world’s first cryptocurrency._t_" />
                 ),
                 name: 'BTC',
                 reference: 'bitcoin-payment-method.pdf',
@@ -673,12 +679,14 @@ const payment_data = [
             {
                 method: <StyledIcon src={Ethereum} alt="Ethereum" />,
                 currencies: 'ETH',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="0.013" />,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+                min_max_deposit: <Localize translate_text="_t_No minimum_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_0.013_t_" />,
+                deposit_time: (
+                    <Localize translate_text="_t_Funds available as soon as confirmed_t_" />
+                ),
+                withdrawal_time: <Localize translate_text="_t_Subject to internal checks_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw in Ethereum, among the top 3 most used cryptocurrencies." />
+                    <Localize translate_text="_t_Deposit and withdraw in Ethereum, among the top 3 most used cryptocurrencies._t_" />
                 ),
                 name: 'ETH',
                 reference: 'ETH-payment-method.pdf',
@@ -686,12 +694,14 @@ const payment_data = [
             {
                 method: <StyledIcon src={Litecoin} alt="Litecoin" />,
                 currencies: 'LTC',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="0.085" />,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+                min_max_deposit: <Localize translate_text="_t_No minimum_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_0.085_t_" />,
+                deposit_time: (
+                    <Localize translate_text="_t_Funds available as soon as confirmed_t_" />
+                ),
+                withdrawal_time: <Localize translate_text="_t_Subject to internal checks_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing." />
+                    <Localize translate_text="_t_Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing._t_" />
                 ),
                 name: 'LTC',
                 reference: 'litecoin-payment-method.pdf',
@@ -699,24 +709,28 @@ const payment_data = [
             {
                 method: <StyledIcon src={UsdCoin} alt="UsdCoin" />,
                 currencies: 'USDC',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="25" />,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+                min_max_deposit: <Localize translate_text="_t_No minimum_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_25_t_" />,
+                deposit_time: (
+                    <Localize translate_text="_t_Funds available as soon as confirmed_t_" />
+                ),
+                withdrawal_time: <Localize translate_text="_t_Subject to internal checks_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw in USD Coin, a cryptocurrency that’s pegged to USD." />
+                    <Localize translate_text="_t_Deposit and withdraw in USD Coin, a cryptocurrency that’s pegged to USD._t_" />
                 ),
                 name: 'USDC',
             },
             {
                 method: <StyledIcon src={Tether} alt="Tether" />,
                 currencies: 'USDT',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="25" />,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+                min_max_deposit: <Localize translate_text="_t_No minimum_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_25_t_" />,
+                deposit_time: (
+                    <Localize translate_text="_t_Funds available as soon as confirmed_t_" />
+                ),
+                withdrawal_time: <Localize translate_text="_t_Subject to internal checks_t_" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw in Tether, a cryptocurrency that’s pegged to fiat currencies." />
+                    <Localize translate_text="_t_Deposit and withdraw in Tether, a cryptocurrency that’s pegged to fiat currencies._t_" />
                 ),
                 name: 'UST',
             },
@@ -724,19 +738,19 @@ const payment_data = [
         class_name: 'cryptocurrencies',
     },
     {
-        name: <Localize translate_text="Fiat onramp - Buy crypto on popular exchanges." />,
+        name: <Localize translate_text="_t_Fiat onramp - Buy crypto on popular exchanges._t_" />,
         is_fiat_onramp: true,
         note: (
-            <Localize translate_text="These payment methods are available exclusively for our clients with crypto trading accounts." />
+            <Localize translate_text="_t_These payment methods are available exclusively for our clients with crypto trading accounts._t_" />
         ),
         data: [
             {
                 method: <StyledIcon src={Changelly} alt="Changelly" />,
                 currencies: 'USD EUR GBP BTC',
-                min_max_deposit: <Localize translate_text="50 - 5,000" />,
-                deposit_time: <Localize translate_text="5 - 30 minutes" />,
+                min_max_deposit: <Localize translate_text="_t_50 - 5,000_t_" />,
+                deposit_time: <Localize translate_text="_t_5 - 30 minutes_t_" />,
                 description: (
-                    <Localize translate_text="A safe and speedy crypto exchange and fiat-to-crypto service that's available worldwide. Offering 150+ cryptocurrencies. 24/7 live chat support." />
+                    <Localize translate_text="_t_A safe and speedy crypto exchange and fiat-to-crypto service that's available worldwide. Offering 150+ cryptocurrencies. 24/7 live chat support._t_" />
                 ),
                 name: 'Changelly',
                 reference: 'changelly-payment-method.pdf',
@@ -744,20 +758,20 @@ const payment_data = [
             {
                 method: <StyledIcon src={Banxa} alt="Banxa" />,
                 currencies: 'USD EUR GBP AUD\nBTC LTC USDT USDC',
-                min_max_deposit: <Localize translate_text="50 - 5,000" />,
-                deposit_time: <Localize translate_text="5 - 30 minutes" />,
+                min_max_deposit: <Localize translate_text="_t_50 - 5,000_t_" />,
+                deposit_time: <Localize translate_text="_t_5 - 30 minutes_t_" />,
                 description: (
-                    <Localize translate_text="Make fast, easy, and secure deposits with this internationally compliant fiat-to-crypto exchange using your credit or debit card. Registrations are hassle-free." />
+                    <Localize translate_text="_t_Make fast, easy, and secure deposits with this internationally compliant fiat-to-crypto exchange using your credit or debit card. Registrations are hassle-free._t_" />
                 ),
                 name: 'Banxa',
             },
             {
                 method: <StyledIcon src={Xanpool} alt="Xanpool" />,
                 currencies: 'USD EUR GBP AUD\nBTC ETH LTC USDT',
-                min_max_deposit: <Localize translate_text="50 - 5,000" />,
-                deposit_time: <Localize translate_text="5 - 30 minutes" />,
+                min_max_deposit: <Localize translate_text="_t_50 - 5,000_t_" />,
+                deposit_time: <Localize translate_text="_t_5 - 30 minutes_t_" />,
                 description: (
-                    <Localize translate_text="Make a deposit into your Deriv crypto account via local bank wire with this fiat-to-crypto exchange for clients in Southeast Asia." />
+                    <Localize translate_text="_t_Make a deposit into your Deriv crypto account via local bank wire with this fiat-to-crypto exchange for clients in Southeast Asia._t_" />
                 ),
                 name: 'Xanpool',
             },
@@ -766,21 +780,21 @@ const payment_data = [
     },
     {
         is_dp2p: true,
-        name: <Localize translate_text="Deriv P2P" />,
+        name: <Localize translate_text="_t_Deriv P2P_t_" />,
         note: (
-            <Localize translate_text="Please contact our customer support if you wish to increase your daily deposit/withdrawal limits." />
+            <Localize translate_text="_t_Please contact our customer support if you wish to increase your daily deposit/withdrawal limits._t_" />
         ),
         data: [
             {
                 method: <StyledIcon src={Dp2p} alt="DP2P" />,
-                currencies: <Localize translate_text="Your local currency" />,
-                min_max_deposit: <Localize translate_text="Deriv USD account" />,
-                min_max_withdrawal: <Localize translate_text="500 USD" />,
-                deposit_time: <Localize translate_text="500 USD" />,
-                withdrawal_time: <Localize translate_text="Max 1 hour" />,
+                currencies: <Localize translate_text="_t_Your local currency_t_" />,
+                min_max_deposit: <Localize translate_text="_t_Deriv USD account_t_" />,
+                min_max_withdrawal: <Localize translate_text="_t_500 USD_t_" />,
+                deposit_time: <Localize translate_text="_t_500 USD_t_" />,
+                withdrawal_time: <Localize translate_text="_t_Max 1 hour_t_" />,
                 reference_link: (
                     <StyledRefLink to="/p2p/" target="_blank" rel="noopener noreferrer">
-                        <Localize translate_text="Learn more" />
+                        <Localize translate_text="_t_Learn more_t_" />
                     </StyledRefLink>
                 ),
                 name: 'DP2P',

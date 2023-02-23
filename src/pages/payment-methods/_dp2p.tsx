@@ -10,6 +10,7 @@ import { deriv_dp2p_app_url, dp2p_google_play_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
 import { mobileOSDetect } from 'common/os-detect'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
+import { TString } from 'types/generics'
 
 const query = graphql`
     query {
@@ -141,58 +142,48 @@ const Dp2p = () => {
     }
 
     const data = useStaticQuery(query)
-    const dp2p_checklist = [
+    const dp2p_checklist: {
+        title: TString
+        subtitle: TString
+    }[] = [
         {
-            title: <Localize translate_text="Make speedy deposits and withdrawals" />,
-            subtitle: (
-                <Localize translate_text="On DP2P, all exchanges are completed within 2 hours." />
-            ),
+            title: '_t_Make speedy deposits and withdrawals_t_',
+            subtitle: '_t_On DP2P, all exchanges are completed within 2 hours._t_',
         },
         {
-            title: <Localize translate_text="Choose the best rates" />,
-            subtitle: (
-                <Localize translate_text="Exchange your local currency at your preferred rate." />
-            ),
+            title: '_t_Choose the best rates_t_',
+            subtitle: '_t_Exchange your local currency at your preferred rate._t_',
         },
         {
-            title: <Localize translate_text="Exchange with trusted traders" />,
-            subtitle: (
-                <Localize translate_text="Traders are rated based on their completion rate and speed of exchanges." />
-            ),
+            title: '_t_Exchange with trusted traders_t_',
+            subtitle:
+                '_t_Traders are rated based on their completion rate and speed of exchanges._t_',
         },
         {
-            title: <Localize translate_text="Communicate in real-time" />,
-            subtitle: (
-                <Localize translate_text="Chat in-app with your chosen trader for faster exchanges." />
-            ),
+            title: '_t_Communicate in real-time_t_',
+            subtitle: '_t_Chat in-app with your chosen trader for faster exchanges._t_',
         },
         {
-            title: <Localize translate_text="Get our help" />,
-            subtitle: (
-                <Localize translate_text="Our support team is always ready to help resolve any disputes." />
-            ),
+            title: '_t_Get our help_t_',
+            subtitle: '_t_Our support team is always ready to help resolve any disputes._t_',
         },
     ]
     return (
         <Fragment>
             <Header as="h2" size="var(--text-size-xl)" align="center" mb="1.2rem" lh="1.25">
-                {localize('Deriv peer-to-peer (DP2P)')}
+                <Localize translate_text="_t_Deriv peer-to-peer (DP2P)_t_" />
             </Header>
             <Mobile>
                 <Text align="center" size="var(--text-size-sm)">
-                    {localize(
-                        'A fast and secure peer-to-peer deposit and withdrawal service. Easily exchange with fellow traders to move funds in and out of your Deriv account.',
-                    )}
+                    <Localize translate_text="_t_A fast and secure peer-to-peer deposit and withdrawal service. Easily exchange with fellow traders to move funds in and out of your Deriv account._t_" />
                 </Text>
             </Mobile>
             <Desktop>
                 <Text align="center" size="var(--text-size-m)">
-                    {localize('A fast and secure peer-to-peer deposit and withdrawal service.')}
+                    <Localize translate_text="_t_A fast and secure peer-to-peer deposit and withdrawal service._t_" />
                 </Text>
                 <Text align="center" size="var(--text-size-m)">
-                    {localize(
-                        'Easily exchange with fellow traders to move funds in and out of your Deriv account.',
-                    )}
+                    <Localize translate_text="_t_Easily exchange with fellow traders to move funds in and out of your Deriv account._t_" />
                 </Text>
             </Desktop>
             <StyledContainer>
@@ -205,7 +196,7 @@ const Dp2p = () => {
                                     size={is_mobile ? 'var(--text-size-sm)' : 'var(--text-size-m)'}
                                     weight="bold"
                                 >
-                                    {item.title}
+                                    <Localize translate_text={item.title} />
                                 </Text>
                             </ItemTitle>
                             <Text
@@ -213,7 +204,7 @@ const Dp2p = () => {
                                 mt="0.8rem"
                                 ml="3.2rem"
                             >
-                                {item.subtitle}
+                                <Localize translate_text={item.subtitle} />
                             </Text>
                         </div>
                     ))}
@@ -222,16 +213,16 @@ const Dp2p = () => {
                     <ImageWrapper ai="center">
                         <QueryImage
                             data={data['dp2p_platform']}
-                            alt={localize('DP2P Platform')}
+                            alt={localize('_t_DP2P Platform_t_')}
                             width="100%"
                         />
                     </ImageWrapper>
                     <ButtonWrapper>
                         <ButtonLearnMore tertiary to="/p2p/">
-                            {localize('Learn more')}
+                            <Localize translate_text="_t_Learn more_t_" />
                         </ButtonLearnMore>
                         <ButtonDp2p secondary onClick={handleExternalLink}>
-                            {localize('Take me to DP2P')}
+                            <Localize translate_text="_t_Take me to DP2P_t_" />
                         </ButtonDp2p>
                     </ButtonWrapper>
                 </ContentRight>

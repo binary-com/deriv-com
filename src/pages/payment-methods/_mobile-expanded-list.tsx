@@ -5,7 +5,7 @@ import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Button } from 'components/form/'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -137,7 +137,7 @@ const MobileExpandedList = ({
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             <Header as="p" type="subtitle-2">
-                                {localize('Currencies')}
+                                <Localize translate_text="_t_Currencies_t_" />
                             </Header>
                         </StyledItemDiv>
                         <StyledKeyDiv>
@@ -152,19 +152,19 @@ const MobileExpandedList = ({
                         <StyledItemDiv>
                             {is_crypto || is_fiat_onramp ? (
                                 <Header as="p" type="subtitle-2">
-                                    {localize('Min deposit')}
+                                    <Localize translate_text="_t_Min deposit_t_" />
                                 </Header>
                             ) : is_dp2p ? (
                                 <Header as="p" type="subtitle-2">
-                                    {localize('Supported Deriv accounts')}
+                                    <Localize translate_text="_t_Supported Deriv accounts_t_" />
                                 </Header>
                             ) : (
                                 <>
                                     <Header as="p" type="subtitle-2">
-                                        {localize('Min-max')}
+                                        <Localize translate_text="_t_Min-max_t_" />
                                     </Header>
                                     <Header as="p" type="subtitle-2">
-                                        {localize('deposit')}
+                                        <Localize translate_text="_t_deposit_t_" />
                                     </Header>
                                 </>
                             )}
@@ -183,19 +183,19 @@ const MobileExpandedList = ({
                                 <StyledItemDiv>
                                     {is_crypto ? (
                                         <Header as="p" type="subtitle-2">
-                                            {localize('Min withdrawal')}
+                                            <Localize translate_text="_t_Min withdrawal_t_" />
                                         </Header>
                                     ) : is_dp2p ? (
                                         <Header as="p" type="subtitle-2">
-                                            {localize('Daily deposit limits')}
+                                            <Localize translate_text="_t_Daily deposit limits_t_" />
                                         </Header>
                                     ) : (
                                         <>
                                             <Header as="p" type="subtitle-2">
-                                                {localize('Min-max')}
+                                                <Localize translate_text="_t_Min-max_t_" />
                                             </Header>
                                             <Header as="p" type="subtitle-2">
-                                                {localize('withdrawal')}
+                                                <Localize translate_text="_t_withdrawal_t_" />
                                             </Header>
                                         </>
                                     )}
@@ -239,19 +239,19 @@ const MobileExpandedList = ({
                         <StyledItemDiv>
                             {is_fiat_onramp ? (
                                 <Header as="p" type="subtitle-2">
-                                    {localize('Deposit processing time')}
+                                    <Localize translate_text="_t_Deposit processing time_t_" />
                                 </Header>
                             ) : is_dp2p ? (
                                 <Header as="p" type="subtitle-2">
-                                    {localize('Daily withdrawal limits')}
+                                    <Localize translate_text="_t_Daily withdrawal limits_t_" />
                                 </Header>
                             ) : (
                                 <Header as="p" type="subtitle-2">
                                     <Header as="p" type="subtitle-2">
-                                        {localize('Deposit')}
+                                        <Localize translate_text="_t_Deposit_t_" />
                                     </Header>
                                     <Header as="p" type="subtitle-2">
-                                        {localize('processing time')}
+                                        <Localize translate_text="_t_processing time_t_" />
                                     </Header>
                                 </Header>
                             )}
@@ -268,10 +268,10 @@ const MobileExpandedList = ({
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
                                 <Header as="p" type="subtitle-2">
-                                    {localize('Withdrawal')}
+                                    <Localize translate_text="_t_Withdrawal_t_" />
                                 </Header>
                                 <Header as="p" type="subtitle-2">
-                                    {localize('processing time')}
+                                    <Localize translate_text="_t_processing time_t_" />
                                 </Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
@@ -285,7 +285,7 @@ const MobileExpandedList = ({
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
                                 <Header as="p" type="subtitle-2">
-                                    {localize('Processing time')}
+                                    <Localize translate_text="_t_Processing time_t_" />
                                 </Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
@@ -300,7 +300,11 @@ const MobileExpandedList = ({
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             <Header as="p" type="subtitle-2">
-                                {is_dp2p ? localize('More info') : localize('Reference')}
+                                {is_dp2p ? (
+                                    <Localize translate_text="_t_More info_t_" />
+                                ) : (
+                                    <Localize translate_text="_t_Reference_t_" />
+                                )}
                             </Header>
                         </StyledItemDiv>
 
@@ -342,7 +346,7 @@ const MobileExpandedList = ({
                                     onClick={() => window.open(payment_data.url, '_blank')}
                                     tertiary
                                 >
-                                    {localize('Learn more')}
+                                    <Localize translate_text="_t_Learn more_t_" />
                                 </StyledButton>
                             )}
                         </Flex>

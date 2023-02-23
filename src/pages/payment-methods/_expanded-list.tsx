@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { PaymentProps } from './index'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -217,7 +217,7 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                                     onClick={() => window.open(payment_data.url, '_blank')}
                                     tertiary
                                 >
-                                    {localize('Learn more')}
+                                    <Localize translate_text="_t_Learn more_t_" />
                                 </StyledButton>
                             )}
                         </Description>

@@ -6,9 +6,9 @@ import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
-import Apple from 'images/svg/custom/sign-up-apple.svg'
-import Facebook from 'images/svg/custom/sign-up-fb.svg'
-import Google from 'images/svg/custom/sign-up-google.svg'
+import Apple from 'images/svg/custom/apple-signup.svg'
+import Facebook from 'images/svg/custom/fb-signup.svg'
+import Google from 'images/svg/custom/google.svg'
 import useRegion from 'components/hooks/use-region'
 
 type SignupNewProps = {
@@ -80,23 +80,24 @@ const SocialButton = styled(Button)<SocialButtonProps>`
     justify-content: center;
     align-items: center;
     box-shadow: none;
+    height: 4rem;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
     border: solid 1px var(--color-grey-21);
-    height: 3.8rem;
     padding: 0.5rem 0;
 
-    &:hover {
-        background: ${(props) => {
-            if (props.provider === 'facebook') return 'var(--color-grey-4)'
-        }};
-    }
-
     @media ${device.tabletL} {
-        border: none;
-
-        img {
-            width: 100%;
-        }
+        height: 4.8rem;
+    }
+`
+const SocialText = styled(Text)`
+    margin-right: 1.4rem;
+    margin-left: 0.7rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: ${(props) => props.color || 'var(--color-black-9)'};
+    @media ${device.tabletL} {
+        margin-left: 2.7rem;
+        font-size: 14px;
     }
 `
 const SocialWrapper = styled.div<CSSProperties>`
@@ -107,7 +108,7 @@ const SocialWrapper = styled.div<CSSProperties>`
     flex-direction: column;
     gap: 12px;
     @media ${device.tabletL} {
-        gap: 18px;
+        gap: 8px;
     }
 `
 const LoginText = styled(Text)`
@@ -212,7 +213,10 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <img src={Google} alt="google" />
+                    <img src={Google} alt="google" width="24" height="24" />
+                    <SocialText>
+                        <Localize translate_text="Sign up with Google" />
+                    </SocialText>
                 </SocialButton>
                 <SocialButton
                     onClick={handleSocialSignup}
@@ -221,8 +225,12 @@ const SignupNew = ({
                     id="dm-signup-facebook"
                     type="button"
                     social
+                    bgColor="var(--color-blue-15)"
                 >
-                    <img src={Facebook} alt="facebook" />
+                    <img src={Facebook} alt="facebook" width="24" height="24" />
+                    <SocialText color="var(--color-white)">
+                        <Localize translate_text="Sign up with Facebook" />
+                    </SocialText>
                 </SocialButton>
                 <SocialButton
                     onClick={handleSocialSignup}
@@ -231,8 +239,12 @@ const SignupNew = ({
                     id="dm-signup-apple"
                     type="button"
                     social
+                    bgColor="var(--color-black)"
                 >
-                    <img src={Apple} alt="apple" />
+                    <img src={Apple} alt="apple" width="24" height="24" />
+                    <SocialText color="var(--color-white)">
+                        <Localize translate_text="Sign up with Apple" />
+                    </SocialText>
                 </SocialButton>
             </SocialWrapper>
             <LoginText mt="3.75rem">

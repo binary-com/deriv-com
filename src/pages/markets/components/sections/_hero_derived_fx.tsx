@@ -153,7 +153,8 @@ const StyledHeader = styled(Header)`
     margin-top: 16rem;
 
     @media ${device.laptopM} {
-        font-size: 32px;
+        font-size: 28px;
+        width: 100%;
         align-items: center;
         margin-top: 0;
     }

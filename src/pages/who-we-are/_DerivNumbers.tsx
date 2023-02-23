@@ -125,7 +125,7 @@ const DerivNumbers = () => {
                         number.map(({ count, title }) => (
                             <Flex key={title} fd="column" height="unset">
                                 <NumberHeader size="48px" type="unset">
-                                    <Localize translate_text={count} />
+                                    {count}
                                 </NumberHeader>
                                 <NumberText size="20px" align="start">
                                     <Localize translate_text={title} />

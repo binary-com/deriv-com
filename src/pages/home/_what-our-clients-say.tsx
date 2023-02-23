@@ -225,7 +225,7 @@ const testimonial_slides: TTestimonialSlides[] = [
 
 const filtered_testimonial = (unavailable_testimonial) =>
     testimonial_slides.filter(({ quote }) => {
-        const lowered_quote = quote.props.translate_text.toLowerCase()
+        const lowered_quote = quote.toLowerCase()
         let show = true
         unavailable_testimonial.forEach(
             (unavailable) => lowered_quote.includes(unavailable) && (show = false),

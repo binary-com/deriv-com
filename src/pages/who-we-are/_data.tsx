@@ -32,7 +32,7 @@ export type MapPinType = {
 }
 
 type DerivNumbersType = {
-    count: TString | string
+    count: string
     title: TString
 }
 
@@ -329,8 +329,8 @@ export const mobile_pins: MapPinType[] = [
 ]
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: '_t_1000+_t_', title: '_t_employees_t_' },
-    { count: '_t_50+_t_', title: '_t_nationalities_t_' },
+    { count: '1000+', title: '_t_employees_t_' },
+    { count: '50+', title: '_t_nationalities_t_' },
     {
         count: number_of_offices,
         title: '_t_locations_t_',
@@ -344,19 +344,19 @@ export const our_offices_count: DerivNumbersType[] = [
 export const deriv_numbers: DerivNumbersType[][] = [
     [
         {
-            count: '_t_2.5M+_t_',
+            count: '2.5M+',
             title: '_t_traders worldwide_t_',
         },
         {
-            count: '_t_USD 26M+_t_',
+            count: 'USD 26M+',
             title: '_t_withdrawals last month_t_',
         },
         {
-            count: '_t_114M+_t_',
+            count: '114M+',
             title: '_t_trades last month_t_',
         },
         {
-            count: '_t_USD 10B+_t_',
+            count: 'USD 10B+',
             title: '_t_total trade turnover_t_',
         },
     ],

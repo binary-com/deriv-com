@@ -337,7 +337,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                                         <StyledLinkText
                                             key={1}
                                             target="_blank"
-                                            href="/regulatory/Financial_Markets_Association_Cert.pdf"
+                                            href="/regulatory/Financial_Markets_Association_Certificate.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

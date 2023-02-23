@@ -183,7 +183,7 @@ const HeaderSection = ({
                             color="white"
                             mb="7px"
                         >
-                            <Localize translate_text={introSub} />
+                            {introSub && <Localize translate_text={introSub} />}
                         </SubTitle>
                         <Header
                             as="h1"

@@ -8,7 +8,7 @@ export type HeaderAndHeroProps = {
     bgMobile?: string
     ebook_utm_code: string
     introMain: TString
-    introSub: TString
+    introSub?: TString
     mainHeaderImage: ImageDataLike
 }
 

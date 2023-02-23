@@ -69,7 +69,6 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
                 bgMobile="linear-gradient(180deg, #333333, #0E0E0E)"
                 color="white"
                 ebook_utm_code="cryptocurrencies-ebook"
-                introSub="_t__t_"
                 introMain="_t_Learn how to trade cryptocurrencies with Deriv_t_"
                 mainHeaderImage={data[`crypto_hero${ebook_image}`]}
             />

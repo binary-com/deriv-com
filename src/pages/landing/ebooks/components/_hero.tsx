@@ -77,7 +77,7 @@ const Hero = ({
                             color={color}
                             mb="7px"
                         >
-                            <Localize translate_text={introSub} />
+                            {introSub && <Localize translate_text={introSub} />}
                         </Header>
                         <Header
                             as="h1"

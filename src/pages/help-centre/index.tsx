@@ -14,6 +14,7 @@ const HelpCentre = () => {
     const { is_deriv_go } = usePlatformQueryParam()
     const general_questions = getQuestionsBySection(GENERAL)
     const platforms_questions = getQuestionsBySection(PLATFORMS)
+
     return (
         <Layout>
             <SEO

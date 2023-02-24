@@ -30,7 +30,7 @@ const StyledContainer = styled(Container)`
         max-width: 360px;
     }
 `
-const Content = styled(Flex)`
+const Content = styled(Flex)<{ margin_right: string }>`
     width: 100%;
     max-width: 38.4rem;
     flex-direction: column;
@@ -55,7 +55,7 @@ const StyledText = styled(Text)`
         font-size: 18px;
     }
 `
-const Row = styled(Flex)`
+const Row = styled(Flex)<{ margin_right: string }>`
     align-items: center;
 
     & .content-wrapper {

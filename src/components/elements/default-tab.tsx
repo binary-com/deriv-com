@@ -5,6 +5,7 @@ import { Flex } from 'components/containers'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { slugify } from 'common/utility'
 import device from 'themes/device'
 
 type TabsStyledProps = {
@@ -14,6 +15,11 @@ type TabsStyledProps = {
     jc_mobileL?: string
     line_divider_length?: string
     selected?: boolean
+}
+
+type TextWrapperProps = {
+    selected?: boolean
+    mobile_font_size?: number
 }
 
 const TabContent = styled.div`
@@ -100,9 +106,9 @@ const Content = styled.div`
     width: 100%;
 `
 
-const TextWrapper = styled(Header)`
+const TextWrapper = styled(Header)<TextWrapperProps>`
     text-align: center;
-    font-weight: ${(props) => (props.selected ? 'bold' : 'normal')};
+    font-weight: ${({ selected }) => (selected ? 'bold' : 'normal')};
 
     @media ${device.tabletS} {
         font-size: ${({ mobile_font_size }) => mobile_font_size && `${mobile_font_size}px`};
@@ -111,6 +117,7 @@ const TextWrapper = styled(Header)`
 
 type TabPanelProps = {
     children?: ReactElement
+    label: string
 }
 const TabPanel = ({ children }: TabPanelProps) => (
     <TabContent role="tabpanel">{children}</TabContent>
@@ -172,6 +179,7 @@ const Tabs = ({
         <Flex direction="column">
             <TabList
                 role="tablist"
+                id="tablist"
                 jc={jc}
                 jc_mobileL={jc_mobileL}
                 jc_laptopM={jc_laptopM}
@@ -188,6 +196,7 @@ const Tabs = ({
                             setActiveTab(tab_list[index])
                         }}
                         mobile_tab_button_underline_length={mobile_tab_button_underline_length}
+                        className={slugify(label)}
                     >
                         <TextWrapper
                             as="p"

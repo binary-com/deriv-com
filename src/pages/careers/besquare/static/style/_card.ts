@@ -115,22 +115,22 @@ export const DropdownWrapper = styled.img`
         height: 24px;
     }
 `
-type IconWrapperProps = {
-    width?: string[]
-    height?: string[]
+export type IconWrapperProps = {
+    img_width?: string[] | string
+    img_height?: string[] | string
     margin?: string[]
     grid_area?: string[]
 }
 
 export const IconWrapper = styled.img<IconWrapperProps>`
-    width: ${({ width }) => responsiveFallback(width, 0)};
-    height: ${({ height }) => responsiveFallback(height, 0)};
+    width: ${({ img_width }) => responsiveFallback(img_width, 0)};
+    height: ${({ img_height }) => responsiveFallback(img_height, 0)};
     margin: ${({ margin }) => responsiveFallback(margin, 0) ?? 0};
     grid-area: ${({ grid_area }) => grid_area};
 
     @media ${device.tablet} {
-        width: ${({ width }) => responsiveFallback(width)};
-        height: ${({ height }) => responsiveFallback(height)};
+        width: ${({ img_width }) => responsiveFallback(img_width)};
+        height: ${({ img_height }) => responsiveFallback(img_height)};
         margin: ${({ margin }) => responsiveFallback(margin) ?? 0};
     }
 `

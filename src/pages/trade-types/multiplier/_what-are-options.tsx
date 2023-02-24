@@ -7,7 +7,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Button } from 'components/form'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
@@ -165,7 +165,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
     const is_rtl = useIsRtl()
 
@@ -212,7 +212,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit<1>."
+                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit</1>."
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,
@@ -315,7 +315,7 @@ const WhatAreOptions = () => {
                                     <TextWrapper>
                                         <Text m="1.6rem 0 4rem 0">
                                             <Localize
-                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>."
+                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit</1>."
                                                 components={[
                                                     <strong key={0} />,
                                                     <ProfitText key={1} />,
@@ -400,7 +400,7 @@ const WhatAreOptions = () => {
                     <Grid>
                         <WhyTradeItem>
                             <div>
-                                <img src={MinimalRisk} alt="Minimal Risk" />
+                                <img src={MinimalRisk} alt="Risk manegement" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Better risk management')}
@@ -413,7 +413,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FullControl} alt="Full Control" />
+                                <img src={FullControl} alt="Market risk" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Increased market exposure')}
@@ -426,7 +426,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={ResponsivePlatform} alt="Responsive Platform" />
+                                <img src={ResponsivePlatform} alt="Secured platform" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Secure, responsive platform')}
@@ -439,7 +439,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FriendlySupport} alt="Friendly Support" />
+                                <img src={FriendlySupport} alt="Chat support" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Expert and friendly support')}
@@ -450,7 +450,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={Seven} alt="Trade" />
+                                <img src={Seven} alt="Trade 24/7" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {is_eu
@@ -469,7 +469,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={CrashBoom} alt="Crash/Boom indices" />
+                                <img src={CrashBoom} alt="Spikes and dips" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Crash/Boom indices')}
@@ -484,7 +484,7 @@ const WhatAreOptions = () => {
                     <Text mt="4rem" mb="1.6rem" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <Button onClick={handleSignup} id="dm-multipliers-signup-1" to="" secondary>
+                    <Button onClick={handleSignup} id="dm-multipliers-signup-1" secondary>
                         {localize('Create free demo account')}
                     </Button>
                 </SmallContainer>

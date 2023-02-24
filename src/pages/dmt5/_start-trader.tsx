@@ -10,7 +10,7 @@ import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useHandleLogin from 'components/hooks/use-handle-login'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type TabProps = {
     active?: boolean
@@ -200,7 +200,7 @@ const StyledText = styled(Text)`
         font-size: 16px;
     }
 `
-const StyledLocalizedLink = styled(LocalizedLink)`
+const StyledLocalizedLink = styled(LocalizedLink)<{ id?: string }>`
     text-decoration: none;
     color: var(--color-red);
 
@@ -229,7 +229,7 @@ const StartTrader = () => {
 
     const handleSignup = useHandleSignup()
 
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     const getImage = (is_mob: boolean, options: string[]) => {
         return is_mob ? data[options[0]] : data[options[1]]
@@ -336,11 +336,12 @@ const StartTrader = () => {
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
                 {localize('How to get started with a Deriv MT5 account')}
             </StyledHeader>
-            <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
+            <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }} id="account-pick">
                 <TabItem
                     mobile_padding="21px 12px"
                     active={isDemo}
                     onClick={() => onTabClick('Demo')}
+                    className="demo-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Demo account')}
@@ -350,6 +351,7 @@ const StartTrader = () => {
                     mobile_padding={is_eu ? '21px 12px' : '10px'}
                     active={isReal}
                     onClick={() => onTabClick('Real')}
+                    className="real-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Real money account')}
@@ -367,8 +369,8 @@ const StartTrader = () => {
                                         translate_text="Sign up for a free <0>Deriv demo account</0>"
                                         components={[
                                             <StyledLocalizedLink
-                                                onClick={handleSignup}
                                                 id="dm-dmt5-signup-link"
+                                                onClick={handleSignup}
                                                 to=""
                                                 key={0}
                                             />,
@@ -377,10 +379,11 @@ const StartTrader = () => {
                                 }
                                 item_width="24rem"
                                 mobile_item_width="36rem"
+                                class_name="sign-in"
                             >
                                 <ImageWrapper>{demo_step1_image}</ImageWrapper>
                             </SideTab.Panel>
-                            <SideTab.Panel description={text_1}>
+                            <SideTab.Panel description={text_1} class_name="add-account">
                                 <ImageWrapper>{demo_step2_image}</ImageWrapper>
                             </SideTab.Panel>
                             <SideTab.Panel
@@ -388,6 +391,7 @@ const StartTrader = () => {
                                     <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
                                 }
                                 item_width="36rem"
+                                class_name="practise-trading"
                             >
                                 <ImageWrapper>{demo_step3_image}</ImageWrapper>
                             </SideTab.Panel>

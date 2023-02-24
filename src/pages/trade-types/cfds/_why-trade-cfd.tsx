@@ -10,10 +10,10 @@ import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import FavoriteMarket from 'images/svg/trade-types/favoritemarket.svg'
 import { Button } from 'components/form'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const WhyTradeCFD = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
 
     return (
@@ -24,7 +24,7 @@ const WhyTradeCFD = () => {
                 </Header>
                 <Grid>
                     <WhyTradeItem>
-                        <img src={HighLeverge} alt="high leverage" />
+                        <img src={HighLeverge} alt="Leverage and spread" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
                             {is_eu
                                 ? localize('Tight spreads')
@@ -41,7 +41,7 @@ const WhyTradeCFD = () => {
                         </Text>
                     </WhyTradeItem>
                     <WhyTradeItem>
-                        <img src={FavoriteMarket} alt="synthetic indices" />
+                        <img src={FavoriteMarket} alt="Favourite markets" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
                             {localize('All your favourite markets')}
                         </Text>
@@ -56,7 +56,7 @@ const WhyTradeCFD = () => {
                         </Text>
                     </WhyTradeItem>
                     <WhyTradeItem>
-                        <img src={GoLongOrShort} alt="maximize potential profit" />
+                        <img src={GoLongOrShort} alt="Price movements" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
                             {localize('Go long or short')}
                         </Text>
@@ -67,7 +67,7 @@ const WhyTradeCFD = () => {
                         </Text>
                     </WhyTradeItem>
                     <WhyTradeItem>
-                        <img src={FriendlySupport} alt="friendly support" />
+                        <img src={FriendlySupport} alt="Support chat" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
                             {localize('Expert and friendly support')}
                         </Text>
@@ -76,7 +76,7 @@ const WhyTradeCFD = () => {
                         </Text>
                     </WhyTradeItem>
                     <WhyTradeItem>
-                        <img src={InstantAccess} alt="instant access" />
+                        <img src={InstantAccess} alt="Immediate access" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
                             {localize('Instant access')}
                         </Text>

@@ -10,27 +10,22 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
+import useRegion from 'components/hooks/use-region'
 import { Localize, localize } from 'components/localization'
-// import { DerivStore } from 'store'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
+
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type ForexProps = {
-    simple_step_content: SimpleStepsContent[]
+    simple_step_content: SimpleStepContentElement[]
 }
 const Forex = ({ simple_step_content }: ForexProps) => {
-    const { is_row, is_eu } = useCountryRule()
+    const { is_row, is_eu } = useRegion()
     return (
         <>
-            <WhyTrade
-                header={<Localize translate_text="Why trade forex on Deriv" />}
-                text={
-                    <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
-                }
-            >
+            <WhyTrade header={<Localize translate_text="Why trade forex on Deriv" />}>
                 {(is_eu ? forex_content_eu : forex_content).map((content, index) => (
                     <StyledBox
                         key={index}

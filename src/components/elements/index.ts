@@ -22,6 +22,7 @@ import LiveChatLinkText from './livechat-link-text'
 import Timeline from './timeline'
 import { Ul, Li } from './lists'
 import { Carousel } from './carousel'
+import type { CarouselProps } from './carousel'
 import VideoPlayer from './video-player'
 import Modal from './modal'
 import ImageWithDireciton from './image-with-direction'
@@ -36,6 +37,7 @@ export {
     CardLink,
     CardStyle,
     Carousel,
+    CarouselProps,
     Checkbox,
     Divider,
     DotLoader,

@@ -4,7 +4,7 @@ import { ContentType } from './index'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 // svg
 import Arrow from 'images/svg/deriv-go/arrow.svg'
 import DMT5 from 'images/svg/deriv-go/dmt5.svg'
@@ -86,6 +86,7 @@ const other_apps: ContentType[] = [
                 <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
+        image_alt: 'DMT5 trading app',
     },
     {
         id: 1,
@@ -100,15 +101,16 @@ const other_apps: ContentType[] = [
                 <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
+        image_alt: 'Deriv X trading app',
     },
 ]
 
 const OtherApps = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     return (
         <div>
-            <StyledSectionContainer tablet={{ padding: '4rem 0' }}>
+            <StyledSectionContainer tablet={{ p: '4rem 0' }}>
                 <Container fd="column">
                     {is_eu ? (
                         <StyledHeader as="h2" type="heading-2" align="center">
@@ -125,7 +127,7 @@ const OtherApps = () => {
                             return (
                                 <Card key={item.id}>
                                     <div>
-                                        <img src={item.icon} alt="icon" />
+                                        <img src={item.icon} alt={item.image_alt} />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
                                         {item.title}

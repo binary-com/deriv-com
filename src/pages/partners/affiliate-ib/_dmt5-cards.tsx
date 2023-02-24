@@ -12,6 +12,9 @@ import { Button, LinkButton } from 'components/form'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 
+type StyledLinkButtonProps = {
+    id?: string
+}
 const query = graphql`
     query {
         dmt5_synthetic_calculator: file(
@@ -171,7 +174,7 @@ const ButtonWrapper = styled.div`
         justify-content: center;
     }
 `
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
     height: 40px;
 
     @media ${device.tabletL} {
@@ -230,7 +233,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
     }
 
     return (
-        <StyledCard padding="2.4rem 2.4rem 0">
+        <StyledCard padding="2.4rem 2.4rem 0" id="affiliate-card">
             {!is_calculated ? (
                 <>
                     <CardWrappers>
@@ -240,13 +243,14 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                         <CardText>{data.description}</CardText>
                         <AccordionWrapper>
                             <Accordion has_single_state>
-                                {data.type.map((value, index) => (
+                                {data.type.map((value) => (
                                     <AccordionItem
-                                        key={index}
+                                        key={value.class_name}
                                         header={value.title}
                                         parent_style={parent_style}
                                         style={item_style}
                                         header_style={header_style}
+                                        class_name={value.class_name}
                                         plus
                                     >
                                         <TableWrapper grid_col_number={2} is_balance={true}>
@@ -282,7 +286,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                         </AccordionWrapper>
                     </CardWrappers>
                     <HowItsCalculate>
-                        <StyledButton flat onClick={toggleCalculated}>
+                        <StyledButton flat onClick={toggleCalculated} className="calculated">
                             {localize("How it's calculated")}
                         </StyledButton>
                     </HowItsCalculate>
@@ -347,7 +351,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 </>
                             ))}
                             <ButtonWrapper>
-                                <BackButton tertiary onClick={toggleCalculated}>
+                                <BackButton tertiary onClick={toggleCalculated} className="back">
                                     {localize('Back')}
                                 </BackButton>
                                 <StyledLinkButton

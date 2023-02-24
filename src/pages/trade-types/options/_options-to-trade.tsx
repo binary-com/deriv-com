@@ -22,7 +22,7 @@ import OuOd from 'images/svg/options/ou-od.svg'
 import HighClose from 'images/svg/options/high-close.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 import HighLow from 'images/svg/options/high-low.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const MiddleText = styled(Text)`
     margin-bottom: 0.8rem;
@@ -33,7 +33,7 @@ const MiddleText = styled(Text)`
 `
 
 const OptionsToTrade = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     return (
         <SectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
@@ -99,17 +99,17 @@ const UpDownGrid = () => {
                 </MiddleText>
                 <MiddleText>
                     {localize(
-                        'If you select ‘Higher’, you win the payout if the exit spot is strictly higher than the entry spot.',
+                        'If you select ‘Rise’, you win the payout if the exit spot is strictly higher than the entry spot.',
                     )}
                 </MiddleText>
                 <MiddleText>
                     {localize(
-                        'If you select ‘Lower’, you win the payout if the exit spot is strictly lower than the entry spot.',
+                        'If you select ‘Fall’, you win the payout if the exit spot is strictly lower than the entry spot.',
                     )}
                 </MiddleText>
                 <Text>
                     {localize(
-                        'If you select ‘Allow equals’, you win the payout if the exit spot is higher than or equal to the entry spot for ‘Higher’. Similarly, you win the payout if the exit spot is lower than or equal to the entry spot for ‘Lower’.',
+                        'If you select ‘Allow equals’, you win the payout if the exit spot is higher than or equal to the entry spot for ‘Rise’. Similarly, you win the payout if the exit spot is lower than or equal to the entry spot for ‘Fall’.',
                     )}
                 </Text>
             </Flex>

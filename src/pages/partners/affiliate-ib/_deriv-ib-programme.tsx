@@ -7,7 +7,7 @@ import { Header } from 'components/elements/typography'
 import { LiveChatLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type AssetsType = {
     title: React.ReactElement
@@ -23,6 +23,7 @@ type TypeForType = {
     title: React.ReactElement
     headerHeight: string
     assets: AssetsType
+    class_name: string
 }[]
 
 type NoteType = {
@@ -51,6 +52,10 @@ type DMT5Type = {
     countDetails: CountDetailsType
 }
 
+type StyledSectionProps = {
+    align?: string
+}
+
 export type DMT5Props = { data: DMT5Type }
 
 const TitleWrapper = styled.div`
@@ -66,7 +71,7 @@ const StyledCardWrapper = styled(CardWrapper)`
     }
 `
 
-const StyledSection = styled(SectionContainer)`
+const StyledSection = styled(SectionContainer)<StyledSectionProps>`
     padding-bottom: 0;
     text-align: ${(props) => props.align || 'left'};
 
@@ -136,9 +141,9 @@ const SubtitleHeader = styled(Header)`
 `
 
 const DerivIBProgramme = () => {
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
     return (
-        <StyledSection shadow id="deriv-ib">
+        <StyledSection id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
                     <StyledTitleHeader as="h2" mb="1.2rem" type="page-title" align="center">
@@ -238,6 +243,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
+            class_name: 'crash-boom',
         },
         {
             title: <Localize translate_text="Volatility indices" />,
@@ -256,8 +262,10 @@ const ib_dmt5_synthetic: DMT5Type = {
                         <Localize key={8} translate_text="Volatility 75 (1s) Index" />,
                         <Localize key={9} translate_text="Volatility 100 Index" />,
                         <Localize key={10} translate_text="Volatility 100 (1s) Index" />,
-                        <Localize key={11} translate_text="Volatility 200 (1s) Index" />,
-                        <Localize key={12} translate_text="Volatility 300 (1s) Index" />,
+                        <Localize key={11} translate_text="Volatility 150 (1s) Index" />,
+                        <Localize key={12} translate_text="Volatility 200 (1s) Index" />,
+                        <Localize key={13} translate_text="Volatility 250 (1s) Index" />,
+                        <Localize key={14} translate_text="Volatility 300 (1s) Index" />,
                     ],
                 },
                 {
@@ -273,11 +281,14 @@ const ib_dmt5_synthetic: DMT5Type = {
                         <Localize key={8} translate_text="5" />,
                         <Localize key={9} translate_text="7.5" />,
                         <Localize key={10} translate_text="7.5" />,
-                        <Localize key={11} translate_text="10" />,
-                        <Localize key={12} translate_text="15" />,
+                        <Localize key={11} translate_text="7.5" />,
+                        <Localize key={12} translate_text="10" />,
+                        <Localize key={12} translate_text="12.5" />,
+                        <Localize key={14} translate_text="15" />,
                     ],
                 },
             ],
+            class_name: 'volatility-indices',
         },
         {
             title: <Localize translate_text="Step index" />,
@@ -292,6 +303,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     list: [<Localize key={1} translate_text="0.10" />],
                 },
             ],
+            class_name: 'step-index',
         },
         {
             title: <Localize translate_text="Jump indices" />,
@@ -318,6 +330,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
+            class_name: 'jump-index',
         },
     ],
     countDetails: [
@@ -371,6 +384,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
+            class_name: 'forex-and-metals',
         },
         {
             title: <Localize translate_text="Stock indices" />,
@@ -391,6 +405,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
+            class_name: 'stock-indices',
         },
         {
             title: <Localize translate_text="Cryptocurrencies" />,
@@ -405,6 +420,7 @@ const ib_dmt5_financial: DMT5Type = {
                     list: [<Localize key={1} translate_text="10" />],
                 },
             ],
+            class_name: 'cryptocurrencies-financial',
         },
     ],
     countDetails: [
@@ -539,7 +555,7 @@ const ib_derivx: DMT5Type = {
                     ],
                 },
                 {
-                    title: <Localize key={0} translate_text="Commission per lot" />,
+                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
                     list: [
                         <Localize key={1} translate_text="USD 2" />,
                         <Localize key={1} translate_text="USD 2" />,
@@ -653,8 +669,10 @@ const ib_derivx: DMT5Type = {
                         <Localize key={8} translate_text="Volatility 75 (1s) Index" />,
                         <Localize key={9} translate_text="Volatility 100 Index" />,
                         <Localize key={10} translate_text="Volatility 100 (1s) Index" />,
-                        <Localize key={11} translate_text="Volatility 200 (1s) Index" />,
-                        <Localize key={12} translate_text="Volatility 300 (1s) Index" />,
+                        <Localize key={11} translate_text="Volatility 150 (1s) Index" />,
+                        <Localize key={12} translate_text="Volatility 200 (1s) Index" />,
+                        <Localize key={13} translate_text="Volatility 250 (1s) Index" />,
+                        <Localize key={14} translate_text="Volatility 300 (1s) Index" />,
                     ],
                 },
                 {
@@ -670,8 +688,10 @@ const ib_derivx: DMT5Type = {
                         <Localize key={8} translate_text="5" />,
                         <Localize key={9} translate_text="7.5" />,
                         <Localize key={10} translate_text="7.5" />,
-                        <Localize key={11} translate_text="10" />,
-                        <Localize key={12} translate_text="15" />,
+                        <Localize key={11} translate_text="7.5" />,
+                        <Localize key={12} translate_text="10" />,
+                        <Localize key={13} translate_text="10" />,
+                        <Localize key={14} translate_text="15" />,
                     ],
                 },
             ],

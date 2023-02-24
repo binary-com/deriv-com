@@ -7,7 +7,7 @@ import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'componen
 import { localize } from 'components/localization'
 import { Flex, Box, Container, Desktop, Mobile } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 // SVG
 import Apple from 'images/svg/custom/apple-40.svg'
@@ -206,7 +206,10 @@ const StyledFormWrapper = styled.div`
     padding: 20px 20px 30px;
     margin-left: 30px;
     border-radius: 8px;
+    top: 1rem;
+    display: inline-block;
     position: absolute;
+    height: fit-content;
     bottom: -50px;
     box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
 
@@ -352,7 +355,7 @@ const SignupPublic = ({
     is_submitting,
 }: SignupPublicProps) => {
     const data = useStaticQuery(query)
-    const { is_row, is_eu } = useCountryRule()
+    const { is_row, is_eu } = useRegion()
     const [is_checked, setChecked] = useState(false)
     const is_rtl = useIsRtl()
 
@@ -448,7 +451,6 @@ const SignupPublic = ({
                                 width="225px"
                             />
                             <LinkFlex
-                                ai="center"
                                 external
                                 href={deriv_app_url}
                                 target="_blank"

@@ -2,10 +2,10 @@ import React from 'react'
 import TranslationComponents from './_translation-components'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const Derived = () => {
-    const { is_row, is_eu } = useCountryRule()
+    const { is_row, is_eu } = useRegion()
     const first_paragraph = is_eu
         ? '_t_Derived in the EU consist of synthetic indices whose prices are generated using a random number generator with no influence from real-world events._t_'
         : '_t_Derived indices consist of asset prices generated from real-world and simulated markets and indices, with little to no influence from real-world events. You can trade from a variety of derived indices, including synthetic indices, derived FX indices, and basket indices._t_'
@@ -27,7 +27,7 @@ const Derived = () => {
                             {
                                 key: 0,
                                 type: 'link',
-                                to: '/academy/blog/posts/an-introduction-to-synthetic-indices-trading/',
+                                to: 'https://academy.deriv.com/blog/posts/an-introduction-to-synthetic-indices-trading/',
                             },
                         ])}
                     />

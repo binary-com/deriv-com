@@ -15,7 +15,7 @@ import {
     replaceLocale,
 } from 'common/utility'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type InternalLinkProps = {
     aria_label?: string
@@ -40,11 +40,13 @@ type ExternalLinkProps = InternalLinkProps & {
 type LocalizedLinkProps = ExternalLinkProps & {
     external?: boolean
     weight?: string
+    partiallyActive?: boolean
 }
 
 type SharedLinkStyleProps = {
     active: boolean
-    disabled: boolean
+    disabled?: boolean
+    activeClassName?: string
 }
 
 export const SharedLinkStyle = css<SharedLinkStyleProps>`
@@ -116,7 +118,7 @@ export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
         font-size: 14px;
     }
 `
-const ShareDisabledStyle = css<{ disabled: boolean }>`
+const ShareDisabledStyle = css<{ disabled?: boolean }>`
     ${({ disabled }) =>
         disabled &&
         `
@@ -198,7 +200,7 @@ const InternalLink = ({
 const affiliate_links = ['affiliate_sign_in', 'affiliate_sign_up']
 const deriv_app_links = ['dbot', 'deriv_app', 'mt5', 'derivx']
 const deriv_other_products = ['binary', 'smart_trader', 'binary_bot']
-const deriv_social_platforms = ['blog', 'community', 'api', 'zoho', 'derivlife']
+const deriv_social_platforms = ['blog', 'community', 'api', 'zoho', 'derivlife', 'academy']
 // add item to this array if you need to make an internal link open on a new tab without modal window
 // !only for  paths without localisation: add item to this array if you need to make an internal link open on a new tab without modal window
 const only_en_new_tab_no_modal = ['tnc/security-and-privacy.pdf']
@@ -212,7 +214,7 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (deriv_other_products.includes(type)) {
         if (type === 'binary_bot') return `${localized_link_url[type]}/${to ? to : ''}?l=${locale}`
         else if (type === 'smart_trader')
-            return getSmartTraderLocalizedURL(localized_link_url[type], locale, to)
+            return getSmartTraderLocalizedURL(localized_link_url[type], locale)
 
         return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
     } else if (deriv_social_platforms.includes(type)) {
@@ -243,7 +245,7 @@ const ExternalLink = ({
     type,
     ...props
 }: ExternalLinkProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
     const url = replaceLocale(getURLFormat(type, locale, to, affiliate_lang))
@@ -272,7 +274,7 @@ const ExternalLink = ({
                 ref,
                 aria_label: aria_label,
             })
-            toggleModal()
+            toggleModal(e)
         }
         if (typeof onClick === 'function') {
             onClick(e)

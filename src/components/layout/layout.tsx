@@ -1,9 +1,7 @@
 import React, { useState, ReactNode, Ref } from 'react'
 import Loadable from '@loadable/component'
 import styled from 'styled-components'
-import { closestMatch, distance } from 'closest-match'
 import { LocationProvider } from './location-context'
-import NavAcademy from './nav/nav-academy'
 import NavStatic from './nav/nav-static'
 import Nav from './nav/nav'
 import NavTransparent from './nav/nav-transparent'
@@ -18,10 +16,13 @@ import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
-import { handleRedirect, isEuDomain } from 'common/utility'
-import { DerivStore, useDerivWS } from 'store'
+import { handleRedirect, handleRowRedirect, isEuDomain } from 'common/utility'
+import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { CookieStorage } from 'common/storage'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import useDerivWS from 'components/hooks/use-deriv-ws'
+import usePopup from 'components/hooks/use-popup'
+import useWebsiteStatus from 'components/hooks/use-website-status'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -66,12 +67,13 @@ const Layout = ({
     type = '',
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
-    const { show_non_eu_popup, setShowNonEuPopup, academy_data } = React.useContext(DerivStore)
+    const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
     const { send } = useDerivWS()
     const { has_platform } = usePlatformQueryParam()
+    const { website_status, setWebsiteStatus } = useWebsiteStatus()
 
     const is_static = type === 'static'
 
@@ -85,36 +87,27 @@ const Layout = ({
 
                     const current_client_country = clients_country || ''
                     const client_information_cookie = new CookieStorage('client_information')
+
+                    const new_website_status = {
+                        ...website_status,
+                        clients_country: current_client_country,
+                    }
+
+                    setWebsiteStatus(new_website_status)
+
                     const residence = client_information_cookie.get('residence')
                     setRedirectionApplied(true)
+                    isEuDomain() && handleRowRedirect(residence, current_client_country)
                     !isEuDomain() && handleRedirect(residence, current_client_country)
                 }
             })
         }
     }, [is_redirection_applied])
 
-    React.useEffect(() => {
-        if (window.location.pathname.includes('academy/blog/posts/')) {
-            const slugs = academy_data.blog.map((item) => item.slug)
-            const current_page = window.location.pathname.split('/')[4]
-            if (!slugs.includes(current_page)) {
-                const closest_slug = closestMatch(current_page, slugs)
-                const character_distance = distance(current_page, closest_slug)
-                if (character_distance < 10) {
-                    window.location.pathname = `academy/blog/posts/${closest_slug}`
-                }
-            }
-        }
-    }, [])
-
     // Handle navigation types
     let Navigation
     let FooterNav = <></>
     switch (type) {
-        case 'academy':
-            Navigation = <NavAcademy />
-            FooterNav = <LoadableFooter academy={true} />
-            break
         case 'noNav':
             Navigation = <></>
             FooterNav = <Footer />
@@ -199,6 +192,7 @@ const Layout = ({
                 ref={modal_payload.ref}
                 aria_label={modal_payload.aria_label}
             />
+            <BrowserUpdateAlertModal />
             {show_non_eu_popup && (
                 <NonEuRedirectPopUp
                     is_open={show_non_eu_popup}

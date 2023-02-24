@@ -466,7 +466,7 @@ export const TakeProfitLevelUp = () => {
 export const TakeProfitAmountUp = () => {
     return (
         <>
-            <Desktop max_width="tablet">
+            <Desktop breakpoint="tablet">
                 <FormulaContainer height="227px" pt="0">
                     <FormulaHighlightForPnlMultiplier height="110px" mt="60px" mb="60px">
                         <FormulaTopWrapperPnl mt="29px">
@@ -493,7 +493,7 @@ export const TakeProfitAmountUp = () => {
                                 <PointerContainer width="200px" ml="-75px" height="89px">
                                     <PointerDot />
                                     <PointerStick height="62px" />
-                                    <PointerText>
+                                    <PointerText ml="-50px">
                                         <Localize translate_text="Stop loss or take profit level" />
                                     </PointerText>
                                 </PointerContainer>
@@ -521,8 +521,8 @@ export const TakeProfitAmountUp = () => {
                                 <PointerContainer ml="-20px" top width="100px">
                                     <PointerDot ml="36px" />
                                     <PointerStick height="6px" ml="37px" />
-                                    <PointerStick height="27px" ml="-42px" />
-                                    <PointerText ml="-40px" top>
+                                    <PointerStick height="27px" ml="-90px" />
+                                    <PointerText ml="-90px" top>
                                         <Localize translate_text="Asset price" />
                                     </PointerText>
                                 </PointerContainer>
@@ -597,7 +597,7 @@ export const TakeProfitAmountUp = () => {
                 </FormulaContainer>
             </Desktop>
 
-            <Mobile min_width="tablet">
+            <Mobile breakpoint="tablet">
                 <FormulaContainerMobile height="220px" pt="65px">
                     <FormulaHighlightMobile height="107px" syn_mobile fs="13px">
                         <FormulaTopWrapperMobile ml="-13px" mt="-2px">
@@ -738,7 +738,7 @@ export const TakeProfitAmountUp = () => {
 export const StopLossAmountDown = () => {
     return (
         <>
-            <Desktop max_width="tablet">
+            <Desktop breakpoint="tablet">
                 <FormulaContainer height="227px" pt="0">
                     <FormulaHighlightForPnlMultiplier height="110px" mt="60px" mb="60px">
                         <FormulaTopWrapperPnl mt="29px">
@@ -765,7 +765,7 @@ export const StopLossAmountDown = () => {
                                 <PointerContainer width="200px" ml="-80px" height="89px">
                                     <PointerDot />
                                     <PointerStick height="62px" />
-                                    <PointerText>
+                                    <PointerText ml="-50px">
                                         <Localize translate_text="Stop loss or take profit level" />
                                     </PointerText>
                                 </PointerContainer>
@@ -793,8 +793,8 @@ export const StopLossAmountDown = () => {
                                 <PointerContainer ml="-20px" top width="100px">
                                     <PointerDot ml="36px" />
                                     <PointerStick height="6px" ml="37px" />
-                                    <PointerStick height="27px" ml="-42px" />
-                                    <PointerText ml="-40px" top>
+                                    <PointerStick height="27px" ml="-90px" />
+                                    <PointerText ml="-90px" top>
                                         <Localize translate_text="Asset price" />
                                     </PointerText>
                                 </PointerContainer>
@@ -870,7 +870,7 @@ export const StopLossAmountDown = () => {
                 </FormulaContainer>
             </Desktop>
 
-            <Mobile min_width="tablet">
+            <Mobile breakpoint="tablet">
                 <FormulaContainerMobile height="220px" pt="65px">
                     <FormulaHighlightMobile height="107px" syn_mobile fs="13px">
                         <FormulaTopWrapperMobile ml="-13px" mt="-2px">

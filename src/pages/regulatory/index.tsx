@@ -49,7 +49,7 @@ const ImgFintech = styled.img`
     height: 38.8px;
 `
 
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Header)<{ maxwidth?: string }>`
     max-width: ${(props) => props.maxwidth || '100%'};
     margin: 0 auto;
 
@@ -106,6 +106,10 @@ const ResponsiveHeader = styled(StyledHeader)`
     }
 `
 
+const StyledLinkText = styled(LinkText)`
+    font-weight: bold;
+`
+
 const Regulatory = (locale: RegulatoryProps) => {
     return (
         <Layout>
@@ -156,9 +160,8 @@ const Regulatory = (locale: RegulatoryProps) => {
                             <Localize
                                 translate_text="Deriv Investments (Europe) Limited – W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta – is licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union."
                                 components={[
-                                    <LinkText
+                                    <StyledLinkText
                                         key={0}
-                                        weight="bold"
                                         target="_blank"
                                         href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
                                         rel="noopener noreferrer"
@@ -210,7 +213,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                 </SmallContainer>
             </SectionContainer>
             <SectionContainer padding="0 0 4rem">
-                <SmallContainer fd="column">
+                <SmallContainer fd="column" id="regulatory-list">
                     <DocumentAccordion locale={locale} />
                 </SmallContainer>
             </SectionContainer>
@@ -243,16 +246,14 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 <Localize
                                     translate_text="Deriv (FX) Ltd — F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia — is licensed by Labuan Financial Services Authority (<0>licence no. MB/18/0024</0>) and is a member of the <1>Labuan Fintech Association</1>."
                                     components={[
-                                        <LinkText
+                                        <StyledLinkText
                                             key={0}
-                                            weight="bold"
                                             target="_blank"
                                             href="/regulatory/Deriv_(FX)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
-                                        <LinkText
+                                        <StyledLinkText
                                             key={1}
-                                            weight="bold"
                                             target="_blank"
                                             href="https://www.labuanfintech.org/"
                                             rel="noopener noreferrer"
@@ -288,9 +289,8 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 <Localize
                                     translate_text="Deriv (BVI) Ltd – Kingston Chambers, P.O. Box 173, Road Town, Tortola British Virgin Islands – is licensed by the British Virgin Islands Financial Services Commission <0>licence no. SIBA/L/18/1114</0>)."
                                     components={[
-                                        <LinkText
+                                        <StyledLinkText
                                             key={0}
-                                            weight="bold"
                                             target="_blank"
                                             href="/regulatory/Deriv_(BVI)_Ltd.pdf"
                                             rel="noopener noreferrer"
@@ -328,16 +328,14 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 <Localize
                                     translate_text="Deriv (V) Ltd (<0>view licence</0>) – 1276, Kumul Highway, Port Vila, Vanuatu – is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
                                     components={[
-                                        <LinkText
+                                        <StyledLinkText
                                             key={0}
-                                            weight="bold"
                                             target="_blank"
                                             href="/regulatory/Deriv_(V)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
-                                        <LinkText
+                                        <StyledLinkText
                                             key={1}
-                                            weight="bold"
                                             target="_blank"
                                             href="/regulatory/Financial_Markets_Association_Cert.pdf"
                                             rel="noopener noreferrer"
@@ -368,7 +366,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 {localize(
-                                    'Deriv (SVG) LLC is located in Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company no. 273 LLC 2020).',
+                                    'Deriv (SVG) LLC is located in First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P. O., St. Vincent and the Grenadines (company no. 273 LLC 2020).',
                                 )}
                             </Text>
                             <Text max_width="58.8rem">
@@ -430,9 +428,8 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 <Localize
                                     translate_text="We are registered with the Financial Commission, an international independent organisation dedicated to resolving disputes within the financial services industry (<0>view membership</0>)."
                                     components={[
-                                        <LinkText
+                                        <StyledLinkText
                                             key={0}
-                                            weight="bold"
                                             target="_blank"
                                             href="/regulatory/Deriv_Ltd_membership.pdf"
                                             rel="noopener noreferrer"

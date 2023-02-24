@@ -17,7 +17,9 @@ const ForexPage = () => (
         />
         <DerivedFXHero
             title="Forex"
-            description="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events."
+            description={localize(
+                'Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events.',
+            )}
         />
         <Forex simple_step_content={simple_step_content_forex} />
         <Signup appearance={Appearances.public} />

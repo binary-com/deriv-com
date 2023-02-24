@@ -55,7 +55,7 @@ import {
 import { Flex, Desktop, Mobile } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { useDerivApi } from 'components/hooks/use-deriv-api'
+import useWS from 'components/hooks/useWS'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]
@@ -186,43 +186,22 @@ const StyledInputGroup = styled(InputGroup)`
 
 const SwapCalculator = () => {
     const [tab, setTab] = useState('Synthetic')
-    const [activeSymbols, setActiveSymbols] = useState([])
-    const [disableDropdown, setDisableDropdown] = useState(true)
-    const [symbolSpotPrice, setSymbolSpotPrice] = useState({})
+    const { data, is_loading, send } = useWS('active_symbols')
 
     const onTabClick = (t) => {
         setTab(t)
     }
-    const deriv_api = useDerivApi()
 
     useEffect(() => {
-        const { send } = deriv_api
-        send({ active_symbols: 'full' }, (response) => {
-            if (!response.error && response.active_symbols.length > 0) {
-                const data = response.active_symbols
-                setActiveSymbols(data)
-                setDisableDropdown(false)
-            }
-        })
-    }, [])
-
-    useEffect(() => {
-        const tempSpotPrice = {}
-        if (activeSymbols.length < 1) {
-            return
-        }
-        activeSymbols.forEach((item) => {
-            tempSpotPrice[item.symbol] = item.spot
-        })
-        setSymbolSpotPrice(tempSpotPrice)
-    }, [activeSymbols])
+        send({ active_symbols: 'full' })
+    }, [send])
 
     const fetchTickData = useCallback(
         (selectedSymbol, setAssetPrice) => {
-            const price = symbolSpotPrice[selectedSymbol]
-            setAssetPrice('assetPrice', price)
+            const selected = data?.find((item) => item.symbol === selectedSymbol)
+            if (selected) setAssetPrice('assetPrice', selected.spot)
         },
-        [symbolSpotPrice],
+        [data],
     )
 
     return (
@@ -249,17 +228,22 @@ const SwapCalculator = () => {
                     )}
                 </SectionSubtitle>
 
-                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
+                <Flex
+                    mt="80px"
+                    mb="40px"
+                    tablet={{ mt: '40px', mb: '24px' }}
+                    id="swap-tab-selector"
+                >
                     <SwapTabSelector
                         active={tab === 'Synthetic'}
                         onClick={() => onTabClick('Synthetic')}
                     >
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="synthetic">
                             {localize('Synthetic')}
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="financial">
                             {localize('Financial')}
                         </Text>
                     </SwapTabSelector>
@@ -344,7 +328,7 @@ const SwapCalculator = () => {
                                                     contractSize={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
-                                                    disabled={disableDropdown}
+                                                    disabled={is_loading}
                                                 />
 
                                                 <InputGroup>
@@ -449,12 +433,13 @@ const SwapCalculator = () => {
                                     {localize('Example calculation')}
                                 </Header>
 
-                                <Accordion has_single_state>
+                                <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
                                         header={localize('Swap charge')}
                                         header_style={header_style}
                                         style={item_style}
                                         plus
+                                        class_name="swap-charge"
                                     >
                                         <Text mb="2rem">
                                             {localize(
@@ -694,12 +679,13 @@ const SwapCalculator = () => {
                                     {localize('Example calculation')}
                                 </Header>
 
-                                <Accordion has_single_state>
+                                <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
                                         header={localize('Swap charge')}
                                         header_style={header_style}
                                         style={item_style}
                                         plus
+                                        class_name="swap-charge"
                                     >
                                         <Text mb="2rem">
                                             {localize(

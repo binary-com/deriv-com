@@ -84,7 +84,7 @@ const Description = styled.div<ExpandListType>`
         `}
 `
 
-const StyledText = styled(Text)`
+const StyledText = styled(Text)<ExpandListType>`
     font-size: ${(props) => (props.is_expanded ? 'var(--text-size-s)' : '0')};
 `
 const StyleCurrencyText = styled(Text)`
@@ -149,7 +149,11 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                 {!is_fiat_onramp && (
                     <Td>
                         <>
-                            {Array.isArray(payment_data.min_max_withdrawal) ? (
+                            {payment_data?.minimum_withdrawal ? (
+                                <LtrText is_rtl={is_rtl}>
+                                    {payment_data?.minimum_withdrawal}
+                                </LtrText>
+                            ) : Array.isArray(payment_data.min_max_withdrawal) ? (
                                 payment_data.min_max_withdrawal.map((md, idx) => (
                                     <LtrText is_rtl={is_rtl} key={idx}>
                                         {md}

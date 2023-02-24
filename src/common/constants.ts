@@ -52,6 +52,7 @@ export const deriv_api_url = `https://api.${getDomainUrl()}/docs`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
+export const academy_url = `https://academy.deriv.com/`
 export const deriv_mt5_app_url = `https://trade.mql5.com/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979`
 export const derivx_app_url = `${deriv_app_url}/derivx`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
@@ -71,7 +72,7 @@ export const besquare_signup_url =
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
-export const deriv_app_languages = ['id', 'pt', 'es']
+export const deriv_app_languages = ['id', 'pt', 'es', 'ru', 'fr']
 export const smart_trader_languages = [
     'es',
     'fr',
@@ -146,6 +147,7 @@ export const localized_link_url = Object.freeze({
     zoho: zoho_url,
     domain_full_url: domain_full_url,
     derivlife: deriv_life_url,
+    academy: academy_url,
     'terms_and_conditions/#clients': domain_full_url,
     'terms_and_conditions/#business-partners': domain_full_url,
 })
@@ -156,6 +158,17 @@ export const live_chat_key = 'live_chat_redirection'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
-export const cms_end_point = 'https://deriv-academy.directus.app'
-export const cms_assets_end_point = `${cms_end_point}/assets/`
-export const loss_percent = 70
+export const loss_percent = 71
+
+export const cookie_key = 'browser_update_alert_modal_shown'
+export const browsers_minimum_required_version = {
+    Chrome: 72,
+    Chromium: 66,
+    'Mail.RU_Bot': 62,
+    Maxthon: 6,
+    'MIUI Browser': 10,
+    'Mobile Safari': 15,
+    Opera: 58,
+    'Samsung Browser': 10,
+    UCBrowser: 13,
+}

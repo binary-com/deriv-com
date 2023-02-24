@@ -6,16 +6,18 @@ export type TImage = {
     src: string
     alt: string
     width: string
+    margin?: string
 }
 
 export type TTranslationComponents = {
     key: number
-    type: 'link' | 'strong'
+    type: 'link' | 'deriv_app_link' | 'strong'
     to?: string
 }[]
 
 type TLocalize = {
     translation_text?: TString
+    eu_translation_text?: TString
     translation_components?: TTranslationComponents
     img?: TImage
 }

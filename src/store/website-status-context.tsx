@@ -28,13 +28,13 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
     }, [send])
 
     useEffect(() => {
-        setWebsiteStatus((prev) => ({ clients_country, ...prev }))
+        setWebsiteStatus((prev) => ({ ...prev, clients_country }))
     }, [clients_country, setWebsiteStatus])
 
     useEffect(() => {
         if (data) {
             const { p2p_config } = data
-            setWebsiteStatus((prev) => ({ p2p_config, ...prev }))
+            setWebsiteStatus((prev) => ({ ...prev, p2p_config }))
         }
     }, [data, setWebsiteStatus])
 

@@ -87,7 +87,7 @@ const DisclaimerSection = () => {
                     <>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority, Triq l-Imdina, Zone 1, Central Business District, Birkirkara CBD 1010, Malta, under the Investments Services Act."
+                                translate_text="Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act (<0>licence</0>). The registered office of Deriv Investments (Europe) Limited is at W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR9033, Malta."
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -100,13 +100,26 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             {localize(
-                                'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
+                                'Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly.',
                             )}
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
-                            {localize(
-                                "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
-                            )}
+                            <Localize
+                                translate_text="Make sure to read our <0>Terms and conditions</0>,  <1>Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                components={[
+                                    <BoldLink
+                                        key={0}
+                                        target="_blank"
+                                        to="/terms-and-conditions/"
+                                    />,
+                                    <BoldLink
+                                        key={1}
+                                        target="_blank"
+                                        to="/tnc/risk-disclosure.pdf"
+                                    />,
+                                    <BoldLink key={2} target="_blank" to="/responsible/" />,
+                                ]}
+                            />
                         </DisclaimerParagraph>
                     </>
                 )}

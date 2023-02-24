@@ -71,24 +71,16 @@ const Hero = ({ is_ppc }: HeroProps) => {
 
     return (
         <HeroWrapper>
-            <Flex
-                height="100vh"
-                position="absolute"
-                ai="center"
-                top="0"
-                tablet={{ ai: 'flex-end', pb: '20rem' }}
-            >
-                <Box>
-                    <StaticImage
-                        src="../../images/common/home/hero_bg.png"
-                        alt="world map"
-                        loading="eager"
-                        formats={['avif', 'webp', 'auto']}
-                        quality={26}
-                        objectFit="contain"
-                        placeholder="none"
-                    />
-                </Box>
+            <Flex position="absolute" ai="center" top="0" tablet={{ ai: 'flex-end', pb: '20rem' }}>
+                <StaticImage
+                    src="../../images/common/home/hero_bg.png"
+                    alt="world map"
+                    loading="eager"
+                    formats={['avif', 'webp', 'auto']}
+                    quality={26}
+                    objectFit="contain"
+                    placeholder="none"
+                />
             </Flex>
             <Container fd="column" ai="flex-start">
                 <Flex

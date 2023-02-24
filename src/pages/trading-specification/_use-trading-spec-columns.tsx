@@ -7,33 +7,29 @@ import info from 'images/svg/trading-specification/info-icon.svg'
 
 const liveMarketColumnHelper = createColumnHelper<THeaders>()
 
-const useLiveColumns = () => {
+const useLiveColumns = (market: string) => {
     const columns = useMemo(() => {
         return [
             liveMarketColumnHelper.accessor('instrument', {
-                header: () => (
-                    <TableHeaderCell
-                        text={<Localize translate_text="Instrument" />}
-                        infoIcon={info}
-                    />
-                ),
-                cell: (info) => info.getValue() && <TableCellGroup data={info.getValue()} />,
+                header: () => <TableHeaderCell text={<Localize translate_text="Instrument" />} />,
+                cell: (info) =>
+                    info.getValue() && <TableCellGroup data={info.getValue()} market={market} />,
             }),
             liveMarketColumnHelper.accessor('contract_size', {
                 header: () => (
                     <TableHeaderCell
                         text={<Localize translate_text="Contract size" />}
                         infoIcon={info}
+                        toolTip={
+                            <Localize translate_text="A standardised amount that tells traders the exact quantities being bought or sold" />
+                        }
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('base_currency', {
                 header: () => (
-                    <TableHeaderCell
-                        text={<Localize translate_text="Base currency" />}
-                        infoIcon={info}
-                    />
+                    <TableHeaderCell text={<Localize translate_text="Base currency" />} />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
@@ -42,6 +38,9 @@ const useLiveColumns = () => {
                     <TableHeaderCell
                         text={<Localize translate_text="Minimum size" />}
                         infoIcon={info}
+                        toolTip={
+                            <Localize translate_text="The minimum lot size required to open a new position" />
+                        }
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -51,6 +50,9 @@ const useLiveColumns = () => {
                     <TableHeaderCell
                         text={<Localize translate_text="Minimum Spread" />}
                         infoIcon={info}
+                        toolTip={
+                            <Localize translate_text="The lowest possible spread obtainable with the current trading conditions" />
+                        }
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -60,6 +62,9 @@ const useLiveColumns = () => {
                     <TableHeaderCell
                         text={<Localize translate_text="Target Spread" />}
                         infoIcon={info}
+                        toolTip={
+                            <Localize translate_text="The spread that the broker wishes to offer under the current trading conditions" />
+                        }
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -69,6 +74,9 @@ const useLiveColumns = () => {
                     <TableHeaderCell
                         text={<Localize translate_text="Max effective leverage" />}
                         infoIcon={info}
+                        toolTip={
+                            <Localize translate_text="The actual leverage experienced by the client when account leverage is divided by the margin rate" />
+                        }
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -78,6 +86,9 @@ const useLiveColumns = () => {
                     <TableHeaderCell
                         text={<Localize translate_text="Margin requirement (%)" />}
                         infoIcon={info}
+                        toolTip={
+                            <Localize translate_text="The percentage requirement of funds the client needs in their account to open a position" />
+                        }
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -87,6 +98,9 @@ const useLiveColumns = () => {
                     <TableHeaderCell
                         text={<Localize translate_text="Swap long (%)" />}
                         infoIcon={info}
+                        toolTip={
+                            <Localize translate_text="Swaps charged upon rollover for long (buy) positions" />
+                        }
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -96,21 +110,21 @@ const useLiveColumns = () => {
                     <TableHeaderCell
                         text={<Localize translate_text="Swap short (Points)" />}
                         infoIcon={info}
+                        toolTip={
+                            <Localize translate_text="Swaps charged upon rollover for short (sell) positions" />
+                        }
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('trading_hours', {
                 header: () => (
-                    <TableHeaderCell
-                        text={<Localize translate_text="Trading hours" />}
-                        infoIcon={info}
-                    />
+                    <TableHeaderCell text={<Localize translate_text="Trading hours" />} />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
         ]
-    }, [])
+    }, [market])
 
     return columns
 }

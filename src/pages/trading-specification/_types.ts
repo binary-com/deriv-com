@@ -5,8 +5,13 @@ export type TAvailableLiveMarkets =
     | 'cryptocurrency'
     | 'commodities'
 
+export type TInstrumentData = {
+    symbol?: string
+    dl_icon?: true
+    instrument?: string
+}
 export type THeaders = {
-    instrument?: { symbol?: string; dl_icon?: true; instrument?: string }
+    instrument?: TInstrumentData
     contract_size: string | number
     base_currency: string
     minimum_size: number

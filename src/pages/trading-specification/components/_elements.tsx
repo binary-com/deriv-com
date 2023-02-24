@@ -1,5 +1,8 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState } from 'react'
 import styled, { css } from 'styled-components'
+import { Popover } from 'react-tiny-popover'
+import { TAvailableLiveMarkets, TInstrumentData } from '../_types'
+import PopUpMenu from './_popup_menu'
 import { Header as HeaderText } from 'components/elements'
 import device from 'themes/device'
 import { Button } from 'components/form'
@@ -21,6 +24,8 @@ export const TableContainer = styled.div`
 `
 export const TableData = styled.table`
     width: 100%;
+    display: inline-block;
+    overflow: auto;
     table > :nth-child(1) > tr:nth-of-type(1) {
         height: 110px;
     }
@@ -100,6 +105,7 @@ export const CellIcon = styled.div`
 type TTableHeaderCell = {
     text?: ReactElement
     infoIcon?: string
+    toolTip?: ReactElement
 }
 
 type TTableCell = {
@@ -110,10 +116,40 @@ const StyledTableHeaderText = styled(HeaderText)`
         font-size: 10px;
     }
 `
-export const TableHeaderCell = ({ text, infoIcon }: TTableHeaderCell) => {
+const StyledToolTipContainer = styled.div`
+    width: 24rem;
+    padding: 0 20px;
+`
+const ToolTipText = styled(HeaderText)`
+    font-size: 10px;
+    color: var(--color-grey-5);
+    font-weight: normal;
+`
+export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) => {
+    const [isInfoVisible, setIsInfoVisible] = useState(false)
+    const onMouseOver = () => {
+        setIsInfoVisible(true)
+    }
+    const onMouseLeave = () => {
+        setIsInfoVisible(false)
+    }
     return (
         <>
-            <img src={infoIcon} />
+            <Popover
+                isOpen={isInfoVisible}
+                positions={['top']}
+                padding={8}
+                content={
+                    <StyledToolTipContainer>
+                        <ToolTipText as="p" align="center">
+                            {toolTip}
+                        </ToolTipText>
+                    </StyledToolTipContainer>
+                }
+            >
+                <img src={infoIcon} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} />
+            </Popover>
+
             <Cell>
                 <StyledTableHeaderText type="small" width="fit-content" align="start" as="p">
                     {text}
@@ -128,11 +164,6 @@ const StyledHeaderText = styled(HeaderText)`
         font-size: 11px;
     }
 `
-const handleDlIcon = () => {
-    document
-        .querySelector('#dlPopUp')
-        .scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
-}
 export const TableCell = ({ text }: TTableCell) => {
     return (
         <>
@@ -146,13 +177,15 @@ export const TableCell = ({ text }: TTableCell) => {
 }
 
 type TTableCellGroup = {
-    data: any
+    data?: TInstrumentData
+    market?: TAvailableLiveMarkets
 }
-export const TableCellGroup = ({ data }: TTableCellGroup) => {
+export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { is_row } = useRegion()
     const symbol = data.symbol
     const text = data.instrument
     const dlIcon = data.dl_icon
+    const [showPopUp, setShowPopUp] = useState(false)
 
     if (data !== undefined)
         return (
@@ -162,7 +195,24 @@ export const TableCellGroup = ({ data }: TTableCellGroup) => {
                     {text}
                 </StyledHeaderText>
                 {dlIcon && is_row && (
-                    <img src={dl} width="24px" height="24px" onClick={handleDlIcon} />
+                    <img
+                        src={dl}
+                        width="24px"
+                        height="24px"
+                        onClick={() => {
+                            setShowPopUp(true)
+                            document.body.style.overflow = 'hidden'
+                        }}
+                    />
+                )}
+                {showPopUp && (
+                    <PopUpMenu
+                        market={market}
+                        toggle={() => {
+                            setShowPopUp(false)
+                            document.body.style.overflow = 'scroll'
+                        }}
+                    />
                 )}
             </CellIcon>
         )
@@ -241,7 +291,6 @@ export const ModalCard = styled.div`
 export const Background = styled.div`
     position: absolute;
     width: 100%;
-    height: 100vh;
     top: 0;
     left: 0;
     background-color: var(--color-black);

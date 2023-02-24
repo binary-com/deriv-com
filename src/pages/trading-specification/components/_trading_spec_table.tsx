@@ -21,13 +21,12 @@ import {
     StyledPaginationContainer,
 } from './_elements'
 import AvailablePlatform from './_available-platform'
-import PopUpMenu from './_popup_menu'
 import RightChevron from 'images/svg/trading-specification/right-chevron.svg'
 import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
 import SearchIcon from 'images/svg/help/search.svg'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
-import { Header, LinkText } from 'components/elements'
+import { Header } from 'components/elements'
 import { sanitize } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
@@ -80,16 +79,6 @@ const SearchInput = styled.input`
         color: var(--color-grey-17);
     }
 `
-const StyledHeader = styled(Header)`
-    font-size: 14px;
-    font-weight: normal;
-`
-const StyledPopUpContainer = styled(Flex)`
-    justify-content: start;
-    @media ${device.tabletL} {
-        padding: 26px 16px;
-    }
-`
 const DisclaimerText = styled(Header)`
     color: var(--color-grey-5);
     font-weight: 400;
@@ -101,7 +90,7 @@ const DisclaimerText = styled(Header)`
     }
 `
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
-    const { is_eu, is_row } = useRegion()
+    const { is_eu } = useRegion()
     const specification_data = is_eu ? forex_specification.eu_data : forex_specification.data
     const [markets_data, setMarketsData] = useState(specification_data)
     const [filtered_data, setFilteredData] = useState(specification_data)
@@ -117,12 +106,9 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     }, [market])
     const [search_value, setSearchValue] = useState('')
     const [globalFilter, setGlobalFilter] = useState('')
-
-    const [showPopUp, setShowPopUp] = useState(false)
-
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const columns = useLiveColumns()
+    const columns = useLiveColumns(market)
 
     const table = useReactTable({
         data: markets_data,
@@ -179,15 +165,6 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                     />
                 </SearchForm>
             </StyledFlex>
-            {showPopUp && (
-                <PopUpMenu
-                    market={market}
-                    toggle={() => {
-                        setShowPopUp(false)
-                        document.body.style.overflow = 'scroll'
-                    }}
-                />
-            )}
 
             <TableContainer>
                 <TableData>
@@ -221,27 +198,6 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                 </TableData>
             </TableContainer>
             <StyledPaginationContainer>
-                {market !== 'derived' && is_row && (
-                    <StyledPopUpContainer id="dlPopUp">
-                        <StyledHeader as="p">
-                            <Localize
-                                translate_text="<0>Dynamic leverage </0>(DL) applies to this instrument."
-                                components={[
-                                    <LinkText
-                                        onClick={() => {
-                                            setShowPopUp(true)
-                                            document.documentElement.scrollTop = 40
-                                            document.body.style.overflow = 'hidden'
-                                        }}
-                                        color="red"
-                                        key={0}
-                                    />,
-                                ]}
-                            />
-                        </StyledHeader>
-                    </StyledPopUpContainer>
-                )}
-
                 <Flex jc="end" tablet_jc="center">
                     <StyledButton
                         onClick={() => table.previousPage()}

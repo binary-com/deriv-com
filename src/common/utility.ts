@@ -13,6 +13,7 @@ import {
 } from './constants'
 import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
+
 export const trimSpaces = (value: string): string => value?.trim()
 
 export const isBrowser = () => typeof window !== 'undefined'

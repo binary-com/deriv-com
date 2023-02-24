@@ -12,7 +12,7 @@ import { PlatformQueryParamWithHash } from 'common/utility'
 
 const Markets = () => {
     const { is_eu } = useRegion()
-    const { has_platform } = PlatformQueryParamWithHash()
+    const { is_deriv_go } = PlatformQueryParamWithHash()
     const description_eu = localize(
         'Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite.',
     )
@@ -34,7 +34,7 @@ const Markets = () => {
             />
             <NavTab route_from={'synthetic'} route_offset={50} />
             <SyntheticIndices simple_step_content={simple_step_content_synthetic} />
-            {!has_platform && <Signup appearance={Appearances.public} />}
+            {!is_deriv_go && <Signup appearance={Appearances.public} />}
         </Layout>
     )
 }

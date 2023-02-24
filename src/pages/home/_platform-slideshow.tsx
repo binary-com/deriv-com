@@ -17,8 +17,6 @@ const ImagePlaceHolder = styled.div`
 const ImageWrapper = styled.div<{ $is_hidden: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
-    outline: none;
-    border: none;
     animation: fade 1s ease-in-out;
 
     @keyframes fade {
@@ -29,6 +27,11 @@ const ImageWrapper = styled.div<{ $is_hidden: boolean }>`
             opacity: 1;
         }
     }
+`
+
+const SlideContainer = styled(Flex)`
+    outline: none;
+    border: none;
 `
 
 const PlatformSlideshow = () => {
@@ -47,7 +50,6 @@ const PlatformSlideshow = () => {
                             formats={['avif', 'webp', 'auto']}
                             quality={36}
                             loading="eager"
-                            placeholder="blurred"
                         />
                     ),
                 },
@@ -142,14 +144,14 @@ const PlatformSlideshow = () => {
     }
 
     return (
-        <Flex
+        <SlideContainer
             max_width="690px"
             max_height="626px"
-            tablet={{ max_height: '360px', ai: 'center' }}
+            tablet={{ height: '360px', ai: 'center' }}
             z_index="2"
         >
             <Slides images={slide_images} active_index={active_index} />
-        </Flex>
+        </SlideContainer>
     )
 }
 
@@ -167,6 +169,7 @@ const Slides = ({ images, active_index }: SlidesProps) => {
                     <ImageWrapper
                         key={`platform-slideshow__${key}`}
                         $is_hidden={active_index !== index}
+                        style={{ height: '100%' }}
                     >
                         {image}
                     </ImageWrapper>

@@ -225,44 +225,6 @@ export const redirectOpenLiveChatBox = (is_redirect: boolean) => {
     }
 }
 
-export const convertDate = (date: string) => {
-    const newdate = new Date(date)
-    return (
-        newdate.toLocaleString('en', { day: 'numeric' }) +
-        ' ' +
-        newdate.toLocaleString('en', { month: 'short' }) +
-        ' ' +
-        newdate.toLocaleString('en', { year: 'numeric' })
-    )
-}
-
-export const getVideoObject = (video_data) => {
-    const {
-        published_date,
-        video_thumbnail,
-        video_title,
-        video_duration,
-        video_slug,
-        video_description,
-        featured,
-        tags,
-    } = video_data
-    const { title: alt } = video_thumbnail
-
-    return {
-        published_date,
-        thumbnail_img_alt: alt,
-        video_title,
-        video_description,
-        video_thumbnail,
-        video_url: getAssetUrl(video_slug),
-        video_duration,
-        video_slug,
-        featured,
-        types: tags.map((t) => t.tags_id?.tag_name),
-    }
-}
-
 // remove spaces before appending "..." on truncated strings
 const getLimit = (input: string, limit: number) => {
     if (input[limit - 1] === ' ') {
@@ -475,4 +437,9 @@ export const PlatformQueryParamWithHash = () => {
     const has_platform = is_deriv_go ? 'derivgo' : is_deriv_p2p ? 'p2p' : undefined
 
     return { has_platform, is_deriv_p2p, is_deriv_go }
+}
+
+export const getDateFromToday = (num_of_days: number) => {
+    const today = new Date()
+    return new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
 }

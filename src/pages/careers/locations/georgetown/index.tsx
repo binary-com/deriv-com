@@ -26,7 +26,7 @@ const Georgetown = () => {
                 <SEO
                     title={localize('_t_Cayman Islands – Our office | Deriv_t_')}
                     description={localize(
-                        '_t_View current openings at Deriv’s office in the Cayman Islands. Join us and be part of a talented team that analyses compliance and trading strategies. _t_',
+                        '_t_View current openings at Deriv’s office in the Cayman Islands. Join us and be part of a talented team that analyses compliance and trading strategies._t_',
                     )}
                 />
             }

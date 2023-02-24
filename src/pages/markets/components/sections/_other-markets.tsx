@@ -40,27 +40,27 @@ type LearnMoreProps = {
 const markets_type: MarketsType = {
     forex: {
         icon: () => <img src={Forex} alt="Forex" width="64" height="64" />,
-        title: <Localize translate_text="Forex" />,
+        title: <Localize translate_text="_t_Forex_t_" />,
         content: (
-            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
+            <Localize translate_text="_t_Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market._t_" />
         ),
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
     derived: {
         icon: () => <img src={DerivedFX} alt="Synthetic indices" width="64" height="64" />,
-        title: <Localize translate_text="Derived" />,
+        title: <Localize translate_text="_t_Derived_t_" />,
         content: (
-            <Localize translate_text="Trading derived indices lets you benefit from correctly predicting the price movements of simulated markets and indices derived from real-world markets." />
+            <Localize translate_text="_t_Trading derived indices lets you benefit from correctly predicting the price movements of simulated markets and indices derived from real-world markets._t_" />
         ),
         to: '/markets/derived-fx/',
         id: 'marketderivedothermarkets',
     },
     stock_indices: {
         icon: () => <img src={StockIndices} alt="Stocks & indices" width="64" height="64" />,
-        title: <Localize translate_text="Stocks & indices" />,
+        title: <Localize translate_text="_t_Stocks & indices_t_" />,
         content: (
-            <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
+            <Localize translate_text="_t_Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets._t_" />
         ),
         to: '/markets/stock/',
         id: 'marketstockothermarkets',
@@ -68,9 +68,9 @@ const markets_type: MarketsType = {
 
     commodities: {
         icon: () => <img src={Commodities} alt="Commodities" width="64" height="64" />,
-        title: <Localize translate_text="Commodities" />,
+        title: <Localize translate_text="_t_Commodities_t_" />,
         content: (
-            <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
+            <Localize translate_text="_t_Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil._t_" />
         ),
         to: '/markets/commodities/',
         id: 'marketcommoditiesothermarket',
@@ -78,9 +78,9 @@ const markets_type: MarketsType = {
 
     cryptocurrencies: {
         icon: () => <img src={Cryptocurrencies} alt="Cryptocurrencies" width="64" height="64" />,
-        title: <Localize translate_text="Cryptocurrencies" />,
+        title: <Localize translate_text="_t_Cryptocurrencies_t_" />,
         content: (
-            <Localize translate_text="Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them." />
+            <Localize translate_text="_t_Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them._t_" />
         ),
         to: '/markets/cryptocurrencies/',
         id: 'marketcryptocurrenciesothermarket',
@@ -185,7 +185,9 @@ const Card = ({ market }: CardProps) => {
                 {markets_type[market].content}
             </Text>
             <LearnMore to={markets_type[market].to} visibility={button_visibility}>
-                <Text mr="1rem">{localize('Learn more')}</Text>
+                <Text mr="1rem">
+                    <Localize translate_text="_t_Learn more_t_" />
+                </Text>
                 <ImageWithDireciton src={Arrow} alt="Arrow" />
             </LearnMore>
         </StyledFlex>
@@ -205,7 +207,9 @@ const MobileCard = ({ market }: CardProps) => {
             </Flex>
             <Text size="14px">{markets_type[market].content}</Text>
             <LearnMore to={markets_type[market].to} visibility="true">
-                <Text>{localize('Learn more')}</Text>
+                <Text>
+                    <Localize translate_text="_t_Learn more_t_" />
+                </Text>
                 <ImageWithDireciton src={Arrow} alt="Arrow" />
             </LearnMore>
         </MobileCardWrapper>
@@ -291,7 +295,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
             <Desktop>
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h2" type="section-title" align="start">
-                        {localize('Other markets you might be interested in')}
+                        <Localize translate_text="_t_Other markets you might be interested in_t_" />
                     </StyledHeader>
                     <Carousel has_autoplay autoplay_interval={4000} {...settings}>
                         {filteredMarkets.map((market) =>
@@ -306,7 +310,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
             </Desktop>
             <Mobile breakpoint="mobileL">
                 <StyledHeader as="h2" type="section-title" align="start">
-                    {localize('Other markets you might be interested in')}
+                    <Localize translate_text="_t_Other markets you might be interested in_t_" />
                 </StyledHeader>
                 <MobileCardContainer direction="column">
                     {filteredMarkets.map((market) =>

@@ -212,7 +212,7 @@ const AvailableTradesDesctop = ({
                     {CFDs && (
                         <Card
                             name="CFDs"
-                            display_name={<Localize translate_text="CFDs" />}
+                            display_name={<Localize translate_text="_t_CFDs_t_" />}
                             onTabChange={() => handleTabChange('CFDs')}
                             active_tab={active_tab}
                         />
@@ -220,7 +220,7 @@ const AvailableTradesDesctop = ({
                     {is_non_eu && DigitalOptions && (
                         <Card
                             name="Options"
-                            display_name={<Localize translate_text="Options" />}
+                            display_name={<Localize translate_text="_t_Options_t_" />}
                             onTabChange={() => handleTabChange('Options')}
                             active_tab={active_tab}
                         />
@@ -229,7 +229,7 @@ const AvailableTradesDesctop = ({
                     {Multipliers && (
                         <Card
                             name="Multipliers"
-                            display_name={<Localize translate_text="Multipliers" />}
+                            display_name={<Localize translate_text="_t_Multipliers_t_" />}
                             onTabChange={() => handleTabChange('Multipliers')}
                             active_tab={active_tab}
                         />

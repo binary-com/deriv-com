@@ -110,11 +110,11 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
                 </MarketSubHeader>
                 {is_logged_in ? (
                     <StyledButton width="128px" onClick={handleGetTrading} secondary>
-                        {localize('Get Trading')}
+                        <Localize translate_text="_t_Get Trading_t_" />
                     </StyledButton>
                 ) : (
                     <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
-                        {localize('Create free demo account')}
+                        <Localize translate_text="_t_Create free demo account_t_" />
                     </StyledButton>
                 )}
             </StyledContainer>

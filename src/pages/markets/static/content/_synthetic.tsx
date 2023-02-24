@@ -17,23 +17,23 @@ type Synthetic = {
 
 export const simple_step_content_synthetic = [
     {
-        header: <Localize translate_text="Practise" />,
+        header: <Localize translate_text="_t_Practise_t_" />,
         text: (
-            <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
+            <Localize translate_text="_t_Open a demo account and practise with an unlimited amount of virtual funds._t_" />
         ),
         icon: <img src={PractiseIcon} alt="Practise" width="32" height="32" />,
     },
     {
-        header: <Localize translate_text="Trade" />,
+        header: <Localize translate_text="_t_Trade_t_" />,
         text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading synthetics and other markets." />
+            <Localize translate_text="_t_Open a real account, make a deposit, and start trading synthetics and other markets._t_" />
         ),
         icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
     },
     {
-        header: <Localize translate_text="Withdraw" />,
+        header: <Localize translate_text="_t_Withdraw_t_" />,
         text: (
-            <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
+            <Localize translate_text="_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_" />
         ),
         icon: <img src={WithdrawIcon} alt="Withdraw" width="32" height="32" />,
     },
@@ -43,27 +43,29 @@ const synthetic: Synthetic[] = [
     {
         src: SevenTrading,
         alt: 'Trading available everyday',
-        text: <Localize translate_text="24/7 trading, including weekends and public holidays" />,
+        text: (
+            <Localize translate_text="_t_24/7 trading, including weekends and public holidays_t_" />
+        ),
     },
     {
         src: MarketandRisk,
         alt: 'Real world market',
-        text: <Localize translate_text="Free from real-world market and liquidity risks" />,
+        text: <Localize translate_text="_t_Free from real-world market and liquidity risks_t_" />,
     },
     {
         src: ResponsiveWebsite,
         alt: 'Easy to use platform',
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        text: <Localize translate_text="_t_Responsive, easy-to-use platforms_t_" />,
     },
     {
         src: ExclusiveTradeType,
         alt: 'Exclusive access',
-        text: <Localize translate_text="Exclusive access to innovative trade types" />,
+        text: <Localize translate_text="_t_Exclusive access to innovative trade types_t_" />,
     },
     {
         src: FriendlySupport,
         alt: 'Chat support',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        text: <Localize translate_text="_t_Smart and friendly support, 7 days a week_t_" />,
     },
 ]
 

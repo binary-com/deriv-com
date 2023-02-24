@@ -34,29 +34,31 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
     const crypto_content: CryptoContent[] = [
         {
             src: Leverage,
-            text: is_eu ? localize('1:2 leverage') : localize('1:100 leverage'),
+            text: is_eu ? localize('_t_1:2 leverage_t_') : localize('_t_1:100 leverage_t_'),
             alt: 'Leverage',
         },
         {
             src: TightSpread,
-            text: localize('Tight spreads'),
+            text: localize('_t_Tight spreads_t_'),
             alt: 'Spreads',
         },
         {
             src: CryptoPairs,
-            text: localize('25+ crypto pairs'),
+            text: localize('_t_25+ crypto pairs_t_'),
             alt: 'Crypto currency pairs',
         },
         {
             src: ZeroCommission,
-            text: localize('Zero commission'),
+            text: localize('_t_Zero commission_t_'),
             alt: 'Commission',
         },
     ]
 
     return (
         <>
-            <WhyTrade header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}>
+            <WhyTrade
+                header={<Localize translate_text="_t_Why trade cryptocurrencies on Deriv_t_" />}
+            >
                 {crypto_content.map((content, index) => (
                     <StyledBox
                         key={index}
@@ -69,12 +71,12 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                 CFDs={<CFDs market_content={crypto_cfds} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
                 display_title={
-                    <Localize translate_text="Cryptocurrency trades available on Deriv" />
+                    <Localize translate_text="_t_Cryptocurrency trades available on Deriv_t_" />
                 }
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />
+                    <Localize translate_text="_t_Start trading cryptocurrencies on Deriv in 3 simple steps_t_" />
                 }
                 content={simple_step_content}
                 sign_up

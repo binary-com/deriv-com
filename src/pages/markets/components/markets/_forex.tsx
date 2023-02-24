@@ -25,7 +25,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
     const { is_row, is_eu } = useRegion()
     return (
         <>
-            <WhyTrade header={<Localize translate_text="Why trade forex on Deriv" />}>
+            <WhyTrade header={<Localize translate_text="_t_Why trade forex on Deriv_t_" />}>
                 {(is_eu ? forex_content_eu : forex_content).map((content, index) => (
                     <StyledBox
                         key={index}
@@ -39,7 +39,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 DigitalOptions={
                     is_row && (
                         <DigitalOptions
-                            market_name={localize('forex')}
+                            market_name={localize('_t_forex_t_')}
                             options_list={forex_options}
                         />
                     )
@@ -48,11 +48,11 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     <Multipliers market_content={is_eu ? forex_multiplier_eu : forex_multiplier} />
                 }
                 // name="Forex"
-                display_title={<Localize translate_text="Forex trades available on Deriv" />}
+                display_title={<Localize translate_text="_t_Forex trades available on Deriv_t_" />}
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading forex on Deriv in 3 simple steps" />
+                    <Localize translate_text="_t_Start trading forex on Deriv in 3 simple steps_t_" />
                 }
                 content={simple_step_content}
                 sign_up

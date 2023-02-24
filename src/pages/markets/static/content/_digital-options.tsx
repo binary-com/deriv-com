@@ -58,11 +58,11 @@ const getOptions = (is_synthetic_options: boolean) => {
     const options: Array<OptionElement[]> = [
         [
             {
-                title: <Localize translate_text="Up/Down" />,
+                title: <Localize translate_text="_t_Up/Down_t_" />,
                 svg: RiseFall,
                 text: (
                     <Localize
-                        translate_text="<0>Rise/Fall:</0> Predict whether the exit spot will be strictly higher or lower than the entry spot at the end of the contract period."
+                        translate_text="_t_<0>Rise/Fall:</0> Predict whether the exit spot will be strictly higher or lower than the entry spot at the end of the contract period._t_"
                         components={[<strong key={0} />]}
                     />
                 ),
@@ -71,7 +71,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                 svg: HigherLower,
                 text: (
                     <Localize
-                        translate_text="<0>Higher/Lower:</0> Predict whether the exit spot will be higher or lower than a price target (the barrier) at the end of the contract period."
+                        translate_text="_t_<0>Higher/Lower:</0> Predict whether the exit spot will be higher or lower than a price target (the barrier) at the end of the contract period._t_"
                         components={[<strong key={0} />]}
                     />
                 ),
@@ -79,11 +79,11 @@ const getOptions = (is_synthetic_options: boolean) => {
         ],
         [
             {
-                title: <Localize translate_text="In/Out" />,
+                title: <Localize translate_text="_t_In/Out_t_" />,
                 svg: EbEo,
                 text: (
                     <Localize
-                        translate_text="<0>Ends Between/Ends Outside:</0> Predict whether the exit spot will be inside or outside two price targets at the end of the contract period."
+                        translate_text="_t_<0>Ends Between/Ends Outside:</0> Predict whether the exit spot will be inside or outside two price targets at the end of the contract period._t_"
                         components={[<strong key={0} />]}
                     />
                 ),
@@ -92,7 +92,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                 svg: SbGo,
                 text: (
                     <Localize
-                        translate_text="<0>Stays Between/Goes Outside:</0> Predict whether the market will stay inside or go outside two price targets at any time during the contract period."
+                        translate_text="_t_<0>Stays Between/Goes Outside:</0> Predict whether the market will stay inside or go outside two price targets at any time during the contract period._t_"
                         components={[<strong key={0} />]}
                     />
                 ),
@@ -100,10 +100,10 @@ const getOptions = (is_synthetic_options: boolean) => {
         ],
         [
             {
-                title: <Localize translate_text="Touch/No Touch" />,
+                title: <Localize translate_text="_t_Touch/No Touch_t_" />,
                 svg: TNT,
                 text: (
-                    <Localize translate_text="Predict whether the market will touch or not touch a target at any time during the contract period." />
+                    <Localize translate_text="_t_Predict whether the market will touch or not touch a target at any time during the contract period._t_" />
                 ),
             },
         ],
@@ -115,11 +115,11 @@ const getOptions = (is_synthetic_options: boolean) => {
             [
                 {
                     wrap: 'wrap',
-                    title: <Localize translate_text="Digits" />,
+                    title: <Localize translate_text="_t_Digits_t_" />,
                     svg: MatchesDiffers,
                     text: (
                         <Localize
-                            translate_text="<0>Matches/Differs:</0> Predict what number will be the last digit of the last tick of a contract."
+                            translate_text="_t_<0>Matches/Differs:</0> Predict what number will be the last digit of the last tick of a contract._t_"
                             components={[<strong key={0} />]}
                         />
                     ),
@@ -128,7 +128,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                     svg: OuOd,
                     text: (
                         <Localize
-                            translate_text="<0>Over/Under:</0> Predict whether the last digit of the last tick of a contract will be higher or lower than a specific number."
+                            translate_text="_t_<0>Over/Under:</0> Predict whether the last digit of the last tick of a contract will be higher or lower than a specific number._t_"
                             components={[<strong key={0} />]}
                         />
                     ),
@@ -138,7 +138,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                     svg: EvenOdd,
                     text: (
                         <Localize
-                            translate_text="<0>Even/Odd:</0> Predict whether the last digit of the last tick of a contract will be an even number or an odd number."
+                            translate_text="_t_<0>Even/Odd:</0> Predict whether the last digit of the last tick of a contract will be an even number or an odd number._t_"
                             components={[<strong key={0} />]}
                         />
                     ),
@@ -147,55 +147,55 @@ const getOptions = (is_synthetic_options: boolean) => {
             ],
             [
                 {
-                    title: <Localize translate_text="Reset Call/Reset Put" />,
+                    title: <Localize translate_text="_t_Reset Call/Reset Put_t_" />,
                     svg: RcRp,
                     text: (
-                        <Localize translate_text="Predict whether the exit spot will be higher or lower than either the entry spot or the spot at reset time." />
+                        <Localize translate_text="_t_Predict whether the exit spot will be higher or lower than either the entry spot or the spot at reset time._t_" />
                     ),
                 },
                 {
-                    title: <Localize translate_text="High/Low Ticks" />,
+                    title: <Localize translate_text="_t_High/Low Ticks_t_" />,
                     svg: HighLowTicks,
                     text: (
-                        <Localize translate_text="Predict which will be the highest or the lowest tick in a series of five ticks." />
+                        <Localize translate_text="_t_Predict which will be the highest or the lowest tick in a series of five ticks._t_" />
                     ),
                     mobile_pt: '2.4rem',
                 },
             ],
             [
                 {
-                    title: <Localize translate_text="Touch/No Touch" />,
+                    title: <Localize translate_text="_t_Touch/No Touch_t_" />,
                     svg: TNT,
                     text: (
-                        <Localize translate_text="Predict whether the market will touch or not touch a target at any time during the contract period." />
+                        <Localize translate_text="_t_Predict whether the market will touch or not touch a target at any time during the contract period._t_" />
                     ),
                 },
                 {
-                    title: <Localize translate_text="Asians" />,
+                    title: <Localize translate_text="_t_Asians_t_" />,
                     svg: Asians,
                     text: (
-                        <Localize translate_text="Predict whether the exit spot (last tick) will be higher or lower than the average of the ticks at the end of the contract period." />
+                        <Localize translate_text="_t_Predict whether the exit spot (last tick) will be higher or lower than the average of the ticks at the end of the contract period._t_" />
                     ),
                     mobile_pt: '2.4rem',
                 },
             ],
             [
                 {
-                    title: <Localize translate_text="Only Ups/Only Downs" />,
+                    title: <Localize translate_text="_t_Only Ups/Only Downs_t_" />,
                     svg: OuOd,
                     text: (
-                        <Localize translate_text="Predict whether consecutive ticks will rise or fall successively after the entry spot." />
+                        <Localize translate_text="_t_Predict whether consecutive ticks will rise or fall successively after the entry spot._t_" />
                     ),
                 },
             ],
             [
                 {
                     wrap: 'wrap',
-                    title: <Localize translate_text="Lookbacks" />,
+                    title: <Localize translate_text="_t_Lookbacks_t_" />,
                     svg: HighClose,
                     text: (
                         <Localize
-                            translate_text="<0>High-Close:</0> When you purchase a ‘High-Close’ contract, your win or loss will be equal to the multiplier times the difference between the high and the close over the duration of the contract."
+                            translate_text="_t_<0>High-Close:</0> When you purchase a ‘High-Close’ contract, your win or loss will be equal to the multiplier times the difference between the high and the close over the duration of the contract._t_"
                             components={[<strong key={0} />]}
                         />
                     ),
@@ -204,7 +204,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                     svg: HighLow,
                     text: (
                         <Localize
-                            translate_text="<0>High-Low:</0> When you purchase a ‘High-Low’ contract, your win or loss will be equal to the multiplier times the difference between the high and the low over the duration of the contract."
+                            translate_text="_t_<0>High-Low:</0> When you purchase a ‘High-Low’ contract, your win or loss will be equal to the multiplier times the difference between the high and the low over the duration of the contract._t_"
                             components={[<strong key={0} />]}
                         />
                     ),
@@ -214,7 +214,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                     svg: CloseLow,
                     text: (
                         <Localize
-                            translate_text="<0>Close-Low:</0> When you purchase a ‘Close-Low’ contract, your win or loss will be equal to the multiplier times the difference between the close and the low over the duration of the contract."
+                            translate_text="_t_<0>Close-Low:</0> When you purchase a ‘Close-Low’ contract, your win or loss will be equal to the multiplier times the difference between the close and the low over the duration of the contract._t_"
                             components={[<strong key={0} />]}
                         />
                     ),
@@ -231,11 +231,11 @@ export const commodities_options: Options = {
     market_instruments: {
         content: [
             {
-                title: <Localize translate_text="Metals" />,
+                title: <Localize translate_text="_t_Metals_t_" />,
                 component: <MetalsOptions />,
             },
             {
-                title: <Localize translate_text="Energy" />,
+                title: <Localize translate_text="_t_Energy_t_" />,
                 component: <EnergyOptions />,
             },
         ],
@@ -256,11 +256,11 @@ export const forex_options: Options = {
         },
         content: [
             {
-                title: <Localize translate_text="Major pairs" />,
+                title: <Localize translate_text="_t_Major pairs_t_" />,
                 component: <MajorPairs />,
             },
             {
-                title: <Localize translate_text="Minor pairs" />,
+                title: <Localize translate_text="_t_Minor pairs_t_" />,
                 component: <MinorOptionsPairs />,
             },
         ],
@@ -278,12 +278,12 @@ export const basket_options: Options = {
         template: 2,
         content: [
             {
-                title: <Localize translate_text="Commodities Basket" />,
+                title: <Localize translate_text="_t_Commodities Basket_t_" />,
                 component: <BasketIndicesCommodities />,
                 details: <BasketCommoditiesDetails />,
             },
             {
-                title: <Localize translate_text="Forex Basket" />,
+                title: <Localize translate_text="_t_Forex Basket_t_" />,
                 component: <BasketIndicesCfds />,
                 details: <BasketFXDetails />,
             },
@@ -300,7 +300,7 @@ export const stock_options: Options = {
             {
                 title: (
                     <Localize
-                        translate_text="American<0></0>indices"
+                        translate_text="_t_American<0></0>indices_t_"
                         components={[<br key={0} />]}
                     />
                 ),
@@ -314,7 +314,10 @@ export const stock_options: Options = {
             },
             {
                 title: (
-                    <Localize translate_text="Asian<0></0>indices" components={[<br key={0} />]} />
+                    <Localize
+                        translate_text="_t_Asian<0></0>indices_t_"
+                        components={[<br key={0} />]}
+                    />
                 ),
                 component: <AsiaOceania />,
                 details: <AsiaOceaniaDetails />,
@@ -327,7 +330,7 @@ export const stock_options: Options = {
             {
                 title: (
                     <Localize
-                        translate_text="European<0></0>indices"
+                        translate_text="_t_European<0></0>indices_t_"
                         components={[<br key={0} />]}
                     />
                 ),
@@ -349,17 +352,17 @@ export const synthetic_options: Options = {
         has_global_accordion: true,
         content: [
             {
-                title: <Localize translate_text="Continuous indices" />,
+                title: <Localize translate_text="_t_Continuous indices_t_" />,
                 component: <ContinuousIndices />,
                 details: <ContinuousIndicesDetails />,
             },
             {
-                title: <Localize translate_text="Jump indices" />,
+                title: <Localize translate_text="_t_Jump indices_t_" />,
                 component: <JumpIndices />,
                 details: <JumpIndicesDetails />,
             },
             {
-                title: <Localize translate_text="Daily reset indices" />,
+                title: <Localize translate_text="_t_Daily reset indices_t_" />,
                 component: <DailyResetIndices />,
                 details: <DailyResetIndicesDetails />,
             },
@@ -369,7 +372,7 @@ export const synthetic_options: Options = {
     eu_content: [
         <Localize
             key={0}
-            translate_text="Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average."
+            translate_text="_t_Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average._t_"
         />,
     ],
 }

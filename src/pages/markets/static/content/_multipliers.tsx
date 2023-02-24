@@ -50,7 +50,7 @@ export const forex_multiplier_eu = {
     },
     content: [
         {
-            title: <Localize translate_text="Major pairs" />,
+            title: <Localize translate_text="_t_Major pairs_t_" />,
             component: <MajorPairs />,
         },
     ],
@@ -86,7 +86,7 @@ export const forex_multiplier: ForexAndBasketMultiplier = {
     },
     content: [
         {
-            title: <Localize translate_text="Major pairs" />,
+            title: <Localize translate_text="_t_Major pairs_t_" />,
             component: <MajorPairs />,
         },
     ],
@@ -100,12 +100,12 @@ export const basket_multiplier: ForexAndBasketMultiplier = {
     template: 2,
     content: [
         {
-            title: <Localize translate_text="Commodities Basket" />,
+            title: <Localize translate_text="_t_Commodities Basket_t_" />,
             component: <BasketIndicesCommodities />,
             details: <BasketCommoditiesDetails />,
         },
         {
-            title: <Localize translate_text="Forex Basket" />,
+            title: <Localize translate_text="_t_Forex Basket_t_" />,
             component: <BasketIndicesCfds />,
             details: <BasketFXDetails />,
         },
@@ -120,23 +120,23 @@ export const synthetic_multiplier: SyntheticMultiplier = {
     },
     content: [
         {
-            title: <Localize translate_text="Continuous indices" />,
+            title: <Localize translate_text="_t_Continuous indices_t_" />,
             component: <ContinuousIndices />,
             details: <ContinuousIndicesDetails />,
         },
         {
-            title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: <Localize translate_text="Crash/Boom" />,
+            title: <Localize translate_text="_t_Crash/Boom_t_" />,
+            mobile_title: <Localize translate_text="_t_Crash/Boom_t_" />,
             component: <CrashBoomMultipliers />,
             details: <CrashBoomMultipliersDetails />,
         },
         {
-            title: <Localize translate_text="Jump indices" />,
+            title: <Localize translate_text="_t_Jump indices_t_" />,
             component: <JumpIndices />,
             details: <JumpIndicesDetails />,
         },
         {
-            title: <Localize translate_text="Step indices" />,
+            title: <Localize translate_text="_t_Step indices_t_" />,
             component: <StepIndices />,
             details: <StepIndicesDetails />,
         },
@@ -144,7 +144,7 @@ export const synthetic_multiplier: SyntheticMultiplier = {
     eu_content: [
         <Localize
             key={0}
-            translate_text="Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP."
+            translate_text="_t_Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP._t_"
         />,
     ],
 }
@@ -158,13 +158,13 @@ export const synthetic_multiplier_eu: SyntheticMultiplier = {
     template: 1,
     content: [
         {
-            title: <Localize translate_text="Continuous indices" />,
+            title: <Localize translate_text="_t_Continuous indices_t_" />,
             component: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,
         },
         {
-            title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: <Localize translate_text="Crash/Boom" />,
+            title: <Localize translate_text="_t_Crash/Boom_t_" />,
+            mobile_title: <Localize translate_text="_t_Crash/Boom_t_" />,
             component: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
         },
@@ -181,7 +181,7 @@ export const crypto_multiplier: CryptoMultiplier = {
     has_global_accordion: true,
     content: [
         {
-            title: <Localize translate_text="Crypto pairs" />,
+            title: <Localize translate_text="_t_Crypto pairs_t_" />,
             component: <CryptocurrenciesMultipliers />,
             details: <CryptocurrenciesDetails />,
         },

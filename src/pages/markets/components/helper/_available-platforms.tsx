@@ -62,7 +62,6 @@ const StyledText = styled(Header)`
     }
 `
 const StyledFlex = styled(Flex)`
-    background: var(--color-grey-4);
     padding: 0.8rem;
 
     ${Text} {
@@ -111,7 +110,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dtrader/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DTrader} alt="DTrader" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DTrader')}</Text>
+                            <Text ml="0.4rem">{localize('Deriv Trader')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import ForexBg from 'images/common/markets/hero-forex.png'
-import DerivedEuBg from 'images/common/markets/derived-eu.png'
-import DerivedRowBg from 'images/common/markets/derived-row.png'
-import StocksAndIndicesBg from 'images/common/markets/stocks-and-indices.png'
-import CryptocurrenciesBg from 'images/common/markets/cryptocurrencies.png'
-import CommoditiesBg from 'images/common/markets/commodities.png'
+import ForexBg from 'images/common/markets/hero-forex.jpg'
+import DerivedEuBg from 'images/common/markets/derived-eu.jpg'
+import DerivedRowBg from 'images/common/markets/derived-row.jpg'
+import StocksAndIndicesBg from 'images/common/markets/stocks-and-indices.jpg'
+import CryptocurrenciesBg from 'images/common/markets/cryptocurrencies.jpg'
+import CommoditiesBg from 'images/common/markets/commodities.jpg'
 import NavMarkets from 'components/layout/nav/nav-markets'
 import { Header } from 'components/elements'
 import Button from 'components/custom/_button'
@@ -68,7 +68,7 @@ const handleBg = ({
 const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     position: relative;
     background: url(${handleBg});
-    background-size: 89rem;
+    background-size: 165rem;
     background-repeat: no-repeat;
     background-position: right;
     height: 63rem;
@@ -153,7 +153,8 @@ const StyledHeader = styled(Header)`
     margin-top: 16rem;
 
     @media ${device.laptopM} {
-        font-size: 32px;
+        font-size: 28px;
+        width: 100%;
         align-items: center;
         margin-top: 0;
     }

@@ -13,7 +13,7 @@ const WhatAreAccumulators = () => {
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h2" type="page-title" mb="1.2rem">
+                    <Header as="h2" type="heading-2" mb="1.2rem">
                         {localize('What are accumulators?')}
                     </Header>
                     <Text mb="4rem">
@@ -25,7 +25,7 @@ const WhatAreAccumulators = () => {
             </SectionContainer>
             <FullWidthMultiColumn
                 header={<Localize translate_text="Why trade accumulators on Deriv" />}
-                button_title={<Localize translate_text="Don't have a Deriv.com account yet?" />}
+                button_title={<Localize translate_text="Don't have a Deriv account yet?" />}
                 button_text={<Localize translate_text="_t_Create free demo account_t_" />}
                 multiple_row
             >

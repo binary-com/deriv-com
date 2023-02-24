@@ -25,7 +25,7 @@ const Item = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        max-width: 18rem;
+        max-width: 90%;
         gap: 6px;
 
         ${Text} {
@@ -58,7 +58,6 @@ const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         text-align: center;
         max-width: 80vw;
-        margin-bottom: 8px;
         font-size: 24px;
         line-height: 30px;
     }
@@ -78,6 +77,20 @@ const StyledTitle = styled(Header)`
         line-height: 30px;
     }
 `
+const StyledButtonContent = styled(Text)`
+    text-align: center;
+    margin-top: 1.6rem;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 1.6rem;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+`
+
 const StyledTextContent = styled(Text)`
     text-align: center;
     margin-top: 1.6rem;
@@ -89,6 +102,8 @@ const StyledTextContent = styled(Text)`
 
     @media ${device.tabletL} {
         font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 `
 
@@ -130,7 +145,7 @@ export const FullWidthMultiColumn = ({
                         })}
                     </ItemContainer>
                 ))}
-                {button_title && <StyledTextContent>{button_title}</StyledTextContent>}
+                {button_title && <StyledButtonContent>{button_title}</StyledButtonContent>}
                 {button_text && <Button onClick={handleSignup} label={button_text} primary />}
             </Flex>
         </StyledSectionContainer>

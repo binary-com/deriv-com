@@ -70,7 +70,10 @@ const left = css`
 
 const TabList = styled.div<TabListType>`
     max-width: 100%;
-    ${(props) => (props.is_reverse ? left : right)}
+
+    @media (min-width: 1024px) {
+        ${(props) => (props.is_reverse ? left : right)}
+    }
 `
 
 const TabListWrapper = styled.div`

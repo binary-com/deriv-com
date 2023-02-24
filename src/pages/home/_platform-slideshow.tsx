@@ -17,6 +17,8 @@ const ImagePlaceHolder = styled.div`
 const ImageWrapper = styled.div<{ $is_hidden: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
+    outline: none;
+    border: none;
     animation: fade 1s ease-in-out;
 
     @keyframes fade {
@@ -56,7 +58,7 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform2.png"
                             alt="laptop dtrader"
                             formats={['avif', 'webp', 'auto']}
-                            quality={46}
+                            quality={44}
                             placeholder="none"
                         />
                     ),
@@ -80,7 +82,7 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform4.png"
                             alt="laptop deriv x"
                             formats={['avif', 'webp', 'auto']}
-                            quality={46}
+                            quality={44}
                             placeholder="none"
                         />
                     ),
@@ -96,7 +98,7 @@ const PlatformSlideshow = () => {
                             src="../../images/common/home/hero_platform1_eu.png"
                             alt="laptop dtrader eu"
                             formats={['avif', 'webp', 'auto']}
-                            quality={46}
+                            quality={44}
                             loading="eager"
                             placeholder="none"
                         />
@@ -107,7 +109,7 @@ const PlatformSlideshow = () => {
                     image: (
                         <StaticImage
                             src="../../images/common/home/hero_platform2_eu.png"
-                            alt="laptop mt5 eu"
+                            alt="laptop dmt5 eu"
                             formats={['avif', 'webp', 'auto']}
                             quality={38}
                             placeholder="none"

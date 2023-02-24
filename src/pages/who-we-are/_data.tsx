@@ -224,6 +224,12 @@ export const desktop_pins: MapPinType[] = [
         title: <Localize translate_text="Singapore, Singapore" />,
         link: '/careers/locations/singapore',
     },
+    {
+        left: '45.9%',
+        top: '28%',
+        title: <Localize translate_text="Reading, United kingdom" />,
+        link: '/careers/locations/reading',
+    },
 ]
 
 export const mobile_pins: MapPinType[] = [
@@ -340,6 +346,12 @@ export const mobile_pins: MapPinType[] = [
         top: '65.1%',
         title: <Localize translate_text="Port Vila, Vanuatu" />,
         link: '/careers/locations/vanuatu',
+    },
+    {
+        left: '45.9%',
+        top: '20%',
+        title: <Localize translate_text="Reading, United kingdom" />,
+        link: '/careers/locations/reading',
     },
 ]
 

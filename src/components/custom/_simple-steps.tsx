@@ -171,14 +171,13 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
                     )
                 })}
             </StyledFlex>
-            {(sign_up && !is_logged_in) ||
-                (!is_deriv_go && (
-                    <LinkButtonWrapper>
-                        <StyledLinkButton id="dm-steps-signup" secondary onClick={handleSignup}>
-                            {localize('Sign up now')}
-                        </StyledLinkButton>
-                    </LinkButtonWrapper>
-                ))}
+            {((sign_up && !is_logged_in) || !is_deriv_go) && (
+                <LinkButtonWrapper>
+                    <StyledLinkButton id="dm-steps-signup" secondary onClick={handleSignup}>
+                        {localize('Sign up now')}
+                    </StyledLinkButton>
+                </LinkButtonWrapper>
+            )}
         </StyledSection>
     )
 }

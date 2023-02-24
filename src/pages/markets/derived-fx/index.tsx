@@ -8,9 +8,11 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
+import { PlatformQueryParamWithHash } from 'common/utility'
 
 const DerivedFxPage = () => {
     const { is_eu } = useRegion()
+    const { is_deriv_go } = PlatformQueryParamWithHash()
     const description_eu = localize(
         'Trade 24/7 on our proprietary synthetics that simulate real-world market movements. These indices are unaffected by regular<br /> market hours, global events, or market and liquidity risks. Manage your exposure by selecting the volatility level to suit your risk appetite.',
     )
@@ -31,7 +33,7 @@ const DerivedFxPage = () => {
             />
             <NavTab route_from={'derived-fx'} route_offset={500} />
             <Derived simple_step_content={simple_step_content_forex} />
-            <Signup appearance={Appearances.public} />
+            {!is_deriv_go && <Signup appearance={Appearances.public} />}
         </Layout>
     )
 }

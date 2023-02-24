@@ -13,7 +13,6 @@ import {
 } from './constants'
 import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
-
 export const trimSpaces = (value: string): string => value?.trim()
 
 export const isBrowser = () => typeof window !== 'undefined'
@@ -466,3 +465,13 @@ export const handleRowRedirect = (residence: string, current_client_country: str
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
+
+// if you wanna use a condition that if client comes from deriv go or p2p app and your url contains #
+// you can use this function else usePlatformQueryParam hook
+export const PlatformQueryParamWithHash = () => {
+    const is_deriv_go = window.location.href.indexOf('?platform=derivgo') > -1
+    const is_deriv_p2p = window.location.href.indexOf('?platform=p2p') > -1
+    const has_platform = is_deriv_go && is_deriv_p2p
+
+    return { has_platform, is_deriv_p2p, is_deriv_go }
+}

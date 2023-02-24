@@ -72,18 +72,18 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            {localize('What is the rebranding about?')}
+                            <Localize translate_text="_t_What is the rebranding about?_t_" />
                         </Header>
                         <Text>
-                            {localize(
-                                'The rebranding exercise sees us strengthen our position to provide clients with the flexibility, ease, and confidence to trade as they wish. It is part of our company’s growth process as we step into the third decade of delivering services of value to clients.',
-                            )}
+                            <Localize translate_text="_t_The rebranding exercise sees us strengthen our position to provide clients with the flexibility, ease, and confidence to trade as they wish. It is part of our company’s growth process as we step into the third decade of delivering services of value to clients._t_" />
                         </Text>
                     </Question>
                     <Answer>
                         <Accordion has_single_state>
                             <AccordionItem
-                                header={<Localize translate_text="Why is Binary.com rebranding?" />}
+                                header={
+                                    <Localize translate_text="_t_Why is Binary.com rebranding?_t_" />
+                                }
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -93,7 +93,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize translate_text="Is Binary.com being bought over by another company?" />
+                                    <Localize translate_text="_t_Is Binary.com being bought over by another company?_t_" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -104,7 +104,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize translate_text="What will happen to Binary.com?" />
+                                    <Localize translate_text="_t_What will happen to Binary.com?_t_" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -114,7 +114,7 @@ const FAQ = () => {
                                 <WhatWillHappen />
                             </AccordionItem>
                             <AccordionItem
-                                header={localize('What changes are being introduced?')}
+                                header={localize('_t_What changes are being introduced?_t_')}
                                 style={item_style}
                                 header_style={header_style}
                                 plus
@@ -130,17 +130,17 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            {localize('How will it affect my clients?')}
+                            <Localize translate_text="_t_How will it affect my clients?_t_" />
                         </Header>
                         <Text>
-                            <Localize translate_text="We understand that clients may be overwhelmed by the change. That’s why we’ve worked very hard to make sure that their transition to Deriv.com is as seamless as possible. As an affiliate, you play a key role in supporting them in this transition. Below are some concerns they may have, along with the answers to convey your assurance." />
+                            <Localize translate_text="_t_We understand that clients may be overwhelmed by the change. That’s why we’ve worked very hard to make sure that their transition to Deriv.com is as seamless as possible. As an affiliate, you play a key role in supporting them in this transition. Below are some concerns they may have, along with the answers to convey your assurance._t_" />
                         </Text>
                     </Question>
                     <Answer>
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={
-                                    <Localize translate_text="Why should I switch to Deriv.com?" />
+                                    <Localize translate_text="_t_Why should I switch to Deriv.com?_t_" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -150,7 +150,9 @@ const FAQ = () => {
                                 <WhySwitch />
                             </AccordionItem>
                             <AccordionItem
-                                header={<Localize translate_text="What’s new on Deriv.com?" />}
+                                header={
+                                    <Localize translate_text="_t_What’s new on Deriv.com?_t_" />
+                                }
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -160,7 +162,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize translate_text="Can I still trade on Binary.com?" />
+                                    <Localize translate_text="_t_Can I still trade on Binary.com?_t_" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -171,7 +173,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize translate_text="How do I get started on Deriv.com?" />
+                                    <Localize translate_text="_t_How do I get started on Deriv.com?_t_" />
                                 }
                                 style={item_style}
                                 header_style={header_style}
@@ -188,18 +190,16 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            {localize('How does it transform our partnership?')}
+                            <Localize translate_text="_t_How does it transform our partnership?_t_" />
                         </Header>
                         <Text>
-                            {localize(
-                                'As our valued partner, you will no doubt have concerns about the status of your partnership with Deriv.com. Don’t worry, we’ve made the transition as seamless as possible for you so you can continue to build your network and increase your earning potential.',
-                            )}
+                            <Localize translate_text="_t_As our valued partner, you will no doubt have concerns about the status of your partnership with Deriv.com. Don’t worry, we’ve made the transition as seamless as possible for you so you can continue to build your network and increase your earning potential._t_" />
                         </Text>
                     </Question>
                     <Answer>
                         <Accordion has_single_state>
                             <AccordionItem
-                                header={localize('What will happen to my affiliate account?')}
+                                header={localize('_t_What will happen to my affiliate account?_t_')}
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -209,7 +209,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize translate_text="How can I differentiate Deriv.com commission from that of Binary.com?" />
+                                    <Localize translate_text="_t_How can I differentiate Deriv.com commission from that of Binary.com?_t_" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -220,7 +220,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={localize(
-                                    'How does this change affect me as an introducing broker (IB)?',
+                                    '_t_How does this change affect me as an introducing broker (IB)?_t_',
                                 )}
                                 parent_style={parent_style}
                                 style={item_style}
@@ -231,7 +231,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize translate_text="Does Deriv.com support API developers?" />
+                                    <Localize translate_text="_t_Does Deriv.com support API developers?_t_" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -242,7 +242,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize translate_text="Does Deriv.com have a payment agent programme?" />
+                                    <Localize translate_text="_t_Does Deriv.com have a payment agent programme?_t_" />
                                 }
                                 style={item_style}
                                 header_style={header_style}
@@ -259,19 +259,17 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            <Localize translate_text="How do I get started promoting Deriv.com?" />
+                            <Localize translate_text="_t_How do I get started promoting Deriv.com?_t_" />
                         </Header>
                         <Text>
-                            {localize(
-                                'Rest assured that your partnership is pivotal in this rebranding process. In fact, we believe this is an opportunity for you to strengthen your own position within your network of clients. And you can certainly count on us to be responsive and supportive of you in this effort.',
-                            )}
+                            <Localize translate_text="_t_Rest assured that your partnership is pivotal in this rebranding process. In fact, we believe this is an opportunity for you to strengthen your own position within your network of clients. And you can certainly count on us to be responsive and supportive of you in this effort._t_" />
                         </Text>
                     </Question>
                     <Answer>
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={
-                                    <Localize translate_text="Can I start promoting Deriv.com immediately?" />
+                                    <Localize translate_text="_t_Can I start promoting Deriv.com immediately?_t_" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -281,7 +279,9 @@ const FAQ = () => {
                                 <StartPromoting />
                             </AccordionItem>
                             <AccordionItem
-                                header={<Localize translate_text="How do I promote Deriv.com?" />}
+                                header={
+                                    <Localize translate_text="_t_How do I promote Deriv.com?_t_" />
+                                }
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -290,7 +290,7 @@ const FAQ = () => {
                                 <HowToPromote />
                             </AccordionItem>
                             <AccordionItem
-                                header={localize('What marketing support do you provide?')}
+                                header={localize('_t_What marketing support do you provide?_t_')}
                                 style={item_style}
                                 header_style={header_style}
                                 plus

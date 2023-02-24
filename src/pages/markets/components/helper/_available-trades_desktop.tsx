@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { StringParam, useQueryParam } from 'use-query-params'
+import { navigate } from 'gatsby'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
@@ -219,35 +220,38 @@ const AvailableTradesDesctop = ({
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
-                        <Link to={`?tab=cfds#cfds`}>
-                            <Card
-                                name="CFDs"
-                                display_name={<Localize translate_text="CFDs" />}
-                                onTabChange={() => setTab('cfds')}
-                                active_tab={tab || 'cfds'}
-                            />
-                        </Link>
+                        <Card
+                            name="CFDs"
+                            display_name={<Localize translate_text="CFDs" />}
+                            onTabChange={() => {
+                                setTab('cfds')
+                                navigate(`?tab=cfds#cfds`)
+                            }}
+                            active_tab={tab || 'cfds'}
+                        />
                     )}
                     {is_non_eu && DigitalOptions && (
-                        <Link to={`?tab=options#options`}>
-                            <Card
-                                name="Options"
-                                display_name={<Localize translate_text="Options" />}
-                                onTabChange={() => setTab('options')}
-                                active_tab={tab || 'cfds'}
-                            />
-                        </Link>
+                        <Card
+                            name="Options"
+                            display_name={<Localize translate_text="Options" />}
+                            onTabChange={() => {
+                                setTab('options')
+                                navigate(`?tab=options#options`)
+                            }}
+                            active_tab={tab || 'cfds'}
+                        />
                     )}
 
                     {Multipliers && (
-                        <Link to={`?tab=multipliers#multipliers`}>
-                            <Card
-                                name="Multipliers"
-                                display_name={<Localize translate_text="Multipliers" />}
-                                onTabChange={() => setTab('multipliers')}
-                                active_tab={tab || 'cfds'}
-                            />
-                        </Link>
+                        <Card
+                            name="Multipliers"
+                            display_name={<Localize translate_text="Multipliers" />}
+                            onTabChange={() => {
+                                setTab('multipliers')
+                                navigate(`?tab=multipliers#multipliers`)
+                            }}
+                            active_tab={tab || 'cfds'}
+                        />
                     )}
                 </CardWrapper>
                 <ContentWrapper>

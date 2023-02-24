@@ -24,8 +24,8 @@ const Item = styled(Flex)`
         margin-bottom: 10px;
     }
 
-    @media ${device.tabletL} {
-        max-width: 90%;
+    @media ${device.mobileL} {
+        max-width: 50%;
         gap: 6px;
 
         ${Text} {
@@ -54,10 +54,11 @@ const StyledHeader = styled(Header)`
     font-size: 32px;
     line-height: 40px;
     color: white;
+    max-width: 80vw;
 
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
         text-align: center;
-        max-width: 80vw;
+        max-width: 65vw;
         font-size: 24px;
         line-height: 30px;
     }
@@ -70,7 +71,7 @@ const StyledTitle = styled(Header)`
     text-align: center;
 
     @media ${device.tablet} {
-        max-width: 80vw;
+        max-width: 90vw;
         margin-bottom: 8px;
         font-weight: 700;
         font-size: 14px;

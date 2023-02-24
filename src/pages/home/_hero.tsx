@@ -72,7 +72,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
     return (
         <HeroWrapper>
             <Flex
-                height="100vh"
+                height="100%"
                 position="absolute"
                 ai="center"
                 top="0"

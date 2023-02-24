@@ -9,17 +9,11 @@ import { SEO, Desktop, Container } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import { DerivStore } from 'store'
 
 const HelpCentre = () => {
-    const is_deriv_p2p = 'Deriv P2P'
     const { is_deriv_go } = usePlatformQueryParam()
-    const { is_p2p_allowed_country } = React.useContext(DerivStore)
     const general_questions = getQuestionsBySection(GENERAL)
-    const platforms_questions = getQuestionsBySection(PLATFORMS).filter((item) => {
-        return !is_p2p_allowed_country ? !item.category.includes(is_deriv_p2p) : item
-    })
-
+    const platforms_questions = getQuestionsBySection(PLATFORMS)
     return (
         <Layout>
             <SEO

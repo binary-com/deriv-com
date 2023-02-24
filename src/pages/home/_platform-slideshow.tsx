@@ -50,6 +50,7 @@ const PlatformSlideshow = () => {
                             formats={['avif', 'webp', 'auto']}
                             quality={36}
                             loading="eager"
+                            placeholder="none"
                         />
                     ),
                 },

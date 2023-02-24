@@ -2,7 +2,7 @@ import React, { useState, CSSProperties } from 'react'
 import styled from 'styled-components'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
+import { Header, LinkText, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
@@ -50,11 +50,8 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const SubTitle = styled(Text)`
+const SubTitle = styled(Header)`
     margin-top: 8px;
-    @media ${device.tabletL} {
-        font-size: 2rem;
-    }
 `
 const InputGroup = styled.div`
     position: relative;
@@ -89,12 +86,13 @@ const SocialButton = styled(Button)<SocialButtonProps>`
         height: 4.8rem;
     }
 `
-const SocialText = styled(Text)`
+const SocialText = styled(Header)`
+    width: auto;
     margin-right: 1.4rem;
     margin-left: 0.7rem;
     font-weight: 500;
     font-size: 1.2rem;
-    color: ${(props) => props.color || 'var(--color-black-9)'};
+    color: ${({ color }) => color || 'var(--color-black-9)'};
     @media ${device.tabletL} {
         margin-left: 2.7rem;
         font-size: 14px;
@@ -111,7 +109,7 @@ const SocialWrapper = styled.div<CSSProperties>`
         gap: 8px;
     }
 `
-const LoginText = styled(Text)`
+const LoginText = styled(Header)`
     text-align: center;
     align-self: center;
     margin-top: 2.6rem;
@@ -154,7 +152,9 @@ const SignupNew = ({
             <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
                 {localize('Sign up')}
             </StyledHeader>
-            <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
+            <SubTitle type="paragraph-1" as="p" weight="normal">
+                {localize('Enter your email address to begin')}
+            </SubTitle>
 
             <InputGroup>
                 <Input
@@ -214,7 +214,7 @@ const SignupNew = ({
                     social
                 >
                     <img src={Google} alt="google" width="24" height="24" />
-                    <SocialText>
+                    <SocialText as="p" align="center">
                         <Localize translate_text="Sign up with Google" />
                     </SocialText>
                 </SocialButton>
@@ -228,7 +228,7 @@ const SignupNew = ({
                     bgColor="var(--color-blue-15)"
                 >
                     <img src={Facebook} alt="facebook" width="24" height="24" />
-                    <SocialText color="var(--color-white)">
+                    <SocialText color="var(--color-white)" as="p" align="center">
                         <Localize translate_text="Sign up with Facebook" />
                     </SocialText>
                 </SocialButton>
@@ -242,12 +242,12 @@ const SignupNew = ({
                     bgColor="var(--color-black)"
                 >
                     <img src={Apple} alt="apple" width="24" height="24" />
-                    <SocialText color="var(--color-white)">
+                    <SocialText color="var(--color-white)" as="p" align="center">
                         <Localize translate_text="Sign up with Apple" />
                     </SocialText>
                 </SocialButton>
             </SocialWrapper>
-            <LoginText mt="3.75rem">
+            <LoginText weight="normal" type="paragraph-1">
                 {localize('Already have an account?')}
                 <StyledLinkText
                     id="dm-new-login-button"

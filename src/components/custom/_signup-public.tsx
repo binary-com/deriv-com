@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
+import Login, { TSocialProvider } from 'common/login'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
 import { localize } from 'components/localization'
@@ -125,7 +126,7 @@ const BackgroundWrapper = styled(Flex)`
 
     @media screen and (max-width: 1040px) and (min-width: 992px) {
         width: 47%;
-        margin-left: 3%;
+        margin-left: 5%;
     }
 
     & > div {
@@ -219,7 +220,7 @@ const StyledHeader = styled(Header)<{ position?: string }>`
 `
 const StyledFormWrapper = styled.div`
     background: white;
-    max-width: 414px;
+    max-width: 430px;
     padding: 20px 20px 30px;
     margin-left: 30px;
     border-radius: 8px;
@@ -345,20 +346,20 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
 `
 const social_button_content: SocialButtonContent[] = [
     {
-        provider: 'Apple',
-        id: 'gtm-signup-apple',
+        provider: 'apple',
+        id: 'dm-signup-apple',
         img: Apple,
         text: 'Apple',
     },
     {
-        provider: 'Facebook',
-        id: 'gtm-signup-facebook',
+        provider: 'facebook',
+        id: 'dm-signup-facebook',
         img: Facebook,
         text: 'Facebook',
     },
     {
-        provider: 'Google',
-        id: 'gtm-signup-google',
+        provider: 'google',
+        id: 'dm-signup-google',
         img: Google,
         text: 'Google',
     },
@@ -370,7 +371,6 @@ const SignupPublic = ({
     handleInputChange,
     handleValidation,
     autofocus,
-    handleSocialSignup,
     is_submitting,
 }: SignupPublicProps) => {
     const data = useStaticQuery(query)
@@ -381,6 +381,14 @@ const SignupPublic = ({
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
+
+    const handleSocialSignup = (e) => {
+        e.preventDefault()
+
+        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
+        Login.initOneAll(data_provider)
+    }
+
     return (
         <StyledSectionContainer>
             <Desktop>
@@ -461,7 +469,7 @@ const SignupPublic = ({
                                                 height="20"
                                                 style={{ margin: '0 10px 0 0' }}
                                             />
-                                            {provider}
+                                            {text}
                                         </SocialButton>
                                     ))}
                                 </SocialWrapper>
@@ -585,7 +593,7 @@ const SignupPublic = ({
                                 />
                                 <MobileSocialWrapper jc="unset" ai="center">
                                     <MobileSignInText>
-                                        {localize('Or sign in with')}
+                                        {localize('Or sign up with')}
                                     </MobileSignInText>
                                     <Flex>
                                         {social_button_content.map(({ provider, id, img }) => (

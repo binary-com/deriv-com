@@ -46,7 +46,7 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledContainer = styled(Container)`
-    margin-top: 4rem;
+    margin-top: 8.2rem;
 
     @media ${device.tabletL} {
         width: 100%;

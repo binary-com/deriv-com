@@ -35,7 +35,7 @@ const Container = styled(Box)<ContainerType>`
         max-width: 1200px;
     }
     @media ${device.laptopL} {
-        width: 84%;
+        width: 92%;
     }
     @media ${device.laptopM} {
         flex-direction: ${(props) => props.laptop_direction};

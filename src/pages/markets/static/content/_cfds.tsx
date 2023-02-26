@@ -165,9 +165,7 @@ export const stock_cfds: MarketInstrumentsElement = {
     template: 2,
     content: [
         {
-            title: (
-                <Localize translate_text="American<0></0>indices" components={[<br key={0} />]} />
-            ),
+            title: <Localize translate_text="American indices" />,
             component: <AmericanIndices />,
             details: <AmericasDetails />,
             col: 3,
@@ -177,7 +175,7 @@ export const stock_cfds: MarketInstrumentsElement = {
             gap: '16px',
         },
         {
-            title: <Localize translate_text="Asian<0></0>indices" components={[<br key={0} />]} />,
+            title: <Localize translate_text="Asian indices" />,
             component: <AsianIndices />,
             details: <AsianIndicesDetails />,
             col: 3,
@@ -187,9 +185,7 @@ export const stock_cfds: MarketInstrumentsElement = {
             gap: '16px',
         },
         {
-            title: (
-                <Localize translate_text="European<0></0>indices" components={[<br key={0} />]} />
-            ),
+            title: <Localize translate_text="European indices" />,
             component: <EuropeanIndices />,
             details: <EuropeanIndicesDetails />,
             col: 3,

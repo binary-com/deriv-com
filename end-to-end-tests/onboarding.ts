@@ -6,18 +6,12 @@ config({ path: `.env.development` })
 export default class OnboardingFlow {
     readonly page: Page
     readonly email: string
-    // private signupPage: Page | null;
     constructor(page: Page) {
         const randomString = new Date().getTime()
         this.page = page
         this.email = `deriv-fe-e2e-${randomString}@deriv.com`
-        // this.signupPage = null;
     }
-
     async changeEndpoint() {
-        // await this.page.goto(process.env.TRADER_APP_URL!)
-        // await expect(this.page).toHaveTitle('Trader | Deriv')
-        // await this.cookieDialogHandler()
         await this.page.goto(`${process.env.TRADER_APP_URL!}/endpoint`)
 
         await this.page.waitForSelector(
@@ -84,7 +78,6 @@ export default class OnboardingFlow {
             '#deriv_app > #app_contents > .dc-themed-scrollbars > form > .dc-btn--primary',
         )
     }
-
     async updateServerURLAndAppIDInLocalStorage() {
         const server = process.env.ENDPOINT!
         const app_id = process.env.APPID!
@@ -96,13 +89,12 @@ export default class OnboardingFlow {
             return Promise.resolve(result)
         })
         expect(server_url).toBe(process.env.ENDPOINT!)
-        // await this.page.waitForTimeout(10000);
     }
     async demoWizardHandler() {
-        await this.page.locator('.static-dashboard-wrapper__header > h2', { hasText: 'CFDs' })
-        await this.page.locator('.static-dashboard-wrapper__header > h2', {
-            hasText: 'Multipliers',
-        })
+        // await this.page.locator('.static-dashboard-wrapper__header > h2', { hasText: 'CFDs' })
+        // await this.page.locator('.static-dashboard-wrapper__header > h2', {
+        //     hasText: 'Multipliers',
+        // })
         await this.page.locator('button[type="submit"]', { hasText: 'Next' }).click()
         await this.page.locator('button[type="submit"]', { hasText: 'Next' }).click()
         await this.page.locator('button[type="submit"]', { hasText: 'Next' }).click()
@@ -114,11 +106,16 @@ export default class OnboardingFlow {
             await dialog.locator('button', { hasText: /Accept/ }).click()
         }
     }
+    async derivAppcookieDialogHandler() {
+        if (this.page.locator('.cookie-banner'))
+            await this.page.locator('.cookie-banner > button[type=submit]', { hasText: /Accept/ }).click();
+    }
     async signUp() {
         await this.page.goto(process.env.APP_URL!)
         await this.cookieDialogHandler()
         await this.page.waitForSelector('#dm-hero-signup')
-        await this.page.click('#dm-hero-signup'), await this.page.waitForTimeout(10000)
+        await this.page.click('#dm-hero-signup')
+        await this.page.waitForTimeout(5000)
         await this.updateServerURLAndAppIDInLocalStorage()
         await this.page.waitForLoadState()
         await this.page.locator('input[name=email]#dm-email-input').isVisible()
@@ -148,7 +145,7 @@ export default class OnboardingFlow {
             await mailPage.goto(item)
             if (await mailPage.getByText(this.email).isVisible()) {
                 const element = await mailPage.locator('a', { hasText: 'signup' })
-                complete_signup_page= await element.getAttribute('href')
+                complete_signup_page = await element.getAttribute('href')
                 if (complete_signup_page) {
                     await mailPage.close()
                     break
@@ -174,6 +171,10 @@ export default class OnboardingFlow {
             .type('Abcd2134')
         await expect(this.page.getByText(/Start trading/)).toBeEnabled()
         await this.page.getByText(/Start trading/).click()
-        if (this.page.url().includes('onboarding')) await this.demoWizardHandler()
+
+        if (this.page.url().includes('onboarding')) {
+            await this.derivAppcookieDialogHandler()
+            await this.demoWizardHandler()
+        }
     }
 }

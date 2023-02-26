@@ -9,8 +9,7 @@ dotenvConfig({ path: `.env.development` })
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: './end-to-end-tests',
-  testMatch: ["end-to-end-tests/test.spec.ts"],
+  testDir: './end-to-end-tests/tests',
   /* Maximum time one test can run for. */
   timeout: 120 * 1000,
   expect: {

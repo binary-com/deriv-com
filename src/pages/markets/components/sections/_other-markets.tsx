@@ -126,6 +126,10 @@ const LearnMore = styled(LocalizedLink)<LearnMoreProps>`
     }
 
     @media ${device.tabletL} {
+        left: -19rem;
+        bottom: 0;
+        margin-bottom: 1rem;
+
         ${Text} {
             font-size: var(--text-size-sm);
             margin-right: 1rem;
@@ -136,7 +140,7 @@ const MobileCardWrapper = styled(Flex)`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     position: relative;
     width: 100%;
-    max-width: 35.25rem;
+    max-width: 38.25rem;
     height: 100%;
     padding: 24px 24px 44px;
     align-items: center;
@@ -153,9 +157,14 @@ const MobileCardWrapper = styled(Flex)`
         }
     }
 `
+const MobileStyledFlex = styled(Flex)`
+    height: 99%;
+`
+
 const StyledFlex = styled(Flex)`
     min-width: 282px;
-    border-radius: 8px;
+    border-radius: 16px;
+    height: 99%;
     background-color: var(--color-white);
     top: 0;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
@@ -208,13 +217,15 @@ const MobileCard = ({ market }: CardProps) => {
 
     return (
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
-            <Flex width="100%" jc="space-between" mb="2.4rem" ai="center">
-                <Text size="18px" weight="bold">
+            <Flex width="100%" jc="space-between" mb="2.4rem" ai="start" direction="column">
+                <Icon dynamic_id={markets_type[market].id + '_mobile'} />
+                <Text size="18px" mt="2rem" weight="bold">
                     {markets_type[market].title}
                 </Text>
-                <Icon dynamic_id={markets_type[market].id + '_mobile'} />
             </Flex>
-            <Text size="14px">{markets_type[market].content}</Text>
+            <Text size="14px" mb="3rem">
+                {markets_type[market].content}
+            </Text>
             <LearnMore to={markets_type[market].to} visibility="true">
                 <Text>{localize('Learn more')}</Text>
                 <ImageWithDireciton src={Arrow} alt="Arrow" />
@@ -229,17 +240,16 @@ const MarketsWrapper = styled(Flex)`
 `
 
 const StyledHeader = styled(Header)`
-    padding-left: 120px;
     margin-bottom: 2.4rem;
-    @media (min-width: 1440px) {
-        padding: auto;
-        text-align: center;
-    }
-    @media ${device.laptopM} {
+    padding: auto;
+    text-align: center;
+
+    @media ${device.tabletL} {
         padding-left: 0;
         margin: auto;
         text-align: center;
-        margin-bottom: 2rem;
+        width: 300px;
+        margin-bottom: 15rem;
     }
 `
 const MobileCardContainer = styled(Flex)`
@@ -250,6 +260,14 @@ const MobileCardContainer = styled(Flex)`
 const StyledSectionContainer = styled(SectionContainer)`
     padding: 100px 0;
     margin: auto;
+`
+
+const StyledCarousel = styled(SectionContainer)`
+    height: 40rem;
+
+    @media ${device.tabletL} {
+        height: 140rem;
+    }
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
@@ -303,28 +321,32 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     <StyledHeader as="h2" type="section-title" align="start">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
-                    <Carousel has_autoplay autoplay_interval={4000} {...settings}>
-                        {filteredMarkets.map((market) =>
-                            market === '' ? (
-                                <div key={market}></div>
-                            ) : (
-                                <Card market={market} key={market} />
-                            ),
-                        )}
-                    </Carousel>
+                    <StyledCarousel>
+                        <Carousel has_autoplay autoplay_interval={4000} {...settings}>
+                            {filteredMarkets.map((market) =>
+                                market === '' ? (
+                                    <div key={market}></div>
+                                ) : (
+                                    <Card market={market} key={market} />
+                                ),
+                            )}
+                        </Carousel>
+                    </StyledCarousel>
                 </MarketsWrapper>
             </Desktop>
-            <Mobile breakpoint="mobileL">
+            <Mobile>
                 <StyledHeader as="h2" type="section-title" align="start">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
-                <MobileCardContainer direction="column">
-                    {filteredMarkets.map((market) =>
-                        except === market || market === '' ? null : (
-                            <MobileCard market={market} key={market} />
-                        ),
-                    )}
-                </MobileCardContainer>
+                <StyledCarousel>
+                    <MobileCardContainer direction="column">
+                        {filteredMarkets.map((market) =>
+                            except === market || market === '' ? null : (
+                                <MobileCard market={market} key={market} />
+                            ),
+                        )}
+                    </MobileCardContainer>
+                </StyledCarousel>
             </Mobile>
         </StyledSectionContainer>
     )

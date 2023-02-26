@@ -12,7 +12,7 @@ export default class OnboardingFlow {
         this.email = `deriv-fe-e2e-${randomString}@deriv.com`
     }
     async changeEndpoint() {
-        await this.page.goto(`${process.env.TRADER_APP_URL!}/endpoint`)
+        await this.page.goto(`${process.env.TRADING_APP_URL!}/endpoint`)
 
         await this.page.waitForSelector(
             '#app_contents > .dc-themed-scrollbars > form > .dc-input:nth-child(2) > .dc-input__field',

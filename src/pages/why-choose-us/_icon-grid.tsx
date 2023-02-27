@@ -60,11 +60,11 @@ const Container = styled.div`
 type ColProps = {
     Icon: string
     content: TString
-    contentComponents?: ReactElement[]
+    content_components?: ReactElement[]
     title: TString
 }
 
-const Col = ({ Icon, content, contentComponents, title }: ColProps) => (
+const Col = ({ Icon, content, content_components, title }: ColProps) => (
     <GridCol>
         <img src={Icon} alt={title} />
         <Container>
@@ -72,7 +72,7 @@ const Col = ({ Icon, content, contentComponents, title }: ColProps) => (
                 <Localize translate_text={title} />
             </StyledHeader>
             <Text lh="1.55" mt="1.8rem">
-                <Localize translate_text={content} components={contentComponents} />
+                <Localize translate_text={content} components={content_components} />
             </Text>
         </Container>
     </GridCol>
@@ -109,7 +109,7 @@ export const IconGrid = () => (
                 Icon={LicensedRegulated}
                 title="_t_Licensed and regulated_t_"
                 content="_t_Deriv is <0>regulated</0> by several entities including the Malta Financial Services Authority (MFSA), the Labuan Financial Services Authority (Labuan FSA), the Vanuatu Financial Services Commission (VFSC), and the British Virgin Islands Financial Services Commission._t_"
-                contentComponents={[<LocalizedLink key={0} to="/regulatory/" />]}
+                content_components={[<LocalizedLink key={0} to="/regulatory/" />]}
             />
             <Col
                 Icon={ClientProtection}
@@ -120,13 +120,13 @@ export const IconGrid = () => (
                 Icon={Risk}
                 title="_t_Risk awareness and management_t_"
                 content="_t_Online trading is exciting but involves risks and can lead to an addiction. At Deriv, we look out for our customers’ best interests and encourage them to practise <0>secure and responsible trading</0>. If you are new to this, you can also practise trading with unlimited virtual funds before you risk your money._t_"
-                contentComponents={[<LocalizedLink key={0} to="/responsible/" />]}
+                content_components={[<LocalizedLink key={0} to="/responsible/" />]}
             />
             <Col
                 Icon={Help}
                 title="_t_Help when you need it_t_"
                 content="_t_The Deriv support team is available via live chat 24/7 – even on weekends. You can also find answers at our <0>Help centre</0> and get help from fellow traders in <1>Community</1>._t_"
-                contentComponents={[
+                content_components={[
                     <LocalizedLink key={0} to="/help-centre/" />,
                     <LocalizedLink
                         key={1}

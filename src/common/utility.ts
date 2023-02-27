@@ -395,26 +395,36 @@ const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 export const isEuDomain = () =>
     !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
 
-export const handleRedirect = (residence: string, current_client_country: string): boolean => {
+export const handleRedirect = (
+    residence: string,
+    current_client_country: string,
+    callback: () => void,
+): boolean => {
     const country = residence ? residence : current_client_country
 
     if (isLocalhost() || isTestlink()) {
         return false
     } else {
         if (eu_subdomain_countries.includes(country)) {
+            callback()
             const subdomain = getSubdomain()
             redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
         }
     }
 }
 
-export const handleRowRedirect = (residence: string, current_client_country: string): boolean => {
+export const handleRowRedirect = (
+    residence: string,
+    current_client_country: string,
+    callback: () => void,
+): boolean => {
     const country = residence ? residence : current_client_country
 
     if (isLocalhost() || isTestlink()) {
         return false
     } else {
         if (eu_subdomain_countries.includes(country) === false) {
+            callback()
             const subdomain = getSubdomain()
             redirect(subdomain.includes('staging-eu') ? 'staging' : '')
         }

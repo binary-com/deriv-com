@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
-import { Signal } from './_signal'
+import { Signal, SignalContent } from './_signal'
 import Subscription from './_subscription'
 import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -18,51 +18,28 @@ const meta_attributes = {
         '_t_Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies._t_',
     ),
 }
-const signal_content_subscriber = {
-    header: (
-        <Localize
-            translate_text="_t_Benefits of subscribing to MT5 signals_t_"
-            components={[<br key={0} />]}
-        />
-    ),
-    text: (
-        <Localize translate_text="_t_The MT5 trading signals service allows you to copy the trades of more experienced traders to your MT5 account. Once you’ve subscribed to a signal, the provider’s deals will be automatically replicated on your Deriv MT5 trading account each time they place a trade._t_" />
-    ),
+const signal_content_subscriber: SignalContent = {
+    header: { text: '_t_Benefits of subscribing to MT5 signals_t_', components: [<br key={0} />] },
+    text: '_t_The MT5 trading signals service allows you to copy the trades of more experienced traders to your MT5 account. Once you’ve subscribed to a signal, the provider’s deals will be automatically replicated on your Deriv MT5 trading account each time they place a trade._t_',
     list: [
-        <Localize
-            translate_text="_t_Minimise trading risk by copying from expert traders._t_"
-            key={0}
-        />,
-        <Localize
-            translate_text="_t_Save time – no need to open, monitor, and close trades._t_"
-            key={1}
-        />,
-        <Localize translate_text="_t_Easy to set up – no installation required._t_" key={2} />,
-        <Localize
-            translate_text="_t_Full disclosure of each providers’ performances._t_"
-            key={3}
-        />,
-        <Localize translate_text="_t_No hidden fees or commissions._t_" key={4} />,
+        '_t_Minimise trading risk by copying from expert traders._t_',
+        '_t_Save time – no need to open, monitor, and close trades._t_',
+        '_t_Easy to set up – no installation required._t_',
+        '_t_Full disclosure of each providers’ performances._t_',
+        '_t_No hidden fees or commissions._t_',
     ],
 }
 
-const signal_content_provider = {
-    header: (
-        <Localize
-            translate_text="_t_Benefits of being an MT5<0 /> signals provider_t_"
-            components={[<br key={0} />]}
-        />
-    ),
-    text: (
-        <Localize translate_text="_t_If you are a professional trader, the MT5 trading signals service allows you to share your strategies with other traders for free or a subscription fee that you determine. When traders subscribe to your signal, your deals are automatically replicated on their accounts each time you place a trade._t_" />
-    ),
+const signal_content_provider: SignalContent = {
+    header: {
+        text: '_t_Benefits of being an MT5<0 /> signals provider_t_',
+        components: [<br key={0} />],
+    },
+    text: '_t_If you are a professional trader, the MT5 trading signals service allows you to share your strategies with other traders for free or a subscription fee that you determine. When traders subscribe to your signal, your deals are automatically replicated on their accounts each time you place a trade._t_',
     list: [
-        <Localize translate_text="_t_Easy to set up – no installation required._t_" key={0} />,
-        <Localize
-            translate_text="_t_Additional income stream from monthly subscriptions._t_"
-            key={1}
-        />,
-        <Localize translate_text="_t_Automated copying – no extra work from you._t_" key={2} />,
+        '_t_Easy to set up – no installation required._t_',
+        '_t_Additional income stream from monthly subscriptions._t_',
+        '_t_Automated copying – no extra work from you._t_',
     ],
 }
 

@@ -6,17 +6,27 @@ import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type HowToProps = {
     active_tab: 'signal-subscriber' | 'signal-provider'
 }
 
-const content = {
+type TContent = {
     subscriber: {
-        header: <Localize translate_text="_t_How to subscribe to an MT5 signal_t_" />,
+        header: TString
+    }
+    provider: {
+        header: TString
+    }
+}
+
+const content: TContent = {
+    subscriber: {
+        header: '_t_How to subscribe to an MT5 signal_t_',
     },
     provider: {
-        header: <Localize translate_text="_t_How to register as a signals provider_t_" />,
+        header: '_t_How to register as a signals provider_t_',
     },
 }
 
@@ -70,11 +80,15 @@ const HowTo = ({ active_tab }: HowToProps) => {
         active_tab === 'signal-provider',
     ]
 
+    const header_text: TString = signal_subscriber
+        ? content.subscriber.header
+        : content.provider.header
+
     return (
         <StyledSectionContainer active_tab={active_tab}>
             <StyledContainer justify="center" direction="column">
                 <StyledHeader as="h2">
-                    {signal_subscriber ? content.subscriber.header : content.provider.header}
+                    <Localize translate_text={header_text} />
                 </StyledHeader>
                 <SignalSteps active_tab={active_tab} />
                 {signal_provider && (

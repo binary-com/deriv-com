@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import { ReactComponent as Checklist } from 'images/svg/trade-types/checklist-red.svg'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 const ContentWrapper = styled(Flex)`
     margin: 8rem auto;
@@ -104,27 +106,40 @@ const StyledChecklist = styled(Checklist)`
     }
 `
 
-type SignalProps = {
-    content: {
-        header: React.ReactElement
-        text: React.ReactElement
-        list: React.ReactElement[]
+export type SignalContent = {
+    header: {
+        text: TString
+        components?: ReactElement[]
     }
+    text: TString
+    list: TString[]
+}
+
+type SignalProps = {
+    content: SignalContent
 }
 
 export const Signal = ({ content }: SignalProps) => {
+    const { header, text, list }: SignalContent = content
+
     return (
         <StyledSection background="var(--color-white)">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
-                <StyledText>{content.text}</StyledText>
+                <StyledText>
+                    <Localize translate_text={text} />
+                </StyledText>
                 <ContentWrapper>
-                    <StyledHeader>{content.header}</StyledHeader>
+                    <StyledHeader>
+                        <Localize translate_text={header.text} components={header.components} />
+                    </StyledHeader>
                     <CardWrapper>
-                        {content.list.map((text, idx) => {
+                        {list.map((text, idx) => {
                             return (
                                 <Card key={idx}>
                                     <StyledChecklist />
-                                    <CardText>{text}</CardText>
+                                    <CardText>
+                                        <Localize translate_text={text} key={idx} />
+                                    </CardText>
                                 </Card>
                             )
                         })}

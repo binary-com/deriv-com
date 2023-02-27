@@ -432,13 +432,13 @@ export const isTestlink = () => !!(isBrowser() && window.location.hostname.inclu
 // if you wanna use a condition that if client comes from deriv go or p2p app and your url contains #
 // you can use this function else usePlatformQueryParam hook
 export const PlatformQueryParamWithHash = () => {
-    if (!window) return
+    if (isBrowser()) {
+        const is_deriv_go = window.location.href.indexOf('?platform=derivgo') > -1
+        const is_deriv_p2p = window.location.href.indexOf('?platform=p2p') > -1
+        const has_platform = is_deriv_go ? 'derivgo' : is_deriv_p2p ? 'p2p' : undefined
 
-    const is_deriv_go = window.location.href.indexOf('?platform=derivgo') > -1
-    const is_deriv_p2p = window.location.href.indexOf('?platform=p2p') > -1
-    const has_platform = is_deriv_go ? 'derivgo' : is_deriv_p2p ? 'p2p' : undefined
-
-    return { has_platform, is_deriv_p2p, is_deriv_go }
+        return { has_platform, is_deriv_p2p, is_deriv_go }
+    }
 }
 
 export const getDateFromToday = (num_of_days: number) => {

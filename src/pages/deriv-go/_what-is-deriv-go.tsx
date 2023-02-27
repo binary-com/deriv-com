@@ -5,6 +5,7 @@ import { Localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import device from 'themes/device'
+import flex from 'components/containers/flex'
 
 const StyledSectionContainer = styled(SectionContainer)`
     border-bottom: solid 1px var(--color-grey-2);
@@ -14,11 +15,14 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding-top: 0;
     }
 `
-const NumberStyledContainer = styled(Container)`
+const NumberStyledContainer = styled(flex)`
     direction: ltr;
     padding: 40px 0 104px;
     width: 100%;
     justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -32,13 +36,16 @@ const NumberWrapper = styled.div`
     width: 32.8rem;
 `
 const StyledTitle = styled(Header)`
+    font-size: 48px;
+
     @media ${device.tabletL} {
         padding-top: 24px;
     }
 `
 const StyledSubTitle = styled(Text)`
     padding-top: 8px;
-    font-size: 24px;
+    font-size: 16px;
+    font-family: Ubuntu, sans-serif;
 
     @media ${device.tabletL} {
         font-size: 18px;
@@ -64,8 +71,8 @@ const items: ContentType[] = [
         title: <Localize translate_text="Up to x1000" />,
         subtitle: <Localize translate_text="potential profit" />,
     },
-    { id: 1, title: '24/7', subtitle: <Localize translate_text="trading" /> },
     { id: 3, title: 'USD 1', subtitle: <Localize translate_text="minimum stake" /> },
+    { id: 1, title: '24/7', subtitle: <Localize translate_text="trading" /> },
 ]
 
 const WhatIsDerivGo = () => {

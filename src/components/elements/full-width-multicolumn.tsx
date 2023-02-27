@@ -6,10 +6,12 @@ import Button from 'components/custom/_button'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { LocalizedLink } from 'components/localization/localized-link'
 
 type FullWidthMultiColumnProps = {
     children?: ReactElement[]
     header?: ReactElement
+    sub_header?: ReactElement
     button_title?: ReactElement
     button_text?: TString | ReactElement
     multiple_row?: boolean
@@ -63,6 +65,20 @@ const StyledHeader = styled(Header)`
         line-height: 30px;
     }
 `
+const StyledSubHeader = styled(Header)`
+    font-size: 24px;
+    line-height: 36px;
+    color: white;
+    font-family: Ubuntu, sans-serif;
+
+    @media ${device.tablet} {
+        text-align: center;
+        max-width: 80vw;
+        margin-bottom: 8px;
+        font-size: 22px;
+        line-height: 30px;
+    }
+`
 const StyledTitle = styled(Header)`
     font-weight: 700;
     font-size: 16px;
@@ -99,6 +115,7 @@ const StyledTextContent = styled(Text)`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    font-family: Ubuntu, sans-serif;
     margin-bottom: 1.6rem;
 
     @media ${device.tabletL} {
@@ -114,10 +131,16 @@ const StyledSectionContainer = styled(SectionContainer)`
     background: #414652;
     color: white;
 `
+const LearnMore = styled(LocalizedLink)`
+    font-size: 16px;
+    font-family: Ubuntu, sans-serif;
+    color: var(--color-white-1);
+`
 
 export const FullWidthMultiColumn = ({
     children,
     header,
+    sub_header,
     multiple_row,
     button_title,
     button_text,
@@ -132,15 +155,26 @@ export const FullWidthMultiColumn = ({
                 <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
                     {header}
                 </StyledHeader>
+                <StyledSubHeader
+                    as="p"
+                    type="section-title"
+                    align="center"
+                    mb="1.2rem"
+                    lh="1.25"
+                    weight="400"
+                >
+                    {sub_header}
+                </StyledSubHeader>
                 {items.map((group, i) => (
                     <ItemContainer max-width="48.6rem" width="100%" key={i}>
                         {group.map((child, idx) => {
-                            const { text, icon, item_title } = child.props
+                            const { text, icon, item_title, link_text, link } = child.props
                             return (
                                 <Item key={idx} ai="center" direction="column">
                                     {icon}
                                     {item_title && <StyledTitle as="h3">{item_title}</StyledTitle>}
                                     {text && <StyledTextContent>{text}</StyledTextContent>}
+                                    {link_text && <LearnMore to={link}>{link_text}</LearnMore>}
                                 </Item>
                             )
                         })}

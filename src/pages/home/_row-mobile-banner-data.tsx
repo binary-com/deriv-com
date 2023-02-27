@@ -19,12 +19,13 @@ const query = graphql`
         }
     }
 `
-type THeroProps = {
+type HeroProps = {
     is_ppc?: boolean
 }
 
-const RawMobileBannerData = ({ is_ppc = false }: THeroProps) => {
+const RawMobileBannerData = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
+    console.log('here in mobile view banners')
     return (
         <InfiniteSlideshow images={data}>
             <BannerInnerContent is_ppc={is_ppc} />

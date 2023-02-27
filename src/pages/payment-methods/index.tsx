@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import payment_data, { PaymentDataProps } from './_payment-data'
@@ -12,6 +12,7 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
+import { TString } from 'types/generics'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
 
@@ -246,6 +247,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 
 const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
     const parse_to_integer = parseInt('2')
+    const reference_header_subtitle: TString = pd.is_dp2p ? '_t_More info_t_' : '_t_Reference_t_'
 
     return (
         <>
@@ -350,11 +352,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                                 )}
                                 <Th>
                                     <BoldText>
-                                        {pd.is_dp2p ? (
-                                            <Localize translate_text="_t_More info_t_" />
-                                        ) : (
-                                            <Localize translate_text="_t_Reference_t_" />
-                                        )}
+                                        <Localize translate_text={reference_header_subtitle} />
                                     </BoldText>
                                 </Th>
                                 <Th />

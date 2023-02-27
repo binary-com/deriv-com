@@ -135,8 +135,7 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                 <Td>{payment_data.method}</Td>
                 <Td colSpan={is_fiat_onramp && parse_to_integer}>
                     <StyleCurrencyText>
-                        {payment_data.currencies.startsWith('_t_') &&
-                        payment_data.currencies.endsWith('_t_') ? (
+                        {payment_data.currencies.includes('_t_') ? (
                             <Localize translate_text={payment_data.currencies as TString} />
                         ) : (
                             payment_data.currencies

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { PaymentProps } from './_payment-data'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
@@ -118,6 +118,7 @@ const MobileExpandedList = ({
     const toggleExpand = () => {
         setExpanded(!is_expanded)
     }
+    const reference_header_subtitle: TString = is_dp2p ? '_t_More info_t_' : '_t_Reference_t_'
 
     return (
         <>
@@ -143,8 +144,7 @@ const MobileExpandedList = ({
                         </StyledItemDiv>
                         <StyledKeyDiv>
                             <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
-                                {payment_data.currencies.startsWith('_t_') &&
-                                payment_data.currencies.endsWith('_t_') ? (
+                                {payment_data.currencies.includes('_t_') ? (
                                     <Localize translate_text={payment_data.currencies as TString} />
                                 ) : (
                                     payment_data.currencies
@@ -311,11 +311,7 @@ const MobileExpandedList = ({
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             <Header as="p" type="subtitle-2">
-                                {is_dp2p ? (
-                                    <Localize translate_text="_t_More info_t_" />
-                                ) : (
-                                    <Localize translate_text="_t_Reference_t_" />
-                                )}
+                                <Localize translate_text={reference_header_subtitle} />
                             </Header>
                         </StyledItemDiv>
 

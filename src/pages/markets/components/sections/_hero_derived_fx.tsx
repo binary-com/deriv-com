@@ -134,11 +134,12 @@ const MarketSubHeader = styled.div`
     font-size: 16px;
     width: 25vw;
     color: var(--color-black-9);
-    text-align: center;
+    text-align: left;
     line-height: 24px;
 
     @media ${device.laptopM} {
         min-width: 40rem;
+        text-align: center;
     }
     @media ${device.mobileM} {
         font-size: 14px;

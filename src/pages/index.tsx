@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import styled from 'styled-components'
 import {
     OurPlatforms,
     Signup,
@@ -18,7 +19,20 @@ import TRADE_DUMMY from 'images/common/trade-type-dummy.png'
 import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
 import WCS_DUMMY from 'images/common/wcs-dummy.png'
 import useRegion from 'components/hooks/use-region'
+import device from 'themes/device'
 
+const HeroWrapper = styled.section`
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    margin-top: 72px;
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        min-height: 100%;
+        margin-top: 58px;
+    }
+`
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat(true)
@@ -84,7 +98,9 @@ const Home = () => {
                 )}
                 has_organization_schema
             />
-            <Hero />
+            <HeroWrapper>
+                <Hero />
+            </HeroWrapper>
 
             <LivePricing />
 

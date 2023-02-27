@@ -10,28 +10,33 @@ import { Appearances } from 'components/custom/signup'
 import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/markets/trade.svg'
 import WithdrawIcon from 'images/svg/markets/withdraw.svg'
-import { TString } from 'types/generics'
 
 type SimpleStepContentTypes = {
-    header: TString
-    text: TString
+    header: React.ReactElement
+    text: React.ReactElement
     icon: ReactElement
 }
 
 const simple_step_content: SimpleStepContentTypes[] = [
     {
-        header: '_t_Practise_t_',
-        text: '_t_Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds._t_',
+        header: <Localize translate_text="_t_Practise_t_" />,
+        text: (
+            <Localize translate_text="_t_Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds._t_" />
+        ),
         icon: <img src={PractiseIcon} alt="Practise" width="32" height="32" />,
     },
     {
-        header: '_t_Trade_t_',
-        text: '_t_Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more._t_',
+        header: <Localize translate_text="_t_Trade_t_" />,
+        text: (
+            <Localize translate_text="_t_Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more._t_" />
+        ),
         icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
     },
     {
-        header: '_t_Withdraw_t_',
-        text: '_t_Get your funds quickly and easily. We support a variety of withdrawal options._t_',
+        header: <Localize translate_text="_t_Withdraw_t_" />,
+        text: (
+            <Localize translate_text="_t_Get your funds quickly and easily. We support a variety of withdrawal options._t_" />
+        ),
         icon: <img src={WithdrawIcon} alt="Withdraw" width="32" height="32" />,
     },
 ]

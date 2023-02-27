@@ -120,6 +120,7 @@ const Hero = ({
                             max_width="586px"
                         >
                             <Localize translate_text={authorDesc} />
+                            <span>{`, `}</span>
                             <AuthorNameText size="14px" color={color} weight="bold">
                                 <Localize translate_text={authorName} />
                             </AuthorNameText>

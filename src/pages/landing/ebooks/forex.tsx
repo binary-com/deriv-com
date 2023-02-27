@@ -72,7 +72,7 @@ const ForexEbook = (props: StocksEbookProps) => {
                 bgMobile="linear-gradient(0deg, #cc363f, #661b20);"
                 introSub="_t_Your free guide on_t_"
                 introMain="_t_How to trade the forex market_t_"
-                authorDesc="_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author,_t_"
+                authorDesc="_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author_t_"
                 authorName="_t_Vince Stanzione._t_"
             />
             <Introduction

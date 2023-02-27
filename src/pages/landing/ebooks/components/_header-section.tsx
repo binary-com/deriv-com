@@ -225,6 +225,7 @@ const HeaderSection = ({
                             max_width="586px"
                         >
                             <Localize translate_text={authorDesc} />
+                            <span>{`, `}</span>
                             <AuthorNameText size="14px" color="white" weight="bold">
                                 <Localize translate_text={authorName} />
                             </AuthorNameText>

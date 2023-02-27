@@ -63,7 +63,7 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
                 no_index
             />
             <Hero
-                authorDesc="_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author,_t_"
+                authorDesc="_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author_t_"
                 authorName="_t_Vince Stanzione._t_"
                 bg="linear-gradient(180deg, #1f1f1f, #0E0E0E)"
                 bgMobile="linear-gradient(180deg, #333333, #0E0E0E)"

@@ -390,11 +390,6 @@ const redirect = (subdomain: string) => {
     window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
-const redirectDomain = () => {
-    const redirection_url = `deriv.com`
-    window.location.href = `https://${redirection_url + window.location.pathname}`
-}
-
 const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 
 export const isEuDomain = () =>
@@ -420,7 +415,8 @@ export const handleRowRedirect = (residence: string, current_client_country: str
         return false
     } else {
         if (eu_subdomain_countries.includes(country) === false) {
-            redirectDomain()
+            const subdomain = getSubdomain()
+            redirect(subdomain.includes('staging-eu') ? 'staging' : '')
         }
     }
 }

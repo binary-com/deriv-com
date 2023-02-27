@@ -2,11 +2,7 @@ import Shield from 'images/svg/who-we-are/shield.svg'
 import Star from 'images/svg/who-we-are/star.svg'
 import People from 'images/svg/who-we-are/people.svg'
 import Hands from 'images/svg/who-we-are/hands.svg'
-import { all_offices, all_countries } from 'pages/careers/_model/_locations/_locations'
 import { TString } from 'types/generics'
-
-const number_of_offices = all_offices.length.toString()
-const number_of_countries = all_countries.length.toString()
 
 type FirstSectionTextsType = {
     text: TString
@@ -32,7 +28,7 @@ export type MapPinType = {
 }
 
 type DerivNumbersType = {
-    count: string
+    count: TString
     title: TString
 }
 
@@ -341,35 +337,17 @@ export const mobile_pins: MapPinType[] = [
 ]
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: '1000+', title: '_t_employees_t_' },
-    { count: '50+', title: '_t_nationalities_t_' },
-    {
-        count: number_of_offices,
-        title: '_t_locations_t_',
-    },
-    {
-        count: number_of_countries,
-        title: '_t_countries_t_',
-    },
+    { count: '_t_1000+_t_', title: '_t_employees_t_' },
+    { count: '_t_50+_t_', title: '_t_nationalities_t_' },
+    { count: '_t_20_t_', title: '_t_locations_t_' },
+    { count: '_t_16_t_', title: '_t_countries_t_' },
 ]
 
 export const deriv_numbers: DerivNumbersType[][] = [
     [
-        {
-            count: '2.5M+',
-            title: '_t_traders worldwide_t_',
-        },
-        {
-            count: 'USD 26M+',
-            title: '_t_withdrawals last month_t_',
-        },
-        {
-            count: '114M+',
-            title: '_t_trades last month_t_',
-        },
-        {
-            count: 'USD 10B+',
-            title: '_t_total trade turnover_t_',
-        },
+        { count: '_t_2.5M+_t_', title: '_t_traders worldwide_t_' },
+        { count: '_t_USD 26M+_t_', title: '_t_withdrawals last month_t_' },
+        { count: '_t_114M+_t_', title: '_t_trades last month_t_' },
+        { count: '_t_USD 10B+_t_', title: '_t_total trade turnover_t_' },
     ],
 ]

@@ -127,7 +127,9 @@ const OurOffices = () => {
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
                 {our_offices_count.map(({ count, title }) => (
                     <StyledFlex fd="column" key={title}>
-                        <NumberHeader size="32px">{count}</NumberHeader>
+                        <NumberHeader size="32px">
+                            <Localize translate_text={count} />
+                        </NumberHeader>
                         <NumberText size="16px" align="center">
                             <Localize translate_text={title} />
                         </NumberText>

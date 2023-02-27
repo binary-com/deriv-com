@@ -1,14 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactNode } from 'react'
+import styled from 'styled-components'
+import device from 'themes/device'
 import Background from 'components/elements/background-image'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
-type TProps = {
+interface Props {
     images: string[]
+    children?: ReactNode
 }
 
-const InfiniteSlideshow: React.FC<React.PropsWithChildren<TProps>> = ({ images, children }) => {
+interface State {
+    currentImageIndex: number
+    currentImageName: string
+}
+
+const InfiniteSlideshow: React.FC<Props> = ({ images, children }) => {
     const { is_mobile_or_tablet } = useBreakpoints()
-    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const [currentImageIndex, setCurrentImageIndex] = useState<State['currentImageIndex']>(0)
     const imageDataSize = Object.keys(images).length
 
     const CustomBGStyles = {
@@ -22,13 +30,12 @@ const InfiniteSlideshow: React.FC<React.PropsWithChildren<TProps>> = ({ images, 
     }
 
     useEffect(() => {
-        let intervalId: ReturnType<typeof setTimeout>
         if (imageDataSize > 1) {
-            intervalId = setTimeout(() => {
+            const intervalId = setInterval(() => {
                 setCurrentImageIndex((currentImageIndex + 1) % imageDataSize)
             }, 3000)
+            return () => clearInterval(intervalId)
         }
-        return () => clearTimeout(intervalId)
     }, [images, currentImageIndex, imageDataSize])
 
     return (

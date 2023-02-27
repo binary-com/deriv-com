@@ -386,7 +386,7 @@ export const useCallbackRef = (callback: () => void) => {
 const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
 
 const redirect = (subdomain: string) => {
-    const redirection_url = `${subdomain}.deriv.com`
+    const redirection_url = subdomain ? `${subdomain}.deriv.com` : 'deriv.com'
     window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 

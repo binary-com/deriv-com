@@ -97,7 +97,7 @@ const DMT5 = () => {
                     title={localize('_t_Deriv MT5_t_')}
                     content={
                         <Localize
-                            translate_text="The all-in-one <0/> CFD trading platform <0/>  "
+                            translate_text="_t_The all-in-one <0/> CFD trading platform <0/>  _t_"
                             components={[<br key={0} />]}
                         />
                     }

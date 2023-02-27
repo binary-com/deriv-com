@@ -428,8 +428,3 @@ export const handleRowRedirect = (residence: string, current_client_country: str
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
-
-export const getDateFromToday = (num_of_days: number) => {
-    const today = new Date()
-    return new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
-}

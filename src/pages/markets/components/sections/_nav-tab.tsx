@@ -25,6 +25,7 @@ const TabsContainer = styled(Flex)`
 `
 const TabList = styled.div`
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
     overflow: hidden;

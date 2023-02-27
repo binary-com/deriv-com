@@ -149,7 +149,7 @@ const AvailableMarkets = () => {
                                                 />
                                             </Text>
                                             <LearnMore
-                                                text={<Localize translate_text="Learn more" />}
+                                                text="_t_Learn more_t_"
                                                 to={market.learn_more_path}
                                             />
                                         </Card>
@@ -191,7 +191,7 @@ const AvailableMarkets = () => {
                                                 />
                                             </Text>
                                             <LearnMore
-                                                text={<Localize translate_text="Learn more" />}
+                                                text="_t_Learn more_t_"
                                                 to={market.learn_more_path}
                                             />
                                         </Card>

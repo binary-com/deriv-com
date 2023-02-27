@@ -2,7 +2,7 @@ import React from 'react'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import HighLeverge from 'images/svg/trade-types/high-leverage.svg'
 import MaximizePotentialProfit from 'images/svg/trade-types/maximize-potential-profit.svg'
@@ -21,70 +21,66 @@ const WhyTradeMargin = () => {
             <SectionContainer background="rgba(242, 243, 244, 0.3)" padding="4rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" type="section-title" mb="4rem">
-                        {localize('Why trade on margin with Deriv')}
+                        <Localize translate_text="_t_Why trade on margin with Deriv_t_" />
                     </Header>
                     <Grid>
                         <WhyTradeItem>
                             <img src={HighLeverge} alt="High leverage, low spreads" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                                {localize('High leverage, low spreads')}
+                                <Localize translate_text="_t_High leverage, low spreads_t_" />
                             </Text>
                             <Text mb="4rem">
-                                {is_eu
-                                    ? localize(
-                                          'Take advantage of high leverage and low spreads on Deriv MT5.',
-                                      )
-                                    : localize(
-                                          'Take advantage of high leverage and low spreads on Deriv MT5 and Deriv X.',
-                                      )}
+                                <Localize
+                                    translate_text={
+                                        is_eu
+                                            ? '_t_Take advantage of high leverage and low spreads on Deriv MT5._t_'
+                                            : '_t_Take advantage of high leverage and low spreads on Deriv MT5 and Deriv X._t_'
+                                    }
+                                />
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <img src={SyntheticIndices} alt="Synthetic Indices" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                                {localize('All favourite markets available')}
+                                <Localize translate_text="_t_All favourite markets available_t_" />
                             </Text>
                             <Text mb="4rem">
-                                {localize(
-                                    'Trade on all popular markets plus our proprietary synthetic indices that are available 24/7.',
-                                )}
+                                <Localize translate_text="_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_" />
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <img src={MaximizePotentialProfit} alt="Maximize Potential Profit" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                                {localize('Go long and short')}
+                                <Localize translate_text="_t_Go long and short_t_" />
                             </Text>
                             <Text mb="4rem">
-                                {localize(
-                                    'Open long and short positions, depending on your preferred trading strategy.',
-                                )}
+                                <Localize translate_text="_t_Open long and short positions, depending on your preferred trading strategy._t_" />
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <img src={FriendlySupport} alt="Friendly Support" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                                {localize('Expert and friendly support')}
+                                <Localize translate_text="_t_Expert and friendly support_t_" />
                             </Text>
                             <Text mb="4rem">
-                                {localize('Get expert, friendly support when you need it.')}
+                                <Localize translate_text="_t_Get expert, friendly support when you need it._t_" />
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <img src={InstantAccess} alt="Instant access" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                                {localize('Instant access')}
+                                <Localize translate_text="_t_Instant access_t_" />
                             </Text>
                             <Text mb="4rem">
-                                {localize('Open an account and start trading in minutes.')}
+                                <Localize translate_text="_t_Open an account and start trading in minutes._t_" />
                             </Text>
                         </WhyTradeItem>
                     </Grid>
                     <Text align="start" width="100%" weight="bold">
-                        {localize("Don't have a Deriv.com account yet?")}
+                        <Localize translate_text="_t_Don't have a Deriv.com account yet?_t_" />
                     </Text>
                     <Button onClick={handleSignup} id="dm-cfd-signup" mt="1.6rem" secondary>
-                        {localize('Create free demo account')}
+                        <Localize translate_text="_t_Create free demo account_t_" />
                     </Button>
                 </SmallContainer>
             </SectionContainer>

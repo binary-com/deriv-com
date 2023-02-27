@@ -1,9 +1,10 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text, ImageWithDireciton } from 'components/elements'
-import { LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
+import { TString } from 'types/generics'
 
 const Wrapper = styled.div`
     position: absolute;
@@ -38,7 +39,7 @@ const Link = styled(LocalizedLink)`
     }
 `
 type LearnMoreProps = {
-    text: string | ReactNode
+    text: TString
     to: string
 }
 
@@ -48,7 +49,7 @@ const LearnMore = ({ text, to }: LearnMoreProps) => {
             <Link to={to}>
                 <Item>
                     <Text mr="0.8rem" weight="bold" color="red">
-                        {text}
+                        <Localize translate_text={text} />
                     </Text>
                     <ImageWithDireciton src={Arrow} alt="arrow right" />
                 </Item>
@@ -58,7 +59,7 @@ const LearnMore = ({ text, to }: LearnMoreProps) => {
 }
 
 LearnMore.propTypes = {
-    text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    text: PropTypes.string,
     to: PropTypes.string,
 }
 

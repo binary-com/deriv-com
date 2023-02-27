@@ -4,10 +4,17 @@ import { Flex, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
 import device, { SizeType } from 'themes/device'
 import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
+
+export type LocalizeComponentAttributes = {
+    text: TString
+    components?: ReactElement[]
+}
 
 type ChildProps = {
-    label?: JSX.Element
-    description?: JSX.Element
+    label?: LocalizeComponentAttributes
+    description?: LocalizeComponentAttributes
 }
 
 type TabButtonType = {
@@ -169,7 +176,7 @@ const Tabs = <T extends object>({
                     {React.Children.map(children, (child, index) => {
                         const {
                             props: { label, description },
-                        } = child
+                        }: ReactElement<ChildProps> = child
                         return (
                             <>
                                 <TabButton
@@ -180,10 +187,16 @@ const Tabs = <T extends object>({
                                     onClick={() => selectTab(index)}
                                 >
                                     <Text className="side-tab__label" weight="bold">
-                                        {label}
+                                        <Localize
+                                            translate_text={label.text}
+                                            components={label.components}
+                                        />
                                     </Text>
                                     <Text className="side-tab__description" mt="0.8rem">
-                                        {description}
+                                        <Localize
+                                            translate_text={description.text}
+                                            components={description.components}
+                                        />
                                     </Text>
                                 </TabButton>
                                 <MobileWrapper

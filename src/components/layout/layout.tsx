@@ -78,7 +78,9 @@ const Layout = ({
             const current_client_country = clients_country || ''
             const client_information_cookie = new CookieStorage('client_information')
             const residence = client_information_cookie.get('residence')
-            setRedirectionApplied(true)
+            if (clients_country || residence) {
+                setRedirectionApplied(true)
+            }
             isEuDomain() && handleRowRedirect(residence, current_client_country)
             !isEuDomain() && handleRedirect(residence, current_client_country)
         }

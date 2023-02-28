@@ -28,7 +28,7 @@ const Item = styled(Flex)`
     }
 
     @media ${device.mobileL} {
-        max-width: 50%;
+        max-width: 80%;
         gap: 6px;
 
         ${Text} {

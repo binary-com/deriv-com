@@ -21,7 +21,7 @@ const StyledHeader = styled(Header)`
         font-size: 32px;
     }
 `
-const StyledText = styled(Text)`
+const StyledText = styled(Header)`
     max-width: 1044px;
     padding-top: 8px;
     font-size: 32px;
@@ -78,7 +78,7 @@ const Roadmap = ({ portal }: RoadmapProps) => {
                     <StyledHeader as="h2" type="heading-2" align="center">
                         <Localize translate_text="What’s next?" />
                     </StyledHeader>
-                    <StyledText mt="16px" align="center">
+                    <StyledText mt="16px" align="center" weight="100">
                         {portal.paragraph}
                     </StyledText>
                 </Flex>

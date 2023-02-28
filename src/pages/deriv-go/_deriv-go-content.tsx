@@ -73,11 +73,7 @@ const Row = styled(Flex)<{ margin_right: string }>`
 const DerivGoContent = ({ P2P, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer
-            p="8.9rem 0 8rem 0"
-            background="rgba(243, 246, 250, 1)"
-            tabletL={{ pt: '40px' }}
-        >
+        <SectionContainer p="8.9rem 0 8rem 0" tabletL={{ pt: '40px' }}>
             <StyledContainer>
                 {P2P.map((item, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2

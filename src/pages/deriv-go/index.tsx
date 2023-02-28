@@ -26,7 +26,7 @@ const items: ContentType[] = [
     {
         title: <Localize translate_text="Multiply your profit and limit your loss" />,
         subtitle: (
-            <Localize translate_text="Amplify your profits up to 1000x without losing more than your trade amount with multipliers." />
+            <Localize translate_text="Amplify your profits up to 1000x without losing more than your stake with multipliers." />
         ),
         image_name: 'multiply_profit',
         image_alt: 'Trading multipliers on Deriv GO',
@@ -40,9 +40,9 @@ const items: ContentType[] = [
         image_alt: 'Trading forex pairs on Deriv GO',
     },
     {
-        title: <Localize translate_text="Trade synthetic indices" />,
+        title: <Localize translate_text="Trade synthetics" />,
         subtitle: (
-            <Localize translate_text="Trade Volatility and Crash/Boom indices that emulate the movements of real-world markets." />
+            <Localize translate_text="Trade Volatility and Crash/Boom indices that simulate the movements of real-world markets." />
         ),
         image_name: 'synthetic_indices',
         image_alt: 'Trading Volatility 100 Index on Deriv GO',
@@ -91,8 +91,9 @@ const DerivGo = () => {
                 <DerivGoContent reverse P2P={items} />
                 <StartDerivGo />
                 <FooterBanner />
-                <OtherApps />
+
                 <Roadmap portal={derivGoPortalData} />
+                <OtherApps />
             </Layout>
         )
     }

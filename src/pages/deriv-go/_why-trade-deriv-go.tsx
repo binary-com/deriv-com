@@ -8,36 +8,45 @@ import { Header, Text } from 'components/elements/typography'
 import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
 import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
+import { Grid, HowItWorksItem } from 'pages/trade-types/components/_style'
 
 const StyledHeader = styled(Header)`
+    margin: 0 0 80px;
+
     @media ${device.mobileL} {
         font-size: 32px;
         padding: 0 35px;
+        margin: 0 0 40px;
     }
     @media ${device.mobileM} {
         padding: 0 20px;
+        margin: 0 0 40px;
     }
 `
-const Card = styled(Flex)`
-    flex-direction: column;
-    max-width: 384px;
-    padding: 24px 7px;
-    border: none;
-    margin-right: 2.4rem;
-    align-items: center;
-
-    :last-child {
-        margin-right: 8px;
-    }
-`
-const StyledText = styled(Text)`
+const StyledText = styled(Header)`
     font-size: 24px;
 
     @media ${device.tabletL} {
         font-size: 18px;
     }
 `
+const OptionGrid = styled(Grid)`
+    grid-gap: 2.4rem;
+    max-width: 890px;
+`
 
+const OptionItems = styled(Flex)`
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+
+    @media ${device.mobileL} {
+        ${Text} {
+            margin-top: 0;
+        }
+    }
+`
 const trade_data: ContentType[] = [
     {
         icon: Icon24_7,
@@ -73,28 +82,21 @@ const WhyTradeDerivGo = () => {
                     <StyledHeader as="h2" type="heading-2" align="center">
                         {localize('Why trade with Deriv GO')}
                     </StyledHeader>
-                    <Flex tablet_direction="column" tablet_ai="center" mt="40px" mr="8px">
+                    <OptionGrid>
                         {trade_data.map((item, index) => {
                             return (
-                                <Card key={index}>
-                                    <div>
-                                        <img
-                                            src={item.icon}
-                                            width={72}
-                                            height={72}
-                                            alt={item.image_alt}
-                                        />
-                                    </div>
-                                    <Header as="h3" type="heading-3" align="center" mt="24px">
-                                        {item.title}
-                                    </Header>
-                                    <StyledText align="center" mt="8px">
-                                        {item.subtitle}
-                                    </StyledText>
-                                </Card>
+                                <HowItWorksItem key={index}>
+                                    <OptionItems>
+                                        <div>
+                                            <img src={item.icon} alt={item.image_alt} />
+                                        </div>
+                                        <StyledText>{item.title}</StyledText>
+                                    </OptionItems>
+                                    <Text>{item.subtitle}</Text>
+                                </HowItWorksItem>
                             )
                         })}
-                    </Flex>
+                    </OptionGrid>
                 </Container>
             </SectionContainer>
         </div>

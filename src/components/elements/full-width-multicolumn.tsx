@@ -15,6 +15,7 @@ type FullWidthMultiColumnProps = {
     button_title?: ReactElement
     button_text?: TString | ReactElement
     multiple_row?: boolean
+    gap?: string
 }
 
 const Item = styled(Flex)`
@@ -42,7 +43,7 @@ const ItemContainer = styled(Box)`
     flex-direction: row;
     max-width: 140.4rem;
     justify-content: center;
-    gap: 50px;
+    gap: ${(props) => props.gap || '40px'};
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -144,6 +145,7 @@ export const FullWidthMultiColumn = ({
     multiple_row,
     button_title,
     button_text,
+    gap,
 }: FullWidthMultiColumnProps) => {
     const handleSignup = useHandleSignup()
     const first_three_items = children.slice(0, 3)
@@ -166,7 +168,7 @@ export const FullWidthMultiColumn = ({
                     {sub_header}
                 </StyledSubHeader>
                 {items.map((group, i) => (
-                    <ItemContainer max-width="48.6rem" width="100%" key={i}>
+                    <ItemContainer max-width="48.6rem" width="100%" key={i} gap={gap}>
                         {group.map((child, idx) => {
                             const { text, icon, item_title, link_text, link } = child.props
                             return (

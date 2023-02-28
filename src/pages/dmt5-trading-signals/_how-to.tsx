@@ -12,22 +12,14 @@ type HowToProps = {
     active_tab: 'signal-subscriber' | 'signal-provider'
 }
 
-type TContent = {
-    subscriber: {
-        header: TString
-    }
-    provider: {
-        header: TString
-    }
+type THeaderContent = {
+    subscriber: TString
+    provider: TString
 }
 
-const content: TContent = {
-    subscriber: {
-        header: '_t_How to subscribe to an MT5 signal_t_',
-    },
-    provider: {
-        header: '_t_How to register as a signals provider_t_',
-    },
+const header_content: THeaderContent = {
+    subscriber: '_t_How to subscribe to an MT5 signal_t_',
+    provider: '_t_How to register as a signals provider_t_',
 }
 
 const StyledSectionContainer = styled(SectionContainer)<HowToProps>`
@@ -81,8 +73,8 @@ const HowTo = ({ active_tab }: HowToProps) => {
     ]
 
     const header_text: TString = signal_subscriber
-        ? content.subscriber.header
-        : content.provider.header
+        ? header_content.subscriber
+        : header_content.provider
 
     return (
         <StyledSectionContainer active_tab={active_tab}>

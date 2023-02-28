@@ -58,7 +58,7 @@ const available_markets = [
         img_alt: 'derived',
         text: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them." />
+            <Localize translate_text="_t_Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them._t_" />
         ),
         learn_more_path: '/markets/synthetic/',
     },

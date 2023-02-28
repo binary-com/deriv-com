@@ -48,10 +48,10 @@ const WhyTradeCFD = () => {
                         <Text mb="4rem">
                             {is_eu
                                 ? localize(
-                                      'Trade on all popular markets plus our proprietary synthetic indices that are available 24/7.',
+                                      '_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_',
                                   )
                                 : localize(
-                                      'Trade on financial markets plus our proprietary synthetic indices that are available 24/7.',
+                                      '_t_Trade on financial markets plus our proprietary synthetic indices that are available 24/7._t_',
                                   )}
                         </Text>
                     </WhyTradeItem>

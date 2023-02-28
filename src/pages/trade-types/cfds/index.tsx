@@ -39,7 +39,7 @@ const CFD = () => {
 
             <FullWidthMultiColumn
                 multiple_row={true}
-                header={<Localize translate_text="Why trade on CFDs on Deriv" />}
+                header={<Localize translate_text="_t_Why trade on CFDs on Deriv_t_" />}
                 button_title={<Localize translate_text="Don't have a Deriv account yet?" />}
                 button_text="_t_Create free demo account_t_"
             >

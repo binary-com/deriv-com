@@ -57,8 +57,9 @@ const SecondColumn = styled(Column)`
     background-size: cover;
     width: ${(props) => props.width};
     position: relative;
-    left: -90px;
+    left: -100px;
     padding-left: 90px;
+    display: flex;
 
     @media (max-width: 767px) {
         left: 0;

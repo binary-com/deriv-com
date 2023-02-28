@@ -2,10 +2,10 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { isBrowser } from 'common/utility'
-import { Localize, localize, LocalizedLink } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import StepperView from 'components/custom/_stepper_view'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import device, { size } from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -80,7 +80,7 @@ const StartDerivGo = () => {
                 <StyledHeader as="h2" type="heading-2" align="center" mb="4rem">
                     {localize('How to get started with Deriv GO')}
                 </StyledHeader>
-                <StepperView items={stepsData} />
+                <StepperView items={stepsData} contentWidth="385px" />
             </SmallContainer>
         </SectionContainer>
     )

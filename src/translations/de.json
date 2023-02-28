@@ -796,7 +796,7 @@
   "1084960586": "Geben Sie die Bedingungen aller Verträge an",
   "1088428939": "Diese Indizes entsprechen Finanzmärkten mit Volatilitäten von 10% und 20%. Für jeden Tick des entsprechenden Forex-Paares wird ein Tick generiert.",
   "1094162624": "<0>High-Close:</0> Wenn Sie einen „High-Close“ -Kontrakt kaufen, entspricht Ihr Gewinn oder Verlust dem Multiplikator mal der Differenz zwischen Hoch und Abschluss über die Dauer des Kontrakts.",
-  "1094997218": "<0>Jede Sekunde</0> wird <0>ein Tick</0> für die Volatilitätsindizes <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 200 (1s) und 300 (1s)</0> generiert.",
+  "1094997218": "<0>Ein tick</0> wird <0>jede sekunde</0> für die Volatilitätsindizes <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 200 (1s), und 300 (1s)</0> erzeugt.",
   "1097133380": "0,35",
   "1097188292": "Take-Profit-Level",
   "1098718347": "Kennen Sie die Auswirkungen der Marge auf Ihren CFD-Handel",

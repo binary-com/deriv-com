@@ -439,6 +439,8 @@ export const PlatformQueryParamWithHash = () => {
 
         return { has_platform, is_deriv_p2p, is_deriv_go }
     }
+
+    return {}
 }
 
 export const getDateFromToday = (num_of_days: number) => {

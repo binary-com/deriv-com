@@ -110,7 +110,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dtrader/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DTrader} alt="DTrader" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DTrader')}</Text>
+                            <Text ml="0.4rem">{localize('Deriv Trader')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -118,7 +118,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dbot/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DBot} alt="DBot" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DBot')}</Text>
+                            <Text ml="0.4rem">{localize('Deriv Bot')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

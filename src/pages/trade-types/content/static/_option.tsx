@@ -22,7 +22,7 @@ export const digital_options: OptionsContentElement[] = [
         ),
     },
     {
-        src: Instant,
+        src: Flexible,
         alt: 'instant access icon',
         item_title: <Localize translate_text="Instant access" />,
         text: (
@@ -30,7 +30,7 @@ export const digital_options: OptionsContentElement[] = [
         ),
     },
     {
-        src: UserFriendly,
+        src: Instant,
         alt: 'user friendly icon',
         item_title: (
             <Localize translate_text="User-friendly platforms with powerful chart widgets" />
@@ -40,7 +40,7 @@ export const digital_options: OptionsContentElement[] = [
         ),
     },
     {
-        src: Flexible,
+        src: UserFriendly,
         alt: 'flexible icon',
         item_title: (
             <Localize translate_text="Flexible trade types with minimal capital requirements" />

@@ -26,22 +26,18 @@ const WhyTradeCFD = () => {
                     <WhyTradeItem>
                         <img src={HighLeverge} alt="Leverage and spread" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                            <Localize
-                                translate_text={
-                                    is_eu
-                                        ? '_t_Tight spreads_t_'
-                                        : '_t_High leverage, tight spreads_t_'
-                                }
-                            />
+                            {is_eu ? (
+                                <Localize translate_text="_t_Tight spreads_t_" />
+                            ) : (
+                                <Localize translate_text="_t_High leverage, tight spreads_t_" />
+                            )}
                         </Text>
                         <Text mb="4rem">
-                            <Localize
-                                translate_text={
-                                    is_eu
-                                        ? '_t_Take advantage of tight spreads on Deriv’s CFD trading platforms._t_'
-                                        : '_t_Take advantage of high leverage and tight spreads on Deriv’s CFD trading platforms._t_'
-                                }
-                            />
+                            {is_eu ? (
+                                <Localize translate_text="_t_Take advantage of tight spreads on Deriv’s CFD trading platforms._t_" />
+                            ) : (
+                                <Localize translate_text="_t_Take advantage of high leverage and tight spreads on Deriv’s CFD trading platforms._t_" />
+                            )}
                         </Text>
                     </WhyTradeItem>
                     <WhyTradeItem>
@@ -50,13 +46,11 @@ const WhyTradeCFD = () => {
                             <Localize translate_text="_t_All your favourite markets_t_" />
                         </Text>
                         <Text mb="4rem">
-                            <Localize
-                                translate_text={
-                                    is_eu
-                                        ? '_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_'
-                                        : '_t_Trade on financial markets plus our proprietary synthetic indices that are available 24/7._t_'
-                                }
-                            />
+                            {is_eu ? (
+                                <Localize translate_text="_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_" />
+                            ) : (
+                                <Localize translate_text="_t_Trade on financial markets plus our proprietary synthetic indices that are available 24/7._t_" />
+                            )}
                         </Text>
                     </WhyTradeItem>
                     <WhyTradeItem>

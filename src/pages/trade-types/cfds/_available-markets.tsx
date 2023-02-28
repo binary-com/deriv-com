@@ -139,14 +139,16 @@ const AvailableMarkets = () => {
                                                 </StyledText>
                                             </MobileCardHeader>
                                             <Text>
-                                                <Localize
-                                                    translate_text={
-                                                        is_eu
-                                                            ? market.eu_description ||
-                                                              market.description
-                                                            : market.description
-                                                    }
-                                                />
+                                                {is_eu ? (
+                                                    <Localize
+                                                        translate_text={
+                                                            market.eu_description ||
+                                                            market.description
+                                                        }
+                                                    />
+                                                ) : (
+                                                    <Localize translate_text={market.description} />
+                                                )}
                                             </Text>
                                             <LearnMore
                                                 text="_t_Learn more_t_"
@@ -181,14 +183,16 @@ const AvailableMarkets = () => {
                                                 </StyledText>
                                             </MobileCardHeader>
                                             <Text>
-                                                <Localize
-                                                    translate_text={
-                                                        is_eu
-                                                            ? market.eu_description ||
-                                                              market.description
-                                                            : market.description
-                                                    }
-                                                />
+                                                {is_eu ? (
+                                                    <Localize
+                                                        translate_text={
+                                                            market.eu_description ||
+                                                            market.description
+                                                        }
+                                                    />
+                                                ) : (
+                                                    <Localize translate_text={market.description} />
+                                                )}
                                             </Text>
                                             <LearnMore
                                                 text="_t_Learn more_t_"

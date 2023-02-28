@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import Checklist from 'images/svg/trade-types/checklist-red.svg'
 import device from 'themes/device'
+import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 const StyledItem = styled.div`
     display: flex;
@@ -34,7 +36,7 @@ const Timeline = ({ children, ...props }) => {
                     <Oval src={Checklist} alt="checklist" />
                     <Container>
                         <Header mb="0.8rem" mt="-5px" as="h4" size="2.4rem">
-                            {child.props.title}
+                            <Localize translate_text={child.props.title as TString} />
                         </Header>
                         <Text>{child}</Text>
                     </Container>

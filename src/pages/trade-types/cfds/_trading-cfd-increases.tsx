@@ -108,31 +108,25 @@ const TradingCFDIncreases = () => {
                     <Localize translate_text="_t_With stop loss, you minimise potential losses by setting the price at which you want the position to close in case the market moves against you. When the current market price surpasses this level, your trade will be closed automatically._t_" />
                 </Text>
                 <Text as="h5" weight="bold" mb="0.8rem">
-                    <Localize
-                        translate_text={
-                            is_eu
-                                ? '_t_Stop loss with Crash/Boom_t_'
-                                : '_t_Stop loss with Crash/Boom/Range break indices_t_'
-                        }
-                    />
+                    {is_eu ? (
+                        <Localize translate_text="_t_Stop loss with Crash/Boom_t_" />
+                    ) : (
+                        <Localize translate_text="_t_Stop loss with Crash/Boom/Range break indices_t_" />
+                    )}
                 </Text>
                 <Text mb="1.6rem">
-                    <Localize
-                        translate_text={
-                            is_eu
-                                ? '_t_Stop loss works slightly differently in Crash/Boom. This is because sudden fluctuations in market price from one tick to the next can sometimes surpass the stop loss you have set. When the market price exceeds your stop loss amount, your contract will be automatically closed at that point instead of exactly at the stop loss level._t_'
-                                : '_t_Stop loss works slightly differently in Crash/Boom/Range break indices. This is because sudden fluctuations in market price from one tick to the next can sometimes surpass the stop loss you have set. When the market price exceeds your stop loss amount, your contract will be automatically closed at that point, instead of exactly at the stop loss level._t_'
-                        }
-                    />
+                    {is_eu ? (
+                        <Localize translate_text="_t_Stop loss works slightly differently in Crash/Boom. This is because sudden fluctuations in market price from one tick to the next can sometimes surpass the stop loss you have set. When the market price exceeds your stop loss amount, your contract will be automatically closed at that point instead of exactly at the stop loss level._t_" />
+                    ) : (
+                        <Localize translate_text="_t_Stop loss works slightly differently in Crash/Boom/Range break indices. This is because sudden fluctuations in market price from one tick to the next can sometimes surpass the stop loss you have set. When the market price exceeds your stop loss amount, your contract will be automatically closed at that point, instead of exactly at the stop loss level._t_" />
+                    )}
                 </Text>
                 <Text mb="1.6rem">
-                    <Localize
-                        translate_text={
-                            is_eu
-                                ? '_t_For example, you predict that the market will go up, and buy a contract on Crash 300 index at 8,000 USD._t_'
-                                : '_t_For example, you predict that the market will go up, and buy a contract on Crash 500 index at 8,000 USD._t_'
-                        }
-                    />
+                    {is_eu ? (
+                        <Localize translate_text="_t_For example, you predict that the market will go up, and buy a contract on Crash 300 index at 8,000 USD._t_" />
+                    ) : (
+                        <Localize translate_text="_t_For example, you predict that the market will go up, and buy a contract on Crash 500 index at 8,000 USD._t_" />
+                    )}
                 </Text>
                 <Text mb="1.6rem">
                     <Localize translate_text="_t_When the market price climbs to 8,700 USD, you decide to set the stop loss level at 8,200 USD. After a few ticks, the price dives to 8,100 USD, surpassing your stop loss level. Your trade will automatically close at 8,100 USD._t_" />

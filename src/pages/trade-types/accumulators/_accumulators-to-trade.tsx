@@ -90,7 +90,7 @@ const IndicesGrid = () => {
                 </Text>
                 <MiddleText>
                     {localize(
-                        'Volatility indices correspond to markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 200%, and 300%.',
+                        'Volatility indices correspond to markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
                     )}
                 </MiddleText>
                 <MiddleText>

@@ -150,75 +150,6 @@ const payment_data = [
         class_name: 'online-banking',
     },
     {
-        name: <Localize translate_text="Online banking" />,
-        is_eu: true,
-        note: (
-            <Localize translate_text="Not all payment methods are available in your country. Kindly check your cashier for further information." />
-        ),
-        data: [
-            {
-                method: <StyledIcon src={Eps} alt="eps" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make deposits and withdrawals through your local bank in real-time." />
-                ),
-                name: 'Eps',
-            },
-            {
-                method: <StyledIcon src={GiroPay} alt="giropay" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make safe, instant, and easy transactions via Germany's most popular payment method." />
-                ),
-                name: 'Eps',
-            },
-            {
-                method: <StyledIcon src={Nordea} alt="nordea" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make fast deposits with your Nordea bank account and enjoy benefits from its mobile app." />
-                ),
-                name: 'Nordea',
-            },
-            {
-                method: <StyledIcon src={Przelewy} alt="przelewy" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make easy transactions via any major local banks and their mobile apps through Przelewy24." />
-                ),
-                name: 'Przelewy',
-            },
-            {
-                method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program." />
-                ),
-                name: 'Przelewy',
-            },
-        ],
-    },
-    {
         name: <Localize translate_text="Credit/debit cards" />,
         note: (
             <Localize translate_text="Withdrawals may take up to 15 working days to reflect on your card." />
@@ -649,6 +580,75 @@ const payment_data = [
             },
         ],
         class_name: 'e-wallets',
+    },
+    {
+        name: <Localize translate_text="Online banking" />,
+        is_eu: true,
+        note: (
+            <Localize translate_text="Not all payment methods are available in your country. Kindly check your cashier for further information." />
+        ),
+        data: [
+            {
+                method: <StyledIcon src={Eps} alt="eps" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Make deposits and withdrawals through your local bank in real-time." />
+                ),
+                name: 'Eps',
+            },
+            {
+                method: <StyledIcon src={GiroPay} alt="giropay" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Make safe, instant, and easy transactions via Germany's most popular payment method." />
+                ),
+                name: 'Eps',
+            },
+            {
+                method: <StyledIcon src={Nordea} alt="nordea" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Make fast deposits with your Nordea bank account and enjoy benefits from its mobile app." />
+                ),
+                name: 'Nordea',
+            },
+            {
+                method: <StyledIcon src={Przelewy} alt="przelewy" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Make easy transactions via any major local banks and their mobile apps through Przelewy24." />
+                ),
+                name: 'Przelewy',
+            },
+            {
+                method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program." />
+                ),
+                name: 'Przelewy',
+            },
+        ],
     },
     {
         name: <Localize translate_text="Cryptocurrencies" />,

@@ -175,7 +175,7 @@ const SocialWrapper = styled(Flex)`
     margin-top: 4rem;
     flex-wrap: wrap;
     gap: 6px;
-    height: 50%;
+    height: 40%;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {

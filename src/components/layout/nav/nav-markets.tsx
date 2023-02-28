@@ -10,17 +10,17 @@ import { PlatformQueryParamWithHash } from 'common/utility'
 const NavMarkets = () => {
     const { is_deriv_go } = PlatformQueryParamWithHash()
 
-    if (is_deriv_go) return <></>
-
     return (
-        <NavTemplate>
-            <PartnerWrapper>
-                <NavDesktop />
-                <NavMobile />
-                <PartnerNavigationBarWrapper id="markets-list">
-                    <NavMarketDesktop />
-                </PartnerNavigationBarWrapper>
-            </PartnerWrapper>
+        <NavTemplate transparent_background={is_deriv_go}>
+            {!is_deriv_go && (
+                <PartnerWrapper>
+                    <NavDesktop />
+                    <NavMobile />
+                    <PartnerNavigationBarWrapper id="markets-list">
+                        <NavMarketDesktop />
+                    </PartnerNavigationBarWrapper>
+                </PartnerWrapper>
+            )}
         </NavTemplate>
     )
 }

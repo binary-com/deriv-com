@@ -72,6 +72,11 @@ const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     background-repeat: no-repeat;
     background-position: right;
     height: 63rem;
+
+    @media (max-width: 580px) {
+        background-size: 147rem;
+        background-position-x: -588px;
+    }
 `
 const StyledButton = styled.div`
     margin-top: 5rem;

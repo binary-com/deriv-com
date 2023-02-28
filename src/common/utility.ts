@@ -386,12 +386,7 @@ export const useCallbackRef = (callback: () => void) => {
 const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
 
 const redirect = (subdomain: string) => {
-    const redirection_url = `${subdomain}.deriv.com`
-    window.location.href = `https://${redirection_url + window.location.pathname}`
-}
-
-const redirectDomain = () => {
-    const redirection_url = `deriv.com`
+    const redirection_url = subdomain ? `${subdomain}.deriv.com` : 'deriv.com'
     window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
@@ -420,7 +415,8 @@ export const handleRowRedirect = (residence: string, current_client_country: str
         return false
     } else {
         if (eu_subdomain_countries.includes(country) === false) {
-            redirectDomain()
+            const subdomain = getSubdomain()
+            redirect(subdomain.includes('staging-eu') ? 'staging' : '')
         }
     }
 }

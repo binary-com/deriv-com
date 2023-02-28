@@ -172,5 +172,3 @@ export const browsers_minimum_required_version = {
     'Samsung Browser': 10,
     UCBrowser: 13,
 }
-
-export const cloudflare_trace_url = 'https://www.cloudflare.com/cdn-cgi/trace'

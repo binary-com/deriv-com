@@ -67,19 +67,6 @@ const handleBg = ({
         }
     }
 }
-const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
-    position: relative;
-    background: url(${handleBg});
-    background-size: 165rem;
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 63rem;
-
-    @media (max-width: 580px) {
-        background-size: 147rem;
-        background-position-x: -588px;
-    }
-`
 
 const StyledButton = styled.div`
     margin-top: 5rem;
@@ -146,6 +133,11 @@ const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     background-position: right;
     height: 63rem;
     transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'none')};
+    
+       @media (max-width: 580px) {
+        background-size: 147rem;
+        background-position-x: -588px;
+    }
 
     & > ${StyledContainer} {
         transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};

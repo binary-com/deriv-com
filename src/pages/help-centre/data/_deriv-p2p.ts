@@ -175,7 +175,7 @@ const deriv_p2p: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_For further information, see Section 4 on Deriv P2P in <0>our terms</0>_t_',
+                        '_t_For further information, see Section 4 on Deriv P2P in <0>our terms and conditions</0>._t_',
                     has_margin_top: true,
                     translation_components: [
                         {
@@ -400,7 +400,7 @@ const deriv_p2p: TQuestionsData = {
                 {
                     has_margin_top: true,
                     translation_text:
-                        '_t_For further information, see Section 4 on Deriv P2P in <0>our terms</0>._t_',
+                        '_t_For further information, see Section 4 on Deriv P2P in <0>our terms and conditions</0>._t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/tnc/funds-and-transfers.pdf' },
                     ],
@@ -574,7 +574,7 @@ const deriv_p2p: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_Age-verify your account by submitting <0>proof of identity</0>_t_',
+                        '_t_Age-verify your account by submitting <0>proof of identity</0>._t_',
                     translation_components: [
                         {
                             key: 0,

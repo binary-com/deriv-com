@@ -238,8 +238,16 @@ const deposits_and_withdrawals: TQuestionsData = {
                         '_t_4. RCS reject, allowed number of cards exceeded. Please contact your bank to check._t_',
                 },
                 {
-                    translation_text: '_t_If you need help, please contact us via live chat._t_',
+                    translation_text:
+                        '_t_If you need help, please contact us via <0>live chat</0>._t_',
                     has_margin_top: true,
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: 'https://deriv.com/?is_livechat_open=true',
+                        },
+                    ],
                 },
             ],
         },
@@ -376,10 +384,13 @@ const deposits_and_withdrawals: TQuestionsData = {
                     has_margin_top: true,
                 },
                 {
-                    translation_text: '_t_Go to Cashier > <0>Withdrawal</0>._t_',
-                    has_margin_top: true,
+                    translation_text: '_t_Go to <0>Cashier > Withdrawal</0>._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: `${deriv_app_url}/cashier/withdrawal` },
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: `${deriv_app_url}/cashier/withdrawal`,
+                        },
                     ],
                 },
                 {

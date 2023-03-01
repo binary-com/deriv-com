@@ -232,7 +232,7 @@ const trading: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_To see your account’s trading limits, go to Settings > Security and safety > <0>Account limits</0>_t_',
+                        '_t_To see your account’s trading limits, go to Settings > Security and safety > <0>Account limits</0>._t_',
                     translation_components: [
                         { key: 0, type: 'link', to: `${deriv_app_url}/account/account-limits` },
                     ],
@@ -276,7 +276,10 @@ const trading: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        "_t_Deriv multipliers combines the upside of leverage trading without the downside of losing more than your stake. This means that when the market moves in your favour, you'll multiply your potential profits. If the market moves against your prediction, your losses are limited only to your stake. To find out more, visit the Multipliers page._t_",
+                        "_t_Deriv <0>multipliers</0> combines the upside of leverage trading without the downside of losing more than your stake. This means that when the market moves in your favour, you'll multiply your potential profits. If the market moves against your prediction, your losses are limited only to your stake. To find out more, visit the Multipliers page._t_",
+                    translation_components: [
+                        { key: 0, type: 'link', to: '/trade-types/multiplier' },
+                    ],
                 },
             ],
         },

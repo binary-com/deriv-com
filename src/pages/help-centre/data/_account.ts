@@ -203,8 +203,15 @@ const account: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_Do not worry, if you encounter any issue along the process, please reach out to our support through Live Chat for further assistance._t_',
+                        '_t_Do not worry, if you encounter any issue along the process, please reach out to our support through <0>Live Chat</0> for further assistance._t_',
                     has_margin_top: true,
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: '/contact_us/?is_livechat_open=true',
+                        },
+                    ],
                 },
             ],
         },
@@ -336,7 +343,7 @@ const account: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_If you have questions or need help, please contact us via <0> live chat </0>._t_',
+                        '_t_If you have questions or need help, please contact us via <0> live chat</0>._t_',
                     translation_components: [
                         {
                             key: 0,

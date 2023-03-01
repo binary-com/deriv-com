@@ -13,7 +13,7 @@ const dtrader: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_<0>DTrader</0> is one of our trading platforms. It offers digital options and multipliers on a variety of assets in financial and synthetic markets._t_',
+                        '_t_<0>DTrader</0> is an advanced trading platform where you can trade digital and lookback options and multipliers on more than 50 assets._t_',
                     eu_translation_text:
                         '_t_<0>DTrader</0> is one of our trading platforms. It offers multipliers on a variety of assets in financial and synthetic markets._t_',
                     translation_components: [{ key: 0, type: 'link', to: '/dtrader/' }],
@@ -29,7 +29,7 @@ const dtrader: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_DTrader is an advanced trading platform on which you can trade more than 50 assets in the form of digital, multipliers, and lookback options._t_',
+                        '_t_<0>DTrader</0> is an advanced trading platform where you can trade digital and lookback options and multipliers on more than 50 assets._t_',
                     translation_components: [{ key: 0, type: 'link', to: '/dtrader/' }],
                 },
             ],

@@ -199,7 +199,7 @@ const dmt5: TQuestionsData = {
                     translation_text: '_t_Follow these steps to reset your Deriv MT5 password:_t_',
                 },
                 {
-                    translation_text: '_t_1. Go to your <0>Deriv MT5 dashboard</0>_t_',
+                    translation_text: '_t_1. Go to your <0>Deriv MT5 dashboard</0>._t_',
                     has_margin_top: true,
                     translation_components: [
                         { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },
@@ -295,7 +295,7 @@ const dmt5: TQuestionsData = {
             label: 'investor-password-for-my-Deriv-MT5-account',
             answer: [
                 {
-                    translation_text: '_t_1. Go to your <0>Deriv MT5 dashboard</0>_t_',
+                    translation_text: '_t_1. Go to your <0>Deriv MT5 dashboard</0>._t_',
                     has_margin_top: true,
                     translation_components: [
                         { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },

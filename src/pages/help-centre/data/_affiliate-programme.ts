@@ -384,13 +384,13 @@ const affiliate_programme: TQuestionsData = {
             ],
         },
         {
-            question: '_t_How to change affiliate links_t_',
+            question: '_t_How to change affiliate links._t_',
             category: 'Affiliate programme',
             sub_category: '_t_Partners_t_',
             label: 'how-to-change-affiliate-links',
             answer: [
                 {
-                    translation_text: '_t_Contact us via <0>live chat</0>_t_',
+                    translation_text: '_t_Contact us via <0>live chat</0>._t_',
                     translation_components: [
                         { key: 0, type: 'link', to: 'https://deriv.com/?is_livechat_open=true)' },
                     ],

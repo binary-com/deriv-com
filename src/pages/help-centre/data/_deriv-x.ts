@@ -69,7 +69,7 @@ const derivx: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_<0>Deriv MT5 (DMT5)</0> and <1>Deriv X</1> are both multi-asset trading platforms where you can trade spot forex and CFDs with leverage on multiple asset classes. The major difference between them is platform layout — MT5 has a simple all-in-one view, while on Deriv X you can customise the layout according to your preference._t_',
+                        '_t_<0>Deriv MT5 (DMT5)</0> and <1>Deriv X</1> are both multi-asset trading platforms where you can trade CFDs with leverage on multiple asset classes. The major difference between them is the platform layout — MT5 has a simple all-in-one view, while on Deriv X you can customise the layout according to your preference._t_',
                     has_margin_top: true,
                     translation_components: [
                         { key: 0, type: 'link', to: '/dmt5/' },

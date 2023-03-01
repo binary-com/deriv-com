@@ -34,7 +34,7 @@ const ib_programme: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        "_t_To become an IB, you'll need to be an existing affiliate with a Deriv <0>currency</0> account and an MT5 Derived real account. If you do, you can apply to become an IB by <1>contacting us via LiveChat</1>._t_",
+                        "_t_To become an IB, you'll need to be an existing affiliate with a Deriv <0>currency</0> account and an MT5 Derived real account. If you do, you can apply to become an IB by contacting us via <1>LiveChat</1>._t_",
                     translation_components: [
                         { key: 0, type: 'strong' },
                         {

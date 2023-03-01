@@ -43,7 +43,10 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 // name="Forex"
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />
-            <FullWidthMultiColumn header={<Localize translate_text="Why trade forex on Deriv" />}>
+            <FullWidthMultiColumn
+                gap="0"
+                header={<Localize translate_text="Why trade forex on Deriv" />}
+            >
                 {(is_eu ? forex_content_eu : forex_content).map((content, index) => (
                     <StyledBox
                         key={index}

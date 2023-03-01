@@ -1,50 +1,19 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { SmallContainer, Grid, HowItWorksItem } from '../components/_style'
+import { SmallContainer } from '../components/_style'
 import SideTab from '../components/_tabs'
 import CommonHeaderSection from 'components/elements/common-header-section'
-import { SectionContainer, Flex, Container } from 'components/containers'
-import { Header, Text, QueryImage } from 'components/elements'
+import { SectionContainer, Container } from 'components/containers'
+import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device'
-import Pattern from 'images/common/trade-types/pattern-section.png'
-
-const query = graphql`
-    query {
-        accumulator_market: file(relativePath: { eq: "trade-types/accumulators-market.png" }) {
-            ...fadeIn
-        }
-        option_trade_type: file(relativePath: { eq: "trade-types/options-trade-type.png" }) {
-            ...fadeIn
-        }
-        option_duration: file(relativePath: { eq: "trade-types/options-duration.png" }) {
-            ...fadeIn
-        }
-        option_stake: file(relativePath: { eq: "trade-types/options-stake.png" }) {
-            ...fadeIn
-        }
-        accumulators_take_profit: file(
-            relativePath: { eq: "trade-types/accumulators-take-profit.png" }
-        ) {
-            ...fadeIn
-        }
-        accumulators_trade: file(relativePath: { eq: "trade-types/accumulators-trade.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const StyledContainer = styled(Container)`
     width: 100% !important;
-    @media ${device.mobileL} {
-        background: url(${Pattern});
-        background-size: cover;
-    }
 `
 
 const HowAccumulatorsWork = () => {
-    const data = useStaticQuery(query)
     return (
         <SectionContainer>
             <SmallContainer direction="column" ai="flex-start">
@@ -115,9 +84,14 @@ const HowAccumulatorsWork = () => {
                             <Localize translate_text="Choose an asset from the list of markets." />
                         }
                     >
-                        <QueryImage
-                            data={data['accumulator_market']}
-                            alt="Select from different market options"
+                        <StaticImage
+                            src="../../../images/common/trade-types/accumulators-market.png"
+                            alt="accumulators market"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
                         />
                     </SideTab.Panel>
                     <SideTab.Panel
@@ -126,7 +100,15 @@ const HowAccumulatorsWork = () => {
                             <Localize translate_text="Choose accumulators from the list of trade types" />
                         }
                     >
-                        <QueryImage data={data['option_trade_type']} alt="Select trade type" />
+                        <StaticImage
+                            src="../../../images/common/trade-types/accumulators-trade-type.png"
+                            alt="accumulators trade type"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="3. Growth percentage" />}
@@ -134,7 +116,15 @@ const HowAccumulatorsWork = () => {
                             <Localize translate_text="Select the growth rate of your choice. Your potential profit will grow by this percentage at every tick throughout your contract duration." />
                         }
                     >
-                        <QueryImage data={data['option_duration']} alt="Select trade duration" />
+                        <StaticImage
+                            src="../../../images/common/trade-types/accumulators-duration.png"
+                            alt="accumulators duration"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="4. Stake" />}
@@ -142,9 +132,14 @@ const HowAccumulatorsWork = () => {
                             <Localize translate_text="Enter the amount you wish to trade with." />
                         }
                     >
-                        <QueryImage
-                            data={data['option_stake']}
-                            alt="Add stake amount to receive payout quote"
+                        <StaticImage
+                            src="../../../images/common/trade-types/accumulators-stake.png"
+                            alt="accumulators stake"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
                         />
                     </SideTab.Panel>
                 </SideTab>
@@ -158,9 +153,14 @@ const HowAccumulatorsWork = () => {
                             <Localize translate_text="This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account." />
                         }
                     >
-                        <QueryImage
-                            data={data['accumulators_take_profit']}
-                            alt="Check stake and payout quote"
+                        <StaticImage
+                            src="../../../images/common/trade-types/accumulators-take-profit.png"
+                            alt="accumulators take profit"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
                         />
                     </SideTab.Panel>
                 </SideTab>
@@ -171,10 +171,18 @@ const HowAccumulatorsWork = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="6. Trade" />}
                         description={
-                            <Localize translate_text="Click on the Accumulate button to open your trade." />
+                            <Localize translate_text="Click the Buy button to open your trade." />
                         }
                     >
-                        <QueryImage data={data['accumulators_trade']} alt="Buy the contract" />
+                        <StaticImage
+                            src="../../../images/common/trade-types/accumulators-trade.png"
+                            alt="accumulators take profit"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
+                        />
                     </SideTab.Panel>
                 </SideTab>
             </SmallContainer>

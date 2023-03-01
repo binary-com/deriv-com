@@ -79,7 +79,6 @@ export const CrashText = styled(Text)`
 export const Descriptions = styled.div<DescriptionsProps>`
     margin-top: ${({ margin_top }) => margin_top ?? '0'};
     padding-bottom: 40px;
-    border-bottom: 1px solid var(--color-grey-21);
 `
 
 export const DetailsContainer = styled(Flex)`
@@ -269,6 +268,8 @@ type StyledBoxProps = {
     item_title_eu?: React.ReactNode
     text_eu?: React.ReactNode
     icon: ReactElement
+    link?: React.ReactNode
+    link_text?: React.ReactNode
 }
 export const StyledBox = styled(Box)<StyledBoxProps>`
     content: ${({ text }) => (text ? text : '')};

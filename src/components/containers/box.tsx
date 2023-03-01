@@ -18,7 +18,7 @@ export const mediaqueries = Object.keys(size)
 export const generateResponsiveStyles = (stylesGenerator) => (props) => {
     return Object.keys(mediaqueries).reduce((rules, mq) => {
         if (!props[mq]) return rules
-        const styles = mediaqueries[mq]`        
+        const styles = mediaqueries[mq]`
         ${stylesGenerator(props[mq])}
         `
         return [...rules, styles]
@@ -95,6 +95,7 @@ export type BoxType = {
     background?: string
     bg?: string
     direction?: string
+    gap?: string
 } & ResponseDeviceProps &
     BaseStyleType
 
@@ -104,6 +105,7 @@ const Box = styled.div<BoxType & BaseStyleType>`
     min-height: ${(props) => (props.min_height ? props.min_height : '')};
     max-width: ${(props) => (props.max_width ? props.max_width : '')};
     position: ${(props) => (props.position ? props.position : '')};
+    gap: ${(props) => (props.gap ? props.gap : '')};
     background: ${(props) => (props.background || props.bg ? props.background || props.bg : '')};
     ${baseStyles}
     ${responsiveStyles}

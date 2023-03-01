@@ -234,6 +234,7 @@ import USDMXN from 'images/svg/symbols/usd-mxn.svg'
 import USDNOK from 'images/svg/symbols/usd-nok.svg'
 import USDBRENT from 'images/svg/symbols/usd-brent.svg'
 import USDPLN from 'images/svg/symbols/usd-pln.svg'
+import EURPLN from 'images/svg/symbols/eur-pln.svg'
 import USDRUB from 'images/svg/symbols/usd-rub.svg'
 import USDSEK from 'images/svg/symbols/usd-sek.svg'
 import USDSGD from 'images/svg/symbols/usd-sgd.svg'
@@ -427,6 +428,7 @@ export {
     ESP35,
     ETCUSD,
     ETHUSD,
+    EURPLN,
     EUR50,
     EURAUD,
     EURBASKET,

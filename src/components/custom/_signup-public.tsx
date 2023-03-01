@@ -363,6 +363,17 @@ const social_button_content: SocialButtonContent[] = [
         img: Google,
         text: 'Google',
     },
+    {
+        provider: 'Facebook',
+        id: 'gtm-signup-facebook',
+        img: Facebook,
+        text: 'Facebook',
+    },
+    {
+        provider: 'Google',
+        id: 'gtm-signup-google',
+        img: Google,
+    },
 ]
 const SignupPublic = ({
     email_error_msg,

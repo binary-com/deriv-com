@@ -1,11 +1,15 @@
 {
-    "processors": [
-        "stylelint-processor-styled-components"
-    ],
+    "processors": ["stylelint-processor-styled-components"],
     "extends": [
         "stylelint-config-standard",
         "stylelint-config-styled-components",
         "stylelint-config-prettier"
+    ],
+    "overrides": [
+        {
+            "files": ["**/*.tsx"],
+            "customSyntax": "@stylelint/postcss-css-in-js"
+        }
     ],
     "rules": {
         "string-quotes": "single",
@@ -19,21 +23,14 @@
         "selector-type-no-unknown": [
             true,
             {
-                "ignoreTypes": [
-                    "/^amp-/"
-                ]
+                "ignoreTypes": ["/^amp-/"]
             }
         ],
         "rule-empty-line-before": [
             "always",
             {
-                "ignore": [
-                    "after-comment"
-                ],
-                "except": [
-                    "inside-block-and-after-rule",
-                    "first-nested"
-                ]
+                "ignore": ["after-comment"],
+                "except": ["inside-block-and-after-rule", "first-nested"]
             }
         ],
         "value-keyword-case": null,

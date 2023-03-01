@@ -44,7 +44,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
         },
         {
             src: CryptoPairs,
-            text: localize('25+ crypto pairs'),
+            text: localize('30+ crypto pairs'),
             alt: 'Crypto currency pairs',
         },
         {

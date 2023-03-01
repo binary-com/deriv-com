@@ -61,24 +61,12 @@ const SecondColumn = styled(Column)`
     padding-left: 90px;
     display: flex;
 
-    @media (max-width: 767px) {
+    @media ${device.tabletL} {
+        background-image: none;
+        width: 100%;
+        height: 250px;
         left: 0;
         padding-left: 0;
-    }
-`
-
-const StyledHeader = styled(Header)`
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 40px;
-    color: white;
-
-    @media ${device.tablet} {
-        text-align: center;
-        max-width: 80vw;
-        margin-bottom: 8px;
-        font-size: 24px;
-        line-height: 30px;
     }
 `
 

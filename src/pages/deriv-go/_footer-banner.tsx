@@ -11,14 +11,12 @@ import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-import { Header } from 'components/elements/typography'
-import Flex from 'components/containers/flex'
-import { LocalizedLink, localize } from 'components/localization'
 import {
     deriv_go_playstore_url,
     deriv_go_huaweiappgallery_url,
     deriv_go_ios_url,
 } from 'common/constants'
+import DownloadColumn from 'components/custom/_multi-width-column-download'
 
 const ContentWrapper = styled.div`
     display: flex;
@@ -39,49 +37,7 @@ const TextAndButtonWrapper = styled.div`
         align-items: center;
     }
 `
-const DownloadAppWrapper = styled.div`
-    max-width: 384px;
-    width: 100%;
-    margin: 0 auto;
-`
-const QRScanBox = styled.div`
-    border: 0.5px solid var(--color-white);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 24px;
-    gap: 24px;
-    border-radius: 24px;
-    width: 100%;
-`
-const StyledHeading = styled(Header)`
-    font-size: 16px;
-    color: var(--color-white);
-`
-const QRTextWrapper = styled.div``
-const DownloadAppOsLinks = styled.div`
-    padding: 24px;
-`
-const StyledOsIcon = styled.img`
-    width: 24px;
-    margin-right: 8px;
-`
-const StyledItemText = styled(Header)`
-    font-size: 17px;
-    color: var(--color-white);
-`
-const StyledItems = styled.div`
-    display: flex;
-    align-items: center;
-`
-const AppButton = styled(LocalizedLink)`
-    text-decoration: none;
-`
-const StyledItemsWrapper = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-`
+
 const DerivGoGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
 
@@ -113,40 +69,12 @@ const DerivGoGetApp = () => {
                     />
                 </TextAndButtonWrapper>
             </ContentWrapper>
-            <Flex ai="center">
-                <DownloadAppWrapper>
-                    <QRScanBox>
-                        <img src={derivGoQR} alt="Deriv GO QR" />
-                        <QRTextWrapper>
-                            <StyledHeading as="p" weight="100">
-                                {localize('Scan to download')}{' '}
-                            </StyledHeading>
-                            <StyledHeading as="h5" weight="700">
-                                {localize('Android & Huawei')}{' '}
-                            </StyledHeading>
-                        </QRTextWrapper>
-                    </QRScanBox>
-                    <DownloadAppOsLinks>
-                        <StyledItemsWrapper style={{}}>
-                            {items.map((item, index) => (
-                                <StyledItems key={index}>
-                                    <StyledOsIcon src={item.icon} alt="OS icon" />
-                                    <AppButton
-                                        external
-                                        to={item.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <StyledItemText as="p" weight="700">
-                                            {item.text}
-                                        </StyledItemText>
-                                    </AppButton>
-                                </StyledItems>
-                            ))}
-                        </StyledItemsWrapper>
-                    </DownloadAppOsLinks>
-                </DownloadAppWrapper>
-            </Flex>
+            <DownloadColumn
+                QRImage={derivGoQR}
+                QRHeading1="Scan to download"
+                QRHeading2="Android & Huawei"
+                items={items}
+            />
         </MultiWidthColumn>
     )
 }

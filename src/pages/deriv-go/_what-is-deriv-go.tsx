@@ -40,6 +40,7 @@ const StyledTitle = styled(Header)`
 
     @media ${device.tabletL} {
         padding-top: 24px;
+        font-size: 24px;
     }
 `
 const StyledSubTitle = styled(Header)`

@@ -13,8 +13,8 @@ export type LocalizeComponentAttributes = {
 }
 
 type ChildProps = {
-    label?: LocalizeComponentAttributes
-    description?: LocalizeComponentAttributes
+    label?: LocalizeComponentAttributes | TString
+    description?: LocalizeComponentAttributes | TString
 }
 
 type TabButtonType = {
@@ -177,6 +177,27 @@ const Tabs = <T extends object>({
                         const {
                             props: { label, description },
                         }: ReactElement<ChildProps> = child
+
+                        const localized_label: ReactElement =
+                            typeof label === 'string' ? (
+                                <Localize translate_text={label} />
+                            ) : (
+                                <Localize
+                                    translate_text={label.text}
+                                    components={label.components}
+                                />
+                            )
+
+                        const localized_description: ReactElement =
+                            typeof description === 'string' ? (
+                                <Localize translate_text={description} />
+                            ) : (
+                                <Localize
+                                    translate_text={description.text}
+                                    components={description.components}
+                                />
+                            )
+
                         return (
                             <>
                                 <TabButton
@@ -187,16 +208,10 @@ const Tabs = <T extends object>({
                                     onClick={() => selectTab(index)}
                                 >
                                     <Text className="side-tab__label" weight="bold">
-                                        <Localize
-                                            translate_text={label.text}
-                                            components={label.components}
-                                        />
+                                        {localized_label}
                                     </Text>
                                     <Text className="side-tab__description" mt="0.8rem">
-                                        <Localize
-                                            translate_text={description.text}
-                                            components={description.components}
-                                        />
+                                        {localized_description}
                                     </Text>
                                 </TabButton>
                                 <MobileWrapper

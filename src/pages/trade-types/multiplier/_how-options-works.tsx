@@ -174,10 +174,8 @@ const HowOptionsWorks = () => {
                 </Header>
                 <SideTab>
                     <SideTab.Panel
-                        label={{ text: '_t_1. Market_t_' }}
-                        description={{
-                            text: '_t_Choose an asset from the list of markets offered on Deriv._t_',
-                        }}
+                        label="_t_1. Market_t_"
+                        description="_t_Choose an asset from the list of markets offered on Deriv._t_"
                     >
                         {is_eu ? (
                             <QueryImage
@@ -192,10 +190,8 @@ const HowOptionsWorks = () => {
                         )}
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={{ text: '_t_2. Trade type_t_' }}
-                        description={{
-                            text: '_t_Choose ‘Multipliers’ from the list of trade types._t_',
-                        }}
+                        label="_t_2. Trade type_t_"
+                        description="_t_Choose ‘Multipliers’ from the list of trade types._t_"
                     >
                         {is_eu ? (
                             <QueryImage
@@ -210,21 +206,17 @@ const HowOptionsWorks = () => {
                         )}
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={{ text: '_t_3. Stake_t_' }}
-                        description={{ text: '_t_Enter the amount you wish to trade with._t_' }}
+                        label="_t_3. Stake_t_"
+                        description="_t_Enter the amount you wish to trade with._t_"
                     >
                         <QueryImage data={data['multiplier_stake']} alt="Enter stake amount" />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={{ text: '_t_4. Multiplier value_t_' }}
+                        label="_t_4. Multiplier value_t_"
                         description={
                             is_eu
-                                ? {
-                                      text: '_t_Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 5. Your loss will never be more than your stake._t_',
-                                  }
-                                : {
-                                      text: '_t_Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount._t_',
-                                  }
+                                ? '_t_Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 5. Your loss will never be more than your stake._t_'
+                                : '_t_Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount._t_'
                         }
                     >
                         {is_eu ? (
@@ -245,26 +237,20 @@ const HowOptionsWorks = () => {
                 </StyledDtraderHeader>
                 <SideTab is_reverse>
                     <SideTab.Panel
-                        label={{ text: '_t_5. Take profit_t_' }}
-                        description={{
-                            text: '_t_This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account._t_',
-                        }}
+                        label="_t_5. Take profit_t_"
+                        description="_t_This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account._t_"
                     >
                         <QueryImage data={data['multiplier_take_profit']} alt="Set profit level" />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={{ text: '_t_6. Stop loss_t_' }}
-                        description={{
-                            text: '_t_This feature allows you to set the amount of loss you are willing to take in case the market moves against your position. Once the amount is reached, your contract will be closed automatically._t_',
-                        }}
+                        label="_t_6. Stop loss_t_"
+                        description="_t_This feature allows you to set the amount of loss you are willing to take in case the market moves against your position. Once the amount is reached, your contract will be closed automatically._t_"
                     >
                         <QueryImage data={data['multiplier_stop_loss']} alt="Set stop loss" />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={{ text: '_t_7. Deal cancellation_t_' }}
-                        description={{
-                            text: '_t_This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service._t_',
-                        }}
+                        label="_t_7. Deal cancellation_t_"
+                        description="_t_This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service._t_"
                     >
                         <QueryImage
                             data={data['multiplier_deal_cancellation']}
@@ -277,10 +263,8 @@ const HowOptionsWorks = () => {
                 </StyledDtraderHeader>
                 <SideTab>
                     <SideTab.Panel
-                        label={{ text: '_t_8. Purchase your contract_t_' }}
-                        description={{
-                            text: '_t_Once you are satisfied with the parameters that you have set, select either ‘Up’ or ‘Down’ to purchase your contract. Otherwise, continue to customise the parameters and place your order when you are satisfied with the conditions._t_',
-                        }}
+                        label="_t_8. Purchase your contract_t_"
+                        description="_t_Once you are satisfied with the parameters that you have set, select either ‘Up’ or ‘Down’ to purchase your contract. Otherwise, continue to customise the parameters and place your order when you are satisfied with the conditions._t_"
                     >
                         <QueryImage
                             data={data['multiplier_purchase']}

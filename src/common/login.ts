@@ -37,10 +37,14 @@ const Login = (() => {
     }
 
     const initOneAll = (provider: TSocialProvider, utm_content?: string): string => {
-        const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
-        const social_login_url = `${loginUrl()}&social_signup=${provider}${utm_content_string}`
+        if (isStorageSupported(sessionStorage)) {
+            const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
+            const social_login_url = `${loginUrl()}&social_signup=${provider}${utm_content_string}`
 
-        return social_login_url
+            return social_login_url
+        }
+
+        return '/'
     }
 
     return {

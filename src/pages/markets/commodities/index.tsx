@@ -6,11 +6,8 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const CommoditiesPage = () => {
-    const { is_deriv_go } = usePlatformQueryParam()
-
     return (
         <Layout type="noNav">
             <SEO
@@ -26,7 +23,7 @@ const CommoditiesPage = () => {
                 )}
             />
             <Commodities simple_step_content={simple_step_content_commodities} />
-            {!is_deriv_go && <Signup appearance={Appearances.public} />}
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

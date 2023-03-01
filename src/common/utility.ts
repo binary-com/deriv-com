@@ -425,20 +425,6 @@ export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'dev
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
 
-// if you wanna use a condition that if client comes from deriv go or p2p app and your url contains #
-// you can use this function else usePlatformQueryParam hook
-export const PlatformQueryParamWithHash = () => {
-    if (isBrowser()) {
-        const is_deriv_go = window.location.href.indexOf('?platform=derivgo') > -1
-        const is_deriv_p2p = window.location.href.indexOf('?platform=p2p') > -1
-        const has_platform = is_deriv_go ? 'derivgo' : is_deriv_p2p ? 'p2p' : undefined
-
-        return { has_platform, is_deriv_p2p, is_deriv_go }
-    }
-
-    return {}
-}
-
 export const getDateFromToday = (num_of_days: number) => {
     const today = new Date()
     return new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)

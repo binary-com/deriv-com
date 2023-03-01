@@ -10,7 +10,7 @@ import device from 'themes/device'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import { PlatformQueryParamWithHash } from 'common/utility'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const BackgroundWrapper = styled.div`
     background: url(${BannerBg});
@@ -97,7 +97,7 @@ type MarketProps = {
 export const DerivedFXHero = ({ title, description }: MarketProps) => {
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
-    const { is_deriv_go } = PlatformQueryParamWithHash()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <BackgroundWrapper>
@@ -110,7 +110,9 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
                 <MarketSubHeader color="white" weight="normal" align="center">
                     <Localize translate_text={description} />
                 </MarketSubHeader>
-                {is_logged_in || is_deriv_go ? (
+                {is_deriv_go ? (
+                    <></>
+                ) : is_logged_in ? (
                     <StyledButton width="128px" onClick={handleGetTrading} secondary>
                         {localize('Get Trading')}
                     </StyledButton>

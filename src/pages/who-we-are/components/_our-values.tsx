@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { our_values } from './_data'
+import { our_values } from '../_data'
 import { localize } from 'components/localization'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'

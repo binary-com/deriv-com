@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import MakeTrading from './_MakeTrading'
+import MakeTrading from './components/_make-trading'
 import Hero from './components/_hero'
-import ImageMarquee from './carousel/_ImageMarquee'
+import ImageMarquee from './carousel/_image-marquee'
 import {
     OurValues,
     OurPrinciples,

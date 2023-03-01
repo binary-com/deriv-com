@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Leaders from './components/_leaders'
+import Leaders from './_leaders'
 import { localize } from 'components/localization'
 import { SectionContainer, CssGrid } from 'components/containers'
 import { Header } from 'components/elements'

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { deriv_numbers } from './_data'
+import { deriv_numbers } from '../_data'
 import { localize } from 'components/localization'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, Text } from 'components/elements'

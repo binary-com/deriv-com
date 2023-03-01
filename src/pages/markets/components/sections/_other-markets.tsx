@@ -43,7 +43,7 @@ const markets_type: MarketsType = {
         icon: () => <img src={Forex} alt="Forex" width="44" height="44" />,
         title: <Localize translate_text="Forex" />,
         content: (
-            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
+            <Localize translate_text="Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake." />
         ),
         content_eu: (
             <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />

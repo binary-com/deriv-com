@@ -2549,7 +2549,7 @@
   "-75787346": "Für die Volatilitätsindizes <0>10, 25, 50, 75 und 100</0> wird <0>alle zwei Sekunden</0> ein <0>Tick</0> generiert.",
   "-257478628": "<0>Jede Sekunde</0> wird <0>ein Tick</0> für die Volatilitätsindizes <0>10 (1s), 25 (1s), 50 (1s), 75 (1s) und 100 (1s)</0> generiert.",
   "-1014166738": "<0>Jede Sekunde</0> wird <0>ein Tick</0> für die Volatilitätsindizes <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 150 (1s), 200 (1s), 250 (1s) und 300 (1s)</0> generiert.",
-  "-1972084136": "Jede Sekunde</0> wird <0>ein Tick</0> für die Volatilitätsindizes <0>150 (1s), 200 (1s), 250 (1s) und 300 (1s)</0> generiert.",
+  "-1972084136": "<0>Jede Sekunde</0> wird <0>ein Tick</0> für die Volatilitätsindizes <0>150 (1s), 200 (1s), 250 (1s) und 300 (1s)</0> generiert.",
   "-1312740087": "<0>Higher/Lower:</0> Prognostizieren Sie, ob der Exit-Spot am Ende der Kontraktlaufzeit höher oder niedriger als ein Kursziel (die Barriere) sein wird.",
   "-467543474": "<0>Übereinstimmungen/Unterschiede:</0> Sagen Sie voraus, welche Zahl die letzte Ziffer des letzten Ticks eines Kontrakts sein wird.",
   "-12379677": "<0>Gerade/Ungerade:</0> Sagen Sie voraus, ob die letzte Ziffer des letzten Ticks eines Kontrakts eine gerade Zahl oder eine ungerade Zahl sein wird.",

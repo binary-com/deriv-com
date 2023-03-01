@@ -37,7 +37,7 @@ const Login = (() => {
     }
 
     const initOneAll = (provider: TSocialProvider, utm_content?: string): string => {
-        if (isStorageSupported(localStorage)) {
+        if (typeof window !== 'undefined') {
             const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
             const social_login_url = `${loginUrl()}&social_signup=${provider}${utm_content_string}`
 

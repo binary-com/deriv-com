@@ -142,12 +142,6 @@ const DisclaimerSection = () => {
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="<0>EU statutory disclaimer</0>: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                        components={[<strong key={0} />]}
-                                    />
-                                </DisclaimerParagraph>
-                                <DisclaimerParagraph>
-                                    <Localize
                                         translate_text="Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
                                         components={[
                                             <BoldLink
@@ -222,12 +216,6 @@ const DisclaimerSection = () => {
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly." />
-                                </DisclaimerParagraph>
-                                <DisclaimerParagraph>
-                                    <Localize
-                                        translate_text="<0>EU statutory disclaimer</0>: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                        components={[<strong key={0} />]}
-                                    />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize

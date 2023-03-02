@@ -26,15 +26,15 @@ const Container = styled.section`
     }
 `
 type TTabTexts = {
-    header: LocalizeComponentAttributes | TString
-    step_one_header: LocalizeComponentAttributes | TString
-    step_one_text: LocalizeComponentAttributes | TString
-    step_one_text_eu?: LocalizeComponentAttributes | TString
-    step_two_header: LocalizeComponentAttributes | TString
-    step_two_text: LocalizeComponentAttributes | TString
-    step_three_header: LocalizeComponentAttributes | TString
-    step_three_text: LocalizeComponentAttributes | TString
-    notice: LocalizeComponentAttributes | TString
+    header: LocalizeComponentAttributes
+    step_one_header: LocalizeComponentAttributes
+    step_one_text: LocalizeComponentAttributes
+    step_one_text_eu?: LocalizeComponentAttributes
+    step_two_header: LocalizeComponentAttributes
+    step_two_text: LocalizeComponentAttributes
+    step_three_header: LocalizeComponentAttributes
+    step_three_text: LocalizeComponentAttributes
+    notice: LocalizeComponentAttributes
 }
 
 type TContent = {

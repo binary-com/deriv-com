@@ -7,14 +7,16 @@ import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
 
-export type LocalizeComponentAttributes = {
-    text: TString
-    components?: ReactElement[]
-}
+export type LocalizeComponentAttributes =
+    | {
+          text: TString
+          components?: ReactElement[]
+      }
+    | TString
 
 type ChildProps = {
-    label?: LocalizeComponentAttributes | TString
-    description?: LocalizeComponentAttributes | TString
+    label?: LocalizeComponentAttributes
+    description?: LocalizeComponentAttributes
 }
 
 type TabButtonType = {
@@ -163,7 +165,7 @@ const Tabs = <T extends object>({
     max_width,
     has_notice,
     notice_content,
-}: TabsProps & { notice_content?: T }) => {
+}: TabsProps & { notice_content?: LocalizeComponentAttributes }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)
@@ -227,7 +229,16 @@ const Tabs = <T extends object>({
                 {has_notice && (
                     <NoticeWrapper>
                         <StyledInfo />
-                        <StyledText>{notice_content}</StyledText>
+                        <StyledText>
+                            {typeof notice_content === 'string' ? (
+                                <Localize translate_text={notice_content} />
+                            ) : (
+                                <Localize
+                                    translate_text={notice_content.text}
+                                    components={notice_content.components}
+                                />
+                            )}
+                        </StyledText>
                     </NoticeWrapper>
                 )}
             </TabListWrapper>

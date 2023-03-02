@@ -32,7 +32,7 @@ const Markets = () => {
                 title={localize('Derived')}
                 description={is_eu ? description_eu : description_row}
             />
-            {is_deriv_go ? <></> : <NavTab route_from={'synthetic'} route_offset={50} />}
+            <NavTab route_from={'synthetic'} route_offset={50} />
             <SyntheticIndices simple_step_content={simple_step_content_synthetic} />
             {!is_deriv_go && <Signup appearance={Appearances.public} />}
         </Layout>

@@ -343,7 +343,7 @@ const account: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_If you have questions or need help, please contact us via <0> live chat</0>._t_',
+                        '_t_If you have questions or need help, please contact us via <0>live chat</0>._t_',
                     translation_components: [
                         {
                             key: 0,

@@ -6,11 +6,7 @@ import { Text } from 'components/elements'
 //TODO: refactor this component to always use instruments_type
 type SymbolProps = MarketSymbol & { instruments_type?: MarketSymbol[] }
 const Symbol = ({ instruments_type, src, text }: SymbolProps) => {
-<<<<<<< HEAD
     const is_derived_fx = text?.props.translate_text.includes('DFX')
-=======
-    const is_derived_fx = text.props.translate_text.includes('DFX')
->>>>>>> d00ae32134 (Translation [FE Deriv.com squad] 85828 NikitK / Derived FX, add Vol 20  (#4067))
     return (
         <React.Fragment>
             {instruments_type ? (

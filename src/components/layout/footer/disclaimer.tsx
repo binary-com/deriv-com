@@ -100,26 +100,8 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             {localize(
-                                'Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly.',
+                                'Deriv Holdings (Guernsey) Limited — 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ — is the holding company for the above subsidiary.',
                             )}
-                        </DisclaimerParagraph>
-                        <DisclaimerParagraph>
-                            <Localize
-                                translate_text="Make sure to read our <0>Terms and conditions</0>,  <1>Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
-                                components={[
-                                    <BoldLink
-                                        key={0}
-                                        target="_blank"
-                                        to="/terms-and-conditions/"
-                                    />,
-                                    <BoldLink
-                                        key={1}
-                                        target="_blank"
-                                        to="/tnc/risk-disclosure.pdf"
-                                    />,
-                                    <BoldLink key={2} target="_blank" to="/responsible/" />,
-                                ]}
-                            />
                         </DisclaimerParagraph>
                     </>
                 )}
@@ -168,10 +150,25 @@ const DisclaimerSection = () => {
                         {is_eu && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
+                                    <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly." />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
-                                    <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                    <Localize
+                                        translate_text="Make sure to read our <0>Terms and conditions</0>,  <1>Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        components={[
+                                            <BoldLink
+                                                key={0}
+                                                target="_blank"
+                                                to="/terms-and-conditions/"
+                                            />,
+                                            <BoldLink
+                                                key={1}
+                                                target="_blank"
+                                                to="/tnc/risk-disclosure.pdf"
+                                            />,
+                                            <BoldLink key={2} target="_blank" to="/responsible/" />,
+                                        ]}
+                                    />
                                 </DisclaimerParagraph>
                             </>
                         )}
@@ -220,10 +217,20 @@ const DisclaimerSection = () => {
                         {is_eu && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
+                                    <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly" />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
-                                    <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                    <Localize
+                                        translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        components={[
+                                            <BoldLink
+                                                key={0}
+                                                target="_blank"
+                                                to="/terms-and-conditions/"
+                                            />,
+                                            <BoldLink key={1} target="_blank" to="/responsible/" />,
+                                        ]}
+                                    />
                                 </DisclaimerParagraph>
                             </>
                         )}

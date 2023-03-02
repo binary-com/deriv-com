@@ -69,7 +69,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            {is_deriv_go && <OtherMarkets except="derived" />}
+            {!is_deriv_go && <OtherMarkets except="derived" />}
         </div>
     )
 }

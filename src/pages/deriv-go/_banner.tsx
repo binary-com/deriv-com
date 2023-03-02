@@ -125,7 +125,7 @@ const DHero = () => {
                 </Content>
             </ContentWrapperStyle>
             <HeroImageWrapper>
-                <Shape angle={is_mobile ? 101 : 163}>
+                <Shape angle={is_mobile ? 101 : 163} width="60%">
                     <ImageWrapper>
                         <ImageStyle src={is_mobile ? DerivGoRowMobile : DerivGoRow} />
                     </ImageWrapper>

@@ -57,6 +57,7 @@ const StyledFrame = styled.div`
     }
 `
 const StyledButton = styled(LinkButton)`
+    border-radius: 16px;
     margin-top: 40px;
     position: relative;
     max-width: 120px;

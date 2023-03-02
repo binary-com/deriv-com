@@ -189,7 +189,6 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
             onClick={() => onTabChange(name)}
             className={name.toLowerCase()}
             is_rtl={is_rtl}
-            id={active_tab}
         >
             <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'hidden' }}>
                 {name === 'CFDs'}

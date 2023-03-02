@@ -2,6 +2,8 @@ import React, { ReactElement } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { Header as HeaderText } from 'components/elements'
 import device from 'themes/device'
+import { Flex } from 'components/containers'
+import * as icons from 'components/elements/symbols-shortcode'
 
 export const TableContainer = styled.div`
     width: 100%;
@@ -58,27 +60,26 @@ export const TableRow = styled.tr<TableRowProps>`
     min-height: 75px;
     padding: 24px;
 
-    th:nth-child(1),
-    td:nth-child(1) {
+    th:nth-child(1) {
         width: 32rem;
+    }
+    th:nth-child(2) {
+        width: 0.2rem;
+    }
+    td:nth-child(2) {
+        width: 30rem;
     }
 
     @media ${device.tabletL} {
-        th:nth-child(4),
-        td:nth-child(4) {
+        th:nth-child(1) {
+            width: 12rem;
+        }
+        td:nth-child(2) {
+            width: 10rem;
+        }
+        th:nth-child(6),
+        td:nth-child(6) {
             display: none;
-        }
-        th:nth-child(2),
-        td:nth-child(2),
-        th:nth-child(3),
-        td:nth-child(3),
-        th:nth-child(5),
-        td:nth-child(5) {
-            width: 5rem;
-        }
-        th:nth-child(1),
-        td:nth-child(1) {
-            width: 13rem;
         }
     }
 `
@@ -113,26 +114,78 @@ export const Cell = styled.div`
         cursor: pointer;
     }
 `
-
+export const StyledContainer = styled(Flex)`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    width: 60%;
+    @media ${device.tablet} {
+        width: 100vw;
+    }
+`
+export const ContainerWrapper = styled(Flex)`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 60%;
+    @media ${device.tablet} {
+        width: 100vw;
+    }
+`
 type TTableHeaderCell = {
-    text: ReactElement
+    text?: ReactElement
     icon_src?: string
     on_icon_click?: () => void
 }
 
 type TTableCell = {
-    text: string | number
+    text?: string | number
 }
 const StyledTableHeaderText = styled(HeaderText)`
     @media ${device.tabletL} {
-        font-size: 9px;
+        font-size: 10px;
     }
 `
+export const CellIcon = styled.div`
+    display: flex;
+    justify-content: end;
+`
+type TTableCellIcon = {
+    icon_src: string
+}
+export const TableCellIcon = ({ icon_src }: TTableCellIcon) => {
+    if (icon_src === '1HZ150V')
+        return (
+            <CellIcon>
+                <img src={icons['Vol_1HZ150V']} width="24px" height="24px" />
+            </CellIcon>
+        )
+    if (icon_src === '1HZ250V')
+        return (
+            <CellIcon>
+                <img src={icons['Vol_1HZ250V']} width="24px" height="24px" />
+            </CellIcon>
+        )
+    else
+        return (
+            <CellIcon>
+                <img src={icons[icon_src]} width="24px" height="24px" />
+            </CellIcon>
+        )
+}
 
 export const TableHeaderCell = ({ text }: TTableHeaderCell) => {
     return (
         <Cell>
-            <StyledTableHeaderText type="paragraph-1" width="fit-content" align="start">
+            <StyledTableHeaderText type="paragraph-1" width="fit-content" align="start" as="p">
                 {text}
             </StyledTableHeaderText>
         </Cell>
@@ -141,13 +194,13 @@ export const TableHeaderCell = ({ text }: TTableHeaderCell) => {
 const StyledHeaderText = styled(HeaderText)`
     @media ${device.tabletL} {
         width: auto;
-        font-size: 11px;
+        font-size: 10px;
     }
 `
 export const TableCell = ({ text }: TTableCell) => {
     return (
         <Cell>
-            <StyledHeaderText type="paragraph-1" weight="normal" align="start">
+            <StyledHeaderText type="paragraph-1" weight="normal" align="start" as="p">
                 {text}
             </StyledHeaderText>
         </Cell>
@@ -171,6 +224,9 @@ const DailyPercentageText = styled(HeaderText)<{ bull?: boolean }>`
             : css`
                   color: red;
               `}
+    @media ${device.tabletL} {
+        font-size: 10px;
+    }
 `
 
 export const DailyPercentageCell = ({ value }: TDailyPercentageProps) => {
@@ -183,6 +239,7 @@ export const DailyPercentageCell = ({ value }: TDailyPercentageProps) => {
                 type="paragraph-2"
                 weight="normal"
                 align="start"
+                as="p"
             >
                 {value}
             </DailyPercentageText>

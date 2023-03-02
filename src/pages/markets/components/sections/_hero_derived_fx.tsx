@@ -15,6 +15,7 @@ import { Desktop, Mobile } from 'components/containers'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type MarketProps = {
     title: string
@@ -34,6 +35,7 @@ type BackgroundWrapperProps = {
     is_stocks_and_indices?: boolean
     is_cryptocurrencies?: boolean
     is_commodities?: boolean
+    is_rtl?: boolean
 }
 
 const handleBg = ({
@@ -65,14 +67,7 @@ const handleBg = ({
         }
     }
 }
-const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
-    position: relative;
-    background: url(${handleBg});
-    background-size: 165rem;
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 63rem;
-`
+
 const StyledButton = styled.div`
     margin-top: 5rem;
     margin-left: 10vw;
@@ -130,19 +125,44 @@ const StyledContainer = styled.div`
         padding: 4rem 1.3rem;
     }
 `
+const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
+    position: relative;
+    background: url(${handleBg});
+    background-size: 165rem;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 63rem;
+    transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'none')};
+    
+       @media (max-width: 580px) {
+        background-size: 147rem;
+        background-position-x: -588px;
+    }
+
+    & > ${StyledContainer} {
+        transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};
+        margin-right: 8rem;
+    }
+    & > ${StyledButton} {
+        transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};
+        margin-right: 8rem;
+    }
+`
 const MarketSubHeader = styled.div`
     font-size: 16px;
     width: 25vw;
     color: var(--color-black-9);
-    text-align: center;
+    text-align: left;
     line-height: 24px;
 
     @media ${device.laptopM} {
         min-width: 40rem;
+        text-align: center;
     }
     @media ${device.mobileM} {
         font-size: 14px;
         width: 83vw;
+        text-align: center;
     }
 `
 const StyledHeader = styled(Header)`
@@ -173,6 +193,8 @@ export const DerivedFXHero = ({
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
 
+    const is_rtl = useIsRtl()
+
     return (
         <>
             <NavMarkets />
@@ -184,6 +206,7 @@ export const DerivedFXHero = ({
                     is_stocks_and_indices={is_stocks_and_indices}
                     is_cryptocurrencies={is_cryptocurrencies}
                     is_commodities={is_commodities}
+                    is_rtl={is_rtl}
                 >
                     <StyledContainer>
                         <StyledHeader as="h1" align="center">
@@ -214,6 +237,7 @@ export const DerivedFXHero = ({
                     is_stocks_and_indices={is_stocks_and_indices}
                     is_cryptocurrencies={is_cryptocurrencies}
                     is_commodities={is_commodities}
+                    is_rtl={is_rtl}
                 />
                 <StyledContainer>
                     <StyledHeader as="h1" align="center">

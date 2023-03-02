@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Desktop, Mobile } from 'components/containers'
+import { getImage } from 'gatsby-plugin-image'
+import { Desktop, Flex, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
 import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
@@ -73,32 +74,18 @@ const StyledMobileQueryImage = styled(QueryImage)`
     max-width: 445px;
 `
 
-const StyledImage = styled.img`
-    max-width: 591px;
-    z-index: 2;
-    position: absolute;
-`
-const StyledMobileImage = styled.img`
-    max-width: 445px;
-`
-
 const Hero = ({ hero }: any) => {
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
             <ContentWrapper jc="center">
                 <Desktop>
                     <StyledFlex>
-                        <StyledImage
-                            src={process.env.STRAPI_URL + hero?.hero_image.url}
+                        <StyledQueryImage
+                            data={getImage(hero?.hero_image.localFile)}
                             alt="example"
+                            width="unset"
                             loading="eager"
                         />
-                        {/*<StyledQueryImage*/}
-                        {/*    data={hero.hero_image.alternativeText['about_us_logo']}*/}
-                        {/*    alt="example"*/}
-                        {/*    width="unset"*/}
-                        {/*    loading="eager"*/}
-                        {/*/>*/}
                         <Flex jc="center" p="0 32px" max_width="1440px">
                             <DesktopHeader>{hero?.header}</DesktopHeader>
                         </Flex>
@@ -106,11 +93,12 @@ const Hero = ({ hero }: any) => {
                 </Desktop>
                 <Mobile>
                     <Flex fd="column" ai="center" p="0 16px">
-                        {/*<StyledMobileQueryImage*/}
-                        {/*    data={hero.hero_image.alternativeText['about_us_logo']}*/}
-                        {/*    alt="example"*/}
-                        {/*    width="unset"*/}
-                        {/*/>*/}
+                        <StyledMobileQueryImage
+                            data={getImage(hero?.hero_image.localFile)}
+                            alt="example"
+                            width="unset"
+                            loading="eager"
+                        />
                         <MobileHeader>{hero?.header}</MobileHeader>
                     </Flex>
                 </Mobile>

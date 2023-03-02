@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer, Flex } from 'components/containers'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
@@ -10,6 +11,7 @@ const OurValuesSection = styled(SectionContainer)`
     justify-content: center;
     padding: 80px 16px 56px;
     background-color: var(--color-grey-30);
+
     @media (max-width: 1255px) {
         align-items: center;
         flex-direction: column;
@@ -21,6 +23,7 @@ const OurValuesSection = styled(SectionContainer)`
 const StyledHeader = styled(Header)`
     margin: 235px 70px 0 0;
     padding: 0;
+
     @media ${device.laptop} {
         font-size: 48px;
         line-height: 60px;
@@ -61,7 +64,7 @@ const OurValues = ({ our_values }: any) => {
             <StyledFlex width="820px" wrap="wrap">
                 {our_values?.values.map(({ header, image, sub_header }, index) => (
                     <Card key={index} index={index} direction="column" ai="start" jc="start">
-                        <img src={process.env.STRAPI_URL + image.url} alt="icon" />
+                        <GatsbyImage image={getImage(image.localFile)} alt="icon" loading="eager" />
                         <Header as="h4" padding="24px 0 8px" size="32px" align="start" type="unset">
                             {header}
                         </Header>

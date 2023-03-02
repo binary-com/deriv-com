@@ -1,8 +1,9 @@
 import React, { MouseEventHandler, useState } from 'react'
 import styled from 'styled-components'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Modal from './components/modal'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { SectionContainer, CssGrid, Flex } from 'components/containers'
+import { CssGrid, Flex, SectionContainer } from 'components/containers'
 import { Header, ImageWrapper } from 'components/elements'
 import device from 'themes/device'
 
@@ -125,10 +126,8 @@ const OurLeadership = ({ our_leadership }: any) => {
                         width={is_mobile ? '98px' : '120px'}
                         height={is_mobile ? '98px' : '120px'}
                     >
-                        <img
-                            width="100%"
-                            height="100%"
-                            src={process.env.STRAPI_URL + photo?.url}
+                        <GatsbyImage
+                            image={getImage(photo.localFile)}
                             alt="leader"
                             loading="lazy"
                         />

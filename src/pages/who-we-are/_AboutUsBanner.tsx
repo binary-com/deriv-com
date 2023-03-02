@@ -4,7 +4,7 @@ import BgMobile from 'images/common/who-we-are/about-us-banner-mobile.jpg'
 import BgMobileRTL from 'images/common/who-we-are/about-us-banner-mobile_rtl.jpg'
 import Bg from 'images/common/who-we-are/about-us-banner.jpg'
 import BgRTL from 'images/common/who-we-are/about-us-banner_rtl.jpg'
-import { SectionContainer, Flex } from 'components/containers'
+import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -23,7 +23,6 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding: 0 16px 40px;
     }
 `
-
 const StyledFlex = styled(Flex)<{ is_rtl: boolean }>`
     border-radius: 10px;
     ${({ is_rtl }) =>
@@ -38,6 +37,7 @@ const StyledFlex = styled(Flex)<{ is_rtl: boolean }>`
     background-size: cover;
     background-position: center;
     overflow: hidden;
+
     @media ${device.laptopM} {
         width: 100%;
     }
@@ -58,10 +58,10 @@ const StyledFlex = styled(Flex)<{ is_rtl: boolean }>`
         background-position-x: -40px;
     }
 `
-
 const PictureFlex = styled(Flex)`
     width: 373px;
     margin: 32px 0 32px 100px;
+
     @media ${device.laptop} {
         margin: 32px 0 32px 50px;
     }
@@ -73,9 +73,9 @@ const PictureFlex = styled(Flex)`
         margin: 10px 10px 0 29px;
     }
 `
-
 const StyledHeader = styled(Header)`
     line-height: 40px;
+
     @media ${device.laptop} {
         line-height: 34px;
     }
@@ -86,10 +86,10 @@ const StyledHeader = styled(Header)`
         font-size: 28px;
     }
 `
-
 const StyledHeader2 = styled(Header)`
     color: var(--color-white);
     margin: 12px 0 8px;
+
     @media ${device.tablet} {
         margin: 6px 0 10px;
         font-size: 11px;
@@ -129,7 +129,7 @@ const AboutUsBanner = ({ banner }: any) => {
                     >
                         {banner?.sub_header}
                     </StyledHeader2>
-                    <StyledLinkButton secondary to={process.env.STRAPI_URL + banner?.link_url}>
+                    <StyledLinkButton secondary to={banner?.link_url}>
                         {banner?.link_name}
                     </StyledLinkButton>
                 </PictureFlex>

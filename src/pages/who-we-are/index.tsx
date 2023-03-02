@@ -3,15 +3,15 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
-import ImageMarquee from './carousel/_ImageMarquee'
 import {
-    OurValues,
-    OurPrinciples,
-    OurLeadership,
     AboutUsBanner,
     DerivNumbers,
+    OurLeadership,
     OurOffices,
+    OurPrinciples,
+    OurValues,
 } from './_lazy-load'
+import ImageMarquee from './carousel/_ImageMarquee'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -22,16 +22,17 @@ const StartSeparator = styled.div`
     height: 0;
     border-top: 120px solid transparent;
     border-right: 99vw solid var(--color-grey-30);
+
     @media ${device.tabletL} {
         border-top: 40px solid transparent;
     }
 `
-
 const EndSeparator = styled.div`
     width: 0;
     height: 0;
     border-left: 99vw solid var(--color-grey-30);
     border-bottom: 120px solid transparent;
+
     @media ${device.tabletL} {
         border-bottom: 40px solid transparent;
     }
@@ -44,7 +45,7 @@ const AboutUs = ({ data }: any) => {
         our_principles,
         our_leadership,
         deriv_in_numbers,
-        slider,
+        slider_medias,
         our_locations,
         banner,
     } = data?.allStrapiWhoWeArePage.nodes[0] || {}
@@ -65,7 +66,7 @@ const AboutUs = ({ data }: any) => {
             <OurPrinciples our_principles={our_principles} />
             <OurLeadership our_leadership={our_leadership} />
             <DerivNumbers deriv_in_numbers={deriv_in_numbers} />
-            <ImageMarquee slider={slider} />
+            <ImageMarquee slider_medias={slider_medias} />
             <OurOffices our_locations={our_locations} />
             <AboutUsBanner banner={banner} />
         </Layout>
@@ -77,13 +78,33 @@ export const query = graphql`
             nodes {
                 hero {
                     header
-                    hero_image {
-                        url
-                    }
                     sub_header
                     first_paragraph
                     second_paragraph
                     third_paragraph
+                    hero_image {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    bg_desktop {
+                        localFile {
+                            url
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    bg_mobile {
+                        localFile {
+                            url
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
                 }
                 our_values {
                     header
@@ -91,7 +112,11 @@ export const query = graphql`
                         header
                         sub_header
                         image {
-                            url
+                            localFile {
+                                childImageSharp {
+                                    gatsbyImageData
+                                }
+                            }
                         }
                     }
                 }
@@ -112,6 +137,11 @@ export const query = graphql`
                     link_url
                     photo {
                         url
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
                     }
                 }
                 deriv_in_numbers {
@@ -122,14 +152,8 @@ export const query = graphql`
                         number
                     }
                 }
-                slider {
-                    url
-                }
                 our_locations {
                     header
-                    world_map {
-                        url
-                    }
                     numbers {
                         description
                         number
@@ -144,8 +168,80 @@ export const query = graphql`
                     sub_header
                     link_name
                     link_url
-                    image {
-                        url
+                    bg_desktop {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    bg_desktop_rtl {
+                        localFile {
+                            url
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    bg_mobile {
+                        localFile {
+                            url
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    bg_mobile_rtl {
+                        localFile {
+                            url
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+                slider_medias {
+                    slider_1 {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    slider_2 {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    slider_3 {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    slider_4 {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    slider_5 {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    slider_6 {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
                     }
                 }
             }

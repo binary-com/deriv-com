@@ -2,8 +2,6 @@ import React, { useEffect, createContext, Dispatch, ReactNode } from 'react'
 import type { WebsiteStatus } from '@deriv/api-types'
 import { useCookieState } from 'components/hooks/use-cookie-state'
 import useWS from 'components/hooks/useWS'
-import { useClientCountry } from 'components/hooks/use-client-country'
-import { getDateFromToday } from 'common/utility'
 
 type WebsiteStatusProviderProps = {
     children?: ReactNode
@@ -17,10 +15,19 @@ type WebsiteStatusContextType = {
 export const WebsiteStatusContext = createContext<WebsiteStatusContextType>(null)
 
 export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) => {
-    const { clients_country } = useClientCountry()
     const { data, send } = useWS('website_status')
-    const [website_status, setWebsiteStatus] = useCookieState('website_status', {
-        expires: getDateFromToday(7),
+
+    const getDateFromToday = (num_of_days: number) => {
+        const today = new Date()
+
+        return new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
+    }
+
+    const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
+    const COOKIE_EXPIRY_DAYS = 7
+
+    const [websiteCountryStatus, setWebsiteStatus] = useCookieState(WEBSITE_STATUS_COUNTRY_KEY, {
+        expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
     })
 
     useEffect(() => {
@@ -28,21 +35,17 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
     }, [send])
 
     useEffect(() => {
-        setWebsiteStatus((prev) => ({ ...prev, clients_country }))
-    }, [clients_country, setWebsiteStatus])
-
-    useEffect(() => {
         if (data) {
-            const { p2p_config } = data
-            setWebsiteStatus((prev) => ({ ...prev, p2p_config }))
+            const { clients_country, p2p_config } = data
+            setWebsiteStatus((oldVal) => ({ clients_country, p2p_config, ...oldVal }))
         }
     }, [data, setWebsiteStatus])
 
     return (
         <WebsiteStatusContext.Provider
             value={{
-                website_status,
                 setWebsiteStatus,
+                website_status: websiteCountryStatus,
             }}
         >
             {children}

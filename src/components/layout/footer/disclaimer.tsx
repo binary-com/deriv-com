@@ -113,7 +113,7 @@ const DisclaimerSection = () => {
                         {is_non_eu && !is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
+                                    <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly." />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
@@ -138,7 +138,7 @@ const DisclaimerSection = () => {
                         {is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
+                                    <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly." />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
@@ -196,7 +196,7 @@ const DisclaimerSection = () => {
                         {is_non_eu && !is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
+                                    <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly." />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
@@ -221,7 +221,7 @@ const DisclaimerSection = () => {
                         {is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
+                                    <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly." />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize

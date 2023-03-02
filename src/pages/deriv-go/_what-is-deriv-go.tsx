@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { ContentType } from './index'
 import { Localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import flex from 'components/containers/flex'
 

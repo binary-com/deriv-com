@@ -7,8 +7,6 @@ import { SectionContainer, Container } from 'components/containers'
 import StepperView from 'components/custom/_stepper_view'
 import { Header } from 'components/elements'
 import device, { size } from 'themes/device'
-import useRegion from 'components/hooks/use-region'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const query = graphql`
     query {
@@ -42,8 +40,6 @@ const StyledHeader = styled(Header)`
 `
 const StartDerivGo = () => {
     const [is_mobile, setMobile] = useState(false)
-    const { is_row } = useRegion()
-    const { is_mobile_or_tablet } = useBreakpoints()
     const data = useStaticQuery(query)
 
     const handleResizeWindow = () => {

@@ -279,7 +279,7 @@ export const derived_fx_cfds: MarketInstrumentsElement = {
     template: 3,
     content: [
         {
-            id: 'derived-fx',
+            id: 'cfds-derived-fx',
             title: <Localize translate_text="Derived FX" />,
             component: <DerivedCFDs />,
             details: <DerivedCFDsDetails />,

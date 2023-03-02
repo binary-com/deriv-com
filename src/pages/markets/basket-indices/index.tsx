@@ -7,11 +7,8 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import { PlatformQueryParamWithHash } from 'common/utility'
 
 const BasketPage = () => {
-    const { is_deriv_go } = PlatformQueryParamWithHash()
-
     return (
         <Layout type="noNav">
             <SEO
@@ -30,7 +27,7 @@ const BasketPage = () => {
             />
             <NavTab route_from={'basket-indices'} route_offset={650} />
             <BasketIndices simple_step_content={simple_step_content_basket} />
-            {!is_deriv_go && <Signup appearance={Appearances.public} />}
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

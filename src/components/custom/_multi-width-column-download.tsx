@@ -36,7 +36,6 @@ const StyledHeading = styled(Header)`
     font-size: 16px;
     color: var(--color-white);
 `
-const QRTextWrapper = styled.div``
 const DownloadAppOsLinks = styled.div`
     padding: 24px;
 `
@@ -66,17 +65,17 @@ const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeadin
             <DownloadAppWrapper>
                 <QRScanBox>
                     <img src={QRImage} alt="Deriv GO QR" />
-                    <QRTextWrapper>
+                    <div>
                         <StyledHeading as="p" weight="100">
                             {localize(`${QRHeading1}`)}
                         </StyledHeading>
                         <StyledHeading as="h5" weight="700">
                             {localize(`${QRHeading2}`)}
                         </StyledHeading>
-                    </QRTextWrapper>
+                    </div>
                 </QRScanBox>
                 <DownloadAppOsLinks>
-                    <StyledItemsWrapper style={{}}>
+                    <StyledItemsWrapper>
                         {items.map((item, index) => (
                             <StyledItems key={index}>
                                 <StyledOsIcon src={item.icon} alt="OS icon" />

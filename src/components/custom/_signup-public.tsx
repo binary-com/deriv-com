@@ -175,6 +175,7 @@ const SocialWrapper = styled(Flex)`
     margin-top: 4rem;
     flex-wrap: wrap;
     gap: 6px;
+    height: 40%;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
@@ -408,7 +409,7 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('_t_Join over 2.5 million traders worldwide_t_')}
+                                    {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
@@ -551,7 +552,7 @@ const SignupPublic = ({
                         <MobileSignupFormWrapper>
                             <div>
                                 <StyledHeader type="section-title">
-                                    {localize('_t_Join over 2.5 million traders worldwide_t_')}
+                                    {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">

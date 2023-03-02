@@ -24,7 +24,7 @@ const Home = () => {
     useOpenLiveChat(true)
     const { is_p2p_allowed_country } = useRegion()
 
-    const target = '#market-fold'
+    const target = '#live-pricing'
     const options = {
         root: null,
         rootMargin: '0px',

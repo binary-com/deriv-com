@@ -10,6 +10,9 @@ import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param
 const NavMarkets = () => {
     const { is_deriv_go = true } = usePlatformQueryParam()
 
+    // eslint-disable-next-line no-console
+    console.log(is_deriv_go, 'is_deriv_go')
+
     return (
         <NavTemplate transparent_background={is_deriv_go}>
             {!is_deriv_go && (

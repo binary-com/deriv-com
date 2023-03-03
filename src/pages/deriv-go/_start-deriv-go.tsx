@@ -1,12 +1,11 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { isBrowser } from 'common/utility'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import StepperView from 'components/custom/_stepper_view'
 import { Header } from 'components/elements'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -41,17 +40,7 @@ const StyledHeader = styled(Header)`
     }
 `
 const StartDerivGo = () => {
-    const [is_mobile, setMobile] = useState(false)
     const data = useStaticQuery(query)
-
-    const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-    }
-
-    useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-        window.addEventListener('resize', handleResizeWindow)
-    }, [is_mobile])
 
     const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [

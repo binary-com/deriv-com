@@ -56,3 +56,21 @@ export type TQuestionsData = {
     hide_for_eu?: boolean
     questions: TQuestions[]
 }
+
+export type TNewQuestions = {
+    sub_category?: string
+    category: string
+    label: string
+    question: string
+    answer?: TAnswer
+    renderProp?: () => ReactNode
+    hide_for_non_eu?: boolean
+    hide_for_eu?: boolean
+}
+
+export type TNewQuestionsData = {
+    section: string
+    category: string
+    hide_for_eu?: boolean
+    questions: TNewQuestions[]
+}

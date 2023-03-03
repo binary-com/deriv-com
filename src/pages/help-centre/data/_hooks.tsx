@@ -1,15 +1,15 @@
 import React from 'react'
-import { TQuestions, TQuestionsData } from './_data-types'
+import { TNewQuestions, TNewQuestionsData } from './_data-types'
 import useRegion from 'components/hooks/use-region'
 
-export const useFilteredQuestions = (data: TQuestions[]) => {
+export const useFilteredQuestions = (data: TNewQuestions[]) => {
     const { is_eu } = useRegion()
     return data.filter(({ hide_for_eu, hide_for_non_eu }) =>
         is_eu ? !hide_for_eu : !hide_for_non_eu,
     )
 }
 
-export const useFilteredCategory = (data: TQuestionsData[]) => {
+export const useFilteredCategory = (data: TNewQuestionsData[]) => {
     const { is_eu } = useRegion()
     return data.filter((item) => (is_eu ? !item.hide_for_eu : item))
 }

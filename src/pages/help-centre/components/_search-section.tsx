@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { useFilteredCategory, useFilteredQuestions } from '../data/_hooks'
+import { TNewQuestionsData } from "../data/_data-types";
 import SearchResult from './_search-result'
 import { all_questions } from './_constants'
 import { Container } from 'components/containers'
@@ -96,8 +97,22 @@ const SearchSection = () => {
         setSearchValue(sanitize(e.target.value))
     }
 
+    const new_all_questions: TNewQuestionsData[] = React.useMemo(() => all_questions.map((section) => {
+        return {
+            ...section,
+            category: localize(section.category),
+            questions: section.questions.map((q) => {
+                return {
+                    ...q,
+                    sub_category: localize(q.sub_category),
+                    question: localize(q.question),
+                }
+            }),
+        }
+    }), [all_questions])
+
     // we need to hide some of the platforms for eu countries!
-    const filtered_categories = useFilteredCategory(all_questions)
+    const filtered_categories = useFilteredCategory(new_all_questions)
     // putting all of the questions in a variable
     const questions = filtered_categories
         .map(({ questions }) => questions)
@@ -126,7 +141,7 @@ const SearchSection = () => {
                             autoFocus
                             value={search_value}
                             onChange={handleSearchOnChange}
-                            placeholder={localize('Try “Trade”')}
+                            placeholder={localize('_t_Try “Trade”_t_')}
                             data-lpignore="true"
                             autoComplete="off"
                         />

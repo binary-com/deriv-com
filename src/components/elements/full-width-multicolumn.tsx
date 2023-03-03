@@ -10,7 +10,7 @@ import { LocalizedLink } from 'components/localization/localized-link'
 
 type FullWidthMultiColumnProps = {
     children?: ReactElement[]
-    header?: ReactElement
+    header?: ReactElement | string
     sub_header?: ReactElement
     button_title?: ReactElement
     button_text?: TString | ReactElement

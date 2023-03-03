@@ -1,5 +1,5 @@
 import React from 'react'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import StraightForward from 'images/svg/options/straightforward.svg'
 import Significant from 'images/svg/options/significant.svg'
 import LowCapital from 'images/svg/options/low_capital.svg'
@@ -17,7 +17,7 @@ const accumulator_content: AccumulatorContentProps[] = [
     {
         src: StraightForward,
         alt: 'Low',
-        item_title: <Localize translate_text="Straightforward trading" />,
+        item_title: localize('_t_Straightforward trading_t_'),
         text: (
             <Localize translate_text="Define your stake amount, choose your accumulator value, and start trading." />
         ),
@@ -26,9 +26,7 @@ const accumulator_content: AccumulatorContentProps[] = [
         src: Significant,
         alt: 'Low',
         item_title: <Localize translate_text="Significant profit potential" />,
-        text: (
-            <Localize translate_text="Your payout can potentially grow by 1% or 5% on average per tick." />
-        ),
+        text: localize('_t_Your payout can potentially grow by 1% or 5% on average per tick._t_'),
     },
     {
         src: LowCapital,

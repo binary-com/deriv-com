@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import MapPin, { MapPinType } from './components/map-pin'
-import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'
-import { Header, Text, BackgroundImage } from 'components/elements'
+import { CssGrid, Desktop, Flex, Mobile, SectionContainer } from 'components/containers'
+import { BackgroundImage, Header, Text } from 'components/elements'
 import device from 'themes/device'
 
 const query = graphql`
@@ -247,6 +247,10 @@ const OurOffices = ({ our_locations }: any) => {
         {
             left: '92.5%',
             top: '65.1%',
+        },
+        {
+            left: '45.9%',
+            top: '28%',
         },
     ]
 

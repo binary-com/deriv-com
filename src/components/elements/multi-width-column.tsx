@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header } from 'components/elements'
-import { Container, SectionContainer } from 'components/containers'
+import { Container } from 'components/containers'
 import device from 'themes/device'
 
 interface Props {

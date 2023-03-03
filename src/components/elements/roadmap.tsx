@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
@@ -17,6 +17,8 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         font-size: 32px;
     }
@@ -25,6 +27,7 @@ const StyledText = styled(Header)`
     max-width: 1044px;
     padding-top: 8px;
     font-size: 32px;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
         font-size: 24px;

@@ -45,11 +45,16 @@ const Content = styled(Flex)<{ margin_right: string }>`
     }
 `
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         text-align: center;
     }
 `
 const StyledText = styled(Text)`
+    color: var(--color-black-9);
+    font-family: Ubuntu, sans-serif;
+
     @media ${device.tabletL} {
         text-align: center;
         font-size: 18px;

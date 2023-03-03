@@ -30,6 +30,8 @@ const SmallContainer = styled(Container)`
     }
 `
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
+
     @media ${device.mobileL} {
         font-size: 32px;
         padding: 0 35px;
@@ -49,7 +51,8 @@ const StartDerivGo = () => {
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
-    })
+    }, [is_mobile])
+
     const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
@@ -68,7 +71,7 @@ const StartDerivGo = () => {
                 alt: <Localize translate_text="Download the app" />,
             },
         ],
-        [data, is_mobile],
+        [data],
     )
     return (
         <SectionContainer tabletL={{ height: 'fit-content', p: '40px 0 0' }}>

@@ -34,6 +34,7 @@ const MobileCardHeader = styled(Flex)`
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
     font-family: Ubuntu, sans-serif;
+    color: var(--color-black-9);
 
     @media (max-width: 680px) {
         font-size: 18px;

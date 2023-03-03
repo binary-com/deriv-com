@@ -4,13 +4,14 @@ import { ContentType } from './index'
 import IconEasyAccess from 'images/svg/deriv-go/easy-access.svg'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
 import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
 import { Grid, HowItWorksItem } from 'pages/trade-types/components/_style'
 
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
     margin: 0 0 80px;
 
     @media ${device.mobileL} {
@@ -25,9 +26,21 @@ const StyledHeader = styled(Header)`
 `
 const StyledText = styled(Header)`
     font-size: 24px;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
         font-size: 18px;
+    }
+`
+const StyledSubText = styled(Header)`
+    font-size: 1.6rem;
+    color: var(--color-black-9);
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+    @media ${device.mobileL} {
+        margin-top: 0;
     }
 `
 const OptionGrid = styled(Grid)`
@@ -40,12 +53,6 @@ const OptionItems = styled(Flex)`
     height: auto;
     align-items: flex-start;
     margin-bottom: 0.8rem;
-
-    @media ${device.mobileL} {
-        ${Text} {
-            margin-top: 0;
-        }
-    }
 `
 const trade_data: ContentType[] = [
     {
@@ -92,7 +99,7 @@ const WhyTradeDerivGo = () => {
                                         </div>
                                         <StyledText>{item.title}</StyledText>
                                     </OptionItems>
-                                    <Text>{item.subtitle}</Text>
+                                    <StyledSubText weight="100">{item.subtitle}</StyledSubText>
                                 </HowItWorksItem>
                             )
                         })}

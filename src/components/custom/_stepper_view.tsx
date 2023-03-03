@@ -62,7 +62,7 @@ const UlStyle = styled.ul`
     font-family: Ubuntu, sans-serif;
 
     li {
-        color: var(--color-black-3);
+        color: var(--color-black-9);
     }
     @media ${device.mobileL} {
         cursor: none;

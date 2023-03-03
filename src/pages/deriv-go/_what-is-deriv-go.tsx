@@ -37,6 +37,7 @@ const NumberWrapper = styled.div`
 `
 const StyledTitle = styled(Header)`
     font-size: 48px;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
         padding-top: 24px;
@@ -46,6 +47,7 @@ const StyledTitle = styled(Header)`
 const StyledSubTitle = styled(Header)`
     padding-top: 8px;
     font-size: 16px;
+    color: var(--color-black-9);
     font-family: Ubuntu, sans-serif;
 
     @media ${device.tabletL} {
@@ -53,6 +55,8 @@ const StyledSubTitle = styled(Header)`
     }
 `
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         font-size: 32px;
     }
@@ -60,6 +64,7 @@ const StyledHeader = styled(Header)`
 const StyledText = styled(Header)`
     padding-top: 8px;
     font-size: 16px;
+    color: var(--color-black-9);
     max-width: 792px;
 
     @media ${device.tabletL} {

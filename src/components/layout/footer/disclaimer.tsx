@@ -52,7 +52,7 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) is at Kingston Chambers, P.O Box 173, Road Town, Tortola, British Virgin Islands."
+                                translate_text="Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) is at Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands."
                                 components={[
                                     <StaticAsset
                                         key={0}

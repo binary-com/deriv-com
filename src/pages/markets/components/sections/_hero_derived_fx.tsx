@@ -94,15 +94,30 @@ type MarketProps = {
     title: string
     description: string
 }
-export const DerivedFXHero = ({ title, description }: MarketProps) => {
+
+const GetTrading = () => (
+    <StyledButton width="128px" onClick={handleGetTrading} secondary>
+        {localize('Get Trading')}
+    </StyledButton>
+)
+
+const CreateFreeDemoAccount = () => {
     const handleSignup = useHandleSignup()
+
+    return (
+        <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
+            {localize('Create free demo account')}
+        </StyledButton>
+    )
+}
+
+export const DerivedFXHero = ({ title, description }: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
     const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <BackgroundWrapper>
             <NavMarkets />
-
             <StyledContainer>
                 <StyledHeader as="h1" align="center">
                     <Localize translate_text={title} />
@@ -110,17 +125,8 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
                 <MarketSubHeader color="white" weight="normal" align="center">
                     <Localize translate_text={description} />
                 </MarketSubHeader>
-                {is_deriv_go ? (
-                    <></>
-                ) : is_logged_in ? (
-                    <StyledButton width="128px" onClick={handleGetTrading} secondary>
-                        {localize('Get Trading')}
-                    </StyledButton>
-                ) : (
-                    <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
-                        {localize('Create free demo account')}
-                    </StyledButton>
-                )}
+                {is_logged_in && !is_deriv_go && <GetTrading />}
+                {!is_logged_in && !is_deriv_go && <CreateFreeDemoAccount />}
             </StyledContainer>
         </BackgroundWrapper>
     )

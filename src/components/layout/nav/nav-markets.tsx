@@ -12,7 +12,7 @@ const NavMarkets = () => {
 
     return (
         <NavTemplate transparent_background={platform === 'derivgo'}>
-            {platform !== 'derivgo' ? (
+            {platform !== 'derivgo' && platform !== '' ? (
                 <PartnerWrapper>
                     <NavDesktop />
                     <NavMobile />

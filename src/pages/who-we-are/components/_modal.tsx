@@ -35,6 +35,7 @@ const ModalFlex = styled(Flex)`
     box-shadow: rgba(0, 0, 0, 0.35) 0 4px 15px;
     white-space: pre;
     width: fit-content;
+
     @media ${device.tablet} {
         top: 124px;
     }
@@ -46,7 +47,7 @@ const ModalFlex = styled(Flex)`
     }
 `
 
-const Modal = ({ name, position, link }: ModalPropsType) => {
+const _modal = ({ name, position, link }: ModalPropsType) => {
     return (
         <ModalFlex ai="center" direction="column" width="unset" height="unset" p="0px 16px 5px">
             <Header type="unset" as="h4" padding="0" align="center" size="14px">
@@ -69,4 +70,4 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
     )
 }
 
-export default Modal
+export default _modal

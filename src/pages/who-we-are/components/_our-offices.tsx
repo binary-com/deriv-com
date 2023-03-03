@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import MapPin, { MapPinType } from './components/map-pin'
+import _mapPin, { MapPinType } from './_map-pin'
 import { CssGrid, Desktop, Flex, Mobile, SectionContainer } from 'components/containers'
 import { BackgroundImage, Header, Text } from 'components/elements'
 import device from 'themes/device'
@@ -31,6 +31,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 const StyledHeader = styled(Header)`
     line-height: 4rem;
     margin-bottom: 40px;
+
     @media ${device.laptop} {
         font-size: 28px;
     }
@@ -63,6 +64,7 @@ const NumberHeader = styled(Text)`
 const NumberText = styled(Text)`
     font-weight: 400;
     text-align: center;
+
     @media ${device.tablet} {
         font-size: 14px;
     }
@@ -273,14 +275,14 @@ const OurOffices = ({ our_locations }: any) => {
                 <Desktop>
                     <MapImage data={data['earth']}>
                         {desktop?.map((pin, idx) => (
-                            <MapPin key={idx} {...pin} />
+                            <_mapPin key={idx} {...pin} />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
                     <MapImage data={data['earth_mobile']}>
                         {mobile?.map((pin, idx) => (
-                            <MapPin key={idx} {...pin} />
+                            <_mapPin key={idx} {...pin} />
                         ))}
                     </MapImage>
                 </Mobile>

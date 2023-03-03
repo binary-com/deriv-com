@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import MakeTrading from './_MakeTrading'
+import MakeTrading from './components/_make-trading'
 import Hero from './components/_hero'
 import {
     AboutUsBanner,
@@ -11,7 +11,7 @@ import {
     OurPrinciples,
     OurValues,
 } from './_lazy-load'
-import ImageMarquee from './carousel/_ImageMarquee'
+import ImageMarquee from './components/_image-marquee'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'

@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, useState } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import Modal from './components/modal'
+import _modal from './_modal'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { CssGrid, Flex, SectionContainer } from 'components/containers'
 import { Header, ImageWrapper } from 'components/elements'
@@ -16,6 +16,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 const StyledCssGrid = styled(CssGrid)`
     max-width: 996px;
+
     @media (max-width: 1100px) {
         max-width: 90%;
         padding: 0 40px;
@@ -32,6 +33,7 @@ const StyledCssGrid = styled(CssGrid)`
 `
 const StyledHeader = styled(Header)`
     padding-bottom: 40px;
+
     @media ${device.laptop} {
         font-size: 28px;
     }
@@ -49,6 +51,7 @@ const ModalFlex = styled(Flex)`
     box-shadow: rgba(0, 0, 0, 0.35) 0 4px 15px;
     white-space: pre;
     width: fit-content;
+
     @media ${device.tablet} {
         top: 124px;
     }
@@ -131,7 +134,7 @@ const OurLeadership = ({ our_leadership }: any) => {
                             alt="leader"
                             loading="lazy"
                         />
-                        {is_popup_shown && <Modal name={name} position={role} link={link_url} />}
+                        {is_popup_shown && <_modal name={name} position={role} link={link_url} />}
                     </StyledImageWrapper>
                 ))}
             </StyledCssGrid>

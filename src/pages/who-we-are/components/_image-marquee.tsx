@@ -75,13 +75,13 @@ const StyledQueryImage = styled(QueryImage)<{ is_rtl: boolean }>`
     min-width: 100%;
     height: 480px;
     transform: ${({ is_rtl }) => (is_rtl ? 'translate(50%, -50%)' : 'translate(-50%, -50%)')};
+
     @media ${device.tablet} {
         height: 240px;
     }
 
     & .gatsby-image-wrapper img {
         height: 480px;
-
         @media ${device.tablet} {
             height: 240px;
         }

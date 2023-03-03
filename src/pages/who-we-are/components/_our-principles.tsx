@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer, Flex, Box } from 'components/containers'
-import { Header, Divider } from 'components/elements'
+import { Box, Flex, SectionContainer } from 'components/containers'
+import { Divider, Header } from 'components/elements'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 
@@ -27,6 +27,7 @@ const StyledDivider = styled(Divider)`
 const StyledFlex = styled(Flex)`
     margin-bottom: 40px;
     max-width: 792px;
+
     @media (max-width: 930px) {
         flex-direction: column;
         width: unset;
@@ -44,6 +45,7 @@ const StyledText = styled(Header)`
     max-width: 551px;
     margin: 16px 0;
     font-size: 16px;
+
     @media ${device.tablet} {
         font-size: 14px;
     }
@@ -62,7 +64,7 @@ const ColoredBox = styled(Box)<{ bgcolor: string }>`
     align-self: left;
     width: fit-content;
     padding: 8px 16px;
-    background-color: ${(props) => props.bgcolor};
+    background-color: ${({ bgcolor }) => bgcolor};
     border-radius: 8px;
     font-weight: bold;
     color: #333333;
@@ -76,6 +78,7 @@ const ColoredBox = styled(Box)<{ bgcolor: string }>`
 `
 
 const OurPrinciples = ({ our_principles }: any) => {
+    // depends on our_principles.principles by index
     const colors = [
         'rgba(133, 189, 177, 0.25)',
         'rgba(255, 195, 89, 0.25)',

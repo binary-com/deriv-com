@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer, Flex, CssGrid } from 'components/containers'
+import { CssGrid, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
@@ -62,7 +62,6 @@ const TitleHeader = styled(Header)`
     @media ${device.tabletS} {
         text-align: start;
     }
-
     @media ${device.mobileL} {
         width: auto;
         text-align: start;

@@ -16,6 +16,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     align-items: center;
     padding: 0 40px 120px;
     flex-wrap: nowrap;
+
     @media ${device.tablet} {
         padding: 0 40px 40px;
     }

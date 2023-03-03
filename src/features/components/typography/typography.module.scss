@@ -1,0 +1,68 @@
+@import "features/styles/variables";
+
+.typography {
+    margin: 0;
+    padding: 0;
+    color: $color-black;
+}
+
+.paragraph {
+    font-size: $font-size-normal;
+}
+
+.heading {
+    color: $color-black;
+}
+
+.bodyText {
+    color: $color-black;
+    font-size: $font-size-normal;
+}
+
+.h1 {
+    font-size: $font-size-h1;
+}
+
+.h2 {
+    font-size: $font-size-h2;
+}
+
+.h3 {
+    font-size: $font-size-h3;
+}
+
+.h4 {
+    font-size: $font-size-h4;
+}
+
+.h5 {
+    font-size: $font-size-h5;
+}
+
+.h6 {
+    font-size: $font-size-h6;
+}
+
+.small {
+    font-size: 1.6rem;
+}
+
+.start {
+    text-align: start;
+}
+
+.center {
+    text-align: center;
+}
+
+.end {
+    text-align: end;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.semibold {
+    font-weight: bold;
+}

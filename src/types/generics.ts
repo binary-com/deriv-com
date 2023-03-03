@@ -26,10 +26,10 @@ export type ObjectPropType<TObj, TProp extends keyof TObj> = TObj[TProp]
 export interface TSmartContent<BaseModel, Config extends object> {
     id: number
     data: BaseModel
-    visiblity?: Config // if the visiblity object is not provided or it's empty, the data will be visible by default with all config
+    visibility?: Partial<Config> // if the visibility object is not provided or it's empty, the data will be visible by default with all config
 }
 
-export type TRegionSmartContent<BaseModel> = TSmartContent<BaseModel, Partial<TRegion>>
+export type TRegionSmartContent<BaseModel> = TSmartContent<BaseModel, TRegion>
 export type TObjectKeys<T extends object> = keyof T
 
 export type TBrowserVersion = Partial<

@@ -30,6 +30,9 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
+        {
+            resolve: 'gatsby-plugin-sass',
+        },
         'gatsby-plugin-react-helmet',
         {
             resolve: `gatsby-plugin-react-helmet-canonical-urls`,

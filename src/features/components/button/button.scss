@@ -1,0 +1,116 @@
+button {
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 14px;
+    transition: all 0.25s;
+    font-weight: bold;
+    height: fit-content;
+
+    &:focus,
+    &:active {
+        outline: none;
+        transform: scale(0.95);
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button.disabled {
+    pointer-events: none;
+    opacity: 0.32;
+}
+
+
+button.loading {
+    width: 8rem;
+    height: 8rem;
+    border: 10 px solid var(--color-black);
+    border-radius: 50%;
+    animation: sweep 1s linear alternate infinite, rotates 0.8s linear infinite;
+}
+
+button.primary {
+    border: 2px solid var(--color-red);
+    color: var(--color-red);
+    background: transparent;
+
+    &:hover {
+        background-color: var(--color-red);
+        color: var(--color-white);
+    }
+}
+
+
+button.secondary {
+    border: 2px solid var(--color-red);
+    color: var(--color-white);
+    background: var(--color-red);
+
+    &:hover {
+        background-color: var(--color-red-3);
+        border-color: var(--color-red-3);
+    }
+}
+
+button.tertiary {
+    border: 2px solid var(--color-grey-5);
+    color: var(--color-black);
+    background: transparent;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+    }
+}
+
+
+button.tertiary_light {
+    border: 2px solid var(--color-white);
+    color: var(--color-white);
+    background: transparent;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+}
+
+button.flat {
+    background: transparent;
+    color: var(--color-red);
+    border: none;
+
+    &:hover {
+        background: rgba(255, 68, 79, 0.08);
+    }
+}
+
+
+button.white {
+    border: 2px solid var(--color-white);
+    color: var(--color-white);
+    background: transparent;
+
+    &:hover {
+        background: var(--color-white);
+        color: var(--color-red);
+    }
+}
+
+
+button.hero {
+    box-shadow: inset 0 var(--color-red);
+    color: var(--color-white);
+    background: var(--color-red);
+    padding: 17px 24px;
+    font-size: 20px;
+    line-height: 30px;
+    border-radius: 8px;
+
+    &:hover {
+        background-color: var(--color-red-3);
+        border-color: var(--color-red-3);
+    }
+
+
+}

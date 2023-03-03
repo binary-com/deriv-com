@@ -1,0 +1,30 @@
+@use "features/styles/mixins/media" as *;
+
+div.container {
+    margin: 0 auto;
+    padding: 0px;
+
+
+    width: 80%;
+
+    @include min-width(desktop) {
+        max-width: 1200px;
+    }
+
+    @include min-width(desktop) {
+        max-width: 1200px;
+    }
+
+    @include min-width(laptopL) {
+        width: 84%;
+    }
+
+    @include min-width(desktopL) {
+        max-width: 1600px;
+    }
+
+    @include min-width(tabletL) {
+        width: 90%;
+    }
+
+}

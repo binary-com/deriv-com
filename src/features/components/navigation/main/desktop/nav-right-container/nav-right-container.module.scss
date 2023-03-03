@@ -1,0 +1,47 @@
+@use 'features/styles/mixins/media' as *;
+
+.nav_right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: end;
+    padding: 0px;
+    transition: all 0.25s;
+    flex: 1;
+
+    @include min-width(tabletS) {
+        min-width: unset;
+    }
+}
+
+.login_button {
+    margin-inline: 1rem;
+}
+
+.dynamic_button {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    width: 0px;
+    padding: 0px;
+}
+
+.show {
+    transform: translateX(0%);
+    padding: 10px 16px;
+    max-width: 22rem;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    transition: all 100ms ease 0ms;
+
+    @include min-width(tabletL) {
+        transform: translateX(100%);
+        opacity: 0;
+        visibility: hidden;
+        width: 0px;
+        padding: 0px;
+    }
+
+
+}

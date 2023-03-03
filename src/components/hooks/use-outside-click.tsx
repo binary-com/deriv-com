@@ -1,10 +1,10 @@
 import React from 'react'
 
 // Pass in callback that will be fired on outside click of the ref
-export const useOutsideClick = (
-    ref: React.MutableRefObject<HTMLDivElement>,
+export const useOutsideClick = <T extends HTMLElement>(
+    ref: React.MutableRefObject<T>,
     callback: () => void,
-    other_ref?: React.MutableRefObject<HTMLDivElement>,
+    other_ref?: React.MutableRefObject<T>,
     event = 'click',
 ) => {
     const handleClick = (e) => {

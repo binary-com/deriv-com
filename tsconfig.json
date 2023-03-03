@@ -3,7 +3,8 @@
         "./src/**/*",
         "./src/custom.d.ts",
         "types/react-i18next.d.ts",
-        "./src/types/utils.d.ts"
+        "./src/types/utils.d.ts",
+        "./src/global.d.ts"
     ],
     "jsx": "react",
     "compilerOptions": {
@@ -17,6 +18,18 @@
         "skipLibCheck": true,
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "downlevelIteration": true
+        "downlevelIteration": true,
+        "plugins": [
+            {
+                "name": "typescript-plugin-css-modules",
+                "options": {
+                    "rendererOptions": {
+                        "sass": {
+                            "loadPaths": ["./src"]
+                        }
+                    }
+                }
+            }
+        ]
     }
 }

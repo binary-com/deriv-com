@@ -1,0 +1,38 @@
+@import "./variables.scss";
+
+i {
+    font-style: italic
+}
+
+* {
+    font-family: 'IBM Plex Sans', sans-serif;
+
+    &,
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+}
+
+html {
+    /* 1rem = 10px */
+    font-size: 62.5%;
+}
+
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: $color-black;
+}
+
+/* when the language direction is "rtl" for example "Arabic" we use this font family  */
+*[dir='rtl'] {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* when the language direction is "ltr" for example "English" we use this font family  */
+*[dir='ltr'] {
+    font-family: 'IBM Plex Sans', sans-serif;
+}

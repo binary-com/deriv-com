@@ -1,0 +1,39 @@
+.navigation {
+    &__watcher {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    &__wrapper {
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        z-index: 100;
+
+        &_static {
+            position: static;
+
+        }
+
+        display: block;
+
+        &_hidden {
+            display: none;
+        }
+
+        transition: opacity 1s ease-out;
+    }
+
+    &__nav {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        background-color: transparent;
+        height: 7.2rem;
+
+        &_scrolled {
+            background-color: var(--color-black);
+        }
+    }
+}

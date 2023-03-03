@@ -1,5 +1,5 @@
 import React from 'react'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import FriendlySupport from 'images/svg/markets/forex/smart.svg'
 import Tight from 'images/svg/markets/forex/tight.svg'
 import Favourite from 'images/svg/markets/forex/favourite.svg'
@@ -8,10 +8,10 @@ import Instant from 'images/svg/markets/forex/instant.svg'
 
 type cfd_content = {
     src: string
-    text: React.ReactNode
+    text: React.ReactNode | string
     item_title: React.ReactNode
     item_title_eu?: React.ReactNode
-    text_eu?: React.ReactNode
+    text_eu?: React.ReactNode | string
     alt: string
 }
 
@@ -33,12 +33,11 @@ export const cfd_content: cfd_content[] = [
         alt: 'All your favourite markets',
         item_title: <Localize translate_text="All your favourite markets" />,
         item_title_eu: <Localize translate_text="All your favourite markets" />,
-
-        text: (
-            <Localize translate_text="Trade on financial markets plus our proprietary synthetics that are available 24/7." />
+        text: localize(
+            '_t_Trade on financial markets plus our proprietary synthetics that are available 24/7._t_',
         ),
-        text_eu: (
-            <Localize translate_text="Trade on financial markets plus our proprietary synthetics that are available 24/7." />
+        text_eu: localize(
+            '_t_Trade on financial markets plus our proprietary synthetics that are available 24/7._t_',
         ),
     },
     {

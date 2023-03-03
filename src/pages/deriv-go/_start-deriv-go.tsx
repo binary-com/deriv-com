@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import SideTab from './components/_tabs'
-import { Localize, localize, LocalizedLink } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import StepperView from 'components/custom/_stepper_view'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const query = graphql`
@@ -29,6 +29,8 @@ const SmallContainer = styled(Container)`
     }
 `
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
+
     @media ${device.mobileL} {
         font-size: 32px;
         padding: 0 35px;
@@ -37,64 +39,36 @@ const StyledHeader = styled(Header)`
         padding: 0 20px;
     }
 `
-const StyledLocalizedLink = styled(LocalizedLink)`
-    text-decoration: none;
-    color: rgba(255, 68, 79, 1);
-
-    &:hover {
-        text-decoration: underline;
-    }
-`
-
 const StartDerivGo = () => {
     const data = useStaticQuery(query)
+
+    const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
+        () => [
+            {
+                title: 'Sign in to your Deriv account. If you don’t have one, sign up for free; then create a Deriv real account.',
+                image: data['sign_up'],
+                alt: <Localize translate_text="Sign in" />,
+            },
+            {
+                title: 'Fund your Deriv real account with your preferred payment method.',
+                image: data['fund'],
+                alt: <Localize translate_text="Fund your Deriv" />,
+            },
+            {
+                title: 'Download the app and trade anytime, anywhere.',
+                image: data['trading'],
+                alt: <Localize translate_text="Download the app" />,
+            },
+        ],
+        [data],
+    )
     return (
-        <SectionContainer height="887px" tabletL={{ height: 'fit-content', p: '40px 0 0' }}>
+        <SectionContainer tabletL={{ height: 'fit-content', p: '40px 0 0' }}>
             <SmallContainer direction="column">
                 <StyledHeader as="h2" type="heading-2" align="center" mb="4rem">
                     {localize('How to get started with Deriv GO')}
                 </StyledHeader>
-                <SideTab>
-                    <SideTab.Panel
-                        label={<Localize translate_text="1. Create your Deriv account" />}
-                        description={
-                            <Localize
-                                translate_text="<0>Sign up</0> with your email, Facebook, or Google account."
-                                components={[<StyledLocalizedLink to="/signup/" key={0} />]}
-                            />
-                        }
-                    >
-                        <QueryImage
-                            data={data['sign_up']}
-                            alt="Create account on Deriv GO"
-                            className="content-wrapper"
-                        />
-                    </SideTab.Panel>
-                    <SideTab.Panel
-                        label={<Localize translate_text="2. Fund your account" />}
-                        description={
-                            <Localize translate_text="Fund your account with your preferred payment method." />
-                        }
-                    >
-                        <QueryImage
-                            data={data['fund']}
-                            alt="Fund your account and start trading on Deriv GO"
-                            className="content-wrapper"
-                        />
-                    </SideTab.Panel>
-                    <SideTab.Panel
-                        label={<Localize translate_text="3. Get Trading" />}
-                        description={
-                            <Localize translate_text="Download the app and trade anytime, anywhere." />
-                        }
-                    >
-                        <QueryImage
-                            data={data['trading']}
-                            alt="Start trading on Deriv GO"
-                            className="content-wrapper"
-                        />
-                    </SideTab.Panel>
-                </SideTab>
+                <StepperView items={stepsData} contentWidth="385px" />
             </SmallContainer>
         </SectionContainer>
     )

@@ -4,8 +4,8 @@ import { getImage } from 'gatsby-plugin-image'
 import { Desktop, Flex, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
-import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
-import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
+import desktop_bg from 'images/common/who-we-are/about_us_bg_desktop.png'
+import mobile_bg from 'images/common/who-we-are/about_us_bg_mobile.png'
 
 type ParentWrapperProps = {
     bg_image_desktop: string
@@ -13,12 +13,12 @@ type ParentWrapperProps = {
 }
 const ParentWrapper = styled(Flex)<ParentWrapperProps>`
     width: 100%;
-    background-image: url(${(props) => props.bg_image_desktop});
+    background-image: url(${({ bg_image_desktop }) => bg_image_desktop});
     background-position: center;
     background-size: cover;
 
     @media ${device.tabletL} {
-        background-image: url(${(props) => props.bg_image_mobile});
+        background-image: url(${({ bg_image_mobile }) => bg_image_mobile});
     }
 `
 const ContentWrapper = styled(Flex)`

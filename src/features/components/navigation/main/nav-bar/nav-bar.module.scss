@@ -1,19 +1,8 @@
 @use "features/styles/mixins/media" as *;
 
-.menu_toggle {
-    cursor: pointer;
-    width: 16px;
-    display: none;
-
-    @include min-width(tabletL) {
-        display: block;
-    }
-}
 
 .desktop_nav {
     display: block;
-
-
 
     &_container {
         margin: 0 auto;

@@ -1,19 +1,19 @@
 import clsx from 'clsx'
 import React, { HTMLAttributes, useRef, useState } from 'react'
-import * as styles from './desktop-main-nav.module.scss'
-import { TActiveNav } from './types'
-import MenuToggleButton from './menu-toggle.button'
-import DesktopNavbar from './desktop.navbar'
-import NavRightContainer from './nav-right-container'
-import NavMenu from './nav-menu'
-import NavLogo from './nav-logo'
+import NavLogo from '../nav-logo'
+import NavMenu from '../nav-menu'
+import { TActiveNav } from '../types'
+import NavRightContainer from '../nav-right-container'
+import NavMenuToggle from '../nav-menu-toggle'
+import DesktopNavbar from '../nav-items'
+import * as styles from './nav-bar.module.scss'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 interface DesktopTransparentNav extends HTMLAttributes<HTMLDivElement> {
     scrolled: boolean
 }
 
-const DesktopMainNav = ({ className, scrolled, ...rest }: DesktopTransparentNav) => {
+const MainNavItems = ({ className, scrolled, ...rest }: DesktopTransparentNav) => {
     const navigation_bar_ref = useRef<HTMLUListElement>()
     const menu_nav_ref = useRef<HTMLDivElement>()
     const menu_toggle_ref = useRef<HTMLImageElement>()
@@ -40,7 +40,7 @@ const DesktopMainNav = ({ className, scrolled, ...rest }: DesktopTransparentNav)
     return (
         <div className={clsx(styles.desktop_nav, className)} {...rest}>
             <div className={styles.desktop_nav_container}>
-                <MenuToggleButton
+                <NavMenuToggle
                     is_open={is_menu_open}
                     onClick={onMenuToggleClick}
                     ref={menu_toggle_ref}
@@ -58,4 +58,4 @@ const DesktopMainNav = ({ className, scrolled, ...rest }: DesktopTransparentNav)
     )
 }
 
-export default DesktopMainNav
+export default MainNavItems

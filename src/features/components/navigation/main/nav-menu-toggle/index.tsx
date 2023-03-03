@@ -1,14 +1,14 @@
 import React, { forwardRef, HTMLAttributes, useMemo } from 'react'
 import clsx from 'clsx'
-import * as styles from './desktop-main-nav.module.scss'
+import * as styles from './menu-toggle.module.scss'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 
-interface IMenuToggleButtonProps extends HTMLAttributes<HTMLImageElement> {
+interface INavMenuToggleProps extends HTMLAttributes<HTMLImageElement> {
     is_open: boolean
 }
 
-const MenuToggleButton = forwardRef<HTMLImageElement, IMenuToggleButtonProps>(
+const NavMenuToggle = forwardRef<HTMLImageElement, INavMenuToggleProps>(
     ({ is_open, className, onClick, ...rest }, ref) => {
         const toggle_image = useMemo(() => {
             return {
@@ -30,6 +30,6 @@ const MenuToggleButton = forwardRef<HTMLImageElement, IMenuToggleButtonProps>(
     },
 )
 
-MenuToggleButton.displayName = 'MenuToggleButton'
+NavMenuToggle.displayName = 'NavMenuToggle'
 
-export default MenuToggleButton
+export default NavMenuToggle

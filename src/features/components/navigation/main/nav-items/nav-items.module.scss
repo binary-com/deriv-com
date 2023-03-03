@@ -1,0 +1,99 @@
+@use "features/styles/mixins/media" as *;
+
+
+.nav_items {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    line-height: 1.2;
+    gap: 2.4rem;
+    flex: 1;
+
+    @include min-width(tabletL) {
+        display: none;
+    }
+
+    &>li {
+        list-style-type: none;
+        display: flex;
+        position: relative;
+        align-items: center;
+        text-align: center;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        & .item_title {
+            color: $color-white;
+            padding: 0.5rem 1rem;
+
+            &::before {
+                content: '';
+                position: absolute;
+                transition: width 0.25s;
+                height: 0.2rem;
+                width: 0;
+                background-color: var(--color-red);
+                bottom: 0;
+            }
+
+            &:hover {
+                text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
+
+                &::before {
+                    width: 1.6rem;
+                }
+            }
+        }
+
+        &.active_item {
+
+            &::after {
+                animation: 1s fadeIn;
+                animation-delay: 0.1s;
+                animation-fill-mode: forwards;
+                content: ' ';
+                position: absolute;
+                top: 33px;
+                left: 25%;
+                border-top: none;
+                border-right: 15px solid transparent;
+                border-left: 15px solid transparent;
+                border-bottom: 15px solid white;
+            }
+        }
+
+        & .active_section {
+            @keyframes fadeIn {
+                from {
+                    visibility: hidden;
+                }
+
+                to {
+                    visibility: visible;
+                }
+            }
+
+            position: absolute;
+            top: 46px;
+            left: 0rem;
+
+
+            max-width: 1200px;
+            padding: 2.2rem 0.8rem;
+            z-index: 10;
+            background-color: $color-white;
+            box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 0.4rem;
+        }
+
+        & .active_trade_section {
+            left: -20rem;
+        }
+    }
+
+
+
+}

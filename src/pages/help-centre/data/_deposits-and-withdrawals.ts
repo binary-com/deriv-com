@@ -400,8 +400,15 @@ const deposits_and_withdrawals: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        "_t_You’ll be brought back to the Cashier page. Click Review pending and select the transaction that you'd like to cancel._t_",
+                        "_t_You’ll be brought back to the <0>Cashier</0> page. Click Review pending and select the transaction that you'd like to cancel._t_",
                     has_margin_top: true,
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: `${deriv_app_url}/cashier/withdrawal`,
+                        },
+                    ],
                 },
                 {
                     translation_text:

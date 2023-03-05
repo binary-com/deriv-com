@@ -45,9 +45,12 @@ const action = process.argv[2]
 const old_find_keys = (file) => {
     const keys = [];
     let result = old_i18n_marker.exec(file);
-    while (result != null) {
+    while (result != null) {        
         const extracted = result[2] || result[4]; // If it captures `text=` then it will be index 2, else its index 4 which captures `localize`
-        keys.push(extracted.replace(/\\/g, ''));
+        // if the key contains '_t_' we skip it and let new apprach extract it.
+        if(!extracted.includes("_t_")){
+            keys.push(extracted.replace(/\\/g, ''));
+        }
         result = old_i18n_marker.exec(file);
     }
     return keys;

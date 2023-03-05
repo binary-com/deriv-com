@@ -82,7 +82,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            {!is_deriv_go && <OtherMarkets except="cryptocurrencies" />}
+            {!shouldDisplayNav && <OtherMarkets except="cryptocurrencies" />}
         </>
     )
 }

@@ -15,9 +15,10 @@ import Footer from './footer'
 import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import usePopup from 'components/hooks/use-popup'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import usePopup from 'components/hooks/use-popup'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -61,6 +62,7 @@ const Layout = ({
     no_login_signup = false,
     type = '',
 }: LayoutProps) => {
+    const [is_mounted] = usePageLoaded()
     const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
@@ -136,7 +138,11 @@ const Layout = ({
         )
     }
     return (
-        <LocationProvider toggleModal={toggleModal} setModalPayload={setModalPayload}>
+        <LocationProvider
+            has_mounted={is_mounted}
+            toggleModal={toggleModal}
+            setModalPayload={setModalPayload}
+        >
             {Navigation}
             <Main margin_top={margin_top} is_static={is_static}>
                 {children}

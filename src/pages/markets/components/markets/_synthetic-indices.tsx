@@ -23,7 +23,7 @@ type StockIndicesProps = {
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu } = useRegion()
-    const { is_deriv_go } = usePlatformQueryParam()
+    const { shouldDisplayNav } = usePlatformQueryParam()
 
     return (
         <div>
@@ -69,7 +69,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            {!is_deriv_go && <OtherMarkets except="derived" />}
+            {!shouldDisplayNav && <OtherMarkets except="derived" />}
         </div>
     )
 }

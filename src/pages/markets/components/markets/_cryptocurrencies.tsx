@@ -32,7 +32,7 @@ type CryptoContent = {
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
     const { is_eu } = useRegion()
-    const { is_deriv_go } = usePlatformQueryParam()
+    const { shouldDisplayNav } = usePlatformQueryParam()
 
     const crypto_content: CryptoContent[] = [
         {

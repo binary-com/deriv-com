@@ -9,7 +9,7 @@ import { SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const CryptocurrenciesPage = () => {
-    const { is_deriv_go } = usePlatformQueryParam()
+    const { shouldDisplayNav } = usePlatformQueryParam()
 
     return (
         <Layout type="noNav">
@@ -26,7 +26,7 @@ const CryptocurrenciesPage = () => {
                 )}
             />
             <Cryptocurrencies simple_step_content={simple_step_content_cryptocurrencies} />
-            {!is_deriv_go && <Signup appearance={Appearances.public} />}
+            {!shouldDisplayNav && <Signup appearance={Appearances.public} />}
         </Layout>
     )
 }

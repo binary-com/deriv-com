@@ -135,7 +135,7 @@ const StyledLinkButton = styled(Button)`
 const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
-    const { is_deriv_go } = usePlatformQueryParam()
+    const { shouldDisplayNav } = usePlatformQueryParam()
 
     return (
         <StyledSection>
@@ -171,7 +171,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
                     )
                 })}
             </StyledFlex>
-            {sign_up && !is_logged_in && !is_deriv_go && (
+            {sign_up && !is_logged_in && !shouldDisplayNav && (
                 <LinkButtonWrapper>
                     <StyledLinkButton id="dm-steps-signup" secondary onClick={handleSignup}>
                         {localize('Sign up now')}

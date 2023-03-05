@@ -27,7 +27,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     const { questions, category } = data
     const untranslate_category = getUntranslatedCategory(category)
     const filtered_questions = useFilteredQuestions(questions)
-    const { is_deriv_go } = usePlatformQueryParam()
+    const { shouldDisplayNav } = usePlatformQueryParam()
 
     return (
         <Layout>
@@ -66,7 +66,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
 
             <ContactContainer>
                 <Community />
-                {!is_deriv_go && <DidntFindYourAnswerBanner />}
+                {!shouldDisplayNav && <DidntFindYourAnswerBanner />}
             </ContactContainer>
         </Layout>
     )

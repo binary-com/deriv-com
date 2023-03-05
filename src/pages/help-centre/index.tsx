@@ -11,7 +11,7 @@ import { localize, WithIntl } from 'components/localization'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const HelpCentre = () => {
-    const { is_deriv_go } = usePlatformQueryParam()
+    const { shouldDisplayNav } = usePlatformQueryParam()
     const general_questions = getQuestionsBySection(GENERAL)
     const platforms_questions = getQuestionsBySection(PLATFORMS)
 
@@ -34,7 +34,7 @@ const HelpCentre = () => {
             <Desktop breakpoint="tabletL">
                 <Community />
             </Desktop>
-            {!is_deriv_go && <DidntFindYourAnswerBanner />}
+            {!shouldDisplayNav && <DidntFindYourAnswerBanner />}
         </Layout>
     )
 }

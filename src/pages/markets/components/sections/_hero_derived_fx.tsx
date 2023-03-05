@@ -113,7 +113,7 @@ const CreateFreeDemoAccount = () => {
 
 export const DerivedFXHero = ({ title, description }: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
-    const { is_deriv_go } = usePlatformQueryParam()
+    const { shouldDisplayNav } = usePlatformQueryParam()
 
     return (
         <BackgroundWrapper>
@@ -125,8 +125,8 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
                 <MarketSubHeader color="white" weight="normal" align="center">
                     <Localize translate_text={description} />
                 </MarketSubHeader>
-                {is_logged_in && !is_deriv_go && <GetTrading />}
-                {!is_logged_in && !is_deriv_go && <CreateFreeDemoAccount />}
+                {is_logged_in && !shouldDisplayNav && <GetTrading />}
+                {!is_logged_in && !shouldDisplayNav && <CreateFreeDemoAccount />}
             </StyledContainer>
         </BackgroundWrapper>
     )

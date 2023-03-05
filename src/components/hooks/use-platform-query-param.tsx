@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useQueryParam, StringParam } from 'use-query-params'
 
 export const usePlatformQueryParam = () => {
@@ -6,6 +7,11 @@ export const usePlatformQueryParam = () => {
     const is_deriv_go = platform === 'derivgo'
     const is_deriv_p2p = platform === 'p2p'
     const has_platform = platforms.includes(platform)
+    const [shouldDisplayNav, setShouldDisplayNav] = useState(true)
 
-    return { platform, has_platform, is_deriv_p2p, is_deriv_go }
+    useEffect(() => {
+        setShouldDisplayNav(!is_deriv_go)
+    }, [is_deriv_go])
+
+    return { platform, has_platform, is_deriv_p2p, is_deriv_go, shouldDisplayNav }
 }

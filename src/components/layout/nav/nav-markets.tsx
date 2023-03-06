@@ -6,13 +6,15 @@ import NavMarketDesktop from './components/markets/nav-market-desktop'
 import NavMobile from './components/nav-mobile'
 import NavTemplate from './components/nav-template'
 import { PartnerWrapper, PartnerNavigationBarWrapper } from './styles/nav-styles'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const NavMarkets = () => {
     const [platform] = useQueryParam('platform', StringParam)
+    const { shouldDisplayNav } = usePlatformQueryParam()
 
     return (
         <NavTemplate transparent_background={platform === 'derivgo'}>
-            {platform !== 'derivgo' && platform !== '' ? (
+            {shouldDisplayNav ? (
                 <PartnerWrapper>
                     <NavDesktop />
                     <NavMobile />

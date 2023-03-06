@@ -216,7 +216,7 @@ const AvailableTradesDesktop = ({
             const id = window.location.hash.substring(1)
             const element = document.getElementById(id)
             const headerOffset = 100
-            const elementPosition = element.getBoundingClientRect().top
+            const elementPosition = element?.getBoundingClientRect().top
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset
             if (element) {
                 setTimeout(() => {

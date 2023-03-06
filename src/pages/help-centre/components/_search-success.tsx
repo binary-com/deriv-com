@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TNewQuestions } from '../data/_data-types'
+import { TTranslatedQuestions } from '../data/_data-types'
 import { convertToHash } from './_utility'
 import { Header } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
 
 type TSearchSuccess = {
-    suggested_topics: TNewQuestions[]
+    suggested_topics: TTranslatedQuestions[]
 }
 
 const StyledList = styled.ul`

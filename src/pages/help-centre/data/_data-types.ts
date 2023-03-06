@@ -57,7 +57,7 @@ export type TQuestionsData = {
     questions: TQuestions[]
 }
 
-export type TNewQuestions = {
+export type TTranslatedQuestions = {
     sub_category?: string
     category: string
     label: string
@@ -68,9 +68,9 @@ export type TNewQuestions = {
     hide_for_eu?: boolean
 }
 
-export type TNewQuestionsData = {
+export type TTranslatedQuestionsData = {
     section: string
     category: string
     hide_for_eu?: boolean
-    questions: TNewQuestions[]
+    questions: TTranslatedQuestions[]
 }

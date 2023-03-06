@@ -7,21 +7,24 @@
         flex-direction: row;
         justify-content: space-between;
         padding: 0.8rem 1rem;
-        min-width: 26rem;
+        min-inline-size: 26rem;
         cursor: pointer;
         white-space: pre-line;
-        // @media ${device.mobileL} {
-        //     padding: 0;
-        // }
+
 
         .nav_right_diagonal {
             opacity: 0;
+            inline-size: 16px;
+            block-size: 16px;
+
+            &_rtl {
+                transform: scaleX(-1);
+            }
 
             @include min-width(tabletL) {
                 opacity: 1;
             }
         }
-
 
         &:hover {
             background-color: $color-grey-30;
@@ -38,13 +41,13 @@
 
         &>svg,
         img {
-            width: 32px;
-            height: 32px;
-            margin-right: 1.6rem;
+            inline-size: 32px;
+            block-size: 32px;
+            margin-inline-end: 1.6rem;
 
             @include min-width(tabletL) {
-                width: 24px;
-                height: 24px;
+                inline-size: 24px;
+                block-size: 24px;
             }
         }
     }
@@ -54,23 +57,25 @@
         flex-direction: column;
         justify-content: center;
         gap: 0.8rem;
-        min-width: 15rem;
+        min-inline-size: 15rem;
         white-space: pre-line;
         flex: 1;
 
         &_title {
             font-size: $text-size-s;
             text-align: start;
+            color: $color-black;
         }
 
         .nav_card_type {
             justify-content: flex-start;
-            min-width: 25rem;
+            min-inline-size: 25rem;
         }
 
         &_description {
             font-size: $text-size-xs;
             text-align: start;
+            color: $color-black-3;
         }
     }
 }

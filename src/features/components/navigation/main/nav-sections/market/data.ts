@@ -1,5 +1,4 @@
 import { TSmartNavContent } from '../../types'
-// icons
 import Commodities from 'images/svg/custom/commodities-nav.svg'
 import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'

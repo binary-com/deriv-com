@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import React, { HTMLAttributes } from 'react'
-import * as styles from './typography.module.scss'
+import './typography.scss'
 
 type TTypographyAlign = 'end' | 'start' | 'center'
 
@@ -25,27 +25,23 @@ const Typography = <T extends React.ElementType>({
     const headingTags =
         as === 'h1' || as === 'h2' || as === 'h3' || as === 'h4' || as === 'h5' || as === 'h6'
 
-    // const inlineTags = as === 'span' || as === 'small' || as === 'em' || as === 'strong'
-
     const Component = as || 'p'
 
     const _className = clsx(
-        styles.typography,
         {
-            // only set text alignment of block level elements
-            [styles[align]]: align && (headingTags || as === 'p'),
-            [styles.semibold]: semibold || as === 'strong',
-            [styles.italic]: italic || as === 'em',
-            [styles.small]: small || as === 'small',
-            [styles.bodyText]: as === 'p' || as === 'em' || as === 'strong',
-            [styles.h1]: as === 'h1',
-            [styles.h2]: as === 'h2',
-            [styles.h3]: as === 'h3',
-            [styles.h4]: as === 'h4',
-            [styles.h5]: as === 'h5',
-            [styles.h6]: as === 'h6',
-            [styles.heading]: headingTags,
-            [styles.paragraph]: as === 'p',
+            [align]: align && (headingTags || as === 'p'),
+            semibold: semibold || as === 'strong',
+            italic: italic || as === 'em',
+            small: small || as === 'small',
+            bodyText: as === 'p' || as === 'em' || as === 'strong',
+            h1: as === 'h1',
+            h2: as === 'h2',
+            h3: as === 'h3',
+            h4: as === 'h4',
+            h5: as === 'h5',
+            h6: as === 'h6',
+            heading: headingTags,
+            paragraph: as === 'p',
         },
         className,
     )

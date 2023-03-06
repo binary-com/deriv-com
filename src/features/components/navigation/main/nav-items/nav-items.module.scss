@@ -10,10 +10,6 @@
     gap: 2.4rem;
     flex: 1;
 
-    @include min-width(tabletL) {
-        display: none;
-    }
-
     &>li {
         list-style-type: none;
         display: flex;
@@ -22,7 +18,7 @@
         text-align: center;
 
         &:last-child {
-            margin-right: 0;
+            margin-inline-end: 0;
         }
 
         & .item_title {
@@ -33,17 +29,17 @@
                 content: '';
                 position: absolute;
                 transition: width 0.25s;
-                height: 0.2rem;
-                width: 0;
+                block-size: 0.2rem;
+                inline-size: 0;
                 background-color: var(--color-red);
-                bottom: 0;
+                inset-block-end: 0;
             }
 
             &:hover {
                 text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
 
                 &::before {
-                    width: 1.6rem;
+                    inline-size: 1.6rem;
                 }
             }
         }
@@ -56,12 +52,12 @@
                 animation-fill-mode: forwards;
                 content: ' ';
                 position: absolute;
-                top: 33px;
-                left: 25%;
-                border-top: none;
-                border-right: 15px solid transparent;
-                border-left: 15px solid transparent;
-                border-bottom: 15px solid white;
+                inset-block-start: 33px;
+                inset-inline-start: 25%;
+                border-block-start: none;
+                border-inline-end: 15px solid transparent;
+                border-inline-start: 15px solid transparent;
+                border-block-end: 15px solid white;
             }
         }
 
@@ -77,11 +73,9 @@
             }
 
             position: absolute;
-            top: 46px;
-            left: 0rem;
-
-
-            max-width: 1200px;
+            inset-block-start: 46px;
+            inset-inline-start: 0rem;
+            max-inline-size: 1200px;
             padding: 2.2rem 0.8rem;
             z-index: 10;
             background-color: $color-white;
@@ -90,7 +84,7 @@
         }
 
         & .active_trade_section {
-            left: -20rem;
+            inset-inline-start: -20rem;
         }
     }
 

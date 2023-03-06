@@ -5,26 +5,26 @@ div.container {
     padding: 0px;
 
 
-    width: 80%;
+    inline-size: 80%;
 
     @include min-width(desktop) {
-        max-width: 1200px;
+        max-inline-size: 1200px;
     }
 
     @include min-width(desktop) {
-        max-width: 1200px;
+        max-inline-size: 1200px;
     }
 
     @include min-width(laptopL) {
-        width: 84%;
+        inline-size: 84%;
     }
 
     @include min-width(desktopL) {
-        max-width: 1600px;
+        max-inline-size: 1600px;
     }
 
     @include min-width(tabletL) {
-        width: 90%;
+        inline-size: 90%;
     }
 
 }

@@ -1,14 +1,14 @@
 .navigation {
     &__watcher {
         position: absolute;
-        top: 0px;
-        left: 0px;
+        inset-block-start: 0px;
+        inset-inline-start: 0px;
     }
 
     &__wrapper {
-        width: 100%;
+        inline-size: 100%;
         position: fixed;
-        top: 0px;
+        inset-block-start: 0px;
         z-index: 100;
 
         &_static {
@@ -26,11 +26,11 @@
     }
 
     &__nav {
-        width: 100%;
+        inline-size: 100%;
         position: relative;
         z-index: 1;
         background-color: transparent;
-        height: 7.2rem;
+        block-size: 7.2rem;
 
         &_scrolled {
             background-color: var(--color-black);

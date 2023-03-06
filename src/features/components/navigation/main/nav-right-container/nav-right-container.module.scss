@@ -10,7 +10,7 @@
     flex: 1;
 
     @include min-width(tabletS) {
-        min-width: unset;
+        min-inline-size: unset;
     }
 }
 
@@ -22,15 +22,15 @@
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
-    width: 0px;
+    inline-size: 0px;
     padding: 0px;
 }
 
 .show {
     transform: translateX(0%);
     padding: 10px 16px;
-    max-width: 22rem;
-    width: 100%;
+    max-inline-size: 22rem;
+    inline-size: 100%;
     opacity: 1;
     visibility: visible;
     transition: all 100ms ease 0ms;
@@ -39,7 +39,7 @@
         transform: translateX(100%);
         opacity: 0;
         visibility: hidden;
-        width: 0px;
+        inline-size: 0px;
         padding: 0px;
     }
 

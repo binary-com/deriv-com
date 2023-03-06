@@ -2,7 +2,7 @@
 
 .menu_toggle {
     cursor: pointer;
-    width: 16px;
+    inline-size: 16px;
     display: none;
 
     @include min-width(tabletL) {

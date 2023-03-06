@@ -1,21 +1,19 @@
 @import "features/styles/variables";
 
-.typography {
+.paragraph {
     margin: 0;
     padding: 0;
-    color: $color-black;
-}
-
-.paragraph {
     font-size: $font-size-normal;
 }
 
 .heading {
-    color: $color-black;
+    margin: 0;
+    padding: 0;
+    color: $color-white;
 }
 
 .bodyText {
-    color: $color-black;
+    color: $color-white;
     font-size: $font-size-normal;
 }
 

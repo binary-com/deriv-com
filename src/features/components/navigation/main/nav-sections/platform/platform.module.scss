@@ -32,7 +32,6 @@
     &_section_title {
         color: $color-grey-5;
         text-align: start;
-        min-height: 2rem;
-
+        min-block-size: 2rem;
     }
 }

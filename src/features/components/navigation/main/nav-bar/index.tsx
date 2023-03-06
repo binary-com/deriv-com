@@ -8,6 +8,7 @@ import NavMenuToggle from '../nav-menu-toggle'
 import DesktopNavbar from '../nav-items'
 import * as styles from './nav-bar.module.scss'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 interface DesktopTransparentNav extends HTMLAttributes<HTMLDivElement> {
     scrolled: boolean
@@ -21,6 +22,8 @@ const MainNavItems = ({ className, scrolled, ...rest }: DesktopTransparentNav) =
     const [activeTab, setActiveTab] = useState<TActiveNav>('none')
 
     const [is_menu_open, setIsMenuOpen] = useState(false)
+
+    const { is_mobile_or_tablet, is_laptop_or_desktop } = useBreakpoints()
 
     const onMenuToggleClick = () => {
         setIsMenuOpen((prevState) => !prevState)
@@ -40,20 +43,24 @@ const MainNavItems = ({ className, scrolled, ...rest }: DesktopTransparentNav) =
     return (
         <div className={clsx(styles.desktop_nav, className)} {...rest}>
             <div className={styles.desktop_nav_container}>
-                <NavMenuToggle
-                    is_open={is_menu_open}
-                    onClick={onMenuToggleClick}
-                    ref={menu_toggle_ref}
-                />
+                {is_mobile_or_tablet && (
+                    <NavMenuToggle
+                        is_open={is_menu_open}
+                        onClick={onMenuToggleClick}
+                        ref={menu_toggle_ref}
+                    />
+                )}
                 <NavLogo />
-                <DesktopNavbar
-                    ref={navigation_bar_ref}
-                    onItemClick={onItemClick}
-                    activeTab={activeTab}
-                />
+                {!is_mobile_or_tablet && (
+                    <DesktopNavbar
+                        ref={navigation_bar_ref}
+                        onItemClick={onItemClick}
+                        activeTab={activeTab}
+                    />
+                )}
                 <NavRightContainer scrolled={scrolled} />
             </div>
-            <NavMenu ref={menu_nav_ref} is_open={is_menu_open} />
+            {is_mobile_or_tablet && <NavMenu ref={menu_nav_ref} is_open={is_menu_open} />}
         </div>
     )
 }

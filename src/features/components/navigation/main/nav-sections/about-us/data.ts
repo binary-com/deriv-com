@@ -1,5 +1,4 @@
 import { TSmartNavContent } from '../../types'
-// icons
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
 import Contact from 'images/svg/menu/contact.svg'

@@ -68,10 +68,8 @@ const NavigationCard = ({
                     <img
                         src={Diagonal}
                         alt="Diagonal"
-                        width="16px"
-                        height="16px"
                         className={clsx(styles.nav_right_diagonal, {
-                            nav_right_diagonal_rtl: is_rtl,
+                            [styles.nav_right_diagonal_rtl]: is_rtl,
                         })}
                     />
                 )}

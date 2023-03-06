@@ -4,7 +4,7 @@ button {
     font-size: 14px;
     transition: all 0.25s;
     font-weight: bold;
-    height: fit-content;
+    block-size: fit-content;
 
     &:focus,
     &:active {
@@ -24,8 +24,8 @@ button.disabled {
 
 
 button.loading {
-    width: 8rem;
-    height: 8rem;
+    inline-size: 8rem;
+    block-size: 8rem;
     border: 10 px solid var(--color-black);
     border-radius: 50%;
     animation: sweep 1s linear alternate infinite, rotates 0.8s linear infinite;

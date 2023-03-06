@@ -300,20 +300,6 @@ module.exports = {
                 ],
             },
         },
-        {
-            resolve: `gatsby-plugin-create-client-paths`,
-            options: {
-                prefixes: [
-                    `/markets/forex/*`,
-                    `/markets/synthetic/*`,
-                    `/markets/basket-indices/*`,
-                    `/markets/derived-fx/*`,
-                    `/markets/stock/*`,
-                    `/markets/cryptocurrencies/*`,
-                    `/markets/commodities/*`,
-                ],
-            },
-        },
         'gatsby-plugin-anchor-links',
         {
             resolve: 'gatsby-plugin-google-tagmanager',

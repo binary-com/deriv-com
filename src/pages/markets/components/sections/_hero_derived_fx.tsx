@@ -10,7 +10,7 @@ import device from 'themes/device'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import { PlatformQueryParam } from 'common/utility'
 
 const BackgroundWrapper = styled.div`
     background: url(${BannerBg});
@@ -113,7 +113,7 @@ const CreateFreeDemoAccount = () => {
 
 export const DerivedFXHero = ({ title, description }: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
-    const { is_deriv_go } = usePlatformQueryParam()
+    const { is_deriv_go = true } = PlatformQueryParam()
 
     return (
         <BackgroundWrapper>

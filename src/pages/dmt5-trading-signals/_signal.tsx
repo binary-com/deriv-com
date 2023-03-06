@@ -133,12 +133,12 @@ export const Signal = ({ content }: SignalProps) => {
                         <Localize translate_text={header.text} components={header.components} />
                     </StyledHeader>
                     <CardWrapper>
-                        {list.map((text, idx) => {
+                        {list.map((text) => {
                             return (
-                                <Card key={idx}>
+                                <Card key={text}>
                                     <StyledChecklist />
                                     <CardText>
-                                        <Localize translate_text={text} key={idx} />
+                                        <Localize translate_text={text} key={text} />
                                     </CardText>
                                 </Card>
                             )

@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink, StyledLinkMarket, MarketWrapper, Wrapper } from '../../styles/nav-styles'
+import NavLinkCard, { NavLinkCardTypes } from '../nav-link-card'
 import device from 'themes/device'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
+import { TString } from 'types/generics'
 
 const StyledWrapper = styled(Wrapper)`
     justify-content: center;
@@ -25,58 +27,49 @@ const NavigationBar = styled.ul`
         margin-left: 0;
     }
 `
-type NavLinkCardTypes = {
-    to: string
-    title: string
-    active?: string
-    type?: string
-    target?: string
-    external?: boolean
-    rel?: string
-}
 
-const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
-    const current_page = useActiveLinkState('markets')
-    return (
-        <NavLink className={active}>
-            <StyledLinkMarket
-                active={current_page === active}
-                activeClassName="active"
-                aria-label={title}
-                {...rest}
-            >
-                {title}
-            </StyledLinkMarket>
-        </NavLink>
-    )
-}
+const nav_links: Omit<NavLinkCardTypes, 'page'>[] = [
+    {
+        active: 'forex',
+        to: '/markets/forex/',
+        title: '_t_Forex_t_',
+    },
+    {
+        active: 'derived',
+        to: '/markets/synthetic/',
+        title: '_t_Derived_t_',
+    },
+    {
+        active: 'stock',
+        to: '/markets/stock/',
+        title: '_t_Stocks & indices_t_',
+    },
+    {
+        active: 'cryptocurrencies',
+        to: '/markets/cryptocurrencies/',
+        title: '_t_Cryptocurrencies_t_',
+    },
+    {
+        active: 'commodities',
+        to: '/markets/commodities/',
+        title: '_t_Commodities_t_',
+    },
+]
 
 const NavMarketDesktop = () => {
     return (
         <MarketWrapper>
             <StyledWrapper>
                 <NavigationBar>
-                    <NavLinkCard active="forex" to="/markets/forex/" title={localize('Forex')} />
-                    <NavLinkCard
-                        active="derived"
-                        to="/markets/synthetic/"
-                        title={localize('Derived')}
-                    />
-                    <NavLinkCard
-                        active="stock"
-                        to="/markets/stock/"
-                        title={localize('Stocks & indices')}
-                    />
-                    <NavLinkCard
-                        active="cryptocurrencies"
-                        to="/markets/cryptocurrencies/"
-                        title={localize('Cryptocurrencies')}
-                    />
-                    <NavLinkCard
-                        active="commodities"
-                        to="/markets/commodities/"
-                        title={localize('Commodities')}
-                    />
+                    {nav_links.map((navLink, idx) => (
+                        <NavLinkCard
+                            key={idx}
+                            page="markets"
+                            active={navLink.active}
+                            to={navLink.to}
+                            title={navLink.title}
+                        />
+                    ))}
                 </NavigationBar>
             </StyledWrapper>
         </MarketWrapper>

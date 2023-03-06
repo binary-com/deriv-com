@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { handleGetTrading, handleScroll, useMoveButton } from '../util/nav-methods'
 import { NavRight } from '../styles/nav-styles'
-import { localize, LanguageSwitcher } from 'components/localization'
+import { Localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleLogin from 'components/hooks/use-handle-login'
@@ -67,7 +67,7 @@ const RightSection = ({
             <Wrapper>
                 <Language hide_component={hide_language_switcher} />
                 <StyledButton onClick={handleGetTrading} primary>
-                    {localize('Get Trading')}
+                    <Localize translate_text="_t_Get Trading_t_" />
                 </StyledButton>
             </Wrapper>
         )
@@ -92,7 +92,7 @@ const RightSection = ({
                         onClick={handleLogin}
                         primary
                     >
-                        {localize('Log in')}
+                        <Localize translate_text="_t_Log in_t_" />
                     </StyledButton>
                     <SignupButton
                         disabled={is_region_loading}
@@ -101,7 +101,7 @@ const RightSection = ({
                         ref={button_ref}
                         secondary
                     >
-                        {localize('Create free demo account')}
+                        <Localize translate_text="_t_Create free demo account_t_" />
                     </SignupButton>
                 </>
             )}

@@ -27,13 +27,13 @@ const BrowserUpdateAlertModal = () => {
     return (
         <Modal
             ref={modalRef}
-            positive={<Localize translate_text="OK" />}
+            positive={<Localize translate_text="_t_OK_t_" />}
             onPositive={handlePositive}
             is_dismissible={false}
             maxWidth="38rem"
         >
             <Header type="paragraph-2" weight="regular">
-                <Localize translate_text="Update your browser to get the best Deriv experience" />
+                <Localize translate_text="_t_Update your browser to get the best Deriv experience_t_" />
             </Header>
         </Modal>
     )

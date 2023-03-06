@@ -9,7 +9,8 @@ import {
     Wrapper,
 } from '../../styles/nav-styles'
 import { handleScroll, useMoveButton } from '../../util/nav-methods'
-import { localize } from 'components/localization'
+import NavLinkCard, { NavLinkCardTypes } from '../nav-link-card'
+import { Localize, localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { affiliate_signin_url, affiliate_signup_url } from 'common/constants'
@@ -109,38 +110,27 @@ const StyledNavRight = styled(NavRight)<StyledNavRightProps>`
     }
 `
 
-type NavLinkCardTypes = {
-    to: string
-    title: string
-    active?: string
-    type?: string
-    target?: string
-    external?: boolean
-    rel?: string
-}
-
-const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
-    const current_page = useActiveLinkState('partners')
-    return (
-        <NavLink>
-            <StyledLink
-                active={current_page === active}
-                activeClassName="active"
-                aria-label={title}
-                {...rest}
-            >
-                {title}
-            </StyledLink>
-        </NavLink>
-    )
-}
-
 const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const { is_row } = useRegion()
     const button_ref = useRef<HTMLButtonElement | null>(null)
     const [show_button, showButton, hideButton] = useMoveButton()
     const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
+
+    const nav_links: Omit<NavLinkCardTypes, 'page'>[] = [
+        { active: 'affiliate', to: '/partners/affiliate-ib/', title: '_t_Affiliates and IBs_t_' },
+        { active: 'payment', to: '/partners/payment-agent/', title: '_t_Payment agents_t_' },
+        {
+            active: 'api',
+            to: '',
+            title: '_t_API_t_',
+            type: 'api',
+            target: '_blank',
+            external: true,
+            rel: 'noopener noreferrer',
+        },
+        { to: '/bug-bounty/', title: '_t_Bug bounty_t_' },
+    ]
 
     const is_rtl = useIsRtl()
     const buttonHandleScroll = () => {
@@ -165,29 +155,36 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                 </LeftSide>
 
                 <NavigationBar>
-                    <NavLinkCard
-                        active="affiliate"
-                        to="/partners/affiliate-ib/"
-                        title={localize('Affiliates and IBs')}
-                    />
-                    {is_row && (
-                        <NavLinkCard
-                            active="payment"
-                            to="/partners/payment-agent/"
-                            title={localize('Payment agents')}
-                        />
-                    )}
-
-                    <NavLinkCard
-                        active="api"
-                        to=""
-                        title={localize('API')}
-                        type="api"
-                        target="_blank"
-                        external
-                        rel="noopener noreferrer"
-                    />
-                    <NavLinkCard to="/bug-bounty/" title={localize('Bug bounty')} />
+                    {nav_links.map((navLink, idx) => {
+                        return navLink.external ? (
+                            <NavLinkCard
+                                page="partners"
+                                active={navLink.active}
+                                to={navLink.to}
+                                title={navLink.title}
+                                type={navLink.type}
+                                target={navLink.target}
+                                external
+                                rel={navLink.rel}
+                            />
+                        ) : navLink.to == '/partners/payment-agent/' ? (
+                            is_row && (
+                                <NavLinkCard
+                                    page="partners"
+                                    active={navLink.active}
+                                    to={navLink.to}
+                                    title={navLink.title}
+                                />
+                            )
+                        ) : (
+                            <NavLinkCard
+                                page="partners"
+                                active={navLink.active}
+                                to={navLink.to}
+                                title={navLink.title}
+                            />
+                        )
+                    })}
                 </NavigationBar>
 
                 {!hide_login_signup && (
@@ -206,7 +203,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                             primary
                             style={{ width: '16rem' }}
                         >
-                            {localize('Affiliate & IB log in')}
+                            <Localize translate_text="_t_Affiliate & IB log in_t_" />
                         </LinkButton>
                         <LinkSignupButton
                             id="dm-nav-affiliate-signup"
@@ -218,7 +215,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                             secondary
                             style={{ width: '18rem' }}
                         >
-                            {localize('Affiliate & IB sign up')}
+                            <Localize translate_text="_t_Affiliate & IB sign up_t_" />
                         </LinkSignupButton>
                     </StyledNavRight>
                 )}

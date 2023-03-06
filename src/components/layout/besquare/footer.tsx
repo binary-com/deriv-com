@@ -14,7 +14,7 @@ import {
 } from './style/footer'
 import { besquare_signup_url } from 'common/constants'
 import { Header } from 'components/elements'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
 import Facebook from 'images/svg/be-square/facebook.svg'
@@ -71,7 +71,7 @@ const BeSquareFooter = () => {
                             </Header>
 
                             <Localize
-                                translate_text="<1>If you have any questions, email us at </1><2>info@besquare.my</2>"
+                                translate_text="_t_<1>If you have any questions, email us at </1><2>info@besquare.my</2>_t_"
                                 components={[
                                     <br key={0} />,
                                     <TextWrapper
@@ -98,7 +98,7 @@ const BeSquareFooter = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Apply now')}
+                                <Localize translate_text="_t_Apply now_t_" />
                             </ButtonWrapper>
                         </div>
                         <FollowUsContainer>
@@ -109,7 +109,7 @@ const BeSquareFooter = () => {
                                 grid_area="follow-us"
                                 padding="15px 0 0"
                             >
-                                {localize('Follow us')}
+                                <Localize translate_text="_t_Follow us_t_" />
                             </TextWrapper>
                             {social_media_content.map(({ alt, link_to, src }) => (
                                 <LocalizedLink

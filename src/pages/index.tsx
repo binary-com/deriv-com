@@ -19,6 +19,8 @@ import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
 import WCS_DUMMY from 'images/common/wcs-dummy.png'
 import useRegion from 'components/hooks/use-region'
 
+// Just a test commit for measuring the performance
+
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat(true)

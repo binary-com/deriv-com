@@ -12,6 +12,7 @@ import WhatOurClientsSay from 'pages/home/_what-our-clients-say'
 import P2PHomeBanner from 'pages/home/_p2p_home_banner'
 import Signup, { Appearances } from 'components/custom/signup'
 import TradeTypes from 'pages/home/_trade-types'
+import Footer from 'components/layout/footer'
 
 const HomePage = () => {
     useOpenLiveChat(true)
@@ -35,6 +36,7 @@ const HomePage = () => {
             <WhatOurClientsSay />
             {is_p2p_allowed_country && <P2PHomeBanner />}
             <Signup appearance={Appearances.public} />
+            <Footer />
         </LayoutComponent>
     )
 }

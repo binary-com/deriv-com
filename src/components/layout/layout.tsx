@@ -1,4 +1,4 @@
-import React, { ReactNode, Ref, useEffect } from 'react'
+import React, { ReactNode, Ref } from 'react'
 import Loadable from '@loadable/component'
 import styled from 'styled-components'
 import { LocationProvider } from './location-context'
@@ -13,20 +13,16 @@ import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
 import Footer from './footer'
 import LayoutOverlay from './layout-overlay'
-import { CookieStorage } from 'common/storage'
-import { handleRedirect, handleRowRedirect, isEuDomain } from 'common/utility'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import usePopup from 'components/hooks/use-popup'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
-import useWebsiteStatus from 'components/hooks/use-website-status'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import usePopup from 'components/hooks/use-popup'
 import apiManager from 'features/websocket'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
-
-apiManager.init()
 
 type LayoutProps = {
     children: ReactNode
@@ -57,6 +53,7 @@ const Main = styled.main<MainType>`
     height: 100%;
     position: relative;
 `
+apiManager.init()
 
 const Layout = ({
     children,
@@ -67,19 +64,11 @@ const Layout = ({
     no_login_signup = false,
     type = '',
 }: LayoutProps) => {
-    const { website_status } = useWebsiteStatus()
+    const [is_mounted] = usePageLoaded()
     const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
     const { has_platform } = usePlatformQueryParam()
-
-    useEffect(() => {
-        const current_client_country = website_status?.clients_country ?? ''
-        const client_info_cookie = new CookieStorage('client_information')
-        const residence = client_info_cookie.get('residence')
-        isEuDomain() && handleRowRedirect(residence, current_client_country)
-        !isEuDomain() && handleRedirect(residence, current_client_country)
-    }, [website_status])
 
     const is_static = type === 'static'
 
@@ -151,7 +140,11 @@ const Layout = ({
         )
     }
     return (
-        <LocationProvider toggleModal={toggleModal} setModalPayload={setModalPayload}>
+        <LocationProvider
+            has_mounted={is_mounted}
+            toggleModal={toggleModal}
+            setModalPayload={setModalPayload}
+        >
             {Navigation}
             <Main margin_top={margin_top} is_static={is_static}>
                 {children}

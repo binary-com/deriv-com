@@ -21,7 +21,7 @@ export const simple_step_content_cryptocurrencies = [
     {
         header: <Localize translate_text="_t_Trade_t_" />,
         text: (
-            <Localize translate_text="_t_Open a real account, make a deposit, and start trading commodities and other markets. _t_" />
+            <Localize translate_text="_t_Open a real account, make a deposit, and start trading commodities and other markets._t_" />
         ),
         icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
     },

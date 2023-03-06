@@ -20,6 +20,7 @@ import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_aler
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import usePopup from 'components/hooks/use-popup'
 import apiManager from 'features/websocket'
+import { isBrowser } from 'common/utility'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -53,7 +54,10 @@ const Main = styled.main<MainType>`
     height: 100%;
     position: relative;
 `
-apiManager.init()
+
+if (isBrowser()) {
+    apiManager.init()
+}
 
 const Layout = ({
     children,

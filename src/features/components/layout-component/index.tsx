@@ -10,12 +10,15 @@ import LayoutOverlay from 'components/layout/layout-overlay'
 import { LocationProvider } from 'components/layout/location-context'
 import 'features/styles/reset.scss'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
+import { isBrowser } from 'common/utility'
 interface ILayoutComponentProps extends HTMLAttributes<HTMLDivElement> {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
 }
 
-apiManager.init()
+if (isBrowser()) {
+    apiManager.init()
+}
 
 const LayoutComponent = ({
     children,

@@ -61,9 +61,9 @@ const NavMarketDesktop = () => {
         <MarketWrapper>
             <StyledWrapper>
                 <NavigationBar>
-                    {nav_links.map((navLink, idx) => (
+                    {nav_links.map((navLink) => (
                         <NavLinkCard
-                            key={idx}
+                            key={navLink.title}
                             page="markets"
                             active={navLink.active}
                             to={navLink.to}

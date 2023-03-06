@@ -155,9 +155,10 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                 </LeftSide>
 
                 <NavigationBar>
-                    {nav_links.map((navLink, idx) => {
+                    {nav_links.map((navLink) => {
                         return navLink.external ? (
                             <NavLinkCard
+                                key={navLink.title}
                                 page="partners"
                                 active={navLink.active}
                                 to={navLink.to}
@@ -170,6 +171,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                         ) : navLink.to == '/partners/payment-agent/' ? (
                             is_row && (
                                 <NavLinkCard
+                                    key={navLink.title}
                                     page="partners"
                                     active={navLink.active}
                                     to={navLink.to}
@@ -178,6 +180,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                             )
                         ) : (
                             <NavLinkCard
+                                key={navLink.title}
                                 page="partners"
                                 active={navLink.active}
                                 to={navLink.to}

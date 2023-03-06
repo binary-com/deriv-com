@@ -8,7 +8,7 @@ import { PartnerWrapper, PartnerNavigationBarWrapper } from './styles/nav-styles
 import { PlatformQueryParam } from 'common/utility'
 
 const NavMarkets = () => {
-    const { is_deriv_go } = PlatformQueryParam()
+    const { is_deriv_go = true } = PlatformQueryParam()
 
     return (
         <NavTemplate transparent_background={is_deriv_go}>

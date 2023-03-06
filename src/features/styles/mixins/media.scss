@@ -58,7 +58,7 @@
 
 
   @else if ($breakpoint ==bp1060) {
-    @media ((max-width: 1060px)) {
+    @media (max-width: 1060px) {
       @content;
     }
   }

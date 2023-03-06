@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { StringParam, useQueryParam } from 'use-query-params'
 import { navigate } from 'gatsby'
@@ -202,14 +202,32 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
     )
 }
 
-const AvailableTradesDesctop = ({
+const AvailableTradesDesktop = ({
     CFDs,
     DigitalOptions,
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
-    const { is_non_eu } = useRegion()
+    const { is_non_eu, is_region_loading } = useRegion()
     const [tab, setTab] = useQueryParam('tab', StringParam)
+
+    useEffect(() => {
+        if (window.location.hash && !is_region_loading) {
+            const id = window.location.hash.substring(1)
+            const element = document.getElementById(id)
+            const headerOffset = 100
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+            if (element) {
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth',
+                    })
+                }, 1000)
+            }
+        }
+    }, [is_region_loading])
 
     return (
         <StyledSection>
@@ -263,4 +281,4 @@ const AvailableTradesDesctop = ({
     )
 }
 
-export default AvailableTradesDesctop
+export default AvailableTradesDesktop

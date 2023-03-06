@@ -6,9 +6,16 @@ import { localize } from 'components/localization'
 import MainNav from 'features/components/navigation/main'
 import Hero from 'pages/home/_hero'
 import MarketsFold from 'pages/home/_markets_fold'
+import useRegion from 'components/hooks/use-region'
+import OurPlatforms from 'pages/home/_our_platforms'
+import WhatOurClientsSay from 'pages/home/_what-our-clients-say'
+import P2PHomeBanner from 'pages/home/_p2p_home_banner'
+import Signup, { Appearances } from 'components/custom/signup'
+import TradeTypes from 'pages/home/_trade-types'
 
 const HomePage = () => {
     useOpenLiveChat(true)
+    const { is_p2p_allowed_country } = useRegion()
     return (
         <LayoutComponent>
             <SEO
@@ -23,6 +30,11 @@ const HomePage = () => {
             <MainNav />
             <Hero />
             <MarketsFold />
+            <TradeTypes />
+            <OurPlatforms />
+            <WhatOurClientsSay />
+            {is_p2p_allowed_country && <P2PHomeBanner />}
+            <Signup appearance={Appearances.public} />
         </LayoutComponent>
     )
 }

@@ -23,7 +23,7 @@ const MainNavItems = ({ className, scrolled, ...rest }: DesktopTransparentNav) =
 
     const [is_menu_open, setIsMenuOpen] = useState(false)
 
-    const { is_mobile_or_tablet, is_laptop_or_desktop } = useBreakpoints()
+    const { is_mobile_or_tablet } = useBreakpoints()
 
     const onMenuToggleClick = () => {
         setIsMenuOpen((prevState) => !prevState)

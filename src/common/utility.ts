@@ -11,7 +11,6 @@ import {
     domains,
     eu_domains,
 } from './constants'
-import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
 
 export const trimSpaces = (value: string): string => value?.trim()
@@ -225,44 +224,6 @@ export const redirectOpenLiveChatBox = (is_redirect: boolean) => {
     }
 }
 
-export const convertDate = (date: string) => {
-    const newdate = new Date(date)
-    return (
-        newdate.toLocaleString('en', { day: 'numeric' }) +
-        ' ' +
-        newdate.toLocaleString('en', { month: 'short' }) +
-        ' ' +
-        newdate.toLocaleString('en', { year: 'numeric' })
-    )
-}
-
-export const getVideoObject = (video_data) => {
-    const {
-        published_date,
-        video_thumbnail,
-        video_title,
-        video_duration,
-        video_slug,
-        video_description,
-        featured,
-        tags,
-    } = video_data
-    const { title: alt } = video_thumbnail
-
-    return {
-        published_date,
-        thumbnail_img_alt: alt,
-        video_title,
-        video_description,
-        video_thumbnail,
-        video_url: getAssetUrl(video_slug),
-        video_duration,
-        video_slug,
-        featured,
-        types: tags.map((t) => t.tags_id?.tag_name),
-    }
-}
-
 // remove spaces before appending "..." on truncated strings
 const getLimit = (input: string, limit: number) => {
     if (input[limit - 1] === ' ') {
@@ -421,47 +382,10 @@ export const useCallbackRef = (callback: () => void) => {
     return callback_ref
 }
 
-const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
-
-const redirect = (subdomain: string) => {
-    const redirection_url = `${subdomain}.deriv.com`
-    window.location.href = `https://${redirection_url + window.location.pathname}`
-}
-
-const redirectDomain = () => {
-    const redirection_url = `deriv.com`
-    window.location.href = `https://${redirection_url + window.location.pathname}`
-}
-
 const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 
 export const isEuDomain = () =>
     !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
-
-export const handleRedirect = (residence: string, current_client_country: string): boolean => {
-    const country = residence ? residence : current_client_country
-
-    if (isLocalhost() || isTestlink()) {
-        return false
-    } else {
-        if (eu_subdomain_countries.includes(country)) {
-            const subdomain = getSubdomain()
-            redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
-        }
-    }
-}
-
-export const handleRowRedirect = (residence: string, current_client_country: string): boolean => {
-    const country = residence ? residence : current_client_country
-
-    if (isLocalhost() || isTestlink()) {
-        return false
-    } else {
-        if (eu_subdomain_countries.includes(country) === false) {
-            redirectDomain()
-        }
-    }
-}
 
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 

@@ -127,7 +127,12 @@ const LivePricing = () => {
                 {market_buttons.map(
                     (marketItem) =>
                         marketItem.market_name === selected_market && (
-                            <Header type="paragraph-1" weight="normal" align="center">
+                            <Header
+                                type="paragraph-1"
+                                weight="normal"
+                                align="center"
+                                key={marketItem.id}
+                            >
                                 <Localize translate_text={marketItem.market_description} />
                             </Header>
                         ),

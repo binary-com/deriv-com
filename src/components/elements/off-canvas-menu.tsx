@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { withLangDirection } from 'themes/function'
+import { TString } from 'types/generics'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
@@ -148,6 +149,11 @@ const content_style = {
     flexDirection: 'column',
     display: 'flex',
 }
+
+const derived_text_eu: TString =
+    '_t_Enjoy trading asset prices derived from<br/> simulated markets._t_'
+const derived_text_row: TString =
+    '_t_Enjoy trading asset prices derived from real-world<br/> or simulated markets._t_'
 
 export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
     const { is_row } = useRegion()
@@ -419,7 +425,11 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                     />
                                 )}
                                 content={
-                                    <Localize translate_text="Enjoy trading asset prices derived<br/> from real-world or simulated markets." />
+                                    is_row ? (
+                                        <Localize translate_text={derived_text_row} />
+                                    ) : (
+                                        <Localize translate_text={derived_text_eu} />
+                                    )
                                 }
                                 title={<Localize translate_text="Derived" />}
                                 onClick={handleArrowClick}
@@ -621,7 +631,13 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 />
                             </SpanSvg>
                         </StyledLink>
-                        <StyledLink to="/academy/" onClick={handleArrowClick}>
+                        <StyledLink
+                            to=""
+                            external
+                            type="academy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <div>
                                 <img src={Blog} alt="academy" width="24" height="24" />
                             </div>

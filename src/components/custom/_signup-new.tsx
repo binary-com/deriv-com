@@ -306,13 +306,13 @@ const SignupNew = ({
                     translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
                     components={[
                         <StyledLocalizedLink
-                            external
                             key={0}
                             to={`/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`}
                             size="1.2rem"
                             color="red"
                             rel="noopener noreferrer"
                             target="_blank"
+                            external
                         />,
                     ]}
                 />

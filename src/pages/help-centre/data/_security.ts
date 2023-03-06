@@ -206,7 +206,8 @@ const security: TQuestionsData = {
             ],
         },
         {
-            question: '_t_How can I identify emails from impersonators of Deriv client support?_t_',
+            question:
+                '_t_How can I identify emails from impersonators of Deriv customer support?_t_',
             category: 'Security',
             sub_category: '_t_Verification_t_',
             label: 'identify-impersonators-client-support',
@@ -229,15 +230,15 @@ const security: TQuestionsData = {
                             },
                             {
                                 translation_text:
-                                    '_t_Impersonators ask you to send confidential information over an insecure platform, for example via SMS, WhatsApp, email, etc._t_',
+                                    '_t_Impersonators ask you to send confidential information over an unsecure platform, for example via SMS, WhatsApp, email, etc._t_',
                             },
                             {
                                 translation_text:
-                                    '_t_They ask you to fill up a form on an insecure website without an HTTPS (secured) connection._t_',
+                                    '_t_They ask you to fill up a form on an unsecure website without an HTTPS (secured) connection._t_',
                             },
                             {
                                 translation_text:
-                                    '_t_They ask you to download insecure mobile apps in the form of APK files that aren’t offered on Google Play Store or Apple App Store._t_',
+                                    '_t_They ask you to download unsecure mobile apps in the form of APK files that aren’t offered on Google Play Store or Apple App Store. _t_',
                             },
                             {
                                 translation_text:

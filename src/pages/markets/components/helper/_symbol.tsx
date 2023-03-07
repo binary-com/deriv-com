@@ -2,11 +2,11 @@ import React from 'react'
 import { SymbolContainer, SymbolText } from '../../static/style/_markets-style'
 import type { MarketSymbol } from '../../static/content/_market-symbols'
 import { Text } from 'components/elements'
-
+import { Localize } from 'components/localization'
 //TODO: refactor this component to always use instruments_type
 type SymbolProps = MarketSymbol & { instruments_type?: MarketSymbol[] }
 const Symbol = ({ instruments_type, src, text }: SymbolProps) => {
-    const is_derived_fx = text?.props.translate_text.includes('DFX')
+    const is_derived_fx = text?.includes('DFX')
     return (
         <React.Fragment>
             {instruments_type ? (
@@ -23,10 +23,10 @@ const Symbol = ({ instruments_type, src, text }: SymbolProps) => {
                     <img src={src} alt="symbol" />
                     {is_derived_fx ? (
                         <SymbolText as="div" type="paragraph-2">
-                            {text}
+                            <Localize translate_text={text} />
                         </SymbolText>
                     ) : (
-                        <Text>{text}</Text>
+                        <Localize translate_text={text} />
                     )}
                 </SymbolContainer>
             )}

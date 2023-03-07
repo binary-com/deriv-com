@@ -1,5 +1,4 @@
 import React from 'react'
-import { InView, useInView } from 'react-intersection-observer'
 import HomeHero from './hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import LayoutComponent from 'features/components/layout-component'
@@ -14,6 +13,7 @@ import P2PHomeBanner from 'pages/home/_p2p_home_banner'
 import Signup, { Appearances } from 'components/custom/signup'
 import TradeTypes from 'pages/home/_trade-types'
 import Footer from 'components/layout/footer'
+import SmartSection from 'features/components/smart-section'
 
 const HomePage = () => {
     useOpenLiveChat(true)
@@ -32,35 +32,29 @@ const HomePage = () => {
             />
             <MainNav />
             <HomeHero />
-            <InView>
-                {({ inView, ref }) => <div ref={ref}>{inView ? <MarketsFold /> : null}</div>}
-            </InView>
-            <InView>
-                {({ inView, ref }) => <div ref={ref}>{inView ? <TradeTypes /> : null}</div>}
-            </InView>
-            <InView>
-                {({ inView, ref }) => <div ref={ref}>{inView ? <OurPlatforms /> : null}</div>}
-            </InView>
-            <InView>
-                {({ inView, ref }) => <div ref={ref}>{inView ? <WhatOurClientsSay /> : null}</div>}
-            </InView>
+            <MarketsFold />
 
+            <SmartSection name={'trade-types'}>
+                <TradeTypes />
+            </SmartSection>
+
+            <SmartSection name={'platforms'}>
+                <OurPlatforms />
+            </SmartSection>
+            <SmartSection name={'clients'}>
+                <WhatOurClientsSay />
+            </SmartSection>
             {is_p2p_allowed_country && (
-                <InView>
-                    {({ inView, ref }) => <div ref={ref}>{inView ? <P2PHomeBanner /> : null}</div>}
-                </InView>
+                <SmartSection name={'p2p-banner'}>
+                    <P2PHomeBanner />
+                </SmartSection>
             )}
-
-            <InView>
-                {({ inView, ref }) => (
-                    <div ref={ref}>
-                        {inView ? <Signup appearance={Appearances.public} /> : null}
-                    </div>
-                )}
-            </InView>
-            <InView>
-                {({ inView, ref }) => <div ref={ref}>{inView ? <Footer /> : null}</div>}
-            </InView>
+            <SmartSection name={'sign-up'}>
+                <Signup appearance={Appearances.public} />
+            </SmartSection>
+            <SmartSection name={'footer'}>
+                <Footer />
+            </SmartSection>
         </LayoutComponent>
     )
 }

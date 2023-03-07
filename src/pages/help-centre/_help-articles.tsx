@@ -519,6 +519,162 @@ export const articles: ArcticlesType[] = [
         ],
     },
     {
+        section: 'General',
+        category: <Localize translate_text="Payment Agent" />,
+        articles: [
+            {
+                title: <Localize translate_text="What is the Deriv Payment Agent Programme?" />,
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'what-is-payment-agent',
+            },
+            {
+                title: (
+                    <Localize translate_text="It’s a partnership programme where we authorise third-party payment agents to process deposits and withdrawals for Deriv clients." />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'is-payment-agent-same-as-p2p',
+            },
+            {
+                title: (
+                    <Localize translate_text="Is the Deriv Payment Agent Programme the same as Deriv P2P?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: '',
+            },
+            {
+                title: <Localize translate_text="Why do clients need a payment agent?" />,
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'why-payment-agent',
+            },
+            {
+                title: (
+                    <Localize translate_text="Do I need a Deriv account to become a payment agent?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'need-account-to-become-agent',
+            },
+            {
+                title: (
+                    <Localize translate_text="Do I have to pay any fees to become a payment agent for Deriv?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'pay-fee-to-become-agent',
+            },
+            {
+                title: <Localize translate_text="Do I get commission as a payment agent?" />,
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'get-commission-as-agent',
+            },
+            {
+                title: (
+                    <Localize translate_text="What happens if a payment agent charges more than the set commission threshold?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'payment-agent-charges-more',
+            },
+            {
+                title: (
+                    <Localize translate_text="Are payment agents employees or affiliates of Deriv?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'payment-agent-employee-or-affiliate',
+            },
+            {
+                title: (
+                    <Localize translate_text="What is the difference between a payment agent and a premium payment agent?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'difference-agent-premium',
+            },
+            {
+                title: <Localize translate_text="Who can become a premium payment agent?" />,
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'who-can-be-premium-agent',
+            },
+            {
+                title: (
+                    <Localize translate_text="Will I be required to pay a fee to become a premium payment agent?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'fee-for-premium-agent',
+            },
+            {
+                title: (
+                    <Localize translate_text="What is the cost of using the premium payment agent’s services?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'cost-of-using-premium-agent',
+            },
+            {
+                title: (
+                    <Localize translate_text="Can a premium payment agent provide their services to another premium payment agent?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'provide-service-to-another-agent',
+            },
+            {
+                title: (
+                    <Localize translate_text="Can payment agent offer their services to a premium payment agent?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'offer-service-to-premium',
+            },
+            {
+                title: (
+                    <Localize translate_text="Can a payment agent offer their service to other payment agents?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'offer-service-to-agent',
+            },
+            {
+                title: (
+                    <Localize translate_text="Can all Deriv clients use premium payment agents to process transactions?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'all-clients-use-premium',
+            },
+            {
+                title: (
+                    <Localize translate_text="How can I add, remove or change my accepted payment methods?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'modify-payment-methods',
+            },
+            {
+                title: <Localize translate_text="Can I advertise my services to Deriv clients?" />,
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'advertise-to-clients',
+            },
+            {
+                title: (
+                    <Localize translate_text="Will I still be able to trade with my account after registering as a payment agent?" />
+                ),
+                category: 'Payment Agent',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'trade-as-agent',
+            },
+        ],
+    },
+    {
         section: 'Platforms',
         category: <Localize translate_text="Deriv MT5" />,
         articles: [

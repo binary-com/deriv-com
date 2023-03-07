@@ -19,7 +19,7 @@ export const market_buttons: TMarketButtons[] = [
     },
     {
         id: 2,
-        button_text: '_t_Stock & Indices_t_',
+        button_text: '_t_Stocks & Indices_t_',
         market_name: 'indices',
         market_description:
             '_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets._t_',

@@ -8,7 +8,6 @@ const NavLogo = () => {
         <div className={styles.nav_logo}>
             <img src={LogoOnly} alt="deriv logo" className={styles.nav_logo_main} />
             <div className={styles.nav_logo_description}>
-                <span className={styles.nav_logo_description_line} />
                 <img src={GetTrading} alt="get trading" />
             </div>
         </div>

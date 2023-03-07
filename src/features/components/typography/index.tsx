@@ -4,13 +4,33 @@ import './typography.scss'
 
 type TTypographyAlign = 'end' | 'start' | 'center'
 
-interface ITypographyProps<T extends React.ElementType = 'p'>
-    extends HTMLAttributes<HTMLHeadingElement> {
+type TTypographyTypes =
+    | 'main-landing-title'
+    | 'display-title'
+    | 'page-title'
+    | 'section-title'
+    | 'sub-section-title'
+    | 'main-paragraph'
+    | 'sub-paragraph'
+    | 'hero'
+    | 'heading-1'
+    | 'heading-2'
+    | 'heading-3'
+    | 'heading-4'
+    | 'heading-5'
+    | 'heading-6'
+    | 'subtitle-1'
+    | 'subtitle-2'
+    | 'paragraph-1'
+    | 'paragraph-2'
+    | 'small'
+
+interface ITypographyProps<T extends React.ElementType = 'p'> extends HTMLAttributes<T> {
     as: T
+    type?: TTypographyTypes
     align?: TTypographyAlign
     semibold?: boolean
     italic?: boolean
-    small?: boolean
 }
 
 const Typography = <T extends React.ElementType>({
@@ -19,7 +39,7 @@ const Typography = <T extends React.ElementType>({
     align,
     semibold,
     italic,
-    small,
+    type,
     ...rest
 }: ITypographyProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof ITypographyProps<T>>) => {
     const headingTags =
@@ -28,20 +48,13 @@ const Typography = <T extends React.ElementType>({
     const Component = as || 'p'
 
     const _className = clsx(
+        'typography',
         {
-            [align]: align && (headingTags || as === 'p'),
             semibold: semibold || as === 'strong',
             italic: italic || as === 'em',
-            small: small || as === 'small',
             bodyText: as === 'p' || as === 'em' || as === 'strong',
-            h1: as === 'h1',
-            h2: as === 'h2',
-            h3: as === 'h3',
-            h4: as === 'h4',
-            h5: as === 'h5',
-            h6: as === 'h6',
-            heading: headingTags,
-            paragraph: as === 'p',
+            [align]: align && (headingTags || as === 'p'),
+            [type]: type !== undefined,
         },
         className,
     )

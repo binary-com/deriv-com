@@ -1,0 +1,89 @@
+@use 'features/styles/mixins/media' as *;
+
+.home_hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 100%;
+    padding: 7rem 0;
+    min-block-size: 915px;
+    background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%);
+
+    @include min-width(tabletL) {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 7rem 0 46px;
+        min-block-size: 846px;
+    }
+
+    .bg_container {
+        position: absolute;
+        display: flex;
+        block-size: 100%;
+        justify-content: center;
+        align-items: center;
+        inset-block-start: 0px;
+    }
+
+    .content {
+        block-size: 100%;
+        z-index: 10;
+        gap: 2rem;
+        max-inline-size: 120rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .right_side {
+        display: flex;
+        justify-content: start;
+        align-items: flex-start;
+        flex-direction: column;
+        min-inline-size: 40rem;
+        gap: 2rem;
+        flex: 1;
+
+        .header_titles {
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            gap: 0.5rem;
+            flex-direction: column;
+
+            @include min-width(tabletL) {
+                flex-direction: row;
+                flex-wrap: wrap;
+
+            }
+
+        }
+
+    }
+
+
+    .left_side {
+        max-inline-size: 69rem;
+        inline-size: 100%;
+        flex: 1;
+
+        .images_carousel {
+            inline-size: 100%;
+        }
+    }
+}
+
+
+.features_carousel {
+    max-block-size: 4rem;
+
+
+    &_slide {
+        display: flex;
+        text-align: start;
+        justify-content: center;
+        align-items: center;
+    }
+}

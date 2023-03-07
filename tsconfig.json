@@ -9,6 +9,9 @@
     "jsx": "react",
     "compilerOptions": {
         "baseUrl": "src",
+        "paths": {
+            "swiper": ["../node_modules/swiper"]
+        },
         "jsx": "preserve",
         "lib": ["ES2021.String", "DOM", "DOM.Iterable"],
         "esModuleInterop": true,

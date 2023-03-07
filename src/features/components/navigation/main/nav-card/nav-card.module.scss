@@ -62,7 +62,6 @@
         flex: 1;
 
         &_title {
-            font-size: $text-size-s;
             text-align: start;
             color: $color-black;
         }
@@ -73,7 +72,6 @@
         }
 
         &_description {
-            font-size: $text-size-xs;
             text-align: start;
             color: $color-black-3;
         }

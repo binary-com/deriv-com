@@ -40,7 +40,7 @@ const DesktopNavbar = forwardRef<HTMLUListElement, IDesktopNavbarProps>(
                         })}
                         onClick={() => onItemClick(item.active)}
                     >
-                        <Typography as={'h6'} className={styles.item_title}>
+                        <Typography as={'h6'} type={'heading-6'} className={styles.item_title}>
                             <Localize translate_text={item.title} />
                         </Typography>
                         {item.active === activeTab && (

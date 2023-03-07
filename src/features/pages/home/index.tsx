@@ -1,10 +1,11 @@
 import React from 'react'
+import HomeHero from './hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import LayoutComponent from 'features/components/layout-component'
 import { SEO } from 'components/containers'
 import { localize } from 'components/localization'
 import MainNav from 'features/components/navigation/main'
-import Hero from 'pages/home/_hero'
+// import Hero from 'pages/home/_hero'
 import MarketsFold from 'pages/home/_markets_fold'
 import useRegion from 'components/hooks/use-region'
 import OurPlatforms from 'pages/home/_our_platforms'
@@ -29,7 +30,8 @@ const HomePage = () => {
                 has_organization_schema
             />
             <MainNav />
-            <Hero />
+            <HomeHero />
+            {/* <Hero /> */}
             <MarketsFold />
             <TradeTypes />
             <OurPlatforms />

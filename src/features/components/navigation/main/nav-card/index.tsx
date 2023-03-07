@@ -52,14 +52,19 @@ const NavigationCard = ({
                     })}
                 >
                     <Typography
-                        as={'span'}
+                        as={'h6'}
+                        type={'heading-6'}
                         className={styles.nav_card_content_title}
                         semibold={has_bold_title}
                     >
                         <Localize translate_text={title} />
                     </Typography>
                     {content && (
-                        <Typography as={'span'} className={styles.nav_card_content_description}>
+                        <Typography
+                            as={'p'}
+                            type={'paragraph-2'}
+                            className={styles.nav_card_content_description}
+                        >
                             <Localize translate_text={content} />
                         </Typography>
                     )}

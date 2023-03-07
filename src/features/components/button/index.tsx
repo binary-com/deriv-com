@@ -15,16 +15,21 @@ type TButtonType =
 interface ISButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     button_type: TButtonType
     is_loading?: boolean
+    fluid?: boolean
 }
 
 const SButton = forwardRef<HTMLButtonElement, ISButtonProps>(
-    ({ button_type = 'primary', className, children, disabled, is_loading, ...rest }, ref) => {
+    (
+        { button_type = 'primary', className, children, disabled, is_loading, fluid, ...rest },
+        ref,
+    ) => {
         return (
             <button
                 ref={ref}
                 className={clsx(className, button_type, {
                     disabled: disabled,
                     loading: is_loading,
+                    fluid: fluid,
                 })}
                 {...rest}
             >

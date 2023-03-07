@@ -1,49 +1,95 @@
+@use "features/styles/mixins/font" as *;
 @import "features/styles/variables";
 
-.paragraph {
-    margin: 0;
-    padding: 0;
-    font-size: $font-size-normal;
-}
-
-.heading {
+.typography {
     margin: 0;
     padding: 0;
     color: $color-white;
+    word-break: break-word;
+    line-height: 1.1; // check this out for more https://dev.to/lampewebdev/css-line-height-jjp
+
 }
 
 .bodyText {
-    color: $color-white;
-    font-size: $font-size-normal;
+    @include font-size($p-font-sizes);
 }
 
-.h1 {
-    font-size: $font-size-h1;
+.heading-1 {
+    @include font-size($h1-font-sizes);
 }
 
-.h2 {
-    font-size: $font-size-h2;
+.heading-2 {
+    @include font-size($h2-font-sizes);
 }
 
-.h3 {
-    font-size: $font-size-h3;
+.heading-3 {
+    @include font-size($h3-font-sizes);
 }
 
-.h4 {
-    font-size: $font-size-h4;
+.heading-4 {
+    @include font-size($h4-font-sizes);
 }
 
-.h5 {
-    font-size: $font-size-h5;
+.heading-5 {
+    @include font-size($h5-font-sizes);
 }
 
-.h6 {
-    font-size: $font-size-h6;
+.heading-6 {
+    @include font-size($h6-font-sizes);
+}
+
+.main-landing-title {
+    @include font-size($main-landing-title-font-sizes);
+}
+
+.display-title {
+    @include font-size($h1-font-sizes);
+}
+
+.page-title {
+    @include font-size($h2-font-sizes);
+}
+
+.section-title {
+    @include font-size($h3-font-sizes);
+}
+
+.sub-section-title {
+    @include font-size($h4-font-sizes);
+}
+
+.main-paragraph {
+    @include font-size($p-font-sizes);
+}
+
+.sub-paragraph {
+    @include font-size($small-p-font-sizes);
+}
+
+.hero {
+    @include font-size($main-landing-title-font-sizes);
+}
+
+.subtitle-1 {
+    @include font-size($h4-font-sizes);
+}
+
+.subtitle-2 {
+    @include font-size($h5-font-sizes);
+}
+
+.paragraph-1 {
+    @include font-size($p-font-sizes);
+}
+
+.paragraph-2 {
+    @include font-size($small-p-font-sizes);
 }
 
 .small {
-    font-size: 1.6rem;
+    @include font-size($small-font-sizes);
 }
+
 
 .start {
     text-align: start;

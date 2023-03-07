@@ -27,9 +27,9 @@ const Roadtown = () => {
         <Layout type="careers">
             {
                 <SEO
-                    title={localize('Road Town, British Virgin Islands – Our team | Deriv')}
+                    title={localize('_t_Road Town, British Virgin Islands – Our team | Deriv_t_')}
                     description={localize(
-                        'Be part of the Deriv team at British Virgin Islands that provides compliance guidance to develop the company’s growth strategy and trading policies.',
+                        '_t_Be part of the Deriv team at British Virgin Islands that provides compliance guidance to develop the company’s growth strategy and trading policies._t_',
                     )}
                 />
             }

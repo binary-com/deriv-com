@@ -181,7 +181,7 @@ const deriv_p2p: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: 'https://deriv.com/tnc/funds-and-transfers.pdf.',
+                            to: '/tnc/funds-and-transfers.pdf',
                         },
                     ],
                 },

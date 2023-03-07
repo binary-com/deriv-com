@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
@@ -8,9 +8,9 @@ import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
+import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { matchHashInURL, setHashInURL } from 'common/utility'
 
 const meta_attributes = {
     og_title: localize('Deriv MetaTrader 5 trading signals | Resources | Deriv'),
@@ -67,13 +67,15 @@ const TabsContainer = styled(Flex)`
 `
 
 type ItemProps = {
-    active: boolean
+    active_tab: 'signal-subscriber' | 'signal-provider'
+    name: 'signal-subscriber' | 'signal-provider'
 }
 
 const Item = styled.div<ItemProps>`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
-    border-bottom: ${(props) => (props.active ? '2px solid var(--color-red)' : '')};
+    border-bottom: ${(props) =>
+        props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
     z-index: 10;
     white-space: nowrap;
@@ -85,7 +87,7 @@ const Item = styled.div<ItemProps>`
     }
     h4 {
         color: var(--color-black-3);
-        font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
+        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
     @media ${device.tabletL} {
         padding: 12px 8px 12px 7px;
@@ -110,15 +112,12 @@ const Separator = styled.div`
 `
 
 const DMT5TradingSignals = () => {
+    const [active_tab, setActiveTab] = useTabStateQuery(['signal-subscriber', 'signal-provider'])
     const [is_mounted] = usePageLoaded() //needs to fix bug with hightlight of the 1st loading
-    const isSignalSubscriber = matchHashInURL('signal-subscriber')
-    const isSignalProvider = matchHashInURL('signal-provider')
-
-    useEffect(() => {
-        if (!location.hash) {
-            setHashInURL('signal-subscriber')
-        }
-    }, [])
+    const [signal_subscriber, signal_provider] = [
+        active_tab === 'signal-subscriber',
+        active_tab === 'signal-provider',
+    ]
 
     return (
         <Layout>
@@ -139,25 +138,30 @@ const DMT5TradingSignals = () => {
             <TabsContainer>
                 {is_mounted && (
                     <Item
-                        onClick={() => setHashInURL('signal-subscriber')}
-                        active={isSignalSubscriber}
+                        onClick={() => setActiveTab('signal-subscriber')}
+                        active_tab={active_tab}
+                        name="signal-subscriber"
                     >
                         <Header as="h4">{localize('Signal subscriber')}</Header>
                     </Item>
                 )}
                 {is_mounted && (
-                    <Item onClick={() => setHashInURL('signal-provider')} active={isSignalProvider}>
+                    <Item
+                        onClick={() => setActiveTab('signal-provider')}
+                        active_tab={active_tab}
+                        name="signal-provider"
+                    >
                         <Header as="h4">{localize('Signal provider')}</Header>
                     </Item>
                 )}
             </TabsContainer>
             <Box position="relative">
                 <Separator />
-                {isSignalSubscriber && <Signal content={signal_content_subscriber} />}
-                {isSignalProvider && <Signal content={signal_content_provider} />}
+                {signal_subscriber && <Signal content={signal_content_subscriber} />}
+                {signal_provider && <Signal content={signal_content_provider} />}
             </Box>
-            <HowTo active_tab={isSignalSubscriber ? 'signal-subscriber' : 'signal-provider'} />
-            {isSignalSubscriber && <Subscription />}
+            <HowTo active_tab={active_tab} />
+            {signal_subscriber && <Subscription />}
         </Layout>
     )
 }

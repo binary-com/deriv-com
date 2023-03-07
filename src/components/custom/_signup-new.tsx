@@ -137,7 +137,7 @@ const SocialButton = styled(LinkButton)<SocialButtonProps>`
     width: 12.5rem;
     height: 3.8rem;
     padding: 0.5rem 0;
-    color: #000000;
+    color: var(--color-black);
 
     &:hover {
         background: ${(props) => {

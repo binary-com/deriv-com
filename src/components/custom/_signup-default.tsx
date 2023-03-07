@@ -42,7 +42,7 @@ const SocialButton = styled(LinkButton)`
     box-shadow: none;
     flex: inherit !important;
     width: 48%;
-    color: #000000;
+    color: var(--color-black);
 `
 const SocialWrapper = styled(FlexGridContainer)`
     width: 100%;

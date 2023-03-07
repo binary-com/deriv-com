@@ -183,7 +183,7 @@ const SocialButton = styled(LinkButton)`
     padding: 0;
     margin: 0 1rem;
     border: none;
-    color: #000000;
+    color: var(--color-black);
 
     @media ${device.tabletL} {
         justify-content: center;

@@ -81,7 +81,7 @@ const SocialButton = styled(LinkButton)`
     min-height: 4rem;
     height: 40px;
     font-weight: 500;
-    color: #000000;
+    color: var(--color-black);
 
     &:nth-of-type(1) {
         margin-left: 0;

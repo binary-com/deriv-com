@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { THero } from '../types'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -38,7 +39,7 @@ const StyledFirstSectionText = styled(Header)`
 type TFirstSectionTexts = {
     text: string
 }
-const MakeTrading = ({ hero }: any) => {
+const MakeTrading = ({ hero }: THero) => {
     const first_section_texts: TFirstSectionTexts[] = [
         { text: hero?.first_paragraph },
         { text: hero?.second_paragraph },

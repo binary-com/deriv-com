@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { TOurPrinciples } from '../types'
 import { Box, Flex, SectionContainer } from 'components/containers'
 import { Divider, Header } from 'components/elements'
 import device from 'themes/device'
@@ -77,7 +78,7 @@ const ColoredBox = styled(Box)<{ bgcolor: string }>`
     }
 `
 
-const OurPrinciples = ({ our_principles }: any) => {
+const OurPrinciples = ({ our_principles }: TOurPrinciples) => {
     // depends on our_principles.principles by index
     const colors = [
         'rgba(133, 189, 177, 0.25)',
@@ -114,11 +115,8 @@ const OurPrinciples = ({ our_principles }: any) => {
                 ))}
                 <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
             </StyledFlex>
-            <StyledLinkButton
-                to={process.env.STRAPI_URL + our_principles?.button.link_url}
-                secondary
-            >
-                {our_principles.button.link_name}
+            <StyledLinkButton to={our_principles?.button.link_url} secondary>
+                {our_principles?.button.link_name}
             </StyledLinkButton>
         </StyledSection>
     )

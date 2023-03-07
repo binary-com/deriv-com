@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { TDerivNumbers } from '../types'
 import { CssGrid, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
@@ -90,7 +91,7 @@ const NumberText = styled(Text)`
     text-align: start;
 `
 
-const DerivNumbers = ({ deriv_in_numbers }: any) => {
+const DerivNumbers = ({ deriv_in_numbers }: TDerivNumbers) => {
     return (
         <StyledSection>
             <StyledFlex>

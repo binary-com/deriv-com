@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { getImage } from 'gatsby-plugin-image'
+import { THero } from '../types'
 import { Desktop, Flex, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
@@ -74,7 +75,7 @@ const StyledMobileQueryImage = styled(QueryImage)`
     max-width: 445px;
 `
 
-const Hero = ({ hero }: any) => {
+const Hero = ({ hero }: THero) => {
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
             <ContentWrapper jc="center">

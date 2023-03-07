@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { getImage } from 'gatsby-plugin-image'
 import Ticker from 'react-ticker'
+import { TImageMarquee } from '../types'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -88,9 +89,9 @@ const StyledQueryImage = styled(QueryImage)<{ is_rtl: boolean }>`
     }
 `
 
-const ImageMarquee = ({ slider_medias = {} }: any) => {
+const ImageMarquee = ({ slider_medias }: TImageMarquee) => {
     const is_rtl = useIsRtl()
-    const sliders_array = Object.keys(slider_medias).map(function (slider_index) {
+    const sliders_array = Object.keys(slider_medias || {}).map(function (slider_index) {
         return slider_medias[slider_index]
     })
 

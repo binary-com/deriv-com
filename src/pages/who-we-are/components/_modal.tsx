@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
@@ -8,7 +8,7 @@ import device from 'themes/device'
 
 type ModalPropsType = {
     name: string
-    position: ReactElement
+    role: string
     link?: string
 }
 
@@ -47,22 +47,17 @@ const ModalFlex = styled(Flex)`
     }
 `
 
-const _modal = ({ name, position, link }: ModalPropsType) => {
+const Modal = ({ name, role, link }: ModalPropsType) => {
     return (
         <ModalFlex ai="center" direction="column" width="unset" height="unset" p="0px 16px 5px">
             <Header type="unset" as="h4" padding="0" align="center" size="14px">
                 {name}
             </Header>
             <Header as="h4" padding="0" type="sub-paragraph" weight="normal" align="center">
-                {position}
+                {role}
             </Header>
             {link && (
-                <LocalizedLink
-                    external
-                    to={process.env.STRAPI_URL + link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <LocalizedLink external to={link} target="_blank" rel="noopener noreferrer">
                     <StyledLogo width="32px" height="32px" src={Linkedin} alt="" link={link} />
                 </LocalizedLink>
             )}
@@ -70,4 +65,4 @@ const _modal = ({ name, position, link }: ModalPropsType) => {
     )
 }
 
-export default _modal
+export default Modal

@@ -1,14 +1,16 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import BgMobile from 'images/common/who-we-are/about-us-banner-mobile.jpg'
-import BgMobileRTL from 'images/common/who-we-are/about-us-banner-mobile_rtl.jpg'
-import Bg from 'images/common/who-we-are/about-us-banner.jpg'
-import BgRTL from 'images/common/who-we-are/about-us-banner_rtl.jpg'
+import { TWhoWeAreBanner } from '../types'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+// We can remove it once replace on strapi's images
+import BgMobile from 'images/common/who-we-are/about-us-banner-mobile.jpg'
+import BgMobileRTL from 'images/common/who-we-are/about-us-banner-mobile_rtl.jpg'
+import Bg from 'images/common/who-we-are/about-us-banner.jpg'
+import BgRTL from 'images/common/who-we-are/about-us-banner_rtl.jpg'
 
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
@@ -106,7 +108,7 @@ const StyledLinkButton = styled(LinkButton)`
     }
 `
 
-const AboutUsBanner = ({ banner }: any) => {
+const WhoWeAreBanner = ({ banner }: TWhoWeAreBanner) => {
     const is_rtl = useIsRtl()
     return (
         <StyledSectionContainer>
@@ -139,4 +141,4 @@ const AboutUsBanner = ({ banner }: any) => {
     )
 }
 
-export default AboutUsBanner
+export default WhoWeAreBanner

@@ -1,7 +1,8 @@
 import React, { MouseEventHandler, useState } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import _modal from './_modal'
+import { TLeader, TOurLeadership } from '../types'
+import Modal from './_modal'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { CssGrid, Flex, SectionContainer } from 'components/containers'
 import { Header, ImageWrapper } from 'components/elements'
@@ -96,7 +97,9 @@ const StyledImageWrapper = styled(ImageWrapper)`
 `
 type MouseEvent = MouseEventHandler<HTMLDivElement> &
     ((event: MouseEventHandler<HTMLDivElement>) => void)
-const OurLeadership = ({ our_leadership }: any) => {
+
+const LeaderCard = (leader: TLeader) => {
+    const { name, role, photo, link_url } = leader
     const [is_popup_shown, setIsPopupShown] = useState(false)
     const [is_mobile] = useBrowserResize()
 
@@ -104,9 +107,25 @@ const OurLeadership = ({ our_leadership }: any) => {
     const dontShowModal: MouseEvent = () => setIsPopupShown(false)
 
     return (
+        <StyledImageWrapper
+            key={name}
+            onMouseOver={showModal}
+            onMouseLeave={dontShowModal}
+            width={is_mobile ? '98px' : '120px'}
+            height={is_mobile ? '98px' : '120px'}
+        >
+            <GatsbyImage image={getImage(photo?.localFile)} alt="leader" loading="lazy" />
+            {is_popup_shown && <Modal name={name} role={role} link={link_url} />}
+        </StyledImageWrapper>
+    )
+}
+
+const OurLeadership = ({ our_leadership }: TOurLeadership) => {
+    return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {our_leadership?.header}
+                {/*/ Need to update strapi version to do that /*/}
+                {/*{our_leadership?.header}*/}
             </StyledHeader>
             <StyledCssGrid
                 height="unset"
@@ -121,21 +140,8 @@ const OurLeadership = ({ our_leadership }: any) => {
                 mobile_column_gap="24px"
                 mobile_row_gap="6px"
             >
-                {our_leadership?.map(({ name, role, photo, link_url }) => (
-                    <StyledImageWrapper
-                        key={name}
-                        onMouseOver={showModal}
-                        onMouseLeave={dontShowModal}
-                        width={is_mobile ? '98px' : '120px'}
-                        height={is_mobile ? '98px' : '120px'}
-                    >
-                        <GatsbyImage
-                            image={getImage(photo.localFile)}
-                            alt="leader"
-                            loading="lazy"
-                        />
-                        {is_popup_shown && <_modal name={name} position={role} link={link_url} />}
-                    </StyledImageWrapper>
+                {our_leadership?.map((leader) => (
+                    <LeaderCard key={leader.name} {...leader} />
                 ))}
             </StyledCssGrid>
         </StyledSectionContainer>

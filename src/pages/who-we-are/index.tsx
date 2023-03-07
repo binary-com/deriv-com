@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import { TWhoWeAre } from './types'
 import MakeTrading from './components/_make-trading'
 import Hero from './components/_hero'
 import {
-    AboutUsBanner,
     DerivNumbers,
     OurLeadership,
     OurOffices,
     OurPrinciples,
     OurValues,
+    WhoWeAreBanner,
 } from './_lazy-load'
 import ImageMarquee from './components/_image-marquee'
 import device from 'themes/device'
@@ -38,7 +39,7 @@ const EndSeparator = styled.div`
     }
 `
 
-const AboutUs = ({ data }: any) => {
+const AboutUs = ({ data }: TWhoWeAre) => {
     const {
         hero,
         our_values,
@@ -68,7 +69,7 @@ const AboutUs = ({ data }: any) => {
             <DerivNumbers deriv_in_numbers={deriv_in_numbers} />
             <ImageMarquee slider_medias={slider_medias} />
             <OurOffices our_locations={our_locations} />
-            <AboutUsBanner banner={banner} />
+            <WhoWeAreBanner banner={banner} />
         </Layout>
     )
 }

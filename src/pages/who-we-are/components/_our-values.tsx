@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { TOurValues } from '../types'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
@@ -55,7 +56,8 @@ const Card = styled(Flex)<{ index: number }>`
         margin: 0 0 19px;
     }
 `
-const OurValues = ({ our_values }: any) => {
+
+const OurValues = ({ our_values }: TOurValues) => {
     return (
         <OurValuesSection>
             <StyledHeader as="h2" align="start" type="page-title" width="338px">

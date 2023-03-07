@@ -55,7 +55,7 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                     const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
 
                     responseData.forEach((item) => {
-                        const market = item.market
+                        const market = item.market == 'stocks' ? 'indices' : item.market
 
                         if (!markets.has(market)) {
                             markets.set(market, [item])

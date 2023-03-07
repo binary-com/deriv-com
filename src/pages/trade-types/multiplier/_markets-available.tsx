@@ -27,7 +27,7 @@ const MobileCardHeader = styled(Flex)`
         }
     }
 `
-const StyledText = styled(Text)`
+const StyledText = styled(Header)`
     margin-top: 1.6rem;
 
     @media (max-width: 680px) {
@@ -99,7 +99,7 @@ const MarketsAvailable = () => {
                                                         height="64"
                                                     />
 
-                                                    <StyledText weight="bold">
+                                                    <StyledText type="paragraph-1">
                                                         <Localize translate_text={market.text} />
                                                     </StyledText>
                                                 </MobileCardHeader>
@@ -135,7 +135,7 @@ const MarketsAvailable = () => {
                                                         height="64"
                                                     />
 
-                                                    <StyledText weight="bold">
+                                                    <StyledText type="paragraph-1">
                                                         <Localize translate_text={market.text} />
                                                     </StyledText>
                                                 </MobileCardHeader>

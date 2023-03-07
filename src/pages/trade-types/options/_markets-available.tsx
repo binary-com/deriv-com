@@ -27,7 +27,7 @@ const MobileCardHeader = styled(Flex)`
         }
     }
 `
-const StyledText = styled(Text)`
+const StyledText = styled(Header)`
     margin-top: 1.6rem;
 
     @media (max-width: 680px) {
@@ -52,7 +52,7 @@ const MarketsAvailable = () => {
                                 <MobileCardHeader>
                                     <img src={Forex} alt="Forex" width="64" height="64" />
 
-                                    <StyledText weight="bold">
+                                    <StyledText type="paragraph-1">
                                         <Localize translate_text="_t_Forex_t_" />
                                     </StyledText>
                                 </MobileCardHeader>
@@ -73,7 +73,7 @@ const MarketsAvailable = () => {
                                         width="64"
                                         height="64"
                                     />
-                                    <StyledText weight="bold">
+                                    <StyledText type="paragraph-1">
                                         <Localize translate_text="_t_Derived_t_" />
                                     </StyledText>
                                 </MobileCardHeader>
@@ -95,7 +95,7 @@ const MarketsAvailable = () => {
                                         height="64"
                                     />
 
-                                    <StyledText weight="bold">
+                                    <StyledText type="paragraph-1">
                                         <Localize translate_text="_t_Stocks & indices_t_" />
                                     </StyledText>
                                 </MobileCardHeader>
@@ -116,7 +116,7 @@ const MarketsAvailable = () => {
                                         width="64"
                                         height="64"
                                     />
-                                    <StyledText weight="bold">
+                                    <StyledText type="paragraph-1">
                                         <Localize translate_text="_t_Commodities_t_" />
                                     </StyledText>
                                 </MobileCardHeader>

@@ -7,7 +7,7 @@ import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
-const HowMultiplierWorks = Loadable(() => import('./_how-options-works'))
+const HowMultiplierWorks = Loadable(() => import('./_how-multipliers-works'))
 const ThingsInMind = Loadable(() => import('./_things-in-mind'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))

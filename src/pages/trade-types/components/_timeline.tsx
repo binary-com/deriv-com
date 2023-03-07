@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
@@ -28,7 +28,13 @@ const Oval = styled.img`
     position: absolute;
     left: -10px;
 `
-const Timeline = ({ children, ...props }) => {
+const Timeline = ({
+    children,
+    ...props
+}: {
+    [x: string]: any
+    children: ReactElement<{ title: TString }>[]
+}) => {
     return (
         <div {...props}>
             {children.map((child, idx) => (
@@ -36,7 +42,7 @@ const Timeline = ({ children, ...props }) => {
                     <Oval src={Checklist} alt="checklist" />
                     <Container>
                         <Header mb="0.8rem" mt="-5px" as="h4" size="2.4rem">
-                            <Localize translate_text={child.props.title as TString} />
+                            <Localize translate_text={child.props.title} />
                         </Header>
                         <Text>{child}</Text>
                     </Container>
@@ -45,15 +51,14 @@ const Timeline = ({ children, ...props }) => {
         </div>
     )
 }
-const Item = ({ children, ...props }) => <span {...props}>{children}</span>
+const Item = ({
+    children,
+    ...props
+}: {
+    [x: string]: any
+    children: ReactElement | ReactElement[]
+}) => <span {...props}>{children}</span>
 
 Timeline.Item = Item
-
-Item.propTypes = {
-    children: PropTypes.node,
-}
-Timeline.propTypes = {
-    children: PropTypes.node,
-}
 
 export default Timeline

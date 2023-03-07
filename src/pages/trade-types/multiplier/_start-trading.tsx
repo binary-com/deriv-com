@@ -5,7 +5,7 @@ import { SmallContainer } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
-import { Localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import Pattern from 'images/common/trade-types/pattern-section-small.png'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
@@ -29,13 +29,13 @@ const StartTrading = () => {
                     <Localize translate_text="_t_Start trading multipliers on Deriv_t_" />
                 </Header>
                 <FixTimeline>
-                    <FixTimeline.Item title={<Localize translate_text="Practise" />}>
+                    <FixTimeline.Item title={localize('_t_Practise_t_')}>
                         <Localize translate_text="_t_Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms._t_" />
                     </FixTimeline.Item>
-                    <FixTimeline.Item title={<Localize translate_text="Trade" />}>
-                        <Localize translate_text=" _t_Open a real account, make a deposit, and start trading multipliers for real._t_" />
+                    <FixTimeline.Item title={localize('_t_Trade_t_')}>
+                        <Localize translate_text="_t_Open a real account, make a deposit, and start trading multipliers for real._t_" />
                     </FixTimeline.Item>
-                    <FixTimeline.Item title={<Localize translate_text="Withdraw" />}>
+                    <FixTimeline.Item title={localize('_t_Withdraw_t_')}>
                         <Localize translate_text="_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_" />
                     </FixTimeline.Item>
                 </FixTimeline>

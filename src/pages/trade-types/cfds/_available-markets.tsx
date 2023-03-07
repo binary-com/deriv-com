@@ -30,7 +30,7 @@ const MobileCardHeader = styled(Flex)`
         }
     }
 `
-const StyledText = styled(Text)`
+const StyledText = styled(Header)`
     margin-top: 1.6rem;
 
     @media (max-width: 680px) {
@@ -39,7 +39,7 @@ const StyledText = styled(Text)`
     }
 `
 
-type AvailableMarket = {
+type TAvailableMarket = {
     name: string
     img_src: string
     img_alt: string
@@ -49,7 +49,7 @@ type AvailableMarket = {
     learn_more_path: string
 }
 
-const available_markets: AvailableMarket[] = [
+const available_markets: TAvailableMarket[] = [
     {
         name: 'Forex',
         img_src: Forex,
@@ -103,7 +103,7 @@ const available_markets: AvailableMarket[] = [
 
 const eu_restricted_markets = ['Basket Indices']
 
-const eu_available_markets: AvailableMarket[] = available_markets.filter(
+const eu_available_markets: TAvailableMarket[] = available_markets.filter(
     (el) => !eu_restricted_markets.includes(el.name),
 )
 
@@ -134,7 +134,7 @@ const AvailableMarkets = () => {
                                                     height="64"
                                                 />
 
-                                                <StyledText weight="bold">
+                                                <StyledText type="paragraph-1">
                                                     <Localize translate_text={market.text} />
                                                 </StyledText>
                                             </MobileCardHeader>
@@ -178,7 +178,7 @@ const AvailableMarkets = () => {
                                                     height="64"
                                                 />
 
-                                                <StyledText weight="bold">
+                                                <StyledText type="paragraph-1">
                                                     <Localize translate_text={market.text} />
                                                 </StyledText>
                                             </MobileCardHeader>

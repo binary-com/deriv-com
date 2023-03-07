@@ -64,7 +64,7 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const StyledText = styled(Text)`
+const StyledText = styled(Header)`
     margin-top: 1.6rem;
 
     @media ${device.mobileL} {
@@ -88,7 +88,7 @@ const HowOptionsWorks = () => {
                                 <div>
                                     <img src={DefinePosition} alt="Target position" />
                                 </div>
-                                <StyledText weight="bold">
+                                <StyledText type="paragraph-1">
                                     <Localize translate_text="_t_Define your position_t_" />
                                 </StyledText>
                             </OptionItems>
@@ -101,7 +101,7 @@ const HowOptionsWorks = () => {
                                 <div>
                                     <img src={GetQuote} alt="Receive quote" />
                                 </div>
-                                <StyledText weight="bold">
+                                <StyledText type="paragraph-1">
                                     <Localize translate_text="_t_Get quote_t_" />
                                 </StyledText>
                             </OptionItems>
@@ -114,7 +114,7 @@ const HowOptionsWorks = () => {
                                 <div>
                                     <img src={PurchaseContract} alt="Buy contract" />
                                 </div>
-                                <StyledText weight="bold">
+                                <StyledText type="paragraph-1">
                                     <Localize translate_text="_t_Purchase your contract_t_" />
                                 </StyledText>
                             </OptionItems>

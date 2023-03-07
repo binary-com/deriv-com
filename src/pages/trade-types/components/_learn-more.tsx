@@ -58,9 +58,4 @@ const LearnMore = ({ text, to }: LearnMoreProps) => {
     )
 }
 
-LearnMore.propTypes = {
-    text: PropTypes.string,
-    to: PropTypes.string,
-}
-
 export default LearnMore

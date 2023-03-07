@@ -86,8 +86,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const StyledText = styled(Text)`
-    font-weight: bold;
+const StyledText = styled(Header)`
     margin-top: 1.6rem;
 
     @media ${device.mobileL} {
@@ -130,7 +129,7 @@ const HowOptionsWorks = () => {
                             <div>
                                 <img src={DefinePosition} alt="Define your target" />
                             </div>
-                            <StyledText>
+                            <StyledText type="paragraph-1">
                                 <Localize translate_text="_t_Define your position_t_" />
                             </StyledText>
                         </OptionItems>
@@ -144,7 +143,7 @@ const HowOptionsWorks = () => {
                             <div>
                                 <img src={SetOptionalParameters} alt="Set parameters" />
                             </div>
-                            <StyledText>
+                            <StyledText type="paragraph-1">
                                 <Localize translate_text="_t_Set optional parameters_t_" />
                             </StyledText>
                         </OptionItems>
@@ -157,7 +156,7 @@ const HowOptionsWorks = () => {
                             <div>
                                 <img src={PurchaseContract} alt="Buy your contract" />
                             </div>
-                            <StyledText>
+                            <StyledText type="paragraph-1">
                                 <Localize translate_text="_t_Purchase your contract_t_" />
                             </StyledText>
                         </OptionItems>

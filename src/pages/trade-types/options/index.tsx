@@ -14,9 +14,9 @@ const StartTrading = Loadable(() => import('./_start-trading'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
 
 const meta_attributes = {
-    og_title: localize('Options trading | Trading types | Deriv'),
+    og_title: localize('_t_Options trading | Trading types | Deriv_t_'),
     og_description: localize(
-        'Learn about options trading on Deriv. Earn payouts by correctly predicting price movements without needing to buy the underlying assets.',
+        '_t_Learn about options trading on Deriv. Earn payouts by correctly predicting price movements without needing to buy the underlying assets._t_',
     ),
 }
 

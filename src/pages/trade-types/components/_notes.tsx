@@ -40,8 +40,4 @@ const Notes = ({ text }: NotesProps) => {
     )
 }
 
-Notes.propTypes = {
-    text: PropTypes.string,
-}
-
 export default Notes

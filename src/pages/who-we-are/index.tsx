@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import { TWhoWeAre } from './types'
+import { TWhoWeAre } from './_types'
 import MakeTrading from './components/_make-trading'
 import Hero from './components/_hero'
 import {
@@ -162,6 +162,20 @@ export const query = graphql`
                     locations {
                         country_city
                         link_url
+                    }
+                    earth {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    earth_mobile {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
                     }
                 }
                 banner {

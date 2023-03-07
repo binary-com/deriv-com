@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { TWhoWeAreBanner } from '../types'
+import { TWhoWeAreBanner } from '../_types'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'

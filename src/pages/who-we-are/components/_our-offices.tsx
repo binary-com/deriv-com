@@ -1,22 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import { TOurOffices } from '../types'
-import _mapPin, { MapPinType } from './_map-pin'
+import { getImage } from 'gatsby-plugin-image'
+import { TOurOffices } from '../_types'
+import MapPin, { MapPinType } from './_map-pin'
 import { CssGrid, Desktop, Flex, Mobile, SectionContainer } from 'components/containers'
 import { BackgroundImage, Header, Text } from 'components/elements'
 import device from 'themes/device'
 
-const query = graphql`
-    query {
-        earth: file(relativePath: { eq: "who-we-are/earth.png" }) {
-            ...fadeIn
-        }
-        earth_mobile: file(relativePath: { eq: "who-we-are/earth-mobile.png" }) {
-            ...fadeIn
-        }
-    }
-`
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
     overflow: hidden;
@@ -116,6 +106,7 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
         { left: '44.5%', top: '30.9%' },
         { left: '92.2%', top: '69.7%' },
         { left: '74.6%', top: '61%' },
+        { left: '45.9%', top: '28%' },
     ]
     const mobile_pins: MapPinType[] = [
         { left: '28.5%', top: '71%' },
@@ -137,17 +128,14 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
         { left: '45.9%', top: '26.9%' },
         { left: '43%', top: '26.9%' },
         { left: '92.5%', top: '65.1%' },
-        { left: '45.9%', top: '28%' },
+        { left: '45.9%', top: '20%' },
     ]
-
     const desktop = []
     const mobile = []
-    our_locations?.locations?.map((pin, index) => {
+    our_locations?.locations?.map((location, index) => {
         desktop.push({ ...our_locations.locations[index], ...desktop_pins[index] })
         mobile.push({ ...our_locations.locations[index], ...mobile_pins[index] })
     })
-
-    const data = useStaticQuery(query)
 
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
@@ -157,16 +145,16 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
 
             <Flex>
                 <Desktop>
-                    <MapImage data={data['earth']}>
+                    <MapImage data={getImage(our_locations.earth.localFile)}>
                         {desktop?.map((pin, idx) => (
-                            <_mapPin key={idx} {...pin} />
+                            <MapPin key={idx} {...pin} />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
-                    <MapImage data={data['earth_mobile']}>
+                    <MapImage data={getImage(our_locations.earth_mobile.localFile)}>
                         {mobile?.map((pin, idx) => (
-                            <_mapPin key={idx} {...pin} />
+                            <MapPin key={idx} {...pin} />
                         ))}
                     </MapImage>
                 </Mobile>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { THero } from '../types'
+import { THero } from '../_types'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'

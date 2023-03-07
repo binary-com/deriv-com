@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { TOurValues } from '../types'
+import { TOurValues } from '../_types'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'

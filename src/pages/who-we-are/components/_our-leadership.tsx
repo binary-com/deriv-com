@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, useState } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { TLeader, TOurLeadership } from '../types'
+import { TLeader, TOurLeadership } from '../_types'
 import Modal from './_modal'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { CssGrid, Flex, SectionContainer } from 'components/containers'

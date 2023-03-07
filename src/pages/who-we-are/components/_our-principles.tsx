@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TOurPrinciples } from '../types'
+import { TOurPrinciples } from '../_types'
 import { Box, Flex, SectionContainer } from 'components/containers'
 import { Divider, Header } from 'components/elements'
 import device from 'themes/device'

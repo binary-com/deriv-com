@@ -63,7 +63,7 @@ export type MapPinType = {
     link_url?: string
 }
 
-const _mapPin = ({ top, left, country_city, link_url }: MapPinType) => {
+const MapPin = ({ top, left, country_city, link_url }: MapPinType) => {
     const [is_pin_show, setPinShow] = useState(false)
 
     const onMouseEnter = () => setPinShow(true)
@@ -89,4 +89,4 @@ const _mapPin = ({ top, left, country_city, link_url }: MapPinType) => {
     )
 }
 
-export default _mapPin
+export default MapPin

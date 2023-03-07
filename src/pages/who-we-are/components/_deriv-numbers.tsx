@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TDerivNumbers } from '../types'
+import { TDerivNumbers } from '../_types'
 import { CssGrid, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'

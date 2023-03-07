@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { getImage } from 'gatsby-plugin-image'
-import { THero } from '../types'
+import { THero } from '../_types'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Desktop, Flex, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'

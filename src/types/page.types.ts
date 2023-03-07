@@ -4,4 +4,6 @@ export type MetaAttributesType = {
     og_title: string
     og_description: string
 }
-export type StrapiImage = { localFile: IGatsbyImageData }
+export type StrapiImage = {
+    localFile: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } & IGatsbyImageData
+}

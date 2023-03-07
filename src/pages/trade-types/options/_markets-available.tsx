@@ -78,7 +78,7 @@ const MarketsAvailable = () => {
                                     </StyledText>
                                 </MobileCardHeader>
                                 <Text>
-                                    <Localize translate_text="_t_rade digital options, lookbacks, and Call/Put Spreads 24/7 on our synthetic indices that are free from real-world disruptions._t_" />
+                                    <Localize translate_text="_t_Trade digital options, lookbacks, and Call/Put Spreads 24/7 on our synthetic indices that are free from real-world disruptions._t_" />
                                 </Text>
                                 <LearnMore text="_t_Learn more_t_" to="/markets/synthetic/" />
                             </Card>

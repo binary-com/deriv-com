@@ -2,25 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import { getImage } from 'gatsby-plugin-image'
 import { THero } from '../types'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Desktop, Flex, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
-import desktop_bg from 'images/common/who-we-are/about_us_bg_desktop.png'
-import mobile_bg from 'images/common/who-we-are/about_us_bg_mobile.png'
 
 type ParentWrapperProps = {
-    bg_image_desktop: string
-    bg_image_mobile: string
+    bg_image: string
 }
 const ParentWrapper = styled(Flex)<ParentWrapperProps>`
     width: 100%;
-    background-image: url(${({ bg_image_desktop }) => bg_image_desktop});
+    background-image: url(${({ bg_image }) => bg_image});
     background-position: center;
     background-size: cover;
-
-    @media ${device.tabletL} {
-        background-image: url(${({ bg_image_mobile }) => bg_image_mobile});
-    }
 `
 const ContentWrapper = styled(Flex)`
     height: auto;
@@ -76,8 +70,13 @@ const StyledMobileQueryImage = styled(QueryImage)`
 `
 
 const Hero = ({ hero }: THero) => {
+    const { is_mobile_or_tablet } = useBreakpoints()
+    const bg_image = is_mobile_or_tablet
+        ? hero?.bg_mobile.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+        : hero?.bg_desktop.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+
     return (
-        <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
+        <ParentWrapper bg_image={bg_image}>
             <ContentWrapper jc="center">
                 <Desktop>
                     <StyledFlex>

@@ -3,14 +3,11 @@ import styled, { css } from 'styled-components'
 import { TWhoWeAreBanner } from '../types'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 // We can remove it once replace on strapi's images
-import BgMobile from 'images/common/who-we-are/about-us-banner-mobile.jpg'
-import BgMobileRTL from 'images/common/who-we-are/about-us-banner-mobile_rtl.jpg'
-import Bg from 'images/common/who-we-are/about-us-banner.jpg'
-import BgRTL from 'images/common/who-we-are/about-us-banner_rtl.jpg'
 
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
@@ -26,16 +23,10 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding: 0 16px 40px;
     }
 `
-const StyledFlex = styled(Flex)<{ is_rtl: boolean }>`
+type TStyledFlex = { is_rtl: boolean; bg_image: string }
+const StyledFlex = styled(Flex)<TStyledFlex>`
     border-radius: 10px;
-    ${({ is_rtl }) =>
-        is_rtl
-            ? css`
-                  background-image: url(${BgRTL});
-              `
-            : css`
-                  background-image: url(${Bg});
-              `};
+    background-image: url(${({ bg_image }) => bg_image});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -45,14 +36,14 @@ const StyledFlex = styled(Flex)<{ is_rtl: boolean }>`
         width: 100%;
     }
     @media (max-width: 610px) {
-        ${({ is_rtl }) =>
+        ${({ is_rtl, bg_image }) =>
             is_rtl
                 ? css`
-                      background-image: url(${BgMobileRTL});
+                      background-image: url(${bg_image});
                       background-position-x: right;
                   `
                 : css`
-                      background-image: url(${BgMobile});
+                      background-image: url(${bg_image});
                       background-position-x: left;
                   `};
         height: 546px;
@@ -101,7 +92,6 @@ const StyledHeader2 = styled(Header)`
         letter-spacing: 0;
     }
 `
-
 const StyledLinkButton = styled(LinkButton)`
     @media ${device.tablet} {
         padding: 8px 16px;
@@ -109,11 +99,19 @@ const StyledLinkButton = styled(LinkButton)`
 `
 
 const WhoWeAreBanner = ({ banner }: TWhoWeAreBanner) => {
+    const { is_mobile_or_tablet } = useBreakpoints()
+    const bg_image = is_mobile_or_tablet
+        ? banner?.bg_mobile.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+        : banner?.bg_desktop.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+    const bg_image_rtl = is_mobile_or_tablet
+        ? banner?.bg_mobile_rtl.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+        : banner?.bg_desktop_rtl.localFile.childImageSharp.gatsbyImageData.images.fallback.src
     const is_rtl = useIsRtl()
     return (
         <StyledSectionContainer>
             <StyledFlex
                 is_rtl={is_rtl}
+                bg_image={is_rtl ? bg_image_rtl : bg_image}
                 direction="column"
                 height="auto"
                 min_height="288px"

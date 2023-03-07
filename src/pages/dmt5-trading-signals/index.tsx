@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
-import { Signal, SignalContent } from './_signal'
+import { Signal, SignalContentType } from './_signal'
 import Subscription from './_subscription'
 import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -18,7 +18,7 @@ const meta_attributes = {
         '_t_Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies._t_',
     ),
 }
-const signal_content_subscriber: SignalContent = {
+const signal_content_subscriber: SignalContentType = {
     header: { text: '_t_Benefits of subscribing to MT5 signals_t_', components: [<br key={0} />] },
     text: '_t_The MT5 trading signals service allows you to copy the trades of more experienced traders to your MT5 account. Once you’ve subscribed to a signal, the provider’s deals will be automatically replicated on your Deriv MT5 trading account each time they place a trade._t_',
     list: [
@@ -30,7 +30,7 @@ const signal_content_subscriber: SignalContent = {
     ],
 }
 
-const signal_content_provider: SignalContent = {
+const signal_content_provider: SignalContentType = {
     header: {
         text: '_t_Benefits of being an MT5<0 /> signals provider_t_',
         components: [<br key={0} />],

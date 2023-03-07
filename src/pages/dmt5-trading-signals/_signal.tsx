@@ -106,7 +106,7 @@ const StyledChecklist = styled(Checklist)`
     }
 `
 
-export type SignalContent = {
+export type SignalContentType = {
     header: {
         text: TString
         components?: ReactElement[]
@@ -116,11 +116,11 @@ export type SignalContent = {
 }
 
 type SignalProps = {
-    content: SignalContent
+    content: SignalContentType
 }
 
 export const Signal = ({ content }: SignalProps) => {
-    const { header, text, list }: SignalContent = content
+    const { header, text, list }: SignalContentType = content
 
     return (
         <StyledSection background="var(--color-white)">

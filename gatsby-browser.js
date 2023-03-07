@@ -30,9 +30,10 @@ const sendTags = (api) => {
     api.getTags()
         .then((result) => {
             if (
-                !result.result['Login ID'] ||
-                !result.result['Site Language'] ||
-                !result.result.Residence
+                !result ||
+                !result?.result?.['Login ID'] ||
+                !result?.result?.['Site Language'] ||
+                !result?.result?.Residence
             ) {
                 return api.setTags({
                     'Login ID': loginid,

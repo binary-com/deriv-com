@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Localize, LocalizedLink } from 'components/localization'
+import { TString } from 'types/generics'
 // SVG
 import Paytrust from 'images/svg/payment-methods/payment-paytrust.svg'
 import Visa from 'images/svg/payment-methods/payment-visa.svg'
@@ -46,7 +47,6 @@ import Nordea from 'images/svg/payment-methods/payment-nordea.svg'
 import Przelewy from 'images/svg/payment-methods/payment-przelewy.svg'
 import PostePay from 'images/svg/payment-methods/payment-postepay.svg'
 import RapidTransfer from 'images/svg/payment-methods/payment-rapidtransfer.svg'
-import { TString } from 'types/generics'
 
 type LocaleType = { language?: string }
 

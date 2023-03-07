@@ -214,11 +214,7 @@ const Dp2p = () => {
                 </ContentLeft>
                 <ContentRight>
                     <ImageWrapper ai="center">
-                        <QueryImage
-                            data={data['dp2p_platform']}
-                            alt={localize('_t_DP2P Platform_t_')}
-                            width="100%"
-                        />
+                        <QueryImage data={data['dp2p_platform']} alt="DP2P Platform" width="100%" />
                     </ImageWrapper>
                     <ButtonWrapper>
                         <ButtonLearnMore tertiary to="/p2p/">

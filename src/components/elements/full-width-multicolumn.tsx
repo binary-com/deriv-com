@@ -39,7 +39,7 @@ const Item = styled(Flex)`
 
 const ItemContainer = styled(Box)`
     display: flex;
-    margin: 40px 0 32px;
+    margin: 40px 0 4.5rem;
     flex-direction: row;
     max-width: 140.4rem;
     justify-content: center;
@@ -57,12 +57,14 @@ const StyledHeader = styled(Header)`
     font-size: 32px;
     line-height: 40px;
     color: white;
+    margin-top: 4.5rem;
     max-width: 80vw;
 
     @media ${device.mobileL} {
         text-align: center;
         max-width: 65vw;
         font-size: 24px;
+        margin-top: -1rem;
         line-height: 30px;
     }
 `
@@ -154,7 +156,7 @@ export const FullWidthMultiColumn = ({
     return (
         <StyledSectionContainer>
             <Flex direction="column" max-width="99.6rem" m="0 auto" jc="space-between" ai="center">
-                <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
+                <StyledHeader as="h2" type="section-title" align="center" mb="0.1rem" lh="1.25">
                     {header}
                 </StyledHeader>
                 <StyledSubHeader

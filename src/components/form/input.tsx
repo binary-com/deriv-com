@@ -123,16 +123,18 @@ const StyledInput = styled.input<StyledInputProps>`
     font-size: var(--text-size-s);
     padding: 1rem 1rem 1rem 0.8rem;
     height: ${(props) => props.height || '40px'};
-    width: 100%;
+    width: 243px;
     display: block;
     border: none;
     border-radius: 15px;
     @media ${device.tabletL} {
+        width: 250px;
         height: 100%;
+        border-radius: 4px;
 
         & ~ label {
             font-size: 1.75rem;
-            top: 1.5rem;
+            top: 1.95rem;
         }
     }
     @media ${device.mobileL} {
@@ -140,7 +142,6 @@ const StyledInput = styled.input<StyledInputProps>`
 
         & ~ label {
             font-size: 1.5rem;
-            top: 1.75rem;
         }
     }
 
@@ -205,10 +206,10 @@ const StyledLabel = styled.label<StyledLabelProps>`
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.4rem;
+    top: 1.52rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
-    padding: 0 0.4rem;
+    padding: 0 0.45rem;
     background: none;
 `
 

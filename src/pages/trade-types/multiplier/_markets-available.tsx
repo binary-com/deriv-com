@@ -38,7 +38,7 @@ const available_markets = [
         img_alt: 'forex',
         text: <Localize translate_text="Forex" />,
         description: (
-            <Localize translate_text="Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake." />
+            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
         ),
         eu_description: (
             <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />

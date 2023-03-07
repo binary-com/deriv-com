@@ -23,14 +23,14 @@ const HowAccumulatorsWork = () => {
                     </Header>
                     <CommonHeaderSection
                         subtitle_font_size="1.6rem"
-                        font_weight="300"
+                        font_weight_subtitle="350"
                         line_height="2.4rem"
                         subtitle="_t_When you open a position, barriers are created around the asset’s price. The upper and lower barriers are automatically calculated for every tick based on your chosen asset and accumulator value. If you close your position before either of the barriers is reached, you will make a profit._t_"
                     />
                     <CommonHeaderSection
                         subtitle_font_size="1.6rem"
                         margin_subtitle="2rem 0 4rem 0"
-                        font_weight="300"
+                        font_weight_subtitle="350"
                         line_height="2.4rem"
                         subtitle="_t_With each tick, your payout will increase based on the accumulator value you select, as long as the price change is within the barrier._t_"
                     />
@@ -40,14 +40,14 @@ const HowAccumulatorsWork = () => {
                         subtitle_font_size="1.6rem"
                         line_height="2.4rem"
                         margin_subtitle="2rem 0 0 0"
-                        font_weight="300"
+                        font_weight_subtitle="350"
                         subtitle="_t_You can set a take profit or payout level. Your position will automatically close when your profit exceeds or reaches this amount._t_"
                     />
                     <CommonHeaderSection
                         subtitle_font_size="1.6rem"
                         margin_subtitle="2rem 0 4rem 0"
                         line_height="2.4rem"
-                        font_weight="300"
+                        font_weight_subtitle="350"
                         subtitle="_t_ Based on the number of ticks and the accumulator value, your potential profit may exceed your set amount multiple times._t_"
                     />
                     <CommonHeaderSection
@@ -55,7 +55,7 @@ const HowAccumulatorsWork = () => {
                         title_font_size="2.4rem"
                         subtitle_font_size="1.6rem"
                         margin_subtitle="2rem 0 4rem 0"
-                        font_weight="300"
+                        font_weight_subtitle="350"
                         line_height="2.4rem"
                         subtitle="_t_The maximum payout for every contract is limited and differs per asset. When the maximum payout is reached, the contract will be automatically closed._t_"
                     />
@@ -65,7 +65,7 @@ const HowAccumulatorsWork = () => {
                         subtitle_font_size="1.6rem"
                         margin_subtitle="2rem 0 4rem 0"
                         line_height="2.4rem"
-                        font_weight="300"
+                        font_weight_subtitle="350"
                         subtitle="_t_The maximum duration for every contract is limited and differs according to the chosen accumulator value. When the maximum duration is reached, the contract will be automatically closed._t_"
                     />
                 </StyledContainer>

@@ -4,6 +4,7 @@ import device from 'themes/device'
 import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
+import { TString } from 'types/generics'
 // Icons
 import ProvenTrackRecord from 'images/svg/choose/wd-proven-track-record.svg'
 import LicensedRegulated from 'images/svg/choose/wd-licensed-regulated.svg'
@@ -12,7 +13,6 @@ import Risk from 'images/svg/choose/wd-risk.svg'
 import Help from 'images/svg/choose/wd-help.svg'
 import Safety from 'images/svg/choose/wd-your-safety.svg'
 import CustomerFirst from 'images/svg/choose/wd-customer-first-trading.svg'
-import { TString } from 'types/generics'
 
 const GridCol = styled(CssGridColumn)`
     width: 100%;

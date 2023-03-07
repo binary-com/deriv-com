@@ -27,21 +27,21 @@ const StartTrading = () => {
                         </Header>
                     )}
                     <Timeline>
-                        <Timeline.Item title={localize('_t_Practise_t_')}>
+                        <Timeline.Item title="_t_Practise_t_">
                             {is_eu ? (
                                 <Localize translate_text="_t_Open a demo CFDs account and practise with an unlimited amount of virtual funds._t_" />
                             ) : (
                                 <Localize translate_text="_t_Open a demo Deriv MT5 or demo Deriv X account and practise with an unlimited amount of virtual funds._t_" />
                             )}
                         </Timeline.Item>
-                        <Timeline.Item title={localize('_t_Trade_t_')}>
+                        <Timeline.Item title="_t_Trade_t_">
                             {is_eu ? (
                                 <Localize translate_text="_t_Trade with a real CFDs account. Get access to leverage and trade positions larger than your existing capital._t_" />
                             ) : (
                                 <Localize translate_text="_t_Trade with a real Deriv MT5 or real Deriv X account and get access to high leverage to trade positions larger than your existing capital._t_" />
                             )}
                         </Timeline.Item>
-                        <Timeline.Item title={localize('_t_Withdraw_t_')}>
+                        <Timeline.Item title="_t_Withdraw_t_">
                             <Localize translate_text="_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_" />
                         </Timeline.Item>
                     </Timeline>

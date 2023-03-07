@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import Checklist from 'images/svg/trade-types/checklist-red.svg'
 import device from 'themes/device'
-import { Localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { TString } from 'types/generics'
 
 const StyledItem = styled.div`
@@ -53,11 +53,17 @@ const Timeline = ({
 }
 const Item = ({
     children,
+    title,
     ...props
 }: {
     [x: string]: any
+    title: TString
     children: ReactElement | ReactElement[]
-}) => <span {...props}>{children}</span>
+}) => (
+    <span title={localize(title)} {...props}>
+        {children}
+    </span>
+)
 
 Timeline.Item = Item
 

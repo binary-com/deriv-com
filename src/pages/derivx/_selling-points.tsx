@@ -1,62 +1,77 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Localize } from 'components/localization'
-import { Text } from 'components/elements/typography'
-import { SectionContainer, Container, Flex } from 'components/containers'
+import { SectionContainer } from 'components/containers'
+import { Header } from 'components/elements/typography'
 import device from 'themes/device'
+import flex from 'components/containers/flex'
 
 type SellingPointsType = {
+    id: number
     title: string | ReactElement
     subtitle: ReactElement
 }
 
-const HeadingText = styled(Text)`
-    font-weight: bold;
-    font-size: 48px;
-    border-right: 1px solid var(--color-grey-21);
-    padding-right: 24px;
+const StyledSectionContainer = styled(SectionContainer)`
+    padding-top: 40px;
 
-    @media ${device.tablet} {
-        border-right: unset;
-        padding-right: unset;
-        text-align: center;
+    @media ${device.tabletL} {
+        padding-top: 0;
+    }
+`
+const NumberStyledContainer = styled(flex)`
+    direction: ltr;
+    padding: 40px 0 0;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    color: var(--color-black-9);
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+        padding: 16px 0 40px;
+    }
+`
+const NumberWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 32.8rem;
+`
+const StyledTitle = styled(Header)`
+    font-size: 48px;
+    color: var(--color-black-9);
+
+    @media ${device.tabletL} {
+        padding-top: 24px;
         font-size: 24px;
     }
 `
+const StyledSubTitle = styled(Header)`
+    padding-top: 8px;
+    font-size: 16px;
+    color: var(--color-black-9);
+    font-family: Ubuntu, sans-serif;
 
-const SubText = styled(Text)`
-    padding-left: 24px;
-    margin: auto 0;
-    @media ${device.tablet} {
-        padding-left: unset;
-        text-align: center;
+    @media ${device.tabletL} {
+        font-size: 18px;
     }
-`
-
-const StyledFlex = styled(Flex)`
-    @media ${device.tablet} {
-        margin-bottom: 16px;
-
-        &:last-child {
-            margin-bottom: unset;
-        }
-    }
-`
-
-const StyledSectionContainer = styled(SectionContainer)`
-    direction: ltr;
 `
 
 const selling_points: SellingPointsType[] = [
     {
+        id: 1,
         title: '100+',
         subtitle: <Localize translate_text="tradable assets" />,
     },
     {
+        id: 2,
         title: '24/7',
         subtitle: <Localize translate_text="trading" />,
     },
     {
+        id: 3,
         title: <Localize translate_text="Zero" />,
         subtitle: <Localize translate_text="commission" />,
     },
@@ -64,19 +79,19 @@ const selling_points: SellingPointsType[] = [
 
 const SellingPoints = () => {
     return (
-        <StyledSectionContainer padding="40px 0" background="grey-25">
-            <Container>
-                <Flex tablet_direction="column">
-                    {selling_points.map((selling_point, index) => {
-                        return (
-                            <StyledFlex tablet_direction="column" key={index}>
-                                <HeadingText>{selling_point.title}</HeadingText>
-                                <SubText>{selling_point.subtitle}</SubText>
-                            </StyledFlex>
-                        )
-                    })}
-                </Flex>
-            </Container>
+        <StyledSectionContainer>
+            <NumberStyledContainer>
+                {selling_points.map((item) => (
+                    <NumberWrapper key={item.id}>
+                        <StyledTitle as="h3" type="heading-3" align="center">
+                            {item.title}
+                        </StyledTitle>
+                        <StyledSubTitle align="center" weight="100">
+                            {item.subtitle}
+                        </StyledSubTitle>
+                    </NumberWrapper>
+                ))}
+            </NumberStyledContainer>
         </StyledSectionContainer>
     )
 }

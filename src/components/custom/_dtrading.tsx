@@ -70,6 +70,7 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
 `
 const StyledHeader = styled(Header)`
     line-height: 1.25;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
         font-size: 28px;
@@ -81,6 +82,7 @@ const StyledTitle = styled(Header)`
     font-size: 18px;
     font-weight: 100;
     margin: 8px 0 0;
+    color: var(--color-black-9);
 `
 const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};

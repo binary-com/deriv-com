@@ -8,6 +8,7 @@ type TItem = {
     text: string
     icon: string
     link: string
+    smallText?: string
 }
 
 type TProps = {
@@ -40,13 +41,18 @@ const DownloadAppOsLinks = styled.div`
     padding: 24px;
 `
 const StyledOsIcon = styled.img`
-    width: 24px;
+    width: 32px;
     margin-right: 8px;
 `
 const StyledItemText = styled(Header)`
     font-size: 17px;
     color: var(--color-white);
 `
+const StyledItemSmallText = styled(Header)`
+    font-size: 10px;
+    color: var(--color-white);
+`
+
 const StyledItems = styled.div`
     display: flex;
     align-items: center;
@@ -85,6 +91,12 @@ const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeadin
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
+                                    {item?.smallText && (
+                                        <StyledItemSmallText as="p" weight="400">
+                                            {' '}
+                                            {item?.smallText}
+                                        </StyledItemSmallText>
+                                    )}
                                     <StyledItemText as="p" weight="700">
                                         {item.text}
                                     </StyledItemText>

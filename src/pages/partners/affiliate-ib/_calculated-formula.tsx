@@ -56,7 +56,10 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                                 <FormulaResult>
                                     <FormulaValueResultSwapSynthetic>
                                         <FormulaResultGreen>=</FormulaResultGreen>
-                                        {result.total}
+                                        <Localize
+                                            translate_text={result.total}
+                                            components={result.total_components}
+                                        />
                                         {result.description && (
                                             <Localize translate_text={result.description} />
                                         )}
@@ -72,6 +75,7 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                     {itemList.map((value, index) => {
                         const { totalItem, formula } = value
                         const totalResult = value.result.total
+                        const totalComponent = value.result.total_components
                         const totalResultDesc = value.result.description
                         const totalNumberofOperation = 2
                         return totalItem > totalNumberofOperation ? (
@@ -112,7 +116,10 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                                         <FormulaResult>
                                             <FormulaValueResultSwapSynthetic>
                                                 <FormulaResultGreen>=</FormulaResultGreen>
-                                                {totalResult}{' '}
+                                                <Localize
+                                                    translate_text={totalResult}
+                                                    components={totalComponent}
+                                                />{' '}
                                                 {totalResultDesc && (
                                                     <Localize translate_text={totalResultDesc} />
                                                 )}
@@ -156,7 +163,10 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                                         <FormulaResult>
                                             <FormulaValueResultSwapSynthetic>
                                                 <FormulaResultGreen>=</FormulaResultGreen>
-                                                {totalResult}
+                                                <Localize
+                                                    translate_text={totalResult}
+                                                    components={totalComponent}
+                                                />
                                             </FormulaValueResultSwapSynthetic>
 
                                             <PointerContainerMobile>

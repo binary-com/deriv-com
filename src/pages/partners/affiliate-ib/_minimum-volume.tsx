@@ -15,7 +15,8 @@ type FormulaType = {
 }[]
 
 type ResultType = {
-    total: React.ReactElement
+    total: TString
+    total_components?: React.ReactElement[]
     description?: TString
 }
 
@@ -183,12 +184,8 @@ const firstCalculatedFormula: CalculatedFormulaType = {
                 },
             ],
             result: {
-                total: (
-                    <Localize
-                        translate_text="_t_<0>USD 100</0> Volume_t_"
-                        components={[<ResultStrong key={0} />]}
-                    />
-                ),
+                total: '_t_<0>USD 100</0> Volume_t_',
+                total_components: [<ResultStrong key={0} />],
             },
         },
         {
@@ -205,12 +202,8 @@ const firstCalculatedFormula: CalculatedFormulaType = {
                 },
             ],
             result: {
-                total: (
-                    <Localize
-                        translate_text="_t_<0>0.002 lots</0>_t_"
-                        components={[<ResultStrong key={0} />]}
-                    />
-                ),
+                total: '_t_<0>0.002 lots</0>_t_',
+                total_components: [<ResultStrong key={0} />],
                 description: '_t_Volume in lots_t_',
             },
         },
@@ -238,12 +231,8 @@ const secondCalculatedFormula: CalculatedFormulaType = {
                 },
             ],
             result: {
-                total: (
-                    <Localize
-                        translate_text="_t_<0>USD 200</0> Volume_t_"
-                        components={[<ResultStrong key={0} />]}
-                    />
-                ),
+                total: '_t_<0>USD 200</0> Volume_t_',
+                total_components: [<ResultStrong key={0} />],
             },
         },
         {
@@ -260,12 +249,8 @@ const secondCalculatedFormula: CalculatedFormulaType = {
                 },
             ],
             result: {
-                total: (
-                    <Localize
-                        translate_text="_t_<0>0.0004 lots</0>_t_"
-                        components={[<ResultStrong key={0} />]}
-                    />
-                ),
+                total: '_t_<0>0.0004 lots</0>_t_',
+                total_components: [<ResultStrong key={0} />],
                 description: '_t_Volume in lots_t_',
             },
         },

@@ -105,7 +105,7 @@ const StyledContainer = styled.div`
     }
 
     @media ${device.laptopM} {
-        padding: 4rem 2.3rem;
+        padding: 0 2.3rem 5.5rem 2.3rem;
         top: 0;
         display: flex;
         align-items: center;
@@ -122,7 +122,7 @@ const StyledContainer = styled.div`
         }
     }
     @media ${device.mobileM} {
-        padding: 4rem 1.3rem;
+        padding: 0 2.3rem 5.5rem 2.3rem;
     }
 `
 const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
@@ -133,8 +133,8 @@ const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     background-position: right;
     height: 63rem;
     transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'none')};
-    
-       @media (max-width: 580px) {
+
+    @media (max-width: 580px) {
         background-size: 147rem;
         background-position-x: -588px;
     }

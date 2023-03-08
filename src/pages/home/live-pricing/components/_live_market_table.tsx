@@ -47,7 +47,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                 platform: 'mt5',
                 type: 'brief',
                 region: region,
-                subscribe: 1,
             },
             (response: TMarketDataResponse) => {
                 if (!response.error) {
@@ -84,6 +83,11 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     useEffect(() => {
         requestMarketsData()
+        const intervalId = setInterval(() => {
+            requestMarketsData()
+        }, 10000) // 10 seconds
+
+        return () => clearInterval(intervalId)
     }, [requestMarketsData])
 
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)

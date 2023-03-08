@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { CssGrid, CssGridColumn } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { WithIntl, Localize } from 'components/localization'
 import { ReactComponent as ViewLicense } from 'images/svg/regulatory/view-license.svg'
 import { TString } from 'types/generics'
 

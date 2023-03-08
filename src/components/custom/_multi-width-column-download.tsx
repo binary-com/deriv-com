@@ -93,7 +93,6 @@ const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeadin
                                 >
                                     {item?.smallText && (
                                         <StyledItemSmallText as="p" weight="400">
-                                            {' '}
                                             {item?.smallText}
                                         </StyledItemSmallText>
                                     )}

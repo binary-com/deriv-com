@@ -391,6 +391,7 @@ export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'dev
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
 
-export const matchHashInURL = (hash: string) => location.hash.replace('#', '') === hash
+export const matchHashInURL = (hash: string) =>
+    isBrowser() && location.hash.replace('#', '') === hash
 
-export const setHashInURL = (hash: string) => (location.hash = `#${hash}`)
+export const setHashInURL = (hash: string) => isBrowser() && (location.hash = `#${hash}`)

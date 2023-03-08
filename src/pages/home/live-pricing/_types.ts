@@ -12,6 +12,7 @@ export type TMarketDataResponse = {
     trading_platform_asset_listing: any
     active_symbols: TMarketData[]
     req_id: number
+    error: any
 }
 
 export type TAvailableLiveMarkets =

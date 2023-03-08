@@ -377,8 +377,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
             {pd.note && (
                 <Notes>
                     <Text weight="500" size="var(--text-size-xs)">
-                        <Localize translate_text="_t_Note:_t_" />
-                        <span>&nbsp;</span>
+                        <Localize translate_text="_t_Note:_t_" />{' '}
                         <Localize translate_text={pd.note} />
                     </Text>
                 </Notes>

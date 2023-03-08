@@ -12,6 +12,11 @@ import { mobileOSDetect } from 'common/os-detect'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import { TString } from 'types/generics'
 
+type TDP2PCheckist = {
+    title: TString
+    subtitle: TString
+}
+
 const query = graphql`
     query {
         dp2p_platform: file(relativePath: { eq: "dp2p_platform.png" }) {
@@ -142,11 +147,6 @@ const Dp2p = () => {
     }
 
     const data = useStaticQuery(query)
-
-    type TDP2PCheckist = {
-        title: TString
-        subtitle: TString
-    }
 
     const dp2p_checklist: TDP2PCheckist[] = [
         {

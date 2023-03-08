@@ -261,7 +261,15 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/academy/">{<Localize translate_text="Academy" />}</Link>
+                            <Link
+                                to=""
+                                type="academy"
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {<Localize translate_text="Academy" />}
+                            </Link>
                         </LinkWrapper>
                     </LinksCol>
                 </Flex>

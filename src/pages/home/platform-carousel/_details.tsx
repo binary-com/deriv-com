@@ -18,7 +18,7 @@ const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
 
-export const image_query = graphql`
+const image_query = graphql`
     query {
         platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
             ...fadeIn

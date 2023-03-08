@@ -4,7 +4,7 @@ import { ResultStrong } from './_style'
 import CalculatedFormula from './_calculated-formula'
 import { Header, Text } from 'components/elements/typography'
 import { Container, SectionContainer, Flex } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 

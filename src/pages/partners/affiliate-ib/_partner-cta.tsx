@@ -5,7 +5,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text, LinkText } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import { useLivechat } from 'components/hooks/use-livechat'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 
 type RedButtonProps = {

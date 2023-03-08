@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Container, SectionContainer, Flex, CssGrid } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 // SVG

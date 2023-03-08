@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Container, Flex } from 'components/containers'
 import { Header, CardStyle, Text } from 'components/elements'
 import { Localize } from 'components/localization'
-import device from 'themes/device'
 
 const Wrapper = styled(Flex)`
     direction: ltr;

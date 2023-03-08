@@ -285,7 +285,7 @@ const trading: TQuestionsData = {
         },
         {
             question: '_t_How do I trade multipliers?_t_',
-            category: 'rading',
+            category: 'trading',
             sub_category: '_t_Platforms_t_',
             label: 'how-trade-multipliers',
             answer: [

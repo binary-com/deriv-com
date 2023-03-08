@@ -118,7 +118,7 @@ const VolumeField = ({
                 {...field}
                 id="volume"
                 type="text"
-                label={localize('Volume')}
+                label="_t_Volume_t_"
                 autoComplete="off"
                 error={touched.volume && errors.volume}
                 onBlur={handleBlur}
@@ -157,7 +157,7 @@ const SwapRateField = ({
                 id="swapRate"
                 type="text"
                 value={values.swapRate}
-                label={localize('Swap rate')}
+                label="_t_Swap rate_t_"
                 autoComplete="off"
                 error={touched.swapRate && errors.swapRate}
                 onBlur={handleBlur}
@@ -357,7 +357,7 @@ const SwapCalculator = () => {
                                                                 id="asset"
                                                                 type="text"
                                                                 value={values.assetPrice}
-                                                                label={localize('Asset price')}
+                                                                label="_t_Asset price_t_"
                                                                 autoComplete="off"
                                                                 error={
                                                                     touched.assetPrice &&
@@ -595,7 +595,7 @@ const SwapCalculator = () => {
                                                                 id="pointValue"
                                                                 type="text"
                                                                 value={values.pointValue}
-                                                                label={localize('Point value')}
+                                                                label="_t_Point value_t_"
                                                                 autoComplete="off"
                                                                 error={
                                                                     touched.pointValue &&

@@ -200,7 +200,7 @@ const PipCalculator = () => {
                                                         {...field}
                                                         id="volume"
                                                         type="text"
-                                                        label={localize('Volume')}
+                                                        label="_t_Volume_t_"
                                                         autoComplete="off"
                                                         error={touched.volume && errors.volume}
                                                         onBlur={handleBlur}
@@ -230,7 +230,7 @@ const PipCalculator = () => {
                                                         {...field}
                                                         id="pointValue"
                                                         type="text"
-                                                        label={localize('Point Value')}
+                                                        label="_t_Point Value_t_"
                                                         autoComplete="off"
                                                         error={
                                                             touched.pointValue && errors.pointValue

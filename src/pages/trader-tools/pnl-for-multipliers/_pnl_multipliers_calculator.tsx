@@ -122,7 +122,7 @@ const CommissionField = ({
                 {...field}
                 id="commission"
                 type="text"
-                label={localize('Commission')}
+                label="_t_Commission_t_"
                 autoComplete="off"
                 error={touched.commission && errors.commission}
                 onBlur={handleBlur}
@@ -156,7 +156,7 @@ const StopLossAmountField = ({
                 id="stopLossAmount"
                 type="text"
                 value={values.stopLossAmount}
-                label={localize('Stop loss amount')}
+                label="_t_Stop loss amount_t_"
                 autoComplete="off"
                 error={touched.stopLossAmount && errors.stopLossAmount}
                 onBlur={handleBlur}
@@ -187,7 +187,7 @@ const AssetPriceField = ({
                 {...field}
                 id="assetPrice"
                 type="text"
-                label={localize('Asset price')}
+                label="_t_Asset price_t_"
                 autoComplete="off"
                 error={touched.assetPrice && errors.assetPrice}
                 onBlur={handleBlur}
@@ -220,7 +220,7 @@ const MultiplierField = ({
                 id="multiplier"
                 type="text"
                 value={values.multiplier}
-                label={localize('Multiplier')}
+                label="_t_Multiplier_t_"
                 autoComplete="off"
                 error={touched.multiplier && errors.multiplier}
                 onBlur={handleBlur}
@@ -253,7 +253,7 @@ const MultiplierFieldWithoutValue = ({
                 {...field}
                 id="multiplier"
                 type="text"
-                label={localize('Multiplier')}
+                label="_t_Multiplier_t_"
                 autoComplete="off"
                 error={touched.multiplier && errors.multiplier}
                 onBlur={handleBlur}
@@ -287,7 +287,7 @@ const StopLossLevelField = ({
                 id="stopLossLevel"
                 type="text"
                 value={values.stopLossLevel}
-                label={localize('Stop loss level')}
+                label="_t_Stop loss level_t_"
                 autoComplete="off"
                 error={touched.stopLossLevel && errors.stopLossLevel}
                 onBlur={handleBlur}
@@ -318,7 +318,7 @@ const StakeField = ({
                 {...field}
                 id="stake"
                 type="text"
-                label={localize('Stake')}
+                label="_t_Stake_t_"
                 autoComplete="off"
                 error={touched.stake && errors.stake}
                 onBlur={handleBlur}
@@ -352,7 +352,7 @@ const StakeFieldWithValue = ({
                 id="stake"
                 type="text"
                 value={values.stake}
-                label={localize('Stake')}
+                label="_t_Stake_t_"
                 autoComplete="off"
                 error={touched.stake && errors.stake}
                 onBlur={handleBlur}
@@ -710,9 +710,7 @@ const PnlMultipliersCalculator = () => {
                                                                                 {...field}
                                                                                 id="takeProfitAmount"
                                                                                 type="text"
-                                                                                label={localize(
-                                                                                    'Take profit amount',
-                                                                                )}
+                                                                                label="_t_Take profit amount_t_"
                                                                                 autoComplete="off"
                                                                                 error={
                                                                                     touched.takeProfitAmount &&
@@ -915,9 +913,7 @@ const PnlMultipliersCalculator = () => {
                                                                         value={
                                                                             values.takeProfitAmount
                                                                         }
-                                                                        label={localize(
-                                                                            'Take profit amount',
-                                                                        )}
+                                                                        label="_t_Take profit amount_t_"
                                                                         autoComplete="off"
                                                                         error={
                                                                             touched.takeProfitAmount &&
@@ -1341,9 +1337,7 @@ const PnlMultipliersCalculator = () => {
                                                                                 {...field}
                                                                                 id="takeProfitLevel"
                                                                                 type="text"
-                                                                                label={localize(
-                                                                                    'Take profit level',
-                                                                                )}
+                                                                                label="_t_Take profit level_t_"
                                                                                 autoComplete="off"
                                                                                 error={
                                                                                     touched.takeProfitLevel &&
@@ -1548,9 +1542,7 @@ const PnlMultipliersCalculator = () => {
                                                                         value={
                                                                             values.takeProfitLevel
                                                                         }
-                                                                        label={localize(
-                                                                            'Take profit level',
-                                                                        )}
+                                                                        label="_t_Take profit level_t_"
                                                                         autoComplete="off"
                                                                         error={
                                                                             touched.takeProfitLevel &&

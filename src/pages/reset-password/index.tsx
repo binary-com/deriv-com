@@ -122,7 +122,7 @@ const ResetPassword = () => {
                                     onBlur={handleBlur}
                                     autoComplete="off"
                                     type="text"
-                                    label={localize('Email')}
+                                    label="_t_Email_t_"
                                     background="white"
                                     placeholder="example@email.com"
                                     data-lpignore="true"

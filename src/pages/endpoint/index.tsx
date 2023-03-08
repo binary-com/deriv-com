@@ -193,7 +193,7 @@ const Endpoint = () => {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     type="text"
-                                    label="Server URL"
+                                    label="_t_Server URL_t_"
                                     background="white"
                                     placeholder={'e.g. green.binaryws.com'}
                                 />
@@ -206,7 +206,7 @@ const Endpoint = () => {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     type="text"
-                                    label="App ID"
+                                    label="_t_App ID_t_"
                                     background="white"
                                     placeholder={'e.g. 9999'}
                                 />
@@ -219,7 +219,7 @@ const Endpoint = () => {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     type="text"
-                                    label="Clients country"
+                                    label="_t_Clients country_t_"
                                     background="white"
                                     placeholder={'e.g. mt (for EU) or gb (for UK) or za (for P2P)'}
                                 />

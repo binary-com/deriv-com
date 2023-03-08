@@ -18,9 +18,6 @@ export type TLiveMarketTableProps = {
 }
 
 const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
-    const { is_eu } = useRegion()
-
-    const region = is_eu ? 'eu' : 'row'
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
         return temp
@@ -37,6 +34,8 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
     const [sorting, setSorting] = React.useState<SortingState>([])
 
     const { send } = useDerivApi()
+    const { is_eu } = useRegion()
+    const region = is_eu ? 'eu' : 'row'
 
     const requestMarketsData = useCallback(() => {
         setIsLoading(true)
@@ -67,7 +66,7 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
                 }
             },
         )
-    }, [])
+    }, [region, send])
     const columns = useLiveColumns(requestMarketsData)
 
     const table = useReactTable({

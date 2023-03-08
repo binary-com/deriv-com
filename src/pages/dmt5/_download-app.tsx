@@ -14,10 +14,12 @@ import GooglePlay from 'images/svg/dmt5/dmt5_google_play.svg'
 import AppGallery from 'images/svg/dmt5/dmt5_app_gallery.svg'
 import GooglePlayMobile from 'images/svg/dmt5/dmt5_google_play_mobile.svg'
 import AppGalleryMobile from 'images/svg/dmt5/dmt5_app_gallery_mobile.svg'
+import Mac from 'images/svg/dmt5/dmt5_app_store.svg'
 import {
     dmt5_web_browser_url,
     dmt5_windows,
     dmt5_linux_url,
+    dmt5_ios_url,
     dmt5_mac_app_url,
     dmt5_android_url,
     dmt5_app_gallery_url,
@@ -268,6 +270,14 @@ const DownloadApp = () => {
                             >
                                 <img src={AppGallery} alt="app gallery" width="132" height="40" />
                             </LocalizedLink>
+                            <LocalizedLink
+                                external
+                                to={dmt5_ios_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={Mac} alt="app gallery" width="132" height="40" />
+                            </LocalizedLink>
                         </DownloadLinkWrapper>
                     </Flex>
                 </Desktop>
@@ -334,6 +344,15 @@ const DownloadApp = () => {
                                     width="180"
                                     height="40"
                                 />
+                            </LocalizedLink>
+
+                            <LocalizedLink
+                                external
+                                to={dmt5_ios_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={Mac} alt="app gallery" width="132" height="40" />
                             </LocalizedLink>
                         </DownloadLinkMobileWrapper>
                     </StyledFlexMobile>

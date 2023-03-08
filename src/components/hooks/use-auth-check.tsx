@@ -3,12 +3,12 @@ import { isLoggedIn } from 'common/utility'
 
 const useAuthCheck = () => {
     const [is_logged_in, setLoggedIn] = useState(false)
-    const [is_auth_checked, setISAuthChecked] = useState(false)
+    const [is_auth_checked, setIsAuthChecked] = useState(false)
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
         const checkCookieChange = setInterval(() => setLoggedIn(isLoggedIn()), 800)
-        setISAuthChecked(true)
+        setIsAuthChecked(true)
         return () => clearInterval(checkCookieChange)
     }, [])
 

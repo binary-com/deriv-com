@@ -40,9 +40,9 @@ const Cyberjaya = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Cyberjaya | Our office – Malaysia | Deriv')}
+                title={localize('_t_Cyberjaya | Our office – Malaysia | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Cyberjaya, Malaysia.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Cyberjaya, Malaysia._t_',
                 )}
             />
             <LocationLayout location={cyberjaya} images={images} />

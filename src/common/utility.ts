@@ -11,7 +11,6 @@ import {
     domains,
     eu_domains,
 } from './constants'
-import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
 
 export const trimSpaces = (value: string): string => value?.trim()
@@ -383,47 +382,10 @@ export const useCallbackRef = (callback: () => void) => {
     return callback_ref
 }
 
-const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
-
-const redirect = (subdomain: string) => {
-    const redirection_url = `${subdomain}.deriv.com`
-    window.location.href = `https://${redirection_url + window.location.pathname}`
-}
-
-const redirectDomain = () => {
-    const redirection_url = `deriv.com`
-    window.location.href = `https://${redirection_url + window.location.pathname}`
-}
-
 const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 
 export const isEuDomain = () =>
     !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
-
-export const handleRedirect = (residence: string, current_client_country: string): boolean => {
-    const country = residence ? residence : current_client_country
-
-    if (isLocalhost() || isTestlink()) {
-        return false
-    } else {
-        if (eu_subdomain_countries.includes(country)) {
-            const subdomain = getSubdomain()
-            redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
-        }
-    }
-}
-
-export const handleRowRedirect = (residence: string, current_client_country: string): boolean => {
-    const country = residence ? residence : current_client_country
-
-    if (isLocalhost() || isTestlink()) {
-        return false
-    } else {
-        if (eu_subdomain_countries.includes(country) === false) {
-            redirectDomain()
-        }
-    }
-}
 
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 

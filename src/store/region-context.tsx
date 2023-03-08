@@ -13,6 +13,7 @@ import {
     isLocalhost,
     isTestlink,
     isEuDomain,
+    isBrowser,
 } from 'common/utility'
 import { TRegion } from 'types/generics'
 
@@ -60,7 +61,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         residence: '',
     }
 
-    const url_region = new URLSearchParams(location.search).get('region')
+    const url_region = isBrowser() ? new URLSearchParams(location.search).get('region') : ''
 
     useEffect(() => {
         const is_eu_country_ip = eu_countries.includes(user_ip_country)

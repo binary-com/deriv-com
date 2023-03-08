@@ -9,6 +9,7 @@ import {
 } from '../../static/style/_card'
 import { TextWrapper } from '../../static/style/_common'
 import { Minimize, Maximize } from '../../static/images/_what-lies-ahead'
+import { slugify } from 'common/utility'
 
 type CardWrapperProps = {
     grid_template_columns?: string[]
@@ -52,7 +53,7 @@ type CardProps = {
 const Card = ({ card_content, custom_icon, has_list, style, title_component }: CardProps) => {
     const [is_list_open, setIsListOpen] = useState(false)
 
-    const getCurrentDropdownComponent = () => {
+    const getCurrentDropdownComponent = (class_name: string) => {
         const DropdownComponent = (
             <DropdownWrapper
                 onClick={toggleIsListOpen}
@@ -60,6 +61,7 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }: C
                 alt=""
                 width="32"
                 height="32"
+                className={class_name}
             />
         )
         if (is_list_open) {
@@ -91,7 +93,7 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }: C
             <IconWrapper {...icon_wrapper} src={custom_icon?.src || card_content.src} alt="" />
             {title_component}
             <TextWrapper {...text_wrapper}>{card_content.text}</TextWrapper>
-            {has_list && getCurrentDropdownComponent()}
+            {has_list && getCurrentDropdownComponent(slugify(card_content.text))}
         </CardWrapper>
     )
 }

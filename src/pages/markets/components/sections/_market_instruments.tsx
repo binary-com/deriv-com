@@ -79,17 +79,7 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                                 <Title>{content.title}</Title>
                                             )}
                                         </Col>
-                                        <DerivedMarketsList
-                                            has_right_border={true}
-                                            col={content.col}
-                                            tablet_col={content.tablet_col}
-                                            mobile_col={content.mobile_col}
-                                            padding={content.padding}
-                                            gap={content.gap}
-                                            gap_mobile={content.gap_mobile}
-                                        >
-                                            {content.component}
-                                        </DerivedMarketsList>
+                                        <DerivedMarketsList>{content.component}</DerivedMarketsList>
                                     </>
                                 ) : (
                                     <>

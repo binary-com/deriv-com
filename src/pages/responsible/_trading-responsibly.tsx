@@ -7,7 +7,7 @@ import BadJudgement from 'images/svg/responsible/bad-judgement.svg'
 import Info from 'images/svg/responsible/info.svg'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Divider, CardStyle, LocalizedLinkText } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 
@@ -118,33 +118,27 @@ const TradingResponsibly = () => {
             <Flex jc="center" wrap="true">
                 <Card>
                     <StyledHeader align="center" as="h2" type="page-title">
-                        {localize('Trading responsibly')}
+                        <Localize translate_text="_t_Trading responsibly_t_" />
                     </StyledHeader>
                     <ContentWrapper jc="center" ai="center" mt="2.4rem">
                         <FlexContent>
                             <img src={DontBorrow} alt="Understanding risk" />
                             <StyledText>
-                                {localize(
-                                    'Understand the risks of online trading. Never trade using borrowed money or money you can’t afford to lose.',
-                                )}
+                                <Localize translate_text="_t_Understand the risks of online trading. Never trade using borrowed money or money you can’t afford to lose._t_" />
                             </StyledText>
                         </FlexContent>
                         <StyledDivider />
                         <FlexContent>
                             <img src={FreeDemo} alt="Learn our products" />
                             <StyledText>
-                                {localize(
-                                    'Use our free demo account, and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products.',
-                                )}
+                                <Localize translate_text="_t_Use our free demo account, and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products._t_" />
                             </StyledText>
                         </FlexContent>
                         <StyledDivider />
                         <FlexContent>
                             <img src={SetLimitLosses} alt="Set a limit" />
                             <StyledText>
-                                {localize(
-                                    'Set a limit for your losses, and stick to it. Put aside some of your winnings to avoid losing all your money.',
-                                )}
+                                <Localize translate_text="_t_Set a limit for your losses, and stick to it. Put aside some of your winnings to avoid losing all your money._t_" />
                             </StyledText>
                         </FlexContent>
                         <StyledDivider />
@@ -152,10 +146,10 @@ const TradingResponsibly = () => {
                             <img src={BadJudgement} alt="Trade wisely" />
                             <StyledText>
                                 {is_eu && (
-                                    <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol." />
+                                    <Localize translate_text="_t_Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol._t_" />
                                 )}
                                 {is_non_eu && (
-                                    <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Don’t trade when you’re prone to bad judgement." />
+                                    <Localize translate_text="_t_Trade wisely, and don’t let your emotions influence your decisions. Don’t trade when you’re prone to bad judgement._t_" />
                                 )}
                             </StyledText>
                         </FlexContent>
@@ -165,7 +159,7 @@ const TradingResponsibly = () => {
                             <IcInfo src={Info} alt="info" width="24" height="24" />
                             <NoticeText size="1.4rem" ml="1.6rem" mr="1.5rem">
                                 <Localize
-                                    translate_text="For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies."
+                                    translate_text="_t_For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies._t_"
                                     components={[
                                         <LocalizedLinkText
                                             key={0}

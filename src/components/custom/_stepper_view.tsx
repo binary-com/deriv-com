@@ -90,16 +90,14 @@ const StepperView: React.FC<TProps> = ({
     return (
         <Wrapper>
             <ImageWrapper>
-                <QueryImage data={items[selected].image} alt={items[selected].alt} />
+                <QueryImage data={items[selected]?.image} alt={items[selected]?.alt} />
             </ImageWrapper>
             <ItemsWrapper width={contentWidth}>
                 <UlStyle>
                     {items.map((item, index) => (
                         <li
                             key={`${item.title}-${index}`}
-                            style={{
-                                fontWeight: selected === index ? 'bold' : 'normal',
-                            }}
+                            style={{ fontWeight: selected === index ? 'bold' : 'normal' }}
                             onClick={() => setSelected(index)}
                         >
                             {localize(`_t_${index + 1}. ${item.title}_t_`)}

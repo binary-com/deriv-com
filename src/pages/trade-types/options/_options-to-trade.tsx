@@ -86,7 +86,7 @@ const UpDownGrid = () => {
                     <Localize translate_text="_t_Predict whether the exit spot will be strictly higher or lower than the entry spot at the end of the contract period._t_" />
                 </MiddleText>
                 <MiddleText>
-                    <Localize translate_text="_t_If you select ‘Rise’, you win the payout if the exit spot is strictly higher than the entry spot.If you select ‘Rise’, you win the payout if the exit spot is strictly higher than the entry spot._t_" />
+                    <Localize translate_text="_t_If you select ‘Rise’, you win the payout if the exit spot is strictly higher than the entry spot._t_" />
                 </MiddleText>
                 <MiddleText>
                     <Localize translate_text="_t_If you select ‘Fall’, you win the payout if the exit spot is strictly lower than the entry spot._t_" />

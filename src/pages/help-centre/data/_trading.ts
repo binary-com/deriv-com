@@ -253,7 +253,7 @@ const trading: TQuestionsData = {
         },
         {
             question: '_t_What are multipliers?_t_',
-            category: 'Multipliers',
+            category: 'Trading',
             sub_category: '_t_Platforms_t_',
             hide_for_non_eu: true,
             label: 'what-are-multipliers',
@@ -269,7 +269,7 @@ const trading: TQuestionsData = {
         },
         {
             question: '_t_What are multipliers?_t_',
-            category: 'Multipliers',
+            category: 'Trading',
             sub_category: '_t_Platforms_t_',
             hide_for_eu: false,
             label: 'what-are-multipliers',
@@ -285,7 +285,7 @@ const trading: TQuestionsData = {
         },
         {
             question: '_t_How do I trade multipliers?_t_',
-            category: 'Multipliers',
+            category: 'Trading',
             sub_category: '_t_Platforms_t_',
             label: 'how-trade-multipliers',
             answer: [

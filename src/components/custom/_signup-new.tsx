@@ -360,7 +360,7 @@ const SignupNew = ({
                 <SocialWrapper gap="0" grid="2">
                     <SocialButtonEU
                         external
-                        to={Login.initOneAll('google')}
+                        to={Login.initOneAllEU('google')}
                         id="dm-signup-google"
                         type="button"
                         social
@@ -370,7 +370,7 @@ const SignupNew = ({
                     </SocialButtonEU>
                     <SocialButtonEU
                         external
-                        to={Login.initOneAll('facebook')}
+                        to={Login.initOneAllEU('facebook')}
                         id="dm-signup-facebook"
                         type="button"
                         social
@@ -380,7 +380,7 @@ const SignupNew = ({
                     </SocialButtonEU>
                     <SocialButtonEU
                         external
-                        to={Login.initOneAll('apple')}
+                        to={Login.initOneAllEU('apple')}
                         id="dm-signup-apple"
                         type="button"
                         social

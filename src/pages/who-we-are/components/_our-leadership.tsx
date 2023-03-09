@@ -124,8 +124,7 @@ const OurLeadership = ({ our_leadership }: TOurLeadership) => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {/*/ Need to update strapi version to do that /*/}
-                {/*{our_leadership?.header}*/}
+                {our_leadership?.header}
             </StyledHeader>
             <StyledCssGrid
                 height="unset"

@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 import { isStorageSupported } from './storage'
 import { getDataObjFromCookies, getDataLink, getCookiesFields, getCookiesObject } from './cookies'
 import { getAppId } from './websocket/config'
-import { redirectToTradingPlatform } from './utility'
+import { redirectToTradingPlatform, isBrowser } from './utility'
 import { brand_name, deriv_app_id, oauth_url } from 'common/constants'
 
 export type TSocialProvider = 'google' | 'facebook' | 'apple'
@@ -37,20 +37,28 @@ const Login = (() => {
     }
 
     const initOneAll = (provider: TSocialProvider, utm_content?: string): string => {
-        if (typeof window !== 'undefined') {
+        if (isBrowser) {
+            const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
+            const social_login_url = `${loginUrl()}&social_signup=${provider}${utm_content_string}`
+
+            window.location.href = social_login_url
+        }
+    }
+
+    const initOneAllEU = (provider: TSocialProvider, utm_content?: string): string => {
+        if (isBrowser) {
             const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
             const social_login_url = `${loginUrl()}&social_signup=${provider}${utm_content_string}`
 
             return social_login_url
         }
-
-        return '/'
     }
 
     return {
         redirectToLogin,
         initOneAll,
         loginUrl,
+        initOneAllEU,
     }
 })()
 

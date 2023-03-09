@@ -12,6 +12,7 @@ import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
 import useRegion from 'components/hooks/use-region'
 import Login from 'common/login'
+
 type SignupNewProps = {
     autofocus?: boolean
     clearEmail?: () => void
@@ -127,7 +128,36 @@ const SignupWithContainer = styled.div`
     }
 `
 
-const SocialButton = styled(LinkButton)<SocialButtonProps>`
+const SocialButton = styled(Button)<SocialButtonProps>`
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    background-color: ${(props) => props.bgColor || 'var(--color-white)'};
+    border: solid 1px var(--color-grey-21);
+    width: 12.5rem;
+    height: 3.8rem;
+    padding: 0.5rem 0;
+    color: var(--color-black);
+
+    &:hover {
+        background: ${(props) => {
+            if (props.provider === 'facebook') return 'var(--color-grey-4)'
+        }};
+    }
+
+    @media ${device.tabletL} {
+        width: 100%;
+        height: 6rem;
+        margin-top: 1rem;
+    }
+    @media ${device.mobileM} {
+        &:first-child {
+            margin-right: 1.2rem;
+        }
+    }
+`
+const SocialButtonEU = styled(LinkButton)<SocialButtonProps>`
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -326,38 +356,78 @@ const SignupNew = ({
                 <Line />
             </SignupWithContainer>
 
-            <SocialWrapper gap="0" grid="2">
-                <SocialButton
-                    external
-                    to={Login.initOneAll('google')}
-                    id="dm-signup-google"
-                    type="button"
-                    social
-                >
-                    <img src={Google} alt="google" width="24" height="24" />
-                    <SocialText>Google</SocialText>
-                </SocialButton>
-                <SocialButton
-                    external
-                    to={Login.initOneAll('facebook')}
-                    id="dm-signup-facebook"
-                    type="button"
-                    social
-                >
-                    <img src={Facebook} alt="facebook" width="24" height="24" />
-                    <SocialText>Facebook</SocialText>
-                </SocialButton>
-                <SocialButton
-                    external
-                    to={Login.initOneAll('apple')}
-                    id="dm-signup-apple"
-                    type="button"
-                    social
-                >
-                    <img src={Apple} alt="apple" width="24" height="24" />
-                    <SocialText>Apple</SocialText>
-                </SocialButton>
-            </SocialWrapper>
+            {is_eu && (
+                <SocialWrapper gap="0" grid="2">
+                    <SocialButtonEU
+                        external
+                        to={Login.initOneAll('google')}
+                        id="dm-signup-google"
+                        type="button"
+                        social
+                    >
+                        <img src={Google} alt="google" width="24" height="24" />
+                        <SocialText>Google</SocialText>
+                    </SocialButtonEU>
+                    <SocialButtonEU
+                        external
+                        to={Login.initOneAll('facebook')}
+                        id="dm-signup-facebook"
+                        type="button"
+                        social
+                    >
+                        <img src={Facebook} alt="facebook" width="24" height="24" />
+                        <SocialText>Facebook</SocialText>
+                    </SocialButtonEU>
+                    <SocialButtonEU
+                        external
+                        to={Login.initOneAll('apple')}
+                        id="dm-signup-apple"
+                        type="button"
+                        social
+                    >
+                        <img src={Apple} alt="apple" width="24" height="24" />
+                        <SocialText>Apple</SocialText>
+                    </SocialButtonEU>
+                </SocialWrapper>
+            )}
+
+            {!is_eu && (
+                <SocialWrapper gap="0" grid="2">
+                    <SocialButton
+                        onClick={handleSocialSignup}
+                        provider="google"
+                        data-provider="google"
+                        id="dm-signup-google"
+                        type="button"
+                        social
+                    >
+                        <img src={Google} alt="google" width="24" height="24" />
+                        <SocialText>Google</SocialText>
+                    </SocialButton>
+                    <SocialButton
+                        onClick={handleSocialSignup}
+                        provider="facebook"
+                        data-provider="facebook"
+                        id="dm-signup-facebook"
+                        type="button"
+                        social
+                    >
+                        <img src={Facebook} alt="facebook" width="24" height="24" />
+                        <SocialText>Facebook</SocialText>
+                    </SocialButton>
+                    <SocialButton
+                        onClick={handleSocialSignup}
+                        provider="apple"
+                        data-provider="apple"
+                        id="dm-signup-apple"
+                        type="button"
+                        social
+                    >
+                        <img src={Apple} alt="apple" width="24" height="24" />
+                        <SocialText>Apple</SocialText>
+                    </SocialButton>
+                </SocialWrapper>
+            )}
             <LoginText mt="3.75rem" mb={is_eu ? '100px' : '0'}>
                 {localize('Already have an account?')}
                 <StyledLinkText

@@ -13,7 +13,7 @@ import {
     isLocalhost,
     isTestlink,
     isEuDomain,
-    isBrowser,
+    queryParams,
 } from 'common/utility'
 import { TRegion } from 'types/generics'
 
@@ -61,15 +61,14 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         residence: '',
     }
 
-    const url_region = isBrowser() ? new URLSearchParams(location.search).get('region') : ''
+    const qa_url_region = queryParams.get('region')?.toString()
 
     useEffect(() => {
         const is_eu_country_ip = eu_countries.includes(user_ip_country)
         const is_africa = african_countries.includes(user_ip_country)
         const is_eu_residence = eu_countries.includes(residence)
-        const is_eu_location =
-            is_eu_residence || (!residence && is_eu_country_ip) || eu_countries.includes(url_region)
-        const is_eu = is_eu_location || isEuDomain()
+        const is_eu_location = is_eu_residence || (!residence && is_eu_country_ip)
+        const is_eu = isEuDomain() || eu_countries.includes(qa_url_region)
         const is_non_eu = !is_eu
         const is_cpa_plan = cpa_plan_countries.includes(user_ip_country)
         const is_latam = latam_countries.includes(user_ip_country)
@@ -92,7 +91,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_dev,
             })
         }
-    }, [residence, user_ip_country, website_status, url_region])
+    }, [residence, user_ip_country, website_status])
 
     const {
         is_region_loading,

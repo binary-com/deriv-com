@@ -248,7 +248,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 {data.type.map((value) => (
                                     <AccordionItem
                                         key={value.class_name}
-                                        header={localize(value.title)}
+                                        header={value.title}
                                         parent_style={parent_style}
                                         style={item_style}
                                         header_style={header_style}

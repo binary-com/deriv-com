@@ -320,7 +320,7 @@ type AccordionItemProps = {
     content_style?: ContentType
     parent_style?: ParentType
     header_style?: HeaderStyle
-    header?: string
+    header?: TString
     text?: TString
     plus?: boolean
     is_showed?: boolean
@@ -329,7 +329,7 @@ type AccordionItemProps = {
 
 const AccordionItem = ({ id, text, children, style }: AccordionItemProps) => {
     return (
-        <AccordionHeaderItem style={style} header={text ? localize(text) : null} id={id}>
+        <AccordionHeaderItem style={style} header={text} id={id}>
             {children}
         </AccordionHeaderItem>
     )

@@ -4,6 +4,8 @@ import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 import CloseSVG from 'images/svg/custom/close-2.svg'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 const Container = styled.div`
     position: fixed;
@@ -107,11 +109,11 @@ export type ModalRefType = {
 }
 
 type ModalPropType = {
-    title?: React.ReactNode
-    message?: React.ReactNode
-    positive?: React.ReactNode
+    title?: TString
+    message?: TString
+    positive?: TString
     onPositive?: () => void
-    negative?: React.ReactNode
+    negative?: TString
     onNegative?: () => void
     is_dismissible?: boolean
     maxWidth?: string
@@ -159,13 +161,13 @@ const Modal = (
 
     const Title = () => (
         <Header type="paragraph-1" mb="2.4rem">
-            {title}
+            <Localize translate_text={title} />
         </Header>
     )
 
     const Message = () => (
         <Header type="paragraph-2" weight="regular">
-            {message}
+            <Localize translate_text={message} />
         </Header>
     )
 
@@ -176,7 +178,7 @@ const Modal = (
     const Negative = () => (
         <NegativeButton onClick={() => (onNegative ? onNegative?.() : setIsOpen(false))}>
             <Header type="paragraph-2" weight="bold">
-                {negative}
+                <Localize translate_text={negative} />
             </Header>
         </NegativeButton>
     )
@@ -184,7 +186,7 @@ const Modal = (
     const Positive = () => (
         <PositiveButton onClick={() => onPositive?.()}>
             <Header type="paragraph-2" weight="bold" color="white">
-                {positive}
+                <Localize translate_text={positive} />
             </Header>
         </PositiveButton>
     )

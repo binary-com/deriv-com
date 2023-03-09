@@ -309,7 +309,7 @@ const SwapCalculator = () => {
                                                 <Dropdown
                                                     mb="3.6rem"
                                                     option_list={values.optionList}
-                                                    label={localize('_t_Symbol_t_')}
+                                                    label="_t_Symbol_t_"
                                                     default_option={optionItemDefault}
                                                     selected_option={values.symbol}
                                                     id="symbol"
@@ -437,7 +437,7 @@ const SwapCalculator = () => {
 
                                 <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
-                                        header={localize('_t_Swap charge_t_')}
+                                        header="_t_Swap charge_t_"
                                         header_style={header_style}
                                         style={item_style}
                                         plus
@@ -559,7 +559,7 @@ const SwapCalculator = () => {
                                                     mb="3.6rem"
                                                     default_option={optionItemDefault}
                                                     option_list={values.optionList}
-                                                    label={localize('_t_Symbol_t_')}
+                                                    label="_t_Symbol_t_"
                                                     selected_option={values.symbol}
                                                     id="symbol"
                                                     onChange={swap_currency_change_handler(
@@ -683,7 +683,7 @@ const SwapCalculator = () => {
 
                                 <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
-                                        header={localize('_t_Swap charge_t_')}
+                                        header="_t_Swap charge_t_"
                                         header_style={header_style}
                                         style={item_style}
                                         plus

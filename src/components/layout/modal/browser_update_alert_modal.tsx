@@ -27,7 +27,7 @@ const BrowserUpdateAlertModal = () => {
     return (
         <Modal
             ref={modalRef}
-            positive={<Localize translate_text="OK" />}
+            positive="_t_OK_t_"
             onPositive={handlePositive}
             is_dismissible={false}
             maxWidth="38rem"

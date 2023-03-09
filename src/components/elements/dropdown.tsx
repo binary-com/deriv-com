@@ -14,6 +14,8 @@ import { Text } from 'components/elements/typography'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
+import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 type DropdownStyledProps = {
     open?: boolean
@@ -390,7 +392,7 @@ export type DropdownProps = {
     autoComplete?: string
     has_short_name?: boolean
     items?: ItemsType[]
-    label?: string
+    label?: TString
     error?: FormikErrorsType
     onChange?: (value: { symbol?: string } & string) => void
     option_list?: ItemsType[]
@@ -423,7 +425,9 @@ const Dropdown = ({
                 error={error}
                 {...props}
             >
-                <StyledLabel active={is_open || (!is_open && selected_option)}>{label}</StyledLabel>
+                <StyledLabel active={is_open || (!is_open && selected_option)}>
+                    <Localize translate_text={label} />
+                </StyledLabel>
                 <DropdownSelected
                     id="selected_dropdown"
                     role="button"

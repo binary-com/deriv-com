@@ -173,7 +173,7 @@ const PipCalculator = () => {
 
                                         <CalculatorDropdown
                                             option_list={values.optionList}
-                                            label={localize('_t_Symbol_t_')}
+                                            label="_t_Symbol_t_"
                                             default_option={optionItemDefault}
                                             selected_option={values.symbol}
                                             id="symbol"
@@ -302,7 +302,7 @@ const PipCalculator = () => {
 
                         <Accordion id="pip-calculator" has_single_state>
                             <AccordionItem
-                                header={localize('_t_Pip value for synthetic indices_t_')}
+                                header="_t_Pip value for synthetic indices_t_"
                                 header_style={header_style}
                                 style={item_style}
                                 plus
@@ -341,7 +341,7 @@ const PipCalculator = () => {
                                 </Text>
                             </AccordionItem>
                             <AccordionItem
-                                header={localize('_t_Pip value for forex_t_')}
+                                header="_t_Pip value for forex_t_"
                                 header_style={header_style}
                                 style={item_style}
                                 plus

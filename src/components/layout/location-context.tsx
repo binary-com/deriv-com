@@ -7,9 +7,7 @@ type LocationProviderProps = {
     toggleModal?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-// Todo: Context is initialized with `true` which is not compatible with the actual value of the context,
-// Need to investigate and remove the initial value to correct the type.
-export const LocationContext = React.createContext(true as LocationProviderProps)
+export const LocationContext: React.Context<LocationProviderProps> = React.createContext({})
 
 export const LocationProvider = ({
     children,

@@ -9,6 +9,7 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Localize } from 'components/localization'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
+import { TString } from 'types/generics'
 
 type NavDesktopProps = {
     base?: string
@@ -24,6 +25,11 @@ type TabProps = {
 }
 
 type ActiveDropdownTypes = 'trade' | 'markets' | 'about' | 'resources' | ''
+
+type TLink = {
+    active: string
+    title: TString
+}
 
 const NavigationBar = styled.ul`
     display: flex;
@@ -56,11 +62,11 @@ const Tab = styled.span<TabProps>`
     }
 `
 
-const links = [
-    { active: 'trade', title: <Localize translate_text="Trade" /> },
-    { active: 'markets', title: <Localize translate_text="Markets" /> },
-    { active: 'about', title: <Localize translate_text="About us" /> },
-    { active: 'resources', title: <Localize translate_text="Resources" /> },
+const links: TLink[] = [
+    { active: 'trade', title: '_t_Trade_t_' },
+    { active: 'markets', title: '_t_Markets_t_' },
+    { active: 'about', title: '_t_About us_t_' },
+    { active: 'resources', title: '_t_Resources_t_' },
 ]
 
 const NavDesktop = ({
@@ -118,7 +124,9 @@ const NavDesktop = ({
                             isOpen={active === active_dropdown}
                             onClick={(e) => handleTabClick(active, e.target)}
                         >
-                            <Tab active={checkActive(active)}>{title}</Tab>
+                            <Tab active={checkActive(active)}>
+                                <Localize translate_text={title} />
+                            </Tab>
                         </NavLink>
                     ))}
                 </NavigationBar>

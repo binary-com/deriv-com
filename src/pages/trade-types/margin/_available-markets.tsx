@@ -5,7 +5,7 @@ import LearnMore from '../components/_learn-more'
 import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
@@ -28,7 +28,7 @@ const MobileCardHeader = styled(Flex)`
         }
     }
 `
-const StyledText = styled(Text)`
+const StyledText = styled(Header)`
     margin-top: 1.6rem;
 
     @media (max-width: 680px) {
@@ -39,12 +39,17 @@ const StyledText = styled(Text)`
 
 const AvailableMarkets = () => {
     const { is_eu } = useRegion()
+
+    const forex_text = is_eu
+        ? '_t_Access over 30 assets and also trade with up to 1:30 leverage and zero commission on trades._t_'
+        : '_t_Access over 50 assets and also trade with up to 1:1000 leverage and zero commission on trades._t_'
+
     return (
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" type="section-title" mb="2.4rem">
-                        {localize('Markets available for margin trading')}
+                        <Localize translate_text="_t_Markets available for margin trading_t_" />
                     </Header>
                 </SmallContainer>
                 <MarketsCarousel>
@@ -54,19 +59,14 @@ const AvailableMarkets = () => {
                                 <MobileCardHeader>
                                     <img src={Forex} alt="Forex" width="64" height="64" />
 
-                                    <StyledText weight="bold">{localize('Forex')}</StyledText>
+                                    <StyledText type="paragraph-1">
+                                        <Localize translate_text="_t_Forex_t_" />
+                                    </StyledText>
                                 </MobileCardHeader>
                                 <Text>
-                                    {is_eu ? (
-                                        <Localize translate_text="Access over 30 assets and also trade with up to 1:30 leverage and zero commission on trades." />
-                                    ) : (
-                                        <Localize translate_text="Access over 50 assets and also trade with up to 1:1000 leverage and zero commission on trades." />
-                                    )}
+                                    <Localize translate_text={forex_text} />
                                 </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/forex/"
-                                />
+                                <LearnMore text="_t_Learn more_t_" to="/markets/forex/" />
                             </Card>
                         </MarketsItem>
                     </MarketsCarousel.Item>
@@ -81,19 +81,14 @@ const AvailableMarkets = () => {
                                         height="64"
                                     />
 
-                                    <StyledText weight="bold">
-                                        {localize('Synthetic indices')}
+                                    <StyledText type="paragraph-1">
+                                        <Localize translate_text="_t_Synthetic indices_t_" />
                                     </StyledText>
                                 </MobileCardHeader>
                                 <Text>
-                                    {localize(
-                                        'Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks.',
-                                    )}
+                                    <Localize translate_text="_t_Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks._t_" />
                                 </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/synthetic/"
-                                />
+                                <LearnMore text="_t_Learn more_t_" to="/markets/synthetic/" />
                             </Card>
                         </MarketsItem>
                     </MarketsCarousel.Item>
@@ -108,17 +103,14 @@ const AvailableMarkets = () => {
                                         height="64"
                                     />
 
-                                    <StyledText weight="bold">{localize('Commodities')}</StyledText>
+                                    <StyledText type="paragraph-1">
+                                        <Localize translate_text="_t_Commodities_t_" />
+                                    </StyledText>
                                 </MobileCardHeader>
                                 <Text>
-                                    {localize(
-                                        'Speculate on the price movements of silver, gold, oil, and more and use margin to amplify your possible profits.',
-                                    )}
+                                    <Localize translate_text="_t_Speculate on the price movements of silver, gold, oil, and more and use margin to amplify your possible profits._t_" />
                                 </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/commodities/"
-                                />
+                                <LearnMore text="_t_Learn more_t_" to="/markets/commodities/" />
                             </Card>
                         </MarketsItem>
                     </MarketsCarousel.Item>
@@ -133,19 +125,14 @@ const AvailableMarkets = () => {
                                         height="64"
                                     />
 
-                                    <StyledText weight="bold">
-                                        {localize('Stock indices')}
+                                    <StyledText type="paragraph-1">
+                                        <Localize translate_text="_t_Stock indices_t_" />
                                     </StyledText>
                                 </MobileCardHeader>
                                 <Text>
-                                    {localize(
-                                        'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
-                                    )}
+                                    <Localize translate_text="_t_Go long or short on our OTC German index and utilise leverage to increase your potential profit._t_" />
                                 </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/stock/"
-                                />
+                                <LearnMore text="_t_Learn more_t_" to="/markets/stock/" />
                             </Card>
                         </MarketsItem>
                     </MarketsCarousel.Item>

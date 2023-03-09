@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
-import { Signal } from './_signal'
+import { Signal, SignalContentType } from './_signal'
 import Subscription from './_subscription'
 import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -13,47 +13,33 @@ import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const meta_attributes = {
-    og_title: localize('Deriv MetaTrader 5 trading signals | Resources | Deriv'),
+    og_title: localize('_t_Deriv MetaTrader 5 trading signals | Resources | Deriv_t_'),
     og_description: localize(
-        'Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.',
+        '_t_Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies._t_',
     ),
 }
-const signal_content_subscriber = {
-    header: (
-        <Localize
-            translate_text="Benefits of subscribing to MT5 signals"
-            components={[<br key={0} />]}
-        />
-    ),
-    text: (
-        <Localize translate_text="The MT5 trading signals service allows you to copy the trades of more experienced traders to your MT5 account. Once you’ve subscribed to a signal, the provider’s deals will be automatically replicated on your Deriv MT5 trading account each time they place a trade." />
-    ),
+const signal_content_subscriber: SignalContentType = {
+    header: { text: '_t_Benefits of subscribing to MT5 signals_t_', components: [<br key={0} />] },
+    text: '_t_The MT5 trading signals service allows you to copy the trades of more experienced traders to your MT5 account. Once you’ve subscribed to a signal, the provider’s deals will be automatically replicated on your Deriv MT5 trading account each time they place a trade._t_',
     list: [
-        <Localize translate_text="Minimise trading risk by copying from expert traders." key={0} />,
-        <Localize
-            translate_text="Save time – no need to open, monitor, and close trades."
-            key={1}
-        />,
-        <Localize translate_text="Easy to set up – no installation required." key={2} />,
-        <Localize translate_text="Full disclosure of each providers’ performances." key={3} />,
-        <Localize translate_text="No hidden fees or commissions." key={4} />,
+        '_t_Minimise trading risk by copying from expert traders._t_',
+        '_t_Save time – no need to open, monitor, and close trades._t_',
+        '_t_Easy to set up – no installation required._t_',
+        '_t_Full disclosure of each providers’ performances._t_',
+        '_t_No hidden fees or commissions._t_',
     ],
 }
 
-const signal_content_provider = {
-    header: (
-        <Localize
-            translate_text="Benefits of being an MT5<0 /> signals provider"
-            components={[<br key={0} />]}
-        />
-    ),
-    text: (
-        <Localize translate_text="If you are a professional trader, the MT5 trading signals service allows you to share your strategies with other traders for free or a subscription fee that you determine. When traders subscribe to your signal, your deals are automatically replicated on their accounts each time you place a trade." />
-    ),
+const signal_content_provider: SignalContentType = {
+    header: {
+        text: '_t_Benefits of being an MT5<0 /> signals provider_t_',
+        components: [<br key={0} />],
+    },
+    text: '_t_If you are a professional trader, the MT5 trading signals service allows you to share your strategies with other traders for free or a subscription fee that you determine. When traders subscribe to your signal, your deals are automatically replicated on their accounts each time you place a trade._t_',
     list: [
-        <Localize translate_text="Easy to set up – no installation required." key={0} />,
-        <Localize translate_text="Additional income stream from monthly subscriptions." key={1} />,
-        <Localize translate_text="Automated copying – no extra work from you." key={2} />,
+        '_t_Easy to set up – no installation required._t_',
+        '_t_Additional income stream from monthly subscriptions._t_',
+        '_t_Automated copying – no extra work from you._t_',
     ],
 }
 
@@ -123,15 +109,15 @@ const DMT5TradingSignals = () => {
         <Layout>
             <SEO
                 description={localize(
-                    'Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.',
+                    '_t_Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies._t_',
                 )}
-                title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')}
+                title={localize('_t_Deriv MetaTrader 5 trading signals | Resources | Deriv_t_')}
                 meta_attributes={meta_attributes}
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('Deriv MT5 signals')}
+                        <Localize translate_text="_t_Deriv MT5 signals_t_" />
                     </Header>
                 </SmallContainer>
             </Hero>
@@ -142,7 +128,9 @@ const DMT5TradingSignals = () => {
                         active_tab={active_tab}
                         name="signal-subscriber"
                     >
-                        <Header as="h4">{localize('Signal subscriber')}</Header>
+                        <Header as="h4">
+                            <Localize translate_text="_t_Signal subscriber_t_" />
+                        </Header>
                     </Item>
                 )}
                 {is_mounted && (
@@ -151,7 +139,9 @@ const DMT5TradingSignals = () => {
                         active_tab={active_tab}
                         name="signal-provider"
                     >
-                        <Header as="h4">{localize('Signal provider')}</Header>
+                        <Header as="h4">
+                            <Localize translate_text="_t_Signal provider_t_" />
+                        </Header>
                     </Item>
                 )}
             </TabsContainer>

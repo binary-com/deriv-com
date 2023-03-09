@@ -10,9 +10,10 @@ import {
 } from './_faq-data'
 import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
+import { TString } from 'types/generics'
 
 const FaqHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -99,39 +100,39 @@ const header_style = {
 
 type TFaqContent = {
     deriv_affiliate: {
-        header: string
+        header: TString
         component: React.ReactElement
         class_name: string
     }[]
-    deriv_ib: { header: string; component: React.ReactElement; class_name: string }[]
+    deriv_ib: { header: TString; component: React.ReactElement; class_name: string }[]
 }
 const faq_content: TFaqContent = {
     deriv_affiliate: [
         {
-            header: 'General',
+            header: '_t_General_t_',
             component: <AffiliateGeneral />,
             class_name: 'general-affiliate',
         },
         {
-            header: 'Account management',
+            header: '_t_Account management_t_',
             component: <AffiliateAccountManagement />,
             class_name: 'account-management-affiliate',
         },
         {
-            header: 'Referral tools',
+            header: '_t_Referral tools_t_',
             component: <AffiliateReferralTools />,
             class_name: 'referal-tools-affiliate',
         },
     ],
     deriv_ib: [
-        { header: 'General', component: <IBGeneral />, class_name: 'general-ib' },
+        { header: '_t_General_t_', component: <IBGeneral />, class_name: 'general-ib' },
         {
-            header: 'Account management',
+            header: '_t_Account management_t_',
             component: <IBAccountManagement />,
             class_name: 'account-management-ib',
         },
         {
-            header: 'Referral tools',
+            header: '_t_Referral tools_t_',
             component: <IBReferralTools />,
             class_name: 'referal-tools-ib',
         },
@@ -149,7 +150,7 @@ const Faq = () => {
     return (
         <RelativeContainer>
             <FaqHeader as="h2" size="4.8rem" align="center">
-                {localize('Browse our FAQ')}
+                <Localize translate_text="_t_Browse our FAQ_t_" />
             </FaqHeader>
             <FaqSubHeader
                 as="h4"
@@ -158,7 +159,7 @@ const Faq = () => {
                 m="4rem 0"
                 weight="normal"
             >
-                {localize('Deriv Affiliate Programme')}
+                <Localize translate_text="_t_Deriv Affiliate Programme_t_" />
             </FaqSubHeader>
             <StyledAccordionWrapper id="faq-list-1">
                 <Accordion has_single_state>
@@ -186,7 +187,7 @@ const Faq = () => {
                 m="8rem 0 4rem 0 "
                 weight="normal"
             >
-                {localize('Deriv IB Programme')}
+                <Localize translate_text="_t_Deriv IB Programme_t_" />
             </FaqSubHeader>
             <StyledAccordionWrapper id="faq-list-2">
                 <Accordion has_single_state is_faq>

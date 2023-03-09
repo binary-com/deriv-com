@@ -1,6 +1,6 @@
 import { TQuestionsData } from './_data-types'
 
-const about_deriv: TQuestionsData = {
+const payment_agent: TQuestionsData = {
     section: 'General',
     category: '_t_Payment Agent_t_',
     questions: [
@@ -242,4 +242,4 @@ const about_deriv: TQuestionsData = {
     ],
 }
 
-export default about_deriv
+export default payment_agent

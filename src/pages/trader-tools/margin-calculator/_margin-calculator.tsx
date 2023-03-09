@@ -243,7 +243,7 @@ const MarginCalculator = () => {
                                                             {...field}
                                                             id="volume"
                                                             type="text"
-                                                            label={localize('_t_Volume_t_')}
+                                                            label="_t_Volume_t_"
                                                             autoComplete="off"
                                                             error={touched.volume && errors.volume}
                                                             onBlur={handleBlur}
@@ -277,7 +277,7 @@ const MarginCalculator = () => {
                                                             {...field}
                                                             id="assetPrice"
                                                             type="text"
-                                                            label={localize('_t_Asset price_t_')}
+                                                            label="_t_Asset price_t_"
                                                             autoComplete="off"
                                                             error={
                                                                 touched.assetPrice &&

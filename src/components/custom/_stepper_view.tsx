@@ -16,7 +16,7 @@ type TProps = {
     default_step?: number
     onStepChanged?: (step: number) => void
     renderFooter?: () => JSX.Element
-    contentWidth: string
+    contentWidth?: string
 }
 type ItemsWrapperProps = {
     width?: string

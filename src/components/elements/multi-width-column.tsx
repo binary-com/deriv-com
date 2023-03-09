@@ -63,7 +63,6 @@ const SecondColumn = styled(Column)`
     @media ${device.tabletL} {
         background-image: none;
         width: 100%;
-        height: 250px;
         left: 0;
         padding-left: 0;
     }

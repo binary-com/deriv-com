@@ -1,25 +1,16 @@
-import React, { ReactElement, useCallback, useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { graphql, StaticQuery } from 'gatsby'
+import React, { ReactElement } from 'react'
 import Loadable from '@loadable/component'
 import PageNotFound from '../404'
+import DCommonBanner from './_hero'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
-import dbot_logo from 'images/svg/dbot/dbot-icon.svg'
-import DBotBG from 'images/svg/dbot/dbot-bg.svg'
-import DBotBGMobile from 'images/svg/dbot/dbot-bg-mobile.svg'
-import { size } from 'themes/device'
-import { isBrowser } from 'common/utility'
-import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
-import DHero from 'components/custom/_dhero'
 import DNumber from 'components/custom/_dnumbers'
 import { MetaAttributesType } from 'types/page.types'
-const DBotVideo = Loadable(() => import('./_dbot-video'))
-const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
-const DBanner = Loadable(() => import('components/custom/_dbanner'))
-const OtherPlatform = Loadable(() => import('components/custom/other-platforms'))
+const DBotEasySteps = Loadable(() => import('./_steps_section'))
+const DBotGetApp = Loadable(() => import('./_get-app-section'))
+const OurPlatforms = Loadable(() => import('./_our-platforms'))
 import useRegion from 'components/hooks/use-region'
 
 type ItemType = {
@@ -40,30 +31,19 @@ const meta_attributes: MetaAttributesType = {
         'Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!',
     ),
 }
-
-const query = graphql`
-    query {
-        deriv_platform: file(relativePath: { eq: "dbot/dbot-banner.png" }) {
-            ...fadeIn
-        }
-    }
-`
 const items: ItemType[] = [
-    { title: '3', subtitle: <Localize translate_text="pre-built strategies included" /> },
+    { title: '50+', subtitle: <Localize translate_text="assets to unleash your bot" /> },
     {
         title: <Localize translate_text="FREE" />,
         subtitle: <Localize translate_text="zero cost to build" />,
     },
-    { title: '50+', subtitle: <Localize translate_text="assets to unleash your bot" /> },
+    { title: '3', subtitle: <Localize translate_text="pre-built strategies included" /> },
 ]
-const PlatformContainer = styled.div`
-    padding: 8rem 0;
-`
 const trading: TradingType[] = [
     {
         title: <Localize translate_text="Start with a popular strategy" />,
         subtitle: (
-            <Localize translate_text="Martingale, D'Alembert, Oscar's Grind, Cutler's RSI, Bollinger Bands, and SMA Crossover — load and customise proven strategies or create your own from scratch." />
+            <Localize translate_text="Martingale, D'Alembert, and Oscar's Grind — load and customise proven strategies or create your own from scratch." />
         ),
         image_name: 'dbot_strategy',
         image_alt: localize('Customise your DBot strategy'),
@@ -79,7 +59,7 @@ const trading: TradingType[] = [
     {
         title: <Localize translate_text="Maximise profits, limit losses" />,
         subtitle: (
-            <Localize translate_text="Use analysis tools, indicators, and smart logic such as take-profit and stop-loss to maximise your profits and limit losses." />
+            <Localize translate_text="Use analysis tools, indicators, and smart logic such as take profit and stop loss to maximise your profits and limit losses." />
         ),
         image_name: 'dbot_maximise_profits',
         image_alt: localize('Increase your profits'),
@@ -112,20 +92,6 @@ const trading: TradingType[] = [
 
 const Dbot = () => {
     const { is_eu, is_row } = useRegion()
-    const [is_mobile, setIsMobile] = useState(
-        isBrowser() ? window.screen.width <= size.mobileL : false,
-    )
-
-    const handleResizeWindow = useCallback(() => {
-        setIsMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-    }, [])
-
-    useEffect(() => {
-        window.addEventListener('resize', handleResizeWindow)
-        return () => {
-            window.removeEventListener('resize', handleResizeWindow)
-        }
-    }, [handleResizeWindow])
     return (
         <>
             <SEO
@@ -137,37 +103,12 @@ const Dbot = () => {
             />
             {is_row && (
                 <Layout>
-                    <DHero
-                        title={localize('DBot')}
-                        content={localize('Automate your trading ideas without writing code')}
-                        join_us_for_free
-                        is_live_demo
-                        Logo={dbot_logo}
-                        background_svg={is_mobile ? DBotBGMobile : DBotBG}
-                        image_name="dbot"
-                        is_mobile={is_mobile}
-                        background_alt={localize('Automate trade with DBot at Deriv')}
-                    />
+                    <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
                     <DNumber items={items} justify="space-around" />
-                    <DHowItWorks
-                        Video={DBotVideo}
-                        title={<Localize translate_text="Build a trading robot in 5 easy steps" />}
-                    />
+                    <DBotEasySteps />
                     <DTrading trading={trading} />
-                    <PlatformContainer>
-                        <OtherPlatform exclude="dbot" />
-                    </PlatformContainer>
-                    <StaticQuery
-                        query={query}
-                        render={(data) => (
-                            <DBanner
-                                title={<Localize translate_text="Get into the DBot experience" />}
-                                data={data}
-                                background_pattern={BackgroundPatternDBot}
-                                image_alt="Start trading with DBot at Deriv"
-                            />
-                        )}
-                    />
+                    <DBotGetApp />
+                    <OurPlatforms />
                 </Layout>
             )}
             {is_eu && <PageNotFound />}

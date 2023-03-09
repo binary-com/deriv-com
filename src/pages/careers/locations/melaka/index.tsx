@@ -43,9 +43,9 @@ const Melaka = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Melaka | Our office – Malaysia | Deriv')}
+                title={localize('_t_Melaka | Our office – Malaysia | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Melaka, Malaysia.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Melaka, Malaysia._t_',
                 )}
             />
             <LocationLayout location={melaka} images={images} />

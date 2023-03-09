@@ -7,7 +7,7 @@ import { DMT5Props } from './_deriv-ib-programme'
 import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { Accordion, AccordionItem, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
@@ -238,15 +238,17 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                 <>
                     <CardWrappers>
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
-                            {data.name}
+                            <Localize translate_text={data.name} />
                         </Header>
-                        <CardText>{data.description}</CardText>
+                        <CardText>
+                            <Localize translate_text={data.description} />
+                        </CardText>
                         <AccordionWrapper>
                             <Accordion has_single_state>
                                 {data.type.map((value) => (
                                     <AccordionItem
                                         key={value.class_name}
-                                        header={value.title}
+                                        header={localize(value.title)}
                                         parent_style={parent_style}
                                         style={item_style}
                                         header_style={header_style}
@@ -264,7 +266,9 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                                         headerHeight={value.headerHeight}
                                                     >
                                                         <StyledText size="14px" weight="bold">
-                                                            {listedValue.title}
+                                                            <Localize
+                                                                translate_text={listedValue.title}
+                                                            />
                                                         </StyledText>
                                                     </StyledTrap>
                                                     {listedValue.list.map((info, indexData) => (
@@ -273,7 +277,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                                             key={indexData}
                                                         >
                                                             <StyledText size="14px">
-                                                                {info}
+                                                                <Localize translate_text={info} />
                                                             </StyledText>
                                                         </TRAPREVERSE>
                                                     ))}
@@ -287,7 +291,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                     </CardWrappers>
                     <HowItsCalculate>
                         <StyledButton flat onClick={toggleCalculated} className="calculated">
-                            {localize("How it's calculated")}
+                            <Localize translate_text="_t_How it's calculated_t_" />
                         </StyledButton>
                     </HowItsCalculate>
                 </>
@@ -296,63 +300,71 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                     {data.countDetails.map((valueCalc, indexCalc) => (
                         <Flex key={indexCalc} direction="column" ai="flex-start" height="auto">
                             <Header as="h4" type="sub-section-title" mb="0.8rem">
-                                {valueCalc.title}
+                                <Localize translate_text={valueCalc.title} />
                             </Header>
-                            {valueCalc.list.map((valueDetails) => (
-                                <>
+                            {valueCalc.list.map((valueDetails, detailsIdx) => (
+                                <React.Fragment key={detailsIdx}>
                                     <Text mb="0.8rem" size="1.4rem">
                                         {valueDetails.details}
                                     </Text>
-                                    <Flex mb="1.6rem">
-                                        <QueryImage
-                                            data={dataImages[valueDetails.icon]}
-                                            alt={valueDetails.iconAlt}
-                                            width="100%"
-                                        />
-                                    </Flex>
+                                    {valueDetails.iconAlt && (
+                                        <Flex mb="1.6rem">
+                                            <QueryImage
+                                                data={dataImages[valueDetails.icon]}
+                                                alt={localize(valueDetails.iconAlt)}
+                                                width="100%"
+                                            />
+                                        </Flex>
+                                    )}
                                     {valueDetails.second_desc && (
                                         <Header type="paragraph-2" weight="normal">
                                             {valueDetails.second_desc}
                                         </Header>
                                     )}
                                     {valueDetails.notes &&
-                                        valueDetails.notes.map((valueNotes) => (
-                                            <>
+                                        valueDetails.notes.map((valueNotes, noteIdx) => (
+                                            <React.Fragment key={noteIdx}>
                                                 <Header type="sub-paragraph" mb="0.8rem">
-                                                    {valueNotes.title}
+                                                    <Localize translate_text={valueNotes.title} />
                                                 </Header>
 
                                                 <Text mb="1.6rem" size="1.4rem">
-                                                    {valueNotes.desc.firstText}
+                                                    <Localize
+                                                        translate_text={valueNotes.desc.firstText}
+                                                    />
                                                 </Text>
-                                            </>
+                                            </React.Fragment>
                                         ))}
-                                </>
+                                </React.Fragment>
                             ))}
-                            {valueCalc.notes.map((valueNotes) => (
-                                <>
+                            {valueCalc.notes.map((valueNotes, notesIndex) => (
+                                <React.Fragment key={notesIndex}>
                                     <Header type="sub-paragraph" mb="0.8rem">
-                                        {valueNotes.title}
+                                        <Localize translate_text={valueNotes.title} />
                                     </Header>
                                     {valueNotes.desc.secondText ? (
                                         <>
                                             <Text mb="16px" size="1.4rem">
-                                                {valueNotes.desc.firstText}
+                                                <Localize
+                                                    translate_text={valueNotes.desc.firstText}
+                                                />
                                             </Text>
                                             <Text mb="0" size="1.4rem">
-                                                {valueNotes.desc.secondText}
+                                                <Localize
+                                                    translate_text={valueNotes.desc.secondText}
+                                                />
                                             </Text>
                                         </>
                                     ) : (
                                         <Text mb="0" size="1.4rem">
-                                            {valueNotes.desc.firstText}
+                                            <Localize translate_text={valueNotes.desc.firstText} />
                                         </Text>
                                     )}
-                                </>
+                                </React.Fragment>
                             ))}
                             <ButtonWrapper>
                                 <BackButton tertiary onClick={toggleCalculated} className="back">
-                                    {localize('Back')}
+                                    <Localize translate_text="_t_Back_t_" />
                                 </BackButton>
                                 <StyledLinkButton
                                     id="dm-become-affiliate-signup"
@@ -362,7 +374,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                     target="_blank"
                                     type="affiliate_sign_up"
                                 >
-                                    {localize('Become an affiliate')}
+                                    <Localize translate_text="_t_Become an affiliate_t_" />
                                 </StyledLinkButton>
                             </ButtonWrapper>
                         </Flex>

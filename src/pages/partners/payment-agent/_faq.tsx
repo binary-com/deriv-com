@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { General, AccountManagement } from './_faq-data'
 import { SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import device from 'themes/device'
@@ -52,12 +52,12 @@ const Faq = () => {
     return (
         <RelativeContainer padding={is_p2p_allowed_country ? '5rem 0' : '0 0 5rem'}>
             <Header as="h2" size="3.6rem" mb="3.2rem" align="center">
-                {localize('FAQs')}
+                <Localize translate_text="_t_FAQs_t_" />
             </Header>
             <AccordionWrapper id="payment-agent-faq-list">
                 <Accordion has_single_state>
                     <AccordionItem
-                        header={localize('General')}
+                        header={localize('_t_General_t_')}
                         parent_style={parent_style}
                         style={item_style}
                         header_style={header_style}
@@ -67,7 +67,7 @@ const Faq = () => {
                         {<General />}
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Account management')}
+                        header={localize('_t_Account management_t_')}
                         style={item_style}
                         header_style={header_style}
                         plus

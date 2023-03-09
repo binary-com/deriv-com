@@ -249,7 +249,7 @@ const Input = ({
                     error={error}
                     disabled={disabled}
                     height={height}
-                    showLabel={label === '' ? label : localize(label)}
+                    showLabel={label}
                     {...props}
                     ref={current_input}
                 />

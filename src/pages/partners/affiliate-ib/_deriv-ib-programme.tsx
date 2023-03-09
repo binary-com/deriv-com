@@ -143,6 +143,10 @@ const SubtitleHeader = styled(Header)`
 
 const DerivIBProgramme = () => {
     const { is_row } = useRegion()
+    const commission_text = is_row
+        ? '_t_Earn commission from your clients’ trades on Deriv MT5 and Deriv X._t_'
+        : '_t_Earn commission from your clients’ trades on Deriv MT5._t_'
+
     return (
         <StyledSection id="deriv-ib">
             <Container direction="column">
@@ -154,11 +158,7 @@ const DerivIBProgramme = () => {
                         <Localize translate_text="_t_Our introducing broker programme is available to all Deriv affiliates._t_" />
                     </SubtitleHeader>
                     <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
-                        {is_row ? (
-                            <Localize translate_text="_t_Earn commission from your clients’ trades on Deriv MT5 and Deriv X._t_" />
-                        ) : (
-                            <Localize translate_text="_t_Earn commission from your clients’ trades on Deriv MT5._t_" />
-                        )}
+                        <Localize translate_text={commission_text} />
                     </SubtitleHeader>
                     <Header as="h2" mb="2rem" type="page-title" mt="4rem" align="center">
                         <Localize translate_text="_t_Deriv MT5_t_" />

@@ -25,7 +25,7 @@ const Faq = Loadable(() => import('./_faq'))
 const PartnerCTA = Loadable(() => import('./_partner-cta'))
 
 type ItemsType = {
-    title: TString
+    title: string
     subtitle: TString
 }[]
 
@@ -124,10 +124,10 @@ const StyledText = styled(Text)`
 `
 
 const items: ItemsType = [
-    { title: '_t_60K+_t_', subtitle: '_t_members_t_' },
-    { title: '_t_$47M+_t_', subtitle: '_t_paid out since inception_t_' },
-    { title: '_t_190+_t_', subtitle: '_t_countries_t_' },
-    { title: '_t_1M+_t_', subtitle: '_t_clients_t_' },
+    { title: '60K+', subtitle: '_t_members_t_' },
+    { title: '$47M+', subtitle: '_t_paid out since inception_t_' },
+    { title: '190+', subtitle: '_t_countries_t_' },
+    { title: '1M+', subtitle: '_t_clients_t_' },
 ]
 
 const why_partner_with_us_items: WhyUsType = [
@@ -191,7 +191,7 @@ const AffiliateIb = () => {
                             {items.map(({ title, subtitle }, index) => (
                                 <NumberWrapper key={index}>
                                     <Header as="p" type="page-title" align="center">
-                                        <Localize translate_text={title} />
+                                        {title}
                                     </Header>
                                     <StyledText align="center">
                                         <Localize translate_text={subtitle} />

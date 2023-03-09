@@ -224,7 +224,7 @@ const AvailableTradesDesktop = ({
                         top: offsetPosition,
                         behavior: 'smooth',
                     })
-                }, 800)
+                }, 1000)
             }
         }
     }, [is_region_loading])

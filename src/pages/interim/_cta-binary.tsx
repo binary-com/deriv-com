@@ -28,7 +28,7 @@ const CtaBinary = ({ is_white }: CtaBinaryProps) => {
             )}
             <Text ml="4px" max_width="20rem" lh="15px" color={color} size="var(--text-size-xs)">
                 <Localize
-                    translate_text="No sign up needed. Log in with your <0>Binary.com</0> credentials."
+                    translate_text="_t_No sign up needed. Log in with your <0>Binary.com</0> credentials._t_"
                     components={[
                         <BinaryLink
                             id="dm-binary-login-link-1"

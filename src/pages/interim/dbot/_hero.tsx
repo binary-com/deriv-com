@@ -12,7 +12,7 @@ import {
 import CtaBinary from '../_cta-binary'
 import { Container } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 
 const query = graphql`
     query {
@@ -36,7 +36,7 @@ const Hero = () => {
                             align="center"
                             lh="1.25"
                         >
-                            {localize('Introducing DBot on Deriv.com')}
+                            <Localize translate_text="_t_Introducing DBot on Deriv.com_t_" />
                         </ResponsiveHeader>
                         <Header
                             as="h4"
@@ -45,11 +45,11 @@ const Hero = () => {
                             mb="4rem"
                             align="center"
                         >
-                            {localize('Our improved bot builder at our new home')}
+                            <Localize translate_text="_t_Our improved bot builder at our new home_t_" />
                         </Header>
                         <Desktop width="auto" fd="column" ai="center">
                             <FitButton secondary to="/">
-                                {localize('Explore Deriv.com')}
+                                <Localize translate_text="_t_Explore Deriv.com_t_" />
                             </FitButton>
                             <CtaBinary is_white />
                         </Desktop>
@@ -58,13 +58,13 @@ const Hero = () => {
                         <QueryImage
                             width="100%"
                             data={data['dbot']}
-                            alt={localize('DBOT platforms')}
+                            alt={localize('_t_DBOT platforms_t_')}
                             loading="eager"
                         />
                     </ImgWrapper>
                     <Mobile mt="4rem" fd="column" ai="center">
                         <FitButton secondary to="/">
-                            {localize('Explore Deriv.com')}
+                            <Localize translate_text="_t_Explore Deriv.com_t_" />
                         </FitButton>
                         <CtaBinary is_white />
                     </Mobile>
@@ -72,12 +72,10 @@ const Hero = () => {
             </Section>
             <Container p="8rem 0" fd="column">
                 <Header as="h4" type="sub-section-title" weight="normal" align="center" mb="3.6rem">
-                    {localize('You read right. We are rebranding Binary.com to Deriv.com.')}
+                    <Localize translate_text="_t_You read right. We are rebranding Binary.com to Deriv.com._t_" />
                 </Header>
                 <Header as="h4" type="sub-section-title" weight="normal" align="center">
-                    {localize(
-                        'Here’s why: In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you.',
-                    )}
+                    <Localize translate_text="_t_Here’s why: In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you._t_" />
                 </Header>
             </Container>
         </>

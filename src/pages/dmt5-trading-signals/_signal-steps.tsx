@@ -25,22 +25,21 @@ const Container = styled.section`
         margin: 0;
     }
 `
-type TTabTexts = {
-    header: LocalizeComponentAttributes
-    step_one_header: LocalizeComponentAttributes
-    step_one_text: LocalizeComponentAttributes
+type TTexts =
+    | 'header'
+    | 'step_one_header'
+    | 'step_one_text'
+    | 'step_two_header'
+    | 'step_two_text'
+    | 'step_three_header'
+    | 'step_three_text'
+    | 'notice'
+
+type TTabTexts = Record<TTexts, LocalizeComponentAttributes> & {
     step_one_text_eu?: LocalizeComponentAttributes
-    step_two_header: LocalizeComponentAttributes
-    step_two_text: LocalizeComponentAttributes
-    step_three_header: LocalizeComponentAttributes
-    step_three_text: LocalizeComponentAttributes
-    notice: LocalizeComponentAttributes
 }
 
-type TContent = {
-    subscriber: TTabTexts
-    provider: TTabTexts
-}
+type TContent = Record<'subscriber' | 'provider', TTabTexts>
 
 const content: TContent = {
     subscriber: {

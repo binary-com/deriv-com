@@ -6,11 +6,13 @@ import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/c
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
-type ToolsType = {
-    title: JSX.Element
-    subtitle: JSX.Element
-    link: { text: JSX.Element; route: string }
+export type ToolsType = {
+    title: TString
+    subtitle: TString
+    link: { text: TString; route: string }
     image_name: string
     image_alt: string
 }[]
@@ -160,7 +162,7 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                                             loading={index === 0 ? 'eager' : 'lazy'}
                                         />
                                         <StyledLinkButton tertiary to={item.link.route}>
-                                            {item.link.text}
+                                            <Localize translate_text={item.link.text} />
                                         </StyledLinkButton>
                                     </Mobile>
                                 </Column>
@@ -171,12 +173,14 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                                     margin_left={is_even ? outer_margin : inner_margin}
                                 >
                                     <Header as="h3" type="section-title" mb="8px">
-                                        {item.title}
+                                        <Localize translate_text={item.title} />
                                     </Header>
-                                    <Text>{item.subtitle}</Text>
+                                    <Text>
+                                        <Localize translate_text={item.subtitle} />
+                                    </Text>
                                     <Desktop className="margin-calculator-btn">
                                         <StyledLinkButton tertiary to={item.link.route}>
-                                            {item.link.text}
+                                            <Localize translate_text={item.link.text} />
                                         </StyledLinkButton>
                                     </Desktop>
                                 </Content>

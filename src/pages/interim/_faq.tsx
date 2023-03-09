@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { NeedSignUp, BinaryRemoved, DerivSecure, OtherChanges } from './_faq-data'
 import { SectionContainer, Container } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import device from 'themes/device'
@@ -50,7 +50,7 @@ const Faq = () => {
         <RelativeContainer>
             <Container>
                 <Header as="h3" type="section-title" size="3.6rem" mb="4rem" align="center">
-                    {localize('_t_Frequently asked questions_t_')}
+                    <Localize translate_text="_t_Frequently asked questions_t_" />
                 </Header>
             </Container>
 

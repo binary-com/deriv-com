@@ -327,7 +327,7 @@ const DownloadApp = () => {
                                 <img
                                     src={GooglePlayMobile}
                                     alt="google play"
-                                    width="160"
+                                    width="150"
                                     height="40"
                                 />
                             </LocalizedLink>
@@ -341,7 +341,7 @@ const DownloadApp = () => {
                                 <img
                                     src={AppGalleryMobile}
                                     alt="app gallery"
-                                    width="180"
+                                    width="150"
                                     height="40"
                                 />
                             </LocalizedLink>
@@ -352,7 +352,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={Mac} alt="app gallery" width="132" height="40" />
+                                <img src={Mac} alt="app gallery" width="150" height="40" />
                             </LocalizedLink>
                         </DownloadLinkMobileWrapper>
                     </StyledFlexMobile>

@@ -34,8 +34,10 @@ type TLeader = {
     photo: StrapiImage
 }
 type TOurLeadership = {
-    header: string
-    our_leadership: TLeader[]
+    our_leadership: {
+        header: string
+        leaders: TLeader[]
+    }
 }
 type TNumbers = {
     header: string

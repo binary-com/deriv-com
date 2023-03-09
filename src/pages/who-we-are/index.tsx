@@ -133,14 +133,17 @@ export const query = graphql`
                     }
                 }
                 our_leadership {
-                    name
-                    role
-                    link_url
-                    photo {
-                        url
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
+                    header
+                    leaders {
+                        name
+                        role
+                        link_url
+                        photo {
+                            url
+                            localFile {
+                                childImageSharp {
+                                    gatsbyImageData
+                                }
                             }
                         }
                     }

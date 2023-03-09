@@ -140,7 +140,7 @@ const OurLeadership = ({ our_leadership }: TOurLeadership) => {
                 mobile_column_gap="24px"
                 mobile_row_gap="6px"
             >
-                {our_leadership?.map((leader) => (
+                {our_leadership?.leaders?.map((leader) => (
                     <LeaderCard key={leader.name} {...leader} />
                 ))}
             </StyledCssGrid>

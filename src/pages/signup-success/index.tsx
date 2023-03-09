@@ -61,16 +61,16 @@ const SignupSuccess = () => {
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
-                title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
+                title={localize('_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_')}
                 description={localize(
-                    'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
+                    '_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_',
                 )}
                 no_index
             />
             <Wrapper>
                 <ResponseWrapper>
                     <Header as="h3" type="section-title" align="center" weight="normal">
-                        {localize('Check your email')}
+                        <Localize translate_text="_t_Check your email_t_" />
                     </Header>
                     <StaticQuery
                         query={graphql`
@@ -88,12 +88,12 @@ const SignupSuccess = () => {
                     />
                     <Text align="center">
                         <Localize
-                            translate_text="We've sent a message to {{email}} with a link to activate your account."
+                            translate_text="_t_We've sent a message to {{email}} with a link to activate your account._t_"
                             values={{ email: registeredEmail }}
                         />
                     </Text>
                     <EmailLink to="/check-email/" align="center">
-                        {localize("Didn't receive your email?")}
+                        <Localize translate_text="_t_Didn't receive your email?_t_" />
                     </EmailLink>
                 </ResponseWrapper>
             </Wrapper>

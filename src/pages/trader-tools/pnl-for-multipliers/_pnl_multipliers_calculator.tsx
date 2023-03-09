@@ -426,23 +426,23 @@ const PnlMultipliersCalculator = () => {
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
-                        {localize("Traders' tools")}
+                        <Localize translate_text="_t_Traders' tools_t_" />
                     </LocalizedLinkText>
                     <ImageWithDireciton
                         src={RightArrow}
-                        alt={localize('right arrow')}
+                        alt={localize('_t_right arrow_t_')}
                         height="16"
                         width="16"
                         style={{ margin: '0 8px' }}
                     />
-                    <Text>{localize('PnL for multipliers')}</Text>
+                    <Text>
+                        <Localize translate_text="_t_PnL for multipliers_t_" />
+                    </Text>
                 </Flex>
             </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
-                    {localize(
-                        'Our profit and loss calculator for multipliers helps to determine the stop loss and take profit level in your trades to minimise losses and maximise gains.',
-                    )}
+                    <Localize translate_text="_t_Our profit and loss calculator for multipliers helps to determine the stop loss and take profit level in your trades to minimise losses and maximise gains._t_" />
                 </SectionSubtitle>
 
                 <Flex
@@ -453,12 +453,12 @@ const PnlMultipliersCalculator = () => {
                 >
                     <SwapTabSelector active={tab === 'Level'} onClick={() => onTabClick('Level')}>
                         <Text size="var(--text-size-m)" align="center" className="level">
-                            {localize('Level')}
+                            <Localize translate_text="_t_Level_t_" />
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Amount'} onClick={() => onTabClick('Amount')}>
                         <Text size="var(--text-size-m)" align="center" className="amount">
-                            {localize('Amount')}
+                            <Localize translate_text="_t_Amount_t_" />
                         </Text>
                     </SwapTabSelector>
                 </Flex>
@@ -573,13 +573,13 @@ const PnlMultipliersCalculator = () => {
 
                                     return (
                                         <>
-                                            <Desktop breakpoint={'tablet'}>
+                                            <Desktop breakpoint="tablet">
                                                 <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex>
                                                             <Flex fd="column" mr="24px">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Take profit level')}
+                                                                    <Localize translate_text="_t_Take profit level_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -594,7 +594,7 @@ const PnlMultipliersCalculator = () => {
                                                             </Flex>
                                                             <Flex fd="column">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Stop loss level')}
+                                                                    <Localize translate_text="_t_Stop loss level_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -610,7 +610,7 @@ const PnlMultipliersCalculator = () => {
 
                                                     <CalculatorBody>
                                                         <CalculatorLabel>
-                                                            {localize('Direction')}
+                                                            <Localize translate_text="_t_Direction_t_" />
                                                         </CalculatorLabel>
                                                         <Flex
                                                             mb="3rem"
@@ -626,7 +626,7 @@ const PnlMultipliersCalculator = () => {
                                                                 }}
                                                             >
                                                                 <Text align="center">
-                                                                    {localize('Up')}
+                                                                    <Localize translate_text="_t_Up_t_" />
                                                                 </Text>
                                                             </PnlCalculatorTabItem>
                                                             <PnlCalculatorTabItem
@@ -638,7 +638,7 @@ const PnlMultipliersCalculator = () => {
                                                                 )}
                                                             >
                                                                 <Text align="center">
-                                                                    {localize('Down')}
+                                                                    <Localize translate_text="_t_Down_t_" />
                                                                 </Text>
                                                             </PnlCalculatorTabItem>
                                                         </Flex>
@@ -774,7 +774,7 @@ const PnlMultipliersCalculator = () => {
                                                                 type="submit"
                                                                 disabled={!isValid || !dirty}
                                                             >
-                                                                {localize('Calculate')}
+                                                                <Localize translate_text="_t_Calculate_t_" />
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
@@ -787,7 +787,7 @@ const PnlMultipliersCalculator = () => {
                                                         <Flex fd="column">
                                                             <Flex fd="column" mb="16px">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Take profit level')}
+                                                                    <Localize translate_text="_t_Take profit level_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -802,7 +802,7 @@ const PnlMultipliersCalculator = () => {
                                                             </Flex>
                                                             <Flex fd="column">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Stop loss level')}
+                                                                    <Localize translate_text="_t_Stop loss level_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -818,7 +818,7 @@ const PnlMultipliersCalculator = () => {
 
                                                     <CalculatorBody>
                                                         <CalculatorLabel>
-                                                            {localize('Direction')}
+                                                            <Localize translate_text="_t_Direction_t_" />
                                                         </CalculatorLabel>
                                                         <Flex
                                                             mb="3rem"
@@ -833,7 +833,7 @@ const PnlMultipliersCalculator = () => {
                                                                 }}
                                                             >
                                                                 <Text align="center">
-                                                                    {localize('Up')}
+                                                                    <Localize translate_text="_t_Up_t_" />
                                                                 </Text>
                                                             </PnlCalculatorTabItem>
                                                             <PnlCalculatorTabItem
@@ -845,7 +845,7 @@ const PnlMultipliersCalculator = () => {
                                                                 )}
                                                             >
                                                                 <Text align="center">
-                                                                    {localize('Down')}
+                                                                    <Localize translate_text="_t_Down_t_" />
                                                                 </Text>
                                                             </PnlCalculatorTabItem>
                                                         </Flex>
@@ -952,7 +952,7 @@ const PnlMultipliersCalculator = () => {
                                                                 type="submit"
                                                                 disabled={!isValid || !dirty}
                                                             >
-                                                                {localize('Calculate')}
+                                                                <Localize translate_text="_t_Calculate_t_" />
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
@@ -966,50 +966,44 @@ const PnlMultipliersCalculator = () => {
 
                         <RightContent>
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize('How to calculate stop loss and take profit level')}
+                                <Localize translate_text="_t_How to calculate stop loss and take profit level_t_" />
                             </Header>
 
                             <Text mb="8px">
-                                {localize(
-                                    'The stop loss and take profit level for a contract on DTrader is calculated based on the formula:',
-                                )}
+                                <Localize translate_text="_t_The stop loss and take profit level for a contract on DTrader is calculated based on the formula:_t_" />
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and take profit level in the Up direction = asset price × {(stop loss OR take profit amount + commission) ÷ (stake × multiplier) + 1}</0>"
+                                    translate_text="_t_<0>Stop loss and take profit level in the Up direction = asset price × {(stop loss OR take profit amount + commission) ÷ (stake × multiplier) + 1}</0>_t_"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="16px">
                                 <Localize
-                                    translate_text="<0>Stop loss and take profit level in the Down direction = asset price × {(-stop loss OR take profit amount - commission) ÷ (stake × multiplier) + 1}</0>"
+                                    translate_text="_t_<0>Stop loss and take profit level in the Down direction = asset price × {(-stop loss OR take profit amount - commission) ÷ (stake × multiplier) + 1}</0>_t_"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="40px">
-                                {localize(
-                                    'This helps you to set the stop loss and take profit level when the asset price moves in Up or Down direction.',
-                                )}
+                                <Localize translate_text="_t_This helps you to set the stop loss and take profit level when the asset price moves in Up or Down direction._t_" />
                             </Text>
 
                             <Header as="h3" type="section-title" mb="16px">
-                                {localize('Example calculation')}
+                                <Localize translate_text="_t_Example calculation_t_" />
                             </Header>
 
                             <Accordion id="pnl-for-multipliers" has_single_state>
                                 <AccordionItem
-                                    header={localize('Stop loss level in Up direction')}
+                                    header={localize('_t_Stop loss level in Up direction_t_')}
                                     header_style={header_style}
                                     style={item_style}
                                     plus
                                     class_name="take-profit-up"
                                 >
                                     <Text mb="16px">
-                                        {localize(
-                                            'Let’s say you want to calculate the stop loss level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss amount of 7.54 USD in Up direction.',
-                                        )}
+                                        <Localize translate_text="_t_Let’s say you want to calculate the stop loss level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss amount of 7.54 USD in Up direction._t_" />
                                     </Text>
-                                    <Desktop breakpoint={'tablet'}>
+                                    <Desktop breakpoint="tablet">
                                         <StopLossLevelUp />
                                     </Desktop>
                                     <Mobile>
@@ -1019,7 +1013,7 @@ const PnlMultipliersCalculator = () => {
                                         <StyledOl>
                                             <li>
                                                 <span>
-                                                    <Localize translate_text="The commission is automatically calculated based on your stake, symbol, and the multiplier you choose. Its value is directly available on DTrader." />
+                                                    <Localize translate_text="_t_The commission is automatically calculated based on your stake, symbol, and the multiplier you choose. Its value is directly available on DTrader._t_" />
                                                 </span>
                                             </li>
                                         </StyledOl>
@@ -1027,25 +1021,23 @@ const PnlMultipliersCalculator = () => {
 
                                     <Text mb="1.6rem" mt="1.6rem">
                                         <Localize
-                                            translate_text="So in this scenario, you would set your stop loss level at <0>3351.46</0>."
+                                            translate_text="_t_So in this scenario, you would set your stop loss level at <0>3351.46</0>._t_"
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>
                                 </AccordionItem>
 
                                 <AccordionItem
-                                    header={localize('Take profit level in Down direction')}
+                                    header={localize('_t_Take profit level in Down direction_t_')}
                                     header_style={header_style}
                                     style={item_style}
                                     plus
                                     class_name="take-profit-down"
                                 >
                                     <Text mb="16px">
-                                        {localize(
-                                            'Let’s say you want to calculate the take profit level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit amount of 7.54 USD in Down direction.',
-                                        )}
+                                        <Localize translate_text="_t_Let’s say you want to calculate the take profit level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit amount of 7.54 USD in Down direction._t_" />
                                     </Text>
-                                    <Desktop breakpoint={'tablet'}>
+                                    <Desktop breakpoint="tablet">
                                         <TakeProfitLevelUp />
                                     </Desktop>
                                     <Mobile>
@@ -1056,7 +1048,7 @@ const PnlMultipliersCalculator = () => {
                                         <StyledOl>
                                             <li>
                                                 <span>
-                                                    <Localize translate_text="The commission is automatically calculated based on your stake, symbol, and the multiplier you choose. Its value is directly available on DTrader." />
+                                                    <Localize translate_text="_t_The commission is automatically calculated based on your stake, symbol, and the multiplier you choose. Its value is directly available on DTrader._t_" />
                                                 </span>
                                             </li>
                                         </StyledOl>
@@ -1064,7 +1056,7 @@ const PnlMultipliersCalculator = () => {
 
                                     <Text mt="1.6rem">
                                         <Localize
-                                            translate_text="So in this scenario, you would set your take profit level at <0>3350.11</0>."
+                                            translate_text="_t_So in this scenario, you would set your take profit level at <0>3350.11</0>._t_"
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>
@@ -1079,7 +1071,7 @@ const PnlMultipliersCalculator = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Go to DTrader')}
+                                    <Localize translate_text="_t_Go to DTrader_t_" />
                                 </StyledLinkButton>
                             </LinkWrapper>
                         </RightContent>
@@ -1198,13 +1190,13 @@ const PnlMultipliersCalculator = () => {
 
                                     return (
                                         <>
-                                            <Desktop breakpoint={'tablet'}>
+                                            <Desktop breakpoint="tablet">
                                                 <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex>
                                                             <Flex fd="column" mr="24px">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Take profit amount')}
+                                                                    <Localize translate_text="_t_Take profit amount_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -1219,7 +1211,7 @@ const PnlMultipliersCalculator = () => {
                                                             </Flex>
                                                             <Flex fd="column">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Stop loss amount')}
+                                                                    <Localize translate_text="_t_Stop loss amount_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -1237,7 +1229,7 @@ const PnlMultipliersCalculator = () => {
 
                                                     <CalculatorBody>
                                                         <CalculatorLabel>
-                                                            {localize('Direction')}
+                                                            <Localize translate_text="_t_Direction_t_" />
                                                         </CalculatorLabel>
                                                         <Flex
                                                             mb="3rem"
@@ -1253,7 +1245,7 @@ const PnlMultipliersCalculator = () => {
                                                                 }}
                                                             >
                                                                 <Text align="center">
-                                                                    {localize('Up')}
+                                                                    <Localize translate_text="_t_Up_t_" />
                                                                 </Text>
                                                             </PnlCalculatorTabItem>
                                                             <PnlCalculatorTabItem
@@ -1265,7 +1257,7 @@ const PnlMultipliersCalculator = () => {
                                                                 )}
                                                             >
                                                                 <Text align="center">
-                                                                    {localize('Down')}
+                                                                    <Localize translate_text="_t_Down_t_" />
                                                                 </Text>
                                                             </PnlCalculatorTabItem>
                                                         </Flex>
@@ -1401,7 +1393,7 @@ const PnlMultipliersCalculator = () => {
                                                                 type="submit"
                                                                 disabled={!isValid || !dirty}
                                                             >
-                                                                {localize('Calculate')}
+                                                                <Localize translate_text="_t_Calculate_t_" />
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
@@ -1414,7 +1406,7 @@ const PnlMultipliersCalculator = () => {
                                                         <Flex fd="column">
                                                             <Flex fd="column" mb="16px">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Take profit amount')}
+                                                                    <Localize translate_text="_t_Take profit amount_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -1429,7 +1421,7 @@ const PnlMultipliersCalculator = () => {
                                                             </Flex>
                                                             <Flex fd="column">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Stop loss amount')}
+                                                                    <Localize translate_text="_t_Stop loss amount_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -1447,7 +1439,7 @@ const PnlMultipliersCalculator = () => {
 
                                                     <CalculatorBody>
                                                         <CalculatorLabel>
-                                                            {localize('Direction')}
+                                                            <Localize translate_text="_t_Direction_t_" />
                                                         </CalculatorLabel>
                                                         <Flex
                                                             mb="3rem"
@@ -1462,7 +1454,7 @@ const PnlMultipliersCalculator = () => {
                                                                 }}
                                                             >
                                                                 <Text align="center">
-                                                                    {localize('Up')}
+                                                                    <Localize translate_text="_t_Up_t_" />
                                                                 </Text>
                                                             </PnlCalculatorTabItem>
                                                             <PnlCalculatorTabItem
@@ -1474,7 +1466,7 @@ const PnlMultipliersCalculator = () => {
                                                                 )}
                                                             >
                                                                 <Text align="center">
-                                                                    {localize('Down')}
+                                                                    <Localize translate_text="_t_Down_t_" />
                                                                 </Text>
                                                             </PnlCalculatorTabItem>
                                                         </Flex>
@@ -1581,7 +1573,7 @@ const PnlMultipliersCalculator = () => {
                                                                 type="submit"
                                                                 disabled={!isValid || !dirty}
                                                             >
-                                                                {localize('Calculate')}
+                                                                <Localize translate_text="_t_Calculate_t_" />
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
@@ -1595,50 +1587,44 @@ const PnlMultipliersCalculator = () => {
 
                         <RightContent>
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize('How to calculate stop loss and take profit amount')}
+                                <Localize translate_text="_t_How to calculate stop loss and take profit amount_t_" />
                             </Header>
 
                             <Text mb="8px">
-                                {localize(
-                                    'The stop loss and take profit amount for a contract on DTrader is calculated based on the formula:',
-                                )}
+                                <Localize translate_text="_t_The stop loss and take profit amount for a contract on DTrader is calculated based on the formula:_t_" />
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and take profit amount in the Up direction = Max [{stake × ((stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
+                                    translate_text="_t_<0>Stop loss and take profit amount in the Up direction = Max [{stake × ((stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>_t_"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="16px">
                                 <Localize
-                                    translate_text="<0>Stop loss and take profit amount in the Down direction = Max [{stake × (-(stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
+                                    translate_text="_t_<0>Stop loss and take profit amount in the Down direction = Max [{stake × (-(stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>_t_"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="40px">
-                                {localize(
-                                    'This helps you to set the stop loss and take profit level when the asset price moves in Up or Down direction.',
-                                )}
+                                <Localize translate_text="_t_This helps you to set the stop loss and take profit level when the asset price moves in Up or Down direction._t_" />
                             </Text>
 
                             <Header as="h3" type="section-title" mb="16px">
-                                {localize('Example calculation')}
+                                <Localize translate_text="_t_Example calculation_t_" />
                             </Header>
 
                             <Accordion id="pnl-for-multipliers" has_single_state>
                                 <AccordionItem
-                                    header={localize('Take profit amount in Up direction')}
+                                    header={localize('_t_Take profit amount in Up direction_t_')}
                                     header_style={header_style}
                                     style={item_style}
                                     plus
                                     class_name="take-profit-amount"
                                 >
                                     <Text mb="16px">
-                                        {localize(
-                                            'Let’s say you want to calculate the take profit amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit level of 3400 in Up direction.',
-                                        )}
+                                        <Localize translate_text="_t_Let’s say you want to calculate the take profit amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit level of 3400 in Up direction._t_" />
                                     </Text>
-                                    <Desktop breakpoint={'tablet'}>
+                                    <Desktop breakpoint="tablet">
                                         <TakeProfitAmountUp />
                                     </Desktop>
                                     <Mobile>
@@ -1649,7 +1635,7 @@ const PnlMultipliersCalculator = () => {
                                         <StyledOl>
                                             <li>
                                                 <span>
-                                                    <Localize translate_text="The commission is automatically calculated based on your stake, symbol, and the multiplier you choose. Its value is directly available on DTrader." />
+                                                    <Localize translate_text="_t_The commission is automatically calculated based on your stake, symbol, and the multiplier you choose. Its value is directly available on DTrader._t_" />
                                                 </span>
                                             </li>
                                         </StyledOl>
@@ -1657,24 +1643,22 @@ const PnlMultipliersCalculator = () => {
 
                                     <Text mb="1.6rem" mt="1.6rem">
                                         <Localize
-                                            translate_text="So in this scenario, you would set your take profit level at <0>6.83 USD</0>."
+                                            translate_text="_t_So in this scenario, you would set your take profit level at <0>6.83 USD</0>._t_"
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>
                                 </AccordionItem>
 
                                 <AccordionItem
-                                    header={localize('Stop loss amount in Down direction')}
+                                    header={localize('_t_Stop loss amount in Down direction_t_')}
                                     header_style={header_style}
                                     style={item_style}
                                     plus
                                 >
                                     <Text mb="16px">
-                                        {localize(
-                                            'Let’s say you want to calculate the stop loss amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss level of 3400 in Down direction.',
-                                        )}
+                                        <Localize translate_text="_t_Let’s say you want to calculate the stop loss amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss level of 3400 in Down direction._t_" />
                                     </Text>
-                                    <Desktop breakpoint={'tablet'}>
+                                    <Desktop breakpoint="tablet">
                                         <StopLossAmountDown />
                                     </Desktop>
                                     <Mobile>
@@ -1684,7 +1668,7 @@ const PnlMultipliersCalculator = () => {
                                         <StyledOl>
                                             <li>
                                                 <span>
-                                                    <Localize translate_text="The commission is automatically calculated based on your stake, symbol, and the multiplier you choose. Its value is directly available on DTrader." />
+                                                    <Localize translate_text="_t_The commission is automatically calculated based on your stake, symbol, and the multiplier you choose. Its value is directly available on DTrader._t_" />
                                                 </span>
                                             </li>
                                         </StyledOl>
@@ -1692,7 +1676,7 @@ const PnlMultipliersCalculator = () => {
 
                                     <Text mt="1.6rem">
                                         <Localize
-                                            translate_text="So in this scenario, you would set your stop loss amount at <0>-7.23 USD</0>."
+                                            translate_text="_t_So in this scenario, you would set your stop loss amount at <0>-7.23 USD</0>._t_"
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>
@@ -1707,7 +1691,7 @@ const PnlMultipliersCalculator = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Go to DTrader')}
+                                    <Localize translate_text="_t_Go to DTrader_t_" />
                                 </StyledLinkButton>
                             </LinkWrapper>
                         </RightContent>

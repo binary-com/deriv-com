@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {
     StyledSection,
@@ -12,7 +12,7 @@ import {
     SecondaryHeader,
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
 import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
@@ -23,6 +23,7 @@ import Reply from 'images/svg/partners/pa-reply.svg'
 import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 
 type ImageWrapperProps = {
     left_margin?: string
@@ -97,29 +98,25 @@ const ButtonWrapper = styled(CenteredSection)`
 
 type SectionComponentProps = {
     img_src: string
-    header: ReactElement
-    text: ReactElement
+    header: TString
+    text: TString
 }
 
 const section_content: SectionComponentProps[] = [
     {
         img_src: CurrencyExchange,
-        header: <Localize translate_text="Currency exchangers" />,
-        text: (
-            <Localize translate_text="Reputable online currency exchangers who want to gain more exposure and clients." />
-        ),
+        header: '_t_Currency exchangers_t_',
+        text: '_t_Reputable online currency exchangers who want to gain more exposure and clients._t_',
     },
     {
         img_src: Affiliates,
-        header: <Localize translate_text="Affiliates" />,
-        text: <Localize translate_text="Deriv affiliates who want to support their clients." />,
+        header: '_t_Affiliates_t_',
+        text: '_t_Deriv affiliates who want to support their clients._t_',
     },
     {
         img_src: CommunityManagers,
-        header: <Localize translate_text="Community managers" />,
-        text: (
-            <Localize translate_text="Trusted influencers or community managers who want to earn extra revenue." />
-        ),
+        header: '_t_Community managers_t_',
+        text: '_t_Trusted influencers or community managers who want to earn extra revenue._t_',
     },
 ]
 
@@ -129,10 +126,10 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
             <ImageWrapper src={img_src} alt="" left_margin="0px" />
             <Content max_width="48.8rem">
                 <Header as="h4" type="sub-section-title" pb="8px">
-                    {header}
+                    <Localize translate_text={header} />
                 </Header>
                 <Header as="h4" type="paragraph-1" weight="normal">
-                    {text}
+                    <Localize translate_text={text} />
                 </Header>
             </Content>
         </Wrapper>
@@ -147,7 +144,7 @@ const WhoCanApply = () => {
                 <Flex>
                     <WhoCanApplyWrapper>
                         <StyledHeader as="h2" size="3.6rem">
-                            {localize('Who can apply')}
+                            <Localize translate_text="_t_Who can apply_t_" />
                         </StyledHeader>
                         {section_content.map((item, index) => (
                             <SectionComponent
@@ -158,27 +155,25 @@ const WhoCanApply = () => {
                             />
                         ))}
                         <Header as="h4" type="paragraph-1" mt="24px">
-                            {localize('Note:')}
+                            <Localize translate_text="_t_Note:_t_" />
                         </Header>
                         <StyledUl>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
                                     {
-                                        <Localize translate_text="You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful." />
+                                        <Localize translate_text="_t_You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful._t_" />
                                     }
                                 </Header>
                             </Li>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                    {localize(
-                                        'You can only service Deriv clients in your country of residence.',
-                                    )}
+                                    <Localize translate_text="_t_You can only service Deriv clients in your country of residence._t_" />
                                 </Header>
                             </Li>
                         </StyledUl>
                         <Header as="h4" type="paragraph-1" weight="normal">
                             <Localize
-                                translate_text="See our <0>terms and conditions</0> for more info."
+                                translate_text="_t_See our <0>terms and conditions</0> for more info._t_"
                                 components={[
                                     <LocalizedLinkText
                                         key={0}
@@ -197,7 +192,7 @@ const WhoCanApply = () => {
                 <Flex>
                     <HowToApply>
                         <HeaderHowToApply as="h2" mb="24px" size="3.6rem">
-                            {localize('Get started easily')}
+                            <Localize translate_text="_t_Get started easily_t_" />
                         </HeaderHowToApply>
                         <Timeline pb="24px" pl="18px">
                             <Timeline.Item>
@@ -209,38 +204,30 @@ const WhoCanApply = () => {
                                     />
                                     <Content min_width="240px" max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
-                                            {localize('Drop us an email')}
+                                            <Localize translate_text="_t_Drop us an email_t_" />
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
-                                            {localize('Send us an email with the following:')}
+                                            <Localize translate_text="_t_Send us an email with the following:_t_" />
                                         </Header>
                                         <StyledUl className="get-started--list">
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                                    {localize(
-                                                        'Your name, email address, and contact number',
-                                                    )}
+                                                    <Localize translate_text="_t_Your name, email address, and contact number_t_" />
                                                 </Header>
                                             </Li>
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                                    {localize(
-                                                        'Your website address (if you have one)',
-                                                    )}
+                                                    <Localize translate_text="_t_Your website address (if you have one)_t_" />
                                                 </Header>
                                             </Li>
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                                    {localize(
-                                                        'Payment methods you will accept from clients',
-                                                    )}
+                                                    <Localize translate_text="_t_Payment methods you will accept from clients_t_" />
                                                 </Header>
                                             </Li>
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                                    {localize(
-                                                        'The commission you will charge clients on deposits and withdrawals',
-                                                    )}
+                                                    <Localize translate_text="_t_The commission you will charge clients on deposits and withdrawals_t_" />
                                                 </Header>
                                             </Li>
                                         </StyledUl>
@@ -256,12 +243,10 @@ const WhoCanApply = () => {
                                     />
                                     <Content max_width="38.2rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
-                                            {localize('Wait for our reply')}
+                                            <Localize translate_text="_t_Wait for our reply_t_" />
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
-                                            {localize(
-                                                'We’ll review your application and get in touch for further information and next steps.',
-                                            )}
+                                            <Localize translate_text="_t_We’ll review your application and get in touch for further information and next steps._t_" />
                                         </Header>
                                     </Content>
                                 </HowToApplyContent>
@@ -275,12 +260,10 @@ const WhoCanApply = () => {
                                     />
                                     <Content max_width="38.2rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
-                                            {localize('Get listed')}
+                                            <Localize translate_text="_t_Get listed_t_" />
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
-                                            {localize(
-                                                'After final approval from our Compliance team, we’ll publish your details on our payment agent list.',
-                                            )}
+                                            <Localize translate_text="_t_After final approval from our Compliance team, we’ll publish your details on our payment agent list._t_" />
                                         </Header>
                                     </Content>
                                 </HowToApplyContent>
@@ -297,7 +280,7 @@ const WhoCanApply = () => {
                     to="mailto:partners@deriv.com"
                     is_mail_link
                 >
-                    {localize('Send us an email to apply')}
+                    <Localize translate_text="_t_Send us an email to apply_t_" />
                 </StyledLinkButton>
             </ButtonWrapper>
         </SectionWrapper>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements'
@@ -73,9 +73,9 @@ const NewSignup = () => {
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
-                title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
+                title={localize('_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_')}
                 description={localize(
-                    'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
+                    '_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_',
                 )}
             />
             <Wrapper>
@@ -83,13 +83,11 @@ const NewSignup = () => {
                     <Content>
                         <StyledGraph src={Graph} alt="graph" />
                         <Header mt="2.4rem" as="h3" type="section-title">
-                            {localize('Start trading with Deriv')}
+                            <Localize translate_text="_t_Start trading with Deriv_t_" />
                         </Header>
                         <br />
                         <Text>
-                            {localize(
-                                'Join over 1 million people who trade with Deriv.com and Binary.com — the award-winning platform that’s been trusted for over 20 years.',
-                            )}
+                            <Localize translate_text="_t_Join over 1 million people who trade with Deriv.com and Binary.com — the award-winning platform that’s been trusted for over 20 years._t_" />
                         </Text>
                         <Line />
                     </Content>

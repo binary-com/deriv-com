@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import banner from 'images/common/p2p/banner.png'
 import bannerBG from 'images/common/p2p/gradient_bg.png'
 import device from 'themes/device'
@@ -116,10 +116,12 @@ const P2PBanner = () => {
             <MainWrapper>
                 <LeftWrapper>
                     <LeftChild>
-                        <StyledH3>{localize('Looking for Deriv P2P instead?')}</StyledH3>
+                        <StyledH3>
+                            <Localize translate_text="_t_Looking for Deriv P2P instead?_t_" />
+                        </StyledH3>
                         <Subtitle as="h4" type="subtitle-1" weight="none" color="white" mb="24px">
                             <Localize
-                                translate_text="We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders."
+                                translate_text="_t_We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders._t_"
                                 components={[
                                     <Header key={0} as="span" type="subtitle-1" color="red" />,
                                 ]}
@@ -132,7 +134,7 @@ const P2PBanner = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Learn more
+                            <Localize translate_text="_t_Learn more_t_" />
                         </StyledLinkButton>
                     </LeftChild>
                 </LeftWrapper>

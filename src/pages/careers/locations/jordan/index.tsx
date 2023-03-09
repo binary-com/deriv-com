@@ -38,9 +38,9 @@ const Jordan = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Jordan – Our office | Deriv')}
+                title={localize('_t_Jordan – Our office | Deriv_t_')}
                 description={localize(
-                    'Check out the current open job positions at Deriv and get a chance to work with our team in Jordan for a thriving tech career.',
+                    '_t_Check out the current open job positions at Deriv and get a chance to work with our team in Jordan for a thriving tech career._t_',
                 )}
             />
             <NewLocationLayout location={jordan} images={images} />

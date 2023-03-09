@@ -11,7 +11,7 @@ const HowMultiplierWorks = Loadable(() => import('./_how-multipliers-works'))
 const ThingsInMind = Loadable(() => import('./_things-in-mind'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
-const WhatAreMultiplier = Loadable(() => import('./_what-are-options'))
+const WhatAreMultiplier = Loadable(() => import('./_what-are-multipliers'))
 
 const meta_attributes = {
     og_title: localize('_t_Multipliers trading | Trade multipliers on Deriv_t_'),

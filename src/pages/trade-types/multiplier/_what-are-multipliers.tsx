@@ -8,6 +8,9 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { Localize } from 'components/localization'
 import { Button } from 'components/form'
 import useRegion from 'components/hooks/use-region'
+import useHandleSignup from 'components/hooks/use-handle-signup'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import { TString } from 'types/generics'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
@@ -15,8 +18,6 @@ import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
-import useHandleSignup from 'components/hooks/use-handle-signup'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -168,6 +169,13 @@ const WhatAreOptions = () => {
     const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
     const is_rtl = useIsRtl()
+
+    const trade_anytime_contents: Record<string, TString> = {
+        text1: is_eu ? '_t_Trade anytime_t_' : '_t_Trade 24/7, 365 days a year_t_',
+        text2: is_eu
+            ? '_t_Trade multipliers on synthetic indices 24/7, 365 days a year. Trade multipliers on forex round the clock on weekdays._t_'
+            : '_t_Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round._t_',
+    }
 
     return (
         <>
@@ -447,18 +455,10 @@ const WhatAreOptions = () => {
                                 <img src={Seven} alt="Trade 24/7" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {is_eu ? (
-                                    <Localize translate_text="_t_Trade anytime_t_" />
-                                ) : (
-                                    <Localize translate_text="_t_Trade 24/7, 365 days a year_t_" />
-                                )}
+                                <Localize translate_text={trade_anytime_contents.text1} />
                             </Text>
                             <Text>
-                                {is_eu ? (
-                                    <Localize translate_text="_t_Trade multipliers on synthetic indices 24/7, 365 days a year. Trade multipliers on forex round the clock on weekdays._t_" />
-                                ) : (
-                                    <Localize translate_text="_t_Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round._t_" />
-                                )}
+                                <Localize translate_text={trade_anytime_contents.text2} />
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>

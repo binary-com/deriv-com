@@ -39,6 +39,11 @@ const StyledText = styled(Header)`
 
 const AvailableMarkets = () => {
     const { is_eu } = useRegion()
+
+    const forex_text = is_eu
+        ? '_t_Access over 30 assets and also trade with up to 1:30 leverage and zero commission on trades._t_'
+        : '_t_Access over 50 assets and also trade with up to 1:1000 leverage and zero commission on trades._t_'
+
     return (
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -59,11 +64,7 @@ const AvailableMarkets = () => {
                                     </StyledText>
                                 </MobileCardHeader>
                                 <Text>
-                                    {is_eu ? (
-                                        <Localize translate_text="_t_Access over 30 assets and also trade with up to 1:30 leverage and zero commission on trades._t_" />
-                                    ) : (
-                                        <Localize translate_text="_t_Access over 50 assets and also trade with up to 1:1000 leverage and zero commission on trades._t_" />
-                                    )}
+                                    <Localize translate_text={forex_text} />
                                 </Text>
                                 <LearnMore text="_t_Learn more_t_" to="/markets/forex/" />
                             </Card>

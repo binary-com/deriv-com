@@ -29,15 +29,15 @@ type TTexts =
     | 'header'
     | 'step_one_header'
     | 'step_one_text'
-    | 'step_one_text_eu'
     | 'step_two_header'
     | 'step_two_text'
     | 'step_three_header'
     | 'step_three_text'
     | 'notice'
 
-type TTabTexts = Partial<Pick<Record<TTexts, LocalizeComponentAttributes>, 'step_one_text_eu'>> &
-    Omit<Record<TTexts, LocalizeComponentAttributes>, 'step_one_text_eu'>
+type TTabTexts = Record<TTexts, LocalizeComponentAttributes> & {
+    step_one_text_eu?: LocalizeComponentAttributes
+}
 
 type TContent = Record<'subscriber' | 'provider', TTabTexts>
 

@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import Checklist from 'images/svg/trade-types/checklist-red.svg'

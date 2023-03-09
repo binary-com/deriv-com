@@ -11,10 +11,21 @@ import FavoriteMarket from 'images/svg/trade-types/favoritemarket.svg'
 import { Button } from 'components/form'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 
 const WhyTradeCFD = () => {
     const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
+
+    const region_based_conditional_contents: Record<string, TString> = {
+        text1: is_eu ? '_t_Tight spreads_t_' : '_t_High leverage, tight spreads_t_',
+        text2: is_eu
+            ? '_t_Take advantage of tight spreads on Deriv’s CFD trading platforms._t_'
+            : '_t_Take advantage of high leverage and tight spreads on Deriv’s CFD trading platforms._t_',
+        text3: is_eu
+            ? '_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_'
+            : '_t_Trade on financial markets plus our proprietary synthetic indices that are available 24/7._t_',
+    }
 
     return (
         <SectionContainer background="rgba(245, 247, 250, 0.64)" padding="4rem 0 4rem">
@@ -26,18 +37,10 @@ const WhyTradeCFD = () => {
                     <WhyTradeItem>
                         <img src={HighLeverge} alt="Leverage and spread" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                            {is_eu ? (
-                                <Localize translate_text="_t_Tight spreads_t_" />
-                            ) : (
-                                <Localize translate_text="_t_High leverage, tight spreads_t_" />
-                            )}
+                            <Localize translate_text={region_based_conditional_contents.text1} />
                         </Text>
                         <Text mb="4rem">
-                            {is_eu ? (
-                                <Localize translate_text="_t_Take advantage of tight spreads on Deriv’s CFD trading platforms._t_" />
-                            ) : (
-                                <Localize translate_text="_t_Take advantage of high leverage and tight spreads on Deriv’s CFD trading platforms._t_" />
-                            )}
+                            <Localize translate_text={region_based_conditional_contents.text2} />
                         </Text>
                     </WhyTradeItem>
                     <WhyTradeItem>
@@ -46,11 +49,7 @@ const WhyTradeCFD = () => {
                             <Localize translate_text="_t_All your favourite markets_t_" />
                         </Text>
                         <Text mb="4rem">
-                            {is_eu ? (
-                                <Localize translate_text="_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_" />
-                            ) : (
-                                <Localize translate_text="_t_Trade on financial markets plus our proprietary synthetic indices that are available 24/7._t_" />
-                            )}
+                            <Localize translate_text={region_based_conditional_contents.text3} />
                         </Text>
                     </WhyTradeItem>
                     <WhyTradeItem>

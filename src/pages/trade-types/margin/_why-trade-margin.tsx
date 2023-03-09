@@ -16,6 +16,10 @@ const WhyTradeMargin = () => {
     const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
 
+    const high_laverage_low_spreads_content = is_eu
+        ? '_t_Take advantage of high leverage and low spreads on Deriv MT5._t_'
+        : '_t_Take advantage of high leverage and low spreads on Deriv MT5 and Deriv X._t_'
+
     return (
         <>
             <SectionContainer background="rgba(242, 243, 244, 0.3)" padding="4rem 0 4rem">
@@ -30,11 +34,7 @@ const WhyTradeMargin = () => {
                                 <Localize translate_text="_t_High leverage, low spreads_t_" />
                             </Text>
                             <Text mb="4rem">
-                                {is_eu ? (
-                                    <Localize translate_text="_t_Take advantage of high leverage and low spreads on Deriv MT5._t_" />
-                                ) : (
-                                    <Localize translate_text="_t_Take advantage of high leverage and low spreads on Deriv MT5 and Deriv X._t_" />
-                                )}
+                                <Localize translate_text={high_laverage_low_spreads_content} />
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>

@@ -309,7 +309,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             input_background="grey-8"
                             label_focus_color="grey-7"
                             label_color="black-3"
-                            placeholder="_t_email address_t_"
+                            placeholder={localize('_t_email address_t_')}
                             handleError={clearEmail}
                             onChange={handleInputChange}
                             onBlur={handleValidation}

@@ -11,7 +11,7 @@ const LoveTrading = Loadable(() => import('./_love-trading'))
 const Interim = () => {
     return (
         <Layout type="interim" interim_type="deriv">
-            <SEO title={localize('Interim | Deriv')} no_index />
+            <SEO title={localize('_t_Interim | Deriv_t_')} no_index />
             <Hero />
             <Everything />
             <FAQ />

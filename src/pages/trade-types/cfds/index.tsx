@@ -5,7 +5,7 @@ import WhatIsCFD from './_what_is_cfd'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 const WhyTradeCFD = Loadable(() => import('./_why-trade-cfd'))
 const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
@@ -16,15 +16,15 @@ const CFD = () => {
     return (
         <Layout>
             <SEO
-                title={localize('CFD trading | Online trading platform | Deriv')}
+                title={localize('_t_CFD trading | Online trading platform | Deriv_t_')}
                 description={localize(
-                    'Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses.',
+                    '_t_Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses._t_',
                 )}
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('CFD trading')}
+                        <Localize translate_text="_t_CFD trading_t_" />
                     </Header>
                 </SmallContainer>
             </Hero>

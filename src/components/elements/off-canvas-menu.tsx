@@ -192,10 +192,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
-                                        }
-                                        title={<Localize translate_text="CFDs" />}
+                                        content="_t_Trade with leverage and tight spreads for better returns on successful trades._t_"
+                                        title="_t_CFDs_t_"
                                         onClick={handleArrowClick}
                                         to="/trade-types/cfds/"
                                     />
@@ -212,10 +210,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                                     height="32"
                                                 />
                                             )}
-                                            content={
-                                                <Localize translate_text="Earn a range of payouts without risking more than your initial stake." />
-                                            }
-                                            title={<Localize translate_text="Options" />}
+                                            content="_t_Earn a range of payouts without risking more than your initial stake._t_"
+                                            title="_t_Options_t_"
                                             onClick={handleArrowClick}
                                             to="/trade-types/options/"
                                         />
@@ -232,10 +228,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Get the upside of CFDs without the downside of losing more than your stake." />
-                                        }
-                                        title={<Localize translate_text="Multipliers" />}
+                                        content="_t_Get the upside of CFDs without the downside of losing more than your stake._t_"
+                                        title="_t_Multipliers_t_"
                                         onClick={handleArrowClick}
                                         to="/trade-types/multiplier/"
                                     />
@@ -259,10 +253,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
-                                }
-                                title={<Localize translate_text="Deriv MT5" />}
+                                content="_t_Trade on Deriv MT5, the all-in-one CFD trading platform._t_"
+                                title="_t_Deriv MT5_t_"
                                 onClick={handleArrowClick}
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
@@ -279,10 +271,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                             height="32"
                                         />
                                     )}
-                                    content={
-                                        <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
-                                    }
-                                    title={<Localize translate_text="Deriv X" />}
+                                    content="_t_A highly customisable and easy-to-use CFD trading platform._t_"
+                                    title="_t_Deriv X_t_"
                                     onClick={handleArrowClick}
                                     to="/derivx/"
                                 />
@@ -300,10 +290,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
-                                }
-                                title={<Localize translate_text="DTrader" />}
+                                content="_t_A whole new trading experience on a powerful yet easy to use platform._t_"
+                                title="_t_DTrader_t_"
                                 onClick={handleArrowClick}
                                 to="/dtrader/"
                             />
@@ -321,10 +309,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
-                                        }
-                                        title={<Localize translate_text="Deriv GO" />}
+                                        content="_t_Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app._t_"
+                                        title="_t_Deriv GO_t_"
                                         onClick={handleArrowClick}
                                         to="/deriv-go/"
                                     />
@@ -340,10 +326,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                                        }
-                                        title={<Localize translate_text="SmartTrader" />}
+                                        content="_t_Trade the world’s markets with our popular user-friendly platform._t_"
+                                        title="_t_SmartTrader_t_"
                                         onClick={handleArrowClick}
                                         to="trading"
                                         type="smart_trader"
@@ -363,10 +347,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                                        }
-                                        title={<Localize translate_text="DBot" />}
+                                        content="_t_Automated trading at your fingertips. No coding needed._t_"
+                                        title="_t_DBot_t_"
                                         onClick={handleArrowClick}
                                         to="/dbot/"
                                     />
@@ -382,10 +364,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
-                                        }
-                                        title={<Localize translate_text="Binary Bot" />}
+                                        content='_t_Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users._t_'
+                                        title="_t_Binary Bot_t_"
                                         onClick={handleArrowClick}
                                         to={binary_bot_url}
                                         external
@@ -405,10 +385,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             <NavCard
                                 aria_label="Forex"
                                 icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
-                                }
-                                title={<Localize translate_text="Forex" />}
+                                content="_t_Trade the world’s largest financial market with popular forex pairs._t_"
+                                title="_t_Forex_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/forex/"
                             />
@@ -424,14 +402,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    is_row ? (
-                                        <Localize translate_text={derived_text_row} />
-                                    ) : (
-                                        <Localize translate_text={derived_text_eu} />
-                                    )
-                                }
-                                title={<Localize translate_text="Derived" />}
+                                content={is_row ? derived_text_row : derived_text_eu}
+                                title="_t_Derived_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/synthetic/"
                             />
@@ -447,10 +419,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    <Localize translate_text="Predict broader market trends and diversify your risk with stocks & indices." />
-                                }
-                                title={<Localize translate_text="Stocks & indices" />}
+                                content="_t_Predict broader market trends and diversify your risk with stocks & indices._t_"
+                                title="_t_Stocks & indices_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/stock/"
                             />
@@ -466,10 +436,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
-                                }
-                                title={<Localize translate_text="Cryptocurrencies" />}
+                                content="_t_Trade with leverage on the price movement of popular crypto-fiat pairs._t_"
+                                title="_t_Cryptocurrencies_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/cryptocurrencies/"
                             />
@@ -485,10 +453,8 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    <Localize translate_text="Trade natural resources that are central to the world's economy." />
-                                }
-                                title={<Localize translate_text="Commodities" />}
+                                content="_t_Trade natural resources that are central to the world's economy._t_"
+                                title="_t_Commodities_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/commodities/"
                             />

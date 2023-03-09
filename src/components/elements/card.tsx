@@ -2,13 +2,14 @@ import React, { ReactNode, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography'
 import { Flex } from 'components/containers'
-import { LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // SVG
 import Arrow from 'images/svg/elements/card-arrow.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { ImageWithDireciton } from 'components/elements'
+import { TString } from 'types/generics'
 
 type StyledProps = {
     width?: string
@@ -113,9 +114,31 @@ const CardContentContainer = styled.div`
 const Content = ({ content }: Pick<CardProps, 'content'>) => (
     <>
         {Array.isArray(content) ? (
-            content.map((text) => <CardContent key={text}>{text}</CardContent>)
+            content.map((cont: TString | TLocalizeAttribute, idx) => (
+                <>
+                    {typeof cont === 'string' ? (
+                        <CardContent key={cont}>
+                            <Localize translate_text={cont} />
+                        </CardContent>
+                    ) : (
+                        <CardContent key={cont.text}>
+                            <Localize
+                                key={idx}
+                                translate_text={cont.text}
+                                components={cont.components}
+                            />
+                        </CardContent>
+                    )}
+                </>
+            ))
+        ) : typeof content === 'string' ? (
+            <CardContent key={content}>
+                <Localize translate_text={content} />
+            </CardContent>
         ) : (
-            <CardContent>{content}</CardContent>
+            <CardContent>
+                <Localize translate_text={content.text} components={content.components} />
+            </CardContent>
         )}
     </>
 )
@@ -132,19 +155,23 @@ const CoverContent = styled(Text)`
     font-weight: bold;
     font-size: var(--text-size-m);
 `
+type TLocalizeAttribute = {
+    text: TString
+    components: ReactElement[]
+}
 
 type CardProps = {
     children?: ReactNode
     className?: string
-    content?: ReactNode
+    content?: TString | TString[] | TLocalizeAttribute | TLocalizeAttribute[]
     cover_background?: string
-    cover_content?: ReactElement
+    cover_content?: TString
     Icon?: () => ReactElement
     is_inline_icon?: boolean
     is_selected?: boolean
     min_height?: string
     padding?: string
-    title?: ReactNode
+    title?: TString
     width?: string
     word_break_cover?: boolean
 }
@@ -167,13 +194,25 @@ export const Card = ({
     const is_rtl = useIsRtl()
     const final_content = word_break_cover ? (
         <Flex direction="column" jc="flex-start" ai="flex-start">
-            <CoverContent>{cover_content.props.translate_text.split(' ')[0]}</CoverContent>
             <CoverContent>
-                {cover_content.props.translate_text.split(' ').slice(1).join(' ')}
+                <Localize
+                    translate_text={`_t_${cover_content.split(' ')[0].replaceAll('_t_', '')}_t_`}
+                />
+            </CoverContent>
+            <CoverContent>
+                <Localize
+                    translate_text={`_t_${cover_content
+                        .split(' ')
+                        .slice(1)
+                        .join(' ')
+                        .replaceAll('_t_', '')}_t_`}
+                />
             </CoverContent>
         </Flex>
     ) : (
-        <CoverContent>{cover_content}</CoverContent>
+        <CoverContent>
+            <Localize translate_text={cover_content} />
+        </CoverContent>
     )
 
     return (
@@ -209,7 +248,7 @@ export const Card = ({
                                 </IconWrapper>
                                 <CardContentContainer>
                                     <Header as="h4" type="sub-section-title" weight="bold">
-                                        {title}
+                                        <Localize translate_text={title} />
                                     </Header>
                                     <Content content={content} />
                                 </CardContentContainer>
@@ -220,7 +259,7 @@ export const Card = ({
                             <Icon />
                             <ContentWrapper>
                                 <Text size="var(--text-size-m)" weight="bold">
-                                    {title}
+                                    <Localize translate_text={title} />
                                 </Text>
                                 <Content content={content} />
                             </ContentWrapper>
@@ -315,11 +354,11 @@ type NavigationType = {
 
 type NavCardProps = {
     aria_label?: string
-    content?: ReactNode[] | ReactElement
+    content?: TString
     external?: boolean
     icon?: () => ReactElement
     style?: NavigationType
-    title?: ReactNode
+    title?: TString
     target?: string
     type?: string
     otherLinkProps?: { rel?: string }
@@ -354,9 +393,11 @@ export const NavCard = ({
                 </SvgWrapper>
                 <NavContent>
                     <ResponsiveHeader as="span" size="var(--text-size-s)" lh="1.14" mb="0.8rem">
-                        {title}
+                        <Localize translate_text={title} />
                     </ResponsiveHeader>
-                    <ResponsiveText>{content}</ResponsiveText>
+                    <ResponsiveText>
+                        <Localize translate_text={content} />
+                    </ResponsiveText>
                 </NavContent>
                 {external && (
                     <div>
@@ -415,7 +456,7 @@ type CardLinkProps = {
     onClick?: () => void
     style?: NavigationType
     target?: string
-    title: ReactNode
+    title: TString
     to: string
     type?: string
     rel?: string
@@ -459,7 +500,7 @@ export const CardLink = ({
                         lh="1.14"
                         weight="normal"
                     >
-                        {title}
+                        <Localize translate_text={title} />
                     </ResponsiveHeader>
                     {external && (
                         <LinkRightDiagonal>

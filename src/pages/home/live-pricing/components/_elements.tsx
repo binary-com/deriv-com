@@ -55,7 +55,7 @@ export const TableRow = styled.tr<TableRowProps>`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 50px;
+    min-height: 75px;
     padding: 0 14px;
 
     th:nth-child(1) td:nth-child(1) {
@@ -63,6 +63,8 @@ export const TableRow = styled.tr<TableRowProps>`
     }
 
     @media ${device.tabletL} {
+        min-height: 50px;
+
         th:nth-child(1) {
             width: 12rem;
         }

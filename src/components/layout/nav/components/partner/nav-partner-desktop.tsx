@@ -110,27 +110,27 @@ const StyledNavRight = styled(NavRight)<StyledNavRightProps>`
     }
 `
 
+const nav_links: Omit<NavLinkCardTypes, 'page'>[] = [
+    { active: 'affiliate', to: '/partners/affiliate-ib/', title: '_t_Affiliates and IBs_t_' },
+    { active: 'payment', to: '/partners/payment-agent/', title: '_t_Payment agents_t_' },
+    {
+        active: 'api',
+        to: '',
+        title: '_t_API_t_',
+        type: 'api',
+        target: '_blank',
+        external: true,
+        rel: 'noopener noreferrer',
+    },
+    { to: '/bug-bounty/', title: '_t_Bug bounty_t_' },
+]
+
 const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const { is_row } = useRegion()
     const button_ref = useRef<HTMLButtonElement | null>(null)
     const [show_button, showButton, hideButton] = useMoveButton()
     const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
-
-    const nav_links: Omit<NavLinkCardTypes, 'page'>[] = [
-        { active: 'affiliate', to: '/partners/affiliate-ib/', title: '_t_Affiliates and IBs_t_' },
-        { active: 'payment', to: '/partners/payment-agent/', title: '_t_Payment agents_t_' },
-        {
-            active: 'api',
-            to: '',
-            title: '_t_API_t_',
-            type: 'api',
-            target: '_blank',
-            external: true,
-            rel: 'noopener noreferrer',
-        },
-        { to: '/bug-bounty/', title: '_t_Bug bounty_t_' },
-    ]
 
     const is_rtl = useIsRtl()
     const buttonHandleScroll = () => {
@@ -155,36 +155,36 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                 </LeftSide>
 
                 <NavigationBar>
-                    {nav_links.map((navLink) => {
-                        return navLink.external ? (
+                    {nav_links.map(({ title, type, target, active, rel, external, to }) => {
+                        return external ? (
                             <NavLinkCard
-                                key={navLink.title}
+                                key={title}
                                 page="partners"
-                                active={navLink.active}
-                                to={navLink.to}
-                                title={navLink.title}
-                                type={navLink.type}
-                                target={navLink.target}
+                                active={active}
+                                to={to}
+                                title={title}
+                                type={type}
+                                target={target}
                                 external
-                                rel={navLink.rel}
+                                rel={rel}
                             />
-                        ) : navLink.to == '/partners/payment-agent/' ? (
+                        ) : to == '/partners/payment-agent/' ? (
                             is_row && (
                                 <NavLinkCard
-                                    key={navLink.title}
+                                    key={title}
                                     page="partners"
-                                    active={navLink.active}
-                                    to={navLink.to}
-                                    title={navLink.title}
+                                    active={active}
+                                    to={to}
+                                    title={title}
                                 />
                             )
                         ) : (
                             <NavLinkCard
-                                key={navLink.title}
+                                key={title}
                                 page="partners"
-                                active={navLink.active}
-                                to={navLink.to}
-                                title={navLink.title}
+                                active={active}
+                                to={to}
+                                title={title}
                             />
                         )
                     })}

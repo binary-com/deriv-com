@@ -50,7 +50,7 @@ const easy_to_start_title: TString = '_t_Easy to start_t_'
 const easy_to_start_description: TString =
     '_t_Start trading CFDs in two easy steps — click to get an account, start trading. No need to remember another login ID and password._t_'
 const easy_to_start_alt: TString = '_t_easy to start deriv ez_t_'
-const twenty_four_seven_titles: TString = '_t_All your favourite assets, one platform_t_'
+const twenty_four_seven_titles: TString = '_t_24/7 trading_t_'
 const twenty_four_four_description: TString =
     '_t_Trade anytime you want, including weekends and holidays, on cryptocurrencies and our proprietary derived indices._t_'
 const twenty_four_seven_alt: TString = '_t_24/7 trading_t_'

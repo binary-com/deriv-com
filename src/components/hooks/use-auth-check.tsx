@@ -7,8 +7,8 @@ const useAuthCheck = () => {
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
-        const checkCookieChange = setInterval(() => setLoggedIn(isLoggedIn()), 800)
         setIsAuthChecked(true)
+        const checkCookieChange = setInterval(() => setLoggedIn(isLoggedIn()), 800)
         return () => clearInterval(checkCookieChange)
     }, [])
 

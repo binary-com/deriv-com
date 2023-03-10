@@ -44,7 +44,7 @@ const Login = (() => {
     }
 
     const initOneAllEU = (provider: TSocialProvider, utm_content?: string): string => {
-        if (isBrowser) {
+        if (isBrowser()) {
             const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
             const social_login_url = `${loginUrl()}&social_signup=${provider}${utm_content_string}`
 

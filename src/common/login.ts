@@ -37,10 +37,12 @@ const Login = (() => {
     }
 
     const initOneAll = (provider: TSocialProvider, utm_content?: string): void => {
-        const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
-        const social_login_url = `${loginUrl()}&social_signup=${provider}${utm_content_string}`
+        if (isBrowser()) {
+            const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
+            const social_login_url = `${loginUrl()}&social_signup=${provider}${utm_content_string}`
 
-        window.location.href = social_login_url
+            window.location.href = social_login_url
+        }
     }
 
     const initOneAllEU = (provider: TSocialProvider, utm_content?: string): string | void => {

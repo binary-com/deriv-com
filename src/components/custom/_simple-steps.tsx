@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
@@ -9,9 +9,10 @@ import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { TString } from 'types/generics'
 
 type SimpleStepsProps = {
-    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactElement }[]
+    content?: { header?: TString; icon?: HTMLImageElement; text?: TString }[]
     header?: string
     sign_up?: boolean
 }
@@ -151,13 +152,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
             <StyledFlex wrap="wrap">
                 {content.map((item, idx) => {
                     return (
-                        <ClientCard
-                            key={
-                                typeof item.text === 'string'
-                                    ? item.text
-                                    : item.text.props.translate_text
-                            }
-                        >
+                        <ClientCard key={item.text}>
                             <Flex ai="center" height="fit-content">
                                 <StyledHeader as="h3" type="sub-section-title">
                                     {item.header}
@@ -172,7 +167,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
             {sign_up && !is_logged_in && (
                 <LinkButtonWrapper>
                     <StyledLinkButton id="dm-steps-signup" secondary onClick={handleSignup}>
-                        {localize('Sign up now')}
+                        <Localize translate_text="_t_Sign up now_t_" />
                     </StyledLinkButton>
                 </LinkButtonWrapper>
             )}

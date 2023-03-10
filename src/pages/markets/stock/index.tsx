@@ -11,14 +11,14 @@ const StocksAndIndicesPage = () => (
     <Layout type="noNav">
         <SEO
             description={localize(
-                'Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets.',
+                '_t_Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets._t_',
             )}
-            title={localize('Stock market | Indices trading | Deriv')}
+            title={localize('_t_Stock market | Indices trading | Deriv_t_')}
         />
         <DerivedFXHero
-            title={localize('Stocks & indices')}
+            title={localize('_t_Stocks & indices_t_')}
             description={localize(
-                'Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets.',
+                '_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets._t_',
             )}
         />
         <StockIndices simple_step_content={simple_step_content_stock} />

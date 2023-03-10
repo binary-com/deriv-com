@@ -93,7 +93,7 @@ const AvailablePlatforms = ({
             ai="center"
         >
             <StyledText type="paragraph-1" weight="normal" width="auto">
-                {localize('Available on')}
+                {localize('_t_Available on_t_')}
             </StyledText>
             <PlatformsContainer
                 width={tablet_direction === 'column' ? '100%' : 'unset'}
@@ -103,7 +103,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DMT5} alt="Deriv MT5 (DMT5)" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv MT5')}</Text>
+                            <Text ml="0.4rem">{localize('_t_Deriv MT5_t_')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -111,7 +111,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dtrader/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DTrader} alt="DTrader" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DTrader')}</Text>
+                            <Text ml="0.4rem">{localize('_t_DTrader_t_')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -119,7 +119,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dbot/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DBot} alt="DBot" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DBot')}</Text>
+                            <Text ml="0.4rem">{localize('_t_DBot_t_')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -127,7 +127,7 @@ const AvailablePlatforms = ({
                     <a href={smarttrader_url} target="_blank" rel="noopener noreferrer">
                         <StyledFlex direction="row" ai="center">
                             <img src={SmartTrader} alt="SmartTrader" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('SmartTrader')}</Text>
+                            <Text ml="0.4rem">{localize('_t_SmartTrader_t_')}</Text>
                         </StyledFlex>
                     </a>
                 )}
@@ -135,7 +135,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivX} alt="Deriv X" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv X')}</Text>
+                            <Text ml="0.4rem">{localize('_t_Deriv X_t_')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

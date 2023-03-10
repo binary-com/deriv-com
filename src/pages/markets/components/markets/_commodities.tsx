@@ -21,10 +21,8 @@ type CommoditiesProps = {
 
 const Commodities = ({ simple_step_content }: CommoditiesProps) => {
     const { is_eu } = useRegion()
-    simple_step_content[1].text = (
-        <Localize translate_text="_t_Open a real account, make a deposit, and start trading commodities and other markets._t_" />
-    )
-
+    simple_step_content[1].text =
+        '_t_Open a real account, make a deposit, and start trading commodities and other markets._t_'
     return (
         <>
             <WhyTrade header={<Localize translate_text="_t_Why trade commodities on Deriv_t_" />}>

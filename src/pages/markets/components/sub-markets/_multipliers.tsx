@@ -24,7 +24,7 @@ const Multipliers = ({ market_content }: MultipliersProps) => {
                 <Descriptions>
                     <StyledText align="center">
                         {localize(
-                            'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.',
+                            '_t_Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment._t_',
                         )}
                     </StyledText>
                     {is_eu ? (
@@ -34,7 +34,7 @@ const Multipliers = ({ market_content }: MultipliersProps) => {
                     )}
                 </Descriptions>
                 <StyledText font_size={'16px'} weight="bold" mt="2.4rem">
-                    {localize('Instruments available for multipliers trading')}
+                    {localize('_t_Instruments available for multipliers trading_t_')}
                 </StyledText>
                 <MarketInstruments market_content={market_content} />
                 {/* deprecated?? */}

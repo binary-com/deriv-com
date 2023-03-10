@@ -20,9 +20,8 @@ type StockIndicesProps = {
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
-    simple_step_content[1].text = (
-        <Localize translate_text="_t_Open a real account, make a deposit, and start trading stocks, indices and other markets._t_" />
-    )
+    simple_step_content[1].text =
+        '_t_Open a real account, make a deposit, and start trading stocks, indices and other markets._t_'
 
     return (
         <div>

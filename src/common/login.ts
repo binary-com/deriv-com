@@ -43,7 +43,7 @@ const Login = (() => {
         window.location.href = social_login_url
     }
 
-    const initOneAllEU = (provider: TSocialProvider, utm_content?: string): string => {
+    const initOneAllEU = (provider: TSocialProvider, utm_content?: string): string | void => {
         if (isBrowser()) {
             const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
             const social_login_url = `${loginUrl()}&social_signup=${provider}${utm_content_string}`

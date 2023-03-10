@@ -265,12 +265,12 @@ export const addScript = (settings: TSettings) => {
 export const replaceLocale = (url: string): string => {
     let checked_locale = url
     const excluded_paths = ['smarttrader']
-    if (!excluded_paths.some((path) => url.includes(path))) {
+    if (!excluded_paths.some((path) => url?.includes(path))) {
         domains.forEach((domain) => {
-            if (url.includes(domain) && url.includes('zh_tw'))
+            if (url?.includes(domain) && url?.includes('zh_tw'))
                 checked_locale = url.replace(/(zh_tw)/g, 'zh-tw')
-            if (url.includes(domain) && url.includes('zh_cn'))
-                checked_locale = url.replace(/(zh_cn)/g, 'zh-cn')
+            if (url?.includes(domain) && url?.includes('zh_cn'))
+                checked_locale = url?.replace(/(zh_cn)/g, 'zh-cn')
         })
     }
     return checked_locale

@@ -33,7 +33,7 @@ const BrowserUpdateAlertModal = () => {
             maxWidth="38rem"
         >
             <Header type="paragraph-2" weight="regular">
-                <Localize translate_text="Update your browser to get the best Deriv experience" />
+                <Localize translate_text="_t_Update your browser to get the best Deriv experience_t_" />
             </Header>
         </Modal>
     )

@@ -68,12 +68,10 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            {localize('What is the rebranding about?')}
+                            <Localize translate_text="_t_What is the rebranding about?_t_" />
                         </Header>
                         <Text>
-                            {localize(
-                                'We may have a new name and look, but be assured that we’re still the same team working hard since 1999 to deliver an exceptional online trading solution to our clients.',
-                            )}
+                            <Localize translate_text="_t_We may have a new name and look, but be assured that we’re still the same team working hard since 1999 to deliver an exceptional online trading solution to our clients._t_" />
                         </Text>
                     </Question>
                     <Answer id="rebranding">
@@ -116,12 +114,10 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            <Localize translate_text="How will Deriv.com transform my trading experience?" />
+                            <Localize translate_text="_t_How will Deriv.com transform my trading experience?_t_" />
                         </Header>
                         <Text>
-                            {localize(
-                                'After 20 years of service to you, we feel that we understand you better. The rebranding is an opportunity for us to implement an improved online trading solution to meet all your needs.',
-                            )}
+                            <Localize translate_text="_t_After 20 years of service to you, we feel that we understand you better. The rebranding is an opportunity for us to implement an improved online trading solution to meet all your needs._t_" />
                         </Text>
                     </Question>
                     <Answer id="new-offerings">
@@ -177,10 +173,10 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            {localize('What does it mean to me?')}
+                            <Localize translate_text="_t_What does it mean to me?_t_" />
                         </Header>
                         <Text>
-                            <Localize translate_text="We understand that change can be intimidating. That’s why we’ve been working very hard to make sure that your transition from Binary.com to Deriv.com is as seamless as possible." />
+                            <Localize translate_text="_t_We understand that change can be intimidating. That’s why we’ve been working very hard to make sure that your transition from Binary.com to Deriv.com is as seamless as possible._t_" />
                         </Text>
                     </Question>
                     <Answer id="meaning">

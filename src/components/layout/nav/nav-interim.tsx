@@ -9,7 +9,7 @@ import {
     LogoDescription,
 } from './styles/nav-styles'
 import NavTemplate from './components/nav-template'
-import { localize, LanguageSwitcher } from 'components/localization'
+import { Localize, LanguageSwitcher } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
@@ -82,7 +82,7 @@ const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => (
                 {!landing_type && <LanguageSwitcher />}
                 {!landing_type && (
                     <StyledLinkButton secondary to="/">
-                        {localize('Explore Deriv.com')}
+                        <Localize translate_text="_t_Explore Deriv.com_t_" />
                     </StyledLinkButton>
                 )}
             </RightSection>

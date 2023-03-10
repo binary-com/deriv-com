@@ -72,12 +72,10 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            {localize('What is the rebranding about?')}
+                            <Localize translate_text="_t_What is the rebranding about?_t_" />
                         </Header>
                         <Text>
-                            {localize(
-                                'The rebranding exercise sees us strengthen our position to provide clients with the flexibility, ease, and confidence to trade as they wish. It is part of our company’s growth process as we step into the third decade of delivering services of value to clients.',
-                            )}
+                            <Localize translate_text="_t_The rebranding exercise sees us strengthen our position to provide clients with the flexibility, ease, and confidence to trade as they wish. It is part of our company’s growth process as we step into the third decade of delivering services of value to clients._t_" />
                         </Text>
                     </Question>
                     <Answer>
@@ -126,10 +124,10 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            {localize('How will it affect my clients?')}
+                            <Localize translate_text="_t_How will it affect my clients?_t_" />
                         </Header>
                         <Text>
-                            <Localize translate_text="We understand that clients may be overwhelmed by the change. That’s why we’ve worked very hard to make sure that their transition to Deriv.com is as seamless as possible. As an affiliate, you play a key role in supporting them in this transition. Below are some concerns they may have, along with the answers to convey your assurance." />
+                            <Localize translate_text="_t_We understand that clients may be overwhelmed by the change. That’s why we’ve worked very hard to make sure that their transition to Deriv.com is as seamless as possible. As an affiliate, you play a key role in supporting them in this transition. Below are some concerns they may have, along with the answers to convey your assurance._t_" />
                         </Text>
                     </Question>
                     <Answer>
@@ -178,12 +176,10 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            {localize('How does it transform our partnership?')}
+                            <Localize translate_text="_t_How does it transform our partnership?_t_" />
                         </Header>
                         <Text>
-                            {localize(
-                                'As our valued partner, you will no doubt have concerns about the status of your partnership with Deriv.com. Don’t worry, we’ve made the transition as seamless as possible for you so you can continue to build your network and increase your earning potential.',
-                            )}
+                            <Localize translate_text="_t_As our valued partner, you will no doubt have concerns about the status of your partnership with Deriv.com. Don’t worry, we’ve made the transition as seamless as possible for you so you can continue to build your network and increase your earning potential._t_" />
                         </Text>
                     </Question>
                     <Answer>
@@ -241,12 +237,10 @@ const FAQ = () => {
                 <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
-                            <Localize translate_text="How do I get started promoting Deriv.com?" />
+                            <Localize translate_text="_t_How do I get started promoting Deriv.com?_t_" />
                         </Header>
                         <Text>
-                            {localize(
-                                'Rest assured that your partnership is pivotal in this rebranding process. In fact, we believe this is an opportunity for you to strengthen your own position within your network of clients. And you can certainly count on us to be responsive and supportive of you in this effort.',
-                            )}
+                            <Localize translate_text="_t_Rest assured that your partnership is pivotal in this rebranding process. In fact, we believe this is an opportunity for you to strengthen your own position within your network of clients. And you can certainly count on us to be responsive and supportive of you in this effort._t_" />
                         </Text>
                     </Question>
                     <Answer>

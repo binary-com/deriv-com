@@ -404,9 +404,7 @@ const PnlMarginCalculator = () => {
                                                                             {...field}
                                                                             id="pointValue"
                                                                             type="text"
-                                                                            label={localize(
-                                                                                '_t_Point value_t_',
-                                                                            )}
+                                                                            label="_t_Point value_t_"
                                                                             autoComplete="off"
                                                                             error={
                                                                                 touched.pointValue &&
@@ -468,9 +466,7 @@ const PnlMarginCalculator = () => {
                                                                             {...field}
                                                                             id="volume"
                                                                             type="text"
-                                                                            label={localize(
-                                                                                '_t_Volume_t_',
-                                                                            )}
+                                                                            label="_t_Volume_t_"
                                                                             autoComplete="off"
                                                                             error={
                                                                                 touched.volume &&
@@ -521,9 +517,7 @@ const PnlMarginCalculator = () => {
                                                                             {...field}
                                                                             id="takeProfitAmount"
                                                                             type="text"
-                                                                            label={localize(
-                                                                                '_t_Take profit amount_t_',
-                                                                            )}
+                                                                            label="_t_Take profit amount_t_"
                                                                             autoComplete="off"
                                                                             error={
                                                                                 touched.takeProfitAmount &&
@@ -572,9 +566,7 @@ const PnlMarginCalculator = () => {
                                                                             value={
                                                                                 values.assetPrice
                                                                             }
-                                                                            label={localize(
-                                                                                '_t_Open price of asset_t_',
-                                                                            )}
+                                                                            label="_t_Open price of asset_t_"
                                                                             autoComplete="off"
                                                                             error={
                                                                                 touched.assetPrice &&
@@ -628,9 +620,7 @@ const PnlMarginCalculator = () => {
                                                                             value={
                                                                                 values.stopLossAmount
                                                                             }
-                                                                            label={localize(
-                                                                                '_t_Stop loss amount_t_',
-                                                                            )}
+                                                                            label="_t_Stop loss amount_t_"
                                                                             autoComplete="off"
                                                                             error={
                                                                                 touched.stopLossAmount &&
@@ -782,7 +772,7 @@ const PnlMarginCalculator = () => {
                                                                     {...field}
                                                                     id="volume"
                                                                     type="text"
-                                                                    label={localize('_t_Volume_t_')}
+                                                                    label="_t_Volume_t_"
                                                                     autoComplete="off"
                                                                     error={
                                                                         touched.volume &&
@@ -829,9 +819,7 @@ const PnlMarginCalculator = () => {
                                                                     id="assetPrice"
                                                                     type="text"
                                                                     value={values.assetPrice}
-                                                                    label={localize(
-                                                                        '_t_Open price of asset_t_',
-                                                                    )}
+                                                                    label="_t_Open price of asset_t_"
                                                                     autoComplete="off"
                                                                     error={
                                                                         touched.assetPrice &&
@@ -880,9 +868,7 @@ const PnlMarginCalculator = () => {
                                                                     {...field}
                                                                     id="pointValue"
                                                                     type="text"
-                                                                    label={localize(
-                                                                        '_t_Point value_t_',
-                                                                    )}
+                                                                    label="_t_Point value_t_"
                                                                     autoComplete="off"
                                                                     error={
                                                                         touched.pointValue &&
@@ -929,9 +915,7 @@ const PnlMarginCalculator = () => {
                                                                     {...field}
                                                                     id="takeProfitAmount"
                                                                     type="text"
-                                                                    label={localize(
-                                                                        '_t_Take profit amount_t_',
-                                                                    )}
+                                                                    label="_t_Take profit amount_t_"
                                                                     autoComplete="off"
                                                                     error={
                                                                         touched.takeProfitAmount &&
@@ -963,9 +947,7 @@ const PnlMarginCalculator = () => {
                                                                     id="assetPrice"
                                                                     type="text"
                                                                     value={values.stopLossAmount}
-                                                                    label={localize(
-                                                                        '_t_Stop loss amount_t_',
-                                                                    )}
+                                                                    label="_t_Stop loss amount_t_"
                                                                     autoComplete="off"
                                                                     error={
                                                                         touched.stopLossAmount &&

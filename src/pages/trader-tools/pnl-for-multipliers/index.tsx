@@ -2,15 +2,15 @@ import React from 'react'
 import { Hero, StyledHeader } from '../common/_style'
 import PnLMultipliersCalculatorSection from './_pnl_multipliers_calculator'
 import { Container, SEO } from 'components/containers'
-import { Localize, localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 
 const PnLMultipliersCalculator = () => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_PnL Multipliers Calculator_t_')}
-                description={localize('_t_PnL Multipliers Calculator_t_')}
+                title="_t_PnL Multipliers Calculator_t_"
+                description="_t_PnL Multipliers Calculator_t_"
             />
             <Hero jc="center" ai="center">
                 <Container>

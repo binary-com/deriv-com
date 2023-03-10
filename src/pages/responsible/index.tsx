@@ -5,7 +5,7 @@ import SecureAccount from './_securing-account'
 import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
-import { Localize, localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import device from 'themes/device'
@@ -42,10 +42,8 @@ const ResponsibleTrading = () => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_Secure and responsible online trading guidelines | Deriv_t_')}
-                description={localize(
-                    '_t_Read our guidelines on secure and responsible trading. Understand the risks involved in online trading and how you can manage them._t_',
-                )}
+                title="_t_Secure and responsible online trading guidelines | Deriv_t_"
+                description="_t_Read our guidelines on secure and responsible trading. Understand the risks involved in online trading and how you can manage them._t_"
             />
             <Section>
                 <Hero background_image={HeroBackground}>

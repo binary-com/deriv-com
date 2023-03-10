@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import { getLanguage } from '../../common/utility'
 import Layout from 'components/layout/layout'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import { SEO, Box } from 'components/containers'
 import device from 'themes/device'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
@@ -61,10 +61,8 @@ const SignupSuccess = () => {
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
-                title={localize('_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_')}
-                description={localize(
-                    '_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_',
-                )}
+                title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
+                description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
                 no_index
             />
             <Wrapper>

@@ -75,10 +75,8 @@ const ResetPassword = () => {
     return (
         <Layout type="static" margin_top="0">
             <SEO
-                title={localize('_t_Reset password | Deriv_t_')}
-                description={localize(
-                    '_t_Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions._t_',
-                )}
+                title="_t_Reset password | Deriv_t_"
+                description="_t_Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions._t_"
                 no_index
             />
             <StyledContainer justify="center" align="center" direction="column">

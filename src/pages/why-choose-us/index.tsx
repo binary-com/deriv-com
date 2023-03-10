@@ -6,7 +6,7 @@ import AfricaAward from './_africa-forex-award'
 import { SEO, SectionContainer, GridContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Divider, Header, Text } from 'components/elements'
-import { Localize, localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import { Button } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -65,10 +65,8 @@ const WhyChooseUs = () => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_Why choose us for your online trading | Deriv_t_')}
-                description={localize(
-                    '_t_We’re steadfast in our commitment to high ethical standards. Find more reasons to know why Deriv is the choice of online traders._t_',
-                )}
+                title="_t_Why choose us for your online trading | Deriv_t_"
+                description="_t_We’re steadfast in our commitment to high ethical standards. Find more reasons to know why Deriv is the choice of online traders._t_"
             />
             <Section>
                 <GridContainer>

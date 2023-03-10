@@ -20,10 +20,8 @@ const Markets = () => {
     return (
         <Layout type="noNav">
             <SEO
-                description={localize(
-                    "Deriv's proprietary synthetics are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms.",
-                )}
-                title={localize('Synthetic indices | Volatility indices | Deriv')}
+                description="_t_Deriv's proprietary synthetics are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms._t_"
+                title="_t_Synthetic indices | Volatility indices | Deriv_t_"
             />
 
             <DerivedFXHero

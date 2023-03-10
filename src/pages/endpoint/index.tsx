@@ -141,7 +141,7 @@ const Endpoint = () => {
 
     return (
         <Layout type="static" margin_top={'0'}>
-            <SEO title="Endpoint" description="Change deriv API endpoint." no_index />
+            <SEO title="_t_Endpoint_t_" description="_t_Change deriv API endpoint._t_" no_index />
             <StyledContainer justify="center" align="center" direction="column">
                 <Header as="h2" type="page-title" align="center" mt="80px">
                     Change API endpoint

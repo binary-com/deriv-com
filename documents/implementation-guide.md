@@ -202,7 +202,7 @@ import { localize, WithIntl } from 'components/localization'
 const MyPageName = () => {
     return (
         <Layout>
-            <SEO title={localize('My page')} description={localize('My page description')} />
+            <SEO title="_t_My page_t_" description="_t_My page description_t_" />
             {/* Your children here */}
         </Layout>
     )

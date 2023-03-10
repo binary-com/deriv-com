@@ -14,7 +14,7 @@ import {
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 
 const StartSeparator = styled.div`
     width: 0;
@@ -40,10 +40,8 @@ const AboutUs = () => {
     return (
         <Layout type="transparent" margin_top="0">
             <SEO
-                title={localize('Who we are | An Online Trading Platform | Deriv.com')}
-                description={localize(
-                    'Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade.',
-                )}
+                title="_t_Who we are | An Online Trading Platform | Deriv.com_t_"
+                description="_t_Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade._t_"
             />
             <Hero />
             <MakeTrading />

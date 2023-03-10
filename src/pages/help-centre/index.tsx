@@ -7,7 +7,7 @@ import { getQuestionsBySection } from './components/_utility'
 import { PLATFORMS, GENERAL } from './components/_constants'
 import { SEO, Desktop, Container } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const HelpCentre = () => {
@@ -18,10 +18,8 @@ const HelpCentre = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Help centre | Frequently asked questions | Deriv')}
-                description={localize(
-                    'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
-                )}
+                title="_t_Help centre | Frequently asked questions | Deriv_t_"
+                description="_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_"
             />
             <FaqSchema />
             <SearchSection />

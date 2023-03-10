@@ -35,10 +35,9 @@ type TradingType = {
 }
 
 const meta_attributes: MetaAttributesType = {
-    og_title: localize('DBot Trading | Auto Trading Robot | Deriv'),
-    og_description: localize(
-        'Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!',
-    ),
+    og_title: '_t_DBot Trading | Auto Trading Robot | Deriv_t_',
+    og_description:
+        '_t_Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!_t_',
 }
 
 const query = graphql`
@@ -129,10 +128,8 @@ const Dbot = () => {
     return (
         <>
             <SEO
-                title={localize('DBot | Trading robot | Deriv')}
-                description={localize(
-                    'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
-                )}
+                title="_t_DBot | Trading robot | Deriv_t_"
+                description="_t_Automate your trading with DBot, Deriv’s trading robot which you can build without writing code._t_"
                 meta_attributes={meta_attributes}
             />
             {is_row && (

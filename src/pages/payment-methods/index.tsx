@@ -8,11 +8,12 @@ import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
 import { TString } from 'types/generics'
+import { MetaAttributesType } from 'types/page.types'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
 
@@ -20,11 +21,10 @@ type StyledTableType = {
     has_note: boolean
 }
 
-const meta_attributes = {
-    og_title: localize('_t_Payment Methods | Deposits and withdrawals | Deriv_t_'),
-    og_description: localize(
+const meta_attributes: MetaAttributesType = {
+    og_title: '_t_Payment Methods | Deposits and withdrawals | Deriv_t_',
+    og_description:
         '_t_We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!_t_',
-    ),
 }
 
 const AccordionContainer = styled.div`
@@ -409,10 +409,8 @@ const PaymentMethods = () => {
     return (
         <Layout type="payment-methods">
             <SEO
-                title={localize('_t_Payment Methods | Deposits and withdrawals | Deriv_t_')}
-                description={localize(
-                    '_t_We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!_t_',
-                )}
+                title="_t_Payment Methods | Deposits and withdrawals | Deriv_t_"
+                description="_t_We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!_t_"
                 meta_attributes={meta_attributes}
             />
             <SectionTopContainer>

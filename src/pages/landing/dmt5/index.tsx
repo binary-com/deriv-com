@@ -38,10 +38,8 @@ const DMT5 = () => {
     return (
         <Layout is_ppc_redirect={true}>
             <SEO
-                title={localize('DMT5 | MetaTrader 5 | Deriv')}
-                description={localize(
-                    'DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile.',
-                )}
+                title="_t_DMT5 | MetaTrader 5 | Deriv_t_"
+                description="_t_DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile._t_"
                 no_index
             />
             <DHero

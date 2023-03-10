@@ -9,7 +9,7 @@ import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 import { MetaAttributesType } from 'types/page.types'
@@ -34,10 +34,9 @@ type StyledLinkButtonProps = {
 }
 
 const meta_attributes: MetaAttributesType = {
-    og_title: localize('_t_Affiliate and IB programme | Deriv_t_'),
-    og_description: localize(
+    og_title: '_t_Affiliate and IB programme | Deriv_t_',
+    og_description:
         '_t_Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider._t_',
-    ),
 }
 
 const StyledHeader = styled(Header)`
@@ -157,10 +156,8 @@ const AffiliateIb = () => {
     return (
         <Layout type="partners" margin_top={10}>
             <SEO
-                title={localize('_t_Affiliate partnership and IB programme | Deriv_t_')}
-                description={localize(
-                    '_t_Deriv’s affiliate and IB programmes offer exciting income opportunities. Earn commission from your referred clients’ trades on our platforms._t_',
-                )}
+                title="_t_Affiliate partnership and IB programme | Deriv_t_"
+                description="_t_Deriv’s affiliate and IB programmes offer exciting income opportunities. Earn commission from your referred clients’ trades on our platforms._t_"
                 meta_attributes={meta_attributes}
             />
             <Helmet>

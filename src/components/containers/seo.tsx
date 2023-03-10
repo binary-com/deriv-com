@@ -66,7 +66,9 @@ const SEO = ({
     )
 
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
-    const metaDescription = localize(description) || queries.site.siteMetadata.description
+    const metaDescription = description
+        ? localize(description)
+        : queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)
     const formatted_lang = lang.replace('_', '-')
@@ -127,7 +129,7 @@ const SEO = ({
             bodyAttributes={{
                 dir: lang_direction,
             }}
-            title={localize(title)}
+            title={title ? localize(title) : null}
             defer={false}
             meta={[
                 {
@@ -140,7 +142,9 @@ const SEO = ({
                 },
                 {
                     property: 'og:title',
-                    content: localize(meta_attributes?.og_title) || default_og_title,
+                    content: meta_attributes?.og_title
+                        ? localize(meta_attributes?.og_title)
+                        : default_og_title,
                 },
                 {
                     property: 'og:site_name',
@@ -148,7 +152,9 @@ const SEO = ({
                 },
                 {
                     property: 'og:description',
-                    content: localize(meta_attributes?.og_description) || default_og_description,
+                    content: meta_attributes?.og_description
+                        ? localize(meta_attributes?.og_description)
+                        : default_og_description,
                 },
                 {
                     property: 'og:type',
@@ -180,7 +186,7 @@ const SEO = ({
                 },
                 {
                     name: 'twitter:title',
-                    content: localize(title),
+                    content: title ? localize(title) : null,
                 },
                 {
                     name: 'twitter:description',

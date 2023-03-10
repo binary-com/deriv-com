@@ -192,21 +192,25 @@ export const Card = ({
     word_break_cover,
 }: CardProps) => {
     const is_rtl = useIsRtl()
+
+    const work_break_cover_contents: TString[] = [
+        '_t_'.concat(
+            cover_content.split(' ')[0].toString().replaceAll('_t_', ''),
+            '_t_',
+        ) as TString,
+        '_t_'.concat(
+            cover_content.split(' ').slice(1).join(' ').replaceAll('_t_', ''),
+            '_t_',
+        ) as TString,
+    ]
+
     const final_content = word_break_cover ? (
         <Flex direction="column" jc="flex-start" ai="flex-start">
             <CoverContent>
-                <Localize
-                    translate_text={`_t_${cover_content.split(' ')[0].replaceAll('_t_', '')}_t_`}
-                />
+                <Localize translate_text={work_break_cover_contents[0]} />
             </CoverContent>
             <CoverContent>
-                <Localize
-                    translate_text={`_t_${cover_content
-                        .split(' ')
-                        .slice(1)
-                        .join(' ')
-                        .replaceAll('_t_', '')}_t_`}
-                />
+                <Localize translate_text={work_break_cover_contents[1]} />
             </CoverContent>
         </Flex>
     ) : (

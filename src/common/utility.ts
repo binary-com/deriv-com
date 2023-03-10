@@ -386,12 +386,7 @@ export const useCallbackRef = (callback: () => void) => {
 const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
 
 const redirect = (subdomain: string) => {
-    const redirection_url = `${subdomain}.deriv.com`
-    window.location.href = `https://${redirection_url + window.location.pathname}`
-}
-
-const redirectDomain = () => {
-    const redirection_url = `deriv.com`
+    const redirection_url = subdomain ? `${subdomain}.deriv.com` : 'deriv.com'
     window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
@@ -420,7 +415,8 @@ export const handleRowRedirect = (residence: string, current_client_country: str
         return false
     } else {
         if (eu_subdomain_countries.includes(country) === false) {
-            redirectDomain()
+            const subdomain = getSubdomain()
+            redirect(subdomain.includes('staging-eu') ? 'staging' : '')
         }
     }
 }
@@ -428,3 +424,15 @@ export const handleRowRedirect = (residence: string, current_client_country: str
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
+
+export const PlatformQueryParam = () => {
+    if (isBrowser()) {
+        const is_deriv_go = window.location.href.indexOf('?platform=derivgo') > -1
+        const is_deriv_p2p = window.location.href.indexOf('?platform=p2p') > -1
+        const has_platform = is_deriv_go ? 'derivgo' : is_deriv_p2p ? 'p2p' : undefined
+
+        return { has_platform, is_deriv_p2p, is_deriv_go }
+    }
+
+    return {}
+}

@@ -5,6 +5,7 @@ import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
+import { PlatformQueryParam } from 'common/utility'
 
 type NavTabProps = {
     route_from: string
@@ -135,20 +136,23 @@ const tab_list_eu: TabList[] = [
 const NavTab = ({ route_from }: NavTabProps) => {
     const { is_eu } = useRegion()
     const ref = useRef(null)
+    const { is_deriv_go = true } = PlatformQueryParam()
 
     return (
         <TabsContainer>
-            <TabList ref={ref}>
-                {(is_eu ? tab_list_eu : tab_list).map((item) => {
-                    return (
-                        <StyledLink to={item.route_to} key={item.tab_name}>
-                            <TabButton selected={route_from == item.tab_name}>
-                                <TextWrapper>{item.title}</TextWrapper>
-                            </TabButton>
-                        </StyledLink>
-                    )
-                })}
-            </TabList>
+            {!is_deriv_go && (
+                <TabList ref={ref}>
+                    {(is_eu ? tab_list_eu : tab_list).map((item) => {
+                        return (
+                            <StyledLink to={item.route_to} key={item.tab_name}>
+                                <TabButton selected={route_from == item.tab_name}>
+                                    <TextWrapper>{item.title}</TextWrapper>
+                                </TabButton>
+                            </StyledLink>
+                        )
+                    })}
+                </TabList>
+            )}
         </TabsContainer>
     )
 }

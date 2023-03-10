@@ -157,9 +157,6 @@ const MobileCardWrapper = styled(Flex)`
         }
     }
 `
-const MobileStyledFlex = styled(Flex)`
-    height: 99%;
-`
 
 const StyledFlex = styled(Flex)`
     min-width: 282px;
@@ -174,6 +171,10 @@ const StyledFlex = styled(Flex)`
             width: 16px;
             height: 16px;
         }
+    }
+
+    @media ${device.mobileL} {
+        height: 42rem;
     }
 `
 
@@ -240,7 +241,6 @@ const MarketsWrapper = styled(Flex)`
 `
 
 const StyledHeader = styled(Header)`
-    margin-bottom: 2.4rem;
     padding: auto;
     text-align: center;
 
@@ -264,7 +264,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 
 const StyledCarousel = styled(SectionContainer)`
     height: 40rem;
-
+    padding: 4rem 0;
     @media ${device.tabletL} {
         height: 140rem;
     }

@@ -141,8 +141,8 @@ const InputWrapper = styled.div`
     font-weight: normal;
     margin-right: 1rem;
     border-radius: 15px;
+
     @media ${device.mobileL} {
-        width: unset;
         max-width: 191px;
     }
 `
@@ -153,6 +153,10 @@ const InputGroup = styled.div`
     margin-top: 2.5rem;
     margin-left: 1.5rem;
     margin-bottom: 1.5rem;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+    }
 `
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     margin-left: 1rem;
@@ -164,10 +168,11 @@ const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     @media ${device.tabletL} {
         padding: 10px 16px;
         white-space: nowrap;
+        border-radius: 4px;
         min-width: unset;
         margin-left: 0;
         height: 40px;
-        width: auto;
+        width: 250px;
     }
 `
 const SocialWrapper = styled(Flex)`

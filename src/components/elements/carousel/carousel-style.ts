@@ -42,6 +42,10 @@ export const EmblaContainer = styled.div`
     height: 100%;
     display: flex;
     will-change: transform;
+
+    @media ${device.laptop} {
+        gap: 2rem;
+    }
 `
 
 export const EmblaSlideInner = styled.div<{ width?: string }>`

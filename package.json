@@ -19,7 +19,7 @@
         "eslint-import-resolver-node": "^0.3.6",
         "extend": "^3.0.2",
         "formik": "^2.2.9",
-        "gatsby": "^4.14.1",
+        "gatsby": "^5.7.0",
         "gatsby-background-image": "^1.6.0",
         "gatsby-plugin-anchor-links": "^1.2.1",
         "gatsby-plugin-google-tagmanager": "^4.14.0",

@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Link } from '../style/_faq'
+import { TString } from 'types/generics'
 
-export default [
+type TFAQContent = {
+    title: TString
+    content: Record<'title' | 'subtitle', string | ReactElement>[]
+}
+
+const faq_content: TFAQContent[] = [
     {
-        title: 'Basic information',
+        title: '_t_Basic information_t_',
         content: [
             {
                 title: 'Is the BeSquare graduate programme the same as an internship programme?',
@@ -23,7 +29,7 @@ export default [
         ],
     },
     {
-        title: 'Eligibility requirements',
+        title: '_t_Eligibility requirements_t_',
         content: [
             {
                 title: 'I am an international student. Can I apply for this programme?',
@@ -37,7 +43,7 @@ export default [
         ],
     },
     {
-        title: 'Application details',
+        title: '_t_Application details_t_',
         content: [
             {
                 title: 'I made a mistake on my application. What should I do?',
@@ -64,3 +70,5 @@ export default [
         ],
     },
 ]
+
+export default faq_content

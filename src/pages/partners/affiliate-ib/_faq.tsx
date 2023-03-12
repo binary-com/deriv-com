@@ -167,7 +167,7 @@ const Faq = () => {
                         return (
                             <AccordionItem
                                 key={item.class_name}
-                                header={localize(`${item.header}`)}
+                                header={item.header}
                                 parent_style={parent_style}
                                 header_style={header_style}
                                 style={item_style}
@@ -195,7 +195,7 @@ const Faq = () => {
                         return (
                             <AccordionItem
                                 key={item.class_name}
-                                header={localize(`${item.header}`)}
+                                header={item.header}
                                 parent_style={parent_style}
                                 header_style={header_style}
                                 style={item_style}

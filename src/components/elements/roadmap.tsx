@@ -5,6 +5,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
@@ -63,9 +64,9 @@ const StyledButton = styled(LinkButton)`
     z-index: 3;
 `
 
-type RoadmapProps = {
+export type RoadmapProps = {
     portal?: {
-        paragraph?: string | ReactElement
+        paragraph?: TString
         frame?: string
         link?: string
     }
@@ -76,10 +77,10 @@ const Roadmap = ({ portal }: RoadmapProps) => {
             <Container>
                 <Flex width="1202px" fd="column" ai="center" jc="center">
                     <StyledHeader as="h2" type="heading-2" align="center">
-                        <Localize translate_text="What’s next?" />
+                        <Localize translate_text="_t_What’s next?_t_" />
                     </StyledHeader>
                     <StyledText mt="16px" align="center">
-                        {portal.paragraph}
+                        <Localize translate_text={portal.paragraph} />
                     </StyledText>
                 </Flex>
             </Container>
@@ -93,7 +94,7 @@ const Roadmap = ({ portal }: RoadmapProps) => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Go to portal')}
+                        <Localize translate_text="_t_Go to portal_t_" />
                     </StyledButton>
                 </StyledFrame>
             </>

@@ -57,7 +57,7 @@ const Faq = () => {
             <AccordionWrapper id="dmt5-faq-list">
                 <Accordion has_single_state>
                     <AccordionItem
-                        header={localize('_t_Do I need to sign up for a Deriv.com account?_t_')}
+                        header="_t_Do I need to sign up for a Deriv.com account?_t_"
                         parent_style={parent_style}
                         style={item_style}
                         header_style={header_style}
@@ -67,7 +67,7 @@ const Faq = () => {
                         <NeedSignUp />
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('_t_Will Binary.com be removed?_t_')}
+                        header="_t_Will Binary.com be removed?_t_"
                         parent_style={parent_style}
                         style={item_style}
                         header_style={header_style}
@@ -77,7 +77,7 @@ const Faq = () => {
                         <BinaryRemoved />
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('_t_Is Deriv.com secure?_t_')}
+                        header="_t_Is Deriv.com secure?_t_"
                         parent_style={parent_style}
                         style={item_style}
                         header_style={header_style}
@@ -87,7 +87,7 @@ const Faq = () => {
                         <DerivSecure />
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('_t_What other changes will I be seeing?_t_')}
+                        header="_t_What other changes will I be seeing?_t_"
                         parent_style={parent_style}
                         style={item_style}
                         header_style={header_style}

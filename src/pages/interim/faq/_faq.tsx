@@ -77,7 +77,7 @@ const FAQ = () => {
                     <Answer id="rebranding">
                         <Accordion has_single_state>
                             <AccordionItem
-                                header={localize('_t_Why are you rebranding?_t_')}
+                                header="_t_Why are you rebranding?_t_"
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -87,7 +87,7 @@ const FAQ = () => {
                                 <WhyRebrand />
                             </AccordionItem>
                             <AccordionItem
-                                header={localize('_t_What changes will I see?_t_')}
+                                header="_t_What changes will I see?_t_"
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -97,9 +97,7 @@ const FAQ = () => {
                                 <WhatChanges />
                             </AccordionItem>
                             <AccordionItem
-                                header={
-                                    <Localize translate_text="_t_Is Binary.com being bought over by another company?_t_" />
-                                }
+                                header="_t_Is Binary.com being bought over by another company?_t_"
                                 style={item_style}
                                 header_style={header_style}
                                 plus
@@ -125,9 +123,7 @@ const FAQ = () => {
                     <Answer id="new-offerings">
                         <Accordion has_single_state>
                             <AccordionItem
-                                header={localize(
-                                    '_t_What are the new products and services offered as a result of this rebranding?_t_',
-                                )}
+                                header="_t_What are the new products and services offered as a result of this rebranding?_t_"
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -139,9 +135,7 @@ const FAQ = () => {
 
                             <AccordionItem
                                 is_showed={!is_eu}
-                                header={
-                                    <Localize translate_text="_t_What else can we expect from Deriv.com?_t_" />
-                                }
+                                header="_t_What else can we expect from Deriv.com?_t_"
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -151,9 +145,7 @@ const FAQ = () => {
                                 <WhatToExpect />
                             </AccordionItem>
                             <AccordionItem
-                                header={
-                                    <Localize translate_text="_t_Is Deriv.com regulated/registered/licensed?_t_" />
-                                }
+                                header="_t_Is Deriv.com regulated/registered/licensed?_t_"
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -164,9 +156,7 @@ const FAQ = () => {
                             </AccordionItem>
 
                             <AccordionItem
-                                header={
-                                    <Localize translate_text="_t_Are you going to close down Binary.com?_t_" />
-                                }
+                                header="_t_Are you going to close down Binary.com?_t_"
                                 style={item_style}
                                 header_style={header_style}
                                 plus
@@ -192,9 +182,7 @@ const FAQ = () => {
                     <Answer id="meaning">
                         <Accordion has_single_state>
                             <AccordionItem
-                                header={
-                                    <Localize translate_text="_t_Why should I switch to Deriv.com?_t_" />
-                                }
+                                header="_t_Why should I switch to Deriv.com?_t_"
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -205,9 +193,7 @@ const FAQ = () => {
                             </AccordionItem>
 
                             <AccordionItem
-                                header={
-                                    <Localize translate_text="_t_Can I still trade on Binary.com?_t_" />
-                                }
+                                header="_t_Can I still trade on Binary.com?_t_"
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -218,9 +204,7 @@ const FAQ = () => {
                             </AccordionItem>
 
                             <AccordionItem
-                                header={
-                                    <Localize translate_text="_t_How do I get started on Deriv.com?_t_" />
-                                }
+                                header="_t_How do I get started on Deriv.com?_t_"
                                 style={item_style}
                                 header_style={header_style}
                                 plus

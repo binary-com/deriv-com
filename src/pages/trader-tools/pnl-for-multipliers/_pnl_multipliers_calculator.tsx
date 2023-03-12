@@ -994,7 +994,7 @@ const PnlMultipliersCalculator = () => {
 
                             <Accordion id="pnl-for-multipliers" has_single_state>
                                 <AccordionItem
-                                    header={localize('_t_Stop loss level in Up direction_t_')}
+                                    header="_t_Stop loss level in Up direction_t_"
                                     header_style={header_style}
                                     style={item_style}
                                     plus
@@ -1028,7 +1028,7 @@ const PnlMultipliersCalculator = () => {
                                 </AccordionItem>
 
                                 <AccordionItem
-                                    header={localize('_t_Take profit level in Down direction_t_')}
+                                    header="_t_Take profit level in Down direction_t_"
                                     header_style={header_style}
                                     style={item_style}
                                     plus
@@ -1615,7 +1615,7 @@ const PnlMultipliersCalculator = () => {
 
                             <Accordion id="pnl-for-multipliers" has_single_state>
                                 <AccordionItem
-                                    header={localize('_t_Take profit amount in Up direction_t_')}
+                                    header="_t_Take profit amount in Up direction_t_"
                                     header_style={header_style}
                                     style={item_style}
                                     plus
@@ -1650,7 +1650,7 @@ const PnlMultipliersCalculator = () => {
                                 </AccordionItem>
 
                                 <AccordionItem
-                                    header={localize('_t_Stop loss amount in Down direction_t_')}
+                                    header="_t_Stop loss amount in Down direction_t_"
                                     header_style={header_style}
                                     style={item_style}
                                     plus

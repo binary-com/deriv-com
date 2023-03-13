@@ -8,13 +8,6 @@ export const usePlatformQueryParam = () => {
     const [is_deriv_p2p, setIsDerivP2P] = useState(true)
     const [has_platform, setHasPlatform] = useState(false)
 
-    // initialize value for the first render
-    useEffect(() => {
-        setIsDerivGo(platform === 'derivgo')
-        setIsDerivP2P(platform === 'p2p')
-        setHasPlatform(platforms.includes(platform))
-    }, [])
-
     // change value whenever platform query changes
     useEffect(() => {
         setIsDerivGo(platform === 'derivgo')

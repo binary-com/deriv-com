@@ -16,6 +16,10 @@ type TProps = {
     default_step?: number
     onStepChanged?: (step: number) => void
     renderFooter?: () => JSX.Element
+    contentWidth: string
+}
+type ItemsWrapperProps = {
+    width?: string
 }
 
 const Wrapper = styled.div`
@@ -33,8 +37,8 @@ const Wrapper = styled.div`
         align-items: flex-start;
     }
 `
-const ItemsWrapper = styled.div`
-    max-width: 230px;
+const ItemsWrapper = styled.div<ItemsWrapperProps>`
+    max-width: ${(props) => (props.width ? props.width : '230px')};
     width: 100%;
 
     @media ${device.tabletL} {
@@ -58,7 +62,7 @@ const UlStyle = styled.ul`
     font-family: Ubuntu, sans-serif;
 
     li {
-        transition: all 0.2s;
+        color: var(--color-black-9);
     }
     @media ${device.mobileL} {
         cursor: none;
@@ -73,6 +77,7 @@ const StepperView: React.FC<TProps> = ({
     default_step = 0,
     onStepChanged,
     renderFooter,
+    contentWidth,
 }) => {
     const [selected, setSelected] = useState<number>(default_step)
 
@@ -87,17 +92,13 @@ const StepperView: React.FC<TProps> = ({
             <ImageWrapper>
                 <QueryImage data={items[selected].image} alt={items[selected].alt} />
             </ImageWrapper>
-            <ItemsWrapper>
+            <ItemsWrapper width={contentWidth}>
                 <UlStyle>
                     {items.map((item, index) => (
                         <li
                             key={`${item.title}-${index}`}
                             style={{
                                 fontWeight: selected === index ? 'bold' : 'normal',
-                                color:
-                                    selected === index
-                                        ? 'var(--color-black-3)'
-                                        : 'var(--color-grey-5)',
                             }}
                             onClick={() => setSelected(index)}
                         >

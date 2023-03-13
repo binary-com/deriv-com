@@ -328,7 +328,7 @@ const WhatAreOptions = () => {
                                 <TextWrapper>
                                     <Text m="1.6rem 0 4rem 0">
                                         <Localize
-                                            translate_text="<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."
+                                            translate_text="<0>With an equivalent $100 position on CFDs</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."
                                             components={[<strong key={0} />, <LossText key={1} />]}
                                         />
                                     </Text>
@@ -357,7 +357,7 @@ const WhatAreOptions = () => {
             </SmallContainer>
             <FullWidthMultiColumn
                 header={<Localize translate_text="Why trade multipliers on Deriv" />}
-                button_title={<Localize translate_text="Don't have a Deriv.com account yet?" />}
+                button_title={<Localize translate_text="Don't have a Deriv account yet?" />}
                 button_text={<Localize translate_text="_t_Create free demo account_t_" />}
                 multiple_row
             >

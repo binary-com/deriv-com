@@ -488,11 +488,12 @@ export const reading: LocationsType = {
     first_img_alt: 'Working at Deriv Technologies Ltd',
     grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
-    map: '',
+    map: 'ChIJlfOm_xebdkgRgITDVJhzsMw',
     map_text:
         "Our UK base is a hub for Deriv fintech talent. Taking on exciting projects, this team play a key role in ideating, designing, and developing Deriv's next-generation trading products, as well as cutting-edge applications and technical systems. If software technology is what you live and breathe, join our UK team.",
-    map_img: 'reading',
-    need_address_block: true,
+    google_map_link: 'https://goo.gl/maps/hYvX7SUgPaTcf1uj6',
+    has_iframe: true,
+    has_map: true,
 }
 
 export const vanuatu: LocationsType = {
@@ -510,7 +511,7 @@ export const vanuatu: LocationsType = {
     flagIcon: VanuatuFlagIcon,
     thumbnail: 'thumbnail_vanuatu',
     first_p:
-        'Deriv Operations (V) Ltd will be our new office, opening in the second half of 2022.  Benefiting from the regional talent pool, it will assist the Deriv Group in delivering robust online trading solutions with exceptional customer service.',
+        'By leveraging the regional talent pool, Deriv Operations (V) Ltd is able to attract and retain top-tier professionals. The services provided by the Port Villa office assist Deriv Group to develop and maintain high-quality online trading platforms and services, as well as offer excellent customer support to its clients worldwide.',
     first_img: 'living_in_vanuatu',
     first_img_alt: 'Deriv’s Vanuatu office at Port Vila',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'vanuatu_grid_3', 'guernsey_grid_4'],
@@ -518,7 +519,7 @@ export const vanuatu: LocationsType = {
     map: 'ChIJNY-kpulhiW4RqoqGd8cKHz8',
     address: address_vanuatu,
     map_text:
-        'The Vanuatu office will bring experts together to provide the best trading solutions and services for our customers. Join our team at Vanuatu for a rewarding career.',
+        'The Vanuatu office brings experts together to provide the best trading solutions and services for our customers. Join our team at Vanuatu for a rewarding career.',
     google_map_link: 'https://goo.gl/maps/3A4mFkHzTfWQc9Kz9',
     has_iframe: true,
     has_map: true,
@@ -546,7 +547,7 @@ export const georgetown: LocationsType = {
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'cayman map', 'guernsey grid 4'],
     map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',
     map_text:
-        "Our office in the Cayman Islands will be a hub for compliance, operational risk, and quants talent. Join us at this office to analyse changes in regulatory policies, formulate and implement efficient risk management plans, and ensure the efficiency of the Deriv Group's compliance and trading strategies.",
+        "Our office in the Cayman Islands is a hub for compliance, operational risk, and quants talent. Join us at this office to analyse changes in regulatory policies, formulate and implement efficient risk management plans, and ensure the efficiency of the Deriv Group's compliance and trading strategies.",
     address: address_georgetown,
     google_map_link: 'https://goo.gl/maps/7ZjSzDqSEteSANqD8',
     has_map: true,
@@ -579,7 +580,7 @@ export const roadtown: LocationsType = {
 
 export const jordan: LocationsType = {
     name: 'jordan',
-    job_location: 'Jordan',
+    job_location: 'Amman',
     continent: 'middle_east',
     display_continent: 'Middle East',
     link: '/careers/locations/jordan/',
@@ -592,13 +593,13 @@ export const jordan: LocationsType = {
     flagIcon: JordanFlagIcon,
     thumbnail: 'thumbnail_jordan',
     first_p:
-        'Deriv Group Ltd Jordan LLC (Exempt) will be our new office, starting its operations later in 2022.  Tapping into the regional talent pool, it will be a software development centre and will also offer general services to the Deriv Group.',
+        'Deriv Group Ltd Jordan (Exempt) taps into the regional talent pool, recruiting skilled professionals capable of delivering high-quality software solutions. This office also offers general services that are beneficial to the overall success of the Deriv Group.',
     first_img: 'living_in_jordan',
     first_img_alt: 'living_in_jordan alt img',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'jordan_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['jordan grid 3'],
     map_text:
-        'Software developers, technical engineers, software testers, and IT specialists at our Amman office will work together to build state-of-the-art applications, trading platforms, and other technical systems. Join our Jordan team for a thriving tech career.',
+        'Software developers, technical engineers, software testers, and IT specialists at our Amman office work together to build state-of-the-art applications, trading platforms, and other technical systems. Join our Jordan team for a thriving tech career.',
     address: address_jordan,
     map: 'ChIJHaZseXGgHBUROYIYmKL-Po4',
     google_map_link: 'https://goo.gl/maps/Bc8aa4XsXfH6PdVH9',
@@ -616,12 +617,12 @@ export const singapore: LocationsType = {
     display_thumbnail_name: 'Singapore',
     display_title_name: 'Singapore',
     img_alt: 'Marina Bay Sands - Singapore',
-    map_office_name: '(SG) Pte Ltd.',
+    map_office_name: '(SG) Pte Ltd',
     country: 'Singapore',
     flagIcon: SingaporeFlagIcon,
     thumbnail: 'thumbnail_singapore',
     first_p:
-        'Deriv (SG) Pte Ltd. will be a new office in Southeast Asia, opening in the second half of 2022. Strategically situated in the regional financial hub, it will focus on developing innovative derivative trading solutions, particularly for trading CFDs.',
+        "Deriv (SG) Pte Ltd is strategically situated in the regional financial hub. The company's specialised focus on developing innovative derivative trading solutions, particularly for CFDs, showcases its commitment to providing clients with cutting-edge trading tools and services.",
     first_img: 'living_in_singapore',
     first_img_alt: 'Deriv’s Singapore office',
 
@@ -629,7 +630,7 @@ export const singapore: LocationsType = {
     grid_img_alt: ['Working with Deriv’s Singapore team'],
     map: 'ChIJtcz6IO4Z2jERVa-frIastZU',
     map_text:
-        'Our Singapore office will be home to a team of bright trading minds who will make Deriv everyone’s first choice for trading CFDs. Start a thriving career at Deriv in Singapore to influence the trading experience of over two million clients around the globe.',
+        'Our Singapore office is home to a team of bright trading minds who make Deriv everyone’s first choice for trading CFDs. Start a thriving career at Deriv in Singapore to influence the trading experience of over two million clients around the globe.',
     map_img: 'singapore_map',
     address: address_singapore,
     google_map_link: 'https://goo.gl/maps/mZv5nwRBA2a2p56LA',
@@ -653,7 +654,7 @@ export const ciudad: LocationsType = {
     thumbnail: 'thumbnail_ciudad',
     address: address_ciudad,
     first_p:
-        'Our second office in Paraguay is to open in the border city of Ciudad del Este. Located in the World Trade Center, this office will tap into the local talent pool to build Marketing and Customer Support teams to cater to the growing market demands in South America. ',
+        'Our second office in Paraguay is in the border city of Ciudad del Este. Located in the World Trade Center, this office taps into the local talent pool to build Marketing and Customer Support teams to cater to the growing market demands in South America. ',
     first_img: 'living_in_ciudad',
     first_img_alt: 'Deriv’s Ciudad del Este office in Paraguay',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
@@ -665,7 +666,7 @@ export const ciudad: LocationsType = {
     ],
     map: 'ChIJ8wOKkS-F9pQRIdgDbSjs_6A',
     map_text:
-        'As Deriv’s popularity grows rapidly with LATAM traders, the Customer Support and Marketing teams based at our office in Ciudad del Este will have increasing opportunities to showcase their talent. Join this office if you have a passion for assisting customers and affiliates, planning and executing marketing campaigns, and creating an engaging brand image.',
+        'As Deriv’s popularity grows rapidly with LATAM traders, the Customer Support and Marketing teams based at our office in Ciudad del Este have increasing opportunities to showcase their talent. Join this office if you have a passion for assisting customers and affiliates, planning and executing marketing campaigns, and creating an engaging brand image.',
     map_img: 'ciudad_map',
     google_map_link: 'https://goo.gl/maps/pmQU7QwfoY6YSR5LA',
     has_map: true,

@@ -17,12 +17,13 @@ const MobileCardHeader = styled(Flex)`
     height: auto;
 
     @media (max-width: 680px) {
-        flex-direction: row-reverse;
+        flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        align-items: start;
 
         > img {
             width: 48px;
+            margin: 2.5rem 0;
             height: 48px;
         }
     }
@@ -80,7 +81,7 @@ const MarketsAvailable = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Trade digital options, lookbacks, and Call/Put Spreads 24/7 on our synthetics that are free from real-world disruptions.',
+                                        'Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them.',
                                     )}
                                 </Text>
                                 <LearnMore
@@ -107,7 +108,7 @@ const MarketsAvailable = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Trade digital options on stocks & indices and profit from the price movements in our competitively priced asset baskets.',
+                                        'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
                                     )}
                                 </Text>
                                 <LearnMore
@@ -131,7 +132,7 @@ const MarketsAvailable = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        "Speculate on the price movements of the world's major commodities – silver, gold, oil, and energy.",
+                                        'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
                                     )}
                                 </Text>
                                 <LearnMore

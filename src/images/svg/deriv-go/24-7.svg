@@ -1,35 +1,20 @@
-<svg width="76" height="76" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#AEAEAE" d="M0 0h76v76H0z" />
-    <path fill="#fff" d="M-274-1624h1440v7130H-274z" />
-    <g filter="url(#prefix__prefix__filter0_i)">
-        <path fill="#fff" d="M-274-218h1440v588H-274z" />
-        <path opacity=".01" fill="#fff" stroke="#979797" stroke-width="3" d="M2 2h72v72H2z" />
-        <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M25.56 15.224L2 25.532v19.315c0 10.387 5.998 19.951 15.652 24.956l7.908 4.1 7.908-4.1c9.653-5.005 15.65-14.57 15.65-24.956V25.532L25.56 15.224z"
-            fill="#85ACAF" />
-        <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M39.717 49.784h-2.368v3.4h-3.148v-3.4h-8.137v-2.82l7.178-11.36h4.107v9.21h-3.148v-5.986h-.064L28.9 47.214h10.817v2.57zm-15.619 3.4H11.707v-3.072l5.641-4.811c.942-.807 1.638-1.54 2.09-2.204.455-.663.683-1.373.683-2.128v-.252c0-.84-.237-1.477-.706-1.915-.471-.437-1.125-.654-1.966-.654-.922 0-1.628.251-2.116.755-.487.504-.84 1.124-1.056 1.863l-2.873-1.082c.184-.57.45-1.12.794-1.65a5.787 5.787 0 011.284-1.397 6.198 6.198 0 011.828-.97c.705-.243 1.509-.365 2.418-.365.94 0 1.776.13 2.504.39.732.26 1.35.62 1.852 1.084.504.46.886 1.01 1.146 1.648a5.5 5.5 0 01.39 2.091c0 .723-.11 1.386-.34 1.99a7.01 7.01 0 01-.945 1.725 11.099 11.099 0 01-1.42 1.575 30.155 30.155 0 01-1.776 1.51l-3.83 3.1h8.79v2.77z"
-            fill="#fff" />
-        <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M72.53 38.756h-5.427c0-16.465-13.395-29.858-29.86-29.858v-5.43c19.458 0 35.288 15.83 35.288 35.288z"
-            fill="#FF444F" />
-        <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M62.341 38.756h-5.428c0-10.846-8.825-19.67-19.669-19.67v-5.429c13.84 0 25.097 11.26 25.097 25.099z"
-            fill="#FF444F" />
-        <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M51.62 38.756h-5.43c0-4.934-4.014-8.947-8.947-8.947v-5.43c7.925 0 14.375 6.45 14.375 14.377z"
-            fill="#FF444F" />
-    </g>
-    <defs>
-        <filter id="prefix__prefix__filter0_i" x="-274" y="-218" width="1440" height="588" filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-            <feOffset dy="2" />
-            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-            <feColorMatrix values="0 0 0 0 0.94902 0 0 0 0 0.952941 0 0 0 0 0.956863 0 0 0 1 0" />
-            <feBlend in2="shape" result="effect1_innerShadow" />
-        </filter>
-    </defs>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M31 16H9C6.79086 16 5 17.7909 5 20V39C5 41.2091 6.79086 43 9 43H31C33.2091 43 35 41.2091 35 39V20C35 17.7909 33.2091 16 31 16Z" stroke="#414652" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 14V18" stroke="#414652" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M28 18V14" stroke="#414652" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20 14V18" stroke="#414652" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11 24C10.45 24 10 24.45 10 25C10 25.55 10.45 26 11 26C11.55 26 12 25.55 12 25C12 24.45 11.55 24 11 24Z" fill="#414652"/>
+<path d="M17 24C16.45 24 16 24.45 16 25C16 25.55 16.45 26 17 26C17.55 26 18 25.55 18 25C18 24.45 17.55 24 17 24Z" fill="#414652"/>
+<path d="M23 24C22.45 24 22 24.45 22 25C22 25.55 22.45 26 23 26C23.55 26 24 25.55 24 25C24 24.45 23.55 24 23 24Z" fill="#414652"/>
+<path d="M29 24C28.45 24 28 24.45 28 25C28 25.55 28.45 26 29 26C29.55 26 30 25.55 30 25C30 24.45 29.55 24 29 24Z" fill="#414652"/>
+<path d="M11 30C10.45 30 10 30.45 10 31C10 31.55 10.45 32 11 32C11.55 32 12 31.55 12 31C12 30.45 11.55 30 11 30Z" fill="#414652"/>
+<path d="M17 30C16.45 30 16 30.45 16 31C16 31.55 16.45 32 17 32C17.55 32 18 31.55 18 31C18 30.45 17.55 30 17 30Z" fill="#414652"/>
+<path d="M23 30C22.45 30 22 30.45 22 31C22 31.55 22.45 32 23 32C23.55 32 24 31.55 24 31C24 30.45 23.55 30 23 30Z" fill="#414652"/>
+<path d="M29 30C28.45 30 28 30.45 28 31C28 31.55 28.45 32 29 32C29.55 32 30 31.55 30 31C30 30.45 29.55 30 29 30Z" fill="#414652"/>
+<path d="M11 36C10.45 36 10 36.45 10 37C10 37.55 10.45 38 11 38C11.55 38 12 37.55 12 37C12 36.45 11.55 36 11 36Z" fill="#414652"/>
+<path d="M17 36C16.45 36 16 36.45 16 37C16 37.55 16.45 38 17 38C17.55 38 18 37.55 18 37C18 36.45 17.55 36 17 36Z" fill="#414652"/>
+<path d="M23 36C22.45 36 22 36.45 22 37C22 37.55 22.45 38 23 38C23.55 38 24 37.55 24 37C24 36.45 23.55 36 23 36Z" fill="#414652"/>
+<path d="M29 36C28.45 36 28 36.45 28 37C28 37.55 28.45 38 29 38C29.55 38 30 37.55 30 37C30 36.45 29.55 36 29 36Z" fill="#414652"/>
+<path d="M39 10C39.17 9.5 39.33 9 39.5 8.5C40.33 8.33 41.17 8.17 42 8" stroke="#414652" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.5 14C42.5376 14 45 11.5376 45 8.5C45 5.46243 42.5376 3 39.5 3C36.4624 3 34 5.46243 34 8.5C34 11.5376 36.4624 14 39.5 14Z" stroke="#414652" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

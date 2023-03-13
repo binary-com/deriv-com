@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header } from 'components/elements'
-import { Container, SectionContainer } from 'components/containers'
+import { Container } from 'components/containers'
 import device from 'themes/device'
 
 interface Props {
@@ -57,27 +56,16 @@ const SecondColumn = styled(Column)`
     background-size: cover;
     width: ${(props) => props.width};
     position: relative;
-    left: -90px;
+    left: -100px;
     padding-left: 90px;
+    display: flex;
 
-    @media (max-width: 767px) {
+    @media ${device.tabletL} {
+        background-image: none;
+        width: 100%;
+        height: 250px;
         left: 0;
         padding-left: 0;
-    }
-`
-
-const StyledHeader = styled(Header)`
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 40px;
-    color: white;
-
-    @media ${device.tablet} {
-        text-align: center;
-        max-width: 80vw;
-        margin-bottom: 8px;
-        font-size: 24px;
-        line-height: 30px;
     }
 `
 

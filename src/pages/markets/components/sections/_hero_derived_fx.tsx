@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import ForexBg from 'images/common/markets/hero-forex.png'
-import DerivedEuBg from 'images/common/markets/derived-eu.png'
-import DerivedRowBg from 'images/common/markets/derived-row.png'
-import StocksAndIndicesBg from 'images/common/markets/stocks-and-indices.png'
-import CryptocurrenciesBg from 'images/common/markets/cryptocurrencies.png'
-import CommoditiesBg from 'images/common/markets/commodities.png'
+import ForexBg from 'images/common/markets/hero-forex.jpg'
+import DerivedEuBg from 'images/common/markets/derived-eu.jpg'
+import DerivedRowBg from 'images/common/markets/derived-row.jpg'
+import StocksAndIndicesBg from 'images/common/markets/stocks-and-indices.jpg'
+import CryptocurrenciesBg from 'images/common/markets/cryptocurrencies.jpg'
+import CommoditiesBg from 'images/common/markets/commodities.jpg'
 import NavMarkets from 'components/layout/nav/nav-markets'
 import { Header } from 'components/elements'
 import Button from 'components/custom/_button'
@@ -15,6 +15,7 @@ import { Desktop, Mobile } from 'components/containers'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type MarketProps = {
     title: string
@@ -34,6 +35,7 @@ type BackgroundWrapperProps = {
     is_stocks_and_indices?: boolean
     is_cryptocurrencies?: boolean
     is_commodities?: boolean
+    is_rtl?: boolean
 }
 
 const handleBg = ({
@@ -65,14 +67,7 @@ const handleBg = ({
         }
     }
 }
-const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
-    position: relative;
-    background: url(${handleBg});
-    background-size: 89rem;
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 63rem;
-`
+
 const StyledButton = styled.div`
     margin-top: 5rem;
     margin-left: 10vw;
@@ -110,7 +105,7 @@ const StyledContainer = styled.div`
     }
 
     @media ${device.laptopM} {
-        padding: 4rem 2.3rem;
+        padding: 0 2.3rem 5.5rem 2.3rem;
         top: 0;
         display: flex;
         align-items: center;
@@ -127,22 +122,47 @@ const StyledContainer = styled.div`
         }
     }
     @media ${device.mobileM} {
-        padding: 4rem 1.3rem;
+        padding: 0 2.3rem 5.5rem 2.3rem;
+    }
+`
+const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
+    position: relative;
+    background: url(${handleBg});
+    background-size: 165rem;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 63rem;
+    transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'none')};
+
+    @media (max-width: 580px) {
+        background-size: 147rem;
+        background-position-x: -588px;
+    }
+
+    & > ${StyledContainer} {
+        transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};
+        margin-right: 8rem;
+    }
+    & > ${StyledButton} {
+        transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};
+        margin-right: 8rem;
     }
 `
 const MarketSubHeader = styled.div`
     font-size: 16px;
     width: 25vw;
     color: var(--color-black-9);
-    text-align: start;
+    text-align: left;
     line-height: 24px;
 
     @media ${device.laptopM} {
         min-width: 40rem;
+        text-align: center;
     }
     @media ${device.mobileM} {
         font-size: 14px;
         width: 83vw;
+        text-align: center;
     }
 `
 const StyledHeader = styled(Header)`
@@ -153,7 +173,8 @@ const StyledHeader = styled(Header)`
     margin-top: 16rem;
 
     @media ${device.laptopM} {
-        font-size: 32px;
+        font-size: 28px;
+        width: 100%;
         align-items: center;
         margin-top: 0;
     }
@@ -172,6 +193,8 @@ export const DerivedFXHero = ({
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
 
+    const is_rtl = useIsRtl()
+
     return (
         <>
             <NavMarkets />
@@ -183,6 +206,7 @@ export const DerivedFXHero = ({
                     is_stocks_and_indices={is_stocks_and_indices}
                     is_cryptocurrencies={is_cryptocurrencies}
                     is_commodities={is_commodities}
+                    is_rtl={is_rtl}
                 >
                     <StyledContainer>
                         <StyledHeader as="h1" align="center">
@@ -213,6 +237,7 @@ export const DerivedFXHero = ({
                     is_stocks_and_indices={is_stocks_and_indices}
                     is_cryptocurrencies={is_cryptocurrencies}
                     is_commodities={is_commodities}
+                    is_rtl={is_rtl}
                 />
                 <StyledContainer>
                     <StyledHeader as="h1" align="center">

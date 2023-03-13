@@ -82,6 +82,9 @@ const SocialButton = styled(Button)<SocialButtonProps>`
     border: solid 1px var(--color-grey-21);
     padding: 0.5rem 0;
 
+    &:hover {
+        background-color: ${(props) => props.bgColor || 'var(--color-white)'};
+    }
     @media ${device.tabletL} {
         height: 4.8rem;
     }
@@ -215,7 +218,7 @@ const SignupNew = ({
                 >
                     <img src={Google} alt="google" width="24" height="24" />
                     <SocialText as="p" align="center">
-                        <Localize translate_text="Sign up with Google" />
+                        <Localize translate_text="Google" />
                     </SocialText>
                 </SocialButton>
                 <SocialButton
@@ -229,7 +232,7 @@ const SignupNew = ({
                 >
                     <img src={Facebook} alt="facebook" width="24" height="24" />
                     <SocialText color="var(--color-white)" as="p" align="center">
-                        <Localize translate_text="Sign up with Facebook" />
+                        <Localize translate_text="Facebook" />
                     </SocialText>
                 </SocialButton>
                 <SocialButton
@@ -243,7 +246,7 @@ const SignupNew = ({
                 >
                     <img src={Apple} alt="apple" width="24" height="24" />
                     <SocialText color="var(--color-white)" as="p" align="center">
-                        <Localize translate_text="Sign up with Apple" />
+                        <Localize translate_text="Apple" />
                     </SocialText>
                 </SocialButton>
             </SocialWrapper>

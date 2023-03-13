@@ -34,6 +34,7 @@ export const CloseIcon = styled.img`
 export const Wrapper = styled(Container)<WrapperProps>`
     font-size: var(--text-size-s);
     padding: 1.2rem 0;
+    background-color: white;
     justify-content: space-between;
     height: 7.2rem;
     @media ${device.laptopL} {
@@ -68,6 +69,7 @@ export const MarketWrapper = styled.div<DesktopWrapperProps>`
 `
 export const MobileWrapper = styled.div<DesktopWrapperProps>`
     display: none;
+    background-color: white;
     @media ${({ media }) => media || device.tabletL} {
         display: block;
     }
@@ -210,4 +212,5 @@ export const PartnerWrapper = styled.div`
     position: fixed;
     top: 0;
     z-index: 100;
+    background-color: white;
 `

@@ -89,6 +89,7 @@ export const SharedLinkStyle = css<SharedLinkStyleProps>`
 export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
     color: var(--color-black-9);
     text-decoration: none;
+    font-family: Ubuntu, sans-serif;
     padding: 0.5rem 1rem;
     transition: text-shadow 0.25s;
     position: relative;
@@ -112,7 +113,7 @@ export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
     ${({ active }) =>
         active &&
         css`
-            color: gray;
+            color: var(--color-red);
         `}
     @media ${device.laptopL} {
         font-size: 14px;

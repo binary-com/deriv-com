@@ -42,9 +42,7 @@ import Advcash from 'images/svg/payment-methods/payment-advcash.svg'
 import Dp2p from 'images/svg/payment-methods/payment-dp2p.svg'
 import Eps from 'images/svg/payment-methods/payment-eps.svg'
 import GiroPay from 'images/svg/payment-methods/payment-giropay.svg'
-import Nordea from 'images/svg/payment-methods/payment-nordea.svg'
 import Przelewy from 'images/svg/payment-methods/payment-przelewy.svg'
-import PostePay from 'images/svg/payment-methods/payment-postepay.svg'
 import RapidTransfer from 'images/svg/payment-methods/payment-rapidtransfer.svg'
 
 const StyledIcon = styled.img`
@@ -553,6 +551,20 @@ const payment_data = [
                 url: 'https://www.skrill.com/',
             },
             {
+                method: <StyledIcon src={Jeton} alt="Jeton" />,
+                currencies: 'USD EUR AUD GBP',
+                min_max_deposit: <Localize translate_text="5 - 1,000" />,
+                min_max_withdrawal: <Localize translate_text="5 - 1,000" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="A fast and secure money transfer service. Access your money anywhere with the mobile app." />
+                ),
+                url: 'https://www.jeton.com/',
+                name: 'jeton',
+                reference: 'jeton-payment-method.pdf',
+            },
+            {
                 method: <StyledIcon src={Neteller} alt="Neteller" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
@@ -564,19 +576,6 @@ const payment_data = [
                 ),
                 name: 'neteller',
                 url: 'https://www.neteller.com/',
-            },
-            {
-                method: <StyledIcon src={PostePay} alt="postepay" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make instant and safe transactions via Postepay, and enjoy its mobile app's benefits." />
-                ),
-                name: 'postepay',
-                url: 'https://postepay.poste.it/',
             },
         ],
         class_name: 'e-wallets',
@@ -611,18 +610,6 @@ const payment_data = [
                     <Localize translate_text="Make safe, instant, and easy transactions via Germany's most popular payment method." />
                 ),
                 name: 'Eps',
-            },
-            {
-                method: <StyledIcon src={Nordea} alt="nordea" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make fast deposits with your Nordea bank account and enjoy benefits from its mobile app." />
-                ),
-                name: 'Nordea',
             },
             {
                 method: <StyledIcon src={Przelewy} alt="przelewy" />,

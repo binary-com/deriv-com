@@ -1,3 +1,5 @@
+import { ComponentPropsWithRef } from 'react'
+
 export type ContentSectionTagOptions =
     | 'div'
     | 'address'
@@ -47,3 +49,22 @@ export type TextTagOptions =
 export type TypographyTagOptions = HeadingTagOptions | TextTagOptions
 
 export type SpacingSize = 'extra-small' | 'small' | 'medium' | 'large' | 'extra-large'
+
+export interface SpaceProps<T extends React.ElementType = 'p'> {
+    as?: T
+    margin?: SpacingSize
+    ml?: SpacingSize
+    mr?: SpacingSize
+    mt?: SpacingSize
+    mb?: SpacingSize
+    margin_inline?: SpacingSize
+    margin_block?: SpacingSize
+    padding?: SpacingSize
+    pl?: SpacingSize
+    pr?: SpacingSize
+    pt?: SpacingSize
+    pb?: SpacingSize
+    padding_inline?: SpacingSize
+    padding_block?: SpacingSize
+    innerRef?: ComponentPropsWithRef<T>['ref']
+}

@@ -1,26 +1,7 @@
-import React, { HTMLAttributes, ComponentPropsWithRef } from 'react'
+import React, { HTMLAttributes } from 'react'
 import clsx from 'clsx'
-import { SpacingSize } from 'features/types'
+import { SpaceProps } from 'features/types'
 import './box.scss'
-
-export interface SpaceProps<T extends React.ElementType = 'p'> {
-    as?: T
-    margin?: SpacingSize
-    ml?: SpacingSize
-    mr?: SpacingSize
-    mt?: SpacingSize
-    mb?: SpacingSize
-    margin_inline?: SpacingSize
-    margin_block?: SpacingSize
-    padding?: SpacingSize
-    pl?: SpacingSize
-    pr?: SpacingSize
-    pt?: SpacingSize
-    pb?: SpacingSize
-    padding_inline?: SpacingSize
-    padding_block?: SpacingSize
-    innerRef?: ComponentPropsWithRef<T>['ref']
-}
 
 export interface BoxProps<T extends React.ElementType = 'p'>
     extends HTMLAttributes<T>,

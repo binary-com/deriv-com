@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import React, { ImgHTMLAttributes } from 'react'
-import Box, { SpaceProps } from '../box'
+import Box from '../box'
+import { SpaceProps } from 'features/types'
 import './icon.scss'
 
 interface IconProps extends ImgHTMLAttributes<'img'>, SpaceProps<'img'> {

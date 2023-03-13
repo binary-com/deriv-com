@@ -8,24 +8,24 @@ import HeroImageCarousel from './hero-image.carousel'
 import HeroBackground from './hero.background'
 import 'swiper/swiper.min.css'
 import 'swiper/swiper-bundle.min.css'
-import SContainer from 'features/components/container'
+import Container from 'features/components/atoms/container'
 
 const HomeHero = () => {
     return (
         <section className={styles.home_hero}>
             <HeroBackground />
 
-            <SContainer className={styles.content}>
-                <div className={styles.right_side}>
+            <Container.Fluid className={styles.content}>
+                <div className={styles.left_side}>
                     <HeroHeaderItems className={styles.header_titles} />
                     <HeroTitle />
                     <HeroFeaturesCarousel />
                     <HeroCtaButton />
                 </div>
-                <div className={styles.left_side}>
+                <div className={styles.right_side}>
                     <HeroImageCarousel />
                 </div>
-            </SContainer>
+            </Container.Fluid>
         </section>
     )
 }

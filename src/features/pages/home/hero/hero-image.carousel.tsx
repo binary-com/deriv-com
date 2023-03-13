@@ -3,8 +3,6 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade } from 'swiper'
 import useRegion from 'components/hooks/use-region'
-import 'swiper/swiper.min.css'
-import 'swiper/swiper-bundle.min.css'
 
 const HeroImageCarousel = () => {
     const { is_eu, is_row } = useRegion()
@@ -15,7 +13,7 @@ const HeroImageCarousel = () => {
                     key: 'hero1',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform1.png"
+                            src="../../../../images/common/home/hero_platform1.png"
                             alt="mobile app deriv go"
                             formats={['avif', 'webp', 'auto']}
                             quality={36}
@@ -28,7 +26,7 @@ const HeroImageCarousel = () => {
                     key: 'hero2',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform2.png"
+                            src="../../../../images/common/home/hero_platform2.png"
                             alt="laptop dtrader"
                             formats={['avif', 'webp', 'auto']}
                             quality={44}
@@ -40,7 +38,7 @@ const HeroImageCarousel = () => {
                     key: 'hero3',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform3.png"
+                            src="../../../../images/common/home/hero_platform3.png"
                             alt="laptop mt5"
                             formats={['avif', 'webp', 'auto']}
                             quality={38}
@@ -52,7 +50,7 @@ const HeroImageCarousel = () => {
                     key: 'hero4',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform4.png"
+                            src="../../../../images/common/home/hero_platform4.png"
                             alt="laptop deriv x"
                             formats={['avif', 'webp', 'auto']}
                             quality={44}
@@ -68,7 +66,7 @@ const HeroImageCarousel = () => {
                     key: 'hero1_eu',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform1_eu.png"
+                            src="../../../../images/common/home/hero_platform1_eu.png"
                             alt="laptop dtrader eu"
                             formats={['avif', 'webp', 'auto']}
                             quality={44}
@@ -81,7 +79,7 @@ const HeroImageCarousel = () => {
                     key: 'hero2_eu',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform2_eu.png"
+                            src="../../../../images/common/home/hero_platform2_eu.png"
                             alt="laptop dmt5 eu"
                             formats={['avif', 'webp', 'auto']}
                             quality={38}
@@ -94,9 +92,9 @@ const HeroImageCarousel = () => {
 
     return (
         <Swiper
-            spaceBetween={30}
             speed={1000}
             effect={'fade'}
+            slidesPerView={1}
             fadeEffect={{
                 crossFade: true,
             }}

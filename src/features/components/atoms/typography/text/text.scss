@@ -1,0 +1,5 @@
+@use 'features/styles/mixins/font' as *;
+
+.text {
+    @include font-size($p-font-sizes);
+}

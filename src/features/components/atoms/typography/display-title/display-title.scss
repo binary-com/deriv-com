@@ -1,0 +1,5 @@
+@use 'features/styles/mixins/font' as *;
+
+.display-title {
+    @include font-size($h1-font-sizes);
+}

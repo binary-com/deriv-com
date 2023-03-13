@@ -1,0 +1,5 @@
+@use 'features/styles/mixins/font' as *;
+
+.hero {
+    @include font-size($main-landing-title-font-sizes);
+}

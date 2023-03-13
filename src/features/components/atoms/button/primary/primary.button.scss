@@ -1,0 +1,12 @@
+@import 'features/styles/variables';
+
+button.primary {
+    border: 2px solid $color-red;
+    color: $color-red;
+    background: transparent;
+
+    &:hover {
+        background-color: $color-red;
+        color: $color-white;
+    }
+}

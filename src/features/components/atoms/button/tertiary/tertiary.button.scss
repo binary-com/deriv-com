@@ -1,0 +1,11 @@
+@import 'features/styles/variables';
+
+button.tertiary {
+    border: 2px solid $color-grey-5;
+    color: $color-black;
+    background: transparent;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+    }
+}

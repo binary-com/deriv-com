@@ -1,0 +1,9 @@
+@use 'features/styles/mixins/font' as *;
+
+.subtitle-1 {
+    @include font-size($h4-font-sizes);
+}
+
+.subtitle-2 {
+    @include font-size($h5-font-sizes);
+}

@@ -6,7 +6,7 @@ const HeroBackground = () => {
     return (
         <div className={styles.bg_container}>
             <StaticImage
-                src="../../images/common/home/hero_bg.png"
+                src="../../../../images/common/home/hero_bg.png"
                 alt="world map"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}

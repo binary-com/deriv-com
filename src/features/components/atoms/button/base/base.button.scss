@@ -1,0 +1,37 @@
+@import 'features/styles/variables';
+
+button {
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 14px;
+    transition: all 0.25s;
+    font-weight: bold;
+    block-size: fit-content;
+
+    &:focus,
+    &:active {
+        outline: none;
+        transform: scale(0.95);
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button.fluid {
+    inline-size: 100%;
+}
+
+button.disabled {
+    pointer-events: none;
+    opacity: 0.32;
+}
+
+button.loading {
+    inline-size: 8rem;
+    block-size: 8rem;
+    border: 10px solid $color-black;
+    border-radius: 50%;
+    animation: sweep 1s linear alternate infinite, rotates 0.8s linear infinite;
+}

@@ -1,0 +1,66 @@
+@use 'features/styles/mixins/spacing' as *;
+
+@include generate-gaps();
+
+.flexbox {
+    display: flex;
+}
+
+.dir-row {
+    flex-direction: row;
+}
+
+.dir-column {
+    flex-direction: column;
+}
+
+.dir-reverse-row {
+    flex-direction: row-reverse;
+}
+
+.dir-reverse-column {
+    flex-direction: column-reverse;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-start {
+    align-items: start;
+}
+
+.align-end {
+    align-items: end;
+}
+
+.align-baseline {
+    align-items: baseline;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-start {
+    justify-content: start;
+}
+
+.justify-end {
+    justify-content: end;
+}
+
+.justify-baseline {
+    justify-content: baseline;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
+}
+.wrap-reverse {
+    flex-wrap: wrap-reverse;
+}

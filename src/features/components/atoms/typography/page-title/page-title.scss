@@ -1,0 +1,5 @@
+@use 'features/styles/mixins/font' as *;
+
+.page-title {
+    @include font-size($h2-font-sizes);
+}

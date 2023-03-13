@@ -1,0 +1,14 @@
+.nav_logo {
+    display: flex;
+    align-items: center;
+
+    &_main {
+        inline-size: 115px;
+    }
+
+    &_description {
+        border-inline-start: 1px solid white;
+        margin-inline: 1rem;
+        padding-inline-start: 1rem;
+    }
+}

@@ -1,0 +1,9 @@
+@use 'features/styles/mixins/font' as *;
+
+.paragraph-1 {
+    @include font-size($p-font-sizes);
+}
+
+.paragraph-2 {
+    @include font-size($small-p-font-sizes);
+}

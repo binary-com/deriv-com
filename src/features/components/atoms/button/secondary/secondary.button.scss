@@ -1,0 +1,12 @@
+@import 'features/styles/variables';
+
+button.secondary {
+    border: 2px solid $color-red;
+    color: $color-white;
+    background: $color-red;
+
+    &:hover {
+        background-color: $color-red-3;
+        border-color: $color-red-3;
+    }
+}

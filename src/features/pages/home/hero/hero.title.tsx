@@ -1,22 +1,15 @@
-import React, { HTMLAttributes } from 'react'
+import React from 'react'
 import { Localize } from 'components/localization'
-import Typography from 'features/components/typography'
-import useRegion from 'components/hooks/use-region'
+import Typography from 'features/components/atoms/typography'
+import Box from 'features/components/atoms/box'
 
-const HeroTitle = (props: HTMLAttributes<HTMLDivElement>) => {
-    const { is_eu, is_row } = useRegion()
-
+const HeroTitle = () => {
     return (
-        <div {...props}>
-            <Typography as={'h2'} type="sub-section-title">
-                {is_eu && (
-                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
-                )}
-                {is_row && (
-                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
-                )}
-            </Typography>
-        </div>
+        <Box as="div">
+            <Typography.Heading as="h5" size={4}>
+                <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
+            </Typography.Heading>
+        </Box>
     )
 }
 

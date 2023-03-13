@@ -1,0 +1,5 @@
+@use 'features/styles/mixins/font' as *;
+
+.sub-section-title {
+    @include font-size($h4-font-sizes);
+}

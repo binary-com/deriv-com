@@ -1,0 +1,12 @@
+@use 'features/styles/mixins/media' as *;
+
+.menu_toggle {
+    cursor: pointer;
+    inline-size: 16px;
+    display: none;
+    margin-inline-end: 1rem;
+
+    @include min-width(tabletL) {
+        display: block;
+    }
+}

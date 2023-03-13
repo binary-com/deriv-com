@@ -1,0 +1,34 @@
+.header {
+    &_watcher {
+        position: absolute;
+        inset-block-start: 0px;
+        inset-inline-start: 0px;
+    }
+
+    &_wrapper {
+        position: fixed;
+        inset-block-start: 0px;
+        z-index: 100;
+
+        &_static {
+            position: static;
+        }
+
+        &_scrolled {
+            background-color: var(--color-black);
+        }
+    }
+}
+
+.nav {
+    &_container {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        block-size: 7rem;
+        user-select: none;
+        white-space: nowrap;
+    }
+}

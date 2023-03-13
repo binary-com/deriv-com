@@ -1,21 +1,25 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Localize } from 'components/localization'
-import SButton from 'features/components/button'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import Button from 'features/components/atoms/button'
+import { TString } from 'types/generics'
 
 const HeroCtaButton = () => {
     const [is_logged_in] = useAuthCheck()
     const { is_mobile_or_tablet } = useBreakpoints()
 
-    return is_logged_in ? (
-        <SButton type={'button'} button_type="hero" fluid={is_mobile_or_tablet}>
-            <Localize translate_text="Get Trading" />
-        </SButton>
-    ) : (
-        <SButton type={'button'} button_type="hero" fluid={is_mobile_or_tablet}>
-            <Localize translate_text="Create free demo account" />
-        </SButton>
+    const button_text: TString = useMemo(() => {
+        if (is_logged_in) {
+            return '_t_Get Trading_t_'
+        }
+        return '_t_Create free demo account_t_'
+    }, [is_logged_in])
+
+    return (
+        <Button.Hero type={'button'} fluid={is_mobile_or_tablet}>
+            <Localize translate_text={button_text} />
+        </Button.Hero>
     )
 }
 

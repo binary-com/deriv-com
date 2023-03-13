@@ -1,0 +1,11 @@
+@import 'features/styles/variables';
+
+button.flat {
+    background: transparent;
+    color: $color-red;
+    border: none;
+
+    &:hover {
+        background: rgba(255, 68, 79, 0.08);
+    }
+}

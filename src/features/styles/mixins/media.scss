@@ -1,99 +1,93 @@
-@import "../variables.scss";
+@import '../variables.scss';
 
 @mixin min-width($breakpoint) {
-
-  @if ($breakpoint ==mobileS) {
-    @media (max-width: 320px) {
-      @content
+    @if ($breakpoint ==mobileS) {
+        @media (max-width: 320px) {
+            @content;
+        }
+    } @else if ($breakpoint ==mobileM) {
+        @media (max-width: 375px) {
+            @content;
+        }
+    } @else if ($breakpoint ==mobileL) {
+        @media (max-width: 425px) {
+            @content;
+        }
+    } @else if ($breakpoint ==tabletM) {
+        @media (min-width: 425px) and (max-width: 992px) {
+            @content;
+        }
+    } @else if ($breakpoint ==tabletS) {
+        @media (max-width: 576px) {
+            @content;
+        }
+    } @else if ($breakpoint ==tablet) {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if ($breakpoint ==tabletL) {
+        @media (max-width: 992px) {
+            @content;
+        }
+    } @else if ($breakpoint ==laptopS) {
+        @media (min-width: 992px) {
+            @content;
+        }
+    } @else if ($breakpoint ==laptop) {
+        @media (max-width: 1024px) {
+            @content;
+        }
+    } @else if ($breakpoint ==bp1060) {
+        @media (max-width: 1060px) {
+            @content;
+        }
+    } @else if ($breakpoint ==laptopM) {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    } @else if ($breakpoint ==laptopL) {
+        @media (max-width: 1440px) {
+            @content;
+        }
+    } @else if ($breakpoint ==desktopS) {
+        @media (min-width: 1680px) {
+            @content;
+        }
+    } @else if ($breakpoint ==desktop) {
+        @media (max-width: 1980px) {
+            @content;
+        }
+    } @else if ($breakpoint ==desktopL) {
+        @media (min-width: 1980px) {
+            @content;
+        }
+    } @else {
+        @error "UNKNOWN MEDIA BREAKPOINT #{$breakpoint}";
     }
-  }
+}
 
-  @else if ($breakpoint ==mobileM) {
-    @media (max-width: 375px) {
-      @content;
+$breakpoints: (
+    'phone': 400px,
+    'phone-wide': 480px,
+    'phablet': 560px,
+    'tablet-small': 640px,
+    'tablet': 768px,
+    'tablet-wide': 1024px,
+    'desktop': 1248px,
+    'desktop-wide': 1440px,
+    'desktop-large': 1920px,
+);
+
+@mixin media($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+
+        @if $type ==max {
+            $width: $width - 1px;
+        }
+
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
     }
-  }
-
-  @else if ($breakpoint ==mobileL) {
-    @media (max-width: 425px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==tabletM) {
-    @media (min-width: 425px) and (max-width: 992px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==tabletS) {
-    @media (max-width: 576px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==tablet) {
-    @media (max-width: 768px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==tabletL) {
-    @media (max-width: 992px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==laptopS) {
-    @media (min-width: 992px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==laptop) {
-    @media (max-width: 1024px) {
-      @content;
-    }
-  }
-
-
-  @else if ($breakpoint ==bp1060) {
-    @media (max-width: 1060px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==laptopM) {
-    @media (max-width: 1200px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==laptopL) {
-    @media (max-width: 1440px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==desktopS) {
-    @media (min-width: 1680px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==desktop) {
-    @media (max-width: 1980px) {
-      @content;
-    }
-  }
-
-  @else if ($breakpoint ==desktopL) {
-    @media (min-width: 1980px) {
-      @content;
-    }
-  }
-
-  @else {
-    @error "UNKNOWN MEDIA BREAKPOINT #{$breakpoint}";
-  }
 }

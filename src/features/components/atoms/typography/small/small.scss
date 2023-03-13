@@ -1,0 +1,5 @@
+@use 'features/styles/mixins/font' as *;
+
+.small {
+    @include font-size($small-font-sizes);
+}

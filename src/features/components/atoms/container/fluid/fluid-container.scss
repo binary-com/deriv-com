@@ -1,0 +1,26 @@
+@use 'features/styles/mixins/media' as *;
+
+.fluid-container {
+    margin: 0 auto;
+    padding: 0px;
+
+    inline-size: 95%;
+
+    @include media(tablet-wide) {
+        inline-size: 90%;
+    }
+
+    @include media(tablet) {
+        inline-size: 85%;
+    }
+
+    @include media(desktop) {
+        inline-size: 80%;
+        max-inline-size: 120rem;
+    }
+
+    @include media(desktop-wide) {
+        inline-size: 80%;
+        max-inline-size: 160rem;
+    }
+}

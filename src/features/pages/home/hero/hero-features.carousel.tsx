@@ -4,7 +4,7 @@ import { Autoplay } from 'swiper'
 import { contents, contents_ppc } from './data'
 import * as styles from './hero.module.scss'
 import usePpc from 'features/hooks/use-ppc'
-import Typography from 'features/components/typography'
+import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import 'swiper/swiper.min.css'
 import 'swiper/swiper-bundle.min.css'
@@ -35,9 +35,9 @@ const HeroFeaturesCarousel = () => {
         >
             {carousel_content.map((item) => (
                 <SwiperSlide key={item.id} className={styles.features_carousel_slide}>
-                    <Typography as={'h5'} type={'sub-section-title'} semibold>
+                    <Typography.SubSectionTitle as={'h5'} bold>
                         <Localize translate_text={item.text} />
-                    </Typography>
+                    </Typography.SubSectionTitle>
                 </SwiperSlide>
             ))}
         </Swiper>

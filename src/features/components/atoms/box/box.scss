@@ -1,0 +1,3 @@
+@use 'features/styles/mixins/spacing' as *;
+
+@include generate-margins();

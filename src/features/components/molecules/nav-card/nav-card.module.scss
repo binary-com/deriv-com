@@ -1,0 +1,71 @@
+@use 'features/styles/mixins/media' as *;
+@import 'features/styles/variables';
+
+.nav_card {
+    &_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.8rem 1rem;
+        min-inline-size: 26rem;
+        cursor: pointer;
+        white-space: pre-line;
+
+        .nav_right_diagonal {
+            opacity: 0;
+            inline-size: 16px;
+            block-size: 16px;
+
+            @include min-width(tabletL) {
+                opacity: 1;
+            }
+        }
+
+        &:hover {
+            background-color: $color-grey-30;
+
+            .nav_right_diagonal {
+                opacity: 1;
+            }
+        }
+    }
+
+    &_icon {
+        & > svg,
+        img {
+            inline-size: 32px;
+            block-size: 32px;
+            margin-inline-end: 1.6rem;
+
+            @include min-width(tabletL) {
+                inline-size: 24px;
+                block-size: 24px;
+            }
+        }
+    }
+
+    &_content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.8rem;
+        min-inline-size: 15rem;
+        white-space: pre-line;
+        flex: 1;
+
+        &_title {
+            text-align: start;
+            color: $color-black;
+        }
+
+        .nav_card_type {
+            justify-content: flex-start;
+            min-inline-size: 25rem;
+        }
+
+        &_description {
+            text-align: start;
+            color: $color-black-3;
+        }
+    }
+}

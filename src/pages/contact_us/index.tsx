@@ -39,10 +39,8 @@ const ContactUs = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Contact Us | Online Trading | Deriv.com')}
-                description={localize(
-                    'Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!',
-                )}
+                title="_t_Contact Us | Online Trading | Deriv.com_t_"
+                description="_t_Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!_t_"
                 has_organization_schema
             />
             <SectionContainer tablet={{ p: '40px 0' }}>

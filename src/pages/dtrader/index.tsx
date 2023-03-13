@@ -15,16 +15,16 @@ import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import DHero from 'components/custom/_dhero'
 import DNumber from 'components/custom/_dnumbers'
 import useRegion from 'components/hooks/use-region'
+import { MetaAttributesType } from 'types/page.types'
 const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))
 const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works'))
 
-const meta_attributes = {
-    og_title: localize('DTrader | Online Trading Platform | Deriv.com'),
-    og_description: localize(
-        'DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices.',
-    ),
+const meta_attributes: MetaAttributesType = {
+    og_title: '_t_DTrader | Online Trading Platform | Deriv.com_t_',
+    og_description:
+        '_t_DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices._t_',
 }
 
 const query = graphql`
@@ -129,10 +129,8 @@ const Dtrader = () => {
     return (
         <Layout>
             <SEO
-                title={localize('DTrader | Online trading platform | Deriv')}
-                description={localize(
-                    'DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices.',
-                )}
+                title="_t_DTrader | Online trading platform | Deriv_t_"
+                description="_t_DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices._t_"
                 meta_attributes={meta_attributes}
             />
             <DHero

@@ -68,10 +68,8 @@ const TraderTools = () => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_Trading tools | Swap, pip, and margin calculators | Deriv_t_')}
-                description={localize(
-                    "_t_Take advantage of Deriv's trading calculators that help you to calculate your swap, pip, profit, and losses for the CFD and multiplier trading._t_",
-                )}
+                title="_t_Trading tools | Swap, pip, and margin calculators | Deriv_t_"
+                description="_t_Take advantage of Deriv's trading calculators that help you to calculate your swap, pip, profit, and losses for the CFD and multiplier trading._t_"
             />
             <Hero jc="center" ai="center">
                 <Container>

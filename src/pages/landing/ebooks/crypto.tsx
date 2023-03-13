@@ -57,8 +57,8 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
-                title={localize('Cryptocurrencies Ebook')}
-                description={localize('Trade Cryptocurrencies on our Deriv platform.')}
+                title="_t_Cryptocurrencies Ebook_t_"
+                description="_t_Trade Cryptocurrencies on our Deriv platform._t_"
                 no_index
             />
             <Hero

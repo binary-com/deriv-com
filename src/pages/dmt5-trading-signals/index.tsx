@@ -6,17 +6,17 @@ import { Signal, SignalContentType } from './_signal'
 import Subscription from './_subscription'
 import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { MetaAttributesType } from 'types/page.types'
 
-const meta_attributes = {
-    og_title: localize('_t_Deriv MetaTrader 5 trading signals | Resources | Deriv_t_'),
-    og_description: localize(
+const meta_attributes: MetaAttributesType = {
+    og_title: '_t_Deriv MetaTrader 5 trading signals | Resources | Deriv_t_',
+    og_description:
         '_t_Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies._t_',
-    ),
 }
 const signal_content_subscriber: SignalContentType = {
     header: { text: '_t_Benefits of subscribing to MT5 signals_t_', components: [<br key={0} />] },
@@ -108,10 +108,8 @@ const DMT5TradingSignals = () => {
     return (
         <Layout>
             <SEO
-                description={localize(
-                    '_t_Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies._t_',
-                )}
-                title={localize('_t_Deriv MetaTrader 5 trading signals | Resources | Deriv_t_')}
+                description="_t_Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies._t_"
+                title="_t_Deriv MetaTrader 5 trading signals | Resources | Deriv_t_"
                 meta_attributes={meta_attributes}
             />
             <Hero jc="cneter" ai="center">

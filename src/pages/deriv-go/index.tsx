@@ -9,8 +9,7 @@ import { SEO } from 'components/containers'
 import Roadmap, { RoadmapProps } from 'components/elements/roadmap'
 import useRegion from 'components/hooks/use-region'
 import Layout from 'components/layout/layout'
-import { Localize, localize, WithIntl } from 'components/localization'
-import { TString } from 'types/generics'
+import { Localize, WithIntl } from 'components/localization'
 
 export type ContentType = {
     id?: number
@@ -72,12 +71,8 @@ const DerivGo = () => {
         return (
             <Layout>
                 <SEO
-                    title={localize(
-                        'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
-                    )}
-                    description={localize(
-                        'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
-                    )}
+                    title="_t_Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO._t_"
+                    description="_t_Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO._t_"
                 />
                 <Banner />
                 <WhatIsDerivGo />

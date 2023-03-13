@@ -13,10 +13,11 @@ import WhyDeriv from './components/sections/_why-deriv'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import BeSquareOg from 'images/common/be-square/besquare-og.png'
+import { MetaAttributesType } from 'types/page.types'
 
-const meta_attributes = {
-    og_title: 'BeSquare graduate programme by Deriv',
-    og_description: 'Learn essential skills from innovative tech teams.',
+const meta_attributes: MetaAttributesType = {
+    og_title: '_t_BeSquare graduate programme by Deriv_t_',
+    og_description: '_t_Learn essential skills from innovative tech teams._t_',
     og_type: 'website',
     og_img_width: '600',
     og_img_height: '315',
@@ -26,10 +27,8 @@ const meta_attributes = {
 const BeSquare = () => (
     <Layout type="besquare">
         <SEO
-            title={'IT graduate programme for Malaysians | BeSquare by Deriv'}
-            description={
-                'Deriv’s tech graduate programme. Get real-world experience and build a solid career in IT. Get trained in DevOps, security, mobile development, and more.'
-            }
+            title="_t_IT graduate programme for Malaysians | BeSquare by Deriv_t_"
+            description="_t_Deriv’s tech graduate programme. Get real-world experience and build a solid career in IT. Get trained in DevOps, security, mobile development, and more._t_"
             meta_attributes={meta_attributes}
         />
         <Hero />

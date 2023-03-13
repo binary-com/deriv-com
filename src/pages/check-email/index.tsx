@@ -10,10 +10,8 @@ const CheckEmail = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Check your email')}
-                description={localize(
-                    "Didn't receive an email from us? Here's what could've happened.",
-                )}
+                title="_t_Check your email_t_"
+                description="_t_Didn't receive an email from us? Here's what could've happened._t_"
                 no_index
             />
             <SectionContainer>

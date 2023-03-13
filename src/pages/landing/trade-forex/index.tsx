@@ -16,10 +16,7 @@ const TradeForex = () => {
 
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
-            <SEO
-                title={localize('Weekends')}
-                description={localize('Ride the trends even on weekends')}
-            />
+            <SEO title="_t_Weekends_t_" description="_t_Ride the trends even on weekends_t_" />
             {is_mounted && (
                 <>
                     <Hero

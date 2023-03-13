@@ -14,10 +14,8 @@ const CryptocurrenciesPage = () => {
     return (
         <Layout type="noNav">
             <SEO
-                description={localize(
-                    "Start trading the world's most popular cryptocurrencies on Deriv, and take advantage of a highly volatile market with round-the-clock trading.",
-                )}
-                title={localize('Cryptocurrency market | Crypto trading | Deriv')}
+                description="_t_Start trading the world's most popular cryptocurrencies on Deriv, and take advantage of a highly volatile market with round-the-clock trading._t_"
+                title="_t_Cryptocurrency market | Crypto trading | Deriv_t_"
             />
             <DerivedFXHero
                 title={localize('Cryptocurrencies')}

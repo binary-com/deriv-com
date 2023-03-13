@@ -10,7 +10,7 @@ import StartDerivX from './_start-derivx'
 import Accounts from './_accounts'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl, Localize, localize } from 'components/localization'
+import { WithIntl, Localize } from 'components/localization'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import BackgroundPatternDerivX from 'images/svg/deriv-x/derivx-footer.svg'
@@ -52,12 +52,8 @@ const DerivX = () => {
             return (
                 <Layout>
                     <SEO
-                        title={localize(
-                            'Deriv X - a multi-asset CFD trading platform available on Deriv',
-                        )}
-                        description={localize(
-                            'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
-                        )}
+                        title="_t_Deriv X - a multi-asset CFD trading platform available on Deriv_t_"
+                        description="_t_Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices._t_"
                     />
                     <Hero />
                     <SellingPoints />
@@ -89,10 +85,8 @@ const DerivX = () => {
     return (
         <>
             <SEO
-                title={localize('Deriv X - a multi-asset CFD trading platform available on Deriv')}
-                description={localize(
-                    'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
-                )}
+                title="_t_Deriv X - a multi-asset CFD trading platform available on Deriv_t_"
+                description="_t_Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices._t_"
             />
         </>
     )

@@ -136,7 +136,7 @@ const SEO = ({
             bodyAttributes={{
                 dir: lang_direction,
             }}
-            title={title ? (title_values ? localize(title, title_values) : localize(title)) : null}
+            title={title ? (title_values ? localize(title, title_values) : localize(title)) : ''}
             defer={false}
             meta={[
                 {
@@ -197,7 +197,7 @@ const SEO = ({
                         ? title_values
                             ? localize(title, title_values)
                             : localize(title)
-                        : null,
+                        : '',
                 },
                 {
                     name: 'twitter:description',

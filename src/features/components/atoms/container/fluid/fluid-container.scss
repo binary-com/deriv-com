@@ -1,9 +1,7 @@
 @use 'features/styles/mixins/media' as *;
 
 .fluid-container {
-    margin: 0 auto;
-    padding: 0px;
-
+    margin-inline: auto;
     inline-size: 95%;
 
     @include media(tablet-wide) {

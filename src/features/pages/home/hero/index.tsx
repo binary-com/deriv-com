@@ -9,13 +9,19 @@ import HeroBackground from './hero.background'
 import 'swiper/swiper.min.css'
 import 'swiper/swiper-bundle.min.css'
 import Container from 'features/components/atoms/container'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const HomeHero = () => {
+    const { is_mobile_or_tablet } = useBreakpoints()
+
     return (
         <section className={styles.home_hero}>
             <HeroBackground />
 
-            <Container.Fluid className={styles.content}>
+            <Container.Fluid
+                className={styles.content}
+                margin_block={is_mobile_or_tablet ? 'small' : 'extra-large'}
+            >
                 <div className={styles.left_side}>
                     <HeroHeaderItems className={styles.header_titles} />
                     <HeroTitle />

@@ -71,10 +71,8 @@ const NewSignup = () => {
     return (
         <Layout type="static" margin_top="0" is_ppc>
             <SEO
-                title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
-                description={localize(
-                    'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
-                )}
+                title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
+                description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
                 no_index
             />
             <Wrapper>

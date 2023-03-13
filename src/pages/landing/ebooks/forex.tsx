@@ -59,8 +59,8 @@ const ForexEbook = (props: StocksEbookProps) => {
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
-                title={localize('Forex Ebook')}
-                description={localize('Trade Forex CFDs on our Deriv platform.')}
+                title="_t_Forex Ebook_t_"
+                description="_t_Trade Forex CFDs on our Deriv platform._t_"
                 no_index
             />
             <HeaderSection

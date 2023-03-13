@@ -12,17 +12,19 @@ import {
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
+import { MetaAttributesType } from 'types/page.types'
 
-const meta_attributes = {
-    og_title: 'Deriv Careers | Join and grow with us',
-    og_description: 'Join our incredible team where your growth is just as important as ours.',
+const meta_attributes: MetaAttributesType = {
+    og_title: '_t_Deriv Careers | Join and grow with us_t_',
+    og_description:
+        '_t_Join our incredible team where your growth is just as important as ours._t_',
 }
 
 const Careers = () => (
     <Layout type="careers">
         <SEO
-            title={'Deriv Careers | Join and grow with us'}
-            description={'Join our incredible team where your growth is just as important as ours.'}
+            title="_t_Deriv Careers | Join and grow with us_t_"
+            description="_t_Join our incredible team where your growth is just as important as ours._t_"
             meta_attributes={meta_attributes}
         />
         <Hero />

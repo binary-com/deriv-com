@@ -74,8 +74,8 @@ const VulnerabilitiesTypes = () => {
     return (
         <Layout type="security">
             <SEO
-                title={localize('Types of vulnerabilities')}
-                description={localize('Types of vulnerabilities')}
+                title="_t_Types of vulnerabilities_t_"
+                description="_t_Types of vulnerabilities_t_"
             />
             <Hero />
 

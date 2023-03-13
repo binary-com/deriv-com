@@ -153,10 +153,8 @@ const Stocks = () => {
     return (
         <Layout is_ppc_redirect={true}>
             <SEO
-                title={localize('Stocks')}
-                description={localize(
-                    'Trade global stocks and stock indices now on our DMT5 platform.',
-                )}
+                title="_t_Stocks_t_"
+                description="_t_Trade global stocks and stock indices now on our DMT5 platform._t_"
                 no_index
             />
             <HeaderSection />

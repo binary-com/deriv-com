@@ -7,11 +7,12 @@ import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
+import { TString } from 'types/generics'
 
 export type BasketIndicesContent = {
     src: string
     alt: string
-    text: React.ReactNode
+    text: TString
     icon?: ReactElement
 }
 

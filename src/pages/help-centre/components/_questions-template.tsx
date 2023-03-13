@@ -32,14 +32,10 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     return (
         <Layout>
             <SEO
-                title={{
-                    key: `_t_Help centre | Frequently asked questions | {{untranslate_category}} | Deriv_t_`,
-                    values: { search: untranslate_category },
-                }}
-                description={{
-                    key: `_t_Frequently asked questions - {{untranslate_category}}_t_`,
-                    values: { search: untranslate_category },
-                }}
+                title="_t_Help centre | Frequently asked questions | {{untranslate_category}} | Deriv_t_"
+                title_values={{ search: untranslate_category }}
+                description="_t_Frequently asked questions - {{untranslate_category}}_t_"
+                description_values={{ search: untranslate_category }}
             />
             <Container align="start" justify="flex-start" direction="column">
                 <StyledLink

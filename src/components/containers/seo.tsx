@@ -20,14 +20,9 @@ type SiteMetadataType = {
     }
 }
 
-type TLocalizeParams = {
-    key: TString
-    values?: { search: string }
-}
-
 type MetaAttributesType = {
-    og_title?: TString | TLocalizeParams
-    og_description?: TString | TLocalizeParams
+    og_title?: TString
+    og_description?: TString
     og_type?: string
     og_img?: string
     og_img_width?: string
@@ -35,12 +30,14 @@ type MetaAttributesType = {
 }
 
 type SeoProps = {
-    description?: TString | TLocalizeParams
+    description?: TString
+    description_values?: { search: string }
     has_organization_schema?: boolean
     meta?: { name: string; content: string | keyof MetaAttributesType }
     meta_attributes?: MetaAttributesType
     no_index?: boolean
-    title?: TString | TLocalizeParams
+    title?: TString
+    title_values?: { search: string }
 }
 type QueriesType = {
     site?: SiteMetadataType
@@ -50,8 +47,10 @@ const languages = Object.keys(language_config)
 languages.push('x-default')
 const SEO = ({
     description,
+    description_values,
     meta,
     title,
+    title_values,
     no_index,
     has_organization_schema,
     meta_attributes,
@@ -73,9 +72,9 @@ const SEO = ({
 
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description
-        ? typeof description === 'string'
-            ? localize(description)
-            : localize(description.key, description.values)
+        ? description_values
+            ? localize(description, description_values)
+            : localize(description)
         : queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)
@@ -137,13 +136,7 @@ const SEO = ({
             bodyAttributes={{
                 dir: lang_direction,
             }}
-            title={
-                title
-                    ? typeof title === 'string'
-                        ? localize(title)
-                        : localize(title.key, title.values)
-                    : null
-            }
+            title={title ? (title_values ? localize(title, title_values) : localize(title)) : null}
             defer={false}
             meta={[
                 {
@@ -157,12 +150,7 @@ const SEO = ({
                 {
                     property: 'og:title',
                     content: meta_attributes?.og_title
-                        ? typeof meta_attributes.og_title === 'string'
-                            ? localize(meta_attributes.og_title)
-                            : localize(
-                                  meta_attributes.og_title.key,
-                                  meta_attributes.og_title.values,
-                              )
+                        ? localize(meta_attributes.og_title)
                         : default_og_title,
                 },
                 {
@@ -172,12 +160,7 @@ const SEO = ({
                 {
                     property: 'og:description',
                     content: meta_attributes?.og_description
-                        ? typeof meta_attributes.og_description === 'string'
-                            ? localize(meta_attributes.og_description)
-                            : localize(
-                                  meta_attributes.og_description.key,
-                                  meta_attributes.og_description.values,
-                              )
+                        ? localize(meta_attributes.og_description)
                         : default_og_description,
                 },
                 {
@@ -211,9 +194,9 @@ const SEO = ({
                 {
                     name: 'twitter:title',
                     content: title
-                        ? typeof title === 'string'
-                            ? localize(title)
-                            : localize(title.key, title.values)
+                        ? title_values
+                            ? localize(title, title_values)
+                            : localize(title)
                         : null,
                 },
                 {

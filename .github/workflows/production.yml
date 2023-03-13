@@ -55,11 +55,6 @@ jobs:
             - run: npm run test
             - run: npm run build
 
-            - name: Remove Storybook
-              uses: JesseTG/rm@v1.0.2
-              with:
-                  path: public/storybook
-
             - uses: olegtarasov/get-tag@v2.1
               id: tagName
               # For using same tag for staging and production we need to uncomment these two below lines:

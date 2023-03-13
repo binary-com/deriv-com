@@ -375,7 +375,7 @@ const PnlMarginCalculator = () => {
                                                         >
                                                             <CalculatorDropdown
                                                                 option_list={values.optionList}
-                                                                label={localize('_t_Symbol_t_')}
+                                                                label="_t_Symbol_t_"
                                                                 default_option={optionItemDefault}
                                                                 selected_option={values.symbol}
                                                                 id="symbol"
@@ -750,7 +750,7 @@ const PnlMarginCalculator = () => {
                                                     </Flex>
                                                     <CalculatorDropdown
                                                         option_list={values.optionList}
-                                                        label={localize('_t_Symbol_t_')}
+                                                        label="_t_Symbol_t_"
                                                         default_option={optionItemDefault}
                                                         selected_option={values.symbol}
                                                         id="symbol"
@@ -1027,7 +1027,7 @@ const PnlMarginCalculator = () => {
 
                             <Accordion id="pnl-for-margin" has_single_state>
                                 <AccordionItem
-                                    header={localize('_t_Stop loss level_t_')}
+                                    header="_t_Stop loss level_t_"
                                     header_style={header_style}
                                     style={{
                                         padding: '0 0 24px 0',
@@ -1053,7 +1053,7 @@ const PnlMarginCalculator = () => {
                                 </AccordionItem>
 
                                 <AccordionItem
-                                    header={localize('_t_Stop loss pip value_t_')}
+                                    header="_t_Stop loss pip value_t_"
                                     header_style={header_style}
                                     plus
                                     class_name="stop-loss"
@@ -1138,7 +1138,7 @@ const PnlMarginCalculator = () => {
 
                             <Accordion id="pnl-for-margin" has_single_state>
                                 <AccordionItem
-                                    header={localize('_t_Take profit level_t_')}
+                                    header="_t_Take profit level_t_"
                                     header_style={header_style}
                                     style={{
                                         padding: '0 0 24px 0',
@@ -1165,7 +1165,7 @@ const PnlMarginCalculator = () => {
                                 </AccordionItem>
 
                                 <AccordionItem
-                                    header={localize('_t_Take profit pip value_t_')}
+                                    header="_t_Take profit pip value_t_"
                                     header_style={header_style}
                                     plus
                                 >

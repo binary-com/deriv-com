@@ -213,7 +213,7 @@ const MarginCalculator = () => {
                                                 default_item={optionItemDefault}
                                                 error={touched.symbol && errors.symbol}
                                                 items={values.optionList}
-                                                label={localize('_t_Symbol_t_')}
+                                                label="_t_Symbol_t_"
                                                 onChange={(value) => {
                                                     setFieldValue(
                                                         'marginSymbol',
@@ -305,7 +305,7 @@ const MarginCalculator = () => {
                                             <Dropdown
                                                 option_list={leverageItemLists}
                                                 id="leverage"
-                                                label={localize('_t_Leverage_t_')}
+                                                label="_t_Leverage_t_"
                                                 default_option={optionItemDefault}
                                                 selected_option={values.leverage}
                                                 onChange={(value) => {
@@ -355,7 +355,7 @@ const MarginCalculator = () => {
                         </Header>
                         <Accordion id="margin-calculator" has_single_state>
                             <AccordionItem
-                                header={localize('_t_Margin required_t_')}
+                                header="_t_Margin required_t_"
                                 header_style={header_style}
                                 style={item_style}
                                 plus

@@ -228,7 +228,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                                     header_style={header_style}
                                     style={styles}
                                     parent_style={parent_style}
-                                    header={<Localize translate_text={pdata.name} />}
+                                    header={pdata.name}
                                     class_name={pdata.class_name}
                                 >
                                     <DesktopWrapper>

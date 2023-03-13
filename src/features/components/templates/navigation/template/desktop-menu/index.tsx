@@ -1,6 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
-import { TSmartFooContent, TSmartNavContent, TSmartNavSectionColumns } from '../../types'
+import { TSmartNavItemsContent, TSmartNavContent, TSmartNavSectionColumns } from '../../types'
 import * as styles from './nav-items.module.scss'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
@@ -17,7 +17,7 @@ const renderNavItems = (nav_items: TSmartNavContent[] | TSmartNavSectionColumns[
 interface IDesktopNavbarProps<T extends string> {
     onItemClick: (item: T) => void
     activeTab: T
-    items: TSmartFooContent<T>[]
+    items: TSmartNavItemsContent<T>[]
 }
 
 const DesktopMenu = <T extends string>({

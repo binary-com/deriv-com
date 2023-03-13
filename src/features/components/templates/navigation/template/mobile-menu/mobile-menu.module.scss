@@ -68,12 +68,22 @@ $menu_size: 30rem;
 
     &_trigger {
         border: none;
-        display: inline-block;
+        display: flex;
+        justify-content: space-between;
         inline-size: 100%;
         text-align: start;
         background-color: $color-white;
         padding-inline: 1rem;
         min-block-size: 5rem;
+
+        .arrow_icon {
+            transition: transform 0.25s linear;
+            transform: rotate(-180deg);
+        }
+
+        &[data-state='open'] .arrow_icon {
+            transform: rotate(0deg);
+        }
 
         &_title {
             color: black;

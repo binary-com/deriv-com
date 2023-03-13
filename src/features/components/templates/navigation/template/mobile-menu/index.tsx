@@ -1,17 +1,19 @@
 import React, { HTMLAttributes } from 'react'
 import * as Accordion from '@radix-ui/react-accordion'
 import clsx from 'clsx'
-import { TSmartFooContent, TSmartNavContent, TSmartNavSectionColumns } from '../../types'
+import { TSmartNavItemsContent, TSmartNavContent, TSmartNavSectionColumns } from '../../types'
 import * as styles from './mobile-menu.module.scss'
 import { TString } from 'types/generics'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import NavSectionContainer from 'features/components/organisms/navigation/nav-sections-container'
 import NavCardItems from 'features/components/organisms/navigation/nav-card-items'
+import Chevron from 'images/svg/custom/chevron-thick.svg'
+import Icon from 'features/components/atoms/icon'
 
 interface INavMenuProps<T extends string> extends HTMLAttributes<HTMLDivElement> {
     is_open: boolean
-    items: TSmartFooContent<T>[]
+    items: TSmartNavItemsContent<T>[]
 }
 
 type TAccordionContent = Accordion.AccordionContentProps & {
@@ -37,7 +39,12 @@ const AccordionContent = React.forwardRef<HTMLDivElement, TAccordionContent>(
                     >
                         <Localize translate_text={item_title} />
                     </Typography.Heading>
-                    {/* <ChevronDownIcon className="AccordionChevron" aria-hidden /> */}
+                    <Icon
+                        src={Chevron}
+                        className={styles.arrow_icon}
+                        alt={'chevron'}
+                        size={'large'}
+                    />
                 </Accordion.Trigger>
             </Accordion.Header>
             <Accordion.Content

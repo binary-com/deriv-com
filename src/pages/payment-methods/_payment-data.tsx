@@ -552,7 +552,7 @@ const payment_data = [
             },
             {
                 method: <StyledIcon src={Jeton} alt="Jeton" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'EUR',
                 min_max_deposit: <Localize translate_text="5 - 1,000" />,
                 min_max_withdrawal: <Localize translate_text="5 - 1,000" />,
                 deposit_time: <Localize translate_text="Instant" />,
@@ -562,7 +562,6 @@ const payment_data = [
                 ),
                 url: 'https://www.jeton.com/',
                 name: 'jeton',
-                reference: 'jeton-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Neteller} alt="Neteller" />,

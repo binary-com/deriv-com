@@ -19,9 +19,15 @@ type SiteMetadataType = {
         title?: string
     }
 }
+
+type TLocalizeParams = {
+    key: TString
+    values?: { search: string }
+}
+
 type MetaAttributesType = {
-    og_title?: TString
-    og_description?: TString
+    og_title?: TString | TLocalizeParams
+    og_description?: TString | TLocalizeParams
     og_type?: string
     og_img?: string
     og_img_width?: string
@@ -29,12 +35,12 @@ type MetaAttributesType = {
 }
 
 type SeoProps = {
-    description?: TString
+    description?: TString | TLocalizeParams
     has_organization_schema?: boolean
     meta?: { name: string; content: string | keyof MetaAttributesType }
     meta_attributes?: MetaAttributesType
     no_index?: boolean
-    title?: TString
+    title?: TString | TLocalizeParams
 }
 type QueriesType = {
     site?: SiteMetadataType
@@ -67,7 +73,9 @@ const SEO = ({
 
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description
-        ? localize(description)
+        ? typeof description === 'string'
+            ? localize(description)
+            : localize(description.key, description.values)
         : queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)
@@ -129,7 +137,13 @@ const SEO = ({
             bodyAttributes={{
                 dir: lang_direction,
             }}
-            title={title ? localize(title) : null}
+            title={
+                title
+                    ? typeof title === 'string'
+                        ? localize(title)
+                        : localize(title.key, title.values)
+                    : null
+            }
             defer={false}
             meta={[
                 {
@@ -143,7 +157,12 @@ const SEO = ({
                 {
                     property: 'og:title',
                     content: meta_attributes?.og_title
-                        ? localize(meta_attributes?.og_title)
+                        ? typeof meta_attributes.og_title === 'string'
+                            ? localize(meta_attributes.og_title)
+                            : localize(
+                                  meta_attributes.og_title.key,
+                                  meta_attributes.og_title.values,
+                              )
                         : default_og_title,
                 },
                 {
@@ -153,7 +172,12 @@ const SEO = ({
                 {
                     property: 'og:description',
                     content: meta_attributes?.og_description
-                        ? localize(meta_attributes?.og_description)
+                        ? typeof meta_attributes.og_description === 'string'
+                            ? localize(meta_attributes.og_description)
+                            : localize(
+                                  meta_attributes.og_description.key,
+                                  meta_attributes.og_description.values,
+                              )
                         : default_og_description,
                 },
                 {
@@ -186,7 +210,11 @@ const SEO = ({
                 },
                 {
                     name: 'twitter:title',
-                    content: title ? localize(title) : null,
+                    content: title
+                        ? typeof title === 'string'
+                            ? localize(title)
+                            : localize(title.key, title.values)
+                        : null,
                 },
                 {
                     name: 'twitter:description',

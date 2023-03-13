@@ -116,8 +116,6 @@ const StyledError = styled.img`
 `
 
 const StyledInput = styled.input<StyledInputProps>`
-    background: ${({ input_background }) =>
-        input_background ? `var(--color-${input_background})` : 'none'};
     color: ${({ inputColor }) =>
         inputColor ? `var(--color-${inputColor})` : 'var(--color-black)'};
     font-size: var(--text-size-s);
@@ -125,7 +123,7 @@ const StyledInput = styled.input<StyledInputProps>`
     height: ${(props) => props.height || '40px'};
     width: 243px;
     display: block;
-    border: none;
+    border: 1px solid var(--color-grey-5);
     border-radius: 15px;
     @media ${device.tabletL} {
         width: 250px;
@@ -180,7 +178,7 @@ const StyledInput = styled.input<StyledInputProps>`
             css<ValidProps>`
                 & ~ label {
                     transform: translate(-0.6rem, -2rem) scale(0.7);
-                    color: var(--color-black-3);
+                    color: var(--color-grey-5);
                     background-color: ${({ background }) =>
                         background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 

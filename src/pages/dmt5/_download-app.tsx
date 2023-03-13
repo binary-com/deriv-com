@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import MoreInfo from 'images/svg/dmt5/more_info.svg'
 import device from 'themes/device'
 import LinuxOs from 'images/svg/dmt5/dmt5_linux.svg'
@@ -200,6 +200,7 @@ const StyledHeaderContent = styled(Header)`
         margin-top: 0;
     }
 `
+
 const DownloadApp = () => {
     const data = useStaticQuery(query)
 
@@ -208,7 +209,7 @@ const DownloadApp = () => {
             <StyledFlex>
                 <Desktop>
                     <StyledHeader as="h4" type="subtitle-1" mt="8px">
-                        {localize('Desktop')}
+                        <Localize translate_text="_t_Desktop_t_" />
                     </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <DownloadLinkWrapper>
@@ -248,7 +249,7 @@ const DownloadApp = () => {
                     </Flex>
 
                     <StyledHeader mt="2.4rem" as="h4" type="subtitle-1">
-                        {localize('Mobile')}
+                        <Localize translate_text="_t_Mobile_t_" />
                     </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" wrap="wrap">
                         <DownloadLinkWrapper>
@@ -274,7 +275,7 @@ const DownloadApp = () => {
 
                 <Mobile>
                     <StyledHeader mt="2.4rem" as="h4">
-                        {localize('Desktop')}
+                        <Localize translate_text="_t_Desktop_t_" />
                     </StyledHeader>
                     <StyledFlexMobile mt="1rem">
                         <DownloadLinkMobileWrapper mr="16px">
@@ -305,7 +306,9 @@ const DownloadApp = () => {
                         </DownloadLinkMobileWrapper>
                     </StyledFlexMobile>
 
-                    <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
+                    <StyledHeader as="h4">
+                        <Localize translate_text="_t_Mobile_t_" />
+                    </StyledHeader>
                     <StyledFlexMobile mt="0.8rem">
                         <DownloadLinkMobileWrapper mr="8px">
                             <LocalizedLink
@@ -347,7 +350,7 @@ const DownloadApp = () => {
                     <StyledInfo src={MoreInfo} alt="more info" />
                     <StyledHeaderContent>
                         <Localize
-                            translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."
+                            translate_text="_t_For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>._t_"
                             components={[<strong key={0} />]}
                         />
                     </StyledHeaderContent>
@@ -368,7 +371,7 @@ const DownloadApp = () => {
 
                         <StyledHeaderContent>
                             <Localize
-                                translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."
+                                translate_text="_t_For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>._t_"
                                 components={[<strong key={0} />]}
                             />
                         </StyledHeaderContent>

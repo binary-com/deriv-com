@@ -9,7 +9,7 @@ import BackgroundPatternDMT5_mobile from 'images/svg/dmt5/bg_banner_dmt5_mobile.
 import Layout from 'components/layout/layout'
 import dmt5_logo from 'images/svg/dmt5/dmt5-icon.svg'
 import { SEO } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import DMT5BG from 'images/svg/dmt5/dmt5-bg.svg'
 import DMT5BG2 from 'images/svg/dmt5/dmt5-bg2.svg'
 import { size } from 'themes/device'
@@ -25,6 +25,8 @@ const query = graphql`
 
 const DMT5 = () => {
     const [is_mobile, setMobile] = useState(false)
+    const data = useStaticQuery(query)
+
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
@@ -33,30 +35,27 @@ const DMT5 = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
     })
-    const data = useStaticQuery(query)
 
     return (
-        <Layout is_ppc_redirect={true}>
+        <Layout is_ppc_redirect>
             <SEO
-                title={localize('DMT5 | MetaTrader 5 | Deriv')}
+                title={localize('_t_DMT5 | MetaTrader 5 | Deriv_t_')}
                 description={localize(
-                    'DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile.',
+                    '_t_DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile._t_',
                 )}
                 no_index
             />
             <DHero
-                title={localize('Deriv MT5 (DMT5)')}
-                content={
-                    <Localize translate_text="Trade 24/7 on forex, stocks, synthetic indices, and commodities" />
-                }
+                title="_t_Deriv MT5 (DMT5)_t_"
+                content="_t_Trade 24/7 on forex, stocks, synthetic indices, and commodities_t_"
                 join_us_for_free
                 Logo={dmt5_logo}
                 image_name="dmt5"
                 is_mobile={is_mobile}
                 background_svg={DMT5BG}
                 background_svg2={DMT5BG2}
-                background_alt={localize('DMT5')}
-                is_ppc={true}
+                background_alt="DMT5"
+                is_ppc
                 d_height="60.2rem"
                 laptopM_height="60rem"
                 laptop_height="62rem"
@@ -74,7 +73,7 @@ const DMT5 = () => {
                 background_pattern={
                     is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
                 }
-                title={<Localize translate_text="Get into the DMT5 experience" />}
+                title="_t_Get into the DMT5 experience_t_"
                 data={data}
                 is_ppc={true}
                 is_mt5

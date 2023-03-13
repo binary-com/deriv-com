@@ -1,12 +1,15 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
-type ItemType = {
-    title?: string | ReactNode
-    subtitle?: string | ReactElement
+export type ItemType = {
+    title?: TString
+    untranslated_title?: string
+    subtitle?: TString
 }
 
 type DNumbersProps = {
@@ -28,7 +31,6 @@ const StyledText = styled(Text)`
         margin: 12px 0;
     }
 `
-
 const StyledContainer = styled(Container)`
     direction: ltr;
     width: 100%;
@@ -44,18 +46,18 @@ const StyledContainer = styled(Container)`
 const DNumbers = ({ items, justify }: DNumbersProps) => {
     return (
         <StyledContainer justify={justify || 'space-between'}>
-            {items.map((item) => (
-                <NumberWrapper
-                    key={
-                        typeof item.subtitle === 'string'
-                            ? item.subtitle
-                            : item.subtitle.props.translate_text
-                    }
-                >
+            {items.map(({ subtitle, title, untranslated_title }) => (
+                <NumberWrapper key={subtitle}>
                     <Header as="p" type="page-title" align="center">
-                        {item.title}
+                        {untranslated_title ? (
+                            untranslated_title
+                        ) : (
+                            <Localize translate_text={title} />
+                        )}
                     </Header>
-                    <StyledText align="center">{item.subtitle}</StyledText>
+                    <StyledText align="center">
+                        <Localize translate_text={subtitle} />
+                    </StyledText>
                 </NumberWrapper>
             ))}
         </StyledContainer>

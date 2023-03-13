@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import type { CSSProperties } from 'react'
 import styled from 'styled-components'
 import {
@@ -35,6 +35,7 @@ import APK from 'images/svg/app-download/apk.svg'
 import Windows from 'images/svg/app-download/app-store-windows.svg'
 import MacAppStore from 'images/svg/app-download/app-store-mac.svg'
 import AppGallery from 'images/svg/app-download/app-store-app-gallery.svg'
+import { TString } from 'types/generics'
 
 export const PLATFORMS_CAROUSEL_DELAY = 3000
 
@@ -50,21 +51,23 @@ export const getOSIcon = (type: string) => {
 }
 
 type TDownloadLinks = Array<{ type: string; url?: string; link_type?: string }>
+
 export type TPlatformDetails = {
     id?: number
     title: string
     icon: string
     image_key: string
-    description: ReactElement
+    description: TString
     learn_more_link: string
     download_links: { is_desktop: TDownloadLinks }
 }
+
 export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'Deriv GO',
         icon: DerivGOIcon,
         image_key: 'platforms_deriv_go',
-        description: <Localize translate_text="Our best trading experience on your mobile." />,
+        description: '_t_Our best trading experience on your mobile._t_',
         learn_more_link: '/deriv-go/',
         download_links: {
             is_desktop: [
@@ -77,7 +80,7 @@ export const platform_details_row: TPlatformDetails[] = [
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5',
-        description: <Localize translate_text="The all-in-one CFD trading platform." />,
+        description: '_t_The all-in-one CFD trading platform._t_',
         learn_more_link: '/dmt5/',
         download_links: {
             is_desktop: [
@@ -94,9 +97,7 @@ export const platform_details_row: TPlatformDetails[] = [
         title: 'DTrader',
         icon: DTraderIcon,
         image_key: 'platforms_dtrader',
-        description: (
-            <Localize translate_text="Our flagship app for trading options and multipliers." />
-        ),
+        description: '_t_Our flagship app for trading options and multipliers._t_',
         learn_more_link: '/dtrader/',
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'deriv_app' }],
@@ -106,7 +107,7 @@ export const platform_details_row: TPlatformDetails[] = [
         title: 'Deriv X',
         icon: DerivXIcon,
         image_key: 'platforms_derivx',
-        description: <Localize translate_text="The CFD trading platform to fit your style." />,
+        description: '_t_The CFD trading platform to fit your style._t_',
         learn_more_link: '/derivx/',
         download_links: {
             is_desktop: [
@@ -120,7 +121,7 @@ export const platform_details_row: TPlatformDetails[] = [
         title: 'DBot',
         icon: DBotIcon,
         image_key: 'platforms_dbot',
-        description: <Localize translate_text="Automate your trading. No coding required." />,
+        description: '_t_Automate your trading. No coding required._t_',
         learn_more_link: '/dbot/',
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'dbot' }],
@@ -130,7 +131,7 @@ export const platform_details_row: TPlatformDetails[] = [
         title: 'SmartTrader',
         icon: SmartTraderIcon,
         image_key: 'platforms_smarttrader',
-        description: <Localize translate_text="Our legacy options trading platform." />,
+        description: '_t_Our legacy options trading platform._t_',
         learn_more_link: smarttrader_url,
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'smart_trader', url: 'trading' }],
@@ -140,9 +141,7 @@ export const platform_details_row: TPlatformDetails[] = [
         title: 'Binary Bot',
         icon: BinaryBotIcon,
         image_key: 'platforms_binary_bot',
-        description: (
-            <Localize translate_text="Our classic bot builder and automated trading platform." />
-        ),
+        description: '_t_Our classic bot builder and automated trading platform._t_',
         learn_more_link: binary_bot_url,
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'binary_bot' }],
@@ -152,7 +151,7 @@ export const platform_details_row: TPlatformDetails[] = [
         title: 'API',
         icon: APIIcon,
         image_key: 'platforms_api',
-        description: <Localize translate_text="Build your own apps with our API." />,
+        description: '_t_Build your own apps with our API._t_',
         learn_more_link: deriv_api_url,
         download_links: {
             is_desktop: [{ type: 'browser', url: deriv_api_url }],
@@ -165,7 +164,7 @@ export const platform_details_eu: TPlatformDetails[] = [
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5_eu',
-        description: <Localize translate_text="The all-in-one CFD trading platform." />,
+        description: '_t_The all-in-one CFD trading platform._t_',
         learn_more_link: '/dmt5/',
         download_links: {
             is_desktop: [
@@ -182,7 +181,7 @@ export const platform_details_eu: TPlatformDetails[] = [
         title: 'DTrader',
         icon: DTraderIcon,
         image_key: 'platforms_dtrader_eu',
-        description: <Localize translate_text="Our flagship app for trading multipliers." />,
+        description: '_t_Our flagship app for trading multipliers._t_',
         learn_more_link: '/dtrader/',
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'deriv_app' }],
@@ -204,7 +203,7 @@ const LearnMoreLink = styled(StyledLink)`
 
 export type PlatformDetailsProps = {
     title: string
-    description: ReactElement
+    description: TString
     learn_more_link: string
     icon?: string
     style?: CSSProperties
@@ -229,7 +228,7 @@ export const PlatformContent = ({
                 mb={is_from_slider ? 'unset' : '16px'}
                 laptopL={{ max_width: is_from_slider ? '288px' : '' }}
             >
-                {description}
+                <Localize translate_text={description} />
             </Header>
             <Flex jc="flex-start" tabletL={{ jc: 'center' }}>
                 <LearnMoreLink
@@ -237,7 +236,7 @@ export const PlatformContent = ({
                     external={learn_more_link.includes('https')}
                     mb="9px"
                 >
-                    <span>{`${localize('Learn more')} >`}</span>
+                    <span>{`${localize('_t_Learn more_t_')} >`}</span>
                 </LearnMoreLink>
             </Flex>
         </>

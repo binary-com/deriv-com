@@ -101,60 +101,34 @@ const query = graphql`
 
 const stepContent: ContentType[] = [
     {
-        title: <Localize translate_text="Step 1" />,
-        subtitle1: (
-            <Localize
-                translate_text="Log in or sign up for a Deriv account.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-        subtitle_mobile1: (
-            <Localize
-                translate_text="Log in or sign up for a Deriv account.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-
+        title: '_t_Step 1_t_',
+        subtitle1: '_t_Log in or sign up for a Deriv account.<0 />_t_',
+        subtitle1_component: [<br key={0} />],
+        subtitle_mobile1: '_t_Log in or sign up for a Deriv account.<0 />_t_',
+        subtitle_mobile1_components: [<br key={0} />],
         image_name: 'login',
-        image_alt: localize('Login'),
+        image_alt: localize('_t_Login_t_'),
     },
     {
-        title: <Localize translate_text="Step 2" />,
-        subtitle1: (
-            <Localize
-                translate_text="Add a Deriv MT5 Financial real account.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-        subtitle_mobile1: (
-            <Localize
-                translate_text="Add a Deriv MT5 Financial real account.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-
+        title: '_t_Step 2_t_',
+        subtitle1: '_t_Add a Deriv MT5 Financial real account.<0 />_t_',
+        subtitle1_component: [<br key={0} />],
+        subtitle_mobile1: '_t_Add a Deriv MT5 Financial real account.<0 />_t_',
+        subtitle_mobile1_components: [<br key={0} />],
         image_name: 'dmt5_acc',
-        image_alt: localize('DMT5 account'),
+        image_alt: localize('_t_DMT5 account_t_'),
     },
     {
-        title: <Localize translate_text="Step 3" />,
-        subtitle1: (
-            <Localize
-                translate_text="Log in to Deriv MT5, select an asset, and start trading.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-        subtitle_mobile1: (
-            <Localize
-                translate_text="Log in to Deriv MT5, select an asset, and start trading.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-
+        title: '_t_Step 3_t_',
+        subtitle1: '_t_Log in to Deriv MT5, select an asset, and start trading.<0 />_t_',
+        subtitle1_component: [<br key={0} />],
+        subtitle_mobile1: '_t_Log in to Deriv MT5, select an asset, and start trading.<0 />_t_',
+        subtitle_mobile1_components: [<br key={0} />],
         image_name: 'dmt5_login',
-        image_alt: localize('DMT5 login'),
+        image_alt: localize('_t_DMT5 login_t_'),
     },
 ]
+
 const ImageTextSwitching = ({ reverse, two_title }: ImageTextSwitchingProps) => {
     const data = useStaticQuery(query)
     return (
@@ -167,7 +141,7 @@ const ImageTextSwitching = ({ reverse, two_title }: ImageTextSwitchingProps) => 
                     mb="1rem"
                     weight="bold"
                 >
-                    {localize('Trade forex with ultra-low spreads in 3 simple steps:')}
+                    <Localize translate_text="_t_Trade forex with ultra-low spreads in 3 simple steps:_t_" />
                 </StyledText>
 
                 {stepContent.map((item, index) => {
@@ -176,22 +150,32 @@ const ImageTextSwitching = ({ reverse, two_title }: ImageTextSwitchingProps) => 
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={`key-${index}`}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
                                 <StyledHeader type="heading-3" mb="1rem">
-                                    {item.title}
+                                    <Localize translate_text={item.title} />
                                 </StyledHeader>
                                 <Desktop>
                                     <Text size="var(--text-size-m)" pb="2rem">
-                                        {item.subtitle1}
+                                        <Localize
+                                            translate_text={item.subtitle1}
+                                            components={item.subtitle1_component}
+                                        />
                                     </Text>
                                 </Desktop>
                                 <Mobile>
-                                    <Text pb="2rem">{item.subtitle_mobile1}</Text>
+                                    <Text pb="2rem">
+                                        <Localize
+                                            translate_text={item.subtitle_mobile1}
+                                            components={item.subtitle_mobile1_components}
+                                        />
+                                    </Text>
                                 </Mobile>
                                 {two_title && (
                                     <>
                                         <StyledHeader type="heading-3">
-                                            {item.second_title}
+                                            <Localize translate_text={item.second_title} />
                                         </StyledHeader>
-                                        <Text>{item.second_subtitle1}</Text>
+                                        <Text>
+                                            <Localize translate_text={item.second_subtitle1} />
+                                        </Text>
                                     </>
                                 )}
                             </Content>

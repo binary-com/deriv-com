@@ -4,6 +4,17 @@ import { Flex, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
 import device, { SizeType } from 'themes/device'
 
+type TabsProps = {
+    children: ReactElement[] | ReactElement
+    label?: ReactElement
+    description?: ReactElement
+    className?: string
+    is_reverse?: boolean
+    max_width?: SizeType
+}
+
+type TabPanelProps = Pick<TabsProps, 'children' | 'className' | 'label' | 'description'>
+
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
@@ -123,17 +134,6 @@ const MobileWrapper = styled(Mobile)`
         margin-bottom: 0;
     }
 `
-
-type TabsProps = {
-    children: ReactElement[] | ReactElement
-    label?: ReactElement
-    description?: ReactElement
-    className?: string
-    is_reverse?: boolean
-    max_width?: SizeType
-}
-
-type TabPanelProps = Pick<TabsProps, 'children' | 'className' | 'label' | 'description'>
 
 const TabPanel = ({ children, className }: TabPanelProps) => (
     <TabContent className={className} role="tabpanel">

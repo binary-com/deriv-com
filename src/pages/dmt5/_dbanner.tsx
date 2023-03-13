@@ -3,18 +3,19 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import { TString } from 'types/generics'
 
 type DBannerProps = {
     background_pattern?: string
     data?: string
     is_ppc?: boolean
-    title?: string
+    title?: TString
     image_alt?: string
     is_mt5?: boolean
 }
@@ -91,6 +92,7 @@ const TextWrapper = styled.div`
         text-align: center;
     }
 `
+
 const StyledLinkButton = styled(Button)`
     min-width: 20.2rem;
     width: auto;
@@ -102,6 +104,7 @@ const StyledLinkButton = styled(Button)`
         margin: auto;
     }
 `
+
 const StyledHeader = styled(Header)`
     @media ${device.laptopM} {
         font-size: 4rem;
@@ -112,6 +115,7 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
+
 const BackgroundPattern = styled.img<{ is_rtl: boolean }>`
     position: absolute;
     top: 0;
@@ -138,11 +142,12 @@ const BackgroundPattern = styled.img<{ is_rtl: boolean }>`
         max-width: unset;
     }
 `
+
 const DBanner = ({
     background_pattern = '',
     data = '',
     is_ppc = false,
-    title = '',
+    title,
     image_alt = '',
     is_mt5 = false,
 }: DBannerProps) => {
@@ -159,7 +164,7 @@ const DBanner = ({
             <Wrapper>
                 <TextWrapper>
                     <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="53rem">
-                        {title}
+                        {title && <Localize translate_text={title} />}
                     </StyledHeader>
                     {is_logged_in ? (
                         <StyledLinkButton
@@ -169,7 +174,7 @@ const DBanner = ({
                             secondary
                         >
                             <Localize
-                                translate_text="Go to {{platform_name}} dashboard"
+                                translate_text="_t_Go to {{platform_name}} dashboard_t_"
                                 values={{ platform_name }}
                             />
                         </StyledLinkButton>
@@ -180,7 +185,7 @@ const DBanner = ({
                             type="submit"
                             secondary
                         >
-                            {localize('Create free demo account')}
+                            <Localize translate_text="_t_Create free demo account_t_" />
                         </StyledLinkButton>
                     )}
                 </TextWrapper>

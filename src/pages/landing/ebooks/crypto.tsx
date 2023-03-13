@@ -10,14 +10,15 @@ import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import StocksIntroImage from 'images/svg/landing/crypto-intro.svg'
+import { TString } from 'types/generics'
 
-const topics_covered = [
-    localize('Introduction to cryptocurrencies'),
-    localize('Types of cryptocurrencies'),
-    localize('The basics of trading cryptocurrency'),
-    localize('Order types for derivatives trading'),
-    localize('How to evaluate a cryptocurrency'),
-    localize('Common crypto terms to impress your friends'),
+const topics_covered: TString[] = [
+    '_t_Introduction to cryptocurrencies_t_',
+    '_t_Types of cryptocurrencies_t_',
+    '_t_The basics of trading cryptocurrency_t_',
+    '_t_Order types for derivatives trading_t_',
+    '_t_How to evaluate a cryptocurrency_t_',
+    '_t_Common crypto terms to impress your friends_t_',
 ]
 
 const query = graphql`
@@ -57,37 +58,28 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
-                title={localize('Cryptocurrencies Ebook')}
-                description={localize('Trade Cryptocurrencies on our Deriv platform.')}
+                title={localize('_t_Cryptocurrencies Ebook_t_')}
+                description={localize('_t_Trade Cryptocurrencies on our Deriv platform._t_')}
                 no_index
             />
             <Hero
-                authorDesc={
-                    localize(
-                        'This e-book has been brought to you by a veteran online trader and New York Times bestselling author,',
-                    ) + ' '
-                }
-                authorName={localize('Vince Stanzione.')}
+                authorDesc="_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author_t_"
+                authorName="_t_Vince Stanzione._t_"
                 bg="linear-gradient(180deg, #1f1f1f, #0E0E0E)"
                 bgMobile="linear-gradient(180deg, #333333, #0E0E0E)"
                 color="white"
                 ebook_utm_code="cryptocurrencies-ebook"
-                introSub=""
-                introMain={localize('Learn how to trade cryptocurrencies with Deriv')}
+                introMain="_t_Learn how to trade cryptocurrencies with Deriv_t_"
                 mainHeaderImage={data[`crypto_hero${ebook_image}`]}
             />
             <ImageText
                 imageWidth={282}
                 introImage={StocksIntroImage}
-                introPara={localize(
-                    'Trading cryptocurrencies gives you the chance to earn profits from price movements without owning the underlying digital coins. In other words, you can earn by correctly predicting whether the price of a cryptocurrency will go up or down.',
-                )}
-                subPara={localize(
-                    'In this guide, you’ll learn valuable tips and strategies for trading cryptocurrencies on Deriv. You will also get a free demo account to practice completely risk-free on Deriv MT5 and DTrader platforms, as well as the DerivGo app. And when you are ready to start trading for real, you can start with as little as a $5 deposit.',
-                )}
+                introPara="_t_Trading cryptocurrencies gives you the chance to earn profits from price movements without owning the underlying digital coins. In other words, you can earn by correctly predicting whether the price of a cryptocurrency will go up or down._t_"
+                subPara="_t_In this guide, you’ll learn valuable tips and strategies for trading cryptocurrencies on Deriv. You will also get a free demo account to practice completely risk-free on Deriv MT5 and DTrader platforms, as well as the DerivGo app. And when you are ready to start trading for real, you can start with as little as a $5 deposit._t_"
             />
             <Topics
-                title={localize('In this e-book we will cover')}
+                title="_t_In this e-book we will cover_t_"
                 topicsImage={data[`crypto_inside${ebook_image}`]}
                 topicsList={topics_covered}
             />

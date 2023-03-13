@@ -1,8 +1,10 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
+import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 const SectionWrapper = styled(SectionContainer)`
     background: white;
@@ -43,13 +45,13 @@ const StyledIconTitle = styled(Header)`
 `
 
 type WhyTradeWithUsProps = {
-    mainTitle: ReactElement
+    mainTitle: TString
     columnPerRow: number
     itemsArr: ItemsArrType[]
 }
 
 type ItemsArrType = {
-    title: ReactElement
+    title: TString
     icon: string
     image_alt: string
 }
@@ -98,7 +100,7 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }: WhyTradeWithUsPro
         <SectionWrapper>
             <MainContainer direction="column">
                 <StyledHeader as="h2" type="page-title" align="center">
-                    {mainTitle}
+                    <Localize translate_text={mainTitle} />
                 </StyledHeader>
                 <Wrapper>
                     {itemsArr.map((item, index) => {
@@ -111,7 +113,7 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }: WhyTradeWithUsPro
                                     type="sub-section-title"
                                     align="center"
                                 >
-                                    {item.title}
+                                    <Localize translate_text={item.title} />
                                 </StyledIconTitle>
                             </Card>
                         )

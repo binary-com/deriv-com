@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Desktop } from 'components/containers'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 
 const Section = styled(SectionContainer)`
@@ -37,7 +37,7 @@ const Accounts = () => {
                     target="_blank"
                     rel="nofollow noopener noreferrer"
                 >
-                    {localize('Go to Deriv X dashboard')}
+                    <Localize translate_text="_t_Go to Deriv X dashboard_t_" />
                 </StyledLinkButton>
             </Section>
         </Desktop>

@@ -1,13 +1,14 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { ModalFlex } from './leaders'
-import { LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
 import Linkedin from 'images/svg/who-we-are/linkedin.svg'
+import { TString } from 'types/generics'
 
 type ModalPropsType = {
     name: string
-    position: ReactElement
+    position: TString
     link?: string
 }
 
@@ -32,7 +33,7 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
                 {name}
             </Header>
             <Header as="h4" padding="0" type="sub-paragraph" weight="normal" align="center">
-                {position}
+                {position && <Localize translate_text={position} />}
             </Header>
             {link && (
                 <LocalizedLink external to={link} target="_blank" rel="noopener noreferrer">

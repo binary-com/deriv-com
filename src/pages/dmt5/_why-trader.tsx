@@ -4,14 +4,15 @@ import DemoSignUP from 'images/svg/dmt5/demo-signup.svg'
 import LicensedAndRegulated from 'images/svg/dmt5/licensed-and-regulated.svg'
 import MultipleAssets from 'images/svg/dmt5/multiple-assets.svg'
 import TwentyFourSeven from 'images/svg/dmt5/twenty-four-seven.svg'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type CardContentType = {
-    header: React.ReactElement
-    text: React.ReactElement
+    header: TString
+    text: TString
     image: string
     key: number
     image_alt: string
@@ -19,37 +20,29 @@ type CardContentType = {
 
 const card_content: CardContentType[] = [
     {
-        header: <Localize translate_text="Quick demo account sign-up" />,
-        text: (
-            <Localize translate_text="Practise with a demo account preloaded with unlimited virtual funds." />
-        ),
+        header: '_t_Quick demo account sign-up_t_',
+        text: '_t_Practise with a demo account preloaded with unlimited virtual funds._t_',
         image: DemoSignUP,
         key: 0,
         image_alt: 'quick demo account sign-up',
     },
     {
-        header: <Localize translate_text="Multiple assets on a single platform" />,
-        text: (
-            <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived in one place." />
-        ),
+        header: '_t_Multiple assets on a single platform_t_',
+        text: '_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived in one place._t_',
         image: MultipleAssets,
         key: 1,
         image_alt: 'synthetic indices',
     },
     {
-        header: <Localize translate_text="24/7 trading" />,
-        text: (
-            <Localize translate_text="Trade round-the-clock, even on weekends, with our proprietary derived." />
-        ),
+        header: '_t_24/7 trading_t_',
+        text: '_t_Trade round-the-clock, even on weekends, with our proprietary derived._t_',
         image: TwentyFourSeven,
         key: 2,
         image_alt: '24/7 trading',
     },
     {
-        header: <Localize translate_text="Licensed and regulated" />,
-        text: (
-            <Localize translate_text="Trade with a regulated industry pioneer trusted by traders for more than 20 years." />
-        ),
+        header: '_t_Licensed and regulated_t_',
+        text: '_t_Trade with a regulated industry pioneer trusted by traders for more than 20 years._t_',
         image: LicensedAndRegulated,
         key: 3,
         image_alt: 'licensed and regulated',
@@ -103,7 +96,6 @@ const Card = styled(Flex)`
         height: auto;
     }
 `
-
 const Image = styled.img`
     width: 64px;
     height: 64px;
@@ -132,18 +124,19 @@ const StyledText = styled(Text)`
         font-size: 16px;
     }
 `
+
 const WhyTrader = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                {localize('Why trade with Deriv MT5')}
+                <Localize translate_text="_t_Why trade with Deriv MT5_t_" />
             </StyledHeader>
             <CardContainer>
-                {card_content.map((card) => {
+                {card_content.map(({ key, image, header, text }) => {
                     return (
-                        <Card key={card.key}>
+                        <Card key={key}>
                             <div>
-                                <Image src={card.image} alt={card.header.props.translate_text} />
+                                <Image src={image} alt={header} />
                             </div>
                             <StyledCardHeader
                                 mt="0.8rem"
@@ -151,9 +144,11 @@ const WhyTrader = () => {
                                 as="h4"
                                 type="sub-section-title"
                             >
-                                {card.header}
+                                <Localize translate_text={header} />
                             </StyledCardHeader>
-                            <StyledText>{card.text}</StyledText>
+                            <StyledText>
+                                <Localize translate_text={text} />
+                            </StyledText>
                         </Card>
                     )
                 })}

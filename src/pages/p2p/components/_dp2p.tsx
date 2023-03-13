@@ -1,22 +1,24 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
+
+export type P2PType = {
+    title: TString
+    subtitle: TString
+    subtitle_mobile: TString
+    subtitle_mobile_components?: React.ReactElement[]
+    image_name: string
+    image_alt: string
+}
 
 type DP2PProps = {
     P2P: P2PType[]
     reverse: boolean
-}
-
-type P2PType = {
-    title: ReactElement
-    subtitle: ReactElement
-    subtitle_mobile: ReactElement
-    image_name: string
-    image_alt: string
 }
 
 type StyledProps = {
@@ -61,7 +63,6 @@ const Content = styled.div<StyledProps>`
         margin: 0 auto;
     }
 `
-
 const ImageWrapper = styled.div<StyledProps>`
     max-width: 47.1rem;
     width: 100%;
@@ -124,7 +125,6 @@ const Row = styled.div<StyledProps>`
         margin-top: 40px;
     }
 `
-
 const StyledIFrame = styled.iframe`
     height: 506px;
     width: 100%;
@@ -156,12 +156,12 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
         <StyledSection>
             <StyledContainer>
                 <StyledText>
-                    {localize(
-                        'Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that offers an easy way to get money in and out of your Deriv account. Connect with fellow traders and transfer money in minutes.',
-                    )}
+                    <Localize translate_text="_t_Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that offers an easy way to get money in and out of your Deriv account. Connect with fellow traders and transfer money in minutes._t_" />
                 </StyledText>
 
-                <VideoText>{localize('Find out how Deriv P2P works')}</VideoText>
+                <VideoText>
+                    <Localize translate_text="_t_Find out how Deriv P2P works_t_" />
+                </VideoText>
                 <StyledIFrame
                     src="https://www.youtube.com/embed/x8v4Hb-Uw2I"
                     title="YouTube video player"
@@ -170,29 +170,50 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
                     allowFullScreen
                 ></StyledIFrame>
 
-                {P2P.map((item, index) => {
-                    const is_even = reverse ? (index + 1) % 2 : index % 2
-                    return (
-                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
-                            <Content margin_right={!is_even ? '12.6rem' : '0'}>
-                                <StyledHeader as="h2">{item.title}</StyledHeader>
-                                <Desktop>
-                                    <Text>{item.subtitle}</Text>
-                                </Desktop>
-                                <Mobile>
-                                    <Text>{item.subtitle_mobile}</Text>
-                                </Mobile>
-                            </Content>
-                            <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
-                                <QueryImage
-                                    data={data[item.image_name]}
-                                    alt={item.image_alt}
-                                    width="100%"
-                                />
-                            </ImageWrapper>
-                        </Row>
-                    )
-                })}
+                {P2P.map(
+                    (
+                        {
+                            title,
+                            subtitle,
+                            subtitle_mobile,
+                            image_alt,
+                            image_name,
+                            subtitle_mobile_components,
+                        },
+                        index,
+                    ) => {
+                        const is_even = reverse ? (index + 1) % 2 : index % 2
+                        return (
+                            <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={title}>
+                                <Content margin_right={!is_even ? '12.6rem' : '0'}>
+                                    <StyledHeader as="h2">
+                                        <Localize translate_text={title} />
+                                    </StyledHeader>
+                                    <Desktop>
+                                        <Text>
+                                            <Localize translate_text={subtitle} />
+                                        </Text>
+                                    </Desktop>
+                                    <Mobile>
+                                        <Text>
+                                            <Localize
+                                                translate_text={subtitle_mobile}
+                                                components={subtitle_mobile_components}
+                                            />
+                                        </Text>
+                                    </Mobile>
+                                </Content>
+                                <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
+                                    <QueryImage
+                                        data={data[image_name]}
+                                        alt={image_alt}
+                                        width="100%"
+                                    />
+                                </ImageWrapper>
+                            </Row>
+                        )
+                    },
+                )}
             </StyledContainer>
         </StyledSection>
     )

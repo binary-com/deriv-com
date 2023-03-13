@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { first_section_texts } from './_data'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -40,11 +40,11 @@ const MakeTrading = () => {
         <FirstSectionContainer padding="120px 0 80px" background="var(--color-white)">
             {first_section_texts.map(({ text }, index) => (
                 <StyledFirstSectionText as="p" type="unset" key={index} size="24px">
-                    {text}
+                    <Localize translate_text={text} />
                 </StyledFirstSectionText>
             ))}
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {localize('Make trading accessible to anyone, anywhere')}
+                <Localize translate_text="_t_Make trading accessible to anyone, anywhere_t_" />
             </StyledHeader>
         </FirstSectionContainer>
     )

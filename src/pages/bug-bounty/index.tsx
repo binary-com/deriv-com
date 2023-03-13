@@ -18,9 +18,11 @@ const Security = () => {
     return (
         <Layout type="security">
             <SEO
-                title={localize('Bug bounty program | Trading platform and apps security | Deriv')}
+                title={localize(
+                    '_t_Bug bounty program | Trading platform and apps security | Deriv_t_',
+                )}
                 description={localize(
-                    'Report bugs on Deriv or our third-party trading platforms and apps and get rewarded based on the impact and severity of the error you have reported.',
+                    '_t_Report bugs on Deriv or our third-party trading platforms and apps and get rewarded based on the impact and severity of the error you have reported._t_',
                 )}
                 meta_attributes={meta_attributes}
             />

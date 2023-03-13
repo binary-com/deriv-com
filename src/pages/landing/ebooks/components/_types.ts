@@ -1,20 +1,21 @@
 import type { ImageDataLike } from 'gatsby-plugin-image'
+import { TString } from 'types/generics'
 
 export type HeaderAndHeroProps = {
-    authorDesc: string
-    authorName: string
+    authorDesc: TString
+    authorName: TString
     bg?: string
     bgMobile?: string
     ebook_utm_code: string
-    introMain: string
-    introSub: string
+    introMain: TString
+    introSub?: TString
     mainHeaderImage: ImageDataLike
 }
 
 export type ImageTextAndIntroductionProps = {
     imageWidth: number
     introImage: string
-    introList?: string[]
-    introPara: string
-    subPara?: string
+    introList?: TString[]
+    introPara: TString
+    subPara?: TString
 }

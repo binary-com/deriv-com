@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { deriv_numbers } from './_data'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
@@ -108,12 +108,10 @@ const DerivNumbers = () => {
             <StyledFlex>
                 <TitleSection fd="column">
                     <TitleHeader as="h6" color="black-2" align="start" type="unset">
-                        {localize('Deriv in numbers')}
+                        <Localize translate_text="_t_Deriv in numbers_t_" />
                     </TitleHeader>
                     <StyledHeader as="h6" size="24px" align="start" weight="400" type="unset">
-                        {localize(
-                            'We aim to deliver market-leading products that are trusted around the world.',
-                        )}
+                        <Localize translate_text="_t_We aim to deliver market-leading products that are trusted around the world._t_" />
                     </StyledHeader>
                 </TitleSection>
                 <NumberSection
@@ -125,12 +123,12 @@ const DerivNumbers = () => {
                 >
                     {deriv_numbers.map((number) =>
                         number.map(({ count, title }) => (
-                            <Flex key={title.props.translate_text} fd="column" height="unset">
+                            <Flex key={title} fd="column" height="unset">
                                 <NumberHeader size="48px" type="unset">
-                                    {count}
+                                    <Localize translate_text={count} />
                                 </NumberHeader>
                                 <NumberText size="20px" align="start">
-                                    {title}
+                                    <Localize translate_text={title} />
                                 </NumberText>
                             </Flex>
                         )),

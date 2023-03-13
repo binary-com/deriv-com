@@ -4,7 +4,7 @@ import Arrow from 'images/svg/landing/arrow.svg'
 import RightAd from 'images/svg/landing/percent.svg'
 import SettlePayment from 'images/svg/landing/zero.svg'
 import CompleteOrder from 'images/svg/landing/doller.svg'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
@@ -105,7 +105,7 @@ const IconTextRow = () => {
                 as="h2"
                 color="black-3"
             >
-                {localize('Why 1M+ forex traders choose Deriv')}
+                <Localize translate_text="_t_Why 1M+ forex traders choose Deriv_t_" />
             </StyledHeader>
             <CardContainer pr="4.7rem" pl="6.7rem">
                 <Card direction="column">
@@ -121,7 +121,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('Low spreads')}
+                                <Localize translate_text="_t_Low spreads_t_" />
                             </StyledCardHeader>
                             <StyledText
                                 size="24px"
@@ -131,9 +131,7 @@ const IconTextRow = () => {
                                 mb="3rem"
                                 weight="350"
                             >
-                                {localize(
-                                    'Open trades at a lower cost and increase your potential gains.',
-                                )}
+                                <Localize translate_text="_t_Open trades at a lower cost and increase your potential gains._t_" />
                             </StyledText>
                         </Column>
                     </Row>
@@ -151,7 +149,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('High leverage')}
+                                <Localize translate_text="_t_High leverage_t_" />
                             </StyledCardHeader>
                             <StyledText
                                 lh="31px"
@@ -161,9 +159,7 @@ const IconTextRow = () => {
                                 mb="3rem"
                                 weight="350"
                             >
-                                {localize(
-                                    'Enjoy up to 1:1000 leverage, and open larger positions with lower capital.',
-                                )}
+                                <Localize translate_text="_t_Enjoy up to 1:1000 leverage, and open larger positions with lower capital._t_" />
                             </StyledText>
                         </Column>
                     </Row>
@@ -181,7 +177,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('0% commission')}
+                                <Localize translate_text="_t_0% commission_t_" />
                             </StyledCardHeader>
                             <StyledText
                                 lh="31px"
@@ -191,9 +187,7 @@ const IconTextRow = () => {
                                 mb="3rem"
                                 weight="350"
                             >
-                                {localize(
-                                    'Trade with no additional charges on deposits, withdrawals, and trades.',
-                                )}
+                                <Localize translate_text="_t_Trade with no additional charges on deposits, withdrawals, and trades._t_" />
                             </StyledText>
                         </Column>
                     </Row>
@@ -211,7 +205,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('Swap-free')}
+                                <Localize translate_text="_t_Swap-free_t_" />
                             </StyledCardHeader>
                             <StyledText
                                 lh="31px"
@@ -221,9 +215,7 @@ const IconTextRow = () => {
                                 mb="3rem"
                                 weight="350"
                             >
-                                {localize(
-                                    'Say goodbye to overnight charges, keep your positions open for as long as you want.*',
-                                )}
+                                <Localize translate_text="_t_Say goodbye to overnight charges, keep your positions open for as long as you want.*_t_" />
                             </StyledText>
                         </Column>
                     </Row>

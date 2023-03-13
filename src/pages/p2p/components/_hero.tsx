@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { Button } from 'components/form'
 import device, { size } from 'themes/device'
@@ -73,7 +73,6 @@ const ImgWrapper = styled.div`
         max-height: 292px;
     }
 `
-
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 60.5rem;
@@ -90,7 +89,6 @@ const InformationWrapper = styled(Flex)`
         padding: 0;
     }
 `
-
 const HeroContent = styled(Flex)`
     flex-direction: row-reverse;
     justify-content: flex-start;
@@ -234,29 +232,26 @@ const Hero = () => {
 
         window.open(link, '_blank')
     }
+
     return (
         <BackgroundWrapper data={background}>
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1">
-                        {localize('Hassle-free deposits and withdrawals')}
+                        <Localize translate_text="_t_Hassle-free deposits and withdrawals_t_" />
                     </StyledHeader>
                     <Header size="18px" color="white" weight="200" pr="100px">
-                        {localize(
-                            'Use your local currency to make deposits into and withdrawals from your Deriv account.',
-                        )}
+                        <Localize translate_text="_t_Use your local currency to make deposits into and withdrawals from your Deriv account._t_" />
                     </Header>
                     <Desktop>
                         <HeroContent mt="15px">
                             <Header as="h2">
-                                {
-                                    <Localize translate_text="Scan the QR code to download Deriv P2P" />
-                                }
+                                <Localize translate_text="_t_Scan the QR code to download Deriv P2P_t_" />
                             </Header>
 
                             <QueryImage
                                 data={data['qr_code']}
-                                alt={'play store'}
+                                alt="play store"
                                 width="108px"
                                 height="108px"
                             />
@@ -265,7 +260,7 @@ const Hero = () => {
 
                     <Mobile>
                         <ButtonDerivP2P secondary onClick={handleExternalLink}>
-                            {localize('Try Deriv P2P now')}
+                            <Localize translate_text="_t_Try Deriv P2P now_t_" />
                         </ButtonDerivP2P>
                     </Mobile>
                     <Desktop>
@@ -317,9 +312,9 @@ const Hero = () => {
                 <ImgWrapper>
                     <QueryImage
                         data={data['p2p_hero_img']}
-                        alt={'Deriv’s P2P mobile app'}
-                        height={'700px'}
-                        width={'576px'}
+                        alt="Deriv’s P2P mobile app"
+                        height="700px"
+                        width="576px"
                     />
                 </ImgWrapper>
             </Wrapper>

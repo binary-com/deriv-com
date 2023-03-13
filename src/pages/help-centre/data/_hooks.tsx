@@ -1,4 +1,3 @@
-import React from 'react'
 import { TQuestions, TQuestionsData } from './_data-types'
 import useRegion from 'components/hooks/use-region'
 

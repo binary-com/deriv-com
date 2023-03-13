@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import RightAd from 'images/svg/lamp.svg'
 import SettlePayment from 'images/svg/24.svg'
 import CompleteOrder from 'images/svg/relaxing.svg'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
@@ -105,7 +105,7 @@ const IconTextRow = () => {
                 as="h2"
                 color="black-3"
             >
-                {localize('Enjoy weekend trading on Deriv and get the most out of your trades')}
+                <Localize translate_text="_t_Enjoy weekend trading on Deriv and get the most out of your trades_t_" />
             </StyledHeader>
             <CardContainer pr="4.7rem" pl="6.7rem">
                 <Card direction="column">
@@ -121,7 +121,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('Opportunity knocks')}
+                                <Localize translate_text="_t_Opportunity knocks_t_" />
                             </StyledCardHeader>
                             <StyledText
                                 size="24px"
@@ -131,9 +131,7 @@ const IconTextRow = () => {
                                 mb="3rem"
                                 weight="350"
                             >
-                                {localize(
-                                    'Maximise your trading time on the markets that are open on weekends.',
-                                )}
+                                <Localize translate_text="_t_Maximise your trading time on the markets that are open on weekends._t_" />
                             </StyledText>
                         </Column>
                     </Row>
@@ -151,7 +149,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('Trade anytime')}
+                                <Localize translate_text="_t_Trade anytime_t_" />
                             </StyledCardHeader>
                             <StyledText
                                 lh="31px"
@@ -161,7 +159,7 @@ const IconTextRow = () => {
                                 mb="3rem"
                                 weight="350"
                             >
-                                {localize('Trade any time of the day, at your convenience.')}
+                                <Localize translate_text="_t_Trade any time of the day, at your convenience._t_" />
                             </StyledText>
                         </Column>
                     </Row>
@@ -179,7 +177,7 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('Fewer distractions')}
+                                <Localize translate_text="_t_Fewer distractions_t_" />
                             </StyledCardHeader>
                             <StyledText
                                 lh="31px"
@@ -189,9 +187,7 @@ const IconTextRow = () => {
                                 mb="3rem"
                                 weight="350"
                             >
-                                {localize(
-                                    'Trade when you’re free from the distractions of weekday responsibilities.',
-                                )}
+                                <Localize translate_text="_t_Trade when you’re free from the distractions of weekday responsibilities._t_" />
                             </StyledText>
                         </Column>
                     </Row>

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
@@ -85,19 +85,16 @@ const StyledLinkButton = styled(LinkButton)`
 const content: ContentType[] = [
     {
         imgsrc: TradingIcon,
-        header: <Localize translate_text="Available 24/7" />,
-        title: (
-            <Localize translate_text="As jump indices are synthetics, you can trade them 24/7, 365 days of the year." />
-        ),
+        header: '_t_Available 24/7_t_',
+        title: '_t_As jump indices are synthetics, you can trade them 24/7, 365 days of the year._t_',
     },
     {
         imgsrc: LeverageIcon,
-        header: <Localize translate_text="High leverage" />,
-        title: (
-            <Localize translate_text="Trade with high leverage ratios to have even more opportunities to increase your position size." />
-        ),
+        header: '_t_High leverage_t_',
+        title: '_t_Trade with high leverage ratios to have even more opportunities to increase your position size._t_',
     },
 ]
+
 const Leverages = () => {
     // the is mounted check is used for making sure the localized link text
     // properly renders the correct domain url
@@ -109,9 +106,11 @@ const Leverages = () => {
                 {content.map((item, index) => (
                     <EachWrapper key={`key-${index}`}>
                         <ImgWrapper src={item.imgsrc} />
-                        <StyledHeader type="section-title">{item.header}</StyledHeader>
+                        <StyledHeader type="section-title">
+                            <Localize translate_text={item.header} />
+                        </StyledHeader>
                         <StyledHeaderSmall type="sub-section-title" weight="normal">
-                            {item.title}
+                            <Localize translate_text={item.title} />
                         </StyledHeaderSmall>
                     </EachWrapper>
                 ))}
@@ -126,7 +125,7 @@ const Leverages = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Start trading')}
+                        <Localize translate_text="_t_Start trading_t_" />
                     </StyledLinkButton>
                 )}
             </BtnWrapper>

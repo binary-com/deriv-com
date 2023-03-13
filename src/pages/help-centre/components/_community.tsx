@@ -49,7 +49,7 @@ const Community = () => {
                     <QueryImage alt="community" data={data['community']} width="41rem" />
                     <StyledFlex tablet_ai="center" ml="5rem" direction="column">
                         <StyledHeader mt="1rem" as="h3" type="section-title">
-                            <Localize translate_text="Have a question?" />
+                            <Localize translate_text="_t_Have a question?_t_" />
                         </StyledHeader>
 
                         <StyledHeader
@@ -58,7 +58,7 @@ const Community = () => {
                             pb="3.4rem"
                             weight="normal"
                         >
-                            <Localize translate_text="Our Deriv support community can help you find answers." />
+                            <Localize translate_text="_t_Our Deriv support community can help you find answers._t_" />
                         </StyledHeader>
 
                         <StyledLinkButton
@@ -69,7 +69,7 @@ const Community = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <Localize translate_text="Ask the community" />
+                            <Localize translate_text="_t_Ask the community_t_" />
                         </StyledLinkButton>
                     </StyledFlex>
                 </Flex>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
@@ -102,11 +102,11 @@ const HeroComponent = ({ title, content, background_data }: HeroProps) => {
             <Wrapper p="0" justify="space-between" height="63rem">
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader mt="4rem" type="hero" color="white">
-                        {title}
+                        <Localize translate_text={title} />
                     </StyledHeader>
                     <HeroContent m="2rem 0 0" direction="column" jc="flex-start">
                         <Header as="h2" color="white" type="subtitle-1" weight="normal">
-                            {content}
+                            <Localize translate_text={content} />
                         </Header>
                     </HeroContent>
                     <TryButton
@@ -115,9 +115,9 @@ const HeroComponent = ({ title, content, background_data }: HeroProps) => {
                         rel="noopener noreferrer nofollow"
                         type="submit"
                         secondary
-                        to={'/signup/'}
+                        to="/signup/"
                     >
-                        {localize('Start trading')}
+                        <Localize translate_text="_t_Start trading_t_" />
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>

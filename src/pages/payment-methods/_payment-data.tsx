@@ -66,90 +66,6 @@ const StyledRefLink = styled(LocalizedLink)`
 // `
 const payment_data = [
     {
-        name: <Localize translate_text="Online banking" />,
-        is_row: true,
-        data: [
-            {
-                method: <StyledIcon src={InstantBankTransfer} alt="instant bank transfer" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="5 - 50,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 50,000" />,
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw easily using secure and fast money transfers." />
-                ),
-                name: 'InstantBankTransfer',
-            },
-            {
-                method: <StyledIcon src={Paytrust} alt="pay safe card" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 17,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam." />
-                ),
-                name: 'paytrust88',
-            },
-            {
-                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="15 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="A leading payment service in Southeast Asia that’s fast, easy, and secure." />
-                ),
-                name: 'Help2Pay',
-                reference: 'help2pay-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw easily in THB, IDR, and VND." />
-                ),
-                name: 'DragonPhoenix',
-                reference: 'dragonphoenix-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={ZingPay} alt="zingPay" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="10 - 500" />,
-                min_max_withdrawal: <Localize translate_text="10 - 6,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
-                description: (
-                    <Localize translate_text="Payments simplified. Fast and reliable way to deposit funds in your local currency." />
-                ),
-                name: 'ZingPay',
-                reference: 'zingpay-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={NganLuong} alt="NganLuong" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 2,500" />,
-                min_max_withdrawal: <Localize translate_text="10 - 2,500" />,
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="1 - 3 working days" />,
-                description: (
-                    <Localize translate_text="A leading e-wallet service in Vietnam that’s easy to use, flexible, and safe. Used by thousands of merchants." />
-                ),
-                name: 'NganLuong',
-                reference: 'nganluong-payment-method.pdf',
-                locales: ['vi'],
-            },
-        ],
-        class_name: 'online-banking',
-    },
-    {
         name: <Localize translate_text="Credit/debit cards" />,
         note: (
             <Localize translate_text="Withdrawals may take up to 15 working days to reflect on your card." />
@@ -580,6 +496,90 @@ const payment_data = [
             },
         ],
         class_name: 'e-wallets',
+    },
+    {
+        name: <Localize translate_text="Online banking" />,
+        is_row: true,
+        data: [
+            {
+                method: <StyledIcon src={InstantBankTransfer} alt="instant bank transfer" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="5 - 50,000" />,
+                min_max_withdrawal: <Localize translate_text="5 - 50,000" />,
+                deposit_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="Deposit and withdraw easily using secure and fast money transfers." />
+                ),
+                name: 'InstantBankTransfer',
+            },
+            {
+                method: <StyledIcon src={Paytrust} alt="pay safe card" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="10 - 17,000" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam." />
+                ),
+                name: 'paytrust88',
+            },
+            {
+                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="15 - 10,000" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="A leading payment service in Southeast Asia that’s fast, easy, and secure." />
+                ),
+                name: 'Help2Pay',
+                reference: 'help2pay-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="10 - 10,000" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Deposit and withdraw easily in THB, IDR, and VND." />
+                ),
+                name: 'DragonPhoenix',
+                reference: 'dragonphoenix-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={ZingPay} alt="zingPay" />,
+                currencies: 'USD EUR AUD GBP',
+                min_max_deposit: <Localize translate_text="10 - 500" />,
+                min_max_withdrawal: <Localize translate_text="10 - 6,000" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="Payments simplified. Fast and reliable way to deposit funds in your local currency." />
+                ),
+                name: 'ZingPay',
+                reference: 'zingpay-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={NganLuong} alt="NganLuong" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="10 - 2,500" />,
+                min_max_withdrawal: <Localize translate_text="10 - 2,500" />,
+                deposit_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 - 3 working days" />,
+                description: (
+                    <Localize translate_text="A leading e-wallet service in Vietnam that’s easy to use, flexible, and safe. Used by thousands of merchants." />
+                ),
+                name: 'NganLuong',
+                reference: 'nganluong-payment-method.pdf',
+                locales: ['vi'],
+            },
+        ],
+        class_name: 'online-banking',
     },
     {
         name: <Localize translate_text="Online banking" />,

@@ -112,6 +112,9 @@ type TTableCell = {
     text?: string | number
 }
 const StyledTableHeaderText = styled(HeaderText)`
+    text-decoration: underline;
+    text-decoration-style: dashed;
+
     @media ${device.tabletL} {
         font-size: 10px;
     }
@@ -151,7 +154,14 @@ export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) =
             </Popover>
 
             <Cell>
-                <StyledTableHeaderText type="small" width="fit-content" align="start" as="p">
+                <StyledTableHeaderText
+                    type="small"
+                    width="fit-content"
+                    align="start"
+                    as="p"
+                    onMouseOver={onMouseOver}
+                    onMouseLeave={onMouseLeave}
+                >
                     {text}
                 </StyledTableHeaderText>
             </Cell>

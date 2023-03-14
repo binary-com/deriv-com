@@ -13,8 +13,7 @@ type OptionsContentElement = {
     text: React.ReactNode
 }
 
-const instant_text: TString =
-    '_t_Open an account now and gain access to the world of trading. No need to wait — you can begin trading in minutes._t_'
+const instant_text: TString = '_t_this is a test_t_'
 
 export const digital_options: OptionsContentElement[] = [
     {

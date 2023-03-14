@@ -48,10 +48,7 @@ const ForexTrading = () => {
 
     return (
         <Layout type="landing-page" is_ppc_redirect>
-            <SEO
-                title={localize('_t_Weekends_t_')}
-                description={localize('_t_Ride the trends even on weekends_t_')}
-            />
+            <SEO title="_t_Weekends_t_" description="_t_Ride the trends even on weekends_t_" />
             {is_mounted && (
                 <>
                     <Hero

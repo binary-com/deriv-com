@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { Localize, localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements'
@@ -73,10 +73,8 @@ const NewSignup = () => {
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
-                title={localize('_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_')}
-                description={localize(
-                    '_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_',
-                )}
+                title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
+                description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
             />
             <Wrapper>
                 {submit_state !== 'success' && (

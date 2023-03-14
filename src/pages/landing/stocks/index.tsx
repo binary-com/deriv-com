@@ -148,12 +148,10 @@ const Stocks = () => {
 
     const display_items = is_row ? WhyTradeWithUsArr : WhyTradeWithUsArr_eu
     return (
-        <Layout is_ppc_redirect={true}>
+        <Layout is_ppc_redirect>
             <SEO
-                title={localize('_t_Stocks_t_')}
-                description={localize(
-                    '_t_Trade global stocks and stock indices now on our DMT5 platform._t_',
-                )}
+                title="_t_Stocks_t_"
+                description="_t_Trade global stocks and stock indices now on our DMT5 platform._t_"
                 no_index
             />
             <HeaderSection />

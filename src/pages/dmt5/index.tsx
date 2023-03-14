@@ -24,10 +24,9 @@ import { MetaAttributesType } from 'types/page.types'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const meta_attributes: MetaAttributesType = {
-    og_title: localize('_t_DMT5 | MetaTrader 5 | Deriv_t_'),
-    og_description: localize(
+    og_title: '_t_DMT5 | MetaTrader 5 | Deriv_t_',
+    og_description:
         '_t_DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile._t_',
-    ),
 }
 
 const query = graphql`
@@ -71,10 +70,8 @@ const DMT5 = () => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_Deriv MT5 | MetaTrader 5 trading platform | Deriv_t_')}
-                description={localize(
-                    '_t_Deriv MT5 is an all-in-one CFD trading platform where you can trade on the biggest financial markets and Deriv’s synthetic indices._t_',
-                )}
+                title="_t_Deriv MT5 | MetaTrader 5 trading platform | Deriv_t_"
+                description="_t_Deriv MT5 is an all-in-one CFD trading platform where you can trade on the biggest financial markets and Deriv’s synthetic indices._t_"
                 meta_attributes={meta_attributes}
             />
             <Desktop>

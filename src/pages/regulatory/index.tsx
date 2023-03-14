@@ -15,7 +15,7 @@ import {
     Desktop,
     Mobile,
 } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { WithIntl, Localize } from 'components/localization'
 // Icons
 import EU from 'images/svg/regulatory/europe-map.svg'
 import Vanuatu from 'images/common/regulatory/vanuatu.png'
@@ -114,10 +114,8 @@ const Regulatory = (locale: RegulatoryProps) => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_Licence and regulatory information | Deriv_t_')}
-                description={localize(
-                    '_t_Deriv operates and offers its products and services under the Deriv Group, which has several subsidiary companies licensed in their respective jurisdictions._t_',
-                )}
+                title="_t_Licence and regulatory information | Deriv_t_"
+                description="_t_Deriv operates and offers its products and services under the Deriv Group, which has several subsidiary companies licensed in their respective jurisdictions._t_"
             />
             <SectionContainer>
                 <GridContainer>

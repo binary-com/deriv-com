@@ -10,10 +10,8 @@ import { SEO } from 'components/containers'
 const CommoditiesPage = () => (
     <Layout type="noNav">
         <SEO
-            description={localize(
-                'Sign up with Deriv to start trading on commodities and speculate on the price movements of gold, silver, oil, and other assets.',
-            )}
-            title={localize('Commodities market | Commodities trading | Deriv')}
+            description="_t_Sign up with Deriv to start trading on commodities and speculate on the price movements of gold, silver, oil, and other assets._t_"
+            title="_t_Commodities market | Commodities trading | Deriv_t_"
         />
         <DerivedFXHero
             title={localize('Commodities')}

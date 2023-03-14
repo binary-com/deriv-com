@@ -93,9 +93,9 @@ Usage example:
 ```js
 import { localize, Localize } from 'components/localization'
 
-<p>{localize('text need to be translated')}</p>
+<p><Localize translate_text='_t_text need to be translated_t_' /></p>
 <p><Localize
-        translate_text='your name is <0>{{name}}</0>, <1>view more info</1>'
+        translate_text='_t_your name is <0>{{name}}</0>, <1>view more info</1>_t_'
         values={{ name: this.state.name || 'jollie' }}
         components={[
             <strong key={0} />,
@@ -202,7 +202,7 @@ import { localize, WithIntl } from 'components/localization'
 const MyPageName = () => {
     return (
         <Layout>
-            <SEO title={localize('My page')} description={localize('My page description')} />
+            <SEO title="_t_My page_t_" description="_t_My page description_t_" />
             {/* Your children here */}
         </Layout>
     )

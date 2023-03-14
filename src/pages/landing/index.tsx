@@ -5,7 +5,7 @@ import Trade from '../home/_trade'
 import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
 import { Desktop, Mobile, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl, Localize, localize } from 'components/localization'
+import { WithIntl, Localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/markets/trade.svg'
@@ -40,12 +40,8 @@ const Home = () => {
     return (
         <Layout is_ppc_redirect is_ppc>
             <SEO
-                title={localize(
-                    '_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_',
-                )}
-                description={localize(
-                    '_t_Deriv - An online trading platform that offers a wide selection of derivatives to trade on_t_',
-                )}
+                title="_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_"
+                description="_t_Deriv - An online trading platform that offers a wide selection of derivatives to trade on_t_"
                 has_organization_schema
                 no_index
             />

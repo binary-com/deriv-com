@@ -11,12 +11,8 @@ import { SEO } from 'components/containers'
 const BasketPage = () => (
     <Layout type="noNav">
         <SEO
-            description={localize(
-                'Trade Basket indices online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms.',
-            )}
-            title={localize(
-                'Basket indices trading online | Basket indices trading demo account | Deriv',
-            )}
+            description="_t_Trade Basket indices online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms._t_"
+            title="_t_Basket indices trading online | Basket indices trading demo account | Deriv_t_"
         />
         <DerivedFXHero
             title={localize('Derived')}

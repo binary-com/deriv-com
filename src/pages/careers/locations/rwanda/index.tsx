@@ -4,7 +4,7 @@ import { rwanda } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
@@ -43,10 +43,8 @@ const Rwanda = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('_t_Kigali | Our office – Rwanda | Deriv_t_')}
-                description={localize(
-                    '_t_Find your role with us by browsing Deriv job opportunities in Kigali, Rwanda._t_',
-                )}
+                title="_t_Kigali | Our office – Rwanda | Deriv_t_"
+                description="_t_Find your role with us by browsing Deriv job opportunities in Kigali, Rwanda._t_"
             />
             <LocationLayout location={rwanda} images={images} />
         </Layout>

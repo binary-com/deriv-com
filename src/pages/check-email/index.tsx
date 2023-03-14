@@ -4,16 +4,14 @@ import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { Text } from 'components/elements'
 import { GridContainer, SectionContainer, SEO } from 'components/containers'
-import { Localize, localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 
 const CheckEmail = () => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_Check your email_t_')}
-                description={localize(
-                    "_t_Didn't receive an email from us? Here's what could've happened._t_",
-                )}
+                title="_t_Check your email_t_"
+                description="_t_Didn't receive an email from us? Here's what could've happened._t_"
                 no_index
             />
             <SectionContainer>

@@ -5,7 +5,7 @@ import Loadable from '@loadable/component'
 import PageNotFound from '../404'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot/dbot-icon.svg'
 import DBotBG from 'images/svg/dbot/dbot-bg.svg'
 import DBotBGMobile from 'images/svg/dbot/dbot-bg-mobile.svg'
@@ -25,10 +25,9 @@ const DBanner = Loadable(() => import('components/custom/_dbanner'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms'))
 
 const meta_attributes: MetaAttributesType = {
-    og_title: localize('_t_DBot Trading | Auto Trading Robot | Deriv_t_'),
-    og_description: localize(
+    og_title: '_t_DBot Trading | Auto Trading Robot | Deriv_t_',
+    og_description:
         '_t_Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!_t_',
-    ),
 }
 
 const query = graphql`
@@ -117,10 +116,8 @@ const Dbot = () => {
     return (
         <>
             <SEO
-                title={localize('_t_DBot | Trading robot | Deriv_t_')}
-                description={localize(
-                    '_t_Automate your trading with DBot, Deriv’s trading robot which you can build without writing code._t_',
-                )}
+                title="_t_DBot | Trading robot | Deriv_t_"
+                description="_t_Automate your trading with DBot, Deriv’s trading robot which you can build without writing code._t_"
                 meta_attributes={meta_attributes}
             />
             {is_row && (

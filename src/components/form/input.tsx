@@ -40,8 +40,6 @@ type StyledInputProps = {
     background?: string
     label?: string
     error?: string
-    padding?: string
-    fs?: string
 }
 
 type ValidProps = {
@@ -122,8 +120,8 @@ const StyledInput = styled.input<StyledInputProps>`
         input_background ? `var(--color-${input_background})` : 'none'};
     color: ${({ inputColor }) =>
         inputColor ? `var(--color-${inputColor})` : 'var(--color-black)'};
-    font-size: ${({ fs }) => fs || 'var(--text-size-s)'};
-    padding: ${({ padding }) => padding || '1rem 1rem 1rem 0.8rem'};
+    font-size: var(--text-size-s);
+    padding: 1rem 1rem 1rem 0.8rem;
     height: ${(props) => props.height || '40px'};
     width: 100%;
     display: block;

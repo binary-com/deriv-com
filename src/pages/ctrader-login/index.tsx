@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SEO } from 'components/containers'
-import { Button, Input } from 'components/form'
+import { Button } from 'components/form'
 import { Localize, LocalizedLink, WithIntl } from 'components/localization'
 import device from 'themes/device'
 import Login, { TSocialProvider } from 'common/login'
@@ -24,30 +24,40 @@ const query = graphql`
         }
     }
 `
-
+const ResponsiveStyle = css`
+    width: 100%;
+    max-width: 406px;
+    min-width: 328px;
+`
 const PageLayout = styled.div`
     height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: var(--color-white);
+    padding: 0 80px;
 `
 const LoginForm = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 40px;
-    min-width: 486px;
-    min-height: 659px;
+    width: 100%;
+    max-width: 486px;
+    min-width: 360px;
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.05), 0 24px 24px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
+
+    @media ${device.tabletL} {
+        padding: 24px 16px;
+    }
 `
 const StyledQueryImage = styled(QueryImage)`
     margin: 0 auto 24px;
 `
 const StyledHeader = styled(Header)<{ mh?: string }>`
     font-weight: normal;
-    width: fit-content;
     white-space: nowrap;
     min-height: ${({ mh }) => mh};
 `
@@ -55,51 +65,70 @@ const StyledSocial = styled(Header)`
     inline-size: unset;
     padding-left: 10px;
 `
-const StyledInput = styled(Input)`
+const StyledInput = styled.input`
+    font-size: 14px;
+    height: 40px;
+    width: 100%;
     border: 1px solid var(--color-grey-7);
     border-radius: 15px;
-    min-width: 406px;
-`
+    display: block;
+    padding: 10px 16px;
+    ${ResponsiveStyle}
 
+    &::placeholder {
+        color: var(--color-grey-5);
+        opacity: 1;
+        transition: opacity 0.25s;
+        padding-left: 0.3rem;
+    }
+`
 const PasswordBox = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     position: relative;
+    width: 100%;
+    padding: 20px 0 28px;
 `
 const PasswordIcon = styled(QueryImage)`
     position: absolute;
-    top: 20%;
-    left: 90%;
+    left: 88%;
     cursor: pointer;
 `
 const AgreementBlock = styled.div`
     display: flex;
     justify-content: space-between;
-    min-width: 406px;
-    min-height: 20px;
+    align-items: center;
     padding-bottom: 24px;
+    ${ResponsiveStyle}
 `
 const StyledButton = styled(Button)`
-    min-width: 406px;
-    min-height: 40px;
+    height: 40px;
     border-radius: 16px;
+    width: 100%;
+    ${ResponsiveStyle}
 `
 const Line = styled.div`
-    width: 137.5px;
+    width: 100%;
+    max-width: 137.5px;
+    min-width: 104.5px;
     height: 1px;
     background-color: var(--color-grey-7);
 `
 const AlternativeLogin = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
+    width: 100%;
 `
 const SocialButtonsWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 `
 const SocialButton = styled.button<{ color?: string }>`
     display: flex;
@@ -109,20 +138,14 @@ const SocialButton = styled.button<{ color?: string }>`
     background-color: ${({ color }) => color || 'var(--color-white)'};
     border: 0.5px solid ${({ color }) => color || '#414652'};
     border-radius: 16px;
-    min-width: 406px;
-    max-height: 40px;
+    height: 40px;
     padding: 10px 16px;
     margin-bottom: 8px;
+    ${ResponsiveStyle}
 
     &:hover {
         opacity: 0.8;
         cursor: pointer;
-    }
-
-    @media ${device.tabletL} {
-        width: 100%;
-        height: 6rem;
-        margin-top: 1rem;
     }
 `
 const StyledLocalizedLink = styled(LocalizedLink)<{ pt?: boolean; no_decor?: boolean }>`
@@ -165,6 +188,11 @@ const CTraderLogin = () => {
         const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
         Login.initOneAll(data_provider)
     }
+    const header_style = {
+        width: '100%',
+        'max-width': '406px',
+        'min-width': '328px',
+    }
     return (
         <PageLayout>
             <SEO
@@ -173,13 +201,13 @@ const CTraderLogin = () => {
             />
             <LoginForm>
                 <StyledQueryImage
-                    data={data[is_mobile_or_tablet ? 'ctrader_desktop' : 'ctrader_mobile']}
+                    data={data[is_mobile_or_tablet ? 'ctrader_mobile' : 'ctrader_desktop']}
                     alt="ctrader image"
                 />
-                <Header as="h1" type="subtitle-1" pb="8px">
+                <Header as="h1" type="subtitle-1" pb="8px" style={header_style}>
                     <Localize translate_text="_t_Welcome back!_t_" />
                 </Header>
-                <StyledHeader as="h2" type="paragraph-1" pb="8px">
+                <StyledHeader as="h2" type="paragraph-1" pb="8px" style={header_style}>
                     <Localize translate_text="_t_It's good to see you again. Log in to start trading._t_" />
                 </StyledHeader>
                 <StyledHeader as="p" type="paragraph-1" color="red" mh="24px">
@@ -187,11 +215,6 @@ const CTraderLogin = () => {
                 </StyledHeader>
                 <StyledInput
                     type="text"
-                    border="unset"
-                    padding="10px 16px"
-                    fs="14px"
-                    label_color="grey-5"
-                    label_hover_color="grey-5"
                     value={email}
                     placeholder={'Enter your email or cTrader ID'}
                     onChange={handleEmailChange}
@@ -201,11 +224,6 @@ const CTraderLogin = () => {
                 <PasswordBox>
                     <StyledInput
                         type={is_password_visible ? 'text' : 'password'}
-                        border="unset"
-                        padding="10px 16px"
-                        fs="14px"
-                        label_color="grey-5"
-                        label_hover_color="grey-5"
                         value={password}
                         placeholder={'Enter your password'}
                         onChange={handlePasswordChange}
@@ -226,7 +244,7 @@ const CTraderLogin = () => {
                         isChecked={is_checked}
                     />
                     <StyledLocalizedLink to="/reset" no_decor>
-                        <StyledHeader as="p" type="paragraph-2">
+                        <StyledHeader as="p" type="paragraph-2" pt="5px">
                             <Localize translate_text="_t_Forgot password?_t_" />
                         </StyledHeader>
                     </StyledLocalizedLink>
@@ -236,7 +254,14 @@ const CTraderLogin = () => {
                 </StyledButton>
                 <AlternativeLogin>
                     <Line />
-                    <StyledHeader as="h4" type="paragraph-2" align="center" p="24px">
+                    <StyledHeader
+                        as="h4"
+                        type="paragraph-2"
+                        align="center"
+                        color="grey-5"
+                        p="24px"
+                        width="fit-content"
+                    >
                         <Localize translate_text="_t_Or log in with_t_" />
                     </StyledHeader>
                     <Line />

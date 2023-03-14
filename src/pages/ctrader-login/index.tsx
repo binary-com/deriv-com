@@ -37,8 +37,8 @@ const LoginForm = styled.div`
     flex-direction: column;
     align-items: flex-start;
     padding: 40px;
-    width: 486px;
-    height: 659px;
+    min-width: 486px;
+    min-height: 659px;
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.05), 0 24px 24px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 `

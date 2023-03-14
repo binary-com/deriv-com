@@ -551,19 +551,6 @@ const payment_data = [
                 url: 'https://www.skrill.com/',
             },
             {
-                method: <StyledIcon src={Jeton} alt="Jeton" />,
-                currencies: 'EUR',
-                min_max_deposit: <Localize translate_text="5 - 1,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 1,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
-                description: (
-                    <Localize translate_text="A fast and secure money transfer service. Access your money anywhere with the mobile app." />
-                ),
-                url: 'https://www.jeton.com/',
-                name: 'jeton',
-            },
-            {
                 method: <StyledIcon src={Neteller} alt="Neteller" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
@@ -575,6 +562,19 @@ const payment_data = [
                 ),
                 name: 'neteller',
                 url: 'https://www.neteller.com/',
+            },
+            {
+                method: <StyledIcon src={Jeton} alt="Jeton" />,
+                currencies: 'EUR',
+                min_max_deposit: <Localize translate_text="5 - 1,000" />,
+                min_max_withdrawal: <Localize translate_text="5 - 1,000" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="A fast and secure money transfer service. Access your money anywhere with the mobile app." />
+                ),
+                url: 'https://www.jeton.com/',
+                name: 'jeton',
             },
         ],
         class_name: 'e-wallets',

@@ -67,6 +67,7 @@ const security: TQuestionsData = {
             category: 'Security',
             sub_category: '_t_Verification_t_',
             label: 'identify-cs-impersonators-telegram',
+            hide_for_eu: true,
             answer: [
                 {
                     img: {
@@ -137,6 +138,7 @@ const security: TQuestionsData = {
             category: 'Security',
             sub_category: '_t_Verification_t_',
             label: 'identify-impersonators-telegram',
+            hide_for_eu: true,
             answer: [
                 {
                     list: {

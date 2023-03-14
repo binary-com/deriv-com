@@ -53,11 +53,7 @@ const Home = () => {
                 <TradeTheWayYouLike is_ppc_redirect />
             </Mobile>
             <Markets is_ppc />
-            <SimpleSteps
-                content={simple_step_content}
-                header={<Localize translate_text="_t_3 simple steps_t_" />}
-                sign_up
-            />
+            <SimpleSteps content={simple_step_content} header="_t_3 simple steps_t_" sign_up />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
         </Layout>

@@ -14,7 +14,7 @@ import { TString } from 'types/generics'
 
 type SimpleStepsProps = {
     content?: { header?: TString; icon?: HTMLImageElement; text?: TString }[]
-    header?: ReactElement
+    header?: TString
     sign_up?: boolean
 }
 
@@ -148,7 +148,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
             </Mobile>
             <Container direction="column">
                 <TitleHeader align="center" as="h2" type="section-title">
-                    {header}
+                    <Localize translate_text={header} />
                 </TitleHeader>
             </Container>
             <StyledFlex wrap="wrap">

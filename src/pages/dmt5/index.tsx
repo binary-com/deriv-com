@@ -88,7 +88,7 @@ const DMT5 = () => {
             <Mobile>
                 <DHero
                     title="_t_Deriv MT5_t_"
-                    content="_t_The all-in-one <0/>CFD trading<0/> platform_t_"
+                    content="_t_The all-in-one <0/> CFD trading platform <0/>  _t_"
                     content_components={[<br key={0} />]}
                     join_us_for_free
                     Logo={dmt5_logo}

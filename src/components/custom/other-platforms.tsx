@@ -316,7 +316,9 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
             {!is_ppc && (
                 <>
                     <NavFlex direction="column" wrap="wrap" jc="flex-start">
-                        <StyledText>{<Localize translate_text="_t_Trade types_t_" />}</StyledText>
+                        <StyledText>
+                            <Localize translate_text="_t_Trade types_t_" />
+                        </StyledText>
                         <NavCard
                             aria_label="CFDs"
                             icon={() => (
@@ -363,7 +365,9 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                 </>
             )}
             <Flex direction="column" wrap="wrap" jc="flex-start">
-                <StyledText>{<Localize translate_text="_t_Trading platforms_t_" />}</StyledText>
+                <StyledText>
+                    <Localize translate_text="_t_Trading platforms_t_" />
+                </StyledText>
                 <NavCard
                     aria_label="Deriv MT5"
                     icon={() => (

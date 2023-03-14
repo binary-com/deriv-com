@@ -1,5 +1,5 @@
 import React from 'react'
-import { Localize } from 'components/localization'
+import { SimpleStepContentElement } from './_simple_step_content'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
@@ -10,7 +10,7 @@ export type CryptocurrenciesContent = {
     text: React.ReactNode
 }
 
-export const simple_step_content_cryptocurrencies = [
+export const simple_step_content_cryptocurrencies: SimpleStepContentElement[] = [
     {
         header: '_t_Practise_t_',
         text: '_t_Open a demo account and practise with an unlimited amount of virtual funds._t_',

@@ -51,9 +51,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />
             <SimpleSteps
-                header={
-                    <Localize translate_text="_t_Start trading forex on Deriv in 3 simple steps_t_" />
-                }
+                header="_t_Start trading forex on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />

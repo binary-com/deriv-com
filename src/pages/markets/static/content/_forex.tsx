@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
+import { SimpleStepContentElement } from './_simple_step_content'
 import { Localize } from 'components/localization'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Deposit from 'images/svg/markets/deposit-and-withdrawal-new.svg'
@@ -7,18 +8,11 @@ import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
-import { TString } from 'types/generics'
 
 export type ForexContentElement = {
     src: string
     alt: string
     text: React.ReactNode
-}
-
-export type SimpleStepContentElement = {
-    header: TString
-    text: TString
-    icon: ReactElement
 }
 
 export const simple_step_content_forex: SimpleStepContentElement[] = [

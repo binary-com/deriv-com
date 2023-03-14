@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
+import { SimpleStepContentElement } from './_simple_step_content'
 import { Localize } from 'components/localization'
 import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types-another.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
@@ -8,13 +9,6 @@ import SevenTrading from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
-import { TString } from 'types/generics'
-
-export type SimpleStepContentElement = {
-    header: TString
-    text: TString
-    icon: ReactElement
-}
 
 type Synthetic = {
     src: string

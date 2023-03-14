@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
+import { SimpleStepContentElement } from './_simple_step_content'
 import { Localize } from 'components/localization'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
@@ -8,13 +9,6 @@ import MetalAndOil from 'images/svg/markets/precious-metals-and-oils-new.svg'
 import NoCommission from 'images/svg/markets/no-commission-new.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
-import { TString } from 'types/generics'
-
-export type SimpleStepContentElement = {
-    header: TString
-    text: TString
-    icon: ReactElement
-}
 
 export type CommoditiesContent = {
     src: string

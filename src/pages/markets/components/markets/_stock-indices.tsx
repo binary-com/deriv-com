@@ -47,9 +47,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 }
             />
             <SimpleSteps
-                header={
-                    <Localize translate_text="_t_Start trading stocks & indices on Deriv in 3 simple steps_t_" />
-                }
+                header="_t_Start trading stocks & indices on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />

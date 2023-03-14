@@ -8,7 +8,7 @@ import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_aler
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import LayoutOverlay from 'components/layout/layout-overlay'
 import { LocationProvider } from 'components/layout/location-context'
-import 'features/styles/reset.scss'
+import 'features/styles/app.scss'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import { isBrowser } from 'common/utility'
 interface ILayoutComponentProps extends HTMLAttributes<HTMLDivElement> {

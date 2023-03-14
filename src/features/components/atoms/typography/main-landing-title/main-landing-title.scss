@@ -1,4 +1,4 @@
-@use 'features/styles/mixins/font' as *;
+@use 'features/styles/mixins' as *;
 
 .main-landing-title {
     @include font-size($main-landing-title-font-sizes);

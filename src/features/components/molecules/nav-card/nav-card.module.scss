@@ -1,4 +1,4 @@
-@use 'features/styles/mixins/media' as *;
+@use 'features/styles/mixins' as *;
 @import 'features/styles/variables';
 
 .nav_card {
@@ -12,12 +12,12 @@
         white-space: pre-line;
 
         .nav_right_diagonal {
-            opacity: 0;
+            opacity: 1;
             inline-size: 16px;
             block-size: 16px;
 
-            @include min-width(tabletL) {
-                opacity: 1;
+            @include media(tablet-large) {
+                opacity: 0;
             }
         }
 
@@ -37,7 +37,7 @@
             block-size: 32px;
             margin-inline-end: 1.6rem;
 
-            @include min-width(tabletL) {
+            @include media(tablet-large) {
                 inline-size: 24px;
                 block-size: 24px;
             }

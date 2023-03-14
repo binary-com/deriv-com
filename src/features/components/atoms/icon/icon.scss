@@ -1,5 +1,4 @@
-@use 'features/styles/mixins/media' as *;
-@use 'features/styles/mixins/rtl' as *;
+@use 'features/styles/mixins' as *;
 
 .icon-rtl {
     @include rtl() {
@@ -8,28 +7,31 @@
 }
 
 .icon-small {
-    inline-size: 16px;
-    block-size: 16px;
-    @include min-width(tabletL) {
-        inline-size: 12px;
-        block-size: 12px;
-    }
-}
+    inline-size: 12px;
+    block-size: 12px;
 
-.icon-medium {
-    inline-size: 24px;
-    block-size: 24px;
-    @include min-width(tabletL) {
+    @include media(tablet-wide) {
         inline-size: 16px;
         block-size: 16px;
     }
 }
 
-.icon-large {
-    inline-size: 36px;
-    block-size: 36px;
-    @include min-width(tabletL) {
+.icon-medium {
+    inline-size: 16px;
+    block-size: 16px;
+
+    @include media(tablet-wide) {
         inline-size: 24px;
         block-size: 24px;
+    }
+}
+
+.icon-large {
+    inline-size: 24px;
+    block-size: 24px;
+
+    @include media(tablet-wide) {
+        inline-size: 32px;
+        block-size: 32px;
     }
 }

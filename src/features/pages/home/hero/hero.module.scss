@@ -1,21 +1,24 @@
-@use 'features/styles/mixins/media' as *;
+@use 'features/styles/mixins' as *;
 
 .home_hero {
     position: relative;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     align-items: start;
-    inline-size: 100%;
-    padding: 5rem 0;
-    min-block-size: 915px;
-    background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%);
+    justify-content: flex-start;
 
-    @include min-width(tabletL) {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        padding: 10rem 0 46px;
-        min-block-size: 846px;
+    padding: 10rem 0 46px;
+    min-block-size: 85rem;
+
+    @include media(tablet-large) {
+        flex-wrap: nowrap;
+        justify-content: center;
+        padding: 5rem 0;
+        min-block-size: 92rem;
     }
+
+    inline-size: 100%;
+    background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%);
 }
 
 .bg_container {
@@ -30,10 +33,10 @@
 .content {
     z-index: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 
-    @include min-width(tabletL) {
-        grid-template-columns: 1fr;
+    @include media(tablet-large) {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -49,11 +52,12 @@
         justify-content: start;
         align-items: start;
         gap: 1rem;
-        flex-direction: column;
+        flex-direction: row;
 
-        @include min-width(tabletL) {
-            flex-direction: row;
-            flex-wrap: wrap;
+        flex-wrap: wrap;
+        @include media(tablet-large) {
+            flex-direction: column;
+            flex-wrap: nowrap;
         }
     }
 }

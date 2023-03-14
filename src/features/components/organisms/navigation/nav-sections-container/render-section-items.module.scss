@@ -1,12 +1,12 @@
-@use 'features/styles/mixins/media' as *;
+@use 'features/styles/mixins' as *;
 @import 'features/styles/variables';
 
 .section_items {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
-    @include min-width(tabletL) {
-        flex-direction: column;
+    @include media(tablet-large) {
+        flex-direction: row;
     }
 
     &_container {
@@ -14,18 +14,19 @@
         flex-direction: column;
         gap: 1rem;
         padding: 0.8rem 1rem;
-        border-inline-end: 1px solid $color-grey-8;
+
+        border-inline-end: none;
+        border-block-end: 1px solid $color-grey-8;
 
         &:last-child {
-            border-inline-end: none;
+            border-block-end: none;
         }
 
-        @include min-width(tabletL) {
-            border-inline-end: none;
-            border-block-end: 1px solid $color-grey-8;
+        @include media(tablet-large) {
+            border-inline-end: 1px solid $color-grey-8;
 
             &:last-child {
-                border-block-end: none;
+                border-inline-end: none;
             }
         }
     }

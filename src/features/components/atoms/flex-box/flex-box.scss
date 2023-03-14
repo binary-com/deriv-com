@@ -1,4 +1,4 @@
-@use 'features/styles/mixins/spacing' as *;
+@use 'features/styles/mixins' as *;
 
 @include generate-gaps();
 

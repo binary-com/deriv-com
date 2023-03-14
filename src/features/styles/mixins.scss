@@ -1,0 +1,177 @@
+@import './variables.scss';
+
+@mixin rtl {
+    [dir='rtl'] & {
+        @content;
+    }
+}
+
+@mixin media($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+
+        @if $type ==max {
+            $width: $width - 1px;
+        }
+
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin font-size($fs-map) {
+    @each $fs-breakpoint, $fs-font-size in $fs-map {
+        @if $fs-breakpoint ==null {
+            font-size: $fs-font-size;
+        } @else {
+            @media screen and (min-width: $fs-breakpoint) {
+                font-size: $fs-font-size;
+            }
+        }
+    }
+}
+
+@mixin spacing($property, $spacing-map) {
+    @if $spacing-map ==auto {
+        #{$property}: auto;
+    } @else {
+        @each $spacing-breakpoint, $spacing-size in $spacing-map {
+            @if $spacing-breakpoint ==null {
+                #{$property}: $spacing-size;
+            } @else {
+                @media screen and (min-width: $spacing-breakpoint) {
+                    #{$property}: $spacing-size;
+                }
+            }
+        }
+    }
+}
+
+@mixin margin-top($spacing-map) {
+    @include spacing(margin-block-start, $spacing-map);
+}
+
+@mixin margin-bottom($spacing-map) {
+    @include spacing(margin-block-end, $spacing-map);
+}
+
+@mixin margin-left($spacing-map) {
+    @include spacing(margin-inline-start, $spacing-map);
+}
+
+@mixin margin-right($spacing-map) {
+    @include spacing(margin-inline-end, $spacing-map);
+}
+
+@mixin margin($spacing-map) {
+    @include spacing(margin, $spacing-map);
+}
+
+@mixin margin-inline($spacing-map) {
+    @include spacing(margin-inline, $spacing-map);
+}
+
+@mixin margin-block($spacing-map) {
+    @include spacing(margin-block, $spacing-map);
+}
+
+@mixin padding-top($spacing-map) {
+    @include spacing(padding-block-start, $spacing-map);
+}
+
+@mixin padding-bottom($spacing-map) {
+    @include spacing(padding-block-end, $spacing-map);
+}
+
+@mixin padding-left($spacing-map) {
+    @include spacing(padding-inline-start, $spacing-map);
+}
+
+@mixin padding-right($spacing-map) {
+    @include spacing(padding-inline-end, $spacing-map);
+}
+
+@mixin padding-inline($spacing-map) {
+    @include spacing(padding-inline, $spacing-map);
+}
+
+@mixin padding-block($spacing-map) {
+    @include spacing(padding-block, $spacing-map);
+}
+
+@mixin padding($spacing-map) {
+    @include spacing(padding, $spacing-map);
+}
+
+@mixin gap($spacing-map) {
+    @include spacing(gap, $spacing-map);
+}
+
+@mixin generate-gaps() {
+    @each $name, $sizes in $spacing-names {
+        .gap-#{$name} {
+            @include gap($sizes);
+        }
+    }
+}
+
+@mixin generate-margins() {
+    @each $name, $sizes in $spacing-names {
+        .margin-#{$name} {
+            @include margin($sizes);
+        }
+
+        .mr-#{$name} {
+            @include margin-right($sizes);
+        }
+
+        .mb-#{$name} {
+            @include margin-bottom($sizes);
+        }
+
+        .ml-#{$name} {
+            @include margin-left($sizes);
+        }
+
+        .mt-#{$name} {
+            @include margin-top($sizes);
+        }
+
+        .margin_inline-#{$name} {
+            @include margin-inline($sizes);
+        }
+
+        .margin_block-#{$name} {
+            @include margin-block($sizes);
+        }
+
+        .padding-#{$name} {
+            @include padding($sizes);
+        }
+
+        .pr-#{$name} {
+            @include padding-right($sizes);
+        }
+
+        .pb-#{$name} {
+            @include padding-bottom($sizes);
+        }
+
+        .pl-#{$name} {
+            @include padding-left($sizes);
+        }
+
+        .pt-#{$name} {
+            @include padding-top($sizes);
+        }
+
+        .padding_inline-#{$name} {
+            @include padding-inline($sizes);
+        }
+
+        .padding_block-#{$name} {
+            @include padding-block($sizes);
+        }
+    }
+}

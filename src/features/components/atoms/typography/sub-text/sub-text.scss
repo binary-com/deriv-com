@@ -1,4 +1,4 @@
-@use 'features/styles/mixins/font' as *;
+@use 'features/styles/mixins' as *;
 
 .sub-text {
     @include font-size($small-p-font-sizes);

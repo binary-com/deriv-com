@@ -1,4 +1,4 @@
-@use 'features/styles/mixins/rtl' as *;
+@use 'features/styles/mixins' as *;
 
 .rtl-image {
     @include rtl() {

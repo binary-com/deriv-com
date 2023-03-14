@@ -1,5 +1,4 @@
-@use "features/styles/mixins/media" as *;
-
+@use 'features/styles/mixins' as *;
 
 .nav_items {
     display: flex;
@@ -7,10 +6,14 @@
     text-align: center;
     padding: 0;
     line-height: 1.2;
-    gap: 2.4rem;
+    gap: 0.4rem;
     flex: 1;
 
-    &>li {
+    @include media(desktop) {
+        gap: 2.4rem;
+    }
+
+    & > li {
         list-style-type: none;
         display: flex;
         position: relative;
@@ -45,7 +48,6 @@
         }
 
         &.active_item {
-
             &::after {
                 animation: 1s fadeIn;
                 animation-delay: 0.1s;
@@ -87,7 +89,4 @@
             inset-inline-start: -20rem;
         }
     }
-
-
-
 }

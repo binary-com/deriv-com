@@ -1,4 +1,4 @@
-@use 'features/styles/mixins/media' as *;
+@use 'features/styles/mixins' as *;
 
 .nav_right {
     display: flex;
@@ -9,9 +9,9 @@
     transition: all 0.25s;
     flex: 1;
 
-    @include min-width(tabletS) {
-        min-inline-size: unset;
-    }
+    // @include media(phone-large) {
+    //     min-inline-size: unset;
+    // }
 }
 
 .login_button {
@@ -27,21 +27,19 @@
 }
 
 .show {
-    transform: translateX(0%);
-    padding: 10px 16px;
+    transform: translateX(100%);
+    padding: 0px;
     max-inline-size: 22rem;
-    inline-size: 100%;
-    opacity: 1;
-    visibility: visible;
+    inline-size: 0px;
+    opacity: 0;
+    visibility: hidden;
     transition: all 100ms ease 0ms;
 
-    @include min-width(tabletL) {
-        transform: translateX(100%);
-        opacity: 0;
-        visibility: hidden;
-        inline-size: 0px;
-        padding: 0px;
+    @include media(tablet-large) {
+        transform: translateX(0%);
+        opacity: 1;
+        visibility: visible;
+        inline-size: 100%;
+        padding: 10px 16px;
     }
-
-
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Input, Button, LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import device from 'themes/device'
 // SVG
@@ -135,11 +135,11 @@ const SignupFlat = ({
                         weight="bold"
                         color={dark ? 'white' : 'black'}
                     >
-                        {localize('Join over 1 million traders worldwide')}
+                        <Localize translate_text="_t_Join over 1 million traders worldwide_t_" />
                     </StyledHeader>
                     <br />
                     <Text color={dark ? 'white' : 'black'}>
-                        {localize('Sign up for your demo account now.')}
+                        <Localize translate_text="_t_Sign up for your demo account now._t_" />
                     </Text>
                     <InputGroup>
                         <InputWrapper>
@@ -167,12 +167,12 @@ const SignupFlat = ({
                             secondary
                             disabled={is_submitting}
                         >
-                            {localize('Sign up')}
+                            <Localize translate_text="_t_Sign up_t_" />
                         </EmailButton>
                     </InputGroup>
                     <SocialWrapper>
                         <StyledText color={dark ? 'white' : 'black'}>
-                            {localize('or sign up with')}
+                            <Localize translate_text="_t_or sign up with_t_" />
                         </StyledText>
                         <SocialButton
                             dark={dark}
@@ -210,7 +210,7 @@ const SignupFlat = ({
                         color={dark ? 'white' : 'black'}
                         weight="bold"
                     >
-                        {localize('Get a taste of the Deriv experience')}
+                        <Localize translate_text="_t_Get a taste of the Deriv experience_t_" />
                     </Text>
                     <DemoButton
                         secondary
@@ -219,7 +219,7 @@ const SignupFlat = ({
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                     >
-                        {localize('See live demo')}
+                        <Localize translate_text="_t_See live demo_t_" />
                     </DemoButton>
                 </RightWrapper>
             </FormWrapper>

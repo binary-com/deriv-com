@@ -151,6 +151,7 @@ const DHero = ({
     image_name,
     join_us_for_free,
     is_live_demo,
+    content_components,
     Logo,
 }) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
@@ -162,11 +163,11 @@ const DHero = ({
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" weight="normal">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
-                    {title}
+                    <Localize translate_text={title} />
                 </StyledHeader>
                 <HeroContent>
                     <StyledHeaderTitle type="display-title" color="white" mt="1.5rem">
-                        {content}
+                        <Localize translate_text={content} components={content_components} />
                     </StyledHeaderTitle>
                 </HeroContent>
                 <LinkWrapper>
@@ -205,6 +206,7 @@ DHero.propTypes = {
     background_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     background_image_name: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    content_components: PropTypes.element,
     image_name: PropTypes.string,
     is_live_demo: PropTypes.bool,
     is_mobile: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Button } from 'components/form'
 import { Text, LocalizedLinkText } from 'components/elements'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { useCookieBanner } from 'components/hooks/use-cookie-banner'
 
@@ -109,9 +109,9 @@ const CookieBanner = () => {
         return (
             <Wrapper visible={cookie.should_show}>
                 <StyledText>
-                    <Localize translate_text="Cookies help us to give you a better experience and personalised content on our site. " />
+                    <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site._t_" />
                     <Localize
-                        translate_text="If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>."
+                        translate_text="_t_If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>._t_"
                         components={[
                             <LinkText key={0} to="/terms-and-conditions/#clients" color="red" />,
                         ]}
@@ -119,10 +119,10 @@ const CookieBanner = () => {
                 </StyledText>
                 <Flex>
                     <StyledButton tertiary onClick={cookie.decline} mr="0.8rem">
-                        {localize("Don't accept")}
+                        <Localize translate_text="_t_Don't accept_t_" />
                     </StyledButton>
                     <StyledButton secondary onClick={cookie.accept}>
-                        {localize('Accept')}
+                        <Localize translate_text="_t_Accept_t_" />
                     </StyledButton>
                 </Flex>
             </Wrapper>

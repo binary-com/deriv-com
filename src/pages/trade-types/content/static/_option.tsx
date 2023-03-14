@@ -45,8 +45,6 @@ export const digital_options: OptionsContentElement[] = [
         item_title: (
             <Localize translate_text="Flexible trade types with minimal capital requirements" />
         ),
-        text: (
-            <Localize translate_text="Deposit as little as 5 USD to start trading and customise your trades to suit your strategy." />
-        ),
+        text: <Localize translate_text="that is a test string" />,
     },
 ]

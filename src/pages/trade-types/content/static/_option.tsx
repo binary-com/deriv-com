@@ -1,6 +1,7 @@
 import React from 'react'
 import Favourite from 'images/svg/trade-types/favourite.svg'
 import Instant from 'images/svg/trade-types/instant.svg'
+import { TString } from 'types/generics'
 import UserFriendly from 'images/svg/trade-types/user-friendly.svg'
 import Flexible from 'images/svg/trade-types/flexible.svg'
 import { Localize } from 'components/localization'
@@ -11,6 +12,9 @@ type OptionsContentElement = {
     item_title: React.ReactNode
     text: React.ReactNode
 }
+
+const instant_text: TString =
+    '_t_Open an account now and gain access to the world of trading. No need to wait — you can begin trading in minutes._t_'
 
 export const digital_options: OptionsContentElement[] = [
     {
@@ -25,9 +29,7 @@ export const digital_options: OptionsContentElement[] = [
         src: Flexible,
         alt: 'instant access icon',
         item_title: <Localize translate_text="Instant access" />,
-        text: (
-            <Localize translate_text="_t_Open an account now and gain access to the world of trading. No need to wait — you can begin trading in minutes._t_" />
-        ),
+        text: <Localize translate_text={instant_text} />,
     },
     {
         src: Instant,

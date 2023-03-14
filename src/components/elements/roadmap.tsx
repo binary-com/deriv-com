@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
@@ -16,7 +16,6 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding-top: 40px;
     }
 `
-
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 32px;

@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
@@ -10,10 +10,30 @@ import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
 type CarouselItemContainerProps = {
     gradient_start: string
     gradient_end: string
+}
+
+type TMarketData = {
+    header: TString
+    description: TString
+    img_name: string
+    to: string
+    gradient_start: string
+    gradient_end: string
+}
+
+type CarouselItemProps = {
+    header: TString
+    description: TString
+    image: ImageDataLike
+    is_mobile: boolean
+    gradient_start: string
+    gradient_end: string
+    url: string
 }
 
 const FoldWrapper = styled(SectionContainer)`
@@ -82,104 +102,95 @@ const StyledLink = styled(LocalizedLink)`
     z-index: 40;
 `
 
-const market_data = [
+const market_data: TMarketData[] = [
     {
-        header: <Localize translate_text="Forex" />,
-        description: (
-            <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
-        ),
+        header: '_t_Forex_t_',
+        description:
+            '_t_Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day._t_',
         img_name: 'market_forex',
         to: '/markets/forex/',
         gradient_start: '#661B20',
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Derived" />,
-        description: (
-            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
-        ),
+        header: '_t_Derived_t_',
+        description:
+            '_t_Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events._t_',
         img_name: 'market_derived',
         to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
     },
     {
-        header: <Localize translate_text="Stocks & indices" />,
-        description: (
-            <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
-        ),
+        header: '_t_Stocks & indices_t_',
+        description:
+            '_t_Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market._t_',
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
         gradient_start: '#2A2040',
         gradient_end: '#0A0810',
     },
     {
-        header: <Localize translate_text="Cryptocurrencies" />,
-        description: (
-            <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
-        ),
+        header: '_t_Cryptocurrencies_t_',
+        description:
+            '_t_Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet._t_',
         img_name: 'market_crypto',
         to: '/markets/cryptocurrencies/',
         gradient_start: '#664407',
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Commodities" />,
-        description: (
-            <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
-        ),
+        header: '_t_Commodities_t_',
+        description:
+            '_t_Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action._t_',
         img_name: 'market_commodities',
         to: '/markets/commodities/',
         gradient_start: '#183046',
         gradient_end: '#060C11',
     },
 ]
-const market_data_eu = [
+
+const market_data_eu: TMarketData[] = [
     {
-        header: <Localize translate_text="Forex" />,
-        description: (
-            <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
-        ),
+        header: '_t_Forex_t_',
+        description:
+            '_t_Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day._t_',
         img_name: 'market_forex',
         to: '/markets/forex/',
         gradient_start: '#661B20',
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Derived" />,
-        description: (
-            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
-        ),
+        header: '_t_Derived_t_',
+        description:
+            '_t_Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events._t_',
         img_name: 'market_derived',
         to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
     },
     {
-        header: <Localize translate_text="Stocks & indices" />,
-        description: (
-            <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
-        ),
+        header: '_t_Stocks & indices_t_',
+        description:
+            '_t_Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market._t_',
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
         gradient_start: '#2A2040',
         gradient_end: '#0A0810',
     },
     {
-        header: <Localize translate_text="Cryptocurrencies" />,
-        description: (
-            <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
-        ),
+        header: '_t_Cryptocurrencies_t_',
+        description:
+            '_t_Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet._t_',
         img_name: 'market_crypto',
         to: '/markets/cryptocurrencies/',
         gradient_start: '#664407',
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Commodities" />,
-        description: (
-            <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
-        ),
+        header: '_t_Commodities_t_',
+        description:
+            '_t_Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action._t_',
         img_name: 'market_commodities',
         to: '/markets/commodities/',
         gradient_start: '#183046',
@@ -213,16 +224,6 @@ const query = graphql`
     }
 `
 
-type CarouselItemProps = {
-    header: ReactElement
-    description: ReactElement
-    image: ImageDataLike
-    is_mobile: boolean
-    gradient_start: string
-    gradient_end: string
-    url: string
-}
-
 const CarouselItem = ({
     header,
     description,
@@ -249,7 +250,7 @@ const CarouselItem = ({
                     gradient_end={gradient_end}
                 >
                     <Header color="white" type="subtitle-1" mb="8px">
-                        {header}
+                        <Localize translate_text={header} />
                     </Header>
                     <Desktop>
                         <>
@@ -259,7 +260,7 @@ const CarouselItem = ({
                                 type="paragraph-1"
                                 $hovered={is_hovered}
                             >
-                                {description}
+                                <Localize translate_text={description} />
                             </StyledDescription>
                             <CarouselItemImageDesktop
                                 data={image}
@@ -329,7 +330,7 @@ const MarketsFold = () => {
             <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
                     <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>
-                        <Localize translate_text="Markets" />
+                        <Localize translate_text="_t_Markets_t_" />
                     </Header>
                 </Flex>
                 <Carousel has_autoplay autoplay_interval={is_mobile ? 3200 : 4000} {...settings}>

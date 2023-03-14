@@ -1,10 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
+
+export type TP2P = {
+    image_alt: string
+    image_name: string
+    subtitle: TString
+    title: TString
+}
+
+type TDerivGoContent = {
+    P2P: TP2P[]
+    reverse: boolean
+}
 
 const query = graphql`
     query {
@@ -22,7 +35,6 @@ const query = graphql`
         }
     }
 `
-
 const StyledContainer = styled(Container)`
     flex-direction: column;
     max-width: 996px;
@@ -70,8 +82,9 @@ const Row = styled(Flex)<{ margin_right: string }>`
     }
 `
 
-const DerivGoContent = ({ P2P, reverse, two_title }) => {
+const DerivGoContent = ({ P2P, reverse }: TDerivGoContent) => {
     const data = useStaticQuery(query)
+
     return (
         <SectionContainer
             p="8.9rem 0 8rem 0"
@@ -79,31 +92,25 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
             tabletL={{ pt: '40px' }}
         >
             <StyledContainer>
-                {P2P.map((item, index) => {
+                {P2P.map(({ image_alt, image_name, subtitle, title }, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row
                             fd={!is_even ? 'row' : 'row-reverse'}
-                            key={index}
+                            key={title}
                             margin_right={!is_even ? '0' : '12.6rem'}
                         >
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
                                 <StyledHeader as="h4" type="heading-3">
-                                    {item.title}
+                                    <Localize translate_text={title} />
                                 </StyledHeader>
-                                <StyledText>{item.subtitle}</StyledText>
-                                {two_title && (
-                                    <>
-                                        <StyledHeader as="h3" type="heading-3" mt="2.4rem">
-                                            {item.second_title}
-                                        </StyledHeader>
-                                        <StyledText>{item.second_subtitle}</StyledText>
-                                    </>
-                                )}
+                                <StyledText>
+                                    <Localize translate_text={subtitle} />
+                                </StyledText>
                             </Content>
                             <QueryImage
-                                data={data[item.image_name]}
-                                alt={item.image_alt}
+                                data={data[image_name]}
+                                alt={image_alt}
                                 width="100%"
                                 className="content-wrapper"
                             />
@@ -113,12 +120,6 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
             </StyledContainer>
         </SectionContainer>
     )
-}
-
-DerivGoContent.propTypes = {
-    P2P: PropTypes.array,
-    reverse: PropTypes.bool,
-    two_title: PropTypes.bool,
 }
 
 export default DerivGoContent

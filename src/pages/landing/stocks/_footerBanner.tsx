@@ -1,12 +1,13 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 const BannerWrapper = styled(Flex)`
     overflow: hidden;
@@ -143,8 +144,8 @@ const BackgroundPattern = styled.img`
 type FooterBannerProps = {
     background_pattern: string
     is_ppc: boolean
-    title: ReactElement
-    small_title: ReactElement
+    title: TString
+    small_title: TString
     data: { stocks_banner; stocks_banner_eu: ImageDataLike }
 }
 
@@ -164,7 +165,7 @@ const FooterBanner = ({
                 <TextWrapper>
                     <TextDiv>
                         <StyledHeader color="white" type="section-title" mb="8px">
-                            {title}
+                            <Localize translate_text={title} />
                         </StyledHeader>
                         <StyledHeaderSmall
                             color="white"
@@ -173,7 +174,7 @@ const FooterBanner = ({
                             size="2.4rem"
                             mb="24px"
                         >
-                            {small_title}
+                            <Localize translate_text={small_title} />
                         </StyledHeaderSmall>
                         <BtnDiv>
                             <StyledLinkButton
@@ -182,7 +183,7 @@ const FooterBanner = ({
                                 secondary
                                 to={is_ppc ? '/landing/signup/' : '/signup/'}
                             >
-                                {localize('Create a demo account')}
+                                <Localize translate_text="_t_Create a demo account_t_" />
                             </StyledLinkButton>
                         </BtnDiv>
                     </TextDiv>

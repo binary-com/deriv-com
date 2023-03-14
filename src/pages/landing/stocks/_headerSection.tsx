@@ -8,7 +8,7 @@ import StocksHeaderOverlayBelowSectionBg from 'images/svg/stock-indices/stocksHe
 import StocksHeaderBelowSection from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
 import stocksHeaderBelowSectionM from 'images/svg/stock-indices/stocksHeaderBelowSection-m.svg'
 import device from 'themes/device'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 
@@ -262,20 +262,18 @@ const HeaderSection = () => {
                     <TopHeaderTextDiv>
                         <TopTextWrapper>
                             <StyledHeader color="white" type="main-landing-title">
-                                {localize('Stocks, unlocked')}
+                                <Localize translate_text="_t_Stocks, unlocked_t_" />
                             </StyledHeader>
                             <StyledHeaderSmall
                                 color="white"
                                 type="sub-section-title"
                                 weight="normal"
                             >
-                                {localize(
-                                    'Trade global stocks and stock indices now on our Deriv MT5 platform',
-                                )}
+                                <Localize translate_text="_t_Trade global stocks and stock indices now on our Deriv MT5 platform_t_" />
                             </StyledHeaderSmall>
                             <BtnDiv>
                                 <StyledLinkButton type="submit" secondary to={'/landing/signup/'}>
-                                    {localize('Create a demo account')}
+                                    <Localize translate_text="_t_Create a demo account_t_" />
                                 </StyledLinkButton>
                             </BtnDiv>
                         </TopTextWrapper>
@@ -329,12 +327,10 @@ const HeaderSection = () => {
                 </SectionImgWrapper>
                 <SectionTextWrapper>
                     <SectionStyledHeader type="display-title" mb="24px">
-                        {localize('Spot your favourite brand?')}
+                        <Localize translate_text="_t_Spot your favourite brand?_t_" />
                     </SectionStyledHeader>
                     <SectionStyledHeaderSmall type="sub-section-title" weight="normal">
-                        {localize(
-                            'Facebook. Tesla. Zoom. McDonald’s. Trade on the global household names you see every day on our Deriv MT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
-                        )}
+                        <Localize translate_text="_t_Facebook. Tesla. Zoom. McDonald’s. Trade on the global household names you see every day on our Deriv MT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more._t_" />
                     </SectionStyledHeaderSmall>
 
                     <BackgroundPatternSection

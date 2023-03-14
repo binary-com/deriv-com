@@ -1,16 +1,19 @@
 import { ReactElement } from 'react'
 import type { ImageDataLike } from 'gatsby-plugin-image'
+import { TString } from 'types/generics'
 
 export type ContentType = {
-    title: ReactElement
-    header?: ReactElement
-    second_title?: ReactElement
-    subtitle?: ReactElement
-    subtitle1?: ReactElement
-    subtitle2?: ReactElement
-    second_subtitle1?: ReactElement
-    subtitle_mobile1?: ReactElement
-    subtitle_mobile2?: ReactElement
+    title: TString
+    header?: TString
+    second_title?: TString
+    subtitle?: TString
+    subtitle1?: TString
+    subtitle1_component?: ReactElement[]
+    subtitle2?: TString
+    second_subtitle1?: TString
+    subtitle_mobile1?: TString
+    subtitle_mobile1_components?: ReactElement[]
+    subtitle_mobile2?: TString
     icon?: string
     imgsrc?: string
     image_name?: string
@@ -27,7 +30,7 @@ export type StyledProps = {
 }
 
 export type HeroProps = {
-    title: string
-    content: ReactElement
+    title: TString
+    content: TString
     background_data?: ImageDataLike
 }

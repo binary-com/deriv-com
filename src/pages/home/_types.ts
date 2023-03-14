@@ -4,6 +4,7 @@ export type TContent = {
     id: number
     text: TString
 }
+
 export type THeaderItem = {
     id: number
     text: TString

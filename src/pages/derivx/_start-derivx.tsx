@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useCallback, ReactElement, ReactNode } from 'react'
+import React, { useState, useEffect, useCallback, ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from '../dmt5/components/_side-tab'
 import { Flex, SectionContainer, Mobile } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { Button } from 'components/form'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { mobileOSDetect } from 'common/os-detect'
 import { derivx_android_url, derivx_ios_url } from 'common/constants'
+import { TString } from 'types/generics'
 
 interface StartDerivXProps {
     children?: ReactNode
@@ -19,7 +20,7 @@ interface StartDerivXProps {
 
 type RealOrDemoShowType = {
     class_name: string
-    description: ReactElement
+    description: TString
     image_data: string
     image_alt: string
 }
@@ -77,54 +78,48 @@ const query = graphql`
 const demo: RealOrDemoShowType[] = [
     {
         class_name: 'sign-in',
-        description: (
-            <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
-        ),
+        description:
+            '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
         image_data: 'demo_step1',
-        image_alt: localize('Deriv X demo account signup page'),
+        image_alt: 'Deriv X demo account signup page',
     },
     {
         class_name: 'add-account',
-        description: <Localize translate_text="Add a Deriv X demo account." />,
+        description: '_t_Add a Deriv X demo account._t_',
         image_data: 'demo_step2',
-        image_alt: localize('Deriv X dashboard showing demo account comparison'),
+        image_alt: 'Deriv X dashboard showing demo account comparison',
     },
     {
         class_name: 'start-trading',
-        description: (
-            <Localize translate_text="Start trading on the mobile app or through your web browser." />
-        ),
+        description: '_t_Start trading on the mobile app or through your web browser._t_',
         image_data: 'demo_step3',
-        image_alt: localize('Deriv X trading dashboard'),
+        image_alt: 'Deriv X trading dashboard',
     },
 ]
 
 const real: RealOrDemoShowType[] = [
     {
         class_name: 'sign-in',
-        description: (
-            <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
-        ),
+        description:
+            '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
         image_data: 'real_step1',
         image_alt: 'real_step1',
     },
     {
         class_name: 'add-account',
-        description: <Localize translate_text="Add a Deriv real account." />,
+        description: '_t_Add a Deriv real account._t_',
         image_data: 'real_step2',
         image_alt: 'real_step2',
     },
     {
         class_name: 'add-derivx-account',
-        description: <Localize translate_text="Add a Deriv X real account." />,
+        description: '_t_Add a Deriv X real account._t_',
         image_data: 'real_step3',
         image_alt: 'real_step3',
     },
     {
         class_name: 'start-trading',
-        description: (
-            <Localize translate_text="Start trading on the mobile app or through your web browser." />
-        ),
+        description: '_t_Start trading on the mobile app or through your web browser._t_',
         image_data: 'real_step4',
         image_alt: 'real_step4',
     },
@@ -140,6 +135,7 @@ const handleExternalLink = () => {
     }
     window.open(link, '_blank')
 }
+
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -239,6 +235,9 @@ const StyledText = styled(Text)`
 
 const StartDerivX = () => {
     const [is_mobile, setMobile] = useState(false)
+    const [tab, setTab] = useState('demo')
+    const data = useStaticQuery(query)
+
     const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }, [setMobile])
@@ -252,9 +251,6 @@ const StartDerivX = () => {
         }
     }, [handleResizeWindow])
 
-    const data = useStaticQuery(query)
-    const [tab, setTab] = useState('demo')
-
     const onTabClick = (chosenTab: string) => {
         setTab(chosenTab)
     }
@@ -262,7 +258,7 @@ const StartDerivX = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                {localize('How to get started with a Deriv X account')}
+                <Localize translate_text="_t_How to get started with a Deriv X account_t_" />
             </StyledHeader>
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }} id="account-pick">
                 <TabItem
@@ -272,7 +268,7 @@ const StartDerivX = () => {
                     className="demo-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Demo account')}
+                        <Localize translate_text="_t_Demo account_t_" />
                     </StyledText>
                 </TabItem>
                 <TabItem
@@ -282,7 +278,7 @@ const StartDerivX = () => {
                     className="real-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Real money account')}
+                        <Localize translate_text="_t_Real money account_t_" />
                     </StyledText>
                 </TabItem>
             </Flex>
@@ -293,7 +289,6 @@ const StartDerivX = () => {
                         return (
                             <SideTab.Panel
                                 key={currentTab.class_name}
-                                label=""
                                 description={currentTab.description}
                                 mobile_item_width="35rem"
                                 class_name={currentTab.class_name}
@@ -317,7 +312,7 @@ const StartDerivX = () => {
             </Flex>
             <Mobile>
                 <ButtonDp2p secondary onClick={handleExternalLink}>
-                    {localize('Download Deriv X app')}
+                    <Localize translate_text="_t_Download Deriv X app_t_" />
                 </ButtonDp2p>
             </Mobile>
         </Section>

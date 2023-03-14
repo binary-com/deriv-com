@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements'
@@ -68,6 +68,7 @@ const NewSignup = () => {
         setSubmitState(submitStatus)
         setEmail(email)
     }
+
     return (
         <Layout type="static" margin_top="0" is_ppc>
             <SEO
@@ -80,13 +81,11 @@ const NewSignup = () => {
                     <Content>
                         <StyledGraph src={Graph} alt="graph" />
                         <Header mt="2.4rem" as="h3" type="section-title">
-                            {localize('Start trading with Deriv')}
+                            <Localize translate_text="_t_Start trading with Deriv_t_" />
                         </Header>
                         <br />
                         <Text>
-                            {localize(
-                                'Join over 1 million people who trade stocks, forex and other markets on Deriv.com — the award-winning broker that’s been trusted for over 20 years.',
-                            )}
+                            <Localize translate_text="_t_Join over 1 million people who trade stocks, forex and other markets on Deriv.com — the award-winning broker that’s been trusted for over 20 years._t_" />
                         </Text>
                         <Line />
                     </Content>
@@ -98,8 +97,8 @@ const NewSignup = () => {
                     onSubmit={updateSubmitState}
                     submit_state={submit_state}
                     email={email}
-                    autofocus={true}
-                    is_ppc={true}
+                    autofocus
+                    is_ppc
                 />
             </Wrapper>
             <StyledDiv />

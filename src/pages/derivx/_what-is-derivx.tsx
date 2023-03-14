@@ -25,10 +25,10 @@ const WhatIsDeriv = () => {
             <Container>
                 <Flex width="792px" fd="column" ai="center" jc="center">
                     <StyledHeader type="page-title" align="center" as="h2">
-                        <Localize translate_text="What is Deriv X" />
+                        <Localize translate_text="_t_What is Deriv X_t_" />
                     </StyledHeader>
                     <Text size="16px" align="center" mt="12px">
-                        <Localize translate_text="Deriv X is a customisable multi-asset trading platform. Offering CFDs on forex, commodities, stocks & indices, cryptocurrencies, and derived, Deriv X gives you a versatile trading experience that lets you customise your trading environment." />
+                        <Localize translate_text="_t_Deriv X is a customisable multi-asset trading platform. Offering CFDs on forex, commodities, stocks & indices, cryptocurrencies, and derived, Deriv X gives you a versatile trading experience that lets you customise your trading environment._t_" />
                     </Text>
                 </Flex>
             </Container>

@@ -2,55 +2,45 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import PageNotFound from '../404'
 import Hero from './components/_hero'
-import DP2P from './components/_dp2p'
+import DP2P, { P2PType } from './components/_dp2p'
 import Roadmap, { RoadmapProps } from 'components/elements/roadmap'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
+import useRegion from 'components/hooks/use-region'
+
 const ExchangeSteps = Loadable(() => import('./components/_exchange-steps'))
 const P2PBanner = Loadable(() => import('./components/_p2pbanner'))
 const Numbers = Loadable(() => import('./components/_numbers'))
 const Availability = Loadable(() => import('./components/_availability'))
-import useRegion from 'components/hooks/use-region'
 
-const DP2P_CONTENT = [
+const DP2P_CONTENT: P2PType[] = [
     {
-        title: <Localize translate_text="Save time" />,
-        subtitle: (
-            <Localize translate_text="Exchange in minutes. Less waiting, more trading. Deposit and withdraw in minutes." />
-        ),
-        subtitle_mobile: (
-            <Localize
-                translate_text="Exchange in minutes. Less waiting, more trading. Deposit and withdraw in <0 /> minutes."
-                components={[<br key={0} />]}
-            />
-        ),
-
+        title: '_t_Save time_t_',
+        subtitle:
+            '_t_Exchange in minutes. Less waiting, more trading. Deposit and withdraw in minutes._t_',
+        subtitle_mobile:
+            '_t_Exchange in minutes. Less waiting, more trading. Deposit and withdraw in <0 /> minutes._t_',
+        subtitle_mobile_components: [<br key={0} />],
         image_name: 'buy_sell',
-        image_alt: localize('Deriv’s P2P app buy and sell'),
+        image_alt: 'Deriv’s P2P app buy and sell',
     },
     {
-        title: <Localize translate_text="Works with your local currency" />,
-        subtitle: <Localize translate_text="Deal with fellow traders at pre-agreed rates." />,
-        subtitle_mobile: (
-            <Localize translate_text="Deal with fellow traders at pre-agreed rates." />
-        ),
-
+        title: '_t_Works with your local currency_t_',
+        subtitle: '_t_Deal with fellow traders at pre-agreed rates._t_',
+        subtitle_mobile: '_t_Deal with fellow traders at pre-agreed rates._t_',
         image_name: 'local_currency',
-        image_alt: localize('Deriv’s P2P app sending and receiving money'),
+        image_alt: 'Deriv’s P2P app sending and receiving money',
     },
     {
-        title: <Localize translate_text="Available as web and mobile apps" />,
-        subtitle: (
-            <Localize translate_text="Easily make deposits and withdrawals on your desktop and mobile devices." />
-        ),
-        subtitle_mobile: (
-            <Localize translate_text="Easily make deposits and withdrawals on your desktop and mobile devices." />
-        ),
+        title: '_t_Available as web and mobile apps_t_',
+        subtitle: '_t_Easily make deposits and withdrawals on your desktop and mobile devices._t_',
+        subtitle_mobile:
+            '_t_Easily make deposits and withdrawals on your desktop and mobile devices._t_',
 
         image_name: 'web_and_mobile',
-        image_alt: localize('“Deriv’s P2P web and mobile app'),
+        image_alt: '“Deriv’s P2P web and mobile app',
     },
 ]
 
@@ -64,6 +54,7 @@ const derivP2PPortalData: RoadmapProps['portal'] = {
 const DP2PHome = () => {
     const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loadin
     const { is_p2p_allowed_country } = useRegion()
+
     if (is_p2p_allowed_country) {
         return (
             <Layout>
@@ -79,9 +70,7 @@ const DP2PHome = () => {
                         <Numbers />
                         <ExchangeSteps />
                         <Availability />
-                        <P2PBanner
-                            title={localize('Make hassle-free deposits and withdrawals today')}
-                        />
+                        <P2PBanner title="_t_Make hassle-free deposits and withdrawals today_t_" />
                         <Roadmap portal={derivP2PPortalData} />
                     </>
                 )}

@@ -284,11 +284,11 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
         <ResponseWrapper>
             <EmailImage src={ViewEmailImage} alt="Email" />
             <Header as="h3" type="section-title" align="center" weight="normal">
-                {localize('Check your email')}
+                <Localize translate_text="_t_Check your email_t_" />
             </Header>
             <Text align="center">
                 <Localize
-                    translate_text="We've sent a message to {{email}} with a link to activate your account."
+                    translate_text="_t_We've sent a message to {{email}} with a link to activate your account._t_"
                     values={{ email: email }}
                 />
             </Text>
@@ -313,7 +313,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             handleError={clearEmail}
                             onChange={handleInputChange}
                             onBlur={handleValidation}
-                            autoFocus={true}
+                            autoFocus
                             autoComplete="off"
                             required
                             border="unset"
@@ -334,11 +334,11 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             is_submitting || !is_checked || Boolean(email_error_msg) || !email
                         }
                     >
-                        {localize('Get your free ebook now!')}
+                        <Localize translate_text="_t_Get your free ebook now!_t_" />
                     </EmailButton>
                     <Header as="p" type="small" weight="regular" color="grey-5" mt="0.8rem">
                         <Localize
-                            translate_text="By pressing “Get your free ebook now!”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
+                            translate_text="_t_By pressing “Get your free ebook now!”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>._t_"
                             components={[
                                 <StyledLocalizedLink
                                     key={0}
@@ -355,7 +355,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                 <SignupWithContainer>
                     <Line color={color} />
                     <StyledText color={color} align="center" tabletFontSize="12px">
-                        {localize('Or sign up with')}
+                        <Localize translate_text="_t_Or sign up with_t_" />
                     </StyledText>
                     <Line color={color} />
                 </SignupWithContainer>

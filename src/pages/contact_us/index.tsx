@@ -5,7 +5,7 @@ import ContactWays from './_contact-ways'
 import device from 'themes/device'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { Header, Text } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, SectionContainer, Container } from 'components/containers'
 const Offices = Loadable(() => import('./_offices'))
@@ -46,10 +46,10 @@ const ContactUs = () => {
             <SectionContainer tablet={{ p: '40px 0' }}>
                 <HeroWrapper fd="column">
                     <Header align="center" as="h1" type="display-title">
-                        {localize('Contact us')}
+                        <Localize translate_text="_t_Contact us_t_" />
                     </Header>
                     <StyledText align="center" size="var(--text-size-sm)">
-                        {localize("Got questions? Here's how to get answers.")}
+                        <Localize translate_text="_t_Got questions? Here's how to get answers._t_" />
                     </StyledText>
                 </HeroWrapper>
             </SectionContainer>

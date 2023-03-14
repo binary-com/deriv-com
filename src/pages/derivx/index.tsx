@@ -10,7 +10,7 @@ import StartDerivX from './_start-derivx'
 import Accounts from './_accounts'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl, Localize } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import BackgroundPatternDerivX from 'images/svg/deriv-x/derivx-footer.svg'
@@ -27,12 +27,12 @@ const query = graphql`
 
 const DerivX = () => {
     const [is_mobile, setMobile] = useState(false)
+    const [is_loaded, setLoaded] = useState(false)
+    const { is_row } = useRegion()
+
     const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }, [setMobile])
-
-    const { is_row } = useRegion()
-    const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         setLoaded(true)
@@ -70,7 +70,7 @@ const DerivX = () => {
                                         ? BackgroundPatternDerivXMobile
                                         : BackgroundPatternDerivX
                                 }
-                                title={<Localize translate_text="Get trading with Deriv X" />}
+                                title="_t_Get trading with Deriv X_t_"
                                 data={data}
                             />
                         )}

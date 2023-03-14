@@ -1,10 +1,12 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { StyledProps } from 'pages/landing/_types'
+import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -94,6 +96,7 @@ const Row = styled.div<StyledProps>`
         flex-direction: ${(props) => props.flex_direction_mobile};
     }
 `
+
 const query = graphql`
     query {
         dbot_strategy: file(relativePath: { eq: "dbot/dbot-strategy.png" }) {
@@ -161,8 +164,8 @@ type DTradingProps = {
 }
 
 type TradingType = {
-    title: ReactElement
-    subtitle: ReactElement
+    title: TString
+    subtitle: TString
     image_name: string
     image_alt: string
     image_name_mobile?: string
@@ -186,8 +189,12 @@ const DTrading = ({ contentMargin, trading, reverse, setWidth }: DTradingProps) 
                                 margin_right={!is_even ? contentMargin : '0'}
                                 margin_left={!is_even ? '0' : contentMargin}
                             >
-                                <StyledHeader type="display-title">{item.title}</StyledHeader>
-                                <Text>{item.subtitle}</Text>
+                                <StyledHeader type="display-title">
+                                    <Localize translate_text={item.title} />
+                                </StyledHeader>
+                                <Text>
+                                    <Localize translate_text={item.subtitle} />
+                                </Text>
                             </Content>
                             {item.image_name_mobile && (
                                 <ImageWrapper width={setWidth ? setWidth : '448px;'} ai="center">

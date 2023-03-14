@@ -5,7 +5,7 @@ import ClientGrid from './_clients-grid'
 import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Tabs } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 
 const Section = styled(SectionContainer)`
     background-color: transparent;
@@ -22,7 +22,7 @@ const TermsAndConditions = () => {
                 <Container>
                     <Flex direction="column" ai="center" mb="8rem">
                         <Header as="h1" type="display-title" align="center" lh="7.2rem">
-                            {localize('Terms and conditions')}
+                            <Localize translate_text="_t_Terms and conditions_t_" />
                         </Header>
 
                         <Header
@@ -34,18 +34,16 @@ const TermsAndConditions = () => {
                             max_width="98.4rem"
                             mt="1.6rem"
                         >
-                            {localize(
-                                'This is where you’ll find information about our legal policies and how they apply to you. The documents linked below collectively form our standard terms of use (the “Terms”). It’s important that you make yourself aware of these Terms and agree to them before using any of our websites, products, or services.',
-                            )}
+                            <Localize translate_text="_t_This is where you’ll find information about our legal policies and how they apply to you. The documents linked below collectively form our standard terms of use (the “Terms”). It’s important that you make yourself aware of these Terms and agree to them before using any of our websites, products, or services._t_" />
                         </Header>
                     </Flex>
                 </Container>
                 <div>
                     <Tabs tab_list={['clients', 'business-partners']}>
-                        <Tabs.Panel label={localize('FOR CLIENTS')}>
+                        <Tabs.Panel label={localize('_t_FOR CLIENTS_t_')}>
                             <ClientGrid />
                         </Tabs.Panel>
-                        <Tabs.Panel label={localize('FOR BUSINESS PARTNERS')}>
+                        <Tabs.Panel label={localize('_t_FOR BUSINESS PARTNERS_t_')}>
                             <BusinessGrid />
                         </Tabs.Panel>
                     </Tabs>

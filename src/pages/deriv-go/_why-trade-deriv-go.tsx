@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { ContentType } from './index'
 import IconEasyAccess from 'images/svg/deriv-go/easy-access.svg'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
@@ -41,26 +41,22 @@ const StyledText = styled(Text)`
 const trade_data: ContentType[] = [
     {
         icon: Icon24_7,
-        title: <Localize translate_text="24/7 trading" />,
-        subtitle: (
-            <Localize translate_text="Trade synthetics and cryptocurrencies round the clock and forex during regular market hours." />
-        ),
+        title: '_t_24/7 trading_t_',
+        subtitle:
+            '_t_Trade synthetics and cryptocurrencies round the clock and forex during regular market hours._t_',
         image_alt: 'Trade 24/7 with DerivGO',
     },
     {
         icon: IconUserFriendly,
-        title: <Localize translate_text="User-friendly features" />,
-        subtitle: (
-            <Localize translate_text="Enjoy a smooth trading experience with easy-to-use charts and a pleasant dark theme." />
-        ),
+        title: '_t_User-friendly features_t_',
+        subtitle:
+            '_t_Enjoy a smooth trading experience with easy-to-use charts and a pleasant dark theme._t_',
         image_alt: 'Easy to use trading features',
     },
     {
         icon: IconEasyAccess,
-        title: <Localize translate_text="Easy access" />,
-        subtitle: (
-            <Localize translate_text="Get instant access to your trades wherever you are whenever you want." />
-        ),
+        title: '_t_Easy access_t_',
+        subtitle: '_t_Get instant access to your trades wherever you are whenever you want._t_',
         image_alt: 'Instant and easy access for trading',
     },
 ]
@@ -71,7 +67,7 @@ const WhyTradeDerivGo = () => {
             <SectionContainer>
                 <Container fd="column">
                     <StyledHeader as="h2" type="heading-2" align="center">
-                        {localize('Why trade with Deriv GO')}
+                        <Localize translate_text="_t_Why trade with Deriv GO_t_" />
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px" mr="8px">
                         {trade_data.map((item, index) => {
@@ -86,10 +82,10 @@ const WhyTradeDerivGo = () => {
                                         />
                                     </div>
                                     <Header as="h3" type="heading-3" align="center" mt="24px">
-                                        {item.title}
+                                        <Localize translate_text={item.title} />
                                     </Header>
                                     <StyledText align="center" mt="8px">
-                                        {item.subtitle}
+                                        <Localize translate_text={item.subtitle} />
                                     </StyledText>
                                 </Card>
                             )

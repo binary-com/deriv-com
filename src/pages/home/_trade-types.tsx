@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
@@ -9,22 +9,23 @@ import {
     ImageWithDireciton,
     CarouselProps,
 } from 'components/elements'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import { Flex, SectionContainer } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import useRegion from 'components/hooks/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
 type TradeTypesProps = {
     class_name: string
     image_url: string
-    image_alt: ReactElement
-    header: ReactElement
-    desc: ReactElement
+    image_alt: string
+    header: TString
+    desc: TString
     link: string
-    link_text: ReactElement
+    link_text: TString
     alt: string
 }
 
@@ -63,37 +64,31 @@ const items_details_row: TradeTypesProps[] = [
     {
         class_name: 'cfds',
         image_url: 'trade_type_cfds',
-        image_alt: <Localize translate_text="CFDs" />,
-        header: <Localize translate_text="CFDs" />,
-        desc: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
-        ),
+        image_alt: 'CFDs',
+        header: '_t_CFDs_t_',
+        desc: '_t_Trade with leverage and low spreads for better returns on successful trades._t_',
         link: '/trade-types/cfds/',
-        link_text: <Localize translate_text="More on CFDs" />,
+        link_text: '_t_More on CFDs_t_',
         alt: 'cfd',
     },
     {
         class_name: 'multipliers',
         image_url: 'trade_type_multipliers',
-        image_alt: <Localize translate_text="Multipliers" />,
-        header: <Localize translate_text="Multipliers" />,
-        desc: (
-            <Localize translate_text="Multiply potential profit without risking more than your initial stake." />
-        ),
+        image_alt: 'Multipliers',
+        header: '_t_Multipliers_t_',
+        desc: '_t_Multiply potential profit without risking more than your initial stake._t_',
         link: '/trade-types/multiplier/',
-        link_text: <Localize translate_text="More on multipliers" />,
+        link_text: '_t_More on multipliers_t_',
         alt: 'multipliers',
     },
     {
         class_name: 'options',
         image_url: 'trade_type_digitaloptions',
-        image_alt: <Localize translate_text="Options" />,
-        header: <Localize translate_text="Options" />,
-        desc: (
-            <Localize translate_text="Earn a range of payouts by correctly predicting market movements." />
-        ),
+        image_alt: 'Options',
+        header: '_t_Options_t_',
+        desc: '_t_Earn a range of payouts by correctly predicting market movements._t_',
         link: '/trade-types/options/',
-        link_text: <Localize translate_text="More on options" />,
+        link_text: '_t_More on options_t_',
         alt: 'options',
     },
 ]
@@ -102,25 +97,21 @@ const items_details_eu: TradeTypesProps[] = [
     {
         class_name: 'cfds',
         image_url: 'trade_type_cfds_eu',
-        image_alt: <Localize translate_text="CFDs" />,
-        header: <Localize translate_text="CFDs" />,
-        desc: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
-        ),
+        image_alt: 'CFDs',
+        header: '_t_CFDs_t_',
+        desc: '_t_Trade with leverage and low spreads for better returns on successful trades._t_',
         link: '/trade-types/cfds/',
-        link_text: <Localize translate_text="More on CFDs" />,
+        link_text: '_t_More on CFDs_t_',
         alt: 'cfd',
     },
     {
         class_name: 'multipliers',
         image_url: 'trade_type_multipliers_eu',
-        image_alt: <Localize translate_text="Multipliers" />,
-        header: <Localize translate_text="Multipliers" />,
-        desc: (
-            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
-        ),
+        image_alt: 'Multipliers',
+        header: '_t_Multipliers_t_',
+        desc: '_t_Multiply your potential profit without risking more than your stake._t_',
         link: '/trade-types/multiplier/',
-        link_text: <Localize translate_text="More on multipliers" />,
+        link_text: '_t_More on multipliers_t_',
         alt: 'multipliers',
     },
 ]
@@ -234,7 +225,7 @@ const DescriptionContainer = styled(Flex)`
     flex: 1;
 `
 
-const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
+const TradeItems = ({ items_details }: TradeItemsProps) => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const [details_visible, setDetailsVisibility] = React.useState(false)
@@ -258,16 +249,18 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
 
             <DescriptionContainer ai={'center'} jc={'center'} direction={'column'}>
                 <Header type="subtitle-1" align="center">
-                    {items_details.header}
+                    <Localize translate_text={items_details.header} />
                 </Header>
                 <ContentWrapper $visibility={details_visible && !is_mobile}>
                     <Header type="paragraph-1" weight="normal" align="center">
-                        {items_details.desc}
+                        <Localize translate_text={items_details.desc} />
                     </Header>
                 </ContentWrapper>
             </DescriptionContainer>
             <LearnMore to={items_details.link} $visibility={details_visible && !is_mobile}>
-                <Text mr="1rem">{items_details.link_text}</Text>
+                <Text mr="1rem">
+                    <Localize translate_text={items_details.link_text} />
+                </Text>
                 <ImageWithDireciton src={Arrow} alt={items_details.alt} />
             </LearnMore>
         </ItemsWrapper>
@@ -312,7 +305,7 @@ const TradeTypes = (): React.ReactNode => {
     return (
         <StyledSection padding="unset">
             <Header as="h2" type="heading-2" align="center">
-                {localize('Trade types')}
+                <Localize translate_text="_t_Trade types_t_" />
             </Header>
             <Header
                 type="subtitle-1"
@@ -323,7 +316,7 @@ const TradeTypes = (): React.ReactNode => {
                 tablet={{ mb: '16px' }}
             >
                 <Localize
-                    translate_text="Trade the way you want with {{trade_no}} flexible trade types."
+                    translate_text="_t_Trade the way you want with {{trade_no}} flexible trade types._t_"
                     values={{ trade_no: is_row ? '3' : '2' }}
                 />
             </Header>

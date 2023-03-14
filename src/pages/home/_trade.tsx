@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
@@ -23,7 +23,6 @@ const ImageWrapper = styled.div<{ is_selected: boolean }>`
     position: absolute;
     transition: opacity 0.25s;
 `
-
 const ImageContainer = styled.div`
     position: relative;
     height: 100%;
@@ -33,6 +32,7 @@ const StyledSection = styled(SectionContainer)`
     background-image: linear-gradient(to bottom, var(--color-grey-30), rgba(238, 238, 238, 0));
     min-height: 69rem;
 `
+
 const query = graphql`
     query {
         dtrader_trade: file(relativePath: { eq: "home/dtrader_trade_home.png" }) {
@@ -61,7 +61,7 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
         <StyledSection>
             <Container direction="column">
                 <Header as="h3" type="section-title" align="center">
-                    {localize('Trade the way you like')}
+                    <Localize translate_text="_t_Trade the way you like_t_" />
                 </Header>
                 <Header
                     weight="normal"
@@ -70,7 +70,7 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                     align="center"
                     m="1.6rem 0 6rem"
                 >
-                    {localize('Choose from three powerful platforms — designed with you in mind')}
+                    <Localize translate_text="_t_Choose from three powerful platforms — designed with you in mind_t_" />
                 </Header>
                 <Flex width="100%" direction="flex-start">
                     <div style={{ width: '100%', maxWidth: '65.7rem', marginRight: '6rem' }}>
@@ -78,19 +78,19 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
                                 <QueryImage
                                     data={data['dtrader_trade']}
-                                    alt={localize('Dtrader trading platform at Deriv')}
+                                    alt={localize('_t_Dtrader trading platform at Deriv_t_')}
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
                                 <QueryImage
                                     data={data['dbot_trade']}
-                                    alt={localize('Dbot trading platform at Deriv')}
+                                    alt={localize('_t_Dbot trading platform at Deriv_t_')}
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
                                 <QueryImage
                                     data={data['dmt5_trade']}
-                                    alt={localize('DMT5 trading platform at Deriv')}
+                                    alt={localize('_t_DMT5 trading platform at Deriv_t_')}
                                 />
                             </ImageWrapper>
                         </ImageContainer>

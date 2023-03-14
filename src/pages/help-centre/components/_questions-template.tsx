@@ -48,7 +48,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
                     arrow_margin="1rem"
                     margin="4rem 0 0"
                 >
-                    <Localize translate_text="Back" />
+                    <Localize translate_text="_t_Back_t_" />
                 </StyledLink>
 
                 <SideTab data={filtered_questions} tab_header={category}>

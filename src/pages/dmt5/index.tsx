@@ -76,31 +76,31 @@ const DMT5 = () => {
             />
             <Desktop>
                 <DHero
-                    title={localize('Deriv MT5')}
+                    title={localize('_t_Deriv MT5_t_')}
                     content={
                         <Localize
-                            translate_text="The all-in-one <0/>CFD trading<0/> platform"
+                            translate_text="_t_The all-in-one <0/>CFD trading<0/> platform_t_"
                             components={[<br key={0} />]}
                         />
                     }
                     join_us_for_free
                     Logo={dmt5_logo}
-                    background_alt={localize('DMT5 trading dashboard')}
+                    background_alt={localize('_t_DMT5 trading dashboard_t_')}
                     background={background}
                 />
             </Desktop>
             <Mobile>
                 <DHero
-                    title={localize('Deriv MT5')}
+                    title={localize('_t_Deriv MT5_t_')}
                     content={
                         <Localize
-                            translate_text="The all-in-one <0/> CFD trading platform <0/>  "
+                            translate_text="_t_The all-in-one <0/> CFD trading platform <0/>  _t_"
                             components={[<br key={0} />]}
                         />
                     }
                     join_us_for_free
                     Logo={dmt5_logo}
-                    background_alt={localize('DMT5 trading dashboard')}
+                    background_alt={localize('_t_DMT5 trading dashboard_t_')}
                     background={background}
                 />
             </Mobile>
@@ -117,7 +117,7 @@ const DMT5 = () => {
                 background_pattern={
                     is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
                 }
-                title={<Localize translate_text="Get into the Deriv MT5 experience" />}
+                title="_t_Get into the Deriv MT5 experience_t_"
                 data={data}
                 image_alt="DMT5 trading platform"
                 is_mt5

@@ -82,13 +82,13 @@ const DidntFindYourAnswerBanner = () => {
         <DidntFindYourAnswerWrapper>
             <Icon src={ContactUsIcon} alt="contact-us-icon" />
             <Text size="var(--text-size-l)" color="white" m="0 2.4rem" weight="normal">
-                <Localize translate_text="Didn’t find your answer? We can help." />
+                <Localize translate_text="_t_Didn’t find your answer? We can help._t_" />
             </Text>
 
             {is_livechat_interactive && (
                 <ButtonWrapper>
                     <ChatButton secondary onClick={openChatWindow}>
-                        <Localize translate_text="Chat" />
+                        <Localize translate_text="_t_Chat_t_" />
                     </ChatButton>
 
                     <WhatsAppButton onClick={openWhatsappUrl}>
@@ -98,7 +98,7 @@ const DidntFindYourAnswerBanner = () => {
                             height="16"
                             width="16"
                         />
-                        <Localize translate_text="WhatsApp" />
+                        <Localize translate_text="_t_WhatsApp_t_" />
                     </WhatsAppButton>
                 </ButtonWrapper>
             )}

@@ -126,7 +126,7 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
         )
     }
     const [is_expanded, setExpanded] = useState(false)
-    const [height, setHeight] = useState(null)
+    const [height, setHeight] = useState<number | string>(0)
 
     useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
     useEffect(() => {
@@ -174,7 +174,7 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
                             style={{
                                 overflow: 'hidden',
                                 transition: `height ${TRANSITION_DURATION}ms ease`,
-                                height: height || 0,
+                                height,
                                 ...child?.props.content_style,
                             }}
                         >
@@ -287,7 +287,7 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
                             overflow: 'hidden',
                             /* prettier-ignore */
                             transition: `height ${TRANSITION_DURATION}ms ease`,
-                            height: height,
+                            height,
                             ...child?.props.content_style,
                         }}
                     >

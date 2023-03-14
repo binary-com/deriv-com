@@ -43,8 +43,9 @@ const GreenBG = styled.div`
     border-radius: 16px;
     width: 30%;
 
-    @media ${device.mobileL} {
+    @media (max-width: 680px) {
         width: 184px;
+        right: 2rem;
     }
 `
 

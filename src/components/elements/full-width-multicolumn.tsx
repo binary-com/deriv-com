@@ -19,7 +19,7 @@ type FullWidthMultiColumnProps = {
 }
 
 const Item = styled(Flex)`
-    max-width: 24rem;
+    max-width: 19rem;
     width: 100%;
 
     img {

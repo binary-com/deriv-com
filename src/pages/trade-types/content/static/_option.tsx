@@ -17,9 +17,7 @@ export const digital_options: OptionsContentElement[] = [
         src: Favourite,
         alt: 'favourite markets icon',
         item_title: <Localize translate_text="All favourite markets and more" />,
-        text: (
-            <Localize translate_text="Trade on all popular markets plus our proprietary synthetics that are available 24/7." />
-        ),
+        text: <Localize translate_text="_t_This is a test string. Please ignore._t_" />,
     },
     {
         src: Flexible,

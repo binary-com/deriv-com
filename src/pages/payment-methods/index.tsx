@@ -181,38 +181,35 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 
     useEffect(() => {
         // First we check if the `data` exists or not, Then we manipulate the local data with the response from the server.
-        if (data) {
-            // Here we map over the local `payment_data` variable to manipulate it with the server response.
-            const updated_payment_data = payment_method_data.map((paymentData) => {
-                if (!paymentData.is_crypto) return paymentData
 
-                const updated_data = paymentData.data.map((value) => ({
-                    ...value,
-                    ...data.currencies_config[value.name],
-                }))
-
-                return {
-                    ...paymentData,
-                    data: updated_data,
-                }
-            })
-
-            // Here we update the `payment_method_data` state with the newly updated `payment_data`.
-            setPaymentMethodData(updated_payment_data)
-        }
-    }, [data])
-
-    useEffect(() => {
         if (is_eu) {
             setPaymentMethodData(
                 payment_method_data.filter((payment_method) => payment_method.is_eu),
             )
         } else {
-            setPaymentMethodData(
-                payment_method_data.filter((payment_method) => !payment_method.is_eu),
-            )
+            if (data) {
+                const filtered_payment_methods = payment_method_data.filter(
+                    (payment_method) => !payment_method.is_eu,
+                )
+
+                const updated_payment_data = filtered_payment_methods.map((payment_method) => {
+                    if (!payment_method.is_crypto) return payment_method
+
+                    const updated_data = payment_method.data.map((value) => ({
+                        ...value,
+                        ...data.currencies_config[value.name],
+                    }))
+
+                    return {
+                        ...payment_method,
+                        data: updated_data,
+                    }
+                })
+
+                setPaymentMethodData(updated_payment_data)
+            }
         }
-    }, [is_eu])
+    }, [data, is_eu])
 
     const content_style = is_mobile
         ? {

@@ -170,7 +170,7 @@ export type PaymentMethodsProps = {
     pd?: PaymentDataProps
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
-    const { is_p2p_allowed_country, is_eu = true } = useRegion()
+    const { is_p2p_allowed_country, is_eu } = useRegion()
     const [is_mobile] = useBrowserResize(992)
     const { data, send } = useWS('crypto_config')
     const [payment_method_data, setPaymentMethodData] = useState(payment_data)

@@ -3,6 +3,7 @@ import { TQuestionsData } from './_data-types'
 const payment_agent: TQuestionsData = {
     section: 'General',
     category: '_t_Payment Agent_t_',
+    hide_for_eu: true,
     questions: [
         {
             question: '_t_What is the Deriv Payment Agent Programme?_t_',

@@ -1,8 +1,10 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useEffect } from 'react'
 import styled, { css } from 'styled-components'
+import { StringParam, useQueryParam } from 'use-query-params'
+import { navigate } from 'gatsby'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
-import { Localize } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -80,20 +82,26 @@ const CardContainer = styled(Flex)<CardContainerProps>`
     padding: 16px 24px;
     font-weight: 400;
     cursor: pointer;
-    z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
+    z-index: ${(props) =>
+        props.active_tab === props.name.toLocaleLowerCase() ? '4 !important' : ''};
 
     ${Flex} {
         img {
             width: 32px;
             height: 32px;
             margin: 0 8px 0 0;
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
+            opacity: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
         }
         h4 {
             color: ${(props) =>
-                props.active_tab === props.name ? 'var(--color-black)' : 'var(--color-black-3)'};
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
-            font-weight: ${(props) => (props.active_tab === props.name ? 'bold' : '400')};
+                props.active_tab === props.name.toLocaleLowerCase()
+                    ? 'var(--color-black)'
+                    : 'var(--color-black-3)'};
+            opacity: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
+            font-weight: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? 'bold' : '400'};
         }
         @media ${device.tabletL} {
             width: 100%;
@@ -129,7 +137,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         transform-origin: ${({ is_rtl }) => (is_rtl ? 'bottom right' : 'bottom left')};
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
-            if (props.active_tab === props.name)
+            if (props.active_tab === props.name.toLocaleLowerCase())
                 return css`
                     font-weight: bold;
                     background-color: var(--color-white);
@@ -161,10 +169,14 @@ const ContentWrapper = styled.div`
 
 const CardHeader = styled(Header)`
     line-height: 44px;
-
     @media ${device.tabletL} {
         font-size: 1.75rem;
+        line-height: 20px;
     }
+`
+
+const Link = styled(LocalizedLink)`
+    text-decoration: none;
 `
 
 const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
@@ -190,17 +202,32 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
     )
 }
 
-const AvailableTradesDesctop = ({
+const AvailableTradesDesktop = ({
     CFDs,
     DigitalOptions,
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
-    const { is_non_eu } = useRegion()
-    const [active_tab, SetActiveTab] = useState('CFDs')
-    const handleTabChange = (new_tab: string) => {
-        if (new_tab !== active_tab) return SetActiveTab(new_tab)
-    }
+    const { is_non_eu, is_region_loading } = useRegion()
+    const [tab, setTab] = useQueryParam('tab', StringParam)
+
+    useEffect(() => {
+        if (window.location.hash && !is_region_loading) {
+            const id = window.location.hash.substring(1)
+            const element = document.getElementById(id)
+            const headerOffset = 170
+            const elementPosition = element?.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+            if (element) {
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth',
+                    })
+                }, 1000)
+            }
+        }
+    }, [is_region_loading])
 
     return (
         <StyledSection>
@@ -213,16 +240,22 @@ const AvailableTradesDesctop = ({
                         <Card
                             name="CFDs"
                             display_name={<Localize translate_text="CFDs" />}
-                            onTabChange={() => handleTabChange('CFDs')}
-                            active_tab={active_tab}
+                            onTabChange={() => {
+                                setTab('cfds')
+                                navigate(`?tab=cfds#cfds`)
+                            }}
+                            active_tab={tab || 'cfds'}
                         />
                     )}
                     {is_non_eu && DigitalOptions && (
                         <Card
                             name="Options"
                             display_name={<Localize translate_text="Options" />}
-                            onTabChange={() => handleTabChange('Options')}
-                            active_tab={active_tab}
+                            onTabChange={() => {
+                                setTab('options')
+                                navigate(`?tab=options#options`)
+                            }}
+                            active_tab={tab || 'cfds'}
                         />
                     )}
 
@@ -230,19 +263,22 @@ const AvailableTradesDesctop = ({
                         <Card
                             name="Multipliers"
                             display_name={<Localize translate_text="Multipliers" />}
-                            onTabChange={() => handleTabChange('Multipliers')}
-                            active_tab={active_tab}
+                            onTabChange={() => {
+                                setTab('multipliers')
+                                navigate(`?tab=multipliers#multipliers`)
+                            }}
+                            active_tab={tab || 'cfds'}
                         />
                     )}
                 </CardWrapper>
                 <ContentWrapper>
-                    {active_tab === 'CFDs' && CFDs}
-                    {active_tab === 'Options' && DigitalOptions}
-                    {active_tab === 'Multipliers' && Multipliers}
+                    {(tab === 'cfds' || !tab) && CFDs}
+                    {tab === 'options' && DigitalOptions}
+                    {tab === 'multipliers' && Multipliers}
                 </ContentWrapper>
             </StyledContainer>
         </StyledSection>
     )
 }
 
-export default AvailableTradesDesctop
+export default AvailableTradesDesktop

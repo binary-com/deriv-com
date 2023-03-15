@@ -231,10 +231,12 @@ export const commodities_options: Options = {
     market_instruments: {
         content: [
             {
+                id: 'metals',
                 title: <Localize translate_text="Metals" />,
                 component: <MetalsOptions />,
             },
             {
+                id: 'energy',
                 title: <Localize translate_text="Energy" />,
                 component: <EnergyOptions />,
             },
@@ -256,10 +258,12 @@ export const forex_options: Options = {
         },
         content: [
             {
+                id: 'major-pairs',
                 title: <Localize translate_text="Major pairs" />,
                 component: <MajorPairs />,
             },
             {
+                id: 'minor-pairs',
                 title: <Localize translate_text="Minor pairs" />,
                 component: <MinorOptionsPairs />,
             },
@@ -278,11 +282,13 @@ export const basket_options: Options = {
         template: 2,
         content: [
             {
+                id: 'commodities-basket',
                 title: <Localize translate_text="Commodities Basket" />,
                 component: <BasketIndicesCommodities />,
                 details: <BasketCommoditiesDetails />,
             },
             {
+                id: 'forex-basket',
                 title: <Localize translate_text="Forex Basket" />,
                 component: <BasketIndicesCfds />,
                 details: <BasketFXDetails />,
@@ -298,6 +304,7 @@ export const stock_options: Options = {
         template: 2,
         content: [
             {
+                id: 'american-indices',
                 title: (
                     <Localize
                         translate_text="American<0></0>indices"
@@ -313,6 +320,7 @@ export const stock_options: Options = {
                 gap: '16px',
             },
             {
+                id: 'asian-indices',
                 title: (
                     <Localize translate_text="Asian<0></0>indices" components={[<br key={0} />]} />
                 ),
@@ -325,6 +333,7 @@ export const stock_options: Options = {
                 gap: '16px',
             },
             {
+                id: 'european-indices',
                 title: (
                     <Localize
                         translate_text="European<0></0>indices"
@@ -349,16 +358,19 @@ export const synthetic_options: Options = {
         has_global_accordion: true,
         content: [
             {
+                id: 'continuous-indices',
                 title: <Localize translate_text="Continuous indices" />,
                 component: <ContinuousIndices />,
                 details: <ContinuousIndicesDetails />,
             },
             {
+                id: 'jump-indices',
                 title: <Localize translate_text="Jump indices" />,
                 component: <JumpIndices />,
                 details: <JumpIndicesDetails />,
             },
             {
+                id: 'daily-reset-indices',
                 title: <Localize translate_text="Daily reset indices" />,
                 component: <DailyResetIndices />,
                 details: <DailyResetIndicesDetails />,

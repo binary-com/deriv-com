@@ -202,6 +202,15 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
         }
     }, [data])
 
+    useEffect(() => {
+        if (is_eu) {
+            setPaymentMethodData(
+                payment_method_data.filter((payment_method) => payment_method.is_eu),
+            )
+        }
+        setPaymentMethodData(payment_data)
+    }, [is_eu])
+
     const content_style = is_mobile
         ? {
               boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',

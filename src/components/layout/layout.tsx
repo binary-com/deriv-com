@@ -1,4 +1,4 @@
-import React, { ReactNode, Ref } from 'react'
+import React, { useState, ReactNode, Ref } from 'react'
 import Loadable from '@loadable/component'
 import styled from 'styled-components'
 import { LocationProvider } from './location-context'
@@ -15,7 +15,6 @@ import Footer from './footer'
 import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import usePopup from 'components/hooks/use-popup'
@@ -159,12 +158,6 @@ const Layout = ({
                 aria_label={modal_payload.aria_label}
             />
             <BrowserUpdateAlertModal />
-            {show_non_eu_popup && (
-                <NonEuRedirectPopUp
-                    is_open={show_non_eu_popup}
-                    setShowNonEuPopup={setShowNonEuPopup}
-                />
-            )}
             <LayoutOverlay is_ppc={is_ppc} />
         </LocationProvider>
     )

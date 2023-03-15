@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Introduction from './components/_introduction'
 import HeaderSection from './components/_header-section'
 import Topics from './components/_topics'
+import MainHead from './components/_main-head'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
@@ -63,6 +64,7 @@ const ForexEbook = (props: StocksEbookProps) => {
                 description={localize('Trade Forex CFDs on our Deriv platform.')}
                 no_index
             />
+            <MainHead />
             <HeaderSection
                 mainHeaderImage={data[`forex_ebook_img_${lng}`]}
                 imgWidth={601}

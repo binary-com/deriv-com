@@ -5,6 +5,7 @@ import ImageText from './components/_image-text'
 import Topics from './components/_topics'
 import { StocksEbookProps } from './forex'
 import Hero from './components/_hero'
+import MainHead from './components/_main-head'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
@@ -61,6 +62,7 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
                 description={localize('Trade Cryptocurrencies on our Deriv platform.')}
                 no_index
             />
+            <MainHead />
             <Hero
                 authorDesc={
                     localize(

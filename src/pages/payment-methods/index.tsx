@@ -6,12 +6,13 @@ import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
+import { Text, Header, Divider, Accordion, AccordionItem, DotLoader } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
+import { isBrowser } from 'common/utility'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
 
@@ -233,6 +234,9 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
           }
     const parent_style = { marginBottom: is_mobile ? '24px' : '2.4rem' }
 
+    if (!isBrowser()) {
+        return <DotLoader />
+    }
     return (
         <>
             {payment_method_data.map((pdata) => {

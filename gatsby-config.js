@@ -301,7 +301,6 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-anchor-links',
         {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {
@@ -313,6 +312,21 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
+                duration: 0,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-create-client-paths`,
+            options: {
+                prefixes: [
+                    `/markets/forex/*`,
+                    `/markets/synthetic/*`,
+                    `/markets/basket-indices/*`,
+                    `/markets/derived-fx/*`,
+                    `/markets/stock/*`,
+                    `/markets/cryptocurrencies/*`,
+                    `/markets/commodities/*`,
+                ],
             },
         },
         'gatsby-plugin-use-query-params',

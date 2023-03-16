@@ -12,7 +12,7 @@ import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useDerivWS from 'components/hooks/use-deriv-ws'
 
@@ -206,7 +206,7 @@ const Signup = (props: SignupProps) => {
     return props.submit_state === 'success' ? (
         <ResponseWrapper>
             <Header as="h3" type="section-title" align="center" weight="normal">
-                {localize('Check your email')}
+                <Localize translate_text="_t_Check your email_t_" />
             </Header>
             <StaticQuery
                 query={graphql`
@@ -224,12 +224,12 @@ const Signup = (props: SignupProps) => {
             />
             <ConfirmationMessage>
                 <Localize
-                    translate_text="We've sent a message to {{email}} with a link to activate your account."
+                    translate_text="_t_We've sent a message to {{email}} with a link to activate your account._t_"
                     values={{ email: props.email }}
                 />
             </ConfirmationMessage>
             <EmailLink to="/check-email/" align="center">
-                {localize("Didn't receive your email?")}
+                <Localize translate_text="_t_Didn't receive your email?_t_" />
             </EmailLink>
         </ResponseWrapper>
     ) : (

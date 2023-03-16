@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
@@ -10,10 +10,11 @@ import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import { TString } from 'types/generics'
 
 type SimpleStepsProps = {
-    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactElement }[]
-    header?: string
+    content?: { header?: TString; icon?: HTMLImageElement; text?: TString }[]
+    header?: TString
     sign_up?: boolean
 }
 
@@ -147,26 +148,22 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
             </Mobile>
             <Container direction="column">
                 <TitleHeader align="center" as="h2" type="section-title">
-                    {header}
+                    <Localize translate_text={header} />
                 </TitleHeader>
             </Container>
             <StyledFlex wrap="wrap">
                 {content.map((item, idx) => {
                     return (
-                        <ClientCard
-                            key={
-                                typeof item.text === 'string'
-                                    ? item.text
-                                    : item.text.props.translate_text
-                            }
-                        >
+                        <ClientCard key={idx}>
                             <Flex ai="center" height="fit-content">
                                 <StyledHeader as="h3" type="sub-section-title">
-                                    {item.header}
+                                    <Localize translate_text={item.header} />
                                 </StyledHeader>
                                 {item.icon}
                             </Flex>
-                            <Text>{item.text}</Text>
+                            <Text>
+                                <Localize translate_text={item.text} />
+                            </Text>
                         </ClientCard>
                     )
                 })}
@@ -174,7 +171,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
             {sign_up && !is_logged_in && !is_deriv_go && (
                 <LinkButtonWrapper>
                     <StyledLinkButton id="dm-steps-signup" secondary onClick={handleSignup}>
-                        {localize('Sign up now')}
+                        <Localize translate_text="_t_Sign up now_t_" />
                     </StyledLinkButton>
                 </LinkButtonWrapper>
             )}

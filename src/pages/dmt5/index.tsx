@@ -76,13 +76,9 @@ const DMT5 = () => {
             />
             <Desktop>
                 <DHero
-                    title={localize('_t_Deriv MT5_t_')}
-                    content={
-                        <Localize
-                            translate_text="_t_The all-in-one <0/>CFD trading<0/> platform_t_"
-                            components={[<br key={0} />]}
-                        />
-                    }
+                    title="_t_Deriv MT5_t_"
+                    content="_t_The all-in-one <0/>CFD trading<0/> platform_t_"
+                    content_components={[<br key={0} />]}
                     join_us_for_free
                     Logo={dmt5_logo}
                     background_alt={localize('_t_DMT5 trading dashboard_t_')}
@@ -91,13 +87,9 @@ const DMT5 = () => {
             </Desktop>
             <Mobile>
                 <DHero
-                    title={localize('_t_Deriv MT5_t_')}
-                    content={
-                        <Localize
-                            translate_text="_t_The all-in-one <0/> CFD trading platform <0/>  _t_"
-                            components={[<br key={0} />]}
-                        />
-                    }
+                    title="_t_Deriv MT5_t_"
+                    content="_t_The all-in-one <0/> CFD trading platform <0/>  _t_"
+                    content_components={[<br key={0} />]}
                     join_us_for_free
                     Logo={dmt5_logo}
                     background_alt={localize('_t_DMT5 trading dashboard_t_')}

@@ -263,8 +263,8 @@ export const OtherPlatform = ({
     const { is_row, is_eu } = useRegion()
     const getHeaderText = () => (
         <>
-            {is_eu && <Localize translate_text="Check out our other platform" />}
-            {is_row && <Localize translate_text="Check out our other platforms" />}
+            {is_eu && <Localize translate_text="_t_Check out our other platform_t_" />}
+            {is_row && <Localize translate_text="_t_Check out our other platforms_t_" />}
         </>
     )
     return (
@@ -283,9 +283,7 @@ export const OtherPlatform = ({
                             max_width="67.6rem"
                             m="0.8rem auto"
                         >
-                            {localize(
-                                'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
-                            )}
+                            <Localize translate_text="_t_Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love._t_" />
                         </Header>
                     )}
                 </HeaderWrapper>
@@ -318,7 +316,9 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
             {!is_ppc && (
                 <>
                     <NavFlex direction="column" wrap="wrap" jc="flex-start">
-                        <StyledText>{<Localize translate_text="Trade types" />}</StyledText>
+                        <StyledText>
+                            <Localize translate_text="_t_Trade types_t_" />
+                        </StyledText>
                         <NavCard
                             aria_label="CFDs"
                             icon={() => (
@@ -365,7 +365,9 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                 </>
             )}
             <Flex direction="column" wrap="wrap" jc="flex-start">
-                <StyledText>{<Localize translate_text="Trading platforms" />}</StyledText>
+                <StyledText>
+                    <Localize translate_text="_t_Trading platforms_t_" />
+                </StyledText>
                 <NavCard
                     aria_label="Deriv MT5"
                     icon={() => (

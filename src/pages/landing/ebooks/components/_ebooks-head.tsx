@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-function MainHead() {
+function EbooksHead() {
     return (
         <Helmet>
             <style type="text/css">{`
@@ -18,4 +18,4 @@ function MainHead() {
     )
 }
 
-export default MainHead
+export default EbooksHead

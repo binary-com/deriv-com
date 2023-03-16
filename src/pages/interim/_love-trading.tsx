@@ -9,6 +9,8 @@ import device from 'themes/device'
 import Platform from 'images/common/interim/check-interim-bg.png'
 import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 type SectionProps = {
     image: string
@@ -111,9 +113,9 @@ const StyledLeftContainer = styled(Flex)`
 `
 
 type LeftCTASectionProps = {
-    header: React.ReactElement | string
+    header: TString
     button_url?: string
-    button_text?: React.ReactElement | string
+    button_text?: TString
     hide_cta?: boolean
     cta_props?: { is_white?: boolean }
     custom_content?: React.ReactElement
@@ -124,10 +126,10 @@ const LeftCTASection = (params: LeftCTASectionProps) => {
     return (
         <>
             <Header as="h3" type="section-title" mb="4rem" align="center" tabletL={{ mb: '34px' }}>
-                {header}
+                <Localize translate_text={header} />
             </Header>
             <FitButton secondary to={button_url}>
-                {button_text}
+                <Localize translate_text={button_text} />
             </FitButton>
             {!hide_cta && <CtaBinary {...(cta_props || {})} />}
         </>
@@ -143,7 +145,7 @@ const RightCTASection = (params: RightCTASectionProps) => {
     return (
         <Flex width="auto" fd="column" ai="center" ml="0" max_width="38.4rem">
             <Header as="h3" color="white" type="section-title" mb="3rem" align="center">
-                {header}
+                <Localize translate_text={header} />
             </Header>
             <FitButton
                 external
@@ -153,7 +155,7 @@ const RightCTASection = (params: RightCTASectionProps) => {
                 rel="noopener noreferrer"
                 {...(button_props || {})}
             >
-                {button_text}
+                <Localize translate_text={button_text} />
             </FitButton>
             {!hide_cta && <CtaBinary {...(cta_props || {})} />}
         </Flex>

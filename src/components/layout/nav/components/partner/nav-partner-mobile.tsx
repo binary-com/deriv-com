@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Wrapper, MobileWrapper, HamburgerMenu, CloseIcon } from '../../styles/nav-styles'
-import { localize, LanguageSwitcher, LocalizedLink } from 'components/localization'
+import { Localize, LanguageSwitcher, LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Flex } from 'components/containers'
 import { OffCanvasMenuPartner, useMoveOffCanvasMenu } from 'components/elements'
@@ -44,7 +44,7 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
 
     return (
         <Mobile>
-            <Wrapper width="90%">
+            <Wrapper width="92%">
                 {is_canvas_menu_open ? (
                     <CloseIcon src={Close} alt="close icon" onClick={closeOffCanvasMenu} />
                 ) : (
@@ -71,7 +71,7 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
                         type="affiliate_sign_in"
                         target="_blank"
                     >
-                        {localize('Log in')}
+                        <Localize translate_text="_t_Log in_t_" />
                     </LoginLink>
                 )}
 

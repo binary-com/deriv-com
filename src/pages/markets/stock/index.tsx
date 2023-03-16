@@ -10,10 +10,8 @@ import { SEO } from 'components/containers'
 const StocksAndIndicesPage = () => (
     <Layout type="noNav">
         <SEO
-            description={localize(
-                '_t_Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets._t_',
-            )}
-            title={localize('_t_Stock market | Indices trading | Deriv_t_')}
+            description="_t_Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets._t_"
+            title="_t_Stock market | Indices trading | Deriv_t_"
         />
         <DerivedFXHero
             title={localize('_t_Stocks & indices_t_')}

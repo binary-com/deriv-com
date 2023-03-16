@@ -10,6 +10,7 @@ import device from 'themes/device'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { PlatformQueryParam } from 'common/utility'
 
 const BackgroundWrapper = styled.div`
     background: url(${BannerBg});
@@ -93,14 +94,30 @@ type MarketProps = {
     title: string
     description: string
 }
-export const DerivedFXHero = ({ title, description }: MarketProps) => {
+
+const GetTrading = () => (
+    <StyledButton width="128px" onClick={handleGetTrading} secondary>
+        {localize('_t_Get Trading_t_')}
+    </StyledButton>
+)
+
+const CreateFreeDemoAccount = () => {
     const handleSignup = useHandleSignup()
+
+    return (
+        <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
+            {localize('_t_Create free demo account_t_')}
+        </StyledButton>
+    )
+}
+
+export const DerivedFXHero = ({ title, description }: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
+    const { is_deriv_go = true } = PlatformQueryParam()
 
     return (
         <BackgroundWrapper>
             <NavMarkets />
-
             <StyledContainer>
                 <StyledHeader as="h1" align="center">
                     <Localize translate_text={title} />
@@ -108,15 +125,8 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
                 <MarketSubHeader color="white" weight="normal" align="center">
                     <Localize translate_text={description} />
                 </MarketSubHeader>
-                {is_logged_in ? (
-                    <StyledButton width="128px" onClick={handleGetTrading} secondary>
-                        <Localize translate_text="_t_Get Trading_t_" />
-                    </StyledButton>
-                ) : (
-                    <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
-                        <Localize translate_text="_t_Create free demo account_t_" />
-                    </StyledButton>
-                )}
+                {is_logged_in && !is_deriv_go && <GetTrading />}
+                {!is_logged_in && !is_deriv_go && <CreateFreeDemoAccount />}
             </StyledContainer>
         </BackgroundWrapper>
     )

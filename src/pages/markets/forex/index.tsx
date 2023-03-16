@@ -10,12 +10,8 @@ import { SEO } from 'components/containers'
 const ForexPage = () => (
     <Layout type="noNav">
         <SEO
-            description={localize(
-                "_t_Trade forex on Deriv's intuitive online trading platforms and get access to a wide range of major, minor, and exotic currency pairs._t_",
-            )}
-            title={localize(
-                '_t_Forex online trading platforms | Forex trading demo account | Deriv_t_',
-            )}
+            description="_t_Trade forex on Deriv's intuitive online trading platforms and get access to a wide range of major, minor, and exotic currency pairs._t_"
+            title="_t_Forex online trading platforms | Forex trading demo account | Deriv_t_"
         />
         <DerivedFXHero
             title={localize('_t_Forex_t_')}

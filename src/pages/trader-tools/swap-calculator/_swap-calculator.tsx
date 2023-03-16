@@ -118,7 +118,7 @@ const VolumeField = ({
                 {...field}
                 id="volume"
                 type="text"
-                label={localize('Volume')}
+                label="_t_Volume_t_"
                 autoComplete="off"
                 error={touched.volume && errors.volume}
                 onBlur={handleBlur}
@@ -157,7 +157,7 @@ const SwapRateField = ({
                 id="swapRate"
                 type="text"
                 value={values.swapRate}
-                label={localize('Swap rate')}
+                label="_t_Swap rate_t_"
                 autoComplete="off"
                 error={touched.swapRate && errors.swapRate}
                 onBlur={handleBlur}
@@ -209,23 +209,23 @@ const SwapCalculator = () => {
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
-                        {localize("Traders' tools")}
+                        <Localize translate_text="_t_Traders' tools_t_" />
                     </LocalizedLinkText>
                     <ImageWithDireciton
                         src={RightArrow}
-                        alt={localize('right arrow')}
+                        alt={localize('_t_right arrow_t_')}
                         height="16"
                         width="16"
                         style={{ margin: '0 8px' }}
                     />
-                    <Text>{localize('Swap calculator')}</Text>
+                    <Text>
+                        <Localize translate_text="_t_Swap calculator_t_" />
+                    </Text>
                 </Flex>
             </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
-                    {localize(
-                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5.',
-                    )}
+                    <Localize translate_text="_t_Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5._t_" />
                 </SectionSubtitle>
 
                 <Flex
@@ -239,12 +239,12 @@ const SwapCalculator = () => {
                         onClick={() => onTabClick('Synthetic')}
                     >
                         <Text size="var(--text-size-m)" align="center" className="synthetic">
-                            {localize('Synthetic')}
+                            <Localize translate_text="_t_Synthetic_t_" />
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
                         <Text size="var(--text-size-m)" align="center" className="financial">
-                            {localize('Financial')}
+                            <Localize translate_text="_t_Financial_t_" />
                         </Text>
                     </SwapTabSelector>
                 </Flex>
@@ -293,7 +293,7 @@ const SwapCalculator = () => {
                                         <CalculatorForm>
                                             <CalculatorHeader>
                                                 <CalculatorLabel htmlFor="message">
-                                                    {localize('Swap charge')}
+                                                    <Localize translate_text="_t_Swap charge_t_" />
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
@@ -309,7 +309,7 @@ const SwapCalculator = () => {
                                                 <Dropdown
                                                     mb="3.6rem"
                                                     option_list={values.optionList}
-                                                    label={localize('Symbol')}
+                                                    label="_t_Symbol_t_"
                                                     default_option={optionItemDefault}
                                                     selected_option={values.symbol}
                                                     id="symbol"
@@ -357,7 +357,7 @@ const SwapCalculator = () => {
                                                                 id="asset"
                                                                 type="text"
                                                                 value={values.assetPrice}
-                                                                label={localize('Asset price')}
+                                                                label="_t_Asset price_t_"
                                                                 autoComplete="off"
                                                                 error={
                                                                     touched.assetPrice &&
@@ -401,7 +401,7 @@ const SwapCalculator = () => {
                                                         type="submit"
                                                         disabled={!isValid || !dirty}
                                                     >
-                                                        {localize('Calculate')}
+                                                        <Localize translate_text="_t_Calculate_t_" />
                                                     </CalculateButton>
                                                 </Flex>
                                             </CalculatorBody>
@@ -412,39 +412,37 @@ const SwapCalculator = () => {
 
                             <RightContent>
                                 <Header as="h3" type="section-title" mb="8px">
-                                    {localize('How to calculate swap charges')}
+                                    <Localize translate_text="_t_How to calculate swap charges_t_" />
                                 </Header>
 
                                 <Text>
-                                    <Localize translate_text="For synthetic, the swap charge is calculated on an annual basis for long and short positions based on this formula:" />
+                                    <Localize translate_text="_t_For synthetic, the swap charge is calculated on an annual basis for long and short positions based on this formula:_t_" />
                                 </Text>
                                 <Text mb="2rem">
                                     <Localize
-                                        translate_text="<0>Swap charge = volume × contract size × asset price × (swap rate ÷ 100) ÷ 360</0>"
+                                        translate_text="_t_<0>Swap charge = volume × contract size × asset price × (swap rate ÷ 100) ÷ 360</0>_t_"
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>
 
                                 <Text mb="2rem">
-                                    <Localize translate_text="This gives you the swap charge in USD." />
+                                    <Localize translate_text="_t_This gives you the swap charge in USD._t_" />
                                 </Text>
 
                                 <Header as="h3" type="section-title" mb="16px">
-                                    {localize('Example calculation')}
+                                    <Localize translate_text="_t_Example calculation_t_" />
                                 </Header>
 
                                 <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
-                                        header={localize('Swap charge')}
+                                        header="_t_Swap charge_t_"
                                         header_style={header_style}
                                         style={item_style}
                                         plus
                                         class_name="swap-charge"
                                     >
                                         <Text mb="2rem">
-                                            {localize(
-                                                'Let’s say you want to keep 0.01 lots of Volatility 75 Index with an asset price of 400,000 USD and swap rate of -7.5 open for one night.',
-                                            )}
+                                            <Localize translate_text="_t_Let’s say you want to keep 0.01 lots of Volatility 75 Index with an asset price of 400,000 USD and swap rate of -7.5 open for one night._t_" />
                                         </Text>
 
                                         <Desktop>
@@ -457,12 +455,12 @@ const SwapCalculator = () => {
                                             <StyledOl>
                                                 <li>
                                                     <span>
-                                                        <Localize translate_text="The contract size is one standard lot of Volatility 75 Index = 1" />
+                                                        <Localize translate_text="_t_The contract size is one standard lot of Volatility 75 Index = 1_t_" />
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span>
-                                                        <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited." />
+                                                        <Localize translate_text="_t_If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited._t_" />
                                                     </span>
                                                 </li>
                                             </StyledOl>
@@ -470,7 +468,7 @@ const SwapCalculator = () => {
 
                                         <Text mt="1.6rem">
                                             <Localize
-                                                translate_text="So you will require a swap charge of <0>0.83 USD</0> to keep the position open for one night."
+                                                translate_text="_t_So you will require a swap charge of <0>0.83 USD</0> to keep the position open for one night._t_"
                                                 components={[<strong key={0} />]}
                                             />
                                         </Text>
@@ -486,12 +484,12 @@ const SwapCalculator = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            {localize('Go to Deriv MT5 dashboard')}
+                                            <Localize translate_text="_t_Go to Deriv MT5 dashboard_t_" />
                                         </StyledLinkButton>
                                     }
                                     {
                                         <StyledLinkButton secondary to="/trade-types/cfds/">
-                                            {localize('Learn more about swap')}
+                                            <Localize translate_text="_t_Learn more about swap_t_" />
                                         </StyledLinkButton>
                                     }
                                 </LinkWrapper>
@@ -542,7 +540,7 @@ const SwapCalculator = () => {
                                         <CalculatorForm>
                                             <CalculatorHeader>
                                                 <CalculatorLabel htmlFor="message">
-                                                    {localize('Swap charge')}
+                                                    <Localize translate_text="_t_Swap charge_t_" />
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
@@ -559,7 +557,7 @@ const SwapCalculator = () => {
                                                     mb="3.6rem"
                                                     default_option={optionItemDefault}
                                                     option_list={values.optionList}
-                                                    label={localize('Symbol')}
+                                                    label="_t_Symbol_t_"
                                                     selected_option={values.symbol}
                                                     id="symbol"
                                                     onChange={swap_currency_change_handler(
@@ -595,7 +593,7 @@ const SwapCalculator = () => {
                                                                 id="pointValue"
                                                                 type="text"
                                                                 value={values.pointValue}
-                                                                label={localize('Point value')}
+                                                                label="_t_Point value_t_"
                                                                 autoComplete="off"
                                                                 error={
                                                                     touched.pointValue &&
@@ -643,7 +641,7 @@ const SwapCalculator = () => {
                                                         type="submit"
                                                         disabled={!isValid || !dirty}
                                                     >
-                                                        {localize('Calculate')}
+                                                        <Localize translate_text="_t_Calculate_t_" />
                                                     </CalculateButton>
                                                 </Flex>
                                             </CalculatorBody>
@@ -654,43 +652,41 @@ const SwapCalculator = () => {
 
                             <RightContent>
                                 <Header as="h3" type="section-title" mb="8px">
-                                    {localize('How to calculate swap charges')}
+                                    <Localize translate_text="_t_How to calculate swap charges_t_" />
                                 </Header>
 
                                 <Text>
-                                    <Localize translate_text="For financial, the swap charge is calculated based on this formula:" />
+                                    <Localize translate_text="_t_For financial, the swap charge is calculated based on this formula:_t_" />
                                 </Text>
                                 <Text mb="2rem">
                                     <Localize
-                                        translate_text="<0>Swap charge = volume × contract size × point value × swap rate</0>"
+                                        translate_text="_t_<0>Swap charge = volume × contract size × point value × swap rate</0>_t_"
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>
 
                                 <Text mb="2rem">
-                                    <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities." />
+                                    <Localize translate_text="_t_This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities._t_" />
                                 </Text>
 
                                 <Text mb="2rem">
-                                    <Localize translate_text="For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
+                                    <Localize translate_text="_t_For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil._t_" />
                                 </Text>
 
                                 <Header as="h3" type="section-title" mb="16px">
-                                    {localize('Example calculation')}
+                                    <Localize translate_text="_t_Example calculation_t_" />
                                 </Header>
 
                                 <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
-                                        header={localize('Swap charge')}
+                                        header="_t_Swap charge_t_"
                                         header_style={header_style}
                                         style={item_style}
                                         plus
                                         class_name="swap-charge"
                                     >
                                         <Text mb="2rem">
-                                            {localize(
-                                                'Let’s say you want to keep two lots of EUR/USD with a point value of 0.00001 and swap rate of -0.12 open for one night.',
-                                            )}
+                                            <Localize translate_text="_t_Let’s say you want to keep two lots of EUR/USD with a point value of 0.00001 and swap rate of -0.12 open for one night._t_" />
                                         </Text>
 
                                         <Desktop>
@@ -703,17 +699,17 @@ const SwapCalculator = () => {
                                             <StyledOl>
                                                 <li>
                                                     <span>
-                                                        <Localize translate_text="One standard lot for Forex = 100,000 units" />
+                                                        <Localize translate_text="_t_One standard lot for Forex = 100,000 units_t_" />
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span>
-                                                        <Localize translate_text="The point value is derivied from the current digits of the asset. In this example, the digit is 5, so the point value is 0.00001." />
+                                                        <Localize translate_text="_t_The point value is derivied from the current digits of the asset. In this example, the digit is 5, so the point value is 0.00001._t_" />
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span>
-                                                        <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited." />
+                                                        <Localize translate_text="_t_If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited._t_" />
                                                     </span>
                                                 </li>
                                             </StyledOl>
@@ -721,7 +717,7 @@ const SwapCalculator = () => {
 
                                         <Text mt="1.6rem">
                                             <Localize
-                                                translate_text="So you will require a swap charge of <0>0.24 USD</0> to keep the position open for one night."
+                                                translate_text="_t_So you will require a swap charge of <0>0.24 USD</0> to keep the position open for one night._t_"
                                                 components={[<strong key={0} />]}
                                             />
                                         </Text>
@@ -735,10 +731,10 @@ const SwapCalculator = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {localize('Go to Deriv MT5 dashboard')}
+                                        <Localize translate_text="_t_Go to Deriv MT5 dashboard_t_" />
                                     </StyledLinkButton>
                                     <StyledLinkButton secondary to="/trade-types/cfds/">
-                                        {localize('Learn more about swap')}
+                                        <Localize translate_text="_t_Learn more about swap_t_" />
                                     </StyledLinkButton>
                                 </LinkWrapper>
                             </RightContent>

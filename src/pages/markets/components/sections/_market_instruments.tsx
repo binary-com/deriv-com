@@ -39,6 +39,8 @@ export type MarketInstrumentsElement = {
 export type MarketInstrumentsProps = {
     market_content: MarketInstrumentsElement
 }
+
+// TODO check /home/niloofar/Desktop/deriv-com/src/pages/landing/forex-trading/components/_table-btn.tsx translation when you changed the TString type
 const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
     const [is_mobile] = useBrowserResize()
     return (

@@ -1,17 +1,19 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
-import payment_data from './_payment-data'
+import payment_data, { PaymentDataProps } from './_payment-data'
 import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
+import { TString } from 'types/generics'
+import { MetaAttributesType } from 'types/page.types'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
 
@@ -19,11 +21,10 @@ type StyledTableType = {
     has_note: boolean
 }
 
-const meta_attributes = {
-    og_title: localize('Payment Methods | Deposits and withdrawals | Deriv'),
-    og_description: localize(
-        'We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!',
-    ),
+const meta_attributes: MetaAttributesType = {
+    og_title: '_t_Payment Methods | Deposits and withdrawals | Deriv_t_',
+    og_description:
+        '_t_We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!_t_',
 }
 
 const AccordionContainer = styled.div`
@@ -127,43 +128,6 @@ const MobileWrapper = styled.div`
     }
 `
 
-type LocaleType = { language?: string }
-
-type PaymentType = {
-    method?: ReactElement
-    currencies?: string | ReactElement
-    min_max_deposit?: string | ReactElement
-    min_max_withdrawal?: string | ReactElement
-    deposit_time?: string | ReactElement
-    withdrawal_time?: string | ReactElement
-    description?: string | ReactElement
-    name?: string | ReactElement
-    reference?: string
-    locales?: string[]
-    url?: string
-    reference_link?: ReactElement
-    minimum_withdrawal?: number | ReactElement
-}
-export type PaymentProps = {
-    payment_data?: PaymentType
-    locale?: { locale?: LocaleType }
-    is_crypto?: boolean
-    is_row?: boolean
-    is_eu?: boolean
-    is_fiat_onramp?: boolean
-    is_dp2p?: boolean
-}
-export type PaymentDataProps = {
-    name?: ReactElement
-    note?: ReactElement
-    is_crypto?: boolean
-    is_row?: boolean
-    is_eu?: boolean
-    is_dp2p?: boolean
-    is_fiat_onramp?: boolean
-    locale?: LocaleType
-    data?: Array<PaymentType>
-}
 export type PaymentMethodsProps = {
     locale?: PaymentDataProps
     pd?: PaymentDataProps
@@ -226,62 +190,64 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 
     return (
         <>
-            {payment_method_data.map((pdata) => {
-                const styles = is_mobile
-                    ? {
-                          padding: '0 16px 0',
-                          position: 'relative',
-                          background: 'var(--color-white)',
-                          paddingBottom: pdata.note ? '5rem' : '2.2rem',
-                      }
-                    : {
-                          padding: '0 48px 24px',
-                          position: 'relative',
-                          background: 'var(--color-white)',
-                          paddingBottom: pdata.note ? '5rem' : '2.2rem',
-                      }
-                if (pdata.is_row && is_eu) {
-                    return []
-                }
-                if (pdata.is_eu && !is_eu) {
-                    return []
-                }
+            {payment_method_data &&
+                payment_method_data.map((pdata) => {
+                    const styles = is_mobile
+                        ? {
+                              padding: '0 16px 0',
+                              position: 'relative',
+                              background: 'var(--color-white)',
+                              paddingBottom: pdata.note ? '5rem' : '2.2rem',
+                          }
+                        : {
+                              padding: '0 48px 24px',
+                              position: 'relative',
+                              background: 'var(--color-white)',
+                              paddingBottom: pdata.note ? '5rem' : '2.2rem',
+                          }
+                    if (pdata.is_row && is_eu) {
+                        return []
+                    }
+                    if (pdata.is_eu && !is_eu) {
+                        return []
+                    }
 
-                if (pdata.is_crypto && is_eu) {
-                    return []
-                }
-                if (pdata.is_fiat_onramp && is_eu) {
-                    return []
-                } else if (pdata.is_dp2p && !is_p2p_allowed_country) {
-                    return null
-                } else
-                    return (
-                        <Accordion has_single_state>
-                            <AccordionItem
-                                key={pdata.class_name}
-                                content_style={content_style}
-                                header_style={header_style}
-                                style={styles}
-                                parent_style={parent_style}
-                                header={pdata.name}
-                                class_name={pdata.class_name}
-                            >
-                                <DesktopWrapper>
-                                    <DisplayAccordianItem pd={pdata} locale={locale} />
-                                </DesktopWrapper>
-                                <MobileWrapper>
-                                    <MobileAccordianItem pd={pdata} locale={locale} />
-                                </MobileWrapper>
-                            </AccordionItem>
-                        </Accordion>
-                    )
-            })}
+                    if (pdata.is_crypto && is_eu) {
+                        return []
+                    }
+                    if (pdata.is_fiat_onramp && is_eu) {
+                        return []
+                    } else if (pdata.is_dp2p && !is_p2p_allowed_country) {
+                        return null
+                    } else
+                        return (
+                            <Accordion has_single_state>
+                                <AccordionItem
+                                    key={pdata.class_name}
+                                    content_style={content_style}
+                                    header_style={header_style}
+                                    style={styles}
+                                    parent_style={parent_style}
+                                    header={pdata.name}
+                                    class_name={pdata.class_name}
+                                >
+                                    <DesktopWrapper>
+                                        <DisplayAccordianItem pd={pdata} locale={locale} />
+                                    </DesktopWrapper>
+                                    <MobileWrapper>
+                                        <MobileAccordianItem pd={pdata} locale={locale} />
+                                    </MobileWrapper>
+                                </AccordionItem>
+                            </Accordion>
+                        )
+                })}
         </>
     )
 }
 
 const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
     const parse_to_integer = parseInt('2')
+    const reference_header_subtitle: TString = pd.is_dp2p ? '_t_More info_t_' : '_t_Reference_t_'
 
     return (
         <>
@@ -291,20 +257,32 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                         <Thead>
                             <Tr>
                                 <Th>
-                                    <BoldText>{localize('Method')}</BoldText>
+                                    <BoldText>
+                                        <Localize translate_text="_t_Method_t_" />
+                                    </BoldText>
                                 </Th>
                                 <Th colSpan={pd.is_fiat_onramp && parse_to_integer}>
-                                    <BoldText>{localize('Currencies')}</BoldText>
+                                    <BoldText>
+                                        <Localize translate_text="_t_Currencies_t_" />
+                                    </BoldText>
                                 </Th>
                                 <Th style={pd.is_fiat_onramp && { width: '180px' }}>
                                     {pd.is_crypto || pd.is_fiat_onramp ? (
-                                        <BoldText>{localize('Min deposit')}</BoldText>
+                                        <BoldText>
+                                            <Localize translate_text="_t_Min deposit_t_" />
+                                        </BoldText>
                                     ) : pd.is_dp2p ? (
-                                        <BoldText>{localize('Supported Deriv accounts')}</BoldText>
+                                        <BoldText>
+                                            <Localize translate_text="_t_Supported Deriv accounts_t_" />
+                                        </BoldText>
                                     ) : (
                                         <React.Fragment>
-                                            <BoldText>{localize('Min-max')}</BoldText>
-                                            <BoldText>{localize('deposit')}</BoldText>
+                                            <BoldText>
+                                                <Localize translate_text="_t_Min-max_t_" />
+                                            </BoldText>
+                                            <BoldText>
+                                                <Localize translate_text="_t_deposit_t_" />
+                                            </BoldText>
                                         </React.Fragment>
                                     )}
                                 </Th>
@@ -312,47 +290,69 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                                     <Th>
                                         {pd.is_crypto ? (
                                             <>
-                                                <BoldText>{localize('Min withdrawal')}</BoldText>
+                                                <BoldText>
+                                                    <Localize translate_text="_t_Min withdrawal_t_" />
+                                                </BoldText>
                                             </>
                                         ) : pd.is_dp2p ? (
-                                            <BoldText>{localize('Daily deposit limits')}</BoldText>
+                                            <BoldText>
+                                                <Localize translate_text="_t_Daily deposit limits_t_" />
+                                            </BoldText>
                                         ) : (
                                             <React.Fragment>
-                                                <BoldText>{localize('Min-max')}</BoldText>
-                                                <BoldText>{localize('withdrawal')}</BoldText>
+                                                <BoldText>
+                                                    <Localize translate_text="_t_Min-max_t_" />
+                                                </BoldText>
+                                                <BoldText>
+                                                    <Localize translate_text="_t_withdrawal_t_" />
+                                                </BoldText>
                                             </React.Fragment>
                                         )}
                                     </Th>
                                 )}
                                 {pd.is_fiat_onramp ? (
                                     <Th colSpan={2}>
-                                        <BoldText>{localize('Deposit processing time')}</BoldText>
+                                        <BoldText>
+                                            <Localize translate_text="_t_Deposit processing time_t_" />
+                                        </BoldText>
                                     </Th>
                                 ) : pd.is_dp2p ? (
                                     <Th>
-                                        <BoldText>{localize('Daily withdrawal limits')}</BoldText>
+                                        <BoldText>
+                                            <Localize translate_text="_t_Daily withdrawal limits_t_" />
+                                        </BoldText>
                                     </Th>
                                 ) : (
                                     <Th>
-                                        <BoldText>{localize('Deposit')}</BoldText>
-                                        <BoldText>{localize('processing time')}</BoldText>
+                                        <BoldText>
+                                            <Localize translate_text="_t_Deposit_t_" />
+                                        </BoldText>
+                                        <BoldText>
+                                            <Localize translate_text="_t_processing time_t_" />
+                                        </BoldText>
                                     </Th>
                                 )}
 
                                 {!pd.is_fiat_onramp && !pd.is_dp2p && (
                                     <Th>
-                                        <BoldText>{localize('Withdrawal')}</BoldText>
-                                        <BoldText>{localize('processing time')}</BoldText>
+                                        <BoldText>
+                                            <Localize translate_text="_t_Withdrawal_t_" />
+                                        </BoldText>
+                                        <BoldText>
+                                            <Localize translate_text="_t_processing time_t_" />
+                                        </BoldText>
                                     </Th>
                                 )}
                                 {pd.is_dp2p && (
                                     <Th>
-                                        <BoldText>{localize('Processing time')}</BoldText>
+                                        <BoldText>
+                                            <Localize translate_text="_t_Processing time_t_" />
+                                        </BoldText>
                                     </Th>
                                 )}
                                 <Th>
                                     <BoldText>
-                                        {pd.is_dp2p ? localize('More info') : localize('Reference')}
+                                        <Localize translate_text={reference_header_subtitle} />
                                     </BoldText>
                                 </Th>
                                 <Th />
@@ -377,7 +377,8 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
             {pd.note && (
                 <Notes>
                     <Text weight="500" size="var(--text-size-xs)">
-                        {localize('Note:')} {pd.note}
+                        <Localize translate_text="_t_Note:_t_" />{' '}
+                        <Localize translate_text={pd.note} />
                     </Text>
                 </Notes>
             )}
@@ -394,7 +395,7 @@ const PaymentMethodSection = ({ locale }: PaymentMethodsProps) => {
                 </AccordionContainer>
                 <Header mt="1.6rem" type="paragraph-2" align="start" weight="normal">
                     <Localize
-                        translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
+                        translate_text="_t_<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control._t_"
                         components={[<strong key={0} />]}
                     />
                 </Header>
@@ -408,16 +409,14 @@ const PaymentMethods = () => {
     return (
         <Layout type="payment-methods">
             <SEO
-                title={localize('Payment Methods | Deposits and withdrawals | Deriv')}
-                description={localize(
-                    'We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!',
-                )}
+                title="_t_Payment Methods | Deposits and withdrawals | Deriv_t_"
+                description="_t_We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!_t_"
                 meta_attributes={meta_attributes}
             />
             <SectionTopContainer>
                 <TopContainer direction="column" width="100%">
                     <Header as="h1" type="hero" align="center" mb="1.6rem">
-                        {localize('Payment methods')}
+                        <Localize translate_text="_t_Payment methods_t_" />
                     </Header>
                     <Header
                         align="center"
@@ -426,7 +425,7 @@ const PaymentMethods = () => {
                         weight="normal"
                         mobile_max_width="326px"
                     >
-                        {localize('We support a variety of deposit and withdrawal options.')}
+                        <Localize translate_text="_t_We support a variety of deposit and withdrawal options._t_" />
                     </Header>
                     <Header
                         align="center"
@@ -435,7 +434,7 @@ const PaymentMethods = () => {
                         weight="normal"
                         mobile_max_width="326px"
                     >
-                        {localize('Learn more about our payment methods and how to use them.')}
+                        <Localize translate_text="_t_Learn more about our payment methods and how to use them._t_" />
                     </Header>
                 </TopContainer>
             </SectionTopContainer>

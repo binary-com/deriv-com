@@ -14,6 +14,7 @@ import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import useRegion from 'components/hooks/use-region'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -31,6 +32,8 @@ type CryptoContent = {
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
     const { is_eu } = useRegion()
+    const { is_deriv_go } = usePlatformQueryParam()
+
     const crypto_content: CryptoContent[] = [
         {
             src: Leverage,
@@ -75,13 +78,11 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                 }
             />
             <SimpleSteps
-                header={
-                    <Localize translate_text="_t_Start trading cryptocurrencies on Deriv in 3 simple steps_t_" />
-                }
+                header="_t_Start trading cryptocurrencies on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="cryptocurrencies" />
+            {!is_deriv_go && <OtherMarkets except="cryptocurrencies" />}
         </>
     )
 }

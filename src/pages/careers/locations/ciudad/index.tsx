@@ -4,7 +4,7 @@ import { ciudad } from '../../_model/_locations/_locations'
 import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
@@ -24,10 +24,8 @@ const CiudadDelEste = () => {
         <Layout type="careers">
             {
                 <SEO
-                    title={localize('Ciudad del Este – Our office | Deriv')}
-                    description={localize(
-                        'Join great marketing minds at Deriv’s office in Ciudad del Este, Paraguay. Be part of a vibrant team that develops the company’s growth in the region. ',
-                    )}
+                    title="_t_Ciudad del Este – Our office | Deriv_t_"
+                    description="_t_Join great marketing minds at Deriv’s office in Ciudad del Este, Paraguay. Be part of a vibrant team that develops the company’s growth in the region._t_"
                 />
             }
             <NewLocationLayout location={ciudad} images={images} />

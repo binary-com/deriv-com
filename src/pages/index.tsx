@@ -12,7 +12,7 @@ import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import TRADE_DUMMY from 'images/common/trade-type-dummy.png'
 import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
@@ -76,12 +76,8 @@ const Home = () => {
     return (
         <Layout type="transparent" margin_top="0">
             <SEO
-                title={localize(
-                    'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
-                )}
-                description={localize(
-                    'Deriv: an online trading platform available 24/7 with a wide selection of derivatives.',
-                )}
+                title="_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_"
+                description="_t_Deriv: an online trading platform available 24/7 with a wide selection of derivatives._t_"
                 has_organization_schema
             />
             <Hero />

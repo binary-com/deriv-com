@@ -7,10 +7,11 @@ import { Container, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { TString } from 'types/generics'
 
 type TablebtnProps = {
-    btnlabel: string
-    text: string
+    btnlabel: TString
+    text: TString
 }
 
 const StyledSection = styled(SectionContainer)`
@@ -51,7 +52,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
         },
         content: [
             {
-                title: <Localize translate_text="Swap-free pairs" />,
+                title: <Localize translate_text="_t_Swap-free pairs_t_" />,
                 component: <SwapFreePairs />,
             },
         ],
@@ -61,7 +62,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
         <StyledSection background="var(--color-grey-30)" padding="3rem 0">
             <StyledContainer direction="column">
                 <StyledText width="100%" size="1.7rem">
-                    {text}
+                    <Localize translate_text={text} />
                 </StyledText>
                 <MarketInstruments market_content={swap_free_pairs} />
                 <TryButton
@@ -70,9 +71,9 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
                     rel="noopener noreferrer nofollow"
                     type="submit"
                     secondary
-                    to={'/signup/'}
+                    to="/signup/"
                 >
-                    {btnlabel}
+                    <Localize translate_text={btnlabel} />
                 </TryButton>
             </StyledContainer>
         </StyledSection>

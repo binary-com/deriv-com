@@ -1,10 +1,11 @@
-import React, { ReactNode } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import Info from 'images/svg/trade-types/info.svg'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 const StyledNote = styled(Flex)`
     padding: 1.6rem 4rem 1.6rem 2.4rem;
@@ -21,7 +22,7 @@ const StyledNote = styled(Flex)`
 `
 
 type NotesProps = {
-    text: string | ReactNode
+    text: TString
 }
 
 const Notes = ({ text }: NotesProps) => {
@@ -31,13 +32,11 @@ const Notes = ({ text }: NotesProps) => {
                 <img src={Info} alt="info" />
             </div>
 
-            <Text ml="1.6rem">{text}</Text>
+            <Text ml="1.6rem">
+                <Localize translate_text={text} />
+            </Text>
         </StyledNote>
     )
-}
-
-Notes.propTypes = {
-    text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 export default Notes

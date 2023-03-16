@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import kid_data from './data/_kid_data'
 import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
 import { Flex } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
 
@@ -78,7 +78,9 @@ const RTS27_28 = () => (
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
-                <span>{localize('RTS28 2021')}</span>
+                <span>
+                    <Localize translate_text="_t_RTS28 2021_t_" />
+                </span>
             </FlexText>
             <FlexText
                 color="red"
@@ -88,7 +90,9 @@ const RTS27_28 = () => (
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
-                <span>{localize('RTS28 2020')}</span>
+                <span>
+                    <Localize translate_text="_t_RTS28 2020_t_" />
+                </span>
             </FlexText>
         </EdgeFlex>
     </>
@@ -120,7 +124,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
     return (
         <Accordion has_single_state id="kid">
             <AccordionItem
-                header={localize('Financial disclosure report')}
+                header="_t_Financial disclosure report_t_"
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}
@@ -128,9 +132,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 class_name="disclosure-report"
             >
                 <Text>
-                    {localize(
-                        'Deriv Investments (Europe) Limited has prepared the Financial disclosure report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant.',
-                    )}
+                    <Localize translate_text="_t_Deriv Investments (Europe) Limited has prepared the Financial disclosure report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant._t_" />
                 </Text>
                 <Flex mt="1.8rem">
                     <FlexText_Pillar
@@ -140,12 +142,14 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                         color="red"
                     >
                         <img src={PDFIcon} alt="pdf icon black" />
-                        <span>{localize('Financial Disclosures Annual Report 2021')}</span>
+                        <span>
+                            <Localize translate_text="_t_Financial Disclosures Annual Report 2021_t_" />
+                        </span>
                     </FlexText_Pillar>
                 </Flex>
             </AccordionItem>
             <AccordionItem
-                header={localize('Key information documents')}
+                header="_t_Key information documents_t_"
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}
@@ -153,9 +157,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 class_name="key-information"
             >
                 <Text>
-                    {localize(
-                        'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains, and losses of these products and to help you compare them with other products.',
-                    )}
+                    <Localize translate_text="_t_These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains, and losses of these products and to help you compare them with other products._t_" />
                 </Text>
                 <Flex>
                     <EdgeFlex mt="1.8rem">
@@ -173,14 +175,16 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                                 m="1.6rem 2.4rem"
                             >
                                 <img src={PDFIcon} alt="pdf icon black" />
-                                <span>{data.title}</span>
+                                <span>
+                                    <Localize translate_text={data.title} />
+                                </span>
                             </FlexText>
                         ))}
                     </EdgeFlex>
                 </Flex>
             </AccordionItem>
             <AccordionItem
-                header={localize('RTS')}
+                header="_t_RTS_t_"
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}

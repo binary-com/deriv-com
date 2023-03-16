@@ -73,9 +73,10 @@ const endpointValidation = (values: ValuesType) => {
     const clients_country = trimSpaces(values ? values.clients_country.toString() : '')
     const server_url_error =
         validation.required(server_url) ||
-        validation.url(server_url, 'Please enter a valid server URL')
+        validation.url(server_url, '_t_Please enter a valid server URL_t_')
     const app_id_error =
-        validation.required(app_id) || validation.number(app_id, 'Please enter a valid app ID')
+        validation.required(app_id) ||
+        validation.number(app_id, '_t_Please enter a valid app ID_t_')
     const clients_country_error =
         validation.required(clients_country) || validation.alphabetic(clients_country)
 
@@ -141,7 +142,7 @@ const Endpoint = () => {
 
     return (
         <Layout type="static" margin_top={'0'}>
-            <SEO title="Endpoint" description="Change deriv API endpoint." no_index />
+            <SEO title="_t_Endpoint_t_" description="_t_Change deriv API endpoint._t_" no_index />
             <StyledContainer justify="center" align="center" direction="column">
                 <Header as="h2" type="page-title" align="center" mt="80px">
                     Change API endpoint
@@ -193,7 +194,7 @@ const Endpoint = () => {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     type="text"
-                                    label="Server URL"
+                                    label="_t_Server URL_t_"
                                     background="white"
                                     placeholder={'e.g. green.binaryws.com'}
                                 />
@@ -206,7 +207,7 @@ const Endpoint = () => {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     type="text"
-                                    label="App ID"
+                                    label="_t_App ID_t_"
                                     background="white"
                                     placeholder={'e.g. 9999'}
                                 />
@@ -219,7 +220,7 @@ const Endpoint = () => {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     type="text"
-                                    label="Clients country"
+                                    label="_t_Clients country_t_"
                                     background="white"
                                     placeholder={'e.g. mt (for EU) or gb (for UK) or za (for P2P)'}
                                 />

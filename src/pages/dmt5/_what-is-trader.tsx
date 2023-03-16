@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 
 const Section = styled(SectionContainer)`
@@ -34,12 +34,10 @@ const WhatIsTrader = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="1.2rem" as="h2" type="page-title">
-                {localize('What is Deriv MT5')}
+                <Localize translate_text="_t_What is Deriv MT5_t_" />
             </StyledHeader>
             <StyledText max_width="79.2rem" align="center">
-                {localize(
-                    'Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders.',
-                )}
+                <Localize translate_text="_t_Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders._t_" />
             </StyledText>
         </Section>
     )

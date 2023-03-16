@@ -20,10 +20,8 @@ const DerivedFxPage = () => {
     return (
         <Layout type="noNav">
             <SEO
-                description={localize(
-                    '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices._t_',
-                )}
-                title={localize('_t_Derived Fx | Derived Fx demo account | Deriv_t_')}
+                description="_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices._t_"
+                title="_t_Derived Fx | Derived Fx demo account | Deriv_t_"
             />
             <DerivedFXHero
                 title={localize('_t_Derived_t_')}

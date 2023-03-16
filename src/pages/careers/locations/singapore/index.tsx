@@ -5,7 +5,7 @@ import { singapore } from '../../_model/_locations/_locations'
 import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
@@ -39,10 +39,8 @@ const Singapore = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Singapore – Our office | Deriv')}
-                description={localize(
-                    'Join great trading minds at Deriv in Singapore and build your career in developing online trading solutions, particularly for CFD trading.',
-                )}
+                title="_t_Singapore – Our office | Deriv_t_"
+                description="_t_Join great trading minds at Deriv in Singapore and build your career in developing online trading solutions, particularly for CFD trading._t_"
             />
             <NewLocationLayout location={singapore} images={images} />
         </Layout>

@@ -4,14 +4,14 @@ import Everything from '../_everything'
 import Hero from './_hero'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 const FAQ = Loadable(() => import('../_faq'))
 const LoveTrading = Loadable(() => import('./_love-trading'))
 
 const Interim = () => {
     return (
         <Layout type="interim" interim_type="deriv">
-            <SEO title={localize('Interim | Deriv')} no_index />
+            <SEO title="_t_Interim | Deriv_t_" no_index />
             <Hero />
             <Everything />
             <FAQ />

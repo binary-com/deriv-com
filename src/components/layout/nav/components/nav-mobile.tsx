@@ -10,7 +10,7 @@ import {
 } from '../styles/nav-styles'
 import { handleGetTrading } from '../util/nav-methods'
 import device from 'themes/device'
-import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
+import { LocalizedLink, Localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
 import { OffCanvasMenu, useMoveOffCanvasMenu } from 'components/elements'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
@@ -91,7 +91,7 @@ const NavMobile = ({
                                     id="dm-hero-signup"
                                     primary
                                 >
-                                    {localize('Get Trading')}
+                                    <Localize translate_text="_t_Get Trading_t_" />
                                 </StyledButton>
                             ) : (
                                 <StyledButton
@@ -100,7 +100,7 @@ const NavMobile = ({
                                     onClick={handleLogin}
                                     primary
                                 >
-                                    {localize('Log in')}
+                                    <Localize translate_text="_t_Log in_t_" />
                                 </StyledButton>
                             )}
                         </>

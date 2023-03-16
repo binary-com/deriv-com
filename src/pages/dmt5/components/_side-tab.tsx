@@ -6,20 +6,24 @@ import { Text, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
 import AppStore from 'images/svg/dmt5/app-store.svg'
 import GooglePlay from 'images/svg/dmt5/google-play.svg'
-import { LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
+import { TString } from 'types/generics'
 
 type ContentProps = {
     children?: React.ReactNode
     selected?: boolean
     is_reverse?: boolean | string
 }
+
 type TProps = {
-    label?: string
-    description?: React.ReactElement
+    label?: TString
+    description?: TString
+    description_components?: React.ReactElement[]
     item_width?: string
     mobile_item_width?: string
     class_name?: string
 }
+
 type TabProps = {
     children?: React.ReactNode
     is_reverse?: string
@@ -150,6 +154,7 @@ const SideTab = ({
     const [selected_tab, setSelectedTab] = React.useState(0)
     const [old_parent_tab, setOldParentTab] = React.useState(parent_tab)
     const prevParentRef = React.useRef()
+
     React.useEffect(() => {
         prevParentRef.current = old_parent_tab
         if (old_parent_tab !== parent_tab) setSelectedTab(0)
@@ -183,6 +188,7 @@ const SideTab = ({
                                 item_width,
                                 mobile_item_width,
                                 class_name,
+                                description_components,
                             },
                         } = child
 
@@ -195,14 +201,21 @@ const SideTab = ({
                                     onClick={() => selectTab(index)}
                                     className={class_name}
                                 >
-                                    <Text weight="bold">{label}</Text>
+                                    <Text weight="bold">
+                                        {label && <Localize translate_text={label} />}
+                                    </Text>
                                     <StyledText
                                         max_width={item_width || '36.4rem'}
                                         mobile_max_width={mobile_item_width || item_width}
                                         size="var(--text-size-m)"
                                         mt="0.8rem"
                                     >
-                                        {description}
+                                        {description && (
+                                            <Localize
+                                                translate_text={description}
+                                                components={description_components}
+                                            />
+                                        )}
                                     </StyledText>
                                 </TabButton>
                                 <MobileWrapper breakpoint={size.bp769}>
@@ -218,7 +231,7 @@ const SideTab = ({
                             <Flex jc="flex-start">
                                 <QueryImage
                                     data={data['qr_code']}
-                                    alt={'qr_code'}
+                                    alt="qr_code"
                                     width="108px"
                                     height="108px"
                                 />

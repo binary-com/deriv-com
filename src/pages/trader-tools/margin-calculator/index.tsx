@@ -3,20 +3,17 @@ import { Hero } from '../common/_style'
 import MarginCalculatorSection from './_margin-calculator'
 import { Container, SEO } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 
 const MarginCalculator = () => {
     return (
         <Layout>
-            <SEO
-                title={localize('Margin Calculator')}
-                description={localize('Margin Calculator')}
-            />
+            <SEO title="_t_Margin Calculator_t_" description="_t_Margin Calculator_t_" />
             <Hero jc="center" ai="center">
                 <Container>
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('Margin Calculator')}
+                        <Localize translate_text="_t_Margin Calculator_t_" />
                     </Header>
                 </Container>
             </Hero>

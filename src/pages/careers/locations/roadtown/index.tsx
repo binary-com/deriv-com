@@ -4,7 +4,7 @@ import { roadtown } from '../../_model/_locations/_locations'
 import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
@@ -27,10 +27,8 @@ const Roadtown = () => {
         <Layout type="careers">
             {
                 <SEO
-                    title={localize('Road Town, British Virgin Islands – Our team | Deriv')}
-                    description={localize(
-                        'Be part of the Deriv team at British Virgin Islands that provides compliance guidance to develop the company’s growth strategy and trading policies.',
-                    )}
+                    title="_t_Road Town, British Virgin Islands – Our team | Deriv_t_"
+                    description="_t_Be part of the Deriv team at British Virgin Islands that provides compliance guidance to develop the company’s growth strategy and trading policies._t_"
                 />
             }
 

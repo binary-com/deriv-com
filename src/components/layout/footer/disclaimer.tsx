@@ -7,8 +7,7 @@ import {
     BoldLink,
 } from './common/style'
 import { Mobile, Desktop } from 'components/containers'
-import { Localize, localize } from 'components/localization'
-import { loss_percent } from 'common/constants'
+import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
 const DisclaimerSection = () => {
@@ -20,7 +19,7 @@ const DisclaimerSection = () => {
                     <>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority, Triq L-Imdina, Zone 1, Central Business District, Birkirkara CBD 1010, Malta, under the Investment Services Act (<0>licence</0>). The registered office of Deriv Investments (Europe) Limited is at W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR9033, Malta."
+                                translate_text="_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority, Triq L-Imdina, Zone 1, Central Business District, Birkirkara CBD 1010, Malta, under the Investment Services Act (<0>licence</0>). The registered office of Deriv Investments (Europe) Limited is at W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR9033, Malta._t_"
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -33,7 +32,7 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Deriv (FX) Ltd is licensed by Labuan Financial Services Authority (<0>licence</0>). The registered office of Deriv (FX) Ltd is at F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia."
+                                translate_text="_t_Deriv (FX) Ltd is licensed by Labuan Financial Services Authority (<0>licence</0>). The registered office of Deriv (FX) Ltd is at F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia._t_"
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -52,7 +51,7 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) is at Kingston Chambers, P.O Box 173, Road Town, Tortola, British Virgin Islands."
+                                translate_text="_t_Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) is at Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands._t_"
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -65,7 +64,7 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Deriv (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission (<0>licence</0>). The registered office of Deriv (V) Ltd is at 1276 Kumul Highway, Port Vila, Vanuatu."
+                                translate_text="_t_Deriv (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission (<0>licence</0>). The registered office of Deriv (V) Ltd is at 1276 Kumul Highway, Port Vila, Vanuatu._t_"
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -77,9 +76,10 @@ const DisclaimerSection = () => {
                             />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
-                            {localize(
-                                'Deriv (SVG) LLC has a registered office at Hinds Buildings, Kingstown, St. Vincent and the Grenadines.',
-                            )}
+                            <Localize translate_text="_t_Deriv (SVG) LLC has a registered office at Hinds Buildings, Kingstown, St. Vincent and the Grenadines._t_" />
+                        </DisclaimerParagraph>
+                        <DisclaimerParagraph>
+                            <Localize translate_text="_t_Deriv Holdings (Guernsey) Limited — 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ — is the holding company for the above subsidiaries._t_" />
                         </DisclaimerParagraph>
                     </>
                 )}
@@ -87,7 +87,7 @@ const DisclaimerSection = () => {
                     <>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority, Triq l-Imdina, Zone 1, Central Business District, Birkirkara CBD 1010, Malta, under the Investments Services Act."
+                                translate_text="_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act <0>(licence)</0>. The registered office of Deriv Investments (Europe) Limited is at W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR9033, Malta._t_"
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -99,14 +99,7 @@ const DisclaimerSection = () => {
                             />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
-                            {localize(
-                                'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
-                            )}
-                        </DisclaimerParagraph>
-                        <DisclaimerParagraph>
-                            {localize(
-                                "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
-                            )}
+                            <Localize translate_text="_t_Deriv Holdings (Guernsey) Limited — 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ — is the holding company for the above subsidiary._t_" />
                         </DisclaimerParagraph>
                     </>
                 )}
@@ -115,18 +108,23 @@ const DisclaimerSection = () => {
                         {is_non_eu && !is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
+                                    <Localize translate_text="_t_Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly._t_" />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="_t_Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_"
                                         components={[
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
-                                                to="/terms-and-conditions/"
+                                                to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink key={1} target="_blank" to="/responsible/" />,
+                                            <StaticAsset
+                                                key={1}
+                                                target="_blank"
+                                                href="/tnc/risk-disclosure.pdf"
+                                            />,
+                                            <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
                                     />
                                 </DisclaimerParagraph>
@@ -135,18 +133,23 @@ const DisclaimerSection = () => {
                         {is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
+                                    <Localize translate_text="_t_Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly._t_" />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="_t_Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_"
                                         components={[
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
-                                                to="/terms-and-conditions/"
+                                                to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink key={1} target="_blank" to="/responsible/" />,
+                                            <StaticAsset
+                                                key={1}
+                                                target="_blank"
+                                                href="/tnc/risk-disclosure.pdf"
+                                            />,
+                                            <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
                                     />
                                 </DisclaimerParagraph>
@@ -155,10 +158,25 @@ const DisclaimerSection = () => {
                         {is_eu && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
+                                    <Localize translate_text="_t_Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly._t_" />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
-                                    <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                    <Localize
+                                        translate_text="_t_Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_"
+                                        components={[
+                                            <BoldLink
+                                                key={0}
+                                                target="_blank"
+                                                to="/terms-and-conditions/#clients"
+                                            />,
+                                            <StaticAsset
+                                                key={1}
+                                                target="_blank"
+                                                href="/tnc/risk-disclosure-eu.pdf"
+                                            />,
+                                            <BoldLink key={2} target="_blank" to="/responsible/" />,
+                                        ]}
+                                    />
                                 </DisclaimerParagraph>
                             </>
                         )}
@@ -167,18 +185,23 @@ const DisclaimerSection = () => {
                         {is_non_eu && !is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
+                                    <Localize translate_text="_t_Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly._t_" />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="_t_Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_"
                                         components={[
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
-                                                to="/terms-and-conditions/"
+                                                to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink key={1} target="_blank" to="/responsible/" />,
+                                            <StaticAsset
+                                                key={1}
+                                                target="_blank"
+                                                href="/tnc/risk-disclosure.pdf"
+                                            />,
+                                            <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
                                     />
                                 </DisclaimerParagraph>
@@ -187,18 +210,23 @@ const DisclaimerSection = () => {
                         {is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="Please remember that the financial products offered on this website, including contracts for difference (CFDs), carry a high level of risk and may not be suitable for all clients." />
+                                    <Localize translate_text="_t_Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly._t_" />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
                                     <Localize
-                                        translate_text="Make sure to read our <0>Terms and conditions, Risk disclosure</0>, and <1>Secure and responsible trading</1> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice."
+                                        translate_text="_t_Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_"
                                         components={[
                                             <BoldLink
                                                 key={0}
                                                 target="_blank"
-                                                to="/terms-and-conditions/"
+                                                to="/terms-and-conditions/#clients"
                                             />,
-                                            <BoldLink key={1} target="_blank" to="/responsible/" />,
+                                            <StaticAsset
+                                                key={1}
+                                                target="_blank"
+                                                href="/tnc/risk-disclosure.pdf"
+                                            />,
+                                            <BoldLink key={2} target="_blank" to="/responsible/" />,
                                         ]}
                                     />
                                 </DisclaimerParagraph>
@@ -207,10 +235,25 @@ const DisclaimerSection = () => {
                         {is_eu && (
                             <>
                                 <DisclaimerParagraph no_margin>
-                                    <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
+                                    <Localize translate_text="_t_Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly._t_" />
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph>
-                                    <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                    <Localize
+                                        translate_text="_t_Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_"
+                                        components={[
+                                            <BoldLink
+                                                key={0}
+                                                target="_blank"
+                                                to="/terms-and-conditions/#clients"
+                                            />,
+                                            <StaticAsset
+                                                key={1}
+                                                target="_blank"
+                                                href="/tnc/risk-disclosure-eu.pdf"
+                                            />,
+                                            <BoldLink key={2} target="_blank" to="/responsible/" />,
+                                        ]}
+                                    />
                                 </DisclaimerParagraph>
                             </>
                         )}

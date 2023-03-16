@@ -1,13 +1,15 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements/typography'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type SellingPointsType = {
-    title: string | ReactElement
-    subtitle: ReactElement
+    title?: TString
+    untranslated_title?: string
+    subtitle: TString
 }
 
 const HeadingText = styled(Text)`
@@ -48,18 +50,9 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const selling_points: SellingPointsType[] = [
-    {
-        title: '100+',
-        subtitle: <Localize translate_text="tradable assets" />,
-    },
-    {
-        title: '24/7',
-        subtitle: <Localize translate_text="trading" />,
-    },
-    {
-        title: <Localize translate_text="Zero" />,
-        subtitle: <Localize translate_text="commission" />,
-    },
+    { untranslated_title: '100+', subtitle: '_t_tradable assets_t_' },
+    { untranslated_title: '24/7', subtitle: '_t_trading_t_' },
+    { title: '_t_Zero_t_', subtitle: '_t_commission_t_' },
 ]
 
 const SellingPoints = () => {
@@ -67,11 +60,19 @@ const SellingPoints = () => {
         <StyledSectionContainer padding="40px 0" background="grey-25">
             <Container>
                 <Flex tablet_direction="column">
-                    {selling_points.map((selling_point, index) => {
+                    {selling_points.map(({ title, subtitle, untranslated_title }) => {
                         return (
-                            <StyledFlex tablet_direction="column" key={index}>
-                                <HeadingText>{selling_point.title}</HeadingText>
-                                <SubText>{selling_point.subtitle}</SubText>
+                            <StyledFlex tablet_direction="column" key={title}>
+                                <HeadingText>
+                                    {untranslated_title ? (
+                                        untranslated_title
+                                    ) : (
+                                        <Localize translate_text={title} />
+                                    )}
+                                </HeadingText>
+                                <SubText>
+                                    <Localize translate_text={subtitle} />
+                                </SubText>
                             </StyledFlex>
                         )
                     })}

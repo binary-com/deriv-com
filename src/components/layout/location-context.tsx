@@ -1,6 +1,5 @@
 import React, { Dispatch, PropsWithChildren, SetStateAction } from 'react'
 import type { ModalPayloadType } from './layout'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type LocationProviderProps = {
     has_mounted?: boolean
@@ -8,15 +7,14 @@ type LocationProviderProps = {
     toggleModal?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-export const LocationContext = React.createContext({})
+export const LocationContext: React.Context<LocationProviderProps> = React.createContext({})
 
 export const LocationProvider = ({
     children,
+    has_mounted = false,
     setModalPayload,
     toggleModal,
 }: PropsWithChildren<LocationProviderProps>) => {
-    const [has_mounted] = usePageLoaded()
-
     return (
         <LocationContext.Provider
             value={{

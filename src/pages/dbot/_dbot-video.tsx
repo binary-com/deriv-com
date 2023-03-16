@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
@@ -112,10 +112,12 @@ const GotoLiveWrapper = styled.div`
 const DtraderTabs = () => {
     const data = useStaticQuery(query)
     const [current_step, setStep] = React.useState('step_1')
+
     const clickHandler = (incoming_step: string) => {
         if (incoming_step === current_step) return
         setStep(incoming_step)
     }
+
     return (
         <Container>
             <TabsWrapper>
@@ -130,7 +132,7 @@ const DtraderTabs = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_1')}
                     >
-                        {localize('1. Select your asset')}
+                        <Localize translate_text="_t_1. Select your asset_t_" />
                     </Step>
                 </Tab>
                 <Tab>
@@ -143,7 +145,7 @@ const DtraderTabs = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_2')}
                     >
-                        {localize('2. Set purchase conditions')}
+                        <Localize translate_text="_t_2. Set purchase conditions_t_" />
                     </Step>
                 </Tab>
                 <Tab>
@@ -156,7 +158,7 @@ const DtraderTabs = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_3')}
                     >
-                        {localize('3. Set restart conditions')}
+                        <Localize translate_text="_t_3. Set restart conditions_t_" />
                     </Step>
                 </Tab>
                 <Tab>
@@ -169,7 +171,7 @@ const DtraderTabs = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_4')}
                     >
-                        {localize('4. Run bot')}
+                        <Localize translate_text="_t_4. Run bot_t_" />
                     </Step>
                 </Tab>
                 <Tab>
@@ -182,7 +184,7 @@ const DtraderTabs = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_5')}
                     >
-                        {localize('5. Check profit')}
+                        <Localize translate_text="_t_5. Check profit_t_" />
                     </Step>
                 </Tab>
                 <GotoLiveWrapper>
@@ -193,7 +195,7 @@ const DtraderTabs = () => {
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                     >
-                        {localize('Go to live demo')}
+                        <Localize translate_text="_t_Go to live demo_t_" />
                     </GoToLiveDemo>
                 </GotoLiveWrapper>
             </TabsWrapper>

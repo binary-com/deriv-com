@@ -15,6 +15,7 @@ import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 import useRegion from 'components/hooks/use-region'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type StockIndicesProps = {
     simple_step_content: SimpleStepContentElement[]
@@ -22,6 +23,7 @@ type StockIndicesProps = {
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu } = useRegion()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <div>
@@ -63,13 +65,11 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 }
             />
             <SimpleSteps
-                header={
-                    <Localize translate_text="_t_Start trading synthetics on Deriv in 3 simple steps_t_" />
-                }
+                header="_t_Start trading synthetics on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="derived" />
+            {!is_deriv_go && <OtherMarkets except="derived" />}
         </div>
     )
 }

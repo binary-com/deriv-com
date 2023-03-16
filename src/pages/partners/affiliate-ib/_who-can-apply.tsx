@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { SectionContainer, Container, Desktop } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Timeline } from 'components/elements'
 import device from 'themes/device'
@@ -210,18 +210,16 @@ const WhoCanApply = () => {
                 <Flex>
                     <WhoCanApplyWrapper>
                         <StyledHeader as="h2" size="3.2rem">
-                            {localize('Who can apply')}
+                            <Localize translate_text="_t_Who can apply_t_" />
                         </StyledHeader>
                         <ContentWrapper>
                             <ImageWrapper src={TradingExperts} alt="Trading" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
-                                    {localize('Trading experts')}
+                                    <Localize translate_text="_t_Trading experts_t_" />
                                 </Header>
                                 <Text>
-                                    {localize(
-                                        'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
-                                    )}
+                                    <Localize translate_text="_t_Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media._t_" />
                                 </Text>
                             </Content>
                         </ContentWrapper>
@@ -229,12 +227,10 @@ const WhoCanApply = () => {
                             <ImageWrapper src={SoftwareDeveloper} alt="Developers" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
-                                    {localize('Software developers')}
+                                    <Localize translate_text="_t_Software developers_t_" />
                                 </Header>
                                 <Text>
-                                    {localize(
-                                        'Develop web, desktop, and mobile applications using Deriv API.',
-                                    )}
+                                    <Localize translate_text="_t_Develop web, desktop, and mobile applications using Deriv API._t_" />
                                 </Text>
                             </Content>
                         </ContentWrapper>
@@ -242,12 +238,10 @@ const WhoCanApply = () => {
                             <ImageWrapper src={CommunityManagers} alt="Community" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
-                                    {localize('Community managers')}
+                                    <Localize translate_text="_t_Community managers_t_" />
                                 </Header>
                                 <Text>
-                                    {localize(
-                                        'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
-                                    )}
+                                    <Localize translate_text="_t_Manage an active online community that’s passionate about online trading, investing, or personal finance._t_" />
                                 </Text>
                             </Content>
                         </ContentWrapper>
@@ -257,7 +251,7 @@ const WhoCanApply = () => {
                 <Flex>
                     <HowToApply>
                         <SecondaryHeader as="h2" mb="24px" size="3.2rem">
-                            {localize('Get started easily')}
+                            <Localize translate_text="_t_Get started easily_t_" />
                         </SecondaryHeader>
                         <Timeline>
                             <Timeline.Item>
@@ -267,12 +261,10 @@ const WhoCanApply = () => {
                                     </Desktop>
                                     <GetStartedContent max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
-                                            {localize('Sign up')}
+                                            <Localize translate_text="_t_Sign up_t_" />
                                         </Header>
                                         <Text>
-                                            {localize(
-                                                'Fill out the online application form. We’ll review your application and get in touch once it’s approved.',
-                                            )}
+                                            <Localize translate_text="_t_Fill out the online application form. We’ll review your application and get in touch once it’s approved._t_" />
                                         </Text>
                                     </GetStartedContent>
                                 </HowToApplyContent>
@@ -284,12 +276,10 @@ const WhoCanApply = () => {
                                     </Desktop>
                                     <GetStartedContent max_width="32.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
-                                            {localize('Advertise')}
+                                            <Localize translate_text="_t_Advertise_t_" />
                                         </Header>
                                         <Text>
-                                            {localize(
-                                                'Use your unique affiliate link and our tried-and-tested referral tools to bring new clients to Deriv.',
-                                            )}
+                                            <Localize translate_text="_t_Use your unique affiliate link and our tried-and-tested referral tools to bring new clients to Deriv._t_" />
                                         </Text>
                                     </GetStartedContent>
                                 </HowToApplyContent>
@@ -301,12 +291,10 @@ const WhoCanApply = () => {
                                     </Desktop>
                                     <GetStartedContent max_width="32.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
-                                            {localize('Earn')}
+                                            <Localize translate_text="_t_Earn_t_" />
                                         </Header>
                                         <Text>
-                                            {localize(
-                                                'Start earning based on your chosen commission plan –– up to 45% of the total net revenue generated by your referred clients.',
-                                            )}
+                                            <Localize translate_text="_t_Start earning based on your chosen commission plan –– up to 45% of the total net revenue generated by your referred clients._t_" />
                                         </Text>
                                     </GetStartedContent>
                                 </HowToApplyContent>
@@ -324,7 +312,7 @@ const WhoCanApply = () => {
                     target="_blank"
                     type="affiliate_sign_up"
                 >
-                    {localize('Sign up')}
+                    <Localize translate_text="_t_Sign up_t_" />
                 </StyledLinkButton>
             </CenteredSection>
         </StyledSectionWrapper>

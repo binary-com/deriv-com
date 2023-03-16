@@ -2,13 +2,15 @@ import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
 import device from 'themes/device'
+import { Localize, localize } from 'components/localization'
+import { TString } from 'types/generics'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
 
 interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
     height?: string
     id?: string
-    label?: string
+    label?: TString
     label_color?: string
     label_hover_color?: string
     tablet_background?: string
@@ -213,7 +215,6 @@ const StyledLabel = styled.label<StyledLabelProps>`
 `
 
 const Input = ({
-    label = '',
     height = '',
     border = '',
     focus_border = '',
@@ -224,6 +225,7 @@ const Input = ({
     error = '',
     background = '',
     tablet_background = '',
+    label,
     handleError,
     maxLength,
     ...props
@@ -258,7 +260,7 @@ const Input = ({
                         htmlFor={id}
                         label_color={label_color}
                     >
-                        {label}
+                        <Localize translate_text={label} />
                     </StyledLabel>
                 )}
             </InputWrapper>

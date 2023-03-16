@@ -11,14 +11,16 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 
 type DBannerProps = {
     background_pattern?: string
     data?: IGatsbyImageData
     image_alt?: string
-    title?: string | JSX.Element
+    title?: TString
     is_rtl: boolean
 }
+
 const Wrapper = styled.div`
     position: relative;
     display: flex;
@@ -108,6 +110,7 @@ const TextWrapper = styled.div`
         margin-right: 60px;
     }
 `
+
 const DemoButton = styled(Button)`
     text-align: center;
     height: auto;
@@ -116,6 +119,7 @@ const DemoButton = styled(Button)`
         margin: unset;
     }
 `
+
 const StyledHeader = styled(Header)`
     max-width: 84rem;
     @media ${device.laptopM} {
@@ -127,6 +131,7 @@ const StyledHeader = styled(Header)`
         max-width: 329px;
     }
 `
+
 const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) => {
     const handleSignup = useHandleSignup()
     const { is_eu, is_row } = useRegion()
@@ -153,16 +158,16 @@ const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) =
             ></BackgroundWrapper>
             <TextWrapper>
                 <StyledHeader as="h4" align="center" color="white" size="5.6rem" mb="3.2rem">
-                    {title}
+                    <Localize translate_text={title} />
                 </StyledHeader>
 
                 {is_logged_in ? (
                     <DemoButton onClick={handleGetTrading} secondary>
-                        <Localize translate_text="Get Trading" />
+                        <Localize translate_text="_t_Get Trading_t_" />
                     </DemoButton>
                 ) : (
                     <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
-                        <Localize translate_text="Create free demo account" />
+                        <Localize translate_text="_t_Create free demo account_t_" />
                     </DemoButton>
                 )}
             </TextWrapper>

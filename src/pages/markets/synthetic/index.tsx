@@ -8,9 +8,11 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const Markets = () => {
     const { is_eu } = useRegion()
+    const { is_deriv_go } = usePlatformQueryParam()
     const description_eu = localize(
         '_t_Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite._t_',
     )
@@ -20,10 +22,8 @@ const Markets = () => {
     return (
         <Layout type="noNav">
             <SEO
-                description={localize(
-                    "_t_Deriv's proprietary synthetics are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms._t_",
-                )}
-                title={localize('_t_Synthetic indices | Volatility indices | Deriv_t_')}
+                description="_t_Deriv's proprietary synthetics are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms._t_"
+                title="_t_Synthetic indices | Volatility indices | Deriv_t_"
             />
 
             <DerivedFXHero
@@ -32,7 +32,7 @@ const Markets = () => {
             />
             <NavTab route_from={'synthetic'} route_offset={50} />
             <SyntheticIndices simple_step_content={simple_step_content_synthetic} />
-            <Signup appearance={Appearances.public} />
+            {!is_deriv_go && <Signup appearance={Appearances.public} />}
         </Layout>
     )
 }

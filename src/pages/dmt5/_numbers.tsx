@@ -5,10 +5,11 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 
 type NumbersContentType = {
-    title: React.ReactElement
-    subtitle: React.ReactElement
+    title: TString
+    subtitle: TString
 }
 
 const NumberSection = styled(SectionContainer)`
@@ -78,32 +79,15 @@ const Number = styled(Flex)`
 `
 
 const numbers_content: NumbersContentType[] = [
-    {
-        title: <Localize translate_text="330K+" />,
-        subtitle: <Localize translate_text="clients on Deriv MT5" />,
-    },
-    {
-        title: <Localize translate_text="100+" />,
-        subtitle: <Localize translate_text="tradable assets" />,
-    },
-    {
-        title: <Localize translate_text="24/7" />,
-        subtitle: <Localize translate_text="trading" />,
-    },
+    { title: '_t_330K+_t_', subtitle: '_t_clients on Deriv MT5_t_' },
+    { title: '_t_100+_t_', subtitle: '_t_tradable assets_t_' },
+    { title: '_t_24/7_t_', subtitle: '_t_trading_t_' },
 ]
+
 const numbers_content_eu: NumbersContentType[] = [
-    {
-        title: <Localize translate_text="475K+" />,
-        subtitle: <Localize translate_text="active traders" />,
-    },
-    {
-        title: <Localize translate_text="150+" />,
-        subtitle: <Localize translate_text="tradable assets" />,
-    },
-    {
-        title: <Localize translate_text="24/7" />,
-        subtitle: <Localize translate_text="trading" />,
-    },
+    { title: '_t_475K+_t_', subtitle: '_t_active traders_t_' },
+    { title: '_t_150+_t_', subtitle: '_t_tradable assets_t_' },
+    { title: '_t_24/7_t_', subtitle: '_t_trading_t_' },
 ]
 
 const Numbers = () => {
@@ -113,13 +97,15 @@ const Numbers = () => {
     return (
         <NumberSection>
             <Flex tablet_direction="column" max_width="1200px" jc="space-between">
-                {contents.map((content, index) => (
-                    <Number key={index}>
+                {contents.map(({ title, subtitle }) => (
+                    <Number key={title}>
                         <StyledHeader as="p" type="page-title">
-                            {content.title}
+                            <Localize translate_text={title} />
                         </StyledHeader>
                         <Splitter />
-                        <StyledText>{content.subtitle}</StyledText>
+                        <StyledText>
+                            <Localize translate_text={subtitle} />
+                        </StyledText>
                     </Number>
                 ))}
             </Flex>

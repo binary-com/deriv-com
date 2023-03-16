@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { ContentType } from './index'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, ImageWithDireciton, Text } from 'components/elements'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 // svg
 import Arrow from 'images/svg/deriv-go/arrow.svg'
@@ -78,11 +78,11 @@ const other_apps: ContentType[] = [
     {
         id: 0,
         icon: DMT5,
-        title: <Localize translate_text="Deriv MT5" />,
-        content: <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading app." />,
+        title: '_t_Deriv MT5_t_',
+        content: '_t_Trade on Deriv MT5, the all-in-one CFD trading app._t_',
         url: (
             <LearnMore to="/dmt5/">
-                <Localize translate_text="Learn more" />
+                <Localize translate_text="_t_Learn more_t_" />
                 <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
@@ -91,13 +91,11 @@ const other_apps: ContentType[] = [
     {
         id: 1,
         icon: DerivX,
-        title: <Localize translate_text="Deriv X" />,
-        content: (
-            <Localize translate_text="Customise your trading experience and trade CFDs on the Deriv X app." />
-        ),
+        title: '_t_Deriv X_t_',
+        content: '_t_Customise your trading experience and trade CFDs on the Deriv X app._t_',
         url: (
             <LearnMore to="/derivx/">
-                <Localize translate_text="Learn more" />
+                <Localize translate_text="_t_Learn more_t_" />
                 <ImageWithDireciton src={Arrow} alt="arrow" />
             </LearnMore>
         ),
@@ -112,28 +110,31 @@ const OtherApps = () => {
         <div>
             <StyledSectionContainer tablet={{ p: '4rem 0' }}>
                 <Container fd="column">
-                    {is_eu ? (
-                        <StyledHeader as="h2" type="heading-2" align="center">
-                            {localize('Check out our other app')}
-                        </StyledHeader>
-                    ) : (
-                        <StyledHeader as="h2" type="heading-2" align="center">
-                            {localize('Check out our other apps')}
-                        </StyledHeader>
-                    )}
+                    <StyledHeader as="h2" type="heading-2" align="center">
+                        <Localize
+                            translate_text={
+                                is_eu
+                                    ? '_t_Check out our other app_t_'
+                                    : '_t_Check out our other apps_t_'
+                            }
+                        />
+                    </StyledHeader>
+
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">
-                        {other_apps.map((item, index) => {
+                        {other_apps.map(({ content, id, image_alt, title, url, icon }, index) => {
                             if (is_eu && index == 1) return
                             return (
-                                <Card key={item.id}>
+                                <Card key={id}>
                                     <div>
-                                        <img src={item.icon} alt={item.image_alt} />
+                                        <img src={icon} alt={image_alt} />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
-                                        {item.title}
+                                        <Localize translate_text={title} />
                                     </Header>
-                                    <StyledText>{item.content}</StyledText>
-                                    <div>{item.url}</div>
+                                    <StyledText>
+                                        <Localize translate_text={content} />
+                                    </StyledText>
+                                    <div>{url}</div>
                                 </Card>
                             )
                         })}

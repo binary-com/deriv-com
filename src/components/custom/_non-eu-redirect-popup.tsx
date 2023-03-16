@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Button } from 'components/form'
 import { Text } from 'components/elements'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { deriv_com_url } from 'common/constants'
 import type { PopupModalTypes } from 'types/generics'
@@ -89,12 +89,12 @@ const NonEuRedirectPopUp = ({ is_open, setShowNonEuPopup }: PopupModalTypes) => 
             <ModalWrapper>
                 <ModalCard>
                     <StyledText>
-                        <Localize translate_text="It seems you’re not in the EU, so we’re taking you to our website for non-EU visitors, where you can log in or sign up (if you don’t have a Deriv account)." />
+                        <Localize translate_text="_t_It seems you’re not in the EU, so we’re taking you to our website for non-EU visitors, where you can log in or sign up (if you don’t have a Deriv account)._t_" />
                     </StyledText>
                     <ButtonWrapper>
                         <StyledButtonText>
                             <Button secondary onClick={RedirectNonEuLogin}>
-                                {localize('Take me there')}
+                                <Localize translate_text="_t_Take me there_t_" />
                             </Button>
                         </StyledButtonText>
                     </ButtonWrapper>

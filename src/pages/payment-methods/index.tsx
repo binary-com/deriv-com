@@ -6,14 +6,15 @@ import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
+import { Text, Header, Divider, Accordion, AccordionItem, DotLoader } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
-import { TString } from 'types/generics'
+import { isBrowser } from 'common/utility'
 import { MetaAttributesType } from 'types/page.types'
+import { TString } from 'types/generics'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
 
@@ -145,26 +146,35 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 
     useEffect(() => {
         // First we check if the `data` exists or not, Then we manipulate the local data with the response from the server.
-        if (data) {
-            // Here we map over the local `payment_data` variable to manipulate it with the server response.
-            const updated_payment_data = payment_data.map((paymentData) => {
-                if (!paymentData.is_crypto) return paymentData
 
-                const updated_data = paymentData.data.map((value) => ({
-                    ...value,
-                    ...data.currencies_config[value.name],
-                }))
+        if (is_eu) {
+            setPaymentMethodData(
+                payment_method_data.filter((payment_method) => payment_method.is_eu),
+            )
+        } else {
+            if (data) {
+                const filtered_payment_methods = payment_method_data.filter(
+                    (payment_method) => !payment_method.is_eu,
+                )
 
-                return {
-                    ...paymentData,
-                    data: updated_data,
-                }
-            })
+                const updated_payment_data = filtered_payment_methods.map((payment_method) => {
+                    if (!payment_method.is_crypto) return payment_method
 
-            // Here we update the `payment_method_data` state with the newly updated `payment_data`.
-            setPaymentMethodData(updated_payment_data)
+                    const updated_data = payment_method.data.map((value) => ({
+                        ...value,
+                        ...data.currencies_config[value.name],
+                    }))
+
+                    return {
+                        ...payment_method,
+                        data: updated_data,
+                    }
+                })
+
+                setPaymentMethodData(updated_payment_data)
+            }
         }
-    }, [data])
+    }, [data, is_eu])
 
     const content_style = is_mobile
         ? {
@@ -188,59 +198,61 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
           }
     const parent_style = { marginBottom: is_mobile ? '24px' : '2.4rem' }
 
+    if (!isBrowser()) {
+        return <DotLoader />
+    }
     return (
         <>
-            {payment_method_data &&
-                payment_method_data.map((pdata) => {
-                    const styles = is_mobile
-                        ? {
-                              padding: '0 16px 0',
-                              position: 'relative',
-                              background: 'var(--color-white)',
-                              paddingBottom: pdata.note ? '5rem' : '2.2rem',
-                          }
-                        : {
-                              padding: '0 48px 24px',
-                              position: 'relative',
-                              background: 'var(--color-white)',
-                              paddingBottom: pdata.note ? '5rem' : '2.2rem',
-                          }
-                    if (pdata.is_row && is_eu) {
-                        return []
-                    }
-                    if (pdata.is_eu && !is_eu) {
-                        return []
-                    }
+            {payment_method_data.map((pdata) => {
+                const styles = is_mobile
+                    ? {
+                          padding: '0 16px 0',
+                          position: 'relative',
+                          background: 'var(--color-white)',
+                          paddingBottom: pdata.note ? '5rem' : '3.8rem',
+                      }
+                    : {
+                          padding: '0 48px 24px',
+                          position: 'relative',
+                          background: 'var(--color-white)',
+                          paddingBottom: pdata.note ? '5rem' : '3.8rem',
+                      }
+                if (pdata.is_row && is_eu) {
+                    return []
+                }
+                if (pdata.is_eu && !is_eu) {
+                    return []
+                }
 
-                    if (pdata.is_crypto && is_eu) {
-                        return []
-                    }
-                    if (pdata.is_fiat_onramp && is_eu) {
-                        return []
-                    } else if (pdata.is_dp2p && !is_p2p_allowed_country) {
-                        return null
-                    } else
-                        return (
-                            <Accordion has_single_state>
-                                <AccordionItem
-                                    key={pdata.class_name}
-                                    content_style={content_style}
-                                    header_style={header_style}
-                                    style={styles}
-                                    parent_style={parent_style}
-                                    header={pdata.name}
-                                    class_name={pdata.class_name}
-                                >
-                                    <DesktopWrapper>
-                                        <DisplayAccordianItem pd={pdata} locale={locale} />
-                                    </DesktopWrapper>
-                                    <MobileWrapper>
-                                        <MobileAccordianItem pd={pdata} locale={locale} />
-                                    </MobileWrapper>
-                                </AccordionItem>
-                            </Accordion>
-                        )
-                })}
+                if (pdata.is_crypto && is_eu) {
+                    return []
+                }
+                if (pdata.is_fiat_onramp && is_eu) {
+                    return []
+                } else if (pdata.is_dp2p && !is_p2p_allowed_country) {
+                    return null
+                } else
+                    return (
+                        <Accordion has_single_state>
+                            <AccordionItem
+                                key={pdata.class_name}
+                                content_style={content_style}
+                                header_style={header_style}
+                                style={styles}
+                                parent_style={parent_style}
+                                header={pdata.name}
+                                class_name={pdata.class_name}
+                            >
+                                <DesktopWrapper>
+                                    <DisplayAccordianItem pd={pdata} locale={locale} />
+                                </DesktopWrapper>
+                                <MobileWrapper>
+                                    <MobileAccordianItem pd={pdata} locale={locale} />
+                                </MobileWrapper>
+                            </AccordionItem>
+                        </Accordion>
+                    )
+            })}
         </>
     )
 }

@@ -128,7 +128,7 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
         )
     }
     const [is_expanded, setExpanded] = useState(false)
-    const [height, setHeight] = useState(null)
+    const [height, setHeight] = useState<number | string>(0)
 
     useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
     useEffect(() => {
@@ -138,17 +138,15 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
 
     const deployer = <img src={is_expanded ? Minus : Plus} alt="Minus" height="16" width="16" />
 
-    const expanded_state = is_expanded ? true : false
-
     const current_arrow = child?.props.arrow_thin ? (
-        <Arrow src={Chevron} alt="Chevron" width="32" height="32" expanded={expanded_state} />
+        <Arrow src={Chevron} alt="Chevron" width="32" height="32" expanded={is_expanded} />
     ) : (
         <ThickArrow
             src={ChevronThick}
             alt="Chevron thick"
             width="32"
             height="32"
-            expanded={expanded_state}
+            expanded={is_expanded}
         />
     )
 
@@ -299,7 +297,7 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
                             overflow: 'hidden',
                             /* prettier-ignore */
                             transition: `height ${TRANSITION_DURATION}ms ease`,
-                            height: height,
+                            height,
                             ...child?.props.content_style,
                         }}
                     >

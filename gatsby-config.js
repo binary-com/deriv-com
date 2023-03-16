@@ -30,14 +30,14 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        'gatsby-plugin-react-helmet',
-        {
-            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
-            options: {
-                siteUrl: `${site_url}`,
-                noQueryString: true,
-            },
-        },
+        // 'gatsby-plugin-react-helmet',
+        // {
+        //     resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+        //     options: {
+        //         siteUrl: `${site_url}`,
+        //         noQueryString: true,
+        //     },
+        // },
         'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-source-filesystem',
@@ -315,27 +315,27 @@ module.exports = {
                 duration: 0,
             },
         },
-        {
-            resolve: `gatsby-plugin-create-client-paths`,
-            options: {
-                prefixes: [
-                    `/markets/forex/*`,
-                    `/markets/synthetic/*`,
-                    `/markets/basket-indices/*`,
-                    `/markets/derived-fx/*`,
-                    `/markets/stock/*`,
-                    `/markets/cryptocurrencies/*`,
-                    `/markets/commodities/*`,
-                ],
-            },
-        },
+        // {
+        //     resolve: `gatsby-plugin-create-client-paths`,
+        //     options: {
+        //         prefixes: [
+        //             `/markets/forex/*`,
+        //             `/markets/synthetic/*`,
+        //             `/markets/basket-indices/*`,
+        //             `/markets/derived-fx/*`,
+        //             `/markets/stock/*`,
+        //             `/markets/cryptocurrencies/*`,
+        //             `/markets/commodities/*`,
+        //         ],
+        //     },
+        // },
         'gatsby-plugin-use-query-params',
-        {
-            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-            options: {
-                analyzerMode: 'disabled',
-                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
-            },
-        },
+        // {
+        //     resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+        //     options: {
+        //         analyzerMode: 'disabled',
+        //         generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+        //     },
+        // },
     ],
 }

@@ -245,13 +245,13 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                           padding: '0 16px 0',
                           position: 'relative',
                           background: 'var(--color-white)',
-                          paddingBottom: pdata.note ? '5rem' : '2.2rem',
+                          paddingBottom: pdata.note ? '5rem' : '3.8rem',
                       }
                     : {
                           padding: '0 48px 24px',
                           position: 'relative',
                           background: 'var(--color-white)',
-                          paddingBottom: pdata.note ? '5rem' : '2.2rem',
+                          paddingBottom: pdata.note ? '5rem' : '3.8rem',
                       }
                 if (pdata.is_row && is_eu) {
                     return []

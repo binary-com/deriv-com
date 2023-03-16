@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { ReactElement } from 'react'
-import { Box, CssGrid, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import { Box, CssGrid, Flex } from 'components/containers'
 import device from 'themes/device'
 
 type DescriptionsProps = {
@@ -133,22 +133,27 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
         grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
     }
 `
-export const DerivedMarketsList = styled.div<MarketsListProps>`
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+export const DerivedMarketsList = styled(CssGrid)<MarketsListProps>`
+    ${({ flex }) => flex && 'display:flex;'};
     border-left: 1px solid var(--color-grey-22);
-    border-right: var(--solid-grey-22);
+    border-right: ${({ has_right_border }) =>
+        has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
+    grid-template-columns: ${({ col }) => `repeat(${col ?? 2}, 1fr)`};
     width: 100%;
-    height: 272px;
-    padding: 24px;
-    gap: 10px;
+    height: fit-content;
+    padding: ${({ padding }) => (padding ? padding : '24px')};
+    gap: ${({ gap }) => (gap ? gap : '12px')};
 
     @media ${device.tabletL} {
-        height: 212px;
+        grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
+        display: grid;
+        min-height: 76px;
     }
+
     @media ${device.mobileL} {
-        padding: 16px 8px;
+        grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
+        ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
+        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '')};
     }
 `
 
@@ -211,6 +216,13 @@ export const StyledText = styled(Text)<StyledTextProps>`
         font-size: 14px;
     }
 `
+export const SymbolText = styled(Header)`
+    font-weight: normal;
+    @media ${device.tabletL} {
+        max-width: 100px;
+        max-height: 28px;
+    }
+`
 
 export const SymbolContainer = styled(Flex)`
     width: fit-content;
@@ -238,14 +250,6 @@ export const SymbolContainer = styled(Flex)`
         ${Text} {
             font-size: 12px;
         }
-    }
-`
-export const SymbolText = styled(Header)`
-    font-weight: normal;
-
-    @media ${device.tabletL} {
-        max-width: 100px;
-        max-height: 28px;
     }
 `
 

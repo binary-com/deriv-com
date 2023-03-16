@@ -297,41 +297,41 @@ const MobileExpandedList = ({
                     )}
 
                     {/* reference row */}
-                    <StyledRow jc="space-between" ai="center">
-                        <StyledItemDiv>
-                            <Header as="p" type="subtitle-2">
-                                {is_dp2p ? localize('More info') : localize('Reference')}
-                            </Header>
-                        </StyledItemDiv>
+                    {(payment_data?.reference || payment_data?.reference_link) && (
+                        <StyledRow jc="space-between" ai="center">
+                            <StyledItemDiv>
+                                <Header as="p" type="subtitle-2">
+                                    {is_dp2p ? localize('More info') : localize('Reference')}
+                                </Header>
+                            </StyledItemDiv>
 
-                        <StyledKeyDiv>
-                            <>
-                                {payment_data.reference ? (
-                                    <RefIcon
-                                        href={`/payment-methods/${
-                                            payment_data.locales?.includes(locale?.locale?.language)
-                                                ? locale?.locale?.language +
-                                                  '/' +
-                                                  payment_data.reference
-                                                : payment_data.reference
-                                        }`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <StyledPDF src={PDF} alt="PDF" />
-                                    </RefIcon>
-                                ) : payment_data.reference_link ? (
-                                    <StyledRefLink jc="flex-end">
-                                        {payment_data.reference_link}
-                                    </StyledRefLink>
-                                ) : (
-                                    <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
-                                        -
-                                    </ValueText>
-                                )}
-                            </>
-                        </StyledKeyDiv>
-                    </StyledRow>
+                            <StyledKeyDiv>
+                                <>
+                                    {payment_data.reference ? (
+                                        <RefIcon
+                                            href={`/payment-methods/${
+                                                payment_data.locales?.includes(
+                                                    locale?.locale?.language,
+                                                )
+                                                    ? locale?.locale?.language +
+                                                      '/' +
+                                                      payment_data.reference
+                                                    : payment_data.reference
+                                            }`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <StyledPDF src={PDF} alt="PDF" />
+                                        </RefIcon>
+                                    ) : (
+                                        <StyledRefLink jc="flex-end">
+                                            {payment_data.reference_link}
+                                        </StyledRefLink>
+                                    )}
+                                </>
+                            </StyledKeyDiv>
+                        </StyledRow>
+                    )}
                     {payment_data.description && (
                         <Flex p="16px 0" fd="column">
                             <Header as="p" type="paragraph-1" weight="normal">

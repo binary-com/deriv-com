@@ -92,7 +92,7 @@ const StepperView: React.FC<TProps> = ({ items, default_step = 0, onStepChanged 
                 </UlStyle>
             </ItemsWrapper>
             <ImageWrapper>
-                <QueryImage data={items[selected].image} alt={items[selected].alt} />
+                <QueryImage data={items[selected]?.image} alt={items[selected]?.alt} />
             </ImageWrapper>
         </Wrapper>
     )

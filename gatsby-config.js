@@ -29,7 +29,6 @@ module.exports = {
         `https://static.deriv.com/scripts/cookie.js`,
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
-    trailingSlash: "never",
     plugins: [
         'gatsby-plugin-react-helmet',
         {
@@ -303,7 +302,6 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-anchor-links',
         {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {
@@ -315,18 +313,21 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
+                duration: 0,
             },
         },
         {
-            resolve: '@directus/gatsby-source-directus',
+            resolve: `gatsby-plugin-create-client-paths`,
             options: {
-                url: 'https://deriv-academy.directus.app',
-                auth: {
-                    token: process.env.DIRECTUS_AUTH_TOKEN,
-                },
-                dev: {
-                    refresh: '5s',
-                },
+                prefixes: [
+                    `/markets/forex/*`,
+                    `/markets/synthetic/*`,
+                    `/markets/basket-indices/*`,
+                    `/markets/derived-fx/*`,
+                    `/markets/stock/*`,
+                    `/markets/cryptocurrencies/*`,
+                    `/markets/commodities/*`,
+                ],
             },
         },
         'gatsby-plugin-use-query-params',

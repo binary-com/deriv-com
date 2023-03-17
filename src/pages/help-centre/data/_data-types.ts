@@ -17,6 +17,7 @@ export type TTranslationComponents = {
 
 type TLocalize = {
     translation_text?: TString
+    eu_translation_text?: TString
     translation_components?: TTranslationComponents
     img?: TImage
 }
@@ -54,4 +55,22 @@ export type TQuestionsData = {
     category: TString
     hide_for_eu?: boolean
     questions: TQuestions[]
+}
+
+export type TTranslatedQuestions = {
+    sub_category?: string
+    category: string
+    label: string
+    question: string
+    answer?: TAnswer
+    renderProp?: () => ReactNode
+    hide_for_non_eu?: boolean
+    hide_for_eu?: boolean
+}
+
+export type TTranslatedQuestionsData = {
+    section: string
+    category: string
+    hide_for_eu?: boolean
+    questions: TTranslatedQuestions[]
 }

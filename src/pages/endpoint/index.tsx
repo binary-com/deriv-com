@@ -123,7 +123,7 @@ const Endpoint = () => {
         setWebsiteStatus()
         handleStatus(setStatus, 'Config has been reset successfully')
         // TODO: if there is a change requires reload in the future
-        // window.location.reload()
+        window.location.reload()
     }
     const endpointSubmission = (values: ValuesType, actions: ActionsType) => {
         actions.setSubmitting(true)
@@ -211,6 +211,7 @@ const Endpoint = () => {
                                     placeholder={'e.g. 9999'}
                                 />
                                 <StyledInput
+                                    readOnly
                                     name="clients_country"
                                     error={errors.clients_country}
                                     value={values.clients_country}

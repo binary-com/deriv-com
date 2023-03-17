@@ -5,7 +5,7 @@ import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 type DefaultFooterProps = {
-    is_eu?: boolean
+    is_margin?: boolean
 }
 
 type DisclaimerParagraphProps = {
@@ -19,23 +19,23 @@ export const DefaultFooter = styled.footer<DefaultFooterProps>`
     margin: 0 auto;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
-    margin-bottom: ${(props) => props.is_eu && '7.3rem'};
+    margin-bottom: ${({ is_margin }) => is_margin && '7.3rem'};
     padding-bottom: 1.6rem;
 
     @media (max-width: 1090px) {
-        margin-bottom: ${({ is_eu }) => is_eu && '9rem'};
+        margin-bottom: ${({ is_margin }) => is_margin && '9rem'};
     }
     @media (max-width: 991px) {
-        margin-bottom: ${({ is_eu }) => is_eu && '11rem'};
+        margin-bottom: ${({ is_margin }) => is_margin && '11rem'};
     }
     @media (max-width: 826px) {
-        margin-bottom: ${({ is_eu }) => is_eu && '12.2rem'};
+        margin-bottom: ${({ is_margin }) => is_margin && '12.2rem'};
     }
     @media (max-width: 710px) {
-        margin-bottom: ${({ is_eu }) => is_eu && '10.6rem'};
+        margin-bottom: ${({ is_margin }) => is_margin && '10.6rem'};
     }
     @media (max-width: 538px) {
-        margin-bottom: ${({ is_eu }) => is_eu && '13.8rem'};
+        margin-bottom: ${({ is_margin }) => is_margin && '13.8rem'};
     }
 
     ${Container} {
@@ -122,12 +122,6 @@ export const Link = styled(StyledLink)`
     font-size: var(--text-size-xs);
     line-height: 1.5;
 `
-export const AcademyWrapper = styled.div`
-    color: var(--color-red-1);
-    font-size: var(--text-size-xs);
-    line-height: 1.5;
-    margin-top: 10px;
-`
 
 export const LinkWrapper = styled.div`
     margin-top: 1.6rem;
@@ -168,6 +162,7 @@ export const shared_css = css`
 
     :hover {
         text-decoration: underline;
+        color: var(--color-red);
     }
     @media ${device.tabletL} {
         font-size: 12px;

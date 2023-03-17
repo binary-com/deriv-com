@@ -154,10 +154,10 @@ export const synthetic_cfds: MarketInstrumentsElement = {
 
 export const synthetic_cfds_eu: MarketInstrumentsElement = {
     has_global_accordion: true,
-    // template: 2,
+    template: 3,
     markets_list: {
-        col: 3,
-        tablet_col: 3,
+        col: 2,
+        tablet_col: 2,
         mobile_col: 2,
     },
     content: [

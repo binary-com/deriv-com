@@ -4,7 +4,7 @@ import {
     AsiaOceania,
     BasketIndicesCfds,
     BasketIndicesCommodities,
-    ContinuousIndices,
+    ContinuousIndicesOptions,
     DailyResetIndices,
     EnergyOptions,
     Europe,
@@ -18,7 +18,7 @@ import {
     AsiaOceaniaDetails,
     BasketFXDetails,
     BasketCommoditiesDetails,
-    ContinuousIndicesDetails,
+    ContinuousIndicesOptionsDetails,
     DailyResetIndicesDetails,
     EuropeDetails,
     JumpIndicesDetails,
@@ -360,8 +360,8 @@ export const synthetic_options: Options = {
             {
                 id: 'continuous-indices',
                 title: <Localize translate_text="Continuous indices" />,
-                component: <ContinuousIndices />,
-                details: <ContinuousIndicesDetails />,
+                component: <ContinuousIndicesOptions />,
+                details: <ContinuousIndicesOptionsDetails />,
             },
             {
                 id: 'jump-indices',

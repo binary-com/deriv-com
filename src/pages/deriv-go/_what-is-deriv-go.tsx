@@ -103,7 +103,7 @@ const WhatIsDerivGo = () => {
                         <Localize translate_text="What is Deriv GO" />
                     </StyledHeader>
                     <StyledText mt="16px" align="center" weight="100">
-                        <Localize translate_text="Deriv GO is our mobile app optimised for trading multipliers on the go. Trade on forex, synthetic indices, and cryptocurrencies, and maximise your potential profit without risking more than your stake." />
+                        <Localize translate_text="Deriv GO is our mobile app optimised for trading multipliers on the go. Trade on forex, derived indices, and cryptocurrencies, and maximise your potential profit without risking more than your stake." />
                     </StyledText>
                 </Flex>
             </Container>

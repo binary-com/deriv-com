@@ -65,7 +65,7 @@ type DerivGoPortalType = {
 
 const derivGoPortalData: DerivGoPortalType = {
     paragraph: (
-        <Localize translate_text="Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
+        <Localize translate_text="Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building and suggestions on what to build next." />
     ),
     frame: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn?hide_header=1',
     link: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn',

@@ -14,7 +14,7 @@ const StartTrading = () => {
         <>
             <StartTradingBg>
                 <SmallContainer direction="column" ai="flex-start">
-                    {is_mobile_or_tablet ? (
+                    {!is_mobile_or_tablet ? (
                         <Header as="h3" type="section-title" mb="4rem">
                             {localize('Start trading CFDs on Deriv')}
                         </Header>

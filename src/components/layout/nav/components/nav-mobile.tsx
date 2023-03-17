@@ -84,29 +84,26 @@ const NavMobile = ({
                     {is_auth_checked && (
                         <>
                             {!hide_language_switcher && <LanguageSwitcher is_high_nav />}
-                            {!hide_signup_login && (
-                                <>
-                                    {is_logged_in ? (
-                                        <StyledButton
-                                            disabled={is_region_loading}
-                                            onClick={handleGetTrading}
-                                            id="dm-hero-signup"
-                                            primary
-                                        >
-                                            {localize('Get Trading')}
-                                        </StyledButton>
-                                    ) : (
-                                        <StyledButton
-                                            disabled={is_region_loading}
-                                            id="dm-nav-login-button"
-                                            onClick={handleLogin}
-                                            primary
-                                        >
-                                            {localize('Log in')}
-                                        </StyledButton>
-                                    )}
-                                </>
-                            )}
+                            {!hide_signup_login &&
+                                (is_logged_in ? (
+                                    <StyledButton
+                                        disabled={is_region_loading}
+                                        onClick={handleGetTrading}
+                                        id="dm-hero-signup"
+                                        primary
+                                    >
+                                        {localize('Get Trading')}
+                                    </StyledButton>
+                                ) : (
+                                    <StyledButton
+                                        disabled={is_region_loading}
+                                        id="dm-nav-login-button"
+                                        onClick={handleLogin}
+                                        primary
+                                    >
+                                        {localize('Log in')}
+                                    </StyledButton>
+                                ))}
                         </>
                     )}
                 </LeftSection>

@@ -169,9 +169,9 @@ const ContentWrapper = styled.div`
 
 const CardHeader = styled(Header)`
     line-height: 44px;
-
     @media ${device.tabletL} {
         font-size: 1.75rem;
+        line-height: 20px;
     }
 `
 

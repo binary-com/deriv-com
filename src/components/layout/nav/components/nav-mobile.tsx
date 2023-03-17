@@ -56,7 +56,7 @@ const NavMobile = ({
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
     const handleLogin = useHandleLogin()
     const { is_region_loading } = useRegion()
-    const [is_logged_in] = useAuthCheck()
+    const [is_logged_in, is_auth_checked] = useAuthCheck()
     const is_rtl = useIsRtl()
 
     return (
@@ -81,27 +81,31 @@ const NavMobile = ({
                 </LogoWrapper>
 
                 <LeftSection>
-                    {!hide_language_switcher && <LanguageSwitcher is_high_nav />}
-                    {!hide_signup_login && (
+                    {is_auth_checked && (
                         <>
-                            {is_logged_in ? (
-                                <StyledButton
-                                    disabled={is_region_loading}
-                                    onClick={handleGetTrading}
-                                    id="dm-hero-signup"
-                                    primary
-                                >
-                                    {localize('Get Trading')}
-                                </StyledButton>
-                            ) : (
-                                <StyledButton
-                                    disabled={is_region_loading}
-                                    id="dm-nav-login-button"
-                                    onClick={handleLogin}
-                                    primary
-                                >
-                                    {localize('Log in')}
-                                </StyledButton>
+                            {!hide_language_switcher && <LanguageSwitcher is_high_nav />}
+                            {!hide_signup_login && (
+                                <>
+                                    {is_logged_in ? (
+                                        <StyledButton
+                                            disabled={is_region_loading}
+                                            onClick={handleGetTrading}
+                                            id="dm-hero-signup"
+                                            primary
+                                        >
+                                            {localize('Get Trading')}
+                                        </StyledButton>
+                                    ) : (
+                                        <StyledButton
+                                            disabled={is_region_loading}
+                                            id="dm-nav-login-button"
+                                            onClick={handleLogin}
+                                            primary
+                                        >
+                                            {localize('Log in')}
+                                        </StyledButton>
+                                    )}
+                                </>
                             )}
                         </>
                     )}

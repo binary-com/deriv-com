@@ -208,7 +208,7 @@ const DerivAffiliateProgramme = () => {
                         )}
                     </SubtitleHeader>
                 </TitleWrapper>
-                <ComissionPlanContainer>
+                <ComissionPlanContainer background="transparent">
                     <StyledHeader as="h4" type="main-paragraph">
                         {localize('Choose a commission plan:')}
                     </StyledHeader>

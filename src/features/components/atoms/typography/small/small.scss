@@ -2,4 +2,5 @@
 
 .small {
     @include font-size($small-font-sizes);
+    line-height: 14px;
 }

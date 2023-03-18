@@ -2,4 +2,5 @@
 
 .page-title {
     @include font-size($h2-font-sizes);
+    line-height: 40px;
 }

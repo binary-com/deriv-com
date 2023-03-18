@@ -2,4 +2,5 @@
 
 .hero {
     @include font-size($main-landing-title-font-sizes);
+    line-height: 50px;
 }

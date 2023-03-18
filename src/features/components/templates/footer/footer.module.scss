@@ -1,0 +1,12 @@
+@use 'features/styles/mixins' as *;
+@import 'features/styles/variables';
+
+.footer_grid {
+    display: grid;
+    inline-size: 100%;
+    grid-template-columns: 2fr;
+
+    @include media(tablet-wide) {
+        grid-template-columns: 1fr;
+    }
+}

@@ -2,4 +2,5 @@
 
 .text {
     @include font-size($p-font-sizes);
+    line-height: 16px;
 }

@@ -2,4 +2,5 @@
 
 .sub-text {
     @include font-size($small-p-font-sizes);
+    line-height: 14px;
 }

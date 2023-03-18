@@ -25,12 +25,14 @@ const Box = <T extends React.ElementType>({
     padding_block,
     padding_inline,
     innerRef,
+    bgcolor,
     ...rest
 }: BoxProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof BoxProps<T>>) => {
     const Component = as || 'div'
 
     const classnames = clsx({
         [className]: className,
+        [`bg-color-${bgcolor}`]: bgcolor,
         [`margin-${margin}`]: margin,
         [`margin_inline-${margin_inline}`]: margin_inline,
         [`margin_block-${margin_block}`]: margin_block,

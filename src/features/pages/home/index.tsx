@@ -1,13 +1,12 @@
 import React from 'react'
 import HomeHero from './hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
-import LayoutComponent from 'features/components/templates/layout-component'
+import LayoutComponent from 'features/components/templates/page'
 import { SEO } from 'components/containers'
 import { localize } from 'components/localization'
 import MarketsFold from 'pages/home/_markets_fold'
 import useRegion from 'components/hooks/use-region'
 import { Appearances } from 'components/custom/signup'
-import Footer from 'components/layout/footer'
 import {
     OurPlatforms,
     Signup,
@@ -16,6 +15,7 @@ import {
     P2PHomeBanner,
 } from 'pages/home/_lazy-load'
 import MainNav from 'features/components/templates/navigation/main-nav'
+import Footer from 'features/components/templates/footer'
 
 const HomePage = () => {
     useOpenLiveChat(true)

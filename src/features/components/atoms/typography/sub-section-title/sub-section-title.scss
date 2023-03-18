@@ -2,4 +2,5 @@
 
 .sub-section-title {
     @include font-size($h4-font-sizes);
+    line-height: 25px;
 }

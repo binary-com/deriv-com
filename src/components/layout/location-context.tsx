@@ -8,7 +8,7 @@ type LocationProviderProps = {
     toggleModal?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-export const LocationContext = React.createContext({})
+export const LocationContext = React.createContext<LocationProviderProps>({})
 
 export const LocationProvider = ({
     children,

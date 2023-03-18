@@ -1,6 +1,6 @@
 import React, { ReactNode, Ref } from 'react'
 import Loadable from '@loadable/component'
-import styled from 'styled-components'
+import styled, { StyleSheetManager } from 'styled-components'
 import { LocationProvider } from './location-context'
 import NavStatic from './nav/nav-static'
 import Nav from './nav/nav'
@@ -21,6 +21,8 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import usePopup from 'components/hooks/use-popup'
 import apiManager from 'features/websocket'
 import { isBrowser } from 'common/utility'
+import GlobalStyle from 'themes/global-style'
+import { plugin } from 'themes/plugin'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -149,29 +151,34 @@ const Layout = ({
             toggleModal={toggleModal}
             setModalPayload={setModalPayload}
         >
-            {Navigation}
-            <Main margin_top={margin_top} is_static={is_static}>
-                {children}
-            </Main>
-            {FooterNav}
-            <EURedirect
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-                to={modal_payload.to}
-                target={modal_payload.target}
-                rel={modal_payload.rel}
-                ref={modal_payload.ref}
-                aria_label={modal_payload.aria_label}
-            />
-            <BrowserUpdateAlertModal />
-            {show_non_eu_popup && (
-                <NonEuRedirectPopUp
-                    is_open={show_non_eu_popup}
-                    setShowNonEuPopup={setShowNonEuPopup}
-                />
-            )}
-            <LayoutOverlay is_ppc={is_ppc} />
+            <GlobalStyle />
+            <StyleSheetManager stylisPlugins={[plugin]}>
+                <>
+                    {Navigation}
+                    <Main margin_top={margin_top} is_static={is_static}>
+                        {children}
+                    </Main>
+                    {FooterNav}
+                    <EURedirect
+                        toggle={toggleModal}
+                        is_open={show_modal}
+                        closeModal={closeModal}
+                        to={modal_payload.to}
+                        target={modal_payload.target}
+                        rel={modal_payload.rel}
+                        ref={modal_payload.ref}
+                        aria_label={modal_payload.aria_label}
+                    />
+                    <BrowserUpdateAlertModal />
+                    {show_non_eu_popup && (
+                        <NonEuRedirectPopUp
+                            is_open={show_non_eu_popup}
+                            setShowNonEuPopup={setShowNonEuPopup}
+                        />
+                    )}
+                    <LayoutOverlay is_ppc={is_ppc} />
+                </>
+            </StyleSheetManager>
         </LocationProvider>
     )
 }

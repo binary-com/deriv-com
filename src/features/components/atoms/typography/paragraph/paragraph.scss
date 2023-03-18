@@ -2,8 +2,10 @@
 
 .paragraph-1 {
     @include font-size($p-font-sizes);
+    line-height: 24px;
 }
 
 .paragraph-2 {
     @include font-size($small-p-font-sizes);
+    line-height: 21px;
 }

@@ -1,7 +1,6 @@
 @import 'features/styles/variables';
 
 .typography {
-    color: $color-white;
     line-height: 1.1; // check this out for more https://dev.to/lampewebdev/css-line-height-jjp
 }
 
@@ -26,5 +25,24 @@
 }
 
 .bold {
-    font-weight: bold;
+    font-weight: 700;
+}
+
+.typography-color-brand {
+    color: $text-color-brand;
+}
+.typography-color-primary {
+    color: $text-color-primary;
+}
+.typography-color-secondary {
+    color: $text-color-secondary;
+}
+.typography-color-tertiary {
+    color: $text-color-tertiary;
+}
+.typography-color-inverted {
+    color: $text-color-inverted;
+}
+.typography-color-transparent {
+    color: transparent;
 }

@@ -2,8 +2,10 @@
 
 .subtitle-1 {
     @include font-size($h4-font-sizes);
+    line-height: 26px;
 }
 
 .subtitle-2 {
     @include font-size($h5-font-sizes);
+    line-height: 24px;
 }

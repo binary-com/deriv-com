@@ -1,4 +1,5 @@
 const language_config = require(`./i18n-config.js`)
+const plugin = require('./src/features/styles/postcss-plugin/plugin')
 const isBrowser = typeof window !== 'undefined'
 
 require('dotenv').config({
@@ -32,6 +33,16 @@ module.exports = {
     plugins: [
         {
             resolve: 'gatsby-plugin-sass',
+            options: {
+                postCssPlugins: [
+                    plugin({
+                        dest: 'src/classnames.d.ts',
+                        // Set isModule if you want to import ClassNames from another file
+                        // isModule: true,
+                        exportAsDefault: true, // to use in combination with isModule
+                    }),
+                ],
+            },
         },
         'gatsby-plugin-react-helmet',
         {

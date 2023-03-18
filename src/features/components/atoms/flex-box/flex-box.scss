@@ -6,19 +6,19 @@
     display: flex;
 }
 
-.dir-row {
+.direction-row {
     flex-direction: row;
 }
 
-.dir-column {
+.direction-column {
     flex-direction: column;
 }
 
-.dir-reverse-row {
+.direction-reverse-row {
     flex-direction: row-reverse;
 }
 
-.dir-reverse-column {
+.direction-reverse-column {
     flex-direction: column-reverse;
 }
 
@@ -52,6 +52,17 @@
 
 .justify-baseline {
     justify-content: baseline;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+.justify-space-around {
+    justify-content: space-around;
+}
+
+.justify-space-evenly {
+    justify-content: space-evenly;
 }
 
 .wrap {

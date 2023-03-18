@@ -1,0 +1,251 @@
+@use './theme-mixins' as *;
+
+$font-size-50: (
+    null: 0.8rem,
+    md: 0.8rem,
+    lg: 1rem,
+);
+
+$font-size-75: (
+    null: 1rem,
+    md: 1rem,
+    lg: 1.2rem,
+);
+
+$font-size-100: (
+    null: 1.2rem,
+    md: 1.4rem,
+    lg: 1.6rem,
+);
+
+$font-size-200: (
+    null: 1.4rem,
+    md: 1.5rem,
+    lg: 1.6rem,
+);
+
+$font-size-300: (
+    null: 1.6rem,
+    md: 1.6rem,
+    lg: 1.8rem,
+);
+
+$font-size-400: (
+    null: 1.8rem,
+    md: 1.8rem,
+    lg: 2rem,
+);
+
+$font-size-500: (
+    null: 2rem,
+    md: 2rem,
+    lg: 2.2rem,
+);
+
+$font-size-600: (
+    null: 2.2rem,
+    md: 2.2rem,
+    lg: 2.4rem,
+);
+
+$font-size-700: (
+    null: 2.4rem,
+    md: 2.4rem,
+    lg: 2.8rem,
+);
+
+$font-size-800: (
+    null: 2.6rem,
+    md: 2.6rem,
+    lg: 3.2rem,
+);
+
+$font-size-900: (
+    null: 2.8rem,
+    md: 2.8rem,
+    lg: 3.6rem,
+);
+
+$font-size-1000: (
+    null: 3.2rem,
+    md: 3.2rem,
+    lg: 4rem,
+);
+
+$font-size-1100: (
+    null: 2.4rem,
+    md: 2.4rem,
+    lg: 4.8rem,
+);
+
+$font-size-1200: (
+    null: 3rem,
+    md: 3rem,
+    lg: 6rem,
+);
+
+$font-size-1300: (
+    null: 3.2rem,
+    md: 3.2rem,
+    lg: 6.4rem,
+);
+
+.typography {
+    line-height: calc(2px + 2ex + 2px);
+}
+
+.heading-xxxl {
+    @include font-size($font-size-1300);
+}
+
+.heading-xxl {
+    @include font-size($font-size-1100);
+}
+
+.heading-xlarge {
+    @include font-size($font-size-900);
+}
+
+.heading-large {
+    @include font-size($font-size-700);
+}
+
+.heading-medium {
+    @include font-size($font-size-500);
+}
+
+.heading-small {
+    @include font-size($font-size-300);
+}
+
+.heading-xs {
+    @include font-size($font-size-200);
+}
+
+.heading-xxs {
+    @include font-size($font-size-100);
+}
+
+.text-xxxl {
+    @include font-size($font-size-600);
+}
+
+.text-xxl {
+    @include font-size($font-size-500);
+}
+
+.text-xlarge {
+    @include font-size($font-size-400);
+}
+
+.text-large {
+    @include font-size($font-size-300);
+}
+
+.text-medium {
+    @include font-size($font-size-200);
+}
+
+.text-small {
+    @include font-size($font-size-100);
+}
+
+.text-xs {
+    @include font-size($font-size-75);
+}
+
+.text-xxs {
+    @include font-size($font-size-50);
+}
+
+// created this from new design system which seems to be wrong, check it with designers
+
+// $font-size-50: (
+//     null: 1.3rem,
+//     md: 1.3rem,
+//     lg: 1.1rem,
+// );
+
+// $font-size-75: (
+//     null: 1.5rem,
+//     md: 1.5rem,
+//     lg: 1.2rem,
+// );
+
+// $font-size-100: (
+//     null: 1.7rem,
+//     md: 1.7rem,
+//     lg: 1.4rem,
+// );
+
+// $font-size-200: (
+//     null: 1.9rem,
+//     md: 1.9rem,
+//     lg: 1.6rem,
+// );
+
+// $font-size-300: (
+//     null: 2.2rem,
+//     md: 2.2rem,
+//     lg: 1.8rem,
+// );
+
+// $font-size-400: (
+//     null: 2.4rem,
+//     md: 2.4rem,
+//     lg: 2rem,
+// );
+
+// $font-size-500: (
+//     null: 2.7rem,
+//     md: 2.7rem,
+//     lg: 2.2rem,
+// );
+
+// $font-size-600: (
+//     null: 3.1rem,
+//     md: 3.1rem,
+//     lg: 2.5rem,
+// );
+
+// $font-size-700: (
+//     null: 3.4rem,
+//     md: 3.4rem,
+//     lg: 2.8rem,
+// );
+
+// $font-size-800: (
+//     null: 3.9rem,
+//     md: 3.9rem,
+//     lg: 3.2rem,
+// );
+
+// $font-size-900: (
+//     null: 4.4rem,
+//     md: 4.4rem,
+//     lg: 3.6rem,
+// );
+
+// $font-size-1000: (
+//     null: 4.9rem,
+//     md: 4.9rem,
+//     lg: 4rem,
+// );
+
+// $font-size-1100: (
+//     null: 5.5rem,
+//     md: 5.5rem,
+//     lg: 4.5rem,
+// );
+
+// $font-size-1200: (
+//     null: 6.2rem,
+//     md: 6.2rem,
+//     lg: 50rem,
+// );
+
+// $font-size-1300: (
+//     null: 7rem,
+//     md: 7rem,
+//     lg: 60rem,
+// );

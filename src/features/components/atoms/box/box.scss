@@ -1,3 +1,22 @@
 @use 'features/styles/mixins' as *;
 
 @include generate-margins();
+
+.bg-color-brand {
+    background-color: $bg-color-brand;
+}
+.bg-color-primary {
+    background-color: $bg-color-primary;
+}
+.bg-color-secondary {
+    background-color: $bg-color-secondary;
+}
+.bg-color-tertiary {
+    background-color: $bg-color-tertiary;
+}
+.bg-color-inverted {
+    background-color: $bg-color-inverted;
+}
+.bg-color-transparent {
+    background-color: transparent;
+}

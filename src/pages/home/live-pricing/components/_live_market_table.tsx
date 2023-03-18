@@ -6,11 +6,10 @@ import {
     useReactTable,
 } from '@tanstack/react-table'
 import type { SortingState } from '@tanstack/react-table'
-import { TAvailableLiveMarkets, TMarketData, TMarketDataResponse } from '../_types'
+import { TAvailableLiveMarkets, TMarketData } from '../_types'
 import useLiveColumns from '../_use-live-columns'
 import { TABLE_VISIBLE_ROWS } from '../_utils'
 import { Spinner, TableLoadingContainer, Table, TableContainer, TableRow } from './_elements'
-import { useDerivApi } from 'components/hooks/use-deriv-api'
 import useRegion from 'components/hooks/use-region'
 
 export type TLiveMarketTableProps = {
@@ -33,40 +32,34 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const { send } = useDerivApi()
     const { is_eu } = useRegion()
     const region = is_eu ? 'eu' : 'row'
 
     const requestMarketsData = useCallback(() => {
         setIsLoading(true)
 
-        send(
-            {
-                trading_platform_asset_listing: 1,
-                platform: 'mt5',
-                type: 'brief',
-                region: region,
-            },
-            (response: TMarketDataResponse) => {
-                if (!response.error) {
-                    const responseData = [...response.trading_platform_asset_listing.mt5.assets]
-                    const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
+        fetch(`https://little-lab-f9b0.shuvohabib.workers.dev?region=${region}`)
+            .then((response) => response.json())
+            .then((response) => {
+                const responseData = [...response.trading_platform_asset_listing.mt5.assets]
+                const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
 
-                    responseData.forEach((item) => {
-                        const market = item.market == 'stocks' ? 'indices' : item.market
+                responseData.forEach((item) => {
+                    const market = item.market == 'stocks' ? 'indices' : item.market
 
-                        if (!markets.has(market)) {
-                            markets.set(market, [item])
-                        } else {
-                            markets.get(market).push(item)
-                        }
-                    })
-                    setMarketsData(markets)
-                    setIsLoading(false)
-                }
-            },
-        )
-    }, [region, send])
+                    if (!markets.has(market)) {
+                        markets.set(market, [item])
+                    } else {
+                        markets.get(market).push(item)
+                    }
+                })
+
+                setMarketsData(markets)
+                setIsLoading(false)
+            })
+            .catch((error) => console.error(error))
+    }, [])
+
     const columns = useLiveColumns(requestMarketsData)
 
     const table = useReactTable({
@@ -90,7 +83,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
     }, [requestMarketsData])
 
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
-
     return (
         <TableContainer>
             <Table>

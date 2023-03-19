@@ -1,6 +1,0 @@
-@use 'features/styles/mixins' as *;
-
-.section-title {
-    @include font-size($h3-font-sizes);
-    line-height: 30px;
-}

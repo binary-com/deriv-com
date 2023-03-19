@@ -1,6 +1,0 @@
-@use 'features/styles/mixins' as *;
-
-.sub-text {
-    @include font-size($small-p-font-sizes);
-    line-height: 14px;
-}

@@ -1,97 +1,75 @@
 @use './theme-mixins' as *;
-
-$font-size-50: (
-    null: 0.8rem,
-    md: 0.8rem,
-    lg: 1rem,
-);
-
-$font-size-75: (
-    null: 1rem,
-    md: 1rem,
-    lg: 1.2rem,
-);
-
-$font-size-100: (
-    null: 1.2rem,
-    md: 1.4rem,
-    lg: 1.6rem,
-);
-
-$font-size-200: (
-    null: 1.4rem,
-    md: 1.5rem,
-    lg: 1.6rem,
-);
-
-$font-size-300: (
-    null: 1.6rem,
-    md: 1.6rem,
-    lg: 1.8rem,
-);
-
-$font-size-400: (
-    null: 1.8rem,
-    md: 1.8rem,
-    lg: 2rem,
-);
-
-$font-size-500: (
-    null: 2rem,
-    md: 2rem,
-    lg: 2.2rem,
-);
-
-$font-size-600: (
-    null: 2.2rem,
-    md: 2.2rem,
-    lg: 2.4rem,
-);
-
-$font-size-700: (
-    null: 2.4rem,
-    md: 2.4rem,
-    lg: 2.8rem,
-);
-
-$font-size-800: (
-    null: 2.6rem,
-    md: 2.6rem,
-    lg: 3.2rem,
-);
-
-$font-size-900: (
-    null: 2.8rem,
-    md: 2.8rem,
-    lg: 3.6rem,
-);
-
-$font-size-1000: (
-    null: 3.2rem,
-    md: 3.2rem,
-    lg: 4rem,
-);
-
-$font-size-1100: (
-    null: 2.4rem,
-    md: 2.4rem,
-    lg: 4.8rem,
-);
-
-$font-size-1200: (
-    null: 3rem,
-    md: 3rem,
-    lg: 6rem,
-);
-
-$font-size-1300: (
-    null: 3.2rem,
-    md: 3.2rem,
-    lg: 6.4rem,
-);
+@import './variables';
 
 .typography {
     line-height: calc(2px + 2ex + 2px);
+}
+
+.typography-align-center {
+    text-align: center;
+}
+.typography-align-left {
+    text-align: start;
+}
+.typography-align-right {
+    text-align: end;
+}
+.typography-align-justify {
+    text-align: justify;
+}
+
+.typography-color-brand {
+    color: $color-brand;
+}
+.typography-color-primary {
+    color: $color-black-9;
+}
+.typography-color-secondary {
+    color: #414652b2;
+}
+.typography-color-tertiary {
+    color: #425651;
+}
+.typography-color-inverted {
+    color: $color-white;
+}
+
+.typography-break-word {
+    word-break: break-word;
+}
+
+.typography-break-normal {
+    word-break: normal;
+}
+
+.typography-weight-normal {
+    font-weight: normal;
+}
+.typography-weight-bold {
+    font-weight: bold;
+}
+.typography-weight-bolder {
+    font-weight: 700;
+}
+
+.typography-link {
+    cursor: pointer;
+    text-decoration: none;
+    transition: text-shadow 0.25s;
+    font-size: inherit;
+    color: inherit;
+
+    &:active {
+        color: $color-red;
+    }
+    &:hover {
+        color: $color-red;
+        text-decoration: underline;
+    }
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.32;
+    }
 }
 
 .heading-xxxl {

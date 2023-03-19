@@ -1,18 +1,17 @@
-import React, { AnchorHTMLAttributes, useCallback, useMemo } from 'react'
-import clsx from 'clsx'
+import React, { useCallback, useMemo } from 'react'
+import Typography from '../typography'
+import { TypographyLinkProps } from '../typography/link'
 import { LinkUrlType } from 'features/types'
 import useLinkUrl from 'features/hooks/use-link-url'
 import useRegion from 'components/hooks/use-region'
 import useLocationContext from 'features/hooks/use-location-context'
-import './link.scss'
 
-interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface LinkProps extends TypographyLinkProps {
     url: LinkUrlType
-    bold?: boolean
 }
 
 const Link = (props: LinkProps) => {
-    const { url, onClick, target, rel, className, bold, ...rest } = props
+    const { url, onClick, target, rel, ...rest } = props
 
     const { getLinkUrl } = useLinkUrl()
     const { is_eu } = useRegion()
@@ -62,12 +61,11 @@ const Link = (props: LinkProps) => {
     }, [hrefObject, rel])
 
     return (
-        <a
+        <Typography.Link
             href={!show_modal ? hrefObject.href : ''}
             onClick={show_modal ? handleClick : null}
             target={linkTarget}
             rel={linkRel}
-            className={clsx(className, 'link', { bold_link: bold })}
             {...rest}
         />
     )

@@ -7,9 +7,9 @@ const HeroHeaderItems = (props: HTMLAttributes<HTMLDivElement>) => {
     return (
         <div {...props}>
             {header_items.map((item) => (
-                <Typography.MainLandingTitle key={item.id} as={'h1'} bold>
+                <Typography.Heading key={item.id} as={'h1'} size={'xxxl'} textcolor="inverted">
                     <Localize translate_text={item.text} />
-                </Typography.MainLandingTitle>
+                </Typography.Heading>
             ))}
         </div>
     )

@@ -31,22 +31,18 @@ const Disclaimer = () => {
     })
 
     return (
-        <Container.Fixed margin_block="medium">
+        <Container.Fixed margin_block="10x">
             {visible_disclaimer_content.map((item) => (
-                <Typography.Paragraph key={item.id} size={2} mb="small">
+                <Typography.Paragraph key={item.id} size={'medium'} mb="10x">
                     <Localize translate_text={item.data.text} components={item.data.components} />
                 </Typography.Paragraph>
             ))}
-            <Container.Fixed className={risk_warning_container} bgcolor="tertiary" padding="small">
+            <Container.Fixed className={risk_warning_container} bgcolor="tertiary" padding="10x">
                 {visible_risk_content.map((item, index) => {
                     const not_last_item =
                         index !== visible_risk_content.length - 1 ? 'small' : undefined
                     return (
-                        <Typography.Paragraph
-                            key={item.id}
-                            size={2}
-                            mb={not_last_item ? 'small' : undefined}
-                        >
+                        <Typography.Paragraph key={item.id} mb={not_last_item ? '10x' : undefined}>
                             <Localize
                                 translate_text={item.data.text}
                                 components={item.data.components}

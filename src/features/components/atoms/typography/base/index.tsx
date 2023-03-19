@@ -1,18 +1,23 @@
-import clsx from 'clsx'
 import React from 'react'
 import Box, { BoxProps } from '../../box'
-import { ColorPallette, TypographyTagOptions } from 'features/types'
-import './base.typography.scss'
+import {
+    TTypographyAlign,
+    TTypographyBreakWord,
+    TTypographyColor,
+    TTypographyWeight,
+    TypographyTagOptions,
+} from 'features/types'
+import dclsx from 'features/utils/dclsx'
+import { generateTypographyClasses } from 'features/styles/utils'
 
 export type TypographyAlign = 'end' | 'start' | 'center'
 
 export interface TypographyProps<T extends TypographyTagOptions> {
     as?: T
-    align?: TypographyAlign
-    bold?: boolean
-    italic?: boolean
-    word_break?: boolean
-    textcolor?: ColorPallette
+    align?: TTypographyAlign
+    weight?: TTypographyWeight
+    break_word?: TTypographyBreakWord
+    textcolor?: TTypographyColor
 }
 export interface BaseTypographyProps<T extends TypographyTagOptions>
     extends Omit<BoxProps<TypographyTagOptions>, 'as'>,
@@ -22,28 +27,23 @@ const BaseTypography = <T extends TypographyTagOptions>({
     as,
     className,
     align,
-    bold,
-    italic,
-    word_break = true,
+    weight,
+    break_word = 'word',
     textcolor = 'primary',
     ...rest
 }: BaseTypographyProps<T>) => {
-    const headingTags =
-        as === 'h1' || as === 'h2' || as === 'h3' || as === 'h4' || as === 'h5' || as === 'h6'
-
-    const _className = clsx(
-        'typography',
-        {
-            word_break: word_break,
-            bold: bold || as === 'strong',
-            italic: italic || as === 'em',
-            [align]: align && (headingTags || as === 'p'),
-            [`typography-color-${textcolor}`]: textcolor,
-        },
+    const classnames = dclsx(
         className,
+        'typography',
+        generateTypographyClasses({
+            align,
+            break_word,
+            textcolor,
+            weight,
+        }),
     )
 
-    return <Box as={as} className={_className} {...rest} />
+    return <Box as={as} className={classnames} {...rest} />
 }
 
 export default BaseTypography

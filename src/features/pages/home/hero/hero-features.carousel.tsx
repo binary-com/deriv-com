@@ -35,9 +35,14 @@ const HeroFeaturesCarousel = () => {
         >
             {carousel_content.map((item) => (
                 <SwiperSlide key={item.id} className={styles.features_carousel_slide}>
-                    <Typography.SubSectionTitle as={'h5'} bold>
+                    <Typography.Heading
+                        as={'h4'}
+                        size={'medium'}
+                        weight="bold"
+                        textcolor="inverted"
+                    >
                         <Localize translate_text={item.text} />
-                    </Typography.SubSectionTitle>
+                    </Typography.Heading>
                 </SwiperSlide>
             ))}
         </Swiper>

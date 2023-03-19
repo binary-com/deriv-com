@@ -1,8 +1,4 @@
-$color-red: #ff444f;
-$color-white: #ffffff;
-$color-white-1: #f9f9f9;
-$color-grey-44: #e1e1e3;
-$color-black-9: #414652;
+@import './variables';
 
 .bg-color-brand {
     background-color: $color-brand;
@@ -18,20 +14,4 @@ $color-black-9: #414652;
 }
 .bg-color-inverted {
     background-color: $color-black-9;
-}
-
-.text-color-brand {
-    background-color: $color-brand;
-}
-.text-color-primary {
-    background-color: $color-black-9;
-}
-.text-color-secondary {
-    background-color: #414652b2;
-}
-.text-color-tertiary {
-    background-color: #425651;
-}
-.text-color-inverted {
-    background-color: $color-white;
 }

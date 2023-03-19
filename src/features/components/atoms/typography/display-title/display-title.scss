@@ -1,6 +1,0 @@
-@use 'features/styles/mixins' as *;
-
-.display-title {
-    @include font-size($h1-font-sizes);
-    line-height: 50px;
-}

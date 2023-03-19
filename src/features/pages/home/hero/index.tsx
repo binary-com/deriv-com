@@ -20,7 +20,8 @@ const HomeHero = () => {
 
             <Container.Fluid
                 className={styles.content}
-                margin_block={is_mobile_or_tablet ? 'small' : 'extra-large'}
+                margin_block={is_mobile_or_tablet ? '10x' : '25x'}
+                bgcolor="inverted"
             >
                 <div className={styles.left_side}>
                     <HeroHeaderItems className={styles.header_titles} />

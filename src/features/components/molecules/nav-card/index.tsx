@@ -50,15 +50,18 @@ const NavigationCard = ({
                 >
                     <Typography.Heading
                         as={'h6'}
-                        size={is_mobile_or_tablet ? 5 : 6}
+                        // size={is_mobile_or_tablet ? 5 : 6}
+                        size={is_mobile_or_tablet ? 'xs' : 'small'}
                         className={styles.nav_card_content_title}
-                        bold={has_content}
+                        weight={has_content ? 'bold' : 'normal'}
+                        // weight={'normal'}
                     >
                         <Localize translate_text={title} />
                     </Typography.Heading>
                     {content && (
                         <Typography.Paragraph
-                            size={is_mobile_or_tablet ? 1 : 2}
+                            // size={is_mobile_or_tablet ? 1 : 2}
+                            size={is_mobile_or_tablet ? 'large' : 'medium'}
                             className={styles.nav_card_content_description}
                         >
                             <Localize translate_text={content} />

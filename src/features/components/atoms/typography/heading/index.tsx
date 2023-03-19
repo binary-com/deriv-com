@@ -1,19 +1,17 @@
-import clsx from 'clsx'
 import React from 'react'
 import BaseTypography, { BaseTypographyProps } from '../base'
-import { HeadingTagOptions } from 'features/types'
-import './heading.scss'
+import { HeadingTagOptions, THeadingSize } from 'features/types'
+import dclsx from 'features/utils/dclsx'
+import { generateHeadingSize } from 'features/styles/utils'
 
 interface HeadingProps extends BaseTypographyProps<HeadingTagOptions> {
-    size?: 1 | 2 | 3 | 4 | 5 | 6
+    size: THeadingSize
 }
 
-const Heading = ({ size = 1, className, ...rest }: HeadingProps) => {
-    const classnames = clsx(className, {
-        [`heading-${size}`]: size,
-    })
+const Heading = ({ size = 'medium', weight, className, ...rest }: HeadingProps) => {
+    const classnames = dclsx(className, generateHeadingSize(size))
 
-    return <BaseTypography className={classnames} as={`h${size}`} {...rest} />
+    return <BaseTypography className={classnames} weight={weight ?? 'bold'} {...rest} />
 }
 
 export default Heading

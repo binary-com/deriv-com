@@ -1,13 +1,12 @@
-import clsx from 'clsx'
 import React from 'react'
 import BaseTypography, { BaseTypographyProps } from '../base'
 import { HeadingTagOptions } from 'features/types'
-import './hero.scss'
+import dclsx from 'features/utils/dclsx'
 
 type HeroTextProps = BaseTypographyProps<HeadingTagOptions>
 
 const HeroText = ({ className, ...rest }: HeroTextProps) => {
-    const classnames = clsx(className, 'hero')
+    const classnames = dclsx(className, 'heading-xxxl')
 
     return <BaseTypography className={classnames} {...rest} />
 }

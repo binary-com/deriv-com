@@ -1,230 +1,93 @@
 @use './theme-mixins' as *;
 
-$base-spacing: 0.2rem;
+$sm-base-spacing: 0.2rem;
 
 @for $i from 1 through 30 {
-    $value: $i * $base-spacing;
+    $sm-value: $i * $sm-base-spacing;
+    $lg-value: $sm-value * 2;
     .margin-#{$i}x {
-        margin: $value;
+        margin: $sm-value;
+        @include media(lg) {
+            margin: $lg-value;
+        }
     }
     .margin-top-#{$i}x {
-        margin-block-start: $value;
+        margin-block-start: $sm-value;
+        @include media(lg) {
+            margin-block-start: $lg-value;
+        }
     }
     .margin-bottom-#{$i}x {
-        margin-block-end: $value;
+        margin-block-end: $sm-value;
+        @include media(lg) {
+            margin-block-end: $lg-value;
+        }
     }
     .margin-left-#{$i}x {
-        margin-inline-start: $value;
+        margin-inline-start: $sm-value;
+        @include media(lg) {
+            margin-inline-start: $lg-value;
+        }
     }
     .margin-right-#{$i}x {
-        margin-inline-end: $value;
+        margin-inline-end: $sm-value;
+        @include media(lg) {
+            margin-inline-end: $lg-value;
+        }
     }
     .margin-block-#{$i}x {
-        margin-block: $value;
+        margin-block: $sm-value;
+        @include media(lg) {
+            margin-block: $lg-value;
+        }
     }
     .margin-inline-#{$i}x {
-        margin-inline: $value;
+        margin-inline: $sm-value;
+        @include media(lg) {
+            margin-inline: $lg-value;
+        }
     }
 
     .padding-#{$i}x {
-        margin: $value;
+        padding: $sm-value;
+        @include media(lg) {
+            padding: $lg-value;
+        }
     }
     .padding-top-#{$i}x {
-        margin-block-start: $value;
+        padding-block-start: $sm-value;
+        @include media(lg) {
+            padding-block-start: $lg-value;
+        }
     }
     .padding-bottom-#{$i}x {
-        margin-block-end: $value;
+        padding-block-end: $sm-value;
+        @include media(lg) {
+            padding-block-end: $lg-value;
+        }
     }
     .padding-left-#{$i}x {
-        margin-inline-start: $value;
+        padding-inline-start: $sm-value;
+        @include media(lg) {
+            padding-inline-start: $lg-value;
+        }
     }
     .padding-right-#{$i}x {
-        margin-inline-end: $value;
+        padding-inline-end: $sm-value;
+        @include media(lg) {
+            padding-inline-end: $lg-value;
+        }
     }
     .padding-block-#{$i}x {
-        margin-block: $value;
+        padding-block: $sm-value;
+        @include media(lg) {
+            padding-block: $lg-value;
+        }
     }
     .padding-inline-#{$i}x {
-        margin-inline: $value;
+        padding-inline: $sm-value;
+        @include media(lg) {
+            padding-inline: $lg-value;
+        }
     }
 }
-
-// $spacing-1x: (
-//     null: 0.4rem,
-//     md: 0.4rem,
-//     lg: 0.4rem,
-// );
-
-// $spacing-2x: (
-//     null: 0.4rem,
-//     md: 0.4rem,
-//     lg: 0.8rem,
-// );
-
-// $spacing-3x: (
-//     null: 0.6rem,
-//     md: 0.6rem,
-//     lg: 1.2rem,
-// );
-
-// $spacing-4x: (
-//     null: 0.8rem,
-//     md: 0.8rem,
-//     lg: 1.6rem,
-// );
-
-// $spacing-5x: (
-//     null: 1rem,
-//     md: 1rem,
-//     lg: 2rem,
-// );
-
-// $spacing-6x: (
-//     null: 1.2rem,
-//     md: 1.2rem,
-//     lg: 2.4rem,
-// );
-
-// $spacing-7x: (
-//     null: 1.4rem,
-//     md: 1.4rem,
-//     lg: 2.8rem,
-// );
-
-// $spacing-8x: (
-//     null: 1.6rem,
-//     md: 1.6rem,
-//     lg: 3.2rem,
-// );
-
-// $spacing-9x: (
-//     null: 1.8rem,
-//     md: 1.8rem,
-//     lg: 3.6rem,
-// );
-
-// $spacing-10x: (
-//     null: 2rem,
-//     md: 2rem,
-//     lg: 4rem,
-// );
-
-// $spacing-11x: (
-//     null: 2.2rem,
-//     md: 2.2rem,
-//     lg: 4.4rem,
-// );
-
-// $spacing-12x: (
-//     null: 2.4rem,
-//     md: 2.4rem,
-//     lg: 4.8rem,
-// );
-
-// $spacing-13x: (
-//     null: 2.6rem,
-//     md: 2.6rem,
-//     lg: 5.2rem,
-// );
-
-// $spacing-14x: (
-//     null: 2.8rem,
-//     md: 2.8rem,
-//     lg: 5.6rem,
-// );
-
-// $spacing-15x: (
-//     null: 3rem,
-//     md: 3rem,
-//     lg: 6rem,
-// );
-
-// $spacing-16x: (
-//     null: 3.2rem,
-//     md: 3.2rem,
-//     lg: 6.4rem,
-// );
-
-// $spacing-17x: (
-//     null: 3.4rem,
-//     md: 3.4rem,
-//     lg: 6.8rem,
-// );
-
-// $spacing-18x: (
-//     null: 3.6rem,
-//     md: 3.6rem,
-//     lg: 7.2rem,
-// );
-
-// $spacing-19x: (
-//     null: 3.8rem,
-//     md: 3.8rem,
-//     lg: 7.6rem,
-// );
-
-// $spacing-20x: (
-//     null: 4rem,
-//     md: 4rem,
-//     lg: 8rem,
-// );
-
-// $spacing-21x: (
-//     null: 4.2rem,
-//     md: 4.2rem,
-//     lg: 8.4rem,
-// );
-
-// $spacing-22x: (
-//     null: 4.4rem,
-//     md: 4.4rem,
-//     lg: 8.8rem,
-// );
-
-// $spacing-23x: (
-//     null: 4.6rem,
-//     md: 4.6rem,
-//     lg: 9.2rem,
-// );
-
-// $spacing-24x: (
-//     null: 4.8rem,
-//     md: 4.8rem,
-//     lg: 9.6rem,
-// );
-
-// $spacing-25x: (
-//     null: 5rem,
-//     md: 5rem,
-//     lg: 10rem,
-// );
-
-// $spacing-26x: (
-//     null: 5.2rem,
-//     md: 5.2rem,
-//     lg: 10.4rem,
-// );
-
-// $spacing-27x: (
-//     null: 4.4rem,
-//     md: 5.4rem,
-//     lg: 10.8rem,
-// );
-
-// $spacing-28x: (
-//     null: 5.6rem,
-//     md: 5.6rem,
-//     lg: 11.2rem,
-// );
-
-// $spacing-29x: (
-//     null: 5.8rem,
-//     md: 5.8rem,
-//     lg: 11.6rem,
-// );
-
-// $spacing-30: (
-//     null: 6rem,
-//     md: 6rem,
-//     lg: 12rem,
-// );

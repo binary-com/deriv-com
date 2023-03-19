@@ -1,14 +1,15 @@
-import clsx from 'clsx'
 import React from 'react'
 import BaseTypography, { BaseTypographyProps } from '../base'
-import './paragraph.scss'
+import { TTextSize } from 'features/types'
+import dclsx from 'features/utils/dclsx'
+import { generateTextSize } from 'features/styles/utils'
 
 interface ParagraphProps extends BaseTypographyProps<'p'> {
-    size?: 1 | 2
+    size?: TTextSize
 }
 
-const Paragraph = ({ className, size = 1, ...rest }: Omit<ParagraphProps, 'as'>) => {
-    const classnames = clsx(className, `paragraph-${size}`)
+const Paragraph = ({ className, size = 'medium', ...rest }: Omit<ParagraphProps, 'as'>) => {
+    const classnames = dclsx(className, generateTextSize(size))
 
     return <BaseTypography className={classnames} as={'p'} {...rest} />
 }

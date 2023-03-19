@@ -36,7 +36,7 @@ const DesktopMenu = <T extends string>({
                         })}
                         onClick={() => onItemClick(contentItem.data.active)}
                     >
-                        <Typography.Heading as={'h6'} size={6} className={styles.item_title}>
+                        <Typography.Heading as={'h6'} size="small" className={styles.item_title}>
                             <Localize translate_text={contentItem.data.title} />
                         </Typography.Heading>
                         {contentItem.data.active === activeTab && (

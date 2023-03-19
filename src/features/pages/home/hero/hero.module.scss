@@ -13,6 +13,7 @@
     @include media(tablet-large) {
         flex-wrap: nowrap;
         justify-content: center;
+        align-items: center;
         padding: 5rem 0;
         min-block-size: 92rem;
     }

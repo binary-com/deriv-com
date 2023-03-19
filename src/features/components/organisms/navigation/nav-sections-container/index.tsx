@@ -27,13 +27,13 @@ const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) =>
         <div className={styles.section_items}>
             {data.map((sectionItem) => (
                 <div key={sectionItem.id} className={styles.section_items_container}>
-                    <Typography.Text className={styles.section_items_title}>
+                    <Typography.Paragraph className={styles.section_items_title}>
                         {sectionItem.data.title ? (
                             <Localize translate_text={sectionItem.data.title} />
                         ) : (
                             ''
                         )}
-                    </Typography.Text>
+                    </Typography.Paragraph>
                     <NavCardItems items={sectionItem.data.section} />
                 </div>
             ))}

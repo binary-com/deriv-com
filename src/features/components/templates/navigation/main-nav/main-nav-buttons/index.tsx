@@ -4,7 +4,7 @@ import * as styles from './main-nav-buttons.module.scss'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useRegion from 'components/hooks/use-region'
 import { LanguageSwitcher, Localize } from 'components/localization'
-import SButton from 'features/components/atoms/button'
+import Button from 'features/components/atoms/button'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import usePpc from 'features/hooks/use-ppc'
@@ -28,22 +28,22 @@ const MainNavButtons = forwardRef<HTMLDivElement, MainNavButtonsProps>(
         const renderButtons = () => {
             if (is_logged_in) {
                 return (
-                    <SButton.Primary disabled={is_region_loading} onClick={handleGetTrading}>
+                    <Button.Primary disabled={is_region_loading} onClick={handleGetTrading}>
                         <Localize translate_text="_t_Get Trading_t_" />
-                    </SButton.Primary>
+                    </Button.Primary>
                 )
             } else if (!hide_signup_login) {
                 return (
                     <>
-                        <SButton.Primary
+                        <Button.Primary
                             disabled={is_region_loading}
                             id="dm-nav-login-button"
                             className={styles.login_button}
                             onClick={handleLogin}
                         >
                             <Localize translate_text="_t_Log in_t_" />
-                        </SButton.Primary>
-                        <SButton.Secondary
+                        </Button.Primary>
+                        <Button.Secondary
                             disabled={is_region_loading}
                             id="dm-nav-signup"
                             className={clsx(styles.dynamic_button, {
@@ -52,7 +52,7 @@ const MainNavButtons = forwardRef<HTMLDivElement, MainNavButtonsProps>(
                             onClick={handleSignup}
                         >
                             <Localize translate_text="_t_Create free demo account_t_" />
-                        </SButton.Secondary>
+                        </Button.Secondary>
                     </>
                 )
             }

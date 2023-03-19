@@ -1,11 +1,11 @@
 import React, { HTMLAttributes } from 'react'
-import clsx from 'clsx'
-import { SpaceProps } from 'features/types'
-import './box.scss'
+import { ClassProps } from 'features/types'
+import dclsx from 'features/utils/dclsx'
+import { generateBackgroundColor, generateSpacingClasses } from 'features/styles/utils'
 
 export interface BoxProps<T extends React.ElementType = 'p'>
     extends HTMLAttributes<T>,
-        SpaceProps<T> {}
+        ClassProps<T> {}
 
 const Box = <T extends React.ElementType>({
     as,
@@ -30,24 +30,26 @@ const Box = <T extends React.ElementType>({
 }: BoxProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof BoxProps<T>>) => {
     const Component = as || 'div'
 
-    const classnames = clsx({
-        [className]: className,
-        [`bg-color-${bgcolor}`]: bgcolor,
-        [`margin-${margin}`]: margin,
-        [`margin_inline-${margin_inline}`]: margin_inline,
-        [`margin_block-${margin_block}`]: margin_block,
-        [`ml-${ml}`]: ml,
-        [`mr-${mr}`]: mr,
-        [`mt-${mt}`]: mt,
-        [`mb-${mb}`]: mb,
-        [`padding-${padding}`]: padding,
-        [`padding_inline-${padding_inline}`]: padding_inline,
-        [`padding_block-${padding_block}`]: padding_block,
-        [`pl-${pl}`]: pl,
-        [`pr-${pr}`]: pr,
-        [`pt-${pt}`]: pt,
-        [`pb-${pb}`]: pb,
-    })
+    const classnames = dclsx(
+        className,
+        generateSpacingClasses({
+            margin,
+            padding,
+            ml,
+            mr,
+            mt,
+            mb,
+            margin_inline,
+            margin_block,
+            pl,
+            pr,
+            pt,
+            pb,
+            padding_block,
+            padding_inline,
+        }),
+        generateBackgroundColor(bgcolor),
+    )
 
     return <Component ref={innerRef} className={classnames === '' ? null : classnames} {...rest} />
 }

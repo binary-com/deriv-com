@@ -32,11 +32,7 @@ const AccordionContent = React.forwardRef<HTMLDivElement, TAccordionContent>(
         <>
             <Accordion.Header className={styles.accordion_header}>
                 <Accordion.Trigger className={styles.accordion_trigger}>
-                    <Typography.Heading
-                        as={'h3'}
-                        size={5}
-                        className={styles.accordion_trigger_title}
-                    >
+                    <Typography.Heading size={'xxl'} className={styles.accordion_trigger_title}>
                         <Localize translate_text={item_title} />
                     </Typography.Heading>
                     <Icon

@@ -1,4 +1,4 @@
-@use 'features/styles/mixins' as *;
+@use 'features/styles/theme/theme-mixins' as *;
 
 .menu_toggle {
     cursor: pointer;
@@ -6,7 +6,7 @@
     display: block;
     margin-inline-end: 1rem;
 
-    @include media(tablet-large) {
+    @include breakpoints(tablet-large) {
         display: none;
     }
 }

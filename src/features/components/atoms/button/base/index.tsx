@@ -1,30 +1,48 @@
-import clsx from 'clsx'
 import React, { ButtonHTMLAttributes } from 'react'
 import Box from '../../box'
-import { ClassProps } from 'features/types'
+import { ClassProps, TTextSize, TTypographyColor, TTypographyWeight } from 'features/types'
 import './base.button.scss'
+import dclsx from 'features/utils/dclsx'
+import {
+    generateTextColor,
+    generateTextSize,
+    generateTypographyWeight,
+} from 'features/styles/utils'
 
 export interface BaseButtonProps extends ButtonHTMLAttributes<'button'>, ClassProps<'button'> {
     is_loading?: boolean
     fluid?: boolean
+    textsize?: TTextSize
+    textcolor?: TTypographyColor
+    textweight?: TTypographyWeight
+    hero?: boolean
 }
 
 const BaseButton = ({
     className,
     children,
-    disabled,
     is_loading,
     fluid,
+    textsize,
+    textcolor,
+    textweight,
+    hero,
     ...rest
 }: BaseButtonProps) => {
     return (
         <Box
             as="button"
-            className={clsx(className, {
-                disabled: disabled,
-                loading: is_loading,
-                fluid: fluid,
-            })}
+            className={dclsx(
+                className,
+                {
+                    loading: is_loading,
+                    fluid: fluid,
+                    hero,
+                },
+                generateTextSize(textsize),
+                generateTextColor(textcolor),
+                generateTypographyWeight(textweight),
+            )}
             {...rest}
         >
             {children}

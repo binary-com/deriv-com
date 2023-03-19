@@ -78,6 +78,18 @@ export const generateTextSize = (size?: THeadingSize) => {
     })
 }
 
+export const generateTextColor = (color?: TTypographyColor) => {
+    return dclsx({
+        [`typography-color-${color}`]: color,
+    })
+}
+
+export const generateTypographyWeight = (weight?: TTypographyWeight) => {
+    return dclsx({
+        [`typography-weight-${weight}`]: weight,
+    })
+}
+
 export const generateTypographyClasses = ({
     align,
     weight,
@@ -89,10 +101,12 @@ export const generateTypographyClasses = ({
     weight?: TTypographyWeight
     textcolor?: TTypographyColor
 }) => {
-    return dclsx({
-        [`typography-align-${align}`]: align,
-        [`typography-break-${break_word}`]: break_word,
-        [`typography-weight-${weight}`]: weight,
-        [`typography-color-${textcolor}`]: textcolor,
-    })
+    return dclsx(
+        {
+            [`typography-align-${align}`]: align,
+            [`typography-break-${break_word}`]: break_word,
+        },
+        generateTextColor(textcolor),
+        generateTypographyWeight(weight),
+    )
 }

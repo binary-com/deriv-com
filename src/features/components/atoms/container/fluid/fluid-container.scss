@@ -1,23 +1,23 @@
-@use 'features/styles/mixins' as *;
+@use 'features/styles/theme/theme-mixins' as *;
 
 .fluid-container {
     margin-inline: auto;
     inline-size: 95%;
 
-    @include media(tablet-wide) {
+    @include breakpoints(tablet-wide) {
         inline-size: 90%;
     }
 
-    @include media(tablet) {
+    @include breakpoints(tablet) {
         inline-size: 85%;
     }
 
-    @include media(desktop) {
+    @include breakpoints(desktop) {
         inline-size: 80%;
         max-inline-size: 120rem;
     }
 
-    @include media(desktop-wide) {
+    @include breakpoints(desktop-wide) {
         inline-size: 80%;
         max-inline-size: 160rem;
     }

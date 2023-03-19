@@ -6,6 +6,7 @@ import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import NavSectionContainer from 'features/components/organisms/navigation/nav-sections-container'
 import NavCardItems from 'features/components/organisms/navigation/nav-card-items'
+import Container from 'features/components/atoms/container'
 
 const renderNavItems = (nav_items: TSmartNavContent[] | TSmartNavSectionColumns[]) => {
     if ('section' in nav_items[0].data) {
@@ -40,13 +41,14 @@ const DesktopMenu = <T extends string>({
                             <Localize translate_text={contentItem.data.title} />
                         </Typography.Heading>
                         {contentItem.data.active === activeTab && (
-                            <div
+                            <Container.Fixed
+                                bgcolor="primary"
                                 className={clsx(styles.active_section, {
                                     [styles.active_trade_section]: activeTab === 'trade',
                                 })}
                             >
                                 {renderNavItems(contentItem.data.content)}
-                            </div>
+                            </Container.Fixed>
                         )}
                     </li>
                 )

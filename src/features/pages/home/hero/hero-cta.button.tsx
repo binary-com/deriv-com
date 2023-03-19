@@ -17,9 +17,9 @@ const HeroCtaButton = () => {
     }, [is_logged_in])
 
     return (
-        <Button.White type={'button'} fluid={is_mobile_or_tablet}>
+        <Button.Primary type={'button'} fluid={is_mobile_or_tablet} hero>
             <Localize translate_text={button_text} />
-        </Button.White>
+        </Button.Primary>
     )
 }
 

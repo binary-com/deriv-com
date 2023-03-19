@@ -1,4 +1,4 @@
-@use 'features/styles/mixins' as *;
+@use 'features/styles/theme/theme-mixins' as *;
 
 .nav_items {
     display: flex;
@@ -9,7 +9,7 @@
     gap: 0.4rem;
     flex: 1;
 
-    @include media(desktop) {
+    @include breakpoints(desktop) {
         gap: 2.4rem;
     }
 
@@ -25,7 +25,6 @@
         }
 
         & .item_title {
-            color: $color-white;
             padding: 0.5rem 1rem;
 
             &::before {
@@ -75,12 +74,11 @@
             }
 
             position: absolute;
-            inset-block-start: 46px;
+            inset-block-start: 5rem;
             inset-inline-start: 0rem;
             max-inline-size: 1200px;
             padding: 2.2rem 0.8rem;
             z-index: 10;
-            background-color: $color-white;
             box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
             border-radius: 0.4rem;
         }

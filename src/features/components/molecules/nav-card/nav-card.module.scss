@@ -1,5 +1,5 @@
-@use 'features/styles/mixins' as *;
-@import 'features/styles/variables';
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
 
 .nav_card {
     &_container {
@@ -16,7 +16,7 @@
             inline-size: 16px;
             block-size: 16px;
 
-            @include media(tablet-large) {
+            @include breakpoints(tablet-large) {
                 opacity: 0;
             }
         }
@@ -37,7 +37,7 @@
             block-size: 32px;
             margin-inline-end: 1.6rem;
 
-            @include media(tablet-large) {
+            @include breakpoints(tablet-large) {
                 inline-size: 24px;
                 block-size: 24px;
             }

@@ -1,11 +1,11 @@
-@use 'features/styles/mixins' as *;
-@import 'features/styles/variables';
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
 
 .section_items {
     display: flex;
     flex-direction: column;
 
-    @include media(tablet-large) {
+    @include breakpoints(tablet-large) {
         flex-direction: row;
     }
 
@@ -22,7 +22,7 @@
             border-block-end: none;
         }
 
-        @include media(tablet-large) {
+        @include breakpoints(tablet-large) {
             border-inline-end: 1px solid $color-grey-8;
 
             &:last-child {

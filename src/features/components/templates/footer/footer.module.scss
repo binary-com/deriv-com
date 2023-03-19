@@ -1,12 +1,12 @@
-@use 'features/styles/mixins' as *;
-@import 'features/styles/variables';
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
 
 .footer_grid {
     display: grid;
     inline-size: 100%;
     grid-template-columns: 2fr;
 
-    @include media(tablet-wide) {
+    @include breakpoints(tablet-wide) {
         grid-template-columns: 1fr;
     }
 }

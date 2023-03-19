@@ -5,9 +5,6 @@ import HeroTitle from './hero.title'
 import HeroFeaturesCarousel from './hero-features.carousel'
 import HeroCtaButton from './hero-cta.button'
 import HeroImageCarousel from './hero-image.carousel'
-import HeroBackground from './hero.background'
-import 'swiper/swiper.min.css'
-import 'swiper/swiper-bundle.min.css'
 import Container from 'features/components/atoms/container'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
@@ -15,13 +12,10 @@ const HomeHero = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
 
     return (
-        <section className={styles.home_hero}>
-            <HeroBackground />
-
+        <Container.Fixed as="section" bgcolor="white" className={styles.home_hero}>
             <Container.Fluid
                 className={styles.content}
                 margin_block={is_mobile_or_tablet ? '10x' : '25x'}
-                bgcolor="inverted"
             >
                 <div className={styles.left_side}>
                     <HeroHeaderItems className={styles.header_titles} />
@@ -33,7 +27,7 @@ const HomeHero = () => {
                     <HeroImageCarousel />
                 </div>
             </Container.Fluid>
-        </section>
+        </Container.Fixed>
     )
 }
 

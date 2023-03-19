@@ -1,4 +1,4 @@
-@use 'features/styles/mixins' as *;
+@use 'features/styles/theme/theme-mixins' as *;
 
 .icon-rtl {
     @include rtl() {
@@ -10,7 +10,7 @@
     inline-size: 12px;
     block-size: 12px;
 
-    @include media(tablet-wide) {
+    @include breakpoints(tablet-wide) {
         inline-size: 16px;
         block-size: 16px;
     }
@@ -20,7 +20,7 @@
     inline-size: 16px;
     block-size: 16px;
 
-    @include media(tablet-wide) {
+    @include breakpoints(tablet-wide) {
         inline-size: 24px;
         block-size: 24px;
     }
@@ -30,7 +30,7 @@
     inline-size: 24px;
     block-size: 24px;
 
-    @include media(tablet-wide) {
+    @include breakpoints(tablet-wide) {
         inline-size: 32px;
         block-size: 32px;
     }

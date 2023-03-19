@@ -81,8 +81,6 @@ class ClassNameCollector {
             return
         }
 
-        console.log('filename : ', file)
-
         // clear classes from previous file version
         this.classNames.delete(file)
 

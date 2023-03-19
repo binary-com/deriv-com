@@ -1,12 +1,19 @@
-@import 'features/styles/variables';
+@import 'features/styles/theme/variables';
 
 button.primary {
-    border: 2px solid $color-red;
-    color: $color-red;
-    background: transparent;
+    color: $color-white;
+    background-color: $color-brand;
 
     &:hover {
-        background-color: $color-red;
-        color: $color-white;
+        background-color: $color-red-6;
+    }
+}
+
+button.primary.outlined {
+    border: 2px solid $color-red;
+    background-color: $color-white;
+    color: $color-brand;
+    &:hover {
+        background-color: rgba(255, 68, 79, 0.08);
     }
 }

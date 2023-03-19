@@ -1,12 +1,14 @@
-@import 'features/styles/variables';
+@import 'features/styles/theme/variables';
 
 button.secondary {
-    border: 2px solid $color-red;
-    color: $color-white;
-    background: $color-red;
+    color: $color-black-9;
+    background: $color-white;
 
     &:hover {
-        background-color: $color-red-3;
-        border-color: $color-red-3;
+        background-color: $color-grey-40;
+        color: $color-black-9;
     }
+}
+button.secondary.outlined {
+    border: 2px solid $color-grey-5;
 }

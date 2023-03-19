@@ -1,6 +1,4 @@
-@use 'features/styles/mixins' as *;
-
-@include generate-gaps();
+@use 'features/styles/theme/theme-mixins' as *;
 
 .flexbox {
     display: flex;

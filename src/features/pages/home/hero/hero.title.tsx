@@ -6,7 +6,7 @@ import Box from 'features/components/atoms/box'
 const HeroTitle = () => {
     return (
         <Box as="div">
-            <Typography.Heading as="h5" size={'medium'} textcolor="inverted" weight="normal">
+            <Typography.Heading as="h5" size={'medium'} weight="normal">
                 <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
             </Typography.Heading>
         </Box>

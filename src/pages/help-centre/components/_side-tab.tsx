@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { TQuestions } from '../data/_data-types'
 import { Header } from 'components/elements'
 import device, { size } from 'themes/device'
-import { getWindowWidth } from 'common/utility'
+import { getWindowWidth, matchHashInURL, scrollTop, setHashInURL } from 'common/utility'
 import { Desktop } from 'components/containers/show'
-import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
 
@@ -64,10 +63,7 @@ const TabContent = styled.div`
     flex: 1;
 `
 
-const getTabs = (data) => data.map(({ label }) => label)
-
 const SideTab = ({ children, tab_header, data }: SideTabType) => {
-    const [active_tab, setActiveTab] = useTabStateQuery(getTabs(data))
     const [is_menu, setMenu] = useState(false)
     const show_content = !is_menu || getWindowWidth() >= size.tabletL
 
@@ -80,11 +76,12 @@ const SideTab = ({ children, tab_header, data }: SideTabType) => {
 
                 <Ol>
                     {data.map(({ question, label }) => {
-                        const className = active_tab === label ? 'tab-active' : ''
+                        const className = matchHashInURL(label) ? 'tab-active' : ''
 
                         const handleClick = () => {
-                            setActiveTab(label)
+                            setHashInURL(label)
                             setMenu(!is_menu)
+                            scrollTop()
                         }
 
                         return (
@@ -99,7 +96,7 @@ const SideTab = ({ children, tab_header, data }: SideTabType) => {
             {show_content && (
                 <TabContent>
                     {React.Children.map(children, (child) =>
-                        child.props.label === active_tab ? child : undefined,
+                        matchHashInURL(child.props.label) ? child : undefined,
                     )}
                 </TabContent>
             )}

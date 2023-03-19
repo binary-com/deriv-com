@@ -9,7 +9,7 @@ export default class OnboardingFlow {
     constructor(page: Page) {
         const randomString = new Date().getTime()
         this.page = page
-        this.email = `deriv-fe-e2e-${randomString}@deriv.com`
+        this.email = `deriv-com-e2e-${randomString}@deriv.com`
     }
     async changeEndpoint() {
         await this.page.goto(`${process.env.TRADING_APP_URL!}/endpoint`)
@@ -91,10 +91,6 @@ export default class OnboardingFlow {
         expect(server_url).toBe(process.env.ENDPOINT!)
     }
     async demoWizardHandler() {
-        // await this.page.locator('.static-dashboard-wrapper__header > h2', { hasText: 'CFDs' })
-        // await this.page.locator('.static-dashboard-wrapper__header > h2', {
-        //     hasText: 'Multipliers',
-        // })
         await this.page.locator('button[type="submit"]', { hasText: 'Next' }).click()
         await this.page.locator('button[type="submit"]', { hasText: 'Next' }).click()
         await this.page.locator('button[type="submit"]', { hasText: 'Next' }).click()
@@ -112,7 +108,7 @@ export default class OnboardingFlow {
     }
     async signUp() {
         await this.page.goto(process.env.APP_URL!)
-        await this.cookieDialogHandler()
+        // await this.cookieDialogHandler()
         await this.page.waitForSelector('#dm-hero-signup')
         await this.page.click('#dm-hero-signup')
         await this.page.waitForTimeout(5000)

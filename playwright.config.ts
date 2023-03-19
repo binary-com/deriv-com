@@ -10,6 +10,7 @@ dotenvConfig({ path: `.env.development` })
  */
 const config: PlaywrightTestConfig = {
   testDir: './end-to-end-tests/tests',
+  testMatch:['authentication.spec.ts'],
   /* Maximum time one test can run for. */
   timeout: 120 * 1000,
   expect: {

@@ -2,10 +2,10 @@ import {test, expect} from '@playwright/test'
 
 test('change language to arabic', async ({page}) => {
     await page.goto(process.env.APP_URL!);
-    const dialog = page.getByTestId('cookie-dialog')
-    if (dialog) {
-        await dialog.locator('button', { hasText: /Accept/ }).click()
-    }
+    // const dialog = page.getByTestId('cookie-dialog')
+    // if (dialog) {
+    //     await dialog.locator('button', { hasText: /Accept/ }).click()
+    // }
     const right_menu = await page.locator('nav > div > div > div').nth(1)
     await right_menu.locator('p[color=white]',{
         hasText: /EN/

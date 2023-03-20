@@ -488,7 +488,7 @@ const SignupPublic = ({
                                     (is_eu && data['deriv_platform_eu'])
                                 }
                                 alt="forex trading on mobile"
-                                width="264px"
+                                width="255px"
                             />
                             <LinkFlex
                                 external

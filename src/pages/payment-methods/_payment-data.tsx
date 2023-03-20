@@ -181,18 +181,6 @@ const payment_data = [
                 name: 'VisaElectron',
             },
             {
-                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Deposit funds using your Mastercard credit or debit card." />
-                ),
-                name: 'mastercard',
-            },
-            {
                 method: <StyledIcon src={Maestro} alt="Maestro" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
@@ -203,6 +191,18 @@ const payment_data = [
                     <Localize translate_text="Deposit and withdraw funds using your Maestro debit card." />
                 ),
                 name: 'maestro',
+            },
+            {
+                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="10 - 10,000" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Deposit funds using your Mastercard credit or debit card." />
+                ),
+                name: 'mastercard',
             },
         ],
     },
@@ -283,7 +283,7 @@ const payment_data = [
 
             {
                 method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
-                currencies: 'USD AUD\nGBP EUR',
+                currencies: 'USD AUD GBP EUR',
                 min_max_deposit: (
                     <Localize
                         translate_text="5 - 1,000<0></0>5 - 10,000"

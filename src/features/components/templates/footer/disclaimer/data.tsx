@@ -137,7 +137,7 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
         },
     },
     {
-        id: 6,
+        id: 7,
         data: {
             text: '_t_Deriv Holdings (Guernsey) Limited — 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ — is the holding company for the above subsidiary._t_',
         },

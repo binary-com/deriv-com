@@ -1,12 +1,10 @@
 import React, { ReactNode } from 'react'
 import Footer from '../footer'
 import apiManager from 'features/websocket'
-import usePopup from 'components/hooks/use-popup'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { ModalPayloadType } from 'components/layout/layout'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
-import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import LayoutOverlay from 'components/layout/layout-overlay'
 import { LocationProvider } from 'components/layout/location-context'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
@@ -14,6 +12,7 @@ import { isBrowser } from 'common/utility'
 import 'swiper/swiper.min.css'
 import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
+import NonEuRedirectAlert from 'features/components/molecules/non-eu-redirect-alert'
 
 interface LayoutProps {
     is_ppc?: boolean
@@ -26,7 +25,6 @@ if (isBrowser()) {
 }
 
 const Layout = ({ children, is_ppc = false, is_ppc_redirect = false }: LayoutProps) => {
-    const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
     const { has_platform } = usePlatformQueryParam()
@@ -51,12 +49,7 @@ const Layout = ({ children, is_ppc = false, is_ppc_redirect = false }: LayoutPro
                     ref={modal_payload.ref}
                     aria_label={modal_payload.aria_label}
                 />
-                {show_non_eu_popup && (
-                    <NonEuRedirectPopUp
-                        is_open={show_non_eu_popup}
-                        setShowNonEuPopup={setShowNonEuPopup}
-                    />
-                )}
+                <NonEuRedirectAlert />
                 <LayoutOverlay is_ppc={is_ppc} />
                 <BrowserUpdateAlertModal />
             </LocationProvider>

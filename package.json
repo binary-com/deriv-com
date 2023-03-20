@@ -9,6 +9,7 @@
         "@livechat/customer-sdk": "^3.1.0",
         "@loadable/component": "^5.15.2",
         "@radix-ui/react-accordion": "^1.1.0",
+        "@radix-ui/react-alert-dialog": "^1.0.3",
         "@svgr/webpack": "^6.2.1",
         "@vercel/gatsby-plugin-vercel-builder": "^0.1.2",
         "classnames": "^2.3.2",

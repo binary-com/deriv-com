@@ -25,6 +25,7 @@ import {
 import { Localize } from 'components/localization'
 
 type Option = {
+    id: string
     title: ReactElement
     component: ReactElement
     mobile_title?: ReactElement
@@ -86,6 +87,7 @@ export const forex_multiplier: ForexAndBasketMultiplier = {
     },
     content: [
         {
+            id: 'major-pairs',
             title: <Localize translate_text="_t_Major pairs_t_" />,
             component: <MajorPairs />,
         },
@@ -100,11 +102,13 @@ export const basket_multiplier: ForexAndBasketMultiplier = {
     template: 2,
     content: [
         {
+            id: 'commodities-basket',
             title: <Localize translate_text="_t_Commodities Basket_t_" />,
             component: <BasketIndicesCommodities />,
             details: <BasketCommoditiesDetails />,
         },
         {
+            id: 'forex-basket',
             title: <Localize translate_text="_t_Forex Basket_t_" />,
             component: <BasketIndicesCfds />,
             details: <BasketFXDetails />,
@@ -120,22 +124,26 @@ export const synthetic_multiplier: SyntheticMultiplier = {
     },
     content: [
         {
+            id: 'continuous-indices',
             title: <Localize translate_text="_t_Continuous indices_t_" />,
             component: <ContinuousIndices />,
             details: <ContinuousIndicesDetails />,
         },
         {
+            id: 'crash-boom',
             title: <Localize translate_text="_t_Crash/Boom_t_" />,
             mobile_title: <Localize translate_text="_t_Crash/Boom_t_" />,
             component: <CrashBoomMultipliers />,
             details: <CrashBoomMultipliersDetails />,
         },
         {
+            id: 'jump-indices',
             title: <Localize translate_text="_t_Jump indices_t_" />,
             component: <JumpIndices />,
             details: <JumpIndicesDetails />,
         },
         {
+            id: 'step-indices',
             title: <Localize translate_text="_t_Step indices_t_" />,
             component: <StepIndices />,
             details: <StepIndicesDetails />,
@@ -155,14 +163,16 @@ export const synthetic_multiplier_eu: SyntheticMultiplier = {
         col: 3,
         tablet_col: 3,
     },
-    template: 1,
+    template: 3,
     content: [
         {
-            title: <Localize translate_text="_t_Continuous indices_t_" />,
+            title: <Localize translate_text="_t_Volatility indices_t_" />,
+            id: 'continuous-indices',
             component: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,
         },
         {
+            id: 'crash-boom',
             title: <Localize translate_text="_t_Crash/Boom_t_" />,
             mobile_title: <Localize translate_text="_t_Crash/Boom_t_" />,
             component: <CrashBoomEU />,
@@ -181,6 +191,7 @@ export const crypto_multiplier: CryptoMultiplier = {
     has_global_accordion: true,
     content: [
         {
+            id: 'crypto-pairs',
             title: <Localize translate_text="_t_Crypto pairs_t_" />,
             component: <CryptocurrenciesMultipliers />,
             details: <CryptocurrenciesDetails />,

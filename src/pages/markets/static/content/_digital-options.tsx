@@ -4,7 +4,7 @@ import {
     AsiaOceania,
     BasketIndicesCfds,
     BasketIndicesCommodities,
-    ContinuousIndices,
+    ContinuousIndicesOptions,
     DailyResetIndices,
     EnergyOptions,
     Europe,
@@ -18,7 +18,7 @@ import {
     AsiaOceaniaDetails,
     BasketFXDetails,
     BasketCommoditiesDetails,
-    ContinuousIndicesDetails,
+    ContinuousIndicesOptionsDetails,
     DailyResetIndicesDetails,
     EuropeDetails,
     JumpIndicesDetails,
@@ -231,10 +231,12 @@ export const commodities_options: Options = {
     market_instruments: {
         content: [
             {
+                id: 'metals',
                 title: <Localize translate_text="_t_Metals_t_" />,
                 component: <MetalsOptions />,
             },
             {
+                id: 'energy',
                 title: <Localize translate_text="_t_Energy_t_" />,
                 component: <EnergyOptions />,
             },
@@ -256,10 +258,12 @@ export const forex_options: Options = {
         },
         content: [
             {
+                id: 'major-pairs',
                 title: <Localize translate_text="_t_Major pairs_t_" />,
                 component: <MajorPairs />,
             },
             {
+                id: 'minor-pairs',
                 title: <Localize translate_text="_t_Minor pairs_t_" />,
                 component: <MinorOptionsPairs />,
             },
@@ -278,11 +282,13 @@ export const basket_options: Options = {
         template: 2,
         content: [
             {
+                id: 'commodities-basket',
                 title: <Localize translate_text="_t_Commodities Basket_t_" />,
                 component: <BasketIndicesCommodities />,
                 details: <BasketCommoditiesDetails />,
             },
             {
+                id: 'forex-basket',
                 title: <Localize translate_text="_t_Forex Basket_t_" />,
                 component: <BasketIndicesCfds />,
                 details: <BasketFXDetails />,
@@ -298,6 +304,7 @@ export const stock_options: Options = {
         template: 2,
         content: [
             {
+                id: 'american-indices',
                 title: (
                     <Localize
                         translate_text="_t_American<0></0>indices_t_"
@@ -313,6 +320,7 @@ export const stock_options: Options = {
                 gap: '16px',
             },
             {
+                id: 'asian-indices',
                 title: (
                     <Localize
                         translate_text="_t_Asian<0></0>indices_t_"
@@ -328,6 +336,7 @@ export const stock_options: Options = {
                 gap: '16px',
             },
             {
+                id: 'european-indices',
                 title: (
                     <Localize
                         translate_text="_t_European<0></0>indices_t_"
@@ -352,16 +361,19 @@ export const synthetic_options: Options = {
         has_global_accordion: true,
         content: [
             {
+                id: 'continuous-indices',
                 title: <Localize translate_text="_t_Continuous indices_t_" />,
-                component: <ContinuousIndices />,
-                details: <ContinuousIndicesDetails />,
+                component: <ContinuousIndicesOptions />,
+                details: <ContinuousIndicesOptionsDetails />,
             },
             {
+                id: 'jump-indices',
                 title: <Localize translate_text="_t_Jump indices_t_" />,
                 component: <JumpIndices />,
                 details: <JumpIndicesDetails />,
             },
             {
+                id: 'daily-reset-indices',
                 title: <Localize translate_text="_t_Daily reset indices_t_" />,
                 component: <DailyResetIndices />,
                 details: <DailyResetIndicesDetails />,

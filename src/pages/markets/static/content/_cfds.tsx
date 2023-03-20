@@ -47,10 +47,12 @@ export const commodities_cfds: MarketInstrumentsElement = {
     },
     content: [
         {
+            id: 'metals',
             title: <Localize translate_text="_t_Metals_t_" />,
             component: <Metals />,
         },
         {
+            id: 'energy',
             title: <Localize translate_text="_t_Energy_t_" />,
             component: <Energy />,
         },
@@ -65,18 +67,22 @@ export const forex_cfds: MarketInstrumentsElement = {
     },
     content: [
         {
+            id: 'major-pairs',
             title: <Localize translate_text="_t_Major pairs_t_" />,
             component: <MajorPairs />,
         },
         {
+            id: 'minor-pairs',
             title: <Localize translate_text="_t_Minor pairs_t_" />,
             component: <MinorPairs />,
         },
         {
+            id: 'exotic-pairs',
             title: <Localize translate_text="_t_Exotic pairs_t_" />,
             component: <ExoticPairs />,
         },
         {
+            id: 'micro-pairs',
             title: <Localize translate_text="_t_Micro pairs_t_" />,
             component: <MicroPairs />,
         },
@@ -90,10 +96,12 @@ export const forex_cfds_eu: MarketInstrumentsElement = {
     },
     content: [
         {
+            id: 'major-pairs',
             title: <Localize translate_text="_t_Major pairs_t_" />,
             component: <MajorPairs />,
         },
         {
+            id: 'minor-pairs',
             title: <Localize translate_text="_t_Minor pairs_t_" />,
             component: <MinorPairs />,
         },
@@ -110,27 +118,33 @@ export const synthetic_cfds: MarketInstrumentsElement = {
     },
     content: [
         {
+            id: 'volatility-indices',
             title: <Localize translate_text="_t_Volatility indices_t_" />,
             component: <VolatilityIndices />,
             details: <VolatilityIndicesDetails />,
         },
         {
+            id: 'crash-boom',
+
             title: <Localize translate_text="_t_Crash/Boom_t_" />,
             mobile_title: <Localize translate_text="_t_Crash/Boom_t_" />,
             component: <CrashBoom />,
             details: <CrashBoomDetails />,
         },
         {
+            id: 'jump-indices',
             title: <Localize translate_text="_t_Jump indices_t_" />,
             component: <JumpIndices />,
             details: <JumpIndicesDetails />,
         },
         {
+            id: 'step-indices',
             title: <Localize translate_text="_t_Step indices_t_" />,
             component: <StepIndices />,
             details: <StepIndicesDetails />,
         },
         {
+            id: 'range-break-indices',
             title: <Localize translate_text="_t_Range break indices_t_" />,
             component: <RangeBreak />,
             details: <RangeBreakIndicesDetails />,
@@ -140,19 +154,21 @@ export const synthetic_cfds: MarketInstrumentsElement = {
 
 export const synthetic_cfds_eu: MarketInstrumentsElement = {
     has_global_accordion: true,
-    // template: 2,
+    template: 3,
     markets_list: {
-        col: 3,
-        tablet_col: 3,
+        col: 2,
+        tablet_col: 2,
         mobile_col: 2,
     },
     content: [
         {
+            id: 'volatility-indices',
             title: <Localize translate_text="_t_Volatility indices_t_" />,
             component: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,
         },
         {
+            id: 'crash-boom',
             title: <Localize translate_text="_t_Crash/Boom_t_" />,
             mobile_title: <Localize translate_text="_t_Crash/Boom_t_" />,
             component: <CrashBoomEU />,
@@ -165,6 +181,7 @@ export const stock_cfds: MarketInstrumentsElement = {
     template: 2,
     content: [
         {
+            id: 'american-indices',
             title: (
                 <Localize
                     translate_text="_t_American<0></0>indices_t_"
@@ -180,6 +197,7 @@ export const stock_cfds: MarketInstrumentsElement = {
             gap: '16px',
         },
         {
+            id: 'asian-indices',
             title: (
                 <Localize
                     translate_text="_t_Asian<0></0>indices_t_"
@@ -195,6 +213,7 @@ export const stock_cfds: MarketInstrumentsElement = {
             gap: '16px',
         },
         {
+            id: 'european-indices',
             title: (
                 <Localize
                     translate_text="_t_European<0></0>indices_t_"
@@ -210,6 +229,7 @@ export const stock_cfds: MarketInstrumentsElement = {
             gap: '16px',
         },
         {
+            id: 'stocks',
             title: <Localize translate_text="_t_Stocks_t_" />,
             component: <AmericanStocks />,
             col: 3,
@@ -232,6 +252,7 @@ export const crypto_cfds: MarketInstrumentsElement = {
     template: 2,
     content: [
         {
+            id: 'crypto-pairs',
             title: <Localize translate_text="_t_Crypto pairs_t_" />,
             component: <CryptocurrenciesCFDs />,
         },
@@ -247,11 +268,13 @@ export const basket_cfds: MarketInstrumentsElement = {
     template: 2,
     content: [
         {
+            id: 'commodities-basket',
             title: <Localize translate_text="_t_Commodities Basket_t_" />,
             component: <BasketIndicesCommodities />,
             details: <BasketCommoditiesDetails />,
         },
         {
+            id: 'forex-basket',
             title: <Localize translate_text="_t_Forex Basket_t_" />,
             component: <BasketIndicesCfds />,
             details: <BasketFXDetails />,
@@ -267,6 +290,7 @@ export const derived_fx_cfds: MarketInstrumentsElement = {
     template: 3,
     content: [
         {
+            id: 'cfds-derived-fx',
             title: <Localize translate_text="_t_Derived FX_t_" />,
             component: <DerivedCFDs />,
             details: <DerivedCFDsDetails />,

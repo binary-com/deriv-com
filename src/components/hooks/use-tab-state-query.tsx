@@ -14,6 +14,7 @@ import {
  * @param tab_list {string[]} the array of tabs
  * @param has_no_query {boolean} to check if we should handle location hash on active tab changes
  * @returns [active_tab , setActiveTab]
+ * @deprecated Need to update this because its not working properly when user click on back button
  */
 export const useTabStateQuery = (tab_list, has_no_query = false, starting_index = 0) => {
     const locationHash = getLocationHash()

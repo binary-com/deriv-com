@@ -5,7 +5,7 @@ import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
-import { PlatformQueryParam } from 'common/utility'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type NavTabProps = {
     route_from: string
@@ -136,7 +136,7 @@ const tab_list_eu: TabList[] = [
 const NavTab = ({ route_from }: NavTabProps) => {
     const { is_eu } = useRegion()
     const ref = useRef(null)
-    const { is_deriv_go = true } = PlatformQueryParam()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <TabsContainer>

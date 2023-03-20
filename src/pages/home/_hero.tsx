@@ -66,7 +66,7 @@ const HeroHeader = ({ text }: { text: TString }) => {
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const { is_region_loading, is_eu, is_row } = useRegion()
-    const [is_logged_in] = useAuthCheck()
+    const [is_logged_in, is_auth_checked] = useAuthCheck()
     const handleSignup = useHandleSignup()
 
     return (
@@ -143,24 +143,25 @@ const Hero = ({ is_ppc }: HeroProps) => {
                         </Header>
                         <VerticalCarousel contents={is_ppc ? contents_ppc : contents} />
                         <Box tabletL={{ mt: '-8px' }}>
-                            {is_logged_in ? (
-                                <HeroButton
-                                    onClick={handleGetTrading}
-                                    id="dm-hero-signup"
-                                    secondary
-                                >
-                                    <Localize translate_text="Get Trading" />
-                                </HeroButton>
-                            ) : (
-                                <HeroButton
-                                    disabled={is_region_loading}
-                                    onClick={handleSignup}
-                                    id="dm-hero-signup"
-                                    secondary
-                                >
-                                    <Localize translate_text="Create free demo account" />
-                                </HeroButton>
-                            )}
+                            {is_auth_checked &&
+                                (is_logged_in ? (
+                                    <HeroButton
+                                        onClick={handleGetTrading}
+                                        id="dm-hero-signup"
+                                        secondary
+                                    >
+                                        <Localize translate_text="Get Trading" />
+                                    </HeroButton>
+                                ) : (
+                                    <HeroButton
+                                        disabled={is_region_loading}
+                                        onClick={handleSignup}
+                                        id="dm-hero-signup"
+                                        secondary
+                                    >
+                                        <Localize translate_text="Create free demo account" />
+                                    </HeroButton>
+                                ))}
                         </Box>
                     </Flex>
                     <PlatformSlideshow />

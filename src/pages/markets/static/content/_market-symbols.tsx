@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import * as icons from 'components/elements/symbols'
 import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 export type MarketSymbol = {
     src?: string
@@ -38,6 +39,57 @@ export const asia_oceania: MarketSymbol[] = [
 ]
 
 export const continuous_indices: MarketSymbol[] = [
+    {
+        src: icons.INDEX10S1NEW,
+        text: '_t_Volatility 10 (1s) Index_t_',
+    },
+    {
+        src: icons.INDEX25S1NEW,
+        text: '_t_Volatility 25 (1s) Index_t_',
+    },
+    {
+        src: icons.INDEX50S1NEW,
+        text: '_t_Volatility 50 (1s) Index_t_',
+    },
+    {
+        src: icons.INDEX75S1NEW,
+        text: '_t_Volatility 75 (1s) Index_t_',
+    },
+    {
+        src: icons.INDEX100S1NEW,
+        text: '_t_Volatility 100 (1s) Index_t_',
+    },
+    {
+        src: icons.VINDEX2001S,
+        text: '_t_Volatility 200 (1s) Index_t_',
+    },
+    {
+        src: icons.VINDEX3001S,
+        text: '_t_Volatility 300 (1s) Index_t_',
+    },
+    {
+        src: icons.INDEX10NEW,
+        text: '_t_Volatility 10 Index_t_',
+    },
+    {
+        src: icons.INDEX25NEW,
+        text: '_t_Volatility 25 Index_t_',
+    },
+    {
+        src: icons.INDEX50NEW,
+        text: '_t_Volatility 50 Index_t_',
+    },
+    {
+        src: icons.INDEX75NEW,
+        text: '_t_Volatility 75 Index_t_',
+    },
+    {
+        src: icons.INDEX100NEW,
+        text: '_t_Volatility 100 Index_t_',
+    },
+]
+
+export const continuous_indices_options: MarketSymbol[] = [
     {
         src: icons.INDEX10S1NEW,
         text: '_t_Volatility 10 (1s) Index_t_',
@@ -104,8 +156,16 @@ export const volatility_indices: MarketSymbol[] = [
         text: '_t_Volatility 100 (1s) Index_t_',
     },
     {
+        src: icons.VINDEX1501S,
+        text: '_t_Volatility 150 (1s) Index_t_',
+    },
+    {
         src: icons.VINDEX2001S,
         text: '_t_Volatility 200 (1s) Index_t_',
+    },
+    {
+        src: icons.VINDEX2501S,
+        text: '_t_Volatility 250 (1s) Index_t_',
     },
     {
         src: icons.VINDEX3001S,
@@ -135,8 +195,16 @@ export const volatility_indices: MarketSymbol[] = [
 
 export const volatility_indices_eu: MarketSymbol[] = [
     {
+        src: icons.VINDEX1501S,
+        text: '_t_Volatility 150 (1s) Index_t_',
+    },
+    {
         src: icons.VINDEX2001S,
         text: '_t_Volatility 200 (1s) Index_t_',
+    },
+    {
+        src: icons.VINDEX2501S,
+        text: '_t_Volatility 250 (1s) Index_t_',
     },
     {
         src: icons.VINDEX3001S,

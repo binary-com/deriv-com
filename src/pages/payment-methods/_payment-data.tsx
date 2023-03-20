@@ -43,9 +43,7 @@ import Advcash from 'images/svg/payment-methods/payment-advcash.svg'
 import Dp2p from 'images/svg/payment-methods/payment-dp2p.svg'
 import Eps from 'images/svg/payment-methods/payment-eps.svg'
 import GiroPay from 'images/svg/payment-methods/payment-giropay.svg'
-import Nordea from 'images/svg/payment-methods/payment-nordea.svg'
 import Przelewy from 'images/svg/payment-methods/payment-przelewy.svg'
-import PostePay from 'images/svg/payment-methods/payment-postepay.svg'
 import RapidTransfer from 'images/svg/payment-methods/payment-rapidtransfer.svg'
 
 type LocaleType = { language?: string }
@@ -110,145 +108,6 @@ const StyledRefLink = styled(LocalizedLink)`
 // `
 
 const payment_data: PaymentDataProps[] = [
-    {
-        name: '_t_Online banking_t_',
-        is_row: true,
-        data: [
-            {
-                method: <StyledIcon src={InstantBankTransfer} alt="instant bank transfer" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_5 - 50,000_t_',
-                min_max_withdrawal: '_t_5 - 50,000_t_',
-                deposit_time: '_t_1 working day_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Deposit and withdraw easily using secure and fast money transfers._t_',
-                name: 'InstantBankTransfer',
-            },
-            {
-                method: <StyledIcon src={Paytrust} alt="pay safe card" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 17,000_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_1 working day_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam._t_',
-                name: 'paytrust88',
-            },
-            {
-                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_15 - 10,000_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_A leading payment service in Southeast Asia that’s fast, easy, and secure._t_',
-                name: 'Help2Pay',
-                reference: 'help2pay-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description: '_t_Deposit and withdraw easily in THB, IDR, and VND._t_',
-                name: 'DragonPhoenix',
-                reference: 'dragonphoenix-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={ZingPay} alt="zingPay" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: '_t_10 - 500_t_',
-                min_max_withdrawal: '_t_10 - 6,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Payments simplified. Fast and reliable way to deposit funds in your local currency._t_',
-                name: 'ZingPay',
-                reference: 'zingpay-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={NganLuong} alt="NganLuong" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 2,500_t_',
-                min_max_withdrawal: '_t_10 - 2,500_t_',
-                deposit_time: '_t_1 working day_t_',
-                withdrawal_time: '_t_1 - 3 working days_t_',
-                description:
-                    '_t_A leading e-wallet service in Vietnam that’s easy to use, flexible, and safe. Used by thousands of merchants._t_',
-                name: 'NganLuong',
-                reference: 'nganluong-payment-method.pdf',
-                locales: ['vi'],
-            },
-        ],
-        class_name: 'online-banking',
-    },
-    {
-        name: '_t_Online banking_t_',
-        is_eu: true,
-        note: '_t_Not all payment methods are available in your country. Kindly check your cashier for further information._t_',
-        data: [
-            {
-                method: <StyledIcon src={Eps} alt="eps" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: '_t_25 - 100_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Make deposits and withdrawals through your local bank in real-time._t_',
-                name: 'Eps',
-            },
-            {
-                method: <StyledIcon src={GiroPay} alt="giropay" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: '_t_25 - 100_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    "_t_Make safe, instant, and easy transactions via Germany's most popular payment method._t_",
-                name: 'Eps',
-            },
-            {
-                method: <StyledIcon src={Nordea} alt="nordea" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_25 - 100_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Make fast deposits with your Nordea bank account and enjoy benefits from its mobile app._t_',
-                name: 'Nordea',
-            },
-            {
-                method: <StyledIcon src={Przelewy} alt="przelewy" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: '_t_25 - 100_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Make easy transactions via any major local banks and their mobile apps through Przelewy24._t_',
-                name: 'Przelewy',
-            },
-            {
-                method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: '_t_25 - 100_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program._t_',
-                name: 'Przelewy',
-            },
-        ],
-    },
     {
         name: '_t_Credit/debit cards_t_',
         note: '_t_Withdrawals may take up to 15 working days to reflect on your card._t_',
@@ -618,19 +477,147 @@ const payment_data: PaymentDataProps[] = [
                 url: 'https://www.neteller.com/',
             },
             {
-                method: <StyledIcon src={PostePay} alt="postepay" />,
+                method: <StyledIcon src={Jeton} alt="Jeton" />,
+                currencies: 'EUR',
+                min_max_deposit: '_t_5 - 1,000_t_',
+                min_max_withdrawal: '_t_5 - 1,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description:
+                    '_t_A fast and secure money transfer service. Access your money anywhere with the mobile app._t_',
+                url: 'https://www.jeton.com/',
+                name: 'jeton',
+            },
+        ],
+        class_name: 'e-wallets',
+    },
+    {
+        name: '_t_Online banking_t_',
+        is_row: true,
+        data: [
+            {
+                method: <StyledIcon src={InstantBankTransfer} alt="instant bank transfer" />,
                 currencies: 'USD',
-                min_max_deposit: '_t_10 - 100_t_',
+                min_max_deposit: '_t_5 - 50,000_t_',
+                min_max_withdrawal: '_t_5 - 50,000_t_',
+                deposit_time: '_t_1 working day_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description:
+                    '_t_Deposit and withdraw easily using secure and fast money transfers._t_',
+                name: 'InstantBankTransfer',
+            },
+            {
+                method: <StyledIcon src={Paytrust} alt="pay safe card" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_10 - 17,000_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_1 working day_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description:
+                    '_t_Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam._t_',
+                name: 'paytrust88',
+            },
+            {
+                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_15 - 10,000_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
                 description:
-                    "_t_Make instant and safe transactions via Postepay, and enjoy its mobile app's benefits._t_",
-                name: 'postepay',
-                url: 'https://postepay.poste.it/',
+                    '_t_A leading payment service in Southeast Asia that’s fast, easy, and secure._t_',
+                name: 'Help2Pay',
+                reference: 'help2pay-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_10 - 10,000_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description: '_t_Deposit and withdraw easily in THB, IDR, and VND._t_',
+                name: 'DragonPhoenix',
+                reference: 'dragonphoenix-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={ZingPay} alt="zingPay" />,
+                currencies: 'USD EUR AUD GBP',
+                min_max_deposit: '_t_10 - 500_t_',
+                min_max_withdrawal: '_t_10 - 6,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description:
+                    '_t_Payments simplified. Fast and reliable way to deposit funds in your local currency._t_',
+                name: 'ZingPay',
+                reference: 'zingpay-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={NganLuong} alt="NganLuong" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_10 - 2,500_t_',
+                min_max_withdrawal: '_t_10 - 2,500_t_',
+                deposit_time: '_t_1 working day_t_',
+                withdrawal_time: '_t_1 - 3 working days_t_',
+                description:
+                    '_t_A leading e-wallet service in Vietnam that’s easy to use, flexible, and safe. Used by thousands of merchants._t_',
+                name: 'NganLuong',
+                reference: 'nganluong-payment-method.pdf',
+                locales: ['vi'],
             },
         ],
-        class_name: 'e-wallets',
+        class_name: 'online-banking',
+    },
+    {
+        name: '_t_Online banking_t_',
+        is_eu: true,
+        note: '_t_Not all payment methods are available in your country. Kindly check your cashier for further information._t_',
+        data: [
+            {
+                method: <StyledIcon src={Eps} alt="eps" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: '_t_25 - 100_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description:
+                    '_t_Make deposits and withdrawals through your local bank in real-time._t_',
+                name: 'Eps',
+            },
+            {
+                method: <StyledIcon src={GiroPay} alt="giropay" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: '_t_25 - 100_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description:
+                    "_t_Make safe, instant, and easy transactions via Germany's most popular payment method._t_",
+                name: 'Eps',
+            },
+            {
+                method: <StyledIcon src={Przelewy} alt="przelewy" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: '_t_25 - 100_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description:
+                    '_t_Make easy transactions via any major local banks and their mobile apps through Przelewy24._t_',
+                name: 'Przelewy',
+            },
+            {
+                method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: '_t_25 - 100_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description:
+                    '_t_Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program._t_',
+                name: 'Przelewy',
+            },
+        ],
     },
     {
         name: '_t_Cryptocurrencies_t_',

@@ -391,14 +391,7 @@ export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'dev
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
 
-export const PlatformQueryParam = () => {
-    if (isBrowser()) {
-        const is_deriv_go = window.location.href.indexOf('?platform=derivgo') > -1
-        const is_deriv_p2p = window.location.href.indexOf('?platform=p2p') > -1
-        const has_platform = is_deriv_go ? 'derivgo' : is_deriv_p2p ? 'p2p' : undefined
+export const matchHashInURL = (hash: string) =>
+    isBrowser() && location.hash.replace('#', '') === hash
 
-        return { has_platform, is_deriv_p2p, is_deriv_go }
-    }
-
-    return {}
-}
+export const setHashInURL = (hash: string) => isBrowser() && (location.hash = `#${hash}`)

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { useFilteredCategory, useFilteredQuestions } from '../data/_hooks'
+import { TTranslatedQuestionsData } from '../data/_data-types'
 import SearchResult from './_search-result'
 import { all_questions } from './_constants'
 import { Container } from 'components/containers'
@@ -96,8 +97,26 @@ const SearchSection = () => {
         setSearchValue(sanitize(e.target.value))
     }
 
+    const translated_all_questions: TTranslatedQuestionsData[] = useMemo(
+        () =>
+            all_questions.map((section) => {
+                return {
+                    ...section,
+                    category: localize(section.category),
+                    questions: section.questions.map((question) => {
+                        return {
+                            ...question,
+                            sub_category: localize(question.sub_category),
+                            question: localize(question.question),
+                        }
+                    }),
+                }
+            }),
+        [all_questions],
+    )
+
     // we need to hide some of the platforms for eu countries!
-    const filtered_categories = useFilteredCategory(all_questions)
+    const filtered_categories = useFilteredCategory(translated_all_questions)
     // putting all of the questions in a variable
     const questions = filtered_categories
         .map(({ questions }) => questions)

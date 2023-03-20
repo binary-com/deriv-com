@@ -21,12 +21,11 @@ const Link = (props: LinkProps) => {
         return getLinkUrl(url)
     }, [getLinkUrl, url])
 
-    const is_company_external_link =
-        hrefObject.type === 'company' || hrefObject.type === 'non-company'
-    const show_modal = is_eu && !is_company_external_link
+    const show_modal = is_eu && hrefObject.type === 'non-company' && hrefObject.show_eu_modal
 
     const handleClick = useCallback(
         (event: any) => {
+            event?.preventDefault()
             setModalPayload({
                 to: hrefObject.href,
                 target: props['target'],

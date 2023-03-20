@@ -26,38 +26,44 @@ type SpacingClasses = {
     padding_block?: TSpacingSize
 }
 
-export const generateSpacingClasses = ({
-    margin,
-    ml,
-    mr,
-    mt,
-    mb,
-    margin_inline,
-    margin_block,
-    padding,
-    pl,
-    pr,
-    pt,
-    pb,
-    padding_inline,
-    padding_block,
-}: SpacingClasses) => {
+export const generateSpacingClasses = (options: SpacingClasses, prefix = '') => {
+    const classPrefix = prefix !== '' ? `${prefix}-` : ''
+    const {
+        margin,
+        ml,
+        mr,
+        mt,
+        mb,
+        margin_inline,
+        margin_block,
+        padding,
+        pl,
+        pr,
+        pt,
+        pb,
+        padding_inline,
+        padding_block,
+    } = options
     return dclsx({
-        [`margin-${margin}`]: margin,
-        [`margin-left-${ml}`]: ml,
-        [`margin-right-${mr}`]: mr,
-        [`margin-top-${mt}`]: mt,
-        [`margin-bottom-${mb}`]: mb,
-        [`margin-inline-${margin_inline}`]: margin_inline,
-        [`margin-block-${margin_block}`]: margin_block,
-        [`padding-${padding}`]: padding,
-        [`padding-left-${pl}`]: pl,
-        [`padding-right-${pr}`]: pr,
-        [`padding-top-${pt}`]: pt,
-        [`padding-bottom-${pb}`]: pb,
-        [`padding-inline-${padding_inline}`]: padding_inline,
-        [`padding-block-${padding_block}`]: padding_block,
+        [`${classPrefix}margin-${margin}`]: margin,
+        [`${classPrefix}margin-left-${ml}`]: ml,
+        [`${classPrefix}margin-right-${mr}`]: mr,
+        [`${classPrefix}margin-top-${mt}`]: mt,
+        [`${classPrefix}margin-bottom-${mb}`]: mb,
+        [`${classPrefix}margin-inline-${margin_inline}`]: margin_inline,
+        [`${classPrefix}margin-block-${margin_block}`]: margin_block,
+        [`${classPrefix}padding-${padding}`]: padding,
+        [`${classPrefix}padding-left-${pl}`]: pl,
+        [`${classPrefix}padding-right-${pr}`]: pr,
+        [`${classPrefix}padding-top-${pt}`]: pt,
+        [`${classPrefix}padding-bottom-${pb}`]: pb,
+        [`${classPrefix}padding-inline-${padding_inline}`]: padding_inline,
+        [`${classPrefix}padding-block-${padding_block}`]: padding_block,
     })
+}
+
+export const generateGapClasses = (gap?: TSpacingSize) => {
+    return dclsx({ [`gap-${gap}`]: gap })
 }
 
 export const generateBackgroundColor = (bgColor?: TBGColor) => {

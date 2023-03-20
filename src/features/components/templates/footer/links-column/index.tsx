@@ -22,8 +22,8 @@ const FooterLinksColumn = ({ item: { data } }: FooterLinksColumnProps) => {
     })
 
     return (
-        <FlexBox direction="column">
-            <Typography.Heading as={'h5'} size={'xlarge'} weight="bold" pb="5x">
+        <FlexBox direction="col">
+            <Typography.Heading as={'h5'} size={'xxs'} weight="bold" pb="10x">
                 <Localize translate_text={data.title} />
             </Typography.Heading>
             {links.map((linkItem) => (

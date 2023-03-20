@@ -3,21 +3,19 @@
 
 .home_hero {
     position: relative;
-    inline-size: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: start;
     justify-content: flex-start;
 
     padding: 10rem 0 46px;
-    min-block-size: 85rem;
+    min-block-size: 100vh;
 
     @include breakpoints(tablet-large) {
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
         padding: 5rem 0;
-        min-block-size: 92rem;
     }
 
     &::before {
@@ -45,15 +43,6 @@
     }
 }
 
-.bg_container {
-    position: absolute;
-    display: flex;
-    block-size: 100%;
-    justify-content: center;
-    align-items: center;
-    inset-block-start: 0px;
-}
-
 .content {
     z-index: 1;
     display: grid;
@@ -61,28 +50,6 @@
 
     @include breakpoints(tablet-large) {
         grid-template-columns: 1fr 1fr;
-    }
-}
-
-.left_side {
-    display: flex;
-    justify-content: start;
-    align-items: flex-start;
-    flex-direction: column;
-    min-inline-size: 40rem;
-    gap: 2rem;
-    .header_titles {
-        display: flex;
-        justify-content: start;
-        align-items: start;
-        gap: 1rem;
-        flex-direction: row;
-
-        flex-wrap: wrap;
-        @include breakpoints(tablet-large) {
-            flex-direction: column;
-            flex-wrap: nowrap;
-        }
     }
 }
 

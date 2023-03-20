@@ -1,19 +1,8 @@
-.header {
-    &_wrapper {
-        position: fixed;
-        z-index: 100;
-    }
+.header_wrapper {
+    position: fixed;
+    z-index: 100;
 }
 
-.nav {
-    &_container {
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-        block-size: 7rem;
-        user-select: none;
-        white-space: nowrap;
-    }
+.nav_container {
+    block-size: 7rem;
 }

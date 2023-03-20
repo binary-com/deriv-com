@@ -1,3 +1,4 @@
+import { LinkUrlType } from 'features/types'
 import { TSmartContent, TString } from 'types/generics'
 
 export type TActiveNav = 'trade' | 'markets' | 'about' | 'resources' | 'none'
@@ -14,10 +15,8 @@ export type TNavContent = {
     }
     content?: TString | ((config: Partial<TNavConfig>) => TString)
     title: TString
-    to: string | ((config: Partial<TNavConfig>) => string)
+    url: LinkUrlType | ((config: Partial<TNavConfig>) => LinkUrlType)
     aria_label?: string
-    external?: boolean
-    target?: string
 }
 
 export type TNavSectionColumns = {

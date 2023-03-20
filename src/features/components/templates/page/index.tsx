@@ -1,4 +1,5 @@
 import React, { HTMLAttributes } from 'react'
+import Footer from '../footer'
 import apiManager from 'features/websocket'
 import usePopup from 'components/hooks/use-popup'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
@@ -41,7 +42,8 @@ const LayoutComponent = ({
     return (
         <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
             <LocationProvider toggleModal={toggleModal} setModalPayload={setModalPayload}>
-                {children}
+                <main>{children}</main>
+                <Footer />
                 <EURedirect
                     toggle={toggleModal}
                     is_open={show_modal}

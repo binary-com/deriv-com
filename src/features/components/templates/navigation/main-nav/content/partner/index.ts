@@ -13,7 +13,7 @@ export const partnerNavSectionContent: TSmartNavContent[] = [
                 alt: 'affiliates and IBs',
             },
             title: '_t_Affiliates and IBs_t_',
-            to: '/partners/affiliate-ib/',
+            url: { type: 'internal', to: '/partners/affiliate-ib/' },
         },
     },
     {
@@ -24,7 +24,7 @@ export const partnerNavSectionContent: TSmartNavContent[] = [
                 alt: 'Payment agents',
             },
             title: '_t_Terms and conditions_t_',
-            to: '/partners/payment-agent/',
+            url: { type: 'internal', to: '/partners/payment-agent/' },
         },
         visibility: {
             is_row: true,
@@ -38,9 +38,7 @@ export const partnerNavSectionContent: TSmartNavContent[] = [
                 alt: 'API',
             },
             title: '_t_API_t_',
-            to: 'https://api.deriv.com/',
-            external: true,
-            target: '_blank',
+            url: { type: 'company', url_name: 'api', target: '_blank' },
         },
     },
     {
@@ -51,7 +49,7 @@ export const partnerNavSectionContent: TSmartNavContent[] = [
                 alt: 'bug bounty',
             },
             title: '_t_bug bounty_t_',
-            to: '/bug-bounty/',
+            url: { type: 'internal', to: '/bug-bounty/' },
         },
     },
 ]

@@ -30,14 +30,14 @@ const Footer = ({ no_footer_links = false }: FooterProps) => {
         <Container.Fixed
             as={'footer'}
             bgcolor="primary"
-            mb={has_margin_for_cfd_warning ? '25x' : undefined}
+            pb={has_margin_for_cfd_warning ? '25x' : undefined}
         >
-            <Container.Fluid>
+            <Container.Fluid pt={'20x'}>
                 <FooterIcons />
-                <Container.Fixed className={footer_grid}>
+                <Container.Fixed className={footer_grid} padding_block={'10x'}>
                     {show_links && (
-                        <Container.Fixed padding_block="15x">
-                            <FlexBox justify="space-between" padding_block="10x">
+                        <Container.Fixed>
+                            <FlexBox justify="between">
                                 {content.map((contentItem) => (
                                     <FooterLinksColumn key={contentItem.id} item={contentItem} />
                                 ))}

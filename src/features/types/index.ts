@@ -1,5 +1,3 @@
-import { ComponentPropsWithRef } from 'react'
-
 export type ContentSectionTagOptions =
     | 'div'
     | 'address'
@@ -11,6 +9,7 @@ export type ContentSectionTagOptions =
     | 'section'
     | 'footer'
     | 'section'
+    | 'ul'
 
 export type HeadingTagOptions = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 export type TextTagOptions =
@@ -50,36 +49,6 @@ export type TextTagOptions =
 
 export type TypographyTagOptions = HeadingTagOptions | TextTagOptions
 
-export type SpacingSize = 'extra-small' | 'small' | 'medium' | 'large' | 'extra-large'
-
-export type ColorPallette =
-    | 'brand'
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | 'inverted'
-    | 'transparent'
-
-export interface SpaceProps<T extends React.ElementType = 'p'> {
-    as?: T
-    margin?: SpacingSize
-    ml?: SpacingSize
-    mr?: SpacingSize
-    mt?: SpacingSize
-    mb?: SpacingSize
-    margin_inline?: SpacingSize
-    margin_block?: SpacingSize
-    padding?: SpacingSize
-    pl?: SpacingSize
-    pr?: SpacingSize
-    pt?: SpacingSize
-    pb?: SpacingSize
-    padding_inline?: SpacingSize
-    padding_block?: SpacingSize
-    bgcolor?: ColorPallette
-    innerRef?: ComponentPropsWithRef<T>['ref']
-}
-
 export type ExternalURLNames =
     | 'affiliate_sign_in'
     | 'affiliate_sign_up'
@@ -114,6 +83,7 @@ export interface NonCompanyExternalLink {
     href: string
     target?: LinkTarget
     rel?: string
+    show_eu_modal?: boolean
 }
 
 export interface InternalLinkType {
@@ -127,6 +97,7 @@ export type LinkUrlType = InternalLinkType | ExternalLinkType
 
 type InferSide<T, K extends string> = T extends `${K}-${infer R}` ? R : never
 
+// Typography Classes
 export type TTypographyAlign = InferSide<ClassNames, 'typography-align'>
 export type TTypographyBreakWord = InferSide<ClassNames, 'typography-break'>
 export type TTypographyWeight = InferSide<ClassNames, 'typography-weight'>
@@ -135,8 +106,10 @@ export type TTextSize = InferSide<ClassNames, 'text'>
 export type TSpacingSize = InferSide<ClassNames, 'margin-block'>
 export type TTypographyColor = InferSide<ClassNames, 'typography-color'>
 
+// Background Classes
 export type TBGColor = InferSide<ClassNames, 'bg-color'>
 
+// FlexBox Classes
 export type TAlignItems = InferSide<ClassNames, 'align-items'>
 export type TJustifyContent = InferSide<ClassNames, 'justify'>
 export type TFlexGrow = InferSide<ClassNames, 'flex-grow'>
@@ -144,9 +117,9 @@ export type TFlexShrink = InferSide<ClassNames, 'flex-shrink'>
 export type TFlexWrap = InferSide<ClassNames, 'flex-wrap'>
 export type TFlexDirection = InferSide<ClassNames, 'flex-dir'>
 export type TFlexBasis = InferSide<ClassNames, 'flex-basis'>
+export type TContainerType = InferSide<ClassNames, 'container'>
 
-export interface ClassProps<T extends React.ElementType = 'p'> {
-    as?: T
+export interface ClassProps {
     margin?: TSpacingSize
     ml?: TSpacingSize
     mr?: TSpacingSize
@@ -161,6 +134,5 @@ export interface ClassProps<T extends React.ElementType = 'p'> {
     pb?: TSpacingSize
     padding_inline?: TSpacingSize
     padding_block?: TSpacingSize
-    bgcolor?: TBGColor
-    innerRef?: ComponentPropsWithRef<T>['ref']
+    // bgcolor?: TBGColor
 }

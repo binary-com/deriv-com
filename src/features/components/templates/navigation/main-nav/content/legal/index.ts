@@ -12,7 +12,7 @@ export const legalNavSectionContent: TSmartNavContent[] = [
                 alt: 'regulatory information',
             },
             title: '_t_Regulatory information_t_',
-            to: '/regulatory/',
+            url: { type: 'internal', to: '/regulatory/' },
         },
     },
     {
@@ -23,7 +23,7 @@ export const legalNavSectionContent: TSmartNavContent[] = [
                 alt: 'terms and conditions',
             },
             title: '_t_Terms and conditions_t_',
-            to: '/terms-and-conditions/#clients',
+            url: { type: 'internal', to: '/terms-and-conditions/#clients' },
         },
     },
     {
@@ -34,7 +34,7 @@ export const legalNavSectionContent: TSmartNavContent[] = [
                 alt: 'secure and responsible trading',
             },
             title: '_t_Secure and responsible trading_t_',
-            to: '/responsible/',
+            url: { type: 'internal', to: '/responsible/' },
         },
     },
 ]

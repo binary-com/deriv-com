@@ -11,7 +11,6 @@ type TypographyTypes = {
     Hero: typeof HeroText
     Paragraph: typeof Paragraph
     Link: typeof TypographyLink
-    Text: typeof Text
 }
 
 const Typography: TypographyTypes = ({ children }: { children: ReactNode }) => {
@@ -21,7 +20,6 @@ Typography.Base = BaseTypography
 Typography.Heading = Heading
 Typography.Hero = HeroText
 Typography.Paragraph = Paragraph
-Typography.Text = Text
 Typography.Link = TypographyLink
 
 export default Typography

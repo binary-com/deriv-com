@@ -7,6 +7,7 @@ import usePpc from 'features/hooks/use-ppc'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import { TNavConfig, TSmartNavSectionColumns } from 'features/components/templates/navigation/types'
+import FlexBox from 'features/components/atoms/flex-box'
 
 const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) => {
     const { is_ppc, is_ppc_redirect } = usePpc()
@@ -24,10 +25,21 @@ const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) =>
     const data = useVisibleContent({ config: filter_config, content: items })
 
     return (
-        <div className={styles.section_items}>
+        <FlexBox bgcolor="primary" className={styles.section_items}>
             {data.map((sectionItem) => (
-                <div key={sectionItem.id} className={styles.section_items_container}>
-                    <Typography.Paragraph className={styles.section_items_title}>
+                <FlexBox
+                    direction="col"
+                    gap="5x"
+                    padding_block="4x"
+                    padding_inline="5x"
+                    key={sectionItem.id}
+                    className={styles.section_items_container}
+                >
+                    <Typography.Paragraph
+                        className={styles.section_items_title}
+                        textcolor="secondary"
+                        align="left"
+                    >
                         {sectionItem.data.title ? (
                             <Localize translate_text={sectionItem.data.title} />
                         ) : (
@@ -35,9 +47,9 @@ const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) =>
                         )}
                     </Typography.Paragraph>
                     <NavCardItems items={sectionItem.data.section} />
-                </div>
+                </FlexBox>
             ))}
-        </div>
+        </FlexBox>
     )
 }
 

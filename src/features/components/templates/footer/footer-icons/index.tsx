@@ -3,18 +3,18 @@ import FooterSocialIcons from '../social-icons'
 import DerivLogo from 'images/svg/layout/deriv-footer.svg'
 import Image from 'features/components/atoms/image'
 import FlexBox from 'features/components/atoms/flex-box'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const FooterIcons = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
-
     return (
-        <FlexBox direction="column" padding_block="medium">
+        <FlexBox direction="col">
             <FlexBox
-                justify="space-between"
+                justify="between"
                 align="center"
-                direction={is_mobile_or_tablet ? 'column' : 'row'}
-                gap={'large'}
+                direction="col"
+                md={{
+                    direction: 'row',
+                }}
+                gap={'10x'}
             >
                 <Image src={DerivLogo} width={150} height={25} />
                 <FooterSocialIcons />

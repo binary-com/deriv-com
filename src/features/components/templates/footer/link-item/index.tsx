@@ -4,7 +4,6 @@ import usePpc from 'features/hooks/use-ppc'
 import useRegion from 'components/hooks/use-region'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
-import Typography from 'features/components/atoms/typography'
 
 interface FooterLinkProps {
     item: SmartFooterLink
@@ -18,11 +17,9 @@ const FooterLink = ({ item: { data } }: FooterLinkProps) => {
     const visible_url = typeof url === 'function' ? url({ is_ppc, is_ppc_redirect, is_row }) : url
 
     return (
-        <Typography.Paragraph pb={'10x'}>
-            <Link url={visible_url}>
-                <Localize translate_text={data.text} />
-            </Link>
-        </Typography.Paragraph>
+        <Link url={visible_url} size="medium" pb="10x">
+            <Localize translate_text={data.text} />
+        </Link>
     )
 }
 

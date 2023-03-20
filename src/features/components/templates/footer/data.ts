@@ -272,7 +272,7 @@ const supportLinks: SmartFooterLink[] = [
         id: 3,
         data: {
             text: '_t_Status page_t_',
-            url: { type: 'non-company', href: deriv_status_page_url },
+            url: { type: 'non-company', href: deriv_status_page_url, show_eu_modal: true },
         },
     },
     {

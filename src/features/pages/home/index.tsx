@@ -15,7 +15,6 @@ import {
     P2PHomeBanner,
 } from 'pages/home/_lazy-load'
 import MainNav from 'features/components/templates/navigation/main-nav'
-import Footer from 'features/components/templates/footer'
 
 const HomePage = () => {
     useOpenLiveChat(true)
@@ -40,7 +39,6 @@ const HomePage = () => {
             <WhatOurClientsSay />
             {is_p2p_allowed_country && <P2PHomeBanner />}
             <Signup appearance={Appearances.public} />
-            <Footer />
         </LayoutComponent>
     )
 }

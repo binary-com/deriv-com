@@ -9,7 +9,7 @@ import {
     generateTypographyWeight,
 } from 'features/styles/utils'
 
-export interface BaseButtonProps extends ButtonHTMLAttributes<'button'>, ClassProps<'button'> {
+export interface BaseButtonProps extends ButtonHTMLAttributes<'button'>, ClassProps {
     is_loading?: boolean
     fluid?: boolean
     textsize?: TTextSize

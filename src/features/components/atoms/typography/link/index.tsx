@@ -2,14 +2,20 @@ import clsx from 'clsx'
 import React, { AnchorHTMLAttributes } from 'react'
 import { BoxProps } from '../../box'
 import BaseTypography, { TypographyProps } from '../base'
+import { generateTextSize } from 'features/styles/utils'
+import { TTextSize } from 'features/types'
+import dclsx from 'features/utils/dclsx'
 
 export interface TypographyLinkProps
     extends AnchorHTMLAttributes<'a'>,
         Omit<BoxProps<'a'>, 'as'>,
-        TypographyProps<'a'> {}
+        TypographyProps {
+    size?: TTextSize
+}
 
-const TypographyLink = ({ className, ...rest }: TypographyLinkProps) => {
-    return <BaseTypography as="a" className={clsx(className, 'typography-link')} {...rest} />
+const TypographyLink = ({ className, size, ...rest }: TypographyLinkProps) => {
+    const classnames = dclsx(className, generateTextSize(size))
+    return <BaseTypography as="a" className={clsx(classnames, 'typography-link')} {...rest} />
 }
 
 export default TypographyLink

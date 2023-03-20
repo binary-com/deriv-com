@@ -35,11 +35,15 @@ module.exports = {
             resolve: 'gatsby-plugin-sass',
             options: {
                 postCssPlugins: [
+                    require('postcss-discard-duplicates'),
                     plugin({
                         dest: 'src/classnames.d.ts',
                         // Set isModule if you want to import ClassNames from another file
                         // isModule: true,
                         exportAsDefault: true, // to use in combination with isModule
+                    }),
+                    require('cssnano')({
+                        preset: 'default',
                     }),
                 ],
             },

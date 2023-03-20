@@ -1,9 +1,7 @@
 import React from 'react'
-import clsx from 'clsx'
-import * as styles from './main-nav-buttons.module.scss'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useRegion from 'components/hooks/use-region'
-import { Localize } from 'components/localization'
+import { LanguageSwitcher, Localize } from 'components/localization'
 import Button from 'features/components/atoms/button'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -19,7 +17,7 @@ const MainNavButtons = () => {
     const handleSignup = useHandleSignup(is_ppc_redirect)
 
     return (
-        <div className={clsx(styles.nav_right)}>
+        <>
             {is_logged_in ? (
                 <Button.Primary disabled={is_region_loading} onClick={handleGetTrading}>
                     <Localize translate_text="_t_Get Trading_t_" />
@@ -29,7 +27,6 @@ const MainNavButtons = () => {
                     <Button.Primary
                         disabled={is_region_loading}
                         id="dm-nav-login-button"
-                        className={styles.login_button}
                         onClick={handleLogin}
                         outlined
                     >
@@ -44,7 +41,8 @@ const MainNavButtons = () => {
                     </Button.Primary>
                 </>
             )}
-        </div>
+            <LanguageSwitcher is_high_nav />
+        </>
     )
 }
 

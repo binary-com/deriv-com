@@ -1,91 +1,73 @@
-$font-size-50: (
+$font-size-200: (
     null: 0.8rem,
     md: 0.8rem,
     lg: 1rem,
 );
 
-$font-size-75: (
+$font-size-300: (
     null: 1rem,
     md: 1rem,
     lg: 1.2rem,
 );
 
-$font-size-100: (
-    null: 1.4rem,
-    md: 1.4rem,
+$font-size-400: (
+    null: 1.2rem,
+    md: 1.2rem,
     lg: 1.4rem,
 );
 
-$font-size-200: (
+$font-size-500: (
     null: 1.4rem,
-    md: 1.5rem,
+    md: 1.4rem,
     lg: 1.6rem,
 );
 
-$font-size-300: (
+$font-size-600: (
     null: 1.6rem,
     md: 1.6rem,
-    lg: 1.8rem,
-);
-
-$font-size-400: (
-    null: 1.8rem,
-    md: 1.8rem,
     lg: 2rem,
 );
 
-$font-size-500: (
-    null: 2rem,
-    md: 2rem,
-    lg: 2.2rem,
-);
-
-$font-size-600: (
-    null: 2.2rem,
-    md: 2.2rem,
+$font-size-700: (
+    null: 1.8rem,
+    md: 1.8rem,
     lg: 2.4rem,
 );
 
-$font-size-700: (
+$font-size-800: (
     null: 2.4rem,
     md: 2.4rem,
-    lg: 2.8rem,
-);
-
-$font-size-800: (
-    null: 2.6rem,
-    md: 2.6rem,
     lg: 3.2rem,
 );
 
 $font-size-900: (
     null: 2.8rem,
     md: 2.8rem,
-    lg: 3.6rem,
+    lg: 4.8rem,
 );
 
 $font-size-1000: (
     null: 3.2rem,
     md: 3.2rem,
-    lg: 4rem,
+    lg: 5.8rem,
 );
 
 $font-size-1100: (
-    null: 2.4rem,
-    md: 2.4rem,
-    lg: 4.8rem,
+    null: 3.6rem,
+    md: 3.6rem,
+    lg: 6.4rem,
 );
 
 $font-size-1200: (
-    null: 3rem,
-    md: 3rem,
-    lg: 6rem,
+    null: 3.8rem,
+    md: 3.8rem,
+    lg: 7.2rem,
 );
 
 $font-size-1300: (
-    null: 3.2rem,
-    md: 3.2rem,
-    lg: 6.4rem,
+    null: 4rem,
+    md: 4rem,
+    lg: 8rem,
 );
 
 $color-black: #0e0e0e;

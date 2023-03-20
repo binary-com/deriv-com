@@ -14,7 +14,7 @@ export const resourcesNavSectionContent: TSmartNavContent[] = [
                 alt: 'help centre',
             },
             title: '_t_Help centre_t_',
-            to: '/help-centre/',
+            url: { type: 'internal', to: '/help-centre/' },
         },
     },
     {
@@ -25,9 +25,7 @@ export const resourcesNavSectionContent: TSmartNavContent[] = [
                 alt: 'community',
             },
             title: '_t_Community_t_',
-            external: true,
-            target: '_blank',
-            to: 'https://community.deriv.com/',
+            url: { type: 'company', url_name: 'community', target: '_blank' },
         },
     },
     {
@@ -38,7 +36,7 @@ export const resourcesNavSectionContent: TSmartNavContent[] = [
                 alt: 'payment methods',
             },
             title: '_t_Payment methods_t_',
-            to: '/payment-methods/',
+            url: { type: 'internal', to: '/payment-methods/' },
         },
     },
     {
@@ -49,7 +47,7 @@ export const resourcesNavSectionContent: TSmartNavContent[] = [
                 alt: 'Deriv MT5 signals',
             },
             title: '_t_Deriv MT5 Signals_t_',
-            to: '/dmt5-trading-signals/#signal-subscriber/',
+            url: { type: 'internal', to: '/dmt5-trading-signals/#signal-subscriber/' },
         },
     },
     {
@@ -60,9 +58,7 @@ export const resourcesNavSectionContent: TSmartNavContent[] = [
                 alt: 'academy',
             },
             title: '_t_Academy_t_',
-            external: true,
-            target: '_blank',
-            to: 'https://academy.deriv.com/',
+            url: { type: 'company', url_name: 'academy', target: '_blank' },
         },
     },
 ]

@@ -16,7 +16,7 @@ export const aboutUsNavSectionContent: TSmartNavContent[] = [
                 alt: 'who we are',
             },
             title: '_t_Who we are_t_',
-            to: '/who-we-are/',
+            url: { type: 'internal', to: '/who-we-are/' },
         },
     },
     {
@@ -27,7 +27,7 @@ export const aboutUsNavSectionContent: TSmartNavContent[] = [
                 alt: 'regulatory information',
             },
             title: '_t_Regulatory information_t_',
-            to: '/regulatory/',
+            url: { type: 'internal', to: '/regulatory/' },
         },
     },
     {
@@ -38,7 +38,7 @@ export const aboutUsNavSectionContent: TSmartNavContent[] = [
                 alt: 'why choose us',
             },
             title: '_t_Why choose us_t_',
-            to: '/why-choose-us/',
+            url: { type: 'internal', to: '/why-choose-us/' },
         },
     },
     {
@@ -49,7 +49,7 @@ export const aboutUsNavSectionContent: TSmartNavContent[] = [
                 alt: 'partnership programmes',
             },
             title: '_t_Partnership programmes_t_',
-            to: '/partners/',
+            url: { type: 'internal', to: '/partners/' },
         },
     },
     {
@@ -60,7 +60,7 @@ export const aboutUsNavSectionContent: TSmartNavContent[] = [
                 alt: 'contact us',
             },
             title: '_t_Contact us_t_',
-            to: '/contact_us/',
+            url: { type: 'internal', to: '/contact_us/' },
         },
     },
     {
@@ -71,7 +71,7 @@ export const aboutUsNavSectionContent: TSmartNavContent[] = [
                 alt: 'careers',
             },
             title: '_t_Careers_t_',
-            to: '/careers/',
+            url: { type: 'internal', to: '/careers/' },
         },
     },
     {
@@ -81,10 +81,11 @@ export const aboutUsNavSectionContent: TSmartNavContent[] = [
                 src: DerivLife,
                 alt: 'Deriv life',
             },
+            url: { type: 'company', url_name: 'derivlife', target: '_blank' },
             title: '_t_Deriv life_t_',
-            external: true,
-            target: '_blank',
-            to: 'https://derivlife.com/',
+            // external: true,
+            // target: '_blank',
+            // to: 'https://derivlife.com/',
         },
     },
 ]

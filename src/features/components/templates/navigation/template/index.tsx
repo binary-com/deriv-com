@@ -9,7 +9,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import MobileMenuToggle from 'features/components/molecules/mobile-menu-toggle'
-import { LanguageSwitcher } from 'components/localization'
+import FlexBox from 'features/components/atoms/flex-box'
 
 interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivElement> {
     renderTopNav?: () => ReactNode
@@ -66,11 +66,21 @@ const NavTemplate = <T extends string>({
             className={clsx(styles.header_wrapper, className)}
         >
             {renderTopNav?.()}
-            <Container.Fluid as="nav" className={styles.nav_container}>
-                {is_mobile_or_tablet && (
-                    <MobileMenuToggle is_open={is_menu_open} onClick={onMenuToggleClick} />
-                )}
-                {renderLogo()}
+            <FlexBox
+                as="nav"
+                container="fluid"
+                justify="between"
+                align="center"
+                gap="5x"
+                className={styles.nav_container}
+            >
+                <FlexBox justify="center" align="center">
+                    {is_mobile_or_tablet && (
+                        <MobileMenuToggle is_open={is_menu_open} onClick={onMenuToggleClick} />
+                    )}
+                    {renderLogo()}
+                </FlexBox>
+
                 {!is_mobile_or_tablet && (
                     <DesktopMenu
                         onItemClick={onItemClick}
@@ -78,10 +88,11 @@ const NavTemplate = <T extends string>({
                         items={visible_items}
                     />
                 )}
-                {children}
-                <LanguageSwitcher is_high_nav />
+                <FlexBox justify="end" align="center" gap={'4x'}>
+                    {children}
+                </FlexBox>
                 {is_mobile_or_tablet && <MobileMenu is_open={is_menu_open} items={visible_items} />}
-            </Container.Fluid>
+            </FlexBox>
         </Container.Fixed>
     )
 }

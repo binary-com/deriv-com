@@ -106,7 +106,7 @@ const FooterSocialIcons = () => {
     }, [alt, fb_url, instagram_url, is_career_page, linkedin_url, twitter_url])
 
     return (
-        <FlexBox justify="center" align="center" gap="small">
+        <FlexBox justify="center" align="center" gap="5x">
             {icons.map((iconItem) => {
                 return (
                     <Link

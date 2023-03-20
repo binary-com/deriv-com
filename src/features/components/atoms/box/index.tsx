@@ -1,11 +1,15 @@
-import React, { HTMLAttributes } from 'react'
-import { ClassProps } from 'features/types'
+import React, { ComponentPropsWithRef, HTMLAttributes } from 'react'
+import { ClassProps, TBGColor } from 'features/types'
 import dclsx from 'features/utils/dclsx'
 import { generateBackgroundColor, generateSpacingClasses } from 'features/styles/utils'
 
-export interface BoxProps<T extends React.ElementType = 'p'>
-    extends HTMLAttributes<T>,
-        ClassProps<T> {}
+export interface BoxProps<T extends React.ElementType = 'p'> extends HTMLAttributes<T>, ClassProps {
+    as?: T
+    innerRef?: ComponentPropsWithRef<T>['ref']
+    md?: ClassProps
+    lg?: ClassProps
+    bgcolor?: TBGColor
+}
 
 const Box = <T extends React.ElementType>({
     as,
@@ -24,6 +28,8 @@ const Box = <T extends React.ElementType>({
     pb,
     padding_block,
     padding_inline,
+    md,
+    lg,
     innerRef,
     bgcolor,
     ...rest
@@ -48,6 +54,8 @@ const Box = <T extends React.ElementType>({
             padding_block,
             padding_inline,
         }),
+        generateSpacingClasses(md ?? {}, 'md'),
+        generateSpacingClasses(lg ?? {}, 'lg'),
         generateBackgroundColor(bgcolor),
     )
 

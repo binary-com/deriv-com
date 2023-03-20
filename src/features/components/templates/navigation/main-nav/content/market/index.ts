@@ -16,7 +16,7 @@ export const marketSectionContent: TSmartNavContent[] = [
             },
             content: '_t_Trade the world’s largest financial market with popular forex pairs._t_',
             title: '_t_Forex_t_',
-            to: '/markets/forex/',
+            url: { type: 'internal', to: '/markets/forex/' },
         },
     },
     {
@@ -33,7 +33,7 @@ export const marketSectionContent: TSmartNavContent[] = [
                     : '_t_Enjoy trading asset prices derived from real-world or simulated markets._t_'
             },
             title: '_t_Forex_t_',
-            to: '/markets/forex/',
+            url: { type: 'internal', to: '/markets/forex/' },
         },
     },
     {
@@ -47,7 +47,7 @@ export const marketSectionContent: TSmartNavContent[] = [
             content:
                 '_t_Predict broader market trends and diversify your risk with stocks & indices._t_',
             title: '_t_Stocks & indices_t_',
-            to: '/markets/stock/',
+            url: { type: 'internal', to: '/markets/stock/' },
         },
     },
     {
@@ -61,7 +61,7 @@ export const marketSectionContent: TSmartNavContent[] = [
             content:
                 '_t_Trade with leverage on the price movement of popular crypto-fiat pairs._t_',
             title: '_t_Cryptocurrencies_t_',
-            to: '/markets/cryptocurrencies/',
+            url: { type: 'internal', to: '/markets/cryptocurrencies/' },
         },
     },
     {
@@ -74,7 +74,7 @@ export const marketSectionContent: TSmartNavContent[] = [
             },
             content: "_t_Trade natural resources that are central to the world's economy._t_",
             title: '_t_Commodities_t_',
-            to: '/markets/commodities/',
+            url: { type: 'internal', to: '/markets/commodities/' },
         },
     },
 ]

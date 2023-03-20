@@ -1,24 +1,15 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
 .nav_items {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding: 0;
-    line-height: 1.2;
-    gap: 0.4rem;
     flex: 1;
-
-    @include breakpoints(desktop) {
-        gap: 2.4rem;
-    }
-
     & > li {
         list-style-type: none;
         display: flex;
         position: relative;
         align-items: center;
         text-align: center;
+        user-select: none;
+        cursor: pointer;
 
         &:last-child {
             margin-inline-end: 0;
@@ -63,6 +54,7 @@
         }
 
         & .active_section {
+            inline-size: fit-content;
             @keyframes fadeIn {
                 from {
                     visibility: hidden;

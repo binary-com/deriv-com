@@ -6,23 +6,24 @@ import HeroFeaturesCarousel from './hero-features.carousel'
 import HeroCtaButton from './hero-cta.button'
 import HeroImageCarousel from './hero-image.carousel'
 import Container from 'features/components/atoms/container'
-import useBreakpoints from 'components/hooks/use-breakpoints'
+import FlexBox from 'features/components/atoms/flex-box'
 
 const HomeHero = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
-
     return (
         <Container.Fixed as="section" bgcolor="white" className={styles.home_hero}>
             <Container.Fluid
                 className={styles.content}
-                margin_block={is_mobile_or_tablet ? '10x' : '25x'}
+                margin_block={'10x'}
+                md={{
+                    margin_block: '30x',
+                }}
             >
-                <div className={styles.left_side}>
-                    <HeroHeaderItems className={styles.header_titles} />
+                <FlexBox justify="start" direction="col" align="start" gap="10x">
+                    <HeroHeaderItems />
                     <HeroTitle />
                     <HeroFeaturesCarousel />
                     <HeroCtaButton />
-                </div>
+                </FlexBox>
                 <div className={styles.right_side}>
                     <HeroImageCarousel />
                 </div>

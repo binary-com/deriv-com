@@ -7,6 +7,7 @@ import Typography from 'features/components/atoms/typography'
 import NavSectionContainer from 'features/components/organisms/navigation/nav-sections-container'
 import NavCardItems from 'features/components/organisms/navigation/nav-card-items'
 import Container from 'features/components/atoms/container'
+import FlexBox from 'features/components/atoms/flex-box'
 
 const renderNavItems = (nav_items: TSmartNavContent[] | TSmartNavSectionColumns[]) => {
     if ('section' in nav_items[0].data) {
@@ -27,7 +28,14 @@ const DesktopMenu = <T extends string>({
     items,
 }: IDesktopNavbarProps<T>) => {
     return (
-        <ul className={styles.nav_items}>
+        <FlexBox
+            as="ul"
+            justify="end"
+            align="center"
+            gap="2x"
+            className={styles.nav_items}
+            mr={'10x'}
+        >
             {items.map((contentItem) => {
                 return (
                     <li
@@ -37,9 +45,9 @@ const DesktopMenu = <T extends string>({
                         })}
                         onClick={() => onItemClick(contentItem.data.active)}
                     >
-                        <Typography.Heading as={'h6'} size="small" className={styles.item_title}>
+                        <Typography.Paragraph size="medium" className={styles.item_title}>
                             <Localize translate_text={contentItem.data.title} />
-                        </Typography.Heading>
+                        </Typography.Paragraph>
                         {contentItem.data.active === activeTab && (
                             <Container.Fixed
                                 bgcolor="primary"
@@ -53,7 +61,7 @@ const DesktopMenu = <T extends string>({
                     </li>
                 )
             })}
-        </ul>
+        </FlexBox>
     )
 }
 

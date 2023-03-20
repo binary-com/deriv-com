@@ -1,44 +1,80 @@
-import clsx from 'clsx'
 import React from 'react'
 import Box, { BoxProps } from 'features/components/atoms/box'
-import { ContentSectionTagOptions, SpacingSize } from 'features/types'
-import './flex-box.scss'
-interface FlexBoxProps<T extends ContentSectionTagOptions>
-    extends BoxProps<ContentSectionTagOptions> {
+import {
+    ClassProps,
+    ContentSectionTagOptions,
+    TAlignItems,
+    TContainerType,
+    TFlexBasis,
+    TFlexDirection,
+    TFlexGrow,
+    TFlexShrink,
+    TFlexWrap,
+    TJustifyContent,
+    TSpacingSize,
+} from 'features/types'
+import dclsx from 'features/utils/dclsx'
+
+interface FlexBoxClasses extends ClassProps {
+    align?: TAlignItems
+    justify?: TJustifyContent
+    grow?: TFlexGrow
+    shrink?: TFlexShrink
+    direction?: TFlexDirection
+    basis?: TFlexBasis
+    wrap?: TFlexWrap
+    gap?: TSpacingSize
+}
+
+export interface FlexBoxProps<T extends ContentSectionTagOptions>
+    extends BoxProps<ContentSectionTagOptions>,
+        FlexBoxClasses {
     as?: T
-    wrap?: 'wrap' | 'nowrap' | 'wrap-reverse'
-    direction?: 'row' | 'column' | 'reverse-row' | 'reverse-column'
-    align?: 'start' | 'end' | 'center' | 'baseline'
-    justify?:
-        | 'start'
-        | 'end'
-        | 'center'
-        | 'baseline'
-        | 'space-between'
-        | 'space-around'
-        | 'space-evenly'
-    gap?: SpacingSize
+    container?: TContainerType
+    md?: FlexBoxClasses
+    lg?: FlexBoxClasses
+}
+
+const generateFlexClasses = (options: FlexBoxClasses, prefix?: string) => {
+    const { gap, align, justify, grow, shrink, wrap, direction, basis } = options
+    const classPrefix = prefix ? `${prefix}-` : ''
+
+    return dclsx({
+        [`${classPrefix}gap-${gap}`]: gap,
+        [`${classPrefix}align-items-${align}`]: align,
+        [`${classPrefix}justify-${justify}`]: justify,
+        [`${classPrefix}flex-grow-${grow}`]: grow,
+        [`${classPrefix}flex-shrink-${shrink}`]: shrink,
+        [`${classPrefix}flex-wrap-${wrap}`]: wrap,
+        [`${classPrefix}flex-dir-${direction}`]: direction,
+        [`${classPrefix}flex-basis-${basis}`]: basis,
+    })
 }
 
 const FlexBox = <T extends ContentSectionTagOptions>({
     className,
-    direction,
+    gap,
     align,
     justify,
+    grow,
+    shrink,
     wrap,
-    gap,
+    direction,
+    basis,
+    md,
+    lg,
+    container,
     ...rest
 }: FlexBoxProps<T>) => {
-    const classnames = clsx(
-        'flexbox',
-        {
-            [`direction-${direction}`]: direction,
-            [`align-${align}`]: align,
-            [`justify-${justify}`]: justify,
-            [wrap]: wrap,
-            [`gap-${gap}`]: gap,
-        },
+    const classnames = dclsx(
+        'flex',
         className,
+        {
+            [`container-${container}`]: container,
+        },
+        generateFlexClasses({ gap, align, justify, grow, shrink, wrap, direction, basis }),
+        generateFlexClasses(md ?? {}, 'md'),
+        generateFlexClasses(lg ?? {}, 'lg'),
     )
 
     return <Box className={classnames} {...rest} />

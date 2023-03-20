@@ -73,7 +73,7 @@ $menu_size: 30rem;
         align-items: center;
         inline-size: 100%;
         text-align: start;
-        background-color: $color-white;
+        background-color: $bg-color-primary;
         padding-inline: 1rem;
         min-block-size: 5rem;
 
@@ -84,10 +84,6 @@ $menu_size: 30rem;
 
         &[data-state='open'] .arrow_icon {
             transform: rotate(0deg);
-        }
-
-        &_title {
-            color: black;
         }
 
         &:active,

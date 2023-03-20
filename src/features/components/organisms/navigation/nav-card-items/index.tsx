@@ -27,20 +27,18 @@ const NavCardItems = ({ items }: NavCardItemsProps) => {
     return (
         <div>
             {content.map(({ id, data }) => {
-                const { external, to, title, content, icon, target } = data
-                const nav_card_link = typeof to === 'function' ? to(filter_config) : to
+                const { url, title, content, icon } = data
+                const nav_card_link = typeof url === 'function' ? url(filter_config) : url
                 const nav_card_content =
                     typeof content === 'function' ? content(filter_config) : content
                 return (
                     <NavigationCard
                         key={id}
-                        to={nav_card_link}
+                        url={nav_card_link}
                         title={title}
                         content={nav_card_content}
                         icon_src={icon.src}
                         icon_alt={icon.alt}
-                        external={external}
-                        target={target}
                     />
                 )
             })}

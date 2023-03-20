@@ -1,93 +1,241 @@
 @use './theme-mixins' as *;
 
 $sm-base-spacing: 0.2rem;
+$space-medias: (md, lg);
 
 @for $i from 1 through 30 {
     $sm-value: $i * $sm-base-spacing;
-    $lg-value: $sm-value * 2;
+
+    .gap-#{$i}x {
+        gap: $sm-value;
+    }
     .margin-#{$i}x {
         margin: $sm-value;
-        @include media(lg) {
-            margin: $lg-value;
-        }
     }
     .margin-top-#{$i}x {
         margin-block-start: $sm-value;
-        @include media(lg) {
-            margin-block-start: $lg-value;
-        }
     }
     .margin-bottom-#{$i}x {
         margin-block-end: $sm-value;
-        @include media(lg) {
-            margin-block-end: $lg-value;
-        }
     }
     .margin-left-#{$i}x {
         margin-inline-start: $sm-value;
-        @include media(lg) {
-            margin-inline-start: $lg-value;
-        }
     }
     .margin-right-#{$i}x {
         margin-inline-end: $sm-value;
-        @include media(lg) {
-            margin-inline-end: $lg-value;
-        }
     }
     .margin-block-#{$i}x {
         margin-block: $sm-value;
-        @include media(lg) {
-            margin-block: $lg-value;
-        }
     }
     .margin-inline-#{$i}x {
         margin-inline: $sm-value;
-        @include media(lg) {
-            margin-inline: $lg-value;
-        }
     }
-
     .padding-#{$i}x {
         padding: $sm-value;
-        @include media(lg) {
-            padding: $lg-value;
-        }
     }
     .padding-top-#{$i}x {
         padding-block-start: $sm-value;
-        @include media(lg) {
-            padding-block-start: $lg-value;
-        }
     }
     .padding-bottom-#{$i}x {
         padding-block-end: $sm-value;
-        @include media(lg) {
-            padding-block-end: $lg-value;
-        }
     }
     .padding-left-#{$i}x {
         padding-inline-start: $sm-value;
-        @include media(lg) {
-            padding-inline-start: $lg-value;
-        }
     }
     .padding-right-#{$i}x {
         padding-inline-end: $sm-value;
-        @include media(lg) {
-            padding-inline-end: $lg-value;
-        }
     }
     .padding-block-#{$i}x {
         padding-block: $sm-value;
-        @include media(lg) {
-            padding-block: $lg-value;
-        }
     }
     .padding-inline-#{$i}x {
         padding-inline: $sm-value;
-        @include media(lg) {
-            padding-inline: $lg-value;
+    }
+}
+
+@mixin margins($media-name) {
+    @for $i from 1 through 30 {
+        $sm-value: $i * $sm-base-spacing;
+        .#{$media-name + #{'-'}}gap-#{$i}x {
+            @include media($media-name) {
+                gap: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}margin-#{$i}x {
+            @include media($media-name) {
+                margin: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}margin-top-#{$i}x {
+            @include media($media-name) {
+                margin-block-start: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}margin-bottom-#{$i}x {
+            @include media($media-name) {
+                margin-block-end: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}margin-left-#{$i}x {
+            @include media($media-name) {
+                margin-inline-start: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}margin-right-#{$i}x {
+            @include media($media-name) {
+                margin-inline-end: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}margin-block-#{$i}x {
+            @include media($media-name) {
+                margin-block: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}margin-inline-#{$i}x {
+            @include media($media-name) {
+                margin-inline: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}padding-#{$i}x {
+            @include media($media-name) {
+                padding: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}padding-top-#{$i}x {
+            @include media($media-name) {
+                padding-block-start: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}padding-bottom-#{$i}x {
+            @include media($media-name) {
+                padding-block-end: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}padding-left-#{$i}x {
+            @include media($media-name) {
+                padding-inline-start: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}padding-right-#{$i}x {
+            @include media($media-name) {
+                padding-inline-end: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}padding-block-#{$i}x {
+            @include media($media-name) {
+                padding-block: $sm-value;
+            }
+        }
+        .#{$media-name + #{'-'}}padding-inline-#{$i}x {
+            @include media($media-name) {
+                padding-inline: $sm-value;
+            }
         }
     }
 }
+
+@each $name in $space-medias {
+    @include margins($name);
+}
+
+// @use './theme-mixins' as *;
+
+// $sm-base-spacing: 0.2rem;
+
+// @for $i from 1 through 30 {
+//     $sm-value: $i * $sm-base-spacing;
+//     $lg-value: $sm-value * 2;
+
+//     .gap-#{$i}x {
+//         gap: $sm-value;
+//         @include media(lg) {
+//             gap: $lg-value;
+//         }
+//     }
+
+//     .margin-#{$i}x {
+//         margin: $sm-value;
+//         @include media(lg) {
+//             margin: $lg-value;
+//         }
+//     }
+//     .margin-top-#{$i}x {
+//         margin-block-start: $sm-value;
+//         @include media(lg) {
+//             margin-block-start: $lg-value;
+//         }
+//     }
+//     .margin-bottom-#{$i}x {
+//         margin-block-end: $sm-value;
+//         @include media(lg) {
+//             margin-block-end: $lg-value;
+//         }
+//     }
+//     .margin-left-#{$i}x {
+//         margin-inline-start: $sm-value;
+//         @include media(lg) {
+//             margin-inline-start: $lg-value;
+//         }
+//     }
+//     .margin-right-#{$i}x {
+//         margin-inline-end: $sm-value;
+//         @include media(lg) {
+//             margin-inline-end: $lg-value;
+//         }
+//     }
+//     .margin-block-#{$i}x {
+//         margin-block: $sm-value;
+//         @include media(lg) {
+//             margin-block: $lg-value;
+//         }
+//     }
+//     .margin-inline-#{$i}x {
+//         margin-inline: $sm-value;
+//         @include media(lg) {
+//             margin-inline: $lg-value;
+//         }
+//     }
+
+//     .padding-#{$i}x {
+//         padding: $sm-value;
+//         @include media(lg) {
+//             padding: $lg-value;
+//         }
+//     }
+//     .padding-top-#{$i}x {
+//         padding-block-start: $sm-value;
+//         @include media(lg) {
+//             padding-block-start: $lg-value;
+//         }
+//     }
+//     .padding-bottom-#{$i}x {
+//         padding-block-end: $sm-value;
+//         @include media(lg) {
+//             padding-block-end: $lg-value;
+//         }
+//     }
+//     .padding-left-#{$i}x {
+//         padding-inline-start: $sm-value;
+//         @include media(lg) {
+//             padding-inline-start: $lg-value;
+//         }
+//     }
+//     .padding-right-#{$i}x {
+//         padding-inline-end: $sm-value;
+//         @include media(lg) {
+//             padding-inline-end: $lg-value;
+//         }
+//     }
+//     .padding-block-#{$i}x {
+//         padding-block: $sm-value;
+//         @include media(lg) {
+//             padding-block: $lg-value;
+//         }
+//     }
+//     .padding-inline-#{$i}x {
+//         padding-inline: $sm-value;
+//         @include media(lg) {
+//             padding-inline: $lg-value;
+//         }
+//     }
+// }

@@ -60,6 +60,8 @@ const SubtitleHeader = styled(Header)`
 
 const ComissionPlanContainer = styled(SectionContainer)`
     padding: 4rem 0 8rem 0;
+    background: transparent;
+
     @media ${device.tabletL} {
         padding: 16px 0 0 0;
     }
@@ -208,7 +210,7 @@ const DerivAffiliateProgramme = () => {
                         )}
                     </SubtitleHeader>
                 </TitleWrapper>
-                <ComissionPlanContainer background="transparent">
+                <ComissionPlanContainer>
                     <StyledHeader as="h4" type="main-paragraph">
                         {localize('Choose a commission plan:')}
                     </StyledHeader>

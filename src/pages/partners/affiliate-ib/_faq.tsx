@@ -165,7 +165,7 @@ const Faq = () => {
     const { is_row } = useRegion()
 
     return (
-        <RelativeContainer padding={is_row ? '20rem 0 16rem 0' : null}>
+        <RelativeContainer padding={is_row && '20rem 0 16rem 0'}>
             <FaqHeader as="h2" size="4.8rem" align="center">
                 {localize('Browse our FAQ')}
             </FaqHeader>

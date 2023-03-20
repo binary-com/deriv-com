@@ -19,6 +19,7 @@ import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import usePopup from 'components/hooks/use-popup'
+import useWebsiteStatus from 'components/hooks/use-website-status'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -67,6 +68,7 @@ const Layout = ({
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
     const { has_platform } = usePlatformQueryParam()
+    const { website_status, setWebsiteStatus } = useWebsiteStatus()
 
     const is_static = type === 'static'
 

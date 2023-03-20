@@ -1,6 +1,5 @@
 import React from 'react'
 import Loadable from '@loadable/component'
-import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import { crypto_cfds } from '../../static/content/_cfds'
 import { crypto_multiplier } from '../../static/content/_multipliers'
@@ -14,6 +13,7 @@ import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import useRegion from 'components/hooks/use-region'
+import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 //Lazy-load
@@ -47,7 +47,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
         },
         {
             src: CryptoPairs,
-            text: localize('25+ crypto pairs'),
+            text: localize('30+ crypto pairs'),
             alt: 'Crypto currency pairs',
         },
         {
@@ -59,15 +59,6 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
 
     return (
         <>
-            <WhyTrade header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}>
-                {crypto_content.map((content, index) => (
-                    <StyledBox
-                        key={index}
-                        text={content.text}
-                        icon={<img src={content.src} alt="" />}
-                    ></StyledBox>
-                ))}
-            </WhyTrade>
             <AvailableTrades
                 CFDs={<CFDs market_content={crypto_cfds} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
@@ -75,6 +66,17 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                     <Localize translate_text="Cryptocurrency trades available on Deriv" />
                 }
             />
+            <FullWidthMultiColumn
+                header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
+            >
+                {crypto_content.map((content, index) => (
+                    <StyledBox
+                        key={index}
+                        text={content.text}
+                        icon={<img src={content.src} alt="" />}
+                    ></StyledBox>
+                ))}
+            </FullWidthMultiColumn>
             <SimpleSteps
                 header={
                     <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />

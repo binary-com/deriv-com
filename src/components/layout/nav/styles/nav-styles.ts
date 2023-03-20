@@ -1,16 +1,11 @@
 // global styles of nav components
 import styled from 'styled-components'
 import device from 'themes/device'
-import { getBaseRef } from 'common/utility'
 import { Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { SharedLinkStyle, SharedLinkStyleMarket } from 'components/localization/localized-link'
 
 type NavRightProps = {
-    button_ref: React.MutableRefObject<HTMLButtonElement>
-    mounted: boolean
-    move?: boolean
-    has_scrolled: boolean
     hide_signup_login?: boolean
     is_rtl?: boolean
 }
@@ -28,7 +23,7 @@ type LogoLinkProps = {
 }
 
 export const HamburgerMenu = styled.img`
-    width: 16px;
+    width: 12px;
     cursor: pointer;
 `
 export const CloseIcon = styled.img`
@@ -39,6 +34,7 @@ export const CloseIcon = styled.img`
 export const Wrapper = styled(Container)<WrapperProps>`
     font-size: var(--text-size-s);
     padding: 1.2rem 0;
+    background-color: white;
     justify-content: space-between;
     height: 7.2rem;
     @media ${device.laptopL} {
@@ -73,9 +69,9 @@ export const MarketWrapper = styled.div<DesktopWrapperProps>`
 `
 export const MobileWrapper = styled.div<DesktopWrapperProps>`
     display: none;
+    background-color: white;
     @media ${({ media }) => media || device.tabletL} {
         display: block;
-        background: var(--color-black);
     }
 `
 
@@ -85,35 +81,6 @@ export const NavRight = styled.div<NavRightProps>`
     text-align: end;
     justify-content: center;
     padding: 0;
-    opacity: ${({ mounted }) => (mounted ? '1' : '0')};
-    transition: ${({ move, has_scrolled }) =>
-        move ? 'all 0.25s' : has_scrolled ? 'all 0.25s' : 'none'};
-    transform: translateX(
-        ${({ button_ref, hide_signup_login, move, mounted, is_rtl }) => {
-            const ref_base = getBaseRef(button_ref)
-
-            if (hide_signup_login) {
-                return 0
-            } else if (move && !hide_signup_login) {
-                if (ref_base && mounted) {
-                    ref_base.style.opacity = 1
-                }
-                return 0
-            } else {
-                if (ref_base && mounted) {
-                    ref_base.style.opacity = 0
-                    const calculation = ref_base.offsetWidth + 2
-                    return is_rtl ? `${-calculation}px` : `${calculation}px`
-                }
-                return '300px'
-            }
-        }}
-    );
-
-    > a {
-        pointer-events: ${({ move }) => (move ? 'visible' : 'none')};
-        cursor: ${({ move }) => (move ? 'pointer' : 'default')};
-    }
 
     @media (max-width: 991px) {
         display: none;
@@ -170,7 +137,7 @@ export const NavLink = styled.li<NavLinkProps>`
     position: relative;
     align-items: center;
     text-align: center;
-    margin-right: 2.4rem;
+    margin-right: 1.4rem;
 
     &:last-child {
         margin-right: 0;
@@ -229,7 +196,7 @@ export const StyledLinkMarket = styled(LocalizedLink)`
     ${SharedLinkStyleMarket}
 `
 export const PartnerNavigationBarWrapper = styled.nav`
-    background-color: var(--color-black);
+    background-color: white;
     height: 7.2rem;
     width: 100%;
     position: relative;
@@ -245,4 +212,5 @@ export const PartnerWrapper = styled.div`
     position: fixed;
     top: 0;
     z-index: 100;
+    background-color: white;
 `

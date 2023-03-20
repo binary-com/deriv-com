@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import CfdPattern from 'images/common/trade-types/cfd-pattern.png'
 import CfdMobilePattern from 'images/common/trade-types/mobile-cfd-pattern.png'
-import PatternsMobile from 'images/common/trade-types/trade-patterns-mobile.png'
+import PatternsMobile from 'images/common/trade-types/trade-patterns.png'
 import Patterns from 'images/common/trade-types/trade-patterns.png'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
@@ -14,13 +14,17 @@ const SmallContainer = styled(Container)`
         max-width: 800px;
     }
     @media ${device.laptopL} {
-        width: 60%;
+        width: 70%;
     }
     @media ${device.desktopL} {
         max-width: 1000px;
     }
     @media ${device.tabletL} {
-        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    @media ${device.tablet} {
+        width: 80%;
         padding-left: 0;
         padding-right: 0;
     }
@@ -28,7 +32,8 @@ const SmallContainer = styled(Container)`
 
 const Hero = styled(Flex)`
     height: 40rem;
-    background: var(--color-black);
+
+    /* background: var(--color-black); */
     background-image: url(${Patterns});
     background-size: cover;
     background-position: center center;
@@ -86,14 +91,14 @@ const Card = styled.article`
     border-radius: 16px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
-    height: 100%;
+    height: 36rem;
     padding: 24px 24px;
     max-width: 28.2rem;
 
-    @media (max-width: 680px) {
+    @media (max-width: 994px) {
         padding: 16px 16px 36px;
         max-width: 282px;
-        min-height: unset;
+        height: 42rem;
     }
 
     &:hover .learn-more {

@@ -45,11 +45,16 @@ const Content = styled(Flex)<{ margin_right: string }>`
     }
 `
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         text-align: center;
     }
 `
 const StyledText = styled(Text)`
+    color: var(--color-black-9);
+    font-family: Ubuntu, sans-serif;
+
     @media ${device.tabletL} {
         text-align: center;
         font-size: 18px;
@@ -73,11 +78,7 @@ const Row = styled(Flex)<{ margin_right: string }>`
 const DerivGoContent = ({ P2P, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer
-            p="8.9rem 0 8rem 0"
-            background="rgba(243, 246, 250, 1)"
-            tabletL={{ pt: '40px' }}
-        >
+        <SectionContainer p="8.9rem 0 8rem 0" tabletL={{ pt: '40px' }}>
             <StyledContainer>
                 {P2P.map((item, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2

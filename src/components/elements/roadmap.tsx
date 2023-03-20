@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
@@ -17,14 +17,17 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         font-size: 32px;
     }
 `
-const StyledText = styled(Text)`
+const StyledText = styled(Header)`
     max-width: 1044px;
     padding-top: 8px;
     font-size: 32px;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
         font-size: 24px;
@@ -57,6 +60,7 @@ const StyledFrame = styled.div`
     }
 `
 const StyledButton = styled(LinkButton)`
+    border-radius: 16px;
     margin-top: 40px;
     position: relative;
     max-width: 120px;
@@ -78,7 +82,7 @@ const Roadmap = ({ portal }: RoadmapProps) => {
                     <StyledHeader as="h2" type="heading-2" align="center">
                         <Localize translate_text="What’s next?" />
                     </StyledHeader>
-                    <StyledText mt="16px" align="center">
+                    <StyledText mt="16px" align="center" weight="100">
                         {portal.paragraph}
                     </StyledText>
                 </Flex>

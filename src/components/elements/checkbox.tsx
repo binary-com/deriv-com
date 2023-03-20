@@ -24,6 +24,10 @@ type IconProps = {
 const CheckboxContainer = styled.div`
     display: inline-block;
     vertical-align: text-bottom;
+
+    @media ${device.mobileL} {
+        margin-left: 1.5rem;
+    }
 `
 
 const Icon = styled.svg<IconProps>`

@@ -7,7 +7,7 @@ import device from 'themes/device'
 
 const Section = styled(SectionContainer)`
     display: flex;
-    padding: 8rem 12rem;
+    padding: 2rem 12rem 8rem;
     justify-content: center;
     flex-direction: column;
 

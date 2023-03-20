@@ -1,60 +1,16 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { SmallContainer, Grid, HowItWorksItem } from '../components/_style'
 import SideTab from '../components/_tabs'
 import { SectionContainer, Flex } from 'components/containers'
-import { Header, Text, QueryImage } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import SetOptionalParameters from 'images/svg/trade-types/set-optional-parameters.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
 import useRegion from 'components/hooks/use-region'
-
-const query = graphql`
-    query {
-        multiplier_market: file(relativePath: { eq: "trade-types/multiplier-market.png" }) {
-            ...fadeIn
-        }
-        multiplier_trade_type: file(relativePath: { eq: "trade-types/multiplier-trade-type.png" }) {
-            ...fadeIn
-        }
-        multiplier_stake: file(relativePath: { eq: "trade-types/multiplier-stake.png" }) {
-            ...fadeIn
-        }
-        multiplier_value: file(relativePath: { eq: "trade-types/multiplier-value.png" }) {
-            ...fadeIn
-        }
-        multiplier_take_profit: file(
-            relativePath: { eq: "trade-types/multiplier-take-profit.png" }
-        ) {
-            ...fadeIn
-        }
-        multiplier_stop_loss: file(relativePath: { eq: "trade-types/multiplier-stop-loss.png" }) {
-            ...fadeIn
-        }
-        multiplier_deal_cancellation: file(
-            relativePath: { eq: "trade-types/multiplier-deal-cancellation.png" }
-        ) {
-            ...fadeIn
-        }
-        multiplier_purchase: file(relativePath: { eq: "trade-types/multiplier-purchase.png" }) {
-            ...fadeIn
-        }
-        multiplier_market_eu: file(relativePath: { eq: "trade-types/multiplier-market-eu.png" }) {
-            ...fadeIn
-        }
-        multiplier_trade_type_eu: file(
-            relativePath: { eq: "trade-types/multiplier-trade-type-eu.png" }
-        ) {
-            ...fadeIn
-        }
-        multiplier_value_eu: file(relativePath: { eq: "trade-types/multiplier-value-eu.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const OptionGrid = styled(Grid)`
     grid-gap: 2.4rem;
@@ -65,20 +21,6 @@ const OptionItems = styled(Flex)`
     height: auto;
     align-items: flex-start;
     margin-bottom: 0.8rem;
-
-    @media ${device.mobileL} {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: center;
-
-        & > div > img {
-            width: 20px;
-            height: 20px;
-        }
-        ${Text} {
-            margin-top: 0;
-        }
-    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -88,11 +30,7 @@ const StyledHeader = styled(Header)`
 
 const StyledText = styled(Text)`
     font-weight: bold;
-    margin-top: 1.6rem;
-
-    @media ${device.mobileL} {
-        margin-top: 0;
-    }
+    margin-top: 1.8rem;
 `
 
 const StyledDtraderHeader = styled(Header)`
@@ -116,8 +54,8 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const HowOptionsWorks = () => {
-    const data = useStaticQuery(query)
     const { is_eu } = useRegion()
+
     return (
         <StyledSectionContainer padding="8rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
@@ -167,7 +105,7 @@ const HowOptionsWorks = () => {
                     </HowItWorksItem>
                 </OptionGrid>
                 <StyledFirstMultiplierHeader as="h3" size="3.2rem" mt="4rem">
-                    {localize('How to buy your first multipliers contract on DTrader')}
+                    {localize('How to buy your first multipliers contract on Deriv Trader')}
                 </StyledFirstMultiplierHeader>
                 <Header as="h4" size="2.4rem" mb="2.4rem" mt="3.2rem">
                     {localize('Define your position')}
@@ -180,14 +118,24 @@ const HowOptionsWorks = () => {
                         }
                     >
                         {is_eu ? (
-                            <QueryImage
-                                data={data['multiplier_market_eu']}
+                            <StaticImage
+                                src="../../../images/common/trade-types/multiplier-market-eu.png"
                                 alt="Select market to trade"
+                                loading="eager"
+                                formats={['avif', 'webp', 'auto']}
+                                quality={30}
+                                objectFit="contain"
+                                placeholder="none"
                             />
                         ) : (
-                            <QueryImage
-                                data={data['multiplier_market']}
+                            <StaticImage
+                                src="../../../images/common/trade-types/multiplier-market.png"
                                 alt="Select market to trade"
+                                loading="eager"
+                                formats={['avif', 'webp', 'auto']}
+                                quality={30}
+                                objectFit="contain"
+                                placeholder="none"
                             />
                         )}
                     </SideTab.Panel>
@@ -198,14 +146,24 @@ const HowOptionsWorks = () => {
                         }
                     >
                         {is_eu ? (
-                            <QueryImage
-                                data={data['multiplier_trade_type_eu']}
+                            <StaticImage
+                                src="../../../images/common/trade-types/multiplier-trade-type-eu.png"
                                 alt="Selecting multiplier"
+                                loading="eager"
+                                formats={['avif', 'webp', 'auto']}
+                                quality={30}
+                                objectFit="contain"
+                                placeholder="none"
                             />
                         ) : (
-                            <QueryImage
-                                data={data['multiplier_trade_type']}
+                            <StaticImage
+                                src="../../../images/common/trade-types/multiplier-trade-type.png"
                                 alt="Selecting multiplier"
+                                loading="eager"
+                                formats={['avif', 'webp', 'auto']}
+                                quality={30}
+                                objectFit="contain"
+                                placeholder="none"
                             />
                         )}
                     </SideTab.Panel>
@@ -215,27 +173,45 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Enter the amount you wish to trade with." />
                         }
                     >
-                        <QueryImage data={data['multiplier_stake']} alt="Enter stake amount" />
+                        <StaticImage
+                            src="../../../images/common/trade-types/multiplier-stake.png"
+                            alt="Enter stake amount"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="4. Multiplier value" />}
                         description={
                             is_eu ? (
-                                <Localize translate_text="Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 5. Your loss will never be more than your stake." />
+                                <Localize translate_text="Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 30. Your loss will never be more than your stake." />
                             ) : (
                                 <Localize translate_text="Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount." />
                             )
                         }
                     >
                         {is_eu ? (
-                            <QueryImage
-                                data={data['multiplier_value_eu']}
+                            <StaticImage
+                                src="../../../images/common/trade-types/multiplier-value-eu.png"
                                 alt="Enter multiplier value"
+                                loading="eager"
+                                formats={['avif', 'webp', 'auto']}
+                                quality={30}
+                                objectFit="contain"
+                                placeholder="none"
                             />
                         ) : (
-                            <QueryImage
-                                data={data['multiplier_value']}
+                            <StaticImage
+                                src="../../../images/common/trade-types/multiplier-value.png"
                                 alt="Enter multiplier value"
+                                loading="eager"
+                                formats={['avif', 'webp', 'auto']}
+                                quality={30}
+                                objectFit="contain"
+                                placeholder="none"
                             />
                         )}
                     </SideTab.Panel>
@@ -250,7 +226,15 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account." />
                         }
                     >
-                        <QueryImage data={data['multiplier_take_profit']} alt="Set profit level" />
+                        <StaticImage
+                            src="../../../images/common/trade-types/multiplier-take-profit.png"
+                            alt="Set profit level"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="6. Stop loss" />}
@@ -258,17 +242,34 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="This feature allows you to set the amount of loss you are willing to take in case the market moves against your position. Once the amount is reached, your contract will be closed automatically." />
                         }
                     >
-                        <QueryImage data={data['multiplier_stop_loss']} alt="Set stop loss" />
+                        <StaticImage
+                            src="../../../images/common/trade-types/multiplier-stop-loss.png"
+                            alt="Set stop loss"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="7. Deal cancellation" />}
                         description={
-                            <Localize translate_text="This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service." />
+                            is_eu ? (
+                                <Localize translate_text="This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service. Deal cancellation isn't available for Crash and Boom indices or cryptocurrency pairs." />
+                            ) : (
+                                <Localize translate_text="This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service." />
+                            )
                         }
                     >
-                        <QueryImage
-                            data={data['multiplier_deal_cancellation']}
+                        <StaticImage
+                            src="../../../images/common/trade-types/multiplier-deal-cancellation.png"
                             alt="Set deal cancellation time"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
                         />
                     </SideTab.Panel>
                 </SideTab>
@@ -282,9 +283,14 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Once you are satisfied with the parameters that you have set, select either ‘Up’ or ‘Down’ to purchase your contract. Otherwise, continue to customise the parameters and place your order when you are satisfied with the conditions." />
                         }
                     >
-                        <QueryImage
-                            data={data['multiplier_purchase']}
+                        <StaticImage
+                            src="../../../images/common/trade-types/multiplier-purchase.png"
                             alt="Purchase the contract"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={30}
+                            objectFit="contain"
+                            placeholder="none"
                         />
                     </SideTab.Panel>
                 </SideTab>

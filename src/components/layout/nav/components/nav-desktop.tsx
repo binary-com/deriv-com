@@ -47,6 +47,12 @@ const NavigationBar = styled.ul`
 `
 const Tab = styled.span<TabProps>`
     ${SharedLinkStyle};
+    font-family: Ubuntu, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-black-9);
     cursor: pointer;
     user-select: none;
     white-space: nowrap;

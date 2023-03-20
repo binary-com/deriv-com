@@ -10,12 +10,12 @@ import {
 } from '../styles/nav-styles'
 import { handleGetTrading } from '../util/nav-methods'
 import device from 'themes/device'
-import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
-import { Button } from 'components/form'
+import { LocalizedLink, LanguageSwitcher } from 'components/localization'
+import Button from 'components/custom/_button'
 import { OffCanvasMenu, useMoveOffCanvasMenu } from 'components/elements'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
-import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
+import LogoOnly from 'images/svg/layout/logo-deriv-new.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useRegion from 'components/hooks/use-region'
@@ -73,7 +73,7 @@ const NavMobile = ({
                 )}
 
                 <LogoWrapper to="/" aria-label="Home">
-                    <img src={LogoOnly} alt="deriv logo" width={115} />
+                    <img src={LogoOnly} alt="deriv logo" width={48} height={16} />
                     <LogoDescription ai="center">
                         <Line />
                         <img src={GetTrading} alt="get trading" />
@@ -90,18 +90,18 @@ const NavMobile = ({
                                     onClick={handleGetTrading}
                                     id="dm-hero-signup"
                                     primary
-                                >
-                                    {localize('Get Trading')}
-                                </StyledButton>
+                                    outline
+                                    label="_t_Get Trading_t_"
+                                />
                             ) : (
                                 <StyledButton
                                     disabled={is_region_loading}
                                     id="dm-nav-login-button"
                                     onClick={handleLogin}
                                     primary
-                                >
-                                    {localize('Log in')}
-                                </StyledButton>
+                                    outline
+                                    label="_t_Log in_t_"
+                                />
                             )}
                         </>
                     )}

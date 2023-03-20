@@ -26,9 +26,9 @@ const Details = styled(Box)`
     }
 `
 
-const MarketsAccordion = ({ renderTitle, children }: MarketsAccordionProps) => {
+const MarketsAccordion = ({ renderTitle, children, id }: MarketsAccordionProps) => {
     return (
-        <Wrapper>
+        <Wrapper id={id}>
             <Title>{renderTitle()}</Title>
             <Details background="var(--color-white)">{children}</Details>
         </Wrapper>

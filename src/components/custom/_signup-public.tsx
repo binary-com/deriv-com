@@ -488,7 +488,7 @@ const SignupPublic = ({
                                     (is_eu && data['deriv_platform_eu'])
                                 }
                                 alt="forex trading on mobile"
-                                width="225px"
+                                width="264px"
                             />
                             <LinkFlex
                                 external
@@ -497,11 +497,11 @@ const SignupPublic = ({
                                 rel="noopener noreferrer nofollow"
                             >
                                 <StyledHeader
-                                    size="4rem"
+                                    size="48px"
                                     align="start"
                                     color="grey-8"
                                     mr="1.2rem"
-                                    ml="-4rem"
+                                    ml="6rem"
                                     position="relative"
                                 >
                                     {localize('Get a taste of the Deriv experience')}

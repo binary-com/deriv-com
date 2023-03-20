@@ -15,9 +15,6 @@ const query = graphql`
         deriv_ez: file(relativePath: { eq: "deriv-ez/hero-phone.png" }) {
             ...bannerImage
         }
-        deriv_ez_mobile: file(relativePath: { eq: "deriv-ez/hero-phone-mobile.png" }) {
-            ...bannerImage
-        }
     }
 `
 const Wrapper = styled.div`
@@ -28,7 +25,7 @@ const Wrapper = styled.div`
     background-color: var(--color-black);
     justify-content: center;
     align-items: center;
-    padding: 3rem 13rem;
+    padding: 3rem 24rem;
 
     @media ${device.tablet} {
         background-image: url(${HeroImageMobile});
@@ -47,7 +44,7 @@ const ContentWrapper = styled.div`
     flex: 2;
 
     @media ${device.tablet} {
-        margin-top: 30px;
+        margin-top: 68px;
     }
 `
 const LogoWrapper = styled.div`
@@ -107,7 +104,6 @@ const hero_background_alt: TString = '_t_Deriv EZ online trading platform_t_'
 
 const DerivEZHero = () => {
     const data = useStaticQuery(query)
-    const is_mobile = useBreakpoints()
     return (
         <Wrapper>
             <ContentWrapper>
@@ -122,10 +118,7 @@ const DerivEZHero = () => {
                 </StyledHeaderTitle>
             </ContentWrapper>
             <ImageWrapper>
-                <QueryImage
-                    data={data[is_mobile ? 'deriv_ez' + '_mobile' : 'deriv_ez']}
-                    alt={localize(hero_background_alt)}
-                />
+                <QueryImage data={data['deriv_ez']} alt={localize(hero_background_alt)} />
             </ImageWrapper>
         </Wrapper>
     )

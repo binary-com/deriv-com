@@ -1,13 +1,11 @@
 import React from 'react'
 import { Pushwoosh } from 'web-push-notifications'
-import Cookies from 'js-cookie'
-import language_config from './i18n-config'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
-import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
+import { getClientInformation, getDomain, getLanguage, addScript, updateURLAsPerUserLanguage } from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
@@ -20,26 +18,6 @@ const checkDomain = () => {
             'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
         ),
     )
-}
-
-const updateURLAsPerUserLanguage = () => {
-    const current_path = window.location.pathname
-    const current_hash = window.location.hash
-    const paths = current_path.split('/')
-    const first_path = paths[1]
-    const has_language_in_url = first_path in language_config
-    has_language_in_url && Cookies.set('user_language', first_path)
-    const user_language = Cookies.get('user_language') || 'en'
-    
-    const language = has_language_in_url ? first_path : user_language
-    
-    if (!has_language_in_url && user_language === 'en') return
-    if (first_path === user_language) return
-
-    const updated_url = has_language_in_url ? paths.map((item) => (item === first_path ? language : item)).join('/') : language + paths.join('/')
-    const new_url = updated_url + current_hash
-
-    window.location.href = '/' + new_url
 }
 
 const sendTags = (api) => {

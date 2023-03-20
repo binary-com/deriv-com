@@ -47,21 +47,21 @@ const TopLeftDot = styled.img<DotProps>`
     top: 4px;
     left: 0;
     right: 0;
-    margin: ${(props) => (props.is_row ? 'auto' : '0')};
+    margin: ${({ is_row }) => is_row && 'auto'};
 
     @media ${device.laptopL} {
         width: 630px;
-        margin: ${(props) => (props.is_row ? 'auto' : '0')};
-        left: ${(props) => (props.is_row ? '0' : '-50px')};
+        margin: ${({ is_row }) => is_row && 'auto'};
+        left: ${({ is_row }) => !is_row && '-50px'};
     }
 
     @media ${device.laptop} {
-        margin: ${(props) => (props.is_row ? 'auto' : '0')};
-        left: ${(props) => (props.is_row ? '0' : '-250px')};
+        margin: ${({ is_row }) => is_row && 'auto'};
+        left: ${({ is_row }) => !is_row && '-250px'};
     }
 
     @media ${device.tabletL} {
-        display: ${(props) => (props.is_row ? 'none' : 'block')};
+        display: ${({ is_row }) => (is_row ? 'none' : 'block')};
         left: -500px;
     }
 `
@@ -70,8 +70,8 @@ const BottomRightDot = styled.img<DotProps>`
     bottom: 16px;
     height: 154px;
     right: 0;
-    left: ${(props) => (props.is_row ? '0' : 'none')};
-    margin: ${(props) => (props.is_row ? 'auto' : '0')};
+    left: ${({ is_row }) => (is_row ? '0' : 'none')};
+    margin: ${({ is_row }) => is_row && 'auto'};
 
     @media ${device.laptopL} {
         margin: ${(props) => (props.is_row ? 'auto' : '0')};
@@ -79,12 +79,12 @@ const BottomRightDot = styled.img<DotProps>`
     }
 
     @media ${device.laptop} {
-        margin: ${(props) => (props.is_row ? 'auto' : '0')};
-        right: ${(props) => (props.is_row ? '0' : '-200px')};
+        margin: ${({ is_row }) => is_row && 'auto'};
+        right: ${({ is_row }) => !is_row && '-200px'};
     }
 
     @media ${device.tabletL} {
-        display: ${(props) => (props.is_row ? 'none' : 'block')};
+        display: ${({ is_row }) => (is_row ? 'none' : 'block')};
         right: -450px;
     }
 `

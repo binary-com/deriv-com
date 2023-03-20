@@ -55,6 +55,7 @@ export type TQuestionsData = {
     category: TString
     hide_for_eu?: boolean
     questions: TQuestions[]
+    hide_p2p?: boolean
 }
 
 export type TTranslatedQuestions = {
@@ -72,5 +73,6 @@ export type TTranslatedQuestionsData = {
     section: string
     category: string
     hide_for_eu?: boolean
+    hide_p2p?: boolean
     questions: TTranslatedQuestions[]
 }

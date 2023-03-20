@@ -13,3 +13,8 @@ export const useFilteredCategory = (data: TTranslatedQuestionsData[]) => {
     const { is_eu } = useRegion()
     return data.filter((item) => (is_eu ? !item.hide_for_eu : item))
 }
+
+export const useFilteredP2PCategory = (data: TTranslatedQuestionsData[]) => {
+    const { is_p2p_allowed_country } = useRegion()
+    return data.filter((item) => (!is_p2p_allowed_country ? !item.hide_p2p : item))
+}

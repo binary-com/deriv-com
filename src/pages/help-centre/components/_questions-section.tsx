@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TQuestionsData } from '../data/_data-types'
-import { useFilteredCategory } from '../data/_hooks'
+import { useFilteredCategory, useFilteredP2PCategory } from '../data/_hooks'
 import QuestionsCategory from './_questions-category'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -58,6 +58,7 @@ const Wrapper = styled.div`
 
 const QuestionsSection = ({ data, section_name }: TQuestionsSection) => {
     const filtered_data = useFilteredCategory(data)
+    const filtered_p2p_data = useFilteredP2PCategory(filtered_data)
 
     return (
         <Section>
@@ -66,7 +67,7 @@ const QuestionsSection = ({ data, section_name }: TQuestionsSection) => {
             </SectionName>
             <HorizontalLine />
             <Wrapper id={section_name.toLowerCase().replace(/_t_/g, '')}>
-                {filtered_data.map((item, index) => (
+                {filtered_p2p_data.map((item, index) => (
                     <QuestionsCategory key={item.category} data={item} topic_number={index} />
                 ))}
             </Wrapper>

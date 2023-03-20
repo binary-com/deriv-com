@@ -30,14 +30,14 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        // 'gatsby-plugin-react-helmet',
-        // {
-        //     resolve: `gatsby-plugin-react-helmet-canonical-urls`,
-        //     options: {
-        //         siteUrl: `${site_url}`,
-        //         noQueryString: true,
-        //     },
-        // },
+        'gatsby-plugin-react-helmet',
+        {
+            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+            options: {
+                siteUrl: `${site_url}`,
+                noQueryString: true,
+            },
+        },
         'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-source-filesystem',
@@ -267,14 +267,14 @@ module.exports = {
                 //   ],
             },
         },
-        // {
-        //     resolve: 'gatsby-plugin-svgr',
-        //     options: {
-        //         rule: {
-        //             include: /svg/, // See below to configure properly
-        //         },
-        //     },
-        // },
+        {
+            resolve: 'gatsby-plugin-svgr',
+            options: {
+                rule: {
+                    include: /svg/, // See below to configure properly
+                },
+            },
+        },
         {
             resolve: 'gatsby-plugin-eslint',
             options: {
@@ -296,11 +296,13 @@ module.exports = {
                             '/landing/',
                             '/endpoint/',
                             '/livechat/',
+                            '/storybook/',
                         ],
                     },
                 ],
             },
         },
+        'gatsby-plugin-anchor-links',
         {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {
@@ -312,16 +314,15 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
-                duration: 0,
             },
         },
-        // 'gatsby-plugin-use-query-params',
-        // {
-        //     resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-        //     options: {
-        //         analyzerMode: 'disabled',
-        //         generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
-        //     },
-        // },
+        'gatsby-plugin-use-query-params',
+        {
+            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+            options: {
+                analyzerMode: 'disabled',
+                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+            },
+        },
     ],
 }

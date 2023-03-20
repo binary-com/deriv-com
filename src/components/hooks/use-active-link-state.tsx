@@ -67,7 +67,7 @@ export const useActiveLinkState = (type: string) => {
             }
 
             Object.keys(navigation_map).forEach((key) => {
-                if (navigation_map[key].includes(current_root_page[level].replace('/', ''))) {
+                if (navigation_map[key].includes(current_root_page[level]?.replace('/', ''))) {
                     setCurrentPage(key)
                 }
             })

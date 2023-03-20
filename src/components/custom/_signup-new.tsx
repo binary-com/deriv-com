@@ -236,9 +236,9 @@ const SignupNew = ({
     return (
         <SignupContent>
             <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
-                {localize('Sign up')}
+                {localize('_t_Sign up_t_')}
             </StyledHeader>
-            <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
+            <SubTitle>{localize('_t_Enter your email address to begin_t_')}</SubTitle>
 
             {!is_ppc && (
                 <NoteBox>
@@ -281,7 +281,7 @@ const SignupNew = ({
                     background="white"
                     error={email_error_msg}
                     value={email}
-                    label={localize('Email')}
+                    label={localize('_t_Email_t_')}
                     placeholder={'Email'}
                     handleError={clearEmail}
                     onChange={handleInputChange}
@@ -299,7 +299,7 @@ const SignupNew = ({
                 disabled={is_submitting || !is_checked || email_error_msg !== '' || !email}
                 id="dm-new-signup"
             >
-                {localize('Create demo account')}
+                {localize('_t_Create demo account_t_')}
             </EmailButton>
             <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
                 <Localize
@@ -320,7 +320,7 @@ const SignupNew = ({
             <SignupWithContainer>
                 <Line />
                 <StyledText color="grey-5" align="center" tabletFontSize="12px">
-                    {localize('Or sign up with')}
+                    {localize('_t_Or sign up with_t_')}
                 </StyledText>
                 <Line />
             </SignupWithContainer>
@@ -361,7 +361,7 @@ const SignupNew = ({
                 </SocialButton>
             </SocialWrapper>
             <LoginText mt="3.75rem" mb={is_eu ? '100px' : '0'}>
-                {localize('Already have an account?')}
+                {localize('_t_Already have an account?_t_')}
                 <StyledLinkText
                     id="dm-new-login-button"
                     ml="0.4rem"
@@ -369,7 +369,7 @@ const SignupNew = ({
                     color="red"
                     onClick={handleLogin}
                 >
-                    {localize('Log in')}
+                    {localize('_t_Log in_t_')}
                 </StyledLinkText>
             </LoginText>
         </SignupContent>

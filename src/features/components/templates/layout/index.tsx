@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { ReactNode } from 'react'
 import Footer from '../footer'
 import apiManager from 'features/websocket'
 import usePopup from 'components/hooks/use-popup'
@@ -15,20 +15,17 @@ import 'swiper/swiper.min.css'
 import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
 
-interface ILayoutComponentProps extends HTMLAttributes<HTMLDivElement> {
+interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
+    children: ReactNode
 }
 
 if (isBrowser()) {
     apiManager.init()
 }
 
-const LayoutComponent = ({
-    children,
-    is_ppc = false,
-    is_ppc_redirect = false,
-}: ILayoutComponentProps) => {
+const Layout = ({ children, is_ppc = false, is_ppc_redirect = false }: LayoutProps) => {
     const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
@@ -67,4 +64,4 @@ const LayoutComponent = ({
     )
 }
 
-export default LayoutComponent
+export default Layout

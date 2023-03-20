@@ -1,7 +1,7 @@
 import React from 'react'
 import HomeHero from './hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
-import LayoutComponent from 'features/components/templates/page'
+import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import { localize } from 'components/localization'
 import MarketsFold from 'pages/home/_markets_fold'
@@ -21,7 +21,7 @@ const HomePage = () => {
     const { is_p2p_allowed_country } = useRegion()
 
     return (
-        <LayoutComponent>
+        <Layout>
             <SEO
                 title={localize(
                     '_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_',
@@ -39,7 +39,7 @@ const HomePage = () => {
             <WhatOurClientsSay />
             {is_p2p_allowed_country && <P2PHomeBanner />}
             <Signup appearance={Appearances.public} />
-        </LayoutComponent>
+        </Layout>
     )
 }
 

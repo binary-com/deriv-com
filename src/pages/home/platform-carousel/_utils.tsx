@@ -9,6 +9,7 @@ import {
     derivx_ios_url,
     dmt5_android_url,
     dmt5_linux_url,
+    dmt5_ios_url,
     smarttrader_url,
     binary_bot_url,
     dmt5_mac_app_url,
@@ -32,8 +33,8 @@ import AppStore from 'images/svg/app-download/app-store.svg'
 import GooglePlay from 'images/svg/app-download/google-play.svg'
 import Linux from 'images/svg/app-download/linux.svg'
 import APK from 'images/svg/app-download/apk.svg'
-import Windows from 'images/svg/app-download/app-store-windows.svg'
-import MacAppStore from 'images/svg/app-download/app-store-mac.svg'
+import Windows from 'images/svg/dmt5/dmt5_app_gallery_windows_exe.svg'
+import MacAppStore from 'images/svg/dmt5/dmt5_app_gallery_mac_dmg.svg'
 import AppGallery from 'images/svg/app-download/app-store-app-gallery.svg'
 
 export const PLATFORMS_CAROUSEL_DELAY = 3000

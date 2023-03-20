@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { ReactElement } from 'react'
-import { Box, CssGrid, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import { Box, CssGrid, Flex } from 'components/containers'
 import device from 'themes/device'
 
 type DescriptionsProps = {
@@ -143,15 +143,17 @@ export const DerivedMarketsList = styled.div<MarketsListProps>`
     border-left: 1px solid var(--color-grey-22);
     border-right: var(--solid-grey-22);
     width: 100%;
-    height: 272px;
-    padding: 24px;
-    gap: 10px;
+    height: fit-content;
+    padding: ${({ padding }) => (padding ? padding : '24px')};
+    gap: ${({ gap }) => (gap ? gap : '12px')};
 
     @media ${device.tabletL} {
         height: 212px;
     }
     @media ${device.mobileL} {
-        padding: 16px 8px;
+        grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
+        ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
+        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '')};
     }
 `
 

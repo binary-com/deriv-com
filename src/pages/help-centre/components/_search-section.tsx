@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
-import { useFilteredCategory, useFilteredQuestions, useFilteredP2PCategory } from '../data/_hooks'
+import { useFilteredCategory, useFilteredQuestions } from '../data/_hooks'
 import { TTranslatedQuestionsData } from '../data/_data-types'
 import SearchResult from './_search-result'
 import { all_questions } from './_constants'
@@ -118,9 +118,9 @@ const SearchSection = () => {
     // we need to hide some of the platforms for eu countries!
     const filtered_categories = useFilteredCategory(translated_all_questions)
     //Removing p2p from the search result
-    const filtered_p2p_categories = useFilteredP2PCategory(filtered_categories)
+
     // putting all of the questions in a variable
-    const questions = filtered_p2p_categories
+    const questions = filtered_categories
         .map(({ questions }) => questions)
         .reduce((array, questions_array) => array.concat(questions_array), [])
     // filtering eu and none-eu questions

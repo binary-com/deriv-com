@@ -13,10 +13,16 @@ import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
+import useRegion from 'components/hooks/use-region'
+
+type DotProps = {
+    src?: string
+    is_row?: boolean
+}
 
 const FaqHeader = styled(Header)`
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 4rem;
     }
 `
 
@@ -35,40 +41,50 @@ const RelativeContainer = styled(SectionContainer)`
     }
 `
 
-const TopLeftDot = styled.img`
+const TopLeftDot = styled.img<DotProps>`
     width: 730px;
     position: absolute;
     top: 4px;
     left: 0;
+    right: 0;
+    margin: ${(props) => (props.is_row ? 'auto' : '0')};
 
     @media ${device.laptopL} {
         width: 630px;
-        left: -50px;
+        margin: ${(props) => (props.is_row ? 'auto' : '0')};
+        left: ${(props) => (props.is_row ? '0' : '-50px')};
     }
 
     @media ${device.laptop} {
-        left: -250px;
+        margin: ${(props) => (props.is_row ? 'auto' : '0')};
+        left: ${(props) => (props.is_row ? '0' : '-250px')};
     }
 
     @media ${device.tabletL} {
+        display: ${(props) => (props.is_row ? 'none' : 'block')};
         left: -500px;
     }
 `
-const BottomRightDot = styled.img`
+const BottomRightDot = styled.img<DotProps>`
     position: absolute;
     bottom: 16px;
-    right: 0;
     height: 154px;
+    right: 0;
+    left: ${(props) => (props.is_row ? '0' : 'none')};
+    margin: ${(props) => (props.is_row ? 'auto' : '0')};
 
     @media ${device.laptopL} {
+        margin: ${(props) => (props.is_row ? 'auto' : '0')};
         right: 0;
     }
 
     @media ${device.laptop} {
-        right: -200px;
+        margin: ${(props) => (props.is_row ? 'auto' : '0')};
+        right: ${(props) => (props.is_row ? '0' : '-200px')};
     }
 
     @media ${device.tabletL} {
+        display: ${(props) => (props.is_row ? 'none' : 'block')};
         right: -450px;
     }
 `
@@ -146,8 +162,10 @@ const StyledAccordionWrapper = styled(AccordionWrapper)`
     }
 `
 const Faq = () => {
+    const { is_row } = useRegion()
+
     return (
-        <RelativeContainer>
+        <RelativeContainer padding={is_row ? '20rem 0 16rem 0' : null}>
             <FaqHeader as="h2" size="4.8rem" align="center">
                 {localize('Browse our FAQ')}
             </FaqHeader>
@@ -155,7 +173,7 @@ const Faq = () => {
                 as="h4"
                 type="sub-section-title"
                 align="center"
-                m="4rem 0"
+                m={is_row ? '0 0 4rem 0' : '4rem 0'}
                 weight="normal"
             >
                 {localize('Deriv Affiliate Programme')}
@@ -183,7 +201,7 @@ const Faq = () => {
                 as="h4"
                 type="sub-section-title"
                 align="center"
-                m="8rem 0 4rem 0 "
+                m="8rem 0 4rem 0"
                 weight="normal"
             >
                 {localize('Deriv IB Programme')}
@@ -207,8 +225,8 @@ const Faq = () => {
                     })}
                 </Accordion>
             </StyledAccordionWrapper>
-            <TopLeftDot src={DotPattern} />
-            <BottomRightDot src={DotPattern} />
+            <TopLeftDot src={DotPattern} is_row={is_row} />
+            <BottomRightDot src={DotPattern} is_row={is_row} />
         </RelativeContainer>
     )
 }

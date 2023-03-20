@@ -216,13 +216,6 @@ export const StyledText = styled(Text)<StyledTextProps>`
         font-size: 14px;
     }
 `
-export const SymbolText = styled(Header)`
-    font-weight: normal;
-    @media ${device.tabletL} {
-        max-width: 100px;
-        max-height: 28px;
-    }
-`
 
 export const SymbolContainer = styled(Flex)`
     width: fit-content;
@@ -252,6 +245,15 @@ export const SymbolContainer = styled(Flex)`
         }
     }
 `
+export const SymbolText = styled(Header)`
+    font-weight: normal;
+
+    @media ${device.tabletL} {
+        max-width: 100px;
+        max-height: 28px;
+    }
+`
+
 export const Title = styled(Text)`
     text-align: center;
     font-weight: bold;

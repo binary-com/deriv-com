@@ -19,11 +19,12 @@ const MobileCardHeader = styled(Flex)`
     height: auto;
 
     @media (max-width: 680px) {
-        flex-direction: row-reverse;
+        flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        align-items: start;
 
         > img {
+            margin: 2.5rem 0;
             width: 48px;
             height: 48px;
         }

@@ -29,6 +29,9 @@ const query = graphql`
         dmt5_mobile_web_browser: file(relativePath: { eq: "home/dmt5_mobile_web_browser.png" }) {
             ...fadeIn
         }
+        dmt5_mobile_app_store: file(relativePath: { eq: "home/dmt5_mobile_app_store.png" }) {
+            ...fadeIn
+        }
         platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
             ...fadeIn
         }

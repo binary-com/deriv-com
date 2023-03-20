@@ -33,12 +33,14 @@ import JumpIndices from './_jump_indices'
 import AccumulatorsIndices from './_accumulators-indices'
 import SwapFreePairs from './_swap-free-pairs'
 import SymbolsMapper from './_symbols_mapper'
+import ContinuousIndicesOptions from './_continuous-indices_options'
 
 export {
     Americas,
     AsiaOceania,
     BasketIndicesCfds,
     BasketIndicesCommodities,
+    ContinuousIndicesOptions,
     ContinuousIndices,
     CrashBoom,
     CrashBoomEU,

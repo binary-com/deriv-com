@@ -4,7 +4,7 @@ import { principles } from './_data'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
 import { SEO, Container, Flex, SectionContainer } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 
 type SeparatorInterface = {
@@ -95,16 +95,14 @@ const StyledFlex = styled(Flex)`
 const OurPrinciples = () => {
     return (
         <Layout>
-            <SEO title={localize('Our principles | Deriv')} />
+            <SEO title={localize('_t_Our principles | Deriv_t_')} />
             <TitleSection padding="120px 0 24px 10rem">
                 <StyledContainer>
                     <Header as="h1" type="hero" align="start" mb="24px">
-                        {localize('Our principles')}
+                        <Localize translate_text="_t_Our principles_t_" />
                     </Header>
                     <StyledMainText>
-                        {localize(
-                            'We are honoured to serve everyone who relies on our products and services, and we only want to offer the best. That’s why our principles and values are so important in defining who we are, why we do what we do, and how we treat our clients and each other. Across our international offices, we are committed to the following principles in everything that we do.',
-                        )}
+                        <Localize translate_text="_t_We are honoured to serve everyone who relies on our products and services, and we only want to offer the best. That’s why our principles and values are so important in defining who we are, why we do what we do, and how we treat our clients and each other. Across our international offices, we are committed to the following principles in everything that we do._t_" />
                     </StyledMainText>
                 </StyledContainer>
             </TitleSection>
@@ -118,14 +116,16 @@ const OurPrinciples = () => {
                             </StyledFlex>
                             <Flex fd="column" max_width="792px">
                                 <ColorHeader as="h2" color={principle.color}>
-                                    {principle.title}
+                                    <Localize translate_text={principle.title} />
                                 </ColorHeader>
-                                {principle.description.map((description, key) => (
-                                    <Flex key={key} fd="column">
+                                {principle.description.map((description) => (
+                                    <Flex key={description.title} fd="column">
                                         <Header as="h3" type="subtitle-1">
-                                            {description.title}
+                                            <Localize translate_text={description.title} />
                                         </Header>
-                                        <StyledText>{description.text} </StyledText>
+                                        <StyledText>
+                                            <Localize translate_text={description.text} />
+                                        </StyledText>
                                     </Flex>
                                 ))}
                             </Flex>

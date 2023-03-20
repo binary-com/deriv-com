@@ -14,10 +14,8 @@ const CommoditiesPage = () => (
             title="_t_Commodities market | Commodities trading | Deriv_t_"
         />
         <DerivedFXHero
-            title={localize('_t_Commodities_t_')}
-            description={localize(
-                '_t_Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted._t_',
-            )}
+            title="_t_Commodities_t_"
+            description="_t_Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted._t_"
         />
         <Commodities simple_step_content={simple_step_content_commodities} />
         <Signup appearance={Appearances.public} />

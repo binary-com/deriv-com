@@ -14,10 +14,8 @@ const StocksAndIndicesPage = () => (
             title="_t_Stock market | Indices trading | Deriv_t_"
         />
         <DerivedFXHero
-            title={localize('_t_Stocks & indices_t_')}
-            description={localize(
-                '_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets._t_',
-            )}
+            title="_t_Stocks & indices_t_"
+            description="_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets._t_"
         />
         <StockIndices simple_step_content={simple_step_content_stock} />
         <Signup appearance={Appearances.public} />

@@ -14,10 +14,8 @@ const ForexPage = () => (
             title="_t_Forex online trading platforms | Forex trading demo account | Deriv_t_"
         />
         <DerivedFXHero
-            title={localize('_t_Forex_t_')}
-            description={localize(
-                '_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_',
-            )}
+            title="_t_Forex_t_"
+            description="_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_"
         />
         <Forex simple_step_content={simple_step_content_forex} />
         <Signup appearance={Appearances.public} />

@@ -12,7 +12,7 @@ import MarketInstruments from '../sections/_market_instruments'
 import type { Options } from '../../static/content/_digital-options'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 type DigitalOptionsProps = {
     market_name: string

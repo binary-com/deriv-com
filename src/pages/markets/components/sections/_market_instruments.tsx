@@ -10,11 +10,14 @@ import {
     Title,
 } from '../../static/style/_markets-style'
 import { useBrowserResize } from '../../../../components/hooks/use-browser-resize'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 type Contentelement = {
     id: string
     component?: ReactElement
-    mobile_title?: ReactElement
-    title?: ReactElement
+    mobile_title?: TString
+    title?: TString
+    title_components?: ReactElement[]
     details?: ReactNode
     col?: number
     tablet_col?: number
@@ -39,6 +42,7 @@ export type MarketInstrumentsElement = {
 }
 export type MarketInstrumentsProps = {
     market_content: MarketInstrumentsElement
+    market_tab_name?: string
 }
 
 // TODO check /home/niloofar/Desktop/deriv-com/src/pages/landing/forex-trading/components/_table-btn.tsx translation when you changed the TString type
@@ -57,9 +61,18 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                     <>
                                         <Col full_width={true}>
                                             {is_mobile && content.mobile_title ? (
-                                                <Title>{content.mobile_title}</Title>
+                                                <Title>
+                                                    <Localize
+                                                        translate_text={content.mobile_title}
+                                                    />
+                                                </Title>
                                             ) : (
-                                                <Title>{content.title}</Title>
+                                                <Title>
+                                                    <Localize
+                                                        translate_text={content.title}
+                                                        components={content.title_components}
+                                                    />
+                                                </Title>
                                             )}
                                         </Col>
                                         <LatestMarketsList
@@ -78,9 +91,18 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                     <>
                                         <Col full_width={true}>
                                             {is_mobile && content.mobile_title ? (
-                                                <Title>{content.mobile_title}</Title>
+                                                <Title>
+                                                    <Localize
+                                                        translate_text={content.mobile_title}
+                                                    />
+                                                </Title>
                                             ) : (
-                                                <Title>{content.title}</Title>
+                                                <Title>
+                                                    <Localize
+                                                        translate_text={content.title}
+                                                        components={content.title_components}
+                                                    />
+                                                </Title>
                                             )}
                                         </Col>
                                         <DerivedMarketsList>{content.component}</DerivedMarketsList>
@@ -89,9 +111,18 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                     <>
                                         <Col>
                                             {is_mobile && content.mobile_title ? (
-                                                <Title>{content.mobile_title}</Title>
+                                                <Title>
+                                                    <Localize
+                                                        translate_text={content.mobile_title}
+                                                    />
+                                                </Title>
                                             ) : (
-                                                <Title>{content.title}</Title>
+                                                <Title>
+                                                    <Localize
+                                                        translate_text={content.title}
+                                                        components={content.title_components}
+                                                    />
+                                                </Title>
                                             )}
                                         </Col>
                                         <MarketsList has_right_border={true}>
@@ -108,9 +139,16 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                     <Row id={content.id} key={content.id} mobile_template={content.mobile_template}>
                         <Col mobile_template={content.mobile_template}>
                             {is_mobile && content.mobile_title ? (
-                                <Title>{content.mobile_title}</Title>
+                                <Title>
+                                    <Localize translate_text={content.mobile_title} />
+                                </Title>
                             ) : (
-                                <Title>{content.title}</Title>
+                                <Title>
+                                    <Localize
+                                        translate_text={content.title}
+                                        components={content.title_components}
+                                    />
+                                </Title>
                             )}
                         </Col>
                         {market_content.template == 2 ? (

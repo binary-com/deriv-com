@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import { Flex, Box } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type AvailableOptionsProps = {
-    content: ReactElement
+    content: TString
     mobile_pt?: string
     remove_title?: boolean
     svg: string
-    title?: ReactElement
+    title?: TString
 }
 
 const StyledFlex = styled(Flex)<{ mobile_pt: string }>`

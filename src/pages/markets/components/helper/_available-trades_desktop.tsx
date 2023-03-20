@@ -20,7 +20,7 @@ type AvailableTradesProps = {
     CFDs: ReactElement
     DigitalOptions?: ReactElement
     Multipliers?: ReactElement
-    display_title: ReactElement
+    display_title: TString
 }
 
 type CardContainerProps = {
@@ -140,10 +140,10 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         ${(props) => {
             if (props.active_tab === props.name.toLocaleLowerCase())
                 return css`
-                    font-weight: bold;
-                    background-color: var(--color-white);
-                    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
-                `
+        font - weight: bold;
+        background - color: var(--color - white);
+        box - shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
+        `
         }}
     }
 
@@ -233,7 +233,7 @@ const AvailableTradesDesktop = ({
     return (
         <StyledSection>
             <StyledHeader as="h2" size="var(--text-size-l)" align="center">
-                {display_title}
+                <Localize translate_text={display_title} />
             </StyledHeader>
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">

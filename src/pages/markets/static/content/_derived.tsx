@@ -38,31 +38,27 @@ export const derived_content: DerivedContentElement[] = [
     {
         src: RealWorld,
         alt: 'realworld market values',
-        text: (
-            <Localize translate_text="_t_Market-based values with limited influence from real-world events_t_" />
-        ),
+        text: '_t_Market-based values with limited influence from real-world events_t_',
     },
     {
         src: TightSpreads,
         alt: 'tighter spreads',
-        text: <Localize translate_text="_t_Competitively tighter spreads_t_" />,
+        text: '_t_Competitively tighter spreads_t_',
     },
     {
         src: ResponsiveWebsite,
         alt: 'responsive platform',
-        text: <Localize translate_text="_t_Responsive, easy-to-use platforms_t_" />,
+        text: '_t_Responsive, easy-to-use platforms_t_',
     },
     {
         src: TwentyFourHourTrading,
         alt: 'twenty four hour trading',
-        text: (
-            <Localize translate_text="_t_24-hour trading (Monday-Friday), based on forex market hours_t_" />
-        ),
+        text: '_t_24-hour trading (Monday-Friday), based on forex market hours_t_',
     },
     {
         src: FriendlySupport,
         alt: 'friendly support',
-        text: <Localize translate_text="_t_Smart and friendly support, 7 days a week_t_" />,
+        text: '_t_Smart and friendly support, 7 days a week_t_',
     },
 ]
 
@@ -70,30 +66,26 @@ export const derived_content_eu: DerivedContentElement[] = [
     {
         src: RealWorld,
         alt: 'realworld market values',
-        text: (
-            <Localize translate_text="_t_Market-based values with limited influence from real-world events_t_" />
-        ),
+        text: '_t_Market-based values with limited influence from real-world events_t_',
     },
     {
         src: TightSpreads,
         alt: 'tighter spreads',
-        text: <Localize translate_text="_t_Competitively tighter spreads_t_" />,
+        text: '_t_Competitively tighter spreads_t_',
     },
     {
         src: ResponsiveWebsite,
         alt: 'responsive platform',
-        text: <Localize translate_text="_t_Responsive, easy-to-use platforms_t_" />,
+        text: '_t_Responsive, easy-to-use platforms_t_',
     },
     {
         src: TwentyFourHourTrading,
         alt: 'twenty four hour trading',
-        text: (
-            <Localize translate_text="_t_24-hour trading (Monday-Friday), based on forex market hours_t_" />
-        ),
+        text: '_t_24-hour trading (Monday-Friday), based on forex market hours_t_',
     },
     {
         src: FriendlySupport,
         alt: 'friendly support',
-        text: <Localize translate_text="_t_Smart and friendly support, 7 days a week_t_" />,
+        text: '_t_Smart and friendly support, 7 days a week_t_',
     },
 ]

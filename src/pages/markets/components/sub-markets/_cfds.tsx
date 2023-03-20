@@ -55,7 +55,10 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                 <StyledHeader as="h3" size="16px">
                     <Localize translate_text="_t_Instruments available for CFD trading_t_" />
                 </StyledHeader>
-                <MarketInstruments market_content={market_content} />
+                <MarketInstruments
+                    market_tab_name={market_tab_name}
+                    market_content={market_content}
+                />
             </ContentWrapper>
         </StyledSection>
     )

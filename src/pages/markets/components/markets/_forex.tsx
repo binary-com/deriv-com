@@ -12,7 +12,7 @@ import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import useRegion from 'components/hooks/use-region'
-import { Localize, localize } from 'components/localization'
+import { localize } from 'components/localization'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -25,7 +25,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
     const { is_row, is_eu } = useRegion()
     return (
         <>
-            <WhyTrade header={<Localize translate_text="_t_Why trade forex on Deriv_t_" />}>
+            <WhyTrade header="_t_Why trade forex on Deriv_t_">
                 {(is_eu ? forex_content_eu : forex_content).map((content, index) => (
                     <StyledBox
                         key={index}
@@ -48,7 +48,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     <Multipliers market_content={is_eu ? forex_multiplier_eu : forex_multiplier} />
                 }
                 // name="Forex"
-                display_title={<Localize translate_text="_t_Forex trades available on Deriv_t_" />}
+                display_title="_t_Forex trades available on Deriv_t_"
             />
             <SimpleSteps
                 header="_t_Start trading forex on Deriv in 3 simple steps_t_"

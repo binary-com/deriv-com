@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Carousel, CarouselProps, Header, ImageWithDireciton, Text } from 'components/elements'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import Commodities from 'images/svg/markets/commodities-new.svg'
@@ -13,11 +13,12 @@ import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
 type MarketType = {
     icon: () => ReactElement
-    title: ReactElement
-    content: ReactElement
+    title: TString
+    content: TString
     to: string
     id: string
 }
@@ -40,48 +41,43 @@ type LearnMoreProps = {
 const markets_type: MarketsType = {
     forex: {
         icon: () => <img src={Forex} alt="Forex" width="64" height="64" />,
-        title: <Localize translate_text="_t_Forex_t_" />,
-        content: (
-            <Localize translate_text="_t_Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market._t_" />
-        ),
+        title: '_t_Forex_t_',
+        content:
+            '_t_Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market._t_',
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
     derived: {
         icon: () => <img src={DerivedFX} alt="Synthetic indices" width="64" height="64" />,
-        title: <Localize translate_text="_t_Derived_t_" />,
-        content: (
-            <Localize translate_text="_t_Trading derived indices lets you benefit from correctly predicting the price movements of simulated markets and indices derived from real-world markets._t_" />
-        ),
+        title: '_t_Derived_t_',
+        content:
+            '_t_Trading derived indices lets you benefit from correctly predicting the price movements of simulated markets and indices derived from real-world markets._t_',
         to: '/markets/derived-fx/',
         id: 'marketderivedothermarkets',
     },
     stock_indices: {
         icon: () => <img src={StockIndices} alt="Stocks & indices" width="64" height="64" />,
-        title: <Localize translate_text="_t_Stocks & indices_t_" />,
-        content: (
-            <Localize translate_text="_t_Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets._t_" />
-        ),
+        title: '_t_Stocks & indices_t_',
+        content:
+            '_t_Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets._t_',
         to: '/markets/stock/',
         id: 'marketstockothermarkets',
     },
 
     commodities: {
         icon: () => <img src={Commodities} alt="Commodities" width="64" height="64" />,
-        title: <Localize translate_text="_t_Commodities_t_" />,
-        content: (
-            <Localize translate_text="_t_Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil._t_" />
-        ),
+        title: '_t_Commodities_t_',
+        content:
+            '_t_Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil._t_',
         to: '/markets/commodities/',
         id: 'marketcommoditiesothermarket',
     },
 
     cryptocurrencies: {
         icon: () => <img src={Cryptocurrencies} alt="Cryptocurrencies" width="64" height="64" />,
-        title: <Localize translate_text="_t_Cryptocurrencies_t_" />,
-        content: (
-            <Localize translate_text="_t_Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them._t_" />
-        ),
+        title: '_t_Cryptocurrencies_t_',
+        content:
+            '_t_Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them._t_',
         to: '/markets/cryptocurrencies/',
         id: 'marketcryptocurrenciesothermarket',
     },
@@ -201,11 +197,13 @@ const MobileCard = ({ market }: CardProps) => {
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
             <Flex width="100%" jc="space-between" mb="2.4rem" ai="center">
                 <Text size="18px" weight="bold">
-                    {markets_type[market].title}
+                    <Localize translate_text={markets_type[market].title} />
                 </Text>
                 <Icon dynamic_id={markets_type[market].id + '_mobile'} />
             </Flex>
-            <Text size="14px">{markets_type[market].content}</Text>
+            <Text size="14px">
+                <Localize translate_text={markets_type[market].content} />
+            </Text>
             <LearnMore to={markets_type[market].to} visibility="true">
                 <Text>
                     <Localize translate_text="_t_Learn more_t_" />

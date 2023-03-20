@@ -9,7 +9,7 @@ import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
-import { Localize, localize } from 'components/localization'
+import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -25,7 +25,7 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
         '_t_Open a real account, make a deposit, and start trading commodities and other markets._t_'
     return (
         <>
-            <WhyTrade header={<Localize translate_text="_t_Why trade commodities on Deriv_t_" />}>
+            <WhyTrade header="_t_Why trade commodities on Deriv_t_">
                 {commodities.map((content, index) => (
                     <StyledBox
                         key={index}
@@ -37,9 +37,7 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
             {is_eu ? (
                 <AvailableTrades
                     CFDs={<CFDs market_content={commodities_cfds} />}
-                    display_title={
-                        <Localize translate_text="_t_Commodity trades available on Deriv_t_" />
-                    }
+                    display_title="_t_Commodity trades available on Deriv_t_"
                 />
             ) : (
                 <AvailableTrades
@@ -50,9 +48,7 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
                             options_list={commodities_options}
                         />
                     }
-                    display_title={
-                        <Localize translate_text="_t_Commodity trades available on Deriv_t_" />
-                    }
+                    display_title="_t_Commodity trades available on Deriv_t_"
                 />
             )}
             <SimpleSteps

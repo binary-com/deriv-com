@@ -8,7 +8,7 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
-import { localize, Localize } from 'components/localization'
+import { localize } from 'components/localization'
 import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
@@ -59,9 +59,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
 
     return (
         <>
-            <WhyTrade
-                header={<Localize translate_text="_t_Why trade cryptocurrencies on Deriv_t_" />}
-            >
+            <WhyTrade header="_t_Why trade cryptocurrencies on Deriv_t_">
                 {crypto_content.map((content, index) => (
                     <StyledBox
                         key={index}
@@ -73,9 +71,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
             <AvailableTrades
                 CFDs={<CFDs market_content={crypto_cfds} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
-                display_title={
-                    <Localize translate_text="_t_Cryptocurrency trades available on Deriv_t_" />
-                }
+                display_title="_t_Cryptocurrency trades available on Deriv_t_"
             />
             <SimpleSteps
                 header="_t_Start trading cryptocurrencies on Deriv in 3 simple steps_t_"

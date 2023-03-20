@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { SimpleStepContentElement } from './_simple_step_content'
 import Stocks from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
@@ -7,14 +7,7 @@ import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
-import { TString } from 'types/generics'
-
-export type BasketIndicesContent = {
-    src: string
-    alt: string
-    text: TString
-    icon?: ReactElement
-}
+import { MarketsContent } from 'types/generics'
 
 export const simple_step_content_basket: SimpleStepContentElement[] = [
     {
@@ -34,7 +27,7 @@ export const simple_step_content_basket: SimpleStepContentElement[] = [
     },
 ]
 
-export const basket_indices_content: BasketIndicesContent[] = [
+export const basket_indices_content: MarketsContent[] = [
     {
         src: Stocks,
         alt: 'Currency weight',
@@ -62,7 +55,7 @@ export const basket_indices_content: BasketIndicesContent[] = [
     },
 ]
 
-export const basket_indices_content_eu: BasketIndicesContent[] = [
+export const basket_indices_content_eu: MarketsContent[] = [
     {
         src: Stocks,
         alt: 'Currency weight',

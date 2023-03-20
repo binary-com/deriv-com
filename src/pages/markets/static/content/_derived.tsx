@@ -1,6 +1,5 @@
 import React from 'react'
 import { SimpleStepContentElement } from './_simple_step_content'
-import { Localize } from 'components/localization'
 import RealWorld from 'images/svg/markets/real-world.svg'
 import TightSpreads from 'images/svg/markets/tight-spread-new.svg'
 import TwentyFourHourTrading from 'images/svg/markets/twenty-four-hour-trading.svg'
@@ -9,12 +8,7 @@ import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
-
-export type DerivedContentElement = {
-    src: string
-    alt: string
-    text: React.ReactNode
-}
+import { MarketsContent } from 'types/generics'
 
 export const simple_step_content_derived: SimpleStepContentElement[] = [
     {
@@ -34,7 +28,7 @@ export const simple_step_content_derived: SimpleStepContentElement[] = [
     },
 ]
 
-export const derived_content: DerivedContentElement[] = [
+export const derived_content: MarketsContent[] = [
     {
         src: RealWorld,
         alt: 'realworld market values',
@@ -62,7 +56,7 @@ export const derived_content: DerivedContentElement[] = [
     },
 ]
 
-export const derived_content_eu: DerivedContentElement[] = [
+export const derived_content_eu: MarketsContent[] = [
     {
         src: RealWorld,
         alt: 'realworld market values',

@@ -9,13 +9,7 @@ import MetalAndOil from 'images/svg/markets/precious-metals-and-oils-new.svg'
 import NoCommission from 'images/svg/markets/no-commission-new.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
-import { TString } from 'types/generics'
-
-export type CommoditiesContent = {
-    src: string
-    text: TString
-    alt: string
-}
+import { MarketsContent } from 'types/generics'
 
 export const simple_step_content_commodities: SimpleStepContentElement[] = [
     {
@@ -34,7 +28,7 @@ export const simple_step_content_commodities: SimpleStepContentElement[] = [
         icon: <img src={WithdrawIcon} alt="Withdraw" width="32" height="32" />,
     },
 ]
-const commodities: CommoditiesContent[] = [
+const commodities: MarketsContent[] = [
     {
         src: VariableSpreads,
         alt: 'Fixed and variable',

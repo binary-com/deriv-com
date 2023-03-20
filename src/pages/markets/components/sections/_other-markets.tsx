@@ -287,7 +287,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
     }
 
     return (
-        <StyledSectionContainer>
+        <StyledSectionContainer id="markets-list">
             <Desktop>
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h2" type="section-title" align="start">
@@ -295,7 +295,11 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     </StyledHeader>
                     <Carousel has_autoplay autoplay_interval={4000} {...settings}>
                         {filteredMarkets.map((market) =>
-                            market === '' ? <div></div> : <Card market={market} key={market} />,
+                            market === '' ? (
+                                <div key={market}></div>
+                            ) : (
+                                <Card market={market} key={market} />
+                            ),
                         )}
                     </Carousel>
                 </MarketsWrapper>

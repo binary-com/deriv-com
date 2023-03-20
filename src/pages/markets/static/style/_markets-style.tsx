@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { ReactElement } from 'react'
+import { Header , Text } from 'components/elements'
 import { Box, CssGrid, Flex } from 'components/containers'
-import { Text } from 'components/elements'
 import device from 'themes/device'
 
 type DescriptionsProps = {
@@ -142,7 +142,7 @@ export const DerivedMarketsList = styled(CssGrid)<MarketsListProps>`
     width: 100%;
     height: fit-content;
     padding: ${({ padding }) => (padding ? padding : '24px')};
-    gap: ${({ gap }) => (gap ? gap : '10px')};
+    gap: ${({ gap }) => (gap ? gap : '12px')};
 
     @media ${device.tabletL} {
         grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
@@ -153,8 +153,7 @@ export const DerivedMarketsList = styled(CssGrid)<MarketsListProps>`
     @media ${device.mobileL} {
         grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
-        padding: 16px 8px;
-        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '8px 0')};
+        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '')};
     }
 `
 
@@ -215,6 +214,13 @@ export const StyledText = styled(Text)<StyledTextProps>`
     @media ${device.mobileL} {
         padding: 0 20px;
         font-size: 14px;
+    }
+`
+export const SymbolText = styled(Header)`
+    font-weight: normal;
+    @media ${device.tabletL} {
+        max-width: 100px;
+        max-height: 28px;
     }
 `
 

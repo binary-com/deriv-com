@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import payment_data from './_payment-data'
@@ -6,11 +6,13 @@ import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
+import { Text, Header, Divider, Accordion, AccordionItem, DotLoader } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import useWS from 'components/hooks/useWS'
+import { isBrowser } from 'common/utility'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
 
@@ -141,6 +143,7 @@ type PaymentType = {
     locales?: string[]
     url?: string
     reference_link?: ReactElement
+    minimum_withdrawal?: number | ReactElement
 }
 export type PaymentProps = {
     payment_data?: PaymentType
@@ -169,6 +172,45 @@ export type PaymentMethodsProps = {
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     const { is_p2p_allowed_country, is_eu } = useRegion()
     const [is_mobile] = useBrowserResize(992)
+    const { data, send } = useWS('crypto_config')
+    const [payment_method_data, setPaymentMethodData] = useState(payment_data)
+
+    // Here we send the request to the server on the first render of the page to get the data.
+    useEffect(() => {
+        send({})
+    }, [send])
+
+    useEffect(() => {
+        // First we check if the `data` exists or not, Then we manipulate the local data with the response from the server.
+
+        if (is_eu) {
+            setPaymentMethodData(
+                payment_method_data.filter((payment_method) => payment_method.is_eu),
+            )
+        } else {
+            if (data) {
+                const filtered_payment_methods = payment_method_data.filter(
+                    (payment_method) => !payment_method.is_eu,
+                )
+
+                const updated_payment_data = filtered_payment_methods.map((payment_method) => {
+                    if (!payment_method.is_crypto) return payment_method
+
+                    const updated_data = payment_method.data.map((value) => ({
+                        ...value,
+                        ...data.currencies_config[value.name],
+                    }))
+
+                    return {
+                        ...payment_method,
+                        data: updated_data,
+                    }
+                })
+
+                setPaymentMethodData(updated_payment_data)
+            }
+        }
+    }, [data, is_eu])
 
     const content_style = is_mobile
         ? {
@@ -192,21 +234,24 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
           }
     const parent_style = { marginBottom: is_mobile ? '24px' : '2.4rem' }
 
+    if (!isBrowser()) {
+        return <DotLoader />
+    }
     return (
         <>
-            {payment_data.map((pdata, idx) => {
+            {payment_method_data.map((pdata) => {
                 const styles = is_mobile
                     ? {
                           padding: '0 16px 0',
                           position: 'relative',
                           background: 'var(--color-white)',
-                          paddingBottom: pdata.note ? '5rem' : '2.2rem',
+                          paddingBottom: pdata.note ? '5rem' : '3.8rem',
                       }
                     : {
                           padding: '0 48px 24px',
                           position: 'relative',
                           background: 'var(--color-white)',
-                          paddingBottom: pdata.note ? '5rem' : '2.2rem',
+                          paddingBottom: pdata.note ? '5rem' : '3.8rem',
                       }
                 if (pdata.is_row && is_eu) {
                     return []
@@ -226,12 +271,13 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                     return (
                         <Accordion has_single_state>
                             <AccordionItem
-                                key={idx}
+                                key={pdata.class_name}
                                 content_style={content_style}
                                 header_style={header_style}
                                 style={styles}
                                 parent_style={parent_style}
                                 header={pdata.name}
+                                class_name={pdata.class_name}
                             >
                                 <DesktopWrapper>
                                     <DisplayAccordianItem pd={pdata} locale={locale} />
@@ -356,7 +402,7 @@ const PaymentMethodSection = ({ locale }: PaymentMethodsProps) => {
     return (
         <SectionContentContainer>
             <Container direction="column">
-                <AccordionContainer>
+                <AccordionContainer id="payment-list">
                     <DisplayAccordion locale={locale} />
                 </AccordionContainer>
                 <Header mt="1.6rem" type="paragraph-2" align="start" weight="normal">

@@ -12,6 +12,7 @@ type MainNavProps = {
 const Wrapper = styled.div`
     background-color: var(--color-black);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px 0;
 `
 const Link = styled(LocalizedLink)`
     margin-right: 3.2rem;
@@ -28,6 +29,9 @@ const StyledContainer = styled(Container)`
 `
 const Navigation = styled(Container)`
     margin: 0;
+    @media ${device.tabletL} {
+        width: 100%;
+    }
 `
 const LanguageWrapper = styled(Container)<MainNavProps>`
     margin-left: ${({ is_security }) => !is_security && '200px'};

@@ -283,7 +283,7 @@ const payment_data = [
 
             {
                 method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
-                currencies: 'USD AUD GBP EUR',
+                currencies: 'USD EUR AUD GBP',
                 min_max_deposit: (
                     <Localize
                         translate_text="5 - 1,000<0></0>5 - 10,000"

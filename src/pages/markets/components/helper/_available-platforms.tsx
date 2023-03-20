@@ -6,12 +6,12 @@ import { TString } from 'types/generics'
 import { Text, Header } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
+import SmartTrader from 'images/svg/custom/smarttrader.svg'
+import DerivX from 'images/svg/custom/deriv-x.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
-import SmartTrader from 'images/svg/custom/smarttrader.svg'
-import DerivX from 'images/svg/custom/deriv-x.svg'
-import DerivGo from 'images/svg/custom/deriv-go.svg'
+import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import useRegion from 'components/hooks/use-region'
 
 type AvailablePlatformsProps = {
@@ -62,7 +62,6 @@ const StyledText = styled(Header)`
     }
 `
 const StyledFlex = styled(Flex)`
-    background: var(--color-grey-4);
     padding: 0.8rem;
 
     ${Text} {
@@ -111,7 +110,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dtrader/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DTrader} alt="DTrader" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DTrader')}</Text>
+                            <Text ml="0.4rem">{localize('Deriv Trader')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -119,7 +118,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dbot/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DBot} alt="DBot" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DBot')}</Text>
+                            <Text ml="0.4rem">{localize('Deriv Bot')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

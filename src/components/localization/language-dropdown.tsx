@@ -3,7 +3,6 @@ import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Text } from 'components/elements'
-import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 
 type DropdownProps = {
@@ -38,15 +37,6 @@ const Display = styled.div`
     }
     @media ${device.mobileM} {
         margin: 0 0.2rem;
-    }
-`
-
-const Arrow = styled((props) => <Chevron {...props} />)<{ expanded: boolean }>`
-    ${({ expanded }) => (expanded ? 'transform: rotate(-180deg);' : '')}
-    transition: transform 0.25s;
-
-    & path {
-        fill: var(--color-white);
     }
 `
 
@@ -172,10 +162,9 @@ const Dropdown = ({
         <>
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
-                    <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
+                    <ResponsiveText ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
                     </ResponsiveText>
-                    <Arrow expanded={is_open ? true : false} />
                 </Display>
 
                 <Absolute is_high_nav={is_high_nav} is_security={is_security} is_open={is_open}>

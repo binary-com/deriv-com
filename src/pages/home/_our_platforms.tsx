@@ -10,7 +10,7 @@ const OurPlatforms = () => {
 
     return (
         <SectionContainer
-            background="#f9fbff"
+            background="white"
             height="fit-content"
             tabletL={{ height: 'fit-content', pb: 'unset' }}
             padding="8rem 0 0 0"

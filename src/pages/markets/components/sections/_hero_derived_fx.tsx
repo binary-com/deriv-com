@@ -1,51 +1,119 @@
 import React from 'react'
 import styled from 'styled-components'
+import ForexBg from 'images/common/markets/hero-forex.jpg'
+import DerivedEuBg from 'images/common/markets/derived-eu.jpg'
+import DerivedRowBg from 'images/common/markets/derived-row.jpg'
+import StocksAndIndicesBg from 'images/common/markets/stocks-and-indices.jpg'
+import CryptocurrenciesBg from 'images/common/markets/cryptocurrencies.jpg'
+import CommoditiesBg from 'images/common/markets/commodities.jpg'
 import NavMarkets from 'components/layout/nav/nav-markets'
-import { Container } from 'components/containers'
 import { Header } from 'components/elements'
-import { Button } from 'components/form'
-import BannerBg from 'images/common/markets/hero-derived-fx.png'
-import { Localize, localize } from 'components/localization'
+import Button from 'components/custom/_button'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
+import { Desktop, Mobile } from 'components/containers'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
-const BackgroundWrapper = styled.div`
-    background: url(${BannerBg});
-    background-repeat: round;
-    position: relative;
-    min-height: 38.3rem;
+type MarketProps = {
+    title: string
+    description: string
+    is_forex?: boolean
+    is_derived_row?: boolean
+    is_derived_eu?: boolean
+    is_stocks_and_indices?: boolean
+    is_cryptocurrencies?: boolean
+    is_commodities?: boolean
+}
 
-    @media ${device.tabletL} {
-        min-height: 500px;
+type BackgroundWrapperProps = {
+    is_forex?: boolean
+    is_derived_row?: boolean
+    is_derived_eu?: boolean
+    is_stocks_and_indices?: boolean
+    is_cryptocurrencies?: boolean
+    is_commodities?: boolean
+    is_rtl?: boolean
+}
+
+const handleBg = ({
+    is_forex,
+    is_derived_row,
+    is_derived_eu,
+    is_stocks_and_indices,
+    is_cryptocurrencies,
+    is_commodities,
+}: BackgroundWrapperProps) => {
+    {
+        if (is_forex) {
+            return ForexBg
+        }
+        if (is_derived_row) {
+            return DerivedRowBg
+        }
+        if (is_derived_eu) {
+            return DerivedEuBg
+        }
+        if (is_stocks_and_indices) {
+            return StocksAndIndicesBg
+        }
+        if (is_cryptocurrencies) {
+            return CryptocurrenciesBg
+        }
+        if (is_commodities) {
+            return CommoditiesBg
+        }
+    }
+}
+
+const StyledButton = styled.div`
+    margin-top: 5rem;
+    margin-left: 10vw;
+
+    @media (min-width: 2110px) {
+        margin-left: 20vw;
+    }
+
+    @media (min-width: 1201px) and (max-width: 1340px) {
+        margin-left: 5vw;
+    }
+    @media (min-width: 1520px) and (max-width: 2080px) {
+        margin-left: 16vw;
+    }
+    @media ${device.laptopM} {
+        margin-left: 0;
+        margin-top: 0;
     }
 `
-const StyledContainer = styled(Container)`
-    margin-top: 175px;
-    margin-bottom: 120px;
+const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
-    position: relative;
-    top: 7.2rem;
+    margin-left: 10vw;
 
-    h4,
-    h1 {
-        z-index: 10;
+    @media (min-width: 2110px) {
+        margin-left: 20vw;
     }
-    h1 {
-        line-height: 1.25;
+    @media (min-width: 1201px) and (max-width: 1340px) {
+        margin-left: 5vw;
     }
-    h4 {
-        line-height: 1.5;
+    @media (min-width: 1520px) and (max-width: 2080px) {
+        margin-left: 16vw;
     }
-    @media ${device.tabletL} {
-        padding: 4rem 2.3rem;
-        top: 0;
+
+    @media ${device.laptopM} {
+        margin-top: 1rem;
+        padding: 0 2.3rem 5.5rem 2.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         gap: 20px;
+        margin-left: 0;
 
         h1 {
             text-align: center;
@@ -54,80 +122,165 @@ const StyledContainer = styled(Container)`
             text-align: center;
         }
     }
-    @media ${device.mobileM} {
-        padding: 4rem 1.3rem;
+    @media ${device.tabletS} {
+        margin-top: -11rem;
+    }
+
+    @media (min-width: 576px) and (max-width: 682px) {
+        margin-top: -9rem;
     }
 `
-const MarketSubHeader = styled(Header)`
-    font-size: 16px;
-    width: 58vw;
+const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
+    position: relative;
+    background: url(${handleBg});
+    background-size: 165rem;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 63rem;
+    transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'none')};
 
-    @media ${device.tabletL} {
-        width: 86vw;
+    @media (max-width: 580px) {
+        background-size: 136rem;
+        background-position-x: -588px;
+    }
+
+    @media (min-width: 683px) and (max-width: 883px) {
+        background-size: 202rem;
+    }
+
+    @media (min-width: 884px) and (max-width: 991px) {
+        background-size: 234rem;
+    }
+
+    @media (min-width: 994px) and (max-width: 1099px) {
+        background-size: 211rem;
+    }
+
+    @media (min-width: 1100px) and (max-width: 1199px) {
+        background-size: 227rem;
+    }
+
+    & > ${StyledContainer} {
+        transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};
+        margin-right: 8rem;
+    }
+    & > ${StyledButton} {
+        transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};
+        margin-right: 8rem;
+    }
+`
+const MarketSubHeader = styled.div`
+    font-size: 16px;
+    width: 25vw;
+    color: var(--color-black-9);
+    text-align: left;
+    line-height: 24px;
+
+    @media ${device.laptopM} {
+        min-width: 40rem;
+        text-align: center;
     }
     @media ${device.mobileM} {
         font-size: 14px;
         width: 83vw;
+        text-align: center;
     }
 `
 const StyledHeader = styled(Header)`
     font-size: 48px;
-    color: white;
+    color: var(--color-black-9);
+    width: 39vw;
+    text-align: start;
+    margin-top: 16rem;
 
-    @media ${device.tabletL} {
-        font-size: 32px;
-        text-align: center;
+    @media ${device.laptopM} {
+        font-size: 28px;
+        width: 100%;
+        align-items: center;
+        margin-top: 0;
     }
 `
-const StyledButton = styled(Button)`
-    border-radius: 4px;
-    margin-top: 20px;
 
-    @media ${device.tabletL} {
-        width: 90vw;
-        font-size: 1.75rem;
-        padding: 1.25rem 4.75rem;
-        margin-top: 16px;
-    }
-`
-type MarketProps = {
-    title: string
-    description: string
-}
-
-const GetTrading = () => (
-    <StyledButton width="128px" onClick={handleGetTrading} secondary>
-        {localize('Get Trading')}
-    </StyledButton>
-)
-
-const CreateFreeDemoAccount = () => {
-    const handleSignup = useHandleSignup()
-
-    return (
-        <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
-            {localize('Create free demo account')}
-        </StyledButton>
-    )
-}
-
-export const DerivedFXHero = ({ title, description }: MarketProps) => {
+export const DerivedFXHero = ({
+    title,
+    description,
+    is_forex,
+    is_derived_row,
+    is_derived_eu,
+    is_stocks_and_indices,
+    is_cryptocurrencies,
+    is_commodities,
+}: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
+    const handleSignup = useHandleSignup()
     const { is_deriv_go } = usePlatformQueryParam()
 
+    const is_rtl = useIsRtl()
+
     return (
-        <BackgroundWrapper>
+        <>
             <NavMarkets />
-            <StyledContainer>
-                <StyledHeader as="h1" align="center">
-                    <Localize translate_text={title} />
-                </StyledHeader>
-                <MarketSubHeader color="white" weight="normal" align="center">
-                    <Localize translate_text={description} />
-                </MarketSubHeader>
-                {is_logged_in && !is_deriv_go && <GetTrading />}
-                {!is_logged_in && !is_deriv_go && <CreateFreeDemoAccount />}
-            </StyledContainer>
-        </BackgroundWrapper>
+            <Desktop breakpoint={'laptopM'}>
+                <BackgroundWrapper
+                    is_forex={is_forex}
+                    is_derived_row={is_derived_row}
+                    is_derived_eu={is_derived_eu}
+                    is_stocks_and_indices={is_stocks_and_indices}
+                    is_cryptocurrencies={is_cryptocurrencies}
+                    is_commodities={is_commodities}
+                    is_rtl={is_rtl}
+                >
+                    <StyledContainer>
+                        <StyledHeader as="h1" align="center">
+                            <Localize translate_text={title} />
+                        </StyledHeader>
+                        <MarketSubHeader color="white">
+                            <Localize translate_text={description} />
+                        </MarketSubHeader>
+                    </StyledContainer>
+                    <StyledButton>
+                        {is_logged_in ? (
+                            <Button onClick={handleGetTrading} label="_t_Get trading_t_" primary />
+                        ) : (
+                            <Button
+                                onClick={handleSignup}
+                                label="_t_Create free demo account_t_"
+                                primary
+                            />
+                        )}
+                    </StyledButton>
+                </BackgroundWrapper>
+            </Desktop>
+            <Mobile breakpoint={'laptopM'}>
+                <BackgroundWrapper
+                    is_forex={is_forex}
+                    is_derived_row={is_derived_row}
+                    is_derived_eu={is_derived_eu}
+                    is_stocks_and_indices={is_stocks_and_indices}
+                    is_cryptocurrencies={is_cryptocurrencies}
+                    is_commodities={is_commodities}
+                    is_rtl={is_rtl}
+                />
+                <StyledContainer>
+                    <StyledHeader as="h1" align="center">
+                        <Localize translate_text={title} />
+                    </StyledHeader>
+                    <MarketSubHeader color="white">
+                        <Localize translate_text={description} />
+                    </MarketSubHeader>
+                    <StyledButton>
+                        {is_logged_in ? (
+                            <Button onClick={handleGetTrading} label="_t_Get trading_t_" primary />
+                        ) : (
+                            <Button
+                                onClick={handleSignup}
+                                label="_t_Create free demo account_t_"
+                                primary
+                            />
+                        )}
+                    </StyledButton>
+                </StyledContainer>
+            </Mobile>
+        </>
     )
 }

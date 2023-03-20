@@ -3,11 +3,6 @@ import { useState } from 'react'
 import { getLanguage, getDerivAppLocalizedURL, redirectToTradingPlatform } from 'common/utility'
 import { deriv_app_url } from 'common/constants'
 
-export const handleScroll = (show, hide) => {
-    const show_height = 400
-    window.scrollY > show_height ? show() : hide()
-}
-
 export const useMoveButton = () => {
     const [show_button, setShowButton] = useState(false)
     const showButton = () => setShowButton(!show_button)
@@ -22,4 +17,12 @@ export const handleGetTrading = () => {
         getLanguage(),
     )
     window.location.href = trading_url_localized
+}
+
+export const handleRedirectToTradersHub = () => {
+    const trading_hub_url_localized = getDerivAppLocalizedURL(
+        `${deriv_app_url}/appstore/traders-hub`,
+        getLanguage(),
+    )
+    window.location.href = trading_hub_url_localized
 }

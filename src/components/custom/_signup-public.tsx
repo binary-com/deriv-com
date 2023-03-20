@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
+import Login, { TSocialProvider } from 'common/login'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
 import { localize } from 'components/localization'
@@ -10,9 +11,9 @@ import { deriv_app_url } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 // SVG
-import Apple from 'images/svg/custom/apple-40.svg'
-import Facebook from 'images/svg/custom/facebook-40.svg'
-import Google from 'images/svg/custom/google-40.svg'
+import Apple from 'images/svg/custom/apple.svg'
+import Facebook from 'images/svg/custom/facebook-blue.svg'
+import Google from 'images/svg/custom/google.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
@@ -20,6 +21,7 @@ type SocialButtonContent = {
     provider: string
     id: string
     img: string
+    text: string
 }
 
 type SignupPublicProps = {
@@ -32,6 +34,9 @@ type SignupPublicProps = {
     handleSocialSignup?: (event) => void
     handleValidation?: (event) => void
     is_submitting?: boolean
+}
+type SocialButtonProps = {
+    bgColor?: string
 }
 
 const query = graphql`
@@ -57,7 +62,7 @@ const StyledSectionContainer = styled(Box)`
 `
 const Wrapper = styled.div`
     border-radius: 8px;
-    background: linear-gradient(241.92deg, #d74b56 12.96%, #d1632f 86.33%);
+    background: var(--color-red);
     background-repeat: round;
     position: relative;
     display: flex;
@@ -121,7 +126,7 @@ const BackgroundWrapper = styled(Flex)`
 
     @media screen and (max-width: 1040px) and (min-width: 992px) {
         width: 47%;
-        margin-left: 3%;
+        margin-left: 5%;
     }
 
     & > div {
@@ -135,8 +140,9 @@ const InputWrapper = styled.div`
     line-height: 10px;
     font-weight: normal;
     margin-right: 1rem;
+    border-radius: 15px;
+
     @media ${device.mobileL} {
-        width: unset;
         max-width: 191px;
     }
 `
@@ -145,28 +151,36 @@ const InputGroup = styled.div`
     flex-direction: row;
     width: 100%;
     margin-top: 2.5rem;
+    margin-left: 1.5rem;
     margin-bottom: 1.5rem;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+    }
 `
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     margin-left: 1rem;
-    min-width: 125px;
+    min-width: 81px;
     height: 40px;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 16px;
     font-weight: normal;
     @media ${device.tabletL} {
         padding: 10px 16px;
         white-space: nowrap;
+        border-radius: 4px;
         min-width: unset;
         margin-left: 0;
         height: 40px;
-        width: auto;
+        width: 250px;
     }
 `
 const SocialWrapper = styled(Flex)`
     width: 100%;
     margin-top: 4rem;
     flex-wrap: wrap;
+    gap: 6px;
+    height: 40%;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
@@ -181,20 +195,30 @@ const SocialButton = styled(Button)`
     display: flex;
     padding: 0;
     margin: 0 1rem;
-    border: none;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    width: 10.6rem;
+    height: 4rem;
+    background-color: white;
+    border: 1px solid var(--color-grey-7);
+    border-radius: 100px;
 
     @media ${device.tabletL} {
         justify-content: center;
+        width: 10rem;
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`
-    width: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
+    width: 408px;
+
     @media ${device.tablet} {
         width: auto;
     }
     @media (max-width: 991px) {
         margin-top: 3rem;
+        margin-left: 1.5rem;
     }
     @media (max-width: 991px) {
         max-width: 290px;
@@ -202,10 +226,11 @@ const StyledHeader = styled(Header)<{ position?: string }>`
 `
 const StyledFormWrapper = styled.div`
     background: white;
-    max-width: 414px;
+    max-width: 430px;
     padding: 20px 20px 30px;
     margin-left: 30px;
     border-radius: 8px;
+    margin-top: 4.5rem;
     top: 1rem;
     display: inline-block;
     position: absolute;
@@ -232,6 +257,7 @@ const StyledHeaderText = styled(Text)`
         margin-top: 1rem;
         font-size: 2rem;
         margin-bottom: 3rem;
+        margin-left: 1.5rem;
     }
 `
 const SignInText = styled(Text)`
@@ -251,11 +277,10 @@ const SignInText = styled(Text)`
         margin-right: 0;
     }
 `
-
 const MobileSignInText = styled(SignInText)`
     @media ${device.tabletL} {
         width: unset;
-        margin: 0 auto 0.8rem 0.8rem;
+        margin: 0 auto 0.8rem 1.5rem;
     }
 `
 const LinkFlex = styled(LinkText)`
@@ -325,25 +350,26 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
         }
     }
 `
-
 const social_button_content: SocialButtonContent[] = [
     {
-        provider: 'google',
-        id: 'gtm-signup-google',
-        img: Google,
+        provider: 'apple',
+        id: 'dm-signup-apple',
+        img: Apple,
+        text: 'Apple',
     },
     {
         provider: 'facebook',
-        id: 'gtm-signup-facebook',
+        id: 'dm-signup-facebook',
         img: Facebook,
+        text: 'Facebook',
     },
     {
-        provider: 'apple',
-        id: 'gtm-signup-apple',
-        img: Apple,
+        provider: 'google',
+        id: 'dm-signup-google',
+        img: Google,
+        text: 'Google',
     },
 ]
-
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -351,7 +377,6 @@ const SignupPublic = ({
     handleInputChange,
     handleValidation,
     autofocus,
-    handleSocialSignup,
     is_submitting,
 }: SignupPublicProps) => {
     const data = useStaticQuery(query)
@@ -362,6 +387,14 @@ const SignupPublic = ({
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
+
+    const handleSocialSignup = (e) => {
+        e.preventDefault()
+
+        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
+        Login.initOneAll(data_provider)
+    }
+
     return (
         <StyledSectionContainer>
             <Desktop>
@@ -370,7 +403,7 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
@@ -392,7 +425,7 @@ const SignupPublic = ({
                                             label_color="black-3"
                                             labelSize="16px"
                                             labelTop="1.2rem"
-                                            label={localize('Email')}
+                                            label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -425,7 +458,7 @@ const SignupPublic = ({
                                 />
                                 <SocialWrapper jc="unset" ai="center">
                                     <SignInText>{localize('Or sign up with')}</SignInText>
-                                    {social_button_content.map(({ provider, id, img }) => (
+                                    {social_button_content.map(({ provider, id, img, text }) => (
                                         <SocialButton
                                             key={provider}
                                             onClick={handleSocialSignup}
@@ -435,7 +468,14 @@ const SignupPublic = ({
                                             type="button"
                                             social
                                         >
-                                            <img src={img} alt={provider} width="40" height="40" />
+                                            <img
+                                                src={img}
+                                                alt={provider}
+                                                width="20"
+                                                height="20"
+                                                style={{ margin: '0 10px 0 0' }}
+                                            />
+                                            {text}
                                         </SocialButton>
                                     ))}
                                 </SocialWrapper>
@@ -448,7 +488,7 @@ const SignupPublic = ({
                                     (is_eu && data['deriv_platform_eu'])
                                 }
                                 alt="forex trading on mobile"
-                                width="225px"
+                                width="255px"
                             />
                             <LinkFlex
                                 external
@@ -457,12 +497,11 @@ const SignupPublic = ({
                                 rel="noopener noreferrer nofollow"
                             >
                                 <StyledHeader
-                                    size="4rem"
-                                    width="330px"
+                                    size="48px"
                                     align="start"
                                     color="grey-8"
                                     mr="1.2rem"
-                                    ml="-4rem"
+                                    ml="6rem"
                                     position="relative"
                                 >
                                     {localize('Get a taste of the Deriv experience')}
@@ -507,7 +546,7 @@ const SignupPublic = ({
                         <MobileSignupFormWrapper>
                             <div>
                                 <StyledHeader type="section-title">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
@@ -527,7 +566,7 @@ const SignupPublic = ({
                                             input_background="grey-8"
                                             label_focus_color="grey-7"
                                             label_color="black-3"
-                                            label={localize('Email')}
+                                            label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -560,7 +599,7 @@ const SignupPublic = ({
                                 />
                                 <MobileSocialWrapper jc="unset" ai="center">
                                     <MobileSignInText>
-                                        {localize('Or sign in with')}
+                                        {localize('Or sign up with')}
                                     </MobileSignInText>
                                     <Flex>
                                         {social_button_content.map(({ provider, id, img }) => (
@@ -576,8 +615,8 @@ const SignupPublic = ({
                                                 <img
                                                     src={img}
                                                     alt={provider}
-                                                    width="40"
-                                                    height="40"
+                                                    width="20"
+                                                    height="20"
                                                 />
                                             </SocialButton>
                                         ))}

@@ -50,7 +50,7 @@ export const getOSIcon = (type: string) => {
     else if (type === 'app_gallery') return AppGallery
 }
 
-type TDownloadLinks = Array<{ type: string; url?: string; link_type?: string }>
+type TDownloadLinks = Array<{ type: string; url?: string; link_type?: string; label: string }>
 export type TPlatformDetails = {
     id?: number
     title: string
@@ -69,8 +69,8 @@ export const platform_details_row: TPlatformDetails[] = [
         learn_more_link: '/deriv-go/',
         download_links: {
             is_desktop: [
-                { type: 'app_store', url: deriv_go_ios_url },
-                { type: 'google_play', url: deriv_go_playstore_url },
+                { type: 'app_store', url: deriv_go_ios_url, label: 'Mac OS' },
+                { type: 'google_play', url: deriv_go_playstore_url, label: 'Android' },
             ],
         },
     },
@@ -82,13 +82,13 @@ export const platform_details_row: TPlatformDetails[] = [
         learn_more_link: '/dmt5/',
         download_links: {
             is_desktop: [
-                { type: 'mac_app_store', url: dmt5_mac_app_url },
-                { type: 'windows', url: dmt5_windows_download_url },
-                { type: 'linux', url: dmt5_linux_url },
-                { type: 'browser', link_type: 'mt5' },
-                { type: 'google_play', url: dmt5_android_url },
-                { type: 'app_store', url: dmt5_ios_url },
-                { type: 'app_gallery', url: dmt5_app_gallery },
+                { type: 'mac_app_store', url: dmt5_mac_app_url, label: 'Mac OS' },
+                { type: 'windows', url: dmt5_windows_download_url, label: 'Windows' },
+                { type: 'linux', url: dmt5_linux_url, label: 'Linux' },
+                { type: 'browser', link_type: 'mt5', label: 'Browser' },
+                { type: 'google_play', url: dmt5_android_url, label: 'Android' },
+                { type: 'app_store', url: dmt5_ios_url, label: 'App Store' },
+                { type: 'app_gallery', url: dmt5_app_gallery, label: 'App gallery' },
             ],
         },
     },
@@ -101,7 +101,7 @@ export const platform_details_row: TPlatformDetails[] = [
         ),
         learn_more_link: '/dtrader/',
         download_links: {
-            is_desktop: [{ type: 'browser', link_type: 'deriv_app' }],
+            is_desktop: [{ type: 'browser', link_type: 'deriv_app', label: 'Browser' }],
         },
     },
     {
@@ -112,9 +112,9 @@ export const platform_details_row: TPlatformDetails[] = [
         learn_more_link: '/derivx/',
         download_links: {
             is_desktop: [
-                { type: 'browser', link_type: 'derivx' },
-                { type: 'app_store', url: derivx_ios_url },
-                { type: 'google_play', url: derivx_android_url },
+                { type: 'browser', link_type: 'derivx', label: 'Browser' },
+                { type: 'app_store', url: derivx_ios_url, label: 'Mac OS' },
+                { type: 'google_play', url: derivx_android_url, label: 'Android' },
             ],
         },
     },
@@ -125,7 +125,7 @@ export const platform_details_row: TPlatformDetails[] = [
         description: <Localize translate_text="Automate your trading. No coding required." />,
         learn_more_link: '/dbot/',
         download_links: {
-            is_desktop: [{ type: 'browser', link_type: 'dbot' }],
+            is_desktop: [{ type: 'browser', link_type: 'dbot', label: 'Browser' }],
         },
     },
     {
@@ -135,7 +135,9 @@ export const platform_details_row: TPlatformDetails[] = [
         description: <Localize translate_text="Our legacy options trading platform." />,
         learn_more_link: smarttrader_url,
         download_links: {
-            is_desktop: [{ type: 'browser', link_type: 'smart_trader', url: 'trading' }],
+            is_desktop: [
+                { type: 'browser', link_type: 'smart_trader', url: 'trading', label: 'Browser' },
+            ],
         },
     },
     {
@@ -147,7 +149,7 @@ export const platform_details_row: TPlatformDetails[] = [
         ),
         learn_more_link: binary_bot_url,
         download_links: {
-            is_desktop: [{ type: 'browser', link_type: 'binary_bot' }],
+            is_desktop: [{ type: 'browser', link_type: 'binary_bot', label: 'Browser' }],
         },
     },
     {
@@ -157,7 +159,7 @@ export const platform_details_row: TPlatformDetails[] = [
         description: <Localize translate_text="Build your own apps with our API." />,
         learn_more_link: deriv_api_url,
         download_links: {
-            is_desktop: [{ type: 'browser', url: deriv_api_url }],
+            is_desktop: [{ type: 'browser', url: deriv_api_url, label: 'Browser' }],
         },
     },
 ]
@@ -171,13 +173,13 @@ export const platform_details_eu: TPlatformDetails[] = [
         learn_more_link: '/dmt5/',
         download_links: {
             is_desktop: [
-                { type: 'mac_app_store', url: dmt5_mac_app_url },
-                { type: 'windows', url: dmt5_windows_download_url },
-                { type: 'linux', url: dmt5_linux_url },
-                { type: 'browser', link_type: 'mt5' },
-                { type: 'google_play', url: dmt5_android_url },
-                { type: 'app_store', url: dmt5_ios_url },
-                { type: 'app_gallery', url: dmt5_app_gallery },
+                { type: 'mac_app_store', url: dmt5_mac_app_url, label: 'Mac OS' },
+                { type: 'windows', url: dmt5_windows_download_url, label: 'Windows' },
+                { type: 'linux', url: dmt5_linux_url, label: 'Linux' },
+                { type: 'browser', link_type: 'mt5', label: 'Browser' },
+                { type: 'google_play', url: dmt5_android_url, label: 'Android' },
+                { type: 'app_store', url: dmt5_ios_url, label: 'App Store' },
+                { type: 'app_gallery', url: dmt5_app_gallery, label: 'App gallery' },
             ],
         },
     },
@@ -188,7 +190,7 @@ export const platform_details_eu: TPlatformDetails[] = [
         description: <Localize translate_text="Our flagship app for trading multipliers." />,
         learn_more_link: '/dtrader/',
         download_links: {
-            is_desktop: [{ type: 'browser', link_type: 'deriv_app' }],
+            is_desktop: [{ type: 'browser', link_type: 'deriv_app', label: 'Browser' }],
         },
     },
 ]

@@ -8,10 +8,10 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import Forex from 'images/svg/trade-types/forex.svg'
+import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import Derived from 'images/svg/trade-types/derived.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
-import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -19,11 +19,12 @@ const MobileCardHeader = styled(Flex)`
     height: auto;
 
     @media (max-width: 680px) {
-        flex-direction: row-reverse;
+        flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        align-items: start;
 
         > img {
+            margin: 2.5rem 0;
             width: 48px;
             height: 48px;
         }
@@ -58,7 +59,7 @@ const available_markets = [
         img_alt: 'derived',
         text: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
+            <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them." />
         ),
         learn_more_path: '/markets/synthetic/',
     },

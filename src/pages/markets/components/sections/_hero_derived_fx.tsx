@@ -105,8 +105,8 @@ const StyledContainer = styled.div`
     }
 
     @media ${device.laptopM} {
+        margin-top: 1rem;
         padding: 0 2.3rem 5.5rem 2.3rem;
-        top: 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -121,8 +121,12 @@ const StyledContainer = styled.div`
             text-align: center;
         }
     }
-    @media ${device.mobileM} {
-        padding: 0 2.3rem 5.5rem 2.3rem;
+    @media ${device.tabletS} {
+        margin-top: -11rem;
+    }
+
+    @media (min-width: 576px) and (max-width: 682px) {
+        margin-top: -9rem;
     }
 `
 const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
@@ -135,8 +139,24 @@ const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'none')};
 
     @media (max-width: 580px) {
-        background-size: 147rem;
+        background-size: 136rem;
         background-position-x: -588px;
+    }
+
+    @media (min-width: 683px) and (max-width: 883px) {
+        background-size: 202rem;
+    }
+
+    @media (min-width: 884px) and (max-width: 991px) {
+        background-size: 234rem;
+    }
+
+    @media (min-width: 994px) and (max-width: 1099px) {
+        background-size: 211rem;
+    }
+
+    @media (min-width: 1100px) and (max-width: 1199px) {
+        background-size: 227rem;
     }
 
     & > ${StyledContainer} {

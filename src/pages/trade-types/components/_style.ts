@@ -14,13 +14,17 @@ const SmallContainer = styled(Container)`
         max-width: 800px;
     }
     @media ${device.laptopL} {
-        width: 60%;
+        width: 70%;
     }
     @media ${device.desktopL} {
         max-width: 1000px;
     }
     @media ${device.tabletL} {
-        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    @media ${device.tablet} {
+        width: 80%;
         padding-left: 0;
         padding-right: 0;
     }

@@ -1,8 +1,8 @@
 import React, { HTMLAttributes, MouseEventHandler, useMemo } from 'react'
-import clsx from 'clsx'
 import * as styles from './menu-toggle.module.scss'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
+import dclsx from 'features/utils/dclsx'
 
 interface IMobileMenuToggleProps extends HTMLAttributes<HTMLImageElement> {
     is_open: boolean
@@ -19,7 +19,7 @@ const MobileMenuToggle = ({ is_open, onClick }: IMobileMenuToggleProps) => {
 
     return (
         <img
-            className={clsx(styles.menu_toggle)}
+            className={dclsx(styles.menu_toggle)}
             src={toggle_image.src}
             alt={toggle_image.alt}
             onClick={onClick}

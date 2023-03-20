@@ -1,8 +1,8 @@
-import clsx from 'clsx'
 import React, { ImgHTMLAttributes } from 'react'
 import Box from '../box'
 import { ClassProps } from 'features/types'
 import './icon.scss'
+import dclsx from 'features/utils/dclsx'
 
 interface IconProps extends ImgHTMLAttributes<'img'>, ClassProps {
     size?: 'small' | 'medium' | 'large'
@@ -10,7 +10,7 @@ interface IconProps extends ImgHTMLAttributes<'img'>, ClassProps {
 }
 
 const Icon = ({ size = 'small', has_rtl, className, ...rest }: IconProps) => {
-    const classnames = clsx(className, `icon-${size}`, 'icon', {
+    const classnames = dclsx(className, `icon-${size}`, 'icon', {
         'icon-rtl': has_rtl,
     })
 

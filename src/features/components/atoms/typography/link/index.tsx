@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import React, { AnchorHTMLAttributes } from 'react'
 import { BoxProps } from '../../box'
 import BaseTypography, { TypographyProps } from '../base'
@@ -15,7 +14,7 @@ export interface TypographyLinkProps
 
 const TypographyLink = ({ className, size, ...rest }: TypographyLinkProps) => {
     const classnames = dclsx(className, generateTextSize(size))
-    return <BaseTypography as="a" className={clsx(classnames, 'typography-link')} {...rest} />
+    return <BaseTypography as="a" className={dclsx(classnames, 'typography-link')} {...rest} />
 }
 
 export default TypographyLink

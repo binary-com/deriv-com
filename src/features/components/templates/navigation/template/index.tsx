@@ -1,5 +1,4 @@
 import React, { HTMLAttributes, ReactNode, useCallback, useRef, useState } from 'react'
-import clsx from 'clsx'
 import { TNavItems } from '../types'
 import DesktopMenu from './desktop-menu'
 import * as styles from './nav.template.module.scss'
@@ -10,6 +9,7 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import MobileMenuToggle from 'features/components/molecules/mobile-menu-toggle'
 import FlexBox from 'features/components/atoms/flex-box'
+import dclsx from 'features/utils/dclsx'
 
 interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivElement> {
     renderTopNav?: () => ReactNode
@@ -63,7 +63,7 @@ const NavTemplate = <T extends string>({
             innerRef={nav_wrapper_ref}
             as="header"
             bgcolor="white"
-            className={clsx(styles.header_wrapper, className)}
+            className={dclsx(styles.header_wrapper, className)}
         >
             {renderTopNav?.()}
             <FlexBox

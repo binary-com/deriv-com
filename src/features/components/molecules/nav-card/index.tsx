@@ -1,5 +1,4 @@
 import React from 'react'
-import clsx from 'clsx'
 import * as styles from './nav-card.module.scss'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
@@ -9,6 +8,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import Icon from 'features/components/atoms/icon'
 import { LinkUrlType } from 'features/types'
 import Link from 'features/components/atoms/link'
+import dclsx from 'features/utils/dclsx'
 
 interface INavigationCardProps {
     title?: TString
@@ -39,7 +39,7 @@ const NavigationCard = ({
             <div className={styles.nav_card_container}>
                 {icon_src && <Icon size="large" src={icon_src} alt={icon_alt} mr={'4x'} />}
                 <div
-                    className={clsx(styles.nav_card_content, {
+                    className={dclsx(styles.nav_card_content, {
                         [styles.nav_card_type]: has_content,
                     })}
                 >
@@ -64,7 +64,7 @@ const NavigationCard = ({
                         src={Diagonal}
                         alt="Diagonal"
                         has_rtl
-                        className={clsx(styles.nav_right_diagonal)}
+                        className={dclsx(styles.nav_right_diagonal)}
                     />
                 )}
             </div>

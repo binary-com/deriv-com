@@ -1,5 +1,4 @@
 import React from 'react'
-import clsx from 'clsx'
 import { TSmartNavItemsContent, TSmartNavContent, TSmartNavSectionColumns } from '../../types'
 import * as styles from './nav-items.module.scss'
 import { Localize } from 'components/localization'
@@ -8,6 +7,7 @@ import NavSectionContainer from 'features/components/organisms/navigation/nav-se
 import NavCardItems from 'features/components/organisms/navigation/nav-card-items'
 import Container from 'features/components/atoms/container'
 import FlexBox from 'features/components/atoms/flex-box'
+import dclsx from 'features/utils/dclsx'
 
 const renderNavItems = (nav_items: TSmartNavContent[] | TSmartNavSectionColumns[]) => {
     if ('section' in nav_items[0].data) {
@@ -40,7 +40,7 @@ const DesktopMenu = <T extends string>({
                 return (
                     <li
                         key={contentItem.data.active}
-                        className={clsx({
+                        className={dclsx({
                             [styles.active_item]: contentItem.data.active === activeTab,
                         })}
                         onClick={() => onItemClick(contentItem.data.active)}
@@ -51,7 +51,7 @@ const DesktopMenu = <T extends string>({
                         {contentItem.data.active === activeTab && (
                             <Container.Fixed
                                 bgcolor="primary"
-                                className={clsx(styles.active_section, {
+                                className={dclsx(styles.active_section, {
                                     [styles.active_trade_section]: activeTab === 'trade',
                                 })}
                             >

@@ -1,216 +1,138 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import DerivXRow from 'images/common/deriv-x/banner_image_derivx.png'
+import CommonHeaderSection from 'components/elements/common-header-section'
+import DerivXLogo from 'images/svg/deriv-x/deriv-x-banner-logo.svg'
+import device from 'themes/device'
+import useBreakpoints from 'components/hooks/use-breakpoints'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
-import { localize, Localize } from 'components/localization'
-import { Flex } from 'components/containers'
-import { QueryImage, Header } from 'components/elements'
-import { Button, LinkButton } from 'components/form'
-import device from 'themes/device'
-import useHandleSignup from 'components/hooks/use-handle-signup'
+import Shape from 'components/custom/_hero-shape'
+import Button from 'components/custom/_button'
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    padding-left: 120px;
-    background-color: var(--color-black);
+//TODO: (deriv-rebranding) to make the content section reusable .
 
-    @media ${device.tabletL} {
-        flex-direction: column-reverse;
-        padding-left: 0;
-    }
-`
-const HeroContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-`
-const StyledHeader = styled(Header)`
-    color: var(--color-white);
-    display: flex;
-    margin-top: 0;
-    font-size: 2.4rem;
+const ImageStyle = styled.img`
+    z-index: 1;
+    src: ${({ src }) => src};
 
-    @media ${device.laptopM} {
-        font-size: 24px;
-    }
-`
-const StyledHeaderTitle = styled.div`
-    color: var(--color-white);
-    display: flex;
-    margin-top: 0;
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 80px;
-
-    @media ${device.laptopM} {
-        font-size: 32px;
-        line-height: 48px;
-    }
-`
-const LinkWrapper = styled.div`
-    display: flex;
-    margin-top: 32px;
-    @media ${device.laptopL} {
-        top: 480px;
-    }
-    @media ${device.laptopM} {
-        top: 350px;
-        margin-bottom: 40px;
-    }
-    @media ${device.tabletL} {
-        max-height: 40px;
-        margin-top: 12px;
-    }
-`
-
-const GoToLiveDemo = styled(LinkButton)`
-    color: var(--color-white);
-    border-color: var(--color-black-5);
-    padding: 12px 16px;
-    width: auto;
-
-    @media ${device.mobileL} {
-        max-width: 100%;
-        white-space: nowrap;
-        margin-left: 0;
-        width: 100%;
-    }
-
-    @media (max-width: 360px) {
-        white-space: nowrap;
-    }
-`
-const DemoButton = styled(Button)`
-    padding: 14px 16px;
-    width: auto;
-    font-size: 14px;
-    margin-right: 1.6rem;
-    border: unset;
-
-    @media ${device.tabletL} {
-        margin-bottom: 40px;
-        width: 100%;
-    }
-    @media ${device.mobileL} {
-        white-space: nowrap;
-        margin-bottom: 1.6rem;
-    }
-`
-const ImgWrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    max-height: 640px;
-    max-width: 860px;
-    margin-left: 42px;
-
-    .gatsby-image-wrapper {
-        width: 100%;
-        height: 100%;
-    }
-
-    @media ${device.tabletL} {
-        margin-left: 0;
-    }
-`
-const InformationWrapper = styled(Flex)`
-    width: 100%;
-    max-width: 562px;
-    gap: 16px;
-
-    @media ${device.laptop} {
-        max-width: 390px;
-    }
-    @media ${device.laptopM} {
-        max-width: 410px;
-    }
-    @media ${device.tabletL} {
-        width: 46%;
-        max-width: 400px;
-        padding-left: 16px;
-    }
     @media ${device.tablet} {
         width: 100%;
-        margin-top: 22px;
     }
 `
 
-const DLogo = styled.img`
-    width: 32px;
-    height: 32px;
-    margin-right: 1.6rem;
+const ImageWrapper = styled.div`
+    display: flex;
+    flex: 1;
+    justify-content: right;
+    padding: 50px 0;
 `
-const DHero = ({
-    title,
-    background_alt,
-    background,
-    content,
-    image_name,
-    join_us_for_free,
-    is_live_demo,
-    Logo,
-}) => {
-    const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
+const BannerButtonWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    @media ${device.tablet} {
+        flex-direction: column;
+        justify-content: center;
+    }
+`
+
+const BackgroundStyle = styled.div`
+    background-color: var(--color-white);
+    flex: 1;
+    height: 90vh;
+    display: flex;
+    justify-content: flex-end;
+
+    @media ${device.tablet} {
+        flex-direction: column-reverse;
+        justify-content: center;
+        height: 100%;
+    }
+`
+const ContentWrapperStyle = styled.div`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+`
+const HeroImageWrapper = styled.div`
+    width: 60%;
+
+    @media ${device.tablet} {
+        width: 100%;
+    }
+`
+const CreateAccountButton = styled(Button)`
+    @media ${device.tablet} {
+        max-width: 100%;
+        width: 100%;
+    }
+`
+const Content = styled.div`
+    max-width: 632px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    padding-left: 120px;
+
+    @media ${device.tablet} {
+        padding: 0 16px 64px;
+    }
+`
+const StyledTradingLogin = styled.img`
+    width: 205px;
+    height: 64px;
+
+    @media ${device.tablet} {
+        width: 119px;
+        height: 32px;
+    }
+`
+const DCommonBanner = () => {
+    const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
-
     return (
-        <Wrapper>
-            <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h4" weight="normal">
-                    <DLogo src={Logo} alt="logo" width="32" height="32" />
-                    {title}
-                </StyledHeader>
-                <HeroContent>
-                    <StyledHeaderTitle type="display-title" color="white" mt="1.5rem">
-                        {content}
-                    </StyledHeaderTitle>
-                </HeroContent>
-                <LinkWrapper>
-                    {join_us_for_free &&
-                        (is_logged_in ? (
-                            <DemoButton onClick={handleGetTrading} secondary type="mt5">
-                                <Localize translate_text="Go to Deriv MT5 dashboard" />
-                            </DemoButton>
+        <BackgroundStyle>
+            <ContentWrapperStyle>
+                <Content>
+                    <StyledTradingLogin src={DerivXLogo} />
+                    <CommonHeaderSection
+                        title="_t_The trading platform to fit your style_t_"
+                        title_font_size={`${is_mobile ? 32 : 64}px`}
+                        color="var(--color-black-9)"
+                    />
+                    <BannerButtonWrapper>
+                        {is_logged_in ? (
+                            <CreateAccountButton
+                                onClick={handleGetTrading}
+                                label="_t_Get Trading_t_"
+                                primary
+                                mobileFullWidth
+                            />
                         ) : (
-                            <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
-                                <Localize translate_text="Create free demo account" />
-                            </DemoButton>
-                        ))}
-                    {is_live_demo && (
-                        <GoToLiveDemo
-                            tertiary
-                            external
-                            type={getLinkType()}
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                        >
-                            {localize('Go to live demo')}
-                        </GoToLiveDemo>
-                    )}
-                </LinkWrapper>
-            </InformationWrapper>
-            <ImgWrapper>
-                <QueryImage data={background} alt={background_alt} />
-            </ImgWrapper>
-        </Wrapper>
+                            <CreateAccountButton
+                                onClick={handleSignup}
+                                label="_t_The all-in-one CFD trading platform_t_"
+                                primary
+                                mobileFullWidth
+                            />
+                        )}
+                    </BannerButtonWrapper>
+                </Content>
+            </ContentWrapperStyle>
+            <HeroImageWrapper>
+                <Shape angle={is_mobile ? 101 : 163} width="60%">
+                    <ImageWrapper>
+                        <ImageStyle src={DerivXRow} />
+                    </ImageWrapper>
+                </Shape>
+            </HeroImageWrapper>
+        </BackgroundStyle>
     )
 }
 
-DHero.propTypes = {
-    background: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    background_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    background_image_name: PropTypes.string,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    image_name: PropTypes.string,
-    is_live_demo: PropTypes.bool,
-    is_mobile: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    join_us_for_free: PropTypes.bool,
-    Logo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
-}
-
-export default DHero
+export default DCommonBanner

@@ -32,17 +32,20 @@ const FaqSubHeader = styled(Header)`
     }
 `
 
-const RelativeContainer = styled(SectionContainer)`
+const RelativeContainer = styled(SectionContainer)<{ is_row?: boolean }>`
     position: relative;
     overflow: hidden;
+    padding: ${({ is_row }) => is_row && '20rem 0 16rem 0'};
+    border-top: ${({ is_row }) => !is_row && '1px solid #eee'};
 
     @media ${device.tabletL} {
         padding: 40px 0;
+        border-top: none;
     }
 `
 
 const TopLeftDot = styled.img<DotProps>`
-    width: 730px;
+    width: ${({ is_row }) => (is_row ? '730px' : '41vw')};
     position: absolute;
     top: 4px;
     left: 0;
@@ -50,12 +53,13 @@ const TopLeftDot = styled.img<DotProps>`
     margin: ${({ is_row }) => is_row && 'auto'};
 
     @media ${device.laptopL} {
-        width: 630px;
+        width: ${({ is_row }) => (is_row ? '630px' : '44vw')};
         margin: ${({ is_row }) => is_row && 'auto'};
         left: ${({ is_row }) => !is_row && '-50px'};
     }
 
     @media ${device.laptop} {
+        width: 630px;
         margin: ${({ is_row }) => is_row && 'auto'};
         left: ${({ is_row }) => !is_row && '-250px'};
     }
@@ -165,7 +169,7 @@ const Faq = () => {
     const { is_row } = useRegion()
 
     return (
-        <RelativeContainer padding={is_row && '20rem 0 16rem 0'}>
+        <RelativeContainer is_row={is_row}>
             <FaqHeader as="h2" size="4.8rem" align="center">
                 {localize('Browse our FAQ')}
             </FaqHeader>

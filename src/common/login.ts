@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 import { isStorageSupported } from './storage'
 import { getDataObjFromCookies, getDataLink, getCookiesFields, getCookiesObject } from './cookies'
 import { getAppId } from './websocket/config'
-import { redirectToTradingPlatform } from './utility'
+import { isBrowser, redirectToTradingPlatform } from './utility'
 import { brand_name, deriv_app_id, oauth_url } from 'common/constants'
 
 export type TSocialProvider = 'google' | 'facebook' | 'apple'
@@ -44,7 +44,7 @@ const Login = (() => {
     }
 
     const socialLoginUrl = (provider: TSocialProvider): string => {
-        return `${loginUrl()}&social_signup=${provider}`
+        return isBrowser() ? `${loginUrl()}&social_signup=${provider}` : ''
     }
 
     return {

@@ -15,7 +15,7 @@ const WhatIsCFD = () => {
                 </Header>
                 <Text mb="3.2rem">
                     {localize(
-                        'A contract for difference (CFD) allows you to trade on the price movement of an asset, without buying the underlying asset.',
+                        '_t_A contract for difference (CFD) allows you to trade on the price movement of an asset, without buying the underlying asset._t_',
                     )}
                 </Text>
 

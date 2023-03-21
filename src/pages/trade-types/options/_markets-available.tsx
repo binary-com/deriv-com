@@ -53,7 +53,7 @@ const MarketsAvailable = () => {
                                 <MobileCardHeader>
                                     <img src={Forex} alt="Forex" width="64" height="64" />
 
-                                    <StyledText weight="bold">{localize('Forex')}</StyledText>
+                                    <StyledText weight="bold">{localize('_t_Forex_t_')}</StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
@@ -77,11 +77,13 @@ const MarketsAvailable = () => {
                                         width="64"
                                         height="64"
                                     />
-                                    <StyledText weight="bold">{localize('Derived')}</StyledText>
+                                    <StyledText weight="bold">
+                                        {localize('_t_Derived_t_')}
+                                    </StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them.',
+                                        '_t_Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them._t_',
                                     )}
                                 </Text>
                                 <LearnMore

@@ -35,10 +35,10 @@ export const cfd_content: cfd_content[] = [
         item_title_eu: <Localize translate_text="All your favourite markets" />,
 
         text: (
-            <Localize translate_text="Trade on financial markets plus our proprietary synthetics that are available 24/7." />
+            <Localize translate_text="_t_Trade on financial markets plus our proprietary synthetics that are available 24/7._t_" />
         ),
         text_eu: (
-            <Localize translate_text="Trade on financial markets plus our proprietary synthetics that are available 24/7." />
+            <Localize translate_text="_t_Trade on financial markets plus our proprietary synthetics that are available 24/7._t_" />
         ),
     },
     {

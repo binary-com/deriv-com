@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
 import device, { SizeType } from 'themes/device'
-import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
+import Info from 'images/svg/trade-types/info2.svg'
 
 type ChildProps = {
     label?: JSX.Element

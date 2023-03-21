@@ -4,9 +4,9 @@ import { Header, Text, CardStyle } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 // Icons
-import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-affiliate.svg'
-import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
-import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
+import PartnerAffiliate from 'images/svg/partners/partner-affiliate.svg'
+import PartnerPaymentAgent from 'images/svg/partners/partner-payment-agent.svg'
+import DeveloperProgramme from 'images/svg/partners/developer-programme.svg'
 import useRegion from 'components/hooks/use-region'
 
 type ClientCardProps = { first?: boolean; second?: boolean; third?: boolean }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import RightAd from 'images/svg/lamp.svg'
-import SettlePayment from 'images/svg/24.svg'
+import SettlePayment from 'images/svg/weekend-24.svg'
 import CompleteOrder from 'images/svg/relaxing.svg'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'

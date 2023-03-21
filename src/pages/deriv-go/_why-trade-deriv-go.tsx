@@ -6,8 +6,8 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import device from 'themes/device'
-import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
-import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
+import Icon24_7 from 'images/svg/deriv-go/deriv-go-24-7.svg'
+import IconUserFriendly from 'images/svg/deriv-go/deriv-go-user-friendly.svg'
 
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {

@@ -6,7 +6,7 @@ import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
+import Chevron from 'images/svg/careers/carousel-chevron.svg'
 
 const ChevronRight = styled(Chevron)`
     width: 16px;

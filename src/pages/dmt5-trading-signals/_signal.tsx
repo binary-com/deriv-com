@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
-import { ReactComponent as Checklist } from 'images/svg/trade-types/checklist-red.svg'
+import Checklist from 'images/svg/trade-types/checklist-red.svg'
 
 const ContentWrapper = styled(Flex)`
     margin: 8rem auto;

@@ -5,7 +5,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import device from 'themes/device'
-import Icon24_7 from 'images/svg/deriv-x/24-7.svg'
+import Icon24_7 from 'images/svg/deriv-x/deriv-x-24-7.svg'
 import IconMultipleMarketing from 'images/svg/deriv-x/multiple-marketing.svg'
 import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
 

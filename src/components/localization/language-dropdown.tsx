@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Text } from 'components/elements'
-import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
+import Chevron from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 
 type DropdownProps = {

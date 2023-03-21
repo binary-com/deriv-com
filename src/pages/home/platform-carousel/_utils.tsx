@@ -22,7 +22,6 @@ import { localize, Localize } from 'components/localization'
 // SVG Icons
 import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
 import DMT5Icon from 'images/svg/dmt5/dmt5-icon.svg'
-import DerivGOIcon from 'images/svg/deriv-go/deriv-go-logo.svg'
 import DerivXIcon from 'images/svg/deriv-x/derivx-logo.svg'
 import DBotIcon from 'images/svg/dbot/dbot-icon.svg'
 import BinaryBotIcon from 'images/svg/binarybot-icon.svg'
@@ -63,7 +62,7 @@ export type TPlatformDetails = {
 export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'Deriv GO',
-        icon: DerivGOIcon,
+        icon: 'images/svg/deriv-go/deriv-go-logo.svg',
         image_key: 'platforms_deriv_go',
         description: <Localize translate_text="Our best trading experience on your mobile." />,
         learn_more_link: '/deriv-go/',

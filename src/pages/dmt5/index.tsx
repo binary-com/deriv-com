@@ -107,7 +107,6 @@ const DMT5 = () => {
                     background={background}
                 />
             </Mobile>
-
             <Numbers />
             <WhatIsTrader />
             <WhyTrader />

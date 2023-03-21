@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import DerivXRow from 'images/common/deriv-x/banner_image_derivx.png'
+import DerivMT5Row from 'images/common/dmt5/banner_image_row.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
-import DerivXLogo from 'images/svg/deriv-x/deriv-x-banner-logo.svg'
+import DerivMT5Logo from 'images/svg/dmt5/dmt5-banner-logo.svg'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -99,9 +99,9 @@ const DCommonBanner = () => {
         <BackgroundStyle>
             <ContentWrapperStyle>
                 <Content>
-                    <StyledTradingLogin src={DerivXLogo} />
+                    <StyledTradingLogin src={DerivMT5Logo} />
                     <CommonHeaderSection
-                        title="_t_The trading platform to fit your style_t_"
+                        title="_t_The all-in-one CFD trading platform_t_"
                         title_font_size={`${is_mobile ? 32 : 64}px`}
                         color="var(--color-black-9)"
                     />
@@ -116,7 +116,7 @@ const DCommonBanner = () => {
                         ) : (
                             <CreateAccountButton
                                 onClick={handleSignup}
-                                label="_t_The all-in-one CFD trading platform_t_"
+                                label="_t_Create free demo account_t_"
                                 primary
                                 mobileFullWidth
                             />
@@ -125,9 +125,9 @@ const DCommonBanner = () => {
                 </Content>
             </ContentWrapperStyle>
             <HeroImageWrapper>
-                <Shape angle={is_mobile ? 101 : 163} width="60%">
+                <Shape angle={is_mobile ? 101 : 163} width="60%" color="#0364B9">
                     <ImageWrapper>
-                        <ImageStyle src={DerivXRow} />
+                        <ImageStyle src={DerivMT5Row} />
                     </ImageWrapper>
                 </Shape>
             </HeroImageWrapper>

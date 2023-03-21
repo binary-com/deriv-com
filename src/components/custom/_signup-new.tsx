@@ -5,7 +5,7 @@ import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import Login from 'common/login'
+import Login, { TSocialProvider } from 'common/login'
 // SVG
 import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
@@ -34,6 +34,37 @@ type SocialButtonProps = {
 type StyledTextProps = {
     tabletFontSize?: string
 }
+
+type SocialLoginContent = {
+    name: string
+    provider: TSocialProvider
+    id: string
+    img: string
+    url: string
+}
+const social_login_content: SocialLoginContent[] = [
+    {
+        name: 'Google',
+        provider: 'google',
+        id: 'dm-signup-google',
+        img: Google,
+        url: Login.socialLoginUrl('google'),
+    },
+    {
+        name: 'Facebook',
+        provider: 'facebook',
+        id: 'dm-signup-facebook',
+        img: Facebook,
+        url: Login.socialLoginUrl('facebook'),
+    },
+    {
+        name: 'Apple',
+        provider: 'apple',
+        id: 'dm-signup-apple',
+        img: Apple,
+        url: Login.socialLoginUrl('apple'),
+    },
+]
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -140,11 +171,15 @@ const SocialButton = styled(LocalizedLink)<SocialButtonProps>`
     height: 3.8rem;
     padding: 0.5rem 0;
     text-decoration: none;
+    inline-size: 12.5rem;
+    block-size: 3.8rem;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.25s ease 0s;
+    font-weight: bold;
 
     &:hover {
-        background: ${(props) => {
-            if (props.provider === 'facebook') return 'var(--color-grey-4)'
-        }};
+        background: var(--color-grey-4);
     }
 
     @media ${device.tabletL} {
@@ -328,36 +363,19 @@ const SignupNew = ({
             </SignupWithContainer>
 
             <SocialWrapper gap="0" grid="2">
-                <SocialButton
-                    provider="google"
-                    data-provider="google"
-                    id="dm-signup-google"
-                    external
-                    to={Login.socialLoginUrl('google')}
-                >
-                    <img src={Google} alt="google" width="24" height="24" />
-                    <SocialText>Google</SocialText>
-                </SocialButton>
-                <SocialButton
-                    provider="facebook"
-                    data-provider="facebook"
-                    id="dm-signup-facebook"
-                    external
-                    to={Login.socialLoginUrl('facebook')}
-                >
-                    <img src={Facebook} alt="facebook" width="24" height="24" />
-                    <SocialText>Facebook</SocialText>
-                </SocialButton>
-                <SocialButton
-                    provider="apple"
-                    data-provider="apple"
-                    id="dm-signup-apple"
-                    external
-                    to={Login.socialLoginUrl('apple')}
-                >
-                    <img src={Apple} alt="apple" width="24" height="24" />
-                    <SocialText>Apple</SocialText>
-                </SocialButton>
+                {social_login_content.map(({ name, provider, id, img, url }) => (
+                    <SocialButton
+                        key={provider}
+                        provider={provider}
+                        data-provider={provider}
+                        id={id}
+                        external
+                        to={url}
+                    >
+                        <img src={img} alt={provider} width="24" height="24" />
+                        <SocialText>{name}</SocialText>
+                    </SocialButton>
+                ))}
             </SocialWrapper>
             <LoginText mt="3.75rem" mb={is_eu ? '100px' : '0'}>
                 {localize('Already have an account?')}

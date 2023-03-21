@@ -43,10 +43,15 @@ const Login = (() => {
         window.location.href = social_login_url
     }
 
+    const socialLoginUrl = (provider: TSocialProvider): string => {
+        return `${loginUrl()}&social_signup=${provider}`
+    }
+
     return {
         redirectToLogin,
         initOneAll,
         loginUrl,
+        socialLoginUrl,
     }
 })()
 

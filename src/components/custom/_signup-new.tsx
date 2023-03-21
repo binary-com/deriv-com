@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
+import Login from 'common/login'
 // SVG
 import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
@@ -19,7 +20,6 @@ type SignupNewProps = {
     email_error_msg?: string
     handleInputChange?: (event) => void
     handleLogin?: (event) => void
-    handleSocialSignup?: (event) => void
     handleValidation?: (event) => void
     is_ppc?: boolean
     is_submitting?: boolean
@@ -27,6 +27,8 @@ type SignupNewProps = {
 
 type SocialButtonProps = {
     bgColor?: string
+    provider?: string
+    id?: string
 }
 
 type StyledTextProps = {
@@ -127,7 +129,7 @@ const SignupWithContainer = styled.div`
     }
 `
 
-const SocialButton = styled(Button)<SocialButtonProps>`
+const SocialButton = styled(LocalizedLink)<SocialButtonProps>`
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -137,6 +139,7 @@ const SocialButton = styled(Button)<SocialButtonProps>`
     width: 12.5rem;
     height: 3.8rem;
     padding: 0.5rem 0;
+    text-decoration: none;
 
     &:hover {
         background: ${(props) => {
@@ -221,7 +224,6 @@ const SignupNew = ({
     email_error_msg,
     handleInputChange,
     handleLogin,
-    handleSocialSignup,
     handleValidation,
     is_ppc,
     is_submitting,
@@ -327,34 +329,31 @@ const SignupNew = ({
 
             <SocialWrapper gap="0" grid="2">
                 <SocialButton
-                    onClick={handleSocialSignup}
                     provider="google"
                     data-provider="google"
                     id="dm-signup-google"
-                    type="button"
-                    social
+                    external
+                    to={Login.socialLoginUrl('google')}
                 >
                     <img src={Google} alt="google" width="24" height="24" />
                     <SocialText>Google</SocialText>
                 </SocialButton>
                 <SocialButton
-                    onClick={handleSocialSignup}
                     provider="facebook"
                     data-provider="facebook"
                     id="dm-signup-facebook"
-                    type="button"
-                    social
+                    external
+                    to={Login.socialLoginUrl('facebook')}
                 >
                     <img src={Facebook} alt="facebook" width="24" height="24" />
                     <SocialText>Facebook</SocialText>
                 </SocialButton>
                 <SocialButton
-                    onClick={handleSocialSignup}
                     provider="apple"
                     data-provider="apple"
                     id="dm-signup-apple"
-                    type="button"
-                    social
+                    external
+                    to={Login.socialLoginUrl('apple')}
                 >
                     <img src={Apple} alt="apple" width="24" height="24" />
                     <SocialText>Apple</SocialText>

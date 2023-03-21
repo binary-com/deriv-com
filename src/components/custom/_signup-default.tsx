@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // SVG
 import Facebook from 'images/svg/custom/facebook.svg'
 import Google from 'images/svg/custom/google.svg'
+import Login from 'common/login'
 
 type SignupDefaultProps = {
     autofocus?: boolean
@@ -16,9 +17,13 @@ type SignupDefaultProps = {
     email_error_msg?: string
     handleInputChange?: (event) => void
     handleLogin?: (event) => void
-    handleSocialSignup?: (event) => void
     handleValidation?: (event) => void
     is_submitting?: boolean
+}
+
+type SocialButtonProps = {
+    provider?: string
+    id?: string
 }
 
 const Wrapper = styled.div`
@@ -36,11 +41,23 @@ const EmailButton = styled(Button)`
     font-size: 1.4rem;
     margin-bottom: 2rem;
 `
-
-const SocialButton = styled(Button)`
-    box-shadow: none;
-    flex: inherit !important;
-    width: 48%;
+const SocialButton = styled(LocalizedLink)<SocialButtonProps>`
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 14px;
+    ${(props) =>
+        props.provider === 'google' &&
+        `
+        background: var(--color-white);
+        border: 1px solid var(--color-grey-5);
+    `}
+    ${(props) =>
+        props.provider === 'facebook' &&
+        `
+        background: var(--color-blue);
+        border: 1px solid var(--color-blue);
+    `}
 `
 const SocialWrapper = styled(FlexGridContainer)`
     width: 100%;
@@ -72,7 +89,6 @@ const SignupDefault = ({
     handleInputChange,
     handleValidation,
     autofocus,
-    handleSocialSignup,
     handleLogin,
     is_submitting,
 }: SignupDefaultProps) => {
@@ -111,24 +127,22 @@ const SignupDefault = ({
             </Text>
             <SocialWrapper justify="space-between" gap="0" grid="2">
                 <SocialButton
-                    onClick={handleSocialSignup}
                     provider="google"
                     data-provider="google"
                     id="dm-signup-google"
-                    type="button"
-                    social
+                    external
+                    to={Login.socialLoginUrl('google')}
                 >
                     <span>
                         <img src={Google} alt="google" width="22" height="23" />
                     </span>
                 </SocialButton>
                 <SocialButton
-                    onClick={handleSocialSignup}
                     provider="facebook"
                     data-provider="facebook"
                     id="dm-signup-facebook"
-                    type="button"
-                    social
+                    external
+                    to={Login.socialLoginUrl('facebook')}
                 >
                     <span>
                         <img src={Facebook} alt="facebook" width="12" height="22" />

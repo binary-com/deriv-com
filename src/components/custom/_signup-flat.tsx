@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { Input, Button, LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import { Container } from 'components/containers'
 import device from 'themes/device'
 // SVG
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
+import Login, { TSocialProvider } from 'common/login'
 
 type SignupFlatProps = {
     autofocus?: boolean
@@ -17,11 +18,15 @@ type SignupFlatProps = {
     email_error_msg?: string
     handleInputChange?: (event) => void
     handleLogin?: (event) => void
-    handleSocialSignup?: (event) => void
     handleValidation?: (event) => void
     is_submitting?: boolean
 }
 
+type SocialButtonProps = {
+    provider?: TSocialProvider
+    id?: string
+    dark?: boolean
+}
 type DarkType = {
     dark?: boolean
 }
@@ -87,11 +92,20 @@ const SocialWrapper = styled.div`
     flex-wrap: nowrap;
     align-items: center;
 `
-const SocialButton = styled(Button)<DarkType>`
+const SocialButton = styled(LocalizedLink)<SocialButtonProps>`
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 14px;
+    transition: all 0.25s;
+    font-weight: bold;
+    block-size: fit-content;
     background-color: ${(props) => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     border: none;
-`
 
+    &:hover {
+        background: var(--color-grey-4);
+    }
+`
 const StyledHeader = styled(Header)`
     width: auto;
 `
@@ -121,7 +135,6 @@ const SignupFlat = ({
     handleInputChange,
     handleValidation,
     autofocus,
-    handleSocialSignup,
     is_submitting,
     dark,
 }: SignupFlatProps) => {
@@ -176,12 +189,11 @@ const SignupFlat = ({
                         </StyledText>
                         <SocialButton
                             dark={dark}
-                            onClick={handleSocialSignup}
                             provider="google"
                             data-provider="google"
                             id="dm-signup-google"
-                            type="button"
-                            social
+                            external
+                            to={Login.socialLoginUrl('google')}
                         >
                             <span>
                                 <img src={Google} alt="google" width="22" height="23" />
@@ -189,12 +201,11 @@ const SignupFlat = ({
                         </SocialButton>
                         <SocialButton
                             dark={dark}
-                            onClick={handleSocialSignup}
                             provider="facebook"
                             data-provider="facebook"
                             id="dm-signup-facebook"
-                            type="button"
-                            social
+                            external
+                            to={Login.socialLoginUrl('facebook')}
                         >
                             <span>
                                 <img src={Facebook} alt="facebook" width="12" height="22" />

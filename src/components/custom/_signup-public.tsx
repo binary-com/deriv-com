@@ -4,11 +4,12 @@ import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import { Flex, Box, Container, Desktop, Mobile } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
+import Login, { TSocialProvider } from 'common/login'
 // SVG
 import Apple from 'images/svg/custom/apple-40.svg'
 import Facebook from 'images/svg/custom/facebook-40.svg'
@@ -17,7 +18,7 @@ import Arrow from 'images/svg/custom/chevron-right.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type SocialButtonContent = {
-    provider: string
+    provider: TSocialProvider
     id: string
     img: string
 }
@@ -29,9 +30,13 @@ type SignupPublicProps = {
     email_error_msg?: string
     handleInputChange?: (event) => void
     handleLogin?: (event) => void
-    handleSocialSignup?: (event) => void
     handleValidation?: (event) => void
     is_submitting?: boolean
+}
+
+type SocialButtonProps = {
+    provider?: string
+    id?: string
 }
 
 const query = graphql`
@@ -177,7 +182,12 @@ const MobileSocialWrapper = styled(SocialWrapper)`
         flex-direction: column;
     }
 `
-const SocialButton = styled(Button)`
+const SocialButton = styled(LocalizedLink)<SocialButtonProps>`
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.25s;
+    font-weight: bold;
+    block-size: fit-content;
     display: flex;
     padding: 0;
     margin: 0 1rem;
@@ -351,7 +361,6 @@ const SignupPublic = ({
     handleInputChange,
     handleValidation,
     autofocus,
-    handleSocialSignup,
     is_submitting,
 }: SignupPublicProps) => {
     const data = useStaticQuery(query)
@@ -428,12 +437,11 @@ const SignupPublic = ({
                                     {social_button_content.map(({ provider, id, img }) => (
                                         <SocialButton
                                             key={provider}
-                                            onClick={handleSocialSignup}
                                             provider={provider}
                                             data-provider={provider}
                                             id={id}
-                                            type="button"
-                                            social
+                                            external
+                                            to={Login.socialLoginUrl(provider)}
                                         >
                                             <img src={img} alt={provider} width="40" height="40" />
                                         </SocialButton>
@@ -566,12 +574,11 @@ const SignupPublic = ({
                                         {social_button_content.map(({ provider, id, img }) => (
                                             <SocialButton
                                                 key={provider}
-                                                onClick={handleSocialSignup}
                                                 provider={provider}
                                                 data-provider={provider}
                                                 id={id}
-                                                type="button"
-                                                social
+                                                external
+                                                to={Login.socialLoginUrl(provider)}
                                             >
                                                 <img
                                                     src={img}

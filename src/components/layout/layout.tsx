@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, Ref } from 'react'
+import React, { ReactNode, Ref } from 'react'
 import Loadable from '@loadable/component'
 import styled from 'styled-components'
 import { LocationProvider } from './location-context'
@@ -17,11 +17,8 @@ import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
-import { handleRedirect, handleRowRedirect, isEuDomain } from 'common/utility'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
-import { CookieStorage } from 'common/storage'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import useDerivWS from 'components/hooks/use-deriv-ws'
 import usePopup from 'components/hooks/use-popup'
 
 const LoadableFooter = Loadable(() => import('./footer'))
@@ -70,30 +67,9 @@ const Layout = ({
     const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
-    const [is_redirection_applied, setRedirectionApplied] = useState(false)
-    const { send } = useDerivWS()
     const { has_platform } = usePlatformQueryParam()
 
     const is_static = type === 'static'
-
-    React.useEffect(() => {
-        if (!is_redirection_applied) {
-            send({ website_status: 1 }, (response) => {
-                if (!response.error) {
-                    const {
-                        website_status: { clients_country },
-                    } = response
-
-                    const current_client_country = clients_country || ''
-                    const client_information_cookie = new CookieStorage('client_information')
-                    const residence = client_information_cookie.get('residence')
-                    setRedirectionApplied(true)
-                    isEuDomain() && handleRowRedirect(residence, current_client_country)
-                    !isEuDomain() && handleRedirect(residence, current_client_country)
-                }
-            })
-        }
-    }, [is_redirection_applied])
 
     // Handle navigation types
     let Navigation

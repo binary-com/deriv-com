@@ -1,13 +1,13 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { TWhoWeAreBanner } from '../_types'
+import { Localize } from 'components/localization'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-// We can remove it once replace on strapi's images
 
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
@@ -119,7 +119,7 @@ const WhoWeAreBanner = ({ banner }: TWhoWeAreBanner) => {
             >
                 <PictureFlex jc="start" ai="start" direction="column">
                     <StyledHeader as="h3" width="100%" type="unset" size="32px" color="white">
-                        {banner?.header}
+                        <Localize translate_text={banner?.header} />
                     </StyledHeader>
                     <StyledHeader2
                         width="100%"
@@ -128,10 +128,10 @@ const WhoWeAreBanner = ({ banner }: TWhoWeAreBanner) => {
                         size="16px"
                         weight="400px"
                     >
-                        {banner?.sub_header}
+                        <Localize translate_text={banner?.sub_header} />
                     </StyledHeader2>
                     <StyledLinkButton secondary to={banner?.link_url}>
-                        {banner?.link_name}
+                        <Localize translate_text={banner?.link_name} />
                     </StyledLinkButton>
                 </PictureFlex>
             </StyledFlex>

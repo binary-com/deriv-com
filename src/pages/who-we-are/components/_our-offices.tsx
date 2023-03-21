@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import { getImage } from 'gatsby-plugin-image'
 import { TOurOffices } from '../_types'
 import MapPin, { MapPinType } from './_map-pin'
+import { Localize } from 'components/localization'
 import { CssGrid, Desktop, Flex, Mobile, SectionContainer } from 'components/containers'
-import { BackgroundImage, Header, Text } from 'components/elements'
+import { BackgroundImage, Header } from 'components/elements'
 import device from 'themes/device'
 
 const StyledSectionContainer = styled(SectionContainer)`
@@ -27,7 +28,6 @@ const StyledHeader = styled(Header)`
         font-size: 28px;
     }
 `
-
 const NumberSection = styled(CssGrid)`
     margin-top: 40px;
     max-width: 788px;
@@ -42,9 +42,7 @@ const NumberSection = styled(CssGrid)`
         grid-column-gap: 1rem;
     }
 `
-
-const NumberHeader = styled(Text)`
-    font-weight: bold;
+const NumberHeader = styled(Header)`
     line-height: 6rem;
     text-align: center;
 
@@ -52,8 +50,8 @@ const NumberHeader = styled(Text)`
         font-size: 24px;
     }
 `
-const NumberText = styled(Text)`
-    font-weight: 400;
+const NumberText = styled(Header)`
+    font-weight: normal;
     text-align: center;
 
     @media ${device.tablet} {
@@ -140,7 +138,7 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {our_locations?.header}
+                <Localize translate_text={our_locations?.header} />
             </StyledHeader>
 
             <Flex>
@@ -163,9 +161,11 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
                 {our_locations?.numbers.map(({ description, number }) => (
                     <StyledFlex fd="column" key={description}>
-                        <NumberHeader size="32px">{number}</NumberHeader>
-                        <NumberText size="16px" align="center">
-                            {description}
+                        <NumberHeader as="div" size="32px">
+                            {number}
+                        </NumberHeader>
+                        <NumberText as="div" size="16px" align="center">
+                            <Localize translate_text={description} />
                         </NumberText>
                     </StyledFlex>
                 ))}

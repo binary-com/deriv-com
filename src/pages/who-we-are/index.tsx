@@ -74,8 +74,8 @@ const AboutUs = ({ data }: TWhoWeAre) => {
     )
 }
 export const query = graphql`
-    query ($locale: String!) {
-        allStrapiWhoWeArePage(filter: { locale: { eq: $locale } }) {
+    query {
+        allStrapiWhoWeArePage {
             nodes {
                 hero {
                     header

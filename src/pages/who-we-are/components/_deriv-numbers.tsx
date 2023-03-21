@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TDerivNumbers } from '../_types'
+import { Localize } from 'components/localization'
 import { CssGrid, Flex, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
@@ -77,8 +78,7 @@ const StyledHeader = styled(Header)`
         text-align: start;
     }
 `
-const NumberHeader = styled(Text)`
-    font-weight: bold;
+const NumberHeader = styled(Header)`
     line-height: 6rem;
     text-align: start;
 
@@ -86,8 +86,8 @@ const NumberHeader = styled(Text)`
         margin-bottom: 8px;
     }
 `
-const NumberText = styled(Text)`
-    font-weight: 400;
+const NumberText = styled(Header)`
+    font-weight: normal;
     text-align: start;
 `
 
@@ -97,10 +97,10 @@ const DerivNumbers = ({ deriv_in_numbers }: TDerivNumbers) => {
             <StyledFlex>
                 <TitleSection fd="column">
                     <TitleHeader as="h6" color="black-2" align="start" type="unset">
-                        {deriv_in_numbers?.header}
+                        <Localize translate_text={deriv_in_numbers?.header} />
                     </TitleHeader>
                     <StyledHeader as="h6" size="24px" align="start" weight="400" type="unset">
-                        {deriv_in_numbers?.sub_header}
+                        <Localize translate_text={deriv_in_numbers?.sub_header} />
                     </StyledHeader>
                 </TitleSection>
                 <NumberSection
@@ -113,11 +113,11 @@ const DerivNumbers = ({ deriv_in_numbers }: TDerivNumbers) => {
                     {deriv_in_numbers?.numbers.map(({ number, description }) => {
                         return (
                             <Flex key={description} fd="column" height="unset">
-                                <NumberHeader size="48px" type="unset">
+                                <NumberHeader as="div" size="48px" type="unset">
                                     {number}
                                 </NumberHeader>
-                                <NumberText size="20px" align="start">
-                                    {description}
+                                <NumberText as="div" size="20px" align="start">
+                                    <Localize translate_text={description} />
                                 </NumberText>
                             </Flex>
                         )

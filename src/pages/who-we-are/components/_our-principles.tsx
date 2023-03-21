@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TOurPrinciples } from '../_types'
+import { Localize } from 'components/localization'
 import { Box, Flex, SectionContainer } from 'components/containers'
 import { Divider, Header } from 'components/elements'
 import device from 'themes/device'
@@ -105,10 +106,12 @@ const OurPrinciples = ({ our_principles }: TOurPrinciples) => {
                             tablet_ai="left"
                         >
                             <StyledDiv>
-                                <ColoredBox bgcolor={colors[idx]}>{header}</ColoredBox>
+                                <ColoredBox bgcolor={colors[idx]}>
+                                    <Localize translate_text={header} />
+                                </ColoredBox>
                             </StyledDiv>
                             <StyledText as="p" type="sub-paragraph" weight="400">
-                                {sub_header}
+                                <Localize translate_text={sub_header} />
                             </StyledText>
                         </InsideFlex>
                     </div>
@@ -116,7 +119,7 @@ const OurPrinciples = ({ our_principles }: TOurPrinciples) => {
                 <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
             </StyledFlex>
             <StyledLinkButton to={our_principles?.button.link_url} secondary>
-                {our_principles?.button.link_name}
+                <Localize translate_text={our_principles?.button.link_name} />
             </StyledLinkButton>
         </StyledSection>
     )

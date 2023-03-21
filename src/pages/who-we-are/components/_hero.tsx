@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { getImage } from 'gatsby-plugin-image'
 import { THero } from '../_types'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import { Localize } from 'components/localization'
 import { Desktop, Flex, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
@@ -87,7 +88,9 @@ const Hero = ({ hero }: THero) => {
                             loading="eager"
                         />
                         <Flex jc="center" p="0 32px" max_width="1440px">
-                            <DesktopHeader>{hero?.header}</DesktopHeader>
+                            <DesktopHeader>
+                                <Localize translate_text={hero?.header} />
+                            </DesktopHeader>
                         </Flex>
                     </StyledFlex>
                 </Desktop>
@@ -99,7 +102,9 @@ const Hero = ({ hero }: THero) => {
                             width="unset"
                             loading="eager"
                         />
-                        <MobileHeader>{hero?.header}</MobileHeader>
+                        <MobileHeader>
+                            <Localize translate_text={hero?.header} />
+                        </MobileHeader>
                     </Flex>
                 </Mobile>
             </ContentWrapper>

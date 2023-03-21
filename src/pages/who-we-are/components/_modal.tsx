@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
 import Linkedin from 'images/svg/who-we-are/linkedin.svg'
 import device from 'themes/device'
@@ -54,7 +54,7 @@ const Modal = ({ name, role, link }: ModalPropsType) => {
                 {name}
             </Header>
             <Header as="h4" padding="0" type="sub-paragraph" weight="normal" align="center">
-                {role}
+                <Localize translate_text={role} />
             </Header>
             {link && (
                 <LocalizedLink external to={link} target="_blank" rel="noopener noreferrer">

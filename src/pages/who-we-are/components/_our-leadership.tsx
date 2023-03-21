@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { TLeader, TOurLeadership } from '../_types'
 import Modal from './_modal'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { Localize } from 'components/localization'
 import { CssGrid, Flex, SectionContainer } from 'components/containers'
 import { Header, ImageWrapper } from 'components/elements'
 import device from 'themes/device'
@@ -124,7 +125,7 @@ const OurLeadership = ({ our_leadership }: TOurLeadership) => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {our_leadership?.header}
+                <Localize translate_text={our_leadership?.header} />
             </StyledHeader>
             <StyledCssGrid
                 height="unset"

@@ -5,7 +5,7 @@ import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
-import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
+import { getClientInformation, getDomain, getLanguage, addScript, updateURLAsPerUserLanguage } from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
@@ -129,12 +129,15 @@ export const onClientEntry = () => {
     }
 
     addScript({
-        src: 'https://static.deriv.com/scripts/cookie.js',
+        src: 'https://cdn.jsdelivr.net/gh/mohammad-hashemi-deriv/deriv-static-content@utm-source-replace-6/public/scripts/cookie.js',
         async: true,
         strategy: 'off-main-thread',
     })
 
     checkLiveChatRedirection()
+
+    updateURLAsPerUserLanguage()
+
 }
 
 export const onRouteUpdate = () => {

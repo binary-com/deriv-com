@@ -268,14 +268,6 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-svgr',
-            options: {
-                rule: {
-                    include: /svg/, // See below to configure properly
-                },
-            },
-        },
-        {
             resolve: 'gatsby-plugin-eslint',
             options: {
                 stages: ['develop'],

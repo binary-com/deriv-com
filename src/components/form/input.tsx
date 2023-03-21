@@ -73,10 +73,6 @@ const InputWrapper = styled.div<InputWrapperProps>`
                 label_hover_color ? `var(--color-${label_hover_color})` : 'var(--color-black-3)'};
         }
     }
-    &:focus-within {
-        border-color: ${({ focus_border }) =>
-            focus_border ? `var(--color-${focus_border})` : 'var(--color-green)'};
-    }
 
     ${(props) =>
         !props.error &&
@@ -121,25 +117,16 @@ const StyledInput = styled.input<StyledInputProps>`
     font-size: var(--text-size-s);
     padding: 1rem 1rem 1rem 0.8rem;
     height: ${(props) => props.height || '40px'};
-    width: 243px;
-    display: block;
-    border: 1px solid var(--color-grey-5);
+    width: 100%;
+    border: 1px solid transparent;
     border-radius: 15px;
-    @media ${device.tabletL} {
-        width: 250px;
-        height: 100%;
-        border-radius: 4px;
 
+    @media ${device.tabletL} {
+        height: 100%;
+        width: 90%;
         & ~ label {
             font-size: 1.75rem;
             top: 1.95rem;
-        }
-    }
-    @media ${device.mobileL} {
-        font-size: 14px;
-
-        & ~ label {
-            font-size: 1.5rem;
         }
     }
 
@@ -153,8 +140,6 @@ const StyledInput = styled.input<StyledInputProps>`
 
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: ${({ label_focus_color }) =>
-                label_focus_color ? `var(--color-${label_focus_color})` : 'var(--color-green)'};
             background-color: ${({ background }) =>
                 background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 
@@ -191,7 +176,7 @@ const StyledInput = styled.input<StyledInputProps>`
 `
 
 const ErrorMessages = styled(Text)`
-    padding-left: 0.8rem;
+    padding: 6px;
     font-size: 1.2rem;
     min-height: 16px;
     color: var(--color-red-1);

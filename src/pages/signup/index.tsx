@@ -3,57 +3,32 @@ import styled from 'styled-components'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { SEO } from 'components/containers'
+import { Flex, SEO } from 'components/containers'
 import device from 'themes/device'
-import { Header, Text } from 'components/elements'
-import Graph from 'images/svg/landing/graph.svg'
+import { Header } from 'components/elements'
 
-const Wrapper = styled.section`
-    padding: 8rem 0;
+const Wrapper = styled(Flex)`
+    padding: 5rem 0;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.mobileL} {
         padding: 0;
     }
 `
 const Content = styled.div`
-    width: 43.8rem;
+    width: 48.6rem;
     display: flex;
+    gap: 16px;
     justify-content: flex-start;
     flex-direction: column;
-    margin-right: 4.7rem;
-    margin-top: 9.4rem;
-
-    @media ${device.tablet} {
+    height: 48vh;
+    @media ${device.tabletL} {
         display: none;
-    }
-`
-
-const Line = styled.div`
-    width: 100%;
-    border-bottom: 1px solid var(--color-red);
-    margin-top: 4rem;
-`
-
-const StyledDiv = styled.div`
-    padding: 6rem 0;
-    background-color: rgba(200, 214, 215, 0.22);
-
-    @media ${device.mobileL} {
-        padding: 0;
-    }
-`
-
-const StyledGraph = styled.img`
-    overflow: initial;
-
-    @media ${device.laptop} {
         width: auto;
     }
 `
@@ -81,17 +56,20 @@ const NewSignup = () => {
             <Wrapper>
                 {submit_state !== 'success' && (
                     <Content>
-                        <StyledGraph src={Graph} alt="graph" />
-                        <Header mt="2.4rem" as="h3" type="section-title">
-                            {localize('Start trading with Deriv')}
-                        </Header>
-                        <br />
-                        <Text>
+                        <Header as="h3" type="heading-3" align="center">
                             {localize(
-                                'Join over 1 million people who trade with Deriv.com and Binary.com — the award-winning platform that’s been trusted for over 20 years.',
+                                'Unique trade types. Hundreds of instruments. Financial and derived markets.',
                             )}
-                        </Text>
-                        <Line />
+                        </Header>
+
+                        <Header as="p" type="subtitle-2" align="center" weight="normal">
+                            {localize('Trade anywhere, anytime.')}
+                        </Header>
+                        <Header as="p" type="paragraph-1" align="center" weight="normal">
+                            {localize(
+                                'Ready to join over 2.5 million traders who have chosen Deriv as their trusted broker? Enter your email address to create a free demo account.',
+                            )}
+                        </Header>
                     </Content>
                 )}
 
@@ -104,7 +82,6 @@ const NewSignup = () => {
                     autofocus={true}
                 />
             </Wrapper>
-            <StyledDiv />
         </Layout>
     )
 }

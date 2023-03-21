@@ -39,7 +39,7 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 0;
     }
 `
-const TitleWrapper = styled(Flex)`
+const TitleWrapper = styled.div`
     max-width: 120rem;
     margin: 0 auto 2.4rem;
 
@@ -50,13 +50,9 @@ const TitleWrapper = styled(Flex)`
 
     @media ${device.tabletL} {
         margin: 0 auto 16px;
-
-        ${Header} {
-            font-size: 20px;
-            line-height: 25px;
-        }
     }
 `
+
 const StyledHeader = styled(Header)`
     max-width: 1200px;
     margin: 0 auto 24px;
@@ -67,6 +63,19 @@ const StyledHeader = styled(Header)`
         margin: 0 auto 16px;
     }
 `
+
+const SubtitleHeader = styled(Header)`
+    line-height: 36px;
+
+    @media ${device.laptopL} {
+        width: 100%;
+    }
+    @media ${device.tabletL} {
+        line-height: 24px;
+        font-size: 16px !important;
+    }
+`
+
 const ExampleWrapper = styled(Flex)`
     max-width: 120rem;
     margin: 0 auto;
@@ -123,13 +132,13 @@ const MinimumVolume = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <TitleWrapper direction="column">
+                <TitleWrapper>
                     <Header as="h2" type="page-title" align="center" mb="0.8rem">
                         {localize('Minimum volume requirement')}
                     </Header>
-                    <Text size="16px" align="center">
+                    <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         <Localize translate_text="To receive the minimum commission (0.01 in any currency) allowed by the system, the minimum volume requirement is calculated based on the following formulas:" />
-                    </Text>
+                    </SubtitleHeader>
                 </TitleWrapper>
                 <ExampleWrapper>
                     <StyledHeader as="h4" type="main-paragraph" mb="2.4rem">

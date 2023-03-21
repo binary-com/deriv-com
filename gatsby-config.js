@@ -309,13 +309,6 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
-        {
-            resolve: 'gatsby-plugin-anchor-links',
-            options: {
-                offset: -100,
-                duration: 0,
-            },
-        },
         'gatsby-plugin-use-query-params',
         {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',

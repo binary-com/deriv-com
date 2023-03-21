@@ -1,7 +1,6 @@
 import React, { CSSProperties, Ref, useContext } from 'react'
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
-import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { LocationContext } from '../layout/location-context'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
@@ -130,10 +129,6 @@ const StyledAnchor = styled.a`
     ${ShareDisabledStyle}
 `
 
-const StyledAnchorLink = styled(AnchorLink)`
-    ${ShareDisabledStyle}
-`
-
 const StyledGatsbyLink = styled(GatsbyLink)`
     ${ShareDisabledStyle}
 `
@@ -187,9 +182,6 @@ const InternalLink = ({
     // remove trailing character only if it is a forward slash
     internal_to = has_no_end_slash ? internal_to.replace(/\/$/, '') : internal_to
 
-    if (is_anchor) {
-        return <AnchorLink title={aria_label} to={internal_to} {...props} />
-    }
     return (
         <StyledGatsbyLink aria-label={aria_label} to={internal_to} {...props}>
             {children}

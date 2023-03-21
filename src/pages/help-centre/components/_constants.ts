@@ -23,11 +23,8 @@ export const all_questions = [
     affiliate_programme,
     ib_programme,
     about_deriv,
-<<<<<<< HEAD
     payment_agent,
-=======
     accumulators,
->>>>>>> 03bdb3c1ab (Konstantinos / Conflicts 3 (#4364))
     dmt5,
     derivx,
     dtrader,

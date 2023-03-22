@@ -8,10 +8,10 @@ interface HeadingProps extends BaseTypographyProps<HeadingTagOptions> {
     size: THeadingSize
 }
 
-const Heading = ({ size = 'medium', weight, className, ...rest }: HeadingProps) => {
+const Heading = ({ size = 'medium', weight, className, as = 'h1', ...rest }: HeadingProps) => {
     const classnames = dclsx(className, generateHeadingSize(size))
 
-    return <BaseTypography className={classnames} weight={weight ?? 'bold'} {...rest} />
+    return <BaseTypography as={as} className={classnames} weight={weight ?? 'bold'} {...rest} />
 }
 
 export default Heading

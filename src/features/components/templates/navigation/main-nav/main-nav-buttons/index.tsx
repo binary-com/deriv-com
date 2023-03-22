@@ -1,12 +1,13 @@
 import React from 'react'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useRegion from 'components/hooks/use-region'
-import { LanguageSwitcher, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import Button from 'features/components/atoms/button'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import usePpc from 'features/hooks/use-ppc'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import LanguageSwitcher from 'features/components/molecules/language-switcher'
 
 const MainNavButtons = () => {
     const [is_logged_in] = useAuthCheck()
@@ -41,7 +42,7 @@ const MainNavButtons = () => {
                     </Button.Primary>
                 </>
             )}
-            <LanguageSwitcher is_high_nav />
+            <LanguageSwitcher />
         </>
     )
 }

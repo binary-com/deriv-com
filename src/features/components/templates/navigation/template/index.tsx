@@ -88,7 +88,7 @@ const NavTemplate = <T extends string>({
                         items={visible_items}
                     />
                 )}
-                <FlexBox justify="end" align="center" gap={'4x'}>
+                <FlexBox justify="end" align="center" gap={'8x'}>
                     {children}
                 </FlexBox>
                 {is_mobile_or_tablet && <MobileMenu is_open={is_menu_open} items={visible_items} />}

@@ -1,0 +1,48 @@
+@import 'features/styles/theme/variables';
+
+.trigger {
+    user-select: none;
+    cursor: pointer;
+    & p {
+        text-transform: uppercase;
+    }
+}
+.menu_content {
+    min-inline-size: 5rem;
+    background-color: white;
+    border-radius: 6px;
+    padding-block: 1rem;
+    box-shadow: 0 1rem 3.8rem -1rem rgba(22, 23, 24, 0.35),
+        0 1rem 2rem -1.5rem rgba(22, 23, 24, 0.2);
+    animation-duration: 400ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.menu_content[data-side='bottom'] {
+    animation-name: slideUpAndFade;
+}
+
+.menu_item[data-highlighted] {
+    background-color: $bg-color-secondary;
+}
+
+.menu_item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    outline-color: transparent;
+}
+
+@keyframes slideUpAndFade {
+    from {
+        opacity: 0;
+        transform: translateY(0.2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

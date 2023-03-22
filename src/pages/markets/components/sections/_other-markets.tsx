@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
+import { Desktop, Flex, Mobile, SectionContainer } from 'components/containers'
 import { Carousel, CarouselProps, Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
@@ -13,7 +13,7 @@ import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-/* eslint-disable */
+
 type MarketType = {
     icon: () => ReactElement
     title: ReactElement

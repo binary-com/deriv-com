@@ -21,6 +21,7 @@ type ClientCardProps = {
 
 const StyledSection = styled(SectionContainer)`
     position: relative;
+    background-color: #f9fbff;
 
     ${Container} {
         ${Header} {

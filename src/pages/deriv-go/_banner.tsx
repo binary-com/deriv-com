@@ -1,283 +1,138 @@
-import React, { useState, useEffect } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import styled, { css } from 'styled-components'
-import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import { localize, Localize, LocalizedLink } from 'components/localization'
-import { Header, QueryImage } from 'components/elements'
-import device, { size } from 'themes/device'
-import { Button } from 'components/form'
-import DerivGoBg from 'images/common/deriv-go/hero-bg.png'
-import DerivGoBgRTL from 'images/common/deriv-go/hero-bg_rtl.png'
-import { mobileOSDetect } from 'common/os-detect'
-import DerivGoMobileBg from 'images/common/deriv-go/hero-mobile-bg.png'
-import {
-    deriv_go_playstore_url,
-    deriv_go_huaweiappgallery_url,
-    deriv_go_ios_url,
-} from 'common/constants'
-import { isBrowser } from 'common/utility'
-import { useIsRtl } from 'components/hooks/use-isrtl'
+import React from 'react'
+import styled from 'styled-components'
+import DerivGoRow from 'images/common/deriv-go/banner_image.png'
+import DerivGoRowMobile from 'images/common/deriv-go/deriv-go-mobile.png'
+import CommonHeaderSection from 'components/elements/common-header-section'
+import DerivGOLogo from 'images/svg/deriv-go/deriv-go-banner-logo.svg'
+import device from 'themes/device'
+import useBreakpoints from 'components/hooks/use-breakpoints'
+import useHandleSignup from 'components/hooks/use-handle-signup'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import Shape from 'components/custom/_hero-shape'
+import Button from 'components/custom/_button'
 
-const query = graphql`
-    query {
-        hero: file(relativePath: { eq: "deriv-go/hero.png" }) {
-            ...fadeIn
-        }
-        hero_mobile: file(relativePath: { eq: "deriv-go/hero-mobile.png" }) {
-            ...fadeIn
-        }
-        google_play: file(relativePath: { eq: "deriv-go/google-play.png" }) {
-            ...fadeIn
-        }
-        app_store: file(relativePath: { eq: "deriv-go/app-store.png" }) {
-            ...fadeIn
-        }
-        huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
-            ...fadeIn
-        }
-        qr_code: file(relativePath: { eq: "deriv-go/deriv_go_all_appstores.png" }) {
-            ...fadeIn
-        }
-        web_browser: file(relativePath: { eq: "deriv-go/web-browser.png" }) {
-            ...fadeIn
-        }
+//TODO: (deriv-rebranding) to make the content section reusable .
+
+const ImageStyle = styled.img`
+    z-index: 1;
+    src: ${({ src }) => src};
+
+    @media ${device.tablet} {
+        width: 100%;
     }
 `
 
-const MainWrapper = styled(Flex)<{ is_rtl: boolean }>`
-    ${({ is_rtl }) =>
-        is_rtl
-            ? css`
-                  background: url(${DerivGoBgRTL}) right bottom 30%;
-              `
-            : css`
-                  background: url(${DerivGoBg}) right bottom 30%;
-              `}
+const ImageWrapper = styled.div`
+    display: flex;
+    flex: 1;
+    justify-content: center;
+`
+const BannerButtonWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    @media ${device.tablet} {
+        flex-direction: column;
+        justify-content: center;
+    }
+`
 
-    background-size: cover;
-    height: 79rem;
-    @media ${device.laptopM} {
+const BackgroundStyle = styled.div`
+    background-color: var(--color-white);
+    flex: 1;
+    height: 90vh;
+    display: flex;
+    justify-content: flex-end;
+
+    @media ${device.tablet} {
+        flex-direction: column-reverse;
+        justify-content: center;
         height: 100%;
     }
-    @media ${device.tabletL} {
-        background: url(${DerivGoMobileBg}) bottom 35% center;
-    }
 `
-
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        width: auto;
-    }
-`
-
-const AppButton = styled(LocalizedLink)`
-    margin-right: 8px;
-    padding: 0;
-    border: none;
-
-    img {
-        border-radius: 7px;
-    }
-    @media ${device.tabletL} {
-        margin-bottom: 8px;
-        width: 156px;
-        height: 46px;
-    }
-    @media ${device.mobileL} {
-        width: 150px;
-        height: 40px;
-    }
-`
-
-const BannerWrapper = styled(Flex)`
-    width: 48%;
-    position: relative;
+const ContentWrapperStyle = styled.div`
+    flex: 1;
+    justify-content: center;
     align-items: center;
-    margin-left: 55px;
+    flex-direction: column;
+    display: flex;
+`
+const HeroImageWrapper = styled.div`
+    width: 60%;
 
-    & .bannerimg-wrapper {
+    @media ${device.tablet} {
         width: 100%;
-        position: relative;
-        @media ${device.laptopM} {
-            margin-bottom: 40px;
-        }
-    }
-    @media ${device.laptopM} {
-        align-items: flex-end;
-    }
-    @media ${device.mobileL} {
-        width: 100%;
-        justify-content: center;
-        margin: 0;
     }
 `
-const ButtonDerivGO = styled(Button)`
-    padding: 1.5rem 1.6rem;
-    height: 59px;
-    width: 90vw;
-    white-space: nowrap;
-    margin-top: 24px;
-    margin-bottom: 40px;
-`
-const HeroContent = styled(Flex)`
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    height: unset;
-    width: 349px;
-    margin-top: 28px;
-
-    ${Header} {
-        font-size: 20px;
-        font-weight: 200;
-        width: 230px;
-        padding-left: 15px;
-        color: var(--color-white);
-        display: flex;
-        align-items: center;
+const CreateAccountButton = styled(Button)`
+    @media ${device.tablet} {
         max-width: 100%;
-    }
-    @media ${device.laptopM} {
-        ${Header} {
-            font-size: 22px;
-        }
-    }
-    @media ${device.tabletL} {
-        ${Header} {
-            font-size: 16px;
-            max-width: 100%;
-        }
-    }
-    @media ${device.mobileL} {
-        ${Header} {
-            font-size: 20px;
-            line-height: 25px;
-            margin-top: 16px;
-        }
-    }
-    @media ${device.mobileS} {
-        ${Header} {
-            max-width: 98%;
-        }
+        width: 100%;
     }
 `
+const Content = styled.div`
+    max-width: 632px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    padding-left: 120px;
 
-const Banner = () => {
-    const data = useStaticQuery(query)
-    const [is_mobile, setMobile] = useState(false)
-    const is_rtl = useIsRtl()
-
-    useEffect(() => {
-        const handleResizeWindow = () =>
-            setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-        handleResizeWindow()
-        window.addEventListener('resize', handleResizeWindow)
-
-        return () => {
-            window.removeEventListener('resize', handleResizeWindow)
-        }
-    }, [is_mobile])
-
-    const handleExternalLink = () => {
-        let link = deriv_go_playstore_url
-        if (is_mobile) {
-            if (mobileOSDetect() === 'Android') {
-                link = deriv_go_playstore_url
-            }
-            if (mobileOSDetect() === 'iOS') {
-                link = deriv_go_ios_url
-            }
-        }
-        window.open(link, '_blank')
+    @media ${device.tablet} {
+        padding: 0 16px 64px;
     }
+`
+const StyledTradingLogin = styled.img`
+    width: 237px;
+    height: 64px;
+
+    @media ${device.tablet} {
+        width: 119px;
+        height: 32px;
+    }
+`
+const DHero = () => {
+    const { is_mobile } = useBreakpoints()
+    const handleSignup = useHandleSignup()
+    const [is_logged_in] = useAuthCheck()
     return (
-        <MainWrapper is_rtl={is_rtl}>
-            <Container laptop_direction="column">
-                <Flex
-                    jc="center"
-                    ai="center"
-                    max_width="53%"
-                    height="100%"
-                    laptopM={{ max_width: '100%', pt: '40px' }}
-                >
-                    <div>
-                        <StyledHeader as="h1" color="white" width="64rem" type="heading-1">
-                            {localize('Trade forex, synthetics, and cryptocurrencies on the go')}
-                        </StyledHeader>
-                        <Mobile>
-                            <Header size="18px" color="white" weight="200" mt="10px">
-                                {localize(
-                                    'Download the app now and start trading whenever, wherever you want. ',
-                                )}
-                            </Header>
-                        </Mobile>
-                        <Desktop>
-                            <HeroContent>
-                                <Header as="h2">
-                                    {
-                                        <Localize translate_text="Scan the QR code to download Deriv GO" />
-                                    }
-                                </Header>
-                                <QueryImage
-                                    data={data['qr_code']}
-                                    alt={'play store'}
-                                    width="108px"
-                                    height="108px"
-                                />
-                            </HeroContent>
-                            <Flex
-                                fd="row"
-                                mt="40px"
-                                jc="start"
-                                tablet_fw="wrap"
-                                laptopM={{ m: '7px 8px 48px' }}
-                            >
-                                <AppButton
-                                    external
-                                    to={deriv_go_ios_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <QueryImage data={data['app_store']} alt="app store logo" />
-                                </AppButton>
-                                <AppButton
-                                    external
-                                    to={deriv_go_playstore_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <QueryImage data={data['google_play']} alt="google play logo" />
-                                </AppButton>
-                                <AppButton
-                                    external
-                                    to={deriv_go_huaweiappgallery_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <QueryImage
-                                        data={data['huawei_app']}
-                                        alt="huawei app gallery"
-                                    />
-                                </AppButton>
-                            </Flex>
-                        </Desktop>
-                    </div>
-                </Flex>
-                <Mobile>
-                    <ButtonDerivGO secondary onClick={handleExternalLink}>
-                        {localize('Download Deriv GO')}
-                    </ButtonDerivGO>
-                </Mobile>
-                <BannerWrapper>
-                    <QueryImage
-                        data={data[is_mobile ? 'hero_mobile' : 'hero']}
-                        alt="Deriv GO trading app on mobile"
-                        className="bannerimg-wrapper"
-                        loading="eager"
+        <BackgroundStyle>
+            <ContentWrapperStyle>
+                <Content>
+                    <StyledTradingLogin src={DerivGOLogo} />
+                    <CommonHeaderSection
+                        title="_t_A trading platform for on-the-go traders_t_"
+                        title_font_size={`${is_mobile ? 32 : 64}px`}
+                        color="var(--color-black-9)"
                     />
-                </BannerWrapper>
-            </Container>
-        </MainWrapper>
+                    <BannerButtonWrapper>
+                        {is_logged_in ? (
+                            <CreateAccountButton
+                                onClick={handleGetTrading}
+                                label="_t_Get Trading_t_"
+                                primary
+                                mobileFullWidth
+                            />
+                        ) : (
+                            <CreateAccountButton
+                                onClick={handleSignup}
+                                label="_t_Create free demo account_t_"
+                                primary
+                                mobileFullWidth
+                            />
+                        )}
+                    </BannerButtonWrapper>
+                </Content>
+            </ContentWrapperStyle>
+            <HeroImageWrapper>
+                <Shape angle={is_mobile ? 101 : 163} width="60%">
+                    <ImageWrapper>
+                        <ImageStyle src={is_mobile ? DerivGoRowMobile : DerivGoRow} />
+                    </ImageWrapper>
+                </Shape>
+            </HeroImageWrapper>
+        </BackgroundStyle>
     )
 }
 
-export default Banner
+export default DHero

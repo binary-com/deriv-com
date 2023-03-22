@@ -8,10 +8,6 @@ import device from 'themes/device'
 const SymbolWrapper = styled(Flex)`
     /* padding: 16px 5px 16px 16px; */
     justify-content: flex-start;
-
-    @media ${device.tabletL} {
-        padding: 14px 10px;
-    }
 `
 
 const AmericanStocks = () => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
+import Login, { TSocialProvider } from 'common/login'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
 import { localize } from 'components/localization'
@@ -125,7 +126,7 @@ const BackgroundWrapper = styled(Flex)`
 
     @media screen and (max-width: 1040px) and (min-width: 992px) {
         width: 47%;
-        margin-left: 3%;
+        margin-left: 5%;
     }
 
     & > div {
@@ -140,8 +141,8 @@ const InputWrapper = styled.div`
     font-weight: normal;
     margin-right: 1rem;
     border-radius: 15px;
+
     @media ${device.mobileL} {
-        width: unset;
         max-width: 191px;
     }
 `
@@ -152,6 +153,10 @@ const InputGroup = styled.div`
     margin-top: 2.5rem;
     margin-left: 1.5rem;
     margin-bottom: 1.5rem;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+    }
 `
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     margin-left: 1rem;
@@ -163,10 +168,11 @@ const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     @media ${device.tabletL} {
         padding: 10px 16px;
         white-space: nowrap;
+        border-radius: 4px;
         min-width: unset;
         margin-left: 0;
         height: 40px;
-        width: auto;
+        width: 250px;
     }
 `
 const SocialWrapper = styled(Flex)`
@@ -174,6 +180,7 @@ const SocialWrapper = styled(Flex)`
     margin-top: 4rem;
     flex-wrap: wrap;
     gap: 6px;
+    height: 40%;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
@@ -187,7 +194,7 @@ const MobileSocialWrapper = styled(SocialWrapper)`
 const SocialButton = styled(Button)`
     display: flex;
     padding: 0;
-    margin: 0 0;
+    margin: 0 1rem;
     font-size: 12px;
     align-items: center;
     justify-content: center;
@@ -203,8 +210,9 @@ const SocialButton = styled(Button)`
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`
-    width: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
+    width: 408px;
+
     @media ${device.tablet} {
         width: auto;
     }
@@ -218,10 +226,11 @@ const StyledHeader = styled(Header)<{ position?: string }>`
 `
 const StyledFormWrapper = styled.div`
     background: white;
-    max-width: 414px;
+    max-width: 430px;
     padding: 20px 20px 30px;
     margin-left: 30px;
     border-radius: 8px;
+    margin-top: 4.5rem;
     top: 1rem;
     display: inline-block;
     position: absolute;
@@ -343,20 +352,22 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
 `
 const social_button_content: SocialButtonContent[] = [
     {
-        provider: 'Apple',
-        id: 'gtm-signup-apple',
+        provider: 'apple',
+        id: 'dm-signup-apple',
         img: Apple,
+        text: 'Apple',
     },
     {
-        provider: 'Facebook',
-        id: 'gtm-signup-facebook',
+        provider: 'facebook',
+        id: 'dm-signup-facebook',
         img: Facebook,
         text: 'Facebook',
     },
     {
-        provider: 'Google',
-        id: 'gtm-signup-google',
+        provider: 'google',
+        id: 'dm-signup-google',
         img: Google,
+        text: 'Google',
     },
 ]
 const SignupPublic = ({
@@ -366,7 +377,6 @@ const SignupPublic = ({
     handleInputChange,
     handleValidation,
     autofocus,
-    handleSocialSignup,
     is_submitting,
 }: SignupPublicProps) => {
     const data = useStaticQuery(query)
@@ -377,6 +387,14 @@ const SignupPublic = ({
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
+
+    const handleSocialSignup = (e) => {
+        e.preventDefault()
+
+        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
+        Login.initOneAll(data_provider)
+    }
+
     return (
         <StyledSectionContainer>
             <Desktop>
@@ -407,7 +425,7 @@ const SignupPublic = ({
                                             label_color="black-3"
                                             labelSize="16px"
                                             labelTop="1.2rem"
-                                            label={localize('Email')}
+                                            label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -457,7 +475,7 @@ const SignupPublic = ({
                                                 height="20"
                                                 style={{ margin: '0 10px 0 0' }}
                                             />
-                                            {provider}
+                                            {text}
                                         </SocialButton>
                                     ))}
                                 </SocialWrapper>
@@ -470,7 +488,7 @@ const SignupPublic = ({
                                     (is_eu && data['deriv_platform_eu'])
                                 }
                                 alt="forex trading on mobile"
-                                width="225px"
+                                width="255px"
                             />
                             <LinkFlex
                                 external
@@ -479,12 +497,11 @@ const SignupPublic = ({
                                 rel="noopener noreferrer nofollow"
                             >
                                 <StyledHeader
-                                    size="4rem"
-                                    width="330px"
+                                    size="48px"
                                     align="start"
                                     color="grey-8"
                                     mr="1.2rem"
-                                    ml="-4rem"
+                                    ml="6rem"
                                     position="relative"
                                 >
                                     {localize('Get a taste of the Deriv experience')}
@@ -549,7 +566,7 @@ const SignupPublic = ({
                                             input_background="grey-8"
                                             label_focus_color="grey-7"
                                             label_color="black-3"
-                                            label={localize('Email')}
+                                            label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -582,7 +599,7 @@ const SignupPublic = ({
                                 />
                                 <MobileSocialWrapper jc="unset" ai="center">
                                     <MobileSignInText>
-                                        {localize('Or sign in with')}
+                                        {localize('Or sign up with')}
                                     </MobileSignInText>
                                     <Flex>
                                         {social_button_content.map(({ provider, id, img }) => (

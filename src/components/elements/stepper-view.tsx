@@ -136,7 +136,7 @@ const StepperView = ({
                                 subtitle={item.subtitle}
                                 title_font_size="2.4rem"
                                 subtitle_font_size="1.6rem"
-                                margin="1.2rem 0 0 0"
+                                margin_title="-0.5rem 0 0 0"
                                 line_height="1.5"
                             />
                         </ContentWrapper>

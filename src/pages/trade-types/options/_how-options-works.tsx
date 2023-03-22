@@ -46,22 +46,13 @@ const OptionItems = styled(Flex)`
     margin-bottom: 0.8rem;
 
     @media ${device.mobileL} {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: center;
-
-        & > div > img {
-            width: 24px;
-            height: 24px;
+        ${Text} {
+            margin-top: 1.5rem;
         }
     }
 `
 const StyledContainer = styled(Container)`
     width: 100% !important;
-    @media ${device.mobileL} {
-        background: url(${Pattern});
-        background-size: cover;
-    }
 `
 
 const StyledText = styled(Text)`

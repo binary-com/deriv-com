@@ -234,6 +234,7 @@ import USDMXN from 'images/svg/symbols/usd-mxn.svg'
 import USDNOK from 'images/svg/symbols/usd-nok.svg'
 import USDBRENT from 'images/svg/symbols/usd-brent.svg'
 import USDPLN from 'images/svg/symbols/usd-pln.svg'
+import EURPLN from 'images/svg/symbols/eur-pln.svg'
 import USDRUB from 'images/svg/symbols/usd-rub.svg'
 import USDSEK from 'images/svg/symbols/usd-sek.svg'
 import USDSGD from 'images/svg/symbols/usd-sgd.svg'
@@ -351,9 +352,9 @@ import VCRASHIC300 from 'images/svg/symbols/volatility-crash-300-new.svg'
 import VINDEXIC200 from 'images/svg/symbols/volatility-index-ic-200.svg'
 import VINDEXIC300 from 'images/svg/symbols/volatility-index-ic-300.svg'
 import VINDEX2001S from 'images/svg/symbols/volatility_200_1s.svg'
+import VINDEX3001S from 'images/svg/symbols/volatility_300_1s.svg'
 import VINDEX1501S from 'images/svg/symbols/volatility_150_1s.svg'
 import VINDEX2501S from 'images/svg/symbols/volatility_250_1s.svg'
-import VINDEX3001S from 'images/svg/symbols/volatility_300_1s.svg'
 import ZECUSD from 'images/svg/symbols/zec-usd.svg'
 
 export {
@@ -427,6 +428,7 @@ export {
     ESP35,
     ETCUSD,
     ETHUSD,
+    EURPLN,
     EUR50,
     EURAUD,
     EURBASKET,

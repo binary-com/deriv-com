@@ -1,11 +1,9 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
-import Stocks from 'images/svg/stock-indices/stocks-minimum-capital.svg'
+import Baskets from 'images/svg/stock-indices/baskets.svg'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
-import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
-import PractiseIcon from 'images/svg/markets/aim-new.svg'
-import TradeIcon from 'images/svg/markets/trade-new.svg'
+import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 
 export type SimpleStepContentElement = {
@@ -27,27 +25,24 @@ export const simple_step_content_basket = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <img src={PractiseIcon} alt="Practise" width="32" height="32" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading forex and other markets." />
+            <Localize translate_text="Open a real account, make a deposit, and start trading baskets and other markets." />
         ),
-        icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <img src={WithdrawIcon} alt="Withdraw" width="32" height="32" />,
     },
 ]
 
 export const basket_indices_content: BasketIndicesContent[] = [
     {
-        src: Stocks,
+        src: Baskets,
         alt: 'Currency weight',
         text: <Localize translate_text="Each currency weighted by 20%" />,
     },
@@ -75,7 +70,7 @@ export const basket_indices_content: BasketIndicesContent[] = [
 
 export const basket_indices_content_eu: BasketIndicesContent[] = [
     {
-        src: Stocks,
+        src: Baskets,
         alt: 'Currency weight',
         text: <Localize translate_text="Each currency weighted by 20%" />,
     },

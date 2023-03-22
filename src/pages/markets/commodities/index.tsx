@@ -6,24 +6,35 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
+import useRegion from 'components/hooks/use-region'
 
-const CommoditiesPage = () => (
-    <Layout type="noNav">
-        <SEO
-            description={localize(
-                'Sign up with Deriv to start trading on commodities and speculate on the price movements of gold, silver, oil, and other assets.',
-            )}
-            title={localize('Commodities market | Commodities trading | Deriv')}
-        />
-        <DerivedFXHero
-            title={localize('Commodities')}
-            description={localize(
-                'Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted.',
-            )}
-        />
-        <Commodities simple_step_content={simple_step_content_commodities} />
-        <Signup appearance={Appearances.public} />
-    </Layout>
-)
+const CommoditiesPage = () => {
+    const { is_row } = useRegion()
+    return (
+        <Layout type="noNav">
+            <SEO
+                description={localize(
+                    'Trade the commodities market and speculate on the price movements of oil and precious metals like gold and silver. Enjoy low spreads and zero commission.',
+                )}
+                title={localize('Commodities trading | Commodities market online trading | Deriv')}
+            />
+            <DerivedFXHero
+                title={localize('Commodities')}
+                description={
+                    is_row
+                        ? localize(
+                              'Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our high leverage and competitive spreads.',
+                          )
+                        : localize(
+                              'Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our competitive spreads.',
+                          )
+                }
+                is_commodities
+            />
+            <Commodities simple_step_content={simple_step_content_commodities} />
+            <Signup appearance={Appearances.public} />
+        </Layout>
+    )
+}
 
 export default WithIntl()(CommoditiesPage)

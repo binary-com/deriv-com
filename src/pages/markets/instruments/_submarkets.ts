@@ -30,6 +30,7 @@ import DerivedCFDs from './_derived-cfds'
 import CryptocurrenciesCFDs from './_cryptocurrencies-cfds'
 import CryptocurrenciesTradeType from './_cryptocurrencies-trade-type'
 import JumpIndices from './_jump_indices'
+import AccumulatorsIndices from './_accumulators-indices'
 import SwapFreePairs from './_swap-free-pairs'
 import SymbolsMapper from './_symbols_mapper'
 import ContinuousIndicesOptions from './_continuous-indices_options'
@@ -51,6 +52,7 @@ export {
     DerivedCFDs,
     Energy,
     EnergyOptions,
+    AccumulatorsIndices,
     Europe,
     ExoticPairs,
     JumpIndices,

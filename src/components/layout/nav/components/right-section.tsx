@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { handleGetTrading } from '../util/nav-methods'
 import { NavRight } from '../styles/nav-styles'
-import { localize, LanguageSwitcher } from 'components/localization'
-import { Button } from 'components/form'
+import { LanguageSwitcher } from 'components/localization'
+import Button from 'components/custom/_button'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -52,9 +52,11 @@ const RightSection = ({
         return (
             <Wrapper>
                 <Language hide_component={hide_language_switcher} />
-                <StyledButton onClick={handleGetTrading} primary>
-                    {localize('Get Trading')}
-                </StyledButton>
+                <StyledButton
+                    onClick={handleGetTrading}
+                    primary
+                    label="_t_Get Trading_t_"
+                ></StyledButton>
             </Wrapper>
         )
     }
@@ -64,21 +66,20 @@ const RightSection = ({
             {!hide_signup_login && (
                 <>
                     <StyledButton
-                        disabled={is_region_loading}
                         id="dm-nav-login-button"
                         onClick={handleLogin}
-                        primary
-                    >
-                        {localize('Log in')}
-                    </StyledButton>
-                    <SignupButton
+                        label="_t_Log in_t_"
                         disabled={is_region_loading}
-                        onClick={handleSignup}
+                        primary
+                        outline
+                    />
+                    <SignupButton
                         id="dm-nav-signup"
-                        secondary
-                    >
-                        {localize('Create free demo account')}
-                    </SignupButton>
+                        onClick={handleSignup}
+                        primary
+                        label="_t_Create free demo account_t_"
+                        disabled={is_region_loading}
+                    />
                 </>
             )}
             <Language hide_component={hide_language_switcher} />

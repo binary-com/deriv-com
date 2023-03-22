@@ -15,8 +15,7 @@ const StyledNote = styled(Flex)`
     background: var(--color-grey-25);
 
     @media ${device.tabletS} {
-        align-items: flex-start;
-        border-radius: 8px;
+        align-items: center;
     }
 `
 

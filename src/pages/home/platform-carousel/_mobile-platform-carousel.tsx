@@ -10,16 +10,12 @@ import {
     PLATFORMS_CAROUSEL_DELAY,
 } from './_utils'
 import type { PlatformDetailsProps } from './_utils'
-import { LocalizedLink } from 'components/localization'
-import {
-    dmt5_android_url,
-    dmt5_app_gallery,
-    deriv_mt5_app_url,
-    dmt5_ios_url,
-} from 'common/constants'
+import image_query from './_details'
+import { Localize, LocalizedLink } from 'components/localization'
+import { dmt5_android_url, dmt5_app_gallery, deriv_mt5_app_url } from 'common/constants'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
-import { Carousel, QueryImage, StyledLink } from 'components/elements'
+import { Carousel, Header, QueryImage, StyledLink } from 'components/elements'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const query = graphql`
@@ -73,17 +69,17 @@ const CarouselItemWrapper = styled.div`
     width: 100%;
     padding: 1.8rem 1.8rem 0;
 `
-
 const MobileImage = styled(QueryImage)`
     .gatsby-image-wrapper > picture > img {
         object-fit: contain !important;
     }
 `
-
 const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
+    font-size: 12px;
+    color: inherit;
+    font-weight: bold;
 `
-
 const settings = {
     container_style: {
         width: '100%',
@@ -105,19 +101,19 @@ const settings = {
         width: 100%;
         height: 8px;
         @media ${device.tabletL} {
-            bottom: 228px;
+            bottom: 175px;
         }
         @media (max-width: 660px) {
-            bottom: 268px;
+            bottom: 165px;
         }
         @media (max-width: 425px) {
-            bottom: 292px;
+            bottom: 195px;
         }
         @media (max-width: 375px) {
-            bottom: 304px;
+            bottom: 215px;
         }
         @media (max-width: 317px) {
-            bottom: 362px;
+            bottom: 200px;
         }
     `,
 } as const
@@ -146,32 +142,32 @@ const PlatformDetails = ({ title, icon, description, learn_more_link }: Platform
         </>
     )
 }
-const OsBadges = styled(Flex)`
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: flex-start;
-    gap: 8px;
-    max-height: 88px;
-    margin-top: 32px;
-    margin-bottom: 32px;
-`
-const AppStoreBadge = styled(LocalizedLink)`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 160px;
-    height: 40px;
+const SupportedDeviceLinks = styled(Header)`
+    font-size: 12px;
+    text-align: center;
+    font-weight: inherit;
+    color: #999999;
 `
 type MobilePlatformCarouselProps = {
     carousel_data: TPlatformDetails[]
 }
 
 const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) => {
+    const availableOnText = '_t_Available on_t_'
+    const andText = '_t_and_t_'
     const data = useStaticQuery(query)
 
     const lang_direction = useLangDirection()
+
+    const addCommaAnd = (length, index) => {
+        return length > 1 && length != index + 1 && length - 1 != index + 1 ? (
+            ','
+        ) : length - 1 == index + 1 ? (
+            <Localize translate_text={andText} />
+        ) : (
+            ''
+        )
+    }
 
     return (
         <Carousel
@@ -196,6 +192,33 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                     height={'55vw'}
                                 />
                             </Flex>
+                            <Flex
+                                ai="baseline"
+                                jc="center"
+                                fw="wrap"
+                                width="unset"
+                                tabletL={{ m: '3.2rem 3.8rem' }}
+                                mobileL={{ m: '32px 0 40px' }}
+                            >
+                                <SupportedDeviceLinks>
+                                    <Localize translate_text={availableOnText} />
+                                    {download_links.is_desktop.map((link, index) => (
+                                        <>
+                                            <DownloadLink
+                                                key={link.type}
+                                                external
+                                                type={link?.link_type}
+                                                to={link?.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {link.label}
+                                            </DownloadLink>
+                                            {addCommaAnd(download_links.is_desktop.length, index)}
+                                        </>
+                                    ))}
+                                </SupportedDeviceLinks>
+                            </Flex>
                             <Flex>
                                 <PlatformDetails
                                     title={title}
@@ -204,77 +227,6 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                     learn_more_link={learn_more_link}
                                 />
                             </Flex>
-                            {title === 'Deriv MT5' ? (
-                                <OsBadges>
-                                    <AppStoreBadge
-                                        external
-                                        to={deriv_mt5_app_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['dmt5_mobile_web_browser']}
-                                            alt="dmt5 web browser"
-                                        />
-                                    </AppStoreBadge>
-
-                                    <AppStoreBadge
-                                        external
-                                        to={dmt5_android_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['dmt5_mobile_google_play']}
-                                            alt="dmt5 google play"
-                                        />
-                                    </AppStoreBadge>
-                                    <AppStoreBadge
-                                        external
-                                        to={dmt5_ios_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['dmt5_mobile_app_store']}
-                                            alt="dmt5 ios"
-                                        />
-                                    </AppStoreBadge>
-                                    <AppStoreBadge
-                                        external
-                                        to={dmt5_app_gallery}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['dmt5_mobile_app_gallery']}
-                                            alt="dmt5 app gallery"
-                                        />
-                                    </AppStoreBadge>
-                                </OsBadges>
-                            ) : (
-                                <Flex
-                                    ai="flex-start"
-                                    jc="center"
-                                    fw="wrap"
-                                    width="unset"
-                                    tabletL={{ m: '3.2rem 3.8rem' }}
-                                    mobileL={{ m: '32px 0 40px' }}
-                                >
-                                    {download_links.is_desktop.map((link) => (
-                                        <DownloadLink
-                                            key={link.type}
-                                            external
-                                            type={link?.link_type}
-                                            to={link?.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <img src={getOSIcon(link.type)} alt={link.type} />
-                                        </DownloadLink>
-                                    ))}
-                                </Flex>
-                            )}
                         </CarouselItemWrapper>
                     )
                 },

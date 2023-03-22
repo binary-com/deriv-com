@@ -1,15 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import useAuthCheck from 'components/hooks/use-auth-check'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
-import { Localize } from 'components/localization'
-import { Flex } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
-import { Button, LinkButton } from 'components/form'
+import Shape from './_hero-shape'
+import Button from './_button'
+import DerivTraderRow from 'images/common/dtrader/hero-image.png'
+import DerivTraderEu from 'images/common/dtrader/hero-image-eu.png'
+import CommonHeaderSection from 'components/elements/common-header-section'
+import DerivTLogo from 'images/svg/dtrader/deriv-trader-banner-logo.svg'
 import device from 'themes/device'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { useIsRtl } from 'components/hooks/use-isrtl'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { LinkButton } from 'components/form'
+import { Localize } from 'components/localization'
+import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useRegion from 'components/hooks/use-region'
 
 type DHeroProps = {
@@ -26,160 +29,74 @@ type DHeroProps = {
     title?: string | JSX.Element
 }
 
-const Wrapper = styled.div`
-    position: relative;
-    background-color: var(--color-black);
-    width: 100%;
-    display: flex;
-    padding: 9rem 12rem;
-    min-height: 575px;
+//TODO: (deriv-rebranding) to make the content section reusable .
 
-    @media ${device.desktopS} {
-        padding-left: 18%;
-    }
+const ImageStyle = styled.img`
+    z-index: 1;
+    src: ${({ src }) => src};
 
-    @media ${device.laptopM} {
-        min-height: unset;
-        padding: 8rem 12rem 8rem 4rem;
-    }
-    @media ${device.tabletL} {
-        flex-direction: column;
-    }
     @media ${device.tablet} {
-        flex-direction: column-reverse;
-        align-items: center;
-        padding: 16px 16px 40px;
-    }
-`
-const HeroContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-`
-const StyledHeader = styled(Header)`
-    color: var(--color-white);
-    display: flex;
-    margin-top: 0;
-    font-size: 2.4rem;
-
-    @media ${device.laptopM} {
-        font-size: 24px;
+        width: 100%;
     }
 `
 
-const LottieWrapper = styled.div`
-    width: 100%;
-    max-width: 730px;
-    position: absolute;
-    top: 50%;
-    right: 12rem;
-    bottom: 50%;
-    left: auto;
+const ImageWrapper = styled.div`
+    display: flex;
+    padding: 64px 0;
+    flex: 1;
+    justify-content: end;
+    @media ${device.tablet} {
+        padding: 64px 0 54px;
+    }
+`
+const BannerButtonWrapper = styled.div`
     display: flex;
     align-items: center;
-
-    @media ${device.desktop} {
-        max-width: 606px;
-    }
-
-    @media ${device.laptopM} {
-        max-width: 500px;
-        right: 8rem;
-    }
-    @media ${device.laptop} {
-        max-width: 450px;
-        right: 10rem;
-    }
-    @media ${device.tabletL} {
-        max-width: 390px;
-        right: 2rem;
-    }
-    @media ${device.tabletS} {
-        max-width: 380px;
-    }
     @media ${device.tablet} {
-        max-width: 328px;
-        top: auto;
-        right: auto;
-        bottom: 50%;
-        left: auto;
-        position: relative;
+        flex-direction: column;
+        justify-content: center;
     }
 `
 
-const LinkWrapper = styled.div`
+const BackgroundStyle = styled.div`
+    background-color: var(--color-white);
+    flex: 1;
+    height: 90vh;
     display: flex;
-    margin-top: 3.2rem;
+    justify-content: flex-end;
 
-    @media (max-width: 1420px) {
-        top: 480px;
-    }
-    @media ${device.laptopM} {
-        top: 350px;
-    }
-    @media ${device.tabletL} {
-        top: 236px;
-    }
     @media ${device.tablet} {
-        position: unset;
-        top: unset;
-        justify-content: start;
-    }
-    @media ${device.mobileL} {
-        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        justify-content: center;
+        height: 100%;
     }
 `
-const DemoButton = styled(Button)`
-    padding: 14px 16px;
-    width: auto;
-    font-size: 14px;
-    margin-right: 1.6rem;
-    border: unset;
+const ContentWrapperStyle = styled.div`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+`
+const HeroImageWrapper = styled.div`
+    width: 60%;
 
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
         width: 100%;
-        white-space: nowrap;
-        margin-bottom: 1.6rem;
-        margin-right: unset;
-    }
-`
-
-const BackgroundSVG = styled.img<{ is_rtl: boolean }>`
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 630px;
-    transform: ${({ is_rtl }) => {
-        return is_rtl ? 'scaleX(-1)' : null
-    }};
-
-    @media (max-width: 1680px) {
-        width: 40%;
-    }
-
-    @media ${device.laptopM} {
-        width: 48%;
-        max-width: 492px;
-    }
-    @media ${device.laptop} {
-        width: 50%;
-    }
-    @media ${device.tabletL} {
-        width: 45%;
-        max-width: 350px;
-    }
-    @media ${device.tablet} {
-        width: 60%;
-        height: 250px;
     }
 `
 const GoToLiveDemo = styled(LinkButton)`
-    color: var(--color-white);
-    border-color: var(--color-black-5);
-    padding: 14px 16px;
+    color: var(--color-red);
+    border-color: var(--color-red);
+    padding: 11px 16px;
     width: auto;
-    @media ${device.mobileL} {
+    border-radius: 16px;
+
+    &:hover {
+        color: var(--color-white);
+        background-color: var(--color-red);
+    }
+    @media ${device.tablet} {
         max-width: 100%;
         white-space: nowrap;
         margin-left: 0;
@@ -189,128 +106,80 @@ const GoToLiveDemo = styled(LinkButton)`
         white-space: nowrap;
     }
 `
-const InformationWrapper = styled(Flex)`
-    width: 100%;
-    max-width: 562px;
-
-    @media (max-width: 1370px) {
-        max-width: 420px;
-    }
-    @media ${device.laptop} {
-        max-width: 390px;
-    }
-    @media ${device.laptopM} {
-        max-width: 410px;
-    }
-    @media ${device.tabletL} {
-        width: 46%;
-        max-width: 400px;
-    }
+const CreateAccountButton = styled(Button)`
     @media ${device.tablet} {
+        max-width: 100%;
         width: 100%;
-        margin-top: 8rem;
-    }
-    @media ${device.mobileL} {
-        max-width: 328px;
     }
 `
+const Content = styled.div`
+    max-width: 632px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    padding-left: 120px;
 
-const DLogo = styled.img`
-    width: 32px;
-    height: 32px;
-    margin-right: 1.6rem;
-`
-
-const query = graphql`
-    {
-        dbot: file(relativePath: { eq: "dbot/dbot_trade.png" }) {
-            ...fadeIn
-        }
-        dmt5: file(relativePath: { eq: "dmt5/dmt5_trade.png" }) {
-            ...fadeIn
-        }
-        dtrader: file(relativePath: { eq: "dtrader/dtrader_trade.png" }) {
-            ...fadeIn
-        }
-        dtrader_eu: file(relativePath: { eq: "dtrader/dtrader_trade_eu.png" }) {
-            ...fadeIn
-        }
-        dbot_mobile: file(relativePath: { eq: "dbot/dbot_trade_mobile.png" }) {
-            ...fadeIn
-        }
-        dmt5_mobile: file(relativePath: { eq: "dmt5/dmt5_trade_mobile.png" }) {
-            ...fadeIn
-        }
+    @media ${device.tablet} {
+        padding: 0 16px 64px;
     }
 `
 
-const DHero = ({
-    title,
-    background_alt,
-    background_svg,
-    content,
-    image_name,
-    join_us_for_free,
-    is_live_demo,
-    Logo,
-}: DHeroProps) => {
-    const data = useStaticQuery(query)
+const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
+    const { is_mobile } = useBreakpoints()
+    const { is_eu, is_row } = useRegion()
     const handleSignup = useHandleSignup()
-    const { is_eu } = useRegion()
-    const is_rtl = useIsRtl()
     const [is_logged_in] = useAuthCheck()
-
     return (
-        <Wrapper>
-            <BackgroundSVG is_rtl={is_rtl} src={background_svg} alt="background svg" />
-
-            <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h4" weight="normal">
-                    <DLogo src={Logo} alt="logo" width="32" height="32" />
-                    {title}
-                </StyledHeader>
-                <HeroContent>
-                    <Header as="h1" type="display-title" color="white" mt="1.5rem">
-                        {content}
-                    </Header>
-                </HeroContent>
-                <LinkWrapper>
-                    {join_us_for_free &&
-                        (is_logged_in ? (
-                            <DemoButton width="128px" onClick={handleGetTrading} secondary>
-                                <Localize translate_text="Get Trading" />
-                            </DemoButton>
-                        ) : (
-                            <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
-                                <Localize translate_text="Create free demo account" />
-                            </DemoButton>
-                        ))}
-                    {is_live_demo && (
-                        <GoToLiveDemo
-                            tertiary
-                            external
-                            type={getLinkType()}
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                        >
-                            <Localize translate_text="Go to live demo" />
-                        </GoToLiveDemo>
-                    )}
-                </LinkWrapper>
-            </InformationWrapper>
-
-            <LottieWrapper>
-                {image_name === 'dtrader' ? (
-                    <QueryImage
-                        data={data[is_eu ? 'dtrader_eu' : 'dtrader']}
-                        alt={background_alt}
+        <BackgroundStyle>
+            <ContentWrapperStyle>
+                <Content>
+                    <img width="237px" height="64px" src={DerivTLogo} />
+                    <CommonHeaderSection
+                        title="_t_A user-friendly trading platform_t_"
+                        title_font_size={`${is_mobile ? 32 : 64}px`}
+                        color="var(--color-black-9)"
                     />
-                ) : (
-                    <QueryImage data={data[image_name]} alt={background_alt} />
-                )}
-            </LottieWrapper>
-        </Wrapper>
+                    <BannerButtonWrapper>
+                        {join_us_for_free &&
+                            (is_logged_in ? (
+                                <CreateAccountButton
+                                    onClick={handleGetTrading}
+                                    label="_t_Get Trading_t_"
+                                    primary
+                                    mobileFullWidth
+                                />
+                            ) : (
+                                <CreateAccountButton
+                                    onClick={handleSignup}
+                                    label="_t_Create free demo account_t_"
+                                    primary
+                                    mobileFullWidth
+                                />
+                            ))}
+                        {is_live_demo && (
+                            <GoToLiveDemo
+                                tertiary
+                                external
+                                type={getLinkType()}
+                                target="_blank"
+                                rel="noopener noreferrer nofollow"
+                            >
+                                <Localize translate_text="Go to live demo" />
+                            </GoToLiveDemo>
+                        )}
+                    </BannerButtonWrapper>
+                </Content>
+            </ContentWrapperStyle>
+            <HeroImageWrapper>
+                <Shape angle={is_mobile ? 101 : 193} width="60%">
+                    <ImageWrapper>
+                        <ImageStyle src={is_eu ? DerivTraderEu : DerivTraderRow} />
+                    </ImageWrapper>
+                </Shape>
+            </HeroImageWrapper>
+        </BackgroundStyle>
     )
 }
 

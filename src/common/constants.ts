@@ -155,7 +155,6 @@ export const default_server_url = 'green.binaryws.com'
 
 export const live_chat_key = 'live_chat_redirection'
 
-export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
 export const loss_percent = 71

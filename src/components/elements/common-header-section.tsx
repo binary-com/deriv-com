@@ -24,6 +24,10 @@ type CommonHeaderSectionProps = {
     height?: string
     align_title?: string
     align_subtitle?: string
+    font_weight_title?: string
+    font_weight_subtitle?: string
+    font_family_title?: string
+    font_family_subtitle?: string
 }
 
 const StyledCommonHeaderSection = styled.div<CommonHeaderSectionProps>`
@@ -37,8 +41,9 @@ const StyledCommonHeaderSection = styled.div<CommonHeaderSectionProps>`
 const StyledTitle = styled.h1<CommonHeaderSectionProps>`
     color: ${(props) => props.title_text_color};
     font-size: ${(props) => props.title_font_size};
-    font-family: Ubuntu, sans-serif;
-    font-weight: 'bold';
+    font-family: ${(props) =>
+        props.font_family_title ? props.font_family_title : 'Ubuntu, sans-serif'};
+    font-weight: ${(props) => (props.font_weight_title ? props.font_weight_title : 'bold')};
     margin: ${(props) => props.margin_title};
     text-align: ${(props) => props.align_title};
     line-height: ${(props) => props.line_height};
@@ -47,8 +52,9 @@ const StyledTitle = styled.h1<CommonHeaderSectionProps>`
 const StyledSubtitle = styled.p<CommonHeaderSectionProps>`
     color: ${(props) => props.subtitle_text_color};
     font-size: ${(props) => props.subtitle_font_size};
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 'normal';
+    font-family: ${(props) =>
+        props.font_family_subtitle ? props.font_family_subtitle : "'IBM Plex Sans', sans-serif"};
+    font-weight: ${(props) => (props.font_weight_subtitle ? props.font_weight_subtitle : 'normal')};
     margin: ${(props) => props.margin_subtitle};
     text-align: ${(props) => props.align_subtitle};
     line-height: ${(props) => props.line_height};
@@ -57,10 +63,14 @@ const CommonHeaderSection = ({
     title,
     subtitle,
     padding,
-    margin_title,
     margin_subtitle,
+    margin_title,
     bgcolor,
     color,
+    font_weight_title,
+    font_weight_subtitle,
+    font_family_title,
+    font_family_subtitle,
     line_height,
     title_text_color,
     subtitle_text_color,
@@ -87,6 +97,8 @@ const CommonHeaderSection = ({
                         align_title={align_title}
                         margin_title={margin_title}
                         line_height={line_height}
+                        font_weight_title={font_weight_title}
+                        font_family_title={font_family_title}
                     >
                         <Localize translate_text={title} />
                     </StyledTitle>
@@ -98,6 +110,8 @@ const CommonHeaderSection = ({
                         margin_subtitle={margin_subtitle}
                         align_subtitle={align_subtitle}
                         line_height={line_height}
+                        font_weight_subtitle={font_weight_subtitle}
+                        font_family_subtitle={font_family_subtitle}
                     >
                         <Localize translate_text={subtitle} />
                     </StyledSubtitle>

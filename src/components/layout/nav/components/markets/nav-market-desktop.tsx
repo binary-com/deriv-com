@@ -17,12 +17,12 @@ const NavigationBar = styled.ul`
     justify-content: center;
     padding: 0;
     line-height: 1.2;
-    margin-left: 13.3rem;
+    margin-right: 5.3rem;
     white-space: nowrap;
 
     @media (max-width: 1300px) {
         font-size: 12px;
-        margin-left: 0;
+        margin-right: 0;
     }
 `
 type NavLinkCardTypes = {

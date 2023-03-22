@@ -1,5 +1,3 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
 import { localize } from 'components/localization'
 
 type TAcceptedAnswer = {
@@ -20,7 +18,7 @@ type TFaqSchemaData = {
     mainEntity: TMainEntity
 }
 
-const faq_schema_data: TFaqSchemaData = {
+const faq_schema: TFaqSchemaData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
@@ -111,10 +109,4 @@ const faq_schema_data: TFaqSchemaData = {
     ],
 }
 
-const FaqSchema = () => (
-    <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faq_schema_data)}</script>
-    </Helmet>
-)
-
-export default FaqSchema
+export default faq_schema

@@ -65,13 +65,7 @@ const StyledHeader = styled(Header)`
 `
 
 const SubtitleHeader = styled(Header)`
-    line-height: 36px;
-
-    @media ${device.laptopL} {
-        width: 100%;
-    }
     @media ${device.tabletL} {
-        line-height: 24px;
         font-size: 16px;
     }
 `

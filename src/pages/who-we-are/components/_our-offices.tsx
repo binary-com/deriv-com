@@ -37,7 +37,6 @@ const NumberSection = styled(CssGrid)`
         grid-column-gap: 3rem;
         padding: 0 16px;
     }
-
     @media (max-width: 359px) {
         grid-column-gap: 1rem;
     }

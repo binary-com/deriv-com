@@ -74,8 +74,8 @@ extractTranslations();
 
 // takes Strapi CMS data from the gatsby cache (query in 404 page) and converts it to an array with a string
 function getStrapiStrings(strapi_obj_data) {
-        return strapi_obj_data instanceof Array ? strapi_obj_data.map((array, b) => getStrapiStrings(array)).flat() :
-            strapi_obj_data instanceof Object ? Object.values(strapi_obj_data).map((object, b) => getStrapiStrings(object)).flat() :
+        return strapi_obj_data instanceof Array ? strapi_obj_data.map((array) => getStrapiStrings(array)).flat() :
+            strapi_obj_data instanceof Object ? Object.values(strapi_obj_data).map((object) => getStrapiStrings(object)).flat() :
             strapi_obj_data;
 }
 

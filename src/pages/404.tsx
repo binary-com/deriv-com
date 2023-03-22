@@ -66,6 +66,7 @@ const PageNotFound = () => {
     )
 }
 
+// this query exist here to get data only which need to be translated in crowdin
 export const query = graphql`
     query {
         allStrapiWhoWeArePage {

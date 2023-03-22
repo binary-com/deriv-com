@@ -108,7 +108,8 @@ export default class OnboardingFlow {
     }
     async signUp() {
         await this.page.goto(process.env.APP_URL!)
-        // await this.cookieDialogHandler()
+        if (await this.page.url().includes('eu.'))
+            await this.cookieDialogHandler()
         await this.page.waitForSelector('#dm-hero-signup')
         await this.page.click('#dm-hero-signup')
         await this.page.waitForTimeout(5000)
@@ -134,43 +135,20 @@ export default class OnboardingFlow {
             return Array.from(document.links).map((item) => item.href)
         })
         hrefs = hrefs.slice().reverse()
-        let complete_signup_page;
         // TODO need to find a better approach instead of this
         // eslint-disable-next-line no-restricted-syntax
         for await (const item of hrefs) {
             await mailPage.goto(item)
             if (await mailPage.getByText(this.email).isVisible()) {
-                const element = await mailPage.locator('a', { hasText: 'signup' })
-                complete_signup_page = await element.getAttribute('href')
-                if (complete_signup_page) {
-                    await mailPage.close()
-                    break
-                }
+                const element = await mailPage.locator('td > p', { hasText: `dafsdf` })
+                console.log(element.innerHTML)
+
+                // await expect(mailPage.locator('p', { hasText: `/${this.email}/` }).nth(0)).toHaveText("xxx")
+                await mailPage.close()
+                break
             }
         }
 
-        await this.changeEndpoint();
-        await this.page.goto(complete_signup_page);
-        await this.page.waitForSelector('#dt_core_set-residence-form_signup-residence-select')
-        await this.page.click('#dt_core_set-residence-form_signup-residence-select')
-        await expect(this.page.getByText(process.env.ACCOUNT_RESIDENCE!)).toBeVisible()
-        await this.page.getByText(process.env.ACCOUNT_RESIDENCE!).click()
-        await this.page.getByRole('dialog').getByRole('button', { name: 'Next' }).click()
-        await expect(this.page.getByText(/Citizenship/)).toBeVisible()
-        await expect(this.page.getByText(/Are you a citizen of/)).toBeVisible()
-        await this.page.getByText(/Yes/).click()
-        await expect(this.page.getByText(/Keep your account secure/)).toBeVisible()
-        await this.page.locator('#dt_core_account-signup-modal_account-signup-password-field')
-        await expect(this.page.getByText(/Start trading/)).toBeDisabled()
-        await this.page
-            .locator('#dt_core_account-signup-modal_account-signup-password-field')
-            .type('Abcd2134')
-        await expect(this.page.getByText(/Start trading/)).toBeEnabled()
-        await this.page.getByText(/Start trading/).click()
 
-        if (this.page.url().includes('onboarding')) {
-            await this.derivAppcookieDialogHandler()
-            await this.demoWizardHandler()
-        }
     }
 }

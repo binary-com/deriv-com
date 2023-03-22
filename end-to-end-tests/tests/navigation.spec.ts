@@ -1,11 +1,13 @@
-import {test, expect} from '@playwright/test'
+import { test, expect } from '@playwright/test'
 
-test('navigate to who we are page', async ({page}) => {
+test('navigate to who we are page', async ({ page }) => {
     await page.goto(process.env.APP_URL!);
-    // const dialog = page.getByTestId('cookie-dialog')
-    // if (dialog) {
-    //     await dialog.locator('button', { hasText: /Accept/ }).click()
-    // }
+
+    if (await page.url().includes('eu.')) {
+        const dialog = page.getByTestId('cookie-dialog')
+        if (dialog)
+            await dialog.locator('button', { hasText: /Accept/ }).click()
+    }
     await page.locator('nav > div > div > ul > li:nth-child(3) > span').click();
     await page.locator('nav').getByRole('link', { name: 'Who we are' }).click()
 

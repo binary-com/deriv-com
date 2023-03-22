@@ -72,7 +72,7 @@ const SubtitleHeader = styled(Header)`
     }
     @media ${device.tabletL} {
         line-height: 24px;
-        font-size: 16px !important;
+        font-size: 16px;
     }
 `
 

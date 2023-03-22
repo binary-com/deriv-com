@@ -38,7 +38,7 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
     const requestMarketsData = useCallback(() => {
         setIsLoading(true)
 
-        fetch(`https://worker.shuvohabib.workers.dev?region=${region}`)
+        fetch(`https://worker.onlineworldtrade.com?region=${region}`)
             .then((response) => response.json())
             .then((response) => {
                 const responseData = [...response.trading_platform_asset_listing.mt5.assets]

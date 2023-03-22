@@ -18,7 +18,7 @@ const HeroHeaderItems = () => {
             }}
         >
             {header_items.map((item) => (
-                <Typography.Heading key={item.id} as={'h1'} size={'xxxl'}>
+                <Typography.Heading key={item.id} as={'h1'} size={'xxl'} weight="normal">
                     <Localize translate_text={item.text} />
                 </Typography.Heading>
             ))}

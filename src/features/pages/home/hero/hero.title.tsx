@@ -7,7 +7,7 @@ const HeroTitle = () => {
     return (
         <Box as="div">
             <Typography.Heading as="h5" size={'xs'} weight="normal">
-                <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
+                <Localize translate_text="_t_Get the widest range of markets, trades and platforms_t_" />
             </Typography.Heading>
         </Box>
     )

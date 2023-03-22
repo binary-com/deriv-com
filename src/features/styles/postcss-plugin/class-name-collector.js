@@ -65,9 +65,9 @@ class ClassNameCollector {
 
         if (this.isModule) {
             const result = `${comment}\n\nexport type ClassNames =\n${prefix}${names};`
-            return this.exportAsDefault ? result + '\n\nexport default ClassNames;' : result
+            return this.exportAsDefault ? result + '\n\nexport default ClassNames' : result
         }
-        return `${comment}\n\ntype ClassNames =\n${prefix}${names};`
+        return `${comment}\n\ntype ClassNames =\n${prefix}${names}`
     }
 
     process(root) {

@@ -9,6 +9,7 @@ import derivx from '../data/_deriv-x'
 import dmt5 from '../data/_dmt5'
 import dtrader from '../data/_dtrader'
 import ib_programme from '../data/_ib-programme'
+import payment_agent from '../data/_payment-agent'
 import security from '../data/_security'
 import trading from '../data/_trading'
 
@@ -22,6 +23,7 @@ export const all_questions = [
     affiliate_programme,
     ib_programme,
     about_deriv,
+    payment_agent,
     accumulators,
     dmt5,
     derivx,

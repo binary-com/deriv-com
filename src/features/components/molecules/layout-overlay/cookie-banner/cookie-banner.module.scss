@@ -1,0 +1,42 @@
+@import 'features/styles/theme/variables';
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+}
+
+.cookie_banner {
+    &_wrapper {
+        pointer-events: all;
+        inline-size: 40rem;
+        transition: translate 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        border-radius: 8px;
+        box-shadow: 0 0 12px 0 rgba(14, 14, 14, 0.16);
+        align-self: flex-start;
+        position: absolute;
+        inset-inline-start: 2rem;
+        inset-block-end: 7.5rem;
+
+        animation: fadeOut 0.2s;
+        &.visible {
+            animation: fadeIn 0.2s;
+        }
+    }
+}

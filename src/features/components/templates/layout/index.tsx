@@ -4,16 +4,15 @@ import apiManager from 'features/websocket'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { ModalPayloadType } from 'components/layout/layout'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
-import LayoutOverlay from 'components/layout/layout-overlay'
 import { LocationProvider } from 'components/layout/location-context'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import { isBrowser } from 'common/utility'
+import NonEuRedirectAlert from 'features/components/molecules/non-eu-redirect-alert'
+import BrowserUpdateAlert from 'features/components/molecules/browser-update-alert'
+import LayoutOverlay from 'features/components/molecules/layout-overlay'
 import 'swiper/swiper.min.css'
 import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
-import NonEuRedirectAlert from 'features/components/molecules/non-eu-redirect-alert'
-
 interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
@@ -50,8 +49,8 @@ const Layout = ({ children, is_ppc = false, is_ppc_redirect = false }: LayoutPro
                     aria_label={modal_payload.aria_label}
                 />
                 <NonEuRedirectAlert />
-                <LayoutOverlay is_ppc={is_ppc} />
-                <BrowserUpdateAlertModal />
+                <BrowserUpdateAlert />
+                <LayoutOverlay />
             </LocationProvider>
         </PpcProvider>
     )

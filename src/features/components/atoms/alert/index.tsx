@@ -15,7 +15,7 @@ type AlertButtonProps = {
 export interface AlertProps {
     title?: TString
     description: TString
-    cancel_button: AlertButtonProps
+    cancel_button?: AlertButtonProps
     action_button: AlertButtonProps
 }
 
@@ -43,9 +43,11 @@ const Alert = ({
 
                     <FlexBox gap="12x" justify="end" pt="12x">
                         <AlertDialog.Cancel asChild>
-                            <Button.Secondary onClick={cancel_button?.onClick}>
-                                <Localize translate_text={cancel_button.text} />
-                            </Button.Secondary>
+                            {cancel_button && (
+                                <Button.Secondary onClick={cancel_button?.onClick}>
+                                    <Localize translate_text={cancel_button.text} />
+                                </Button.Secondary>
+                            )}
                         </AlertDialog.Cancel>
                         <AlertDialog.Action asChild>
                             <Button.Primary onClick={action_button.onClick}>

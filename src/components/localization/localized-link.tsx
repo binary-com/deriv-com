@@ -20,7 +20,6 @@ type InternalLinkProps = {
     aria_label?: string
     children?: string | JSX.Element | JSX.Element[]
     has_no_end_slash?: boolean
-    is_anchor?: boolean
     locale?: string
     mounted?: boolean
     to?: string
@@ -163,7 +162,6 @@ const InternalLink = ({
     children,
     mounted,
     has_no_end_slash,
-    is_anchor,
     locale,
     to,
     ...props

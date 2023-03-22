@@ -71,6 +71,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, is_security }: LanguageSwitchProps)
                     ? current_path.replace(/\//u, '')
                     : nonENLangUrlReplace(current_path)
             }${current_hash}`
+            Cookies.set('user_language', id.replace(/\//g, ''))
 
             if (path === '/ach/') {
                 localStorage.setItem('i18n', 'ach')

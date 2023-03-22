@@ -30,9 +30,8 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        'gatsby-plugin-react-helmet',
         {
-            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+            resolve: `gatsby-plugin-canonical-urls`,
             options: {
                 siteUrl: `${site_url}`,
                 noQueryString: true,

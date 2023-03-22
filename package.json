@@ -21,6 +21,7 @@
         "formik": "^2.2.9",
         "gatsby": "^5.7.0",
         "gatsby-plugin-anchor-links": "^1.2.1",
+        "gatsby-plugin-canonical-urls": "^5.8.0",
         "gatsby-plugin-google-tagmanager": "^5.7.0",
         "gatsby-plugin-image": "^3.7.0",
         "gatsby-plugin-manifest": "^5.7.0",

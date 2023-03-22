@@ -54,6 +54,10 @@ const ResponseWrapper = styled(Flex)`
     flex-direction: column;
     padding: 2rem 1rem;
     gap: 12px;
+    margin-top: -100px;
+    @media ${device.mobileL} {
+        max-width: 40rem;
+    }
 `
 
 const ConfirmationMessage = styled(Header)`
@@ -61,6 +65,9 @@ const ConfirmationMessage = styled(Header)`
     font-size: 16px;
     word-wrap: break-word;
     line-height: 24px;
+    @media ${device.mobileL} {
+        font-size: 14px;
+    }
 `
 
 export const Appearances = {
@@ -216,7 +223,7 @@ const Signup = (props: SignupProps) => {
 
     return props.submit_state === 'success' ? (
         <ResponseWrapper>
-            <Header as="h3" type="subtitle-1" align="center" weight="normal">
+            <Header as="h3" type="subtitle-1" align="center" weight="700">
                 {localize('Check your email')}
             </Header>
             <Flex jc="center" height="128px">

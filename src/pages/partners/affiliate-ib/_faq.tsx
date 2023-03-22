@@ -12,13 +12,7 @@ import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
-import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import useRegion from 'components/hooks/use-region'
-
-type DotProps = {
-    src?: string
-    is_row?: boolean
-}
 
 const FaqHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -32,11 +26,9 @@ const FaqSubHeader = styled(Header)`
     }
 `
 
-const RelativeContainer = styled(SectionContainer)<{ is_row?: boolean }>`
+const RelativeContainer = styled(SectionContainer)`
     position: relative;
     overflow: hidden;
-    padding: ${({ is_row }) => is_row && '20rem 0 16rem 0'};
-    border-top: ${({ is_row }) => !is_row && '1px solid #eee'};
 
     @media ${device.tabletL} {
         padding: 40px 0;
@@ -44,54 +36,6 @@ const RelativeContainer = styled(SectionContainer)<{ is_row?: boolean }>`
     }
 `
 
-const TopLeftDot = styled.img<DotProps>`
-    width: ${({ is_row }) => (is_row ? '730px' : '41vw')};
-    position: absolute;
-    top: 4px;
-    left: 0;
-    right: 0;
-    margin: ${({ is_row }) => is_row && 'auto'};
-
-    @media ${device.laptopL} {
-        width: ${({ is_row }) => (is_row ? '630px' : '44vw')};
-        margin: ${({ is_row }) => is_row && 'auto'};
-        left: ${({ is_row }) => !is_row && '-50px'};
-    }
-
-    @media ${device.laptop} {
-        width: 630px;
-        margin: ${({ is_row }) => is_row && 'auto'};
-        left: ${({ is_row }) => !is_row && '-250px'};
-    }
-
-    @media ${device.tabletL} {
-        display: ${({ is_row }) => (is_row ? 'none' : 'block')};
-        left: -500px;
-    }
-`
-const BottomRightDot = styled.img<DotProps>`
-    position: absolute;
-    bottom: 16px;
-    height: 154px;
-    right: 0;
-    left: ${({ is_row }) => (is_row ? '0' : 'none')};
-    margin: ${({ is_row }) => is_row && 'auto'};
-
-    @media ${device.laptopL} {
-        margin: ${(props) => (props.is_row ? 'auto' : '0')};
-        right: 0;
-    }
-
-    @media ${device.laptop} {
-        margin: ${({ is_row }) => is_row && 'auto'};
-        right: ${({ is_row }) => !is_row && '-200px'};
-    }
-
-    @media ${device.tabletL} {
-        display: ${({ is_row }) => (is_row ? 'none' : 'block')};
-        right: -450px;
-    }
-`
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;
     margin: 0 auto;
@@ -169,7 +113,7 @@ const Faq = () => {
     const { is_row } = useRegion()
 
     return (
-        <RelativeContainer is_row={is_row}>
+        <RelativeContainer>
             <FaqHeader as="h2" size="4.8rem" align="center">
                 {localize('Browse our FAQ')}
             </FaqHeader>
@@ -177,7 +121,7 @@ const Faq = () => {
                 as="h4"
                 type="sub-section-title"
                 align="center"
-                m={is_row ? '0 0 4rem 0' : '4rem 0'}
+                m="4rem 0"
                 weight="normal"
             >
                 {localize('Deriv Affiliate Programme')}
@@ -229,8 +173,6 @@ const Faq = () => {
                     })}
                 </Accordion>
             </StyledAccordionWrapper>
-            <TopLeftDot src={DotPattern} is_row={is_row} />
-            <BottomRightDot src={DotPattern} is_row={is_row} />
         </RelativeContainer>
     )
 }

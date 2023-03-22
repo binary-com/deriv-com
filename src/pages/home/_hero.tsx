@@ -13,9 +13,9 @@ type HeroProps = {
 }
 
 const HeroWrapper = styled.section`
+    position: relative;
     width: 100%;
     min-height: 100%;
-    position: relative;
     margin-top: 76px;
     @media ${device.tabletL} {
         flex-wrap: wrap;

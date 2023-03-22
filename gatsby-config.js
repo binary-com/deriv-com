@@ -252,6 +252,8 @@ module.exports = {
                         type: `image/png`,
                     },
                 ],
+                gcm_sender_id: '370236002280',
+                gcm_user_visible_only: true,
                 crossOrigin: `use-credentials`,
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
@@ -300,7 +302,6 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-anchor-links',
         {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {
@@ -312,6 +313,7 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
+                duration: 0,
             },
         },
         'gatsby-plugin-use-query-params',

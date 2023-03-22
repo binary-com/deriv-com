@@ -31,6 +31,8 @@ type CryptoContent = {
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
     const { is_eu } = useRegion()
+    const { is_deriv_go } = usePlatformQueryParam()
+
     const crypto_content: CryptoContent[] = [
         {
             src: Leverage,
@@ -81,7 +83,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="cryptocurrencies" />
+            {!is_deriv_go && <OtherMarkets except="cryptocurrencies" />}
         </>
     )
 }

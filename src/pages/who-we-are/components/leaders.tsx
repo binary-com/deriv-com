@@ -166,7 +166,7 @@ const Leaders = () => {
         },
         {
             name: 'Joanna Frendo',
-            position: <Localize translate_text="Chief Compliance Officer" />,
+            position: <Localize translate_text="Chief Risk & Compliance Officer" />,
             link: 'https://www.linkedin.com/in/joanna-frendo-4449975/',
             image: leaders_data.joanna,
         },

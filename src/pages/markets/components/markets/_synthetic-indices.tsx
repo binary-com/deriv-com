@@ -16,6 +16,7 @@ const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type StockIndicesProps = {
     simple_step_content: SimpleStepContentElement[]
@@ -23,6 +24,7 @@ type StockIndicesProps = {
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu } = useRegion()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <div>
@@ -73,7 +75,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="derived" />
+            {!is_deriv_go && <OtherMarkets except="derived" />}
         </div>
     )
 }

@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import BannerBg from 'images/common/markets/hero-forex.png'
+import ForexBg from 'images/common/markets/hero-forex.jpg'
+import DerivedEuBg from 'images/common/markets/derived-eu.jpg'
+import DerivedRowBg from 'images/common/markets/derived-row.jpg'
+import StocksAndIndicesBg from 'images/common/markets/stocks-and-indices.jpg'
+import CryptocurrenciesBg from 'images/common/markets/cryptocurrencies.jpg'
+import CommoditiesBg from 'images/common/markets/commodities.jpg'
 import NavMarkets from 'components/layout/nav/nav-markets'
 import { Header } from 'components/elements'
 import Button from 'components/custom/_button'
@@ -10,15 +15,60 @@ import { Desktop, Mobile } from 'components/containers'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
-const BackgroundWrapper = styled.div`
-    position: relative;
-    background: url(${BannerBg});
-    background-size: 89rem;
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 63rem;
-`
+type MarketProps = {
+    title: string
+    description: string
+    is_forex?: boolean
+    is_derived_row?: boolean
+    is_derived_eu?: boolean
+    is_stocks_and_indices?: boolean
+    is_cryptocurrencies?: boolean
+    is_commodities?: boolean
+}
+
+type BackgroundWrapperProps = {
+    is_forex?: boolean
+    is_derived_row?: boolean
+    is_derived_eu?: boolean
+    is_stocks_and_indices?: boolean
+    is_cryptocurrencies?: boolean
+    is_commodities?: boolean
+    is_rtl?: boolean
+}
+
+const handleBg = ({
+    is_forex,
+    is_derived_row,
+    is_derived_eu,
+    is_stocks_and_indices,
+    is_cryptocurrencies,
+    is_commodities,
+}: BackgroundWrapperProps) => {
+    {
+        if (is_forex) {
+            return ForexBg
+        }
+        if (is_derived_row) {
+            return DerivedRowBg
+        }
+        if (is_derived_eu) {
+            return DerivedEuBg
+        }
+        if (is_stocks_and_indices) {
+            return StocksAndIndicesBg
+        }
+        if (is_cryptocurrencies) {
+            return CryptocurrenciesBg
+        }
+        if (is_commodities) {
+            return CommoditiesBg
+        }
+    }
+}
+
 const StyledButton = styled.div`
     margin-top: 5rem;
     margin-left: 10vw;
@@ -48,7 +98,6 @@ const StyledContainer = styled.div`
     @media (min-width: 2110px) {
         margin-left: 20vw;
     }
-
     @media (min-width: 1201px) and (max-width: 1340px) {
         margin-left: 5vw;
     }
@@ -57,8 +106,8 @@ const StyledContainer = styled.div`
     }
 
     @media ${device.laptopM} {
-        padding: 4rem 2.3rem;
-        top: 0;
+        margin-top: 1rem;
+        padding: 0 2.3rem 5.5rem 2.3rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -73,52 +122,114 @@ const StyledContainer = styled.div`
             text-align: center;
         }
     }
-    @media ${device.mobileM} {
-        padding: 4rem 1.3rem;
+    @media ${device.tabletS} {
+        margin-top: -11rem;
+    }
+
+    @media (min-width: 576px) and (max-width: 682px) {
+        margin-top: -9rem;
+    }
+`
+const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
+    position: relative;
+    background: url(${handleBg});
+    background-size: 165rem;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 63rem;
+    transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'none')};
+
+    @media (max-width: 580px) {
+        background-size: 136rem;
+        background-position-x: -588px;
+    }
+
+    @media (min-width: 683px) and (max-width: 883px) {
+        background-size: 202rem;
+    }
+
+    @media (min-width: 884px) and (max-width: 991px) {
+        background-size: 234rem;
+    }
+
+    @media (min-width: 994px) and (max-width: 1099px) {
+        background-size: 211rem;
+    }
+
+    @media (min-width: 1100px) and (max-width: 1199px) {
+        background-size: 227rem;
+    }
+
+    & > ${StyledContainer} {
+        transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};
+        margin-right: 8rem;
+    }
+    & > ${StyledButton} {
+        transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};
+        margin-right: 8rem;
     }
 `
 const MarketSubHeader = styled.div`
     font-size: 16px;
     width: 25vw;
     color: var(--color-black-9);
-    text-align: start;
+    text-align: left;
     line-height: 24px;
 
     @media ${device.laptopM} {
         min-width: 40rem;
+        text-align: center;
     }
     @media ${device.mobileM} {
         font-size: 14px;
         width: 83vw;
+        text-align: center;
     }
 `
 const StyledHeader = styled(Header)`
     font-size: 48px;
     color: var(--color-black-9);
-    width: 28vw;
+    width: 39vw;
     text-align: start;
     margin-top: 16rem;
 
     @media ${device.laptopM} {
-        font-size: 32px;
+        font-size: 28px;
+        width: 100%;
         align-items: center;
         margin-top: 0;
     }
 `
 
-type MarketProps = {
-    title: string
-    description: string
-}
-export const DerivedFXHero = ({ title, description }: MarketProps) => {
-    const handleSignup = useHandleSignup()
+export const DerivedFXHero = ({
+    title,
+    description,
+    is_forex,
+    is_derived_row,
+    is_derived_eu,
+    is_stocks_and_indices,
+    is_cryptocurrencies,
+    is_commodities,
+}: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
+    const handleSignup = useHandleSignup()
+    const { is_deriv_go } = usePlatformQueryParam()
+
+    const is_rtl = useIsRtl()
 
     return (
         <>
             <NavMarkets />
             <Desktop breakpoint={'laptopM'}>
-                <BackgroundWrapper>
+                <BackgroundWrapper
+                    is_forex={is_forex}
+                    is_derived_row={is_derived_row}
+                    is_derived_eu={is_derived_eu}
+                    is_stocks_and_indices={is_stocks_and_indices}
+                    is_cryptocurrencies={is_cryptocurrencies}
+                    is_commodities={is_commodities}
+                    is_rtl={is_rtl}
+                >
                     <StyledContainer>
                         <StyledHeader as="h1" align="center">
                             <Localize translate_text={title} />
@@ -141,7 +252,15 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
                 </BackgroundWrapper>
             </Desktop>
             <Mobile breakpoint={'laptopM'}>
-                <BackgroundWrapper />
+                <BackgroundWrapper
+                    is_forex={is_forex}
+                    is_derived_row={is_derived_row}
+                    is_derived_eu={is_derived_eu}
+                    is_stocks_and_indices={is_stocks_and_indices}
+                    is_cryptocurrencies={is_cryptocurrencies}
+                    is_commodities={is_commodities}
+                    is_rtl={is_rtl}
+                />
                 <StyledContainer>
                     <StyledHeader as="h1" align="center">
                         <Localize translate_text={title} />

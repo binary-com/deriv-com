@@ -44,7 +44,7 @@ const Alert = ({
                     <FlexBox gap="12x" justify="end" pt="12x">
                         <AlertDialog.Cancel asChild>
                             {cancel_button && (
-                                <Button.Secondary onClick={cancel_button?.onClick}>
+                                <Button.Secondary onClick={cancel_button?.onClick} outlined>
                                     <Localize translate_text={cancel_button.text} />
                                 </Button.Secondary>
                             )}

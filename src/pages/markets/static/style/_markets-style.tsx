@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { ReactElement } from 'react'
-import { Header, Text } from 'components/elements'
 import { Box, CssGrid, Flex } from 'components/containers'
+import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
 type DescriptionsProps = {
@@ -143,17 +143,15 @@ export const DerivedMarketsList = styled.div<MarketsListProps>`
     border-left: 1px solid var(--color-grey-22);
     border-right: var(--solid-grey-22);
     width: 100%;
-    height: fit-content;
-    padding: ${({ padding }) => (padding ? padding : '24px')};
-    gap: ${({ gap }) => (gap ? gap : '12px')};
+    height: 272px;
+    padding: 24px;
+    gap: 10px;
 
     @media ${device.tabletL} {
         height: 212px;
     }
     @media ${device.mobileL} {
-        grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
-        ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
-        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '')};
+        padding: 16px 8px;
     }
 `
 
@@ -216,13 +214,6 @@ export const StyledText = styled(Text)<StyledTextProps>`
         font-size: 14px;
     }
 `
-export const SymbolText = styled(Header)`
-    font-weight: normal;
-    @media ${device.tabletL} {
-        max-width: 100px;
-        max-height: 28px;
-    }
-`
 
 export const SymbolContainer = styled(Flex)`
     width: fit-content;
@@ -252,6 +243,15 @@ export const SymbolContainer = styled(Flex)`
         }
     }
 `
+export const SymbolText = styled(Header)`
+    font-weight: normal;
+
+    @media ${device.tabletL} {
+        max-width: 100px;
+        max-height: 28px;
+    }
+`
+
 export const Title = styled(Text)`
     text-align: center;
     font-weight: bold;

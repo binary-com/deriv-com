@@ -117,16 +117,25 @@ const StyledInput = styled.input<StyledInputProps>`
     font-size: var(--text-size-s);
     padding: 1rem 1rem 1rem 0.8rem;
     height: ${(props) => props.height || '40px'};
-    width: 100%;
-    border: 1px solid transparent;
+    width: 243px;
+    display: block;
+    border: 1px solid var(--color-grey-5);
     border-radius: 15px;
-
     @media ${device.tabletL} {
+        width: 250px;
         height: 100%;
-        width: 90%;
+        border-radius: 4px;
+
         & ~ label {
             font-size: 1.75rem;
             top: 1.95rem;
+        }
+    }
+    @media ${device.mobileL} {
+        font-size: 14px;
+
+        & ~ label {
+            font-size: 1.5rem;
         }
     }
 

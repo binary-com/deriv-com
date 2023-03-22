@@ -14,6 +14,7 @@ import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))

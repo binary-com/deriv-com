@@ -137,7 +137,7 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
     }
 `
 export const DerivedMarketsList = styled.div<MarketsListProps>`
-    ${({ flex }) => flex && 'display:flex;'};
+    display: grid;
     border-left: 1px solid var(--color-grey-22);
     border-right: ${({ has_right_border }) =>
         has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};

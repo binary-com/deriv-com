@@ -16,6 +16,7 @@ import Facebook from 'images/svg/custom/facebook-40.svg'
 import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { isBrowser } from 'common/utility'
 
 type SocialButtonContent = {
     provider: TSocialProvider
@@ -441,7 +442,7 @@ const SignupPublic = ({
                                             data-provider={provider}
                                             id={id}
                                             external
-                                            to={Login.socialLoginUrl(provider)}
+                                            to={isBrowser() && Login.socialLoginUrl(provider)}
                                         >
                                             <img src={img} alt={provider} width="40" height="40" />
                                         </SocialButton>
@@ -578,7 +579,7 @@ const SignupPublic = ({
                                                 data-provider={provider}
                                                 id={id}
                                                 external
-                                                to={Login.socialLoginUrl(provider)}
+                                                to={isBrowser() && Login.socialLoginUrl(provider)}
                                             >
                                                 <img
                                                     src={img}

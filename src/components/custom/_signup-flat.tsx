@@ -9,6 +9,7 @@ import device from 'themes/device'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import Login, { TSocialProvider } from 'common/login'
+import { isBrowser } from 'common/utility'
 
 type SignupFlatProps = {
     autofocus?: boolean
@@ -193,7 +194,7 @@ const SignupFlat = ({
                             data-provider="google"
                             id="dm-signup-google"
                             external
-                            to={Login.socialLoginUrl('google')}
+                            to={isBrowser() && Login.socialLoginUrl('google')}
                         >
                             <span>
                                 <img src={Google} alt="google" width="22" height="23" />
@@ -205,7 +206,7 @@ const SignupFlat = ({
                             data-provider="facebook"
                             id="dm-signup-facebook"
                             external
-                            to={Login.socialLoginUrl('facebook')}
+                            to={isBrowser() && Login.socialLoginUrl('facebook')}
                         >
                             <span>
                                 <img src={Facebook} alt="facebook" width="12" height="22" />

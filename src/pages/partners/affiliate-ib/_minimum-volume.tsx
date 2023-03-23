@@ -39,7 +39,7 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 0;
     }
 `
-const TitleWrapper = styled.div`
+const TitleWrapper = styled(Flex)`
     max-width: 120rem;
     margin: 0 auto 2.4rem;
 
@@ -126,7 +126,7 @@ const MinimumVolume = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <TitleWrapper>
+                <TitleWrapper direction="column">
                     <Header as="h2" type="page-title" align="center" mb="0.8rem">
                         {localize('Minimum volume requirement')}
                     </Header>

@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from 'react'
+import React, { useState, CSSProperties, useEffect } from 'react'
 import styled from 'styled-components'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
@@ -12,6 +12,7 @@ import Facebook from 'images/svg/custom/facebook-blue.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
 import useRegion from 'components/hooks/use-region'
+import { isBrowser } from 'common/utility'
 
 type SignupNewProps = {
     autofocus?: boolean
@@ -42,29 +43,6 @@ type SocialLoginContent = {
     img: string
     url: string
 }
-const social_login_content: SocialLoginContent[] = [
-    {
-        name: 'Google',
-        provider: 'google',
-        id: 'dm-signup-google',
-        img: Google,
-        url: Login.socialLoginUrl('google'),
-    },
-    {
-        name: 'Facebook',
-        provider: 'facebook',
-        id: 'dm-signup-facebook',
-        img: Facebook,
-        url: Login.socialLoginUrl('facebook'),
-    },
-    {
-        name: 'Apple',
-        provider: 'apple',
-        id: 'dm-signup-apple',
-        img: Apple,
-        url: Login.socialLoginUrl('apple'),
-    },
-]
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -269,6 +247,41 @@ const SignupNew = ({
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
+
+    const [social_url, setSocialURL] = useState({ google: '', facebook: '', apple: '' })
+    useEffect(() => {
+        if (isBrowser()) {
+            setSocialURL({
+                google: Login.socialLoginUrl('google'),
+                facebook: Login.socialLoginUrl('facebook'),
+                apple: Login.socialLoginUrl('apple'),
+            })
+        }
+    }, [isBrowser()])
+
+    const social_login_content: SocialLoginContent[] = [
+        {
+            name: 'Google',
+            provider: 'google',
+            id: 'dm-signup-google',
+            img: Google,
+            url: social_url.google,
+        },
+        {
+            name: 'Facebook',
+            provider: 'facebook',
+            id: 'dm-signup-facebook',
+            img: Facebook,
+            url: social_url.facebook,
+        },
+        {
+            name: 'Apple',
+            provider: 'apple',
+            id: 'dm-signup-apple',
+            img: Apple,
+            url: social_url.apple,
+        },
+    ]
 
     return (
         <SignupContent>

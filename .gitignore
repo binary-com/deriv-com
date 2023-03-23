@@ -5,6 +5,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+
+# classnames
+./src/classnames.d.ts
+
 # Runtime data
 pids
 *.pid

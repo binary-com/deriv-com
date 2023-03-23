@@ -6,7 +6,7 @@ import { Localize } from 'components/localization'
 //TODO: refactor this component to always use instruments_type
 type SymbolProps = MarketSymbol & { instruments_type?: MarketSymbol[] }
 const Symbol = ({ instruments_type, src, text }: SymbolProps) => {
-    const is_derived_fx = text?.toString().includes('DFX')
+    const is_derived_fx = text?.includes('DFX')
     return (
         <React.Fragment>
             {instruments_type ? (

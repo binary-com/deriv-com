@@ -220,7 +220,7 @@ const payment_agent: TQuestionsData = {
             label: 'advertise-to-clients',
             answer: [
                 {
-                    translation_text: `_t_Yes, provided that you follow all the relevant terms and conditions (see the tab entitled 'For business partners' on our Terms and conditions page)._t_`,
+                    translation_text: `_t_Yes, provided that you follow all the relevant terms and conditions (see the tab entitled 'For business partners' on our <0>Terms and conditions</0> page)._t_`,
                     translation_components: [
                         { key: 0, type: 'link', to: '/terms-and-conditions/#clients' },
                     ],

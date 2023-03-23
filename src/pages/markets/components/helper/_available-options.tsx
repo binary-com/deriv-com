@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from 'components/containers'
 import { Text } from 'components/elements'
@@ -58,7 +58,6 @@ const AvailableOptions = ({
                 <Icon src={svg} />
                 <Box max_width="28.8rem">
                     <StyledText>
-                        {' '}
                         <Localize translate_text={content} />
                     </StyledText>
                 </Box>

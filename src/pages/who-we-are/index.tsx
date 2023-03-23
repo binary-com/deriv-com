@@ -39,7 +39,7 @@ const EndSeparator = styled.div`
     }
 `
 
-const AboutUs = ({ data }: TWhoWeAre) => {
+const WhoWeAre = ({ data }: TWhoWeAre) => {
     const {
         hero,
         our_values,
@@ -91,7 +91,6 @@ export const query = graphql`
                 }
                 bg_desktop {
                     localFile {
-                        url
                         childImageSharp {
                             gatsbyImageData
                         }
@@ -99,7 +98,6 @@ export const query = graphql`
                 }
                 bg_mobile {
                     localFile {
-                        url
                         childImageSharp {
                             gatsbyImageData
                         }
@@ -265,4 +263,4 @@ export const query = graphql`
     }
 `
 
-export default WithIntl()(AboutUs)
+export default WithIntl()(WhoWeAre)

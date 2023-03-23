@@ -1,5 +1,5 @@
 import { TQuestionsData } from './_data-types'
-import { binary_url, deriv_app_url } from 'common/constants'
+import { deriv_app_url } from 'common/constants'
 
 const deposits_and_withdrawals: TQuestionsData = {
     section: 'General',
@@ -14,6 +14,8 @@ const deposits_and_withdrawals: TQuestionsData = {
                 {
                     translation_text:
                         '_t_You can use debit and credit cards, e-wallets, cryptocurrency wallets, and payment agents for deposits and withdrawals (see our <0>payment methods page</0> for a complete list). Once you log in to your Deriv account, you’ll be able to see payment methods available in your country on the <1>Cashier page</1>._t_',
+                    eu_translation_text:
+                        '_t_You can use debit and credit cards and also e-wallets for deposits and withdrawals (see our <0>payment methods page</0> for a complete list). Once you log in to your Deriv account, you’ll be able to see payment methods available in your country on the <1>Cashier page</1>. _t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/payment-methods/' },
                         { key: 1, type: 'link', to: `${deriv_app_url}/cashier/` },
@@ -44,6 +46,8 @@ const deposits_and_withdrawals: TQuestionsData = {
                 {
                     translation_text:
                         '_t_The minimum deposit and withdrawal amount varies depending on the payment method. The lowest deposit and withdrawal amount is 5 USD/EUR/GBP/AUD via e-wallets. See our <0>Payment methods</0> page for a complete list of payment methods and their minimum deposit and withdrawal amounts._t_',
+                    eu_translation_text:
+                        '_t_The minimum deposit and withdrawal amount varies depending on the payment method. The lowest deposit and withdrawal amount is 5 USD/EUR/GBP via e-wallets. See our <0>Payment methods</0> page for a complete list of payment methods and their minimum deposit and withdrawal amounts._t_',
                     translation_components: [{ key: 0, type: 'link', to: '/payment-methods/' }],
                 },
             ],
@@ -118,7 +122,7 @@ const deposits_and_withdrawals: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: `${binary_url}/en/home.html?is_livechat_open=true`,
+                            to: `/contact_us?is_livechat_open=true`,
                         },
                     ],
                     has_margin_top: true,
@@ -130,6 +134,7 @@ const deposits_and_withdrawals: TQuestionsData = {
             category: 'Deposits and withdrawals',
             sub_category: '_t_Withdrawals_t_',
             label: 'withdraw-deposit-bonus',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text:
@@ -167,6 +172,7 @@ const deposits_and_withdrawals: TQuestionsData = {
             category: 'Deposits and withdrawals',
             sub_category: '_t_Withdrawals_t_',
             label: 'How-can-I-cancel-my-withdrawal',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text:
@@ -185,6 +191,57 @@ const deposits_and_withdrawals: TQuestionsData = {
                             },
                         ],
                     },
+                },
+                {
+                    translation_text: '_t_To cancel your withdrawal, follow these steps:_t_',
+                    has_margin_top: true,
+                    list: {
+                        list_style: 'decimal',
+                        margin_top: '0.3rem',
+                        items: [
+                            {
+                                translation_text: '_t_Go to <0>Cashier > Withdrawal</0>._t_',
+                                translation_components: [
+                                    {
+                                        key: 0,
+                                        type: 'link',
+                                        to: `${deriv_app_url}/cashier/withdrawal`,
+                                    },
+                                ],
+                            },
+                            {
+                                translation_text:
+                                    "_t_We'll send you an email with a verification link. Click that link._t_",
+                            },
+                            {
+                                translation_text:
+                                    "_t_You’ll be brought back to the Cashier page. Click <0>Review pending</0> and select the transaction that you'd like to cancel._t_",
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                            {
+                                translation_text:
+                                    '_t_Click <0>Yes</0> to confirm the cancellation. Your funds will be returned to your Deriv account, and your account balance will be updated accordingly._t_',
+                                translation_components: [{ key: 0, type: 'strong' }],
+                            },
+                        ],
+                    },
+                },
+            ],
+        },
+        {
+            question: '_t_How can I cancel my withdrawal?_t_',
+            category: 'Deposits and withdrawals',
+            sub_category: '_t_Withdrawals_t_',
+            label: 'How-can-I-cancel-my-withdrawal',
+            hide_for_non_eu: true,
+            answer: [
+                {
+                    translation_text:
+                        '_t_You can cancel your withdrawal on the <0>Cashier page</0> by following the steps mentioned in the next paragraph. Please note that you cannot cancel withdrawals if your withdrawal request has already been authorised and processed._t_',
+
+                    translation_components: [
+                        { key: 0, type: 'link', to: `${deriv_app_url}/cashier/` },
+                    ],
                 },
                 {
                     translation_text: '_t_To cancel your withdrawal, follow these steps:_t_',

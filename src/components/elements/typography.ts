@@ -300,6 +300,7 @@ export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     createElement(as, props, children),
 )<HeaderProps>`
     ${BaseElement}
+    word-break: break-word;
     font-weight: ${(props) => props.weight || 'bold'};
     font-size: ${(props) => {
         if (props.size) return props.size

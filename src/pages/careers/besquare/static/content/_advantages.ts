@@ -26,7 +26,7 @@ export default {
             src: CrossDomainTrainingIcon,
             alt: 'Cross-domain training icon',
             title: 'Cross-domain training',
-            text: 'Rotation through all Deriv tech teams',
+            text: 'Rotation through Deriv tech teams',
         },
         {
             src: NoExperienceIcon,

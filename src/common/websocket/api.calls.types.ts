@@ -217,6 +217,8 @@ import type {
     TransferBetweenAccountsResponse,
     UnsubscribeEmailResponse,
     UnsubscribeEmailRequest,
+    VerifyEmailCellxpertRequest,
+    VerifyEmailCellxpertResponse,
     VerifyEmailRequest,
     VerifyEmailResponse,
     ServerStatusResponse,
@@ -660,136 +662,9 @@ export type TSocketEndpoints = {
         request: UnsubscribeEmailRequest
         response: UnsubscribeEmailResponse
     }
-    // The types for the verify_email_cellxpert is not correct in @deriv/api-types, so I'm using the correct one here
-    // we have two interfaces with the same name but they are different
     verify_email_cellxpert: {
-        request: {
-            /**
-             * Email address to be verified.
-             */
-            verify_email_cellxpert: string
-            /**
-             * Purpose of the email verification call.
-             */
-            type: 'partner_account_opening'
-            /**
-             * [Optional] Extra parameters that can be attached to the verify email link URL.
-             */
-            url_parameters?: {
-                /**
-                 * [Optional] Affiliate token, within 32 characters.
-                 */
-                affiliate_token?: string
-                /**
-                 * [Optional] Date of first contact, format: yyyy-mm-dd in GMT timezone.
-                 */
-                date_first_contact?: string
-                /**
-                 * [Optional] Google Click Identifier to track source.
-                 */
-                gclid_url?: string
-                /**
-                 * [Optional] The amount to withdraw to the payment agent. Only allowed for payment agent withdraw.
-                 */
-                pa_amount?: number
-                /**
-                 * [Optional] The currency code. Only allowed for payment agent withdraw.
-                 */
-                pa_currency?: string
-                /**
-                 * [Optional] The payment agent loginid received from the `paymentagent_list` call. Only allowed for payment agent withdraw.
-                 */
-                pa_loginid?: string
-                /**
-                 * [Optional] Remarks about the withdraw. Only letters, numbers, space, period, comma, - ' are allowed. Only allowed for payment agent withdraw.
-                 */
-                pa_remarks?: string
-                /**
-                 * [Optional] The page ID to redirect to
-                 */
-                redirect_to?: number
-                /**
-                 * [Optional] Show whether user has used mobile or desktop.
-                 */
-                signup_device?: 'desktop' | 'mobile'
-                /**
-                 * [Optional] Identifier of particular ad. Value must match Regex pattern to be recorded
-                 */
-                utm_ad_id?: string
-                /**
-                 * [Optional] Identifier of ad group in the campaign. Value must match Regex pattern to be recorded
-                 */
-                utm_adgroup_id?: string
-                /**
-                 * [Optional] Unique identifier of click on AdRoll ads platform. Value must match Regex pattern to be recorded
-                 */
-                utm_adrollclk_id?: string
-                /**
-                 * [Optional] Identifies a specific product promotion or strategic campaign such as a spring sale or other promotions. Value must match Regex pattern to be recorded
-                 */
-                utm_campaign?: string
-                /**
-                 * [Optional] Identifier of paid ad campaign. Value must match Regex pattern to be recorded
-                 */
-                utm_campaign_id?: string
-                /**
-                 * [Optional] Used to differentiate similar content, or links within the same ad. Value must match Regex pattern to be recorded
-                 */
-                utm_content?: string
-                /**
-                 * [Optional] Unique identifier of click on Facebook ads platform. Value must match Regex pattern to be recorded
-                 */
-                utm_fbcl_id?: string
-                /**
-                 * [Optional] Unique visitor identifier on Google Ads platform. Value must match Regex pattern to be recorded
-                 */
-                utm_gl_client_id?: string
-                /**
-                 * [Optional] Identifies the medium the link was used upon such as: email, CPC, or other methods of sharing. Value must match Regex pattern to be recorded
-                 */
-                utm_medium?: string
-                /**
-                 * [Optional] Unique click identifier on Microsoft Bing ads platform. Value must match Regex pattern to be recorded
-                 */
-                utm_msclk_id?: string
-                /**
-                 * [Optional] Identifies the source of traffic such as: search engine, newsletter, or other referral. Value must match Regex pattern to be recorded
-                 */
-                utm_source?: string
-                /**
-                 * [Optional] Used to send information related to the campaign term like paid search keywords. Value must match Regex pattern to be recorded
-                 */
-                utm_term?: string
-            }
-            /**
-             * [Optional] Used to pass data through the websocket, which may be retrieved via the `echo_req` output field.
-             */
-            passthrough?: {
-                [k: string]: unknown
-            }
-            /**
-             * [Optional] Used to map request to response.
-             */
-            req_id?: number
-        }
-        response: {
-            verify_email_cellxpert?: 0 | 1
-            /**
-             * Echo of the request made.
-             */
-            echo_req: {
-                [k: string]: unknown
-            }
-            /**
-             * Action name of the request made.
-             */
-            msg_type: 'verify_email_cellxpert'
-            /**
-             * Optional field sent in request to map to response, present only when request contains `req_id`.
-             */
-            req_id?: number
-            [k: string]: unknown
-        }
+        request: VerifyEmailCellxpertRequest
+        response: VerifyEmailCellxpertResponse
     }
     verify_email: {
         request: VerifyEmailRequest

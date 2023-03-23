@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { ReactElement } from 'react'
-import { Header, Text } from 'components/elements'
 import { Box, CssGrid, Flex } from 'components/containers'
+import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
 type DescriptionsProps = {
@@ -137,18 +137,19 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
     }
 `
 export const DerivedMarketsList = styled.div<MarketsListProps>`
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: grid;
     border-left: 1px solid var(--color-grey-22);
-    border-right: var(--solid-grey-22);
+    border-right: ${({ has_right_border }) =>
+        has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
+    grid-template-columns: ${({ col }) => `repeat(${col ?? 2}, 1fr)`};
     width: 100%;
     height: fit-content;
-    padding: ${({ padding }) => (padding ? padding : '24px')};
+    padding: 24px;
     gap: ${({ gap }) => (gap ? gap : '12px')};
-
     @media ${device.tabletL} {
-        height: 212px;
+        grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
+        display: grid;
+        min-height: 76px;
     }
     @media ${device.mobileL} {
         grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
@@ -216,13 +217,6 @@ export const StyledText = styled(Text)<StyledTextProps>`
         font-size: 14px;
     }
 `
-export const SymbolText = styled(Header)`
-    font-weight: normal;
-    @media ${device.tabletL} {
-        max-width: 100px;
-        max-height: 28px;
-    }
-`
 
 export const SymbolContainer = styled(Flex)`
     width: fit-content;
@@ -252,6 +246,15 @@ export const SymbolContainer = styled(Flex)`
         }
     }
 `
+export const SymbolText = styled(Header)`
+    font-weight: normal;
+
+    @media ${device.tabletL} {
+        max-width: 100px;
+        max-height: 28px;
+    }
+`
+
 export const Title = styled(Text)`
     text-align: center;
     font-weight: bold;

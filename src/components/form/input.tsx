@@ -59,8 +59,6 @@ const RelativeWrapper = styled.div`
 const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
     width: 100%;
-    border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
-    border-radius: 15px;
     @media ${device.tabletL} {
         height: 5rem;
     }
@@ -128,7 +126,7 @@ const StyledInput = styled.input<StyledInputProps>`
     @media ${device.tabletL} {
         width: 250px;
         height: 100%;
-        border-radius: 4px;
+        border-radius: 15px;
 
         & ~ label {
             font-size: 1.75rem;

@@ -7,7 +7,6 @@ import { derived_fx_cfds } from '../../static/content/_cfds'
 import CFDs from '../sub-markets/_cfds'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
-import { Localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
@@ -18,10 +17,8 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
     return (
         <>
             <WhyTrade
-                description={
-                    <Localize translate_text="Derived FX gives you the opportunity to trade on simulated assets based on major forex pairs at the volatility of your choice. Our advanced algorithms track real-world currency prices and dampen the fluctuations caused by market sentiment and unexpected news events." />
-                }
-                header={<Localize translate_text="Why trade Derived FX on Deriv" />}
+                description="_t_Derived FX gives you the opportunity to trade on simulated assets based on major forex pairs at the volatility of your choice. Our advanced algorithms track real-world currency prices and dampen the fluctuations caused by market sentiment and unexpected news events._t_"
+                header="_t_Why trade Derived FX on Deriv_t_"
             >
                 {derived_content.map((content, index) => (
                     <StyledBox
@@ -34,13 +31,11 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
 
             <AvailableTrades
                 CFDs={<CFDs market_content={derived_fx_cfds} market_tab_name={'derived-fx'} />}
-                display_title={<Localize translate_text="Derived FX trades available on Deriv" />}
+                display_title="_t_Derived FX trades available on Deriv_t_"
             />
 
             <SimpleSteps
-                header={
-                    <Localize translate_text="Start trading Derived FX on Deriv in 3 simple steps" />
-                }
+                header="_t_Start trading Derived FX on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />

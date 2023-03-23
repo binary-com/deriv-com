@@ -7,10 +7,10 @@ import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
 import { TP2P } from './_deriv-go-content'
 import { SEO } from 'components/containers'
-import Roadmap, { TPortal } from 'components/elements/roadmap'
+import Roadmap, { RoadmapProps } from 'components/elements/roadmap'
 import useRegion from 'components/hooks/use-region'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { TString } from 'types/generics'
 
 export type ContentType = {
@@ -56,7 +56,7 @@ const items: TP2P[] = [
     },
 ]
 
-const derivGoPortalData: TPortal = {
+const derivGoPortalData: RoadmapProps['portal'] = {
     paragraph:
         '_t_Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next._t_',
     frame: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn?hide_header=1',
@@ -70,12 +70,8 @@ const DerivGo = () => {
         return (
             <Layout>
                 <SEO
-                    title={localize(
-                        '_t_Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO._t_',
-                    )}
-                    description={localize(
-                        '_t_Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO._t_',
-                    )}
+                    title="_t_Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO._t_"
+                    description="_t_Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO._t_"
                 />
                 <Banner />
                 <WhatIsDerivGo />

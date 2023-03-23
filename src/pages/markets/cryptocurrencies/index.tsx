@@ -14,16 +14,12 @@ const CryptocurrenciesPage = () => {
     return (
         <Layout type="noNav">
             <SEO
-                description={localize(
-                    "Start trading the world's most popular cryptocurrencies on Deriv, and take advantage of a highly volatile market with round-the-clock trading.",
-                )}
-                title={localize('Cryptocurrency market | Crypto trading | Deriv')}
+                description="_t_Start trading the world's most popular cryptocurrencies on Deriv, and take advantage of a highly volatile market with round-the-clock trading._t_"
+                title="_t_Cryptocurrency market | Crypto trading | Deriv_t_"
             />
             <DerivedFXHero
-                title={localize('Cryptocurrencies')}
-                description={localize(
-                    "Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies.",
-                )}
+                title="_t_Cryptocurrencies_t_"
+                description="_t_Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies._t_"
             />
             <Cryptocurrencies simple_step_content={simple_step_content_cryptocurrencies} />
             {!is_deriv_go && <Signup appearance={Appearances.public} />}

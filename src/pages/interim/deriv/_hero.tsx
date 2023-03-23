@@ -30,7 +30,7 @@ const Hero = () => {
                 <Container fw="wrap">
                     <ResponsiveFlex fd="column" max_width="58.8rem" ai="center">
                         <ResponsiveHeader as="h2" type="page-title" align="center" lh="1.25">
-                            {localize('You inspired us')}
+                            <Localize translate_text="_t_You inspired us_t_" />
                         </ResponsiveHeader>
                         <ResponsiveHeader
                             as="h2"
@@ -39,7 +39,7 @@ const Hero = () => {
                             align="center"
                             lh="1.25"
                         >
-                            {localize('to create something new')}
+                            <Localize translate_text="_t_to create something new_t_" />
                         </ResponsiveHeader>
                         <Header
                             as="h4"
@@ -49,7 +49,7 @@ const Hero = () => {
                             align="center"
                         >
                             <Localize
-                                translate_text="Enjoy trading your way on <0>Deriv.com</0>, <1>Binary.com</1>’s new home"
+                                translate_text="_t_Enjoy trading your way on <0>Deriv.com</0>, <1>Binary.com</1>’s new home_t_"
                                 components={[
                                     <LocalizedLinkText
                                         key={0}
@@ -74,7 +74,7 @@ const Hero = () => {
                         </Header>
                         <Desktop width="auto" fd="column" ai="center">
                             <FitButton secondary to="/">
-                                {localize('Explore Deriv.com')}
+                                <Localize translate_text="_t_Explore Deriv.com_t_" />
                             </FitButton>
                             <CtaBinary is_white />
                         </Desktop>
@@ -84,7 +84,7 @@ const Hero = () => {
                     </ImgWrapper>
                     <Mobile mt="4rem" fd="column" ai="center">
                         <FitButton secondary to="/">
-                            {localize('Explore Deriv.com')}
+                            <Localize translate_text="_t_Explore Deriv.com_t_" />
                         </FitButton>
                         <CtaBinary is_white />
                     </Mobile>
@@ -92,9 +92,7 @@ const Hero = () => {
             </Section>
             <Container p="8rem 0" fd="column">
                 <Header as="h4" type="sub-section-title" weight="normal" align="center">
-                    {localize(
-                        'In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you.',
-                    )}
+                    <Localize translate_text="_t_In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you._t_" />
                 </Header>
             </Container>
         </>

@@ -8,15 +8,15 @@ import { allContinents } from '../_model/_locations/_locations'
 import device from 'themes/device'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl, localize } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { Header, Text, Tabs, QueryImage } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
+import { MetaAttributesType } from 'types/page.types'
 
-const meta_attributes = {
-    og_title: localize('Explore our office locations | Deriv'),
-    og_description: localize(
-        'Discover career opportunities at Deriv across our office locations around the globe.',
-    ),
+const meta_attributes: MetaAttributesType = {
+    og_title: '_t_Explore our office locations | Deriv_t_',
+    og_description:
+        '_t_Discover career opportunities at Deriv across our office locations around the globe._t_',
 }
 
 const ChevronRight = styled(Chevron)`
@@ -315,10 +315,8 @@ const Locations = () => {
     return (
         <Layout type="careers" margin_top={7}>
             <SEO
-                title={localize('Explore our office locations | Deriv')}
-                description={localize(
-                    'Discover career opportunities at Deriv across our office locations around the globe.',
-                )}
+                title="_t_Explore our office locations | Deriv_t_"
+                description="_t_Discover career opportunities at Deriv across our office locations around the globe._t_"
                 meta_attributes={meta_attributes}
             />
             <Hero />

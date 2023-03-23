@@ -8,7 +8,7 @@ import Hero from './components/_hero'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import StocksIntroImage from 'images/svg/landing/crypto-intro.svg'
 import { TString } from 'types/generics'
 
@@ -58,8 +58,8 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
-                title={localize('_t_Cryptocurrencies Ebook_t_')}
-                description={localize('_t_Trade Cryptocurrencies on our Deriv platform._t_')}
+                title="_t_Cryptocurrencies Ebook_t_"
+                description="_t_Trade Cryptocurrencies on our Deriv platform._t_"
                 no_index
             />
             <Hero

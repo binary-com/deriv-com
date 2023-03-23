@@ -11,18 +11,12 @@ import { SEO } from 'components/containers'
 const BasketPage = () => (
     <Layout type="noNav">
         <SEO
-            description={localize(
-                'Trade Basket indices online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms.',
-            )}
-            title={localize(
-                'Basket indices trading online | Basket indices trading demo account | Deriv',
-            )}
+            description="_t_Trade Basket indices online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms._t_"
+            title="_t_Basket indices trading online | Basket indices trading demo account | Deriv_t_"
         />
         <DerivedFXHero
-            title={localize('Derived')}
-            description={localize(
-                'Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices.',
-            )}
+            title="_t_Derived_t_"
+            description="_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and basket indices._t_"
         />
         <NavTab route_from={'basket-indices'} route_offset={650} />
         <BasketIndices simple_step_content={simple_step_content_basket} />

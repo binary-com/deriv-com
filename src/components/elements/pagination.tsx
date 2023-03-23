@@ -79,7 +79,7 @@ const Pagination = ({ items_per_page, total_items, paginate, current_page }: Pag
                         m="4px"
                         onClick={() => paginate(1)}
                     >
-                        {1}
+                        1
                     </StyledButton>
                     <StyledButton tertiary grey m="4px">
                         ...

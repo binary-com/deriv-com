@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Section, ResponsiveHeader, ImgWrapper, ResponsiveFlex } from '../_hero'
 import { Container } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 
 const RightWrapper = styled(ImgWrapper)`
@@ -39,7 +39,7 @@ const Hero = () => {
                             align="start"
                             lh="1.25"
                         >
-                            <Localize translate_text="Binary.com has rebranded to Deriv.com and here’s what it means for partners" />
+                            <Localize translate_text="_t_Binary.com has rebranded to Deriv.com and here’s what it means for partners_t_" />
                         </ResponsiveHeader>
                     </ResponsiveFlex>
                     <RightWrapper>
@@ -54,12 +54,10 @@ const Hero = () => {
             </Section>
             <Container p="8rem 0" fd="column">
                 <Header as="h4" type="sub-section-title" weight="normal" align="center" mb="4rem">
-                    <Localize translate_text="As you are aware, we have rebranded Binary.com to Deriv.com. It is part of our renewed commitment to making online trading effortless and accessible to everyone through simple, flexible, and reliable solutions." />
+                    <Localize translate_text="_t_As you are aware, we have rebranded Binary.com to Deriv.com. It is part of our renewed commitment to making online trading effortless and accessible to everyone through simple, flexible, and reliable solutions._t_" />
                 </Header>
                 <Header as="h4" type="sub-section-title" weight="normal" align="center">
-                    {localize(
-                        'As part of our network of valued partners with clients of your own, you are probably curious and concerned about what this transformation means. We’ve put together this guide to help you understand the rebranding better and to support you in your communication with your clients.',
-                    )}
+                    <Localize translate_text="_t_As part of our network of valued partners with clients of your own, you are probably curious and concerned about what this transformation means. We’ve put together this guide to help you understand the rebranding better and to support you in your communication with your clients._t_" />
                 </Header>
             </Container>
         </>

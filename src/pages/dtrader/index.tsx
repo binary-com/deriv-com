@@ -8,13 +8,14 @@ import Layout from 'components/layout/layout'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import dtrader_logo from 'images/svg/dtrader/dtrader-icon.svg'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import DTraderBGMobile from 'images/svg/dtrader/dtrader-bg-mobile.svg'
 import DTraderBG from 'images/svg/dtrader/dtrader-bg.svg'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import DHero from 'components/custom/_dhero'
 import DNumber, { ItemType } from 'components/custom/_dnumbers'
 import useRegion from 'components/hooks/use-region'
+import { MetaAttributesType } from 'types/page.types'
 import { TradingType } from 'components/custom/_dtrading'
 
 const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
@@ -22,11 +23,10 @@ const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBanner = Loadable(() => import('components/custom/_dbanner'))
 const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works'))
 
-const meta_attributes = {
-    og_title: localize('_t_DTrader | Online Trading Platform | Deriv.com_t_'),
-    og_description: localize(
+const meta_attributes: MetaAttributesType = {
+    og_title: '_t_DTrader | Online Trading Platform | Deriv.com_t_',
+    og_description:
         '_t_DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices._t_',
-    ),
 }
 
 const query = graphql`
@@ -129,10 +129,8 @@ const Dtrader = () => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_DTrader | Online trading platform | Deriv_t_')}
-                description={localize(
-                    '_t_DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices._t_',
-                )}
+                title="_t_DTrader | Online trading platform | Deriv_t_"
+                description="_t_DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices._t_"
                 meta_attributes={meta_attributes}
             />
             <DHero

@@ -7,16 +7,6 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 
-export type TPortal = {
-    paragraph?: TString
-    frame?: string
-    link?: string
-}
-
-type RoadmapProps = {
-    portal?: TPortal
-}
-
 const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
     padding-top: 80px;
@@ -73,6 +63,13 @@ const StyledButton = styled(LinkButton)`
     z-index: 3;
 `
 
+export type RoadmapProps = {
+    portal?: {
+        paragraph?: TString
+        frame?: string
+        link?: string
+    }
+}
 const Roadmap = ({ portal }: RoadmapProps) => {
     return (
         <StyledSectionContainer>

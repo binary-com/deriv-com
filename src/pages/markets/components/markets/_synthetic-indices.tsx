@@ -11,7 +11,7 @@ import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
-import { Localize, localize } from 'components/localization'
+import { localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 import useRegion from 'components/hooks/use-region'
@@ -28,10 +28,8 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     return (
         <div>
             <WhyTrade
-                description={
-                    <Localize translate_text="Deriv’s proprietary synthetics simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
-                }
-                header={<Localize translate_text="Why trade synthetics on Deriv" />}
+                description="_t_Deriv’s proprietary synthetics simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks._t_"
+                header="_t_Why trade synthetics on Deriv_t_"
             >
                 {synthetic_content.map((content, index) => (
                     <StyledBox
@@ -50,7 +48,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 }
                 DigitalOptions={
                     <DigitalOptions
-                        market_name={localize('synthetics')}
+                        market_name={localize('_t_synthetics_t_')}
                         options_list={synthetic_options}
                     />
                 }
@@ -60,12 +58,10 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                         market_content={is_eu ? synthetic_multiplier_eu : synthetic_multiplier}
                     />
                 }
-                display_title={<Localize translate_text="Synthetics trades available on Deriv" />}
+                display_title="_t_Synthetics trades available on Deriv_t_"
             />
             <SimpleSteps
-                header={
-                    <Localize translate_text="Start trading synthetics on Deriv in 3 simple steps" />
-                }
+                header="_t_Start trading synthetics on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />

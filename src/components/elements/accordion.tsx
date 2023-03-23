@@ -6,6 +6,8 @@ import ChevronThick from 'images/svg/custom/chevron-thick.svg'
 import Minus from 'images/svg/elements/minus.svg'
 import Plus from 'images/svg/elements/plus.svg'
 import device from 'themes/device'
+import { TString } from 'types/generics'
+import { localize, Localize } from 'components/localization'
 
 type ArrowProps = {
     expanded?: boolean
@@ -103,7 +105,7 @@ type ChildType = {
         parent_style?: ParentType
         header_style?: HeaderStyle
         content_style?: ContentType
-        header?: string
+        header?: TString
         plus?: boolean
         arrow_thin?: boolean
         is_showed?: boolean
@@ -167,7 +169,11 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
                             style={child?.props.header_style}
                             className={child?.props.class_name}
                         >
-                            <Text weight="bold">{child?.props.header}</Text>
+                            <Text weight="bold">
+                                {child?.props.header && (
+                                    <Localize translate_text={child?.props.header} />
+                                )}
+                            </Text>
                             <div>{child?.props.plus ? deployer : current_arrow}</div>
                         </AccordionHeader>
                         <div
@@ -279,7 +285,11 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
                         aria-expanded={is_expanded}
                         style={child.props.header_style}
                     >
-                        <Text weight="bold">{child?.props.header}</Text>
+                        <Text weight="bold">
+                            {child?.props.header && (
+                                <Localize translate_text={child?.props.header} />
+                            )}
+                        </Text>
                         {child?.props.plus ? deployer : current_arrow}
                     </AccordionHeader>
                     <div
@@ -308,8 +318,8 @@ type AccordionItemProps = {
     content_style?: ContentType
     parent_style?: ParentType
     header_style?: HeaderStyle
-    header?: string | ReactNode
-    text?: string
+    header?: TString
+    text?: TString
     plus?: boolean
     is_showed?: boolean
     class_name?: string

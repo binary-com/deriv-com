@@ -4,26 +4,24 @@ import Hero from './_hero'
 import AboutDeriv from './_about-deriv'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
+import { MetaAttributesType } from 'types/page.types'
 const DerivNumber = Loadable(() => import('./_deriv-numbers'))
 const WhyChooseUs = Loadable(() => import('./_why-choose-us'))
 const PartnershipOpportunities = Loadable(() => import('./_partnership-opportunities'))
 
-const meta_attributes = {
-    og_title: localize('Partnership Programme | Deriv'),
-    og_description: localize(
-        'Explore Deriv’s partnership programme and get a chance to be a partner with a trusted pioneer. All our programmes are free of charge with no hidden fees.',
-    ),
+const meta_attributes: MetaAttributesType = {
+    og_title: '_t_Partnership Programme | Deriv_t_',
+    og_description:
+        '_t_Explore Deriv’s partnership programme and get a chance to be a partner with a trusted pioneer. All our programmes are free of charge with no hidden fees._t_',
 }
 
 const Partner = () => {
     return (
         <Layout type="partners" margin_top={10} no_login_signup>
             <SEO
-                title={localize('Be our partner | Partnership programmes | Deriv')}
-                description={localize(
-                    'Explore Deriv’s partnership programmes and team up with a trusted online trading broker to earn extra income.',
-                )}
+                title="_t_Be our partner | Partnership programmes | Deriv_t_"
+                description="_t_Explore Deriv’s partnership programmes and team up with a trusted online trading broker to earn extra income._t_"
                 meta_attributes={meta_attributes}
             />
             <Hero />

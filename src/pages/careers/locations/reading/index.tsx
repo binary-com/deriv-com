@@ -4,7 +4,7 @@ import { reading } from '../../_model/_locations/_locations'
 import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
@@ -26,10 +26,8 @@ const Reading = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('UK | Our office – UK | Deriv')}
-                description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Reading, UK.',
-                )}
+                title="_t_UK | Our office – UK | Deriv_t_"
+                description="_t_Find your role with us by browsing Deriv job opportunities in Reading, UK._t_"
             />
             <NewLocationLayout location={reading} images={images} />
         </Layout>

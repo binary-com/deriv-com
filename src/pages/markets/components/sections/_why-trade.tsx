@@ -3,11 +3,13 @@ import styled from 'styled-components'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 type WhyTradeProps = {
     children?: ReactElement[]
-    header?: ReactElement
-    description?: ReactElement
+    header?: TString
+    description?: TString
 }
 
 const Item = styled(Flex)`
@@ -92,10 +94,12 @@ export const WhyTrade = ({ children, header, description }: WhyTradeProps) => {
     return (
         <StyledSection>
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
-                <StyledText>{description}</StyledText>
+                <StyledText>
+                    <Localize translate_text={description} />
+                </StyledText>
                 <div>
                     <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
-                        {header}
+                        <Localize translate_text={header} />
                     </StyledHeader>
                 </div>
                 <ItemContainer max_width="48.6rem" width="100%">

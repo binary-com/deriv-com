@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Flex, Box, Container, Desktop, Mobile } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
@@ -370,11 +370,11 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    <Localize translate_text="_t_Join over 1 million traders worldwide_t_" />
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
-                                    {localize('Sign up for your demo account now.')}
+                                    <Localize translate_text="_t_Sign up for your demo account now._t_" />
                                 </StyledHeaderText>
                                 <InputGroup>
                                     <InputWrapper>
@@ -392,7 +392,7 @@ const SignupPublic = ({
                                             label_color="black-3"
                                             labelSize="16px"
                                             labelTop="1.2rem"
-                                            label={localize('Email')}
+                                            label="_t_Email_t_"
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -416,7 +416,7 @@ const SignupPublic = ({
                                             !email
                                         }
                                     >
-                                        {localize('Sign up')}
+                                        <Localize translate_text="_t_Sign up_t_" />
                                     </EmailButton>
                                 </InputGroup>
                                 <AgreementLabel
@@ -424,7 +424,9 @@ const SignupPublic = ({
                                     handleChangeCheckbox={handleChange}
                                 />
                                 <SocialWrapper jc="unset" ai="center">
-                                    <SignInText>{localize('Or sign up with')}</SignInText>
+                                    <SignInText>
+                                        <Localize translate_text="_t_Or sign up with_t_" />
+                                    </SignInText>
                                     {social_button_content.map(({ provider, id, img }) => (
                                         <SocialButton
                                             key={provider}
@@ -465,7 +467,7 @@ const SignupPublic = ({
                                     ml="-4rem"
                                     position="relative"
                                 >
-                                    {localize('Get a taste of the Deriv experience')}
+                                    <Localize translate_text="_t_Get a taste of the Deriv experience_t_" />
                                 </StyledHeader>
                                 <ImageWithDireciton src={Arrow} alt="arrow desktop" />
                             </LinkFlex>
@@ -494,7 +496,7 @@ const SignupPublic = ({
                                 rel="noopener noreferrer nofollow"
                             >
                                 <Header size="4rem">
-                                    {localize('Get a taste of the Deriv experience')}
+                                    <Localize translate_text="_t_Get a taste of the Deriv experience_t_" />
                                 </Header>
                                 <ImageWithDireciton
                                     src={Arrow}
@@ -507,11 +509,11 @@ const SignupPublic = ({
                         <MobileSignupFormWrapper>
                             <div>
                                 <StyledHeader type="section-title">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    <Localize translate_text="_t_Join over 1 million traders worldwide_t_" />
                                 </StyledHeader>
                                 <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
-                                    {localize('Sign up for your demo account now.')}
+                                    <Localize translate_text="_t_Sign up for your demo account now._t_" />
                                 </StyledHeaderText>
                                 <InputGroup>
                                     <InputWrapper>
@@ -527,7 +529,7 @@ const SignupPublic = ({
                                             input_background="grey-8"
                                             label_focus_color="grey-7"
                                             label_color="black-3"
-                                            label={localize('Email')}
+                                            label="_t_Email_t_"
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -551,7 +553,7 @@ const SignupPublic = ({
                                             !email
                                         }
                                     >
-                                        {localize('Sign up')}
+                                        <Localize translate_text="_t_Sign up_t_" />
                                     </EmailButton>
                                 </InputGroup>
                                 <AgreementLabel
@@ -560,7 +562,7 @@ const SignupPublic = ({
                                 />
                                 <MobileSocialWrapper jc="unset" ai="center">
                                     <MobileSignInText>
-                                        {localize('Or sign in with')}
+                                        <Localize translate_text="_t_Or sign in with_t_" />
                                     </MobileSignInText>
                                     <Flex>
                                         {social_button_content.map(({ provider, id, img }) => (

@@ -1,4 +1,5 @@
 import { localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 const validation_regex = {
     email: /^[^@]+@[^@]+\.[^@.]{2,}$/,
@@ -7,7 +8,7 @@ const validation_regex = {
     number: /^\d+$/,
 }
 
-type TValidationHandler = (input: string, message?: string) => string | null
+type TValidationHandler = (input: string, message?: TString) => string | null
 type TValidationMethods = 'email' | 'name' | 'required' | 'url' | 'number' | 'alphabetic'
 type TValidationType = {
     [key in TValidationMethods]: TValidationHandler
@@ -17,42 +18,48 @@ const validation: TValidationType = {
     // Validation will return a string for error message
     email: (input, message) => {
         if (!validation_regex.email.test(input)) {
-            return message ? message : localize('Email is required')
+            const error_msg = message ? message : '_t_Email is required_t_'
+            return localize(error_msg)
         } else {
             return null
         }
     },
     name: (input, message) => {
         if (!input) {
-            return message ? message : localize('Name is required')
+            const error_msg = message ? message : '_t_Name is required_t_'
+            return localize(error_msg)
         } else {
             return null
         }
     },
     required: (input, message) => {
         if (!input) {
-            return message ? message : localize('This field is required')
+            const error_msg = message ? message : '_t_This field is required_t_'
+            return localize(error_msg)
         } else {
             return null
         }
     },
     url: (input, message) => {
         if (!validation_regex.url.test(input)) {
-            return message ? message : localize('Please enter a valid URL format')
+            const error_msg = message ? message : '_t_Please enter a valid URL format_t_'
+            return localize(error_msg)
         } else {
             return null
         }
     },
     number: (input, message) => {
         if (!validation_regex.number.test(input)) {
-            return message ? message : localize('Please enter a valid number')
+            const error_msg = message ? message : '_t_Please enter a valid number_t_'
+            return localize(error_msg)
         } else {
             return null
         }
     },
     alphabetic: (input, message) => {
         if (!validation_regex.alphabetic.test(input)) {
-            return message ? message : localize('Please enter only alphabetic characters')
+            const error_msg = message ? message : '_t_Please enter only alphabetic characters_t_'
+            return localize(error_msg)
         } else {
             return null
         }

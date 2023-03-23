@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Hero from '../_hero'
 import { vulnerability_types_content } from '../static/_vulnerabilities-types-content'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { WithIntl, Localize } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Container, Flex, SEO } from 'components/containers'
 import { Header } from 'components/elements'
@@ -72,10 +72,7 @@ const StyledLi = styled.li`
 
 const VulnerabilitiesTypes = () => (
     <Layout type="security">
-        <SEO
-            title={localize('_t_Types of vulnerabilities_t_')}
-            description={localize('_t_Types of vulnerabilities_t_')}
-        />
+        <SEO title="_t_Types of vulnerabilities_t_" description="_t_Types of vulnerabilities_t_" />
         <Hero />
 
         <StyledContainer direction="column" align="start">

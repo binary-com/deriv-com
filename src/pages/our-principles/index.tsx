@@ -4,7 +4,7 @@ import { principles } from './_data'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
 import { SEO, Container, Flex, SectionContainer } from 'components/containers'
-import { Localize, localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 
 type SeparatorInterface = {
@@ -95,7 +95,7 @@ const StyledFlex = styled(Flex)`
 const OurPrinciples = () => {
     return (
         <Layout>
-            <SEO title={localize('_t_Our principles | Deriv_t_')} />
+            <SEO title="_t_Our principles | Deriv_t_" />
             <TitleSection padding="120px 0 24px 10rem">
                 <StyledContainer>
                     <Header as="h1" type="hero" align="start" mb="24px">

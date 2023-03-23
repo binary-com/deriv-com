@@ -6,7 +6,7 @@ import { Localize } from 'components/localization'
 const StepIndices = () => {
     return (
         <>
-            <Symbol src={STEPINDICESNEW} text={<Localize translate_text="Step Index" />} />
+            <Symbol src={STEPINDICESNEW} text="_t_Step Index_t_" />
         </>
     )
 }

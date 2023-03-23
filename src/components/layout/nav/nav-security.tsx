@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import MainNav from './components/partner/main-nav'
 import { StyledLogoLink } from './components/partner/nav-partner-desktop'
 import { PartnerWrapper, PartnerNavigationBarWrapper } from './styles/nav-styles'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Container } from 'components/containers'
 import device from 'themes/device'
@@ -48,7 +48,7 @@ const NavSecurity = () => {
                         to="https://hackerone.com/binary"
                         target="_blank"
                     >
-                        {localize('Submit a report')}
+                        <Localize translate_text="_t_Submit a report_t_" />
                     </SubmissionButton>
                 </Wrapper>
             </PartnerNavigationBarWrapper>

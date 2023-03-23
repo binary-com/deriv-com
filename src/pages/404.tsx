@@ -34,8 +34,8 @@ const PageNotFound = () => {
         isBrowser() && (
             <Layout>
                 <SEO
-                    title={localize('_t_404 - Page not found | Deriv_t_')}
-                    description={localize('_t_The page you are looking for does not exist._t_')}
+                    title="_t_404 - Page not found | Deriv_t_"
+                    description="_t_The page you are looking for does not exist._t_"
                 />
                 <PageNotFoundContainer>
                     <img

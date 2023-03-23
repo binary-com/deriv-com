@@ -5,10 +5,11 @@ import Hero from './components/_hero'
 import ImageTextSwitching from './components/_image-text-switching'
 import Tablebtn from './components/_table-btn'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
+
 const IconTextRow = Loadable(() => import('./components/_icon-text-row'))
 
 const TradeForex = () => {
@@ -16,10 +17,7 @@ const TradeForex = () => {
 
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
-            <SEO
-                title={localize('_t_Weekends_t_')}
-                description={localize('_t_Ride the trends even on weekends_t_')}
-            />
+            <SEO title="_t_Weekends_t_" description="_t_Ride the trends even on weekends_t_" />
             {is_mounted && (
                 <>
                     <Hero

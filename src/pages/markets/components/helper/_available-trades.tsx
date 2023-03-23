@@ -1,12 +1,13 @@
 import React, { ReactElement } from 'react'
 import AvailableTradesDesktop from './_available-trades_desktop'
 import { Desktop, Mobile } from 'components/containers'
+import { TString } from 'types/generics'
 
 type AvailableTradesProps = {
     CFDs: ReactElement
     DigitalOptions?: ReactElement
     Multipliers?: ReactElement
-    display_title: ReactElement
+    display_title: TString
 }
 
 const AvailableTrades = ({

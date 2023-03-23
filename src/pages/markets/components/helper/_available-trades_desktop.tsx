@@ -8,10 +8,11 @@ import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { TString } from 'types/generics'
 
 type CardProps = {
     active_tab: string
-    display_name: ReactElement
+    display_name: TString
     name: string
     onTabChange: (name: string) => void
 }
@@ -19,7 +20,7 @@ type AvailableTradesProps = {
     CFDs: ReactElement
     DigitalOptions?: ReactElement
     Multipliers?: ReactElement
-    display_title: ReactElement
+    display_title: TString
 }
 
 type CardContainerProps = {
@@ -195,7 +196,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
                 {name === 'Options'}
                 {name === 'Multipliers'}
                 <CardHeader as="h4" width="auto">
-                    {display_name}
+                    <Localize translate_text={display_name} />
                 </CardHeader>
             </Flex>
         </CardContainer>
@@ -232,14 +233,14 @@ const AvailableTradesDesktop = ({
     return (
         <StyledSection>
             <StyledHeader as="h2" size="var(--text-size-l)" align="center">
-                {display_title}
+                <Localize translate_text={display_title} />
             </StyledHeader>
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
                         <Card
                             name="CFDs"
-                            display_name={<Localize translate_text="CFDs" />}
+                            display_name="_t_CFDs_t_"
                             onTabChange={() => {
                                 setTab('cfds')
                                 navigate(`?tab=cfds#cfds`)
@@ -250,7 +251,7 @@ const AvailableTradesDesktop = ({
                     {is_non_eu && DigitalOptions && (
                         <Card
                             name="Options"
-                            display_name={<Localize translate_text="Options" />}
+                            display_name="_t_Options_t_"
                             onTabChange={() => {
                                 setTab('options')
                                 navigate(`?tab=options#options`)
@@ -262,7 +263,7 @@ const AvailableTradesDesktop = ({
                     {Multipliers && (
                         <Card
                             name="Multipliers"
-                            display_name={<Localize translate_text="Multipliers" />}
+                            display_name="_t_Multipliers_t_"
                             onTabChange={() => {
                                 setTab('multipliers')
                                 navigate(`?tab=multipliers#multipliers`)

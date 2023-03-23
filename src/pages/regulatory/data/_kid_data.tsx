@@ -1,49 +1,53 @@
-import React from 'react'
-import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
-const kid_data = [
+type kidType = {
+    title: TString
+    ref: string
+}
+
+const kid_data: kidType[] = [
     {
-        title: <Localize translate_text="Commodities" />,
+        title: '_t_Commodities_t_',
         ref: 'kid_deriv_commodities.pdf',
     },
     {
-        title: <Localize translate_text="Forex" />,
+        title: '_t_Forex_t_',
         ref: 'kid_deriv_forex.pdf',
     },
     {
-        title: <Localize translate_text="Cryptocurrencies" />,
+        title: '_t_Cryptocurrencies_t_',
         ref: 'kid_deriv_crypto.pdf',
     },
     {
-        title: <Localize translate_text="Multipliers - forex" />,
+        title: '_t_Multipliers - forex_t_',
         ref: 'kid_deriv_multipliers_forex.pdf',
     },
     {
-        title: <Localize translate_text="Multipliers - cryptocurrencies" />,
+        title: '_t_Multipliers - cryptocurrencies_t_',
         ref: 'kid_deriv_multipliers_cryptocurrencies.pdf',
     },
     {
-        title: <Localize translate_text="Multipliers - synthetics: Volatility 250 (1s) Index" />,
+        title: '_t_Multipliers - synthetics: Volatility 250 (1s) Index_t_',
         ref: 'kid_deriv_multipliers_synthetics_vol_250.pdf',
     },
     {
-        title: <Localize translate_text="Multipliers - synthetics: Crash 300 Index" />,
+        title: '_t_Multipliers - synthetics: Crash 300 Index_t_',
         ref: 'kid_deriv_multipliers_synthetics_crash_300.pdf',
     },
     {
-        title: <Localize translate_text="Stocks" />,
+        title: '_t_Stocks_t_',
         ref: 'kid_deriv_Stocks.pdf',
     },
     {
-        title: <Localize translate_text="Stock indices" />,
+        title: '_t_Stock indices_t_',
         ref: 'kid_deriv_Stock Indices.pdf',
     },
     {
-        title: <Localize translate_text="CFDs - synthetics: Volatility 250 (1s) Index" />,
+        title: '_t_CFDs - synthetics: Volatility 250 (1s) Index_t_',
         ref: 'kid_deriv_CFD_synthetic_vol_250.pdf',
     },
     {
-        title: <Localize translate_text="CFDs - synthetics: Crash 300 Index" />,
+        title: '_t_CFDs - synthetics: Crash 300 Index_t_',
         ref: 'kid_deriv_CFD_synthetic_crash_300.pdf',
     },
 ]

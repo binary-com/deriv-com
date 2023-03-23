@@ -6,6 +6,7 @@ import { Localize, LocalizedLink } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import { TString } from 'types/generics'
 
 type NavTabProps = {
     route_from: string
@@ -103,23 +104,23 @@ const StyledLink = styled(LocalizedLink)`
 `
 
 type TabList = {
-    title: ReactElement
+    title: TString
     tab_name: string
     route_to: string
 }
 const tab_list: TabList[] = [
     {
-        title: <Localize translate_text="Synthetics" />,
+        title: '_t_Synthetics_t_',
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/#synthetic',
     },
     {
-        title: <Localize translate_text="Basket indices" />,
+        title: '_t_Basket indices_t_',
         tab_name: 'basket-indices',
         route_to: '/markets/basket-indices/#basket-indices',
     },
     {
-        title: <Localize translate_text="Derived FX" />,
+        title: '_t_Derived FX_t_',
         tab_name: 'derived-fx',
         route_to: '/markets/derived-fx/#derived-fx',
     },
@@ -127,7 +128,7 @@ const tab_list: TabList[] = [
 
 const tab_list_eu: TabList[] = [
     {
-        title: <Localize translate_text="Synthetics" />,
+        title: '_t_Synthetics_t_',
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/#synthetic',
     },
@@ -146,7 +147,9 @@ const NavTab = ({ route_from }: NavTabProps) => {
                         return (
                             <StyledLink to={item.route_to} key={item.tab_name}>
                                 <TabButton selected={route_from == item.tab_name}>
-                                    <TextWrapper>{item.title}</TextWrapper>
+                                    <TextWrapper>
+                                        <Localize translate_text={item.title} />
+                                    </TextWrapper>
                                 </TabButton>
                             </StyledLink>
                         )

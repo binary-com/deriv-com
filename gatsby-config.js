@@ -307,12 +307,5 @@ module.exports = {
             },
         },
         'gatsby-plugin-use-query-params',
-        {
-            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-            options: {
-                analyzerMode: 'disabled',
-                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
-            },
-        },
     ],
 }

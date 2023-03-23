@@ -6,7 +6,7 @@ import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'commo
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
-import { Localize, localize } from 'components/localization'
+import { Localize, localize, LocalizedLink } from 'components/localization'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device'
@@ -15,11 +15,17 @@ import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
 import useDerivWS from 'components/hooks/use-deriv-ws'
+import { isBrowser } from 'common/utility'
 
 type GetEbookProps = {
     color?: string
     ebook_utm_code: string
     onSubmit?: (submit_status: string, email: string) => void
+}
+
+type SocialButtonProps = {
+    provider?: string
+    id?: string
 }
 
 const SignupFormWrapper = styled(Flex)`
@@ -70,7 +76,7 @@ const EmailButton = styled(Button)`
     }
 `
 
-const SocialButton = styled(Button)`
+const SocialButton = styled(LocalizedLink)<SocialButtonProps>`
     width: 12.5rem;
     min-width: 116px;
     line-height: 30px;
@@ -81,6 +87,9 @@ const SocialButton = styled(Button)`
     min-height: 4rem;
     height: 40px;
     font-weight: 500;
+    font-size: 14px;
+    transition: all 0.25s ease 0s;
+    text-decoration: none;
 
     &:nth-of-type(1) {
         margin-left: 0;
@@ -104,6 +113,7 @@ const SocialButton = styled(Button)`
     }
 `
 const SocialButtonText = styled.div`
+    color: var(--color-black);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -186,6 +196,14 @@ const EmailImage = styled.img`
     width: 20rem;
 `
 
+type SocialLoginContent = {
+    name: string
+    provider: TSocialProvider
+    id: string
+    img: string
+    url: string
+}
+
 const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: GetEbookProps) => {
     const { send } = useDerivWS()
     const [is_checked, setChecked] = React.useState(false)
@@ -194,6 +212,41 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
     const [submit_status, setSubmitStatus] = React.useState('')
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
+
+    const [social_url, setSocialURL] = React.useState({ google: '', facebook: '', apple: '' })
+    React.useEffect(() => {
+        if (isBrowser()) {
+            setSocialURL({
+                google: Login.socialLoginUrl('google', ebook_utm_code),
+                facebook: Login.socialLoginUrl('facebook', ebook_utm_code),
+                apple: Login.socialLoginUrl('apple', ebook_utm_code),
+            })
+        }
+    }, [isBrowser()])
+
+    const social_login_content: SocialLoginContent[] = [
+        {
+            name: 'Google',
+            provider: 'google',
+            id: 'dm-signup-google',
+            img: Google,
+            url: social_url.google,
+        },
+        {
+            name: 'Facebook',
+            provider: 'facebook',
+            id: 'dm-signup-facebook',
+            img: Facebook,
+            url: social_url.facebook,
+        },
+        {
+            name: 'Apple',
+            provider: 'apple',
+            id: 'dm-signup-apple',
+            img: Apple,
+            url: social_url.apple,
+        },
+    ]
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -244,13 +297,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                 ...(ebook_utm_code && { utm_content: ebook_utm_code }),
             },
         }
-    }
-
-    const handleSocialSignup = (e) => {
-        e.preventDefault()
-
-        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
-        Login.initOneAll(data_provider, ebook_utm_code)
     }
 
     const handleEmailSignup = (e) => {
@@ -367,42 +413,21 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                     ai="center"
                     tabletS={{ fd: 'column' }}
                 >
-                    <SocialButton
-                        onClick={handleSocialSignup}
-                        provider="google"
-                        data-provider="google"
-                        id="dm-signup-google"
-                        type="button"
-                    >
-                        <SocialButtonText>
-                            <img src={Google} alt="google" width="24" height="24" />
-                            <span>Google</span>
-                        </SocialButtonText>
-                    </SocialButton>
-                    <SocialButton
-                        onClick={handleSocialSignup}
-                        provider="facebook"
-                        data-provider="facebook"
-                        id="dm-signup-facebook"
-                        type="button"
-                    >
-                        <SocialButtonText>
-                            <img src={Facebook} alt="facebook" width="24" height="24" />
-                            <span>Facebook</span>
-                        </SocialButtonText>
-                    </SocialButton>
-                    <SocialButton
-                        onClick={handleSocialSignup}
-                        provider="apple"
-                        data-provider="apple"
-                        id="dm-signup-apple"
-                        type="button"
-                    >
-                        <SocialButtonText>
-                            <img src={Apple} alt="apple" width="24" height="24" />
-                            <span>Apple</span>
-                        </SocialButtonText>
-                    </SocialButton>
+                    {social_login_content.map(({ name, provider, id, img, url }) => (
+                        <SocialButton
+                            key={provider}
+                            provider={provider}
+                            data-provider={provider}
+                            id={id}
+                            external
+                            to={url}
+                        >
+                            <SocialButtonText>
+                                <img src={img} alt={name} width="24" height="24" />
+                                <span>{name}</span>
+                            </SocialButtonText>
+                        </SocialButton>
+                    ))}
                 </Flex>
             </div>
         </SignupFormWrapper>

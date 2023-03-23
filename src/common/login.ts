@@ -43,8 +43,9 @@ const Login = (() => {
         window.location.href = social_login_url
     }
 
-    const socialLoginUrl = (provider: TSocialProvider): string => {
-        return `${loginUrl()}&social_signup=${provider}`
+    const socialLoginUrl = (provider: TSocialProvider, utm_content?: string): string => {
+        const utm_content_string = utm_content ? `&utm_content=${utm_content}` : ''
+        return `${loginUrl()}&social_signup=${provider}${utm_content_string}`
     }
 
     return {

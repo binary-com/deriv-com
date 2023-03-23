@@ -7,7 +7,7 @@ yarn-error.log*
 
 
 # classnames
-./src/classnames.d.ts
+src/classnames.d.ts
 
 # Runtime data
 pids

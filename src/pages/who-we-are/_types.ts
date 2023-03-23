@@ -76,17 +76,15 @@ type TBanner = {
 type TWhoWeAreBanner = { banner: TBanner }
 type TWhoWeAre = {
     data: {
-        allStrapiWhoWeArePage: {
-            nodes: THero &
-                TOurValues &
-                TOurPrinciples &
-                TLeader &
-                TOurLeadership &
-                TDerivNumbers &
-                TImageMarquee &
-                TOurOffices &
-                TWhoWeAreBanner
-        }
+        strapiWhoWeArePage: THero &
+            TOurValues &
+            TOurPrinciples &
+            TLeader &
+            TOurLeadership &
+            TDerivNumbers &
+            TImageMarquee &
+            TOurOffices &
+            TWhoWeAreBanner
     }
 }
 

@@ -49,7 +49,7 @@ const AboutUs = ({ data }: TWhoWeAre) => {
         slider_medias,
         our_locations,
         banner,
-    } = data?.allStrapiWhoWeArePage.nodes[0] || {}
+    } = data?.strapiWhoWeArePage || {}
 
     return (
         <Layout type="transparent" margin_top="0">
@@ -75,190 +75,188 @@ const AboutUs = ({ data }: TWhoWeAre) => {
 }
 export const query = graphql`
     query {
-        allStrapiWhoWeArePage {
-            nodes {
-                hero {
+        strapiWhoWeArePage {
+            hero {
+                header
+                sub_header
+                first_paragraph
+                second_paragraph
+                third_paragraph
+                hero_image {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                bg_desktop {
+                    localFile {
+                        url
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                bg_mobile {
+                    localFile {
+                        url
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+            }
+            our_values {
+                header
+                values {
                     header
                     sub_header
-                    first_paragraph
-                    second_paragraph
-                    third_paragraph
-                    hero_image {
+                    image {
                         localFile {
                             childImageSharp {
                                 gatsbyImageData
                             }
                         }
                     }
-                    bg_desktop {
-                        localFile {
-                            url
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                    bg_mobile {
-                        localFile {
-                            url
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
                 }
-                our_values {
-                    header
-                    values {
-                        header
-                        sub_header
-                        image {
-                            localFile {
-                                childImageSharp {
-                                    gatsbyImageData
-                                }
-                            }
-                        }
-                    }
-                }
-                our_principles {
-                    header
-                    principles {
-                        header
-                        sub_header
-                    }
-                    button {
-                        link_name
-                        link_url
-                    }
-                }
-                our_leadership {
-                    header
-                    leaders {
-                        name
-                        role
-                        link_url
-                        photo {
-                            url
-                            localFile {
-                                childImageSharp {
-                                    gatsbyImageData
-                                }
-                            }
-                        }
-                    }
-                }
-                deriv_in_numbers {
+            }
+            our_principles {
+                header
+                principles {
                     header
                     sub_header
-                    numbers {
-                        description
-                        number
-                    }
                 }
-                our_locations {
-                    header
-                    numbers {
-                        description
-                        number
-                    }
-                    locations {
-                        country_city
-                        link_url
-                    }
-                    earth {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                    earth_mobile {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-                banner {
-                    header
-                    sub_header
+                button {
                     link_name
                     link_url
-                    bg_desktop {
+                }
+            }
+            our_leadership {
+                header
+                leaders {
+                    name
+                    role
+                    link_url
+                    photo {
+                        url
                         localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                    bg_desktop_rtl {
-                        localFile {
-                            url
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                    bg_mobile {
-                        localFile {
-                            url
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                    bg_mobile_rtl {
-                        localFile {
-                            url
                             childImageSharp {
                                 gatsbyImageData
                             }
                         }
                     }
                 }
-                slider_medias {
-                    slider_1 {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
+            }
+            deriv_in_numbers {
+                header
+                sub_header
+                numbers {
+                    description
+                    number
+                }
+            }
+            our_locations {
+                header
+                numbers {
+                    description
+                    number
+                }
+                locations {
+                    country_city
+                    link_url
+                }
+                earth {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
                         }
                     }
-                    slider_2 {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
+                }
+                earth_mobile {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
                         }
                     }
-                    slider_3 {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
+                }
+            }
+            banner {
+                header
+                sub_header
+                link_name
+                link_url
+                bg_desktop {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
                         }
                     }
-                    slider_4 {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
+                }
+                bg_desktop_rtl {
+                    localFile {
+                        url
+                        childImageSharp {
+                            gatsbyImageData
                         }
                     }
-                    slider_5 {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
+                }
+                bg_mobile {
+                    localFile {
+                        url
+                        childImageSharp {
+                            gatsbyImageData
                         }
                     }
-                    slider_6 {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
+                }
+                bg_mobile_rtl {
+                    localFile {
+                        url
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+            }
+            slider_medias {
+                slider_1 {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slider_2 {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slider_3 {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slider_4 {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slider_5 {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slider_6 {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
                         }
                     }
                 }

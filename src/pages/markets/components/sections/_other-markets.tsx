@@ -258,7 +258,7 @@ const MobileCardContainer = styled(Flex)`
     }
 `
 const StyledSectionContainer = styled(SectionContainer)`
-    padding: 100px 0;
+    padding-bottom: 100px;
     margin: auto;
 `
 

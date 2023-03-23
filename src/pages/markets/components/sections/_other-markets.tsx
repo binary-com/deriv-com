@@ -175,10 +175,10 @@ const Card = ({ market }: CardProps) => {
             </div>
 
             <Text size="16px" weight="bold" mt="1.6rem">
-                {markets_type[market].title}
+                <Localize translate_text={markets_type[market].title} />
             </Text>
             <Text size="16px" mt="0.8rem">
-                {markets_type[market].content}
+                <Localize translate_text={markets_type[market].content} />
             </Text>
             <LearnMore to={markets_type[market].to} visibility={button_visibility}>
                 <Text mr="1rem">

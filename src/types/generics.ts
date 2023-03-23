@@ -139,7 +139,7 @@ export type LoveTradingComponentProps = {
     bg_image_mobile?: string
 }
 
-export type MarketsContent = {
+export type TMarketsContent = {
     src: string
     alt: string
     text: TString

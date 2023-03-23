@@ -140,10 +140,10 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         ${(props) => {
             if (props.active_tab === props.name.toLocaleLowerCase())
                 return css`
-        font - weight: bold;
-        background - color: var(--color - white);
-        box - shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
-        `
+                    font-weight: bold;
+                    background-color: var(--color-white);
+                    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
+                `
         }}
     }
 

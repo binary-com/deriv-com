@@ -4,7 +4,7 @@ import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import { simple_step_content_stock } from '../static/content/_stock'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const StocksAndIndicesPage = () => (

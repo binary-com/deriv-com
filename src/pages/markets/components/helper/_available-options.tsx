@@ -4,6 +4,7 @@ import { Flex, Box } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 type AvailableOptionsProps = {
     content: TString
@@ -48,13 +49,18 @@ const AvailableOptions = ({
         <StyledFlex mobile_pt={mobile_pt}>
             {!remove_title && (
                 <Box mb="0.8rem" height="2.4rem">
-                    <StyledText weight="bold">{title ? title : null}</StyledText>
+                    <StyledText weight="bold">
+                        {title ? <Localize translate_text={title} /> : null}
+                    </StyledText>
                 </Box>
             )}
             <Flex jc="flex-start">
                 <Icon src={svg} />
                 <Box max_width="28.8rem">
-                    <StyledText>{content}</StyledText>
+                    <StyledText>
+                        {' '}
+                        <Localize translate_text={content} />
+                    </StyledText>
                 </Box>
             </Flex>
         </StyledFlex>

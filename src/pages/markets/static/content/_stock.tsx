@@ -7,7 +7,7 @@ import ResponsiveWebsite from 'images/svg/markets/responsive-another.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
-import { MarketsContent } from 'types/generics'
+import { TMarketsContent } from 'types/generics'
 
 export const simple_step_content_stock: SimpleStepContentElement[] = [
     {
@@ -27,7 +27,7 @@ export const simple_step_content_stock: SimpleStepContentElement[] = [
     },
 ]
 
-const stocks: MarketsContent[] = [
+const stocks: TMarketsContent[] = [
     {
         src: ExtendedTime,
         alt: 'Low capital',

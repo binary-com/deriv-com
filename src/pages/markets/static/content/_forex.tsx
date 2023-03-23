@@ -7,7 +7,7 @@ import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
-import { MarketsContent } from 'types/generics'
+import { TMarketsContent } from 'types/generics'
 
 export const simple_step_content_forex: SimpleStepContentElement[] = [
     {
@@ -27,7 +27,7 @@ export const simple_step_content_forex: SimpleStepContentElement[] = [
     },
 ]
 
-export const forex_content: MarketsContent[] = [
+export const forex_content: TMarketsContent[] = [
     {
         src: Leverage,
         alt: 'High and low',
@@ -55,7 +55,7 @@ export const forex_content: MarketsContent[] = [
     },
 ]
 
-export const forex_content_eu: MarketsContent[] = [
+export const forex_content_eu: TMarketsContent[] = [
     {
         src: Leverage,
         alt: 'High and low',

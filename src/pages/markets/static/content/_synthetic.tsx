@@ -8,7 +8,7 @@ import SevenTrading from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
-import { MarketsContent } from 'types/generics'
+import { TMarketsContent } from 'types/generics'
 
 export const simple_step_content_synthetic: SimpleStepContentElement[] = [
     {
@@ -28,7 +28,7 @@ export const simple_step_content_synthetic: SimpleStepContentElement[] = [
     },
 ]
 
-const synthetic: MarketsContent[] = [
+const synthetic: TMarketsContent[] = [
     {
         src: SevenTrading,
         alt: 'Trading available everyday',

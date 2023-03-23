@@ -8,7 +8,7 @@ import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
-import { MarketsContent } from 'types/generics'
+import { TMarketsContent } from 'types/generics'
 
 export const simple_step_content_derived: SimpleStepContentElement[] = [
     {
@@ -28,7 +28,7 @@ export const simple_step_content_derived: SimpleStepContentElement[] = [
     },
 ]
 
-export const derived_content: MarketsContent[] = [
+export const derived_content: TMarketsContent[] = [
     {
         src: RealWorld,
         alt: 'realworld market values',
@@ -56,7 +56,7 @@ export const derived_content: MarketsContent[] = [
     },
 ]
 
-export const derived_content_eu: MarketsContent[] = [
+export const derived_content_eu: TMarketsContent[] = [
     {
         src: RealWorld,
         alt: 'realworld market values',

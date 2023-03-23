@@ -26,7 +26,9 @@ const Symbol = ({ instruments_type, src, text }: SymbolProps) => {
                             <Localize translate_text={text} />
                         </SymbolText>
                     ) : (
-                        <Localize translate_text={text} />
+                        <Text>
+                            <Localize translate_text={text} />
+                        </Text>
                     )}
                 </SymbolContainer>
             )}

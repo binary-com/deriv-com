@@ -7,7 +7,7 @@ import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
-import { MarketsContent } from 'types/generics'
+import { TMarketsContent } from 'types/generics'
 
 export const simple_step_content_basket: SimpleStepContentElement[] = [
     {
@@ -27,7 +27,7 @@ export const simple_step_content_basket: SimpleStepContentElement[] = [
     },
 ]
 
-export const basket_indices_content: MarketsContent[] = [
+export const basket_indices_content: TMarketsContent[] = [
     {
         src: Stocks,
         alt: 'Currency weight',
@@ -55,7 +55,7 @@ export const basket_indices_content: MarketsContent[] = [
     },
 ]
 
-export const basket_indices_content_eu: MarketsContent[] = [
+export const basket_indices_content_eu: TMarketsContent[] = [
     {
         src: Stocks,
         alt: 'Currency weight',

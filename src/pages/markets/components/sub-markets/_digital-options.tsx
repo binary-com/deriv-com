@@ -12,7 +12,7 @@ import MarketInstruments from '../sections/_market_instruments'
 import type { Options } from '../../static/content/_digital-options'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 type DigitalOptionsProps = {
     market_name: string
@@ -28,7 +28,7 @@ const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptio
             <ContentWrapper>
                 <Descriptions>
                     <StyledText font_size="16px" align="center">
-                        <Localize translate_text="Options trading allows for a range of payouts from correctly predicting market movements, without needing to buy an underlying asset." />
+                        <Localize translate_text="_t_Options trading allows for a range of payouts from correctly predicting market movements, without needing to buy an underlying asset._t_" />
                     </StyledText>
                     {what_to_show ? (
                         <AvailablePlatforms dmt5 derivx />
@@ -38,7 +38,7 @@ const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptio
                 </Descriptions>
                 <StyledText font_size="16px" weight="bold" mt="4.0rem">
                     <Localize
-                        translate_text="Option trades available on {{market_name}}"
+                        translate_text="_t_Option trades available on {{market_name}}_t_"
                         values={{ market_name }}
                     />
                 </StyledText>
@@ -54,7 +54,7 @@ const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptio
                     ))}
                 </Descriptions>
                 <Header as="h3" type="paragraph-1" weight="bold" mt="4.0rem">
-                    {localize('Instruments available for options trading')}
+                    <Localize translate_text="_t_Instruments available for options trading_t_" />
                 </Header>
                 <MarketInstruments market_content={options_list.market_instruments} />
             </ContentWrapper>

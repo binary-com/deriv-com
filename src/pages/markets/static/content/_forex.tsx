@@ -1,6 +1,5 @@
 import React from 'react'
 import { SimpleStepContentElement } from './_simple_step_content'
-import { Localize } from 'components/localization'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Deposit from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
@@ -8,12 +7,7 @@ import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
-
-export type ForexContentElement = {
-    src: string
-    alt: string
-    text: React.ReactNode
-}
+import { TMarketsContent } from 'types/generics'
 
 export const simple_step_content_forex: SimpleStepContentElement[] = [
     {
@@ -33,58 +27,58 @@ export const simple_step_content_forex: SimpleStepContentElement[] = [
     },
 ]
 
-export const forex_content: ForexContentElement[] = [
+export const forex_content: TMarketsContent[] = [
     {
         src: Leverage,
         alt: 'High and low',
-        text: <Localize translate_text="High leverage, tight forex spreads" />,
+        text: '_t_High leverage, tight forex spreads_t_',
     },
     {
         src: ResponsiveWebsite,
         alt: 'Responsive platforms',
-        text: <Localize translate_text="Responsive, easy-to-use online trading platforms" />,
+        text: '_t_Responsive, easy-to-use online trading platforms_t_',
     },
     {
         src: AdvancedCharting,
         alt: 'Charts',
-        text: <Localize translate_text="Advanced charting widgets" />,
+        text: '_t_Advanced charting widgets_t_',
     },
     {
         src: Deposit,
         alt: 'Deposits and withdrawals method',
-        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
+        text: '_t_Convenient deposit and withdrawal methods_t_',
     },
     {
         src: FriendlySupport,
         alt: 'Friendly support team',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        text: '_t_Smart and friendly support, 7 days a week_t_',
     },
 ]
 
-export const forex_content_eu: ForexContentElement[] = [
+export const forex_content_eu: TMarketsContent[] = [
     {
         src: Leverage,
         alt: 'High and low',
-        text: <Localize translate_text="Tight spreads" />,
+        text: '_t_Tight spreads_t_',
     },
     {
         src: ResponsiveWebsite,
         alt: 'Responsive platforms',
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        text: '_t_Responsive, easy-to-use platforms_t_',
     },
     {
         src: AdvancedCharting,
         alt: 'Charts',
-        text: <Localize translate_text="Advanced charting widgets" />,
+        text: '_t_Advanced charting widgets_t_',
     },
     {
         src: Deposit,
         alt: 'Deposits and withdrawals method',
-        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
+        text: '_t_Convenient deposit and withdrawal methods_t_',
     },
     {
         src: FriendlySupport,
         alt: 'Friendly support team',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        text: '_t_Smart and friendly support, 7 days a week_t_',
     },
 ]

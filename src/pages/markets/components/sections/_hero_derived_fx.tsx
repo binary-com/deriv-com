@@ -5,12 +5,13 @@ import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
 import BannerBg from 'images/common/markets/hero-derived-fx.png'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import { TString } from 'types/generics'
 
 const BackgroundWrapper = styled.div`
     background: url(${BannerBg});
@@ -91,13 +92,13 @@ const StyledButton = styled(Button)`
     }
 `
 type MarketProps = {
-    title: string
-    description: string
+    title: TString
+    description: TString
 }
 
 const GetTrading = () => (
     <StyledButton width="128px" onClick={handleGetTrading} secondary>
-        {localize('Get Trading')}
+        <Localize translate_text="_t_Get Trading_t_" />
     </StyledButton>
 )
 
@@ -106,7 +107,7 @@ const CreateFreeDemoAccount = () => {
 
     return (
         <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
-            {localize('Create free demo account')}
+            <Localize translate_text="_t_Create free demo account_t_" />
         </StyledButton>
     )
 }

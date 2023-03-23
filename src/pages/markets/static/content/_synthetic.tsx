@@ -1,6 +1,5 @@
 import React from 'react'
 import { SimpleStepContentElement } from './_simple_step_content'
-import { Localize } from 'components/localization'
 import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types-another.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
 import MarketandRisk from 'images/svg/markets/market-and-risk-new.svg'
@@ -9,12 +8,7 @@ import SevenTrading from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
-
-type Synthetic = {
-    src: string
-    text: React.ReactNode
-    alt: string
-}
+import { TMarketsContent } from 'types/generics'
 
 export const simple_step_content_synthetic: SimpleStepContentElement[] = [
     {
@@ -34,31 +28,31 @@ export const simple_step_content_synthetic: SimpleStepContentElement[] = [
     },
 ]
 
-const synthetic: Synthetic[] = [
+const synthetic: TMarketsContent[] = [
     {
         src: SevenTrading,
         alt: 'Trading available everyday',
-        text: <Localize translate_text="24/7 trading, including weekends and public holidays" />,
+        text: '_t_24/7 trading, including weekends and public holidays_t_',
     },
     {
         src: MarketandRisk,
         alt: 'Real world market',
-        text: <Localize translate_text="Free from real-world market and liquidity risks" />,
+        text: '_t_Free from real-world market and liquidity risks_t_',
     },
     {
         src: ResponsiveWebsite,
         alt: 'Easy to use platform',
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        text: '_t_Responsive, easy-to-use platforms_t_',
     },
     {
         src: ExclusiveTradeType,
         alt: 'Exclusive access',
-        text: <Localize translate_text="Exclusive access to innovative trade types" />,
+        text: '_t_Exclusive access to innovative trade types_t_',
     },
     {
         src: FriendlySupport,
         alt: 'Chat support',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        text: '_t_Smart and friendly support, 7 days a week_t_',
     },
 ]
 

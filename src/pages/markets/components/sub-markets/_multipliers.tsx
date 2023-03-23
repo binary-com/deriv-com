@@ -9,7 +9,7 @@ import type {
 } from '../../static/content/_multipliers'
 import { SectionContainer } from 'components/containers'
 import { Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
 type MultipliersProps = {
@@ -23,9 +23,7 @@ const Multipliers = ({ market_content }: MultipliersProps) => {
             <ContentWrapper>
                 <Descriptions>
                     <StyledText align="center">
-                        {localize(
-                            'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.',
-                        )}
+                        <Localize translate_text="_t_Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment._t_" />
                     </StyledText>
                     {is_eu ? (
                         <AvailablePlatforms dtrader />
@@ -34,7 +32,7 @@ const Multipliers = ({ market_content }: MultipliersProps) => {
                     )}
                 </Descriptions>
                 <StyledText font_size={'16px'} weight="bold" mt="2.4rem">
-                    {localize('Instruments available for multipliers trading')}
+                    <Localize translate_text="_t_Instruments available for multipliers trading_t_" />
                 </StyledText>
                 <MarketInstruments market_content={market_content} />
                 {/* deprecated?? */}

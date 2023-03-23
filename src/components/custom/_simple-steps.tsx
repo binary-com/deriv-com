@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react'
 import styled from 'styled-components'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'

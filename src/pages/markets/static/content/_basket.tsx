@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { SimpleStepContentElement } from './_simple_step_content'
-import { Localize } from 'components/localization'
 import Stocks from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
@@ -8,13 +7,7 @@ import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
-
-export type BasketIndicesContent = {
-    src: string
-    alt: string
-    text: React.ReactNode
-    icon?: ReactElement
-}
+import { TMarketsContent } from 'types/generics'
 
 export const simple_step_content_basket: SimpleStepContentElement[] = [
     {
@@ -34,58 +27,58 @@ export const simple_step_content_basket: SimpleStepContentElement[] = [
     },
 ]
 
-export const basket_indices_content: BasketIndicesContent[] = [
+export const basket_indices_content: TMarketsContent[] = [
     {
         src: Stocks,
         alt: 'Currency weight',
-        text: <Localize translate_text="Each currency weighted by 20%" />,
+        text: '_t_Each currency weighted by 20%_t_',
     },
     {
         src: Leverage,
         alt: 'Narrow spreads',
-        text: <Localize translate_text="High leverage, tight spreads" />,
+        text: '_t_High leverage, tight spreads_t_',
     },
     {
         src: ResponsiveWebsite,
         alt: 'Easy platform',
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        text: '_t_Responsive, easy-to-use platforms_t_',
     },
     {
         src: AdvancedCharting,
         alt: 'Graphs and charts',
-        text: <Localize translate_text="Advanced charting widgets" />,
+        text: '_t_Advanced charting widgets_t_',
     },
     {
         src: WithdrawIcon,
         alt: 'Convenient deposits and withdrawals',
-        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
+        text: '_t_Convenient deposit and withdrawal methods_t_',
     },
 ]
 
-export const basket_indices_content_eu: BasketIndicesContent[] = [
+export const basket_indices_content_eu: TMarketsContent[] = [
     {
         src: Stocks,
         alt: 'Currency weight',
-        text: <Localize translate_text="Each currency weighted by 20%" />,
+        text: '_t_Each currency weighted by 20%_t_',
     },
     {
         src: Leverage,
         alt: 'Narrow spreads',
-        text: <Localize translate_text="Tight spreads" />,
+        text: '_t_Tight spreads_t_',
     },
     {
         src: ResponsiveWebsite,
         alt: 'Easy platform',
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        text: '_t_Responsive, easy-to-use platforms_t_',
     },
     {
         src: AdvancedCharting,
         alt: 'Graphs and charts',
-        text: <Localize translate_text="Advanced charting widgets" />,
+        text: '_t_Advanced charting widgets_t_',
     },
     {
         src: WithdrawIcon,
         alt: 'Convenient deposits and withdrawals',
-        text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
+        text: '_t_Convenient deposit and withdrawal methods_t_',
     },
 ]

@@ -9,12 +9,7 @@ import MetalAndOil from 'images/svg/markets/precious-metals-and-oils-new.svg'
 import NoCommission from 'images/svg/markets/no-commission-new.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
 import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
-
-export type CommoditiesContent = {
-    src: string
-    text: React.ReactNode
-    alt: string
-}
+import { TMarketsContent } from 'types/generics'
 
 export const simple_step_content_commodities: SimpleStepContentElement[] = [
     {
@@ -33,31 +28,31 @@ export const simple_step_content_commodities: SimpleStepContentElement[] = [
         icon: <img src={WithdrawIcon} alt="Withdraw" width="32" height="32" />,
     },
 ]
-const commodities: CommoditiesContent[] = [
+const commodities: TMarketsContent[] = [
     {
         src: VariableSpreads,
         alt: 'Fixed and variable',
-        text: <Localize translate_text="Competitive fixed and variable spreads" />,
+        text: '_t_Competitive fixed and variable spreads_t_',
     },
     {
         src: NoCommission,
         alt: 'No commission',
-        text: <Localize translate_text="No commission on any commodity contract" />,
+        text: '_t_No commission on any commodity contract_t_',
     },
     {
         src: MetalAndOil,
         alt: 'Trading platform',
-        text: <Localize translate_text="All four precious metals and crude oil available" />,
+        text: '_t_All four precious metals and crude oil available_t_',
     },
     {
         src: ResponsiveWebsite,
         alt: 'Easy platform',
-        text: <Localize translate_text="Easy-to-use platforms, superior chart technology" />,
+        text: '_t_Easy-to-use platforms, superior chart technology_t_',
     },
     {
         src: FriendlySupport,
         alt: 'Customer help',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        text: '_t_Smart and friendly support, 7 days a week_t_',
     },
 ]
 

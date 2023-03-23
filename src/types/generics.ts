@@ -1,5 +1,5 @@
 /* disable-translation */
-
+import React, { ReactElement } from 'react'
 export type TRegion = {
     is_region_loading: boolean
     is_eu_location: boolean
@@ -137,4 +137,11 @@ export type LoveTradingComponentProps = {
     image: string
     bg_image?: string
     bg_image_mobile?: string
+}
+
+export type TMarketsContent = {
+    src: string
+    alt: string
+    text: TString
+    icon?: ReactElement
 }

@@ -13,7 +13,7 @@ import { basket_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
-import { Localize, localize } from 'components/localization'
+import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
 //Lazy-load
@@ -30,10 +30,8 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
             {is_row && (
                 <>
                     <WhyTrade
-                        description={
-                            <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
-                        }
-                        header={<Localize translate_text="Why trade basket indices on Deriv" />}
+                        description="_t_Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility._t_"
+                        header="_t_Why trade basket indices on Deriv_t_"
                     >
                         {(!is_eu ? basket_indices_content : basket_indices_content_eu).map(
                             (content: BasketIndicesContent, index) => (
@@ -52,14 +50,12 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         DigitalOptions={
                             <DigitalOptions
                                 market_type="basket-indices"
-                                market_name={localize('basket indices')}
+                                market_name={localize('_t_basket indices_t_')}
                                 options_list={basket_options}
                             />
                         }
                         Multipliers={<Multipliers market_content={basket_multiplier} />}
-                        display_title={
-                            <Localize translate_text="Basket indices trades  available on Deriv" />
-                        }
+                        display_title="_t_Basket indices trades  available on Deriv_t_"
                     />
                     <SimpleSteps
                         header="_t_Start trading basket indices on Deriv in 3 simple steps_t_"

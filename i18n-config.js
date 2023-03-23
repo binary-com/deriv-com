@@ -19,12 +19,6 @@ module.exports = {
         short_name: 'FR',
         affiliate_lang: 2,
     },
-    id: {
-        path: 'id',
-        display_name: 'Indonesian',
-        short_name: 'ID',
-        affiliate_lang: 4,
-    },
     it: {
         path: 'it',
         display_name: 'Italiano',

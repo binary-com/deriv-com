@@ -127,28 +127,32 @@ const SignupDefault = ({
                 {localize('Or sign up with')}
             </Text>
             <SocialWrapper justify="space-between" gap="0" grid="2">
-                <SocialButton
-                    provider="google"
-                    data-provider="google"
-                    id="dm-signup-google"
-                    external
-                    to={isBrowser() && Login.socialLoginUrl('google')}
-                >
-                    <span>
-                        <img src={Google} alt="google" width="22" height="23" />
-                    </span>
-                </SocialButton>
-                <SocialButton
-                    provider="facebook"
-                    data-provider="facebook"
-                    id="dm-signup-facebook"
-                    external
-                    to={isBrowser() && Login.socialLoginUrl('facebook')}
-                >
-                    <span>
-                        <img src={Facebook} alt="facebook" width="12" height="22" />
-                    </span>
-                </SocialButton>
+                {isBrowser() && (
+                    <>
+                        <SocialButton
+                            provider="google"
+                            data-provider="google"
+                            id="dm-signup-google"
+                            external
+                            to={Login.socialLoginUrl('google')}
+                        >
+                            <span>
+                                <img src={Google} alt="google" width="22" height="23" />
+                            </span>
+                        </SocialButton>
+                        <SocialButton
+                            provider="facebook"
+                            data-provider="facebook"
+                            id="dm-signup-facebook"
+                            external
+                            to={Login.socialLoginUrl('facebook')}
+                        >
+                            <span>
+                                <img src={Facebook} alt="facebook" width="12" height="22" />
+                            </span>
+                        </SocialButton>
+                    </>
+                )}
             </SocialWrapper>
             <LoginText>
                 {localize('Already have an account?')}

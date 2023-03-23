@@ -435,18 +435,24 @@ const SignupPublic = ({
                                 />
                                 <SocialWrapper jc="unset" ai="center">
                                     <SignInText>{localize('Or sign up with')}</SignInText>
-                                    {social_button_content.map(({ provider, id, img }) => (
-                                        <SocialButton
-                                            key={provider}
-                                            provider={provider}
-                                            data-provider={provider}
-                                            id={id}
-                                            external
-                                            to={isBrowser() && Login.socialLoginUrl(provider)}
-                                        >
-                                            <img src={img} alt={provider} width="40" height="40" />
-                                        </SocialButton>
-                                    ))}
+                                    {isBrowser() &&
+                                        social_button_content.map(({ provider, id, img }) => (
+                                            <SocialButton
+                                                key={provider}
+                                                provider={provider}
+                                                data-provider={provider}
+                                                id={id}
+                                                external
+                                                to={Login.socialLoginUrl(provider)}
+                                            >
+                                                <img
+                                                    src={img}
+                                                    alt={provider}
+                                                    width="40"
+                                                    height="40"
+                                                />
+                                            </SocialButton>
+                                        ))}
                                 </SocialWrapper>
                             </StyledFormWrapper>
                         </SignupFormWrapper>
@@ -572,23 +578,24 @@ const SignupPublic = ({
                                         {localize('Or sign in with')}
                                     </MobileSignInText>
                                     <Flex>
-                                        {social_button_content.map(({ provider, id, img }) => (
-                                            <SocialButton
-                                                key={provider}
-                                                provider={provider}
-                                                data-provider={provider}
-                                                id={id}
-                                                external
-                                                to={isBrowser() && Login.socialLoginUrl(provider)}
-                                            >
-                                                <img
-                                                    src={img}
-                                                    alt={provider}
-                                                    width="40"
-                                                    height="40"
-                                                />
-                                            </SocialButton>
-                                        ))}
+                                        {isBrowser() &&
+                                            social_button_content.map(({ provider, id, img }) => (
+                                                <SocialButton
+                                                    key={provider}
+                                                    provider={provider}
+                                                    data-provider={provider}
+                                                    id={id}
+                                                    external
+                                                    to={Login.socialLoginUrl(provider)}
+                                                >
+                                                    <img
+                                                        src={img}
+                                                        alt={provider}
+                                                        width="40"
+                                                        height="40"
+                                                    />
+                                                </SocialButton>
+                                            ))}
                                     </Flex>
                                 </MobileSocialWrapper>
                             </div>

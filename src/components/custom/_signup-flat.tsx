@@ -188,30 +188,34 @@ const SignupFlat = ({
                         <StyledText color={dark ? 'white' : 'black'}>
                             {localize('or sign up with')}
                         </StyledText>
-                        <SocialButton
-                            dark={dark}
-                            provider="google"
-                            data-provider="google"
-                            id="dm-signup-google"
-                            external
-                            to={isBrowser() && Login.socialLoginUrl('google')}
-                        >
-                            <span>
-                                <img src={Google} alt="google" width="22" height="23" />
-                            </span>
-                        </SocialButton>
-                        <SocialButton
-                            dark={dark}
-                            provider="facebook"
-                            data-provider="facebook"
-                            id="dm-signup-facebook"
-                            external
-                            to={isBrowser() && Login.socialLoginUrl('facebook')}
-                        >
-                            <span>
-                                <img src={Facebook} alt="facebook" width="12" height="22" />
-                            </span>
-                        </SocialButton>
+                        {isBrowser() && (
+                            <>
+                                <SocialButton
+                                    dark={dark}
+                                    provider="google"
+                                    data-provider="google"
+                                    id="dm-signup-google"
+                                    external
+                                    to={Login.socialLoginUrl('google')}
+                                >
+                                    <span>
+                                        <img src={Google} alt="google" width="22" height="23" />
+                                    </span>
+                                </SocialButton>
+                                <SocialButton
+                                    dark={dark}
+                                    provider="facebook"
+                                    data-provider="facebook"
+                                    id="dm-signup-facebook"
+                                    external
+                                    to={Login.socialLoginUrl('facebook')}
+                                >
+                                    <span>
+                                        <img src={Facebook} alt="facebook" width="12" height="22" />
+                                    </span>
+                                </SocialButton>
+                            </>
+                        )}
                     </SocialWrapper>
                 </Container>
                 <Splitter dark={dark}></Splitter>

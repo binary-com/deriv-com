@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode } from 'react'
+import React, { useState, useEffect, ReactNode, ReactElement } from 'react'
 import styled from 'styled-components'
 import { Text } from './typography'
 import Chevron from 'images/svg/custom/chevron-bottom.svg'
@@ -6,9 +6,16 @@ import ChevronThick from 'images/svg/custom/chevron-thick.svg'
 import Minus from 'images/svg/elements/minus.svg'
 import Plus from 'images/svg/elements/plus.svg'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type ArrowProps = {
     expanded?: boolean
+}
+
+export type AccordionDataProps = {
+    id?: string
+    title?: TString
+    component?: ReactElement
 }
 
 const ThickArrow = styled.img<ArrowProps>`

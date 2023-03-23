@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { NeedSignUp, BinaryRemoved, DerivSecure, OtherChanges } from './_faq-data'
 import { SectionContainer, Container } from 'components/containers'
-import { localize } from 'components/localization'
-import { Header, Accordion, AccordionItem } from 'components/elements'
+import { Localize } from 'components/localization'
+import { Header, Accordion, AccordionItem, AccordionDataProps } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import device from 'themes/device'
 
@@ -46,56 +46,70 @@ const Faq = () => {
         padding: '1.6rem 4rem',
         border: 'none',
     }
+
+    const accordion_data: Array<AccordionDataProps> = [
+        {
+            id: 'faqs_01',
+            title: '_t_Do I need to sign up for a Deriv.com account?_t_',
+            component: (
+                <>
+                    <NeedSignUp />
+                </>
+            ),
+        },
+        {
+            id: 'faqs_02',
+            title: '_t_Will Binary.com be removed?_t_',
+            component: (
+                <>
+                    <BinaryRemoved />
+                </>
+            ),
+        },
+        {
+            id: 'faqs_03',
+            title: '_t_Is Deriv.com secure?_t_',
+            component: (
+                <>
+                    <DerivSecure />
+                </>
+            ),
+        },
+        {
+            id: 'faqs_04',
+            title: '_t_What other changes will I be seeing?_t_',
+            component: (
+                <>
+                    <OtherChanges />
+                </>
+            ),
+        },
+    ]
     return (
         <RelativeContainer>
             <Container>
                 <Header as="h3" type="section-title" size="3.6rem" mb="4rem" align="center">
-                    {localize('Frequently asked questions')}
+                    <Localize translate_text="_t_Frequently asked questions_t_" />
                 </Header>
             </Container>
 
             <AccordionWrapper id="dmt5-faq-list">
                 <Accordion has_single_state>
-                    <AccordionItem
-                        header={localize('Do I need to sign up for a Deriv.com account?')}
-                        parent_style={parent_style}
-                        style={item_style}
-                        header_style={header_style}
-                        plus
-                        class_name="sign-up"
-                    >
-                        <NeedSignUp />
-                    </AccordionItem>
-                    <AccordionItem
-                        header={localize('Will Binary.com be removed?')}
-                        parent_style={parent_style}
-                        style={item_style}
-                        header_style={header_style}
-                        plus
-                        class_name="binary-remove"
-                    >
-                        <BinaryRemoved />
-                    </AccordionItem>
-                    <AccordionItem
-                        header={localize('Is Deriv.com secure?')}
-                        parent_style={parent_style}
-                        style={item_style}
-                        header_style={header_style}
-                        plus
-                        class_name="deriv-secure"
-                    >
-                        <DerivSecure />
-                    </AccordionItem>
-                    <AccordionItem
-                        header={localize('What other changes will I be seeing?')}
-                        parent_style={parent_style}
-                        style={item_style}
-                        header_style={header_style}
-                        plus
-                        class_name="visible-changes"
-                    >
-                        <OtherChanges />
-                    </AccordionItem>
+                    {accordion_data.map((item) => {
+                        return (
+                            <AccordionItem
+                                header={<Localize translate_text={item.title} />}
+                                parent_style={parent_style}
+                                style={item_style}
+                                header_style={header_style}
+                                plus
+                                class_name="sign-up"
+                                key={item.id}
+                            >
+                                {item.component}
+                            </AccordionItem>
+                        )
+                    })}
                 </Accordion>
             </AccordionWrapper>
             <TopLeftDot src={DotPattern} />

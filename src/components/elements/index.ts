@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem } from './accordion'
+import { Accordion, AccordionItem, AccordionDataProps } from './accordion'
 import AutoCarousel from './auto-carousel'
 import BackgroundImage from './background-image'
 import { Card, CardStyle, NavCard, CardLink } from './card'
@@ -30,6 +30,7 @@ import ImageWithDireciton from './image-with-direction'
 export {
     Accordion,
     AccordionItem,
+    AccordionDataProps,
     AutoCarousel,
     BackgroundImage,
     BaseElement,

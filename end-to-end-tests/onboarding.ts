@@ -6,10 +6,12 @@ config({ path: `.env.development` })
 export default class OnboardingFlow {
     readonly page: Page
     readonly email: string
+    client_information: any
     constructor(page: Page) {
         const randomString = new Date().getTime()
         this.page = page
         this.email = `deriv-com-e2e-${randomString}@deriv.com`
+        this.client_information = {}
     }
     async changeEndpoint() {
         await this.page.goto(`${process.env.TRADING_APP_URL!}/endpoint`)
@@ -110,6 +112,7 @@ export default class OnboardingFlow {
         await this.page.goto(process.env.APP_URL!)
         if (await this.page.url().includes('eu.'))
             await this.cookieDialogHandler()
+        await this.page.waitForLoadState('domcontentloaded')
         await this.page.waitForSelector('#dm-hero-signup')
         await this.page.click('#dm-hero-signup')
         await this.page.waitForTimeout(5000)
@@ -122,33 +125,44 @@ export default class OnboardingFlow {
         await this.page.click('text=I agree to the')
         await this.page.waitForSelector('#dm-new-signup')
         await this.page.click('#dm-new-signup')
-        const browser = await chromium.launch()
-        const mailPage = await browser.newPage({
-            ignoreHTTPSErrors: true,
-            httpCredentials: {
-                username: `${process.env.QA_EMAIL_INBOX_USER_NAME}`,
-                password: `${process.env.QA_EMAIL_INBOX_PASSWORD}`,
-            },
-        })
-        await mailPage.goto(`https://${process.env.ENDPOINT!}/events`)
-        let hrefs = await mailPage.evaluate(() => {
+        await this.page.goto(`https://${process.env.ENDPOINT!}/events`)
+        let hrefs = await this.page.evaluate(() => {
             return Array.from(document.links).map((item) => item.href)
         })
         hrefs = hrefs.slice().reverse()
         // TODO need to find a better approach instead of this
         // eslint-disable-next-line no-restricted-syntax
         for await (const item of hrefs) {
-            await mailPage.goto(item)
-            if (await mailPage.getByText(this.email).isVisible()) {
-                const element = await mailPage.locator('td > p', { hasText: `dafsdf` })
-                console.log(element.innerHTML)
-
-                // await expect(mailPage.locator('p', { hasText: `/${this.email}/` }).nth(0)).toHaveText("xxx")
-                await mailPage.close()
-                break
+            await this.page.goto(item)
+            if (await this.page.getByText(this.email).isVisible()) {
+                await expect(await this.page.getByRole('paragraph').nth(8).innerText()).toContain(this.email)
+                this.client_information = {
+                    loginid: 'CR5205084',
+                    email: this.email,
+                    landing_company_shortcode: 'svg',
+                    currency: 'USD',
+                    residence: 'de',
+                    first_name: 'test',
+                    last_name: 'test',
+                    preferred_language: 'EN',
+                    user_id: 11834440,
+                }
+                break;
             }
         }
 
+        console.log("client:", this.client_information)
+        expect(this.client_information).not.toEqual({})
 
+        await this.page.goto(process.env.APP_URL!)
+        await this.page.context().addCookies([{
+            name: 'client_information',
+            value: JSON.stringify(this.client_information),
+            domain: `${process.env.COOKIE_DOMAIN!}`,
+            path: '/',
+        }]);
+
+        await this.page.waitForTimeout(5000)
+        await expect(this.page.locator('#dm-hero-signup').nth(1)).toHaveText('Get Trading');
     }
 }

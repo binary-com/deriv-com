@@ -324,5 +324,24 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
             },
         },
+
+        {
+            resolve: 'gatsby-source-strapi',
+            options: {
+                apiURL: process.env.STRAPI_URL,
+                accessToken: process.env.STRAPI_TOKEN,
+                collectionTypes: [
+                    {
+                        singularName: 'who-we-are-page',
+                        queryParams: {
+                            publicationState:
+                                process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
+                            'filters[publishedAt][$null]':
+                                process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
+                        },
+                    },
+                ],
+            },
+        },
     ],
 }

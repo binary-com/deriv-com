@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { our_values } from './_data'
-import { localize } from 'components/localization'
-import { SectionContainer, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { TOurValues } from '../_types'
+import { Localize } from 'components/localization'
+import { Flex, SectionContainer } from 'components/containers'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const OurValuesSection = styled(SectionContainer)`
@@ -12,6 +13,7 @@ const OurValuesSection = styled(SectionContainer)`
     justify-content: center;
     padding: 80px 16px 56px;
     background-color: var(--color-grey-30);
+
     @media (max-width: 1255px) {
         align-items: center;
         flex-direction: column;
@@ -23,6 +25,7 @@ const OurValuesSection = styled(SectionContainer)`
 const StyledHeader = styled(Header)`
     margin: 235px 70px 0 0;
     padding: 0;
+
     @media ${device.laptop} {
         font-size: 48px;
         line-height: 60px;
@@ -46,29 +49,31 @@ const Card = styled(Flex)<{ index: number }>`
     box-shadow: rgba(14, 14, 14, 0.1) 0 4px 8px 0;
     background-color: var(--color-white);
     margin: 0 24px 24px 0;
-    margin-top: ${(props) => (props.index === 1 ? '80px' : props.index === 2 ? '-80px' : 0)};
+    margin-top: ${({ index }) => (index === 1 ? '80px' : index === 2 ? '-80px' : 0)};
     border-radius: 8px;
 
     @media (max-width: 930px) {
-        order: ${(props) => (props.index === 2 ? 1 : props.index === 1 ? 2 : props.index)};
+        order: ${({ index }) => (index === 2 ? 1 : index === 1 ? 2 : index)};
         margin: 0 0 19px;
     }
 `
 
-const OurValues = () => {
+const OurValues = ({ our_values }: TOurValues) => {
     return (
         <OurValuesSection>
             <StyledHeader as="h2" align="start" type="page-title" width="338px">
-                {localize('Our values are the fabric of our culture')}
+                <Localize translate_text={our_values?.header} />
             </StyledHeader>
             <StyledFlex width="820px" wrap="wrap">
-                {our_values.map(({ title, icon, text }, index) => (
+                {our_values?.values.map(({ header, image, sub_header }, index) => (
                     <Card key={index} index={index} direction="column" ai="start" jc="start">
-                        <img src={icon} alt="icon" />
+                        <GatsbyImage image={getImage(image.localFile)} alt="icon" loading="eager" />
                         <Header as="h4" padding="24px 0 8px" size="32px" align="start" type="unset">
-                            {title}
+                            <Localize translate_text={header} />
                         </Header>
-                        <Text size="16px">{text}</Text>
+                        <Header as="div" weight="normal" size="16px">
+                            <Localize translate_text={sub_header} />
+                        </Header>
                     </Card>
                 ))}
             </StyledFlex>

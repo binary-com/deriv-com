@@ -1,12 +1,10 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import BgMobile from 'images/common/who-we-are/about-us-banner-mobile.jpg'
-import BgMobileRTL from 'images/common/who-we-are/about-us-banner-mobile_rtl.jpg'
-import Bg from 'images/common/who-we-are/about-us-banner.jpg'
-import BgRTL from 'images/common/who-we-are/about-us-banner_rtl.jpg'
-import { localize } from 'components/localization'
-import { SectionContainer, Flex } from 'components/containers'
+import { TWhoWeAreBanner } from '../_types'
+import { Localize } from 'components/localization'
+import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -17,6 +15,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     align-items: center;
     padding: 0 40px 120px;
     flex-wrap: nowrap;
+
     @media ${device.tablet} {
         padding: 0 40px 40px;
     }
@@ -24,33 +23,27 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding: 0 16px 40px;
     }
 `
-
-const StyledFlex = styled(Flex)<{ is_rtl: boolean }>`
+type TStyledFlex = { is_rtl: boolean; bg_image: string }
+const StyledFlex = styled(Flex)<TStyledFlex>`
     border-radius: 10px;
-    ${({ is_rtl }) =>
-        is_rtl
-            ? css`
-                  background-image: url(${BgRTL});
-              `
-            : css`
-                  background-image: url(${Bg});
-              `};
+    background-image: url(${({ bg_image }) => bg_image});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     overflow: hidden;
+
     @media ${device.laptopM} {
         width: 100%;
     }
     @media (max-width: 610px) {
-        ${({ is_rtl }) =>
+        ${({ is_rtl, bg_image }) =>
             is_rtl
                 ? css`
-                      background-image: url(${BgMobileRTL});
+                      background-image: url(${bg_image});
                       background-position-x: right;
                   `
                 : css`
-                      background-image: url(${BgMobile});
+                      background-image: url(${bg_image});
                       background-position-x: left;
                   `};
         height: 546px;
@@ -59,10 +52,10 @@ const StyledFlex = styled(Flex)<{ is_rtl: boolean }>`
         background-position-x: -40px;
     }
 `
-
 const PictureFlex = styled(Flex)`
     width: 373px;
     margin: 32px 0 32px 100px;
+
     @media ${device.laptop} {
         margin: 32px 0 32px 50px;
     }
@@ -74,9 +67,9 @@ const PictureFlex = styled(Flex)`
         margin: 10px 10px 0 29px;
     }
 `
-
 const StyledHeader = styled(Header)`
     line-height: 40px;
+
     @media ${device.laptop} {
         line-height: 34px;
     }
@@ -87,10 +80,10 @@ const StyledHeader = styled(Header)`
         font-size: 28px;
     }
 `
-
 const StyledHeader2 = styled(Header)`
     color: var(--color-white);
     margin: 12px 0 8px;
+
     @media ${device.tablet} {
         margin: 6px 0 10px;
         font-size: 11px;
@@ -99,19 +92,26 @@ const StyledHeader2 = styled(Header)`
         letter-spacing: 0;
     }
 `
-
 const StyledLinkButton = styled(LinkButton)`
     @media ${device.tablet} {
         padding: 8px 16px;
     }
 `
 
-const AboutUsBanner = () => {
+const WhoWeAreBanner = ({ banner }: TWhoWeAreBanner) => {
+    const { is_mobile_or_tablet } = useBreakpoints()
+    const bg_image = is_mobile_or_tablet
+        ? banner?.bg_mobile.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+        : banner?.bg_desktop.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+    const bg_image_rtl = is_mobile_or_tablet
+        ? banner?.bg_mobile_rtl.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+        : banner?.bg_desktop_rtl.localFile.childImageSharp.gatsbyImageData.images.fallback.src
     const is_rtl = useIsRtl()
     return (
         <StyledSectionContainer>
             <StyledFlex
                 is_rtl={is_rtl}
+                bg_image={is_rtl ? bg_image_rtl : bg_image}
                 direction="column"
                 height="auto"
                 min_height="288px"
@@ -119,7 +119,7 @@ const AboutUsBanner = () => {
             >
                 <PictureFlex jc="start" ai="start" direction="column">
                     <StyledHeader as="h3" width="100%" type="unset" size="32px" color="white">
-                        {localize('We have a huge mission, an incredible team, and rapid growth.')}
+                        <Localize translate_text={banner?.header} />
                     </StyledHeader>
                     <StyledHeader2
                         width="100%"
@@ -128,10 +128,10 @@ const AboutUsBanner = () => {
                         size="16px"
                         weight="400px"
                     >
-                        {localize('Join and grow with us.')}
+                        <Localize translate_text={banner?.sub_header} />
                     </StyledHeader2>
-                    <StyledLinkButton secondary to="/careers/">
-                        {localize('See our open positions')}
+                    <StyledLinkButton secondary to={banner?.link_url}>
+                        <Localize translate_text={banner?.link_name} />
                     </StyledLinkButton>
                 </PictureFlex>
             </StyledFlex>
@@ -139,4 +139,4 @@ const AboutUsBanner = () => {
     )
 }
 
-export default AboutUsBanner
+export default WhoWeAreBanner

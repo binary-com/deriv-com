@@ -1,13 +1,14 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { ModalFlex } from './leaders'
-import { LocalizedLink } from 'components/localization'
+import { Flex } from 'components/containers'
+import { Localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
 import Linkedin from 'images/svg/who-we-are/linkedin.svg'
+import device from 'themes/device'
 
 type ModalPropsType = {
     name: string
-    position: ReactElement
+    role: string
     link?: string
 }
 
@@ -24,15 +25,36 @@ const StyledLogo = styled.img<StyledLogoType>`
         filter: ${(props) => (props.link ? 'unset' : 'grayscale(100%)')};
     }
 `
+const ModalFlex = styled(Flex)`
+    position: absolute;
+    top: 130px;
+    background-color: white;
+    padding: 8px 16px 6px;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 4px 15px;
+    white-space: pre;
+    width: fit-content;
 
-const Modal = ({ name, position, link }: ModalPropsType) => {
+    @media ${device.tablet} {
+        top: 124px;
+    }
+    @media ${device.tabletS} {
+        top: 108px;
+    }
+    @media ${device.mobileL} {
+        top: 93px;
+    }
+`
+
+const Modal = ({ name, role, link }: ModalPropsType) => {
     return (
         <ModalFlex ai="center" direction="column" width="unset" height="unset" p="0px 16px 5px">
             <Header type="unset" as="h4" padding="0" align="center" size="14px">
                 {name}
             </Header>
             <Header as="h4" padding="0" type="sub-paragraph" weight="normal" align="center">
-                {position}
+                <Localize translate_text={role} />
             </Header>
             {link && (
                 <LocalizedLink external to={link} target="_blank" rel="noopener noreferrer">

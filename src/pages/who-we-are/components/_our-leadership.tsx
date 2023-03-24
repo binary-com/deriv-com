@@ -2,10 +2,10 @@ import React, { MouseEventHandler, useState } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { TLeader, TOurLeadership } from '../_types'
-import Modal from './_modal'
+import Modal, { ModalFlex } from './_modal'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Localize } from 'components/localization'
-import { CssGrid, Flex, SectionContainer } from 'components/containers'
+import { CssGrid, SectionContainer } from 'components/containers'
 import { Header, ImageWrapper } from 'components/elements'
 import device from 'themes/device'
 
@@ -41,27 +41,6 @@ const StyledHeader = styled(Header)`
     }
     @media ${device.tablet} {
         padding-bottom: 24px;
-    }
-`
-const ModalFlex = styled(Flex)`
-    position: absolute;
-    top: 130px;
-    background-color: white;
-    padding: 8px 16px 6px;
-    z-index: 1;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0 4px 15px;
-    white-space: pre;
-    width: fit-content;
-
-    @media ${device.tablet} {
-        top: 124px;
-    }
-    @media ${device.tabletS} {
-        top: 108px;
-    }
-    @media ${device.mobileL} {
-        top: 93px;
     }
 `
 const StyledImageWrapper = styled(ImageWrapper)`
@@ -125,7 +104,7 @@ const OurLeadership = ({ our_leadership }: TOurLeadership) => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                <Localize translate_text={our_leadership?.header} />
+                <Localize translate_text={our_leadership?.header} cms />
             </StyledHeader>
             <StyledCssGrid
                 height="unset"

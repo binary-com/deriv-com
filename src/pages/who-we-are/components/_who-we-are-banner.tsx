@@ -119,7 +119,7 @@ const WhoWeAreBanner = ({ banner }: TWhoWeAreBanner) => {
             >
                 <PictureFlex jc="start" ai="start" direction="column">
                     <StyledHeader as="h3" width="100%" type="unset" size="32px" color="white">
-                        <Localize translate_text={banner?.header} />
+                        <Localize translate_text={banner?.header} cms />
                     </StyledHeader>
                     <StyledHeader2
                         width="100%"
@@ -128,10 +128,10 @@ const WhoWeAreBanner = ({ banner }: TWhoWeAreBanner) => {
                         size="16px"
                         weight="400px"
                     >
-                        <Localize translate_text={banner?.sub_header} />
+                        <Localize translate_text={banner?.sub_header} cms />
                     </StyledHeader2>
                     <StyledLinkButton secondary to={banner?.link_url}>
-                        <Localize translate_text={banner?.link_name} />
+                        <Localize translate_text={banner?.link_name} cms />
                     </StyledLinkButton>
                 </PictureFlex>
             </StyledFlex>

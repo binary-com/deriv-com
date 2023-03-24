@@ -137,7 +137,7 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                <Localize translate_text={our_locations?.header} />
+                <Localize translate_text={our_locations?.header} cms />
             </StyledHeader>
 
             <Flex>
@@ -164,7 +164,7 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
                             {number}
                         </NumberHeader>
                         <NumberText as="div" size="16px" align="center">
-                            <Localize translate_text={description} />
+                            <Localize translate_text={description} cms />
                         </NumberText>
                     </StyledFlex>
                 ))}

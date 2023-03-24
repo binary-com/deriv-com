@@ -13,8 +13,8 @@ type PinWrapperProps = {
 
 const PinWrapper = styled.div<PinWrapperProps>`
     position: absolute;
-    top: ${(props) => props.top};
-    left: ${(props) => props.left};
+    top: ${({ top }) => top};
+    left: ${({ left }) => left};
     -webkit-tap-highlight-color: transparent;
     /* stylelint-disable */
     -webkit-appearance: none;
@@ -81,7 +81,7 @@ const MapPin = ({ top, left, country_city, link_url }: MapPinType) => {
             {is_pin_show && (
                 <PinContent locale="en" to={link_url} anchor>
                     <Header color="black" mr="8px" weight="normal" type="small">
-                        <Localize translate_text={country_city} />
+                        <Localize translate_text={country_city} cms />
                     </Header>
                 </PinContent>
             )}

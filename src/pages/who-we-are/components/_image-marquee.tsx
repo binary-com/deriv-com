@@ -38,6 +38,7 @@ const CarouselSlide = styled.div`
     }
     &:nth-child(4) {
         min-width: 792px;
+
         @media ${device.tablet} {
             min-width: 328px;
         }

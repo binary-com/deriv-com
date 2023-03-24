@@ -91,7 +91,7 @@ const OurPrinciples = ({ our_principles }: TOurPrinciples) => {
     return (
         <StyledSection>
             <Header as="h2" align="center" type="heading-2" mb="40px" laptop={{ mb: '24px' }}>
-                <Localize translate_text={our_principles?.header} />
+                <Localize translate_text={our_principles?.header} cms />
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
                 {our_principles?.principles.map(({ header, sub_header }, idx) => (
@@ -107,11 +107,11 @@ const OurPrinciples = ({ our_principles }: TOurPrinciples) => {
                         >
                             <StyledDiv>
                                 <ColoredBox bgcolor={colors[idx]}>
-                                    <Localize translate_text={header} />
+                                    <Localize translate_text={header} cms />
                                 </ColoredBox>
                             </StyledDiv>
                             <StyledText as="p" type="sub-paragraph" weight="400">
-                                <Localize translate_text={sub_header} />
+                                <Localize translate_text={sub_header} cms />
                             </StyledText>
                         </InsideFlex>
                     </div>
@@ -119,7 +119,7 @@ const OurPrinciples = ({ our_principles }: TOurPrinciples) => {
                 <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
             </StyledFlex>
             <StyledLinkButton to={our_principles?.button.link_url} secondary>
-                <Localize translate_text={our_principles?.button.link_name} />
+                <Localize translate_text={our_principles?.button.link_name} cms />
             </StyledLinkButton>
         </StyledSection>
     )

@@ -407,6 +407,11 @@ export const updateURLAsPerUserLanguage = () => {
         Cookies.set('user_language', first_path, {
             domain: `.${getDomain()}`,
         })
+
+    // To prove the theory
+
+    document.cookie = `user=Amina; domain=.${getDomain()}`
+
     const user_language = Cookies.get('user_language') || 'en'
 
     const language = has_language_in_url ? first_path : user_language

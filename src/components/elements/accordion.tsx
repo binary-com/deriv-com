@@ -16,6 +16,7 @@ export type AccordionDataProps = {
     id?: string
     title?: TString
     component?: ReactElement
+    is_showed?: boolean
 }
 
 const ThickArrow = styled.img<ArrowProps>`

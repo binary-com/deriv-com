@@ -125,9 +125,8 @@ const SocialButton = styled(Button)<SocialButtonProps>`
 const SocialWrapper = styled.div<CSSProperties>`
     width: 100%;
     margin-top: 2.4rem;
-    display: grid;
-    grid-template-columns: repeat(3, max-content);
-    gap: ${(props) => props.gap || 0};
+    display: flex;
+    gap: ${(props) => props.gap};
     justify-content: center;
     align-items: center;
     padding-block: 1rem;

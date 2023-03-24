@@ -13,7 +13,7 @@ const StartTrading = () => {
             <StartTradingBg>
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" type="section-title" mb="4rem">
-                        {localize('Start trading CFDs on Deriv')}
+                        <Localize translate_text="_t_Start trading CFDs on Deriv_t_" />
                     </Header>
 
                     <Timeline>

@@ -403,7 +403,8 @@ export const updateURLAsPerUserLanguage = () => {
     const paths = current_path.split('/')
     const first_path = paths[1]
     const has_language_in_url = first_path in language_config
-    has_language_in_url && Cookies.set('user_language', first_path)
+    document.cookie =
+        has_language_in_url && 'user_language=' + first_path + ';domain=.' + getDomain() + ';path=/'
     const user_language = Cookies.get('user_language') || 'en'
 
     const language = has_language_in_url ? first_path : user_language

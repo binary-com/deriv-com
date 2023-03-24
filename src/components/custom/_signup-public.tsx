@@ -352,10 +352,10 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
 `
 const social_button_content: SocialButtonContent[] = [
     {
-        provider: 'apple',
-        id: 'dm-signup-apple',
-        img: Apple,
-        text: 'Apple',
+        provider: 'google',
+        id: 'dm-signup-google',
+        img: Google,
+        text: 'Google',
     },
     {
         provider: 'facebook',
@@ -364,10 +364,10 @@ const social_button_content: SocialButtonContent[] = [
         text: 'Facebook',
     },
     {
-        provider: 'google',
-        id: 'dm-signup-google',
-        img: Google,
-        text: 'Google',
+        provider: 'apple',
+        id: 'dm-signup-apple',
+        img: Apple,
+        text: 'Apple',
     },
 ]
 const SignupPublic = ({

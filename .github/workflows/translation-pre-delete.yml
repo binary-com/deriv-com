@@ -20,7 +20,7 @@ jobs:
    check-translation-branch:
         runs-on: ubuntu-latest
         if: |
-            (startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')) &&
+            (startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp') || startsWith(github.head_ref, 'rebranding')) &&
             !contains(github.head_ref, '!') &&
             !contains(github.head_ref, '@') &&   
             !contains(github.head_ref, '#') &&   

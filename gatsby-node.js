@@ -15,6 +15,7 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_p2p = /responsible/g.test(page.path)
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
+    const is_indonesian_links = /id/g.test(page.path)
 
     if (is_responsible_trading) {
         createRedirect({
@@ -26,6 +27,15 @@ exports.onCreatePage = ({ page, actions }) => {
         createRedirect({
             fromPath: `/responsible-trading`,
             toPath: `/responsible`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
+
+    if (is_indonesian_links) {
+        createRedirect({
+            fromPath: `/id/`,
+            toPath: `/en/`,
             redirectInBrowser: true,
             isPermanent: true,
         })

@@ -172,7 +172,7 @@ const EmailButton = styled(Button)<{ isChecked?: boolean }>`
         min-width: unset;
         margin-left: 0;
         height: 40px;
-        width: 250px;
+        width: 273px;
     }
 `
 const SocialWrapper = styled(Flex)`
@@ -562,7 +562,7 @@ const SignupPublic = ({
                                             value={email}
                                             background="white"
                                             tablet_background="green-1"
-                                            inputColor="grey-5"
+                                            inputColor="black-3"
                                             input_background="grey-8"
                                             label_focus_color="grey-7"
                                             label_color="black-3"

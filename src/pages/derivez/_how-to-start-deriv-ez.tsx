@@ -110,7 +110,7 @@ const StartDerivEZ = () => {
                     </StyledText>
                 </TabItem>
             </Flex>
-            <GetStartedStepsSection is_demo={tab === 'demo'} />
+            <GetStartedStepsSection chosen_tab={tab} is_demo={tab === 'demo'} />
         </Section>
     )
 }

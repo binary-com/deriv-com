@@ -305,7 +305,7 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <img src={Google} alt="google" width="38" height="38" />
+                    <img src={Google} alt="google" width="37" height="37" />
                 </SocialButton>
                 <SocialButton
                     onClick={handleSocialSignup}

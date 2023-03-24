@@ -324,7 +324,6 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
             },
         },
-
         {
             resolve: 'gatsby-source-strapi',
             options: {

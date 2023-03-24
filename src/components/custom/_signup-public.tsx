@@ -51,7 +51,8 @@ const query = graphql`
 `
 const StyledSectionContainer = styled(Box)`
     width: 100%;
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 140px;
     position: static;
     background-color: var(--color-white);
 
@@ -194,11 +195,10 @@ const MobileSocialWrapper = styled(SocialWrapper)`
 const SocialButton = styled(Button)`
     display: flex;
     padding: 0;
-    margin: 0 1rem;
     font-size: 12px;
     align-items: center;
     justify-content: center;
-    width: 10.6rem;
+    width: 11.6rem;
     height: 4rem;
     background-color: white;
     border: 1px solid var(--color-grey-7);
@@ -206,7 +206,8 @@ const SocialButton = styled(Button)`
 
     @media ${device.tabletL} {
         justify-content: center;
-        width: 10rem;
+        width: 11rem;
+        margin: 0 0.6rem;
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`

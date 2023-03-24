@@ -12,6 +12,7 @@ type TItem = {
 
 type TProps = {
     items: TItem[]
+    chosen_tab?: string
     default_step?: number
     onStepChanged?: (step: number) => void
 }
@@ -61,14 +62,23 @@ const UlStyle = styled.ul`
     }
 `
 
-const StepperView: React.FC<TProps> = ({ items, default_step = 0, onStepChanged }) => {
+const StepperView: React.FC<TProps> = ({
+    items: initialItems,
+    default_step = 0,
+    onStepChanged,
+    chosen_tab,
+}) => {
     const [selected, setSelected] = useState<number>(default_step)
+    const [items, setItems] = useState<TItem[]>(initialItems)
+
+    useEffect(() => {
+        setItems(initialItems)
+        setSelected(default_step)
+    }, [chosen_tab, initialItems, default_step])
 
     useEffect(() => {
         onStepChanged?.(selected)
-    }, [selected, onStepChanged])
-
-    useEffect(() => setSelected(default_step), [items, default_step])
+    }, [items, selected, onStepChanged])
 
     return (
         <Wrapper>

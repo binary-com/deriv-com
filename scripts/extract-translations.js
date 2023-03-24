@@ -109,7 +109,7 @@ function extractTranslations() {
                     console.log(e);
                 }
             }
-            const data_from_strapi = getStrapiStrings(strap_data.result.data.allStrapiWhoWeArePage.nodes)
+            const data_from_strapi = getStrapiStrings(strap_data.result.data.strapiWhoWeArePage)
             const messages = new Array(...pre_messages, ...data_from_strapi)
 
             const untranslated = []

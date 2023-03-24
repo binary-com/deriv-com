@@ -56,6 +56,7 @@ const Faq = () => {
                     <NeedSignUp />
                 </>
             ),
+            class_name: 'sign-up',
         },
         {
             id: 'faqs_02',
@@ -65,6 +66,7 @@ const Faq = () => {
                     <BinaryRemoved />
                 </>
             ),
+            class_name: 'binary-remove',
         },
         {
             id: 'faqs_03',
@@ -74,6 +76,7 @@ const Faq = () => {
                     <DerivSecure />
                 </>
             ),
+            class_name: 'deriv-secure',
         },
         {
             id: 'faqs_04',
@@ -83,6 +86,7 @@ const Faq = () => {
                     <OtherChanges />
                 </>
             ),
+            class_name: 'visible-changes',
         },
     ]
     return (
@@ -103,7 +107,7 @@ const Faq = () => {
                                 style={item_style}
                                 header_style={header_style}
                                 plus
-                                class_name="sign-up"
+                                class_name={item.class_name}
                                 key={item.id}
                             >
                                 {item.component}

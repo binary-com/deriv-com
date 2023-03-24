@@ -79,6 +79,7 @@ const FAQ = () => {
                     <WhyRebrand />
                 </>
             ),
+            class_name: 'why-rebranding',
         },
         {
             id: 'faqs_02',
@@ -88,6 +89,7 @@ const FAQ = () => {
                     <WhatChanges />
                 </>
             ),
+            class_name: 'what-changes',
         },
         {
             id: 'faqs_03',
@@ -97,6 +99,7 @@ const FAQ = () => {
                     <IsBeingBought />
                 </>
             ),
+            class_name: 'is-company-bought',
         },
     ]
 
@@ -109,6 +112,7 @@ const FAQ = () => {
                     <NewProducts />
                 </>
             ),
+            class_name: 'result',
         },
         {
             id: 'faqs_02',
@@ -118,6 +122,7 @@ const FAQ = () => {
                     <WhatToExpect />
                 </>
             ),
+            class_name: 'what-else',
             is_showed: !is_eu,
         },
         {
@@ -128,6 +133,7 @@ const FAQ = () => {
                     <IsDerivRegulated />
                 </>
             ),
+            class_name: 'legitimacy',
         },
         {
             id: 'faqs_04',
@@ -137,6 +143,7 @@ const FAQ = () => {
                     <AreCloseDown />
                 </>
             ),
+            class_name: 'is-close',
         },
     ]
 
@@ -149,6 +156,7 @@ const FAQ = () => {
                     <WhySwitch />
                 </>
             ),
+            class_name: 'switch',
         },
         {
             id: 'faqs_02',
@@ -158,6 +166,7 @@ const FAQ = () => {
                     <CanStillTrade />
                 </>
             ),
+            class_name: 'trade-on-binary',
         },
         {
             id: 'faqs_03',
@@ -167,6 +176,7 @@ const FAQ = () => {
                     <HowToGetStarted />
                 </>
             ),
+            class_name: 'get-started',
         },
     ]
 
@@ -193,6 +203,7 @@ const FAQ = () => {
                                         header_style={header_style}
                                         plus
                                         key={item.id}
+                                        class_name={item.class_name}
                                     >
                                         {item.component}
                                     </AccordionItem>
@@ -225,6 +236,7 @@ const FAQ = () => {
                                         header_style={header_style}
                                         plus
                                         key={item.id}
+                                        class_name={item.class_name}
                                     >
                                         {item.component}
                                     </AccordionItem>
@@ -255,7 +267,7 @@ const FAQ = () => {
                                         style={item_style}
                                         header_style={header_style}
                                         plus
-                                        class_name="switch"
+                                        class_name={item.class_name}
                                         key={item.id}
                                     >
                                         {item.component}

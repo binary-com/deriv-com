@@ -91,7 +91,7 @@ const OurPrinciples = ({ our_principles }: TOurPrinciples) => {
     return (
         <StyledSection>
             <Header as="h2" align="center" type="heading-2" mb="40px" laptop={{ mb: '24px' }}>
-                {our_principles?.header}
+                <Localize translate_text={our_principles?.header} />
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
                 {our_principles?.principles.map(({ header, sub_header }, idx) => (

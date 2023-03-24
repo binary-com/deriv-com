@@ -143,15 +143,15 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
             <Flex>
                 <Desktop>
                     <MapImage data={getImage(our_locations.earth.localFile)}>
-                        {desktop?.map((pin, idx) => (
-                            <MapPin key={idx} {...pin} />
+                        {desktop?.map((pin) => (
+                            <MapPin key={pin.country_city} {...pin} />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
                     <MapImage data={getImage(our_locations.earth_mobile.localFile)}>
-                        {mobile?.map((pin, idx) => (
-                            <MapPin key={idx} {...pin} />
+                        {mobile?.map((pin) => (
+                            <MapPin key={pin.country_city} {...pin} />
                         ))}
                     </MapImage>
                 </Mobile>

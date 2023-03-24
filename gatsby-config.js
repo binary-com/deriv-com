@@ -336,10 +336,6 @@ module.exports = {
                         queryParams: {
                             publicationState:
                                 process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
-                            // 'filters[publishedAt][$null]':
-                            //     process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
-                            // 'filters[updatedAt][$gt]':
-                            //     process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
                         },
                     },
                 ],

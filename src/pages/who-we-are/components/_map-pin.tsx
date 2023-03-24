@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
 import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
 import device from 'themes/device'
@@ -81,7 +81,7 @@ const MapPin = ({ top, left, country_city, link_url }: MapPinType) => {
             {is_pin_show && (
                 <PinContent locale="en" to={link_url} anchor>
                     <Header color="black" mr="8px" weight="normal" type="small">
-                        {country_city}
+                        <Localize translate_text={country_city} />
                     </Header>
                 </PinContent>
             )}

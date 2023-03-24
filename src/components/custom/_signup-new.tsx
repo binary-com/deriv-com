@@ -6,10 +6,10 @@ import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
-import Apple from 'images/svg/custom/apple.svg'
-import Facebook from 'images/svg/custom/facebook-blue.svg'
+import Apple from 'images/svg/custom/apple-40.svg'
+import Facebook from 'images/svg/custom/facebook-40.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
-import Google from 'images/svg/custom/google.svg'
+import Google from 'images/svg/custom/google-40.svg'
 import useRegion from 'components/hooks/use-region'
 
 type SignupNewProps = {
@@ -65,7 +65,7 @@ const SubTitle = styled(Text)`
     }
 `
 const Line = styled.div`
-    width: 130px;
+    width: 120px;
     height: 1px;
     background-color: var(--color-grey-7);
 `
@@ -131,42 +131,24 @@ const SocialButton = styled(Button)<SocialButtonProps>`
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    border: none;
     box-shadow: none;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
-    border: solid 1px var(--color-grey-21);
-    width: 12.5rem;
     height: 3.8rem;
-    padding: 0.5rem 0;
-
-    &:hover {
-        background: ${(props) => {
-            if (props.provider === 'facebook') return 'var(--color-grey-4)'
-        }};
-    }
-
-    @media ${device.tabletL} {
-        width: 100%;
-        height: 6rem;
-        margin-top: 1rem;
-    }
-    @media ${device.mobileM} {
-        &:first-child {
-            margin-right: 1.2rem;
-        }
-    }
+    padding: 0;
 `
 const SocialWrapper = styled.div<CSSProperties>`
     width: 100%;
     margin-top: 2.4rem;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    gap: ${(props) => props.gap || 0};
+    justify-content: center;
+    align-items: center;
+    padding-block: 1rem;
 
     @media ${device.tabletL} {
-        flex-direction: column;
-        margin-top: 1rem;
-    }
-    @media ${device.mobileS} {
-        justify-content: space-between;
+        margin-top: 3.5rem;
     }
 `
 const LoginText = styled(Text)`
@@ -180,18 +162,7 @@ const LoginText = styled(Text)`
         font-size: 2rem;
     }
 `
-const SocialText = styled(Text)`
-    margin-right: 1.4rem;
-    margin-left: 0.7rem;
-    font-weight: 500;
-    font-size: 1.2rem;
-    color: var(--color-grey-16);
 
-    @media ${device.tabletL} {
-        margin-left: 2.7rem;
-        font-size: 14px;
-    }
-`
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
@@ -325,7 +296,7 @@ const SignupNew = ({
                 <Line />
             </SignupWithContainer>
 
-            <SocialWrapper gap="0" grid="2">
+            <SocialWrapper gap="2.2rem" grid="2">
                 <SocialButton
                     onClick={handleSocialSignup}
                     provider="google"
@@ -334,8 +305,7 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <img src={Google} alt="google" width="24" height="24" />
-                    <SocialText>Google</SocialText>
+                    <img src={Google} alt="google" width="38" height="38" />
                 </SocialButton>
                 <SocialButton
                     onClick={handleSocialSignup}
@@ -345,8 +315,7 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <img src={Facebook} alt="facebook" width="24" height="24" />
-                    <SocialText>Facebook</SocialText>
+                    <img src={Facebook} alt="facebook" width="36" height="36" />
                 </SocialButton>
                 <SocialButton
                     onClick={handleSocialSignup}
@@ -356,8 +325,7 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <img src={Apple} alt="apple" width="24" height="24" />
-                    <SocialText>Apple</SocialText>
+                    <img src={Apple} alt="apple" width="36" height="36" />
                 </SocialButton>
             </SocialWrapper>
             <LoginText mt="3.75rem" mb={is_eu ? '100px' : '0'}>

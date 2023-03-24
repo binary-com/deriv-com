@@ -90,12 +90,12 @@ const IndicesGrid = () => {
                 </Text>
                 <MiddleText>
                     {localize(
-                        'Volatility indices correspond to markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+                        '_t_Volatility indices correspond to markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%._t_',
                     )}
                 </MiddleText>
                 <MiddleText>
                     {localize(
-                        ' The frequency of tick generation differs between indices, with some generating ticks every second and others generating them every two seconds.',
+                        '_t_The frequency of tick generation differs between indices, with some generating ticks every second and others generating them every two seconds._t_',
                     )}
                 </MiddleText>
             </Flex>

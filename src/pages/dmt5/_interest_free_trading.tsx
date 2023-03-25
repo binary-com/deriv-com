@@ -45,6 +45,7 @@ const InterestCardFlex = styled(Flex)`
 `
 
 const InterestText = styled(Text)`
+    color: var(--color-black-9);
     @media ${device.tabletL} {
         font-size: 24px;
     }
@@ -53,7 +54,6 @@ const InterestText = styled(Text)`
 const StyledContainer = styled(Flex)`
     width: 100%;
     height: 552px;
-    background-color: var(--color-grey-25);
     margin-bottom: 5.2rem;
     flex-direction: row;
     align-items: center;
@@ -66,6 +66,7 @@ const StyledContainer = styled(Flex)`
 `
 
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
     margin: 13.4rem 0 1.2rem;
     font-size: 48px;
     @media ${device.tabletL} {
@@ -99,6 +100,7 @@ const StyledLinkButton = styled(LinkButton)`
 `
 
 const StyledRightText = styled(Text)`
+    color: var(--color-black-9);
     margin-bottom: 3.2rem;
 `
 
@@ -115,6 +117,8 @@ const TextWrapperFlex = styled(Flex)`
 `
 
 const StyledText = styled(Text)`
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         font-size: 14px;
     }

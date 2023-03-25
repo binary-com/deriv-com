@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from './components/_side-tab'
 import DMT5QR from 'images/svg/dmt5/dmt5-qr.svg'
+import StepperView from 'components/custom/_stepper_view'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -11,6 +12,7 @@ import { isBrowser } from 'common/utility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useRegion from 'components/hooks/use-region'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 type TabProps = {
     active?: boolean
@@ -210,6 +212,8 @@ const StyledLocalizedLink = styled(LocalizedLink)<{ id?: string }>`
 `
 const StartTrader = () => {
     const [is_mobile, setMobile] = useState(false)
+    const { is_mobile_or_tablet } = useBreakpoints()
+
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }
@@ -237,99 +241,105 @@ const StartTrader = () => {
     const isDemo = tab === 'Demo'
     const isReal = tab === 'Real'
 
-    const text_1 = is_eu ? (
-        <Localize translate_text="Add a CFDs demo account." />
-    ) : (
-        <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
-    )
-    const text_2 = is_eu ? (
-        <Localize translate_text="Create a real Deriv Multipliers account" />
-    ) : (
-        <Localize translate_text="Create a Deriv real money account." />
-    )
-    const text_3 = is_eu ? (
-        <Localize translate_text="Create a CFDs real account." />
-    ) : (
-        <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
+    const row_demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
+        () => [
+            {
+                title: 'Sign up for a free Deriv demo account.',
+                image: data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1'],
+                alt: <Localize translate_text="Deriv X demo account signup page" />,
+            },
+            {
+                title: 'Add a Deriv MT5 demo account and choose what you want to trade.',
+                image: data[is_mobile_or_tablet ? 'demo_step2_mobile' : 'demo_step2'],
+                alt: (
+                    <Localize translate_text="Deriv X dashboard showing demo account comparison" />
+                ),
+            },
+            {
+                title: 'Practise trading from the mobile app, desktop app, or through your web browser.',
+                image: data[is_mobile_or_tablet ? 'demo_step3_mobile' : 'demo_step3'],
+                alt: <Localize translate_text="Deriv X trading dashboard" />,
+            },
+        ],
+        [data, is_mobile_or_tablet],
     )
 
-    const demo_step1_image = is_eu ? (
-        <QueryImage
-            data={getImage(is_mobile, ['demo_step1_mobile_eu', 'demo_step1_eu'])}
-            alt="Demo DMT5 account- step 1"
-        />
-    ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])}
-            alt="Demo DMT5 account- step 1"
-        />
+    const row_real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
+        () => [
+            {
+                title: 'Create or sign in to your demo Deriv account',
+                image: data[is_mobile_or_tablet ? 'real_step1_mobile' : 'real_step1'],
+                alt: <Localize translate_text="Sign in" />,
+            },
+            {
+                title: 'Create a Deriv real money account.',
+                image: data[is_mobile_or_tablet ? 'real_step2_mobile' : 'real_step2'],
+                alt: <Localize translate_text="real account" />,
+            },
+            {
+                title: 'Create a Deriv MT5 real money account based on your trade preference.',
+                image: data[is_mobile_or_tablet ? 'real_step3_mobile' : 'real_step3'],
+                alt: <Localize translate_text="Download the app" />,
+            },
+            {
+                title: 'Fund your account. Start trading on the mobile app, desktop app, or web browser.',
+                image: data[is_mobile_or_tablet ? 'real_step4_mobile' : 'real_step4'],
+                alt: <Localize translate_text="Trading" />,
+            },
+        ],
+        [data, is_mobile_or_tablet],
     )
-    const demo_step2_image = is_eu ? (
-        <QueryImage
-            data={getImage(is_mobile, ['demo_step2_mobile_eu', 'demo_step2_eu'])}
-            alt="Demo DMT5 account- step 2"
-        />
-    ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['demo_step2_mobile', 'demo_step2'])}
-            alt="Demo DMT5 account- step 2"
-        />
+
+    const eu_demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
+        () => [
+            {
+                title: 'Sign up for a free Deriv demo account.',
+                image: data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1'],
+                alt: <Localize translate_text="Deriv X demo account signup page" />,
+            },
+            {
+                title: 'Add a Deriv MT5 demo account and choose what you want to trade.',
+                image: data[is_mobile_or_tablet ? 'demo_step2_mobile' : 'demo_step2'],
+                alt: (
+                    <Localize translate_text="Deriv X dashboard showing demo account comparison" />
+                ),
+            },
+            {
+                title: 'Practise trading from the mobile app, desktop app, or through your web browser.',
+                image: data[is_mobile_or_tablet ? 'demo_step3_mobile' : 'demo_step3'],
+                alt: <Localize translate_text="Deriv X trading dashboard" />,
+            },
+        ],
+        [data, is_mobile_or_tablet],
     )
-    const demo_step3_image = is_eu ? (
-        <QueryImage
-            data={getImage(is_mobile, ['demo_step3_mobile_eu', 'demo_step3_eu'])}
-            alt="Demo DMT5 account- step 3"
-        />
-    ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['demo_step3_mobile', 'demo_step3'])}
-            alt="Demo DMT5 account- step 3"
-        />
+
+    const eu_real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
+        () => [
+            {
+                title: 'Create or sign in to your demo Deriv account',
+                image: data[is_mobile_or_tablet ? 'real_step1_mobile' : 'real_step1'],
+                alt: <Localize translate_text="Sign in" />,
+            },
+            {
+                title: 'Create a Deriv real money account.',
+                image: data[is_mobile_or_tablet ? 'real_step2_mobile' : 'real_step2'],
+                alt: <Localize translate_text="real account" />,
+            },
+            {
+                title: 'Create a Deriv MT5 real money account based on your trade preference.',
+                image: data[is_mobile_or_tablet ? 'real_step3_mobile' : 'real_step3'],
+                alt: <Localize translate_text="Download the app" />,
+            },
+            {
+                title: 'Fund your account. Start trading on the mobile app, desktop app, or web browser.',
+                image: data[is_mobile_or_tablet ? 'real_step4_mobile' : 'real_step4'],
+                alt: <Localize translate_text="Trading" />,
+            },
+        ],
+        [data, is_mobile_or_tablet],
     )
-    const real_step1_image = is_eu ? (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step1_mobile_eu', 'real_step1_eu'])}
-            alt="Real DMT5 account- step 1"
-        />
-    ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step1_mobile', 'real_step1'])}
-            alt="Real DMT5 account- step 1"
-        />
-    )
-    const real_step2_image = is_eu ? (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step2_mobile_eu', 'real_step2_eu'])}
-            alt="Real DMT5 account- step 2"
-        />
-    ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step2_mobile', 'real_step2'])}
-            alt="Real DMT5 account- step 2"
-        />
-    )
-    const real_step3_image = is_eu ? (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step3_mobile_eu', 'real_step3_eu'])}
-            alt="Real DMT5 account- step 3"
-        />
-    ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step3_mobile', 'real_step3'])}
-            alt="Real DMT5 account- step 3"
-        />
-    )
-    const real_step4_image = is_eu ? (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step4_mobile_eu', 'real_step4_eu'])}
-            alt="Real DMT5 account- step 4"
-        />
-    ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step4_mobile', 'real_step4'])}
-            alt="Real DMT5 account- step 4"
-        />
-    )
+    const demo = is_eu ? eu_demo : row_demo
+    const real = is_eu ? eu_real : row_real
 
     return (
         <Section>
@@ -354,13 +364,15 @@ const StartTrader = () => {
                     className="real-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Real money account')}
+                        {localize('Real account')}
                     </StyledText>
                 </TabItem>
             </Flex>
 
             <Flex max_width="1200px">
-                <Flex direction="column" ai="end">
+                <StepperView items={tab === 'Demo' ? demo : real} contentWidth="385px" />
+
+                {/* <Flex direction="column" ai="end">
                     {isDemo ? (
                         <SideTab parent_tab={tab}>
                             <SideTab.Panel
@@ -431,7 +443,7 @@ const StartTrader = () => {
                         </SideTab>
                     )}
                     <QRImage src={DMT5QR} width="124px" height="124px" />
-                </Flex>
+                </Flex> */}
             </Flex>
         </Section>
     )

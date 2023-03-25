@@ -51,6 +51,11 @@ const StyledPara = styled(Text)`
         margin-top: 0;
     }
 `
+const StyledHeading = styled(Header)`
+    font-family: Ubuntu, sans-serif;
+    font-size: 48px;
+    color: var(--color-black-9);
+`
 const Card = styled.article`
     position: relative;
     border-radius: 16px;
@@ -104,9 +109,9 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h3" type="section-title" mb="2.4rem" align="center">
+                    <StyledHeading as="h3" type="section-title" mb="2.4rem" align="center">
                         {localize(mainHeading)}
-                    </Header>
+                    </StyledHeading>
                 </SmallContainer>
                 <MarketsCarousel>
                     {renderableData.map((item, index) => (

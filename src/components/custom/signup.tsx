@@ -14,7 +14,7 @@ import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import apiManager from 'features/websocket'
+import apiManager from 'common/websocket'
 
 type SignupProps = {
     appearance?: keyof typeof Appearances | string

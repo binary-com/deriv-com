@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
-import apiManager from 'features/websocket'
-import { TSocketEndpointNames, TSocketResponseData } from 'features/websocket/types'
+import { TSocketEndpointNames, TSocketResponseData } from 'common/websocket/types'
+import apiManager from 'common/websocket'
 
 const useWS = <T extends TSocketEndpointNames>(name: T) => {
     const [is_loading, setIsLoading] = useState(false)
@@ -8,8 +8,6 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
     const [data, setData] = useState<TSocketResponseData<T>>()
 
     const clear = useCallback(() => {
-        console.log('clear all data')
-
         setError(null)
         setData(null)
     }, [])

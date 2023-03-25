@@ -6,7 +6,7 @@ import language_config from '../../../i18n-config'
 import { useClientInformation } from '../hooks/use-client-information'
 import Dropdown from './language-dropdown'
 import { nonENLangUrlReplace } from 'common/utility'
-import { isProduction } from 'features/websocket/config'
+import { isProduction } from 'common/websocket/config'
 
 type LanguageSwitchProps = {
     i18n?: { language: string }

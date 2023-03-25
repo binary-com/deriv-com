@@ -1,10 +1,10 @@
 import { useCallback, useState } from 'react'
-import apiManager from 'features/websocket'
+import apiManager from 'common/websocket'
 import {
     TSocketResponse,
     TSocketResponseData,
     TSocketSubscribableEndpointNames,
-} from 'features/websocket/types'
+} from 'common/websocket/types'
 
 const useSubscription = <T extends TSocketSubscribableEndpointNames>(name: T) => {
     const [is_loading, setIsLoading] = useState(false)

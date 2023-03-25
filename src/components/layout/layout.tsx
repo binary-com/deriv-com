@@ -19,10 +19,10 @@ import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import usePopup from 'components/hooks/use-popup'
-import apiManager from 'features/websocket'
-import { isBrowser } from 'common/utility'
 import GlobalStyle from 'themes/global-style'
 import { plugin } from 'themes/plugin'
+import { getLanguage, isBrowser } from 'common/utility'
+import apiManager from 'common/websocket'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -58,7 +58,8 @@ const Main = styled.main<MainType>`
 `
 
 if (isBrowser()) {
-    apiManager.init()
+    const currentLanguage = getLanguage() ?? 'en'
+    apiManager.init(currentLanguage)
 }
 
 const Layout = ({

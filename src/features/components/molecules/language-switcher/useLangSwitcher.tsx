@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import { navigate } from 'gatsby'
 import language_config from '../../../../../i18n-config'
 import { nonENLangUrlReplace } from 'common/utility'
-import { isProduction } from 'features/websocket/config'
+import { isProduction } from 'common/websocket/config'
 
 type TLanguageObject = {
     key: string

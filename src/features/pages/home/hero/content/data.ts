@@ -5,11 +5,6 @@ export type THeaderItem = {
     text: TString
 }
 
-export type TContent = {
-    id: number
-    text: TString
-}
-
 export type THomeHeroImage = {
     key: string
     image: {

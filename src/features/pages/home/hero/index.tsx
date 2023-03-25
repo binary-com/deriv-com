@@ -1,34 +1,34 @@
 import React from 'react'
-import * as styles from './hero.module.scss'
-import HeroHeaderItems from './hero-header.items'
-import HeroTitle from './hero.title'
-import HeroFeaturesCarousel from './hero-features.carousel'
-import HeroCtaButton from './hero-cta.button'
-import HeroImageCarousel from './hero-image.carousel'
-import Container from 'features/components/atoms/container'
+import HomeHeroContent from './content'
+import HomeHeroSlider from './slider'
 import FlexBox from 'features/components/atoms/flex-box'
+import ProductHeroContainer from 'features/components/templates/hero-banners/product'
 
 const HomeHero = () => {
     return (
-        <Container.Fixed as="section" bgcolor="white" className={styles.home_hero}>
-            <Container.Fluid
-                className={styles.content}
-                margin_block={'10x'}
+        <ProductHeroContainer
+            container="fixed"
+            pt="40x"
+            md={{
+                justify: 'center',
+                align: 'center',
+                pt: '0x',
+            }}
+        >
+            <FlexBox
+                container="fluid"
+                align="center"
+                justify="between"
+                direction="col"
                 md={{
-                    margin_block: '30x',
+                    direction: 'row',
+                    justify: 'start',
                 }}
             >
-                <FlexBox justify="start" direction="col" align="start" gap="10x">
-                    <HeroHeaderItems />
-                    <HeroTitle />
-                    <HeroFeaturesCarousel />
-                    <HeroCtaButton />
-                </FlexBox>
-                <div className={styles.right_side}>
-                    <HeroImageCarousel />
-                </div>
-            </Container.Fluid>
-        </Container.Fixed>
+                <HomeHeroContent />
+                <HomeHeroSlider />
+            </FlexBox>
+        </ProductHeroContainer>
     )
 }
 

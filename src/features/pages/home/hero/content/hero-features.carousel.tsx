@@ -17,11 +17,11 @@ const HeroFeaturesCarousel = () => {
                 autoStart: true,
                 loop: true,
                 wrapperClassName: dclsx(
-                    'heading-xxxl',
+                    'heading-large',
                     'typography-weight-bold',
                     'typography-color-primary',
                 ),
-                cursorClassName: dclsx('heading-xxl', 'typography-color-primary'),
+                cursorClassName: dclsx('heading-large', 'typography-color-primary'),
             }}
         />
     )

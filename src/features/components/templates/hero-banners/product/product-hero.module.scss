@@ -1,22 +1,9 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
-.home_hero {
+.product_hero {
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: start;
-    justify-content: flex-start;
-
-    padding: 10rem 0 46px;
-    min-block-size: 100vh;
-
-    @include breakpoints(tablet-large) {
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        padding: 5rem 0;
-    }
+    min-block-size: 100svh;
 
     &::before {
         content: ' ';
@@ -41,17 +28,4 @@
             }
         }
     }
-}
-
-.content {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    @include breakpoints(tablet-large) {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-.right_side {
-    min-inline-size: 0; // for fixing the the wrong width calculation, check this out https://github.com/nolimits4web/swiper/issues/3599
 }

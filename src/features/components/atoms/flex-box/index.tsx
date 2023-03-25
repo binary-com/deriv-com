@@ -77,7 +77,7 @@ const FlexBox = <T extends ContentSectionTagOptions>({
         generateFlexClasses(lg ?? {}, 'lg'),
     )
 
-    return <Box className={classnames} {...rest} />
+    return <Box className={classnames} md={md} lg={lg} {...rest} />
 }
 
 export default FlexBox

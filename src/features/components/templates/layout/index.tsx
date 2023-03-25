@@ -7,7 +7,6 @@ import { isBrowser } from 'common/utility'
 import NonEuRedirectAlert from 'features/components/molecules/non-eu-redirect-alert'
 import BrowserUpdateAlert from 'features/components/molecules/browser-update-alert'
 import LayoutOverlay from 'features/components/molecules/layout-overlay'
-import 'swiper/swiper.min.css'
 import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
 interface LayoutProps {

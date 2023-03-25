@@ -1,0 +1,22 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.wrapper {
+    max-inline-size: 100vw;
+
+    display: flex;
+    flex: 1 0;
+    justify-content: center;
+    align-items: flex-end;
+    align-self: center;
+
+    @include breakpoints(tablet-large) {
+        position: absolute;
+        max-inline-size: 80vh; // we're connecting width of the container to height of the view port to control the image size
+        inset-inline-end: 0;
+        inset-block-end: 0;
+    }
+
+    @include breakpoints(desktop) {
+        max-inline-size: 100vh;
+    }
+}

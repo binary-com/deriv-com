@@ -3,7 +3,7 @@
 $sm-base-spacing: 0.2rem;
 $space-medias: (md, lg);
 
-@for $i from 1 through 30 {
+@for $i from 0 through 40 {
     $sm-value: $i * $sm-base-spacing;
 
     .gap-#{$i}x {
@@ -54,7 +54,7 @@ $space-medias: (md, lg);
 }
 
 @mixin margins($media-name) {
-    @for $i from 1 through 30 {
+    @for $i from 0 through 40 {
         $sm-value: $i * $sm-base-spacing;
         .#{$media-name + #{'-'}}gap-#{$i}x {
             @include media($media-name) {

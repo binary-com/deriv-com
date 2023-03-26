@@ -2,14 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, BackgroundImage } from 'components/elements'
 import { localize } from 'components/localization'
-import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { HeroProps } from 'pages/landing/_types'
 
-const BackgroundWrapper = styled(Background)`
+const BackgroundWrapper = styled(BackgroundImage)`
     background-size: cover;
     background-position: bottom right;
 `

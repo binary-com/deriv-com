@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import { Header, Text, LocalizedLinkText } from 'components/elements'
+import { Header, Text, LocalizedLinkText, BackgroundImage } from 'components/elements'
 import { LinkButton, Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { Background } from 'components/elements/background-image'
 import { mobileOSDetect } from 'common/os-detect'
 import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -124,10 +123,6 @@ const StyledText = styled(Text)`
     }
 `
 
-const StyledBackground = styled(Background)`
-    transform: scaleX(-1);
-`
-
 const query = graphql`
     query {
         p2p_banner: file(relativePath: { eq: "p2p/p2p_banner.png" }) {
@@ -173,7 +168,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                 />
             </StyledText>
             <Desktop>
-                <Background
+                <BackgroundImage
                     style={{ height: '340px', backgroundPosition: '20% 20%' }}
                     data={is_rtl ? data['p2p_banner_rtl'] : data['p2p_banner']}
                 >
@@ -193,10 +188,10 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                             </TryButton>
                         </InformationWrapper>
                     </Wrapper>
-                </Background>
+                </BackgroundImage>
             </Desktop>
             <Mobile>
-                <Background
+                <BackgroundImage
                     style={{ height: '402px', backgroundPosition: '40% 50%' }}
                     data={data['p2p_banner_mobile']}
                 >
@@ -210,7 +205,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                             </Mobile>
                         </InformationWrapper>
                     </Wrapper>
-                </Background>
+                </BackgroundImage>
             </Mobile>
         </div>
     )

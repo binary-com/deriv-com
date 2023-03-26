@@ -2,9 +2,8 @@ import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import { Header, QueryImage, ImageWrapper } from 'components/elements'
+import { Header, QueryImage, ImageWrapper, BackgroundImage } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { Background } from 'components/elements/background-image'
 import { Button } from 'components/form'
 import device, { size } from 'themes/device'
 import { mobileOSDetect } from 'common/os-detect'
@@ -17,7 +16,7 @@ import {
 } from 'common/constants'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
-const BackgroundWrapper = styled(Background)`
+const BackgroundWrapper = styled(BackgroundImage)`
     height: 100%;
     width: 100%;
 `

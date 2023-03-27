@@ -59,7 +59,7 @@ const IndicesGrid = () => {
                 </MiddleText>
                 <MiddleText>
                     {localize(
-                        ' These indices are characterised by an average of one crash or boom in a series of 1000, 500, or 300 ticks.',
+                        '_t_These indices are characterised by an average of one crash or boom in a series of 1000, 500, or 300 ticks._t_',
                     )}
                 </MiddleText>
             </Flex>

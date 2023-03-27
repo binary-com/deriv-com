@@ -292,7 +292,7 @@ export const VolatilityIndicesDetailsEU = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="These indices correspond to simulated markets with <0>constant volatilities of 150%, and 250%.</0>"
+                translate_text="_t_These indices correspond to simulated markets with <0>constant volatilities of 150%, and 250%.</0>_t_"
                 components={[<strong key={0} />]}
             />
         </Text>

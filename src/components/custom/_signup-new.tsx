@@ -116,7 +116,7 @@ const SocialButton = styled(Button)<SocialButtonProps>`
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border: none;
+    border-color: #f2f3f4;
     box-shadow: none;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
     height: 3.8rem;
@@ -246,7 +246,7 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <img src={Google} alt="google" width="37" height="37" />
+                    <img src={Google} alt="google" width="36" height="36" />
                 </SocialButton>
                 <SocialButton
                     onClick={handleSocialSignup}

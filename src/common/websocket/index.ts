@@ -95,7 +95,6 @@ export class ApiManager {
 let apiManager: ApiManager
 if (isBrowser()) {
     apiManager = ApiManager.getInstance()
-    console.log(apiManager)
 }
 
 export default apiManager

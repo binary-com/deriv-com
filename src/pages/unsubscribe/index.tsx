@@ -126,8 +126,6 @@ const UnsubscribePage = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState()
     const [data, setData] = useState()
-    console.log('error: ', error)
-    console.log('data: ', data)
 
     const query = queryParams.get('hash') || ''
     const unsubscribe_hash = isValid(query) && decode(query).split('+')
@@ -168,7 +166,7 @@ const UnsubscribePage = () => {
                     </UnsubscribeWrapper>
                 ) : (
                     <UnsubscribeWrapper>
-                        {data ? (
+                        {data && !error ? (
                             <SuccessCard>
                                 <img src={CheckIcon} alt="success" width={48} height={48} />
                                 <Localize translate_text="_t_Unsubscribed successfully_t_" />

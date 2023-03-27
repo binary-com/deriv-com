@@ -11,9 +11,7 @@ type TEuropeDetailsProps = {
 export const AmericasDetails = () => (
     <DetailsContainer>
         <Text>
-            {localize(
-                'Each of these indices replicates the performance of top publicly traded companies in a segment of the US economy.',
-            )}
+            <Localize translate_text="Each of these indices replicates the performance of top publicly traded companies in a segment of the US economy." />
         </Text>
         <Text>
             <Localize
@@ -39,9 +37,7 @@ export const AmericasDetails = () => (
 export const AsiaOceaniaDetails = () => (
     <DetailsContainer>
         <Text>
-            {localize(
-                'Each of these indices replicates the performance of top publicly traded companies in a financial market in the Asia/ Oceania region.',
-            )}
+            <Localize translate_text="Each of these indices replicates the performance of top publicly traded companies in a financial market in the Asia/ Oceania region." />
         </Text>
         <Text>
             <Localize
@@ -68,18 +64,38 @@ export const ContinuousIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+                '_t_These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 200%, and 300%._t_',
             )}
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 200 (1s), and 300 (1s)</0>._t_"
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
+export const ContinuousIndicesOptionsDetails = () => (
+    <DetailsContainer>
+        <Text>
+            <Localize translate_text="_t_These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%._t_" />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="_t_<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>._t_"
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -134,9 +150,7 @@ export const EuropeDetails = (props: TEuropeDetailsProps) => {
     const { custom_index: index } = props
     const children = [
         <Text key={0}>
-            {localize(
-                'Each of these indices replicates the performance of top publicly traded companies in financial markets in Europe.',
-            )}
+            <Localize translate_text="Each of these indices replicates the performance of top publicly traded companies in financial markets in Europe." />
         </Text>,
         <Text key={1}>
             <Localize
@@ -190,9 +204,7 @@ export const EuropeDetails = (props: TEuropeDetailsProps) => {
 export const RangeBreakIndicesDetails = () => (
     <DetailsContainer>
         <Text>
-            {localize(
-                'These indices fluctuate between two price points (borders), occasionally breaking through the borders to create a new range on average once every 100 or 200 times that they hit the borders.',
-            )}
+            <Localize translate_text="These indices fluctuate between two price points (borders), occasionally breaking through the borders to create a new range on average once every 100 or 200 times that they hit the borders." />
         </Text>
     </DetailsContainer>
 )
@@ -238,9 +250,7 @@ export const BasketCommoditiesDetails = () => (
 export const SmartGoldIndexDetails = () => (
     <DetailsContainer>
         <Text>
-            {localize(
-                'Measures the value of gold against a basket of five global currencies (EUR, GBP, JPY, AUD, USD), each weighted by 20%.',
-            )}
+            <Localize translate_text="Measures the value of gold against a basket of five global currencies (EUR, GBP, JPY, AUD, USD), each weighted by 20%." />
         </Text>
     </DetailsContainer>
 )
@@ -260,18 +270,18 @@ export const VolatilityIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 200%, and 300%.',
+                '_t_These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 150%, 200%, 250% and 300%._t_',
             )}
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 200 (1s), and 300 (1s)</0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 150 (1s), 200 (1s), 250 (1s), and 300 (1s)</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -282,13 +292,13 @@ export const VolatilityIndicesDetailsEU = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="These indices correspond to simulated markets with <0>constant volatilities of 200% and 300%.</0>"
+                translate_text="These indices correspond to simulated markets with <0>constant volatilities of 150%, 200%, 250% and 300%.</0>"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>200(1s) and 300(1s).</0>"
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>150 (1s), 200 (1s), 250 (1s), and 300 (1s).</0>_t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -298,9 +308,7 @@ export const VolatilityIndicesDetailsEU = () => (
 export const AsianIndicesDetails = () => (
     <DetailsContainer>
         <Text>
-            {localize(
-                'Each of these indices replicates the performance of top publicly traded companies in a financial market in the Asia/ Oceania region.',
-            )}
+            <Localize translate_text="Each of these indices replicates the performance of top publicly traded companies in a financial market in the Asia/ Oceania region." />
         </Text>
         <Text>
             <Localize
@@ -322,9 +330,7 @@ export const EuropeanIndicesDetails = () => {
     return (
         <DetailsContainer>
             <Text>
-                {localize(
-                    'Each of these indices replicates the performance of top publicly traded companies in financial markets in Europe.',
-                )}
+                <Localize translate_text="Each of these indices replicates the performance of top publicly traded companies in financial markets in Europe." />
             </Text>
             {is_row && (
                 <Text>
@@ -370,9 +376,7 @@ export const EuropeanIndicesDetails = () => {
 export const CryptocurrenciesDetails = () => (
     <DetailsContainer>
         <Text>
-            {localize(
-                'Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade.',
-            )}
+            <Localize translate_text="Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade." />
         </Text>
     </DetailsContainer>
 )
@@ -392,7 +396,7 @@ export const DerivedCFDsDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="These indices correspond to financial markets with volatilities of 10%. One tick is generated for every tick of the corresponding forex pair."
+                translate_text="These indices correspond to financial markets with volatilities of 10% and 20%. One tick is generated for every tick of the corresponding forex pair."
                 components={[<strong key={0} />]}
             />
         </Text>

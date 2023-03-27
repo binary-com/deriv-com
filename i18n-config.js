@@ -19,12 +19,6 @@ module.exports = {
         short_name: 'FR',
         affiliate_lang: 2,
     },
-    id: {
-        path: 'id',
-        display_name: 'Indonesian',
-        short_name: 'ID',
-        affiliate_lang: 4,
-    },
     it: {
         path: 'it',
         display_name: 'Italiano',
@@ -102,10 +96,10 @@ module.exports = {
         short_name: 'CR',
         affiliate_lang: 13,
     },
-    // TODO: uncomment when supported
-    // de: {
-    //     path: 'de',
-    //     display_name: 'Deutsch',
-    // },
-    // TODO: uncomment when supported
+    de: {
+        path: 'de',
+        display_name: 'Deutsch',
+        short_name: 'DE',
+        affiliate_lang: 16,
+    },
 }

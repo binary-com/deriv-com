@@ -2,14 +2,15 @@ import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { SEO } from 'components/containers'
 import { Button } from 'components/form'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import CheckIcon from 'images/common/check_icon.png'
 import device from 'themes/device'
 import { queryParams } from 'common/utility'
 import { decode, isValid } from 'common/url-base64-functions'
 import { Header } from 'components/elements'
-import useDerivWS from 'components/hooks/use-deriv-ws'
+import apiManager from 'common/websocket'
+import { TSocketResponseData } from 'common/websocket/types'
 
 const UnsubscribeWrapper = styled.div`
     display: flex;
@@ -122,14 +123,15 @@ const Spinner = () => (
 )
 
 const UnsubscribePage = () => {
-    const { send } = useDerivWS()
-
-    const [complete_status, setCompleteStatus] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState()
+    const [data, setData] = useState()
+    console.log('error: ', error)
+    console.log('data: ', data)
 
     const query = queryParams.get('hash') || ''
     const unsubscribe_hash = isValid(query) && decode(query).split('+')
-    const binary_user_id = unsubscribe_hash[0]
+    const binary_user_id = Number(unsubscribe_hash[0])
     const checksum = unsubscribe_hash[1]
 
     const onClose = () => {
@@ -137,50 +139,44 @@ const UnsubscribePage = () => {
         window.open('about:blank', '_self')
         window.close()
     }
-    const handleResponse = () => {
-        setLoading(false)
-        setCompleteStatus(true)
-    }
 
-    const UnsubscribeAPICall = useCallback(() => {
+    const UnsubscribeAPICall = useCallback(async () => {
         setLoading(true)
-        send(
-            {
-                unsubscribe_email: 1,
+        try {
+            const response = await apiManager.augmentedSend('unsubscribe_email', {
                 binary_user_id: binary_user_id,
                 checksum: checksum,
-            },
-            () => {
-                handleResponse()
-            },
-        )
-    }, [send, binary_user_id, checksum])
+            })
+            setData(response['unsubscribe_email'] as TSocketResponseData<T>)
+        } catch (error) {
+            setError(error)
+        } finally {
+            setLoading(false)
+        }
+    }, [binary_user_id, checksum])
 
     return (
         <Layout>
             <SEO
-                title={localize('Unsubscribe | Emails | Deriv')}
-                description={localize('Unsubscribe from Deriv emails.')}
+                title={localize('_t_Unsubscribe | Emails | Deriv_t_')}
+                description={localize('_t_Unsubscribe from Deriv emails._t_')}
             />
             <>
-                {loading && (
+                {loading ? (
                     <UnsubscribeWrapper>
                         <Spinner />
                     </UnsubscribeWrapper>
-                )}
-                {!loading && (
+                ) : (
                     <UnsubscribeWrapper>
-                        {complete_status ? (
+                        {data ? (
                             <SuccessCard>
-                                <img src={CheckIcon} alt="sucess" width={48} height={48} />
-                                {localize('Unsubscribed successfully')}
+                                <img src={CheckIcon} alt="success" width={48} height={48} />
+                                <Localize translate_text="_t_Unsubscribed successfully_t_" />
                             </SuccessCard>
                         ) : (
                             <UnsubscribeForm>
                                 <Title type="subtitle-2">
-                                    {localize(
-                                        'Are you sure you want to stop receiving Deriv emails?',
-                                    )}
+                                    <Localize translate_text="_t_Are you sure you want to stop receiving Deriv emails?_t_" />
                                 </Title>
                                 <ConfirmWrapper>
                                     <ConfirmButton
@@ -188,10 +184,10 @@ const UnsubscribePage = () => {
                                         type="submit"
                                         secondary
                                     >
-                                        {localize('Yes')}
+                                        <Localize translate_text="_t_Yes_t_" />
                                     </ConfirmButton>
                                     <ConfirmButton onClick={onClose} type="submit" tertiary>
-                                        {localize('No')}
+                                        <Localize translate_text="_t_No_t_" />
                                     </ConfirmButton>
                                 </ConfirmWrapper>
                             </UnsubscribeForm>

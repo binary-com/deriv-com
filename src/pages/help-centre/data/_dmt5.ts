@@ -138,6 +138,7 @@ const dmt5: TQuestionsData = {
         {
             question: '_t_How can I change my Deriv MT5 password?_t_',
             category: 'DMT5',
+            hide_for_non_eu: true,
             sub_category: '_t_Reset password_t_',
             label: 'reset-dmt5-password',
             answer: [
@@ -188,6 +189,45 @@ const dmt5: TQuestionsData = {
             ],
         },
         {
+            question: '_t_How can I change my Deriv MT5 password?_t_',
+            category: 'DMT5',
+            hide_for_eu: true,
+            sub_category: '_t_Reset password_t_',
+            label: 'reset-dmt5-password',
+            answer: [
+                {
+                    translation_text: '_t_Follow these steps to reset your Deriv MT5 password:_t_',
+                },
+                {
+                    translation_text: '_t_1. Go to your <0>Deriv MT5 dashboard</0>._t_',
+                    has_margin_top: true,
+                    translation_components: [
+                        { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },
+                    ],
+                },
+                {
+                    translation_text:
+                        '_t_2. Click Trade on your preferred MT5 account, then click the pencil icon next to the password section._t_',
+                },
+                {
+                    translation_text: '_t_3. Click Change password and then, click Confirm._t_',
+                },
+                {
+                    translation_text:
+                        "_t_4. We'll send you an email. Click the Change password button in that email._t_",
+                },
+                {
+                    translation_text:
+                        "_t_5. You'll be taken to the Change password screen. Enter a new password and click Create._t_",
+                },
+                {
+                    translation_text:
+                        '_t_You can now log in to Deriv MT5 with your new password._t_',
+                    has_margin_top: true,
+                },
+            ],
+        },
+        {
             question: '_t_How can I deposit funds into my Deriv MT5 real money account?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
@@ -206,6 +246,7 @@ const dmt5: TQuestionsData = {
             question: '_t_How do I log in to my Deriv MT5 account?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
+            hide_for_non_eu: true,
             label: 'log-in-to-my-Deriv-MT5-account',
             answer: [
                 {
@@ -216,9 +257,24 @@ const dmt5: TQuestionsData = {
             ],
         },
         {
+            question: '_t_How do I log in to my Deriv MT5 account?_t_',
+            category: 'DMT5',
+            sub_category: '_t_Deposits_t_',
+            hide_for_eu: true,
+            label: 'log-in-to-my-Deriv-MT5-account',
+            answer: [
+                {
+                    translation_text:
+                        "_t_You can log in to your Deriv MT5 account via the MT5 desktop app, web terminal, or mobile app. You'll need the login ID and server name from your <0>Deriv MT5 dashboard</0>. Please remember to use your Deriv MT5 password to log in to Deriv MT5._t_",
+                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
+                },
+            ],
+        },
+        {
             question: '_t_How do I set an investor password for my Deriv MT5 account?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
+            hide_for_non_eu: true,
             label: 'investor-password-for-my-Deriv-MT5-account',
             answer: [
                 {
@@ -232,9 +288,33 @@ const dmt5: TQuestionsData = {
             ],
         },
         {
+            question: '_t_How do I set an investor password for my Deriv MT5 account?_t_',
+            category: 'DMT5',
+            sub_category: '_t_Deposits_t_',
+            hide_for_eu: true,
+            label: 'investor-password-for-my-Deriv-MT5-account',
+            answer: [
+                {
+                    translation_text: '_t_1. Go to your <0>Deriv MT5 dashboard</0>._t_',
+                    has_margin_top: true,
+                    translation_components: [
+                        { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },
+                    ],
+                },
+                {
+                    translation_text:
+                        '_t_2. Click Trade on your preferred MT5 account, then click the pencil icon next to the password section._t_',
+                },
+                {
+                    translation_text: '_t_3. Select Investor password to set a new password._t_',
+                },
+            ],
+        },
+        {
             question: '_t_What is the name of my Deriv MT5 server?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
+            hide_for_non_eu: true,
             label: 'name-of-my-Deriv-MT5-server',
             answer: [
                 {
@@ -244,6 +324,20 @@ const dmt5: TQuestionsData = {
                         { key: 0, type: 'link', to: `${deriv_app_url}/mt5` },
                         { key: 1, type: 'strong' },
                     ],
+                },
+            ],
+        },
+        {
+            question: '_t_What is the name of my Deriv MT5 server?_t_',
+            category: 'DMT5',
+            sub_category: '_t_Deposits_t_',
+            hide_for_eu: true,
+            label: 'name-of-my-Deriv-MT5-server',
+            answer: [
+                {
+                    translation_text:
+                        '_t_You can find your Deriv MT5 server name on your <0>Deriv MT5 dashboard</0>. Click Trade on your preferred MT5 account and look for the server below the broker name._t_',
+                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
                 },
             ],
         },
@@ -282,18 +376,54 @@ const dmt5: TQuestionsData = {
             question: '_t_Do you offer swap-free Deriv MT5 accounts?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
+            hide_for_non_eu: true,
             label: 'swap-free-Deriv-MT5-accounts',
             answer: [{ translation_text: "_t_No, we don't._t_" }],
+        },
+        {
+            question: '_t_Do you offer swap-free Deriv MT5 accounts?_t_',
+            category: 'DMT5',
+            sub_category: '_t_Deposits_t_',
+            hide_for_eu: true,
+            label: 'swap-free-Deriv-MT5-accounts',
+            answer: [
+                {
+                    translation_text:
+                        "_t_No, we don't. But you can trade selected forex pairs without paying a swap fee. To calculate the swap fee for your trade, use our <0>Swap calculator</0>._t_",
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: '/trader-tools/swap-calculator',
+                        },
+                    ],
+                },
+            ],
         },
         {
             question: '_t_How can I reactivate my Deriv MT5 account?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
+            hide_for_non_eu: true,
             label: 'reactivate-my-Deriv-MT5-account',
             answer: [
                 {
                     translation_text:
                         "_t_You can't reactivate your Deriv MT5 account. Instead, you can create a new one on your Deriv <0>MT5 dashboard</0>._t_",
+                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
+                },
+            ],
+        },
+        {
+            question: '_t_How can I reactivate my Deriv MT5 account?_t_',
+            category: 'DMT5',
+            sub_category: '_t_Deposits_t_',
+            hide_for_eu: true,
+            label: 'reactivate-my-Deriv-MT5-account',
+            answer: [
+                {
+                    translation_text:
+                        "_t_You can't reactivate your Deriv MT5 account. Instead, you can create a new one on your <0>Deriv MT5 dashboard</0>._t_",
                     translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
                 },
             ],
@@ -372,11 +502,26 @@ const dmt5: TQuestionsData = {
             question: '_t_For how long can I use my Deriv MT5 demo account?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
+            hide_for_non_eu: true,
             label: 'For-how-long-can-I-use-my-Deriv-MT5-demo-account',
             answer: [
                 {
                     translation_text:
                         "_t_You can use your Deriv MT5 demo account for as long as you want. However, if your account is inactive for 30 days, we'll deactivate it automatically._t_",
+                },
+            ],
+        },
+        {
+            question: '_t_For how long can I use my Deriv MT5 demo account?_t_',
+            category: 'DMT5',
+            sub_category: '_t_Deposits_t_',
+            hide_for_eu: true,
+            label: 'For-how-long-can-I-use-my-Deriv-MT5-demo-account',
+            answer: [
+                {
+                    translation_text:
+                        "_t_You can use your Deriv MT5 demo account for as long as you want. However, if your account is inactive for 30 days, we'll deactivate it automatically. You can still create a new one in the <0>Deriv MT5 dashboard</0>._t_",
+                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
                 },
             ],
         },
@@ -404,11 +549,26 @@ const dmt5: TQuestionsData = {
             question: '_t_Can I change the server for my Deriv MT5 account?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
+            hide_for_non_eu: true,
             label: 'Can-I-change-the-server-for-my-Deriv-MT5-account',
             answer: [
                 {
                     translation_text:
                         "_t_No, you can't, but you may have multiple Deriv MT5 Synthetic accounts on different servers._t_",
+                    eu_translation_text: "_t_No, you can't._t_",
+                },
+            ],
+        },
+        {
+            question: '_t_Can I change the server for my Deriv MT5 account?_t_',
+            category: 'DMT5',
+            sub_category: '_t_Deposits_t_',
+            hide_for_eu: true,
+            label: 'Can-I-change-the-server-for-my-Deriv-MT5-account',
+            answer: [
+                {
+                    translation_text:
+                        "_t_No, you can't, but you may have multiple Deriv MT5 accounts depending on the jurisdiction._t_",
                 },
             ],
         },
@@ -417,6 +577,7 @@ const dmt5: TQuestionsData = {
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
             label: 'offer-micro-forex-pairs-on-Deriv-MT5',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text:
@@ -429,6 +590,7 @@ const dmt5: TQuestionsData = {
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
             label: 'What-is-the-minimum-volume-for-micro-forex-pairs',
+            hide_for_eu: true,
             answer: [
                 {
                     translation_text: '_t_The minimum volume for micro forex pairs is 0.1 lot._t_',

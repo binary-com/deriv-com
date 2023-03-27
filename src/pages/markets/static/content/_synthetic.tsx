@@ -1,5 +1,5 @@
 import React from 'react'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types-another.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
 import MarketandRisk from 'images/svg/markets/market-and-risk-new.svg'
@@ -11,7 +11,7 @@ import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 
 type Synthetic = {
     src: string
-    text: string
+    text: React.ReactNode
     alt: string
 }
 
@@ -42,28 +42,28 @@ export const simple_step_content_synthetic = [
 const synthetic: Synthetic[] = [
     {
         src: SevenTrading,
-        text: localize('24/7 trading, including weekends and public holidays'),
         alt: 'Trading available everyday',
+        text: <Localize translate_text="24/7 trading, including weekends and public holidays" />,
     },
     {
         src: MarketandRisk,
-        text: localize('Free from real-world market and liquidity risks'),
         alt: 'Real world market',
+        text: <Localize translate_text="Free from real-world market and liquidity risks" />,
     },
     {
         src: ResponsiveWebsite,
-        text: localize('Responsive, easy-to-use platforms'),
         alt: 'Easy to use platform',
+        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
     },
     {
         src: ExclusiveTradeType,
-        text: localize('Exclusive access to innovative trade types'),
         alt: 'Exclusive access',
+        text: <Localize translate_text="Exclusive access to innovative trade types" />,
     },
     {
         src: FriendlySupport,
-        text: localize('Smart and friendly support, 7 days a week'),
         alt: 'Chat support',
+        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
     },
 ]
 

@@ -22,7 +22,7 @@ const getNavigationMap = (type: string) => {
                     'trader-tools',
                     'payment-methods',
                     'dmt5-trading-signals',
-                    'academy',
+                    'blog',
                 ],
             }
         case 'careers':

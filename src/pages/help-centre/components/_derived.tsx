@@ -27,7 +27,7 @@ const Derived = () => {
                             {
                                 key: 0,
                                 type: 'link',
-                                to: 'https://academy.deriv.com/blog/posts/an-introduction-to-synthetic-indices-trading/',
+                                to: 'https://blog.deriv.com/blog/posts/an-introduction-to-synthetic-indices-trading/',
                             },
                         ])}
                     />

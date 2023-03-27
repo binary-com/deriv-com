@@ -634,14 +634,14 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         <StyledLink
                             to=""
                             external
-                            type="academy"
+                            type="blog"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <div>
-                                <img src={Blog} alt="academy" width="24" height="24" />
+                                <img src={Blog} alt="blog" width="24" height="24" />
                             </div>
-                            <Span>{<Localize translate_text="Academy" />}</Span>
+                            <Span>{<Localize translate_text="Blog" />}</Span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

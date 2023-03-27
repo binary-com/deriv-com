@@ -168,9 +168,7 @@ export const scope_content = [
             },
             { content: <Localize translate_text="Our internal apps: *.deriv.cloud" /> },
             {
-                content: (
-                    <Localize translate_text="Our weblog address: https://academy.deriv.com/" />
-                ),
+                content: <Localize translate_text="Our weblog address: https://blog.deriv.com/" />,
             },
         ],
     },

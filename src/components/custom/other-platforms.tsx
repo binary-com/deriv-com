@@ -659,10 +659,10 @@ export const NavResources = ({ onClick }: NavResourcesProps) => (
             to="/dmt5-trading-signals/#signal-subscriber/"
         />
         <CardLink
-            icon={() => <img src={Blog} alt="academy" width="24" height="24" />}
-            title={<Localize translate_text="Academy" />}
+            icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
+            title={<Localize translate_text="Blog" />}
             to=""
-            type="academy"
+            type="blog"
             external={true}
             target="_blank"
             rel="noopener noreferrer"

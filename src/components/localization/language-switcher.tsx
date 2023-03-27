@@ -6,7 +6,7 @@ import language_config from '../../../i18n-config'
 import { useClientInformation } from '../hooks/use-client-information'
 import Dropdown from './language-dropdown'
 import { isProduction } from 'common/websocket/config'
-import { getDomain, nonENLangUrlReplace } from 'common/utility'
+import { nonENLangUrlReplace, setCookiesWithDomain } from 'common/utility'
 
 type LanguageSwitchProps = {
     i18n?: { language: string }
@@ -71,8 +71,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, is_security }: LanguageSwitchProps)
                     ? current_path.replace(/\//u, '')
                     : nonENLangUrlReplace(current_path)
             }${current_hash}`
-            document.cookie =
-                'user_language=' + id.replace(/\//g, '') + ';domain=.' + getDomain() + ';path=/'
+            setCookiesWithDomain('user_language', id.replace(/\//g, ''))
 
             if (path === '/ach/') {
                 localStorage.setItem('i18n', 'ach')

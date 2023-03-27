@@ -397,13 +397,20 @@ export const matchHashInURL = (hash: string) =>
 
 export const setHashInURL = (hash: string) => isBrowser() && (location.hash = `#${hash}`)
 
+export const setCookiesWithDomain = (key: string, value: string) => {
+    const domainObj = !isLocalhost() ? `domain=.${getDomain()};` : ''
+    document.cookie = `${key}=${value};path=/;${domainObj}`
+}
+
 export const updateURLAsPerUserLanguage = () => {
     const current_path = window.location.pathname
     const current_hash = window.location.hash
     const paths = current_path.split('/')
     const first_path = paths[1]
     const has_language_in_url = first_path in language_config
-    has_language_in_url && Cookies.set('user_language', first_path)
+    if (has_language_in_url) {
+        setCookiesWithDomain('user_language', first_path)
+    }
     const user_language = Cookies.get('user_language') || 'en'
 
     const language = has_language_in_url ? first_path : user_language

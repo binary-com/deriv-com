@@ -58,9 +58,7 @@ const IndicesGrid = () => {
                     )}
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        '_t_These indices are characterised by an average of one crash or boom in a series of 1000, 500, or 300 ticks._t_',
-                    )}
+                    <Localize translate_text="These indices are characterised by an average of one crash or boom in a series of 1000, 500, or 300 ticks." />
                 </MiddleText>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">

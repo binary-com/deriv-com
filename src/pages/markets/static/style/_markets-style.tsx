@@ -139,14 +139,13 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
 export const DerivedMarketsList = styled.div<MarketsListProps>`
     display: grid;
     border-left: 1px solid var(--color-grey-22);
+    grid-template-columns: ${({ col }) => `repeat(${col ?? 2}, 1fr)`};
     border-right: var(--solid-grey-22);
     width: 100%;
     height: fit-content;
     padding: 24px;
     gap: ${({ gap }) => (gap ? gap : '12px')};
-    @media ${device.tabletL} {
-        height: 212px;
-    }
+
     @media ${device.mobileL} {
         grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};

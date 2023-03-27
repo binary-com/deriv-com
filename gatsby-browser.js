@@ -5,13 +5,7 @@ import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
-import {
-    getClientInformation,
-    getDomain,
-    getLanguage,
-    addScript,
-    updateURLAsPerUserLanguage,
-} from 'common/utility'
+import { getClientInformation, getDomain, getLanguage, addScript, updateURLAsPerUserLanguage } from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
@@ -142,6 +136,7 @@ export const onClientEntry = () => {
     checkLiveChatRedirection()
 
     updateURLAsPerUserLanguage()
+
 }
 
 export const onRouteUpdate = () => {

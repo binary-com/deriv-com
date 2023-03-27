@@ -1,9 +1,9 @@
 import Cookies from 'js-cookie'
 import { isStorageSupported } from './storage'
 import { getDataObjFromCookies, getDataLink, getCookiesFields, getCookiesObject } from './cookies'
+import { getAppId } from './websocket/config'
 import { redirectToTradingPlatform } from './utility'
 import { brand_name, deriv_app_id, oauth_url } from 'common/constants'
-import { getAppId } from 'common/websocket/config'
 
 export type TSocialProvider = 'google' | 'facebook' | 'apple'
 

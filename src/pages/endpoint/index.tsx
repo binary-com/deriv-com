@@ -10,9 +10,9 @@ import { Input, Button } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import { default_server_url } from 'common/constants'
+import { getAppId } from 'common/websocket/config'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
 import useWebsiteStatus from 'components/hooks/use-website-status'
-import { getAppId } from 'common/websocket/config'
 
 type ValuesType = {
     server_url?: string | number

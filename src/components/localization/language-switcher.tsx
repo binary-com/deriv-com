@@ -5,8 +5,8 @@ import Cookies from 'js-cookie'
 import language_config from '../../../i18n-config'
 import { useClientInformation } from '../hooks/use-client-information'
 import Dropdown from './language-dropdown'
-import { nonENLangUrlReplace } from 'common/utility'
 import { isProduction } from 'common/websocket/config'
+import { nonENLangUrlReplace } from 'common/utility'
 
 type LanguageSwitchProps = {
     i18n?: { language: string }

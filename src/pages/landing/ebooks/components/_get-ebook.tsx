@@ -14,8 +14,8 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
-import useDerivWS from 'components/hooks/use-deriv-ws'
 import { isBrowser } from 'common/utility'
+import apiManager from 'common/websocket'
 
 type GetEbookProps = {
     color?: string
@@ -205,7 +205,6 @@ type SocialLoginContent = {
 }
 
 const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: GetEbookProps) => {
-    const { send } = useDerivWS()
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
@@ -312,18 +311,20 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
 
         const verify_email_req = getVerifyEmailRequest(formattedEmail)
 
-        send(verify_email_req, (response) => {
-            if (response.error) {
-                setIsSubmitting(false)
-                setSubmitStatus('error')
-                setSubmitErrorMsg(response.error.message)
-                handleValidation(formattedEmail)
-            } else {
-                setIsSubmitting(false)
-                setSubmitStatus('success')
-                if (onSubmit) onSubmit(submit_status, email)
-            }
-        })
+        apiManager
+            .augmentedSend('verify_email', { ...verify_email_req, type: 'account_opening' })
+            .then((response) => {
+                if (response.error) {
+                    setIsSubmitting(false)
+                    setSubmitStatus('error')
+                    setSubmitErrorMsg(response.error.message)
+                    handleValidation(formattedEmail)
+                } else {
+                    setIsSubmitting(false)
+                    setSubmitStatus('success')
+                    if (onSubmit) onSubmit(submit_status, email)
+                }
+            })
     }
 
     return submit_status === 'success' ? (

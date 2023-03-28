@@ -9,7 +9,6 @@ import Login, { TSocialProvider } from 'common/login'
 // SVG
 import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
-import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
 import useRegion from 'components/hooks/use-region'
 import { isBrowser } from 'common/utility'
@@ -88,21 +87,7 @@ const StyledText = styled(Text)<StyledTextProps>`
         font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
-const NoteBox = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    min-height: 7.7rem;
-    padding: 8px 8px;
-    margin-top: 1.6rem;
-    border-radius: 0.4rem;
-    background-color: rgba(242, 243, 244, 0.56);
 
-    @media ${device.mobileL} {
-        min-height: 80px;
-        padding: 13px 16px;
-    }
-`
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
@@ -290,36 +275,6 @@ const SignupNew = ({
             </StyledHeader>
             <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
 
-            {!is_ppc && (
-                <NoteBox>
-                    <StyledBinaryLogo src={BinaryLogo} alt="binarylogo" />
-                    <div>
-                        <StyledText
-                            mb="0.4rem"
-                            color="grey-16"
-                            size="var(--text-size-xs)"
-                            tabletFontSize="12px"
-                        >
-                            <Localize
-                                translate_text="Got a <0>Binary.com</0> account?"
-                                components={[<strong key={0} />]}
-                            />
-                        </StyledText>
-                        <StyledText
-                            size="var(--text-size-xxs)"
-                            tabletFontSize="12px"
-                            color="grey-16"
-                            lh="18px"
-                        >
-                            <Localize
-                                translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
-                                components={[<strong key={0} />]}
-                            />
-                        </StyledText>
-                    </div>
-                </NoteBox>
-            )}
-
             <InputGroup>
                 <Input
                     id="dm-email-input"
@@ -352,20 +307,7 @@ const SignupNew = ({
                 {localize('Create demo account')}
             </EmailButton>
             <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
-                <Localize
-                    translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
-                    components={[
-                        <StyledLocalizedLink
-                            key={0}
-                            to={`/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`}
-                            size="1.2rem"
-                            color="red"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            external
-                        />,
-                    ]}
-                />
+                <Localize translate_text="By signing up for a Deriv account, you agree to receive occasional updates about our products, services, and events. You can unsubscribe at any time in your account settings." />
             </Header>
             <SignupWithContainer>
                 <Line />

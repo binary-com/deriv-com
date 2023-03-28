@@ -141,7 +141,7 @@ const InputWrapper = styled.div`
     line-height: 10px;
     font-weight: normal;
     margin-right: 1rem;
-    border-radius: 15px;
+    border-radius: 16px;
 
     @media ${device.mobileL} {
         max-width: 191px;
@@ -169,7 +169,7 @@ const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     @media ${device.tabletL} {
         padding: 10px 16px;
         white-space: nowrap;
-        border-radius: 4px;
+        border-radius: 16px;
         min-width: unset;
         margin-left: 0;
         height: 40px;

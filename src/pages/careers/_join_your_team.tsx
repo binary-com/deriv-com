@@ -56,7 +56,7 @@ const query = graphql`
         ) {
             ...fadeIn
         }
-        peopleManagement: file(relativePath: { eq: "careers/People-Management.png" }) {
+        humanResources: file(relativePath: { eq: "careers/Human-Resources.png" }) {
             ...fadeIn
         }
         productDesignUX: file(relativePath: { eq: "careers/Product-Design-UX.png" }) {
@@ -114,10 +114,10 @@ const JoinYourTeam = () => {
                 'We care about providing helpful solutions to our clients to make their trading experience with us even better.',
         },
         {
-            img_data: data.peopleManagement,
-            to: '/careers/people-management/',
-            img_alt: 'People management jobs at Deriv',
-            display_team_name: 'People Management',
+            img_data: data.humanResources,
+            to: '/careers/human-resources/',
+            img_alt: 'Human Resources jobs at Deriv',
+            display_team_name: 'Human Resources',
             tagline:
                 'We bring in go-getters, link them with the right opportunities, and support them in every way to help them grow.',
         },

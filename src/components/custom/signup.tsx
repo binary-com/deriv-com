@@ -60,16 +60,6 @@ const ResponseWrapper = styled(Flex)`
     }
 `
 
-const ConfirmationMessage = styled(Header)`
-    text-align: center;
-    font-size: 16px;
-    word-wrap: break-word;
-    line-height: 24px;
-    @media ${device.mobileL} {
-        font-size: 14px;
-    }
-`
-
 export const Appearances = {
     default: 'default',
     simple: 'simple',
@@ -223,18 +213,18 @@ const Signup = (props: SignupProps) => {
 
     return props.submit_state === 'success' ? (
         <ResponseWrapper>
-            <Header as="h3" type="subtitle-1" align="center" weight="700">
+            <Header as="p" type="subtitle-1" align="center" weight="700">
                 {localize('Check your email')}
             </Header>
             <Flex jc="center" height="128px">
                 <QueryImage data={data.view_email} alt="Email image" height="128px" width="128px" />
             </Flex>
-            <ConfirmationMessage weight="normal">
+            <Header type="paragraph-1" weight="normal" align="center">
                 <Localize
                     translate_text="We've sent a message to {{email}} with a link to activate your account."
                     values={{ email: props.email }}
                 />
-            </ConfirmationMessage>
+            </Header>
             <EmailLink to="/check-email/" align="center">
                 {localize("Didn't receive your email?")}
             </EmailLink>

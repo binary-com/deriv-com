@@ -25,7 +25,7 @@ type SignupNewProps = {
 }
 
 type SocialButtonProps = {
-    bgColor?: string
+    bg_color?: string
 }
 
 const SignupContent = styled.div`
@@ -92,12 +92,12 @@ const SocialButton = styled(Button)<SocialButtonProps>`
     align-items: center;
     box-shadow: none;
     height: 4rem;
-    background-color: ${(props) => props.bgColor || 'var(--color-white)'};
+    background-color: ${(props) => props.bg_color || 'var(--color-white)'};
     border: solid 1px var(--color-grey-21);
     padding: 0.5rem 0;
 
     &:hover {
-        background-color: ${(props) => props.bgColor || 'var(--color-white)'};
+        background-color: ${(props) => props.bg_color || 'var(--color-white)'};
     }
     @media ${device.tabletL} {
         height: 4.8rem;
@@ -107,12 +107,9 @@ const SocialText = styled(Header)`
     width: auto;
     margin-right: 1.4rem;
     margin-left: 0.7rem;
-    font-weight: 500;
-    font-size: 1.2rem;
     color: ${({ color }) => color || 'var(--color-black-9)'};
     @media ${device.tabletL} {
         margin-left: 2.7rem;
-        font-size: 14px;
     }
 `
 const SocialWrapper = styled.div<CSSProperties>`
@@ -238,8 +235,8 @@ const SignupNew = ({
                     social
                 >
                     <img src={Google} alt="google" width="24" height="24" />
-                    <SocialText as="p" align="center">
-                        <Localize translate_text="Google" />
+                    <SocialText type="paragraph-2" as="p" align="center">
+                        Google
                     </SocialText>
                 </SocialButton>
                 <SocialButton
@@ -249,11 +246,11 @@ const SignupNew = ({
                     id="dm-signup-facebook"
                     type="button"
                     social
-                    bgColor="var(--color-blue-15)"
+                    bg_color="var(--color-blue-15)"
                 >
                     <img src={Facebook} alt="facebook" width="24" height="24" />
-                    <SocialText color="var(--color-white)" as="p" align="center">
-                        <Localize translate_text="Facebook" />
+                    <SocialText type="paragraph-2" color="var(--color-white)" as="p" align="center">
+                        Facebook
                     </SocialText>
                 </SocialButton>
                 <SocialButton
@@ -263,11 +260,11 @@ const SignupNew = ({
                     id="dm-signup-apple"
                     type="button"
                     social
-                    bgColor="var(--color-black)"
+                    bg_color="var(--color-black)"
                 >
                     <img src={Apple} alt="apple" width="24" height="24" />
-                    <SocialText color="var(--color-white)" as="p" align="center">
-                        <Localize translate_text="Apple" />
+                    <SocialText type="paragraph-2" color="var(--color-white)" as="p" align="center">
+                        Apple
                     </SocialText>
                 </SocialButton>
             </SocialWrapper>

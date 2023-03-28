@@ -117,6 +117,8 @@ const SearchSection = () => {
 
     // we need to hide some of the platforms for eu countries!
     const filtered_categories = useFilteredCategory(translated_all_questions)
+    //Removing p2p from the search result
+
     // putting all of the questions in a variable
     const questions = filtered_categories
         .map(({ questions }) => questions)

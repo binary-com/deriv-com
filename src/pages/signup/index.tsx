@@ -16,8 +16,9 @@ const Wrapper = styled(Flex)`
     align-items: center;
     justify-content: center;
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         padding: 0;
+        height: 110vh;
     }
 `
 const Content = styled.div`

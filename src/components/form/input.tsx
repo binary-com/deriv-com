@@ -125,7 +125,7 @@ const StyledInput = styled.input<StyledInputProps>`
         margin: 0 8px;
         width: 95%;
         height: 100%;
-        border-radius: 4px;
+        border-radius: 15px;
 
         & ~ label {
             font-size: 1.75rem;

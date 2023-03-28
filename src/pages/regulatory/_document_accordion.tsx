@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import kid_data from './data/_kid_data'
-import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
+import { Text, Accordion, AccordionItem, LinkText, AccordionDataProps } from 'components/elements'
 import { Flex } from 'components/containers'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
 
@@ -78,7 +78,9 @@ const RTS27_28 = () => (
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
-                <span>{localize('RTS28 2021')}</span>
+                <span>
+                    <Localize translate_text="_t_RTS28 2021_t_" />
+                </span>
             </FlexText>
             <FlexText
                 color="red"
@@ -88,7 +90,9 @@ const RTS27_28 = () => (
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
-                <span>{localize('RTS28 2020')}</span>
+                <span>
+                    <Localize translate_text="_t_RTS28 2020_t_" />
+                </span>
             </FlexText>
         </EdgeFlex>
     </>
@@ -117,80 +121,96 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
 
     const is_supported_language = (language: string) => supported_languages.includes(language)
 
+    const accordion_data: Array<AccordionDataProps> = [
+        {
+            id: 'document_01',
+            title: '_t_Financial disclosure report_t_',
+            component: (
+                <>
+                    <Text>
+                        <Localize translate_text="_t_Deriv Investments (Europe) Limited has prepared the Financial disclosure report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant._t_" />
+                    </Text>
+                    <Flex mt="1.8rem">
+                        <FlexText_Pillar
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="/regulatory/Financial_Disclosures_Annual_Report_2021.pdf"
+                            color="red"
+                        >
+                            <img src={PDFIcon} alt="pdf icon black" />
+                            <span>
+                                <Localize translate_text="_t_Financial Disclosures Annual Report 2021_t_" />
+                            </span>
+                        </FlexText_Pillar>
+                    </Flex>
+                </>
+            ),
+            class_name: 'disclosure-report',
+        },
+        {
+            id: 'document_02',
+            title: '_t_Key information documents_t_',
+            component: (
+                <>
+                    <Text>
+                        <Localize translate_text="_t_These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains, and losses of these products and to help you compare them with other products._t_" />
+                    </Text>
+                    <Flex>
+                        <EdgeFlex mt="1.8rem">
+                            {kid_data.map((data, idx) => (
+                                <FlexText
+                                    key={idx}
+                                    color="red"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={`/regulatory/kid/${
+                                        is_supported_language(selected_language)
+                                            ? selected_language + '/'
+                                            : ''
+                                    }${data.ref}`}
+                                    m="1.6rem 2.4rem"
+                                >
+                                    <img src={PDFIcon} alt="pdf icon black" />
+                                    <span>{data.title}</span>
+                                </FlexText>
+                            ))}
+                        </EdgeFlex>
+                    </Flex>
+                </>
+            ),
+            class_name: 'key-information',
+        },
+        {
+            id: 'document_03',
+            title: '_t_RTS_t_',
+            component: (
+                <>
+                    <Flex>
+                        <RTS27_28 />
+                    </Flex>
+                </>
+            ),
+            class_name: 'rts',
+        },
+    ]
+
     return (
         <Accordion has_single_state id="kid">
-            <AccordionItem
-                header={localize('Financial disclosure report')}
-                content_style={content_style}
-                header_style={header_style}
-                style={item_style}
-                parent_style={parent_style}
-                class_name="disclosure-report"
-            >
-                <Text>
-                    {localize(
-                        'Deriv Investments (Europe) Limited has prepared the Financial disclosure report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant.',
-                    )}
-                </Text>
-                <Flex mt="1.8rem">
-                    <FlexText_Pillar
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="/regulatory/Financial_Disclosures_Annual_Report_2021.pdf"
-                        color="red"
+            {accordion_data.map((item) => {
+                return (
+                    <AccordionItem
+                        header={<Localize translate_text={item.title} />}
+                        content_style={content_style}
+                        header_style={header_style}
+                        style={item_style}
+                        parent_style={parent_style}
+                        class_name={item.class_name}
+                        key={item.id}
                     >
-                        <img src={PDFIcon} alt="pdf icon black" />
-                        <span>{localize('Financial Disclosures Annual Report 2021')}</span>
-                    </FlexText_Pillar>
-                </Flex>
-            </AccordionItem>
-            <AccordionItem
-                header={localize('Key information documents')}
-                content_style={content_style}
-                header_style={header_style}
-                style={item_style}
-                parent_style={parent_style}
-                class_name="key-information"
-            >
-                <Text>
-                    {localize(
-                        'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains, and losses of these products and to help you compare them with other products.',
-                    )}
-                </Text>
-                <Flex>
-                    <EdgeFlex mt="1.8rem">
-                        {kid_data.map((data, idx) => (
-                            <FlexText
-                                key={idx}
-                                color="red"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href={`/regulatory/kid/${
-                                    is_supported_language(selected_language)
-                                        ? selected_language + '/'
-                                        : ''
-                                }${data.ref}`}
-                                m="1.6rem 2.4rem"
-                            >
-                                <img src={PDFIcon} alt="pdf icon black" />
-                                <span>{data.title}</span>
-                            </FlexText>
-                        ))}
-                    </EdgeFlex>
-                </Flex>
-            </AccordionItem>
-            <AccordionItem
-                header={localize('RTS')}
-                content_style={content_style}
-                header_style={header_style}
-                style={item_style}
-                parent_style={parent_style}
-                class_name="rts"
-            >
-                <Flex>
-                    <RTS27_28 />
-                </Flex>
-            </AccordionItem>
+                        {item.component}
+                    </AccordionItem>
+                )
+            })}
         </Accordion>
     )
 }

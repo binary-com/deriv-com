@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { General, AccountManagement } from './_faq-data'
 import { SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import device from 'themes/device'
@@ -49,32 +49,52 @@ const Faq = () => {
         border: 'none',
     }
     const { is_p2p_allowed_country } = useRegion()
+
+    const accordion_data = [
+        {
+            id: 'faqs_01',
+            title: '_t_General_t_',
+            component: (
+                <>
+                    <General />
+                </>
+            ),
+            class_name: 'general',
+        },
+        {
+            id: 'faqs_02',
+            title: '_t_Account management_t_',
+            component: (
+                <>
+                    <AccountManagement />
+                </>
+            ),
+            class_name: 'account-management',
+        },
+    ]
+
     return (
         <RelativeContainer padding={is_p2p_allowed_country ? '5rem 0' : '0 0 5rem'}>
             <Header as="h2" size="3.6rem" mb="3.2rem" align="center">
-                {localize('FAQs')}
+                <Localize translate_text="_t_FAQs_t_" />
             </Header>
             <AccordionWrapper id="payment-agent-faq-list">
                 <Accordion has_single_state>
-                    <AccordionItem
-                        header={localize('General')}
-                        parent_style={parent_style}
-                        style={item_style}
-                        header_style={header_style}
-                        plus
-                        class_name="general"
-                    >
-                        {<General />}
-                    </AccordionItem>
-                    <AccordionItem
-                        header={localize('Account management')}
-                        style={item_style}
-                        header_style={header_style}
-                        plus
-                        class_name="account-management"
-                    >
-                        {<AccountManagement />}
-                    </AccordionItem>
+                    {accordion_data.map((item) => {
+                        return (
+                            <AccordionItem
+                                header={<Localize translate_text={item.title} />}
+                                parent_style={parent_style}
+                                style={item_style}
+                                header_style={header_style}
+                                plus
+                                class_name="general"
+                                key={item.id}
+                            >
+                                {item.component}
+                            </AccordionItem>
+                        )
+                    })}
                 </Accordion>
             </AccordionWrapper>
             <TopLeftDot src={DotPattern} />

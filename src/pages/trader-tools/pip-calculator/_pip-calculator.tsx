@@ -42,6 +42,7 @@ import { PipSyntheticExample, PipForexExample } from './_example-pip'
 import {
     Accordion,
     AccordionItem,
+    AccordionDataProps,
     Header,
     LocalizedLinkText,
     Text,
@@ -59,12 +60,97 @@ const PipCalculator = () => {
         setTab(t)
     }
 
+    const accordion_data: Array<AccordionDataProps> = [
+        {
+            id: 'calc_01',
+            title: '_t_Pip value for synthetic indices_t_',
+            component: (
+                <>
+                    <Text mb="16px">
+                        <Localize translate_text="_t_Let’s say you want to trade 1 lot of Volatility 75 Index._t_" />
+                    </Text>
+
+                    <Desktop>
+                        <PipSyntheticExample />
+                    </Desktop>
+
+                    <Mobile>
+                        <PipSyntheticExample />
+                    </Mobile>
+                    <FormulaText>
+                        <StyledOl>
+                            <li>
+                                <span>
+                                    <Localize translate_text="_t_The point value is derived from the current digits of the assets. In the example, the digit is 2, so the point value is 0.01._t_" />
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <Localize translate_text="_t_The contract size is one standard lot of Volatility 75 index = 1_t_" />
+                                </span>
+                            </li>
+                        </StyledOl>
+                    </FormulaText>
+                    <Text mb="1.6rem" mt="1.6rem">
+                        <Localize
+                            translate_text="_t_So your pip value is <0>0.01 USD</0>._t_"
+                            components={[<strong key={0} />]}
+                        />
+                    </Text>
+                </>
+            ),
+            class_name: 'pip-value',
+        },
+        {
+            id: 'calc_02',
+            title: '_t_Pip value for forex_t_',
+            component: (
+                <>
+                    <Text mb="16px">
+                        <Localize translate_text="_t_Let’s say you want to trade 2 lots of EUR/USD._t_" />
+                    </Text>
+
+                    <Desktop>
+                        <PipForexExample />
+                    </Desktop>
+
+                    <Mobile>
+                        <PipForexExample />
+                    </Mobile>
+
+                    <FormulaText>
+                        <StyledOl>
+                            <li>
+                                <span>
+                                    <Localize translate_text="_t_The point value is derived from the current digits of the assets. In the example, the digit is 5, so the point value is 0.00001._t_" />
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <Localize translate_text="_t_One standard lot of forex = 100,000 units_t_" />
+                                </span>
+                            </li>
+                        </StyledOl>
+                    </FormulaText>
+
+                    <Text mb="1.6rem" mt="1.6rem">
+                        <Localize
+                            translate_text="_t_So your pip value is <0>2 USD</0>._t_"
+                            components={[<strong key={0} />]}
+                        />
+                    </Text>
+                </>
+            ),
+            class_name: 'pip-value-forex',
+        },
+    ]
+
     return (
         <>
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
-                        {localize("Traders' tools")}
+                        <Localize translate_text="_t_Traders' tools_t_" />
                     </LocalizedLinkText>
                     <ImageWithDireciton
                         src={RightArrow}
@@ -73,14 +159,14 @@ const PipCalculator = () => {
                         width="16"
                         style={{ margin: '0 8px' }}
                     />
-                    <Text>{localize('Pip calculator')}</Text>
+                    <Text>
+                        <Localize translate_text="_t_Pip calculator_t_" />
+                    </Text>
                 </Flex>
             </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
-                    {localize(
-                        'Our pip calculator helps you to estimate the pip value in your trades so that you can better manage your risk.',
-                    )}
+                    <Localize translate_text="_t_Our pip calculator helps you to estimate the pip value in your trades so that you can better manage your risk._t_" />
                 </SectionSubtitle>
 
                 <ContentContainer mt="8rem" mb="4rem">
@@ -120,7 +206,7 @@ const PipCalculator = () => {
                                 <CalculatorForm>
                                     <CalculatorHeader>
                                         <CalculatorLabel htmlFor="message">
-                                            {localize('Pip value')}
+                                            <Localize translate_text="_t_Pip value_t_" />
                                         </CalculatorLabel>
                                         <CalculatorOutputContainer>
                                             <CalculatorOutputField>
@@ -134,7 +220,7 @@ const PipCalculator = () => {
 
                                     <CalculatorBody>
                                         <CalculatorLabel>
-                                            {localize('Account type')}
+                                            <Localize translate_text="_t_Account type_t_" />
                                         </CalculatorLabel>
                                         <Flex
                                             mb="3rem"
@@ -150,7 +236,9 @@ const PipCalculator = () => {
                                                     resetForm({})
                                                 }}
                                             >
-                                                <Text align="center">{localize('Synthetic')}</Text>
+                                                <Text align="center">
+                                                    <Localize translate_text="_t_Synthetic_t_" />
+                                                </Text>
                                             </CalculatorTabItem>
                                             <CalculatorTabItem
                                                 active={tab === 'Financial'}
@@ -163,7 +251,9 @@ const PipCalculator = () => {
                                                     setFieldValue('optionList', financialItemLists)
                                                 }}
                                             >
-                                                <Text align="center">{localize('Financial')}</Text>
+                                                <Text align="center">
+                                                    <Localize translate_text="_t_Financial_t_" />
+                                                </Text>
                                             </CalculatorTabItem>
                                         </Flex>
 
@@ -261,7 +351,7 @@ const PipCalculator = () => {
                                                 type="submit"
                                                 disabled={!isValid || !dirty}
                                             >
-                                                {localize('Calculate')}
+                                                <Localize translate_text="_t_Calculate_t_" />
                                             </CalculateButton>
                                         </Flex>
                                     </CalculatorBody>
@@ -272,127 +362,45 @@ const PipCalculator = () => {
 
                     <RightContent>
                         <Header as="h3" type="section-title" mb="0.8rem">
-                            {localize('How to calculate pip value')}
+                            <Localize translate_text="_t_How to calculate pip value_t_" />
                         </Header>
 
                         <Text>
-                            {localize(
-                                'The pip value for a contract on Deriv MT5 is calculated based on this formula:',
-                            )}
+                            <Localize translate_text="_t_The pip value for a contract on Deriv MT5 is calculated based on this formula:_t_" />
                         </Text>
                         <Text mb="1.6rem">
                             <Localize
-                                translate_text="<0>Pip value = point value × volume × contract size</0>"
+                                translate_text="_t_<0>Pip value = point value × volume × contract size</0>_t_"
                                 components={[<strong key={0} />]}
                             />
                         </Text>
 
                         <Text mb="1.6rem">
-                            {localize(
-                                'For synthetic accounts, the pip value is calculated in USD.',
-                            )}
+                            <Localize translate_text="_t_For synthetic accounts, the pip value is calculated in USD._t_" />
                         </Text>
                         <Text mb="40px">
-                            {localize(
-                                'For financial accounts, the pip value is in the quote currency for forex pairs.',
-                            )}
+                            <Localize translate_text="_t_For financial accounts, the pip value is in the quote currency for forex pairs._t_" />
                         </Text>
 
                         <Header as="h3" type="section-title" mb="0.8rem">
-                            {localize('Example calculation')}
+                            <Localize translate_text="_t_Example calculation_t_" />
                         </Header>
 
                         <Accordion id="pip-calculator" has_single_state>
-                            <AccordionItem
-                                header={localize('Pip value for synthetic indices')}
-                                header_style={header_style}
-                                style={item_style}
-                                plus
-                                class_name="pip-value"
-                            >
-                                <Text mb="16px">
-                                    {localize(
-                                        'Let’s say you want to trade 1 lot of Volatility 75 Index.',
-                                    )}
-                                </Text>
-
-                                <Desktop>
-                                    <PipSyntheticExample />
-                                </Desktop>
-
-                                <Mobile>
-                                    <PipSyntheticExample />
-                                </Mobile>
-                                <FormulaText>
-                                    <StyledOl>
-                                        <li>
-                                            <span>
-                                                {localize(
-                                                    'The point value is derived from the current digits of the assets. In the example, the digit is 2, so the point value is 0.01.',
-                                                )}
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                {localize(
-                                                    'The contract size is one standard lot of Volatility 75 index = 1',
-                                                )}
-                                            </span>
-                                        </li>
-                                    </StyledOl>
-                                </FormulaText>
-                                <Text mb="1.6rem" mt="1.6rem">
-                                    <Localize
-                                        translate_text="So your pip value is <0>0.01 USD</0>."
-                                        components={[<strong key={0} />]}
-                                    />
-                                </Text>
-                            </AccordionItem>
-                            <AccordionItem
-                                header={localize('Pip value for forex')}
-                                header_style={header_style}
-                                style={item_style}
-                                plus
-                                class_name="pip-value-forex"
-                            >
-                                <Text mb="16px">
-                                    {localize('Let’s say you want to trade 2 lots of EUR/USD.')}
-                                </Text>
-
-                                <Desktop>
-                                    <PipForexExample />
-                                </Desktop>
-
-                                <Mobile>
-                                    <PipForexExample />
-                                </Mobile>
-
-                                <FormulaText>
-                                    <StyledOl>
-                                        <li>
-                                            <span>
-                                                {localize(
-                                                    'The point value is derived from the current digits of the assets. In the example, the digit is 5, so the point value is 0.00001.',
-                                                )}
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                {localize(
-                                                    'One standard lot of forex = 100,000 units',
-                                                )}
-                                            </span>
-                                        </li>
-                                    </StyledOl>
-                                </FormulaText>
-
-                                <Text mb="1.6rem" mt="1.6rem">
-                                    <Localize
-                                        translate_text="So your pip value is <0>2 USD</0>."
-                                        components={[<strong key={0} />]}
-                                    />
-                                </Text>
-                            </AccordionItem>
+                            {accordion_data.map((item) => {
+                                return (
+                                    <AccordionItem
+                                        header={<Localize translate_text={item.title} />}
+                                        header_style={header_style}
+                                        style={item_style}
+                                        plus
+                                        class_name={item.class_name}
+                                        key={item.id}
+                                    >
+                                        {item.component}
+                                    </AccordionItem>
+                                )
+                            })}
                         </Accordion>
 
                         <LinkWrapper style={{ height: 'fit-content' }}>
@@ -403,7 +411,7 @@ const PipCalculator = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Go to Deriv MT5 dashboard')}
+                                <Localize translate_text="_t_Go to Deriv MT5 dashboard_t_" />
                             </StyledLinkButton>
                         </LinkWrapper>
                     </RightContent>

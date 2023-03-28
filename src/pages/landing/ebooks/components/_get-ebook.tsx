@@ -221,7 +221,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                 apple: Login.socialLoginUrl('apple', ebook_utm_code),
             })
         }
-    }, [isBrowser()])
+    }, [isBrowser])
 
     const social_login_content: SocialLoginContent[] = [
         {

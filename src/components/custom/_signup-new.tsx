@@ -242,7 +242,7 @@ const SignupNew = ({
                 apple: Login.socialLoginUrl('apple'),
             })
         }
-    }, [isBrowser()])
+    }, [isBrowser])
 
     const social_login_content: SocialLoginContent[] = [
         {

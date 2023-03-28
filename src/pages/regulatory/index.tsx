@@ -379,7 +379,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         <ResponsiveGrid align="flex-start">
                             <MobileWrapper>
                                 <StyledHeader as="h2" type="sub-section-title" mb="1.6rem">
-                                    {localize('Deriv Limited')}
+                                    {localize('_t_Deriv Holdings (Guernsey) Limited_t_')}
                                 </StyledHeader>
                             </MobileWrapper>
                             <Img src={Deriv} alt="Deriv Limited" />
@@ -387,12 +387,12 @@ const Regulatory = (locale: RegulatoryProps) => {
                         <CssGridColumn>
                             <DesktopWrapper>
                                 <StyledHeader as="h2" type="sub-section-title">
-                                    {localize('Deriv Limited')}
+                                    {localize('_t_Deriv Holdings (Guernsey) Limited_t_')}
                                 </StyledHeader>
                             </DesktopWrapper>
                             <Text mt="0.8rem">
                                 {localize(
-                                    'Deriv Limited – 13 Castle Street, St. Helier, JE2 3BT, Jersey – is the holding company for the above subsidiaries.',
+                                    '_t_Deriv Holdings (Guernsey) Limited — 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ — is the holding company for the above subsidiaries._t_',
                                 )}
                             </Text>
                         </CssGridColumn>

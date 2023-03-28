@@ -158,6 +158,7 @@ const trading: TQuestionsData = {
             question: '_t_How can I automate my trading strategy?_t_',
             category: 'Trading',
             sub_category: '_t_How to trade_t_',
+            hide_for_non_eu: true,
             label: 'how-to-automate-trading-strategy',
             answer: [
                 {
@@ -189,9 +190,23 @@ const trading: TQuestionsData = {
             ],
         },
         {
+            question: '_t_How can I automate my trading strategy?_t_',
+            category: 'Trading',
+            sub_category: '_t_How to trade_t_',
+            hide_for_eu: true,
+            label: 'how-to-automate-trading-strategy',
+            answer: [
+                {
+                    translation_text:
+                        '_t_Use a trading bot for automating your trading strategy. A trading bot is an automated computer program that purchases trade contracts for you while following a specific set of instructions that you provide. Build your trading bot for free on DBot or Binary Bot; no coding is needed. You’ll also find 3 free pre-built strategies on DBot that you can customise to your needs._t_',
+                },
+            ],
+        },
+        {
             question: '_t_What are the trading limits on my account?_t_',
             category: 'Trading',
             sub_category: '_t_How to trade_t_',
+            hide_for_non_eu: true,
             label: 'trading-limits',
             answer: [
                 {
@@ -204,6 +219,22 @@ const trading: TQuestionsData = {
                             type: 'link',
                             to: `${oauth_url}/oauth2/authorize?app_id=16929`,
                         },
+                    ],
+                },
+            ],
+        },
+        {
+            question: '_t_What are the trading limits on my account?_t_',
+            category: 'Trading',
+            sub_category: '_t_How to trade_t_',
+            hide_for_eu: true,
+            label: 'trading-limits',
+            answer: [
+                {
+                    translation_text:
+                        '_t_To see your account’s trading limits, go to Settings > Security and safety > <0>Account limits</0>._t_',
+                    translation_components: [
+                        { key: 0, type: 'link', to: `${deriv_app_url}/account/account-limits` },
                     ],
                 },
             ],
@@ -222,8 +253,9 @@ const trading: TQuestionsData = {
         },
         {
             question: '_t_What are multipliers?_t_',
-            category: 'Multipliers',
+            category: 'trading',
             sub_category: '_t_Platforms_t_',
+            hide_for_non_eu: true,
             label: 'what-are-multipliers',
             answer: [
                 {
@@ -236,8 +268,24 @@ const trading: TQuestionsData = {
             ],
         },
         {
+            question: '_t_What are multipliers?_t_',
+            category: 'trading',
+            sub_category: '_t_Platforms_t_',
+            hide_for_eu: false,
+            label: 'what-are-multipliers',
+            answer: [
+                {
+                    translation_text:
+                        "_t_Deriv <0>multipliers</0> combines the upside of leverage trading without the downside of losing more than your stake. This means that when the market moves in your favour, you'll multiply your potential profits. If the market moves against your prediction, your losses are limited only to your stake. To find out more, visit the <0>Multipliers</0> page._t_",
+                    translation_components: [
+                        { key: 0, type: 'link', to: '/trade-types/multiplier' },
+                    ],
+                },
+            ],
+        },
+        {
             question: '_t_How do I trade multipliers?_t_',
-            category: 'Multipliers',
+            category: 'trading',
             sub_category: '_t_Platforms_t_',
             label: 'how-trade-multipliers',
             answer: [

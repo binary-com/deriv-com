@@ -60,7 +60,7 @@ const PipCalculator = () => {
         setTab(t)
     }
 
-    const accordion_data: Array<AccordionDataProps> = [
+    const accordion_pip_data: Array<AccordionDataProps> = [
         {
             id: 'calc_01',
             title: '_t_Pip value for synthetic indices_t_',
@@ -387,7 +387,7 @@ const PipCalculator = () => {
                         </Header>
 
                         <Accordion id="pip-calculator" has_single_state>
-                            {accordion_data.map((item) => {
+                            {accordion_pip_data.map((item) => {
                                 return (
                                     <AccordionItem
                                         header={<Localize translate_text={item.title} />}

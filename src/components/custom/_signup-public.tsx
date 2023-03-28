@@ -142,10 +142,6 @@ const InputWrapper = styled.div`
     font-weight: normal;
     margin-right: 1rem;
     border-radius: 16px;
-
-    @media ${device.mobileL} {
-        max-width: 191px;
-    }
 `
 const InputGroup = styled.div`
     display: flex;
@@ -204,9 +200,9 @@ const SocialButton = styled(Button)`
     border: 1px solid var(--color-grey-7);
     border-radius: 100px;
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         justify-content: center;
-        width: 11rem;
+        width: 33%;
         margin: 0 0.6rem;
     }
 `

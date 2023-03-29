@@ -69,40 +69,40 @@ const handleBg = ({
     }
 }
 
-const StyledButton = styled.div`
+const StyledButton = styled.div<BackgroundWrapperProps>`
     margin-top: 5rem;
     margin-left: 10vw;
 
-    @media (min-width: 2110px) {
-        margin-left: 20vw;
+    @media (min-width: 2080px) {
+        margin-left: ${(props) => (props.is_rtl ? '54vw' : '20vw')};
     }
 
     @media (min-width: 1201px) and (max-width: 1340px) {
-        margin-left: 5vw;
+        margin-left: ${(props) => (props.is_rtl ? '60vw' : '5vw')};
     }
-    @media (min-width: 1520px) and (max-width: 2080px) {
-        margin-left: 16vw;
+    @media (min-width: 1340px) and (max-width: 2080px) {
+        margin-left: ${(props) => (props.is_rtl ? '57vw' : '16vw')};
     }
     @media ${device.laptopM} {
         margin-left: 0;
         margin-top: 0;
     }
 `
-const StyledContainer = styled.div`
+const StyledContainer = styled.div<BackgroundWrapperProps>`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
     margin-left: 10vw;
 
-    @media (min-width: 2110px) {
-        margin-left: 20vw;
+    @media (min-width: 2080px) {
+        margin-left: ${(props) => (props.is_rtl ? '54vw' : '20vw')};
     }
     @media (min-width: 1201px) and (max-width: 1340px) {
-        margin-left: 5vw;
+        margin-left: ${(props) => (props.is_rtl ? '60vw' : '5vw')};
     }
-    @media (min-width: 1520px) and (max-width: 2080px) {
-        margin-left: 16vw;
+    @media (min-width: 1340px) and (max-width: 2080px) {
+        margin-left: ${(props) => (props.is_rtl ? '57vw' : '16vw')};
     }
 
     @media ${device.laptopM} {
@@ -137,7 +137,6 @@ const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     background-repeat: no-repeat;
     background-position: right;
     height: 63rem;
-    transform: ${(props) => (props.is_rtl ? 'scaleX(-1)' : 'none')};
 
     @media (max-width: 580px) {
         background-size: 136rem;
@@ -160,13 +159,8 @@ const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
         background-size: 227rem;
     }
 
-    & > ${StyledContainer} {
-        transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};
-        margin-right: 8rem;
-    }
-    & > ${StyledButton} {
-        transform: ${(props) => (!props.is_rtl ? 'none' : 'scaleX(-1)')};
-        margin-right: 8rem;
+    @media (min-width: 1200px) and (max-width: 1350px) {
+        background-size: ${(props) => (props.is_rtl ? '132rem' : '165rem')};
     }
 `
 const MarketSubHeader = styled.div`
@@ -230,7 +224,7 @@ export const DerivedFXHero = ({
                     is_commodities={is_commodities}
                     is_rtl={is_rtl}
                 >
-                    <StyledContainer>
+                    <StyledContainer is_rtl={is_rtl}>
                         <StyledHeader as="h1" align="center">
                             <Localize translate_text={title} />
                         </StyledHeader>
@@ -238,7 +232,7 @@ export const DerivedFXHero = ({
                             <Localize translate_text={description} />
                         </MarketSubHeader>
                     </StyledContainer>
-                    <StyledButton>
+                    <StyledButton is_rtl={is_rtl}>
                         {is_logged_in ? (
                             <Button onClick={handleGetTrading} label="_t_Get trading_t_" primary />
                         ) : (

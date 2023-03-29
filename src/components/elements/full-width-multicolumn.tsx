@@ -24,11 +24,10 @@ const Item = styled(Flex)`
 
     img {
         width: 34px;
-        margin-bottom: 10px;
     }
 
     @media ${device.mobileL} {
-        max-width: 80%;
+        max-width: 60%;
         gap: 6px;
 
         ${Text} {
@@ -118,7 +117,7 @@ const StyledTextContent = styled(Text)`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    font-family: Ubuntu, sans-serif;
+    font-family: IBM Plex Sans, sans-serif;
     margin-bottom: 1.6rem;
 
     @media ${device.tabletL} {

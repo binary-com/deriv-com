@@ -243,13 +243,13 @@ const MarketsWrapper = styled(Flex)`
 const StyledHeader = styled(Header)`
     padding: auto;
     text-align: center;
+    margin: 9rem auto;
 
     @media ${device.tabletL} {
         padding-left: 0;
-        margin: auto;
         text-align: center;
         width: 300px;
-        margin-bottom: 15rem;
+        margin: 2rem auto;
     }
 `
 const MobileCardContainer = styled(Flex)`
@@ -257,16 +257,11 @@ const MobileCardContainer = styled(Flex)`
         margin-top: 0;
     }
 `
-const StyledSectionContainer = styled(SectionContainer)`
-    padding-bottom: 100px;
-    margin: auto;
-`
 
-const StyledCarousel = styled(SectionContainer)`
+const StyledCarousel = styled.div`
     height: 40rem;
-    padding: 4rem 0;
     @media ${device.tabletL} {
-        height: 140rem;
+        height: 160rem;
     }
 `
 
@@ -315,12 +310,12 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
     }
 
     return (
-        <StyledSectionContainer id="markets-list">
+        <>
+            <StyledHeader as="h2" type="section-title" align="start">
+                {localize('Other markets you might be interested in')}
+            </StyledHeader>
             <Desktop>
                 <MarketsWrapper tablet_jc="center">
-                    <StyledHeader as="h2" type="section-title" align="start">
-                        {localize('Other markets you might be interested in')}
-                    </StyledHeader>
                     <StyledCarousel>
                         <Carousel has_autoplay autoplay_interval={4000} {...settings}>
                             {filteredMarkets.map((market) =>
@@ -335,9 +330,6 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                 </MarketsWrapper>
             </Desktop>
             <Mobile>
-                <StyledHeader as="h2" type="section-title" align="start">
-                    {localize('Other markets you might be interested in')}
-                </StyledHeader>
                 <StyledCarousel>
                     <MobileCardContainer direction="column">
                         {filteredMarkets.map((market) =>
@@ -348,7 +340,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     </MobileCardContainer>
                 </StyledCarousel>
             </Mobile>
-        </StyledSectionContainer>
+        </>
     )
 }
 

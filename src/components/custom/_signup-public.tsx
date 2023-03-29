@@ -168,6 +168,7 @@ const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     @media ${device.tabletL} {
         padding: 10px 16px;
         white-space: nowrap;
+        border-radius: 4px;
         min-width: unset;
         margin-left: 0;
         height: 40px;

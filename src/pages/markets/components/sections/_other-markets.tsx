@@ -48,9 +48,6 @@ const markets_type: MarketsType = {
         content_eu: (
             <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
         ),
-        content_eu: (
-            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
-        ),
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },

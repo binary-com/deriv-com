@@ -1,7 +1,7 @@
 import React from 'react'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction } from './src/common/websocket/config'
+import { isLive, isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
@@ -66,7 +66,7 @@ const pushwooshInit = (push_woosh) => {
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
             autoSubscribe: true,
             subscribeWidget: {
-                enable: true,
+                enable: false,
             },
         },
     ])
@@ -117,15 +117,17 @@ export const onInitialClientRender = () => {
 
 export const onClientEntry = () => {
     const push_woosh = new Pushwoosh()
-    pushwooshInit(push_woosh)
-    push_woosh.push(function (api) {
-        push_woosh.isSubscribed().then(function (isSubscribed) {
-            if (!isSubscribed) {
-                push_woosh.subscribe()
-            }
-            sendTags(api)
+    if (isLive()) {
+        pushwooshInit(push_woosh)
+        push_woosh.push(function (api) {
+            push_woosh.isSubscribed().then(function (isSubscribed) {
+                if (!isSubscribed) {
+                    push_woosh.subscribe()
+                }
+                sendTags(api)
+            })
         })
-    })
+    }
 
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',

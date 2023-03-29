@@ -316,7 +316,6 @@ module.exports = {
                 duration: 0,
             },
         },
-        'gatsby-plugin-use-query-params',
         {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
             options: {

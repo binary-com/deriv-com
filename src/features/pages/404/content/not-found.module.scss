@@ -1,23 +1,35 @@
+@use 'src/features/styles/theme/theme-mixins' as *;
 @import 'src/features/styles/theme/variables';
 
-.container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 16rem 0;
-}
-.info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 16px;
-  text-color: $color-white;
-}
-.button {
-  margin-top: 3rem;
-  text-align: center;
+.not {
+  &_found {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 16rem 0;
 
+    &_info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 1.6rem;
+    }
+    &_description {
+      margin-top: 1.6rem;
+    }
+    &_button {
+      border-radius: 4px;
+      padding: 10px 16px;
+      margin-top: 3rem;
+
+      & > a:hover {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
 }
+

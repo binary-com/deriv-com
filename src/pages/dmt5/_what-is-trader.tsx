@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import SideTab from './components/_side-tab'
-import DMT5QR from 'images/svg/dmt5/dmt5-qr.svg'
 import StepperView from 'components/custom/_stepper_view'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
@@ -122,39 +120,6 @@ const Section = styled(SectionContainer)`
         height: auto;
     }
 `
-const ImageWrapper = styled.div`
-    max-width: 79.2rem;
-    width: 100%;
-    height: 43.4rem;
-    position: relative;
-    margin: -3.2rem auto;
-
-    div {
-        width: 100%;
-    }
-    @media ${device.tabletS} {
-        max-width: 576px;
-        width: 100%;
-        margin: 0 0 24px;
-        height: unset;
-
-        div {
-            max-width: 576px;
-            width: 100%;
-        }
-    }
-`
-
-const QRImage = styled.img`
-    margin-right: 280px;
-    @media ${device.laptop} {
-        margin-right: 200px;
-    }
-    @media ${device.tablet} {
-        display: none;
-    }
-`
-
 const demoActive = css`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border: unset;
@@ -191,6 +156,7 @@ const TabItem = styled.div<TabProps>`
     }
 `
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
     @media ${device.mobileL} {
         font-size: 28px;
         margin-bottom: 24px;
@@ -211,16 +177,7 @@ const StyledLocalizedLink = styled(LocalizedLink)<{ id?: string }>`
     }
 `
 const StartTrader = () => {
-    const [is_mobile, setMobile] = useState(false)
     const { is_mobile_or_tablet } = useBreakpoints()
-
-    const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-    }
-    useEffect(() => {
-        handleResizeWindow()
-        window.addEventListener('resize', handleResizeWindow)
-    })
 
     const data = useStaticQuery(query)
     const [tab, setTab] = useState('Demo')
@@ -234,10 +191,6 @@ const StartTrader = () => {
     const handleSignup = useHandleSignup()
 
     const { is_eu } = useRegion()
-
-    const getImage = (is_mob: boolean, options: string[]) => {
-        return is_mob ? data[options[0]] : data[options[1]]
-    }
     const isDemo = tab === 'Demo'
     const isReal = tab === 'Real'
 
@@ -290,7 +243,7 @@ const StartTrader = () => {
                 ),
             },
         ],
-        [data, is_mobile_or_tablet],
+        [data, is_mobile_or_tablet, handleSignup],
     )
 
     const row_real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
@@ -351,7 +304,7 @@ const StartTrader = () => {
                 ),
             },
         ],
-        [data, is_mobile_or_tablet],
+        [data, is_mobile_or_tablet, handleLogin],
     )
 
     const eu_demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
@@ -403,7 +356,7 @@ const StartTrader = () => {
                 ),
             },
         ],
-        [data, is_mobile_or_tablet],
+        [data, is_mobile_or_tablet, handleSignup],
     )
 
     const eu_real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
@@ -464,7 +417,7 @@ const StartTrader = () => {
                 ),
             },
         ],
-        [data, is_mobile_or_tablet],
+        [data, is_mobile_or_tablet, handleLogin],
     )
     const demo = is_eu ? eu_demo : row_demo
     const real = is_eu ? eu_real : row_real
@@ -499,79 +452,6 @@ const StartTrader = () => {
 
             <Flex max_width="1200px">
                 <StepperView items={tab === 'Demo' ? demo : real} contentWidth="385px" />
-
-                {/* <Flex direction="column" ai="end">
-                    {isDemo ? (
-                        <SideTab parent_tab={tab}>
-                            <SideTab.Panel
-                                description={
-                                    <Localize
-                                        translate_text="Sign up for a free <0>Deriv demo account</0>"
-                                        components={[
-                                            <StyledLocalizedLink
-                                                id="dm-dmt5-signup-link"
-                                                onClick={handleSignup}
-                                                to=""
-                                                key={0}
-                                            />,
-                                        ]}
-                                    />
-                                }
-                                item_width="24rem"
-                                mobile_item_width="36rem"
-                                class_name="sign-in"
-                            >
-                                <ImageWrapper>{demo_step1_image}</ImageWrapper>
-                            </SideTab.Panel>
-                            <SideTab.Panel description={text_1} class_name="add-account">
-                                <ImageWrapper>{demo_step2_image}</ImageWrapper>
-                            </SideTab.Panel>
-                            <SideTab.Panel
-                                description={
-                                    <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
-                                }
-                                item_width="36rem"
-                                class_name="practise-trading"
-                            >
-                                <ImageWrapper>{demo_step3_image}</ImageWrapper>
-                            </SideTab.Panel>
-                        </SideTab>
-                    ) : (
-                        <SideTab parent_tab={tab}>
-                            <SideTab.Panel
-                                description={
-                                    <Localize
-                                        translate_text="Create or <0>sign in</0> to your demo Deriv account"
-                                        components={[
-                                            <StyledLocalizedLink
-                                                key={0}
-                                                onClick={handleLogin}
-                                                to=""
-                                            />,
-                                        ]}
-                                    />
-                                }
-                                item_width="27rem"
-                            >
-                                <ImageWrapper>{real_step1_image}</ImageWrapper>
-                            </SideTab.Panel>
-                            <SideTab.Panel description={text_2}>
-                                <ImageWrapper>{real_step2_image}</ImageWrapper>
-                            </SideTab.Panel>
-                            <SideTab.Panel description={text_3}>
-                                <ImageWrapper>{real_step3_image}</ImageWrapper>
-                            </SideTab.Panel>
-                            <SideTab.Panel
-                                description={
-                                    <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
-                                }
-                            >
-                                <ImageWrapper>{real_step4_image}</ImageWrapper>
-                            </SideTab.Panel>
-                        </SideTab>
-                    )}
-                    <QRImage src={DMT5QR} width="124px" height="124px" />
-                </Flex> */}
             </Flex>
         </Section>
     )

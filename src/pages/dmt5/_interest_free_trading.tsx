@@ -38,7 +38,8 @@ const InterestCardFlex = styled(Flex)`
 
     @media ${device.tabletL} {
         font-size: 14px;
-        width: 328px;
+        max-width: 328px;
+        width: 100%;
         height: 373px;
         margin: 24px 0;
     }
@@ -78,7 +79,7 @@ const StyledHeader = styled(Header)`
 const StyledFlex = styled(Flex)`
     @media ${device.tabletL} {
         width: 100%;
-        min-width: 328px;
+        max-width: 328px;
         padding: 16px;
     }
 `

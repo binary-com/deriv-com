@@ -13,17 +13,20 @@ type TProps = {
     onStepChanged?: (step: number) => void
     renderFooter?: () => JSX.Element
     contentWidth?: string
+    reverse?: boolean
 }
+
 type ItemsWrapperProps = {
     width?: string
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ reverse: boolean }>`
     display: flex;
     align-items: center;
     width: 100%;
     max-width: 1120px;
     gap: 60px;
+    flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -74,6 +77,7 @@ const StepperView: React.FC<TProps> = ({
     onStepChanged,
     renderFooter,
     contentWidth,
+    reverse = false,
 }) => {
     const [selected, setSelected] = useState<number>(default_step)
 
@@ -84,7 +88,7 @@ const StepperView: React.FC<TProps> = ({
     useEffect(() => setSelected(default_step), [items, default_step])
 
     return (
-        <Wrapper>
+        <Wrapper reverse={reverse}>
             <ImageWrapper>{items[selected]?.image()}</ImageWrapper>
             <ItemsWrapper width={contentWidth}>
                 <UlStyle>

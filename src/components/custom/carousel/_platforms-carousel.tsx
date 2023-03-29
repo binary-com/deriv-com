@@ -55,6 +55,9 @@ const StyledHeading = styled(Header)`
     font-family: Ubuntu, sans-serif;
     font-size: 48px;
     color: var(--color-black-9);
+    @media ${device.tablet} {
+        font-size: 24px;
+    }
 `
 const Card = styled.article`
     position: relative;

@@ -63,7 +63,7 @@ const StyledInfoIcon = styled.img`
     width: 24px;
     height: 24px;
 `
-const DerivXGetApp = () => {
+const DerivMT5GetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
 
     const items = [
@@ -122,4 +122,4 @@ const DerivXGetApp = () => {
     )
 }
 
-export default DerivXGetApp
+export default DerivMT5GetApp

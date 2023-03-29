@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import { Grid, HowItWorksItem } from 'pages/trade-types/components/_style'
 import { Flex } from 'components/containers'

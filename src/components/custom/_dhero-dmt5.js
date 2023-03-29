@@ -125,7 +125,7 @@ const DCommonBanner = () => {
                 </Content>
             </ContentWrapperStyle>
             <HeroImageWrapper>
-                <Shape angle={is_mobile ? 101 : 163} width="60%" color="#0364B9">
+                <Shape angle={is_mobile ? 101 : 194} width="60%" color="#0364B9">
                     <ImageWrapper>
                         <ImageStyle src={DerivMT5Row} />
                     </ImageWrapper>

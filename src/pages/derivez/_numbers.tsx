@@ -5,7 +5,6 @@ import { Header, Text } from 'components/elements/typography'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import { TString } from 'types/generics'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 
 type SellingPointsType = {
     title: string | ReactElement
@@ -85,7 +84,6 @@ const what_is_derivez_title: TString = '_t_What is Deriv EZ_t_'
 const what_is_derivez_subtitle: TString =
     '_t_Deriv EZ is a user-friendly CFDs trading platform that offers instant access to all your favourite assets. There is no additional account ID or password to remember, so you can fully focus on your trading. Trade on Deriv EZ and access a wide variety of assets in forex, stocks and indices, commodities, cryptocurrencies, and derived indices._t_'
 const Numbers = () => {
-    const is_mobile = useBreakpoints()
     return (
         <StyledSectionContainer>
             <NumberStyledContainer>
@@ -103,12 +101,7 @@ const Numbers = () => {
                     <StyledHeader type="page-title" align="center" as="h2">
                         <Localize translate_text={what_is_derivez_title} />
                     </StyledHeader>
-                    <Header
-                        size={is_mobile ? '14px' : '24px'}
-                        align="center"
-                        mt="16px"
-                        weight="normal"
-                    >
+                    <Header size="16px" align="center" mt="16px" weight="normal">
                         <Localize translate_text={what_is_derivez_subtitle} />
                     </Header>
                 </Flex>

@@ -30,7 +30,7 @@ const accumulators: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_<0>Note</0>: Accumulators aren’t available in Singapore, Japan, and the EU._t_',
+                        '_t_<0>Note</0>: Accumulators aren’t available in Singapore and the EU._t_',
                     translation_components: [{ key: 0, type: 'strong' }],
                     has_margin_top: true,
                 },

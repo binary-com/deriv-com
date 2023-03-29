@@ -1,0 +1,23 @@
+@import 'src/features/styles/theme/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 16rem 0;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
+  text-color: $color-white;
+}
+.button {
+  margin-top: 3rem;
+  text-align: center;
+
+}

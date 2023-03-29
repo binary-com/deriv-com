@@ -1,11 +1,17 @@
 import React from 'react'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction, isLive } from './src/common/websocket/config'
+import { isLive, isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
-import { getClientInformation, getDomain, getLanguage, addScript, updateURLAsPerUserLanguage } from 'common/utility'
+import {
+    addScript,
+    getClientInformation,
+    getDomain,
+    getLanguage,
+    updateURLAsPerUserLanguage,
+} from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
@@ -58,22 +64,10 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
-        },
-    ])
-
-    push_woosh.push([
-        'onReady',
-        function (api) {
-            try {
-                push_woosh.isSubscribed().then((is_subscribed) => {
-                    if (!is_subscribed) {
-                        push_woosh.subscribe()
-                    }
-                })
-                // eslint-disable-next-line no-empty
-            } catch {}
-
-            sendTags(api)
+            autoSubscribe: false, // or true. If true, prompts a user to subscribe for pushes upon SDK initialization
+            subscribeWidget: {
+                enable: true,
+            },
         },
     ])
 }
@@ -124,7 +118,16 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     const push_woosh = new Pushwoosh()
     if (isLive()) {
-        pushwooshInit(push_woosh)
+        pushwooshInit(push_woosh).then(() => {
+            push_woosh.push(function (api) {
+                push_woosh.isSubscribed().then(function (isSubscribed) {
+                    if (!isSubscribed) {
+                        push_woosh.subscribe()
+                    }
+                    sendTags(api)
+                })
+            })
+        })
     }
 
     addScript({
@@ -136,7 +139,6 @@ export const onClientEntry = () => {
     checkLiveChatRedirection()
 
     updateURLAsPerUserLanguage()
-
 }
 
 export const onRouteUpdate = () => {

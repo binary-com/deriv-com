@@ -3,7 +3,7 @@ import { TQuestionsData } from './_data-types'
 const deriv_p2p: TQuestionsData = {
     section: 'Platforms',
     category: '_t_Deriv P2P_t_',
-    hide_for_eu: true,
+    hide_non_p2p: true,
     questions: [
         {
             question: '_t_What is Deriv P2P?_t_',
@@ -92,7 +92,7 @@ const deriv_p2p: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_Your Deriv P2P balance may not include all deposits made to your Deriv account. Deposits via credit cards, Skrill, Neteller, and ZingPay will not be available in Deriv P2P._t_',
+                        '_t_Your Deriv P2P balance may not include all deposits made to your Deriv account. Deposits via credit and debit cards (including Maestro and Diners Club), ZingPay, Skrill, Neteller, and Direct Banking Nigeria will not be available in Deriv P2P._t_',
                 },
             ],
         },
@@ -119,13 +119,16 @@ const deriv_p2p: TQuestionsData = {
                 {
                     translation_text:
                         '_t_Your Deriv P2P account may be blocked for one of the following reasons:_t_',
+                },
+                {
+                    has_margin_top: true,
                     list: {
                         list_style: 'disc',
                         margin_top: '0.3rem',
                         items: [
                             {
                                 translation_text:
-                                    '_t_Your Deriv account is suspended. Please <0>contact us</0> via live chat for more info._t_',
+                                    '_t_Your Deriv account is suspended. Please contact us via <0>live chat</0> for more information._t_',
                                 translation_components: [
                                     {
                                         key: 0,
@@ -136,7 +139,7 @@ const deriv_p2p: TQuestionsData = {
                             },
                             {
                                 translation_text:
-                                    '_t_A dispute was raised against you. Please <0>contact us</0> via live chat for more info._t_',
+                                    '_t_One or more disputes were raised against you. Please contact us via <0>live chat</0> for more information._t_',
                                 translation_components: [
                                     {
                                         key: 0,
@@ -166,9 +169,21 @@ const deriv_p2p: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_<0>Note:</0> Deriv has no control over payments made between Deriv P2P traders. Please ensure you follow the payment instructions as agreed between you and the trader you are dealing with, and provide your preferred method of payment and instructions when you post your ads._t_',
+                        '_t_Note: Deriv has no control over payments made between Deriv P2P traders. Please ensure you follow the payment instructions as agreed between you and the trader you are dealing with, and provide your preferred method of payment and instructions when you post your ads._t_',
                     has_margin_top: true,
                     translation_components: [{ key: 0, type: 'strong' }],
+                },
+                {
+                    translation_text:
+                        '_t_For further information, see Section 4 on Deriv P2P in <0>our terms and conditions</0>._t_',
+                    has_margin_top: true,
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: '/tnc/funds-and-transfers.pdf',
+                        },
+                    ],
                 },
             ],
         },
@@ -325,7 +340,7 @@ const deriv_p2p: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_The completion rate is the percentage of orders that the advertiser could complete within 2 hours._t_',
+                        '_t_The completion rate is the percentage of orders that the advertiser could complete within 1 hour._t_',
                 },
             ],
         },
@@ -351,7 +366,7 @@ const deriv_p2p: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_If you encounter any issues with a transaction on Deriv P2P, first try to resolve it with the trader you’re dealing with. If they’re not willing to help resolve the situation, please <0>let us know</0> via live chat and we’ll help you resolve it._t_',
+                        '_t_If you encounter any issues with a transaction on Deriv P2P, first try to resolve it with the trader you’re dealing with. If they’re not willing to help, please let us know via <0>live chat</0>, and we’ll help you resolve it._t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
                     ],
@@ -367,12 +382,11 @@ const deriv_p2p: TQuestionsData = {
                         items: [
                             {
                                 translation_text:
-                                    '_t_Once the order has expired, click <0>Complain</0> on the order details screen._t_',
+                                    '_t_Once the order has expired, click Complain on the order details screen._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
-                                translation_text:
-                                    '_t_Complete the form and click <0>Submit</0>._t_',
+                                translation_text: '_t_Complete the form and click Submit._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                         ],
@@ -380,13 +394,13 @@ const deriv_p2p: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_We’ll seek more info on the transaction by reaching out to you and the trader you are dealing with, and we’ll try to resolve the issue within 24 hours. We’ll keep you informed of the status._t_',
+                        '_t_We’ll seek more info on the transaction by reaching out to you and the trader you are dealing with, and we’ll try to resolve the issue within 12 hours. We’ll keep you informed of the status._t_',
                     has_margin_top: true,
                 },
                 {
                     has_margin_top: true,
                     translation_text:
-                        '_t_To learn more about disputes on Deriv P2P, see our <0>terms of use</0> (refer to Section 4.4 ‘Deriv P2P’)._t_',
+                        '_t_For further information, see Section 4 on Deriv P2P in <0>our terms and conditions</0>._t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/tnc/funds-and-transfers.pdf' },
                     ],
@@ -430,14 +444,14 @@ const deriv_p2p: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_For successful Deriv P2P transactions, follow these guidelines:_t_',
+                        '_t_To make successful Deriv P2P transactions, follow these guidelines:_t_',
                     list: {
                         list_style: 'disc',
                         margin_top: '0.3rem',
                         items: [
                             {
                                 translation_text:
-                                    '_t_If you have active orders, keep the app open (either on your phone or computer) until your orders are completed. Try to complete your orders within 2 hours._t_',
+                                    '_t_If you have active orders, keep the app open (either on your phone or computer) until your orders are completed. Try to complete your orders within 1 hour._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
@@ -468,7 +482,7 @@ const deriv_p2p: TQuestionsData = {
                         items: [
                             {
                                 translation_text:
-                                    '_t_Ensure that you make payment to the correct seller within 2 hours._t_',
+                                    '_t_Ensure that you make payment to the correct seller within 1 hour._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
@@ -503,7 +517,7 @@ const deriv_p2p: TQuestionsData = {
                 {
                     has_margin_top: true,
                     translation_text:
-                        '_t_For more guidelines on using Deriv P2P, see our <0>terms of use</0> (refer to Section 4 ‘Deriv P2P’)._t_',
+                        '_t_For further information, see Section 4 on Deriv P2P in <0>our terms</0>._t_',
                     translation_components: [
                         {
                             key: 0,
@@ -522,7 +536,18 @@ const deriv_p2p: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_You can chat with the trader you are dealing with via the chat feature in Deriv P2P._t_',
+                        "_t_Use the chat feature in Deriv P2P to communicate with the trader you're dealing with._t_",
+                },
+                {
+                    translation_text:
+                        '_t_<0>Note:</0> The chat feature is only available for active orders. Once an order is complete, the chat feature disappears._t_',
+                    has_margin_top: true,
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'strong',
+                        },
+                    ],
                 },
             ],
         },
@@ -534,10 +559,34 @@ const deriv_p2p: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_Yes, just contact us <0>via live chat</0> to request a limit increase._t_',
+                        "_t_Yes. Contact us via <0>live chat</0> to request a limit increase. If it gets approved, we'll increase your daily limit._t_",
                     translation_components: [
                         { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
                     ],
+                },
+            ],
+        },
+        {
+            question: '_t_How to register for Deriv P2P?_t_',
+            category: 'Deriv P2P',
+            sub_category: '_t_Limit_t_',
+            label: 'how-to-register-for-deriv-p2p',
+            answer: [
+                {
+                    translation_text:
+                        '_t_Age-verify your account by submitting <0>proof of identity</0>._t_',
+                    translation_components: [
+                        {
+                            key: 0,
+                            type: 'link',
+                            to: 'https://app.deriv.com/account/proof-of-identity)',
+                        },
+                    ],
+                },
+                {
+                    translation_text:
+                        '_t_Once your submitted document has been approved, go to Cashier > DP2P to register your Deriv P2P account._t_',
+                    has_margin_top: true,
                 },
             ],
         },

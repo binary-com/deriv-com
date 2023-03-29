@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
+import language_config from '../../i18n-config'
 import {
     deriv_cookie_domain,
     deriv_app_languages,
@@ -391,14 +392,29 @@ export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'dev
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
 
-export const PlatformQueryParam = () => {
-    if (isBrowser()) {
-        const is_deriv_go = window.location.href.indexOf('?platform=derivgo') > -1
-        const is_deriv_p2p = window.location.href.indexOf('?platform=p2p') > -1
-        const has_platform = is_deriv_go ? 'derivgo' : is_deriv_p2p ? 'p2p' : undefined
+export const matchHashInURL = (hash: string) =>
+    isBrowser() && location.hash.replace('#', '') === hash
 
-        return { has_platform, is_deriv_p2p, is_deriv_go }
-    }
+export const setHashInURL = (hash: string) => isBrowser() && (location.hash = `#${hash}`)
 
-    return {}
+export const updateURLAsPerUserLanguage = () => {
+    const current_path = window.location.pathname
+    const current_hash = window.location.hash
+    const paths = current_path.split('/')
+    const first_path = paths[1]
+    const has_language_in_url = first_path in language_config
+    has_language_in_url && Cookies.set('user_language', first_path)
+    const user_language = Cookies.get('user_language') || 'en'
+
+    const language = has_language_in_url ? first_path : user_language
+
+    if (!has_language_in_url && user_language === 'en') return
+    if (first_path === user_language) return
+
+    const updated_url = has_language_in_url
+        ? paths.map((item) => (item === first_path ? language : item)).join('/')
+        : language + paths.join('/')
+    const new_url = updated_url + current_hash
+
+    window.location.href = '/' + new_url
 }

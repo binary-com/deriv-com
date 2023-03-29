@@ -24,10 +24,11 @@ const Item = styled(Flex)`
 
     img {
         width: 34px;
+        margin-bottom: 1rem;
     }
 
     @media ${device.mobileL} {
-        max-width: 60%;
+        max-width: 90%;
         gap: 6px;
 
         ${Text} {
@@ -38,7 +39,7 @@ const Item = styled(Flex)`
 
 const ItemContainer = styled(Box)`
     display: flex;
-    margin: 40px 0 4.5rem;
+    margin: 40px 0 2rem;
     flex-direction: row;
     max-width: 140.4rem;
     justify-content: center;
@@ -61,7 +62,7 @@ const StyledHeader = styled(Header)`
 
     @media ${device.mobileL} {
         text-align: center;
-        max-width: 65vw;
+        max-width: 80vw;
         font-size: 24px;
         margin-top: -1rem;
         line-height: 30px;
@@ -85,6 +86,7 @@ const StyledTitle = styled(Header)`
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
+    width: 237px;
     color: white;
     text-align: center;
 

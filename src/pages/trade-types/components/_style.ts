@@ -28,6 +28,11 @@ const SmallContainer = styled(Container)`
         padding-left: 0;
         padding-right: 0;
     }
+    @media ${device.mobileM} {
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 `
 
 const Hero = styled(Flex)`

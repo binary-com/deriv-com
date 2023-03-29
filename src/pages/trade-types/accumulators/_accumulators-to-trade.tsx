@@ -4,6 +4,7 @@ import { SmallContainer, OptionGrid } from '../components/_style'
 import Notes from '../components/_notes'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import CommonHeaderSection from 'components/elements/common-header-section'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
@@ -49,9 +50,13 @@ const IndicesGrid = () => {
                 <div>
                     <img src={CrashBoom} alt="rise fall" />
                 </div>
-                <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Crash/Boom indices" />
-                </Text>
+                <CommonHeaderSection
+                    title="_t_Crash/Boom indices_t_"
+                    title_font_size="1.6rem"
+                    margin_title="1.6rem 0 0.8rem 0"
+                    font_weight_title="700"
+                    line_height="2.4rem"
+                />
                 <MiddleText>
                     {localize(
                         'Crash/Boom indices mimic markets with sudden price movements, either a sharp drop (crash) or a spike (boom) in prices.',
@@ -65,9 +70,13 @@ const IndicesGrid = () => {
                 <div>
                     <img src={JumpIndices} alt="higher lower" />
                 </div>
-                <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Jump indices" />
-                </Text>
+                <CommonHeaderSection
+                    title="_t_Jump indices_t_"
+                    title_font_size="1.6rem"
+                    margin_title="1.6rem 0 0.8rem 0"
+                    font_weight_title="700"
+                    line_height="2.4rem"
+                />
                 <MiddleText>
                     {localize(
                         'Jump indices correspond to simulated markets with large, sudden price changes. They have constant volatilities ranging from 10% to 100%.',
@@ -83,9 +92,13 @@ const IndicesGrid = () => {
                 <div>
                     <img src={VolatilityIndices} alt="higher lower" />
                 </div>
-                <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Volatility indices" />
-                </Text>
+                <CommonHeaderSection
+                    title="_t_Volatility indices_t_"
+                    title_font_size="1.6rem"
+                    margin_title="1.6rem 0 1rem 0"
+                    font_weight_title="700"
+                    line_height="2.4rem"
+                />
                 <MiddleText>
                     {localize(
                         '_t_Volatility indices correspond to markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%._t_',

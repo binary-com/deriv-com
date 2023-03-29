@@ -59,6 +59,7 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                     return (
                         <>
                             <Header
+                                as="p"
                                 key={translation_text}
                                 size="16px"
                                 weight="normal"

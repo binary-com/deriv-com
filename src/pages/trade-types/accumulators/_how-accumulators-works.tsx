@@ -36,6 +36,7 @@ const HowAccumulatorsWork = () => {
                     />
                     <CommonHeaderSection
                         title="_t_Take profit_t_"
+                        font_family_title="'IBM Plex Sans', sans-serif"
                         title_font_size="2.4rem"
                         subtitle_font_size="1.6rem"
                         line_height="2.4rem"
@@ -52,6 +53,7 @@ const HowAccumulatorsWork = () => {
                     />
                     <CommonHeaderSection
                         title="_t_Maximum payout_t_"
+                        font_family_title="'IBM Plex Sans', sans-serif"
                         title_font_size="2.4rem"
                         subtitle_font_size="1.6rem"
                         margin_subtitle="2rem 0 4rem 0"
@@ -61,6 +63,7 @@ const HowAccumulatorsWork = () => {
                     />
                     <CommonHeaderSection
                         title="_t_Maximum duration_t_"
+                        font_family_title="'IBM Plex Sans', sans-serif"
                         title_font_size="2.4rem"
                         subtitle_font_size="1.6rem"
                         margin_subtitle="2rem 0 4rem 0"
@@ -143,9 +146,14 @@ const HowAccumulatorsWork = () => {
                         />
                     </SideTab.Panel>
                 </SideTab>
-                <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
-                    {localize('Set optional parameters for your trade')}
-                </Header>
+                <CommonHeaderSection
+                    subtitle_font_size="2.4rem"
+                    font_weight_subtitle="700"
+                    font_family_subtitle="'IBM Plex Sans', sans-serif"
+                    line_height="3.6rem"
+                    margin_subtitle="3.2rem 0 2.4rem 0"
+                    subtitle="_t_Set optional parameters for your trade_t_"
+                />
                 <SideTab is_reverse>
                     <SideTab.Panel
                         label={<Localize translate_text="5. Take profit" />}
@@ -164,9 +172,13 @@ const HowAccumulatorsWork = () => {
                         />
                     </SideTab.Panel>
                 </SideTab>
-                <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
-                    {localize('Open your trade')}
-                </Header>
+                <CommonHeaderSection
+                    subtitle_font_size="2.4rem"
+                    font_weight_subtitle="700"
+                    line_height="3.6rem"
+                    margin_subtitle="3.2rem 0 2.4rem 0"
+                    subtitle="_t_Open your trade_t_"
+                />
                 <SideTab>
                     <SideTab.Panel
                         label={<Localize translate_text="6. Trade" />}

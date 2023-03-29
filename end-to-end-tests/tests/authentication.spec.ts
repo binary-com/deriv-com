@@ -1,8 +1,6 @@
 import { test, chromium, expect } from '@playwright/test'
 import OnboardingFlow from '../POMs/onboarding'
 
-const randomString = new Date().getTime()
-
 test('register new user and login', async () => {
     const browser = await chromium.launch()
     const page = await browser.newPage({

@@ -2,7 +2,7 @@ import type { PlaywrightTestConfig } from '@playwright/test';
 
 import { config as dotenvConfig } from 'dotenv';
 
-dotenvConfig({ path: `.env.playwright` })
+dotenvConfig({ path: `.env` })
 
 /**
  * See https://playwright.dev/docs/test-configuration.

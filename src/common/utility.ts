@@ -7,6 +7,7 @@ import {
     deriv_cookie_domain,
     deriv_app_languages,
     smart_trader_languages,
+    binary_bot_languages,
     live_chat_redirection_link,
     live_chat_key,
     domains,
@@ -77,6 +78,10 @@ export const getDerivAppLocalizedURL = (link: string, locale: string, to = '') =
 export const getSmartTraderLocalizedURL = (link: string, locale: string) => {
     const lang = smart_trader_languages.includes(locale) ? locale : 'en'
     return `${link}/${lang}/trading`
+}
+export const getBinaryBotLocalizedURL = (link: string, locale: string) => {
+    const langParam = binary_bot_languages.includes(locale) ? `/?l=${locale}` : ''
+    return `${link}${langParam}`
 }
 
 export const getThaiExcludedLocale = (locale: string): string => (locale === 'th' ? 'en' : locale)

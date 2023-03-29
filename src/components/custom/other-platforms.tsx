@@ -5,7 +5,6 @@ import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'compon
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
-import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
 import Blog from 'images/svg/custom/blog-nav.svg'
@@ -486,7 +485,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                                 <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
                             }
                             title={<Localize translate_text="Binary Bot" />}
-                            to={binary_bot_url}
+                            type="binary_bot"
                             external
                             target="_blank"
                             onClick={onClick}

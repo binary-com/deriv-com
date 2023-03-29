@@ -13,6 +13,7 @@ import {
     getSmartTraderLocalizedURL,
     getThaiExcludedLocale,
     replaceLocale,
+    getBinaryBotLocalizedURL,
 } from 'common/utility'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import useRegion from 'components/hooks/use-region'
@@ -212,7 +213,7 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (affiliate_links.includes(type)) {
         return `${localized_link_url[type]}?lang=${affiliate_lang}`
     } else if (deriv_other_products.includes(type)) {
-        if (type === 'binary_bot') return `${localized_link_url[type]}/${to ? to : ''}?l=${locale}`
+        if (type === 'binary_bot') return getBinaryBotLocalizedURL(localized_link_url[type], locale)
         else if (type === 'smart_trader')
             return getSmartTraderLocalizedURL(localized_link_url[type], locale)
 

@@ -14,7 +14,7 @@ import {
     Divider,
     ImageWithDireciton,
 } from 'components/elements'
-import { deriv_status_page_url, binary_bot_url } from 'common/constants'
+import { deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
@@ -387,7 +387,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         }
                                         title={<Localize translate_text="Binary Bot" />}
                                         onClick={handleArrowClick}
-                                        to={binary_bot_url}
+                                        type="binary_bot"
                                         external
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}

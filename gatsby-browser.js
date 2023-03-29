@@ -56,31 +56,20 @@ const sendTags = (api) => {
 }
 
 const pushwooshInit = (push_woosh) => {
-    push_woosh
-        .push([
-            'init',
-            {
-                logLevel: 'error', // or info or debug
-                applicationCode: pushwoosh_app_code,
-                safariWebsitePushID: 'web.com.deriv',
-                defaultNotificationTitle: 'Deriv.com',
-                defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
-                autoSubscribe: false, // or true. If true, prompts a user to subscribe for pushes upon SDK initialization
-                subscribeWidget: {
-                    enable: true,
-                },
+    push_woosh.push([
+        'init',
+        {
+            logLevel: 'error', // or info or debug
+            applicationCode: pushwoosh_app_code,
+            safariWebsitePushID: 'web.com.deriv',
+            defaultNotificationTitle: 'Deriv.com',
+            defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
+            autoSubscribe: true,
+            subscribeWidget: {
+                enable: true,
             },
-        ])
-        .then(() => {
-            push_woosh.push(function (api) {
-                push_woosh.isSubscribed().then(function (isSubscribed) {
-                    if (!isSubscribed) {
-                        push_woosh.subscribe()
-                    }
-                    sendTags(api)
-                })
-            })
-        })
+        },
+    ])
 }
 
 export const wrapRootElement = ({ element }) => {
@@ -129,6 +118,14 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     const push_woosh = new Pushwoosh()
     pushwooshInit(push_woosh)
+    push_woosh.push(function (api) {
+        push_woosh.isSubscribed().then(function (isSubscribed) {
+            if (!isSubscribed) {
+                push_woosh.subscribe()
+            }
+            sendTags(api)
+        })
+    })
 
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',

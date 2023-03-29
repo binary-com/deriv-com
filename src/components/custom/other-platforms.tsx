@@ -17,6 +17,7 @@ import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
+import DerivEZ from 'images/svg/deriv-ez/derivez-logo-black.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
@@ -407,6 +408,23 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             title={<Localize translate_text="Deriv X" />}
                             onClick={onClick}
                             to="/derivx/"
+                        />
+                        <NavCard
+                            aria_label="Derivez"
+                            icon={() => (
+                                <img
+                                    src={DerivEZ}
+                                    alt="Deriv EZ trading paltform"
+                                    width="32"
+                                    height="32"
+                                />
+                            )}
+                            content={
+                                <Localize translate_text="Trade on global markets from anywhere with our mobile-first CFD trading platform." />
+                            }
+                            title={<Localize translate_text="Deriv EZ" />}
+                            onClick={onClick}
+                            to="/derivez/"
                         />
                         <NavCard
                             aria_label="SmartTrader"

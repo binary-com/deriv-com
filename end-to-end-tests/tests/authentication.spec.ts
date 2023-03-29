@@ -1,5 +1,5 @@
 import { test, chromium, expect } from '@playwright/test'
-import OnboardingFlow from '../onboarding'
+import OnboardingFlow from '../POMs/onboarding'
 
 const randomString = new Date().getTime()
 

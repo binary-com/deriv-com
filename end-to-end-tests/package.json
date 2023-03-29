@@ -1,0 +1,17 @@
+{
+    "name": "deriv-com-end-to-end-tests",
+    "description": "e2e tests for deriv-com",
+    "version": "0.1.0",
+    "author": "Deriv",
+    "devDependencies": {
+        "@playwright/test": "^1.29.2",
+        "dotenv": "^16.0.3"
+    },
+    "license": "Apache License 2.0",
+    "scripts": {
+        "test:e2e": "npx playwright test"
+    },
+    "engines": {
+        "npm": ">=8.11.0"
+    }
+}

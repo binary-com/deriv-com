@@ -2,21 +2,16 @@ import type { PlaywrightTestConfig } from '@playwright/test';
 
 import { config as dotenvConfig } from 'dotenv';
 
-dotenvConfig({ path: `.env.development` })
+dotenvConfig({ path: `.env.playwright` })
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: './end-to-end-tests/tests',
-  testMatch:['authentication.spec.ts'],
+  testDir: './tests',
   /* Maximum time one test can run for. */
   timeout: 120 * 1000,
   expect: {
-    /**
-     * Maximum time expect() should wait for the condition to be met.
-     * For example in `await expect(locator).toHaveText();`
-     */
     timeout: 5000
   },
   /* Run tests in files in parallel */
@@ -39,9 +34,6 @@ const config: PlaywrightTestConfig = {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     headless: false,
-    launchOptions: {
-      // slowMo: 1000
-    },
     ignoreHTTPSErrors: true,
     testIdAttribute: 'data-testid',
   },
@@ -52,7 +44,7 @@ const config: PlaywrightTestConfig = {
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'npm start',
+    command: 'cd ../; npm start',
     url: `${process.env.APP_URL}`,
     timeout: 600 * 1000,
     reuseExistingServer: !process.env.CI,

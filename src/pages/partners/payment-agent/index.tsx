@@ -1,6 +1,5 @@
 import React from 'react'
 import Loadable from '@loadable/component'
-import { Helmet } from 'react-helmet'
 import Hero from './_pa-hero'
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
@@ -36,9 +35,6 @@ const PaymentAgent = () => {
             />
             {is_row ? (
                 <Layout type="partners" margin_top={10} no_login_signup>
-                    <Helmet>
-                        <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-                    </Helmet>
                     <Hero />
                     <TapInto />
                     <YourControl />
@@ -58,3 +54,5 @@ const PaymentAgent = () => {
 }
 
 export default WithIntl()(PaymentAgent)
+
+export const Head = () => <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>

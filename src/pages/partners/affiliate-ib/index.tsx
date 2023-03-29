@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
-import { Helmet } from 'react-helmet'
 import Hero from './_hero'
 import { WhyUsType } from './_why-us'
 import { faq_schema } from './_faq-schema'
@@ -167,9 +166,6 @@ const AffiliateIb = () => {
                 )}
                 meta_attributes={meta_attributes}
             />
-            <Helmet>
-                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-            </Helmet>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
                     {localize('Partner with a trusted online trading provider')}
@@ -219,3 +215,5 @@ const AffiliateIb = () => {
 }
 
 export default WithIntl()(AffiliateIb)
+
+export const Head = () => <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>

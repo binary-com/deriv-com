@@ -1,7 +1,7 @@
 import React from 'react'
 import QuestionsSection from './components/_questions-section'
 import SearchSection from './components/_search-section'
-import FaqSchema from './components/_faq-schema'
+import faq_schema from './components/_faq-schema'
 import { DidntFindYourAnswerBanner, Community } from './components/_lazy-load'
 import { getQuestionsBySection } from './components/_utility'
 import { PLATFORMS, GENERAL } from './components/_constants'
@@ -23,7 +23,6 @@ const HelpCentre = () => {
                     'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
                 )}
             />
-            <FaqSchema />
             <SearchSection />
 
             <Container align="start" justify="flex-start" direction="column">
@@ -40,3 +39,5 @@ const HelpCentre = () => {
 }
 
 export default WithIntl()(HelpCentre)
+
+export const Head = () => <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>

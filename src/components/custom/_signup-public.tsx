@@ -51,7 +51,8 @@ const query = graphql`
 `
 const StyledSectionContainer = styled(Box)`
     width: 100%;
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 140px;
     position: static;
     background-color: var(--color-white);
 
@@ -140,11 +141,7 @@ const InputWrapper = styled.div`
     line-height: 10px;
     font-weight: normal;
     margin-right: 1rem;
-    border-radius: 15px;
-
-    @media ${device.mobileL} {
-        max-width: 191px;
-    }
+    border-radius: 16px;
 `
 const InputGroup = styled.div`
     display: flex;
@@ -168,11 +165,11 @@ const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     @media ${device.tabletL} {
         padding: 10px 16px;
         white-space: nowrap;
-        border-radius: 4px;
+        border-radius: 16px;
         min-width: unset;
         margin-left: 0;
         height: 40px;
-        width: 250px;
+        width: 273px;
     }
 `
 const SocialWrapper = styled(Flex)`
@@ -194,19 +191,19 @@ const MobileSocialWrapper = styled(SocialWrapper)`
 const SocialButton = styled(Button)`
     display: flex;
     padding: 0;
-    margin: 0 1rem;
     font-size: 12px;
     align-items: center;
     justify-content: center;
-    width: 10.6rem;
+    width: 11.6rem;
     height: 4rem;
     background-color: white;
     border: 1px solid var(--color-grey-7);
     border-radius: 100px;
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         justify-content: center;
-        width: 10rem;
+        width: 33%;
+        margin: 0 0.6rem;
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`
@@ -419,10 +416,10 @@ const SignupPublic = ({
                                             value={email}
                                             background="white"
                                             tablet_background="green-1"
-                                            inputColor="grey-5"
+                                            inputColor="black-3"
                                             input_background="grey-8"
-                                            label_focus_color="grey-7"
-                                            label_color="black-3"
+                                            label_focus_color="grey-5"
+                                            label_color="grey-5"
                                             labelSize="16px"
                                             labelTop="1.2rem"
                                             label={localize('Email address')}
@@ -562,10 +559,10 @@ const SignupPublic = ({
                                             value={email}
                                             background="white"
                                             tablet_background="green-1"
-                                            inputColor="grey-5"
+                                            inputColor="black-3"
                                             input_background="grey-8"
-                                            label_focus_color="grey-7"
-                                            label_color="black-3"
+                                            label_focus_color="grey-5"
+                                            label_color="grey-5"
                                             label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}

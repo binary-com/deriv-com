@@ -271,7 +271,7 @@ const trading: TQuestionsData = {
             question: '_t_What are multipliers?_t_',
             category: 'trading',
             sub_category: '_t_Platforms_t_',
-            hide_for_eu: false,
+            hide_for_eu: true,
             label: 'what-are-multipliers',
             answer: [
                 {

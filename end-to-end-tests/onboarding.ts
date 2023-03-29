@@ -112,9 +112,11 @@ export default class OnboardingFlow {
         await this.page.goto(process.env.APP_URL!)
         if (await this.page.url().includes('eu.'))
             await this.cookieDialogHandler()
+
         await this.page.waitForSelector('#dm-hero-signup')
         await this.page.click('#dm-hero-signup')
         await this.page.waitForTimeout(5000)
+        await this.page.waitForNavigation()
         await this.updateServerURLAndAppIDInLocalStorage()
         await this.page.waitForLoadState()
         await this.page.locator('input[name=email]#dm-email-input').isVisible()

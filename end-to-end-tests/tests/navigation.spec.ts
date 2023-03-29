@@ -10,5 +10,6 @@ test('navigate to who we are page', async ({ page }) => {
     }
     await page.locator('nav > div > div > ul > li:nth-child(3) > span').click();
     await page.locator('nav').getByRole('link', { name: 'Who we are' }).click()
+    await page.waitForNavigation()
     await expect(page).toHaveTitle('Who we are | An Online Trading Platform | Deriv.com')
 })

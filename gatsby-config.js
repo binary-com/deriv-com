@@ -306,6 +306,5 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
-        'gatsby-plugin-use-query-params',
     ],
 }

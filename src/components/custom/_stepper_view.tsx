@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { QueryImage } from 'components/elements'
 import device from 'themes/device'
-import { localize } from 'components/localization'
 
 type TItem = {
-    title: string
-    image: ImageDataLike
-    alt: JSX.Element
+    title: () => JSX.Element
+    image: () => JSX.Element
 }
 
 type TProps = {
@@ -89,9 +85,7 @@ const StepperView: React.FC<TProps> = ({
 
     return (
         <Wrapper>
-            <ImageWrapper>
-                <QueryImage data={items[selected]?.image} alt={items[selected]?.alt} />
-            </ImageWrapper>
+            <ImageWrapper>{items[selected]?.image()}</ImageWrapper>
             <ItemsWrapper width={contentWidth}>
                 <UlStyle>
                     {items.map((item, index) => (
@@ -100,7 +94,8 @@ const StepperView: React.FC<TProps> = ({
                             style={{ fontWeight: selected === index ? 'bold' : 'normal' }}
                             onClick={() => setSelected(index)}
                         >
-                            {localize(`_t_${index + 1}. ${item.title}_t_`)}
+                            {`${index + 1}.`}
+                            {item.title()}
                         </li>
                     ))}
                 </UlStyle>

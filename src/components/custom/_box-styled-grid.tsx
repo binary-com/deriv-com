@@ -29,6 +29,13 @@ const OptionGrid = styled(Grid)<{ boxsPerRow: string; containerWidth: string }>`
     grid-gap: 2.4rem;
     grid-template-columns: ${(props) => `repeat(${props.boxsPerRow}, 1fr)` || `repeat(3, 1fr)`};
     max-width: ${(props) => props.containerWidth || '890px'};
+    @media ${device.tablet} {
+        grid-gap: 3rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    @media ${device.mobileL} {
+        grid-template-columns: 1fr;
+    }
 `
 
 const OptionItems = styled(Flex)`

@@ -23,6 +23,7 @@ import {
     dmt5_mac_app_url,
     dmt5_android_url,
     dmt5_app_gallery_url,
+    dmt5_ios_url,
 } from 'common/constants'
 import DownloadColumn from 'components/custom/_multi-width-column-download'
 import { Flex } from 'components/containers'
@@ -52,22 +53,31 @@ const InfoText = styled.p`
     font-size: 25px;
     margin-left: 16px;
     line-height: 34px;
+    @media ${device.tabletL} {
+        font-size: 16px;
+        line-height: 24px;
+    }
 `
-
+const StyledInfoIcon = styled.img`
+    margin-top: 7px;
+    width: 24px;
+    height: 24px;
+`
 const DerivXGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
 
     const items = [
         { text: 'Google Play', icon: AndroidIcon, link: dmt5_android_url },
+        { text: 'App Store', icon: AppleIcon, link: dmt5_ios_url },
+        { text: 'AppGallery', icon: AppGalleryIcon, link: dmt5_app_gallery_url },
         {
             text: 'Web Browser',
             icon: BrowserIcon,
             link: dmt5_web_browser_url,
             smallText: 'Use it on your',
         },
-        { text: 'AppGallery', icon: AppGalleryIcon, link: dmt5_app_gallery_url },
-        { text: 'macOS', icon: MacIcon, link: dmt5_mac_app_url },
         { text: 'Windows', icon: WinIcon, link: dmt5_windows },
+        { text: 'macOS', icon: MacIcon, link: dmt5_mac_app_url },
         { text: 'Linux', icon: LinuxIcon, link: dmt5_linux_url },
     ]
 
@@ -92,11 +102,12 @@ const DerivXGetApp = () => {
                         margin_title="0 0 18px"
                     />
                     <Flex jc="stretch" ai="flex-start" height="auto">
-                        <img src={InfoIcon} width="24px" height="24px" />
+                        <StyledInfoIcon src={InfoIcon} />
                         <InfoText>
-                            <Localize translate_text="For mobile app sign-ups, set the broker code to <0>Deriv limited.<0>" />
-
-                            {/* {localize("_t_For mobile app sign-ups, set the broker code to Deriv limited._t_")} */}
+                            <Localize
+                                translate_text="For mobile app sign-ups, set the broker code to <0>Deriv limited.<0>"
+                                components={[<strong key={0} />]}
+                            />
                         </InfoText>
                     </Flex>
                 </TextAndButtonWrapper>
@@ -104,7 +115,7 @@ const DerivXGetApp = () => {
             <DownloadColumn
                 QRImage={dmt5QR}
                 QRHeading1="Scan to download"
-                QRHeading2="Android & Huawei"
+                QRHeading2="Android, Apple & Huawei"
                 items={items}
             />
         </MultiWidthColumn>

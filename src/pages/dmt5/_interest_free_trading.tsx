@@ -97,6 +97,9 @@ const StyledLinkButton = styled(LinkButton)`
     :focus {
         outline: 0;
     }
+    @media ${device.tabletL} {
+        margin: 0 auto;
+    }
 `
 
 const StyledRightText = styled(Text)`

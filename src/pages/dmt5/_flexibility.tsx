@@ -27,6 +27,7 @@ const BaseIconStyle = css`
     @media ${device.mobileL} {
         width: 32px;
         height: 32px;
+        margin: 0 0 16px;
     }
 `
 const StyledIcon = styled.img`

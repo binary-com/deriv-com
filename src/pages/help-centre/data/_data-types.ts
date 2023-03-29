@@ -11,7 +11,7 @@ export type TImage = {
 
 export type TTranslationComponents = {
     key: number
-    type: 'link' | 'deriv_app_link' | 'strong'
+    type: 'link' | 'internal_link' | 'deriv_app_link' | 'strong'
     to?: string
 }[]
 

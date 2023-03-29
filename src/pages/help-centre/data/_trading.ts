@@ -22,7 +22,7 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
+                            type: 'internal_link',
                             to: 'https://blog.deriv.com/blog/posts/what-is-forex-live-trading/',
                         },
                     ],
@@ -46,7 +46,7 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
+                            type: 'internal_link',
                             to: 'https://blog.deriv.com/blog/posts/what-are-commodities/',
                         },
                     ],
@@ -70,7 +70,7 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
+                            type: 'internal_link',
                             to: 'https://blog.deriv.com/blog/posts/what-are-stocks-how-and-where-to-trade-them/',
                         },
                     ],
@@ -101,7 +101,7 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
+                            type: 'internal_link',
                             to: 'https://blog.deriv.com/blog/posts/what-is-cfd-trading/',
                         },
                     ],
@@ -181,7 +181,7 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
+                            type: 'internal_link',
                             to: 'https://blog.deriv.com/blog/posts/automated-trading-what-you-need-to-know/',
                         },
                     ],

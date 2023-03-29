@@ -32,7 +32,7 @@ export const marketSectionContent: TSmartNavContent[] = [
                     ? '_t_Enjoy trading asset prices derived from simulated markets._t_'
                     : '_t_Enjoy trading asset prices derived from real-world or simulated markets._t_'
             },
-            title: '_t_Forex_t_',
+            title: '_t_Derived_t_',
             url: { type: 'internal', to: '/markets/forex/' },
         },
     },

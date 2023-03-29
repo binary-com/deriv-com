@@ -134,5 +134,4 @@ export interface ClassProps {
     pb?: TSpacingSize
     padding_inline?: TSpacingSize
     padding_block?: TSpacingSize
-    // bgcolor?: TBGColor
 }

@@ -35,7 +35,7 @@ const NavigationCard = ({
     const has_content = content ? true : false
 
     return (
-        <Link url={url} onClick={onClick} style={{ textDecoration: 'none' }}>
+        <Link url={url} onClick={onClick}>
             <div className={styles.nav_card_container}>
                 {icon_src && <Icon size="large" src={icon_src} alt={icon_alt} mr={'4x'} />}
                 <div

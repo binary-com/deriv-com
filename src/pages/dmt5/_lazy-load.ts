@@ -1,6 +1,7 @@
 import Loadable from '@loadable/component'
 
 export const OtherPlatforms = Loadable(() => import('./_other-platforms'))
+export const DBanner = Loadable(() => import('./_dbanner'))
 export const DownloadApp = Loadable(() => import('./_download-app'))
 export const Flexibility = Loadable(() => import('./_flexibility'))
 export const MarginCalculator = Loadable(() => import('./_margin_calculator'))

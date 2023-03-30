@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { Popover } from 'react-tiny-popover'
+import { Popover, ArrowContainer } from 'react-tiny-popover'
 import { TAvailableLiveMarkets, TInstrumentData } from '../_types'
 import PopUpMenu from './_popup_menu'
 import { Header as HeaderText } from 'components/elements'
@@ -12,7 +12,7 @@ import useRegion from 'components/hooks/use-region'
 import dl from 'images/svg/trading-specification/dl.svg'
 
 export const TableContainer = styled.div`
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -112,18 +112,14 @@ type TTableCell = {
     text?: string | number
 }
 const StyledTableHeaderText = styled(HeaderText)`
+    text-decoration: underline;
+    text-decoration-style: dashed;
     @media ${device.tabletL} {
         font-size: 10px;
     }
 `
 const StyledToolTipContainer = styled.div`
     width: 24rem;
-    padding: 0 20px;
-`
-const ToolTipText = styled(HeaderText)`
-    font-size: 10px;
-    color: var(--color-grey-5);
-    font-weight: normal;
 `
 export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) => {
     const [isInfoVisible, setIsInfoVisible] = useState(false)
@@ -135,23 +131,54 @@ export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) =
     }
     return (
         <>
-            <Popover
-                isOpen={isInfoVisible}
-                positions={['top']}
-                padding={8}
-                content={
-                    <StyledToolTipContainer>
-                        <ToolTipText as="p" align="center">
-                            {toolTip}
-                        </ToolTipText>
-                    </StyledToolTipContainer>
-                }
-            >
-                <img src={infoIcon} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} />
-            </Popover>
+            {toolTip && (
+                <Popover
+                    isOpen={isInfoVisible}
+                    positions={['top', 'right', 'bottom', 'left']}
+                    padding={10}
+                    containerStyle={{ left: '-10px' }}
+                    content={({ position, childRect, popoverRect }) => (
+                        <ArrowContainer
+                            style={{
+                                backgroundColor: 'var(--color-grey-7)',
+                                borderRadius: '3px',
+                                padding: '5px',
+                            }}
+                            position={position}
+                            childRect={childRect}
+                            popoverRect={popoverRect}
+                            arrowColor={'var(--color-grey-7)'}
+                            arrowSize={10}
+                            arrowStyle={{ bottom: '-10px' }}
+                            className="popover-arrow-container"
+                            arrowClassName="popover-arrow"
+                        >
+                            <StyledToolTipContainer>
+                                <HeaderText
+                                    as="p"
+                                    align="center"
+                                    weight="normal"
+                                    type="extra-small"
+                                >
+                                    {toolTip}
+                                </HeaderText>
+                            </StyledToolTipContainer>
+                        </ArrowContainer>
+                    )}
+                >
+                    <img src={infoIcon} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} />
+                </Popover>
+            )}
 
             <Cell>
-                <StyledTableHeaderText type="small" width="fit-content" align="start" as="p">
+                <StyledTableHeaderText
+                    type="small"
+                    width="fit-content"
+                    align="start"
+                    as="p"
+                    onMouseOver={onMouseOver}
+                    onMouseLeave={onMouseLeave}
+                >
                     {text}
                 </StyledTableHeaderText>
             </Cell>
@@ -237,11 +264,11 @@ export const StyledButtonPage = styled(Button)<{ selected: boolean }>`
               `}
 `
 export const StyledPaginationContainer = styled(Flex)`
-    padding: 6rem 12rem;
+    display: grid;
+    padding: 6rem 0;
     gap: 10px;
     justify-content: end;
-    @media ${device.mobileL} {
-        display: flex;
+    @media ${device.tabletL} {
         flex-direction: column-reverse;
         justify-content: center;
         padding: 6rem 3rem;
@@ -265,24 +292,22 @@ export const Card = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 200;
 `
 export const ModalCard = styled.div`
     position: relative;
-    z-index: 210;
+    z-index: 310;
     display: flex;
     flex-direction: column;
     border-radius: 6px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     max-width: 44rem;
     background: var(--color-white);
-    padding: 2.4rem;
-    width: 376px;
+    padding: 2.6rem;
+    width: 450px;
     height: auto;
     gap: 12px;
-    max-height: 80vh;
+    max-height: 88vh;
     overflow: auto;
-    padding-top: 50px;
     justify-content: center;
     @media ${device.mobileL} {
         width: 80%;
@@ -291,11 +316,26 @@ export const ModalCard = styled.div`
 export const Background = styled.div`
     position: absolute;
     width: 100%;
+    height: 100vh;
     top: 0;
     left: 0;
     background-color: var(--color-black);
     opacity: 0.4;
     z-index: 10;
+`
+export const DLTableContainer = styled.div`
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 2rem;
+    @media ${device.desktop} {
+        display: flex;
+    }
+
+    @media ${device.tabletL} {
+        padding: 0 0 0 3rem;
+    }
 `
 export const TableWrapper = styled.table`
     width: 100%;
@@ -307,8 +347,12 @@ export const Tr = styled.tr`
     border-radius: 16px 16px 0 0;
     text-align: center;
     padding: 8px 24px;
+    th: nth-child(2), th: nth-child(3) {
+        width: 200px;
+    }
 `
 export const Th = styled.th`
+    width: 200px;
     padding: 8px 24px;
     text-align: start;
     background-color: #f9f9f9;
@@ -324,15 +368,18 @@ export const Td = styled.td`
 export const HowItIsCalculated = styled.div`
     display: flex;
     width: auto;
-    padding: 16px 0;
     justify-content: center;
+    padding: 6px 0 0 0;
+`
+export const StyledFlex = styled(Flex)`
+    padding: 1rem;
 `
 export const StyledLinkButton = styled(Button)`
     border: none;
     color: var(--color-red);
     font-size: 14px;
     background: none;
-
+    padding: 6px 0 0 0;
     @media ${device.tabletL} {
         font-size: 14px;
     }

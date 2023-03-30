@@ -5,12 +5,13 @@ import {
     Card,
     ModalCard,
     Background,
-    TableContainer,
+    DLTableContainer,
     TableWrapper,
     Tr,
     Th,
     Td,
     HowItIsCalculated,
+    StyledFlex,
     StyledLinkButton,
     BackButton,
     CloseIconButton,
@@ -55,11 +56,11 @@ const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
                         </Header>
 
                         <HowItsCalculated market={market} />
-                        <Flex jc="center">
+                        <StyledFlex jc="center">
                             <BackButton tertiary onClick={toggleCalculated}>
                                 <Localize translate_text="Back" />
                             </BackButton>
-                        </Flex>
+                        </StyledFlex>
                     </ModalCard>
                 ) : (
                     <ModalCard>
@@ -73,7 +74,7 @@ const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
                         <Header type="paragraph-2" align="center" weight="normal" as="p">
                             <Localize translate_text="With dynamic leverage, the higher the trading volume, the lower the leverage, to reduce your risk and protect you from adverse market movements. At the same time, the first tiers offer high leverage to allow you more trading opportunities." />
                         </Header>
-                        <TableContainer>
+                        <DLTableContainer>
                             <TableWrapper>
                                 <Tr>
                                     <Th>
@@ -94,7 +95,7 @@ const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
                                     </Tr>
                                 ))}
                             </TableWrapper>
-                        </TableContainer>
+                        </DLTableContainer>
                         <HowItIsCalculated>
                             <StyledLinkButton flat onClick={toggleCalculated}>
                                 <Localize translate_text="How dynamic leverage is calculated" />
@@ -102,8 +103,8 @@ const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
                         </HowItIsCalculated>
                     </ModalCard>
                 )}
+                <Background></Background>
             </Card>
-            <Background></Background>
         </>
     )
 }

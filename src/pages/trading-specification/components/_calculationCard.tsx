@@ -18,7 +18,8 @@ const CalculationCard = ({ data }: DlMarketTypeProps) => {
                     <Header key={index} type="paragraph-2" weight="normal" as="p">
                         <Localize translate_text={list.details} components={[<strong key={0} />]} />
                     </Header>
-                    <img src={list.icon} height="87px" width="313px" />
+
+                    <img src={list.icon} />
                 </>
             ))}
             <Header type="paragraph-2" weight="normal" as="p">

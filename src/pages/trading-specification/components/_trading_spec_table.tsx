@@ -35,13 +35,12 @@ export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
 }
 const StyledFlex = styled(Flex)`
-    padding: 4rem 12rem 5rem;
-    justify-content: start;
     flex-direction: column;
     gap: 20px;
+    padding: 5rem 0;
 
     @media ${device.tabletL} {
-        padding: 2rem 4rem 5rem;
+        width: 95%;
     }
 `
 const SearchForm = styled.form`
@@ -153,20 +152,20 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     return (
         <>
             <AvailablePlatform />
-            <StyledFlex>
-                <SearchForm onSubmit={handleSubmit}>
-                    <StyledSearchIcon src={SearchIcon} alt="search-icon" />
-                    <SearchInput
-                        autoFocus
-                        placeholder="Find Instrument"
-                        autoComplete="off"
-                        onChange={handleChange}
-                        value={search_value}
-                    />
-                </SearchForm>
-            </StyledFlex>
 
             <TableContainer>
+                <StyledFlex>
+                    <SearchForm onSubmit={handleSubmit}>
+                        <StyledSearchIcon src={SearchIcon} alt="search-icon" />
+                        <SearchInput
+                            autoFocus
+                            placeholder="Find Instrument"
+                            autoComplete="off"
+                            onChange={handleChange}
+                            value={search_value}
+                        />
+                    </SearchForm>
+                </StyledFlex>
                 <TableData>
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
@@ -196,32 +195,33 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                         ))}
                     </tbody>
                 </TableData>
-            </TableContainer>
-            <StyledPaginationContainer>
-                <Flex jc="end" tablet_jc="center">
-                    <StyledButton
-                        onClick={() => table.previousPage()}
-                        disabled={!table.getCanPreviousPage()}
-                    >
-                        <StyledChevron src={LeftChevron} />
-                    </StyledButton>
-                    {table.getPageOptions().map((page) => (
-                        <StyledButtonPage
-                            selected={page === table.getState().pagination.pageIndex}
-                            key={page}
-                            onClick={() => table.setPageIndex(page)}
+                <StyledPaginationContainer>
+                    <Flex>
+                        <StyledButton
+                            onClick={() => table.previousPage()}
+                            disabled={!table.getCanPreviousPage()}
                         >
-                            {page + 1}
-                        </StyledButtonPage>
-                    ))}
-                    <StyledButton
-                        onClick={() => table.nextPage()}
-                        disabled={!table.getCanNextPage()}
-                    >
-                        <StyledChevron src={RightChevron} />
-                    </StyledButton>
-                </Flex>
-            </StyledPaginationContainer>
+                            <StyledChevron src={LeftChevron} />
+                        </StyledButton>
+                        {table.getPageOptions().map((page) => (
+                            <StyledButtonPage
+                                selected={page === table.getState().pagination.pageIndex}
+                                key={page}
+                                onClick={() => table.setPageIndex(page)}
+                            >
+                                {page + 1}
+                            </StyledButtonPage>
+                        ))}
+                        <StyledButton
+                            onClick={() => table.nextPage()}
+                            disabled={!table.getCanNextPage()}
+                        >
+                            <StyledChevron src={RightChevron} />
+                        </StyledButton>
+                    </Flex>
+                </StyledPaginationContainer>
+            </TableContainer>
+
             <DisclaimerText as="p">
                 {is_eu ? (
                     <Localize translate_text="The above information is updated monthly and, therefore, may not reflect current trading conditions." />

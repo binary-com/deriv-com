@@ -4,17 +4,10 @@ import { TAvailableLiveMarkets } from './_types'
 import { ContainerWrapper, MarketButton, MarketsContainer, SVGWrapper } from './_styles'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
-import LiveMarketTable from 'pages/home/live-pricing/components/_live_market_table'
 import TradingSpecificationTable from 'pages/trading-specification/components/_trading_spec_table'
 
-type MarketTabProps = {
-    is_home: boolean
-}
-
-const MarketTab = ({ is_home }: MarketTabProps) => {
+const MarketTab = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
-    const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex')
-    const [displayName, setDisplayName] = useState('forex')
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
@@ -29,8 +22,6 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
                             key={marketItem.id}
                             onClick={() => {
                                 onMarketButtonClick(marketItem.market_name)
-                                setLinkToMarketPage(marketItem.to)
-                                setDisplayName(marketItem.button_text)
                             }}
                         >
                             <SVGWrapper
@@ -63,17 +54,8 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
                         ),
                 )}
             </ContainerWrapper>
-            {is_home ? (
-                <>
-                    <LiveMarketTable
-                        market={selected_market}
-                        to={linkToMarketPage}
-                        display_name={displayName}
-                    />
-                </>
-            ) : (
-                <TradingSpecificationTable market={selected_market} />
-            )}
+
+            <TradingSpecificationTable market={selected_market} />
         </>
     )
 }

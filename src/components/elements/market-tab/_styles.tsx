@@ -17,6 +17,7 @@ export const MarketsContainer = styled.div`
     }
     @media ${device.tablet} {
         margin: 0;
+        padding: 0;
         justify-content: flex-start;
     }
 `
@@ -66,7 +67,7 @@ export const MarketButton = styled.button<{ selected: boolean }>`
                   }
               `}
     @media ${device.tablet} {
-        padding: 16px 20px;
+        padding: 16px 46px;
     }
 `
 export const SVGWrapper = styled.svg<{ selected: boolean }>`

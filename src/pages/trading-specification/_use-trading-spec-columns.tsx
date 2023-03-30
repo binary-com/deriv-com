@@ -3,7 +3,6 @@ import React, { useMemo } from 'react'
 import { THeaders } from './_types'
 import { TableCellGroup, TableCell, TableHeaderCell } from './components/_elements'
 import { Localize } from 'components/localization'
-import info from 'images/svg/trading-specification/info-icon.svg'
 
 const liveMarketColumnHelper = createColumnHelper<THeaders>()
 
@@ -19,7 +18,6 @@ const useLiveColumns = (market: string) => {
                 header: () => (
                     <TableHeaderCell
                         text={<Localize translate_text="Contract size" />}
-                        infoIcon={info}
                         toolTip={
                             <Localize translate_text="A standardised amount that tells traders the exact quantities being bought or sold" />
                         }
@@ -37,7 +35,6 @@ const useLiveColumns = (market: string) => {
                 header: () => (
                     <TableHeaderCell
                         text={<Localize translate_text="Minimum size" />}
-                        infoIcon={info}
                         toolTip={
                             <Localize translate_text="The minimum lot size required to open a new position" />
                         }
@@ -49,7 +46,6 @@ const useLiveColumns = (market: string) => {
                 header: () => (
                     <TableHeaderCell
                         text={<Localize translate_text="Minimum Spread" />}
-                        infoIcon={info}
                         toolTip={
                             <Localize translate_text="The lowest possible spread obtainable with the current trading conditions" />
                         }
@@ -61,7 +57,6 @@ const useLiveColumns = (market: string) => {
                 header: () => (
                     <TableHeaderCell
                         text={<Localize translate_text="Target Spread" />}
-                        infoIcon={info}
                         toolTip={
                             <Localize translate_text="The spread that the broker wishes to offer under the current trading conditions" />
                         }
@@ -73,7 +68,6 @@ const useLiveColumns = (market: string) => {
                 header: () => (
                     <TableHeaderCell
                         text={<Localize translate_text="Max effective leverage" />}
-                        infoIcon={info}
                         toolTip={
                             <Localize translate_text="The actual leverage experienced by the client when account leverage is divided by the margin rate" />
                         }
@@ -85,7 +79,6 @@ const useLiveColumns = (market: string) => {
                 header: () => (
                     <TableHeaderCell
                         text={<Localize translate_text="Margin requirement (%)" />}
-                        infoIcon={info}
                         toolTip={
                             <Localize translate_text="The percentage requirement of funds the client needs in their account to open a position" />
                         }
@@ -97,7 +90,6 @@ const useLiveColumns = (market: string) => {
                 header: () => (
                     <TableHeaderCell
                         text={<Localize translate_text="Swap long (%)" />}
-                        infoIcon={info}
                         toolTip={
                             <Localize translate_text="Swaps charged upon rollover for long (buy) positions" />
                         }
@@ -109,7 +101,6 @@ const useLiveColumns = (market: string) => {
                 header: () => (
                     <TableHeaderCell
                         text={<Localize translate_text="Swap short (Points)" />}
-                        infoIcon={info}
                         toolTip={
                             <Localize translate_text="Swaps charged upon rollover for short (sell) positions" />
                         }

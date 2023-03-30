@@ -8,7 +8,6 @@ import {
     P2PHomeBanner,
 } from './home/_lazy-load'
 import Hero from './home/_hero'
-import LivePricing from './home/live-pricing'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
@@ -38,7 +37,7 @@ const Home = () => {
     useOpenLiveChat(true)
     const { is_p2p_allowed_country, is_eu } = useRegion()
 
-    const target = '#live-pricing'
+    const target = '#hero'
     const options = {
         root: null,
         rootMargin: '0px',
@@ -98,12 +97,9 @@ const Home = () => {
                 )}
                 has_organization_schema
             />
-            <HeroWrapper>
+            <HeroWrapper id="hero">
                 <Hero />
             </HeroWrapper>
-
-            <LivePricing />
-
             {lazyTemplate}
         </Layout>
     )

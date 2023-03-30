@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Background } from './components/_elements'
 import Layout from 'components/layout/layout'
 import { SectionContainer, SEO } from 'components/containers'
 import { Header } from 'components/elements'
@@ -29,7 +30,7 @@ const TradingSpecification = () => {
                 <StyledHeader as="p">
                     <Localize translate_text="Trading specifications for CFDs on Deriv" />
                 </StyledHeader>
-                <MarketTab is_home={false} />
+                <MarketTab />
             </SectionContainer>
         </Layout>
     )

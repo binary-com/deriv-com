@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useQueryParam, StringParam } from 'use-query-params'
+import { useQueryParamString } from 'react-use-query-param-string'
 
 export const usePlatformQueryParam = () => {
-    const [platform] = useQueryParam('platform', StringParam)
+    const [platform] = useQueryParamString('platform', '')
     const platforms = ['derivgo', 'p2p']
     const [is_deriv_go, setIsDerivGo] = useState(true)
     const [is_deriv_p2p, setIsDerivP2P] = useState(true)

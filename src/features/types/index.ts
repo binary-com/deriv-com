@@ -117,7 +117,7 @@ export type TFlexShrink = InferSide<ClassNames, 'flex-shrink'>
 export type TFlexWrap = InferSide<ClassNames, 'flex-wrap'>
 export type TFlexDirection = InferSide<ClassNames, 'flex-dir'>
 export type TFlexBasis = InferSide<ClassNames, 'flex-basis'>
-export type TContainerType = InferSide<ClassNames, 'container'>
+export type TContainerType = 'fixed' | 'fluid'
 
 export interface ClassProps {
     margin?: TSpacingSize

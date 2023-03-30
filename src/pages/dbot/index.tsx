@@ -42,7 +42,7 @@ const trading: TradingType[] = [
     {
         title: <Localize translate_text="Start with a popular strategy" />,
         subtitle: (
-            <Localize translate_text="Martingale, D'Alembert, and Oscar's Grind — load and customise proven strategies or create your own from scratch." />
+            <Localize translate_text="_t_Martingale, D'Alembert, and Oscar's Grind — load and customise proven strategies or create your own from scratch._t_" />
         ),
         image_name: 'dbot_strategy',
         image_alt: localize('Customise your DBot strategy'),
@@ -58,7 +58,7 @@ const trading: TradingType[] = [
     {
         title: <Localize translate_text="Maximise profits, limit losses" />,
         subtitle: (
-            <Localize translate_text="Use analysis tools, indicators, and smart logic such as take profit and stop loss to maximise your profits and limit losses." />
+            <Localize translate_text="_t_Use analysis tools, indicators, and smart logic such as take profit and stop loss to maximise your profits and limit losses._t_" />
         ),
         image_name: 'dbot_maximise_profits',
         image_alt: localize('Increase your profits'),

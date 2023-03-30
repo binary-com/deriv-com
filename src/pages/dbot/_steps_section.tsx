@@ -59,27 +59,27 @@ const DBotEasySteps = () => {
     const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: 'Select an asset',
+                title: '_t_Select an asset_t_',
                 image: data['step_1'],
                 alt: <Localize translate_text="Select an asset" />,
             },
             {
-                title: 'Set the purchase conditions',
+                title: '_t_Set the purchase conditions_t_',
                 image: data['step_2'],
                 alt: <Localize translate_text="purchase conditions" />,
             },
             {
-                title: 'Set the restart conditions',
+                title: '_t_Set the restart conditions_t_',
                 image: data['step_3'],
                 alt: <Localize translate_text="restart conditions" />,
             },
             {
-                title: 'Run the bot',
+                title: '_t_Run the bot_t_',
                 image: data['step_4'],
                 alt: <Localize translate_text="Run the bot" />,
             },
             {
-                title: 'Check the profit',
+                title: '_t_Check the profit_t_',
                 image: data['step_5'],
                 alt: <Localize translate_text="Check the profit" />,
             },

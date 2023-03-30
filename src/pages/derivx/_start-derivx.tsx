@@ -168,19 +168,19 @@ const StartDerivX = () => {
     const demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: 'Sign in to your Deriv account. If you don’t have one, sign up for free.',
+                title: '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
                 image: data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1'],
                 alt: <Localize translate_text="Deriv X demo account signup page" />,
             },
             {
-                title: 'Add a Deriv X demo account.',
+                title: '_t_Add a Deriv X demo account._t_',
                 image: data[is_mobile_or_tablet ? 'demo_step2_mobile' : 'demo_step2'],
                 alt: (
                     <Localize translate_text="Deriv X dashboard showing demo account comparison" />
                 ),
             },
             {
-                title: 'Start trading on the mobile app or through your web browser.',
+                title: '_t_Start trading on the mobile app or through your web browser._t_',
                 image: data[is_mobile_or_tablet ? 'demo_step3_mobile' : 'demo_step3'],
                 alt: <Localize translate_text="Deriv X trading dashboard" />,
             },
@@ -191,22 +191,22 @@ const StartDerivX = () => {
     const real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: 'Sign in to your Deriv account. If you don’t have one, sign up for free.',
+                title: '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
                 image: data[is_mobile_or_tablet ? 'real_step1_mobile' : 'real_step1'],
                 alt: <Localize translate_text="Sign in" />,
             },
             {
-                title: 'Add a Deriv real account.',
+                title: '_t_Add a Deriv real account._t_',
                 image: data[is_mobile_or_tablet ? 'real_step2_mobile' : 'real_step2'],
                 alt: <Localize translate_text="real account" />,
             },
             {
-                title: 'Add a Deriv X real account.',
+                title: '_t_Add a Deriv X real account._t_',
                 image: data[is_mobile_or_tablet ? 'real_step3_mobile' : 'real_step3'],
                 alt: <Localize translate_text="Download the app" />,
             },
             {
-                title: 'Start trading on the mobile app or through your web browser.',
+                title: '_t_Start trading on the mobile app or through your web browser._t_',
                 image: data[is_mobile_or_tablet ? 'real_step4_mobile' : 'real_step4'],
                 alt: <Localize translate_text="Trading" />,
             },

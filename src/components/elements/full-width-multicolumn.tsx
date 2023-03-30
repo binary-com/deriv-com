@@ -116,6 +116,7 @@ const StyledTextContent = styled(Text)`
     text-align: center;
     margin-top: 1.6rem;
     color: white;
+    width: 231px;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -125,6 +126,7 @@ const StyledTextContent = styled(Text)`
     @media ${device.tabletL} {
         font-size: 14px;
         margin-top: 0;
+        width: fit-content;
         margin-bottom: 0;
     }
 `
@@ -177,7 +179,7 @@ export const FullWidthMultiColumn = ({
                             return (
                                 <Item key={idx} ai="center" direction="column">
                                     {icon}
-                                    {item_title && <StyledTitle as="h3">{item_title}</StyledTitle>}
+                                    {item_title && <StyledTitle as="p">{item_title}</StyledTitle>}
                                     {text && <StyledTextContent>{text}</StyledTextContent>}
                                     {link_text && <LearnMore to={link}>{link_text}</LearnMore>}
                                 </Item>

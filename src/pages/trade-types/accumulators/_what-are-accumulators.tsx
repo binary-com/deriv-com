@@ -28,7 +28,7 @@ const WhatAreAccumulators = () => {
                 button_title={<Localize translate_text="Don't have a Deriv account yet?" />}
                 button_text={<Localize translate_text="_t_Create free demo account_t_" />}
                 multiple_row
-                gap="6rem"
+                gap="7rem"
             >
                 {accumulator_content.map((content, index) => (
                     <StyledBox

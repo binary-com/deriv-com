@@ -1,10 +1,10 @@
 import React from 'react'
 import HomeHero from './hero'
+import HomeMarkets from './markets'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import { localize } from 'components/localization'
-import MarketsFold from 'pages/home/_markets_fold'
 import useRegion from 'components/hooks/use-region'
 import { Appearances } from 'components/custom/signup'
 import {
@@ -33,7 +33,7 @@ const HomePage = () => {
             />
             <MainNav />
             <HomeHero />
-            <MarketsFold />
+            <HomeMarkets />
             <TradeTypes />
             <OurPlatforms />
             <WhatOurClientsSay />

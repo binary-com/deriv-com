@@ -4,7 +4,7 @@ import BaseTypography, { TypographyProps } from '../base'
 import { generateTextSize } from 'features/styles/utils'
 import { TTextSize } from 'features/types'
 import dclsx from 'features/utils/dclsx'
-
+import './link.scss'
 export interface TypographyLinkProps
     extends AnchorHTMLAttributes<'a'>,
         Omit<BoxProps<'a'>, 'as'>,

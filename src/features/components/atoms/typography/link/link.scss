@@ -1,0 +1,19 @@
+@import 'features/styles/theme/variables';
+
+.typography-link {
+    cursor: pointer;
+    text-decoration: none;
+    transition: text-shadow 0.25s;
+
+    &:active {
+        color: $color-red;
+    }
+    &:hover {
+        color: $color-red;
+        text-decoration: underline;
+    }
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.32;
+    }
+}

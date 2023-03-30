@@ -3,6 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade } from 'swiper'
 import { wrapper } from './slider.module.scss'
+import 'swiper/swiper-bundle.min.css'
 
 const slide_images = [
     {

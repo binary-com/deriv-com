@@ -1,4 +1,4 @@
-@use './theme-mixins' as *;
+@use 'features/styles/theme/theme-mixins' as *;
 
 .container-fluid {
     margin-inline: auto;
@@ -21,8 +21,4 @@
         inline-size: 80%;
         max-inline-size: 160rem;
     }
-}
-
-.container-fixed {
-    inline-size: 100%;
 }

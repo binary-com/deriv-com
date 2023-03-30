@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import StepperView from 'components/custom/_stepper_view'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device'
 
 const query = graphql`
@@ -45,19 +45,37 @@ const StartDerivGo = () => {
     const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: 'Sign in to your Deriv account. If you don’t have one, sign up for free; then create a Deriv real account.',
-                image: data['sign_up'],
-                alt: <Localize translate_text="Sign in" />,
+                title: () => (
+                    <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free; then create a Deriv real account." />
+                ),
+                image: () => (
+                    <QueryImage
+                        data={data['sign_up']}
+                        alt={<Localize translate_text="Sign in" />}
+                    />
+                ),
             },
             {
-                title: 'Fund your Deriv real account with your preferred payment method.',
-                image: data['fund'],
-                alt: <Localize translate_text="Fund your Deriv" />,
+                title: () => (
+                    <Localize translate_text="Fund your Deriv real account with your preferred payment method." />
+                ),
+                image: () => (
+                    <QueryImage
+                        data={data['fund']}
+                        alt={<Localize translate_text="Fund your Deriv" />}
+                    />
+                ),
             },
             {
-                title: 'Download the app and trade anytime, anywhere.',
-                image: data['trading'],
-                alt: <Localize translate_text="Download the app" />,
+                title: () => (
+                    <Localize translate_text="Download the app and trade anytime, anywhere." />
+                ),
+                image: () => (
+                    <QueryImage
+                        data={data['trading']}
+                        alt={<Localize translate_text="Download the app" />}
+                    />
+                ),
             },
         ],
         [data],

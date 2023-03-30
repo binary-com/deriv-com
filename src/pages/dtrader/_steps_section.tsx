@@ -10,6 +10,7 @@ import { Container, SectionContainer } from 'components/containers'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import { LinkButton } from 'components/form'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import { QueryImage } from 'components/elements'
 
 const query = graphql`
     query {
@@ -75,19 +76,31 @@ const DtraderEasySteps = () => {
     const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: 'Select an asset',
-                image: data[is_row ? 'step_1' : 'step_1_eu'],
-                alt: <Localize translate_text="Select an asset" />,
+                title: () => <Localize translate_text="Select an asset" />,
+                image: () => (
+                    <QueryImage
+                        data={data[is_mobile_or_tablet ? 'step_1' : 'step_1_eu']}
+                        alt={<Localize translate_text="Select an asset" />}
+                    />
+                ),
             },
             {
-                title: 'Monitor the chart',
-                image: data[is_row ? 'step_2' : 'step_2_eu'],
-                alt: <Localize translate_text="Monitor the chart" />,
+                title: () => <Localize translate_text="Monitor the chart" />,
+                image: () => (
+                    <QueryImage
+                        data={data[is_mobile_or_tablet ? 'step_2' : 'step_2_eu']}
+                        alt={<Localize translate_text="Monitor the chart" />}
+                    />
+                ),
             },
             {
-                title: 'Place a trade',
-                image: data[is_row ? 'step_3' : 'step_3_eu'],
-                alt: <Localize translate_text="Place a trade" />,
+                title: () => <Localize translate_text="Place a trade" />,
+                image: () => (
+                    <QueryImage
+                        data={data[is_mobile_or_tablet ? 'step_3' : 'step_3_eu']}
+                        alt={<Localize translate_text="Place a trade" />}
+                    />
+                ),
             },
         ],
         [data, is_mobile],

@@ -58,7 +58,7 @@ export const forex_content: ForexContentElement[] = [
     {
         src: Leverage,
         alt: 'High and low',
-        text: <Localize translate_text="High leverage, tight forex spreads" />,
+        text: <Localize translate_text="_t_High leverage, tight forex spreads_t_" />,
     },
     {
         src: ResponsiveWebsite,

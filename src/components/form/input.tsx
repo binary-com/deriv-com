@@ -126,7 +126,7 @@ const StyledInput = styled.input<StyledInputProps>`
     border: 1px solid var(--color-grey-5);
     border-radius: 15px;
     @media ${device.tabletL} {
-        width: 250px;
+        width: 273px;
         height: 100%;
         border-radius: 4px;
 

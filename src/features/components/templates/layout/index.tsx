@@ -7,6 +7,7 @@ import NonEuRedirectAlert from 'features/components/molecules/non-eu-redirect-al
 import BrowserUpdateAlert from 'features/components/molecules/browser-update-alert'
 import LayoutOverlay from 'features/components/molecules/layout-overlay'
 import 'features/styles/app.scss'
+import 'swiper/swiper-bundle.min.css'
 import apiManager from 'common/websocket'
 interface LayoutProps {
     is_ppc?: boolean

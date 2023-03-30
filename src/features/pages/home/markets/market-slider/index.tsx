@@ -7,7 +7,6 @@ import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import Container from 'features/components/atoms/container'
 import './market-slide.scss'
-import 'swiper/swiper-bundle.min.css'
 
 const MarketSlider = () => {
     const { is_eu } = useRegion()
@@ -30,6 +29,7 @@ const MarketSlider = () => {
                     enabled: true,
                     type: 'bullets',
                     horizontalClass: 'markets_slider_pagination',
+                    clickable: true,
                 }}
                 spaceBetween={18}
                 className={'markets_swiper'}

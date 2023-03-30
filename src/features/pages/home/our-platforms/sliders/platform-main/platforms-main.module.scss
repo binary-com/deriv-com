@@ -1,0 +1,19 @@
+.platform_swiper {
+    block-size: 100%;
+    inline-size: 30rem;
+    margin: 0;
+}
+
+.main_item {
+    block-size: 5rem;
+    opacity: 0.4;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.main_item_active {
+    border-block-end: 6px solid red;
+    border-radius: 8px;
+    box-shadow: 0px 16px 20px rgba(131, 131, 131, 0.15), 0px 0px 20px rgba(131, 131, 131, 0.15);
+    block-size: 15rem;
+    opacity: 1;
+}

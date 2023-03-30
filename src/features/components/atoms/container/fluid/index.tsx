@@ -2,7 +2,6 @@ import React from 'react'
 import Box, { BoxProps } from '../../box'
 import { ContentSectionTagOptions } from 'features/types'
 import dclsx from 'features/utils/dclsx'
-import './container-fluid.scss'
 
 const FluidContainer = ({ className, ...rest }: BoxProps<ContentSectionTagOptions>) => {
     const classnames = dclsx(className, 'container-fluid')

@@ -9,10 +9,12 @@
 }
 
 .markets_swiper {
-    overflow: visible;
+    position: relative;
+    min-block-size: 36rem;
 }
 
 .markets_slider_pagination {
-    --swiper-pagination-bottom: -6rem;
+    position: absolute;
+    --swiper-pagination-bottom: calc(0rem);
     --swiper-pagination-color: red;
 }

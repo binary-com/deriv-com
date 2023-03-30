@@ -6,13 +6,9 @@ type LocalizeProps = {
     translate_text: string | TString
     values?: { [key: string]: string | number }
     components?: React.ReactElement[]
-    cms?: boolean
 }
 
-export const Localize = ({ translate_text, values, components, cms }: LocalizeProps) => {
-    // eslint-disable-next-line no-param-reassign
-    cms ? (translate_text = `_t_${translate_text}_t_`) : translate_text
-
+export const Localize = ({ translate_text, values, components }: LocalizeProps) => {
     if (typeof translate_text === 'string' && translate_text?.includes('_t_')) {
         // Since I know the indices I wanna remove, substring is used instead of regex
         const actual_key = translate_text.substring(3, translate_text.length - 3)

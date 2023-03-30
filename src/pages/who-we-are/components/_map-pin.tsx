@@ -81,7 +81,7 @@ const MapPin = ({ top, left, country_city, link_url }: MapPinType) => {
             {is_pin_show && (
                 <PinContent locale="en" to={link_url} anchor>
                     <Header color="black" mr="8px" weight="normal" type="small">
-                        <Localize translate_text={country_city} cms />
+                        <Localize translate_text={country_city} />
                     </Header>
                 </PinContent>
             )}

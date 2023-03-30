@@ -38,6 +38,7 @@ jspm_packages/
 
 # TypeScript v1 declaration files
 typings/
+src/classnames.d.ts
 
 # Optional npm cache directory
 .npm
@@ -85,3 +86,5 @@ static/CNAME
 
 #Webpack
 webpack-bundle-report
+
+.gitignore

@@ -50,11 +50,11 @@ const MakeTrading = ({ hero }: THero) => {
         <FirstSectionContainer padding="120px 0 80px" background="var(--color-white)">
             {first_section_texts?.map(({ text }) => (
                 <StyledFirstSectionText as="p" type="unset" key={text} size="24px">
-                    <Localize translate_text={text} cms />
+                    <Localize translate_text={text} />
                 </StyledFirstSectionText>
             ))}
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                <Localize translate_text={hero?.sub_header} cms />
+                <Localize translate_text={hero?.sub_header} />
             </StyledHeader>
         </FirstSectionContainer>
     )

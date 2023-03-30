@@ -89,7 +89,7 @@ const Hero = ({ hero }: THero) => {
                         />
                         <Flex jc="center" p="0 32px" max_width="1440px">
                             <DesktopHeader>
-                                <Localize translate_text={hero?.header} cms />
+                                <Localize translate_text={hero?.header} />
                             </DesktopHeader>
                         </Flex>
                     </StyledFlex>
@@ -103,7 +103,7 @@ const Hero = ({ hero }: THero) => {
                             loading="eager"
                         />
                         <MobileHeader>
-                            <Localize translate_text={hero?.header} cms />
+                            <Localize translate_text={hero?.header} />
                         </MobileHeader>
                     </Flex>
                 </Mobile>

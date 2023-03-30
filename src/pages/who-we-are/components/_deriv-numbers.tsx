@@ -97,10 +97,10 @@ const DerivNumbers = ({ deriv_in_numbers }: TDerivNumbers) => {
             <StyledFlex>
                 <TitleSection fd="column">
                     <TitleHeader as="h6" color="black-2" align="start" type="unset">
-                        <Localize translate_text={deriv_in_numbers?.header} cms />
+                        <Localize translate_text={deriv_in_numbers?.header} />
                     </TitleHeader>
                     <StyledHeader as="h6" size="24px" align="start" weight="400" type="unset">
-                        <Localize translate_text={deriv_in_numbers?.sub_header} cms />
+                        <Localize translate_text={deriv_in_numbers?.sub_header} />
                     </StyledHeader>
                 </TitleSection>
                 <NumberSection
@@ -117,7 +117,7 @@ const DerivNumbers = ({ deriv_in_numbers }: TDerivNumbers) => {
                                     {number}
                                 </NumberHeader>
                                 <NumberText as="div" size="20px" align="start">
-                                    <Localize translate_text={description} cms />
+                                    <Localize translate_text={description} />
                                 </NumberText>
                             </Flex>
                         )

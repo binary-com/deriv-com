@@ -104,7 +104,7 @@ const OurLeadership = ({ our_leadership }: TOurLeadership) => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                <Localize translate_text={our_leadership?.header} cms />
+                <Localize translate_text={our_leadership?.header} />
             </StyledHeader>
             <StyledCssGrid
                 height="unset"

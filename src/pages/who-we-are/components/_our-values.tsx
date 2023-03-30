@@ -62,17 +62,17 @@ const OurValues = ({ our_values }: TOurValues) => {
     return (
         <OurValuesSection>
             <StyledHeader as="h2" align="start" type="page-title" width="338px">
-                <Localize translate_text={our_values?.header} cms />
+                <Localize translate_text={our_values?.header} />
             </StyledHeader>
             <StyledFlex width="820px" wrap="wrap">
                 {our_values?.values.map(({ header, image, sub_header }, index) => (
                     <Card key={index} index={index} direction="column" ai="start" jc="start">
                         <GatsbyImage image={getImage(image.localFile)} alt="icon" loading="eager" />
                         <Header as="h4" padding="24px 0 8px" size="32px" align="start" type="unset">
-                            <Localize translate_text={header} cms />
+                            <Localize translate_text={header} />
                         </Header>
                         <Header as="div" weight="normal" size="16px">
-                            <Localize translate_text={sub_header} cms />
+                            <Localize translate_text={sub_header} />
                         </Header>
                     </Card>
                 ))}

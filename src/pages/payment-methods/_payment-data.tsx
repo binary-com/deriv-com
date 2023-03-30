@@ -66,7 +66,7 @@ const payment_data = [
     {
         name: <Localize translate_text="Credit/debit cards" />,
         note: (
-            <Localize translate_text="Withdrawals may take up to 15 working days to reflect on your card." />
+            <Localize translate_text="Withdrawals may take up to 15 working days to reflect on your card. Mastercard and Maestro withdrawals are only available for UK clients." />
         ),
         is_row: true,
         data: [
@@ -181,18 +181,6 @@ const payment_data = [
                 name: 'VisaElectron',
             },
             {
-                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Deposit funds using your Mastercard credit or debit card." />
-                ),
-                name: 'mastercard',
-            },
-            {
                 method: <StyledIcon src={Maestro} alt="Maestro" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
@@ -203,6 +191,18 @@ const payment_data = [
                     <Localize translate_text="Deposit and withdraw funds using your Maestro debit card." />
                 ),
                 name: 'maestro',
+            },
+            {
+                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="10 - 10,000" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Deposit funds using your Mastercard credit or debit card." />
+                ),
+                name: 'mastercard',
             },
         ],
     },
@@ -283,7 +283,7 @@ const payment_data = [
 
             {
                 method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
-                currencies: 'USD AUD\nGBP EUR',
+                currencies: 'USD EUR AUD GBP',
                 min_max_deposit: (
                     <Localize
                         translate_text="5 - 1,000<0></0>5 - 10,000"

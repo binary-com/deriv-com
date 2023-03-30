@@ -43,7 +43,7 @@ const OurPlatforms = () => {
         <>
             <GenericCarousel
                 renderableData={carouselData}
-                mainHeading="Check out ours other platforms"
+                mainHeading="Check out our other platforms"
             />
         </>
     )

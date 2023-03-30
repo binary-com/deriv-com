@@ -113,7 +113,7 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <StyledHeading as="h3" type="section-title" mb="2.4rem" align="center">
-                        {localize(mainHeading)}
+                        {localize(`_t_${mainHeading}_t_`)}
                     </StyledHeading>
                 </SmallContainer>
                 <MarketsCarousel>
@@ -125,10 +125,10 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
                                         <img src={item.icon} width="48" height="48" />
 
                                         <StyledText weight="bold">
-                                            {localize(item.heading)}
+                                            {localize(`_t_${item.heading}_t_`)}
                                         </StyledText>
                                     </MobileCardHeader>
-                                    <StyledPara>{localize(item.paragraph)}</StyledPara>
+                                    <StyledPara>{localize(`_t_${item.paragraph}_t_`)}</StyledPara>
                                     <LearnMore
                                         text={<Localize translate_text="Learn more" />}
                                         to={item.link}

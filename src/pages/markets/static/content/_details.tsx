@@ -63,17 +63,39 @@ export const AsiaOceaniaDetails = () => (
 export const ContinuousIndicesDetails = () => (
     <DetailsContainer>
         <Text>
-            <Localize translate_text="These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%." />
+            {localize(
+                '_t_These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%._t_',
+            )}
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>._t_"
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
+export const ContinuousIndicesOptionsDetails = () => (
+    <DetailsContainer>
+        <Text>
+            <Localize translate_text="_t_These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%._t_" />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="_t_<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>._t_"
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -247,17 +269,19 @@ export const StepIndicesDetails = () => (
 export const VolatilityIndicesDetails = () => (
     <DetailsContainer>
         <Text>
-            <Localize translate_text="These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 150%, and 250%." />
+            {localize(
+                '_t_These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 150%, and 250%._t_',
+            )}
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 150 (1s), 250 (1s) </0>."
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 150 (1s), and 250 (1s)</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -268,13 +292,13 @@ export const VolatilityIndicesDetailsEU = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="These indices correspond to simulated markets with constant volatilities of 150%, and 250%</0>"
+                translate_text="_t_These indices correspond to simulated markets with <0>constant volatilities of 150%, and 250%.</0>_t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick is generated every second for volatility indices 150 (1s), and 250 (1s).</0>"
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>150 (1s), and 250 (1s).</0>_t_"
                 components={[<strong key={0} />]}
             />
         </Text>

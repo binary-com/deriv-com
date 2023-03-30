@@ -37,7 +37,93 @@ export const asia_oceania: MarketSymbol[] = [
     },
 ]
 
+export const accumulators_indices: MarketSymbol[] = [
+    {
+        src: icons.INDEX10S1NEW,
+        text: <Localize translate_text="Volatility 10 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX25S1NEW,
+        text: <Localize translate_text="Volatility 25 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX50S1NEW,
+        text: <Localize translate_text="Volatility 50 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX75S1NEW,
+        text: <Localize translate_text="Volatility 75 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX100S1NEW,
+        text: <Localize translate_text="Volatility 100 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX10NEW,
+        text: <Localize translate_text="Volatility 10 Index" />,
+    },
+    {
+        src: icons.INDEX25NEW,
+        text: <Localize translate_text="Volatility 25 Index" />,
+    },
+    {
+        src: icons.INDEX50NEW,
+        text: <Localize translate_text="Volatility 50 Index" />,
+    },
+    {
+        src: icons.INDEX75NEW,
+        text: <Localize translate_text="Volatility 75 Index" />,
+    },
+    {
+        src: icons.INDEX100NEW,
+        text: <Localize translate_text="Volatility 100 Index" />,
+    },
+]
+
 export const continuous_indices: MarketSymbol[] = [
+    {
+        src: icons.INDEX10S1NEW,
+        text: <Localize translate_text="Volatility 10 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX25S1NEW,
+        text: <Localize translate_text="Volatility 25 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX50S1NEW,
+        text: <Localize translate_text="Volatility 50 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX75S1NEW,
+        text: <Localize translate_text="Volatility 75 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX100S1NEW,
+        text: <Localize translate_text="Volatility 100 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX10NEW,
+        text: <Localize translate_text="Volatility 10 Index" />,
+    },
+    {
+        src: icons.INDEX25NEW,
+        text: <Localize translate_text="Volatility 25 Index" />,
+    },
+    {
+        src: icons.INDEX50NEW,
+        text: <Localize translate_text="Volatility 50 Index" />,
+    },
+    {
+        src: icons.INDEX75NEW,
+        text: <Localize translate_text="Volatility 75 Index" />,
+    },
+    {
+        src: icons.INDEX100NEW,
+        text: <Localize translate_text="Volatility 100 Index" />,
+    },
+]
+
+export const continuous_indices_options: MarketSymbol[] = [
     {
         src: icons.INDEX10S1NEW,
         text: <Localize translate_text="Volatility 10 (1s) Index" />,
@@ -104,6 +190,14 @@ export const volatility_indices: MarketSymbol[] = [
         text: <Localize translate_text="Volatility 100 (1s) Index" />,
     },
     {
+        src: icons.VINDEX1501S,
+        text: <Localize translate_text="Volatility 150 (1s) Index" />,
+    },
+    {
+        src: icons.VINDEX2501S,
+        text: <Localize translate_text="Volatility 250 (1s) Index" />,
+    },
+    {
         src: icons.INDEX10NEW,
         text: <Localize translate_text="Volatility 10 Index" />,
     },
@@ -128,53 +222,11 @@ export const volatility_indices: MarketSymbol[] = [
 export const volatility_indices_eu: MarketSymbol[] = [
     {
         src: icons.VINDEX1501S,
-        text: <Localize translate_text="Volatility 150 Index" />,
+        text: <Localize translate_text="Volatility 150 (1s) Index" />,
     },
     {
         src: icons.VINDEX2501S,
-        text: <Localize translate_text="Volatility 250 Index" />,
-    },
-]
-export const accumulators_indices: MarketSymbol[] = [
-    {
-        src: icons.INDEX10S1NEW,
-        text: <Localize translate_text="Volatility 10 (1s) Index" />,
-    },
-    {
-        src: icons.INDEX25S1NEW,
-        text: <Localize translate_text="Volatility 25 (1s) Index" />,
-    },
-    {
-        src: icons.INDEX50S1NEW,
-        text: <Localize translate_text="Volatility 50 (1s) Index" />,
-    },
-    {
-        src: icons.INDEX75S1NEW,
-        text: <Localize translate_text="Volatility 75 (1s) Index" />,
-    },
-    {
-        src: icons.INDEX100S1NEW,
-        text: <Localize translate_text="Volatility 100 (1s) Index" />,
-    },
-    {
-        src: icons.INDEX10NEW,
-        text: <Localize translate_text="Volatility 10 Index" />,
-    },
-    {
-        src: icons.INDEX25NEW,
-        text: <Localize translate_text="Volatility 25 Index" />,
-    },
-    {
-        src: icons.INDEX50NEW,
-        text: <Localize translate_text="Volatility 50 Index" />,
-    },
-    {
-        src: icons.INDEX75NEW,
-        text: <Localize translate_text="Volatility 75 Index" />,
-    },
-    {
-        src: icons.INDEX100NEW,
-        text: <Localize translate_text="Volatility 100 Index" />,
+        text: <Localize translate_text="Volatility 250 (1s) Index" />,
     },
 ]
 
@@ -1211,16 +1263,7 @@ export const energy_options: MarketSymbol[] = [
         text: <Localize translate_text="Oil/USD" />,
     },
 ]
-export const volatility_indices_trade_type_eu: MarketSymbol[] = [
-    {
-        src: icons.VOLATILITY200EU,
-        text: <Localize translate_text="Volatility 200 Index" />,
-    },
-    {
-        src: icons.VOLATILITY300EU,
-        text: <Localize translate_text="Volatility 300 Index" />,
-    },
-]
+export const volatility_indices_trade_type_eu: MarketSymbol[] = []
 
 export const crash_boom_trade_type_eu: MarketSymbol[] = [
     {

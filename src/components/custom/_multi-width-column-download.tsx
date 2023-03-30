@@ -73,10 +73,10 @@ const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeadin
                     <img src={QRImage} alt="Deriv GO QR" />
                     <div>
                         <StyledHeading as="p" weight="100">
-                            {localize(`${QRHeading1}`)}
+                            {localize(`_t_${QRHeading1}_t_`)}
                         </StyledHeading>
                         <StyledHeading as="h5" weight="700">
-                            {localize(`${QRHeading2}`)}
+                            {localize(`_t_${QRHeading2}_t_`)}
                         </StyledHeading>
                     </div>
                 </QRScanBox>

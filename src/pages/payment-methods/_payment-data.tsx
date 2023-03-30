@@ -42,9 +42,7 @@ import Advcash from 'images/svg/payment-methods/payment-advcash.svg'
 import Dp2p from 'images/svg/payment-methods/payment-dp2p.svg'
 import Eps from 'images/svg/payment-methods/payment-eps.svg'
 import GiroPay from 'images/svg/payment-methods/payment-giropay.svg'
-import Nordea from 'images/svg/payment-methods/payment-nordea.svg'
 import Przelewy from 'images/svg/payment-methods/payment-przelewy.svg'
-import PostePay from 'images/svg/payment-methods/payment-postepay.svg'
 import RapidTransfer from 'images/svg/payment-methods/payment-rapidtransfer.svg'
 
 const StyledIcon = styled.img`
@@ -66,162 +64,9 @@ const StyledRefLink = styled(LocalizedLink)`
 // `
 const payment_data = [
     {
-        name: <Localize translate_text="Online banking" />,
-        is_row: true,
-        data: [
-            {
-                method: <StyledIcon src={InstantBankTransfer} alt="instant bank transfer" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="5 - 50,000" />,
-                min_max_withdrawal: <Localize translate_text="5 - 50,000" />,
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw easily using secure and fast money transfers." />
-                ),
-                name: 'InstantBankTransfer',
-            },
-            {
-                method: <StyledIcon src={Paytrust} alt="pay safe card" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 17,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam." />
-                ),
-                name: 'paytrust88',
-            },
-            {
-                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="15 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="A leading payment service in Southeast Asia that’s fast, easy, and secure." />
-                ),
-                name: 'Help2Pay',
-                reference: 'help2pay-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw easily in THB, IDR, and VND." />
-                ),
-                name: 'DragonPhoenix',
-                reference: 'dragonphoenix-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={ZingPay} alt="zingPay" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: <Localize translate_text="10 - 500" />,
-                min_max_withdrawal: <Localize translate_text="10 - 6,000" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
-                description: (
-                    <Localize translate_text="Payments simplified. Fast and reliable way to deposit funds in your local currency." />
-                ),
-                name: 'ZingPay',
-                reference: 'zingpay-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={NganLuong} alt="NganLuong" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 2,500" />,
-                min_max_withdrawal: <Localize translate_text="10 - 2,500" />,
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="1 - 3 working days" />,
-                description: (
-                    <Localize translate_text="A leading e-wallet service in Vietnam that’s easy to use, flexible, and safe. Used by thousands of merchants." />
-                ),
-                name: 'NganLuong',
-                reference: 'nganluong-payment-method.pdf',
-                locales: ['vi'],
-            },
-        ],
-        class_name: 'online-banking',
-    },
-    {
-        name: <Localize translate_text="Online banking" />,
-        is_eu: true,
-        note: (
-            <Localize translate_text="Not all payment methods are available in your country. Kindly check your cashier for further information." />
-        ),
-        data: [
-            {
-                method: <StyledIcon src={Eps} alt="eps" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make deposits and withdrawals through your local bank in real-time." />
-                ),
-                name: 'Eps',
-            },
-            {
-                method: <StyledIcon src={GiroPay} alt="giropay" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make safe, instant, and easy transactions via Germany's most popular payment method." />
-                ),
-                name: 'Eps',
-            },
-            {
-                method: <StyledIcon src={Nordea} alt="nordea" />,
-                currencies: 'USD',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make fast deposits with your Nordea bank account and enjoy benefits from its mobile app." />
-                ),
-                name: 'Nordea',
-            },
-            {
-                method: <StyledIcon src={Przelewy} alt="przelewy" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make easy transactions via any major local banks and their mobile apps through Przelewy24." />
-                ),
-                name: 'Przelewy',
-            },
-            {
-                method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="25 - 100" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program." />
-                ),
-                name: 'Przelewy',
-            },
-        ],
-    },
-    {
         name: <Localize translate_text="Credit/debit cards" />,
         note: (
-            <Localize translate_text="Withdrawals may take up to 15 working days to reflect on your card." />
+            <Localize translate_text="Withdrawals may take up to 15 working days to reflect on your card. Mastercard and Maestro withdrawals are only available for UK clients." />
         ),
         is_row: true,
         data: [
@@ -336,18 +181,6 @@ const payment_data = [
                 name: 'VisaElectron',
             },
             {
-                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: <Localize translate_text="10 - 10,000" />,
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Deposit funds using your Mastercard credit or debit card." />
-                ),
-                name: 'mastercard',
-            },
-            {
                 method: <StyledIcon src={Maestro} alt="Maestro" />,
                 currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
@@ -358,6 +191,18 @@ const payment_data = [
                     <Localize translate_text="Deposit and withdraw funds using your Maestro debit card." />
                 ),
                 name: 'maestro',
+            },
+            {
+                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="10 - 10,000" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Deposit funds using your Mastercard credit or debit card." />
+                ),
+                name: 'mastercard',
             },
         ],
     },
@@ -438,7 +283,7 @@ const payment_data = [
 
             {
                 method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
-                currencies: 'USD AUD\nGBP EUR',
+                currencies: 'USD EUR AUD GBP',
                 min_max_deposit: (
                     <Localize
                         translate_text="5 - 1,000<0></0>5 - 10,000"
@@ -635,20 +480,161 @@ const payment_data = [
                 url: 'https://www.neteller.com/',
             },
             {
-                method: <StyledIcon src={PostePay} alt="postepay" />,
+                method: <StyledIcon src={Jeton} alt="Jeton" />,
+                currencies: 'EUR',
+                min_max_deposit: <Localize translate_text="5 - 1,000" />,
+                min_max_withdrawal: <Localize translate_text="5 - 1,000" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="A fast and secure money transfer service. Access your money anywhere with the mobile app." />
+                ),
+                url: 'https://www.jeton.com/',
+                name: 'jeton',
+            },
+        ],
+        class_name: 'e-wallets',
+    },
+    {
+        name: <Localize translate_text="Online banking" />,
+        is_row: true,
+        data: [
+            {
+                method: <StyledIcon src={InstantBankTransfer} alt="instant bank transfer" />,
                 currencies: 'USD',
-                min_max_deposit: <Localize translate_text="10 - 100" />,
+                min_max_deposit: <Localize translate_text="5 - 50,000" />,
+                min_max_withdrawal: <Localize translate_text="5 - 50,000" />,
+                deposit_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="Deposit and withdraw easily using secure and fast money transfers." />
+                ),
+                name: 'InstantBankTransfer',
+            },
+            {
+                method: <StyledIcon src={Paytrust} alt="pay safe card" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="10 - 17,000" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam." />
+                ),
+                name: 'paytrust88',
+            },
+            {
+                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="15 - 10,000" />,
                 min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
-                    <Localize translate_text="Make instant and safe transactions via Postepay, and enjoy its mobile app's benefits." />
+                    <Localize translate_text="A leading payment service in Southeast Asia that’s fast, easy, and secure." />
                 ),
-                name: 'postepay',
-                url: 'https://postepay.poste.it/',
+                name: 'Help2Pay',
+                reference: 'help2pay-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="10 - 10,000" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Deposit and withdraw easily in THB, IDR, and VND." />
+                ),
+                name: 'DragonPhoenix',
+                reference: 'dragonphoenix-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={ZingPay} alt="zingPay" />,
+                currencies: 'USD EUR AUD GBP',
+                min_max_deposit: <Localize translate_text="10 - 500" />,
+                min_max_withdrawal: <Localize translate_text="10 - 6,000" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="Payments simplified. Fast and reliable way to deposit funds in your local currency." />
+                ),
+                name: 'ZingPay',
+                reference: 'zingpay-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={NganLuong} alt="NganLuong" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="10 - 2,500" />,
+                min_max_withdrawal: <Localize translate_text="10 - 2,500" />,
+                deposit_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 - 3 working days" />,
+                description: (
+                    <Localize translate_text="A leading e-wallet service in Vietnam that’s easy to use, flexible, and safe. Used by thousands of merchants." />
+                ),
+                name: 'NganLuong',
+                reference: 'nganluong-payment-method.pdf',
+                locales: ['vi'],
             },
         ],
-        class_name: 'e-wallets',
+        class_name: 'online-banking',
+    },
+    {
+        name: <Localize translate_text="Online banking" />,
+        is_eu: true,
+        note: (
+            <Localize translate_text="Not all payment methods are available in your country. Kindly check your cashier for further information." />
+        ),
+        data: [
+            {
+                method: <StyledIcon src={Eps} alt="eps" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Make deposits and withdrawals through your local bank in real-time." />
+                ),
+                name: 'Eps',
+            },
+            {
+                method: <StyledIcon src={GiroPay} alt="giropay" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Make safe, instant, and easy transactions via Germany's most popular payment method." />
+                ),
+                name: 'Eps',
+            },
+            {
+                method: <StyledIcon src={Przelewy} alt="przelewy" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Make easy transactions via any major local banks and their mobile apps through Przelewy24." />
+                ),
+                name: 'Przelewy',
+            },
+            {
+                method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
+                currencies: 'USD EUR GBP',
+                min_max_deposit: <Localize translate_text="25 - 100" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program." />
+                ),
+                name: 'Przelewy',
+            },
+        ],
     },
     {
         name: <Localize translate_text="Cryptocurrencies" />,

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
+import language_config from '../../i18n-config'
 import {
     deriv_cookie_domain,
     deriv_app_languages,
@@ -11,7 +12,6 @@ import {
     domains,
     eu_domains,
 } from './constants'
-import { eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
 
 export const trimSpaces = (value: string): string => value?.trim()
@@ -383,48 +383,38 @@ export const useCallbackRef = (callback: () => void) => {
     return callback_ref
 }
 
-const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
-
-const redirect = (subdomain: string) => {
-    const redirection_url = `${subdomain}.deriv.com`
-    window.location.href = `https://${redirection_url + window.location.pathname}`
-}
-
-const redirectDomain = () => {
-    const redirection_url = `deriv.com`
-    window.location.href = `https://${redirection_url + window.location.pathname}`
-}
-
 const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 
 export const isEuDomain = () =>
     !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
 
-export const handleRedirect = (residence: string, current_client_country: string): boolean => {
-    const country = residence ? residence : current_client_country
-
-    if (isLocalhost() || isTestlink()) {
-        return false
-    } else {
-        if (eu_subdomain_countries.includes(country)) {
-            const subdomain = getSubdomain()
-            redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
-        }
-    }
-}
-
-export const handleRowRedirect = (residence: string, current_client_country: string): boolean => {
-    const country = residence ? residence : current_client_country
-
-    if (isLocalhost() || isTestlink()) {
-        return false
-    } else {
-        if (eu_subdomain_countries.includes(country) === false) {
-            redirectDomain()
-        }
-    }
-}
-
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
+
+export const matchHashInURL = (hash: string) =>
+    isBrowser() && location.hash.replace('#', '') === hash
+
+export const setHashInURL = (hash: string) => isBrowser() && (location.hash = `#${hash}`)
+
+export const updateURLAsPerUserLanguage = () => {
+    const current_path = window.location.pathname
+    const current_hash = window.location.hash
+    const paths = current_path.split('/')
+    const first_path = paths[1]
+    const has_language_in_url = first_path in language_config
+    has_language_in_url && Cookies.set('user_language', first_path)
+    const user_language = Cookies.get('user_language') || 'en'
+
+    const language = has_language_in_url ? first_path : user_language
+
+    if (!has_language_in_url && user_language === 'en') return
+    if (first_path === user_language) return
+
+    const updated_url = has_language_in_url
+        ? paths.map((item) => (item === first_path ? language : item)).join('/')
+        : language + paths.join('/')
+    const new_url = updated_url + current_hash
+
+    window.location.href = '/' + new_url
+}

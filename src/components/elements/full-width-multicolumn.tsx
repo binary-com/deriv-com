@@ -19,7 +19,7 @@ type FullWidthMultiColumnProps = {
 }
 
 const Item = styled(Flex)`
-    max-width: 24rem;
+    max-width: 19rem;
     width: 100%;
 
     img {
@@ -29,6 +29,10 @@ const Item = styled(Flex)`
 
     @media ${device.mobileL} {
         max-width: 80%;
+    }
+
+    @media ${device.mobileL} {
+        max-width: 60%;
         gap: 6px;
 
         ${Text} {
@@ -185,7 +189,9 @@ export const FullWidthMultiColumn = ({
                     </ItemContainer>
                 ))}
                 {button_title && <StyledButtonContent>{button_title}</StyledButtonContent>}
-                {button_text && <Button onClick={handleSignup} label={button_text} primary />}
+                {button_text && (
+                    <Button onClick={handleSignup} label={`_t_${button_text}_t_`} primary />
+                )}
             </Flex>
         </StyledSectionContainer>
     )

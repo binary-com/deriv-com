@@ -53,10 +53,6 @@ const OptionItems = styled(Flex)`
 `
 const StyledContainer = styled(Container)`
     width: 100% !important;
-    @media ${device.mobileL} {
-        background: url(${Pattern});
-        background-size: cover;
-    }
 `
 
 const StyledText = styled(Text)`

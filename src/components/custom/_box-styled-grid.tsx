@@ -15,7 +15,7 @@ type TItem = {
 type TProps = {
     items: TItem[]
     containerWidth: string
-    boxsPerRow: string
+    boxsPerRow?: string
 }
 const StyledText = styled(Header)`
     font-size: 24px;
@@ -27,7 +27,7 @@ const StyledText = styled(Header)`
 `
 const OptionGrid = styled(Grid)<{ boxsPerRow: string; containerWidth: string }>`
     grid-gap: 2.4rem;
-    grid-template-columns: ${(props) => `repeat(${props.boxsPerRow}, 1fr)` || `repeat(3, 1fr)`};
+    grid-template-columns: ${(props) => `repeat(${props.boxsPerRow}, 1fr)`};
     max-width: ${(props) => props.containerWidth || '890px'};
     @media ${device.tablet} {
         grid-gap: 3rem;
@@ -52,7 +52,7 @@ const StyledSubText = styled(Header)`
         font-size: 14px;
     }
 `
-const BoxStyledGrid: React.FC<TProps> = ({ items, containerWidth, boxsPerRow = 3 }) => {
+const BoxStyledGrid: React.FC<TProps> = ({ items, containerWidth, boxsPerRow = '3' }) => {
     return (
         <OptionGrid containerWidth={containerWidth} boxsPerRow={boxsPerRow}>
             {items.map((item, index) => {

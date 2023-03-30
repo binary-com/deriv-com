@@ -7,6 +7,7 @@ import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/c
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type SimpleStepsProps = {
     content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactElement }[]
@@ -114,6 +115,7 @@ const StyledLinkButton = styled(Button)`
 const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <StyledSection>

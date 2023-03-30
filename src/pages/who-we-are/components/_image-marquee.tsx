@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getImage } from 'gatsby-plugin-image'
 import Ticker from 'react-ticker'
 import { TImageMarquee } from '../_types'
-import { QueryImage } from 'components/elements'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
@@ -68,7 +66,7 @@ const StyledImageWrapper = styled.div`
         height: 240px;
     }
 `
-const StyledQueryImage = styled(QueryImage)<{ is_rtl: boolean }>`
+const StyledImage = styled.img<{ is_rtl: boolean }>`
     position: absolute;
     display: block;
     top: 50%;
@@ -103,11 +101,10 @@ const ImageMarquee = ({ slider_medias }: TImageMarquee) => {
                     {sliders_array?.map((carousel_item) => (
                         <CarouselSlide key={carousel_item.url}>
                             <StyledImageWrapper>
-                                <StyledQueryImage
+                                <StyledImage
                                     is_rtl={is_rtl}
-                                    data={getImage(carousel_item.localFile)}
+                                    src={carousel_item.localFile.publicURL}
                                     alt="item"
-                                    loading="eager"
                                 />
                             </StyledImageWrapper>
                         </CarouselSlide>

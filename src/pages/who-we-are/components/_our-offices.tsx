@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getImage } from 'gatsby-plugin-image'
 import { TOurOffices } from '../_types'
 import MapPin, { MapPinType } from './_map-pin'
 import { Localize } from 'components/localization'
 import { CssGrid, Desktop, Flex, Mobile, SectionContainer } from 'components/containers'
-import { BackgroundImage, Header } from 'components/elements'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const StyledSectionContainer = styled(SectionContainer)`
@@ -57,11 +56,12 @@ const NumberText = styled(Header)`
         font-size: 14px;
     }
 `
-const MapImage = styled(BackgroundImage)`
+const MapImage = styled.div<{ bg_image: string }>`
     position: relative;
     width: 840px;
     overflow: auto;
     height: 414px;
+    background-image: url(${({ bg_image }) => bg_image});
     background-color: transparent;
     background-size: cover;
     direction: ltr;
@@ -142,14 +142,14 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
 
             <Flex>
                 <Desktop>
-                    <MapImage data={getImage(our_locations.earth.localFile)}>
+                    <MapImage bg_image={our_locations.earth.localFile.publicURL}>
                         {desktop?.map((pin) => (
                             <MapPin key={pin.country_city} {...pin} />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
-                    <MapImage data={getImage(our_locations.earth_mobile.localFile)}>
+                    <MapImage bg_image={our_locations.earth_mobile.localFile.publicURL}>
                         {mobile?.map((pin) => (
                             <MapPin key={pin.country_city} {...pin} />
                         ))}

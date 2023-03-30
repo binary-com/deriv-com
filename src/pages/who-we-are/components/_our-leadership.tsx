@@ -1,6 +1,5 @@
 import React, { MouseEventHandler, useState } from 'react'
 import styled from 'styled-components'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { TLeader, TOurLeadership } from '../_types'
 import Modal, { ModalFlex } from './_modal'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -94,7 +93,7 @@ const LeaderCard = (leader: TLeader) => {
             width={is_mobile ? '98px' : '120px'}
             height={is_mobile ? '98px' : '120px'}
         >
-            <GatsbyImage image={getImage(photo?.localFile)} alt="leader" loading="lazy" />
+            <img src={photo?.localFile.publicURL} alt="leader" width={120} height={120} />
             {is_popup_shown && <Modal name={name} role={role} link={link_url} />}
         </StyledImageWrapper>
     )

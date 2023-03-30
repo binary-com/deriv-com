@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { TOurValues } from '../_types'
 import { Localize } from 'components/localization'
 import { Flex, SectionContainer } from 'components/containers'
@@ -67,7 +66,7 @@ const OurValues = ({ our_values }: TOurValues) => {
             <StyledFlex width="820px" wrap="wrap">
                 {our_values?.values.map(({ header, image, sub_header }, index) => (
                     <Card key={index} index={index} direction="column" ai="start" jc="start">
-                        <GatsbyImage image={getImage(image.localFile)} alt="icon" loading="eager" />
+                        <img src={image.localFile.publicURL} alt="icon" />
                         <Header as="h4" padding="24px 0 8px" size="32px" align="start" type="unset">
                             <Localize translate_text={header} />
                         </Header>

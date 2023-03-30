@@ -84,23 +84,17 @@ export const query = graphql`
                 third_paragraph
                 hero_image {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 bg_desktop {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 bg_mobile {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
             }
@@ -111,9 +105,7 @@ export const query = graphql`
                     sub_header
                     image {
                         localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
+                            publicURL
                         }
                     }
                 }
@@ -138,9 +130,7 @@ export const query = graphql`
                     photo {
                         url
                         localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
+                            publicURL
                         }
                     }
                 }
@@ -165,16 +155,12 @@ export const query = graphql`
                 }
                 earth {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 earth_mobile {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
             }
@@ -185,77 +171,57 @@ export const query = graphql`
                 link_url
                 bg_desktop {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 bg_desktop_rtl {
                     localFile {
                         url
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 bg_mobile {
                     localFile {
                         url
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 bg_mobile_rtl {
                     localFile {
                         url
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
             }
             slider_medias {
                 slider_1 {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 slider_2 {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 slider_3 {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 slider_4 {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 slider_5 {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
                 slider_6 {
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
             }

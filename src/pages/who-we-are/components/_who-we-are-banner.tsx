@@ -101,11 +101,11 @@ const StyledLinkButton = styled(LinkButton)`
 const WhoWeAreBanner = ({ banner }: TWhoWeAreBanner) => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const bg_image = is_mobile_or_tablet
-        ? banner?.bg_mobile.localFile.childImageSharp.gatsbyImageData.images.fallback.src
-        : banner?.bg_desktop.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+        ? banner?.bg_mobile.localFile.publicURL
+        : banner?.bg_desktop.localFile.publicURL
     const bg_image_rtl = is_mobile_or_tablet
-        ? banner?.bg_mobile_rtl.localFile.childImageSharp.gatsbyImageData.images.fallback.src
-        : banner?.bg_desktop_rtl.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+        ? banner?.bg_mobile_rtl.localFile.publicURL
+        : banner?.bg_desktop_rtl.localFile.publicURL
     const is_rtl = useIsRtl()
     return (
         <StyledSectionContainer>

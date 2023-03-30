@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getImage } from 'gatsby-plugin-image'
 import { THero } from '../_types'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Localize } from 'components/localization'
 import { Desktop, Flex, Mobile } from 'components/containers'
-import { QueryImage } from 'components/elements'
 import device from 'themes/device'
 
 type ParentWrapperProps = {
@@ -61,31 +59,29 @@ const StyledFlex = styled(Flex)`
     min-height: 400px;
     position: relative;
 `
-const StyledQueryImage = styled(QueryImage)`
+const StyledImage = styled.img`
     max-width: 591px;
     z-index: 2;
     position: absolute;
 `
-const StyledMobileQueryImage = styled(QueryImage)`
+const StyledMobileImage = styled.img`
     max-width: 445px;
 `
 
 const Hero = ({ hero }: THero) => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const bg_image = is_mobile_or_tablet
-        ? hero?.bg_mobile.localFile.childImageSharp.gatsbyImageData.images.fallback.src
-        : hero?.bg_desktop.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+        ? hero?.bg_mobile.localFile.publicURL
+        : hero?.bg_desktop.localFile.publicURL
 
     return (
         <ParentWrapper bg_image={bg_image}>
             <ContentWrapper jc="center">
                 <Desktop>
                     <StyledFlex>
-                        <StyledQueryImage
-                            data={getImage(hero?.hero_image.localFile)}
-                            alt="example"
-                            width="unset"
-                            loading="eager"
+                        <StyledImage
+                            src={hero?.hero_image.localFile.publicURL}
+                            alt="hero image desktop"
                         />
                         <Flex jc="center" p="0 32px" max_width="1440px">
                             <DesktopHeader>
@@ -96,11 +92,9 @@ const Hero = ({ hero }: THero) => {
                 </Desktop>
                 <Mobile>
                     <Flex fd="column" ai="center" p="0 16px">
-                        <StyledMobileQueryImage
-                            data={getImage(hero?.hero_image.localFile)}
-                            alt="example"
-                            width="unset"
-                            loading="eager"
+                        <StyledMobileImage
+                            src={hero?.hero_image.localFile.publicURL}
+                            alt="hero image mobile"
                         />
                         <MobileHeader>
                             <Localize translate_text={hero?.header} />

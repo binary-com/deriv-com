@@ -66,25 +66,18 @@ const StyledImageWrapper = styled.div`
         height: 240px;
     }
 `
-const StyledImage = styled.img<{ is_rtl: boolean }>`
+const StyledImage = styled.div<{ is_rtl: boolean; image: string }>`
     position: absolute;
-    display: block;
     top: 50%;
     left: 50%;
-    min-height: 100%;
-    min-width: 100%;
+    background: url(${({ image }) => image}) no-repeat fixed center;
+    background-size: cover;
+    width: 100%;
     height: 480px;
     transform: ${({ is_rtl }) => (is_rtl ? 'translate(50%, -50%)' : 'translate(-50%, -50%)')};
 
     @media ${device.tablet} {
         height: 240px;
-    }
-
-    & .gatsby-image-wrapper img {
-        height: 480px;
-        @media ${device.tablet} {
-            height: 240px;
-        }
     }
 `
 
@@ -103,8 +96,7 @@ const ImageMarquee = ({ slider_medias }: TImageMarquee) => {
                             <StyledImageWrapper>
                                 <StyledImage
                                     is_rtl={is_rtl}
-                                    src={carousel_item.localFile.publicURL}
-                                    alt="item"
+                                    image={carousel_item.localFile.publicURL}
                                 />
                             </StyledImageWrapper>
                         </CarouselSlide>

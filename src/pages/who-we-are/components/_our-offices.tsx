@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { TOurOffices } from '../_types'
 import MapPin, { MapPinType } from './_map-pin'
 import { Localize } from 'components/localization'
-import { CssGrid, Desktop, Flex, Mobile, SectionContainer } from 'components/containers'
+import { Desktop, Flex, Mobile, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 
@@ -16,7 +16,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 
     @media ${device.tablet} {
         margin-top: 40px;
-        padding: 0 16px 40px;
+        padding: 0 0 40px;
     }
 `
 const StyledHeader = styled(Header)`
@@ -27,34 +27,12 @@ const StyledHeader = styled(Header)`
         font-size: 28px;
     }
 `
-const NumberSection = styled(CssGrid)`
+const NumberSection = styled(Flex)`
     margin-top: 40px;
     max-width: 788px;
-    direction: ltr;
-
-    @media ${device.tablet} {
-        grid-column-gap: 3rem;
-        padding: 0 16px;
-    }
-    @media (max-width: 359px) {
-        grid-column-gap: 1rem;
-    }
-`
-const NumberHeader = styled(Header)`
-    line-height: 6rem;
-    text-align: center;
-
-    @media ${device.tablet} {
-        font-size: 24px;
-    }
 `
 const NumberText = styled(Header)`
     font-weight: normal;
-    text-align: center;
-
-    @media ${device.tablet} {
-        font-size: 14px;
-    }
 `
 const MapImage = styled.div<{ bg_image: string }>`
     position: relative;
@@ -76,9 +54,6 @@ const MapImage = styled.div<{ bg_image: string }>`
         height: 155px;
         overflow: hidden;
     }
-`
-const StyledFlex = styled(Flex)`
-    height: unset;
 `
 
 const OurOffices = ({ our_locations }: TOurOffices) => {
@@ -157,16 +132,16 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
                 </Mobile>
             </Flex>
 
-            <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
+            <NumberSection>
                 {our_locations?.numbers.map(({ description, number }) => (
-                    <StyledFlex fd="column" key={description}>
-                        <NumberHeader as="div" size="32px">
+                    <Flex fd="column" key={description}>
+                        <Header as="p" type="heading-3" align="center" pb="8px">
                             {number}
-                        </NumberHeader>
-                        <NumberText as="div" size="16px" align="center">
+                        </Header>
+                        <NumberText as="p" type="paragraph-1" align="center">
                             <Localize translate_text={description} />
                         </NumberText>
-                    </StyledFlex>
+                    </Flex>
                 ))}
             </NumberSection>
         </StyledSectionContainer>

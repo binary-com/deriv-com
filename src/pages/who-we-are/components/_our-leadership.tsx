@@ -5,7 +5,7 @@ import Modal, { ModalFlex } from './_modal'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Localize } from 'components/localization'
 import { CssGrid, SectionContainer } from 'components/containers'
-import { Header, ImageWrapper } from 'components/elements'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const StyledSectionContainer = styled(SectionContainer)`
@@ -42,7 +42,7 @@ const StyledHeader = styled(Header)`
         padding-bottom: 24px;
     }
 `
-const StyledImageWrapper = styled(ImageWrapper)`
+const StyledImageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,19 +81,19 @@ const LeaderCard = (leader: TLeader) => {
     const { name, role, photo, link_url } = leader
     const [is_popup_shown, setIsPopupShown] = useState(false)
     const [is_mobile] = useBrowserResize()
+    console.log(is_mobile)
 
     const showModal: MouseEvent = () => setIsPopupShown(true)
     const dontShowModal: MouseEvent = () => setIsPopupShown(false)
 
     return (
-        <StyledImageWrapper
-            key={name}
-            onMouseOver={showModal}
-            onMouseLeave={dontShowModal}
-            width={is_mobile ? '98px' : '120px'}
-            height={is_mobile ? '98px' : '120px'}
-        >
-            <img src={photo?.localFile.publicURL} alt="leader" width={120} height={120} />
+        <StyledImageWrapper key={name} onMouseOver={showModal} onMouseLeave={dontShowModal}>
+            <img
+                src={photo?.localFile.publicURL}
+                alt="leader"
+                width={is_mobile ? '98px' : '120px'}
+                height={is_mobile ? '98px' : '120px'}
+            />
             {is_popup_shown && <Modal name={name} role={role} link={link_url} />}
         </StyledImageWrapper>
     )

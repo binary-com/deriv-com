@@ -66,6 +66,13 @@ const StyledImage = styled.img`
 `
 const StyledMobileImage = styled.img`
     max-width: 445px;
+
+    @media (max-width: 480px) {
+        max-width: 328px;
+    }
+    @media (max-width: 360px) {
+        max-width: 300px;
+    }
 `
 
 const Hero = ({ hero }: THero) => {

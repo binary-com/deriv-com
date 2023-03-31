@@ -159,7 +159,6 @@ export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
 export const loss_percent = 71
-export const targetId = '#gatsby-focus-wrapper'
 export const heroSectionId = '#hero-section'
 
 export const cookie_key = 'browser_update_alert_modal_shown'

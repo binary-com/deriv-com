@@ -48,7 +48,7 @@ const query = graphql`
         }
     }
 `
-const target = '#gatsby-focus-wrapper'
+const target = '#trade-section'
 const options = {
     root: null,
     rootMargin: '0px',

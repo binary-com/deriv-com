@@ -32,7 +32,7 @@ const StyledText = styled(Text)`
 
 const WhatIsTrader = () => {
     return (
-        <Section>
+        <Section id="trade-section">
             <StyledHeader align="center" mb="1.2rem" as="h2" type="page-title">
                 {localize('What is Deriv MT5')}
             </StyledHeader>

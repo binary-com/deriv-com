@@ -302,7 +302,7 @@ export const ModalCard = styled.div`
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     max-width: 44rem;
     background: var(--color-white);
-    padding: 2.6rem;
+    padding: 2.6rem 2.6rem 1.6rem 2.6rem;
     width: 450px;
     height: auto;
     gap: 12px;
@@ -329,9 +329,6 @@ export const DLTableContainer = styled.div`
     align-items: center;
     position: relative;
     padding: 0 2rem;
-    @media ${device.desktop} {
-        display: flex;
-    }
 
     @media ${device.tabletL} {
         padding: 0 0 0 3rem;
@@ -347,20 +344,23 @@ export const Tr = styled.tr`
     border-radius: 16px 16px 0 0;
     text-align: center;
     padding: 8px 24px;
-    th: nth-child(2), th: nth-child(3) {
-        width: 200px;
+    th: nth-child(1) {
+        border-start-start-radius: 16px;
+    }
+    th: nth-child(3) {
+        border-start-end-radius: 16px;
     }
 `
 export const Th = styled.th`
-    width: 200px;
-    padding: 8px 24px;
+    width: 200px !important;
+    padding: 8px 14px;
     text-align: start;
     background-color: #f9f9f9;
     font-weight: 700;
     font-size: 12px;
 `
 export const Td = styled.td`
-    padding: 8px 24px;
+    padding: 8px 14px;
     text-align: start;
     box-shadow: inset 0 -2px 0 #f2f3f4;
     font-size: 12px;
@@ -379,7 +379,7 @@ export const StyledLinkButton = styled(Button)`
     color: var(--color-red);
     font-size: 14px;
     background: none;
-    padding: 6px 0 0 0;
+
     @media ${device.tabletL} {
         font-size: 14px;
     }

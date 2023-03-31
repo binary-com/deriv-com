@@ -316,20 +316,6 @@ module.exports = {
                 duration: 0,
             },
         },
-        {
-            resolve: `gatsby-plugin-create-client-paths`,
-            options: {
-                prefixes: [
-                    `/markets/forex/*`,
-                    `/markets/synthetic/*`,
-                    `/markets/basket-indices/*`,
-                    `/markets/derived-fx/*`,
-                    `/markets/stock/*`,
-                    `/markets/cryptocurrencies/*`,
-                    `/markets/commodities/*`,
-                ],
-            },
-        },
         'gatsby-plugin-use-query-params',
         {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',

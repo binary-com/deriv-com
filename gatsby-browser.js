@@ -64,12 +64,20 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
-            autoSubscribe: true,
+            autoSubscribe: false,
             subscribeWidget: {
                 enable: false,
             },
         },
     ])
+    push_woosh.push(function (api) {
+        push_woosh.isSubscribed().then(function (isSubscribed) {
+            if (!isSubscribed) {
+                push_woosh.subscribe()
+            }
+            sendTags(api)
+        })
+    })
 }
 
 export const wrapRootElement = ({ element }) => {
@@ -119,14 +127,6 @@ export const onClientEntry = () => {
     const push_woosh = new Pushwoosh()
     if (isLive()) {
         pushwooshInit(push_woosh)
-        push_woosh.push(function (api) {
-            push_woosh.isSubscribed().then(function (isSubscribed) {
-                if (!isSubscribed) {
-                    push_woosh.subscribe()
-                }
-                sendTags(api)
-            })
-        })
     }
 
     addScript({

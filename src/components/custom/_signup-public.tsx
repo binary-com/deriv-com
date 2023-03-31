@@ -142,6 +142,9 @@ const InputWrapper = styled.div`
     font-weight: normal;
     margin-right: 1rem;
     border-radius: 16px;
+    @media ${device.mobileL} {
+        max-width: 191px;
+    }
 `
 const InputGroup = styled.div`
     display: flex;

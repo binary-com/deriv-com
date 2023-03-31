@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import { Grid, HowItWorksItem } from 'pages/trade-types/components/_style'
 import { Flex } from 'components/containers'
@@ -14,6 +14,8 @@ type TItem = {
 
 type TProps = {
     items: TItem[]
+    containerWidth: string
+    boxsPerRow?: string
 }
 const StyledText = styled(Header)`
     font-size: 24px;
@@ -23,9 +25,17 @@ const StyledText = styled(Header)`
         font-size: 18px;
     }
 `
-const OptionGrid = styled(Grid)`
+const OptionGrid = styled(Grid)<{ boxsPerRow: string; containerWidth: string }>`
     grid-gap: 2.4rem;
-    max-width: 890px;
+    grid-template-columns: ${(props) => `repeat(${props.boxsPerRow}, 1fr)`};
+    max-width: ${(props) => props.containerWidth || '890px'};
+    @media ${device.tablet} {
+        grid-gap: 3rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    @media ${device.mobileL} {
+        grid-template-columns: 1fr;
+    }
 `
 
 const OptionItems = styled(Flex)`
@@ -42,9 +52,9 @@ const StyledSubText = styled(Header)`
         font-size: 14px;
     }
 `
-const BoxStyledGrid: React.FC<TProps> = ({ items }) => {
+const BoxStyledGrid: React.FC<TProps> = ({ items, containerWidth, boxsPerRow = '3' }) => {
     return (
-        <OptionGrid>
+        <OptionGrid containerWidth={containerWidth} boxsPerRow={boxsPerRow}>
             {items.map((item, index) => {
                 return (
                     <HowItWorksItem key={index}>

@@ -126,4 +126,5 @@ const Hero = (header_data: HeaderDataProps) => {
         </StyledBackGroundImage>
     )
 }
+
 export default Hero

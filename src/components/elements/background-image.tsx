@@ -1,52 +1,45 @@
-import React, { CSSProperties, ReactNode } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import type { ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
-import { convertToBgImage } from 'gbimage-bridge'
-import BackgroundImage, { IBackgroundImageProps } from 'gatsby-background-image'
+import { Flex } from 'components/containers'
 
-const StyledBackground = styled(BackgroundImage)<{ dark: string }>`
-    background-color: black;
-
-    &::before,
-    &::after {
-        filter: brightness(${({ dark }) => (dark ? dark : '1')});
-    }
-`
-
-interface BackgroundProps extends IBackgroundImageProps {
-    children?: ReactNode
-    dark?: string
+type TBackgroundImage = {
     data: ImageDataLike | IGatsbyImageData
-    is_unstyled?: boolean
-    style?: CSSProperties
-    loading?: string
+    alt: string
+    image_opacity?: string
+    child_style?: React.CSSProperties
 }
 
-export const Background = ({
-    children,
-    dark,
-    data,
-    is_unstyled = false,
-    style,
-    ...props
-}: BackgroundProps) => {
-    const image = getImage(data)
-    const bg_image = convertToBgImage(image)
+const Wrapper = styled.div`
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+`
 
-    if (is_unstyled) {
-        return (
-            <BackgroundImage Tag="div" {...bg_image} {...props}>
-                {children}
-            </BackgroundImage>
-        )
-    }
+const BackgroundImage = ({
+    children,
+    alt,
+    data,
+    image_opacity,
+    child_style,
+}: React.PropsWithChildren<TBackgroundImage>) => {
+    const image = getImage(data)
 
     return (
-        <StyledBackground Tag="div" style={style} dark={dark} {...bg_image} {...props}>
-            {children}
-        </StyledBackground>
+        <Wrapper>
+            <Flex height="100%" position="absolute" z_index="-1">
+                <GatsbyImage
+                    image={image}
+                    alt={alt}
+                    style={{ opacity: image_opacity || '1', width: '100%' }}
+                />
+            </Flex>
+
+            <div style={child_style}>{children}</div>
+        </Wrapper>
     )
 }
 
-export default Background
+export default BackgroundImage

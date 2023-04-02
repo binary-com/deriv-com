@@ -75,28 +75,23 @@ const StyledLinkButton = styled(LinkButton)`
 const query = graphql`
     query {
         image: file(relativePath: { eq: "careers/career-landing-screen.jpg" }) {
-            ...heroImage
+            childImageSharp {
+                gatsbyImageData(placeholder: BLURRED)
+            }
         }
     }
 `
 
 const Hero = () => {
     const data = useStaticQuery(query)
-
     const { has_mounted } = React.useContext(LocationContext)
 
     return (
         <BackgroundImage
             data={data.image}
-            alt={'Deriv careers'}
-            style={{
-                height: '90vh',
-                width: '100vw',
-                backgroundSize: `cover`,
-                backgroundColor: 'var(--color-black)',
-                maxWidth: '100%',
-            }}
-            dark="0.3"
+            alt="Deriv careers"
+            child_style={{ height: '90vh' }}
+            image_opacity="0.3"
         >
             <StyledContainer>
                 <StyledHeader as="h1" type="display-title">
@@ -124,4 +119,5 @@ const Hero = () => {
         </BackgroundImage>
     )
 }
+
 export default Hero
